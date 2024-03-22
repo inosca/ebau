@@ -7558,6 +7558,14 @@
     'case-meta': list([
       'read',
     ]),
+    'inquiry': list([
+      'read',
+      'write',
+    ]),
+    'inquiry-answer': list([
+      'read',
+      'write',
+    ]),
     'main': list([
       'read',
       'write',
@@ -7567,6 +7575,14 @@
 # name: test_instance_permissions_ur[circ-Support-instance__user0]
   dict({
     'case-meta': list([
+      'read',
+      'write',
+    ]),
+    'inquiry': list([
+      'read',
+      'write',
+    ]),
+    'inquiry-answer': list([
       'read',
       'write',
     ]),
@@ -7581,6 +7597,14 @@
     'case-meta': list([
       'read',
     ]),
+    'inquiry': list([
+      'read',
+      'write',
+    ]),
+    'inquiry-answer': list([
+      'read',
+      'write',
+    ]),
     'main': list([
       'read',
       'write',
@@ -7590,6 +7614,14 @@
 # name: test_instance_permissions_ur[ext-Support-instance__user0]
   dict({
     'case-meta': list([
+      'read',
+      'write',
+    ]),
+    'inquiry': list([
+      'read',
+      'write',
+    ]),
+    'inquiry-answer': list([
       'read',
       'write',
     ]),
@@ -7604,6 +7636,14 @@
     'case-meta': list([
       'read',
     ]),
+    'inquiry': list([
+      'read',
+      'write',
+    ]),
+    'inquiry-answer': list([
+      'read',
+      'write',
+    ]),
     'main': list([
       'read',
       'write',
@@ -7613,6 +7653,14 @@
 # name: test_instance_permissions_ur[redac-Support-instance__user0]
   dict({
     'case-meta': list([
+      'read',
+      'write',
+    ]),
+    'inquiry': list([
+      'read',
+      'write',
+    ]),
+    'inquiry-answer': list([
       'read',
       'write',
     ]),

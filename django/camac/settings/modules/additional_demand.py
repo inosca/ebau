@@ -64,4 +64,7 @@ ADDITIONAL_DEMAND = {
             ],
         },
     },
+    "kt_uri": {
+        "ENABLED": True,
+    },
 }

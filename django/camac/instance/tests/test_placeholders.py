@@ -10,6 +10,7 @@ from alexandria.core.factories import (
     MarkFactory,
     TagFactory,
 )
+from caluma.caluma_form import api as form_api, models as caluma_form_models
 from caluma.caluma_form.factories import AnswerFactory, DocumentFactory
 from caluma.caluma_form.models import Option, Question
 from caluma.caluma_workflow.factories import WorkItemFactory
@@ -60,6 +61,19 @@ def so_dms_config(settings, application_settings, so_placeholders_settings):
     settings.APPLICATION_NAME = "kt_so"
     settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
     application_settings["SHORT_NAME"] = "so"
+    yield
+    settings.LANGUAGES = original_languages
+
+
+@pytest.fixture
+def ur_dms_config(settings, application_settings):
+    original_languages = settings.LANGUAGES
+    settings.LANGUAGES = [
+        (code, name) for code, name in settings.LANGUAGES if code in ["de"]
+    ]
+    settings.APPLICATION_NAME = "kt_uri"
+    settings.INTERNAL_BASE_URL = "http://ember.local"
+    application_settings["SHORT_NAME"] = "ur"
     yield
     settings.LANGUAGES = original_languages
 
@@ -925,3 +939,51 @@ def test_get_tel_and_email():
         get_tel_and_email({"tel": "0311234567", "email": "foo@bar.com"})
         == "0311234567, foo@bar.com"
     )
+
+
+@pytest.mark.freeze_time("2024-01-18 13:37", tick=True)
+@pytest.mark.parametrize("role__name", ["Municipality"])
+# @pytest.mark.parametrize("location__communal_federal_number", ["1"])
+def test_dms_placeholders_ur(
+    db,
+    snapshot,
+    ur_dms_config,
+    admin_client,
+    ur_instance,
+    ur_distribution_settings,
+    utils,
+    dynamic_option_factory,
+    service_factory,
+    group_factory,
+    location_factory,
+    ur_master_data_case,
+):
+    # Municipality
+    municipality = service_factory(
+        website="https://gemeinde.ch",
+        service_group__name="Sekretariate Gemeindebaubehörden",
+    )
+    location = location_factory(communal_federal_number=1)
+    group = group_factory()
+    group.locations.set([location])
+    municipality.groups.set([group])
+
+    form_api.save_answer(
+        caluma_form_models.Question.objects.get(pk="municipality"),
+        ur_master_data_case.document,
+        value="1",
+    )
+
+    url = reverse("instance-dms-placeholders", args=[ur_instance.pk])
+
+    response = admin_client.get(url)
+
+    assert response.status_code == status.HTTP_200_OK
+
+    checked_keys = [
+        "GEMEINDE",
+    ]
+
+    assert {
+        key: value for key, value in response.json().items() if key in checked_keys
+    } == snapshot

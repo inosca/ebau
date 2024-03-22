@@ -1,0 +1,179 @@
+mutation DistributionTask {
+  saveSimpleTask(
+    input: {
+      slug: "distribution"
+      name: "Zirkulation"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation InitDistributionTask {
+  saveSimpleTask(
+    input: {
+      slug: "init-distribution"
+      name: "Zirkulation initialisieren"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+      meta: "{\"directLink\":{\"route\":\"cases.detail.distribution\",\"models\":[\"INSTANCE_ID\",\"DISTRIBUTION_CASE_UUID\"]}}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation EndDistributionTask {
+  saveSimpleTask(
+    input: {
+      slug: "complete-distribution"
+      name: "Zirkulation abschliessen"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateInquiryTask {
+  saveSimpleTask(
+    input: {
+      slug: "create-inquiry"
+      name: "Stellungnahme erstellen"
+      addressGroups: "['distribution_create_inquiry']|groups"
+      isMultipleInstance: true
+      continueAsync: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation InquiryTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "inquiry"
+      name: "Stellungnahme ausfüllen"
+      form: "inquiry"
+      addressGroups: "info.context.addressed_groups"
+      controlGroups: "info.prev_work_item.addressed_groups"
+      isMultipleInstance: true
+      continueAsync: true
+      meta: "{\"directLink\":{\"route\":\"cases.detail.distribution.inquiry.detail.answer\",\"models\":[\"INSTANCE_ID\",\"DISTRIBUTION_CASE_UUID\",\"INQUIRY_CONTROLLING\",\"INQUIRY_ADDRESSED\",\"INQUIRY_UUID\"]}}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation FillInquiryTask {
+  saveCompleteWorkflowFormTask(
+    input: {
+      slug: "fill-inquiry"
+      name: "Stellungnahme ausfüllen"
+      addressGroups: "info.context.addressed_groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CheckInquiriesTask {
+  saveSimpleTask(
+    input: {
+      slug: "check-inquiries"
+      name: "Stellungnahmen prüfen"
+      addressGroups: "info.prev_work_item.controlling_groups"
+      controlGroups: "info.prev_work_item.controlling_groups"
+      leadTime: 864000 # 10 days
+      meta: "{\"directLink\":{\"route\":\"cases.detail.distribution\",\"models\":[\"INSTANCE_ID\",\"DISTRIBUTION_CASE_UUID\"]}}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation RedoInquiryTask {
+  saveSimpleTask(
+    input: {
+      slug: "redo-inquiry"
+      name: "Stellungnahme wiedereröffnen"
+      addressGroups: "info.prev_work_item.controlling_groups"
+      isMultipleInstance: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation DistributionWorkflow {
+  saveWorkflow(
+    input: {
+      slug: "distribution"
+      name: "Zirkulation"
+      startTasks: [
+        "init-distribution"
+        "complete-distribution"
+        "create-inquiry"
+        "init-additional-demand"
+      ]
+      allowForms: ["distribution"]
+      isPublished: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation InquiryWorkflow {
+  saveWorkflow(
+    input: {
+      slug: "inquiry"
+      name: "Stellungnahme"
+      startTasks: ["fill-inquiry"]
+      allowForms: ["inquiry-answer"]
+      isPublished: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateInquiryFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "distribution"
+      tasks: ["create-inquiry"]
+      next: "['inquiry', 'create-inquiry']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation InquiryFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "distribution"
+      tasks: ["inquiry"]
+      next: "['after-inquiries-completed', 'redo-inquiry']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation RedoInquiryFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "distribution"
+      tasks: ["redo-inquiry"]
+      next: "[]|tasks"
+      redoable: "'inquiry'|task"
+    }
+  ) {
+    clientMutationId
+  }
+}

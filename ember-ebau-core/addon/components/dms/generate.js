@@ -157,7 +157,9 @@ export default class DmsGenerateComponent extends Component {
   async saveToDocumentsCamac(blob, filename) {
     const attachmentBody = new FormData();
 
-    attachmentBody.append("attachment_sections", 4);
+    const attachmentSection = mainConfig.attachmentSections.internal;
+
+    attachmentBody.append("attachment_sections", attachmentSection);
     attachmentBody.append("instance", this.args.instanceId);
     attachmentBody.append("path", blob, filename);
 

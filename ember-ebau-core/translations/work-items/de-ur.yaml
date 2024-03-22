@@ -1,8 +1,12 @@
 workItems:
   filters:
     task:
-      check-permit: "Dossier prüfen ({count})"
+      accept: "Annehmen ({count})"
+      complete-check: "Dossier prüfen ({count})"
       init-distribution: "Zirkulation initialisieren ({count})"
-      fill-inquiry: "Stellungnahme erfassen ({count})"
-      decision: "Entscheid verfügen ({count})"
+      inquiry: "Stellungnahme ausfüllen ({count})"
+      check-inquiries: "Stellungnahmen prüfen ({count})"
+      check-distribution: "Zirkulation prüfen ({count})"
+      decision: "Entscheid ({count})"
       construction-supervision: "Baubegleitung ({count})"
+      archive: "Archivieren ({count})"

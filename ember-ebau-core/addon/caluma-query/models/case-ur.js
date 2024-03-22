@@ -167,10 +167,7 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
   }
 
   get circulationInitializerServices() {
-    return this.instance
-      ?.get("circulationInitializerServices")
-      .map((service) => service.name)
-      .join(", ");
+    return this.instance?.involvedBy?.map((service) => service.name).join(", ");
   }
 
   get buildingProjectStatus() {

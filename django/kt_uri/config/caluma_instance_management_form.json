@@ -1,0 +1,112 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "instance-management",
+    "fields": {
+      "created_at": "2023-12-04T07:15:05.629Z",
+      "modified_at": "2023-12-04T07:15:05.629Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Bauverwalter\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "instance-management.ordentliches-bewilligungsverfahren",
+    "fields": {
+      "created_at": "2023-12-04T12:13:01.157Z",
+      "modified_at": "2023-12-04T12:13:01.157Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "instance-management",
+      "question": "ordentliches-bewilligungsverfahren",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "instance-management.rechtsmittelverfahren",
+    "fields": {
+      "created_at": "2023-12-04T12:13:14.397Z",
+      "modified_at": "2023-12-04T12:13:14.397Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "instance-management",
+      "question": "rechtsmittelverfahren",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ordentliches-bewilligungsverfahren",
+    "fields": {
+      "created_at": "2021-11-26T12:17:03.206Z",
+      "modified_at": "2021-11-26T12:17:03.208Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ordentliches Bewilligungsverfahren\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "ordentliches-bewilligungsverfahren",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "rechtsmittelverfahren",
+    "fields": {
+      "created_at": "2021-11-26T12:27:34.687Z",
+      "modified_at": "2021-11-26T12:27:34.687Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Rechtsmittelverfahren\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "rechtsmittelverfahren",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  }
+]

@@ -40,6 +40,54 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         return tasks
 
+    @register_dynamic_task("after-decision-ur")
+    def resolve_after_decision_ur(self, case, user, prev_work_item, context):
+        tasks = []
+
+        involve_geometer = (
+            prev_work_item.document.answers.get(
+                question_id="decision-task-nachfuehrungsgeometer"
+            ).value
+            == "decision-task-nachfuehrungsgeometer-ja"
+        )
+        involve_gebaeudeschaetzung = (
+            prev_work_item.document.answers.get(
+                question_id="decision-task-gebaudeschaetzung"
+            ).value
+            == "decision-task-gebaudeschaetzung-ja"
+        )
+        start_baubegleitungsprozess = (
+            prev_work_item.document.answers.get(
+                question_id="decision-task-baubegleitungsprozess"
+            ).value
+            == "decision-task-baubegleitungsprozess-ja"
+        )
+
+        if involve_geometer:
+            tasks.append("geometer")
+        if involve_gebaeudeschaetzung:
+            tasks.append("gebaeudeschaetzung")
+        if start_baubegleitungsprozess:
+            tasks.append("construction-supervision")
+
+        return tasks
+
+    @register_dynamic_task("after-complete-check-ur")
+    def resolve_after_complete_check_ur(self, case, user, prev_work_item, context):
+        complete_check_document = prev_work_item.document
+
+        is_incomplete = (
+            complete_check_document.answers.get(
+                question_id="complete-check-vollstaendigkeitspruefung"
+            ).value
+            == "complete-check-vollstaendigkeitspruefung-incomplete"
+        )
+
+        if is_incomplete:
+            return ["init-additional-demand"]
+
+        return []
+
     @register_dynamic_task("after-inquiries-completed")
     def resolve_after_inquiries_completed(self, case, user, prev_work_item, context):
         # Further work-items should only be created if there are no

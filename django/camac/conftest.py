@@ -517,6 +517,8 @@ def caluma_workflow_config_ur(
     caluma_config_ur,
     application_settings,
     notification_template,
+    use_instance_service,
+    form_question_factory,
 ):
     def transform_notifications(notifications):
         if isinstance(notifications, dict):
@@ -536,13 +538,34 @@ def caluma_workflow_config_ur(
         ].items()
     }
 
-    for slug in CALUMA_FORM_TYPES_SLUGS:
+    for slug in [*CALUMA_FORM_TYPES_SLUGS, "gebaeudeschaetzung"]:
         caluma_form_models.Form.objects.create(slug=slug)
 
+    call_command(
+        "loaddata", settings.ROOT_DIR("kt_uri/config/caluma_additional_demand.json")
+    )
+    call_command(
+        "loaddata", settings.ROOT_DIR("kt_uri/config/caluma_distribution.json")
+    )
     call_command("loaddata", settings.ROOT_DIR("kt_uri/config/caluma_workflow.json"))
 
-    workflow = caluma_workflow_models.Workflow.objects.first()
+    workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
     main_form = caluma_form_models.Form.objects.get(pk="main-form")
+    for form_slug in [
+        "pgv-gemeindestrasse",
+        "konzession-waermeentnahme",
+        "bohrbewilligung-waermeentnahme",
+        "bgbb",
+    ]:
+        form = caluma_form_factories.FormFactory(slug=form_slug)
+        question, _ = caluma_form_models.Question.objects.get_or_create(
+            slug="municipality",
+            type=caluma_form_models.Question.TYPE_TEXT,
+        )
+        caluma_form_factories.FormQuestionFactory(
+            form=form,
+            question=question,
+        )
 
     workflow.allow_forms.clear()
     workflow.allow_forms.add(main_form)
@@ -810,6 +833,10 @@ def caluma_forms_ur(settings):
             slug=form, meta={"is-main-form": True, "camac-form-id": counter}, name=form
         )
 
+    # workitem forms
+    for form in ["complete-check", "decision", "geometer", "instance-management"]:
+        caluma_form_models.Form.objects.create(slug=form, name=form)
+
     # dynamic choice options get cached, so we clear them
     # to ensure the new "gemeinde" options will be valid
     cache.clear()
@@ -818,10 +845,15 @@ def caluma_forms_ur(settings):
     simple_questions = [
         ("municipality", caluma_form_models.Question.TYPE_TEXT),
         ("leitbehoerde", caluma_form_models.Question.TYPE_TEXT),
-        ("leitbehoerde-internal-form", caluma_form_models.Question.TYPE_DYNAMIC_CHOICE),
     ]
     for slug, type in simple_questions:
         caluma_form_models.Question.objects.create(slug=slug, type=type)
+
+    caluma_form_models.Question.objects.create(
+        slug="leitbehoerde-internal-form",
+        type=caluma_form_models.Question.TYPE_DYNAMIC_CHOICE,
+        data_source="Municipalities",
+    )
 
     form_type_question = caluma_form_models.Question.objects.create(
         slug="form-type",
@@ -834,7 +866,10 @@ def caluma_forms_ur(settings):
         question=form_type_question, option=form_type_option
     )
 
-    settings.DATA_SOURCE_CLASSES = ["camac.caluma.extensions.data_sources.Locations"]
+    settings.DATA_SOURCE_CLASSES = [
+        "camac.caluma.extensions.data_sources.Locations",
+        "camac.caluma.extensions.data_sources.Municipalities",
+    ]
 
     for slug, lang in [("is-paper", "en"), ("projektaenderung", "de")]:
         question = caluma_form_models.Question.objects.create(
@@ -1158,6 +1193,185 @@ def sz_master_data_case(db, sz_instance, form_field_factory, workflow_entry_fact
     )
 
     return sz_instance.case
+
+
+@pytest.fixture
+def ur_master_data_case(
+    db,
+    ur_instance,
+    workflow_entry_factory,
+    camac_answer_factory,
+    master_data_is_visible_mock,
+    utils,
+):
+    ur_instance.case.meta = {"dossier-number": "1201-21-003"}
+    ur_instance.case.save()
+
+    document = ur_instance.case.document
+
+    # Simple data
+    utils.add_answer(document, "proposal-description", "Grosses Haus")
+    utils.add_answer(document, "parcel-street", "Musterstrasse")
+    utils.add_answer(document, "parcel-street-number", 4)
+    utils.add_answer(document, "construction-cost", 129000)
+    utils.add_answer(document, "parcel-city", "Musterdorf")
+    utils.add_answer(document, "category", ["category-hochbaute", "category-tiefbaute"])
+    utils.add_answer(document, "veranstaltung-art", ["veranstaltung-art-umbau"])
+    utils.add_answer(document, "oereb-thema", ["oereb-thema-knp"])
+    utils.add_answer(document, "form-type", ["form-type-oereb"])
+    utils.add_answer(document, "typ-des-verfahrens", ["typ-des-verfahrens-genehmigung"])
+
+    # Municipality
+    utils.add_answer(document, "municipality", "1")
+    caluma_form_factories.DynamicOptionFactory(
+        question_id="municipality",
+        document=ur_instance.case.document,
+        slug="1",
+        label={"de": "Altdorf"},
+    )
+
+    # Authority
+    utils.add_answer(document, "leitbehoerde", "1")
+    caluma_form_factories.DynamicOptionFactory(
+        question_id="leitbehoerde",
+        document=ur_instance.case.document,
+        slug="1",
+        label={"de": "Leitbehörde Altdorf"},
+    )
+
+    # Plot
+    utils.add_table_answer(
+        document,
+        "parcels",
+        [
+            {
+                "parcel-number": 123456789,
+                "e-grid": "CH123456789",
+                "coordinates-east": 2690970.9,
+                "coordinates-north": 1192891.9,
+            }
+        ],
+    )
+
+    # Applicant
+    utils.add_table_answer(
+        document,
+        "applicant",
+        [
+            {
+                "first-name": "Max",
+                "last-name": "Mustermann",
+                "is-juristic-person": "is-juristic-person-yes",
+                "juristic-person-name": "ACME AG",
+                "street": "Teststrasse",
+                "street-number": 123,
+                "zip": 1233,
+                "city": "Musterdorf",
+                "country": "Schweiz",
+            }
+        ],
+    )
+
+    # Submit date
+    workflow_entry_factory(
+        instance=ur_instance,
+        workflow_date="2021-07-16 08:00:06+00",
+        group=1,
+        workflow_item__pk=12,
+    )
+
+    # Decision date
+    workflow_entry_factory(
+        instance=ur_instance,
+        workflow_date="2021-07-20 08:00:06+00",
+        group=1,
+        workflow_item__pk=47,
+    )
+
+    # Construction start date
+    workflow_entry_factory(
+        instance=ur_instance,
+        workflow_date="2021-07-25 08:00:06+00",
+        group=1,
+        workflow_item__pk=55,
+    )
+
+    # Construction end date
+    workflow_entry_factory(
+        instance=ur_instance,
+        workflow_date="2021-07-30 08:00:06+00",
+        group=1,
+        workflow_item__pk=67,
+    )
+
+    # Approval reason
+    camac_answer_factory(answer=5031, question__question_id=264, instance=ur_instance)
+
+    # Type of applicant
+    camac_answer_factory(
+        answer=6141,
+        question__question_id=267,
+        instance=ur_instance,
+    )
+
+    # Buildings
+    utils.add_table_answer(
+        document,
+        "gebaeude",
+        [
+            {
+                "art-der-hochbaute": "art-der-hochbaute-parkhaus",
+                "gebaeudenummer-bezeichnung": "Villa",
+                "proposal": ["proposal-neubau"],
+                "gebaeudekategorie": "gebaeudekategorie-ohne-wohnnutzung",
+            }
+        ],
+    )
+
+    # Dwellings
+    utils.add_table_answer(
+        document,
+        "wohnungen",
+        [
+            {
+                "zugehoerigkeit": "Villa",
+                "stockwerktyp": "stockwerktyp-obergeschoss",
+                "stockwerknummer": "2",
+                "lage": "Süd",
+                "wohnungsgroesse": "20",
+                "kocheinrichtung": "kocheinrichtung-kochnische-greater-4-m2",
+                "flaeche-in-m2": "420",
+                "mehrgeschossige-wohnung": "mehrgeschossige-wohnung-ja",
+                "zwg": "zwg-keine",
+            },
+            {
+                "zugehoerigkeit": "Villa",
+                "stockwerktyp": "stockwerktyp-parterre",
+                "lage": "Nord",
+                "wohnungsgroesse": "10",
+                "kocheinrichtung": "kocheinrichtung-keine-kocheinrichtung",
+                "flaeche-in-m2": "72",
+                "mehrgeschossige-wohnung": "mehrgeschossige-wohnung-nein",
+                "zwg": "zwg-erstwohnung",
+            },
+        ],
+    )
+
+    # Energy devices
+    utils.add_table_answer(
+        document,
+        "haustechnik-tabelle",
+        [
+            {
+                "gehoert-zu-gebaeudenummer": "Villa",
+                "anlagetyp": "anlagetyp-hauptheizung",
+                "heizsystem-art": "-hauptheizung",
+                "hauptheizungsanlage": "hauptheizungsanlage-sonne-thermisch",
+            },
+        ],
+    )
+
+    return ur_instance.case
 
 
 @pytest.fixture
@@ -1576,185 +1790,6 @@ def utils():
     return Utils
 
 
-@pytest.fixture
-def ur_master_data_case(
-    db,
-    ur_instance,
-    workflow_entry_factory,
-    camac_answer_factory,
-    master_data_is_visible_mock,
-    utils,
-):
-    ur_instance.case.meta = {"dossier-number": "1201-21-003"}
-    ur_instance.case.save()
-
-    document = ur_instance.case.document
-
-    # Simple data
-    utils.add_answer(document, "proposal-description", "Grosses Haus")
-    utils.add_answer(document, "parcel-street", "Musterstrasse")
-    utils.add_answer(document, "parcel-street-number", 4)
-    utils.add_answer(document, "construction-cost", 129000)
-    utils.add_answer(document, "parcel-city", "Musterdorf")
-    utils.add_answer(document, "category", ["category-hochbaute", "category-tiefbaute"])
-    utils.add_answer(document, "veranstaltung-art", ["veranstaltung-art-umbau"])
-    utils.add_answer(document, "oereb-thema", ["oereb-thema-knp"])
-    utils.add_answer(document, "form-type", ["form-type-oereb"])
-    utils.add_answer(document, "typ-des-verfahrens", ["typ-des-verfahrens-genehmigung"])
-
-    # Municipality
-    utils.add_answer(document, "municipality", "1")
-    caluma_form_factories.DynamicOptionFactory(
-        question_id="municipality",
-        document=ur_instance.case.document,
-        slug="1",
-        label={"de": "Altdorf"},
-    )
-
-    # Authority
-    utils.add_answer(document, "leitbehoerde", "1")
-    caluma_form_factories.DynamicOptionFactory(
-        question_id="leitbehoerde",
-        document=ur_instance.case.document,
-        slug="1",
-        label={"de": "Leitbehörde Altdorf"},
-    )
-
-    # Plot
-    utils.add_table_answer(
-        document,
-        "parcels",
-        [
-            {
-                "parcel-number": 123456789,
-                "e-grid": "CH123456789",
-                "coordinates-east": 2690970.9,
-                "coordinates-north": 1192891.9,
-            }
-        ],
-    )
-
-    # Applicant
-    utils.add_table_answer(
-        document,
-        "applicant",
-        [
-            {
-                "first-name": "Max",
-                "last-name": "Mustermann",
-                "is-juristic-person": "is-juristic-person-yes",
-                "juristic-person-name": "ACME AG",
-                "street": "Teststrasse",
-                "street-number": 123,
-                "zip": 1233,
-                "city": "Musterdorf",
-                "country": "Schweiz",
-            }
-        ],
-    )
-
-    # Submit date
-    workflow_entry_factory(
-        instance=ur_instance,
-        workflow_date="2021-07-16 08:00:06+00",
-        group=1,
-        workflow_item__pk=12,
-    )
-
-    # Decision date
-    workflow_entry_factory(
-        instance=ur_instance,
-        workflow_date="2021-07-20 08:00:06+00",
-        group=1,
-        workflow_item__pk=47,
-    )
-
-    # Construction start date
-    workflow_entry_factory(
-        instance=ur_instance,
-        workflow_date="2021-07-25 08:00:06+00",
-        group=1,
-        workflow_item__pk=55,
-    )
-
-    # Construction end date
-    workflow_entry_factory(
-        instance=ur_instance,
-        workflow_date="2021-07-30 08:00:06+00",
-        group=1,
-        workflow_item__pk=67,
-    )
-
-    # Approval reason
-    camac_answer_factory(answer=5031, question__question_id=264, instance=ur_instance)
-
-    # Type of applicant
-    camac_answer_factory(
-        answer=6141,
-        question__question_id=267,
-        instance=ur_instance,
-    )
-
-    # Buildings
-    utils.add_table_answer(
-        document,
-        "gebaeude",
-        [
-            {
-                "art-der-hochbaute": "art-der-hochbaute-parkhaus",
-                "gebaeudenummer-bezeichnung": "Villa",
-                "proposal": ["proposal-neubau"],
-                "gebaeudekategorie": "gebaeudekategorie-ohne-wohnnutzung",
-            }
-        ],
-    )
-
-    # Dwellings
-    utils.add_table_answer(
-        document,
-        "wohnungen",
-        [
-            {
-                "zugehoerigkeit": "Villa",
-                "stockwerktyp": "stockwerktyp-obergeschoss",
-                "stockwerknummer": "2",
-                "lage": "Süd",
-                "wohnungsgroesse": "20",
-                "kocheinrichtung": "kocheinrichtung-kochnische-greater-4-m2",
-                "flaeche-in-m2": "420",
-                "mehrgeschossige-wohnung": "mehrgeschossige-wohnung-ja",
-                "zwg": "zwg-keine",
-            },
-            {
-                "zugehoerigkeit": "Villa",
-                "stockwerktyp": "stockwerktyp-parterre",
-                "lage": "Nord",
-                "wohnungsgroesse": "10",
-                "kocheinrichtung": "kocheinrichtung-keine-kocheinrichtung",
-                "flaeche-in-m2": "72",
-                "mehrgeschossige-wohnung": "mehrgeschossige-wohnung-nein",
-                "zwg": "zwg-erstwohnung",
-            },
-        ],
-    )
-
-    # Energy devices
-    utils.add_table_answer(
-        document,
-        "haustechnik-tabelle",
-        [
-            {
-                "gehoert-zu-gebaeudenummer": "Villa",
-                "anlagetyp": "anlagetyp-hauptheizung",
-                "heizsystem-art": "-hauptheizung",
-                "hauptheizungsanlage": "hauptheizungsanlage-sonne-thermisch",
-            },
-        ],
-    )
-
-    return ur_instance.case
-
-
 @pytest.fixture(autouse=True)
 def _default_file_storage_backend(settings):
     # This is needed that alexandria file factories don't try to upload
@@ -1881,7 +1916,7 @@ def reload_urlconf(urlconf=None):
     if urlconf in sys.modules:
         reload(sys.modules[urlconf])
     else:
-        import_module(urlconf)
+        import_module(urlconf)  # pragma: no cover
 
 
 @pytest.fixture

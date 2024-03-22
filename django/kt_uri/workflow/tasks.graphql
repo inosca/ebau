@@ -1,0 +1,227 @@
+mutation CreateSubmitTask {
+  saveCompleteWorkflowFormTask(
+    input: { slug: "submit", name: "Gesuch einreichen", addressGroups: "[]" }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateManualWorkItemTask {
+  saveSimpleTask(
+    input: {
+      slug: "create-manual-workitems"
+      name: "Manuelle Aufgaben erfassen"
+      addressGroups: "[]"
+      isMultipleInstance: true
+      meta: "{\"is-manually-completable\":true}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFillOutPermitTask {
+  saveCompleteWorkflowFormTask(
+    input: { slug: "fill-out-permit", name: "Gesuch ausfüllen" }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateCheckPermitTask {
+  saveSimpleTask(
+    input: {
+      slug: "accept"
+      name: "Dossier annehmen"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 259200 # 3 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateCheckPermitTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "complete-check"
+      name: "Dossier prüfen"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 259200 # 3 days,
+      form: "complete-check"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateGeometerTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "geometer"
+      name: "Geometer aufgaben?"
+      addressGroups: "['geometer-ur']|groups"
+      controlGroups: "['geometer-ur']|groups"
+      leadTime: 259200 # 3 days,
+      form: "geometer"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateGebaeudeschaetzungTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "gebaeudeschaetzung"
+      name: "Gebaeudeschaetzungaufgaben?"
+      addressGroups: "['gebaeudeschaetzung-ur']|groups"
+      controlGroups: "['gebaeudeschaetzung-ur']|groups"
+      leadTime: 259200 # 3 days,
+      form: "gebaeudeschaetzung"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateInstanceManagementTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "instance-management"
+      name: "Bauverwaltung"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      form: "instance-management"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateDecisionTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "decision"
+      name: "Entscheid / Beurteilung eröffnen"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 2419200 # 28 days,
+      form: "decision"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateConstructionSupervisionTask {
+  saveSimpleTask(
+    input: {
+      slug: "construction-supervision"
+      name: "Entscheid / Beurteilung eröffnen"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 47347200 # 1.5 years (ceil(1.5 * 365) * 24 * 60 * 60)
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateArchiveTask {
+  saveSimpleTask(
+    input: {
+      slug: "archive"
+      name: "Dossier archivieren"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 2592000 # 30 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation DistributionWorkflow {
+  saveWorkflow(
+    input: {
+      slug: "distribution"
+      name: "Zirkulation"
+      startTasks: [
+        "init-distribution"
+        "complete-distribution"
+        "create-inquiry"
+      ]
+      allowForms: ["distribution"]
+      isPublished: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation InquiryWorkflow {
+  saveWorkflow(
+    input: {
+      slug: "inquiry"
+      name: "Stellungnahme"
+      startTasks: ["fill-inquiry"]
+      allowForms: ["inquiry-answer"]
+      isPublished: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateInquiryFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "distribution"
+      tasks: ["create-inquiry"]
+      next: "['inquiry', 'create-inquiry']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation RedoInquiryTask {
+  saveSimpleTask(
+    input: {
+      slug: "redo-inquiry"
+      name: "Stellungnahme wiedereröffnen"
+      addressGroups: "info.prev_work_item.controlling_groups"
+      isMultipleInstance: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation InquiryFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "distribution"
+      tasks: ["inquiry"]
+      next: "['after-inquiries-completed', 'redo-inquiry']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation RedoInquiryFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "distribution"
+      tasks: ["redo-inquiry"]
+      next: "[]|tasks"
+      redoable: "'inquiry'|task"
+    }
+  ) {
+    clientMutationId
+  }
+}

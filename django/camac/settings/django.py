@@ -1190,7 +1190,8 @@ APPLICATIONS = {
         ],
         "DOCUMENTS_SKIP_CONTEXT_VALIDATION": True,
         "CALUMA": {
-            "FORM_PERMISSIONS": ["main"],
+            "FORM_PERMISSIONS": ["main", "inquiry", "inquiry-answer"],
+            "FILL_PUBLICATION_TASK": None,
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,
             "GENERATE_IDENTIFIER": True,
@@ -1202,7 +1203,7 @@ APPLICATIONS = {
             ],
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
             "SYNC_FORM_TYPE": True,
-            "SUBMIT_TASKS": [],
+            "SUBMIT_TASKS": ["submit"],
             "MODIFICATION_ALLOW_FORMS": [
                 "building-permit",
             ],
@@ -1211,6 +1212,21 @@ APPLICATIONS = {
                 "done",
                 "old",
             ],
+            "SIMPLE_WORKFLOW": {
+                "accept": {
+                    "next_instance_state": "comm",
+                },
+                "complete-distribution": {
+                    "next_instance_state": "done",
+                },
+                "construction-supervision": {
+                    "next_instance_state": "control",
+                },
+                "archive": {
+                    "next_instance_state": "arch",
+                },
+            },
+            "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
         },
         "STORE_PDF": {
             "SECTION": {
@@ -1374,6 +1390,75 @@ APPLICATIONS = {
                 "MUNICIPALITY": "import.gem@urec.ch",
             },
         },
+        "GENERALIZED_ROLE_MAPPING": {
+            "Vernehmlassungsstelle mit Koordinationsaufgaben": "service-lead",
+            "Sekretariat der Gemeindebaubehörde": "municipality-lead",
+            "Mitglied der Gemeindebaubehörde": "municipality-clerk",
+            "Vernehmlassungsstelle ohne Koordinationsaufgaben": "service-lead",
+            "Mitglied einer Kommission oder Fachgruppe": "service-clerk",
+            "Gemeinde als Vernehmlassungsstelle": "service-lead",
+            "Vernehmlassungsstelle Gemeindezirkulation": "service-lead",
+            "Organisation mit Leseberechtigung": "readonly",
+            "Bundesstelle": "service-lead",
+            "System-Betrieb": "support",
+            "Oereb Api": "readonly",
+            "Koordinationsstelle Baugesuche BG": "coordination-lead",
+            "Koordinationsstelle Nutzungsplanung NP": "coordination-lead",
+            "Koordinationsstelle Baudirektion BD": "coordination-lead",
+            "Koordinationsstelle Umwelt AfU": "coordination-lead",
+            "Koordinationsstelle Landwirtschaft ALA": "coordination-lead",
+            "Koordinationsstelle Energie AfE": "coordination-lead",
+            "Koordinationsstelle Forst und Jagd AFJ": "coordination-lead",
+            "Koordinationsstelle Sicherheitsdirektion SD": "coordination-lead",
+            "Portal User": "portal-user",
+        },
+        "USE_INSTANCE_SERVICE": True,
+        "ACTIVE_SERVICES": {
+            "MUNICIPALITY": {
+                "FILTERS": {
+                    "service__service_group__name__in": [
+                        "Sekretariate Gemeindebaubehörden",
+                        "Koordinationsstellen",
+                    ]
+                },
+                "DEFAULT": True,
+            },
+        },
+        "SERVICE_GROUPS_FOR_DISTRIBUTION": {
+            "roles": {
+                "Sekretariat der Gemeindebaubehörde": [
+                    {"id": "1", "localized": False},  # Koordinationsstellen
+                    {"id": "41", "localized": True},  # Gemeinderäte
+                    {"id": "67", "localized": True},  # Mitglieder Baukommission
+                    {"id": "69", "localized": True},  # Gemeinde Servicestellen
+                    {
+                        "id": "72",
+                        "localized": False,
+                    },  # Infrastrukturanlagen Pendenzen von Gemeinden
+                ],
+                "Koordinationsstelle Baugesuche BG": [
+                    {"id": "1", "localized": False},  # Koordinationsstellen
+                    {"id": "2", "localized": False},  # Fachstellen Baudirektion
+                    {"id": "41", "localized": False},  # Gemeinderäte
+                    {"id": "61", "localized": False},  # Fachstellen Justizdirektion
+                    {"id": "70", "localized": False},  # Bundesstellen
+                    {
+                        "id": "72",
+                        "localized": False,
+                    },  # Infrastrukturanlagen Pendenzen von Gemeinden
+                ],
+                "Koordinationsstelle Umwelt AfU": [
+                    {
+                        "id": "62",
+                        "localized": False,
+                    },  # Fachstellen Gesundheits- Sozial- und Umweltdirektion
+                ],
+                "Koordinationsstelle Forst und Jagd AFJ": [
+                    {"id": "2", "localized": False},  # Fachstellen Baudirektion
+                ],
+            },
+        },
+        "INTER_SERVICE_GROUP_VISIBILITIES": {},
     },
     "demo": {
         "SHORT_NAME": "demo",

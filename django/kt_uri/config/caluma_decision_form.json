@@ -1,0 +1,575 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "decision",
+    "fields": {
+      "created_at": "2023-12-05T12:21:44.592Z",
+      "modified_at": "2023-12-05T12:21:44.592Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Entscheid\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.complete-check-abschliessen",
+    "fields": {
+      "created_at": "2023-12-05T12:52:03.392Z",
+      "modified_at": "2023-12-05T12:52:03.393Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "complete-check-abschliessen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-task-baubegleitungsprozess",
+    "fields": {
+      "created_at": "2024-03-06T07:28:23.048Z",
+      "modified_at": "2024-03-06T07:28:23.048Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-task-baubegleitungsprozess",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-task-entscheid-beurteilung",
+    "fields": {
+      "created_at": "2023-12-05T12:51:31.286Z",
+      "modified_at": "2023-12-05T12:51:31.286Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-task-entscheid-beurteilung",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-task-feedback-type",
+    "fields": {
+      "created_at": "2024-03-06T07:25:45.717Z",
+      "modified_at": "2024-03-06T07:25:45.717Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-task-feedback-type",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-task-gebaudeschaetzung",
+    "fields": {
+      "created_at": "2024-03-06T07:26:13.669Z",
+      "modified_at": "2024-03-06T07:26:13.669Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-task-gebaudeschaetzung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-task-nachfuehrungsgeometer",
+    "fields": {
+      "created_at": "2023-12-05T12:51:14.847Z",
+      "modified_at": "2023-12-05T12:51:14.847Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-task-nachfuehrungsgeometer",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-task-baubegleitungsprozess-ja",
+    "fields": {
+      "created_at": "2024-03-06T07:28:22.962Z",
+      "modified_at": "2024-03-06T07:28:22.962Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baubegleitungsprozess erforderlich\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-task-baubegleitungsprozess-nein",
+    "fields": {
+      "created_at": "2024-03-06T07:28:22.960Z",
+      "modified_at": "2024-03-06T07:28:22.960Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kein Baubegleitungsprozess\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-task-feedback-type-bau-und-einspracheentscheid",
+    "fields": {
+      "created_at": "2024-03-06T07:22:48.603Z",
+      "modified_at": "2024-03-06T07:22:48.603Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bau- und Einspracheentscheid\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-task-feedback-type-stellungnahme-vorentscheid",
+    "fields": {
+      "created_at": "2024-03-06T07:22:48.605Z",
+      "modified_at": "2024-03-06T07:22:48.605Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Stellungnahme / Vorentscheid\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-task-gebaudeschaetzung-ja",
+    "fields": {
+      "created_at": "2024-03-06T07:24:11.459Z",
+      "modified_at": "2024-03-06T07:24:11.459Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Meldung erforderlich\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-task-gebaudeschaetzung-nein",
+    "fields": {
+      "created_at": "2024-03-06T07:24:11.460Z",
+      "modified_at": "2024-03-06T07:24:11.460Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Meldung nicht erforderlich\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-task-nachfuehrungsgeometer-ja",
+    "fields": {
+      "created_at": "2023-12-05T12:50:25.713Z",
+      "modified_at": "2024-03-06T07:23:18.271Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Meldung erforderlich\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-task-nachfuehrungsgeometer-nein",
+    "fields": {
+      "created_at": "2023-12-05T12:50:25.585Z",
+      "modified_at": "2024-03-06T07:23:18.269Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Meldung nicht erforderlich\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-beurteilung-bewilligt",
+    "fields": {
+      "created_at": "2023-12-05T12:49:36.724Z",
+      "modified_at": "2023-12-05T12:49:36.724Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bewilligt\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-beurteilung-nicht-bewilligt",
+    "fields": {
+      "created_at": "2023-12-05T12:49:36.726Z",
+      "modified_at": "2023-12-05T12:49:36.726Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht bewilligt\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-task-baubegleitungsprozess",
+    "fields": {
+      "created_at": "2024-03-06T07:28:23.001Z",
+      "modified_at": "2024-03-06T07:28:23.001Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baubegleitungsprozess\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-task-entscheid-beurteilung",
+    "fields": {
+      "created_at": "2023-12-05T12:49:36.784Z",
+      "modified_at": "2023-12-05T12:49:36.784Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheid / Beurteilung\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-task-feedback-type",
+    "fields": {
+      "created_at": "2024-03-06T07:22:48.677Z",
+      "modified_at": "2024-03-06T07:22:48.677Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art der R\\u00fcckmeldung\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-task-gebaudeschaetzung",
+    "fields": {
+      "created_at": "2024-03-06T07:24:11.497Z",
+      "modified_at": "2024-03-06T07:24:11.497Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Meldung Geb\\u00e4udesch\\u00e4tzung\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-task-nachfuehrungsgeometer",
+    "fields": {
+      "created_at": "2023-12-05T12:50:25.755Z",
+      "modified_at": "2024-03-06T07:23:18.316Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Meldung Geometer\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Ist eine Pr\\u00fcfung durch die Nachf\\u00fchrungsgeometer notwendig?\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-task-baubegleitungsprozess.decision-task-baubegleitungsprozess-ja",
+    "fields": {
+      "created_at": "2024-03-06T07:28:23.006Z",
+      "modified_at": "2024-03-06T07:28:23.006Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "decision-task-baubegleitungsprozess",
+      "option": "decision-task-baubegleitungsprozess-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-task-baubegleitungsprozess.decision-task-baubegleitungsprozess-nein",
+    "fields": {
+      "created_at": "2024-03-06T07:28:23.004Z",
+      "modified_at": "2024-03-06T07:28:23.004Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "decision-task-baubegleitungsprozess",
+      "option": "decision-task-baubegleitungsprozess-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-task-entscheid-beurteilung.entscheid-beurteilung-bewilligt",
+    "fields": {
+      "created_at": "2023-12-05T12:49:36.792Z",
+      "modified_at": "2023-12-05T12:49:36.792Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "decision-task-entscheid-beurteilung",
+      "option": "entscheid-beurteilung-bewilligt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-task-entscheid-beurteilung.entscheid-beurteilung-nicht-bewilligt",
+    "fields": {
+      "created_at": "2023-12-05T12:49:36.788Z",
+      "modified_at": "2023-12-05T12:49:36.788Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "decision-task-entscheid-beurteilung",
+      "option": "entscheid-beurteilung-nicht-bewilligt",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-task-feedback-type.decision-task-feedback-type-bau-und-einspracheentscheid",
+    "fields": {
+      "created_at": "2024-03-06T07:22:48.683Z",
+      "modified_at": "2024-03-06T07:22:48.683Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "decision-task-feedback-type",
+      "option": "decision-task-feedback-type-bau-und-einspracheentscheid",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-task-feedback-type.decision-task-feedback-type-stellungnahme-vorentscheid",
+    "fields": {
+      "created_at": "2024-03-06T07:22:48.706Z",
+      "modified_at": "2024-03-06T07:22:48.706Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "decision-task-feedback-type",
+      "option": "decision-task-feedback-type-stellungnahme-vorentscheid",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-task-gebaudeschaetzung.decision-task-gebaudeschaetzung-ja",
+    "fields": {
+      "created_at": "2024-03-06T07:24:11.503Z",
+      "modified_at": "2024-03-06T07:24:11.503Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "decision-task-gebaudeschaetzung",
+      "option": "decision-task-gebaudeschaetzung-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-task-gebaudeschaetzung.decision-task-gebaudeschaetzung-nein",
+    "fields": {
+      "created_at": "2024-03-06T07:24:11.502Z",
+      "modified_at": "2024-03-06T07:24:11.502Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "decision-task-gebaudeschaetzung",
+      "option": "decision-task-gebaudeschaetzung-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-task-nachfuehrungsgeometer.decision-task-nachfuehrungsgeometer-ja",
+    "fields": {
+      "created_at": "2024-03-06T07:23:18.322Z",
+      "modified_at": "2024-03-06T07:23:18.322Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "decision-task-nachfuehrungsgeometer",
+      "option": "decision-task-nachfuehrungsgeometer-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-task-nachfuehrungsgeometer.decision-task-nachfuehrungsgeometer-nein",
+    "fields": {
+      "created_at": "2024-03-06T07:23:18.319Z",
+      "modified_at": "2024-03-06T07:23:18.319Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "decision-task-nachfuehrungsgeometer",
+      "option": "decision-task-nachfuehrungsgeometer-nein",
+      "sort": 1
+    }
+  }
+]
