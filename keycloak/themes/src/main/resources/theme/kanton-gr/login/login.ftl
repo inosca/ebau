@@ -15,20 +15,8 @@
                 <ul class="${properties.kcFormSocialAccountListClass!}">
                     <#-- "pseudo"-IdP: local login -->
                     <#if realm.password>
-                        <div class="kc-form-card is-login-form uk-form-horizontal uk-width-xlarge uk-margin-small-right">
-                            <h2 class="uk-margin-top">
-                                ${msg("welcomeHeader")}
-                            </h2>
-                            <p>
-                                ${msg("welcomeText")?no_esc}
-                            </p>
-                            <p>
-                                <strong>${msg("infoHeader")?no_esc}</strong>
-                                ${msg("infoText")?no_esc}
-                            </p>
-                        </div>
                         <form id="kc-form-login" class="kc-form-card is-login-form uk-form-horizontal uk-width-xlarge uk-margin-auto" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
-                            <h2 class="uk-margin-top">Anmeldung</h2>
+                            <h1>Anmeldung</h1>
                             <div class="${properties.kcFormGroupClass!}">
                                 <label for="username" class="${properties.kcLabelClass!}"><#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
 

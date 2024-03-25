@@ -612,9 +612,9 @@
     "otpPolicyPeriod": 30,
     "otpPolicyCodeReusable": false,
     "otpSupportedApplications": [
-      "totpAppMicrosoftAuthenticatorName",
+      "totpAppGoogleName",
       "totpAppFreeOTPName",
-      "totpAppGoogleName"
+      "totpAppMicrosoftAuthenticatorName"
     ],
     "webAuthnPolicyRpEntityName": "keycloak",
     "webAuthnPolicySignatureAlgorithms": ["ES256"],
@@ -2062,14 +2062,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "saml-user-property-mapper",
-              "oidc-sha256-pairwise-sub-mapper",
-              "oidc-address-mapper",
-              "oidc-full-name-mapper",
               "saml-user-attribute-mapper",
+              "oidc-address-mapper",
               "saml-role-list-mapper",
               "oidc-usermodel-property-mapper",
-              "oidc-usermodel-attribute-mapper"
+              "saml-user-property-mapper",
+              "oidc-usermodel-attribute-mapper",
+              "oidc-sha256-pairwise-sub-mapper",
+              "oidc-full-name-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -2093,14 +2093,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
+              "oidc-full-name-mapper",
               "saml-user-property-mapper",
-              "saml-role-list-mapper",
-              "saml-user-attribute-mapper",
               "oidc-address-mapper",
               "oidc-usermodel-attribute-mapper",
-              "oidc-full-name-mapper",
+              "saml-role-list-mapper",
               "oidc-sha256-pairwise-sub-mapper",
-              "oidc-usermodel-property-mapper"
+              "oidc-usermodel-property-mapper",
+              "saml-user-attribute-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -2720,7 +2720,7 @@
         "alias": "CONFIGURE_TOTP",
         "name": "Configure OTP",
         "providerId": "CONFIGURE_TOTP",
-        "enabled": false,
+        "enabled": true,
         "defaultAction": false,
         "priority": 10,
         "config": {}
@@ -3224,9 +3224,9 @@
     "otpPolicyPeriod": 30,
     "otpPolicyCodeReusable": false,
     "otpSupportedApplications": [
-      "totpAppMicrosoftAuthenticatorName",
+      "totpAppGoogleName",
       "totpAppFreeOTPName",
-      "totpAppGoogleName"
+      "totpAppMicrosoftAuthenticatorName"
     ],
     "webAuthnPolicyRpEntityName": "keycloak",
     "webAuthnPolicySignatureAlgorithms": ["ES256"],
@@ -5607,7 +5607,45 @@
     "enabledEventTypes": [],
     "adminEventsEnabled": false,
     "adminEventsDetailsEnabled": false,
-    "identityProviders": [],
+    "identityProviders": [
+      {
+        "alias": "saml",
+        "displayName": "Anmeldung im kantonalen Netzwerk",
+        "internalId": "257f8367-0c70-450c-9c6b-1eea9c6ab1f9",
+        "providerId": "saml",
+        "enabled": true,
+        "updateProfileFirstLoginMode": "on",
+        "trustEmail": false,
+        "storeToken": false,
+        "addReadTokenRoleOnCreate": false,
+        "authenticateByDefault": false,
+        "linkOnly": false,
+        "firstBrokerLoginFlowAlias": "first broker login",
+        "config": {
+          "hideOnLoginPage": "false",
+          "validateSignature": "false",
+          "postBindingLogout": "false",
+          "postBindingResponse": "false",
+          "nameIDPolicyFormat": "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent",
+          "entityId": "http://ebau-keycloak.local/auth/realms/ebau",
+          "backchannelSupported": "false",
+          "signSpMetadata": "false",
+          "wantAssertionsEncrypted": "false",
+          "loginHint": "false",
+          "allowCreate": "true",
+          "wantAssertionsSigned": "false",
+          "authnContextComparisonType": "exact",
+          "syncMode": "IMPORT",
+          "postBindingAuthnRequest": "false",
+          "forceAuthn": "false",
+          "singleSignOnServiceUrl": "https://adfs.ur.ch/adfs/ls/",
+          "wantAuthnRequestsSigned": "false",
+          "attributeConsumingServiceIndex": "0",
+          "allowedClockSkew": "0",
+          "principalType": "Subject NameID"
+        }
+      }
+    ],
     "identityProviderMappers": [],
     "components": {
       "org.keycloak.services.clientregistration.policy.ClientRegistrationPolicy": [
@@ -5619,14 +5657,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "oidc-usermodel-attribute-mapper",
               "saml-user-property-mapper",
-              "oidc-address-mapper",
+              "oidc-usermodel-property-mapper",
               "saml-user-attribute-mapper",
               "oidc-full-name-mapper",
               "saml-role-list-mapper",
+              "oidc-address-mapper",
               "oidc-sha256-pairwise-sub-mapper",
-              "oidc-usermodel-property-mapper"
+              "oidc-usermodel-attribute-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -5696,14 +5734,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "oidc-usermodel-property-mapper",
-              "oidc-usermodel-attribute-mapper",
-              "saml-user-attribute-mapper",
               "oidc-sha256-pairwise-sub-mapper",
-              "oidc-full-name-mapper",
+              "oidc-address-mapper",
+              "oidc-usermodel-property-mapper",
+              "saml-user-attribute-mapper",
               "saml-user-property-mapper",
               "saml-role-list-mapper",
-              "oidc-address-mapper"
+              "oidc-full-name-mapper",
+              "oidc-usermodel-attribute-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -6405,7 +6443,7 @@
         "alias": "CONFIGURE_TOTP",
         "name": "Configure OTP",
         "providerId": "CONFIGURE_TOTP",
-        "enabled": false,
+        "enabled": true,
         "defaultAction": false,
         "priority": 20,
         "config": {}
