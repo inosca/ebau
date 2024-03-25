@@ -3,6 +3,7 @@ import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 import AlexandriaDocumentsFormComponent from "ember-ebau-core/components/alexandria-documents-form";
 import CalculatedPublicationDateComponent from "ember-ebau-core/components/calculated-publication-date";
+import CoordinatesPlaceholderComponent from "ember-ebau-core/components/coordinates-placeholder";
 import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/appeal-button";
 import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
 import DecisionInfoGeometerComponent from "ember-ebau-core/components/decision/info-geometer";
@@ -194,6 +195,11 @@ export default class ApplicationRoute extends Route {
       label: "Stellungnahme Frist",
       component: "inquiry-deadline-input",
       componentClass: InquiryDeadlineInputComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Koordinaten Platzhalter",
+      component: "coordinates-placeholder",
+      componentClass: CoordinatesPlaceholderComponent,
     });
   }
 }
