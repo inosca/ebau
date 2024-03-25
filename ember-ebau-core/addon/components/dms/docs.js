@@ -49,6 +49,7 @@ export default class DmsDocsComponent extends Component {
     const locale = this.intl.primaryLocale.split("-")[0];
     const isComplex = Object.keys(docs.nested_aliases).length > 0;
     const isLink = /^http(s)?:\/\//.test(value);
+    const isImage = /^data:image\//.test(value);
 
     if (isComplex && value) {
       value = JSON.stringify(
@@ -74,6 +75,7 @@ export default class DmsDocsComponent extends Component {
       value,
       isComplex,
       isLink,
+      isImage,
     };
   }
 }

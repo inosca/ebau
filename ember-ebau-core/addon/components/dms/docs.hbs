@@ -64,6 +64,8 @@
                       target="_blank"
                       rel="noopener noreferrer"
                     >{{placeholder.value}}</a>
+                  {{else if (and placeholder.isImage placeholder.value)}}
+                    <img src="{{placeholder.value}}" alt={{placeholder.description}}>
                   {{else}}
                     {{placeholder.value}}
                   {{/if}}

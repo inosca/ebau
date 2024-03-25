@@ -1,5 +1,5 @@
 from factory import Faker, RelatedFactory, SubFactory
-from factory.django import DjangoModelFactory
+from factory.django import DjangoModelFactory, ImageField
 
 from . import models
 
@@ -29,6 +29,7 @@ class ServiceFactory(DjangoModelFactory):
     service_group = SubFactory(ServiceGroupFactory)
     trans = RelatedFactory("camac.user.factories.ServiceTFactory", "service")
     notification = 1
+    logo = ImageField()
 
     class Meta:
         model = models.Service
