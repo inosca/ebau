@@ -147,6 +147,23 @@ class TopicSerializer(serializers.ModelSerializer):
             gettext("Involved entity must be either 'APPLICANT' or a valid service ID")
         )
 
+    def _can_invite_applicants(self, my_entity):
+        instance = Instance.objects.get(pk=self.initial_data["instance"]["id"])
+
+        group = self.context["request"].group
+        if group.role.name.endswith("-readonly"):  # pragma: no cover
+            return False
+
+        roles = settings.COMMUNICATIONS["ROLES_WITH_APPLICANT_CONTACT"]
+        if "service" in roles and instance.has_inquiry(my_entity):
+            return True
+        if (
+            "active_or_involved_lead_authority" in roles
+            and instance.is_active_or_involved_lead_authority(my_entity)
+        ):
+            return True
+        return False
+
     def validate_involved_entities(self, value):
         my_entity = models.entity_for_current_user(self.context["request"])
 
@@ -158,6 +175,10 @@ class TopicSerializer(serializers.ModelSerializer):
         validated_entities = [self._validate_entity(v) for v in value]
 
         if my_entity == "APPLICANT":
+            # FIXME: instead of validating the involved entities, we could
+            # also just hard-code applicant + active service, since our UI
+            # doesn't allow choosing involved entities in the first place.
+
             # Ensure the only other entity, if any, is LB (Municipality)
             # The LB is the active service on the instance
             active_service = (
@@ -177,12 +198,7 @@ class TopicSerializer(serializers.ModelSerializer):
                     )
                 )
         elif "APPLICANT" in validated_entities:
-            instance_services = (
-                Instance.objects.get(pk=self.initial_data["instance"]["id"])
-                .services.all()
-                .values_list("pk", flat=True)
-            )
-            if my_entity not in list(map(str, list(instance_services))):
+            if not self._can_invite_applicants(my_entity):
                 raise ValidationError(
                     gettext(
                         "You are not allowed to add the applicant "

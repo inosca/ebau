@@ -1,2 +1,6 @@
 // eslint-disable-next-line ember/no-test-import-export
-export default {};
+export default {
+  communication: {
+    rolesWithApplicantContact: ["activeOrInolvedLeadAuthority"],
+  },
+};

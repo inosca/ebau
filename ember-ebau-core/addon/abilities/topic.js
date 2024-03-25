@@ -1,6 +1,8 @@
 import { inject as service } from "@ember/service";
 import { Ability } from "ember-can";
 
+import mainConfig from "ember-ebau-core/config/main";
+
 export default class extends Ability {
   @service ebauModules;
 
@@ -11,7 +13,7 @@ export default class extends Ability {
     );
   }
 
-  get isInstanceService() {
+  get isActiveOrInvolvedLeadAuthority() {
     let instanceServices = this.model?.get("instance.services") ?? [];
     instanceServices = instanceServices.map((service) => parseInt(service.id));
     return instanceServices.includes(parseInt(this.ebauModules.serviceId));
@@ -30,6 +32,26 @@ export default class extends Ability {
   }
 
   get canInvolveApplicant() {
-    return !this.ebauModules.isReadOnlyRole && this.isInstanceService;
+    if (this.ebauModules.isReadOnlyRole) {
+      return false;
+    }
+    const rolesWithApplicantContact =
+      mainConfig.communication.rolesWithApplicantContact;
+
+    if (
+      rolesWithApplicantContact.includes("service") &&
+      this.ebauModules.baseRole === "service"
+    ) {
+      return true;
+    }
+
+    if (
+      rolesWithApplicantContact.includes("activeOrInolvedLeadAuthority") &&
+      this.isActiveOrInvolvedLeadAuthority
+    ) {
+      return true;
+    }
+
+    return false;
   }
 }

@@ -3,7 +3,12 @@ import io
 import pytest
 from django.urls import reverse
 from django.utils.translation import gettext
-from rest_framework import status
+from rest_framework.status import (
+    HTTP_200_OK,
+    HTTP_201_CREATED,
+    HTTP_400_BAD_REQUEST,
+    HTTP_403_FORBIDDEN,
+)
 
 
 @pytest.mark.parametrize("communications_message__sent_at", ["2022-12-12T12:12:12Z"])
@@ -28,14 +33,14 @@ def test_mark_as_read(db, admin_client, communications_message, be_instance):
     resp_before = admin_client.get(
         reverse("communications-message-detail", args=[communications_message.pk])
     )
-    assert resp_before.status_code == status.HTTP_200_OK
+    assert resp_before.status_code == HTTP_200_OK
     assert resp_before.json()["data"]["attributes"]["read-at"] is None
 
     # The modification should already return the new "read" status
     resp_mark = admin_client.patch(
         reverse("communications-message-read", args=[communications_message.pk])
     )
-    assert resp_mark.status_code == status.HTTP_200_OK
+    assert resp_mark.status_code == HTTP_200_OK
     assert resp_mark.json()["data"]["attributes"]["read-at"]
 
     communications_message.read_by.create(entity="APPLICANT")
@@ -45,7 +50,7 @@ def test_mark_as_read(db, admin_client, communications_message, be_instance):
     resp_after = admin_client.get(
         reverse("communications-message-detail", args=[communications_message.pk])
     )
-    assert resp_after.status_code == status.HTTP_200_OK
+    assert resp_after.status_code == HTTP_200_OK
     assert resp_after.json()["data"]["attributes"]["read-at"]
 
     read_by_info = resp_after.json()["data"]["attributes"]["read-by-entity"]
@@ -100,15 +105,37 @@ def test_mark_as_unread(db, admin_client, communications_message, be_instance):
 
 
 @pytest.mark.parametrize(
-    "entities, expect_status",
+    "access,entities,roles_with_applicant_contact,expect_status",
     [
-        (["APPLICANT"], status.HTTP_201_CREATED),
-        (["APPLICANT", "_valid_entity_"], status.HTTP_201_CREATED),
-        (["APPLICANT", "9999999"], status.HTTP_400_BAD_REQUEST),
-        (["applicant", "_valid_entity_"], status.HTTP_400_BAD_REQUEST),
+        (
+            "lead",
+            ["APPLICANT"],
+            ["active_or_involved_lead_authority"],
+            HTTP_201_CREATED,
+        ),
+        (
+            "lead",
+            ["APPLICANT", "_valid_entity_"],
+            ["active_or_involved_lead_authority"],
+            HTTP_201_CREATED,
+        ),
+        (
+            "lead",
+            ["APPLICANT", "9999999"],
+            ["active_or_involved_lead_authority"],
+            HTTP_400_BAD_REQUEST,
+        ),
+        ("service", ["APPLICANT"], ["service"], HTTP_201_CREATED),
+        ("lead", ["APPLICANT"], ["service"], HTTP_400_BAD_REQUEST),
+        (
+            None,
+            ["APPLICANT"],
+            ["active_or_involved_lead_authority", "service"],
+            HTTP_400_BAD_REQUEST,
+        ),
     ],
 )
-@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("role__name", ("Municipality",))
 def test_validate_entities(
     db,
     role,
@@ -116,14 +143,26 @@ def test_validate_entities(
     admin_client,
     entities,
     expect_status,
+    settings,
+    roles_with_applicant_contact,
+    access,
+    disable_ech0211_settings,
+    mocker,
 ):
-    entity_ids = [
-        e.replace(
-            "_valid_entity_", str(admin_client.user.get_default_group().service_id)
-        )
-        for e in entities
-    ]
+    settings.COMMUNICATIONS["ROLES_WITH_APPLICANT_CONTACT"] = (
+        roles_with_applicant_contact
+    )
+    my_service = admin_client.user.get_default_group().service
+    entity_ids = [e.replace("_valid_entity_", str(my_service.pk)) for e in entities]
     entities = [{"id": e} for e in entity_ids]  # No need to write the name here
+
+    mocker.patch(
+        "camac.instance.models.Instance.has_inquiry", return_value=(access == "service")
+    )
+    mocker.patch(
+        "camac.instance.models.Instance.is_active_or_involved_lead_authority",
+        return_value=(access == "lead"),
+    )
 
     resp = admin_client.post(
         reverse("communications-topic-list"),
@@ -146,20 +185,15 @@ def test_validate_entities(
 
     assert resp.status_code == expect_status
 
-    if expect_status == status.HTTP_201_CREATED:
-        # Check that initiator is added to involved as well as set as
-        # initiator
+    # Check that initiator is added to involved as well
+    if expect_status == HTTP_201_CREATED:
         data = resp.json()
         returned_entities = [
             entity["id"] for entity in data["data"]["attributes"]["involved-entities"]
         ]
-        # Since we're "municipality" here, we expect that "our"
-        # entity is added always
-        municipality_entity = str(
-            be_instance.instance_services.filter(active=1).get().service_id
-        )
-        if municipality_entity not in entity_ids:
-            entity_ids.append(municipality_entity)
+        # "our" entity is added always
+        if (my_service_id := str(my_service.pk)) not in entity_ids:
+            entity_ids.append(my_service_id)
 
         assert sorted(returned_entities) == sorted(entity_ids)
 
@@ -167,8 +201,8 @@ def test_validate_entities(
 @pytest.mark.parametrize(
     "entities, has_involved_service, expect_status",
     [
-        (["APPLICANT"], False, status.HTTP_201_CREATED),
-        (["APPLICANT"], True, status.HTTP_201_CREATED),
+        (["APPLICANT"], False, HTTP_201_CREATED),
+        (["APPLICANT"], True, HTTP_201_CREATED),
     ],
 )
 @pytest.mark.parametrize(
@@ -216,7 +250,7 @@ def test_validate_entities_can_add_applicant(
     if can_add_applicant:
         assert resp.status_code == expect_status
     else:
-        assert resp.status_code == status.HTTP_400_BAD_REQUEST
+        assert resp.status_code == HTTP_400_BAD_REQUEST
 
 
 @pytest.mark.parametrize("role__name", ["Municipality", "Applicant"])
@@ -251,7 +285,7 @@ def test_set_initial_entity(db, be_instance, admin_client, role):
         },
     )
 
-    assert resp.status_code == status.HTTP_201_CREATED
+    assert resp.status_code == HTTP_201_CREATED
 
     # Check that initiator is added to involved as well as set as
     # initiator
@@ -267,13 +301,13 @@ def test_set_initial_entity(db, be_instance, admin_client, role):
     "send_entities, expect_entities,expect_status",
     [
         # No entities - expect to add applicant itself
-        ([], ["APPLICANT"], status.HTTP_201_CREATED),
+        ([], ["APPLICANT"], HTTP_201_CREATED),
         # Invalid entity - should trigger validation
-        (["9999999999"], [], status.HTTP_400_BAD_REQUEST),
+        (["9999999999"], [], HTTP_400_BAD_REQUEST),
         # LB service - should be allowed in validation. "APPLICANT" should
         # be added always when applicant creates topic
-        (["LB"], ["LB", "APPLICANT"], status.HTTP_201_CREATED),
-        (["OTHER"], [], status.HTTP_400_BAD_REQUEST),
+        (["LB"], ["LB", "APPLICANT"], HTTP_201_CREATED),
+        (["OTHER"], [], HTTP_400_BAD_REQUEST),
     ],
 )
 @pytest.mark.parametrize("role__name", ["Applicant"])
@@ -336,7 +370,7 @@ def test_validate_topic_entities_for_applicant(
 @pytest.mark.parametrize("communications_attachment__file_type", ["text/plain"])
 @pytest.mark.parametrize(
     "role__name, expect_result",
-    [("Municipality", status.HTTP_200_OK), ("Applicant", status.HTTP_403_FORBIDDEN)],
+    [("Municipality", HTTP_200_OK), ("Applicant", HTTP_403_FORBIDDEN)],
 )
 def test_convert_attachment_to_document(
     db,
@@ -393,7 +427,7 @@ def test_convert_attachment_to_document(
 
     communications_attachment.refresh_from_db()
 
-    if expect_result == status.HTTP_403_FORBIDDEN:
+    if expect_result == HTTP_403_FORBIDDEN:
         # no change should have happened
         assert not communications_attachment.document_attachment
         assert communications_attachment.file_attachment
