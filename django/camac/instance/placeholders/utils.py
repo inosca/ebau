@@ -88,6 +88,32 @@ def get_person_name(
     return clean_join(*parts, separator=", ")
 
 
+def get_person_first_name(person: dict, use_representative: bool = False) -> str:
+    """Extract the first name from a person dictionary.
+
+    >>> get_person_first_name({
+        "first_name": "John",
+    })
+    "John"
+    """
+    prefix = "representative_" if use_representative else ""
+
+    return person.get(f"{prefix}first_name")
+
+
+def get_person_last_name(person: dict, use_representative: bool = False) -> str:
+    """Extract the last name from a person dictionary.
+
+    >>> get_person_last_name({
+        "last_name": "Smith",
+    })
+    "Smith"
+    """
+    prefix = "representative_" if use_representative else ""
+
+    return person.get(f"{prefix}last_name")
+
+
 def enrich_personal_data(personal_data):
     return [clean_and_add_full_name(entry) for entry in personal_data]
 
