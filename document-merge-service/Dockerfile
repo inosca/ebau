@@ -1,4 +1,4 @@
-FROM ghcr.io/adfinis/document-merge-service:7.0.2
+FROM ghcr.io/adfinis/document-merge-service:7.1.0
 
 # Only root user can install packages
 USER root
@@ -13,6 +13,7 @@ ENV REQUIRE_AUTHENTICATION=True
 ENV PAGINATION_ENABLED=False
 ENV DMS_VISIBILITY_CLASSES=document_merge_service.extensions.visibilities.CustomVisibility
 ENV DMS_PERMISSION_CLASSES=document_merge_service.extensions.permissions.CustomPermission
+ENV DATA_UPLOAD_MAX_NUMBER_FIELDS=2000
 
 ARG APPLICATION
 
