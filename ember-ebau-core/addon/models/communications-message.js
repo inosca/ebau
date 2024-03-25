@@ -36,7 +36,10 @@ export default class CommunicationMessageModel extends Model {
     });
 
     if (mainConfig.documentBackend === "alexandria") {
-      const files = this.store.peekAll("file").sortBy("createdAt");
+      const files = this.store
+        .peekAll("file")
+        .slice()
+        .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
       this.documentAttachmentsToSave = this.documentAttachmentsToSave.map(
         (attachment) => files.findBy("document.id", attachment)?.id,
       );
