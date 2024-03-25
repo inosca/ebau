@@ -2,6 +2,7 @@ import logging
 from functools import cached_property
 
 import reversion
+from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db import models
 from django.db.models import Q
@@ -278,6 +279,30 @@ class Instance(models.Model):
             return self._responsible_service_instance_service(**kwargs)
 
         return self.group.service
+
+    def is_active_or_involved_lead_authority(self, service_id):
+        """Return true if the given service is a lead authority (active or involved)."""
+        if not settings.APPLICATION.get("USE_INSTANCE_SERVICE"):  # pragma: no cover
+            raise NotImplementedError
+
+        return self.services.filter(pk=int(service_id)).exists()
+
+    def has_inquiry(self, service_id):
+        """Return true if the given service is part of the circulation."""
+        return (
+            WorkItem.objects.filter(
+                case__family=self.case,
+                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+                addressed_groups=[str(service_id)],
+            )
+            .exclude(
+                status__in=[
+                    WorkItem.STATUS_SUSPENDED,
+                    WorkItem.STATUS_CANCELED,
+                ],
+            )
+            .exists()
+        )
 
     def set_instance_state(self, instance_state_name: str, user: User) -> None:
         with reversion.create_revision():

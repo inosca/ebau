@@ -146,6 +146,9 @@ const config = {
     importModels: ["project", "building", "dwelling"],
     modalContainer: "body",
   },
+  communication: {
+    rolesWithApplicantContact: ["activeOrInolvedLeadAuthority"],
+  },
 };
 
 config.intentSlugs = [config.answerSlugs.description];
