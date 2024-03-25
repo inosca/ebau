@@ -5939,6 +5939,18 @@
       'nested_aliases': dict({
       }),
     }),
+    'MUNICIPALITY_LOGO': dict({
+      'aliases': list([
+        dict({
+          'de': 'GEMEINDE_WAPPEN',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Wappen der Gemeinde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'NAME': dict({
       'aliases': list([
       ]),
@@ -7455,6 +7467,7 @@
     'GEMEINDE_NAME_ADRESSE',
     'GEMEINDE_ORT',
     'GEMEINDE_TELEFON',
+    'GEMEINDE_WAPPEN',
     'GEMEINDE_WEBSEITE',
     'GESUCHSTELLER',
     'GESUCHSTELLER_ADDRESS_1',
@@ -7495,6 +7508,7 @@
     'MEINE_ORGANISATION_WEBSEITE',
     'MUNICIPALITY',
     'MUNICIPALITY_ADDRESS',
+    'MUNICIPALITY_LOGO',
     'NAME',
     'NEBENBESTIMMUNGEN_MAPPED',
     'NEBENBESTIMMUNGEN_MAPPED[]',
