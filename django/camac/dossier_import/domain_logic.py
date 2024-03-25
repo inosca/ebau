@@ -208,7 +208,7 @@ def get_or_create_ebau_nr(ebau_number, service, submit_date=None):
         except AttributeError:
             pass
 
-    return generate_ebau_nr(submit_date.year) if submit_date else None
+    return generate_ebau_nr(None, submit_date.year) if submit_date else None
 
 
 def set_status_callback(task):  # pragma: no cover
