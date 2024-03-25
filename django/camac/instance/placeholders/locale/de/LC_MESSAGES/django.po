@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-25 16:03+0200\n"
+"POT-Creation-Date: 2024-08-14 14:10+0200\n"
 "PO-Revision-Date: 2024-07-11 09:40+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -18,187 +18,187 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#: camac/instance/placeholders/fields.py:103
+#: camac/instance/placeholders/fields.py:105
 msgid "Authority"
 msgstr "Leitbehörde"
 
-#: camac/instance/placeholders/fields.py:104
-#: camac/instance/placeholders/fields.py:110
+#: camac/instance/placeholders/fields.py:106
+#: camac/instance/placeholders/fields.py:112
 msgid "Municipality"
 msgstr "Gemeinde"
 
-#: camac/instance/placeholders/fields.py:105
+#: camac/instance/placeholders/fields.py:107
 msgid "District"
 msgstr "Regierungsstatthalteramt"
 
-#: camac/instance/placeholders/fields.py:179
+#: camac/instance/placeholders/fields.py:181
 msgid "POSITION"
 msgstr "POSITION"
 
-#: camac/instance/placeholders/fields.py:180
-#: camac/instance/placeholders/serializers.py:1390
+#: camac/instance/placeholders/fields.py:182
+#: camac/instance/placeholders/serializers.py:1460
 msgid "AMOUNT"
 msgstr "BETRAG"
 
-#: camac/instance/placeholders/fields.py:186
+#: camac/instance/placeholders/fields.py:188
 msgid "LEGAL_BASIS"
 msgstr "RECHTSGRUNDLAGE"
 
-#: camac/instance/placeholders/fields.py:187
+#: camac/instance/placeholders/fields.py:189
 msgid "COST_CENTER"
 msgstr "KOSTENSTELLE"
 
-#: camac/instance/placeholders/fields.py:346
+#: camac/instance/placeholders/fields.py:348
 msgid "ANSWER"
 msgstr "ANTWORT"
 
-#: camac/instance/placeholders/fields.py:347
+#: camac/instance/placeholders/fields.py:349
 msgid "ANSWERED"
 msgstr "BEANTWORTET"
 
-#: camac/instance/placeholders/fields.py:348
+#: camac/instance/placeholders/fields.py:350
 msgid "CREATED"
 msgstr "ERSTELLT"
 
-#: camac/instance/placeholders/fields.py:349
+#: camac/instance/placeholders/fields.py:351
 msgid "SERVICE"
 msgstr "FACHSTELLE"
 
-#: camac/instance/placeholders/fields.py:350
+#: camac/instance/placeholders/fields.py:352
 msgid "DEADLINE"
 msgstr "FRIST"
 
-#: camac/instance/placeholders/fields.py:351
-#: camac/instance/placeholders/fields.py:487
-#: camac/instance/placeholders/fields.py:604
-#: camac/instance/placeholders/fields.py:742
-#: camac/instance/placeholders/fields.py:874
-#: camac/instance/placeholders/serializers.py:1634
+#: camac/instance/placeholders/fields.py:353
+#: camac/instance/placeholders/fields.py:489
+#: camac/instance/placeholders/fields.py:606
+#: camac/instance/placeholders/fields.py:760
+#: camac/instance/placeholders/fields.py:892
+#: camac/instance/placeholders/serializers.py:1704
 msgid "NAME"
 msgstr "NAME"
 
-#: camac/instance/placeholders/fields.py:352
+#: camac/instance/placeholders/fields.py:354
 #: camac/instance/placeholders/serializers.py:518
 msgid "ANCILLARY_CLAUSES"
 msgstr "NEBENBESTIMMUNGEN"
 
-#: camac/instance/placeholders/fields.py:353
+#: camac/instance/placeholders/fields.py:355
 msgid "OPINION"
 msgstr "STELLUNGNAHME"
 
-#: camac/instance/placeholders/fields.py:354
+#: camac/instance/placeholders/fields.py:356
 msgid "TEXT"
 msgstr "TEXT"
 
-#: camac/instance/placeholders/fields.py:355
+#: camac/instance/placeholders/fields.py:357
 msgid "BY"
 msgstr "VON"
 
-#: camac/instance/placeholders/fields.py:482
+#: camac/instance/placeholders/fields.py:484
 msgid "DATE_POSTMARK"
 msgstr "DATUM_POSTSTEMPEL"
 
-#: camac/instance/placeholders/fields.py:483
+#: camac/instance/placeholders/fields.py:485
 msgid "OPPOSING_NAME"
 msgstr "EINSPRECHER_NAME"
 
-#: camac/instance/placeholders/fields.py:484
+#: camac/instance/placeholders/fields.py:486
 msgid "OPPOSING_ADDRESS"
 msgstr "EINSPRECHER_ADRESSE"
 
-#: camac/instance/placeholders/fields.py:485
+#: camac/instance/placeholders/fields.py:487
 msgid "OPPOSING_SALUTATION"
 msgstr "EINSPRECHER_ANREDE"
 
-#: camac/instance/placeholders/fields.py:486
+#: camac/instance/placeholders/fields.py:488
 msgid "ALL_OPPOSING"
 msgstr "ALLE_EINSPRECHENDEN"
 
-#: camac/instance/placeholders/fields.py:488
-#: camac/instance/placeholders/fields.py:604
+#: camac/instance/placeholders/fields.py:490
+#: camac/instance/placeholders/fields.py:606
 #: camac/instance/placeholders/serializers.py:178
 msgid "ADDRESS"
 msgstr "ADRESSE"
 
-#: camac/instance/placeholders/fields.py:489
+#: camac/instance/placeholders/fields.py:491
 msgid "SALUTATION"
 msgstr "ANREDE"
 
-#: camac/instance/placeholders/fields.py:493
+#: camac/instance/placeholders/fields.py:495
 msgid "DATE_DOCUMENT"
 msgstr "DATUM_DOKUMENT"
 
-#: camac/instance/placeholders/fields.py:494
+#: camac/instance/placeholders/fields.py:496
 msgid "DATE_RECEIPT"
 msgstr "DATUM_EINGANG"
 
-#: camac/instance/placeholders/fields.py:495
-#: camac/instance/placeholders/serializers.py:1217
+#: camac/instance/placeholders/fields.py:497
+#: camac/instance/placeholders/serializers.py:1259
 msgid "LEGAL_CLAIMANTS"
 msgstr "RECHTSBEGEHRENDE"
 
-#: camac/instance/placeholders/fields.py:496
+#: camac/instance/placeholders/fields.py:498
 msgid "TITLE"
 msgstr "TITEL"
 
-#: camac/instance/placeholders/fields.py:500
+#: camac/instance/placeholders/fields.py:502
 msgid "REPRIMANDS"
 msgstr "RUEGEPUNKTE"
 
-#: camac/instance/placeholders/fields.py:502
+#: camac/instance/placeholders/fields.py:504
 msgid "REQUEST"
 msgstr "ANLIEGEN"
 
-#: camac/instance/placeholders/fields.py:502
+#: camac/instance/placeholders/fields.py:504
 msgid "CONCERN"
 msgstr "ANLIEGEN"
 
-#: camac/instance/placeholders/fields.py:740
+#: camac/instance/placeholders/fields.py:758
 msgid "ADDRESS_1"
 msgstr "ADRESSE_1"
 
-#: camac/instance/placeholders/fields.py:741
+#: camac/instance/placeholders/fields.py:759
 msgid "ADDRESS_2"
 msgstr "ADRESSE_2"
 
-#: camac/instance/placeholders/fields.py:875
+#: camac/instance/placeholders/fields.py:893
 msgid "ORIGINAL_NAME"
 msgstr "ORIGINAL_NAME"
 
-#: camac/instance/placeholders/fields.py:876
+#: camac/instance/placeholders/fields.py:894
 msgid "DESCRIPTION"
 msgstr "BESCHREIBUNG"
 
-#: camac/instance/placeholders/fields.py:877
+#: camac/instance/placeholders/fields.py:895
 msgid "CREATED_AT"
 msgstr "ERSTELLT_AM"
 
-#: camac/instance/placeholders/fields.py:878
+#: camac/instance/placeholders/fields.py:896
 msgid "CREATED_BY"
 msgstr "ERSTELLT_VON"
 
-#: camac/instance/placeholders/fields.py:879
+#: camac/instance/placeholders/fields.py:897
 msgid "MODIFIED_AT"
 msgstr "GEAENDERT_AM"
 
-#: camac/instance/placeholders/fields.py:880
+#: camac/instance/placeholders/fields.py:898
 msgid "MODIFIED_BY"
 msgstr "GEAENDERT_VON"
 
-#: camac/instance/placeholders/fields.py:881
+#: camac/instance/placeholders/fields.py:899
 msgid "CATEGORY"
 msgstr "KATEGORIE"
 
-#: camac/instance/placeholders/fields.py:882
+#: camac/instance/placeholders/fields.py:900
 msgid "MARKS"
 msgstr "MARKIERUNGEN"
 
-#: camac/instance/placeholders/fields.py:883
-#: camac/instance/placeholders/serializers.py:1320
+#: camac/instance/placeholders/fields.py:901
+#: camac/instance/placeholders/serializers.py:1376
 msgid "TAGS"
 msgstr "STICHWORTE"
 
-#: camac/instance/placeholders/fields.py:965
+#: camac/instance/placeholders/fields.py:983
 #, python-format
 msgid "%(title)s (submitted as %(original_title)s on %(date)s at %(time)s)"
 msgstr "%(title)s (eingereicht als %(original_title)s am %(date)s um %(time)s)"
@@ -280,12 +280,12 @@ msgid "Description of the project"
 msgstr "Beschreibung des Bauvorhabens"
 
 #: camac/instance/placeholders/serializers.py:231
-#: camac/instance/placeholders/serializers.py:1745
+#: camac/instance/placeholders/serializers.py:1815
 msgid "DECISION_DATE"
 msgstr "BAUENTSCHEID_DATUM"
 
 #: camac/instance/placeholders/serializers.py:232
-#: camac/instance/placeholders/serializers.py:1746
+#: camac/instance/placeholders/serializers.py:1816
 msgid "Decision date"
 msgstr "Datum des Bauentscheids"
 
@@ -732,12 +732,12 @@ msgid "Current date"
 msgstr "Das heutige Datum"
 
 #: camac/instance/placeholders/serializers.py:596
-#: camac/instance/placeholders/serializers.py:1561
+#: camac/instance/placeholders/serializers.py:1631
 msgid "CIRCULATION_SERVICES"
 msgstr "ZIRKULATION_FACHSTELLEN"
 
 #: camac/instance/placeholders/serializers.py:597
-#: camac/instance/placeholders/serializers.py:1562
+#: camac/instance/placeholders/serializers.py:1632
 msgid "Involved services of the instance"
 msgstr "In Dossier involvierte Fachstellen"
 
@@ -875,12 +875,12 @@ msgid "End date of the publication in the cantonal Gazette"
 msgstr "Enddatum der Publikation im Kantonsamtsblatt"
 
 #: camac/instance/placeholders/serializers.py:744
-#: camac/instance/placeholders/serializers.py:1602
+#: camac/instance/placeholders/serializers.py:1672
 msgid "DECISION_DOCUMENTS"
 msgstr "ENTSCHEIDDOKUMENTE"
 
 #: camac/instance/placeholders/serializers.py:745
-#: camac/instance/placeholders/serializers.py:1603
+#: camac/instance/placeholders/serializers.py:1673
 msgid "All documents marked as decision documents"
 msgstr "Alle Dokumente die als Entscheiddokument markiert wurden"
 
@@ -1208,677 +1208,757 @@ msgstr "GEBAEUDEEIGENTUEMER_NAME_ADRESSE"
 msgid "Name and address of the building owner"
 msgstr "Name und Adresse des/r Gebäudeeigentümer/in"
 
-#: camac/instance/placeholders/serializers.py:1148
+#: camac/instance/placeholders/serializers.py:1149
+msgid "BUILDING_OWNER_FIRST_NAME"
+msgstr "GEBAEUDEEIGENTUEMER_VORNAME"
+
+#: camac/instance/placeholders/serializers.py:1150
+msgid "First name of the building owner"
+msgstr "Vorname des/r Gebäudeeigentümer/in"
+
+#: camac/instance/placeholders/serializers.py:1156
+msgid "BUILDING_OWNER_LAST_NAME"
+msgstr "GEBAEUDEEIGENTUEMER_NACHNAME"
+
+#: camac/instance/placeholders/serializers.py:1157
+msgid "Last name of the building owner"
+msgstr "Nachname des/r Gebäudeeigentümer/in"
+
+#: camac/instance/placeholders/serializers.py:1162
 msgid "BUILDING_OWNER"
 msgstr "GEBAEUDEEIGENTUEMER"
 
-#: camac/instance/placeholders/serializers.py:1149
+#: camac/instance/placeholders/serializers.py:1163
 msgid "Name of the building owner"
 msgstr "Name des/r Gebäudeeigentümer/in"
 
-#: camac/instance/placeholders/serializers.py:1153
+#: camac/instance/placeholders/serializers.py:1167
 msgid "MUNICIPALITY_ADDRESS_1"
 msgstr "GEMEINDE_ADRESSE_1"
 
-#: camac/instance/placeholders/serializers.py:1154
+#: camac/instance/placeholders/serializers.py:1168
 msgid "Address line 1 of the municipality"
 msgstr "Adresslinie 1 der Gemeinde"
 
-#: camac/instance/placeholders/serializers.py:1161
+#: camac/instance/placeholders/serializers.py:1175
 msgid "MUNICIPALITY_ADDRESS_2"
 msgstr "GEMEINDE_ADRESSE_2"
 
-#: camac/instance/placeholders/serializers.py:1162
+#: camac/instance/placeholders/serializers.py:1176
 msgid "Address line 2 of the municipality"
 msgstr "Adresslinie 2 der Gemeinde"
 
-#: camac/instance/placeholders/serializers.py:1168
+#: camac/instance/placeholders/serializers.py:1182
+msgid "APPLICANT_FIRST_NAME"
+msgstr "GESUCHSTELLER_VORNAME"
+
+#: camac/instance/placeholders/serializers.py:1183
+msgid "First name of the applicant"
+msgstr "Vorname des/r Gesuchsteller/in"
+
+#: camac/instance/placeholders/serializers.py:1189
+msgid "APPLICANT_LAST_NAME"
+msgstr "GESUCHSTELLER_NACHNAME"
+
+#: camac/instance/placeholders/serializers.py:1190
+msgid "Last name of the applicant"
+msgstr "Nachname des/r Gesuchsteller/in"
+
+#: camac/instance/placeholders/serializers.py:1196
 msgid "WATER_PROTECTION_AREA"
 msgstr "GEWAESSERSCHUTZBEREICH"
 
-#: camac/instance/placeholders/serializers.py:1169
+#: camac/instance/placeholders/serializers.py:1197
 msgid "Water protection area"
 msgstr "Gewässerschutzbereich"
 
-#: camac/instance/placeholders/serializers.py:1173
+#: camac/instance/placeholders/serializers.py:1203
+msgid "LANDOWNER_FIRST_NAME"
+msgstr "GRUNDEIGENTUEMER_VORNAME"
+
+#: camac/instance/placeholders/serializers.py:1204
+msgid "First name of the landowner"
+msgstr "Vorname des/r Grundeigentümer/in"
+
+#: camac/instance/placeholders/serializers.py:1210
+msgid "LANDOWNER_LAST_NAME"
+msgstr "GRUNDEIGENTUEMER_NACHNAME"
+
+#: camac/instance/placeholders/serializers.py:1211
+msgid "Last name of the landowner"
+msgstr "Nachname des/r Grundeigentümer/in"
+
+#: camac/instance/placeholders/serializers.py:1215
 msgid "INTERIOR_SEATING"
 msgstr "SITZPLAETZE_INNEN"
 
-#: camac/instance/placeholders/serializers.py:1174
+#: camac/instance/placeholders/serializers.py:1216
 msgid "Sum of all interior seating"
 msgstr "Summe aller Sitzplätze innen"
 
-#: camac/instance/placeholders/serializers.py:1177
+#: camac/instance/placeholders/serializers.py:1219
 msgid "INVENTORY"
 msgstr "INVENTAR"
 
-#: camac/instance/placeholders/serializers.py:1178
+#: camac/instance/placeholders/serializers.py:1220
 msgid "Inventory"
 msgstr "Bauinventar"
 
-#: camac/instance/placeholders/serializers.py:1182
+#: camac/instance/placeholders/serializers.py:1224
 msgid "LOAD_COMPENSATION_REQUESTS"
 msgstr "LASTENAUSGLEICHSBEGEHREN"
 
-#: camac/instance/placeholders/serializers.py:1183
+#: camac/instance/placeholders/serializers.py:1225
 msgid "All legal submissions of the type \"load compensation request\""
 msgstr "Alle Rechtsbegehren vom Typ \"Lastenausgleichsbegehren\""
 
-#: camac/instance/placeholders/serializers.py:1187
+#: camac/instance/placeholders/serializers.py:1229
 msgid "RESPONSIBLE_USER"
 msgstr "LEITPERSON"
 
-#: camac/instance/placeholders/serializers.py:1188
+#: camac/instance/placeholders/serializers.py:1230
 msgid "Responsible user of the authority"
 msgstr "Zuständige Person der zuständigen Leitbehörde"
 
-#: camac/instance/placeholders/serializers.py:1194
+#: camac/instance/placeholders/serializers.py:1236
 msgid "NEIGHBORS"
 msgstr "ALLE_NACHBARN"
 
-#: camac/instance/placeholders/serializers.py:1198
-#: camac/instance/placeholders/serializers.py:1597
+#: camac/instance/placeholders/serializers.py:1240
+#: camac/instance/placeholders/serializers.py:1667
 msgid "OBJECTIONS"
 msgstr "EINSPRACHEN"
 
-#: camac/instance/placeholders/serializers.py:1199
+#: camac/instance/placeholders/serializers.py:1241
 msgid "All legal submissions of the type \"objection\""
 msgstr "Alle Rechtsbegehren vom Typ \"Einsprache\""
 
-#: camac/instance/placeholders/serializers.py:1203
+#: camac/instance/placeholders/serializers.py:1245
 msgid "OPPOSING"
 msgstr "EINSPRECHENDE"
 
-#: camac/instance/placeholders/serializers.py:1204
+#: camac/instance/placeholders/serializers.py:1246
 msgid "Opposing with address"
 msgstr "Einsprechende mit Adresse"
 
-#: camac/instance/placeholders/serializers.py:1208
+#: camac/instance/placeholders/serializers.py:1250
 msgid "LEGAL_CUSTODIANS"
 msgstr "RECHTSVERWAHRENDE"
 
-#: camac/instance/placeholders/serializers.py:1209
+#: camac/instance/placeholders/serializers.py:1251
 msgid "Legal custodians with address"
 msgstr "Rechtsverwahrende mit Adresse"
 
-#: camac/instance/placeholders/serializers.py:1213
+#: camac/instance/placeholders/serializers.py:1255
 msgid "LOAD_COMPENSATION_REQUESTING"
 msgstr "LASTENAUSGLEICHSBEGEHRENDE"
 
-#: camac/instance/placeholders/serializers.py:1214
+#: camac/instance/placeholders/serializers.py:1256
 msgid "Load compensation requesting with address"
 msgstr "Lastenausgleichsbegehrende mit Adresse"
 
-#: camac/instance/placeholders/serializers.py:1218
+#: camac/instance/placeholders/serializers.py:1260
 msgid "All legal claimants with address"
 msgstr "Alle Rechtsbegehrende mit Adresse"
 
-#: camac/instance/placeholders/serializers.py:1221
+#: camac/instance/placeholders/serializers.py:1263
 msgid "OUTSIDE_SEATING"
 msgstr "SITZPLAETZE_AUSSEN"
 
-#: camac/instance/placeholders/serializers.py:1222
+#: camac/instance/placeholders/serializers.py:1264
 msgid "All outside seating"
 msgstr "Alle Sitzplätze aussen"
 
-#: camac/instance/placeholders/serializers.py:1226
+#: camac/instance/placeholders/serializers.py:1268
 msgid "INFORMATION_OF_NEIGHBORS_LINK"
 msgstr "NACHBARSCHAFTSORIENTIERUNG_LINK"
 
-#: camac/instance/placeholders/serializers.py:1230
+#: camac/instance/placeholders/serializers.py:1272
 msgid "INFORMATION_OF_NEIGHBORS_QR_CODE"
 msgstr "NACHBARSCHAFTSORIENTIERUNG_QR_CODE"
 
-#: camac/instance/placeholders/serializers.py:1235
+#: camac/instance/placeholders/serializers.py:1277
 msgid "USAGE_TYPE"
 msgstr "NUTZUNG"
 
-#: camac/instance/placeholders/serializers.py:1236
+#: camac/instance/placeholders/serializers.py:1278
 msgid "Usage type"
 msgstr "Art der geplanten Nutzung des Grundstückes"
 
-#: camac/instance/placeholders/serializers.py:1240
+#: camac/instance/placeholders/serializers.py:1282
 msgid "USAGE_ZONE"
 msgstr "NUTZUNGSZONE"
 
-#: camac/instance/placeholders/serializers.py:1241
+#: camac/instance/placeholders/serializers.py:1283
 msgid "Usage zone"
 msgstr "Momentane Nutzungszone des Grundstückes"
 
-#: camac/instance/placeholders/serializers.py:1244
+#: camac/instance/placeholders/serializers.py:1289
+msgid "PROJECT_AUTHOR_FIRST_NAME"
+msgstr "PROJEKTVERFASSER_VORNAME"
+
+#: camac/instance/placeholders/serializers.py:1290
+msgid "First name of the project author"
+msgstr "Vorname des/r Projektverfasser/in"
+
+#: camac/instance/placeholders/serializers.py:1296
+msgid "PROJECT_AUTHOR_LAST_NAME"
+msgstr "PROJEKTVERFASSER_NACHNAME"
+
+#: camac/instance/placeholders/serializers.py:1297
+msgid "Last name of the project author"
+msgstr "Nachname des/r Projektverfasser/in"
+
+#: camac/instance/placeholders/serializers.py:1300
 msgid "PROTECTED"
 msgstr "SCHÜTZENSWERT"
 
-#: camac/instance/placeholders/serializers.py:1245
+#: camac/instance/placeholders/serializers.py:1301
 msgid "Boolean placeholder for the 'protected' form field."
 msgstr "Einstufung «schützenswert»"
 
-#: camac/instance/placeholders/serializers.py:1251
+#: camac/instance/placeholders/serializers.py:1307
 msgid "PROTECTION_AREA"
 msgstr "SCHUTZZONE"
 
-#: camac/instance/placeholders/serializers.py:1252
+#: camac/instance/placeholders/serializers.py:1308
 msgid "Protection area"
 msgstr "Grundwasserschutzzonen / -areale"
 
-#: camac/instance/placeholders/serializers.py:1256
+#: camac/instance/placeholders/serializers.py:1312
 msgid "PUBLIC"
 msgstr "OEFFENTLICHKEIT"
 
-#: camac/instance/placeholders/serializers.py:1257
+#: camac/instance/placeholders/serializers.py:1313
 msgid "Hospitality public"
 msgstr "Gastgewerbe Öffentlichkeit"
 
-#: camac/instance/placeholders/serializers.py:1263
+#: camac/instance/placeholders/serializers.py:1319
 msgid "PUBLICATION_1_GAZETTE"
 msgstr "PUBLIKATION_1_ANZEIGER"
 
-#: camac/instance/placeholders/serializers.py:1264
+#: camac/instance/placeholders/serializers.py:1320
 msgid "Date of the first publication in the gazette"
 msgstr "Datum der ersten Publikation im Anzeiger"
 
-#: camac/instance/placeholders/serializers.py:1270
+#: camac/instance/placeholders/serializers.py:1326
 msgid "PUBLICATION_2_GAZETTE"
 msgstr "PUBLIKATION_2_ANZEIGER"
 
-#: camac/instance/placeholders/serializers.py:1271
+#: camac/instance/placeholders/serializers.py:1327
 msgid "Date of the second publication in the gazette"
 msgstr "Datum der zweiten Publikation im Anzeiger"
 
-#: camac/instance/placeholders/serializers.py:1277
+#: camac/instance/placeholders/serializers.py:1333
 msgid "PUBLICATION_OFFICIAL_GAZETTE"
 msgstr "PUBLIKATION_AMTSBLATT"
 
-#: camac/instance/placeholders/serializers.py:1278
-#: camac/instance/placeholders/serializers.py:1594
+#: camac/instance/placeholders/serializers.py:1334
+#: camac/instance/placeholders/serializers.py:1664
 msgid "Date of the publication in the official gazette"
 msgstr "Datum der Publikation im Amtsblatt"
 
-#: camac/instance/placeholders/serializers.py:1282
+#: camac/instance/placeholders/serializers.py:1338
 msgid "PUBLICATION_GAZETTE_NAME"
 msgstr "PUBLIKATION_ANZEIGER_NAME"
 
-#: camac/instance/placeholders/serializers.py:1283
+#: camac/instance/placeholders/serializers.py:1339
 msgid "Name of the gazette"
 msgstr "Name des Anzeigers"
 
-#: camac/instance/placeholders/serializers.py:1289
-#: camac/instance/placeholders/serializers.py:1577
+#: camac/instance/placeholders/serializers.py:1345
+#: camac/instance/placeholders/serializers.py:1647
 msgid "PUBLICATION_END"
 msgstr "PUBLIKATION_ENDE"
 
-#: camac/instance/placeholders/serializers.py:1290
-#: camac/instance/placeholders/serializers.py:1578
+#: camac/instance/placeholders/serializers.py:1346
+#: camac/instance/placeholders/serializers.py:1648
 msgid "End date of the publication of the instance"
 msgstr "Enddatum der Publikation des Dossiers"
 
-#: camac/instance/placeholders/serializers.py:1296
-#: camac/instance/placeholders/serializers.py:1569
+#: camac/instance/placeholders/serializers.py:1352
+#: camac/instance/placeholders/serializers.py:1639
 msgid "PUBLICATION_START"
 msgstr "PUBLIKATION_START"
 
-#: camac/instance/placeholders/serializers.py:1297
-#: camac/instance/placeholders/serializers.py:1570
+#: camac/instance/placeholders/serializers.py:1353
+#: camac/instance/placeholders/serializers.py:1640
 msgid "Start date of the publication of the instance"
 msgstr "Startdatum der Publikation des Dossiers"
 
-#: camac/instance/placeholders/serializers.py:1301
+#: camac/instance/placeholders/serializers.py:1357
 msgid "LEGAL_CUSTODIES"
 msgstr "RECHTSVERWAHRUNGEN"
 
-#: camac/instance/placeholders/serializers.py:1302
+#: camac/instance/placeholders/serializers.py:1358
 msgid "All legal submissions of the type \"legal custody\""
 msgstr "Alle Rechtsbegehren vom Typ \"Rechtsverwahrung\""
 
-#: camac/instance/placeholders/serializers.py:1305
+#: camac/instance/placeholders/serializers.py:1361
 msgid "RRB"
 msgstr "RRB"
 
-#: camac/instance/placeholders/serializers.py:1306
+#: camac/instance/placeholders/serializers.py:1362
 msgid "Boolean placeholder for the 'rrb' form field."
 msgstr "Unterschutzstellung RRB"
 
-#: camac/instance/placeholders/serializers.py:1311
+#: camac/instance/placeholders/serializers.py:1367
 msgid "RRB_START"
 msgstr "RRB_DATUM"
 
-#: camac/instance/placeholders/serializers.py:1312
+#: camac/instance/placeholders/serializers.py:1368
 msgid "Date placeholder for the 'rrb_start' form field"
 msgstr "Datum der Unterschutzstellung RRB"
 
-#: camac/instance/placeholders/serializers.py:1316
+#: camac/instance/placeholders/serializers.py:1372
 msgid "SITUATION"
 msgstr "SACHVERHALT"
 
-#: camac/instance/placeholders/serializers.py:1317
+#: camac/instance/placeholders/serializers.py:1373
 msgid "Situation of the request"
 msgstr "Sachverhalt der Anfrage"
 
-#: camac/instance/placeholders/serializers.py:1321
+#: camac/instance/placeholders/serializers.py:1377
 msgid "List of all tags"
 msgstr "Liste aller Stichworte"
 
-#: camac/instance/placeholders/serializers.py:1325
+#: camac/instance/placeholders/serializers.py:1381
 msgid "DEVELOPMENT_REGULATIONS"
 msgstr "UEBERBAUUNGSORDNUNG"
 
-#: camac/instance/placeholders/serializers.py:1326
+#: camac/instance/placeholders/serializers.py:1382
 msgid "Recorded development regulations of the applicant"
 msgstr "Erfasste Überbauungsordnung des/r Gesuchsteller/in"
 
-#: camac/instance/placeholders/serializers.py:1333
+#: camac/instance/placeholders/serializers.py:1389
 msgid "LEGAL_REPRESENTATIVE_ADDRESS_1"
 msgstr "VERTRETER_ADRESSE_1"
 
-#: camac/instance/placeholders/serializers.py:1334
+#: camac/instance/placeholders/serializers.py:1390
 msgid "Address line 1 of the legal representative"
 msgstr "Adresslinie 1 des/r Vertreter/in"
 
-#: camac/instance/placeholders/serializers.py:1340
+#: camac/instance/placeholders/serializers.py:1396
 msgid "LEGAL_REPRESENTATIVE_ADDRESS_2"
 msgstr "VERTRETER_ADRESSE_2"
 
-#: camac/instance/placeholders/serializers.py:1341
+#: camac/instance/placeholders/serializers.py:1397
 msgid "Address line 2 of the legal representative"
 msgstr "Adresslinie 2 des/r Vertreter/in"
 
-#: camac/instance/placeholders/serializers.py:1347
+#: camac/instance/placeholders/serializers.py:1403
 msgid "LEGAL_REPRESENTATIVE_NAME_ADDRESS"
 msgstr "VERTRETER_NAME_ADRESSE"
 
-#: camac/instance/placeholders/serializers.py:1348
+#: camac/instance/placeholders/serializers.py:1404
 msgid "Name and address of the legal representative"
 msgstr "Name und Adresse des/r Vertreter/in"
 
-#: camac/instance/placeholders/serializers.py:1353
+#: camac/instance/placeholders/serializers.py:1410
+msgid "LEGAL_REPRESENTATIVE_FIRST_NAME"
+msgstr "VERTRETER_VORNAME"
+
+#: camac/instance/placeholders/serializers.py:1411
+msgid "First name of the legal representative"
+msgstr "Vorname des/r Vertreter/in"
+
+#: camac/instance/placeholders/serializers.py:1417
+msgid "LEGAL_REPRESENTATIVE_LAST_NAME"
+msgstr "VERTRETER_NACHNAME"
+
+#: camac/instance/placeholders/serializers.py:1418
+msgid "Last name of the legal representative"
+msgstr "Nachname des/r Vertreter/in"
+
+#: camac/instance/placeholders/serializers.py:1423
 msgid "LEGAL_REPRESENTATIVE"
 msgstr "VERTRETER"
 
-#: camac/instance/placeholders/serializers.py:1354
+#: camac/instance/placeholders/serializers.py:1424
 msgid "Name of the legal representative"
 msgstr "Name des/r Vertreter/in"
 
-#: camac/instance/placeholders/serializers.py:1358
+#: camac/instance/placeholders/serializers.py:1428
 msgid "CIRCULATION_DISTRICT"
 msgstr "ZIRKULATION_RSTA"
 
-#: camac/instance/placeholders/serializers.py:1359
+#: camac/instance/placeholders/serializers.py:1429
 msgid "Involved districts of the instance"
 msgstr "In Dossier involvierte Regierungsstatthalterämter"
 
-#: camac/instance/placeholders/serializers.py:1362
+#: camac/instance/placeholders/serializers.py:1432
 msgid "NUMBER_OF_ACCOMODATED_PERSONS"
 msgstr "ANZAHL_BEHERBERGTE_PERSONEN"
 
-#: camac/instance/placeholders/serializers.py:1363
+#: camac/instance/placeholders/serializers.py:1433
 msgid "Number of accomodated persons"
 msgstr "Anzahl beherbergte Personen"
 
-#: camac/instance/placeholders/serializers.py:1366
+#: camac/instance/placeholders/serializers.py:1436
 msgid "LIFTS"
 msgstr "AUFZUGSANLAGEN"
 
-#: camac/instance/placeholders/serializers.py:1367
+#: camac/instance/placeholders/serializers.py:1437
 msgid "Lifts"
 msgstr "Aufzugsanlagen"
 
-#: camac/instance/placeholders/serializers.py:1369
+#: camac/instance/placeholders/serializers.py:1439
 msgid "SYSTEM_TYPE"
 msgstr "ANLAGENTYP"
 
-#: camac/instance/placeholders/serializers.py:1370
-#: camac/instance/placeholders/serializers.py:1399
-#: camac/instance/placeholders/serializers.py:1421
-#: camac/instance/placeholders/serializers.py:1445
-#: camac/instance/placeholders/serializers.py:1456
+#: camac/instance/placeholders/serializers.py:1440
+#: camac/instance/placeholders/serializers.py:1469
+#: camac/instance/placeholders/serializers.py:1491
+#: camac/instance/placeholders/serializers.py:1515
+#: camac/instance/placeholders/serializers.py:1526
 msgid "NEW_OR_EXISTING"
 msgstr "NEU_BESTEHEND"
 
-#: camac/instance/placeholders/serializers.py:1376
+#: camac/instance/placeholders/serializers.py:1446
 msgid "DIMENSION_HEIGHT"
 msgstr "DIMENSIONEN_HOEHE"
 
-#: camac/instance/placeholders/serializers.py:1377
+#: camac/instance/placeholders/serializers.py:1447
 msgid "Height"
 msgstr "Höhe"
 
-#: camac/instance/placeholders/serializers.py:1380
+#: camac/instance/placeholders/serializers.py:1450
 msgid "BUILDING_DISTANCES"
 msgstr "GEBAEUDEABSTAENDE"
 
-#: camac/instance/placeholders/serializers.py:1381
+#: camac/instance/placeholders/serializers.py:1451
 msgid "Distances between adjacent buildings"
 msgstr "Abstände zwischen benachbarten Gebäuden"
 
-#: camac/instance/placeholders/serializers.py:1382
+#: camac/instance/placeholders/serializers.py:1452
 msgid "SIDE"
 msgstr "SEITE"
 
-#: camac/instance/placeholders/serializers.py:1382
+#: camac/instance/placeholders/serializers.py:1452
 msgid "DISTANCE"
 msgstr "ABSTAND_M"
 
-#: camac/instance/placeholders/serializers.py:1385
+#: camac/instance/placeholders/serializers.py:1455
 msgid "HAZARDOUS_SUBSTANCES"
 msgstr "GEFAEHRLICHE_STOFFE"
 
-#: camac/instance/placeholders/serializers.py:1386
+#: camac/instance/placeholders/serializers.py:1456
 msgid "Hazardous substances"
 msgstr "Gefährliche Stoffe"
 
-#: camac/instance/placeholders/serializers.py:1388
+#: camac/instance/placeholders/serializers.py:1458
 msgid "MATERIAL"
 msgstr "MATERIAL"
 
-#: camac/instance/placeholders/serializers.py:1389
+#: camac/instance/placeholders/serializers.py:1459
 msgid "MATERIAL_GROUP"
 msgstr "STOFFGRUPPE"
 
-#: camac/instance/placeholders/serializers.py:1394
+#: camac/instance/placeholders/serializers.py:1464
 msgid "VENTILATION_SYSTEMS"
 msgstr "LUEFTUNGSANLAGEN"
 
-#: camac/instance/placeholders/serializers.py:1395
+#: camac/instance/placeholders/serializers.py:1465
 msgid "Ventilation systems"
 msgstr "Lüftungsanlagen"
 
-#: camac/instance/placeholders/serializers.py:1397
-#: camac/instance/placeholders/serializers.py:1418
-#: camac/instance/placeholders/serializers.py:1444
-#: camac/instance/placeholders/serializers.py:1452
+#: camac/instance/placeholders/serializers.py:1467
+#: camac/instance/placeholders/serializers.py:1488
+#: camac/instance/placeholders/serializers.py:1514
+#: camac/instance/placeholders/serializers.py:1522
 msgid "TYPE"
 msgstr "TYP"
 
-#: camac/instance/placeholders/serializers.py:1398
+#: camac/instance/placeholders/serializers.py:1468
 msgid "AIR_VOLUME"
 msgstr "VOLUMENSTROM"
 
-#: camac/instance/placeholders/serializers.py:1403
+#: camac/instance/placeholders/serializers.py:1473
 msgid "ROOMS_WITH_MORE_THAN_50_PERSONS"
 msgstr "RAEUME_MEHR_50_PERSONEN"
 
-#: camac/instance/placeholders/serializers.py:1404
+#: camac/instance/placeholders/serializers.py:1474
 msgid "List of rooms with more than 50 persons"
 msgstr "Liste der Räume mit mehr als 50 Personen"
 
-#: camac/instance/placeholders/serializers.py:1406
+#: camac/instance/placeholders/serializers.py:1476
 msgid "ROOM"
 msgstr "RAUM"
 
-#: camac/instance/placeholders/serializers.py:1407
+#: camac/instance/placeholders/serializers.py:1477
 msgid "NUMBER_OF_PERSONS"
 msgstr "ANZAHL_BEHERBERGTE_PERSONEN"
 
-#: camac/instance/placeholders/serializers.py:1411
+#: camac/instance/placeholders/serializers.py:1481
 msgid "ROOM_OCCUPANCY_ROOMS_MORE_THAN_50_PERSONS"
 msgstr "RAUM_BELEGUNG_MEHR_50_PERSONEN"
 
-#: camac/instance/placeholders/serializers.py:1412
+#: camac/instance/placeholders/serializers.py:1482
 msgid "Room occupancy rooms more than 50 persons"
 msgstr "Belegung der Räume mit mehr als 50 Personen"
 
-#: camac/instance/placeholders/serializers.py:1415
+#: camac/instance/placeholders/serializers.py:1485
 msgid "SOLAR_PANELS"
 msgstr "SOLARANLAGEN"
 
-#: camac/instance/placeholders/serializers.py:1416
+#: camac/instance/placeholders/serializers.py:1486
 msgid "Solar panels"
 msgstr "Solaranlagen"
 
-#: camac/instance/placeholders/serializers.py:1419
+#: camac/instance/placeholders/serializers.py:1489
 msgid "ENERGY_STORAGE"
 msgstr "ENERGIE_SPEICHER"
 
-#: camac/instance/placeholders/serializers.py:1420
+#: camac/instance/placeholders/serializers.py:1490
 msgid "ENERGY_STORAGE_CAPACITY"
 msgstr "ENERGIE_SPEICHER_KAPAZITAET"
 
-#: camac/instance/placeholders/serializers.py:1425
-#: camac/instance/placeholders/serializers.py:1436
+#: camac/instance/placeholders/serializers.py:1495
+#: camac/instance/placeholders/serializers.py:1506
 msgid "STFV_SHORT_REPORT_DATE"
 msgstr "STFV_KURZ_BERICHT_DATUM"
 
-#: camac/instance/placeholders/serializers.py:1426
-#: camac/instance/placeholders/serializers.py:1437
+#: camac/instance/placeholders/serializers.py:1496
+#: camac/instance/placeholders/serializers.py:1507
 msgid "STFV short report date"
 msgstr "StfV Kurzbericht Datum"
 
-#: camac/instance/placeholders/serializers.py:1430
+#: camac/instance/placeholders/serializers.py:1500
 msgid "STFV_CRITIAL_VALUE_EXCEEDED"
 msgstr "STFV_KRITISCHER_WERT_UEBERSCHRITTEN"
 
-#: camac/instance/placeholders/serializers.py:1431
+#: camac/instance/placeholders/serializers.py:1501
 msgid "StfV critial value exceeded"
 msgstr "StfV kritischer Wert überschritten"
 
-#: camac/instance/placeholders/serializers.py:1441
+#: camac/instance/placeholders/serializers.py:1511
 msgid "FIRE_PROTECTION_SYSTEMS"
 msgstr "TECHNISCHE_BRANDSCHUTZANLAGEN"
 
-#: camac/instance/placeholders/serializers.py:1442
+#: camac/instance/placeholders/serializers.py:1512
 msgid "Fire protection systems"
 msgstr "Technische Brandschutzanlagen"
 
-#: camac/instance/placeholders/serializers.py:1449
+#: camac/instance/placeholders/serializers.py:1519
 msgid "HEATING_SYSTEMS"
 msgstr "WAERMETECHNISCHE_ANLAGEN"
 
-#: camac/instance/placeholders/serializers.py:1450
+#: camac/instance/placeholders/serializers.py:1520
 msgid "Heating systems"
 msgstr "Wärmetechnische Anlagen"
 
-#: camac/instance/placeholders/serializers.py:1453
+#: camac/instance/placeholders/serializers.py:1523
 msgid "POWER"
 msgstr "LEISTUNG"
 
-#: camac/instance/placeholders/serializers.py:1454
+#: camac/instance/placeholders/serializers.py:1524
 msgid "COMBUSITBLE_STORAGE"
 msgstr "BRENNSTOFFLAGERUNG"
 
-#: camac/instance/placeholders/serializers.py:1455
+#: camac/instance/placeholders/serializers.py:1525
 msgid "STORAGE_AMOUNT"
 msgstr "LAGERMENGE"
 
-#: camac/instance/placeholders/serializers.py:1460
+#: camac/instance/placeholders/serializers.py:1530
 msgid "CONSTRUCTION_COSTS"
 msgstr "BAUKOSTEN"
 
-#: camac/instance/placeholders/serializers.py:1461
+#: camac/instance/placeholders/serializers.py:1531
 msgid "Construction costs"
 msgstr "Baukosten"
 
-#: camac/instance/placeholders/serializers.py:1464
+#: camac/instance/placeholders/serializers.py:1534
 msgid "FLOOR_AREA"
 msgstr "GESCHOSSFLAECHE"
 
-#: camac/instance/placeholders/serializers.py:1465
+#: camac/instance/placeholders/serializers.py:1535
 msgid "Floor area"
 msgstr "Geschossfläche"
 
-#: camac/instance/placeholders/serializers.py:1468
+#: camac/instance/placeholders/serializers.py:1538
 msgid "QS_RESPONSIBLE"
 msgstr "QS_VERANTWORTLICHER"
 
-#: camac/instance/placeholders/serializers.py:1469
+#: camac/instance/placeholders/serializers.py:1539
 msgid "Name of the person responsible for QS"
 msgstr "Angaben des QS Verantwortlichen"
 
-#: camac/instance/placeholders/serializers.py:1585
+#: camac/instance/placeholders/serializers.py:1655
 msgid "PUBLICATION_DATE_GAZETTE"
 msgstr "PUBLIKATION_ANZEIGER"
 
-#: camac/instance/placeholders/serializers.py:1586
+#: camac/instance/placeholders/serializers.py:1656
 msgid "Date of the publication in the gazette"
 msgstr "Datum der Publikation im Anzeiger"
 
-#: camac/instance/placeholders/serializers.py:1593
+#: camac/instance/placeholders/serializers.py:1663
 msgid "PUBLICATION_DATE_OFFICIAL_GAZETTE"
 msgstr "PUBLIKATION_AMTSBLATT"
 
-#: camac/instance/placeholders/serializers.py:1598
+#: camac/instance/placeholders/serializers.py:1668
 msgid "All objections"
 msgstr "Alle Einsprachen"
 
-#: camac/instance/placeholders/serializers.py:1608
+#: camac/instance/placeholders/serializers.py:1678
 msgid "SUBMITTED_DOCUMENTS"
 msgstr "EINGEREICHTE_UNTERLAGEN"
 
-#: camac/instance/placeholders/serializers.py:1609
+#: camac/instance/placeholders/serializers.py:1679
 msgid "All submitted documents"
 msgstr "Alle eingereichten Unterlagen"
 
-#: camac/instance/placeholders/serializers.py:1613
+#: camac/instance/placeholders/serializers.py:1683
 msgid "SUBMITTED_PLANS"
 msgstr "EINGEREICHTE_PLAENE"
 
-#: camac/instance/placeholders/serializers.py:1614
+#: camac/instance/placeholders/serializers.py:1684
 msgid "All submitted plans"
 msgstr "Alle eingereichten Pläne"
 
-#: camac/instance/placeholders/serializers.py:1618
+#: camac/instance/placeholders/serializers.py:1688
 msgid "LAND_USE_PLANNING_LAND_USE"
 msgstr "NUTZUNGSPLANUNG_GRUNDNUTZUNG"
 
-#: camac/instance/placeholders/serializers.py:1619
+#: camac/instance/placeholders/serializers.py:1689
 msgid "Land use planning (land use)"
 msgstr "Nutzungsplanung (Grundnutzung)"
 
-#: camac/instance/placeholders/serializers.py:1632
+#: camac/instance/placeholders/serializers.py:1702
 msgid "PUBLICATION_ORGAN"
 msgstr "PUBLIKATION_ORGAN"
 
-#: camac/instance/placeholders/serializers.py:1635
+#: camac/instance/placeholders/serializers.py:1705
 msgid "EMAIL"
 msgstr "EMAIL"
 
-#: camac/instance/placeholders/serializers.py:1637
+#: camac/instance/placeholders/serializers.py:1707
 msgid "Publication organ of the instance"
 msgstr "Publikationsorgan des Dossiers"
 
-#: camac/instance/placeholders/serializers.py:1641
+#: camac/instance/placeholders/serializers.py:1711
 msgid "LOGGED_IN_EMAIL"
 msgstr "ANGEMELDET_EMAIL"
 
-#: camac/instance/placeholders/serializers.py:1642
+#: camac/instance/placeholders/serializers.py:1712
 msgid "Email address of the currently logged in user"
 msgstr "Email-Adresse des/r momentan angemeldeten Benutzer/in"
 
-#: camac/instance/placeholders/serializers.py:1646
+#: camac/instance/placeholders/serializers.py:1716
 msgid "LOGGED_IN_NAME"
 msgstr "ANGEMELDET_NAME"
 
-#: camac/instance/placeholders/serializers.py:1647
+#: camac/instance/placeholders/serializers.py:1717
 msgid "Name of the currently logged in user"
 msgstr "Name des/r momentan angemeldeten Benutzer/in"
 
-#: camac/instance/placeholders/serializers.py:1652
+#: camac/instance/placeholders/serializers.py:1722
 msgid "ALL_APPLICANT_REPRESENTATIVES"
 msgstr "ALLE_GESUCHSTELLER_VERTRETER"
 
-#: camac/instance/placeholders/serializers.py:1653
+#: camac/instance/placeholders/serializers.py:1723
 msgid "Names of all applicant representatives"
 msgstr "Namen aller Vertreter/innen der Gesuchsteller/innen"
 
-#: camac/instance/placeholders/serializers.py:1659
+#: camac/instance/placeholders/serializers.py:1729
 msgid "ALL_APPLICANT_REPRESENTATIVES_NAME_ADDRESS"
 msgstr "ALLE_GESUCHSTELLER_VERTRETER_NAME_ADRESSE"
 
-#: camac/instance/placeholders/serializers.py:1660
+#: camac/instance/placeholders/serializers.py:1730
 msgid "Names and addresses of all applicant representatives"
 msgstr "Namen und Adressen aller Vertreter/innen der Gesuchsteller/innen"
 
-#: camac/instance/placeholders/serializers.py:1666
+#: camac/instance/placeholders/serializers.py:1736
 msgid "APPLICANT_SALUTATION"
 msgstr "GESUCHSTELLER_ANREDE"
 
-#: camac/instance/placeholders/serializers.py:1667
+#: camac/instance/placeholders/serializers.py:1737
 msgid "Salutation of the first applicant"
 msgstr "Anrede des/r ersten Gesuchsteller/in"
 
-#: camac/instance/placeholders/serializers.py:1673
+#: camac/instance/placeholders/serializers.py:1743
 msgid "APPLICANT_REPRESENTATIVE"
 msgstr "GESUCHSTELLER_VERTRETER"
 
-#: camac/instance/placeholders/serializers.py:1674
+#: camac/instance/placeholders/serializers.py:1744
 msgid "Name of the representative of the first applicant"
 msgstr "Name des/r Vertreter/in des/r ersten Gesuchsteller/in"
 
-#: camac/instance/placeholders/serializers.py:1681
+#: camac/instance/placeholders/serializers.py:1751
 msgid "APPLICANT_REPRESENTATIVE_ADDRESS_1"
 msgstr "GESUCHSTELLER_VERTRETER_ADRESSE_1"
 
-#: camac/instance/placeholders/serializers.py:1682
+#: camac/instance/placeholders/serializers.py:1752
 msgid "Address line 1 of the representative of the first applicant"
 msgstr "Adresslinie 1 des/r Vertreter/in des/r ersten Gesuchsteller/in"
 
-#: camac/instance/placeholders/serializers.py:1689
+#: camac/instance/placeholders/serializers.py:1759
 msgid "APPLICANT_REPRESENTATIVE_ADDRESS_2"
 msgstr "GESUCHSTELLER_VERTRETER_ADRESSE_2"
 
-#: camac/instance/placeholders/serializers.py:1690
+#: camac/instance/placeholders/serializers.py:1760
 msgid "Address line 2 of the representative of the first applicant"
 msgstr "Adresslinie 2 des/r Vertreter/in des/r ersten Gesuchsteller/in"
 
-#: camac/instance/placeholders/serializers.py:1697
+#: camac/instance/placeholders/serializers.py:1767
 msgid "APPLICANT_REPRESENTATIVE_NAME_ADDRESS"
 msgstr "GESUCHSTELLER_VERTRETER_NAME_ADRESSE"
 
-#: camac/instance/placeholders/serializers.py:1698
+#: camac/instance/placeholders/serializers.py:1768
 msgid "Name and address of the representative of the first applicant"
 msgstr "Name und Adresse des/r Vertreter/in des/r ersten Gesuchsteller/in"
 
-#: camac/instance/placeholders/serializers.py:1702
+#: camac/instance/placeholders/serializers.py:1772
 msgid "MUNICIPALITY_LOGO"
 msgstr "GEMEINDE_WAPPEN"
 
-#: camac/instance/placeholders/serializers.py:1703
+#: camac/instance/placeholders/serializers.py:1773
 msgid "Logo of the municipality"
 msgstr "Wappen der Gemeinde"
 
-#: camac/instance/placeholders/serializers.py:1707
+#: camac/instance/placeholders/serializers.py:1777
 msgid "ALL_INVOICE_RECIPIENTS"
 msgstr "ALLE_RECHNUNGSEMPFAENGER"
 
-#: camac/instance/placeholders/serializers.py:1708
+#: camac/instance/placeholders/serializers.py:1778
 msgid "Names of all invoice recipients"
 msgstr "Namen aller Rechnungsempfänger/innen"
 
-#: camac/instance/placeholders/serializers.py:1713
+#: camac/instance/placeholders/serializers.py:1783
 msgid "ALL_INVOICE_RECIPIENTS_NAME_ADDRESS"
 msgstr "ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE"
 
-#: camac/instance/placeholders/serializers.py:1714
+#: camac/instance/placeholders/serializers.py:1784
 msgid "Names and adressesof all invoice recipients"
 msgstr "Namen und Adressen aller Rechnungsempfänger/innen"
 
-#: camac/instance/placeholders/serializers.py:1719
+#: camac/instance/placeholders/serializers.py:1789
 msgid "INVOICE_RECIPIENT"
 msgstr "RECHNUNGSEMPFAENGER"
 
-#: camac/instance/placeholders/serializers.py:1720
+#: camac/instance/placeholders/serializers.py:1790
 msgid "Name of the first invoice recipient"
 msgstr "Name des/r ersten Rechnungsempfänger/in"
 
-#: camac/instance/placeholders/serializers.py:1726
+#: camac/instance/placeholders/serializers.py:1796
 msgid "INVOICE_RECIPIENT_ADDRESS_1"
 msgstr "RECHNUNGSEMPFAENGER_ADRESSE_1"
 
-#: camac/instance/placeholders/serializers.py:1727
+#: camac/instance/placeholders/serializers.py:1797
 msgid "Address line 1 of the first invoice recipient"
 msgstr "Adresslinie 1 des/r ersten Rechnungsempfänger/in"
 
-#: camac/instance/placeholders/serializers.py:1733
+#: camac/instance/placeholders/serializers.py:1803
 msgid "INVOICE_RECIPIENT_ADDRESS_2"
 msgstr "RECHNUNGSEMPFAENGER_ADRESSE_2"
 
-#: camac/instance/placeholders/serializers.py:1734
+#: camac/instance/placeholders/serializers.py:1804
 msgid "Address line 2 of the first invoice recipient"
 msgstr "Adresslinie 2 des/r ersten Rechnungsempfänger/in"
 
-#: camac/instance/placeholders/serializers.py:1740
+#: camac/instance/placeholders/serializers.py:1810
 msgid "INVOICE_RECIPIENT_NAME_ADDRESS"
 msgstr "RECHNUNGSEMPFAENGER_NAME_ADRESSE"
 
-#: camac/instance/placeholders/serializers.py:1741
+#: camac/instance/placeholders/serializers.py:1811
 msgid "Name and address of the first invoice recipient"
 msgstr "Name und Adresse des/r ersten Rechnungsempfänger/in"

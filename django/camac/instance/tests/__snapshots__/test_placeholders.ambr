@@ -45,6 +45,8 @@
     'AUTEUR_PROJET_ADRESSE_1': 'Einweg 9',
     'AUTEUR_PROJET_ADRESSE_2': '3000 Bern',
     'AUTEUR_PROJET_NOM_ADRESSE': 'Hans Müller, Einweg 9, 3000 Bern',
+    'AUTEUR_PROJET_NOM_DE_FAMILLE': 'Müller',
+    'AUTEUR_PROJET_PRÉNOM': 'Hans',
     'AUTEUR_PROJET_TOUS': 'Hans Müller',
     'AUTEUR_PROJET_TOUS_NOM_ADRESSE': 'Hans Müller, Einweg 9, 3000 Bern',
     'AUTORITE_DIRECTRICE_ADRESSE_1': '',
@@ -410,8 +412,12 @@
     'GEBAEUDEEIGENTUEMER_ADDRESS_2': '3002 Bern',
     'GEBAEUDEEIGENTUEMER_ADRESSE_1': 'Thunstrasse 88',
     'GEBAEUDEEIGENTUEMER_ADRESSE_2': '3002 Bern',
+    'GEBAEUDEEIGENTUEMER_FIRST_NAME': 'Peter',
+    'GEBAEUDEEIGENTUEMER_LAST_NAME': 'Meier',
+    'GEBAEUDEEIGENTUEMER_NACHNAME': 'Meier',
     'GEBAEUDEEIGENTUEMER_NAME_ADDRESS': 'Peter Meier, Thunstrasse 88, 3002 Bern',
     'GEBAEUDEEIGENTUEMER_NAME_ADRESSE': 'Peter Meier, Thunstrasse 88, 3002 Bern',
+    'GEBAEUDEEIGENTUEMER_VORNAME': 'Peter',
     'GEBUEHREN': list([
       dict({
         'BETRAG': '885.56',
@@ -451,16 +457,24 @@
     'GESUCHSTELLER_ADDRESS_2': '1234 Testhausen',
     'GESUCHSTELLER_ADRESSE_1': 'Teststrasse 123',
     'GESUCHSTELLER_ADRESSE_2': '1234 Testhausen',
+    'GESUCHSTELLER_FIRST_NAME': 'Max',
+    'GESUCHSTELLER_LAST_NAME': 'Mustermann',
+    'GESUCHSTELLER_NACHNAME': 'Mustermann',
     'GESUCHSTELLER_NAME_ADDRESS': 'ACME AG, Max Mustermann, Teststrasse 123, 1234 Testhausen',
     'GESUCHSTELLER_NAME_ADRESSE': 'ACME AG, Max Mustermann, Teststrasse 123, 1234 Testhausen',
+    'GESUCHSTELLER_VORNAME': 'Max',
     'GEWAESSERSCHUTZBEREICH': 'Aᵤ',
     'GRUNDEIGENTUEMER': 'Sandra Holzer',
     'GRUNDEIGENTUEMER_ADDRESS_1': 'Bernweg 12',
     'GRUNDEIGENTUEMER_ADDRESS_2': '3002 Bern',
     'GRUNDEIGENTUEMER_ADRESSE_1': 'Bernweg 12',
     'GRUNDEIGENTUEMER_ADRESSE_2': '3002 Bern',
+    'GRUNDEIGENTUEMER_FIRST_NAME': 'Sandra',
+    'GRUNDEIGENTUEMER_LAST_NAME': 'Holzer',
+    'GRUNDEIGENTUEMER_NACHNAME': 'Holzer',
     'GRUNDEIGENTUEMER_NAME_ADDRESS': 'Sandra Holzer, Bernweg 12, 3002 Bern',
     'GRUNDEIGENTUEMER_NAME_ADRESSE': 'Sandra Holzer, Bernweg 12, 3002 Bern',
+    'GRUNDEIGENTUEMER_VORNAME': 'Sandra',
     'HAZARDOUS_SUBSTANCES': list([
     ]),
     'HEATING_SYSTEMS': list([
@@ -786,8 +800,12 @@
     'PROJEKTVERFASSER_ADDRESS_2': '3000 Bern',
     'PROJEKTVERFASSER_ADRESSE_1': 'Einweg 9',
     'PROJEKTVERFASSER_ADRESSE_2': '3000 Bern',
+    'PROJEKTVERFASSER_FIRST_NAME': 'Hans',
+    'PROJEKTVERFASSER_LAST_NAME': 'Müller',
+    'PROJEKTVERFASSER_NACHNAME': 'Müller',
     'PROJEKTVERFASSER_NAME_ADDRESS': 'Hans Müller, Einweg 9, 3000 Bern',
     'PROJEKTVERFASSER_NAME_ADRESSE': 'Hans Müller, Einweg 9, 3000 Bern',
+    'PROJEKTVERFASSER_VORNAME': 'Hans',
     'PROJET_CONSTR': 'Neubau, Grosses Haus',
     'PROJET_CONSTR_DESCR': 'Grosses Haus',
     'PROPRIETAIRE_FONC': 'Sandra Holzer',
@@ -800,8 +818,11 @@
     'PROPRIETAIRE_IMMOB_ADRESSE_1': 'Thunstrasse 88',
     'PROPRIETAIRE_IMMOB_ADRESSE_2': '3002 Bern',
     'PROPRIETAIRE_IMMOB_NOM_ADRESSE': 'Peter Meier, Thunstrasse 88, 3002 Bern',
+    'PROPRIETAIRE_IMMOB_PRÉNOM': 'Peter',
     'PROPRIETAIRE_IMMOB_TOUS': 'Peter Meier',
     'PROPRIETAIRE_IMMOB_TOUS_NOM_ADRESSE': 'Peter Meier, Thunstrasse 88, 3002 Bern',
+    'PROPRIETAIRE_NOM_DE_FAMILLE': 'Meier',
+    'PROPRIETAIRE_PRÉNOM': 'Sandra',
     'PROTECTED': 'Ja',
     'PROTECTION_AREA': 'S1',
     'PROTÉGÉ': 'Ja',
@@ -883,6 +904,8 @@
     'REPRESENTANT_ADRESSE_1': 'Juristenweg 99',
     'REPRESENTANT_ADRESSE_2': '3008 Bern',
     'REPRESENTANT_NOM_ADRESSE': 'Mustermann und Söhne AG, Juristenweg 99, 3008 Bern',
+    'REPRESENTANT_NOM_DE_FAMILLE': '',
+    'REPRESENTANT_PRÉNOM': '',
     'REPRESENTANT_TOUS': 'Mustermann und Söhne AG',
     'REPRESENTANT_TOUS_NOM_ADRESSE': 'Mustermann und Söhne AG, Juristenweg 99, 3008 Bern',
     'REQUERANT': 'ACME AG, Max Mustermann',
@@ -925,6 +948,8 @@
     'REQUERANT_ADRESSE_1': 'Teststrasse 123',
     'REQUERANT_ADRESSE_2': '1234 Testhausen',
     'REQUERANT_NOM_ADRESSE': 'ACME AG, Max Mustermann, Teststrasse 123, 1234 Testhausen',
+    'REQUERANT_NOM_DE_FAMILLE': 'Mustermann',
+    'REQUERANT_PRÉNOM': 'Max',
     'REQUERANT_TOUS': 'ACME AG, Max Mustermann',
     'REQUERANT_TOUS_NOM_ADRESSE': 'ACME AG, Max Mustermann, Teststrasse 123, 1234 Testhausen',
     'RESERVES_DE_DROIT': list([
@@ -1000,8 +1025,12 @@
     'VERTRETER_ADDRESS_2': '3008 Bern',
     'VERTRETER_ADRESSE_1': 'Juristenweg 99',
     'VERTRETER_ADRESSE_2': '3008 Bern',
+    'VERTRETER_FIRST_NAME': '',
+    'VERTRETER_LAST_NAME': '',
+    'VERTRETER_NACHNAME': '',
     'VERTRETER_NAME_ADDRESS': 'Mustermann und Söhne AG, Juristenweg 99, 3008 Bern',
     'VERTRETER_NAME_ADRESSE': 'Mustermann und Söhne AG, Juristenweg 99, 3008 Bern',
+    'VERTRETER_VORNAME': '',
     'VERWALTUNGSKREIS': 'Emmental',
     'VOISINS_TOUS': list([
       dict({
@@ -1958,6 +1987,34 @@
       'nested_aliases': dict({
       }),
     }),
+    'GEBAEUDEEIGENTUEMER_FIRST_NAME': dict({
+      'aliases': list([
+        dict({
+          'de': 'GEBAEUDEEIGENTUEMER_VORNAME',
+          'fr': 'PROPRIETAIRE_IMMOB_PRÉNOM',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Vorname des/r Gebäudeeigentümer/in',
+        'fr': 'Prénom propriétaire immobilier/immobilière',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GEBAEUDEEIGENTUEMER_LAST_NAME': dict({
+      'aliases': list([
+        dict({
+          'de': 'GEBAEUDEEIGENTUEMER_NACHNAME',
+          'fr': 'PROPRIETAIRE_NOM_DE_FAMILLE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Nachname des/r Gebäudeeigentümer/in',
+        'fr': 'Nom de famille propriétaire immobilier/immobilière',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'GEBAEUDEEIGENTUEMER_NAME_ADDRESS': dict({
       'aliases': list([
         dict({
@@ -2138,6 +2195,34 @@
       'nested_aliases': dict({
       }),
     }),
+    'GESUCHSTELLER_FIRST_NAME': dict({
+      'aliases': list([
+        dict({
+          'de': 'GESUCHSTELLER_VORNAME',
+          'fr': 'REQUERANT_PRÉNOM',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Vorname des/r Gesuchsteller/in',
+        'fr': 'Prénom requérant/e',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GESUCHSTELLER_LAST_NAME': dict({
+      'aliases': list([
+        dict({
+          'de': 'GESUCHSTELLER_NACHNAME',
+          'fr': 'REQUERANT_NOM_DE_FAMILLE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Nachname des/r Gesuchsteller/in',
+        'fr': 'Nom de famille requérant/e',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'GESUCHSTELLER_NAME_ADDRESS': dict({
       'aliases': list([
         dict({
@@ -2204,6 +2289,34 @@
       'description': dict({
         'de': 'Adresslinie 2 des/r ersten Grundeigentümer/in',
         'fr': "Ligne d'adresse 2 propriétaire du premier foncier/foncière",
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GRUNDEIGENTUEMER_FIRST_NAME': dict({
+      'aliases': list([
+        dict({
+          'de': 'GRUNDEIGENTUEMER_VORNAME',
+          'fr': 'PROPRIETAIRE_PRÉNOM',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Vorname des/r Grundeigentümer/in',
+        'fr': 'Prénom propriétaire foncier/foncière',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GRUNDEIGENTUEMER_LAST_NAME': dict({
+      'aliases': list([
+        dict({
+          'de': 'GRUNDEIGENTUEMER_NACHNAME',
+          'fr': 'PROPRIETAIRE_NOM_DE_FAMILLE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Nachname des/r Grundeigentümer/in',
+        'fr': 'Nom de famille propriétaire foncier/foncière',
       }),
       'nested_aliases': dict({
       }),
@@ -3095,6 +3208,34 @@
       'nested_aliases': dict({
       }),
     }),
+    'PROJEKTVERFASSER_FIRST_NAME': dict({
+      'aliases': list([
+        dict({
+          'de': 'PROJEKTVERFASSER_VORNAME',
+          'fr': 'AUTEUR_PROJET_PRÉNOM',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Vorname des/r Projektverfasser/in',
+        'fr': "Prénom de l'auteur(e) du projet",
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'PROJEKTVERFASSER_LAST_NAME': dict({
+      'aliases': list([
+        dict({
+          'de': 'PROJEKTVERFASSER_NACHNAME',
+          'fr': 'AUTEUR_PROJET_NOM_DE_FAMILLE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Nachname des/r Projektverfasser/in',
+        'fr': "Nom de famille de l'auteur(e) du projet",
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'PROJEKTVERFASSER_NAME_ADDRESS': dict({
       'aliases': list([
         dict({
@@ -3624,6 +3765,34 @@
       'description': dict({
         'de': 'Adresslinie 2 des/r Vertreter/in',
         'fr': "Ligne d'adresse 2 de la personne resprésentante",
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'VERTRETER_FIRST_NAME': dict({
+      'aliases': list([
+        dict({
+          'de': 'VERTRETER_VORNAME',
+          'fr': 'REPRESENTANT_PRÉNOM',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Vorname des/r Vertreter/in',
+        'fr': 'Prénom de la personne resprésentante',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'VERTRETER_LAST_NAME': dict({
+      'aliases': list([
+        dict({
+          'de': 'VERTRETER_NACHNAME',
+          'fr': 'REPRESENTANT_NOM_DE_FAMILLE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Nachname des/r Vertreter/in',
+        'fr': 'Nom de famille de la personne resprésentante',
       }),
       'nested_aliases': dict({
       }),
@@ -6522,6 +6691,8 @@
     'AUTEUR_PROJET_ADRESSE_1',
     'AUTEUR_PROJET_ADRESSE_2',
     'AUTEUR_PROJET_NOM_ADRESSE',
+    'AUTEUR_PROJET_NOM_DE_FAMILLE',
+    'AUTEUR_PROJET_PRÉNOM',
     'AUTEUR_PROJET_TOUS',
     'AUTEUR_PROJET_TOUS_NOM_ADRESSE',
     'AUTORITE_DIRECTRICE_ADRESSE_1',
@@ -6756,8 +6927,12 @@
     'GEBAEUDEEIGENTUEMER_ADDRESS_2',
     'GEBAEUDEEIGENTUEMER_ADRESSE_1',
     'GEBAEUDEEIGENTUEMER_ADRESSE_2',
+    'GEBAEUDEEIGENTUEMER_FIRST_NAME',
+    'GEBAEUDEEIGENTUEMER_LAST_NAME',
+    'GEBAEUDEEIGENTUEMER_NACHNAME',
     'GEBAEUDEEIGENTUEMER_NAME_ADDRESS',
     'GEBAEUDEEIGENTUEMER_NAME_ADRESSE',
+    'GEBAEUDEEIGENTUEMER_VORNAME',
     'GEBUEHREN',
     'GEBUEHREN[]',
     'GEBUEHREN[].BETRAG',
@@ -6789,16 +6964,24 @@
     'GESUCHSTELLER_ADDRESS_2',
     'GESUCHSTELLER_ADRESSE_1',
     'GESUCHSTELLER_ADRESSE_2',
+    'GESUCHSTELLER_FIRST_NAME',
+    'GESUCHSTELLER_LAST_NAME',
+    'GESUCHSTELLER_NACHNAME',
     'GESUCHSTELLER_NAME_ADDRESS',
     'GESUCHSTELLER_NAME_ADRESSE',
+    'GESUCHSTELLER_VORNAME',
     'GEWAESSERSCHUTZBEREICH',
     'GRUNDEIGENTUEMER',
     'GRUNDEIGENTUEMER_ADDRESS_1',
     'GRUNDEIGENTUEMER_ADDRESS_2',
     'GRUNDEIGENTUEMER_ADRESSE_1',
     'GRUNDEIGENTUEMER_ADRESSE_2',
+    'GRUNDEIGENTUEMER_FIRST_NAME',
+    'GRUNDEIGENTUEMER_LAST_NAME',
+    'GRUNDEIGENTUEMER_NACHNAME',
     'GRUNDEIGENTUEMER_NAME_ADDRESS',
     'GRUNDEIGENTUEMER_NAME_ADRESSE',
+    'GRUNDEIGENTUEMER_VORNAME',
     'HAZARDOUS_SUBSTANCES',
     'HAZARDOUS_SUBSTANCES[]',
     'HAZARDOUS_SUBSTANCES[].BETRAG',
@@ -7073,8 +7256,12 @@
     'PROJEKTVERFASSER_ADDRESS_2',
     'PROJEKTVERFASSER_ADRESSE_1',
     'PROJEKTVERFASSER_ADRESSE_2',
+    'PROJEKTVERFASSER_FIRST_NAME',
+    'PROJEKTVERFASSER_LAST_NAME',
+    'PROJEKTVERFASSER_NACHNAME',
     'PROJEKTVERFASSER_NAME_ADDRESS',
     'PROJEKTVERFASSER_NAME_ADRESSE',
+    'PROJEKTVERFASSER_VORNAME',
     'PROJET_CONSTR',
     'PROJET_CONSTR_DESCR',
     'PROPRIETAIRE_FONC',
@@ -7087,8 +7274,11 @@
     'PROPRIETAIRE_IMMOB_ADRESSE_1',
     'PROPRIETAIRE_IMMOB_ADRESSE_2',
     'PROPRIETAIRE_IMMOB_NOM_ADRESSE',
+    'PROPRIETAIRE_IMMOB_PRÉNOM',
     'PROPRIETAIRE_IMMOB_TOUS',
     'PROPRIETAIRE_IMMOB_TOUS_NOM_ADRESSE',
+    'PROPRIETAIRE_NOM_DE_FAMILLE',
+    'PROPRIETAIRE_PRÉNOM',
     'PROTECTED',
     'PROTECTION_AREA',
     'PROTÉGÉ',
@@ -7149,6 +7339,8 @@
     'REPRESENTANT_ADRESSE_1',
     'REPRESENTANT_ADRESSE_2',
     'REPRESENTANT_NOM_ADRESSE',
+    'REPRESENTANT_NOM_DE_FAMILLE',
+    'REPRESENTANT_PRÉNOM',
     'REPRESENTANT_TOUS',
     'REPRESENTANT_TOUS_NOM_ADRESSE',
     'REQUERANT',
@@ -7173,6 +7365,8 @@
     'REQUERANT_ADRESSE_1',
     'REQUERANT_ADRESSE_2',
     'REQUERANT_NOM_ADRESSE',
+    'REQUERANT_NOM_DE_FAMILLE',
+    'REQUERANT_PRÉNOM',
     'REQUERANT_TOUS',
     'REQUERANT_TOUS_NOM_ADRESSE',
     'RESERVES_DE_DROIT',
@@ -7291,8 +7485,12 @@
     'VERTRETER_ADDRESS_2',
     'VERTRETER_ADRESSE_1',
     'VERTRETER_ADRESSE_2',
+    'VERTRETER_FIRST_NAME',
+    'VERTRETER_LAST_NAME',
+    'VERTRETER_NACHNAME',
     'VERTRETER_NAME_ADDRESS',
     'VERTRETER_NAME_ADRESSE',
+    'VERTRETER_VORNAME',
     'VERWALTUNGSKREIS',
     'VOISINS_TOUS',
     'VOISINS_TOUS[]',
@@ -7842,6 +8040,8 @@
     'AUTEUR_PROJET_ADRESSE_1': '',
     'AUTEUR_PROJET_ADRESSE_2': '',
     'AUTEUR_PROJET_NOM_ADRESSE': '',
+    'AUTEUR_PROJET_NOM_DE_FAMILLE': '',
+    'AUTEUR_PROJET_PRÉNOM': '',
     'AUTEUR_PROJET_TOUS': '',
     'AUTEUR_PROJET_TOUS_NOM_ADRESSE': '',
     'AUTORITE_DIRECTRICE_ADRESSE_1': '',
@@ -7975,8 +8175,12 @@
     'GEBAEUDEEIGENTUEMER_ADDRESS_2': '',
     'GEBAEUDEEIGENTUEMER_ADRESSE_1': '',
     'GEBAEUDEEIGENTUEMER_ADRESSE_2': '',
+    'GEBAEUDEEIGENTUEMER_FIRST_NAME': '',
+    'GEBAEUDEEIGENTUEMER_LAST_NAME': '',
+    'GEBAEUDEEIGENTUEMER_NACHNAME': '',
     'GEBAEUDEEIGENTUEMER_NAME_ADDRESS': '',
     'GEBAEUDEEIGENTUEMER_NAME_ADRESSE': '',
+    'GEBAEUDEEIGENTUEMER_VORNAME': '',
     'GEBUEHREN': list([
     ]),
     'GEBUEHREN_TOTAL': '0.00',
@@ -7996,16 +8200,24 @@
     'GESUCHSTELLER_ADDRESS_2': '',
     'GESUCHSTELLER_ADRESSE_1': '',
     'GESUCHSTELLER_ADRESSE_2': '',
+    'GESUCHSTELLER_FIRST_NAME': '',
+    'GESUCHSTELLER_LAST_NAME': '',
+    'GESUCHSTELLER_NACHNAME': '',
     'GESUCHSTELLER_NAME_ADDRESS': '',
     'GESUCHSTELLER_NAME_ADRESSE': '',
+    'GESUCHSTELLER_VORNAME': '',
     'GEWAESSERSCHUTZBEREICH': '',
     'GRUNDEIGENTUEMER': '',
     'GRUNDEIGENTUEMER_ADDRESS_1': '',
     'GRUNDEIGENTUEMER_ADDRESS_2': '',
     'GRUNDEIGENTUEMER_ADRESSE_1': '',
     'GRUNDEIGENTUEMER_ADRESSE_2': '',
+    'GRUNDEIGENTUEMER_FIRST_NAME': '',
+    'GRUNDEIGENTUEMER_LAST_NAME': '',
+    'GRUNDEIGENTUEMER_NACHNAME': '',
     'GRUNDEIGENTUEMER_NAME_ADDRESS': '',
     'GRUNDEIGENTUEMER_NAME_ADRESSE': '',
+    'GRUNDEIGENTUEMER_VORNAME': '',
     'HAZARDOUS_SUBSTANCES': list([
     ]),
     'HEATING_SYSTEMS': list([
@@ -8123,8 +8335,12 @@
     'PROJEKTVERFASSER_ADDRESS_2': '',
     'PROJEKTVERFASSER_ADRESSE_1': '',
     'PROJEKTVERFASSER_ADRESSE_2': '',
+    'PROJEKTVERFASSER_FIRST_NAME': '',
+    'PROJEKTVERFASSER_LAST_NAME': '',
+    'PROJEKTVERFASSER_NACHNAME': '',
     'PROJEKTVERFASSER_NAME_ADDRESS': '',
     'PROJEKTVERFASSER_NAME_ADRESSE': '',
+    'PROJEKTVERFASSER_VORNAME': '',
     'PROJET_CONSTR': '',
     'PROJET_CONSTR_DESCR': '',
     'PROPRIETAIRE_FONC': '',
@@ -8137,8 +8353,11 @@
     'PROPRIETAIRE_IMMOB_ADRESSE_1': '',
     'PROPRIETAIRE_IMMOB_ADRESSE_2': '',
     'PROPRIETAIRE_IMMOB_NOM_ADRESSE': '',
+    'PROPRIETAIRE_IMMOB_PRÉNOM': '',
     'PROPRIETAIRE_IMMOB_TOUS': '',
     'PROPRIETAIRE_IMMOB_TOUS_NOM_ADRESSE': '',
+    'PROPRIETAIRE_NOM_DE_FAMILLE': '',
+    'PROPRIETAIRE_PRÉNOM': '',
     'PROTECTED': '',
     'PROTECTION_AREA': '',
     'PROTÉGÉ': '',
@@ -8174,6 +8393,8 @@
     'REPRESENTANT_ADRESSE_1': '',
     'REPRESENTANT_ADRESSE_2': '',
     'REPRESENTANT_NOM_ADRESSE': '',
+    'REPRESENTANT_NOM_DE_FAMILLE': '',
+    'REPRESENTANT_PRÉNOM': '',
     'REPRESENTANT_TOUS': '',
     'REPRESENTANT_TOUS_NOM_ADRESSE': '',
     'REQUERANT': '',
@@ -8186,6 +8407,8 @@
     'REQUERANT_ADRESSE_1': '',
     'REQUERANT_ADRESSE_2': '',
     'REQUERANT_NOM_ADRESSE': '',
+    'REQUERANT_NOM_DE_FAMILLE': '',
+    'REQUERANT_PRÉNOM': '',
     'REQUERANT_TOUS': '',
     'REQUERANT_TOUS_NOM_ADRESSE': '',
     'RESERVES_DE_DROIT': list([
@@ -8239,8 +8462,12 @@
     'VERTRETER_ADDRESS_2': '',
     'VERTRETER_ADRESSE_1': '',
     'VERTRETER_ADRESSE_2': '',
+    'VERTRETER_FIRST_NAME': '',
+    'VERTRETER_LAST_NAME': '',
+    'VERTRETER_NACHNAME': '',
     'VERTRETER_NAME_ADDRESS': '',
     'VERTRETER_NAME_ADRESSE': '',
+    'VERTRETER_VORNAME': '',
     'VERWALTUNGSKREIS': '',
     'VOISINS_TOUS': list([
     ]),
