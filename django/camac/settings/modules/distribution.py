@@ -646,6 +646,38 @@ DISTRIBUTION = {
                     "infrastrukturanlagen-landschaft",
                     "infrastrukturanlagen-landschaft-trinkwasser",
                 ): [114],
+                (
+                    "gefahrenstufen",
+                    "gefahrenstufen-geringe-gefaehrdung",
+                ): [115],
+                (
+                    "gefahrenstufen",
+                    "gefahrenstufen-mittlere-gefaehrdung",
+                ): [115],
+                (
+                    "gefahrenstufen",
+                    "gefahrenstufen-erhebliche-gefaehrdung",
+                ): [115],
+                (
+                    "gefahrenstufen",
+                    "gefahrenstufen-restgefaehrdung",
+                ): [115],
+                (
+                    "naturgefahrengefaehrdung",
+                    "naturgefahrengefaehrdung-ja",
+                ): [108, 112, 115],
+                (
+                    "gefaehrdung-durch-oberflaechenabfluss",
+                    "gefaehrdung-durch-oberflaechenabfluss-ja",
+                ): [115],
+                (
+                    "sind-objektschutzmassnahmen-geplant"
+                    "sind-objektschutzmassnahmen-geplant-beratung-erwuenscht"
+                ): [115],
+                (
+                    "sind-objektschutzmassnahmen-geplant"
+                    "sind-objektschutzmassnahmen-geplant-ja"
+                ): [115],
             },
         },
     },

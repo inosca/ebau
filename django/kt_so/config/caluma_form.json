@@ -425,6 +425,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "gefahrenkartenprozesse-tabelle",
+    "fields": {
+      "created_at": "2024-03-04T07:04:35.035Z",
+      "modified_at": "2024-03-04T07:04:35.035Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Gefahrenkartenprozesse Tabelle\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "generelle-fachthemen",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -4125,7 +4143,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "allgemeine-angaben-titel",
-      "sort": 9
+      "sort": 12
     }
   },
   {
@@ -4140,7 +4158,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "art-der-bauwerke",
-      "sort": 14
+      "sort": 17
     }
   },
   {
@@ -4155,7 +4173,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "bab",
-      "sort": 19
+      "sort": 22
     }
   },
   {
@@ -4170,7 +4188,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "bab-nachtraeglich-anforderungen",
-      "sort": 17
+      "sort": 20
     }
   },
   {
@@ -4185,7 +4203,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "bauprojekt-titel",
-      "sort": 20
+      "sort": 23
     }
   },
   {
@@ -4215,7 +4233,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "behig",
-      "sort": 10
+      "sort": 13
     }
   },
   {
@@ -4245,7 +4263,22 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "beschreibung",
-      "sort": 11
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt.dauer-in-monaten",
+    "fields": {
+      "created_at": "2024-03-01T15:02:06.543Z",
+      "modified_at": "2024-03-01T15:02:06.543Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauprojekt",
+      "question": "dauer-in-monaten",
+      "sort": 8
     }
   },
   {
@@ -4295,6 +4328,36 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "bauprojekt.geplanter-baustart",
+    "fields": {
+      "created_at": "2024-03-01T15:01:30.657Z",
+      "modified_at": "2024-03-01T15:01:30.657Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauprojekt",
+      "question": "geplanter-baustart",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt.gesamthoehe-gemaess-ivhb",
+    "fields": {
+      "created_at": "2024-03-01T14:59:41.520Z",
+      "modified_at": "2024-03-01T14:59:41.520Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauprojekt",
+      "question": "gesamthoehe-gemaess-ivhb",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "bauprojekt.gesamtkosten",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -4305,7 +4368,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "gesamtkosten",
-      "sort": 8
+      "sort": 11
     }
   },
   {
@@ -4320,7 +4383,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "hinweis-art-der-arbeiten",
-      "sort": 13
+      "sort": 16
     }
   },
   {
@@ -4365,7 +4428,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "nutzungszwecke",
-      "sort": 12
+      "sort": 15
     }
   },
   {
@@ -4380,7 +4443,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "stand-der-realisierung",
-      "sort": 16
+      "sort": 19
     }
   },
   {
@@ -4395,7 +4458,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "status-bauprojekt",
-      "sort": 18
+      "sort": 21
     }
   },
   {
@@ -4440,7 +4503,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "umschreibung-bauprojekt",
-      "sort": 15
+      "sort": 18
     }
   },
   {
@@ -4680,7 +4743,22 @@
       "modified_by_group": null,
       "form": "brandschutz",
       "question": "auswahl-vorhaben-bs",
-      "sort": 16
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz.bauprojekt-art",
+    "fields": {
+      "created_at": "2024-03-04T09:01:18.172Z",
+      "modified_at": "2024-03-04T09:01:18.172Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz",
+      "question": "bauprojekt-art",
+      "sort": 19
     }
   },
   {
@@ -4710,7 +4788,7 @@
       "modified_by_group": null,
       "form": "brandschutz",
       "question": "brandschutzabstand-eingehalten",
-      "sort": 14
+      "sort": 16
     }
   },
   {
@@ -4725,7 +4803,7 @@
       "modified_by_group": null,
       "form": "brandschutz",
       "question": "brandschutzkonzept-inhalt",
-      "sort": 17
+      "sort": 21
     }
   },
   {
@@ -4740,7 +4818,7 @@
       "modified_by_group": null,
       "form": "brandschutz",
       "question": "brandschutz-titel",
-      "sort": 18
+      "sort": 22
     }
   },
   {
@@ -4755,7 +4833,7 @@
       "modified_by_group": null,
       "form": "brandschutz",
       "question": "bs-nein",
-      "sort": 15
+      "sort": 17
     }
   },
   {
@@ -4801,6 +4879,51 @@
       "form": "brandschutz",
       "question": "feuerungsaggregate-vorhanden",
       "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz.hinweis",
+    "fields": {
+      "created_at": "2024-03-04T09:15:29.166Z",
+      "modified_at": "2024-03-04T09:15:29.166Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz",
+      "question": "hinweis-brandschutzrelevant",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz.hinweis-andere",
+    "fields": {
+      "created_at": "2024-03-04T09:21:02.421Z",
+      "modified_at": "2024-03-04T09:21:02.421Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz",
+      "question": "hinweis-andere",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz.hinweis-nicht-brandschutzrelevant",
+    "fields": {
+      "created_at": "2024-03-04T09:07:37.984Z",
+      "modified_at": "2024-03-04T09:07:37.984Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz",
+      "question": "hinweis-nicht-brandschutzrelevant",
+      "sort": 18
     }
   },
   {
@@ -4860,7 +4983,7 @@
       "modified_by_group": null,
       "form": "brandschutz",
       "question": "nicht-brandschutzrelevant",
-      "sort": 13
+      "sort": 15
     }
   },
   {
@@ -4905,7 +5028,7 @@
       "modified_by_group": null,
       "form": "brandschutz",
       "question": "personen-und-gebaeudeschutz",
-      "sort": 19
+      "sort": 23
     }
   },
   {
@@ -5010,7 +5133,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "aktuelle-fotos-der-baute-von-aussen-und-saemtlicher-raeume-im-innern",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -5025,7 +5148,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "angaben-tierhaltung",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -5040,7 +5163,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "angaben-zum-aktuellen-und-zukuenftigen-tierbestand",
-      "sort": 38
+      "sort": 39
     }
   },
   {
@@ -5055,7 +5178,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "angaben-zum-ersatzstandort-der-hecke",
-      "sort": 49
+      "sort": 50
     }
   },
   {
@@ -5070,7 +5193,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "angaben-zur-wiederbepflanzung-der-hecke",
-      "sort": 48
+      "sort": 49
     }
   },
   {
@@ -5085,7 +5208,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "arbeitsvoranschlag-arbeitskraeftebedarf",
-      "sort": 43
+      "sort": 44
     }
   },
   {
@@ -5100,7 +5223,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "auflistung-aller-zufahrtswege",
-      "sort": 55
+      "sort": 56
     }
   },
   {
@@ -5115,7 +5238,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "bemerkungen-dokumente",
-      "sort": 80
+      "sort": 82
     }
   },
   {
@@ -5130,7 +5253,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "beschrieb-ansicht-der-einzaeunung-der-weideflaeche",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -5145,7 +5268,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "beschrieb-herstellung-urspruengliches-zustandes",
-      "sort": 60
+      "sort": 61
     }
   },
   {
@@ -5160,7 +5283,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "bestehende-strassen-wege",
-      "sort": 53
+      "sort": 54
     }
   },
   {
@@ -5175,7 +5298,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "betriebskonzept",
-      "sort": 45
+      "sort": 46
     }
   },
   {
@@ -5190,7 +5313,22 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "betriebsvoranschlag",
-      "sort": 44
+      "sort": 45
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.brandschutzbericht",
+    "fields": {
+      "created_at": "2024-03-04T09:25:22.931Z",
+      "modified_at": "2024-03-04T09:25:22.931Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "brandschutzbericht",
+      "sort": 75
     }
   },
   {
@@ -5205,7 +5343,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "brandschutzplaene",
-      "sort": 74
+      "sort": 76
     }
   },
   {
@@ -5220,7 +5358,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "detailplan-einleitung",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -5235,7 +5373,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "detailplan-entnahme-und-rueckgabebauwerke",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -5250,7 +5388,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "detailplan-lager-und-umschlagsanlage",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -5265,7 +5403,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "detailplan-versickerung",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -5280,7 +5418,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "einverstaendniserklaerung-betroffener-grundeigentuemer",
-      "sort": 59
+      "sort": 60
     }
   },
   {
@@ -5295,7 +5433,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "energienachweis",
-      "sort": 73
+      "sort": 74
     }
   },
   {
@@ -5310,7 +5448,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "entwaesserungsplan",
-      "sort": 70
+      "sort": 71
     }
   },
   {
@@ -5325,7 +5463,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "erhebungsbogen-baulicher-gewaesserschutz-mit-entwaesserungsplan",
-      "sort": 41
+      "sort": 42
     }
   },
   {
@@ -5340,7 +5478,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "fassadenplaene",
-      "sort": 75
+      "sort": 77
     }
   },
   {
@@ -5355,7 +5493,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "feuerpolizeilicher-nachweis-keine-baulichen-veraenderungen",
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -5370,7 +5508,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "flaechennachweis-erweiterungen",
-      "sort": 30
+      "sort": 31
     }
   },
   {
@@ -5385,7 +5523,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "formular-berechnung-von-mindestabstaenden-bei-tierhaltungsanlagen",
-      "sort": 39
+      "sort": 40
     }
   },
   {
@@ -5400,7 +5538,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "formular-deckungsbeitrag-trockensubstanz",
-      "sort": 34
+      "sort": 35
     }
   },
   {
@@ -5415,7 +5553,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "fotodokumentation",
-      "sort": 68
+      "sort": 69
     }
   },
   {
@@ -5430,7 +5568,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "fotos-des-teilweise-ausgefuehrten-objektes",
-      "sort": 58
+      "sort": 59
     }
   },
   {
@@ -5445,7 +5583,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "gemeinschaftsvertrag",
-      "sort": 33
+      "sort": 34
     }
   },
   {
@@ -5460,7 +5598,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "gesuch-beanspruchung-fruchtfolgeflaechen-fff",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -5475,7 +5613,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "grundrissplaene",
-      "sort": 77
+      "sort": 79
     }
   },
   {
@@ -5490,7 +5628,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "hydrogeologischer-bericht",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -5505,7 +5643,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "kolas-formular-raumbedarf-fuer-remisen-nach-fat-bericht-590",
-      "sort": 37
+      "sort": 38
     }
   },
   {
@@ -5520,7 +5658,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "laengenprofile",
-      "sort": 69
+      "sort": 70
     }
   },
   {
@@ -5535,7 +5673,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "laengen-und-querprofil-strasse",
-      "sort": 56
+      "sort": 57
     }
   },
   {
@@ -5550,7 +5688,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "liste-der-auf-dem-betrieb-vorhandenen-maschinen",
-      "sort": 36
+      "sort": 37
     }
   },
   {
@@ -5565,7 +5703,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-dass-schutzobjekt-in-seiner-substanz-erhalten-ist",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -5580,7 +5718,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-der-formellen-unterschutzstellung",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -5595,7 +5733,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-emissionsabstand",
-      "sort": 40
+      "sort": 41
     }
   },
   {
@@ -5610,7 +5748,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-erschliessung",
-      "sort": 29
+      "sort": 30
     }
   },
   {
@@ -5625,7 +5763,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-erstellung-bodenschutz",
-      "sort": 63
+      "sort": 64
     }
   },
   {
@@ -5640,7 +5778,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-erweiterungen-fuer-zeitgemaesse-wohnnutzung",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -5655,7 +5793,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-fachliche-qualifikation",
-      "sort": 31
+      "sort": 32
     }
   },
   {
@@ -5670,7 +5808,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-kein-bedarf-fuer-bisherigen-zweck",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -5685,7 +5823,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-keine-terrainveraenderungen",
-      "sort": 64
+      "sort": 65
     }
   },
   {
@@ -5700,7 +5838,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-keine-wesentlichen-neuen-auswirkungen-auf-raum-oder-umwelt",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -5715,7 +5853,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-landw-bewirtschaftung-nicht-gefaehrdet",
-      "sort": 28
+      "sort": 29
     }
   },
   {
@@ -5730,7 +5868,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-landwirtschaftlicher-nutzflaechen",
-      "sort": 46
+      "sort": 47
     }
   },
   {
@@ -5745,7 +5883,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-land-wohnbaute-in-ihrer-substanz-erhalten",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -5760,7 +5898,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-produkteherkunft",
-      "sort": 42
+      "sort": 43
     }
   },
   {
@@ -5775,7 +5913,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-rechtmaessigkeit-der-baute-anlage",
-      "sort": 26
+      "sort": 27
     }
   },
   {
@@ -5790,7 +5928,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-regionale-bewirtschaftung-des-waldes",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -5805,7 +5943,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-standortgebundenheit",
-      "sort": 65
+      "sort": 66
     }
   },
   {
@@ -5820,7 +5958,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-veraenderungen-unerlaesslich",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -5835,7 +5973,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-vorhaben-zweckmaessige-und-nicht-ueberdimensioniert",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -5850,7 +5988,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "naehrstoffbilanz",
-      "sort": 32
+      "sort": 33
     }
   },
   {
@@ -5865,7 +6003,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "neubau-strassen-wege",
-      "sort": 54
+      "sort": 55
     }
   },
   {
@@ -5880,7 +6018,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "normalprofil",
-      "sort": 71
+      "sort": 72
     }
   },
   {
@@ -5895,7 +6033,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nutzungskonzept",
-      "sort": 25
+      "sort": 26
     }
   },
   {
@@ -6180,7 +6318,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "pfahlplan",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -6195,7 +6333,22 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "plan-der-abwasserentsorgung-sowie-wasser-und-stromversorgung",
-      "sort": 27
+      "sort": 28
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.projektplan-elementarschadenpraevention",
+    "fields": {
+      "created_at": "2024-03-04T08:21:55.691Z",
+      "modified_at": "2024-03-04T08:21:55.691Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "projektplan-elementarschadenpraevention",
+      "sort": 1
     }
   },
   {
@@ -6210,7 +6363,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "querprofile",
-      "sort": 72
+      "sort": 73
     }
   },
   {
@@ -6225,7 +6378,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "querschnitt-grundwassereinbauten",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -6240,7 +6393,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "rueckbau-datum",
-      "sort": 61
+      "sort": 62
     }
   },
   {
@@ -6255,7 +6408,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "schnittplaene",
-      "sort": 76
+      "sort": 78
     }
   },
   {
@@ -6270,7 +6423,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-1-1000",
-      "sort": 79
+      "sort": 81
     }
   },
   {
@@ -6285,7 +6438,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-1-500",
-      "sort": 78
+      "sort": 80
     }
   },
   {
@@ -6300,7 +6453,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-inkl-vermasstem-abstand-zur-kantonsstrasse",
-      "sort": 47
+      "sort": 48
     }
   },
   {
@@ -6315,7 +6468,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-inkl-vermasster-heckengrenze",
-      "sort": 51
+      "sort": 52
     }
   },
   {
@@ -6330,7 +6483,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-inkl-vermasster-waldabstand",
-      "sort": 52
+      "sort": 53
     }
   },
   {
@@ -6345,7 +6498,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-inkl-vermassung-betroffener-hecke-wegfallende-flaeche",
-      "sort": 50
+      "sort": 51
     }
   },
   {
@@ -6360,7 +6513,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-mit-vermasster-einzaeunung-der-weideflaeche",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -6375,7 +6528,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-strasse",
-      "sort": 57
+      "sort": 58
     }
   },
   {
@@ -6390,7 +6543,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "technischer-bericht",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -6405,7 +6558,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "technischer-beschrieb",
-      "sort": 66
+      "sort": 67
     }
   },
   {
@@ -6420,7 +6573,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "unterlagen-fuer-berechnung",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -6435,7 +6588,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "unterlagen-fuer-berechnung-des-unentbehrlichen-landwirtschaftlichen-wohnbedarfs",
-      "sort": 35
+      "sort": 36
     }
   },
   {
@@ -6450,7 +6603,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vermasster-situationsplan",
-      "sort": 62
+      "sort": 63
     }
   },
   {
@@ -6465,7 +6618,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "werkleitungsplan",
-      "sort": 67
+      "sort": 68
     }
   },
   {
@@ -7846,6 +7999,36 @@
       "form": "gebaeude-tabelle",
       "question": "umbau",
       "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gefahrenkartenprozesse-tabelle.charakterisierung",
+    "fields": {
+      "created_at": "2024-03-04T07:08:01.108Z",
+      "modified_at": "2024-03-04T07:08:01.108Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gefahrenkartenprozesse-tabelle",
+      "question": "charakterisierung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gefahrenkartenprozesse-tabelle.prozessart",
+    "fields": {
+      "created_at": "2024-03-04T07:07:26.115Z",
+      "modified_at": "2024-03-04T07:07:26.115Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gefahrenkartenprozesse-tabelle",
+      "question": "prozessart",
+      "sort": 2
     }
   },
   {
@@ -12185,6 +12368,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "naturgefahren.bezeichnung-naturgefahrengefaehrdung",
+    "fields": {
+      "created_at": "2024-03-04T07:46:00.761Z",
+      "modified_at": "2024-03-04T07:46:00.761Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "naturgefahren",
+      "question": "bezeichnung-naturgefahrengefaehrdung",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "naturgefahren.erdbebensicherheit",
     "fields": {
       "created_at": "2023-09-11T12:47:40.588Z",
@@ -12196,6 +12394,171 @@
       "form": "naturgefahren",
       "question": "erdbebensicherheit",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "naturgefahren.feststellungen-naturgefahren",
+    "fields": {
+      "created_at": "2024-03-01T15:24:55.506Z",
+      "modified_at": "2024-03-01T15:24:55.506Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "naturgefahren",
+      "question": "feststellungen-naturgefahren",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "naturgefahren.gefaehrdung-durch-oberflaechenabfluss",
+    "fields": {
+      "created_at": "2024-03-04T07:53:20.810Z",
+      "modified_at": "2024-03-04T07:53:20.810Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "naturgefahren",
+      "question": "gefaehrdung-durch-oberflaechenabfluss",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "naturgefahren.gefahrenkartenprozesse",
+    "fields": {
+      "created_at": "2024-03-04T07:08:45.852Z",
+      "modified_at": "2024-03-04T07:08:45.852Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "naturgefahren",
+      "question": "gefahrenkartenprozesse",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "naturgefahren.gefahrenstufen",
+    "fields": {
+      "created_at": "2024-03-01T15:29:47.149Z",
+      "modified_at": "2024-03-01T15:29:47.149Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "naturgefahren",
+      "question": "gefahrenstufen",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "naturgefahren.hinweis-beratung-objektschutzmassnahmen",
+    "fields": {
+      "created_at": "2024-03-04T08:24:06.971Z",
+      "modified_at": "2024-03-04T08:24:06.971Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "naturgefahren",
+      "question": "hinweis-beratung-objektschutzmassnahmen",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "naturgefahren.hinweis-gefaehrdung-oberflaechenabfluss",
+    "fields": {
+      "created_at": "2024-03-04T08:04:28.355Z",
+      "modified_at": "2024-03-04T08:04:28.355Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "naturgefahren",
+      "question": "hinweis-gefaehrdung-oberflaechenabfluss",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "naturgefahren.hinweis-geplante-objektschutzmassnahmen",
+    "fields": {
+      "created_at": "2024-03-04T08:18:17.574Z",
+      "modified_at": "2024-03-04T08:18:17.574Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "naturgefahren",
+      "question": "hinweis-geplante-objektschutzmassnahmen",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "naturgefahren.hinweis-weitere-abklaerungen-naturgefahren",
+    "fields": {
+      "created_at": "2024-03-04T07:47:11.345Z",
+      "modified_at": "2024-03-04T07:47:11.345Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "naturgefahren",
+      "question": "hinweis-weitere-abklaerungen-naturgefahren",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "naturgefahren.hinweis-zentrale-gebaeudesteuerung",
+    "fields": {
+      "created_at": "2024-03-04T08:49:03.377Z",
+      "modified_at": "2024-03-04T08:49:03.377Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "naturgefahren",
+      "question": "hinweis-zentrale-gebaeudesteuerung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "naturgefahren.massnahmen-zum-schutz-vor-naturgefahren-titel",
+    "fields": {
+      "created_at": "2024-03-04T08:14:59.173Z",
+      "modified_at": "2024-03-04T08:14:59.173Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "naturgefahren",
+      "question": "massnahmen-zum-schutz-vor-naturgefahren-titel",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "naturgefahren.naturgefahrengefaehrdung",
+    "fields": {
+      "created_at": "2024-03-04T07:40:53.681Z",
+      "modified_at": "2024-03-04T07:40:53.681Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "naturgefahren",
+      "question": "naturgefahrengefaehrdung",
+      "sort": 14
     }
   },
   {
@@ -12226,6 +12589,36 @@
       "form": "naturgefahren",
       "question": "radon",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "naturgefahren.sind-objektschutzmassnahmen-geplant",
+    "fields": {
+      "created_at": "2024-03-04T08:16:14.515Z",
+      "modified_at": "2024-03-04T08:16:14.515Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "naturgefahren",
+      "question": "sind-objektschutzmassnahmen-geplant",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "naturgefahren.storenbedienung",
+    "fields": {
+      "created_at": "2024-03-04T08:28:28.539Z",
+      "modified_at": "2024-03-04T08:28:28.539Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "naturgefahren",
+      "question": "storenbedienung",
+      "sort": 5
     }
   },
   {
@@ -17945,6 +18338,70 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "bauprojekt-art-andere",
+    "fields": {
+      "created_at": "2024-03-04T09:01:17.695Z",
+      "modified_at": "2024-03-04T09:01:17.695Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauprojekt-art-einfamilienhaeuser",
+    "fields": {
+      "created_at": "2024-03-04T09:01:17.630Z",
+      "modified_at": "2024-03-04T09:01:17.630Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einfamilienh\\u00e4user\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauprojekt-art-kleine-umbauten",
+    "fields": {
+      "created_at": "2024-03-04T09:01:17.660Z",
+      "modified_at": "2024-03-04T09:01:17.660Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kleine Umbauten, Erweiterung und Nutzungs\\u00e4nderungen, die zu keiner Erh\\u00f6hung der Brand- oder Explosionsgefahr f\\u00fchren und die Personensicherheit nicht mindern\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauprojekt-art-nebenbauten",
+    "fields": {
+      "created_at": "2024-03-04T09:01:17.748Z",
+      "modified_at": "2024-03-04T09:01:17.748Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nebenbauten\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "baustoffe-beton-armiert",
     "fields": {
       "created_at": "2024-02-21T14:15:21.972Z",
@@ -18850,6 +19307,22 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "brandschutzbericht-ja",
+    "fields": {
+      "created_at": "2024-03-04T09:25:22.481Z",
+      "modified_at": "2024-03-04T09:25:22.481Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Brandschutzbericht\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -20994,6 +21467,118 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Geb\\u00e4ude mit teilweiser Wohnnutzung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gefaehrdung-durch-oberflaechenabfluss-ja",
+    "fields": {
+      "created_at": "2024-03-04T07:53:20.336Z",
+      "modified_at": "2024-03-04T07:53:20.336Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gefaehrdung-durch-oberflaechenabfluss-nein",
+    "fields": {
+      "created_at": "2024-03-04T07:53:20.310Z",
+      "modified_at": "2024-03-04T07:53:20.310Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gefahrenstufen-erhebliche-gefaehrdung",
+    "fields": {
+      "created_at": "2024-03-01T15:29:46.578Z",
+      "modified_at": "2024-03-01T15:29:46.578Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erhebliche Gef\\u00e4hrdung (Verbotsbereich, rot)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gefahrenstufen-geringe-gefaehrdung",
+    "fields": {
+      "created_at": "2024-03-01T15:29:46.649Z",
+      "modified_at": "2024-03-01T15:29:46.649Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Geringe Gef\\u00e4hrdung (Hinweisbereich, gelb)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gefahrenstufen-keine-gefaehrdung",
+    "fields": {
+      "created_at": "2024-03-01T15:29:46.393Z",
+      "modified_at": "2024-03-01T15:29:46.394Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Keine Gef\\u00e4hrdung (weiss)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gefahrenstufen-mittlere-gefaehrdung",
+    "fields": {
+      "created_at": "2024-03-01T15:29:46.631Z",
+      "modified_at": "2024-03-01T15:29:46.631Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Mittlere Gef\\u00e4hrdung ( Gebotsbereich, blau)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gefahrenstufen-restgefaehrdung",
+    "fields": {
+      "created_at": "2024-03-01T15:29:46.604Z",
+      "modified_at": "2024-03-01T15:29:46.604Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Restgef\\u00e4hrdung (Hinweisbereich, gelb-weiss schraffiert)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -23449,6 +24034,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "naturgefahrengefaehrdung-ja",
+    "fields": {
+      "created_at": "2024-03-04T07:40:53.246Z",
+      "modified_at": "2024-03-04T07:40:53.246Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "naturgefahrengefaehrdung-nein",
+    "fields": {
+      "created_at": "2024-03-04T07:40:53.262Z",
+      "modified_at": "2024-03-04T07:40:53.262Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "netzeinspeisung-ja",
     "fields": {
       "created_at": "2023-10-23T12:37:12.848Z",
@@ -24409,6 +25026,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "projektplan-elementarschadenpraevention-ja",
+    "fields": {
+      "created_at": "2024-03-04T08:21:55.215Z",
+      "modified_at": "2024-03-04T08:21:55.215Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Projektplan Elementarschadenpr\\u00e4vention\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "projektverfasserin-abweichend-ja",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -24434,6 +25067,102 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "prozessart-absenkungen-einsturz",
+    "fields": {
+      "created_at": "2024-03-04T07:07:25.550Z",
+      "modified_at": "2024-03-04T07:07:25.550Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Absenkungen, Einsturz\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "prozessart-hangmure",
+    "fields": {
+      "created_at": "2024-03-04T07:07:25.544Z",
+      "modified_at": "2024-03-04T07:07:25.544Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Spontane Rutschung / Hangmure\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "prozessart-murgang",
+    "fields": {
+      "created_at": "2024-03-04T07:07:25.451Z",
+      "modified_at": "2024-03-04T07:07:25.451Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Murgang\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "prozessart-rutschung",
+    "fields": {
+      "created_at": "2024-03-04T07:07:25.519Z",
+      "modified_at": "2024-03-04T07:07:25.519Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Permanente Rutschung (kontinuierliche Rutschung, Sackung)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "prozessart-steinschlag",
+    "fields": {
+      "created_at": "2024-03-04T07:07:25.477Z",
+      "modified_at": "2024-03-04T07:07:25.477Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Stein-, Blockschlag, Fels-, Bergsturz\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "prozessart-ueberflutung",
+    "fields": {
+      "created_at": "2024-03-04T07:07:25.523Z",
+      "modified_at": "2024-03-04T07:07:25.523Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00dcberflutung (inkl. \\u00dcbersarung)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -24953,6 +25682,54 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "sind-objektschutzmassnahmen-geplant-beratung-erwuenscht",
+    "fields": {
+      "created_at": "2024-03-04T08:16:13.853Z",
+      "modified_at": "2024-03-04T08:16:13.853Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beratung erw\\u00fcnscht\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sind-objektschutzmassnahmen-geplant-ja",
+    "fields": {
+      "created_at": "2024-03-04T08:16:13.850Z",
+      "modified_at": "2024-03-04T08:16:13.850Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sind-objektschutzmassnahmen-geplant-nein",
+    "fields": {
+      "created_at": "2024-03-04T08:16:13.866Z",
+      "modified_at": "2024-03-04T08:16:13.866Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "situationsplan-1-1000-ja",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -25410,6 +26187,54 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Untergeschoss\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "storenbedienung-einzeln",
+    "fields": {
+      "created_at": "2024-03-04T08:28:28.009Z",
+      "modified_at": "2024-03-04T08:28:28.009Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einzeln (manuell oder elektrisch)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "storenbedienung-keine-storen",
+    "fields": {
+      "created_at": "2024-03-04T08:28:28.034Z",
+      "modified_at": "2024-03-04T08:28:28.034Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Keine Storen / andere\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "storenbedienung-zentrale-gebaeudesteuerung",
+    "fields": {
+      "created_at": "2024-03-04T08:28:28.031Z",
+      "modified_at": "2024-03-04T08:28:28.031Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zentrale Geb\\u00e4udesteuerung\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -31911,6 +32736,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bauprojekt-art",
+    "fields": {
+      "created_at": "2024-03-04T09:01:17.948Z",
+      "modified_at": "2024-03-04T09:04:29.486Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"F\\u00fcr Bauprojekte folgender Geb\\u00e4udekategorien ist keine Brandschutzbewilligung der SGV erforderlich, falls der baurechtliche Geb\\u00e4udeabstand eingehalten werden kann. Bitte w\\u00e4hlen Sie die Kategorie, in welche Ihr Bauprojekt einzuordnen ist\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"**Definition Nebenbauten**\\n\\nEingeschossige Bauten mit einer Grundfl\\u00e4che von h\\u00f6chstens 150 m\\u00b2, die nicht f\\u00fcr den dauernden Aufenthalt von Personen bestimmt sind, keine offenen Feuerstellen aufweisen und in denen keine gef\\u00e4hrlichen Stoffe in massgebender Menge gelagert werden, z. B. Fahrzeugunterst\\u00e4nde, Garagen, Gartenh\\u00e4user, Kleintierst\\u00e4lle und Kleinlager etc.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "bauprojekt-erdwaermesonde",
     "fields": {
       "created_at": "2023-11-09T10:31:29.472Z",
@@ -34443,6 +35299,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bezeichnung-naturgefahrengefaehrdung",
+    "fields": {
+      "created_at": "2024-03-04T07:46:00.570Z",
+      "modified_at": "2024-03-04T07:46:00.570Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bezeichnung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "\"naturgefahrengefaehrdung-ja\" != \"naturgefahrengefaehrdung\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "brandschutz",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -34505,13 +35395,46 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "brandschutzbericht",
+    "fields": {
+      "created_at": "2024-03-04T09:25:22.726Z",
+      "modified_at": "2024-03-04T09:26:00.243Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Brandschutzbericht\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\"bauprojekt-art-andere\" == \"bauprojekt-art\"|answer\n\t|| [\n\t\t\"mindest-und-grenzabstaende-gewaesser\",\n\t\t\"mindest-und-grenzabstaende-verkehrsflaechen\",\n\t\t\"mindest-und-grenzabstaende-waldabstand\",\n\t\t\"mindest-und-grenzabstaende-grenzabstand\",\n\t\t\"mindest-und-grenzabstaende-heckenabstand\",\n\t\t\"mindest-und-grenzabstaende-gebaeudeabstand\"\n\t] intersects \"mindest-und-grenzabstaende\"|answer([])\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "brandschutzkonzept-inhalt",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-09-26T05:49:59.608Z",
+      "modified_at": "2024-03-04T08:55:14.987Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Brandschutzkonzept Inhalt\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -34519,7 +35442,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Die Errichtung von Bauten und Anlagen sowie bauliche oder nutzungsbezogene \\u00c4nderungen an Bauten oder Anlagen ben\\u00f6tigen eine Brandschutzbewilligung der Solothurnischen Geb\\u00e4udeversicherung (SGV).\\nDer SGV erf\\u00fcllt die ihr durch Gesetz \\u00fcbertragenen Aufgaben als kantonale Brandschutzbeh\\u00f6rde. Ihr obliegt der Vollzug der Brandschutzvorschriften im Kanton Solothurn.\\nDie schweizerischen Brandschutzvorschriften (www.bsvonline.ch) bezwecken den Schutz von Personen, Tieren und Sachen vor den Gefahren und Auswirkungen von Br\\u00e4nden und Explosionen.\\nSie gelten f\\u00fcr neu zu errichtende Bauten und Anlagen. Bestehende Bauten und Anlagen sind verh\\u00e4ltnism\\u00e4ssig an die Brandschutzvorschriften anzupassen, wenn wesentliche bauliche oder betriebliche Ver\\u00e4nderungen, Erweiterungen oder Nutzungs\\u00e4nderungen vorgenommen werden oder wenn die Gefahr f\\u00fcr Personen besonders gross ist.\\nDie Brandschutzvorschriften richten sich an Eigent\\u00fcmer- und Nutzerschaft von Bauten und Anlagen, sowie an alle Personen, die bei Planung, Bau, Betrieb oder Instandhaltung von Bauten und Anlagen t\\u00e4tig sind.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Die Errichtung von Bauten und Anlagen sowie bauliche oder nutzungsbezogene \\u00c4nderungen an Bauten oder Anlagen ben\\u00f6tigen eine Brandschutzbewilligung der Solothurnischen Geb\\u00e4udeversicherung (SGV).\\nDer SGV erf\\u00fcllt die ihr durch [Gesetz](https://bgs.so.ch/app/de/texts_of_law/618.111) \\u00fcbertragenen Aufgaben als kantonale Brandschutzbeh\\u00f6rde. Ihr obliegt der Vollzug der Brandschutzvorschriften im Kanton Solothurn.\\nDie schweizerischen Brandschutzvorschriften ([www.bsvonline.ch](https://bsvonline.ch)) bezwecken den Schutz von Personen, Tieren und Sachen vor den Gefahren und Auswirkungen von Br\\u00e4nden und Explosionen.\\nSie gelten f\\u00fcr neu zu errichtende Bauten und Anlagen. Bestehende Bauten und Anlagen sind verh\\u00e4ltnism\\u00e4ssig an die Brandschutzvorschriften anzupassen, wenn wesentliche bauliche oder betriebliche Ver\\u00e4nderungen, Erweiterungen oder Nutzungs\\u00e4nderungen vorgenommen werden oder wenn die Gefahr f\\u00fcr Personen besonders gross ist.\\n\\nDie Brandschutzvorschriften richten sich an Eigent\\u00fcmer- und Nutzerschaft von Bauten und Anlagen, sowie an alle Personen, die bei Planung, Bau, Betrieb oder Instandhaltung von Bauten und Anlagen t\\u00e4tig sind.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"##### Der Vollzug des Brandschutzes obliegt im Kanton Solothurn der Solothurnischen Geb\\u00e4udeversicherung SGV.\\n\\nJe nach Nutzung des Geb\\u00e4udes sind die Brandschutzexpertinnen und -experten oder die Brandschutzfachleute des Teams Pr\\u00e4vention Brandschutz der SGV f\\u00fcr die Erf\\u00fcllung der geltenden Richtlinien verantwortlich.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -34539,7 +35462,7 @@
     "pk": "brandschutzplaene",
     "fields": {
       "created_at": "2023-11-29T16:32:59.805Z",
-      "modified_at": "2023-11-29T16:36:52.374Z",
+      "modified_at": "2024-03-04T09:24:46.570Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -34547,7 +35470,7 @@
       "label": "{\"de\": \"Brandschutzpl\\u00e4ne\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!(\n\t[\n\t\t\"nutzungszwecke-gewerbe\",\n\t\t\"nutzungszwecke-industrie\",\n\t\t\"nutzungszwecke-dienstleistung\",\n\t\t\"nutzungszwecke-gastgewerbe\"\n\t] intersects \"nutzungszwecke\"|answer([])\n)",
+      "is_hidden": "!(\n\t[\n\t\t\"nutzungszwecke-gewerbe\",\n\t\t\"nutzungszwecke-industrie\",\n\t\t\"nutzungszwecke-dienstleistung\",\n\t\t\"nutzungszwecke-gastgewerbe\"\n\t] intersects \"nutzungszwecke\"|answer([])\n\t|| \"bauprojekt-art-andere\" == \"bauprojekt-art\"|answer\n\t|| [\n\t\t\"mindest-und-grenzabstaende-gewaesser\",\n\t\t\"mindest-und-grenzabstaende-verkehrsflaechen\",\n\t\t\"mindest-und-grenzabstaende-waldabstand\",\n\t\t\"mindest-und-grenzabstaende-grenzabstand\",\n\t\t\"mindest-und-grenzabstaende-heckenabstand\",\n\t\t\"mindest-und-grenzabstaende-gebaeudeabstand\"\n\t] intersects \"mindest-und-grenzabstaende\"|answer([])\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -34727,6 +35650,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "charakterisierung",
+    "fields": {
+      "created_at": "2024-03-04T07:08:00.816Z",
+      "modified_at": "2024-03-04T07:08:00.816Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Charakterisierung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"z.B. U_2\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "darlegung-der-optimierungsmassnahmen",
     "fields": {
       "created_at": "2024-02-22T10:04:23.426Z",
@@ -34875,6 +35832,40 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dauer-in-monaten",
+    "fields": {
+      "created_at": "2024-03-01T15:02:06.315Z",
+      "modified_at": "2024-03-01T15:02:06.315Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dauer in Monaten\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -39570,6 +40561,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "feststellungen-naturgefahren",
+    "fields": {
+      "created_at": "2024-03-01T15:24:55.288Z",
+      "modified_at": "2024-03-25T09:40:05.588Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Feststellungen Naturgefahren\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"## Feststellungen Naturgefahren\\n\\n\\nDie nachfolgenden Felder werden aus der Lokalisierung\\nvorabgef\\u00fcllt. Bitte \\u00fcberpr\\u00fcfen Sie, ob die Angaben korrekt\\nsind und f\\u00fchren Sie diese nach, wo n\\u00f6tig:\\n\\nGef\\u00e4hrdungen durch Naturgefahren sind im [GIS des Kantons](https://geo.so.ch/map/?t=ngk{replace-coords:&c=x,y}&s=500) oder unter [Schutz vor Naturgefahren](https://www.schutz-vor-naturgefahren.ch/bauherr.html#/map/{replace-coords:x,y/x,y}) abrufbar.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "coordinates-placeholder"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "feststellung-landwirtschaft",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -41190,6 +42214,101 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "gefaehrdung-durch-oberflaechenabfluss",
+    "fields": {
+      "created_at": "2024-03-04T07:53:20.616Z",
+      "modified_at": "2024-03-04T07:53:20.616Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist das Bauvorhaben durch Oberfl\\u00e4chenabfluss gef\\u00e4hrdet?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gefahrenkartenprozesse",
+    "fields": {
+      "created_at": "2024-03-04T07:08:45.634Z",
+      "modified_at": "2024-03-04T07:30:46.089Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gefahrenkartenprozesse\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "true",
+      "is_hidden": "[\"gefahrenstufen-keine-gefaehrdung\"] intersects \"gefahrenstufen\"|answer([])",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": ["prozessart", "charakterisierung"]
+      },
+      "data_source": null,
+      "row_form": "gefahrenkartenprozesse-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gefahrenstufen",
+    "fields": {
+      "created_at": "2024-03-01T15:29:46.897Z",
+      "modified_at": "2024-03-01T15:31:01.594Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gefahrenstufen\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Bei Vorliegen einer Gef\\u00e4hrdung wird das Bauvorhaben durch die Solothurnische Geb\\u00e4udeversicherung und gegebenenfalls durch das Amt f\\u00fcr Umwelt (Gefahrenprozesse Wasser) oder Amt f\\u00fcr Wald Jagd und Fischerei (Gefahrenprozesse Sturz und Rutschung) beurteilt.\\n\\nNicht erforderlich ist eine Stellungnahme (Fachbericht)\\n\\n* f\\u00fcr Bauvorhaben, bei denen keine bekannte Gef\\u00e4hrdung durch Gefahrenkartenprozesse oder Oberfl\\u00e4chenabfluss besteht\\n* f\\u00fcr Umbauten und Nutzungs\\u00e4nderungen, die zu keiner Erh\\u00f6hung der Elementarschadengefahr f\\u00fchren\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "gegenmassnahmen",
     "fields": {
       "created_at": "2024-02-22T06:38:16.627Z",
@@ -41392,6 +42511,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "geplanter-baustart",
+    "fields": {
+      "created_at": "2024-03-01T15:01:30.400Z",
+      "modified_at": "2024-03-01T15:01:30.400Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Geplanter Baustart\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "geruchsabstaende",
     "fields": {
       "created_at": "2023-11-21T08:18:54.811Z",
@@ -41473,6 +42623,40 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gesamthoehe-gemaess-ivhb",
+    "fields": {
+      "created_at": "2024-03-01T14:59:41.281Z",
+      "modified_at": "2024-03-01T15:00:35.792Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gesamth\\u00f6he gem\\u00e4ss IVHB (m)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Gesamth\\u00f6he gem\\u00e4ss IVHB (vgl. [https://ivhb.ch/glossar/gesamthoehe/](https://ivhb.ch/glossar/gesamthoehe/))\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -43059,6 +44243,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hinweis-andere",
+    "fields": {
+      "created_at": "2024-03-04T09:21:02.233Z",
+      "modified_at": "2024-03-04T09:21:02.233Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Andere\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"bauprojekt-art-andere\" != \"bauprojekt-art\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Das Bauprojekt ist mit grosser Wahrscheinlichkeit brandschutzrelevant. Es ist ein Brandschutznachweis erforderlich. Bitte laden Sie die entsprechenden Dokumente (Brandschutzbericht und Brandschutzplan) unter \\\"DOKUMENTE\\\" hoch.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hinweis-anmerkung-gebuehrenverrechnung",
     "fields": {
       "created_at": "2024-02-22T10:08:53.523Z",
@@ -43400,6 +44615,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hinweis-beratung-objektschutzmassnahmen",
+    "fields": {
+      "created_at": "2024-03-04T08:24:06.761Z",
+      "modified_at": "2024-03-04T08:24:06.761Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Beratung Objektschutzmassnahmen\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n\t\"sind-objektschutzmassnahmen-geplant-beratung-erwuenscht\" in \"sind-objektschutzmassnahmen-geplant\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Ist eine Beratung erw\\u00fcnscht, meldet sich die Solothurnische Geb\\u00e4udeversicherung SGV zeitnah bei der Projektverfasserin / dem Projektverfasser.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hinweis-brandschutz",
     "fields": {
       "created_at": "2023-10-30T16:18:48.590Z",
@@ -43417,6 +44663,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"**Hinweis Brandschutz**\\n\\nNach Artikel 3 FSG sind die Einwohnergemeinden f\\u00fcr den Feuerschutz zust\\u00e4ndig. Die Gemeinde pr\\u00fcft die eingereichten Unterlagen auf Vollst\\u00e4ndigkeit und Bewilligungsf\\u00e4higkeit. Sie kann bei Bedarf zus\\u00e4tzliche Angaben, zum Beispiel einen Brandschutznachweis, nachfordern.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-brandschutzrelevant",
+    "fields": {
+      "created_at": "2024-03-04T09:15:28.920Z",
+      "modified_at": "2024-03-04T09:19:08.562Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Brandschutzrelevant\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n\t[\n\t\t\"mindest-und-grenzabstaende-gewaesser\",\n\t\t\"mindest-und-grenzabstaende-verkehrsflaechen\",\n\t\t\"mindest-und-grenzabstaende-waldabstand\",\n\t\t\"mindest-und-grenzabstaende-grenzabstand\",\n\t\t\"mindest-und-grenzabstaende-heckenabstand\",\n\t\t\"mindest-und-grenzabstaende-gebaeudeabstand\"\n\t] intersects \"mindest-und-grenzabstaende\"|answer([])\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Aufgrund des zu geringen Abstands zu weiteren Geb\\u00e4uden ist das Bauprojekt mit grosser Wahrscheinlichkeit brandschutzrelevant. Es ist ein Brandschutznachweis erforderlich. Bitte laden Sie die entsprechenden\\nDokumente (Brandschutzbericht und Brandschutzplan) unter \\\"DOKUMENTE\\\" hoch.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -43820,6 +45097,70 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"Zus\\u00e4tzliche Anforderungen an die Gesuchsunterlagen:\\n\\n* KOLAS-Formular [Platz- und Raumbedarf f\\u00fcr Futter- bzw. Strohlagerung](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen)\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-gefaehrdung-oberflaechenabfluss",
+    "fields": {
+      "created_at": "2024-03-04T08:04:28.131Z",
+      "modified_at": "2024-03-25T09:59:22.982Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Gef\\u00e4hrdung Oberfl\\u00e4chenabfluss\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Die Gef\\u00e4hrdung durch Oberfl\\u00e4chenabfluss ist auf dem [WebGis des Kantons](https://geo.so.ch/map/?l=ch.bafu.gefaehrdungskarte-oberflaechenabfluss&{replace-coords:c=x,y}&s=500) oder unter [Schutz vor Naturgefahren](https://www.schutz-vor-naturgefahren.ch/bauherr.html#/map/{replace-coords:x,y/x,y}) ersichtlich.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "coordinates-placeholder"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-geplante-objektschutzmassnahmen",
+    "fields": {
+      "created_at": "2024-03-04T08:18:17.337Z",
+      "modified_at": "2024-03-04T08:18:17.337Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis geplante Objektschutzmassnahmen\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n\t\"sind-objektschutzmassnahmen-geplant-ja\" in \"sind-objektschutzmassnahmen-geplant\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Geplante Objektschutzmassnahmen sind in einem Projektplan Elementarschadenpr\\u00e4vention darzustellen. Dieser wird von der Solothurnischen\\nGeb\\u00e4udeversicherung gepr\\u00fcft.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -44254,6 +45595,37 @@
       "info_text": "{\"de\": \"Muster siehe Link [Landwirtschaftliches Bauen - Konferenz der Landwirtschafts\\u00e4mter der Schweiz](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen)\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"---\\n\\n**Nebenerwerbslandwirtschaft (als Abgrenzung zur Freizeit-Landwirtschaft, Art. 34 Abs. 5 RPV) \\u2013 Checkliste BaB Z4**\\n\\n* Betriebskonzept<br>Das Betriebskonzept hat insbesondere folgendes zu beinhalten:\\n    * Globalvoranschlag\\n    * Angaben zur Bewirtschaftung (Gr\\u00f6sse, Umfang und Art der Bewirtschaftung, Standardarbeitskr\\u00e4fte; Langfristigkeit)\\n    * Angaben zum Erwerbseinkommen\\n    * Angaben zu bereits vorhandener Infrastrukturanlagen (z.B. Maschinenpark)\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-nicht-brandschutzrelevant",
+    "fields": {
+      "created_at": "2024-03-04T09:07:37.693Z",
+      "modified_at": "2024-03-04T09:10:13.462Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis nicht Brandschutzrelevant\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n\t\"bauprojekt-art\"|answer in [\n\t\t\"bauprojekt-art-einfamilienhaeuser\",\n\t\t\"bauprojekt-art-nebenbauten\",\n\t\t\"bauprojekt-art-kleine-umbauten\"\n\t] &&\n\t\"mindest-und-grenzabstaende-keine\" in \"mindest-und-grenzabstaende\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Das Bauprojekt ist mit grosser Wahrscheinlichkeit nicht brandschutzrelevant. Es ist kein Brandschutznachweis erforderlich. Die SGV beh\\u00e4lt sich vor zus\\u00e4tzliche Angaben einzufordern.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -44795,6 +46167,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hinweis-weitere-abklaerungen-naturgefahren",
+    "fields": {
+      "created_at": "2024-03-04T07:47:11.127Z",
+      "modified_at": "2024-03-04T07:47:11.128Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Weitere Abkl\\u00e4rungen Naturgefahren\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"naturgefahrengefaehrdung-ja\" != \"naturgefahrengefaehrdung\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"M\\u00f6glicherweise sind f\\u00fcr Ihr Bauvorhaben weitere Abkl\\u00e4rungen zu Naturgefahren n\\u00f6tig.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hinweis-wiederaufbau-bestehender-zonenwidrig-gewordener-bauten-und-anlagen",
     "fields": {
       "created_at": "2023-11-13T09:19:34.761Z",
@@ -44812,6 +46215,37 @@
       "info_text": "{\"de\": \"Falls in den letzten Jahren bereits ein Baugesuch eingereicht wurde, kann mit dieser Beilage auch zugewartet werden. Bei Bedarf w\\u00fcrde das Amt f\\u00fcr Raumplanung eine entsprechende Nachforderung machen.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"---\\n\\n**24c - Wiederaufbau bestehender zonenwidrig gewordener Bauten und Anlagen**\\n\\n* Nachweis bestimmungsgem\\u00e4sse Nutzbarkeit\\n    * Fotodokumentation: aktuelle Fotos des bestehenden Zustands und Fotos des Referenzzustands (i.d.R. 01.07.1972) sowie allf\\u00e4lliger Ver\\u00e4nderungen jeweils aussen und s\\u00e4mtlicher R\\u00e4ume im Inneren (aktuelle Fotos, welche insbesondere den Zustand der tragenden Konstruktionen, Fussb\\u00f6den und Dach sowie der vorhandenen Fenster und T\\u00fcren, K\\u00fccheneinrichtungen, sanit\\u00e4ren Anlagen und Kaminanlage zeigen sowie ein \\u00dcbersichtsplan aus welchem ersichtlich ist, welches Foto was zeigt)\\n    * Dokumentation allf\\u00e4lliger Leerst\\u00e4nde [inkl. Angabe von bis]\\n    * Funktionsf\\u00e4higkeit von Strom-, Wasser- und Abwasseranschluss\\n* Nachweis der Rechtm\\u00e4ssigkeit der Baute / Anlage (inkl. Umgebung)<br>Baubewilligung inkl. Bewilligungen Bau- und Justizdepartement gem\\u00e4ss \\u00a7 38 bis Abs. 1 PBG sowie Planunterlagen [inkl. s\\u00e4mtlicher Erweiterungen/\\u00c4nderungen])\\n* Berechnung nach Art. 42 Abs. 3 RPV\\n    * Grundrisspl\\u00e4ne, Fassaden und Schnitte mit Vermassung und Zweckbestimmung jedes Raumes per 1. Juli 1972 (Bestandesaufnahme) und die gleichen, aber separate Pl\\u00e4ne des aktuellen Bauvorhabens (jeweils inkl. s\\u00e4mtlicher Nebengeb\\u00e4ude). In den Grundriss- und Schnittpl\\u00e4nen ist die lichte H\\u00f6he von 1,0 m einzuzeichnen;\\n    * Sofern seit dem 1. Juli 1972 Ver\\u00e4nderungen erfolgt sind und dies f\\u00fcr das Verst\\u00e4ndnis notwendig ist (z.B. Abbr\\u00fcche): Grundrisspl\\u00e4ne, Fassaden und Schnitte mit Vermassung und Zweckbestimmung jedes Raumes aller Ver\\u00e4nderungen\\n(jeweils inkl. s\\u00e4mtlicher Nebengeb\\u00e4ude);\\n    * [Ausgef\\u00fcllte Tabelle f\\u00fcr Berechnungen nach Art. 42 Abs. 3 RPV](https://www.are.admin.ch/are/de/home/raumentwicklung-und-raumplanung/raumplanungsrecht/bauen-ausserhalb-der-bauzonen.html);\\n    * \\u00dcbersichtsplan als Erkl\\u00e4rung/Erg\\u00e4nzung zur Berechnung mit der ausgewiesenen anrechenbaren Bruttogeschossfl\\u00e4che (aBGF) respektive Brutto-Nebenfl\\u00e4che (BNF) einschliesslich der Mauer- und Wandquerschnitte (Grundriss je Geschoss, aBGF- / BNF-Fl\\u00e4chen unterschiedlich eingef\\u00e4rbt).\\n* Farb- und Materialkonzept (Angaben zu Materialien und Farben f\\u00fcr Fassaden, D\\u00e4cher, Fenster, Aussent\\u00fcren, Tore, Solaranlagen etc.), sofern Informationen nicht aus Pl\\u00e4nen / Baubeschrieb hervorgehen\\n* Umgebungsplan mit Angabe von Erschliessungsfl\\u00e4chen, Belagsarten, Terrainverlauf und H\\u00f6henangaben sowie von B\\u00e4umen, Hecken, Sitzpl\\u00e4tzen, Treppen, Mauern etc. (sofern Informationen nicht aus Situationsplan hervorgehen)\\n* Versicherungspolice der Solothurnischen Geb\\u00e4udeversicherung\\n* Massgeblicher Vergleichszustand<br>Das Bau- und Justizdepartement geht davon aus, dass im vorliegenden Fall der massgebliche Vergleichszustand der Zustand per 1. Juli 1972 ist, als erstmals eine strenge Trennung von Baugebiet und Nichtbaugebiet eingef\\u00fchrt wurde. Sollte das betroffene Grundst\\u00fcck zu einem sp\\u00e4teren Zeitpunkt dem Nichtbaugebiet zugewiesen worden sein, sind die entsprechenden Belege einzureichen.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-zentrale-gebaeudesteuerung",
+    "fields": {
+      "created_at": "2024-03-04T08:49:03.150Z",
+      "modified_at": "2024-03-04T08:49:03.151Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis zentrale Geb\\u00e4udesteuerung\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"storenbedienung-zentrale-gebaeudesteuerung\" in \"storenbedienung\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Werden die Storen zentral angesteuert, finanziert die Solothurnische Geb\\u00e4udeversicherung auf Antrag eine [Hagelschutz-Signalbox](https://www.sgvso.ch/wp/wp-content/uploads/2023/01/Beitragsformular-Signalbox-2023.pdf)\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -48732,6 +50166,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "massnahmen-zum-schutz-vor-naturgefahren-titel",
+    "fields": {
+      "created_at": "2024-03-04T08:14:58.970Z",
+      "modified_at": "2024-03-04T08:14:58.970Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Massnahmen zum Schutz vor Naturgefahren Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"## Massnahmen zum Schutz vor Naturgefahren\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "materialart",
     "fields": {
       "created_at": "2024-02-21T08:23:30.943Z",
@@ -50491,6 +51956,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "naturgefahren",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "naturgefahrengefaehrdung",
+    "fields": {
+      "created_at": "2024-03-04T07:40:53.465Z",
+      "modified_at": "2024-03-04T08:12:17.321Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gibt es Hinweise auf Naturgefahrengef\\u00e4hrdung gem\\u00e4ss Naturgefahrenhinweiskarte?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "[\"gefahrenstufen-keine-gefaehrdung\"] intersects \"gefahrenstufen\"|answer([])",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"[Naturgefahrenhinweiskarte](https://geo.so.ch/map/?\\nt=nhk)\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -52573,6 +54069,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "projektplan-elementarschadenpraevention",
+    "fields": {
+      "created_at": "2024-03-04T08:21:55.462Z",
+      "modified_at": "2024-03-04T08:21:55.462Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Projektplan Elementarschadenpr\\u00e4vention\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\n\t\"sind-objektschutzmassnahmen-geplant-ja\" in \"sind-objektschutzmassnahmen-geplant\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "projektverfasserin",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -52616,6 +54145,37 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Projektverfasser/in abweichend?\", \"fr\": null, \"it\": null}",
       "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "prozessart",
+    "fields": {
+      "created_at": "2024-03-04T07:07:25.869Z",
+      "modified_at": "2024-03-04T07:07:25.869Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Prozessart\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
@@ -53758,6 +55318,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "sind-objektschutzmassnahmen-geplant",
+    "fields": {
+      "created_at": "2024-03-04T08:16:14.068Z",
+      "modified_at": "2024-03-04T08:16:14.068Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sind Objektschutzmassnahmen geplant?\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "situationsplan-1-1000",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -54651,6 +56242,37 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "storenbedienung",
+    "fields": {
+      "created_at": "2024-03-04T08:28:28.314Z",
+      "modified_at": "2024-03-04T08:50:13.006Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Storenbedienung (Hagelschutz)\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "!(\n\t[\n\t\t\"typ-des-bauwerks-einfamilienhaus\",\n\t\t\"typ-des-bauwerks-doppeleinfamilienhaus\",\n\t\t\"typ-des-bauwerks-mehrfamilienhaus\",\n\t\t\"typ-des-bauwerks-wohn-und-geschaftshaus\",\n\t\t\"typ-des-bauwerks-industrie\",\n\t\t\"typ-des-bauwerks-geschaftshaus\",\n\t\t\"typ-des-bauwerks-bauten-und-anlagen-gastgewerbe\",\n\t\t\"typ-des-bauwerks-heim-mit-unterkunft\",\n\t\t\"typ-des-bauwerks-spital\",\n\t\t\"typ-des-bauwerks-schulen\",\n\t\t\"typ-des-bauwerks-sporthallen\",\n\t\t\"typ-des-bauwerks-kirchen\",\n\t\t\"typ-des-bauwerks-kulturbauten\"\n\t] intersects \"gebaeude\"|answer([])|mapby(\"typ-des-bauwerks\")\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Weitere Infos: [Hagelschutz einfach automatisch](https://www.hagelschutz-einfach-automatisch.ch)\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -61004,6 +62626,66 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "bauprojekt-art.bauprojekt-art-andere",
+    "fields": {
+      "created_at": "2024-03-04T09:04:29.500Z",
+      "modified_at": "2024-03-04T09:04:29.500Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bauprojekt-art",
+      "option": "bauprojekt-art-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauprojekt-art.bauprojekt-art-einfamilienhaeuser",
+    "fields": {
+      "created_at": "2024-03-04T09:04:29.522Z",
+      "modified_at": "2024-03-04T09:04:29.522Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bauprojekt-art",
+      "option": "bauprojekt-art-einfamilienhaeuser",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauprojekt-art.bauprojekt-art-kleine-umbauten",
+    "fields": {
+      "created_at": "2024-03-04T09:04:29.508Z",
+      "modified_at": "2024-03-04T09:04:29.508Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bauprojekt-art",
+      "option": "bauprojekt-art-kleine-umbauten",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauprojekt-art.bauprojekt-art-nebenbauten",
+    "fields": {
+      "created_at": "2024-03-04T09:04:29.515Z",
+      "modified_at": "2024-03-04T09:04:29.515Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bauprojekt-art",
+      "option": "bauprojekt-art-nebenbauten",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "baustoffe.baustoffe-beton-armiert",
     "fields": {
       "created_at": "2024-02-21T14:17:37.215Z",
@@ -61889,10 +63571,25 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "brandschutzbericht.brandschutzbericht-ja",
+    "fields": {
+      "created_at": "2024-03-04T09:26:00.265Z",
+      "modified_at": "2024-03-04T09:26:00.265Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "brandschutzbericht",
+      "option": "brandschutzbericht-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "brandschutzplaene.brandschutzplaene-ja",
     "fields": {
-      "created_at": "2023-11-29T16:36:52.386Z",
-      "modified_at": "2023-11-29T16:36:52.386Z",
+      "created_at": "2024-03-04T09:24:46.579Z",
+      "modified_at": "2024-03-04T09:24:46.579Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -63925,6 +65622,111 @@
       "question": "gebaeudekategorie",
       "option": "gebaeudekategorie-teilweise-wohnnutzung",
       "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gefaehrdung-durch-oberflaechenabfluss.gefaehrdung-durch-oberflaechenabfluss-ja",
+    "fields": {
+      "created_at": "2024-03-04T07:53:20.631Z",
+      "modified_at": "2024-03-04T07:53:20.631Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gefaehrdung-durch-oberflaechenabfluss",
+      "option": "gefaehrdung-durch-oberflaechenabfluss-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gefaehrdung-durch-oberflaechenabfluss.gefaehrdung-durch-oberflaechenabfluss-nein",
+    "fields": {
+      "created_at": "2024-03-04T07:53:20.625Z",
+      "modified_at": "2024-03-04T07:53:20.625Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gefaehrdung-durch-oberflaechenabfluss",
+      "option": "gefaehrdung-durch-oberflaechenabfluss-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gefahrenstufen.gefahrenstufen-erhebliche-gefaehrdung",
+    "fields": {
+      "created_at": "2024-03-01T15:31:01.609Z",
+      "modified_at": "2024-03-01T15:31:01.609Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gefahrenstufen",
+      "option": "gefahrenstufen-erhebliche-gefaehrdung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gefahrenstufen.gefahrenstufen-geringe-gefaehrdung",
+    "fields": {
+      "created_at": "2024-03-01T15:31:01.622Z",
+      "modified_at": "2024-03-01T15:31:01.622Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gefahrenstufen",
+      "option": "gefahrenstufen-geringe-gefaehrdung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gefahrenstufen.gefahrenstufen-keine-gefaehrdung",
+    "fields": {
+      "created_at": "2024-03-01T15:31:01.627Z",
+      "modified_at": "2024-03-01T15:31:01.627Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gefahrenstufen",
+      "option": "gefahrenstufen-keine-gefaehrdung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gefahrenstufen.gefahrenstufen-mittlere-gefaehrdung",
+    "fields": {
+      "created_at": "2024-03-01T15:31:01.615Z",
+      "modified_at": "2024-03-01T15:31:01.615Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gefahrenstufen",
+      "option": "gefahrenstufen-mittlere-gefaehrdung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gefahrenstufen.gefahrenstufen-restgefaehrdung",
+    "fields": {
+      "created_at": "2024-03-01T15:31:01.604Z",
+      "modified_at": "2024-03-01T15:31:01.604Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gefahrenstufen",
+      "option": "gefahrenstufen-restgefaehrdung",
+      "sort": 1
     }
   },
   {
@@ -66239,6 +68041,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "naturgefahrengefaehrdung.naturgefahrengefaehrdung-ja",
+    "fields": {
+      "created_at": "2024-03-04T08:12:17.336Z",
+      "modified_at": "2024-03-04T08:12:17.336Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "naturgefahrengefaehrdung",
+      "option": "naturgefahrengefaehrdung-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "naturgefahrengefaehrdung.naturgefahrengefaehrdung-nein",
+    "fields": {
+      "created_at": "2024-03-04T08:12:17.331Z",
+      "modified_at": "2024-03-04T08:12:17.331Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "naturgefahrengefaehrdung",
+      "option": "naturgefahrengefaehrdung-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "netzeinspeisung.netzeinspeisung-ja",
     "fields": {
       "created_at": "2023-11-21T07:57:41.647Z",
@@ -67139,6 +68971,21 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "projektplan-elementarschadenpraevention.projektplan-elementarschadenpraevention-ja",
+    "fields": {
+      "created_at": "2024-03-04T08:21:55.472Z",
+      "modified_at": "2024-03-04T08:21:55.472Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "projektplan-elementarschadenpraevention",
+      "option": "projektplan-elementarschadenpraevention-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "projektverfasserin-abweichend.projektverfasserin-abweichend-ja",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -67165,6 +69012,96 @@
       "question": "projektverfasserin-abweichend",
       "option": "projektverfasserin-abweichend-nein",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "prozessart.prozessart-absenkungen-einsturz",
+    "fields": {
+      "created_at": "2024-03-04T07:07:25.880Z",
+      "modified_at": "2024-03-04T07:07:25.880Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "prozessart",
+      "option": "prozessart-absenkungen-einsturz",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "prozessart.prozessart-hangmure",
+    "fields": {
+      "created_at": "2024-03-04T07:07:25.887Z",
+      "modified_at": "2024-03-04T07:07:25.887Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "prozessart",
+      "option": "prozessart-hangmure",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "prozessart.prozessart-murgang",
+    "fields": {
+      "created_at": "2024-03-04T07:07:25.902Z",
+      "modified_at": "2024-03-04T07:07:25.902Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "prozessart",
+      "option": "prozessart-murgang",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "prozessart.prozessart-rutschung",
+    "fields": {
+      "created_at": "2024-03-04T07:07:25.892Z",
+      "modified_at": "2024-03-04T07:07:25.892Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "prozessart",
+      "option": "prozessart-rutschung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "prozessart.prozessart-steinschlag",
+    "fields": {
+      "created_at": "2024-03-04T07:07:25.897Z",
+      "modified_at": "2024-03-04T07:07:25.897Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "prozessart",
+      "option": "prozessart-steinschlag",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "prozessart.prozessart-ueberflutung",
+    "fields": {
+      "created_at": "2024-03-04T07:07:25.906Z",
+      "modified_at": "2024-03-04T07:07:25.906Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "prozessart",
+      "option": "prozessart-ueberflutung",
+      "sort": 6
     }
   },
   {
@@ -67649,6 +69586,51 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "sind-objektschutzmassnahmen-geplant.sind-objektschutzmassnahmen-geplant-beratung-erwuenscht",
+    "fields": {
+      "created_at": "2024-03-04T08:16:14.080Z",
+      "modified_at": "2024-03-04T08:16:14.080Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "sind-objektschutzmassnahmen-geplant",
+      "option": "sind-objektschutzmassnahmen-geplant-beratung-erwuenscht",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-objektschutzmassnahmen-geplant.sind-objektschutzmassnahmen-geplant-ja",
+    "fields": {
+      "created_at": "2024-03-04T08:16:14.090Z",
+      "modified_at": "2024-03-04T08:16:14.090Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "sind-objektschutzmassnahmen-geplant",
+      "option": "sind-objektschutzmassnahmen-geplant-ja",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-objektschutzmassnahmen-geplant.sind-objektschutzmassnahmen-geplant-nein",
+    "fields": {
+      "created_at": "2024-03-04T08:16:14.085Z",
+      "modified_at": "2024-03-04T08:16:14.085Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "sind-objektschutzmassnahmen-geplant",
+      "option": "sind-objektschutzmassnahmen-geplant-nein",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "situationsplan-1-1000.situationsplan-1-1000-ja",
     "fields": {
       "created_at": "2023-11-02T08:06:52.569Z",
@@ -68079,6 +70061,51 @@
       "modified_by_group": null,
       "question": "stockwerktyp",
       "option": "stockwerktyp-untergeschoss",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "storenbedienung.storenbedienung-einzeln",
+    "fields": {
+      "created_at": "2024-03-04T08:50:13.027Z",
+      "modified_at": "2024-03-04T08:50:13.027Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "storenbedienung",
+      "option": "storenbedienung-einzeln",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "storenbedienung.storenbedienung-keine-storen",
+    "fields": {
+      "created_at": "2024-03-04T08:50:13.016Z",
+      "modified_at": "2024-03-04T08:50:13.016Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "storenbedienung",
+      "option": "storenbedienung-keine-storen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "storenbedienung.storenbedienung-zentrale-gebaeudesteuerung",
+    "fields": {
+      "created_at": "2024-03-04T08:50:13.021Z",
+      "modified_at": "2024-03-04T08:50:13.021Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "storenbedienung",
+      "option": "storenbedienung-zentrale-gebaeudesteuerung",
       "sort": 2
     }
   },
