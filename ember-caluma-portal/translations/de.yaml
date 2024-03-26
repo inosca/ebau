@@ -43,52 +43,6 @@ feedback:
   info: "Sie haben momentan keine Rückmeldungen. Sobald das Dossier eingereicht wurde, werden Ihnen hier mögliche Rückmeldungen der Leitbehörde oder Fachstellen angezeigt."
 
 documents:
-  confidential: "(vertraulich)"
-  setConfidential: "Als vertraulich markieren"
-  setNonConfidential: "Vertraulich Markierung entfernen"
-  confirm: "Hiermit bestätige ich, dass ich {count, plural, =1 {den folgenden Pflichtinhalt} other {die folgenden # Pflichtinhalte}} hochgeladen habe. Bitte beachten Sie, dass die Liste der angegebenen Pflichtdokumente nicht abschliessend ist. Bitte konsultieren Sie das kommunale Baugesetz."
-  confirm-reduced: "Hiermit bestätige ich, dass ich die benötigten Pflichtinhalte hochgeladen habe:"
-  buckets:
-    dokument-grundstucksangaben: "Grundstücksangaben und Projektbeschrieb"
-    dokument-gutachten-nachweise-begrundungen: "Gutachten, Nachweise, Begründungen, Ausnahmebegehren"
-    dokument-projektplane-projektbeschrieb: "Projektpläne"
-    dokument-weitere-gesuchsunterlagen: "Weitere Gesuchsunterlagen"
-
-    descriptions:
-      prefix: "## Zusätzliche Informationen\n Die Unterlagen sind als
-      pdf, png oder jpeg-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig
-      sein. Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für
-      Ihre interne Dokumentablage benötigen, bitte weg.\n\n\n"
-      dokument-grundstucksangaben: "Unter die Begriffe *Grundstücksangaben
-      und Projektbeschrieb* fallen Gesuchsunterlagen wie z. B. Katasterplan
-      (z. B. ÖREB-Kataster), Grundbuchauszug, Dienstbarkeiten,
-      Projektbeschrieb."
-      dokument-gutachten-nachweise-begrundungen: "Unter die Begriffe
-      *Gutachten, Nachweise, Begründungen, Ausnahmebegehren* fallen
-      Gesuchsunterlagen wie z. B. Vollmachten, Einverständnis Nachbarn,
-      Nutzungsberechnungen, Energietechnische Massnahmennachweis (EMN),
-      Lärmschutznachweise, Brandschutznachweise."
-      dokument-projektplane-projektbeschrieb: "Unter den Begriff
-      *Projektpläne* fallen Gesuchsunterlagen wie z. B. Situationsplan (Art.
-      12 und 13 BewD), Projektpläne (Art. 14 BewD) wie Grundrisse, Schnitt-
-      und Fassadenpläne, Umgebungsgestaltungspläne, Kanalisationspläne,
-      Siedlungsentwässerungspläne."
-      dokument-weitere-gesuchsunterlagen: "Unter den Begriff *Weitere
-      Gesuchsunterlagen* fallen Dokumentunterlagen wie z. B. Formulare -
-      Anschluss Elektrizität, Anschluss Gemeinschaftsantenne, Anschluss Gas,
-      Anschluss Wasser, Wasser- / Abwasserinstallationen und andere
-      Gesuchsunterlagen."
-
-  download: "Datei herunterladen"
-
-  date: "Hochgeladen am {date} um {time}"
-
-  wrongMimeType: "Dieser Dateityp ist nicht erlaubt. Erlaubte Dateitypen sind PDF, PNG und JPEG."
-
-  uploadSuccess: "Die Datei wurde erfolgreich hochgeladen"
-  uploadError: "Beim Hochladen der Datei ist etwas schief gelaufen"
-
-  deleteInfo: 'Wollen Sie die Datei "{filename}" wirklich löschen?'
   deleteSuccess: "Die Datei wurde erfolgreich gelöscht"
   deleteError: "Beim Löschen der Datei ist etwas schief gelaufen"
 
