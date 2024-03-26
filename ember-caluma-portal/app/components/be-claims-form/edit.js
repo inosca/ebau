@@ -3,10 +3,9 @@ import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { task, dropTask, restartableTask } from "ember-concurrency";
+import attachmentsConfig from "ember-ebau-core/config/attachments";
 import { DateTime } from "luxon";
 import { all } from "rsvp";
-
-import config from "caluma-portal/config/environment";
 
 export default class BeClaimsFormEditComponent extends Component {
   @service notification;
@@ -17,7 +16,7 @@ export default class BeClaimsFormEditComponent extends Component {
   @tracked queue = [];
 
   get buckets() {
-    return config.ebau.attachments.buckets;
+    return attachmentsConfig.buckets;
   }
 
   get canSubmit() {
