@@ -42,6 +42,7 @@ def test_import_dossiers_exceptions(
     [
         ("kt_schwyz", True, lazy_fixture("sz_instance")),
         ("kt_bern", False, lazy_fixture("be_instance")),
+        ("kt_so", False, lazy_fixture("so_instance")),
     ],
 )
 def test_import_dossiers_manage_command(

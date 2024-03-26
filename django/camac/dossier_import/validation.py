@@ -116,7 +116,7 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
         location_id=dossier_import.location and dossier_import.location.pk,
     )
 
-    archive = zipfile.ZipFile(dossier_import.source_file.path, "r")
+    archive = dossier_import.get_archive()
     data_file = archive.open("dossiers.xlsx")
     try:
         work_book = openpyxl.load_workbook(data_file, data_only=True)

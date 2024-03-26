@@ -395,7 +395,7 @@
     'zip': 3000,
   })
 # ---
-# name: test_master_data[so_master_data_settings-de-so_master_data_case-select_related5-prefetch_related5-9]
+# name: test_master_data[so_master_data_settings-de-so_master_data_case-select_related5-prefetch_related5-10]
   dict({
     'applicants': list([
       dict({
@@ -422,6 +422,7 @@
         'zip': 1233,
       }),
     ]),
+    'application_type': 'Baugesuch',
     'buildings': list([
       dict({
         'building_category': 1060,
@@ -436,7 +437,9 @@
       6010,
     ]),
     'city': 'Musterdorf',
+    'completion_date': None,
     'construction_costs': 129000,
+    'construction_start_date': None,
     'decision_date': None,
     'dossier_number': '2024-1',
     'dwellings': list([
@@ -497,6 +500,7 @@
         'type': 'anlagetyp-warmwasser',
       }),
     ]),
+    'final_approval_date': None,
     'is_paper': False,
     'joined_street_and_number': False,
     'land_use_planning_land_use': 'Wohnzone 3',
@@ -516,9 +520,11 @@
         'plot_number': 123456789,
       }),
     ]),
+    'profile_approval_date': None,
     'project_authors': list([
     ]),
     'proposal': 'Grosses Haus',
+    'publication_date': None,
     'street': 'Musterstrasse',
     'street_number': 4,
     'submit_date': datetime.datetime(2024, 2, 22, 13, 17, 8, tzinfo=tzutc()),
