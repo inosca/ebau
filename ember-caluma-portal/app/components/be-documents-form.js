@@ -2,6 +2,7 @@ import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { task, dropTask, restartableTask } from "ember-concurrency";
+import attachmentsConfig from "ember-ebau-core/config/attachments";
 
 import config from "caluma-portal/config/environment";
 
@@ -18,7 +19,7 @@ export default class BeDocumentsFormComponent extends Component {
   get buckets() {
     return (
       this.args.fieldset.field.question.raw.meta.buckets ??
-      config.ebau.attachments.buckets
+      attachmentsConfig.buckets
     );
   }
 
