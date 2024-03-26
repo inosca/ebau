@@ -2,6 +2,7 @@ import { inject as service } from "@ember/service";
 import CalumaOptionsService from "@projectcaluma/ember-core/services/caluma-options";
 import { INQUIRY_STATUS } from "@projectcaluma/ember-distribution/config";
 import { cantonAware } from "ember-ebau-core/decorators";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import { cached } from "tracked-toolbox";
 
 export default class CustomCalumaOptionsService extends CalumaOptionsService {
@@ -9,6 +10,10 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
   @service session;
   @service store;
   @service fetch;
+
+  alwaysUseNumberSeparatorWidget = hasFeature(
+    "caluma.alwaysUseNumberSeparatorWidget",
+  );
 
   get currentGroupId() {
     return this.session.service?.id;

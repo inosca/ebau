@@ -30,6 +30,9 @@ export default {
   permissions: {
     municipalityBeforeSubmission: true,
   },
+  caluma: {
+    alwaysUseNumberSeparatorWidget: true,
+  },
   watermark: true,
   municipalityLogo: true,
   communications: true,
