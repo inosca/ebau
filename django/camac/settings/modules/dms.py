@@ -165,6 +165,7 @@ DMS = {
     },
     "kt_gr": {
         "ENABLED": True,
+        "USE_NUMBER_SEPARATOR": True,
         "FORM": {
             "_base": {
                 "people_sources": [
