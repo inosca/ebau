@@ -1,6 +1,8 @@
 import os
 import shutil
+import zipfile
 from pathlib import Path
+from tempfile import NamedTemporaryFile
 
 from caluma.caluma_core.models import UUIDModel
 from django.conf import settings
@@ -109,18 +111,20 @@ class DossierImport(UUIDModel):
         return os.path.basename(self.source_file.name) if self.source_file else None
 
     def delete_file(self):
-        if self.source_file:
-            Path(self.source_file.path).exists() and Path(
-                self.source_file.path
-            ).unlink()
-            shutil.rmtree(
-                str(
-                    Path(settings.MEDIA_ROOT) / f"dossier_imports/files/{str(self.pk)}"
-                ),
-                ignore_errors=True,
-            )
-            self.source_file = None
-            self.save()
+        if not self.source_file:
+            return
+
+        try:
+            parent = Path(self.source_file.path).parent
+        except NotImplementedError:  # pragma: no cover
+            # S3 storage backend don't have any file paths as the files are not
+            # on the filesystem of the application
+            parent = None
+
+        self.source_file.delete()
+
+        if parent and parent.exists():
+            shutil.rmtree(str(parent), ignore_errors=True)
 
     def delete(self, using=None, keep_parents=False, *args, **kwargs):
         self.delete_file()
@@ -168,3 +172,11 @@ class DossierImport(UUIDModel):
             DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS: DossierImport.IMPORT_STATUS_UNDO_FAILED,
             DossierImport.IMPORT_STATUS_TRANSMITTING: DossierImport.IMPORT_STATUS_TRANSMISSION_FAILED,
         }.get(self.status, self.status)
+
+    def get_archive(self):
+        tmp = NamedTemporaryFile()
+        tmp_file = Path(tmp.name)
+        file = tmp_file.open("w+b")
+        file.write(self.source_file.file.file.read())
+
+        return zipfile.ZipFile(file, "r")

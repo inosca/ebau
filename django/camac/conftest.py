@@ -982,6 +982,7 @@ def caluma_forms_so(settings):
     caluma_form_models.Form.objects.create(slug="erdwaermesonden")
     caluma_form_models.Form.objects.create(slug="personalien-tabelle")
     caluma_form_models.Form.objects.create(slug="beschwerdeverfahren")
+    caluma_form_models.Form.objects.create(slug="migriertes-dossier")
 
     # dynamic choice options get cached, so we clear them
     # to ensure the new "gemeinde" options will be valid

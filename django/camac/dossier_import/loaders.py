@@ -303,8 +303,7 @@ class XlsxFileDossierLoader:
             )
         return out, messages
 
-    def load_dossiers(self, path_to_archive: str) -> Generator:
-        archive = zipfile.ZipFile(path_to_archive, "r")
+    def load_dossiers(self, archive: zipfile.ZipFile) -> Generator:
         data_file = archive.open("dossiers.xlsx")
         try:
             work_book = openpyxl.load_workbook(data_file, data_only=True)

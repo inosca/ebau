@@ -92,6 +92,12 @@ def test_imported_instance_be_get_name(
             None,
             status.HTTP_201_CREATED,
         ),
+        (
+            "import-example-validation-errors.zip",
+            lazy_fixture("so_dossier_import_settings"),
+            None,
+            status.HTTP_201_CREATED,
+        ),
     ],
 )
 def test_validation_errors(

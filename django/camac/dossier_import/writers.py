@@ -319,10 +319,20 @@ class CalumaListAnswerWriter(FieldWriter):
                     if not value:
                         continue
                     try:
+                        question = Question.objects.get(
+                            slug=self.column_mapping[field.name]
+                        )
+
+                        # Some fields are parsed as integer but are not written
+                        # into an integer field in every canton
+                        if question.type in [
+                            Question.TYPE_TEXT,
+                            Question.TYPE_TEXTAREA,
+                        ]:
+                            value = str(value)
+
                         form_api.save_answer(
-                            question=Question.objects.get(
-                                slug=self.column_mapping[field.name]
-                            ),
+                            question=question,
                             value=value,
                             document=row_document,
                             user=BaseUser(

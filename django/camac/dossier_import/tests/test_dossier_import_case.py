@@ -8,7 +8,8 @@ from pytest_lazyfixture import lazy_fixture
 
 from camac.caluma.api import CalumaApi
 from camac.core.models import InstanceLocation
-from camac.dossier_import.dossier_classes import Dossier
+from camac.document.tests.data import django_file
+from camac.dossier_import.dossier_classes import Attachment, Dossier
 from camac.dossier_import.loaders import InvalidImportDataError, XlsxFileDossierLoader
 from camac.dossier_import.messages import MessageCodes, Severity, update_summary
 from camac.dossier_import.validation import validate_zip_archive_structure
@@ -23,17 +24,22 @@ TEST_IMPORT_FILE_NAME = "import-example.zip"
 
 
 @pytest.mark.parametrize("config", ["kt_schwyz"])
-def test_bad_file_format_dossier_xlsx(db, user, settings, config, setup_dossier_writer):
+def test_bad_file_format_dossier_xlsx(
+    db,
+    user,
+    settings,
+    config,
+    setup_dossier_writer,
+    archive_file,
+    dossier_import_factory,
+):
     setup_dossier_writer(config)
+    dossier_import = dossier_import_factory(
+        source_file=archive_file("import-bad-example.zip"),
+    )
     loader = XlsxFileDossierLoader()
     with pytest.raises(InvalidImportDataError):
-        all(
-            loader.load_dossiers(
-                settings.ROOT_DIR(
-                    "camac/dossier_import/tests/data/import-bad-example.zip"
-                )
-            )
-        )
+        all(loader.load_dossiers(dossier_import.get_archive()))
 
 
 @pytest.mark.parametrize(
@@ -50,6 +56,7 @@ def test_bad_file_format_dossier_xlsx(db, user, settings, config, setup_dossier_
     [
         ("kt_schwyz", lazy_fixture("sz_instance_with_form")),
         ("kt_bern", lazy_fixture("be_instance")),
+        ("kt_so", lazy_fixture("so_instance")),
     ],
 )
 def test_create_instance_dossier_import_case(
@@ -72,7 +79,7 @@ def test_create_instance_dossier_import_case(
     )
     loader = XlsxFileDossierLoader()
 
-    for dossier in loader.load_dossiers(dossier_import.source_file.path):
+    for dossier in loader.load_dossiers(dossier_import.get_archive()):
         message = writer.import_dossier(dossier, str(dossier_import.pk))
         dossier_import.messages["import"]["details"].append(message.to_dict())
     update_summary(dossier_import)
@@ -93,6 +100,16 @@ def test_create_instance_dossier_import_case(
                 "instance", flat=True
             )
         ) == set(instances.values_list("pk", flat=True))
+    if config == "kt_so":
+        first_instance = instances.first()
+
+        assert first_instance.case.meta == {
+            "import-id": str(dossier_import.pk),
+            "camac-instance-id": first_instance.pk,
+            "submit-date": "2017-04-12T00:00:00",
+            "dossier-number": "2017-1",
+            "dossier-number-sort": 2017000001,
+        }
     deletion = Instance.objects.filter(
         **{"case__meta__import-id": str(dossier_import.pk)}
     ).delete()
@@ -371,95 +388,6 @@ IMPORT_ROWS_BE = [
     ({"TYPE": "geschaeftstyp-baubewilligungsverfahren"}, "application_type"),
 ] + COMMON_IMPORT_ROWS
 
-IMPORT_ROWS_SO = [
-    ({"STATUS": "SUBMITTED", "CANTONAL-ID": "2024-3"}, "dossier_number"),  # None
-    (
-        {
-            "COORDINATE-E": "2`710`662",
-            "COORDINATE-N": "1`225`997",
-            "PARCEL": "`123`,2BA",
-            "EGRID": "HK207838123456,EGRIDDELLEY",
-        },
-        "plot_data",
-    ),
-    (
-        {
-            "COORDINATE-E": "1`225`997",
-            "COORDINATE-N": "2`710`662",
-            "PARCEL": "`123`,2BA",
-            "EGRID": "HK207838123456,EGRIDDELLEY",
-        },
-        "plot_data",
-    ),
-    (
-        {
-            "COORDINATE-E": "2`710`662",
-            "COORDINATE-N": "1`225`997",
-            "PARCEL": "`123`,2BA",
-            "EGRID": "HK207838123456",
-        },
-        "plot_data",
-    ),
-    ({"TYPE": "baubewilligung"}, "application_type"),
-] + COMMON_IMPORT_ROWS
-
-IMPORT_ROWS_BE = [
-    # based on existing ebau-number and service access resulting ebau-number differs
-    ({"STATUS": "SUBMITTED", "CANTONAL-ID": None}, "dossier_number"),  # None
-    (
-        {
-            "STATUS": "APPROVED",
-            "CANTONAL-ID": None,
-        },
-        "dossier_number",
-    ),  # 2017-1
-    (
-        {
-            "STATUS": "DONE",
-            "CANTONAL-ID": None,
-        },
-        "dossier_number",
-    ),  # 2017-1
-    (
-        {"CANTONAL-ID": "2020-1"},
-        "dossier_number",
-    ),  # 2020-1
-    (
-        {
-            "CANTONAL-ID": "2020-2",
-        },
-        "dossier_number",
-    ),  # 2017-1
-    (
-        {
-            "COORDINATE-E": "2`710`662",
-            "COORDINATE-N": "1`225`997",
-            "PARCEL": "`123`,2BA",
-            "EGRID": "HK207838123456,EGRIDDELLEY",
-        },
-        "plot_data",
-    ),
-    (
-        {
-            "COORDINATE-E": "1`225`997",
-            "COORDINATE-N": "2`710`662",
-            "PARCEL": "`123`,2BA",
-            "EGRID": "HK207838123456,EGRIDDELLEY",
-        },
-        "plot_data",
-    ),
-    (
-        {
-            "COORDINATE-E": "2`710`662",
-            "COORDINATE-N": "1`225`997",
-            "PARCEL": "`123`,2BA",
-            "EGRID": "HK207838123456",
-        },
-        "plot_data",
-    ),
-    ({"TYPE": "geschaeftstyp-baubewilligungsverfahren"}, "application_type"),
-] + COMMON_IMPORT_ROWS
-
 
 @pytest.mark.parametrize(
     "is_empty",
@@ -505,6 +433,78 @@ def test_record_loading_be(
         foreign_instance = instance_with_case(foreign_instance)
         foreign_instance.case.meta.update({"ebau-number": "2020-2"})
         foreign_instance.case.save()
+
+    if expected_target == "decision_date":
+        work_item_factory(task_id="decision", case=camac_instance.case)
+
+    # test overwriting values
+    if not is_empty:
+        writer.write_fields(camac_instance, dossier)
+        mocker.patch.object(writer, "existing_dossier", camac_instance)
+        instance_service_factory(instance=camac_instance, service=writer._group.service)
+
+    dossier_row_sparse.update(dossier_row_patch)
+    dossier = dossier_loader._load_dossier(dossier_row_sparse)
+    writer.write_fields(camac_instance, dossier)
+    md = MasterData(camac_instance.case)
+    snapshot.assert_match(getattr(md, expected_target))
+
+
+IMPORT_ROWS_SO = [
+    ({"STATUS": "SUBMITTED", "CANTONAL-ID": "2024-3"}, "dossier_number"),  # None
+    (
+        {
+            "COORDINATE-E": "2`710`662",
+            "COORDINATE-N": "1`225`997",
+            "PARCEL": "`123`,2BA",
+            "EGRID": "HK207838123456,EGRIDDELLEY",
+        },
+        "plot_data",
+    ),
+    (
+        {
+            "COORDINATE-E": "1`225`997",
+            "COORDINATE-N": "2`710`662",
+            "PARCEL": "`123`,2BA",
+            "EGRID": "HK207838123456,EGRIDDELLEY",
+        },
+        "plot_data",
+    ),
+    (
+        {
+            "COORDINATE-E": "2`710`662",
+            "COORDINATE-N": "1`225`997",
+            "PARCEL": "`123`,2BA",
+            "EGRID": "HK207838123456",
+        },
+        "plot_data",
+    ),
+    ({"TYPE": "baubewilligung"}, "application_type"),
+] + COMMON_IMPORT_ROWS
+
+
+@pytest.mark.parametrize("is_empty", [True, False])
+@pytest.mark.parametrize(
+    "config,camac_instance", [("kt_so", lazy_fixture("so_instance"))]
+)
+@pytest.mark.parametrize("dossier_row_patch,expected_target", IMPORT_ROWS_SO)
+def test_record_loading_so(
+    work_item_factory,
+    dossier,
+    setup_dossier_writer,
+    master_data_is_visible_mock,
+    dossier_row_sparse,
+    dossier_loader,
+    mocker,
+    instance_service_factory,
+    camac_instance,
+    config,
+    is_empty,
+    dossier_row_patch,
+    expected_target,
+    snapshot,
+):
+    writer = setup_dossier_writer(config)
 
     if expected_target == "decision_date":
         work_item_factory(task_id="decision", case=camac_instance.case)
@@ -915,3 +915,141 @@ def test_set_workflow_state_be(
                 ebau_number,
             ]
         )
+
+
+@pytest.mark.parametrize(
+    "target_state,expected_work_items_states,expected_case_status",
+    [
+        (
+            "SUBMITTED",
+            [
+                ("submit", "skipped"),
+                ("create-manual-workitems", "ready"),
+                ("formal-exam", "ready"),
+                ("init-additional-demand", "ready"),
+            ],
+            "running",
+        ),
+        (
+            "APPROVED",
+            [
+                ("submit", "skipped"),
+                ("create-manual-workitems", "ready"),
+                ("formal-exam", "skipped"),
+                ("init-additional-demand", "canceled"),
+                ("material-exam", "skipped"),
+                ("publication", "skipped"),
+                ("distribution", "skipped"),
+                ("decision", "skipped"),
+            ],
+            "running",
+        ),
+        (
+            "DONE",
+            [
+                ("submit", "skipped"),
+                ("create-manual-workitems", "ready"),
+                ("formal-exam", "skipped"),
+                ("init-additional-demand", "canceled"),
+                ("material-exam", "skipped"),
+                ("publication", "skipped"),
+                ("distribution", "skipped"),
+                ("decision", "skipped"),
+            ],
+            "running",  # SO workflow is not done yet - this will change in the future
+        ),
+        (
+            "REJECTED",
+            [
+                ("submit", "skipped"),
+                ("create-manual-workitems", "ready"),
+                ("formal-exam", "skipped"),
+                ("init-additional-demand", "canceled"),
+                ("material-exam", "skipped"),
+                ("publication", "skipped"),
+                ("distribution", "skipped"),
+                ("decision", "skipped"),
+            ],
+            "running",  # SO workflow is not done yet - this will change in the future
+        ),
+        (
+            "WRITTEN OFF",
+            [
+                ("submit", "skipped"),
+                ("create-manual-workitems", "ready"),
+                ("formal-exam", "skipped"),
+                ("init-additional-demand", "canceled"),
+                ("material-exam", "skipped"),
+                ("publication", "skipped"),
+                ("distribution", "skipped"),
+                ("decision", "skipped"),
+            ],
+            "running",  # SO workflow is not done yet - this will change in the future
+        ),
+    ],
+)
+def test_set_workflow_state_so(
+    db,
+    so_instance,
+    setup_dossier_writer,
+    dossier,
+    target_state,
+    instance_service_factory,
+    expected_work_items_states,
+    expected_case_status,
+):
+    # This test skips instance creation where the instance's instance_state is set to the correct
+    # state.
+    writer = setup_dossier_writer("kt_so")
+    dossier._meta.target_state = target_state
+    writer._set_workflow_state(so_instance, dossier)
+
+    for task_id, expected_status in expected_work_items_states:
+        assert (
+            so_instance.case.work_items.get(task_id=task_id).status == expected_status
+        )
+    assert so_instance.case.status == expected_case_status
+
+
+@pytest.mark.parametrize(
+    "config,camac_instance",
+    [
+        ("kt_bern", lazy_fixture("be_instance")),
+        ("kt_schwyz", lazy_fixture("sz_instance")),
+        ("kt_so", lazy_fixture("so_instance")),
+    ],
+)
+def test_import_documents(dossier, setup_dossier_writer, camac_instance, config):
+    writer = setup_dossier_writer(config)
+    dossier.attachments = [
+        Attachment(
+            file_accessor=django_file("multiple-pages.pdf").open(),
+            name="Baugesuch.pdf",
+        ),
+        Attachment(
+            file_accessor=django_file("1MB.pdf").open(), name="pläne/Grundriss.pdf"
+        ),
+    ]
+    writer._create_dossier_attachments(dossier, camac_instance)
+
+    if config == "kt_so":
+        camac_instance.alexandria_instance_documents.count() == len(dossier.attachments)
+        for attachment in dossier.attachments:
+            if alexandria_doc := camac_instance.alexandria_instance_documents.filter(
+                document__title=attachment.name
+            ).first():
+                attachment.file_accessor.seek(0)
+                assert (
+                    attachment.file_accessor.read()
+                    == alexandria_doc.document.get_latest_original().content.file.file.read()
+                )
+            assert alexandria_doc
+    else:
+        assert camac_instance.attachments.count() == len(dossier.attachments)
+        for attachment in dossier.attachments:
+            if camac_attachment := camac_instance.attachments.filter(
+                name=attachment.name
+            ).first():
+                attachment.file_accessor.seek(0)
+                assert attachment.file_accessor.read() == camac_attachment.path.read()
+            assert camac_attachment

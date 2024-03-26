@@ -4,6 +4,7 @@ from collections import OrderedDict
 from pathlib import Path
 
 import pytest
+from alexandria.core.factories import CategoryFactory
 from django.core.files import File
 from django.core.management import call_command
 from django.utils.module_loading import import_string
@@ -123,6 +124,30 @@ def make_dossier_writer(
         )
 
     return init_writer
+
+
+@pytest.fixture
+def load_fixtures_so(
+    db,
+    settings,
+    caluma_workflow_config_so,
+    instance_state_factory,
+    so_dossier_import_settings,
+    so_decision_settings,
+):
+    extra_fixtures = [
+        settings.ROOT_DIR("kt_so/config/caluma_form.json"),
+        settings.ROOT_DIR("kt_so/config/caluma_decision_form.json"),
+    ]
+
+    caluma_workflow_config_so.allow_forms.add("migriertes-dossier")
+
+    for pk in so_dossier_import_settings["INSTANCE_STATE_MAPPING"].values():
+        instance_state_factory(pk=pk)
+
+    so_dossier_import_settings["ALEXANDRIA_CATEGORY"] = CategoryFactory().pk
+
+    yield None, extra_fixtures
 
 
 @pytest.fixture

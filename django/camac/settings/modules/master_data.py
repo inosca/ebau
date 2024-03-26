@@ -2523,6 +2523,33 @@ MASTER_DATA = {
                     }
                 },
             ),
+            # Migrated dossiers
+            "application_type": ("form_name",),
+            "completion_date": (
+                "answer",
+                "bauende",
+                {"value_key": "date"},
+            ),
+            "construction_start_date": (
+                "answer",
+                "datum-baubeginn",
+                {"value_key": "date"},
+            ),
+            "final_approval_date": (
+                "answer",
+                "datum-schlussabnahme",
+                {"value_key": "date"},
+            ),
+            "profile_approval_date": (
+                "answer",
+                "datum-schnurgeruestabnahme",
+                {"value_key": "date"},
+            ),
+            "publication_date": (
+                "answer",
+                "datum-publikation",
+                {"value_key": "date"},
+            ),
         },
     },
 }
