@@ -1,6 +1,7 @@
 DMS = {
     "default": {
         "ADD_HEADER_DATA": True,
+        "USE_NUMBER_SEPARATOR": False,
     },
     "demo": {
         "ENABLED": True,
@@ -264,6 +265,7 @@ DMS = {
     },
     "kt_so": {
         "ENABLED": True,
+        "USE_NUMBER_SEPARATOR": True,
         "FORM": {
             "_base": {
                 "people_sources": [

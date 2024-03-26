@@ -1,10 +1,11 @@
+import locale
 from datetime import datetime
 from pathlib import Path
 
 import faker
 import pytest
 from alexandria.core.factories import CategoryFactory, DocumentFactory, FileFactory
-from caluma.caluma_form.models import DynamicOption
+from caluma.caluma_form.models import DynamicOption, Question
 from caluma.caluma_user.models import BaseUser
 from django.conf import settings
 from django.core.cache import cache
@@ -50,6 +51,13 @@ def caluma_form_fixture(db):
     ]
 
     call_command("loaddata", *[kt_bern_path / path for path in paths])
+
+
+@pytest.fixture
+def ch_locale():
+    locale.setlocale(locale.LC_ALL, "de_CH.utf8")
+    yield locale.getlocale()
+    locale.setlocale(locale.LC_ALL, "")
 
 
 @pytest.mark.freeze_time("2023-01-06 16:10")
@@ -420,3 +428,45 @@ def test_document_merge_service_unauthorized(db, requests_mock):
         DMSClient("some token").merge({"foo": "some data"}, template)
 
     assert str(e.value.detail) == _("Signature has expired.")
+
+
+@pytest.mark.parametrize("use_number_separator", [True, False])
+def test_number_separator(
+    db,
+    ch_locale,
+    dms_settings,
+    form_question_factory,
+    so_instance,
+    use_number_separator,
+    utils,
+):
+    dms_settings["FORM"] = {"baugesuch": {"forms": ["main-form"]}}
+    dms_settings["USE_NUMBER_SEPARATOR"] = use_number_separator
+
+    form_question_factory(
+        form_id="main-form",
+        question__slug="integer",
+        question__type=Question.TYPE_INTEGER,
+    )
+    form_question_factory(
+        form_id="main-form",
+        question__slug="float",
+        question__type=Question.TYPE_FLOAT,
+    )
+
+    utils.add_answer(so_instance.case.document, "integer", 57000000)
+    utils.add_answer(so_instance.case.document, "float", 1304.12)
+
+    visitor = DMSVisitor(so_instance.case.document, so_instance, BaseUser())
+
+    data = {
+        item["slug"]: item.get("value")
+        for item in visitor.visit(so_instance.case.document)
+    }
+
+    if use_number_separator:
+        assert data["integer"] == "57’000’000"
+        assert data["float"] == "1’304.12"
+    else:
+        assert data["integer"] == 57000000
+        assert data["float"] == 1304.12
