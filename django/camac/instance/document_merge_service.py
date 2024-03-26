@@ -659,6 +659,14 @@ class DMSVisitor:
     def _visit_simple_question(self, node, parent_doc=None, answer=None, **_):
         return {"value": answer.value if answer else None}
 
+    def _visit_number_question(self, node, parent_doc=None, answer=None, **_):
+        value = answer.value if answer else None
+
+        if value and settings.DMS.get("USE_NUMBER_SEPARATOR"):
+            value = f"{value:n}"
+
+        return {"value": value}
+
     def _visit_date_question(self, node, parent_doc=None, answer=None, **_):
         return {"value": answer.date if answer and answer.date else None}
 
@@ -683,8 +691,8 @@ class DMSVisitor:
 
         fns = {
             Question.TYPE_DATE: self._visit_date_question,
-            Question.TYPE_FLOAT: self._visit_simple_question,
-            Question.TYPE_INTEGER: self._visit_simple_question,
+            Question.TYPE_FLOAT: self._visit_number_question,
+            Question.TYPE_INTEGER: self._visit_number_question,
             Question.TYPE_TEXT: self._visit_simple_question,
             Question.TYPE_TEXTAREA: self._visit_simple_question,
             Question.TYPE_CHOICE: self._visit_choice_question,
