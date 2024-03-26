@@ -194,7 +194,7 @@ def test_create_acl(
         created_by_user = get_dict_item(relationships, "created-by-user.data.id")
 
         if set_start_time:
-            assert attrs["start-time"] == set_start_time.isoformat()
+            assert attrs["start-time"] == set_start_time.astimezone().isoformat()
         else:
             # start time should be now-ish
             created_start_time = datetime.fromisoformat(attrs["start-time"])
