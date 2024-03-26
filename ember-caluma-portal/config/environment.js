@@ -110,8 +110,7 @@ module.exports = function (environment) {
       realm: "ebau",
       internalFrontend: "camac",
       supportGroups: [10000],
-      useConfidential: false,
-      defaultInstanceStateCategory: "all",
+      defaultInstanceStateCategory: "pending",
       instanceStateCategories: {
         all: [
           instanceStatesBe.new,
@@ -381,7 +380,6 @@ module.exports = function (environment) {
       realm: "ebau",
       internalFrontend: "ebau",
       supportGroups: [10000],
-      useConfidential: false,
       defaultInstanceStateCategory: "pending",
       instanceStateCategories: {
         pending: [
@@ -430,7 +428,6 @@ module.exports = function (environment) {
       realm: "ebau",
       internalFrontend: "ebau",
       supportGroups: [3],
-      useConfidential: false,
       defaultInstanceStateCategory: "pending",
       instanceStateCategories: {
         pending: [
@@ -531,15 +528,6 @@ module.exports = function (environment) {
     ebau: {
       beGisUrl,
       internalURL,
-      attachments: {
-        allowedMimetypes: ["image/png", "image/jpeg", "application/pdf"],
-        buckets: [
-          "dokument-grundstucksangaben",
-          "dokument-gutachten-nachweise-begrundungen",
-          "dokument-projektplane-projektbeschrieb",
-          "dokument-weitere-gesuchsunterlagen",
-        ],
-      },
       supportGroups: appConfig.supportGroups,
       selectableGroups: appConfig.selectableGroups,
     },

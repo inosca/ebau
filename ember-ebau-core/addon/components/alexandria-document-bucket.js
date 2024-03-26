@@ -6,7 +6,7 @@ import { tracked } from "@glimmer/tracking";
 import { dropTask, task } from "ember-concurrency";
 import { confirm } from "ember-uikit";
 
-import mainConfig from "ember-ebau-core/config/main";
+import attachmentsConfig from "ember-ebau-core/config/attachments";
 
 function requiredArgument(_, name) {
   return {
@@ -29,11 +29,11 @@ export default class AlexandriaDocumentBucketComponent extends Component {
   @tracked attachmentLoading = [];
 
   get allowedMimetypes() {
-    return mainConfig.attachments.allowedMimetypes;
+    return attachmentsConfig.allowedMimetypes;
   }
 
   get useConfidential() {
-    return mainConfig.useConfidential;
+    return attachmentsConfig.useConfidential;
   }
 
   @task
