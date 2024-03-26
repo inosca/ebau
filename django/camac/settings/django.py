@@ -105,7 +105,6 @@ INSTALLED_APPS = [
     "camac.stats.apps.StatsConfig",
     "camac.parashift.apps.ParashiftConfig",
     "camac.dossier_import.apps.DossierImportConfig",
-    "camac.gisbern.apps.GisbernConfig",
     "camac.communications.apps.CommunicationsConfig",
     "camac.permissions.apps.PermissionsConfig",
     "camac.gis.apps.GisConfig",
