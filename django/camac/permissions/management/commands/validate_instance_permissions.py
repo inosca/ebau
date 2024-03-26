@@ -122,8 +122,11 @@ class Command(BaseCommand):
         class FakeInstance:
             instance_state: InstanceState
 
-        return [
-            is_.name
-            for is_ in InstanceState.objects.all()
-            if cond.apply(None, FakeInstance(is_))
-        ]
+        try:
+            return [
+                is_.name
+                for is_ in InstanceState.objects.all()
+                if cond.apply(None, FakeInstance(is_))
+            ]
+        except AttributeError:
+            return []
