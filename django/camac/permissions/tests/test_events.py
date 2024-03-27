@@ -1,6 +1,10 @@
+from datetime import timedelta
+
 import pytest
 from caluma.caluma_workflow import api as workflow_api
+from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
+from django.utils import timezone
 from rest_framework import status
 
 from camac.constants import kt_gr as gr_constants
@@ -457,3 +461,44 @@ def test_change_responsible_service(
     assert lead.filter(service=new_responsible).exists()
     assert not involved.filter(service=new_responsible).exists()
     assert involved.filter(service=old_responsible).exists()
+
+
+@pytest.mark.parametrize("instance_state__name", ["circulation"])
+def test_send_inquiry(
+    db,
+    be_instance,
+    active_inquiry_factory,
+    notification_template,
+    service_factory,
+    caluma_admin_user,
+    system_operation_user,
+    be_permissions_settings,
+    be_access_levels,
+    disable_ech0211_settings,
+    mocker,
+):
+    mocker.patch(
+        "camac.notification.management.commands.send_inquiry_reminders.TEMPLATE_REMINDER_CIRCULATION",
+        notification_template.slug,
+    )
+
+    inquiry: WorkItem = active_inquiry_factory(
+        deadline=timezone.now() - timedelta(days=1),
+        meta={"reminders": ["2022-11-30T16:00:00.000000+00:00"]},
+    )
+    inquiry.status = inquiry.STATUS_SUSPENDED
+    inquiry.save()
+
+    acls_before = list(be_instance.acls.all())
+    count_before = len(acls_before)
+
+    workflow_api.resume_work_item(work_item=inquiry, user=caluma_admin_user)
+
+    acls_after = be_instance.acls.all()
+
+    assert acls_after.count() == count_before + 1
+
+    new_acl = acls_after.exclude(pk__in=acls_before).get()
+
+    assert new_acl.access_level.slug == "distribution-service"
+    assert new_acl.grant_type == "SERVICE"

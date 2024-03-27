@@ -8,6 +8,7 @@ from logging import getLogger
 from typing import Optional
 
 import tqdm
+from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.db import transaction
@@ -251,6 +252,8 @@ class Command(BaseCommand):
                     lead_authority, inactive_lead_authority
                 )
             )
+        if invited_service := conf.get("DISTRIBUTION_INVITEE"):
+            permissions.update(self._build_distribution_permissions(invited_service))
 
         return permissions
 
@@ -295,6 +298,42 @@ class Command(BaseCommand):
                     #
                     start_time=submit_date or timezone.now(),
                     metainfo={"instance-group-id": str(inst.group.pk)},
+                )
+
+    def _build_distribution_permissions(self, access_level):
+        make_acl = partial(ACL, access_level=access_level, state=STATE_ACTIVE)
+
+        if not settings.DISTRIBUTION:
+            log.warning(
+                "Non-Distribution workflows are not supported, "
+                "as they are on the way out (Last canton is UR, and "
+                "the next full release is dropping it)"
+            )
+            return
+
+        wi_iter = self._iter_qs(
+            WorkItem.objects.filter(
+                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+            ).exclude(
+                status__in=[
+                    WorkItem.STATUS_SUSPENDED,
+                    WorkItem.STATUS_CANCELED,
+                ],
+            ),
+            "case__family__instance",
+        )
+        log.info(f"    Checking {wi_iter.total} work items")
+        for workitem in wi_iter:
+            # Probably never multiple, but it's a list and we want to
+            # be clean
+            for service_id in workitem.addressed_groups:
+                yield make_acl(
+                    instance_id=workitem.case.family.instance.pk,
+                    type=permission_models.GRANT_CHOICES.SERVICE.value,
+                    service_id=service_id,
+                    #
+                    start_time=workitem.created_at or timezone.now(),
+                    metainfo={"work-item-id": str(workitem.pk)},
                 )
 
     def _build_applicant_permissions(self, level):
