@@ -319,6 +319,16 @@ instances:
     old: ""
     control: ""
 
+    # GR
+    circulation: ""
+    inProcedure: ""
+    submitted: ""
+    constructionAcceptance: ""
+
+    # SO
+    withdrawn: ""
+    constructionMonitoring: ""
+
     # Shared
     done: "Finalisé"
 

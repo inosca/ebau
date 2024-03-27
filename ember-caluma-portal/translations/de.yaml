@@ -320,6 +320,7 @@ instances:
 
     # SO
     withdrawn: "Zurückgezogen"
+    constructionMonitoring: "Baubegleitung"
 
     # Shared
     done: "Abgeschlossen"
