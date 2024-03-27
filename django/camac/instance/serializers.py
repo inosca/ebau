@@ -1028,7 +1028,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     def get_base_queryset(self):
         """Overridden from InstanceQuerysetMixin to avoid the super().get_queryset() call."""
         instance_state_expr = self._get_instance_filter_expr("instance_state")
-        return models.Instance.objects.all().select_related(instance_state_expr)
+        return (
+            models.Instance.objects.all().select_related(instance_state_expr).distinct()
+        )
 
     def create(self, validated_data):
         group = self.context.get("request").group
