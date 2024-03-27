@@ -77,6 +77,7 @@ services:
       DJANGO_TEMPFILE_DOWNLOAD_URL: /tmp
       DOCUMENT_MERGE_SERVICE_URL: http://document-merge-service:8000/document-merge-service/api/v1/
       ENABLE_HISTORICAL_API: true
+      ENABLE_TOKEN_EXCHANGE: ${ENABLE_TOKEN_EXCHANGE:-false}
       ENV: dev # needed for manabi dev mode
       LANGUAGE_CODE: de
       LANGUAGES: de
@@ -110,7 +111,9 @@ services:
       KEYCLOAK_HOST: http://ebau-keycloak.local
       SO_GIS_URL: https://geo-i.so.ch
       INTERNAL_URL: http://ember-ebau.local
-      EGOV_PORTAL_URL: "https://my-t.so.ch"
+      EGOV_PORTAL_URL: ${EGOV_PORTAL_URL:-http://egov.local}
+      EGOV_PRESTATION_PATH: ${EGOV_PRESTATION_PATH:-/prestation/1}
+      ENABLE_TOKEN_EXCHANGE: ${ENABLE_TOKEN_EXCHANGE:-false}
     networks:
       - ebau.local
 
@@ -135,6 +138,7 @@ services:
       KC_DB_URL: jdbc:postgresql://db:5432/${APPLICATION}?currentSchema=keycloak
       KC_DB_USERNAME: camac
       KC_HOSTNAME: ebau-keycloak.local
+      KC_FEATURES: token-exchange,admin-fine-grained-authz
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: camac
     networks:

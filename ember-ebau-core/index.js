@@ -40,6 +40,11 @@ module.exports = {
         soGisUrl: process.env.SO_GIS_URL || "https://geo-i.so.ch",
         // feature flags
         hasBuildingControl: ENV === "be",
+        // token exchange (this is not a regular feature flag because it differs
+        // per environment in Kt. SO)
+        enableTokenExchange: process.env.ENABLE_TOKEN_EXCHANGE ?? false,
+        eGovPortalURL: process.env.EGOV_PORTAL_URL ?? "http://egov.local",
+        eGovPrestationPath: process.env.EGOV_PRESTATION_PATH ?? "/prestation/1",
       },
     },
     babel: {

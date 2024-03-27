@@ -63,3 +63,8 @@ if settings.ECH0211:  # pragma: no cover
 
 if settings.ENABLE_SILK:  # pragma: no cover
     urlpatterns.append(re_path(r"^api/silk/", include("silk.urls", namespace="silk")))
+
+if settings.ENABLE_TOKEN_EXCHANGE:
+    urlpatterns.append(
+        re_path(r"^api/v1/", include("camac.token_exchange.urls")),
+    )

@@ -5,6 +5,7 @@ import { handleUnauthorized } from "ember-simple-auth-oidc";
 import { getConfig } from "ember-simple-auth-oidc/config";
 import Session from "ember-simple-auth-oidc/services/session";
 import { getUserLocales } from "get-user-locale";
+import { jwtDecode } from "jwt-decode";
 import { trackedFunction } from "reactiveweb/function";
 import { localCopy, cached } from "tracked-toolbox";
 import UIkit from "uikit";
@@ -173,6 +174,19 @@ export default class CustomSession extends Session {
         ? { "x-camac-public-access-key": publicAccessKey }
         : {}),
     };
+  }
+
+  get isTokenExchange() {
+    if (!this.isAuthenticated) {
+      return false;
+    }
+
+    const { tokenPropertyName } = getConfig(getOwner(this));
+
+    const token = this.data.authenticated[tokenPropertyName];
+    const decoded = jwtDecode(token);
+
+    return decoded.azp === "token-exchange";
   }
 
   handleUnauthorized() {
