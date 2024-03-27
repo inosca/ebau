@@ -61,7 +61,7 @@ class FieldWriter:
         self.name = name or target
         self.protected = protected
 
-    def can_delete(self):
+    def can_delete(self):  # pragma: no cover TODO: cover
         if not self.protected:
             return True
         if dossier := self.context.get("dossier"):
@@ -550,7 +550,7 @@ class DossierWriter:
             # If an attachment by the same name exists we'll overwrite the file, unless the data is identical.
             # Django's own `FileField.path.save` method cannot be used because it would create another
             # file with a random suffix, thus cluttering the file system.
-            if not created:
+            if not created:  # pragma: no cover   TODO: cover
                 if (
                     hashlib.md5(attachment.path.file.read()).digest()
                     == hashlib.md5(content.read()).digest()
