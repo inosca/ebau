@@ -3,7 +3,11 @@ from rest_framework_json_api import relations, serializers
 
 from camac.instance import models as instance_models
 from camac.permissions import permissions
-from camac.permissions.switcher import get_permission_mode, permission_switching_method
+from camac.permissions.switcher import (
+    get_permission_mode,
+    is_permission_mode_fully_enabled,
+    permission_switching_method,
+)
 from camac.user.permissions import permission_aware
 
 from . import api, models
@@ -107,7 +111,15 @@ class InstancePermissionSerializer(serializers.ModelSerializer):
     permissions = serializers.SerializerMethodField()
 
     def get_root_meta(self, resource, many):
-        return {"permission_mode": get_permission_mode().value}
+        # * permission_mode returns the active mode, which provides some lower
+        #   level, more nuanced information regarding the current operating
+        #   mode.
+        # * fully_enabled is a boolean that is True when the old permissions
+        #   mode should be ignored.
+        return {
+            "permission_mode": get_permission_mode().value,
+            "fully_enabled": is_permission_mode_fully_enabled(),
+        }
 
     def get_instance(self, instance):
         return instance

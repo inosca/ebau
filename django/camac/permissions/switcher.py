@@ -52,6 +52,15 @@ class PERMISSION_MODE(Enum):
     AUTO_OFF = "AUTO_OFF"
 
 
+# Fully enabled modes are the ones where we should use the new permission
+# module's permissions and disregard the old ACLs / rules / whatever.
+FULLY_ENABLED_MODES = [
+    PERMISSION_MODE.FULL,
+    PERMISSION_MODE.CHECKING,
+    PERMISSION_MODE.DEV,
+]
+
+
 def get_permission_mode():
     if not settings.PERMISSIONS:  # pragma: no cover
         # Cantons that don't have the permissions module activated at all won't
@@ -83,6 +92,10 @@ def get_permission_mode():
         )
     else:
         return set_mode
+
+
+def is_permission_mode_fully_enabled():
+    return get_permission_mode() in FULLY_ENABLED_MODES
 
 
 class PermissionMethod:

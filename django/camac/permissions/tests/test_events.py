@@ -1,9 +1,12 @@
 import pytest
 from caluma.caluma_workflow import api as workflow_api
+from django.urls import reverse
+from rest_framework import status
 
 from camac.constants import kt_gr as gr_constants
 from camac.permissions import events, exceptions
 from camac.permissions.models import AccessLevel, InstanceACL
+from camac.permissions.switcher import PERMISSION_MODE
 from camac.user.models import ServiceRelation
 
 
@@ -306,3 +309,87 @@ def test_construction_acceptance_event_handler_gr(
 
     aib_acl = acls.filter(service=aib_service)
     assert aib_acl.count() == expected_count
+
+
+@pytest.fixture
+def be_access_levels(be_permissions_settings, db, access_level_factory):
+    for access_level in be_permissions_settings["ACCESS_LEVELS"]:
+        if not AccessLevel.objects.filter(slug=access_level).exists():
+            access_level_factory(slug=access_level)
+
+
+@pytest.mark.freeze_time("2022-06-03")
+@pytest.mark.parametrize("role__name", ["Applicant"])
+@pytest.mark.parametrize("use_instance_service", [True, False])
+def test_submit_create_acl_be(
+    db,
+    set_application_be,
+    be_instance,
+    be_permissions_settings,
+    instance_state_factory,
+    group_factory,
+    mocker,
+    multilang,
+    admin_client,
+    instance_acl_factory,
+    service_factory,
+    settings,
+    be_access_levels,
+    disable_ech0211_settings,
+    permissions_settings,
+    use_instance_service,
+):
+    # ensure we can submit
+    be_instance.instance_state.name = "new"
+    be_instance.instance_state.save()
+
+    # next state must exist
+    instance_state_factory(name="subm")
+
+    # BE uses instance service, but the code is common, so we test
+    # not only BE, but SZ as well by using group services
+    settings.APPLICATION["USE_INSTANCE_SERVICE"] = use_instance_service
+
+    # Not testing notification here
+    settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"] = []
+    settings.APPLICATION["NOTIFICATIONS"]["PERMISSION_ACL_GRANTED"] = []
+
+    # Don't wanna do *that*
+    mocker.patch(
+        "camac.instance.serializers.CalumaInstanceSubmitSerializer._generate_and_store_pdf"
+    )
+
+    # Set municipality in Caluma form
+    municipality_svc = service_factory(service_group__name="municipality")
+    be_instance.case.document.answers.create(
+        question_id="gemeinde", value=str(municipality_svc.pk)
+    )
+
+    # Event handler so we actually get the ACL
+    permissions_settings["EVENT_HANDLER"] = (
+        "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+    )
+
+    be_permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.CHECKING
+
+    # Ensure our user is applicant (both old and new permission style)
+    be_instance.involved_applicants.create(
+        invitee=admin_client.user, user=admin_client.user
+    )
+    instance_acl_factory(
+        instance=be_instance,
+        user=admin_client.user,
+        access_level_id="applicant",
+        grant_type="USER",
+    )
+
+    url = reverse("instance-submit", args=[be_instance.pk])
+
+    # Before submission, there is no municipality access
+    assert not be_instance.acls.filter(access_level="lead-authority").exists()
+
+    resp = admin_client.post(url)
+    assert resp.status_code == status.HTTP_200_OK
+
+    # After submission, there must be municipality access
+    assert be_instance.acls.filter(access_level="lead-authority").get().is_active()
