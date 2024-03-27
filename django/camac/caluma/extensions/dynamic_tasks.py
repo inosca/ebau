@@ -56,19 +56,11 @@ class CustomDynamicTasks(BaseDynamicTasks):
             ).value
             == "decision-task-gebaudeschaetzung-ja"
         )
-        start_baubegleitungsprozess = (
-            prev_work_item.document.answers.get(
-                question_id="decision-task-baubegleitungsprozess"
-            ).value
-            == "decision-task-baubegleitungsprozess-ja"
-        )
 
         if involve_geometer:
             tasks.append("geometer")
         if involve_gebaeudeschaetzung:
             tasks.append("gebaeudeschaetzung")
-        if start_baubegleitungsprozess:
-            tasks.append("construction-supervision")
 
         return tasks
 
@@ -242,7 +234,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         return []
 
-    # After decision in Kt. SZ
+    # After decision in Kt. SZ and UR
     @register_dynamic_task("after-make-decision")
     def resolve_after_make_decision(self, case, user, prev_work_item, context):
         if can_perform_construction_monitoring(case.instance):
