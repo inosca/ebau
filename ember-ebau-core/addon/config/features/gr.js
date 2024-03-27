@@ -14,6 +14,9 @@ export default {
     createPaper: true,
     exportExcel: false,
   },
+  caluma: {
+    alwaysUseNumberSeparatorWidget: true,
+  },
   watermark: true,
   communications: true,
 };
