@@ -234,6 +234,7 @@ class KtSchwyzDossierWriter(DossierWriter):
         else:
             instance = self.create_instance(dossier)
             created = True
+            self.set_dossier_id(instance, dossier.id)
             dossier_summary.details.append(
                 Message(
                     level=Severity.DEBUG.value,
