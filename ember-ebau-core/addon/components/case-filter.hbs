@@ -32,7 +32,7 @@
 
     {{#if (and (has-feature "cases.createPaper") (can "create paper of instance"))}}
       <a
-        href="{{macroGetOwnConfig 'portalUrl'}}/instances/new?group={{this.ebauModules.groupId}}&language={{this.ebauModules.language}}"
+        href="{{macroGetOwnConfig 'portalUrl'}}/instances/new?group={{this.ebauModules.groupId}}&language={{this.ebauModules.language}}&referrer=internal"
         class="uk-button uk-button-default uk-float-right"
       >{{t "cases.new.paper"}}</a>
     {{/if}}

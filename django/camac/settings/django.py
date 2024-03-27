@@ -51,6 +51,9 @@ ENABLE_SILK = env.bool("DJANGO_ENABLE_SILK", default=False)
 
 DEMO_MODE = env.bool("DEMO_MODE", default=False)
 
+# Token exchange (currently only for SO)
+ENABLE_TOKEN_EXCHANGE = env.bool("ENABLE_TOKEN_EXCHANGE", default=False)
+
 # Apache swallows info about HTTPS request, leading to issues with FileFields
 # See https://docs.djangoproject.com/en/2.2/ref/settings/#secure-proxy-ssl-header
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
@@ -115,6 +118,7 @@ INSTALLED_APPS = [
     "reversion",
     "rest_framework_xml",
     "camac.django_admin.apps.DjangoAdminConfig",
+    "camac.token_exchange.apps.TokenExchangeConfig",
     # alexandria
     "alexandria.core.apps.DefaultConfig",
     "camac.alexandria.apps.AlexandriaConfig",
@@ -2225,6 +2229,40 @@ REGISTRATION_URL = env.str(
         f"/realms/{KEYCLOAK_REALM}/login-actions/registration?client_id={KEYCLOAK_CLIENT}",
     ),
 )
+
+# Token exchange config
+TOKEN_EXCHANGE_CLIENT = env.str("TOKEN_EXCHANGE_CLIENT", default="token-exchange")
+TOKEN_EXCHANGE_CLIENT_SECRET = env.str(
+    "TOKEN_EXCHANGE_CLIENT",
+    default=default(
+        "76e3ScwJqsP0EMsYHKmEyBjlE1bNeOU1", require_if(ENABLE_TOKEN_EXCHANGE)
+    ),
+)
+TOKEN_EXCHANGE_USERNAME_TEMPLATE = "egov:{identifier}"
+
+# External JWT token config
+TOKEN_EXCHANGE_JWE_SECRET = env.str(
+    "TOKEN_EXCHANGE_JWE_SECRET",
+    default=default(
+        "somerandomutf8secretthatisexactly64biteslongforencyption12345678",
+        require_if(ENABLE_TOKEN_EXCHANGE),
+    ),
+)
+TOKEN_EXCHANGE_JWT_SECRET = env.str(
+    "TOKEN_EXCHANGE_JWT_SECRET",
+    default=default("my-secret", require_if(ENABLE_TOKEN_EXCHANGE)),
+)
+TOKEN_EXCHANGE_JWT_ISSUER = env.str(
+    "TOKEN_EXCHANGE_JWT_ISSUER",
+    default=default("http://egov.local", require_if(ENABLE_TOKEN_EXCHANGE)),
+)
+TOKEN_EXCHANGE_JWT_IDENTIFIER_PROPERTY = "profileId"
+TOKEN_EXCHANGE_JWT_SYNC_PROPERTIES = {
+    # jwt_property: keycloak_property
+    "firstName": "firstName",
+    "name": "lastName",
+    "email": "email",
+}
 
 # JWT token claim used as the username for newly created Camac users. (This is
 # also used in the caluma settings.py, we redefine it here so it is explicit)

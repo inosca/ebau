@@ -1,0 +1,105 @@
+# serializer version: 1
+# name: test_keycloak_client
+  dict({
+    'access': dict({
+      'impersonate': True,
+      'manage': True,
+      'manageGroupMembership': True,
+      'mapRoles': True,
+      'view': True,
+    }),
+    'createdTimestamp': 1705996881937,
+    'disableableCredentialTypes': list([
+    ]),
+    'email': 'email@example.com',
+    'emailVerified': False,
+    'enabled': True,
+    'firstName': 'Test',
+    'id': '80de6ae5-357a-47e2-9134-e0a30d5897c9',
+    'lastName': 'User',
+    'notBefore': 0,
+    'requiredActions': list([
+    ]),
+    'totp': False,
+    'username': 'egov:123',
+  })
+# ---
+# name: test_keycloak_client.1
+  dict({
+    'access': dict({
+      'impersonate': True,
+      'manage': True,
+      'manageGroupMembership': True,
+      'mapRoles': True,
+      'view': True,
+    }),
+    'createdTimestamp': 1705996881937,
+    'disableableCredentialTypes': list([
+    ]),
+    'email': 'email@example.com',
+    'emailVerified': False,
+    'enabled': True,
+    'firstName': 'John',
+    'id': '80de6ae5-357a-47e2-9134-e0a30d5897c9',
+    'lastName': 'Doe',
+    'notBefore': 0,
+    'requiredActions': list([
+    ]),
+    'totp': False,
+    'username': 'egov:123',
+  })
+# ---
+# name: test_keycloak_client.2
+  dict({
+    'access_token': 'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3WHJ1di0wLWo2RUdRNlpRTS13OHpDekFYTC1TSExLQ0RlLWExc1VKMGJNIn0.eyJleHAiOjE3MDU5OTg2ODIsImlhdCI6MTcwNTk5Njg4MiwianRpIjoiNTYxNDQyZjQtMGQwNy00ZjMwLWEyNjQtMTllMzNhNTc4Yjk1IiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI4MGRlNmFlNS0zNTdhLTQ3ZTItOTEzNC1lMGEzMGQ1ODk3YzkiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ0b2tlbi1leGNoYW5nZSIsInNlc3Npb25fc3RhdGUiOiI1NzVhNDczNS1jYmNlLTQ2ZjYtOTVkMi0xYjhjOTNhMzUzMjkiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9lYmF1LXBvcnRhbC5sb2NhbCJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJkZWZhdWx0LXJvbGVzLWViYXUiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIGVtYWlsIHByb2ZpbGUiLCJzaWQiOiI1NzVhNDczNS1jYmNlLTQ2ZjYtOTVkMi0xYjhjOTNhMzUzMjkiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJKb2huIERvZSIsInByZWZlcnJlZF91c2VybmFtZSI6ImVnb3Y6MTIzIiwiZ2l2ZW5fbmFtZSI6IkpvaG4iLCJmYW1pbHlfbmFtZSI6IkRvZSIsImVtYWlsIjoiZW1haWxAZXhhbXBsZS5jb20ifQ.RkST7vXObzifDDOFSK_Pl7jRBHkx5K_FL01pppGj-9mjY2uox1zxram7D8icnYRBLzEwZd4DZtCCAwYpu-TTzyY0_OSWfyiEQFzJ8RcaOEzlSpk0vzuSSUZWdyuFMZUQuxVTeJM_1O-mYU-0p0nT-nfI6hO50pbLDtFrMfd0kc4gQ1sENG393XQQp9Ycn5RD05Cl23thaIfz-sJMGBJ6gbYYQPFAAesjphJLE1v8QbcQkQIQSlHWpPJICdvJBt59OGy28ccBGIShvGjX7L81wA8x7dcLCrnkC3rqHEXnT_cMQ2JyKM4-xxne5ri9TgzJ6YejhO8tQo2WKKjeOfGI0g',
+    'expires_in': 1800,
+    'id_token': 'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3WHJ1di0wLWo2RUdRNlpRTS13OHpDekFYTC1TSExLQ0RlLWExc1VKMGJNIn0.eyJleHAiOjE3MDU5OTg2ODIsImlhdCI6MTcwNTk5Njg4MiwiYXV0aF90aW1lIjowLCJqdGkiOiIwYzE4YTUyNC03ZGU0LTQ2MzktYTNiMi0yZDBkNWE3NDRhMTciLCJpc3MiOiJodHRwOi8vZWJhdS1rZXljbG9hay5sb2NhbC9hdXRoL3JlYWxtcy9lYmF1IiwiYXVkIjoidG9rZW4tZXhjaGFuZ2UiLCJzdWIiOiI4MGRlNmFlNS0zNTdhLTQ3ZTItOTEzNC1lMGEzMGQ1ODk3YzkiLCJ0eXAiOiJJRCIsImF6cCI6InRva2VuLWV4Y2hhbmdlIiwic2Vzc2lvbl9zdGF0ZSI6IjU3NWE0NzM1LWNiY2UtNDZmNi05NWQyLTFiOGM5M2EzNTMyOSIsImF0X2hhc2giOiJ5M1NtRkFRY2U3WWRxV3JuTGFHQWZBIiwiYWNyIjoiMSIsInNpZCI6IjU3NWE0NzM1LWNiY2UtNDZmNi05NWQyLTFiOGM5M2EzNTMyOSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6IkpvaG4gRG9lIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiZWdvdjoxMjMiLCJnaXZlbl9uYW1lIjoiSm9obiIsImZhbWlseV9uYW1lIjoiRG9lIiwiZW1haWwiOiJlbWFpbEBleGFtcGxlLmNvbSJ9.c8KvAO6NShsvLYKZK0_-Ncne_7KaoizEIck1wT0RJT4XASUxAUiF73r6S6WbEapgErn86PfwI1uZv0bNOmjUVBnOoEE-UB0AwJ0tMlL6SE_fsc7FEQ9zIzv_R2VYOo-cDRv1NPluN0tguqgEl1ghCRwx_yr4tFLsMhZICPbwMbKfVq61XCoV79pYyUZur7-cM9CMeJNxCsYcGL-7M5ooLed-EXx42FKAiCDFTS4V0igyRH9dDP8JiMX9Zg5fYlqIsbHfZCCPLsVPh08hRW_wSroFJIEe12XgaKAttevpQ5EdnW86x70Kl8wbp_mRmUwS8NsDUk5UTBWsBDdXg0SCGg',
+    'not-before-policy': 0,
+    'refresh_expires_in': 18000,
+    'refresh_token': 'eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI5YzEzNDVkMi0xNjFlLTRmMWQtYmVhNi03NWZkZjY0MjY2MzkifQ.eyJleHAiOjE3MDYwMTQ4ODIsImlhdCI6MTcwNTk5Njg4MiwianRpIjoiN2IwYzU5MDEtNjFmYS00OTNiLTkyZmEtY2M3YzZhZTJmYTQzIiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6Imh0dHA6Ly9lYmF1LWtleWNsb2FrLmxvY2FsL2F1dGgvcmVhbG1zL2ViYXUiLCJzdWIiOiI4MGRlNmFlNS0zNTdhLTQ3ZTItOTEzNC1lMGEzMGQ1ODk3YzkiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoidG9rZW4tZXhjaGFuZ2UiLCJzZXNzaW9uX3N0YXRlIjoiNTc1YTQ3MzUtY2JjZS00NmY2LTk1ZDItMWI4YzkzYTM1MzI5Iiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsInNpZCI6IjU3NWE0NzM1LWNiY2UtNDZmNi05NWQyLTFiOGM5M2EzNTMyOSJ9.mTHKdfoRxRBO3F-5MsSRC-buzOD5uIBskMVRW11iVaw',
+    'scope': 'openid email profile',
+    'session_state': '575a4735-cbce-46f6-95d2-1b8c93a35329',
+    'token_type': 'Bearer',
+  })
+# ---
+# name: test_keycloak_client.3
+  dict({
+    'acr': '1',
+    'allowed-origins': list([
+      'http://ebau-portal.local',
+    ]),
+    'aud': 'account',
+    'azp': 'token-exchange',
+    'email': 'email@example.com',
+    'email_verified': False,
+    'exp': 1705998682,
+    'family_name': 'Doe',
+    'given_name': 'John',
+    'iat': 1705996882,
+    'iss': 'http://ebau-keycloak.local/auth/realms/ebau',
+    'jti': '561442f4-0d07-4f30-a264-19e33a578b95',
+    'name': 'John Doe',
+    'preferred_username': 'egov:123',
+    'realm_access': dict({
+      'roles': list([
+        'offline_access',
+        'default-roles-ebau',
+        'uma_authorization',
+      ]),
+    }),
+    'resource_access': dict({
+      'account': dict({
+        'roles': list([
+          'manage-account',
+          'manage-account-links',
+          'view-profile',
+        ]),
+      }),
+    }),
+    'scope': 'openid email profile',
+    'session_state': '575a4735-cbce-46f6-95d2-1b8c93a35329',
+    'sid': '575a4735-cbce-46f6-95d2-1b8c93a35329',
+    'sub': '80de6ae5-357a-47e2-9134-e0a30d5897c9',
+    'typ': 'Bearer',
+  })
+# ---

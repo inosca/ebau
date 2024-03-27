@@ -1,3 +1,5 @@
+import { getOwnConfig } from "@embroider/macros";
+
 export default {
   publication: {
     form: true,
@@ -35,6 +37,9 @@ export default {
   },
   gis: {
     showChanges: true,
+  },
+  login: {
+    tokenExchange: getOwnConfig().enableTokenExchange,
   },
   watermark: true,
   municipalityLogo: true,
