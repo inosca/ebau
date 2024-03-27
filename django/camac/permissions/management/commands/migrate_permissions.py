@@ -1,6 +1,8 @@
 from collections import Counter, defaultdict
+from collections.abc import Generator
 from dataclasses import dataclass, field
 from datetime import datetime
+from functools import partial
 from itertools import islice
 from logging import getLogger
 from typing import Optional
@@ -12,6 +14,7 @@ from django.db import transaction
 from django.utils import timezone
 
 from camac.applicants import models as applicants_models
+from camac.core.models import InstanceService
 from camac.instance.models import Instance
 from camac.permissions import models as permission_models
 from camac.permissions.api import PermissionManager
@@ -236,16 +239,65 @@ class Command(BaseCommand):
             log.info("All good, everything as expected")
 
     def _build_permissions_structure(self):
+        conf = settings.PERMISSIONS["MIGRATION"]
+
         permissions = set()
-        if applicant_accesslevel := settings.PERMISSIONS["MIGRATION"].get("APPLICANT"):
+        if applicant_accesslevel := conf.get("APPLICANT"):
             permissions.update(self._build_applicant_permissions(applicant_accesslevel))
+        if municipality_accesslevel := conf.get("MUNICIPALITY"):
+            permissions.update(
+                self._build_municipality_permissions(municipality_accesslevel)
+            )
 
         return permissions
 
+    def _build_municipality_permissions(self, level):
+        # Note: This is roughly derived from
+        # InstanceQuerysetMixin.get_queryset_for_municipality()
+
+        log.info("  Checking for municipality access rules")
+
+        make_acl = partial(ACL, access_level=level, state=STATE_ACTIVE)
+
+        # Instance Services map quite nicely. TODO: Only responsible services,
+        # or only of a certain service group?
+        is_iter = self._iter_qs(InstanceService.objects.filter(active=1), "instance")
+        log.info(f"    Checking {is_iter.total} instance services")
+
+        for instance_service in is_iter:
+            yield make_acl(
+                instance_id=instance_service.instance_id,
+                type=permission_models.GRANT_CHOICES.SERVICE.value,
+                service_id=instance_service.service_id,
+                #
+                start_time=instance_service.activation_date or timezone.now(),
+                metainfo={"instance-service-id": instance_service.pk},
+            )
+
+        if not settings.APPLICATION.get("USE_INSTANCE_SERVICE"):
+            inst_iter = self._iter_qs(Instance.objects.all(), "")
+            log.info(f"    Checking {inst_iter.total} instance's groups")
+
+            for inst in inst_iter:
+                # submit date is set in the submit serializer:
+                # CalumaInstanceSubmitSerializer._set_submit_date()
+                submit_date = inst.case.meta.get("submit-date") if inst.case else None
+                yield make_acl(
+                    instance_id=inst.pk,
+                    type=permission_models.GRANT_CHOICES.SERVICE.value,
+                    service_id=inst.group.service_id,
+                    #
+                    start_time=submit_date or timezone.now(),
+                    metainfo={"instance-group-id": str(inst.group.pk)},
+                )
+
     def _build_applicant_permissions(self, level):
-        qs = applicants_models.Applicant.objects.all().filter(invitee__isnull=False)
-        log.info(f"  Checking {qs.count()} applicants")
-        for app in self._iter_qs(qs, instance_prefix="instance"):
+        appl_iter = self._iter_qs(
+            applicants_models.Applicant.objects.all().filter(invitee__isnull=False),
+            instance_prefix="instance",
+        )
+        log.info(f"  Checking {appl_iter.total} applicants")
+        for app in appl_iter:
             app: applicants_models.Applicant
             # Note: non-invitee applicant entries are a "normal" situation.
             # They will get an ACL as soon as the invitee actually logs in and
@@ -282,6 +334,8 @@ class Command(BaseCommand):
                 type=acl.grant_type,
                 user_id=acl.user_id,
                 service_id=acl.service_id,
+                start_time=acl.start_time,
+                metainfo=acl.metainfo,
             )
             self._existing_acls[virtual_acl] = acl
             yield virtual_acl
@@ -296,10 +350,9 @@ class Command(BaseCommand):
         # and since we don't actually *need* the result, we make smaller batches
         # and instantly forget about the results)
 
-        if self.verbosity > 1:
-            log.info(f"  Granting {len(to_create)} new ACLs")
+        if self.verbosity >= 1:
+            log.info(f"Granting {len(to_create)} new ACLs")
 
-        # Generator, from which we will pull slices
         to_create_models = (
             permission_models.InstanceACL(
                 instance_id=acl.instance_id,
@@ -314,23 +367,37 @@ class Command(BaseCommand):
             for acl in to_create
         )
 
+        # Needs to be generator to avoid too much memory usage by
+        # having all the acls in memory at once (internal representation
+        # is already enough)
+        assert isinstance(to_create_models, Generator)
+
+        proggy = tqdm.tqdm(total=len(to_create))
+        batch_size = 200
         while True:
-            batch = list(islice(to_create_models, 500))
+            batch = list(islice(to_create_models, batch_size))
             if not batch:
                 break
             permission_models.InstanceACL.objects.bulk_create(batch)
+            proggy.update(len(batch))
+        proggy.close()
 
         manager = PermissionManager.for_anonymous()
 
+        log.info(f"Revoking {len(to_delete)} ACLs...")
         for acl in tqdm.tqdm(to_delete, disable=self.verbosity > 1):
             if self.verbosity > 1:
-                log.info(f"  Revoking ACL: {acl}")
+                log.info(f"Revoking ACL: {acl}")
             try:
                 manager.revoke(
                     self._existing_acls[acl], event_name="permissions-migration"
                 )
-            except RevocationRejected:
+            except RevocationRejected:  # pragma: no cover
                 log.warning(
                     f"Already-revoked {acl} being revoked again! "
                     "This is likely a programming error"
                 )
+
+        log.info(
+            f"Summary: {len(to_create)} ACLs created, {len(to_delete)} ACLs revoked"
+        )
