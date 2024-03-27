@@ -176,7 +176,7 @@ def test_validation_errors(
             {
                 "error": [
                     "1 Dossiers haben einen ungültigen Status. Betroffene Dossiers:\n2017-86: 'DONKED' (status)",
-                    "2 Dossiers fehlt ein Wert in einem zwingenden Feld. Betroffene Dossiers:\n9: submit_date,\n2017-87: status",
+                    "2 Dossiers fehlt ein Wert in einem zwingenden Feld. Betroffene Dossiers:\n2017-87: status,\n9: submit_date",
                 ]
             },
         ),
