@@ -12378,7 +12378,7 @@
       "modified_by_group": null,
       "form": "naturgefahren",
       "question": "bezeichnung-naturgefahrengefaehrdung",
-      "sort": 13
+      "sort": 12
     }
   },
   {
@@ -12423,7 +12423,7 @@
       "modified_by_group": null,
       "form": "naturgefahren",
       "question": "gefaehrdung-durch-oberflaechenabfluss",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -12453,6 +12453,21 @@
       "modified_by_group": null,
       "form": "naturgefahren",
       "question": "gefahrenstufen",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "naturgefahren.gefahrenstufen-info",
+    "fields": {
+      "created_at": "2024-03-27T15:37:29.141Z",
+      "modified_at": "2024-03-27T15:37:29.141Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "naturgefahren",
+      "question": "gefahrenstufen-info",
       "sort": 16
     }
   },
@@ -12483,7 +12498,7 @@
       "modified_by_group": null,
       "form": "naturgefahren",
       "question": "hinweis-gefaehrdung-oberflaechenabfluss",
-      "sort": 11
+      "sort": 10
     }
   },
   {
@@ -12513,7 +12528,7 @@
       "modified_by_group": null,
       "form": "naturgefahren",
       "question": "hinweis-weitere-abklaerungen-naturgefahren",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -40564,7 +40579,7 @@
     "pk": "feststellungen-naturgefahren",
     "fields": {
       "created_at": "2024-03-01T15:24:55.288Z",
-      "modified_at": "2024-03-25T09:40:05.588Z",
+      "modified_at": "2024-03-27T15:36:58.755Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -40577,11 +40592,9 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"## Feststellungen Naturgefahren\\n\\n\\nDie nachfolgenden Felder werden aus der Lokalisierung\\nvorabgef\\u00fcllt. Bitte \\u00fcberpr\\u00fcfen Sie, ob die Angaben korrekt\\nsind und f\\u00fchren Sie diese nach, wo n\\u00f6tig:\\n\\nGef\\u00e4hrdungen durch Naturgefahren sind im [GIS des Kantons](https://geo.so.ch/map/?t=ngk{replace-coords:&c=x,y}&s=500) oder unter [Schutz vor Naturgefahren](https://www.schutz-vor-naturgefahren.ch/bauherr.html#/map/{replace-coords:x,y/x,y}) abrufbar.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"## Feststellungen Naturgefahren\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": "coordinates-placeholder"
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -42217,19 +42230,19 @@
     "pk": "gefaehrdung-durch-oberflaechenabfluss",
     "fields": {
       "created_at": "2024-03-04T07:53:20.616Z",
-      "modified_at": "2024-03-04T07:53:20.616Z",
+      "modified_at": "2024-03-27T15:44:02.114Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Ist das Bauvorhaben durch Oberfl\\u00e4chenabfluss gef\\u00e4hrdet?\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "true",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -42248,7 +42261,7 @@
     "pk": "gefahrenkartenprozesse",
     "fields": {
       "created_at": "2024-03-04T07:08:45.634Z",
-      "modified_at": "2024-03-04T07:30:46.089Z",
+      "modified_at": "2024-03-27T15:35:11.377Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -42256,7 +42269,7 @@
       "label": "{\"de\": \"Gefahrenkartenprozesse\", \"fr\": null, \"it\": null}",
       "type": "table",
       "is_required": "true",
-      "is_hidden": "[\"gefahrenstufen-keine-gefaehrdung\"] intersects \"gefahrenstufen\"|answer([])",
+      "is_hidden": "!(\n\t[\n\t\t\"gefahrenstufen-geringe-gefaehrdung\",\n\t\t\"gefahrenstufen-mittlere-gefaehrdung\",\n\t\t\"gefahrenstufen-erhebliche-gefaehrdung\",\n\t\t\"gefahrenstufen-restgefaehrdung\"\n\t] intersects \"gefahrenstufen\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -42281,14 +42294,14 @@
     "pk": "gefahrenstufen",
     "fields": {
       "created_at": "2024-03-01T15:29:46.897Z",
-      "modified_at": "2024-03-01T15:31:01.594Z",
+      "modified_at": "2024-03-27T15:43:50.729Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Gefahrenstufen\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
-      "is_required": "false",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -42297,6 +42310,39 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gefahrenstufen-info",
+    "fields": {
+      "created_at": "2024-03-27T15:37:28.839Z",
+      "modified_at": "2024-03-27T15:37:28.839Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gefahrenstufen Info\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Gef\\u00e4hrdungen durch Naturgefahren sind im [GIS des Kantons](https://geo.so.ch/map/?t=ngk{replace-coords:&c=x,y}&s=500) oder unter [Schutz vor Naturgefahren](https://www.schutz-vor-naturgefahren.ch/bauherr.html#/map/{replace-coords:x,y/x,y}) abrufbar.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "coordinates-placeholder"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -45114,7 +45160,7 @@
     "pk": "hinweis-gefaehrdung-oberflaechenabfluss",
     "fields": {
       "created_at": "2024-03-04T08:04:28.131Z",
-      "modified_at": "2024-03-25T09:59:22.982Z",
+      "modified_at": "2024-03-27T15:39:06.093Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -45127,7 +45173,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Die Gef\\u00e4hrdung durch Oberfl\\u00e4chenabfluss ist auf dem [WebGis des Kantons](https://geo.so.ch/map/?l=ch.bafu.gefaehrdungskarte-oberflaechenabfluss&{replace-coords:c=x,y}&s=500) oder unter [Schutz vor Naturgefahren](https://www.schutz-vor-naturgefahren.ch/bauherr.html#/map/{replace-coords:x,y/x,y}) ersichtlich.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Die Gef\\u00e4hrdung durch Oberfl\\u00e4chenabfluss ist auf dem [GIS des Kantons](https://geo.so.ch/map/?l=ch.bafu.gefaehrdungskarte-oberflaechenabfluss&{replace-coords:c=x,y}&s=500) oder unter [Schutz vor Naturgefahren](https://www.schutz-vor-naturgefahren.ch/bauherr.html#/map/{replace-coords:x,y/x,y}) ersichtlich.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
         "widgetOverride": "coordinates-placeholder"
@@ -51968,7 +52014,7 @@
     "pk": "naturgefahrengefaehrdung",
     "fields": {
       "created_at": "2024-03-04T07:40:53.465Z",
-      "modified_at": "2024-03-04T08:12:17.321Z",
+      "modified_at": "2024-03-27T15:39:53.395Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -51976,10 +52022,10 @@
       "label": "{\"de\": \"Gibt es Hinweise auf Naturgefahrengef\\u00e4hrdung gem\\u00e4ss Naturgefahrenhinweiskarte?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "[\"gefahrenstufen-keine-gefaehrdung\"] intersects \"gefahrenstufen\"|answer([])",
+      "is_hidden": "!(\n\t[\n\t\t\"gefahrenstufen-geringe-gefaehrdung\",\n\t\t\"gefahrenstufen-mittlere-gefaehrdung\",\n\t\t\"gefahrenstufen-erhebliche-gefaehrdung\",\n\t\t\"gefahrenstufen-restgefaehrdung\"\n\t] intersects \"gefahrenstufen\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"[Naturgefahrenhinweiskarte](https://geo.so.ch/map/?\\nt=nhk)\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"[Naturgefahrenhinweiskarte](https://geo.so.ch/map/?t=nhk)\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -55321,19 +55367,19 @@
     "pk": "sind-objektschutzmassnahmen-geplant",
     "fields": {
       "created_at": "2024-03-04T08:16:14.068Z",
-      "modified_at": "2024-03-04T08:16:14.068Z",
+      "modified_at": "2024-03-27T15:44:11.001Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Sind Objektschutzmassnahmen geplant?\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
-      "is_required": "true",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
