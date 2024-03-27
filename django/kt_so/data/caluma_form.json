@@ -1123,6 +1123,29 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "00793927-ab89-45fb-8745-e44bc13976f4",
+    "fields": {
+      "created_at": "2024-03-27T15:46:23.975Z",
+      "modified_at": "2024-03-27T15:46:23.975Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "history_question_type": "choice",
+      "id": "3ccd29d5-7399-42c4-a654-59dc97a8d9aa",
+      "value": "gefaehrdung-durch-oberflaechenabfluss-nein",
+      "meta": {},
+      "date": null,
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "question": "gefaehrdung-durch-oberflaechenabfluss",
+      "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
+      "history_date": "2024-03-27T15:46:23.987Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "00af7ce0-f1cd-40e8-9306-5d73f399ce0a",
     "fields": {
       "created_at": "2023-11-27T09:28:46.283Z",
@@ -1763,6 +1786,29 @@
       "history_date": "2023-11-27T09:22:07.202Z",
       "history_change_reason": null,
       "history_type": "~"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "29b3b392-8c2f-41f2-9c6f-d081148330c1",
+    "fields": {
+      "created_at": "2024-03-27T15:46:24.644Z",
+      "modified_at": "2024-03-27T15:46:24.644Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "history_question_type": "multiple_choice",
+      "id": "85145ff8-5fe6-43be-af5b-15171ee14268",
+      "value": ["sind-objektschutzmassnahmen-geplant-nein"],
+      "meta": {},
+      "date": null,
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "question": "sind-objektschutzmassnahmen-geplant",
+      "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
+      "history_date": "2024-03-27T15:46:24.646Z",
+      "history_change_reason": null,
+      "history_type": "+"
     }
   },
   {
@@ -3791,6 +3837,29 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "99825c47-7e58-4381-8637-74e29373206c",
+    "fields": {
+      "created_at": "2024-03-27T15:46:10.978Z",
+      "modified_at": "2024-03-27T15:46:10.979Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "history_question_type": "integer",
+      "id": "28af8241-7842-448b-8355-cb33c8d8fd79",
+      "value": 9,
+      "meta": {},
+      "date": null,
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "question": "gesamthoehe-gemaess-ivhb",
+      "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
+      "history_date": "2024-03-27T15:46:10.980Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "99f856ef-adea-4ce2-82d7-378c4b571f44",
     "fields": {
       "created_at": "2023-11-27T09:20:48.931Z",
@@ -5217,6 +5286,29 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "f09ac31d-333a-42e6-8186-eaab1ea9d3fd",
+    "fields": {
+      "created_at": "2024-03-27T15:46:22.835Z",
+      "modified_at": "2024-03-27T15:46:22.835Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "history_question_type": "multiple_choice",
+      "id": "dce56ebb-e273-4826-bfed-2328b5a1f3e5",
+      "value": ["gefahrenstufen-keine-gefaehrdung"],
+      "meta": {},
+      "date": null,
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "question": "gefahrenstufen",
+      "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
+      "history_date": "2024-03-27T15:46:22.842Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "f20e48de-3cec-41ce-8a5a-05fb9e2a1cd3",
     "fields": {
       "created_at": "2023-11-27T09:20:53.347Z",
@@ -5957,6 +6049,23 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "28af8241-7842-448b-8355-cb33c8d8fd79",
+    "fields": {
+      "created_at": "2024-03-27T15:46:10.978Z",
+      "modified_at": "2024-03-27T15:46:10.979Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gesamthoehe-gemaess-ivhb",
+      "value": 9,
+      "meta": {},
+      "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "29667f73-fd32-4aab-b643-a9bafb73ca00",
     "fields": {
       "created_at": "2023-11-27T09:20:42.746Z",
@@ -6275,6 +6384,23 @@
       "value": ["art-der-bauwerke-hochbaute"],
       "meta": {},
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "3ccd29d5-7399-42c4-a654-59dc97a8d9aa",
+    "fields": {
+      "created_at": "2024-03-27T15:46:23.975Z",
+      "modified_at": "2024-03-27T15:46:23.975Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gefaehrdung-durch-oberflaechenabfluss",
+      "value": "gefaehrdung-durch-oberflaechenabfluss-nein",
+      "meta": {},
+      "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
       "date": null
     }
   },
@@ -7261,6 +7387,23 @@
       "value": "Schweiz",
       "meta": {},
       "document": "2b450a93-28b6-4cd8-a0e9-48708a66eca9",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "85145ff8-5fe6-43be-af5b-15171ee14268",
+    "fields": {
+      "created_at": "2024-03-27T15:46:24.644Z",
+      "modified_at": "2024-03-27T15:46:24.644Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "sind-objektschutzmassnahmen-geplant",
+      "value": ["sind-objektschutzmassnahmen-geplant-nein"],
+      "meta": {},
+      "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
       "date": null
     }
   },
@@ -8638,6 +8781,23 @@
       "value": "strasse-ist-betroffen-nein",
       "meta": {},
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "dce56ebb-e273-4826-bfed-2328b5a1f3e5",
+    "fields": {
+      "created_at": "2024-03-27T15:46:22.835Z",
+      "modified_at": "2024-03-27T15:46:22.835Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gefahrenstufen",
+      "value": ["gefahrenstufen-keine-gefaehrdung"],
+      "meta": {},
+      "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
       "date": null
     }
   },
