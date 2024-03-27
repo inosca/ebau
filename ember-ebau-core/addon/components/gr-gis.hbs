@@ -117,6 +117,7 @@
       @document={{@field.document}}
       @disabled={{not this.markers}}
       @params={{hash query=this.query form=this.rootForm}}
+      @instanceId={{@context.instanceId}}
     />
   {{/unless}}
   {{#if this.centerCoordinate}}

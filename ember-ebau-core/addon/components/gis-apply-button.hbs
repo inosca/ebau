@@ -77,29 +77,21 @@
     </ul>
   </modal.body>
 
-  <modal.footer class="uk-flex">
-    <div class="uk-width-expand uk-flex uk-flex-middle uk-margin-small-right">
-      {{#if this.applyData.isRunning}}
-        <progress class="uk-progress uk-margin-remove" value={{this.appliedAnswers}} max={{this.totalAnswers}}></progress>
-      {{/if}}
-    </div>
-
-    <div>
-      {{#unless this.applyData.isRunning}}
-        <UkButton
-          @label={{t "global.cancel"}}
-          @onClick={{fn (mut this.showModal) false}}
-        />
-      {{/unless}}
-
+  <modal.footer class="uk-text-right">
+    {{#unless this.applyData.isRunning}}
       <UkButton
-        @color="primary"
-        @label={{t "global.save"}}
-        @onClick={{perform this.applyData}}
-        @disabled={{this.applyData.isRunning}}
-        @loading={{this.applyData.isRunning}}
-        data-test-confirm
+        @label={{t "global.cancel"}}
+        @onClick={{fn (mut this.showModal) false}}
       />
-    </div>
+    {{/unless}}
+
+    <UkButton
+      @color="primary"
+      @label={{t "global.save"}}
+      @onClick={{perform this.applyData}}
+      @disabled={{this.applyData.isRunning}}
+      @loading={{this.applyData.isRunning}}
+      data-test-confirm
+    />
   </modal.footer>
 </UkModal>

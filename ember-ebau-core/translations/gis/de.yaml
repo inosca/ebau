@@ -33,3 +33,9 @@ gis:
     input-placeholder: "Suchen..."
     loading: "Adressen und Parzellen werden geladen..."
     empty: "Keine Adressen oder Parzellen gefunden"
+
+  changes:
+    title: "Änderung zu GIS"
+    detail: "Originaler Wert aus GIS:"
+    row-added: "{count, plural, one {# Zeile} other {# Zeilen}} hinzugefügt"
+    row-removed: "{count, plural, one {# Zeile} other {# Zeilen}} entfernt"

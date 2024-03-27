@@ -255,7 +255,7 @@ def ech0206__config(gis_data_source_factory, question_factory):
 def test_ech0206_client(
     db,
     admin_client,
-    snapshot,
+    gis_snapshot,
     vcr_config,
     ech0206__config,
     query_x,
@@ -272,4 +272,4 @@ def test_ech0206_client(
     )
 
     assert response.status_code == status.HTTP_200_OK
-    snapshot.assert_match(response.json())
+    assert response.json() == gis_snapshot

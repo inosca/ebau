@@ -33,6 +33,9 @@ export default {
   caluma: {
     alwaysUseNumberSeparatorWidget: true,
   },
+  gis: {
+    showChanges: true,
+  },
   watermark: true,
   municipalityLogo: true,
   communications: true,
