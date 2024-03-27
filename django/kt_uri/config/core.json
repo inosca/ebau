@@ -15016,6 +15016,22 @@
     }
   },
   {
+    "model": "core.instanceresource",
+    "pk": 14000033,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 12000003,
+      "name": "Baubegleitung",
+      "description": null,
+      "template": "/ember-camac-ng/construction-monitoring.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 24,
+      "form_group": 161,
+      "require_permission": null
+    }
+  },
+  {
     "model": "core.instanceresourceaction",
     "pk": 1,
     "fields": {
@@ -17292,6 +17308,13 @@
   {
     "model": "core.irpage",
     "pk": 14000028,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 14000033,
     "fields": {
       "pdf_class": null
     }
@@ -30380,6 +30403,51 @@
       "instance_resource": 14000031,
       "role": 1021,
       "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12001858,
+    "fields": {
+      "instance_resource": 14000033,
+      "role": 6,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12001859,
+    "fields": {
+      "instance_resource": 14000033,
+      "role": 6,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12001860,
+    "fields": {
+      "instance_resource": 14000033,
+      "role": 6,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12001861,
+    "fields": {
+      "instance_resource": 14000033,
+      "role": 4,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12001862,
+    "fields": {
+      "instance_resource": 14000033,
+      "role": 4,
+      "instance_state": 34
     }
   },
   {

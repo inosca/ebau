@@ -563,12 +563,13 @@ def caluma_workflow_config_ur(
         caluma_form_models.Form.objects.create(slug=slug)
 
     call_command(
-        "loaddata", settings.ROOT_DIR("kt_uri/config/caluma_additional_demand.json")
+        "loaddata",
+        settings.ROOT_DIR("kt_uri/config/caluma_construction_monitoring_form.json"),
+        settings.ROOT_DIR("kt_uri/config/caluma_additional_demand.json"),
+        settings.ROOT_DIR("kt_uri/config/caluma_distribution.json"),
+        settings.ROOT_DIR("kt_uri/config/caluma_workflow.json"),
+        settings.ROOT_DIR("kt_uri/config/caluma_construction_monitoring_workflow.json"),
     )
-    call_command(
-        "loaddata", settings.ROOT_DIR("kt_uri/config/caluma_distribution.json")
-    )
-    call_command("loaddata", settings.ROOT_DIR("kt_uri/config/caluma_workflow.json"))
 
     workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
     main_form = caluma_form_models.Form.objects.get(pk="main-form")
@@ -855,7 +856,13 @@ def caluma_forms_ur(settings):
         )
 
     # workitem forms
-    for form in ["complete-check", "decision", "geometer", "instance-management"]:
+    for form in [
+        "complete-check",
+        "decision",
+        "geometer",
+        "instance-management",
+        "construction-monitoring",
+    ]:
         caluma_form_models.Form.objects.create(slug=form, name=form)
 
     # dynamic choice options get cached, so we clear them
