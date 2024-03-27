@@ -1406,7 +1406,6 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
                 *build_document_prefetch_statements(prefix="document"),
             )
             .annotate(instance_id=F("instance__pk"))
-            .filter(Q(meta__oereb_copy__isnull=True) | Q(meta__oereb_copy=False))
         )
         return queryset.annotate(
             dossier_nr=Cast(KeyTextTransform("dossier-number", "meta"), CharField()),
