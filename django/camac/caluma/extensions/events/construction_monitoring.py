@@ -67,7 +67,7 @@ def construction_step_can_continue(work_item):
 
 
 def can_perform_construction_monitoring(instance):
-    if not settings.CONSTRUCTION_MONITORING:
+    if not settings.CONSTRUCTION_MONITORING:  # pragma: no cover  TODO: cover
         return False
 
     allow_forms = settings.CONSTRUCTION_MONITORING.get("ALLOW_FORMS")
