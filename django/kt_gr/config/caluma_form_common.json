@@ -1226,7 +1226,7 @@
     "pk": "hinweis-pilotphase",
     "fields": {
       "created_at": "2023-10-26T07:53:57.702Z",
-      "modified_at": "2023-10-27T09:33:22.688Z",
+      "modified_at": "2024-03-14T15:03:02.138Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1239,7 +1239,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"**Bitte beachten:** Im Moment k\\u00f6nnen nur in folgenden Gemeinden Gesuche digital eingereicht werden:\\n\\n* Berg\\u00fcn Filisur\\n* Bonaduz\\n* Breil/Brigels\\n* Domleschg\\n* Felsberg\\n* Pontresina\\n* Samedan\\n* Tujetsch\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"**Bitte beachten:** Im Moment k\\u00f6nnen nur in folgenden Gemeinden Gesuche digital eingereicht werden:\\n\\n<style>\\ntable.columnwise {\\n  display: table;\\n}\\ntable.columnwise tr {\\n  display: table-cell;\\n}\\ntable.columnwise tr td {\\n  display: block;\\n}\\n</style>\\n<table class=\\\"columnwise\\\" style=\\\"width:100%\\\">\\n  <tr>\\n    <td>Berg\\u00fcn Filisur</td>\\n    <td>Bonaduz</td>\\n    <td>Breil/Brigels</td>\\n    <td>Domleschg</td>\\n    <td>Felsberg</td>\\n    <td>Fideris</td>\\n    <td>Fl\\u00e4sch</td>\\n    <td>Furna</td>\\n  </tr>\\n  <tr>\\n    <td>Gr\\u00fcsch</td>\\n    <td>Jenaz</td>\\n    <td>Jenins</td>\\n    <td>Klosters</td>\\n    <td>K\\u00fcblis</td>\\n    <td>Luzein</td>\\n    <td>Masein</td>\\n    <td>Malans</td>\\n  </tr>\\n  <tr>\\n    <td>Pontresina</td>\\n    <td>Samedan</td>\\n    <td>Schiers</td>\\n    <td>Seewis im Pr\\u00e4ttigau</td>\\n    <td>Tschiertschen-Praden</td>\\n    <td>Tujetsch</td>\\n    <td>Untervaz</td>\\n    <td>Zizers</td>\\n  </tr>\\n</table>\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
