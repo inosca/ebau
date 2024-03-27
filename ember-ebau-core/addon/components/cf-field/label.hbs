@@ -1,0 +1,16 @@
+<this.originalLabel @field={{@field}} />
+
+{{#if this.gisChanges}}
+  <span class="uk-text-warning uk-text-small">
+    <UkIcon @icon="warning" class="uk-margin-small-left" />
+    {{t "gis.changes.title"}}
+  </span>
+  <div uk-dropdown class="uk-text-small uk-padding-small">
+    {{#if this.gisChanges.old}}
+      <span class="diff diff--old">{{this.gisChanges.old}}</span>
+    {{/if}}
+    {{#if this.gisChanges.new}}
+      <span class="diff diff--new">{{this.gisChanges.new}}</span>
+    {{/if}}
+  </div>
+{{/if}}
