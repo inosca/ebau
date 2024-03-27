@@ -10041,7 +10041,8 @@ h1 {
   margin: 5rem auto; }
 
 .kc-form-card.is-login-form {
-  margin-top: 0; }
+  margin-top: 0;
+  height: 100%; }
 
 .kc-form-card.account-container {
   padding-top: 32px; }
