@@ -199,7 +199,12 @@ def compile_message_for_code(code, filtered_summaries):
             return f"{summary['dossier_id']}: {entries}"
         return summary["dossier_id"]
 
-    entries = [format_summary(summary) for summary in filtered_summaries]
+    entries = [
+        format_summary(summary)
+        for summary in sorted(
+            filtered_summaries, key=lambda entry: str(entry["dossier_id"])
+        )
+    ]
 
     return _("%(count)i dossiers %(message)s. Affected dossiers:%(entries)s") % dict(
         count=len(filtered_summaries),
