@@ -6,6 +6,7 @@ import registerCommunications from "ember-ebau-core/modules/communications";
 import registerCommunicationsGlobal from "ember-ebau-core/modules/communications-global";
 import registerConstructionMonitoring from "ember-ebau-core/modules/construction-monitoring";
 import registerDMSAdmin from "ember-ebau-core/modules/dms-admin";
+import registerDossierImport from "ember-ebau-core/modules/dossier-import";
 import registerLegalSubmission from "ember-ebau-core/modules/legal-submission";
 import registerPermissions from "ember-ebau-core/modules/permissions";
 import registerPublication from "ember-ebau-core/modules/publication";
@@ -72,10 +73,6 @@ Router.map(function () {
     path: "instances/:instance_id/assign-ebau-number",
   });
   this.route("support", { path: "instances/:instance_id/support" });
-  this.route("dossier-import", function () {
-    this.route("new");
-    this.route("detail", { path: "/:import_id" });
-  });
 
   this.mount("@projectcaluma/ember-distribution", {
     as: "distribution",
@@ -98,4 +95,5 @@ Router.map(function () {
   registerRejection(this);
   registerPermissions(this);
   registerConstructionMonitoring(this);
+  registerDossierImport(this);
 });

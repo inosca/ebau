@@ -1,6 +1,7 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
+import isProd from "camac-ng/utils/is-prod";
 import {
   dropTask,
   restartableTask,
@@ -9,8 +10,6 @@ import {
   waitForProperty,
 } from "ember-concurrency";
 import { saveAs } from "file-saver";
-
-import isProd from "camac-ng/utils/is-prod";
 
 export default class DossierImportDetailController extends Controller {
   @service intl;

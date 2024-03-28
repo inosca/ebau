@@ -1,9 +1,8 @@
 import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
-import { dropTask, lastValue } from "ember-concurrency";
-
 import isProd from "camac-ng/utils/is-prod";
+import { dropTask, lastValue } from "ember-concurrency";
 
 export default class DossierImportIndexController extends Controller {
   @service intl;
