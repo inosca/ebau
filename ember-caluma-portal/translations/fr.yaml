@@ -103,14 +103,11 @@ support:
     Pour les problèmes techniques avec eBau, veuillez contacter <b>le support
     technique (24/7)</b> au numéro suivant :<br><a href="tel:+41 31 636 99
     96">+41 31 636 99 96</a>
-  professional: |-
-    Pour les questions concernant la procédure ou le formulaire, veuillez vous
-    adresser à <b>l'autorité compétente</b> ou utiliser la fonction d'aide <b>«
-    Assistance à la procédure <span uk-icon="question"></span>»</b> dans le
-    dossier correspondant.
-  info: ""
-  email: ""
-  subject: ""
+  selectMunicipality: "Veuillez sélectionner la commune compétente"
+  infoText: "L'autorité directrice compétente vous aidera volontiers :"
+  phone: "Téléphone:"
+  email: "e-mail:"
+  linkToFaq: "Consultez la page FAQ pour plus d'informations."
 
 index:
   welcome: "Bienvenue sur le portail eBau du canton de Berne"

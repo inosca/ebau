@@ -3,12 +3,7 @@ import { action } from "@ember/object";
 import { service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
-import { dropTask } from "ember-concurrency";
-import mainConfig from "ember-ebau-core/config/main";
 import paginatedQuery from "ember-ebau-core/resources/paginated";
-import { trackedTask } from "reactiveweb/ember-concurrency";
-
-import getMunicipalities from "caluma-portal/gql/queries/get-municipalities.graphql";
 
 export default class PublicInstancesIndexController extends Controller {
   @queryManager apollo;
@@ -26,7 +21,6 @@ export default class PublicInstancesIndexController extends Controller {
 
   queryParams = ["municipality", "dossierNr", "excludeInstance"];
 
-  municipalities = trackedTask(this, this.fetchMunicipalities, () => []);
   instances = paginatedQuery(
     this,
     "public-caluma-instance",
@@ -45,35 +39,6 @@ export default class PublicInstancesIndexController extends Controller {
     }),
     () => this.notification.danger(this.intl.t("publicInstances.load-error")),
   );
-
-  get selectedMunicipality() {
-    return this.municipalities.value?.find(
-      ({ value }) => value === this.municipality,
-    );
-  }
-
-  @dropTask
-  *fetchMunicipalities() {
-    try {
-      const options =
-        (yield this.apollo.query(
-          {
-            query: getMunicipalities,
-            variables: {
-              municipalityQuestion: mainConfig.answerSlugs.municipality,
-            },
-          },
-          "allQuestions.edges.0.node.options.edges",
-        )) || [];
-
-      return options.map(({ node }) => ({
-        value: node.slug,
-        label: node.label,
-      }));
-    } catch {
-      this.notification.danger(this.intl.t("publicInstances.load-error"));
-    }
-  }
 
   @action
   fetchMore() {

@@ -33,3 +33,4 @@ service-permissions:
   sub-services: "Servizi di rango inferiore"
   sub-services-add: "Aggiungi servizio di rango inferiore"
   sub-services-add-warning: ""
+  publication-reference: "I dati inseriti vengono pubblicati (ad es. nella scheda «Supporto»)"

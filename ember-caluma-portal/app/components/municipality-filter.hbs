@@ -1,0 +1,17 @@
+<div>
+  <label class="uk-form-label uk-text-center" for="type">{{@label}}</label>
+  <div class="uk-form-controls">
+    <PowerSelect
+      class="uk-margin-bottom"
+      @selected={{this.selectedMunicipality}}
+      @options={{this.municipalities}}
+      @searchEnabled={{true}}
+      @searchField="label"
+      @allowClear={{true}}
+      @onChange={{@onChange}}
+      as |option|
+    >
+      {{option.label}}
+    </PowerSelect>
+  </div>
+</div>

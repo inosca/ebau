@@ -3,3 +3,10 @@ info-belastungswerte:
 instances:
   downloadFormAsPdf: "Gesuchsformular herunterladen"
   downloadFormAsPdfText: "Hier können Sie das Gesuchsformular erneut herunterladen."
+support:
+  technical: |-
+    Bei technischen Problemen mit eBau prüfen Sie bitte die <a href="faq">FAQ Seite</a>.
+  selectMunicipality: "Wählen Sie die zuständige Gemeinde aus"
+  infoText: "Die zuständige Leitbehörde wird Ihnen gerne weiterhelfen:"
+  phone: "Telefon:"
+  email: "E-Mail:"

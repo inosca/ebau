@@ -34,3 +34,4 @@ service-permissions:
   sub-services: "Unterfachstellen"
   sub-services-add: "Unterfachstelle hinzufügen"
   sub-services-add-warning: ""
+  publication-reference: 'Die erfassten Daten können veröffentlicht werden (z. Bsp. unter dem Tab "Support").'
