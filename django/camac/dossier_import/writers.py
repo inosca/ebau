@@ -1,16 +1,19 @@
-import mimetypes
+import hashlib
+import logging
 import re
-import shutil
+import traceback
 from dataclasses import asdict, fields
 from datetime import datetime
 from pathlib import Path
 from typing import Any, List, Optional
 
+import magic
 from caluma.caluma_form import api as form_api
 from caluma.caluma_form.models import Answer, AnswerDocument, Document, Question
 from caluma.caluma_user.models import BaseUser
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.files import File
 from django.db import IntegrityError
 from django.utils import timezone
 from django.utils.translation import gettext as _
@@ -22,16 +25,19 @@ from camac.document.models import Attachment, AttachmentSection
 from camac.dossier_import.domain_logic import get_or_create_ebau_nr
 from camac.dossier_import.dossier_classes import CalumaPlotData, Dossier
 from camac.dossier_import.loaders import safe_join
-from camac.dossier_import.messages import LOG_LEVEL_WARNING, Message, MessageCodes
+from camac.dossier_import.messages import Message, MessageCodes, Severity
 from camac.instance.domain_logic import SUBMIT_DATE_FORMAT
 from camac.instance.models import Instance
 from camac.user.models import Group, User
+
+log = logging.getLogger("dossier_import")
 
 
 class FieldWriter:
     target: str
     value: Any = None
     name: Optional[str] = None
+    protected: bool = False
 
     def __init__(
         self,
@@ -41,15 +47,32 @@ class FieldWriter:
         owner=None,
         context=None,
         column_mapping: Optional[dict] = None,
+        protected: bool = False,
     ):
         # The field writer allows for static values: set value in the field definition
         # in the writer class (e. g. for required answers)
+        # The `protected` keyword protects the field to be deleted on a reimport.
+
         self.target = target
         self.value = value
         self.column_mapping = column_mapping
         self.owner = owner
         self.context = context
         self.name = name or target
+        self.protected = protected
+
+    def can_delete(self):  # pragma: no cover TODO: cover
+        if not self.protected:
+            return True
+        if dossier := self.context.get("dossier"):
+            dossier._meta.errors.append(
+                Message(
+                    level=Severity.WARNING.value,
+                    code=MessageCodes.WRITING_READ_ONLY_FIELD.value,
+                    detail=f"Ignoring {self.owner.delete_keyword} on field {self.target} (readonly).",
+                )
+            )
+        return False
 
 
 class CamacNgAnswerWriter(FieldWriter):
@@ -173,7 +196,7 @@ class CalumaAnswerWriter(FieldWriter):
                 if not work_item:  # pragma: no cover
                     dossier._meta.errors.append(
                         Message(
-                            level=LOG_LEVEL_WARNING,
+                            level=Severity.WARNING.value,
                             code=MessageCodes.INCONSISTENT_WORKFLOW_STATE.value,
                             detail=f"Missing {self.task} work item, cannot write {self.target}",
                         )
@@ -192,7 +215,7 @@ class CalumaAnswerWriter(FieldWriter):
                 value = value[: question.max_length - 3] + "..."
                 dossier._meta.warnings.append(
                     Message(
-                        level=LOG_LEVEL_WARNING,
+                        level=Severity.WARNING.value,
                         code=MessageCodes.FIELD_VALIDATION_ERROR.value,
                         detail=_(
                             'Value "%(value)s" in field %(target)s is too long (max: %(max)s)'
@@ -214,7 +237,7 @@ class CalumaAnswerWriter(FieldWriter):
             except ValidationError:  # pragma: no cover
                 dossier._meta.errors.append(
                     Message(
-                        level=LOG_LEVEL_WARNING,
+                        level=Severity.WARNING.value,
                         code=MessageCodes.FIELD_VALIDATION_ERROR.value,
                         detail=f"Failed to write {value} to {self.target} for dossier {instance}",
                     )
@@ -239,7 +262,7 @@ class BuildingAuthorityRowWriter(CalumaAnswerWriter):
             dossier = self.context.get("dossier")
             dossier._meta.errors.append(
                 Message(
-                    level=LOG_LEVEL_WARNING,
+                    level=Severity.WARNING.value,
                     code=MessageCodes.INCONSISTENT_WORKFLOW_STATE.value,
                     detail=f"Missing building-authority work item, cannot write {self.target}",
                 )
@@ -258,11 +281,25 @@ class BuildingAuthorityRowWriter(CalumaAnswerWriter):
             )
             AnswerDocument.objects.create(answer=table_answer, document=row_document)
 
-        Answer.objects.create(
-            question_id=self.target,
-            document=row_document,
-            **{self.value_key: value},
-        )
+        question = Question.objects.get(pk=self.target)
+        try:
+            form_api.save_answer(
+                question=question,
+                document=row_document,
+                value=value,
+                user=BaseUser(
+                    username=self.owner._user.username, group=self.owner._group.pk
+                ),
+            )
+        except ValidationError:  # pragma: no cover
+            dossier._meta.errors.append(
+                Message(
+                    level=Severity.WARNING.value,
+                    code=MessageCodes.FIELD_VALIDATION_ERROR.value,
+                    detail=f"Failed to write {value} to {self.target} for dossier {instance}",
+                )
+            )
+            return
 
 
 class CalumaListAnswerWriter(FieldWriter):
@@ -298,7 +335,7 @@ class CalumaListAnswerWriter(FieldWriter):
                     except ValidationError:  # pragma: no cover
                         self.context.get("dossier")._meta.errors.append(
                             Message(
-                                level=LOG_LEVEL_WARNING,
+                                level=Severity.WARNING.value,
                                 code=MessageCodes.FIELD_VALIDATION_ERROR.value,
                                 detail=f"Failed to write {value} for field {field.name} to {self.target} for dossier {instance}.",
                             )
@@ -362,7 +399,7 @@ class EbauNumberWriter(CalumaAnswerWriter):
             )
             dossier._meta.errors.append(
                 Message(
-                    level=LOG_LEVEL_WARNING,
+                    level=Severity.WARNING.value,
                     code=MessageCodes.FIELD_VALIDATION_ERROR.value,
                     detail=detail,
                 )
@@ -422,6 +459,22 @@ class DossierWriter:
         # self._set_workflow_state(instance, dossier.Meta.target_state)
         raise NotImplementedError  # pragma: no cover
 
+    def existing_dossier(self, dossier_id):
+        """Return the instance identified by dossier_id.
+
+        Different configs use different methods to identify instances. This
+        is just an abstraction that is needed for retrieving instances
+        when reimporting dossiers.
+        """
+        raise NotImplementedError  # pragma: no cover
+
+    def set_dossier_id(self, instance, dossier_id):
+        """Make the instance retrievable by dossier_id.
+
+        The reverse of `self.existing_dossier`
+        """
+        raise NotImplementedError  # pragma: no cover
+
     def _set_workflow_state(self, instance: Instance, target_state: str):
         """Fast-Forward case to Dossier.Meta.target_state."""
         raise NotImplementedError  # pragma: no cover
@@ -429,7 +482,16 @@ class DossierWriter:
     def _create_dossier_attachments(
         self, dossier: Dossier, instance: Instance
     ) -> List[Message]:
-        """Create attachments for file pointers in dossier's attachments."""
+        """Create attachments for files in dossier's attachments.
+
+        This will get the file-name after stripping the dossier-id from the
+        path.
+
+        python-magic is used to guess the MIME type.
+
+        If an attachment by that name already exists the contents will be
+        replaced, rather than creating a new one
+        """
         messages = []
         if not dossier.attachments:
             return messages
@@ -441,63 +503,102 @@ class DossierWriter:
         attachments_path = instance_files_path / str(dossier.id)
 
         attachments_path.mkdir(parents=True, exist_ok=True)
-
-        for attachment in dossier.attachments:
-            target_base_path = f"{settings.MEDIA_ROOT}/attachments/files/{instance.pk}"
+        for document in dossier.attachments:
+            content = File(document.file_accessor)
 
             file_path = re.sub(
                 # ensure that dossier.id is only removed at the beginning of a path
                 r"^{dossier_id}/".format(dossier_id=dossier.id),
                 "",
-                attachment.name.encode("utf-8", errors="ignore").decode(
+                document.name.encode("utf-8", errors="ignore").decode(
                     "utf-8", errors="ignore"
                 ),
             )
 
-            # make sub_dirs
-            # ensure path exists if directory is not handled individually
-            (Path(target_base_path) / "/".join(file_path.split("/")[:-1])).mkdir(
-                parents=True, exist_ok=True
-            )
+            mimimi = magic.Magic(mime=True, uncompress=True)
+            mime_type = mimimi.from_buffer(content.file.read())
+            content.file.seek(0)
 
-            mimetypes.add_type("application/vnd.ms-outlook", ".msg")
-            mime_type, _ = mimetypes.guess_type(str(Path(target_base_path) / file_path))
-
-            if not mime_type:
+            if not mime_type:  # pragma: no cover
                 messages.append(
                     Message(
-                        level=LOG_LEVEL_WARNING,
+                        level=Severity.WARNING.value,
                         code=MessageCodes.MIME_TYPE_UNKNOWN,
                         detail=file_path,
                     )
                 )
                 continue
 
-            with open(str(Path(target_base_path) / file_path), "wb") as target_file:
-                shutil.copyfileobj(attachment.file_accessor, target_file)
+            defaults = dict(
+                user=self._user,
+                instance=instance,
+                service=self._group.service,
+                group=self._group,
+                name=file_path,
+                size=content.size,
+                context={},
+                date=timezone.localtime(),
+                mime_type=mime_type,
+            )
 
-                attachment = Attachment.objects.create(
-                    instance=instance,
-                    user=self._user,
-                    service=self._group.service,
-                    group=self._group,
-                    name=file_path,
-                    context={},
-                    path=f"attachments/files/{instance.pk}/{file_path}",
-                    size=target_file.tell(),
-                    date=timezone.localtime(),
-                    mime_type=mime_type,
+            attachment, created = Attachment.objects.get_or_create(
+                instance=instance,
+                name=file_path,
+                defaults=defaults,
+            )
+
+            # If an attachment by the same name exists we'll overwrite the file, unless the data is identical.
+            # Django's own `FileField.path.save` method cannot be used because it would create another
+            # file with a random suffix, thus cluttering the file system.
+            if not created:  # pragma: no cover   TODO: cover
+                if (
+                    hashlib.md5(attachment.path.file.read()).digest()
+                    == hashlib.md5(content.read()).digest()
+                ):
+                    continue
+                content.seek(0)
+                try:
+                    with Path(attachment.path.path).open("wb") as file:
+                        file.write(content.read())
+                except OSError as e:  # pragma: no cover
+                    tb = traceback.format_exc()
+                    log.exception(tb)
+                    messages.append(
+                        Message(
+                            level=Severity.ERROR.value,
+                            code=MessageCodes.UNHANDLED_EXCEPTION,
+                            detail=f"Something went wrong replacing '{file_path}' with error: {e}",
+                        )
+                    )
+                    continue
+                defaults["size"] = attachment.path.size
+                Attachment.objects.filter(pk=attachment.pk).update(**defaults)
+                messages.append(
+                    Message(
+                        level=Severity.INFO.value,
+                        code=MessageCodes.ATTACHMENT_UPDATED.value,
+                        detail=attachment.name,
+                    )
                 )
+                continue
+            attachment.path.save(file_path, content, save=True)
+            if created:
                 attachment_section = AttachmentSection.objects.get(
                     attachment_section_id=self._import_settings["ATTACHMENT_SECTION_ID"]
                 )
                 attachment_section.attachments.add(attachment)
-
+            att_sec = (
+                attachment.attachment_sections.filter(
+                    attachment_section_id=self._import_settings["ATTACHMENT_SECTION_ID"]
+                )
+                .values("name", "attachment_section_id")
+                .first()
+            )
+            messages.append(
+                Message(
+                    level=Severity.INFO.value,
+                    code=MessageCodes.ATTACHMENT_CREATED.value,
+                    detail=f"{attachment.name} ({attachment.mime_type}) in section {'{name} ({attachment_section_id})'.format(**att_sec)}",
+                )
+            )
         return messages
-
-    def _ensure_retrieveable(self):
-        """Make imported dossiers identifiable.
-
-        E. g. client deployment specific location for storing `internal id`
-        """
-        raise NotImplementedError  # pragma: no cover

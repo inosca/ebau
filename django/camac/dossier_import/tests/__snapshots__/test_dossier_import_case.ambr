@@ -1,32 +1,59 @@
 # serializer version: 1
-# name: test_record_loading_be[dossier_row_patch0-dossier_number-kt_bern]
+# name: test_record_loading_be[dossier_row_patch0-dossier_number-kt_bern-be_instance-False]
+  '2020-1'
+# ---
+# name: test_record_loading_be[dossier_row_patch0-dossier_number-kt_bern-be_instance-True]
   None
 # ---
-# name: test_record_loading_be[dossier_row_patch1-dossier_number-kt_bern]
+# name: test_record_loading_be[dossier_row_patch1-dossier_number-kt_bern-be_instance-False]
   '2017-1'
 # ---
-# name: test_record_loading_be[dossier_row_patch10-publication_date-kt_bern]
+# name: test_record_loading_be[dossier_row_patch1-dossier_number-kt_bern-be_instance-True]
+  '2017-1'
+# ---
+# name: test_record_loading_be[dossier_row_patch10-submit_date-kt_bern-be_instance-False]
+  datetime.datetime(2021, 12, 12, 0, 0)
+# ---
+# name: test_record_loading_be[dossier_row_patch10-submit_date-kt_bern-be_instance-True]
+  datetime.datetime(2021, 12, 12, 0, 0)
+# ---
+# name: test_record_loading_be[dossier_row_patch11-publication_date-kt_bern-be_instance-False]
   datetime.date(2021, 12, 12)
 # ---
-# name: test_record_loading_be[dossier_row_patch11-construction_start_date-kt_bern]
+# name: test_record_loading_be[dossier_row_patch11-publication_date-kt_bern-be_instance-True]
   datetime.date(2021, 12, 12)
 # ---
-# name: test_record_loading_be[dossier_row_patch12-profile_approval_date-kt_bern]
+# name: test_record_loading_be[dossier_row_patch12-construction_start_date-kt_bern-be_instance-False]
   datetime.date(2021, 12, 12)
 # ---
-# name: test_record_loading_be[dossier_row_patch13-decision_date-kt_bern]
+# name: test_record_loading_be[dossier_row_patch12-construction_start_date-kt_bern-be_instance-True]
   datetime.date(2021, 12, 12)
 # ---
-# name: test_record_loading_be[dossier_row_patch14-final_approval_date-kt_bern]
+# name: test_record_loading_be[dossier_row_patch13-profile_approval_date-kt_bern-be_instance-False]
   datetime.date(2021, 12, 12)
 # ---
-# name: test_record_loading_be[dossier_row_patch15-completion_date-kt_bern]
+# name: test_record_loading_be[dossier_row_patch13-profile_approval_date-kt_bern-be_instance-True]
   datetime.date(2021, 12, 12)
 # ---
-# name: test_record_loading_be[dossier_row_patch16-application_type-kt_bern]
-  'Baugesuch'
+# name: test_record_loading_be[dossier_row_patch14-decision_date-kt_bern-be_instance-False]
+  datetime.date(2021, 12, 12)
 # ---
-# name: test_record_loading_be[dossier_row_patch17-applicants-kt_bern]
+# name: test_record_loading_be[dossier_row_patch14-decision_date-kt_bern-be_instance-True]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_be[dossier_row_patch15-final_approval_date-kt_bern-be_instance-False]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_be[dossier_row_patch15-final_approval_date-kt_bern-be_instance-True]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_be[dossier_row_patch16-completion_date-kt_bern-be_instance-False]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_be[dossier_row_patch16-completion_date-kt_bern-be_instance-True]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_be[dossier_row_patch17-applicants-kt_bern-be_instance-False]
   list([
     dict({
       'first_name': 'Willy',
@@ -40,7 +67,21 @@
     }),
   ])
 # ---
-# name: test_record_loading_be[dossier_row_patch18-landowners-kt_bern]
+# name: test_record_loading_be[dossier_row_patch17-applicants-kt_bern-be_instance-True]
+  list([
+    dict({
+      'first_name': 'Willy',
+      'is_juristic_person': None,
+      'juristic_name': 'Chocolate Factory',
+      'last_name': 'Wonka',
+      'street': 'Candy Lane',
+      'street_number': '13',
+      'town': 'Wonderland',
+      'zip': 1234,
+    }),
+  ])
+# ---
+# name: test_record_loading_be[dossier_row_patch18-landowners-kt_bern-be_instance-False]
   list([
     dict({
       'first_name': 'Willy',
@@ -54,7 +95,21 @@
     }),
   ])
 # ---
-# name: test_record_loading_be[dossier_row_patch19-project_authors-kt_bern]
+# name: test_record_loading_be[dossier_row_patch18-landowners-kt_bern-be_instance-True]
+  list([
+    dict({
+      'first_name': 'Willy',
+      'is_juristic_person': None,
+      'juristic_name': 'Chocolate Factory',
+      'last_name': 'Wonka',
+      'street': 'Candy Lane',
+      'street_number': '13',
+      'town': 'Wonderland',
+      'zip': None,
+    }),
+  ])
+# ---
+# name: test_record_loading_be[dossier_row_patch19-project_authors-kt_bern-be_instance-False]
   list([
     dict({
       'first_name': 'Willy',
@@ -68,23 +123,57 @@
     }),
   ])
 # ---
-# name: test_record_loading_be[dossier_row_patch2-dossier_number-kt_bern]
+# name: test_record_loading_be[dossier_row_patch19-project_authors-kt_bern-be_instance-True]
+  list([
+    dict({
+      'first_name': 'Willy',
+      'is_juristic_person': None,
+      'juristic_name': 'Chocolate Factory',
+      'last_name': 'Wonka',
+      'street': 'Candy Lane',
+      'street_number': None,
+      'town': 'Wonderland',
+      'zip': None,
+    }),
+  ])
+# ---
+# name: test_record_loading_be[dossier_row_patch2-dossier_number-kt_bern-be_instance-False]
   '2017-1'
 # ---
-# name: test_record_loading_be[dossier_row_patch20-project_authors-kt_bern]
+# name: test_record_loading_be[dossier_row_patch2-dossier_number-kt_bern-be_instance-True]
+  '2017-1'
+# ---
+# name: test_record_loading_be[dossier_row_patch20-project_authors-kt_bern-be_instance-False]
+  list([
+    dict({
+      'first_name': 'Ulrich',
+      'is_juristic_person': None,
+      'juristic_name': 'Swisscom',
+      'last_name': 'Kissling',
+      'street': 'Gribschstrasse',
+      'street_number': '3a',
+      'town': 'Steinerberg',
+      'zip': None,
+    }),
+  ])
+# ---
+# name: test_record_loading_be[dossier_row_patch20-project_authors-kt_bern-be_instance-True]
   list([
   ])
 # ---
-# name: test_record_loading_be[dossier_row_patch3-dossier_number-kt_bern]
+# name: test_record_loading_be[dossier_row_patch3-dossier_number-kt_bern-be_instance-False]
   '2020-1'
 # ---
-# name: test_record_loading_be[dossier_row_patch4-dossier_number-kt_bern]
+# name: test_record_loading_be[dossier_row_patch3-dossier_number-kt_bern-be_instance-True]
+  '2020-1'
+# ---
+# name: test_record_loading_be[dossier_row_patch4-dossier_number-kt_bern-be_instance-False]
   '2017-1'
 # ---
-# name: test_record_loading_be[dossier_row_patch5-street-kt_bern]
-  '100000000020000000003000000000400000000050000000006000000...'
+# name: test_record_loading_be[dossier_row_patch4-dossier_number-kt_bern-be_instance-True]
+  '2017-1'
 # ---
-# name: test_record_loading_be[dossier_row_patch6-plot_data-kt_bern]
+# name: test_record_loading_be[dossier_row_patch5-plot_data-kt_bern-be_instance-False]
   list([
     dict({
       'coord_east': 2710662.0,
@@ -100,7 +189,23 @@
     }),
   ])
 # ---
-# name: test_record_loading_be[dossier_row_patch7-plot_data-kt_bern]
+# name: test_record_loading_be[dossier_row_patch5-plot_data-kt_bern-be_instance-True]
+  list([
+    dict({
+      'coord_east': 2710662.0,
+      'coord_north': 1225997.0,
+      'egrid_number': 'HK207838123456',
+      'plot_number': '`123`',
+    }),
+    dict({
+      'coord_east': None,
+      'coord_north': None,
+      'egrid_number': 'EGRIDDELLEY',
+      'plot_number': '2BA',
+    }),
+  ])
+# ---
+# name: test_record_loading_be[dossier_row_patch6-plot_data-kt_bern-be_instance-False]
   list([
     dict({
       'coord_east': None,
@@ -116,7 +221,23 @@
     }),
   ])
 # ---
-# name: test_record_loading_be[dossier_row_patch8-plot_data-kt_bern]
+# name: test_record_loading_be[dossier_row_patch6-plot_data-kt_bern-be_instance-True]
+  list([
+    dict({
+      'coord_east': None,
+      'coord_north': None,
+      'egrid_number': 'HK207838123456',
+      'plot_number': '`123`',
+    }),
+    dict({
+      'coord_east': None,
+      'coord_north': None,
+      'egrid_number': 'EGRIDDELLEY',
+      'plot_number': '2BA',
+    }),
+  ])
+# ---
+# name: test_record_loading_be[dossier_row_patch7-plot_data-kt_bern-be_instance-False]
   list([
     dict({
       'coord_east': 2710662.0,
@@ -132,10 +253,35 @@
     }),
   ])
 # ---
-# name: test_record_loading_be[dossier_row_patch9-submit_date-kt_bern]
-  datetime.datetime(2021, 12, 12, 0, 0)
+# name: test_record_loading_be[dossier_row_patch7-plot_data-kt_bern-be_instance-True]
+  list([
+    dict({
+      'coord_east': 2710662.0,
+      'coord_north': 1225997.0,
+      'egrid_number': 'HK207838123456',
+      'plot_number': '`123`',
+    }),
+    dict({
+      'coord_east': None,
+      'coord_north': None,
+      'egrid_number': 'None',
+      'plot_number': '2BA',
+    }),
+  ])
 # ---
-# name: test_record_loading_sz[dossier_row_patch0-coordinates-kt_schwyz-sz_instance]
+# name: test_record_loading_be[dossier_row_patch8-application_type-kt_bern-be_instance-False]
+  'Baugesuch'
+# ---
+# name: test_record_loading_be[dossier_row_patch8-application_type-kt_bern-be_instance-True]
+  'Baugesuch'
+# ---
+# name: test_record_loading_be[dossier_row_patch9-street-kt_bern-be_instance-False]
+  'MeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstr...'
+# ---
+# name: test_record_loading_be[dossier_row_patch9-street-kt_bern-be_instance-True]
+  'MeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstr...'
+# ---
+# name: test_record_loading_sz[dossier_row_patch0-coordinates-kt_schwyz-sz_instance-False]
   list([
     dict({
       'lat': 47.175669937318816,
@@ -143,16 +289,45 @@
     }),
   ])
 # ---
-# name: test_record_loading_sz[dossier_row_patch1-street-kt_schwyz-sz_instance]
-  'Musterstrasse 3a'
+# name: test_record_loading_sz[dossier_row_patch0-coordinates-kt_schwyz-sz_instance-True]
+  list([
+    dict({
+      'lat': 47.175669937318816,
+      'lng': 8.8984885140077,
+    }),
+  ])
 # ---
-# name: test_record_loading_sz[dossier_row_patch10-completion_date-kt_schwyz-sz_instance]
+# name: test_record_loading_sz[dossier_row_patch1-plot_data-kt_schwyz-sz_instance-False]
+  list([
+    dict({
+      'egrid_number': 'HK207838123456',
+      'plot_number': '123',
+    }),
+    dict({
+      'egrid_number': 'EGRIDDELLEY',
+      'plot_number': '2BA',
+    }),
+  ])
+# ---
+# name: test_record_loading_sz[dossier_row_patch1-plot_data-kt_schwyz-sz_instance-True]
+  list([
+    dict({
+      'egrid_number': 'HK207838123456',
+      'plot_number': '123',
+    }),
+    dict({
+      'egrid_number': 'EGRIDDELLEY',
+      'plot_number': '2BA',
+    }),
+  ])
+# ---
+# name: test_record_loading_sz[dossier_row_patch10-completion_date-kt_schwyz-sz_instance-False]
   datetime.date(2021, 12, 12)
 # ---
-# name: test_record_loading_sz[dossier_row_patch11-application_type_migrated-kt_schwyz-sz_instance]
-  'Baugesuch'
+# name: test_record_loading_sz[dossier_row_patch10-completion_date-kt_schwyz-sz_instance-True]
+  datetime.date(2021, 12, 12)
 # ---
-# name: test_record_loading_sz[dossier_row_patch12-applicants-kt_schwyz-sz_instance]
+# name: test_record_loading_sz[dossier_row_patch11-applicants-kt_schwyz-sz_instance-False]
   list([
     dict({
       'company': 'Chocolate Factory',
@@ -169,7 +344,7 @@
     }),
   ])
 # ---
-# name: test_record_loading_sz[dossier_row_patch13-landowners-kt_schwyz-sz_instance]
+# name: test_record_loading_sz[dossier_row_patch11-applicants-kt_schwyz-sz_instance-True]
   list([
     dict({
       'company': 'Chocolate Factory',
@@ -182,11 +357,45 @@
       'phone': '+1 101 10 01 101',
       'street': 'Candy Lane 13',
       'town': 'Wonderland',
-      'zip': '2345',
+      'zip': 1234,
     }),
   ])
 # ---
-# name: test_record_loading_sz[dossier_row_patch14-project_authors-kt_schwyz-sz_instance]
+# name: test_record_loading_sz[dossier_row_patch12-landowners-kt_schwyz-sz_instance-False]
+  list([
+    dict({
+      'company': 'Chocolate Factory',
+      'country': 'Schweiz',
+      'email': 'candy@example.com',
+      'first_name': 'Willy',
+      'is_juristic_person': None,
+      'juristic_name': 'Chocolate Factory',
+      'last_name': 'Wonka',
+      'phone': '+1 101 10 01 101',
+      'street': 'Candy Lane 13',
+      'town': 'Wonderland',
+      'zip': '1234',
+    }),
+  ])
+# ---
+# name: test_record_loading_sz[dossier_row_patch12-landowners-kt_schwyz-sz_instance-True]
+  list([
+    dict({
+      'company': 'Chocolate Factory',
+      'country': 'Schweiz',
+      'email': 'candy@example.com',
+      'first_name': 'Willy',
+      'is_juristic_person': None,
+      'juristic_name': 'Chocolate Factory',
+      'last_name': 'Wonka',
+      'phone': '+1 101 10 01 101',
+      'street': 'Candy Lane 13',
+      'town': 'Wonderland',
+      'zip': '1234',
+    }),
+  ])
+# ---
+# name: test_record_loading_sz[dossier_row_patch13-project_authors-kt_schwyz-sz_instance-False]
   list([
     dict({
       'company': 'Chocolate Factory',
@@ -199,44 +408,93 @@
       'phone': '+1 101 10 01 101',
       'street': 'Candy Lane',
       'town': 'Wonderland',
-      'zip': '3456',
+      'zip': '1234',
     }),
   ])
 # ---
-# name: test_record_loading_sz[dossier_row_patch15-project_authors-kt_schwyz-sz_instance]
+# name: test_record_loading_sz[dossier_row_patch13-project_authors-kt_schwyz-sz_instance-True]
+  list([
+    dict({
+      'company': 'Chocolate Factory',
+      'country': 'Schweiz',
+      'email': 'candy@example.com',
+      'first_name': 'Willy',
+      'is_juristic_person': None,
+      'juristic_name': 'Chocolate Factory',
+      'last_name': 'Wonka',
+      'phone': '+1 101 10 01 101',
+      'street': 'Candy Lane',
+      'town': 'Wonderland',
+      'zip': '1234',
+    }),
+  ])
+# ---
+# name: test_record_loading_sz[dossier_row_patch14-project_authors-kt_schwyz-sz_instance-False]
+  list([
+    dict({
+      'company': 'Swisscom',
+      'country': 'Schweiz',
+      'email': 'urlichkissling@example.com',
+      'first_name': 'Ulrich',
+      'is_juristic_person': None,
+      'juristic_name': 'Swisscom',
+      'last_name': 'Kissling',
+      'phone': '0771234123',
+      'street': 'Gribschstrasse 3a',
+      'town': 'Steinerberg',
+      'zip': None,
+    }),
+  ])
+# ---
+# name: test_record_loading_sz[dossier_row_patch14-project_authors-kt_schwyz-sz_instance-True]
   list([
   ])
 # ---
-# name: test_record_loading_sz[dossier_row_patch2-plot_data-kt_schwyz-sz_instance]
-  list([
-    dict({
-      'egrid_number': 'HK207838123456',
-      'plot_number': '123',
-    }),
-    dict({
-      'egrid_number': 'EGRIDDELLEY',
-      'plot_number': '2BA',
-    }),
-  ])
+# name: test_record_loading_sz[dossier_row_patch2-completion_date-kt_schwyz-sz_instance-False]
+  datetime.date(2021, 12, 12)
 # ---
-# name: test_record_loading_sz[dossier_row_patch3-submit_date-kt_schwyz-sz_instance]
+# name: test_record_loading_sz[dossier_row_patch2-completion_date-kt_schwyz-sz_instance-True]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_sz[dossier_row_patch3-street-kt_schwyz-sz_instance-False]
+  'MeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreet 3a'
+# ---
+# name: test_record_loading_sz[dossier_row_patch3-street-kt_schwyz-sz_instance-True]
+  'MeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreet 3a'
+# ---
+# name: test_record_loading_sz[dossier_row_patch4-submit_date-kt_schwyz-sz_instance-False]
   datetime.datetime(2021, 12, 12, 11, 0, tzinfo=<UTC>)
 # ---
-# name: test_record_loading_sz[dossier_row_patch4-publication_date-kt_schwyz-sz_instance]
+# name: test_record_loading_sz[dossier_row_patch4-submit_date-kt_schwyz-sz_instance-True]
   datetime.datetime(2021, 12, 12, 11, 0, tzinfo=<UTC>)
 # ---
-# name: test_record_loading_sz[dossier_row_patch5-construction_start_date-kt_schwyz-sz_instance]
+# name: test_record_loading_sz[dossier_row_patch5-publication_date-kt_schwyz-sz_instance-False]
+  datetime.datetime(2021, 12, 12, 11, 0, tzinfo=<UTC>)
+# ---
+# name: test_record_loading_sz[dossier_row_patch5-publication_date-kt_schwyz-sz_instance-True]
+  datetime.datetime(2021, 12, 12, 11, 0, tzinfo=<UTC>)
+# ---
+# name: test_record_loading_sz[dossier_row_patch6-construction_start_date-kt_schwyz-sz_instance-False]
   datetime.date(2021, 12, 12)
 # ---
-# name: test_record_loading_sz[dossier_row_patch6-profile_approval_date-kt_schwyz-sz_instance]
+# name: test_record_loading_sz[dossier_row_patch6-construction_start_date-kt_schwyz-sz_instance-True]
   datetime.date(2021, 12, 12)
 # ---
-# name: test_record_loading_sz[dossier_row_patch7-decision_date-kt_schwyz-sz_instance]
+# name: test_record_loading_sz[dossier_row_patch7-profile_approval_date-kt_schwyz-sz_instance-False]
   datetime.date(2021, 12, 12)
 # ---
-# name: test_record_loading_sz[dossier_row_patch8-final_approval_date-kt_schwyz-sz_instance]
+# name: test_record_loading_sz[dossier_row_patch7-profile_approval_date-kt_schwyz-sz_instance-True]
   datetime.date(2021, 12, 12)
 # ---
-# name: test_record_loading_sz[dossier_row_patch9-completion_date-kt_schwyz-sz_instance]
+# name: test_record_loading_sz[dossier_row_patch8-decision_date-kt_schwyz-sz_instance-False]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_sz[dossier_row_patch8-decision_date-kt_schwyz-sz_instance-True]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_sz[dossier_row_patch9-final_approval_date-kt_schwyz-sz_instance-False]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_sz[dossier_row_patch9-final_approval_date-kt_schwyz-sz_instance-True]
   datetime.date(2021, 12, 12)
 # ---

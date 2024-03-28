@@ -4,7 +4,9 @@ from enum import Enum
 from typing import List
 
 import openpyxl
+from django.conf import settings
 from django.utils import timezone
+from django.utils.module_loading import import_string
 from django.utils.translation import gettext as _
 from rest_framework.exceptions import ValidationError
 
@@ -107,6 +109,16 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
     """
     dossier_import = DossierImport.objects.get(pk=instance_pk)
 
+    configured_writer_cls = import_string(
+        settings.APPLICATION["DOSSIER_IMPORT"]["WRITER_CLASS"]
+    )
+    writer = configured_writer_cls(
+        user_id=dossier_import.user.pk,
+        group_id=dossier_import.group.pk,
+        location_id=dossier_import.location and dossier_import.location.pk,
+        import_settings=settings.APPLICATION["DOSSIER_IMPORT"],
+    )
+
     archive = zipfile.ZipFile(dossier_import.source_file.path, "r")
     data_file = archive.open("dossiers.xlsx")
     try:
@@ -163,6 +175,21 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
             dossier_msgs,
         )
 
+    existing = [
+        dossier_id
+        for dossier_id in set(dossier_ids)
+        if writer.existing_dossier(dossier_id)
+    ]
+    for dossier_id in existing:
+        messages.append_or_update_dossier_message(
+            dossier_id,
+            "ID",
+            f"Dossier with {dossier_id} already exists",
+            MessageCodes.DUPLICATE_IDENTFIER_ERROR.value,
+            dossier_msgs,
+            level=messages.Severity.ERROR.value,
+        )
+
     dossiers_success = list(set(dossier_ids))
 
     for date_column in [cell for cell in headings if cell.value.endswith("-DATE")]:
@@ -192,7 +219,7 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
                         None,
                         MessageCodes.MISSING_REQUIRED_VALUE_ERROR.value,
                         dossier_msgs,
-                        level=messages.LOG_LEVEL_ERROR,
+                        level=messages.Severity.ERROR.value,
                     )
                     try:
                         dossiers_success.remove(dossier_id)
@@ -206,7 +233,7 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
                     status,
                     MessageCodes.STATUS_CHOICE_VALIDATION_ERROR.value,
                     dossier_msgs,
-                    level=messages.LOG_LEVEL_ERROR,
+                    level=messages.Severity.ERROR.value,
                 )
                 try:
                     dossiers_success.remove(dossier_id)
@@ -224,7 +251,7 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
                     None,
                     MessageCodes.MISSING_REQUIRED_VALUE_ERROR.value,
                     dossier_msgs,
-                    level=messages.LOG_LEVEL_ERROR,
+                    level=messages.Severity.ERROR.value,
                 )
                 try:
                     dossiers_success.remove(dossier_id)

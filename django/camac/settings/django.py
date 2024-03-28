@@ -273,6 +273,7 @@ APPLICATIONS = {
                 "KOOR_BG": "import@urec.ch",
                 "MUNICIPALITY": "import.gem@urec.ch",
             },
+            "WRITER_CLASS": "camac.dossier_import.writers.DossierWriter",
         },
         "CUSTOM_NOTIFICATION_TYPES": [
             # BE

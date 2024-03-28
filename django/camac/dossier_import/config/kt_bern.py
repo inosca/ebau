@@ -7,7 +7,6 @@ from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import skip_work_item
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
-from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
 from rest_framework.exceptions import ValidationError
 
@@ -21,6 +20,7 @@ from camac.dossier_import.messages import (
     DossierSummary,
     Message,
     MessageCodes,
+    Severity,
     get_message_max_level,
 )
 from camac.dossier_import.validation import TargetStatus
@@ -79,12 +79,6 @@ PLOT_DATA_MAPPING = {
     "coord_east": "lagekoordinaten-ost",
     "coord_north": "lagekoordinaten-nord",
 }
-
-
-LOG_LEVEL_DEBUG = 0
-LOG_LEVEL_INFO = 1
-LOG_LEVEL_WARNING = 2
-LOG_LEVEL_ERROR = 3
 
 
 class ConfigurationError(Exception):
@@ -198,9 +192,26 @@ class KtBernDossierWriter(DossierWriter):
 
         return instance
 
+    def existing_dossier(self, dossier_id):
+        return (
+            tag := Tags.objects.filter(
+                name=dossier_id, service=self._group.service
+            ).first()
+        ) and tag.instance
+
+    def set_dossier_id(self, instance, dossier_id):
+        """Make the instance retrievable by dossier_id."""
+        Tags.objects.create(
+            name=dossier_id, service=self._group.service, instance=instance
+        )
+        construction_control = get_construction_control(self._group.service)
+        Tags.objects.create(
+            name=dossier_id, service=construction_control, instance=instance
+        )
+
     @transaction.atomic
     def import_dossier(
-        self, dossier: Dossier, import_session_id: str
+        self, dossier: Dossier, import_session_id: str, allow_updates: bool = False
     ) -> DossierSummary:
         dossier_summary = DossierSummary(
             dossier_id=dossier.id, status=DOSSIER_IMPORT_STATUS_SUCCESS, details=[]
@@ -212,79 +223,76 @@ class KtBernDossierWriter(DossierWriter):
         if dossier._meta.missing:
             dossier_summary.details.append(
                 Message(
-                    level=LOG_LEVEL_ERROR,
+                    level=Severity.ERROR.value,
                     code=MessageCodes.MISSING_REQUIRED_VALUE_ERROR.value,
                     detail=f"missing values in required fields: {dossier._meta.missing}",
                 )
             )
             dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
             return dossier_summary
-
-        tag = Tags.objects.filter(name=dossier.id, service=self._group.service).first()
-        if tag:
-            dossier_summary.details.append(
-                Message(
-                    level=LOG_LEVEL_WARNING,
-                    code=MessageCodes.DUPLICATE_DOSSIER.value,
-                    detail=f"Dossier with ID {dossier.id} already exists.",
+        created = False
+        if instance := self.existing_dossier(dossier.id):
+            dossier_summary.dossier_id = instance.pk
+            if not allow_updates:
+                dossier_summary.details.append(
+                    Message(
+                        level=Severity.WARNING.value,
+                        code=MessageCodes.DUPLICATE_DOSSIER.value,
+                        detail=f"Dossier with ID {dossier.id} already exists.",
+                    )
                 )
-            )
-            dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
-            return dossier_summary
-        instance = self.create_instance(dossier)
-        Tags.objects.create(
-            name=dossier.id, service=self._group.service, instance=instance
-        )
-        construction_control = get_construction_control(self._group.service)
-        Tags.objects.create(
-            name=dossier.id, service=construction_control, instance=instance
-        )
-        instance.case.meta["import-id"] = import_session_id
-        instance.case.save()
+                dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
+                return dossier_summary
+        else:
+            instance = self.create_instance(dossier)
+            created = True
+            self.set_dossier_id(instance, dossier.id)
         dossier_summary.instance_id = instance.pk
         dossier_summary.details.append(
             Message(
-                level=LOG_LEVEL_DEBUG,
+                level=Severity.DEBUG.value,
                 code=MessageCodes.INSTANCE_CREATED.value,
                 detail=f"Instance created with ID:  {instance.pk}",
             )
         )
-        q_municipality = Question.objects.get(slug="gemeinde")
-        save_answer(
-            document=instance.case.document,
-            question=q_municipality,
-            value=str(self._group.service_id),
-            user=self._caluma_user,
-        )
-
         dossier_summary.details += self._create_dossier_attachments(dossier, instance)
+        if created:
+            instance.case.meta["import-id"] = import_session_id
+            instance.case.save()
+            q_municipality = Question.objects.get(slug="gemeinde")
+            save_answer(
+                document=instance.case.document,
+                question=q_municipality,
+                value=str(self._group.service_id),
+                user=self._caluma_user,
+            )
 
-        workflow_message = self._set_workflow_state(instance, dossier)
-        instance.history.all().delete()
+            workflow_message = self._set_workflow_state(instance, dossier)
+            dossier_summary.details.append(
+                Message(
+                    level=get_message_max_level(workflow_message),
+                    code=MessageCodes.SET_WORKFLOW_STATE.value,
+                    detail=workflow_message,
+                )
+            )
+            instance.history.all().delete()
 
         self.write_fields(instance, dossier)
         dossier_summary.details += dossier._meta.warnings
         dossier_summary.details += dossier._meta.errors
         dossier_summary.details.append(
             Message(
-                level=LOG_LEVEL_DEBUG,
+                level=Severity.DEBUG.value,
                 code=MessageCodes.FORM_DATA_WRITTEN.value,
                 detail="Form data written.",
             )
         )
 
-        dossier_summary.details.append(
-            Message(
-                level=get_message_max_level(workflow_message),
-                code=MessageCodes.SET_WORKFLOW_STATE.value,
-                detail=workflow_message,
-            )
-        )
         if (
-            get_message_max_level(dossier_summary.details) == LOG_LEVEL_ERROR
+            get_message_max_level(dossier_summary.details) == Severity.ERROR.value
         ):  # pragma: no cover
             dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
-        if get_message_max_level(dossier_summary.details) == LOG_LEVEL_WARNING:
+        if get_message_max_level(dossier_summary.details) == Severity.WARNING.value:
             dossier_summary.status = DOSSIER_IMPORT_STATUS_WARNING  # pragma: no cover
 
         return dossier_summary
@@ -338,10 +346,10 @@ class KtBernDossierWriter(DossierWriter):
         for task_id in path_to_state[target_state]:
             try:
                 work_item = instance.case.work_items.get(task_id=task_id)
-            except ObjectDoesNotExist as e:  # pragma: no cover
+            except WorkItem.DoesNotExist as e:
                 messages.append(
                     Message(
-                        level=LOG_LEVEL_WARNING,
+                        level=Severity.ERROR.value,
                         code=MessageCodes.WORKFLOW_SKIP_ITEM_FAILED.value,
                         detail=f"Skip work item with task_id {task_id} failed with {ConfigurationError(e)}.",
                     )
@@ -380,7 +388,7 @@ class KtBernDossierWriter(DossierWriter):
                 instance.save()
         messages.append(  # pragma: no cover
             Message(
-                level=LOG_LEVEL_DEBUG,
+                level=Severity.DEBUG.value,
                 code=MessageCodes.SET_WORKFLOW_STATE.value,
                 detail=f"Workflow state set to {target_state}.",
             )
@@ -402,7 +410,7 @@ class KtBernDossierWriter(DossierWriter):
         except ValidationError:  # pragma: no cover
             dossier._meta.errors.append(
                 Message(
-                    level=LOG_LEVEL_WARNING,
+                    level=Severity.WARNING.value,
                     code=MessageCodes.FIELD_VALIDATION_ERROR.value,
                     detail=f"Failed to write {value} to {ebau_number_slug} for dossier {instance}",
                 )
@@ -420,7 +428,7 @@ class KtBernDossierWriter(DossierWriter):
         except ValidationError:  # pragma: no cover
             dossier._meta.errors.append(
                 Message(
-                    level=LOG_LEVEL_WARNING,
+                    level=Severity.WARNING.value,
                     code=MessageCodes.FIELD_VALIDATION_ERROR.value,
                     detail=f"Failed to write '{exists_slug}-yes' to {exists_slug} for dossier {instance}",
                 )
