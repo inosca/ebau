@@ -1,7 +1,6 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
-import isProd from "camac-ng/utils/is-prod";
 import {
   dropTask,
   restartableTask,
@@ -10,6 +9,8 @@ import {
   waitForProperty,
 } from "ember-concurrency";
 import { saveAs } from "file-saver";
+
+import isProd from "ember-ebau-core/utils/is-prod";
 
 export default class DossierImportDetailController extends Controller {
   @service intl;
@@ -24,7 +25,7 @@ export default class DossierImportDetailController extends Controller {
   @dropTask
   *fetchImport() {
     try {
-      this.notification.clear();
+      this.notification.clear?.();
 
       return yield this.store.findRecord("dossier-import", this.model, {
         include: "user",
@@ -42,7 +43,7 @@ export default class DossierImportDetailController extends Controller {
   @dropTask
   *deleteImport() {
     try {
-      this.notification.clear();
+      this.notification.clear?.();
 
       yield this.import.destroyRecord();
 
@@ -61,7 +62,7 @@ export default class DossierImportDetailController extends Controller {
   @dropTask
   *startImport() {
     try {
-      this.notification.clear();
+      this.notification.clear?.();
 
       yield this.import.start();
 
@@ -84,7 +85,7 @@ export default class DossierImportDetailController extends Controller {
   @dropTask
   *confirmImport() {
     try {
-      this.notification.clear();
+      this.notification.clear?.();
 
       yield this.import.confirm();
 
@@ -104,7 +105,7 @@ export default class DossierImportDetailController extends Controller {
   @dropTask
   *undoImport() {
     try {
-      this.notification.clear();
+      this.notification.clear?.();
 
       yield this.import.undo();
 
@@ -124,7 +125,7 @@ export default class DossierImportDetailController extends Controller {
   @dropTask
   *cleanImport() {
     try {
-      this.notification.clear();
+      this.notification.clear?.();
 
       yield this.import.clean();
       yield this.fetchImport.perform();
@@ -143,7 +144,7 @@ export default class DossierImportDetailController extends Controller {
   @dropTask
   *transmitImport() {
     try {
-      this.notification.clear();
+      this.notification.clear?.();
 
       yield this.import.transmit();
 
