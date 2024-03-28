@@ -1,6 +1,7 @@
 import os
 import re
 import time
+import traceback
 from dataclasses import asdict
 from functools import wraps
 from logging import getLogger
@@ -18,10 +19,10 @@ from camac.document.models import Attachment
 from camac.dossier_import.loaders import XlsxFileDossierLoader
 from camac.dossier_import.messages import (
     DOSSIER_IMPORT_STATUS_ERROR,
-    LOG_LEVEL_ERROR,
     DossierSummary,
     Message,
     MessageCodes,
+    Severity,
     update_summary,
 )
 from camac.dossier_import.models import DossierImport
@@ -29,7 +30,7 @@ from camac.instance.models import Instance
 from camac.user.models import User
 from camac.utils import build_url
 
-logger = getLogger(__name__)
+log = getLogger(__name__)
 
 
 def delay_and_refresh(func):
@@ -70,16 +71,22 @@ def perform_import(dossier_import, override_config=None):
             except Exception as e:  # pragma: no cover  # noqa: B902
                 # We need to catch unhandled exeptions in single dossier imports
                 # and keep it going.
-                logger.exception(str(e))
+                tb = traceback.format_exc()
+                log.exception(e)
                 msg = Message(
-                    level=LOG_LEVEL_ERROR,
+                    level=Severity.ERROR.value,
                     code=MessageCodes.UNHANDLED_EXCEPTION.value,
-                    detail=str(e),
+                    detail=f"{e}",
+                )
+                debug = Message(
+                    level=Severity.DEBUG.value,
+                    code=msg.code,
+                    detail=f"{msg.detail}\n{tb}",
                 )
                 message = DossierSummary(
                     dossier_id=dossier.id,
                     status=DOSSIER_IMPORT_STATUS_ERROR,
-                    details=[msg],
+                    details=[msg, debug],
                 )
             dossier_import.messages["import"]["details"].append(asdict(message))
             dossier_import.save()
@@ -100,7 +107,7 @@ def perform_import(dossier_import, override_config=None):
     except Exception as e:  # pragma: no cover  # noqa: B902
         # This is just the last straw. An exception caught here
         # aborts the import session.
-        logger.exception(str(e))
+        log.exception(e)
         dossier_import.messages["import"]["exception"] = str(e)
         dossier_import.status = DossierImport.IMPORT_STATUS_IMPORT_FAILED
 
@@ -156,7 +163,7 @@ def transmit_import(dossier_import):
         dossier_import.status = DossierImport.IMPORT_STATUS_TRANSMITTED
 
     except Exception as e:  # pragma: no cover # noqa: B902
-        logger.exception(e)
+        log.exception(e)
         dossier_import.messages["import"]["exception"] = str(e)
         dossier_import.status = DossierImport.IMPORT_STATUS_TRANSMISSION_FAILED
 
@@ -177,7 +184,7 @@ def undo_import(dossier_import):
         Case.objects.filter(**{"meta__import-id": str(dossier_import.pk)}).delete()
         dossier_import.delete()
     except Exception as e:  # pragma: no cover # noqa: B902
-        logger.exception(e)
+        log.exception(e)
         dossier_import.status = DossierImport.IMPORT_STATUS_UNDO_FAILED
         dossier_import.save()
 
@@ -187,7 +194,7 @@ def clean_import(dossier_import):
         dossier_import.delete_file()
         dossier_import.status = DossierImport.IMPORT_STATUS_CLEANED
     except Exception as e:  # pragma: no cover # noqa: B902
-        logger.exception(e)
+        log.exception(e)
         dossier_import.messages["import"]["exception"] = str(e)
         dossier_import.status = DossierImport.IMPORT_STATUS_CLEAN_FAILED
     finally:

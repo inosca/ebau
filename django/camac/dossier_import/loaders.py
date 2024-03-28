@@ -17,10 +17,10 @@ from camac.dossier_import.dossier_classes import (
     PlotData,
 )
 from camac.dossier_import.messages import (
-    LOG_LEVEL_WARNING,
     FieldValidationMessage,
     Message,
     MessageCodes,
+    Severity,
 )
 
 
@@ -225,7 +225,7 @@ class XlsxFileDossierLoader:
             if not (2480000 < e < 2840000.999) or not (1070000 < n < 1300000.999):
                 messages.append(
                     FieldValidationMessage(
-                        level=LOG_LEVEL_WARNING,
+                        level=Severity.WARNING.value,
                         code=MessageCodes.FIELD_VALIDATION_ERROR.value,
                         field="coordinates",
                         detail=_(
@@ -245,7 +245,7 @@ class XlsxFileDossierLoader:
                 except ValueError:  # pragma: no cover
                     messages.append(
                         FieldValidationMessage(
-                            level=LOG_LEVEL_WARNING,
+                            level=Severity.WARNING.value,
                             code=MessageCodes.FIELD_VALIDATION_ERROR.value,
                             field="coordinates",
                             detail=_(
@@ -293,7 +293,7 @@ class XlsxFileDossierLoader:
         except ValueError:  # pragma: no cover
             messages.append(
                 FieldValidationMessage(
-                    level=LOG_LEVEL_WARNING,
+                    level=Severity.WARNING.value,
                     code=MessageCodes.FIELD_VALIDATION_ERROR.value,
                     field="plot-data",
                     detail=_(
