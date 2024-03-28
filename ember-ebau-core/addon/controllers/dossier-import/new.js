@@ -8,10 +8,11 @@ import {
   restartableTask,
   timeout,
 } from "ember-concurrency";
-import mainConfig from "ember-ebau-core/config/main";
 import fetch from "fetch";
 
-export default class DossierImportIndexController extends Controller {
+import mainConfig from "ember-ebau-core/config/main";
+
+export default class DossierImportNewController extends Controller {
   @service intl;
   @service notification;
   @service store;
