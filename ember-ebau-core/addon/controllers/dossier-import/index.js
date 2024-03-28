@@ -1,8 +1,9 @@
 import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
-import isProd from "camac-ng/utils/is-prod";
 import { dropTask, lastValue } from "ember-concurrency";
+
+import isProd from "ember-ebau-core/utils/is-prod";
 
 export default class DossierImportIndexController extends Controller {
   @service intl;
@@ -29,6 +30,6 @@ export default class DossierImportIndexController extends Controller {
 
   @action
   clearNotifications() {
-    this.notification.clear();
+    this.notification.clear?.();
   }
 }

@@ -142,6 +142,7 @@ class ResourceSerializer(serializers.ModelSerializer, MultilingualSerializer):
                 "/ember-camac-ng/service-permissions.phtml": "/service-permissions",
                 "/ember-camac-ng/gwr-global.phtml": "/gwr",
                 "/ember-camac-ng/communications-global.phtml": "/communications-global",
+                "/ember-camac-ng/dossierimport.phtml": "/dossier-import",
             }
             return type_mapping.get(obj.template)
 
