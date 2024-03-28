@@ -16,7 +16,7 @@ export default class DossierImportNewController extends Controller {
   @service intl;
   @service notification;
   @service store;
-  @service shoebox;
+  @service ebauModules;
   @service session;
 
   @tracked fileUpload;
@@ -26,16 +26,16 @@ export default class DossierImportNewController extends Controller {
   @lastValue("fetchGroups") groups;
   @restartableTask
   *fetchGroups() {
-    if (!mainConfig.useLocation && this.shoebox.isSupportRole) {
+    if (!mainConfig.useLocation && this.ebauModules.isSupportRole) {
       return yield this.store.query("group", {
-        role: this.shoebox.content.config.roles["municipality-admin"][0],
-        service_group: 2,
+        role: mainConfig.dossierImport.municipalityAdminRole,
+        service_group: mainConfig.dossierImport.municipalityServiceGroup,
         include: "service",
       });
     }
     const group = yield this.store.findRecord(
       "group",
-      this.shoebox.content.groupId,
+      this.ebauModules.groupId,
     );
     return [group];
   }
@@ -46,19 +46,19 @@ export default class DossierImportNewController extends Controller {
     if (!mainConfig.useLocation) {
       return [];
     }
-    if (this.shoebox.isSupportRole) {
+    if (this.ebauModules.isSupportRole) {
       return yield this.store.findAll("location");
     }
     const group = yield this.store.findRecord(
       "group",
-      this.shoebox.content.groupId,
+      this.ebauModules.groupId,
     );
     return group.locations;
   }
 
   @dropTask
   *upload(event) {
-    this.notification.clear();
+    this.notification.clear?.();
 
     // Prevent uikit's uk-upload from removing files
     // from underlying input field
@@ -96,8 +96,8 @@ export default class DossierImportNewController extends Controller {
       method: "POST",
       headers: {
         authorization: yield this.session.getAuthorizationHeader(),
-        "accept-language": this.shoebox.content.language,
-        "x-camac-group": this.shoebox.content.groupId,
+        "accept-language": this.ebauModules.language,
+        "x-camac-group": this.ebauModules.groupId,
       },
       body: formData,
     });
@@ -136,6 +136,6 @@ export default class DossierImportNewController extends Controller {
 
   @action
   clearNotifications() {
-    this.notification.clear();
+    this.notification.clear?.();
   }
 }

@@ -5,6 +5,7 @@ import registerBilling from "ember-ebau-core/modules/billing";
 import registerCommunications from "ember-ebau-core/modules/communications";
 import registerCommunicationsGlobal from "ember-ebau-core/modules/communications-global";
 import registerDMSAdmin from "ember-ebau-core/modules/dms-admin";
+import registerDossierImport from "ember-ebau-core/modules/dossier-import";
 import registerLegalSubmission from "ember-ebau-core/modules/legal-submission";
 import registerPermissions from "ember-ebau-core/modules/permissions";
 import registerPublication from "ember-ebau-core/modules/publication";
@@ -83,5 +84,6 @@ Router.map(function () {
     registerServicePermissions(this, { resetNamespace });
     registerCommunicationsGlobal(this, { resetNamespace });
     registerStaticContent(this, { resetNamespace });
+    registerDossierImport(this, { resetNamespace });
   });
 });

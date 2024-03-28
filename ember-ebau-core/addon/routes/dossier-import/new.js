@@ -2,10 +2,10 @@ import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 
 export default class DossierImportNewRoute extends Route {
-  @service shoebox;
+  @service ebauModules;
 
   model() {
-    return this.shoebox.content.serviceId;
+    return this.ebauModules.serviceId;
   }
 
   setupController(controller, model) {

@@ -7409,6 +7409,22 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 26,
+    "fields": {
+      "resource": 8,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 27,
+    "fields": {
+      "resource": 8,
+      "role": 4
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 1,
     "fields": {
@@ -7500,6 +7516,19 @@
     }
   },
   {
+    "model": "core.resource",
+    "pk": 8,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/dossierimport.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 7
+    }
+  },
+  {
     "model": "core.resourcet",
     "pk": 1,
     "fields": {
@@ -7567,6 +7596,16 @@
       "language": "de",
       "name": "GWR",
       "description": "Eidg. Gebäude- und Wohnungsregister"
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 8,
+    "fields": {
+      "resource": 8,
+      "language": "de",
+      "name": "Dossierimport",
+      "description": null
     }
   }
 ]

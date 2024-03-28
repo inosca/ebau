@@ -42,7 +42,7 @@ services:
     networks:
       - ebau.local
 
-  django:
+  django: &django
     user: ${UID}
     depends_on:
       - cache
@@ -104,6 +104,18 @@ services:
     networks:
       - ebau.local
     command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0:80 --pythonpath /app/$APPLICATION"
+
+  django-q:
+    <<: *django
+    build:
+      context: ../django
+      cache_from:
+        - acr.run/camac-ng/camac-ng/django:master
+    command: /bin/sh -c "./wait-for-it.sh db:5432 -- python manage.py qcluster --pythonpath /app/$APPLICATION"
+    # to enable live reloading on file changes: comment above line, uncomment command below and run next line's command in the container
+    # find -wholename "**/*.py" | entr python manage.py qcluster --pythonpath /app/$APPLICATION
+    # command: /bin/sh -c "sleep inf"
+    ports: []
 
   ember-caluma-portal:
     user: nginx:nginx

@@ -149,6 +149,10 @@ const config = {
   communication: {
     rolesWithApplicantContact: ["activeOrInolvedLeadAuthority"],
   },
+  dossierImport: {
+    municipalityAdminRole: 4, // Administration Gemeinde
+    municipalityServiceGroup: 1, // Gemeinde
+  },
 };
 
 config.intentSlugs = [config.answerSlugs.description];
