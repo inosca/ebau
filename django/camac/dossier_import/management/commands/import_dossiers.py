@@ -1,6 +1,5 @@
 import pprint
 
-from django.conf import settings
 from django.core.files import File
 from django.core.management.base import BaseCommand, CommandError
 
@@ -19,13 +18,6 @@ class Command(BaseCommand):
             action="store_true",
             default=False,
             help="If set, do not ask to abort import on validation failure.",
-        )
-        parser.add_argument(
-            "--override_application",
-            type=str,
-            nargs="?",
-            default=settings.APPLICATION_NAME,
-            help="Specify application name if you want to use another configuration than configured in the environment (e.g. when running tests).",
         )
         source_subparsers = parser.add_subparsers(help="Specify the importing strategy")
 
@@ -118,7 +110,7 @@ class Command(BaseCommand):
                 != "y"
             ):
                 return
-        perform_import(dossier_import, override_config=options["override_application"])
+        perform_import(dossier_import)
         self.stdout.write("========= Dossier import =========")
         if options["verbosity"] > 1:
             self.stdout.write(

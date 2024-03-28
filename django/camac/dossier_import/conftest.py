@@ -1,4 +1,3 @@
-import copy
 import datetime
 import shutil
 from collections import OrderedDict
@@ -116,14 +115,11 @@ def make_dossier_writer(
 ):
     def init_writer(config):
         Group.objects.get_or_create(pk=group.pk, defaults={"role": role})
-        writer_cls = import_string(
-            settings.APPLICATION["DOSSIER_IMPORT"]["WRITER_CLASS"]
-        )
+        writer_cls = import_string(settings.DOSSIER_IMPORT["WRITER_CLASS"])
         return writer_cls(
             user_id=user.pk,
             group_id=group.pk,
             location_id=location.pk,
-            import_settings=settings.APPLICATION["DOSSIER_IMPORT"],
         )
 
     return init_writer
@@ -179,36 +175,47 @@ def setup_dossier_writer(
     request,
     db,
     settings,
-    role,
     form,
-    service,
     user,
     make_dossier_writer,
     attachment_section,
+    application_settings,
 ):
     def wrapper(config):
         common_fixtures_paths = [
             # list of fixtures common to all configs. e. g.:
             settings.ROOT_DIR(f"{config}/config/instance.json")
         ]
-        settings.APPLICATION = copy.deepcopy(settings.APPLICATIONS[config])
+
         settings.APPLICATION_NAME = config
-        settings.APPLICATION["DOSSIER_IMPORT"]["USER"] = user.username
+        short_name = settings.APPLICATIONS[config]["SHORT_NAME"]
+        application_settings["SHORT_NAME"] = short_name
+
+        dossier_import_settings = request.getfixturevalue(
+            f"{short_name}_dossier_import_settings"
+        )
+        service, config_fixtures = request.getfixturevalue(
+            f"load_fixtures_{short_name}"
+        )
+
+        dossier_import_settings["USER"] = user.username
+
         dossier_writer = make_dossier_writer(config)
         group = dossier_writer._group
-        if config == "kt_schwyz":
-            _, config_fixtures = request.getfixturevalue("load_fixtures_sz")
+
         if config == "kt_bern":
-            service, config_fixtures = request.getfixturevalue("load_fixtures_be")
             group.service = service
             group.save()
-        settings.APPLICATION["DOSSIER_IMPORT"]["FORM_ID"] = form.pk
-        settings.APPLICATION["DOSSIER_IMPORT"]["ATTACHMENT_SECTION_ID"] = (
-            attachment_section.pk
-        )
+        elif config == "kt_schwyz":
+            application_settings["SHORT_DOSSIER_NUMBER"] = True
+
+        dossier_import_settings["FORM_ID"] = form.pk
+        dossier_import_settings["ATTACHMENT_SECTION_ID"] = attachment_section.pk
+
         fixture_paths = common_fixtures_paths + config_fixtures
         if len(fixture_paths):
             call_command("loaddata", *fixture_paths)
+
         return dossier_writer
 
     return wrapper

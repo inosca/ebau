@@ -140,7 +140,7 @@ class KtSchwyzDossierWriter(DossierWriter):
         camac.instance.domain_logic.CreateInstanceLogic should be able to do the job and
         spit out a reasonably generic starting point.
         """
-        instance_state_id = self._import_settings["INSTANCE_STATE_MAPPING"].get(
+        instance_state_id = settings.DOSSIER_IMPORT["INSTANCE_STATE_MAPPING"].get(
             dossier._meta.target_state
         )
         instance_state = instance_state_id and InstanceState.objects.get(
@@ -151,7 +151,7 @@ class KtSchwyzDossierWriter(DossierWriter):
             previous_instance_state=instance_state,
             user=self._user,
             group=self._group,
-            form=Form.objects.get(pk=self._import_settings["FORM_ID"]),
+            form=Form.objects.get(pk=settings.DOSSIER_IMPORT["FORM_ID"]),
         )
         instance = CreateInstanceLogic.create(
             creation_data,
@@ -159,7 +159,7 @@ class KtSchwyzDossierWriter(DossierWriter):
             camac_user=self._user,
             group=self._group,
             caluma_form=CalumaForm.objects.get(
-                pk=settings.APPLICATION["DOSSIER_IMPORT"]["CALUMA_FORM"]
+                pk=settings.DOSSIER_IMPORT["CALUMA_FORM"]
             ),
             start_caluma=False,
         )
@@ -207,7 +207,7 @@ class KtSchwyzDossierWriter(DossierWriter):
             )
             dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
             return dossier_summary
-        if not self._import_settings["INSTANCE_STATE_MAPPING"].get(
+        if not settings.DOSSIER_IMPORT["INSTANCE_STATE_MAPPING"].get(
             dossier._meta.target_state
         ):  # pragma: no cover
             dossier_summary.details.append(
