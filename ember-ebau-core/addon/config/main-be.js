@@ -168,4 +168,8 @@ export default {
   communication: {
     rolesWithApplicantContact: ["activeOrInolvedLeadAuthority"],
   },
+  dossierImport: {
+    municipalityAdminRole: 20007, // Administration Leitbehörde
+    municipalityServiceGroup: 2, // Leitbehörde Gemeinde
+  },
 };

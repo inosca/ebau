@@ -1,15 +1,15 @@
 import { inject as service } from "@ember/service";
 import { Ability } from "ember-can";
 
-import isProd from "camac-ng/utils/is-prod";
+import isProd from "ember-ebau-core/utils/is-prod";
 
 export default class extends Ability {
-  @service shoebox;
+  @service ebauModules;
 
   get canStart() {
     return (
       this.model?.status === "verified" &&
-      (!isProd() || this.shoebox.isSupportRole)
+      (!isProd() || this.ebauModules.isSupportRole)
     );
   }
 
@@ -20,7 +20,7 @@ export default class extends Ability {
   get canTransmit() {
     return (
       !isProd() &&
-      this.shoebox.isSupportRole &&
+      this.ebauModules.isSupportRole &&
       this.model?.status === "confirmed"
     );
   }
@@ -29,12 +29,12 @@ export default class extends Ability {
     if (isProd()) {
       return false;
     }
-    if (this.shoebox.isSupportRole) {
+    if (this.ebauModules.isSupportRole) {
       return ["imported", "import-failed", "confirmed", "undo-failed"].includes(
         this.model?.status,
       );
     }
-    if (this.shoebox.baseRole === "municipality") {
+    if (this.ebauModules.baseRole === "municipality") {
       return ["imported", "import-failed", "undo-failed"].includes(
         this.model?.status,
       );
@@ -45,7 +45,7 @@ export default class extends Ability {
   get canClean() {
     return (
       isProd() &&
-      this.shoebox.isSupportRole &&
+      this.ebauModules.isSupportRole &&
       ["imported", "confirmed", "import-failed"].includes(this.model?.status)
     );
   }
