@@ -10,6 +10,21 @@ PARASHIFT = {
         "ENABLED": True,
     },
     "default": {
+        "REQUIRED_KEYS": [
+            "external-id",
+            "parzelle-nr",
+            "erfassungsjahr",
+            "vorhaben",
+            "ort",
+            "baurecht-nr",
+            "gemeinde",
+            "gesuchsteller",
+            "documents",
+        ],
+        "USER": {
+            "KOOR_BG": "import@urec.ch",
+            "MUNICIPALITY": "import.gem@urec.ch",
+        },
         "BASE_URI": env.str(
             "PARASHIFT_BASE_URI", default="https://api.parashift.io/v2"
         ),

@@ -26,9 +26,9 @@ def import_dossiers(records, bfs_nr):
 
 def _get_username(bfs_nr):
     if bfs_nr == "KOOR_BG":
-        return settings.APPLICATION["DOSSIER_IMPORT"]["USER"]["KOOR_BG"]
+        return settings.PARASHIFT["USER"]["KOOR_BG"]
     else:
-        return settings.APPLICATION["DOSSIER_IMPORT"]["USER"]["MUNICIPALITY"]
+        return settings.PARASHIFT["USER"]["MUNICIPALITY"]
 
 
 def _import_dossier(data, bfs_nr):
@@ -49,7 +49,7 @@ def _import_dossier(data, bfs_nr):
         communal_federal_number=int("".join(filter(str.isdigit, data["gemeinde"])))
     )
 
-    for required_key in settings.APPLICATION["DOSSIER_IMPORT"].get("REQUIRED_KEYS", []):
+    for required_key in settings.PARASHIFT.get("REQUIRED_KEYS", []):
         if required_key not in data.keys():
             raise ValidationError(
                 f"The required field {required_key} has not been found in the record {data}"
