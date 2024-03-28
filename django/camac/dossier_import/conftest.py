@@ -1,3 +1,4 @@
+import copy
 import datetime
 import shutil
 from collections import OrderedDict
@@ -190,7 +191,8 @@ def setup_dossier_writer(
             # list of fixtures common to all configs. e. g.:
             settings.ROOT_DIR(f"{config}/config/instance.json")
         ]
-        settings.APPLICATION = settings.APPLICATIONS[config]
+        settings.APPLICATION = copy.deepcopy(settings.APPLICATIONS[config])
+        settings.APPLICATION_NAME = config
         settings.APPLICATION["DOSSIER_IMPORT"]["USER"] = user.username
         dossier_writer = make_dossier_writer(config)
         group = dossier_writer._group
