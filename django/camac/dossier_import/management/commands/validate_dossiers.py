@@ -1,7 +1,6 @@
 import pprint
 from datetime import datetime
 
-from django.conf import settings
 from django.core.files import File
 from django.core.management.base import BaseCommand
 
@@ -37,13 +36,6 @@ class Command(BaseCommand):
         )
         parser.add_argument(
             "path_to_source", type=str, nargs=1, help="Where to find th"
-        )
-        parser.add_argument(
-            "--override_application",
-            type=str,
-            nargs="?",
-            default=settings.APPLICATION_NAME,
-            help="Specify application name if you want to use another configuration than configured in the environment (e.g. when running tests).",
         )
 
     def handle(self, *args, **options):

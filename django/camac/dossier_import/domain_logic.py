@@ -49,20 +49,16 @@ def delay_and_refresh(func):
 
 
 @delay_and_refresh
-def perform_import(dossier_import, override_config=None):
+def perform_import(dossier_import):
     try:
-        IMPORT_SETTINGS = settings.APPLICATION["DOSSIER_IMPORT"]
-        if override_config:
-            settings.APPLICATION = settings.APPLICATIONS[override_config]
-        configured_writer_cls = import_string(IMPORT_SETTINGS["WRITER_CLASS"])
+        configured_writer_cls = import_string(settings.DOSSIER_IMPORT["WRITER_CLASS"])
 
         loader = XlsxFileDossierLoader()
 
         writer = configured_writer_cls(
-            user_id=User.objects.get(username=IMPORT_SETTINGS["USER"]).pk,
+            user_id=User.objects.get(username=settings.DOSSIER_IMPORT["USER"]).pk,
             group_id=dossier_import.group.pk,
             location_id=dossier_import.location and dossier_import.location.pk,
-            import_settings=settings.APPLICATION["DOSSIER_IMPORT"],
         )
         dossier_import.messages["import"] = {"details": []}
         for dossier in loader.load_dossiers(dossier_import.source_file.path):
@@ -118,7 +114,7 @@ def perform_import(dossier_import, override_config=None):
 
 
 def get_token():
-    DOSSIER_IMPORT = settings.APPLICATION.get("DOSSIER_IMPORT", {})
+    DOSSIER_IMPORT = settings.DOSSIER_IMPORT
     r = requests.post(
         DOSSIER_IMPORT.get("PROD_AUTH_URL"),
         {
@@ -136,7 +132,7 @@ def transmit_import(dossier_import):
     try:
         token = f"Bearer {get_token()}"
 
-        DOSSIER_IMPORT = settings.APPLICATION.get("DOSSIER_IMPORT", {})
+        DOSSIER_IMPORT = settings.DOSSIER_IMPORT
         dossier_import.source_file.seek(0)
         fields = {
             "group": str(dossier_import.group.pk),

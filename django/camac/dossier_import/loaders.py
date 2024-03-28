@@ -236,9 +236,7 @@ class XlsxFileDossierLoader:
                 )
                 continue
 
-            target_coords = settings.APPLICATION["DOSSIER_IMPORT"].get(
-                "TRANSFORM_COORDINATE_SYSTEM"
-            )
+            target_coords = settings.DOSSIER_IMPORT.get("TRANSFORM_COORDINATE_SYSTEM")
             if target_coords:
                 try:
                     e, n = transform_coordinates(e, n, target_coords)

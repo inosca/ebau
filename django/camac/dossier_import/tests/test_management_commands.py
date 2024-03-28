@@ -28,7 +28,6 @@ def test_import_dossiers_exceptions(
         call_command(
             "import_dossiers",
             "--no-input",
-            f"--override_application={config}",
             "--verbosity=2",
             "from_session",
             str(dossier_import.pk),
@@ -60,7 +59,6 @@ def test_import_dossiers_manage_command(
     args = [
         "import_dossiers",
         "--no-input",
-        f"--override_application={config}",
         "--verbosity=2",
         "from_archive",
         f"--user_id={writer._user.pk}",
@@ -80,7 +78,6 @@ def test_import_dossiers_manage_command(
     call_command(
         "import_dossiers",
         "--no-input",
-        f"--override_application={config}",
         "--verbosity=2",
         "from_session",
         str(dossier_import.pk),
