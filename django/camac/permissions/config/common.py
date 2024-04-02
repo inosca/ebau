@@ -4,15 +4,15 @@ from django.conf import settings
 
 from camac.instance.models import Instance
 from camac.permissions import api as permissions_api
-from camac.permissions.events import EmptyEventHandler
 from camac.permissions.models import AccessLevel, InstanceACL
+from camac.user.models import Service
 
 log = getLogger(__name__)
 
 APPLICANT_ACCESS_LEVEL = "applicant"
 
 
-class ApplicantsEventHandlerMixin(EmptyEventHandler):
+class ApplicantsEventHandlerMixin:
     def applicant_added(self, instance, applicant):
         # Add an applicant ACL when an applicant is added to the
         # instance (instance.involved_applicants).
@@ -55,7 +55,7 @@ class ApplicantsEventHandlerMixin(EmptyEventHandler):
             self.manager.revoke(acl, event_name="applicant_removed")
 
 
-class InstanceSubmissionHandlerMixin(EmptyEventHandler):
+class InstanceSubmissionHandlerMixin:
     def instance_submitted(self, instance: Instance):
         if settings.APPLICATION.get("USE_INSTANCE_SERVICE"):
             self.manager.grant(
@@ -74,3 +74,41 @@ class InstanceSubmissionHandlerMixin(EmptyEventHandler):
                 service=group_service,
                 event_name="instance-submitted",
             )
+
+
+class ChangeResponsibleServiceHandlerMixin:
+    def changed_responsible_service(
+        self, instance: Instance, from_service: Service, to_service: Service
+    ):
+        # First: Degrade old lead authority to involved authority
+        old_acl = (
+            InstanceACL.currently_active()
+            .filter(
+                service=from_service,
+                access_level="lead-authority",
+                instance=instance,
+            )
+            .first()
+        )
+        if old_acl:
+            self.manager.revoke(old_acl)
+        else:  # pragma: no cover
+            log.warning(
+                f"Old lead authority service {from_service.pk} on instance "
+                f"{instance.pk} had no lead-authority ACL!"
+            )
+
+        self.manager.grant(
+            instance,
+            grant_type="SERVICE",
+            access_level="involved-authority",
+            service=from_service,
+        )
+
+        # Second: Grant new authority the lead
+        self.manager.grant(
+            instance,
+            grant_type="SERVICE",
+            access_level="lead-authority",
+            service=to_service,
+        )

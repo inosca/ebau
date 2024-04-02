@@ -151,19 +151,19 @@ class Command(BaseCommand):
 
     def _config_has_errors(self):
         errors = 0
-        for internal, canton in settings.PERMISSIONS.get("MIGRATION", {}).items():
-            level_configured = canton in settings.PERMISSIONS["ACCESS_LEVELS"]
+        for internal, level_slug in settings.PERMISSIONS.get("MIGRATION", {}).items():
+            level_configured = level_slug in settings.PERMISSIONS["ACCESS_LEVELS"]
             level_in_db = permission_models.AccessLevel.objects.filter(
-                pk=canton
+                pk=level_slug
             ).exists()
             # TODO should check internal name reference as well
 
             if not level_configured:
                 errors += 1
-                log.warning(f"Access level '{canton}' has no configuration")
+                log.warning(f"Access level '{level_slug}' has no configuration")
             if not level_in_db:
                 errors += 1
-                log.warning(f"Access level '{canton}' is missing in database")
+                log.warning(f"Access level '{level_slug}' is missing in database")
 
         return errors
 
@@ -244,28 +244,34 @@ class Command(BaseCommand):
         permissions = set()
         if applicant_accesslevel := conf.get("APPLICANT"):
             permissions.update(self._build_applicant_permissions(applicant_accesslevel))
-        if municipality_accesslevel := conf.get("MUNICIPALITY"):
+        if lead_authority := conf.get("MUNICIPALITY"):
+            inactive_lead_authority = conf.get("MUNICIPALITY_INVOLVED")
             permissions.update(
-                self._build_municipality_permissions(municipality_accesslevel)
+                self._build_municipality_permissions(
+                    lead_authority, inactive_lead_authority
+                )
             )
 
         return permissions
 
-    def _build_municipality_permissions(self, level):
+    def _build_municipality_permissions(self, level_active, level_inactive):
         # Note: This is roughly derived from
         # InstanceQuerysetMixin.get_queryset_for_municipality()
-
         log.info("  Checking for municipality access rules")
 
-        make_acl = partial(ACL, access_level=level, state=STATE_ACTIVE)
+        make_lead_acl = partial(ACL, access_level=level_active, state=STATE_ACTIVE)
+        make_involved_acl = partial(
+            ACL, access_level=level_inactive, state=STATE_ACTIVE
+        )
 
         # Instance Services map quite nicely. TODO: Only responsible services,
         # or only of a certain service group?
-        is_iter = self._iter_qs(InstanceService.objects.filter(active=1), "instance")
+        is_iter = self._iter_qs(InstanceService.objects.filter(), "instance")
         log.info(f"    Checking {is_iter.total} instance services")
 
         for instance_service in is_iter:
-            yield make_acl(
+            build_fn = make_lead_acl if instance_service.active else make_involved_acl
+            yield build_fn(
                 instance_id=instance_service.instance_id,
                 type=permission_models.GRANT_CHOICES.SERVICE.value,
                 service_id=instance_service.service_id,
@@ -282,7 +288,7 @@ class Command(BaseCommand):
                 # submit date is set in the submit serializer:
                 # CalumaInstanceSubmitSerializer._set_submit_date()
                 submit_date = inst.case.meta.get("submit-date") if inst.case else None
-                yield make_acl(
+                yield make_lead_acl(
                     instance_id=inst.pk,
                     type=permission_models.GRANT_CHOICES.SERVICE.value,
                     service_id=inst.group.service_id,

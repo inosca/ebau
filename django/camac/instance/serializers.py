@@ -1971,6 +1971,9 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
             )
 
         # Side effects
+        permissions_events.Trigger.changed_responsible_service(
+            self.context["request"], instance, from_service, to_service
+        )
         self._sync_with_caluma(from_service, to_service)
         self._send_notification()
         # Changing the active construction control should not trigger an eCH0211 event

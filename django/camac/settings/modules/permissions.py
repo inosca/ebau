@@ -109,6 +109,83 @@ BE_CONSTRUCTION_CONTROL_STATES = RequireInstanceState(
 BE_REJECTION_POSSIBLE_STATES = RequireInstanceState(
     ["rejected", "circulation_init", "circulation"]
 )
+BE_MUNICIPALITY_READ_PERMISSIONS = [
+    ("communications-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
+    ("geometer-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
+    ("responsible-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
+    ("journal-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
+    ("history-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
+    ("permissions-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
+    ("construction-control-read", BE_CONSTRUCTION_CONTROL_STATES),
+    (
+        "lead-authority-read",
+        BE_MUNICIPALITY_ACCESSIBLE_STATES & ~RequireInstanceState(["in_progress"]),
+    ),
+    (
+        "additional-demands-read",
+        BE_MUNICIPALITY_ACCESSIBLE_STATES & ~RequireInstanceState(["in_progress"]),
+    ),
+    (
+        "appeal-read",
+        BE_MUNICIPALITY_ACCESSIBLE_STATES
+        & ~RequireInstanceState(
+            [
+                "in_progress",
+                "in_progress_internal",
+                "subm",
+                "finished_internal",
+            ]
+        ),
+    ),
+    ("related-gwr-projects-read", BE_MUNICIPALITY_STATES_EXCEPT_MIGRATED),
+    ("billing-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
+    (
+        "information-of-neighbors",
+        BE_MUNICIPALITY_STATES_EXCEPT_MIGRATED,
+    ),
+    ("publication-read", BE_MUNICIPALITY_STATES_EXCEPT_MIGRATED),
+    (
+        "decision-read",
+        BE_MUNICIPALITY_ACCESSIBLE_STATES
+        & ~RequireInstanceState(
+            ["circulation", "circulation_init", "rejected", "subm"]
+        ),
+    ),
+    (
+        "revisionhistory-read",
+        BE_MUNICIPALITY_ACCESSIBLE_STATES | RequireInstanceState(["correction"]),
+    ),
+    ("rejection-read", BE_REJECTION_POSSIBLE_STATES),
+    (
+        "audit-read",
+        BE_MUNICIPALITY_ACCESSIBLE_STATES
+        & ~RequireInstanceState(["subm", "in_progress"]),
+    ),
+    (
+        "corrections-read",
+        BE_MUNICIPALITY_ACCESSIBLE_STATES
+        | RequireInstanceState(["corrected", "correction"]),
+    ),
+    (
+        "legal-submission-read",
+        BE_MUNICIPALITY_ACCESSIBLE_STATES & ~RequireInstanceState(["subm"]),
+    ),
+    (
+        "form-read",
+        BE_MUNICIPALITY_ACCESSIBLE_STATES | RequireInstanceState(["correction"]),
+    ),
+    ("documents-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
+    (
+        "dms-generate-read",
+        BE_MUNICIPALITY_ACCESSIBLE_STATES,
+    ),
+    (
+        "assign-ebau-number-read",
+        RequireInstanceState(["subm", "in_progress_internal"]),
+    ),
+    ("distribution-read", BE_MUNICIPALITY_STATES_EXCEPT_MIGRATED),
+    ("workitems-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
+]
 
 PERMISSIONS: PermissionsConfig = {
     "default": {
@@ -170,76 +247,8 @@ PERMISSIONS: PermissionsConfig = {
                 ("applicant-add", Always()),
                 ("applicant-read", Always()),
             ],
-            "lead-authority": [
-                ("communications-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
-                ("geometer-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
-                ("responsible-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
-                ("journal-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
-                ("history-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
-                ("permissions-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
-                ("construction-control-read", BE_CONSTRUCTION_CONTROL_STATES),
-                (
-                    "lead-authority-read",
-                    BE_MUNICIPALITY_ACCESSIBLE_STATES
-                    & ~RequireInstanceState(["in_progress"]),
-                ),
-                (
-                    "additional-demands-read",
-                    BE_MUNICIPALITY_ACCESSIBLE_STATES
-                    & ~RequireInstanceState(["in_progress"]),
-                ),
-                ("appeal-read", BE_MUNICIPALITY_STATES_EXCEPT_MIGRATED),
-                ("related-gwr-projects-read", BE_MUNICIPALITY_STATES_EXCEPT_MIGRATED),
-                ("billing-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
-                (
-                    "information-of-neighbors",
-                    BE_MUNICIPALITY_STATES_EXCEPT_MIGRATED,
-                ),
-                ("publication-read", BE_MUNICIPALITY_STATES_EXCEPT_MIGRATED),
-                (
-                    "decision-read",
-                    BE_MUNICIPALITY_ACCESSIBLE_STATES
-                    & ~RequireInstanceState(
-                        ["circulation", "circulation_init", "rejected", "subm"]
-                    ),
-                ),
-                (
-                    "revisionhistory-read",
-                    BE_MUNICIPALITY_ACCESSIBLE_STATES
-                    | RequireInstanceState(["correction"]),
-                ),
-                ("rejection-read", BE_REJECTION_POSSIBLE_STATES),
-                (
-                    "audit-read",
-                    BE_MUNICIPALITY_ACCESSIBLE_STATES
-                    & ~RequireInstanceState(["subm", "in_progress"]),
-                ),
-                (
-                    "corrections-read",
-                    BE_MUNICIPALITY_ACCESSIBLE_STATES
-                    | RequireInstanceState(["corrected", "correction"]),
-                ),
-                (
-                    "legal-submission-read",
-                    BE_MUNICIPALITY_ACCESSIBLE_STATES & ~RequireInstanceState(["subm"]),
-                ),
-                (
-                    "form-read",
-                    BE_MUNICIPALITY_ACCESSIBLE_STATES
-                    | RequireInstanceState(["correction"]),
-                ),
-                ("documents-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
-                (
-                    "dms-generate-read",
-                    BE_MUNICIPALITY_ACCESSIBLE_STATES,
-                ),
-                (
-                    "assign-ebau-number-read",
-                    RequireInstanceState(["subm", "in_progress_internal"]),
-                ),
-                ("distribution-read", BE_MUNICIPALITY_STATES_EXCEPT_MIGRATED),
-                ("workitems-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
-            ],
+            "lead-authority": BE_MUNICIPALITY_READ_PERMISSIONS,
+            "involved-authority": BE_MUNICIPALITY_READ_PERMISSIONS,
         },
         "EVENT_HANDLER": "camac.permissions.config.kt_bern.PermissionEventHandlerBE",
         "ENABLED": True,
@@ -249,6 +258,7 @@ PERMISSIONS: PermissionsConfig = {
         "MIGRATION": {
             "APPLICANT": "applicant",
             "MUNICIPALITY": "lead-authority",
+            "MUNICIPALITY_INVOLVED": "involved-authority",
         },
     },
     "kt_gr": {
