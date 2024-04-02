@@ -393,3 +393,67 @@ def test_submit_create_acl_be(
 
     # After submission, there must be municipality access
     assert be_instance.acls.filter(access_level="lead-authority").get().is_active()
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_change_responsible_service(
+    db,
+    be_instance,
+    admin_client,
+    service_factory,
+    service,
+    disable_ech0211_settings,
+    be_access_levels,
+    instance_acl_factory,
+    permissions_settings,
+):
+    permissions_settings["EVENT_HANDLER"] = (
+        "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+    )
+    new_responsible = service_factory()
+
+    old_responsible = be_instance.instance_services.get(active=1).service
+    instance_acl_factory(
+        instance=be_instance, access_level_id="lead-authority", service=old_responsible
+    )
+
+    active_acls = InstanceACL.currently_active().filter(instance=be_instance)
+    involved = active_acls.filter(access_level="involved-authority")
+    lead = active_acls.filter(access_level="lead-authority")
+
+    # Check before-change situation: Old responsible must have lead,
+    # new service is not assigned at all yet
+    assert lead.filter(service=old_responsible).exists()
+    assert not lead.filter(service=new_responsible).exists()
+    assert not involved.filter(service=new_responsible).exists()
+    assert not involved.filter(service=old_responsible).exists()
+
+    url = reverse("instance-change-responsible-service", args=[be_instance.pk])
+    resp = admin_client.post(
+        url,
+        data={
+            "data": {
+                "relationships": {
+                    "to": {"data": {"type": "services", "id": str(new_responsible.pk)}}
+                },
+                "attributes": {"service-type": "municipality"},
+                "id": str(be_instance.pk),
+                "type": "instance-change-responsible-services",
+            },
+        },
+    )
+    assert resp.status_code == status.HTTP_204_NO_CONTENT
+
+    # The currently_active() method uses the timestamp at call time, so we
+    # need to rebuild our QSes, as otherwise revoked ACLs will still appear as
+    # active
+    active_acls = InstanceACL.currently_active().filter(instance=be_instance)
+    involved = active_acls.filter(access_level="involved-authority")
+    lead = active_acls.filter(access_level="lead-authority")
+
+    # Check after-change situation: Old responsible must not have lead, but must
+    # have involved ACL, new service must have active lead acl
+    assert not lead.filter(service=old_responsible).exists()
+    assert lead.filter(service=new_responsible).exists()
+    assert not involved.filter(service=new_responsible).exists()
+    assert involved.filter(service=old_responsible).exists()

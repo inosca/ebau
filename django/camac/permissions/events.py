@@ -10,6 +10,7 @@ from django.utils.module_loading import import_string
 
 from camac.instance.models import Instance
 from camac.notification import utils as notification_utils
+from camac.user.models import Service
 
 from .api import PermissionManager
 from .exceptions import MissingEventHandler
@@ -99,6 +100,7 @@ class Trigger:
     decision_decreed = EventTrigger()
     construction_acceptance_completed = EventTrigger()
     instance_submitted = EventTrigger()
+    changed_responsible_service = EventTrigger()
 
     applicant_added = EventTrigger("Whenever an applicant is invited/added")
     applicant_removed = EventTrigger("Whenever an applicant is removed")
@@ -178,6 +180,11 @@ class EmptyEventHandler(PermissionEventHandler):
         return  # pragma: no cover
 
     def instance_submitted(self, instance: Instance):
+        return  # pragma: no cover
+
+    def changed_responsible_service(
+        self, instance: Instance, from_service: Service, to_service: Service
+    ):
         return  # pragma: no cover
 
     def applicant_added(self, instance: Instance, applicant):
