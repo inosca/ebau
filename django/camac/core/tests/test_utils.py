@@ -4,17 +4,17 @@ from camac.core import utils
 
 
 @pytest.mark.freeze_time("2020-10-16")
-def test_max_ebau_nr(db, case_factory, question, chapter):
-    assert utils.generate_ebau_nr(2020) == "2020-1"
+def test_max_ebau_nr(db, case_factory, instance_factory, question, chapter):
+    assert utils.generate_ebau_nr(None, 2020) == "2020-1"
 
     case_factory(meta={"ebau-number": "2020-123"})
     case_factory(meta={"ebau-number": "2020-99"})
-    assert utils.generate_ebau_nr(2020) == "2020-124"
+    assert utils.generate_ebau_nr(None, 2020) == "2020-124"
 
     case_factory(meta={"ebau-number": "2019-100"})
-    assert utils.generate_ebau_nr(2019) == "2019-101"
-    assert utils.generate_ebau_nr(2020) == "2020-124"
-    assert utils.generate_ebau_nr(2021) == "2021-1"
+    assert utils.generate_ebau_nr(None, 2019) == "2019-101"
+    assert utils.generate_ebau_nr(None, 2020) == "2020-124"
+    assert utils.generate_ebau_nr(None, 2021) == "2021-1"
 
 
 @pytest.mark.freeze_time("2020-10-16")
@@ -72,11 +72,11 @@ def test_canton_aware_decorator(db, role, expected, canton, application_settings
 
 @pytest.mark.freeze_time("2020-10-16")
 def test_generate_sort_key(db, case_factory):
-    assert utils.generate_sort_key(utils.generate_ebau_nr(2020)) == 2020000001
+    assert utils.generate_sort_key(utils.generate_ebau_nr(None, 2020)) == 2020000001
 
     case_factory(meta={"ebau-number": "2020-123"})
     case_factory(meta={"ebau-number": "2020-99"})
-    assert utils.generate_sort_key(utils.generate_ebau_nr(2020)) == 2020000124
+    assert utils.generate_sort_key(utils.generate_ebau_nr(None, 2020)) == 2020000124
 
     assert utils.generate_sort_key("2020-999999") == 2020999999
     assert utils.generate_sort_key("abab-12-abab-2020-999999") == 2020999999

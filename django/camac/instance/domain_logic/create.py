@@ -279,12 +279,14 @@ class CreateInstanceLogic:
         return identifier
 
     @classmethod
-    def generate_identifier_gr(cls, instance: Instance) -> str:
-        return generate_dossier_nr(timezone.now().year)
+    def generate_identifier_gr(cls, instance: Instance, year: int = None) -> str:
+        return generate_dossier_nr(instance, year or timezone.now().year)
 
     @classmethod
-    def generate_identifier_so(cls, instance: Instance) -> str:  # pragma: no cover
-        return generate_dossier_nr(timezone.now().year)
+    def generate_identifier_so(
+        cls, instance: Instance, year: int = None
+    ) -> str:  # pragma: no cover
+        return generate_dossier_nr(instance, year or timezone.now().year)
 
     @staticmethod
     def initialize_caluma(

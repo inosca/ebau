@@ -196,6 +196,7 @@ omit = [
     "camac/core/management/commands/migrate_alexandria_tag_to_mark.py",
     "camac/alexandria/management/commands/fix_alexandria_instance_document_links.py",
     "camac/alexandria/management/commands/fix_alexandria_created_by.py",
+    "camac/core/management/commands/create_unique_dossier_identifier_index.py",
     # Audit migration"
     "camac/core/management/commands/config/",
     "camac/core/management/commands/migrate_audit.py",
