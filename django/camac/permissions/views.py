@@ -30,7 +30,7 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
         # Instance ACLs are never shown outside of a single instance. Therefore
         # we find the instance query param here (even though the filtering is done in
         # the filterset) and limit the ACL visibility to the ones where
-        # the user has `permission-read-$ACCESSLEVEL`.
+        # the user has `permissions-read-$ACCESSLEVEL`.
 
         instance_id = self.request.query_params.get("instance")
         if not instance_id:
@@ -50,7 +50,7 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
 
         read_prefix = permissions.READ_SPECIFIC("")
 
-        # If we have a "permission-read-foo" on this instance, we're allowed
+        # If we have a "permissions-read-foo" on this instance, we're allowed
         # to see all ACLs that refer to the access level "foo".
         visible_access_levels = [
             perm.replace(read_prefix, "")

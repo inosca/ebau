@@ -116,6 +116,7 @@ BE_MUNICIPALITY_READ_PERMISSIONS = [
     ("journal-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
     ("history-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
     ("permissions-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
+    ("permissions-read-any", BE_MUNICIPALITY_ACCESSIBLE_STATES),
     ("construction-control-read", BE_CONSTRUCTION_CONTROL_STATES),
     (
         "lead-authority-read",
