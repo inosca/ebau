@@ -1,3 +1,5 @@
+from logging import getLogger
+
 from django.conf import settings
 from django.db.models import Exists, OuterRef, Q
 from rest_framework import response, status
@@ -13,6 +15,8 @@ from camac.user.permissions import get_group, get_role_name, permission_aware
 from camac.utils import get_dict_item
 
 from . import api, filters, mixins, models, permissions, serializers
+
+log = getLogger(__name__)
 
 
 class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
@@ -43,6 +47,10 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
                 instance_id = qs.model.objects.get(pk=self.kwargs["pk"]).instance_id
             else:
                 # User MUST pass instance filter for the list view
+                log.warning(
+                    "Permissions view: No instance filter given, and "
+                    "not in detail view. Not returning anything!"
+                )
                 return qs.none()
 
         manager = api.PermissionManager.from_request(self.request)
@@ -59,8 +67,10 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
         ]
         if "any" in visible_access_levels:
             # The exception is "any", which allows us to see all ACLs
+            log.debug("User has permission to see *any* access level")
             return qs
 
+        log.debug(f"User has permission to see access levels {visible_access_levels}")
         return qs.filter(access_level__slug__in=visible_access_levels)
 
     @get_queryset.register_old
