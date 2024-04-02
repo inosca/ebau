@@ -40,12 +40,18 @@ def test_submit_event_sz(
     instance,
     instance_state,
     instance_state_factory,
+    instance_with_case,
     form,
     form_field_factory,
     caplog,
     ech_snapshot,
     master_data_is_visible_mock,
 ):
+    instance.identifier = "TEST-90-22-002"
+    instance.instance_group = ech_instance_sz.instance_group
+    instance.save()
+    instance = instance_with_case(instance)
+
     instance_state_factory(name="subm")
     serializer = InstanceSubmitSerializer(
         context={

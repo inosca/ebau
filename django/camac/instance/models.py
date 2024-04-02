@@ -192,10 +192,17 @@ class Instance(models.Model):
         )
 
     def get_linked_instances_sz(self, queryset=None):
+        """
+        Filter by instance_group to determine link.
+
+        Current instance is excluded by identifier because
+        the linking and displaying is performed using the identifier
+        in the frontend.
+        """
         return (
             self._get_queryset_for_linked_instances(queryset)
-            .exclude(pk=self.pk)
-            .filter(identifier=self.identifier)
+            .filter(instance_group=self.instance_group)
+            .exclude(identifier=self.identifier)
         )
 
     def get_linked_instances_be(self, queryset=None):
