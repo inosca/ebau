@@ -19,9 +19,10 @@ def generate_sort_key(special_id: str) -> int:
     return int(year) * 1_000_000 + int(number)
 
 
-def generate_special_id(special_id_key: str, year: int) -> str:
+def generate_special_id(special_id_key: str, instance, year: int) -> str:
     max_increment = (
-        Case.objects.filter(**{f"meta__{special_id_key}__startswith": year})
+        Case.objects.exclude(pk=instance.case_id if instance else None)
+        .filter(**{f"meta__{special_id_key}__startswith": year})
         .annotate(
             # TODO this can be switched to use dossier-number-sort, after everyone has migrated
             # 2020-1234 -> 1234
@@ -38,14 +39,14 @@ def generate_special_id(special_id_key: str, year: int) -> str:
     return f"{year}-{max_increment + 1}"
 
 
-def generate_ebau_nr(year: int) -> str:
+def generate_ebau_nr(instance, year: int) -> str:
     """Generate the next eBau number (Kt. BE)."""
-    return generate_special_id("ebau-number", year)
+    return generate_special_id("ebau-number", instance, year)
 
 
-def generate_dossier_nr(year: int) -> str:
+def generate_dossier_nr(instance, year: int) -> str:
     """Generate the next Dossier number (Kt. GR, SO)."""
-    return generate_special_id("dossier-number", year)
+    return generate_special_id("dossier-number", instance, year)
 
 
 def assign_ebau_nr(instance, year=None) -> str:
@@ -56,7 +57,7 @@ def assign_ebau_nr(instance, year=None) -> str:
 
     year = timezone.now().year if year is None else year
 
-    ebau_nr = generate_ebau_nr(year)
+    ebau_nr = generate_ebau_nr(instance, year)
 
     instance.case.meta["ebau-number"] = ebau_nr
     instance.case.save()

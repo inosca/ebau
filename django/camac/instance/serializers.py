@@ -76,6 +76,11 @@ request_logger = getLogger("django.request")
 
 caluma_api = CalumaApi()
 
+assert not getattr(settings, "ATOMIC_REQUEST", False), (
+    "ATOMIC_REQUEST are not supported, because dossier identifier generation "
+    "needs to run in its own transaction (to reduce collision probability)."
+)
+
 
 class NewInstanceStateDefault(object):
     def __call__(self):
@@ -1542,6 +1547,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 activation_date=None,
             )
 
+    @transaction.atomic
     def _generate_identifier(self, case, instance):
         if settings.APPLICATION["CALUMA"].get("GENERATE_IDENTIFIER"):
             # Give dossier a unique dossier number
@@ -1639,46 +1645,56 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 user=self.context["request"].caluma_info.context.user,
             )
 
-    @transaction.atomic
     def update(self, instance, validated_data):
         request_logger.info(f"Submitting instance {instance.pk}")
 
         case = self.instance.case
         group = self.context["request"].group
 
-        instance.previous_instance_state = instance.instance_state
-        instance.instance_state = models.InstanceState.objects.get(name="subm")
+        # generating the identifier happens in it's own transaction to make
+        # collisions less likely.
+        try:
+            self._generate_identifier(case, instance)
+        except Exception:  # pragma: no cover
+            # let's try again, in case we were unlucky and someone
+            # else also just submitted in this moment
+            # this only happens when a unique index is configured on the DB,
+            # see core/management/commands/create_unique_dossier_identifier_index.py
+            self._generate_identifier(case, instance)
 
-        self._be_handle_internal_workflow(case, instance)
-        self._handle_extend_validity_form(case, instance)
-        self._set_location_for_municipality(case, instance)
-        self._ur_internal_submission(instance, group)
-        self._ur_prepare_cantonal_instances(instance)
+        with transaction.atomic():
+            instance.previous_instance_state = instance.instance_state
+            instance.instance_state = models.InstanceState.objects.get(name="subm")
 
-        instance.save()
+            self._be_handle_internal_workflow(case, instance)
+            self._handle_extend_validity_form(case, instance)
+            self._set_location_for_municipality(case, instance)
+            self._ur_internal_submission(instance, group)
+            self._ur_prepare_cantonal_instances(instance)
 
-        self._ur_link_technische_bewilligung(instance)
-        self._set_instance_service(case, instance)
-        self._generate_identifier(case, instance)
-        self._set_authority(instance)
-        self._set_submit_date(case, instance)
-        self._generate_and_store_pdf(instance)
-        self._create_history_entry(gettext_noop("Dossier submitted"))
-        self._update_rejected_instance(instance)
-        self._complete_submit_work_item(instance)
-        self._be_extend_validity_skip_ebau_number(case)
-        self._be_copy_responsible_person(instance)
-        self._ur_copy_oereb_instance_for_koor_afj(instance)
-        self._send_notifications(case)
+            instance.save()
 
-        instance_submitted.send(
-            sender=self.__class__,
-            instance=instance,
-            user_pk=self.context["request"].user.pk,
-            group_pk=group.pk,
-        )
+            self._ur_link_technische_bewilligung(instance)
+            self._set_instance_service(case, instance)
+            self._set_authority(instance)
+            self._set_submit_date(case, instance)
+            self._generate_and_store_pdf(instance)
+            self._create_history_entry(gettext_noop("Dossier submitted"))
+            self._update_rejected_instance(instance)
+            self._complete_submit_work_item(instance)
+            self._be_extend_validity_skip_ebau_number(case)
+            self._be_copy_responsible_person(instance)
+            self._ur_copy_oereb_instance_for_koor_afj(instance)
 
-        permissions_events.Trigger.instance_submitted(None, instance)
+            instance_submitted.send(
+                sender=self.__class__,
+                instance=instance,
+                user_pk=self.context["request"].user.pk,
+                group_pk=group.pk,
+            )
+            permissions_events.Trigger.instance_submitted(None, instance)
+
+            self._send_notifications(case)
 
         return instance
 
@@ -1823,7 +1839,7 @@ class CalumaInstanceSetEbauNumberSerializer(serializers.Serializer):
         """
 
         if not value:
-            return generate_ebau_nr(timezone.now().year)
+            return generate_ebau_nr(self.instance, timezone.now().year)
 
         if not re.search(r"\d{4}-\d+", value):
             raise exceptions.ValidationError(_("Invalid format"))
