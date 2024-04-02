@@ -326,6 +326,27 @@ def set_application_demo(settings):
     return application_dict
 
 
+@pytest.fixture(params=list(settings.APPLICATIONS.keys()))
+def any_application(request):
+    """Return set_application_XY fixture for all possible applications."""
+    # TODO either expand fixtures so all of them exist, or filter down
+    # the list of accepted applications so only the ones fully supported
+    # will be present
+    app_key = request.param
+    app_short = settings.APPLICATIONS[app_key]["SHORT_NAME"]
+
+    from camac.settings.testing import MODULE_CONFIG_FIXTURES
+
+    for mod, cantons in MODULE_CONFIG_FIXTURES.items():
+        # Any module config that's available for the current canton
+        # will be loaded
+        if app_key in cantons:
+            request.getfixturevalue(f"{app_short}_{mod}_settings")
+
+    # Application *must* be present and will be loaded and returned
+    return request.getfixturevalue(f"set_application_{app_short}")
+
+
 @pytest.fixture
 def application_settings(settings):
     application_dict = copy.deepcopy(settings.APPLICATION)
