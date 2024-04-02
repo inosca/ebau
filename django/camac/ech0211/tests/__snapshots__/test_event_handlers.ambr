@@ -860,11 +860,11 @@
   			<ns1:referencedPlanningPermissionApplication>
   				<ns1:localID>
   					<ns3:IdCategory>eBauNr</ns3:IdCategory>
-  					<ns3:Id>TEST-55-22-001</ns3:Id>
+  					<ns3:Id>TEST-90-22-002</ns3:Id>
   				</ns1:localID>
   				<ns1:otherID>
   					<ns3:IdCategory>eBauNr</ns3:IdCategory>
-  					<ns3:Id>TEST-55-22-001</ns3:Id>
+  					<ns3:Id>TEST-90-22-002</ns3:Id>
   				</ns1:otherID>
   				<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
   			</ns1:referencedPlanningPermissionApplication>
