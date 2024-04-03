@@ -2,6 +2,8 @@ import pytest
 from django.urls import reverse
 from rest_framework import status
 
+from camac.user.models import Group, UserGroup
+
 
 @pytest.mark.parametrize(
     "params,status_first,status_second",
@@ -21,20 +23,22 @@ def test_message_throttling(
     service,
     admin_client,
     admin_user,
-    user_group_factory,
     params,
     set_application_be,
     be_ech0211_settings,
     status_first,
+    group_factory,
     status_second,
     reload_ech0211_urls,
 ):
-    for pk in [1, 2]:
-        try:
-            user_group_factory(user=admin_user, group__pk=pk)
-        except Exception:  # pragma: no cover
-            # group with required pk already exists, reuse it
-            user_group_factory(user=admin_user, group_id=pk)
+    group_1 = Group.objects.filter(pk=1).first() or group_factory(pk=1)
+    group_2 = Group.objects.filter(pk=2).first() or group_factory(pk=2)
+    UserGroup.objects.update_or_create(
+        user=admin_user, group=group_1, defaults={"default_group": False}
+    )
+    UserGroup.objects.update_or_create(
+        user=admin_user, group=group_2, defaults={"default_group": False}
+    )
 
     url = reverse("message")
 
