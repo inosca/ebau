@@ -254,6 +254,7 @@ def get_swagger_description():
         .replace("{post_messages}", post_messages)
         .replace("{internal_base_url}", settings.INTERNAL_BASE_URL)
         .replace("{keycloak_url}", settings.KEYCLOAK_URL)
+        .replace("{keycloak_realm}", settings.KEYCLOAK_REALM)
     )
 
     return desc
