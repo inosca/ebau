@@ -1,17 +1,17 @@
 """Constants and utilities for referencing permissions."""
 
-GRANT_ANY = "permission-grant-any"
-REVOKE_ANY = "permission-revoke-any"
-LIST_ANY = "permission-read-any"
+GRANT_ANY = "permissions-grant-any"
+REVOKE_ANY = "permissions-revoke-any"
+LIST_ANY = "permissions-read-any"
 
 
 def READ_SPECIFIC(name):  # pragma: no cover
-    return f"permission-read-{name}"
+    return f"permissions-read-{name}"
 
 
 def GRANT_SPECIFIC(name):  # pragma: no cover
-    return f"permission-grant-{name}"
+    return f"permissions-grant-{name}"
 
 
 def REVOKE_SPECIFIC(name):  # pragma: no cover
-    return f"permission-revoke-{name}"
+    return f"permissions-revoke-{name}"
