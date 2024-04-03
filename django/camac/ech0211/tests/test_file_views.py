@@ -52,7 +52,9 @@ def file_setup(category_setup, instance_factory, instance):
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
-def test_download_disabled(admin_client, ech0211_settings, file_setup, settings):
+def test_download_disabled(
+    admin_client, ech0211_settings, file_setup, settings, reload_ech0211_urls
+):
     settings.APPLICATION["DOCUMENT_BACKEND"] = "camac-ng"
 
     visible_file, _, __ = file_setup
@@ -63,7 +65,9 @@ def test_download_disabled(admin_client, ech0211_settings, file_setup, settings)
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
-def test_download(admin_client, file_setup, gr_ech0211_settings, settings):
+def test_download(
+    admin_client, file_setup, gr_ech0211_settings, settings, reload_ech0211_urls
+):
     settings.APPLICATION["DOCUMENT_BACKEND"] = "alexandria"
 
     visible_file, invisible_file_category, invisible_file_instance = file_setup
@@ -87,7 +91,12 @@ def test_download(admin_client, file_setup, gr_ech0211_settings, settings):
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 def test_upload_disabled_document_backend(
-    admin_client, category_setup, gr_ech0211_settings, settings, instance
+    admin_client,
+    category_setup,
+    gr_ech0211_settings,
+    settings,
+    instance,
+    reload_ech0211_urls,
 ):
     settings.APPLICATION["DOCUMENT_BACKEND"] = "camac-ng"
 
@@ -110,7 +119,12 @@ def test_upload_disabled_document_backend(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 def test_upload_disabled_api_level(
-    admin_client, category_setup, gr_ech0211_settings, settings, instance
+    admin_client,
+    category_setup,
+    gr_ech0211_settings,
+    settings,
+    instance,
+    reload_ech0211_urls,
 ):
     settings.APPLICATION["DOCUMENT_BACKEND"] = "alexandria"
     gr_ech0211_settings["API_LEVEL"] = "basic"
@@ -140,6 +154,7 @@ def test_upload(
     instance,
     mocker,
     settings,
+    reload_ech0211_urls,
 ):
     clamav = mocker.patch(
         "camac.ech0211.serializers.validate_file_infection", return_value=None
