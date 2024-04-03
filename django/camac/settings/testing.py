@@ -5,6 +5,7 @@ from importlib import import_module
 import pytest
 from deepmerge import always_merger
 from django.conf import settings
+from django.core.exceptions import ImproperlyConfigured
 
 
 def generate_module_test_settings(module_name, cantons=[]):
@@ -18,12 +19,21 @@ def generate_module_test_settings(module_name, cantons=[]):
     def generate(canton=None, disable=False):
         @pytest.fixture
         def fn(settings, request):
+            settings_module = f"camac.settings.modules.{module_name.lower()}"
             original_settings = getattr(
-                import_module(f"camac.settings.modules.{module_name.lower()}"),
+                import_module(settings_module),
                 module_name.upper(),
             )
 
             if canton:
+                if canton not in original_settings:  # pragma: no cover
+                    raise ImproperlyConfigured(
+                        f"Module '{module_name}' not configured for {canton}. "
+                        "Consider removing it in "
+                        "camac.settings.testing.MODULE_CONFIG_FIXTURES "
+                        f"or configuring it properly in {settings_module}"
+                    )
+
                 new_settings = always_merger.merge(
                     copy.deepcopy(request.getfixturevalue(f"{module_name}_settings")),
                     original_settings[canton],
@@ -51,25 +61,28 @@ def generate_module_test_settings(module_name, cantons=[]):
         setattr(sys.modules[__name__], scoped_fixture_name, generate(canton=canton))
 
 
-generate_module_test_settings("appeal", ["kt_bern", "kt_so"])
-generate_module_test_settings(
-    "distribution", ["kt_bern", "kt_schwyz", "kt_gr", "kt_so", "kt_uri"]
-)
-generate_module_test_settings("publication", ["kt_gr"])
-generate_module_test_settings("decision", ["kt_bern", "kt_gr", "kt_so"])
-generate_module_test_settings("dms", ["kt_bern", "kt_gr", "kt_uri"])
-generate_module_test_settings(
-    "additional_demand", ["kt_gr", "kt_so", "kt_bern", "kt_uri"]
-)
-generate_module_test_settings("alexandria", ["kt_gr", "kt_so"])
-generate_module_test_settings("rejection", ["kt_bern", "kt_so"])
-generate_module_test_settings("withdrawal", ["kt_so"])
-generate_module_test_settings("construction_monitoring", ["kt_schwyz", "kt_uri"])
-generate_module_test_settings("permissions", ["kt_bern", "kt_gr", "kt_so"])
-generate_module_test_settings("communications", ["kt_bern", "kt_gr", "kt_so"])
-generate_module_test_settings("placeholders", ["kt_bern", "kt_so", "kt_uri"])
-generate_module_test_settings(
-    "master_data", ["kt_bern", "kt_schwyz", "kt_uri", "kt_gr", "kt_so"]
-)
-generate_module_test_settings("dump", settings.APPLICATIONS.keys())
-generate_module_test_settings("ech0211", ["kt_schwyz", "kt_bern", "kt_gr"])
+ALL_APPS = list(settings.APPLICATIONS.keys())
+
+MODULE_CONFIG_FIXTURES = {
+    # TODO: Think about generating this list from the actual module settings,
+    # which have keys depending on whether the settings are actually available
+    "appeal": ["kt_bern", "kt_so"],
+    "distribution": ["kt_bern", "kt_schwyz", "kt_gr", "kt_so", "kt_uri"],
+    "publication": ["kt_gr"],
+    "decision": ["kt_bern", "kt_gr", "kt_so"],
+    "dms": ["kt_bern", "kt_gr", "kt_uri"],
+    "additional_demand": ["kt_gr", "kt_so", "kt_uri"],
+    "alexandria": ["kt_gr", "kt_so"],
+    "rejection": ["kt_bern", "kt_so"],
+    "withdrawal": ["kt_so"],
+    "construction_monitoring": ["kt_schwyz"],
+    "permissions": ["kt_bern", "kt_gr", "kt_so"],
+    "communications": ["kt_bern", "kt_gr", "kt_so"],
+    "placeholders": ["kt_bern", "kt_so"],
+    "master_data": ["kt_bern", "kt_schwyz", "kt_uri", "kt_gr", "kt_so"],
+    "dump": ALL_APPS,
+    "ech0211": ["kt_schwyz", "kt_bern", "kt_gr"],
+}
+
+for modulename, cantons in MODULE_CONFIG_FIXTURES.items():
+    generate_module_test_settings(modulename, cantons)
