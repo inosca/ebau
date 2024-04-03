@@ -1,6 +1,6 @@
-from typing import Callable, Dict, List, Optional, Tuple, TypedDict
+from typing import Dict, List, Optional, Tuple, TypedDict
 
-from camac.permissions.conditions import Always, HasRole, RequireInstanceState
+from camac.permissions.conditions import Always, Check, HasRole, RequireInstanceState
 from camac.permissions.switcher import PERMISSION_MODE
 
 """
@@ -14,21 +14,8 @@ We provide type hints here. They should help your IDE with completion
 and checks, and also serve as a documentation on what's allowed.
 """
 
-# Actually Instance -> bool, but we can't import instance here
-# so this is a slight inaccuracy
-PermissionCallback = Callable[[object], bool]
-PermissionCallback.__doc__ = """
-With a Camac Instance, decide whether user has permission.
-
-The callback takes a Camac instance object, and dynamically
-decides whether the user may have the permission in question.
-
-This can be used for more complex decisions, if the condition
-is more than the instance's state.
-"""
-
 # (permission, condition)
-PermissionLine = Tuple[str, PermissionCallback]
+PermissionLine = Tuple[str, Check]
 PermissionLine.__doc__ = """
 A tuple that maps a given permission (str) to a condition.
 
@@ -43,7 +30,7 @@ PermissionConfigEntry = TypedDict(
     "PermissionConfigEntry",
     {
         "ENABLED": bool,
-        "EVENT_HANDLER": str,
+        "EVENT_HANDLER": Optional[str],
         # each access level entry here must refer to an existing
         # access level model.
         "ACCESS_LEVELS": Dict[str, List[PermissionLine]],
@@ -59,6 +46,8 @@ PermissionConfigEntry = TypedDict(
 )
 
 PermissionsConfig = Dict[str, PermissionConfigEntry]
+
+REQUIRE_NEW_STATE = RequireInstanceState(["new"])
 
 BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES = RequireInstanceState(
     [
@@ -191,6 +180,11 @@ BE_MUNICIPALITY_READ_PERMISSIONS = [
 PERMISSIONS: PermissionsConfig = {
     "default": {
         "PERMISSION_MODE": PERMISSION_MODE.OFF,
+        "ENABLED": False,
+        "ENABLE_CACHE": False,
+        "MIGRATION": {},
+        "EVENT_HANDLER": None,
+        "ACCESS_LEVELS": {},
     },
     "demo": {
         "ACCESS_LEVELS": {
@@ -198,13 +192,16 @@ PERMISSIONS: PermissionsConfig = {
                 # (permission, list-of[instance-state or "*" for any])
                 # (permission, (lambda instance -> True/False))
                 ("foo", Always()),
-                ("edit-form", RequireInstanceState(["new"])),
+                ("edit-form", REQUIRE_NEW_STATE),
             ]
         },
         # Event handler that defines callbacks, which can grant/revoke
         # ACLs.
         "EVENT_HANDLER": "camac.permissions.events.EmptyEventHandler",
         "ENABLED": True,
+        "ENABLE_CACHE": True,
+        "MIGRATION": {},
+        "PERMISSION_MODE": PERMISSION_MODE.OFF,
     },
     "kt_bern": {
         "PERMISSION_MODE": PERMISSION_MODE.AUTO_OFF,
@@ -261,6 +258,7 @@ PERMISSIONS: PermissionsConfig = {
             "MUNICIPALITY": "lead-authority",
             "MUNICIPALITY_INVOLVED": "involved-authority",
         },
+        "ENABLE_CACHE": True,
     },
     "kt_gr": {
         "ACCESS_LEVELS": {
@@ -273,15 +271,21 @@ PERMISSIONS: PermissionsConfig = {
         },
         "EVENT_HANDLER": "camac.permissions.config.kt_gr.PermissionEventHandlerGR",
         "ENABLED": True,
+        "MIGRATION": {},
+        "ENABLE_CACHE": True,
+        "PERMISSION_MODE": PERMISSION_MODE.OFF,
     },
     "kt_so": {
         "ENABLED": True,
         "ACCESS_LEVELS": {
             "municipality-before-submission": [
-                ("redirect-to-portal", RequireInstanceState(["new"])),
-                ("form-read", RequireInstanceState(["new"])),
+                ("redirect-to-portal", REQUIRE_NEW_STATE),
+                ("form-read", REQUIRE_NEW_STATE),
             ]
         },
         "EVENT_HANDLER": "camac.permissions.config.kt_so.PermissionEventHandlerSO",
+        "MIGRATION": {},
+        "ENABLE_CACHE": True,
+        "PERMISSION_MODE": PERMISSION_MODE.OFF,
     },
 }

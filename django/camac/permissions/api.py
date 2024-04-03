@@ -10,7 +10,7 @@ from rest_framework.exceptions import PermissionDenied
 
 from camac.instance.models import Instance
 from camac.permissions import models
-from camac.permissions.conditions import Callback, Check
+from camac.permissions.conditions import Check
 from camac.permissions.models import AccessLevel, InstanceACL
 from camac.user import models as user_models
 from camac.user.models import Service, User
@@ -151,8 +151,6 @@ class PermissionManager:
                     condition, "allow_caching", False
                 )
 
-                if callable(condition):
-                    condition = Callback(condition)
                 if isinstance(condition, Check):
                     if condition.apply(userinfo=self.userinfo, instance=instance):
                         granted_permissions.add(perm)

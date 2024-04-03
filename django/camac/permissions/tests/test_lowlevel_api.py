@@ -222,9 +222,13 @@ def test_cache_eviction(
             ("func", conditions.Callback(funkytown, allow_caching=True)),
         ]
     }
+
+    # For these tests, caching needs to be enabled-by-default
+    permissions_settings["ENABLE_CACHE"] = True
+
     if has_uncacheable_check:
         permissions_settings["ACCESS_LEVELS"][access_level.pk].append(
-            ("plain-callback", lambda instance: False),
+            ("plain-callback", conditions.Callback(lambda instance: False)),
         )
 
     the_acl = api.grant(
