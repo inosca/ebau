@@ -29,8 +29,12 @@ def test_message_throttling(
     status_second,
     reload_ech0211_urls,
 ):
-    user_group_factory(user=admin_user, group__pk=1)
-    user_group_factory(user=admin_user, group__pk=2)
+    for pk in [1, 2]:
+        try:
+            user_group_factory(user=admin_user, group__pk=pk)
+        except Exception:  # pragma: no cover
+            # group with required pk already exists, reuse it
+            user_group_factory(user=admin_user, group_id=pk)
 
     url = reverse("message")
 
