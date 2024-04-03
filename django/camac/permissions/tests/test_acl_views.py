@@ -494,9 +494,9 @@ def test_list_acl_filters(
 @pytest.mark.parametrize(
     "have_permission, expect_success",
     [
-        ("permission-grant-foo", True),
-        ("permission-grant-any", True),
-        ("permission-grant-bar", False),
+        ("permissions-grant-foo", True),
+        ("permissions-grant-any", True),
+        ("permissions-grant-bar", False),
     ],
 )
 def test_create_with_permissions(
@@ -557,9 +557,9 @@ def test_create_with_permissions(
 @pytest.mark.parametrize(
     "have_permission, expect_success",
     [
-        ("permission-revoke-foo", True),
-        ("permission-revoke-any", True),
-        ("permission-revoke-bar", False),
+        ("permissions-revoke-foo", True),
+        ("permissions-revoke-any", True),
+        ("permissions-revoke-bar", False),
     ],
 )
 def test_revoke_with_permissions(
@@ -581,7 +581,7 @@ def test_revoke_with_permissions(
         access_level.pk: [
             (have_permission, Always()),
             # the read permission is given here, we only test revocation rights
-            ("permission-read-any", Always()),
+            ("permissions-read-any", Always()),
         ]
     }
 
@@ -618,12 +618,12 @@ def test_revoke_with_permissions(
 @pytest.mark.parametrize(
     "query_instance, have_permission, expected_count",
     [
-        (True, "permission-revoke-foo", 0),
-        (True, "permission-revoke-any", 0),
-        (True, "permission-revoke-bar", 0),
-        (True, "permission-read-foo", 1),
-        (True, "permission-read-any", 2),
-        (False, "permission-read-any", 0),
+        (True, "permissions-revoke-foo", 0),
+        (True, "permissions-revoke-any", 0),
+        (True, "permissions-revoke-bar", 0),
+        (True, "permissions-read-foo", 1),
+        (True, "permissions-read-any", 2),
+        (False, "permissions-read-any", 0),
     ],
 )
 def test_list_with_permissions(
