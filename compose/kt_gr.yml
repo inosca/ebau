@@ -48,6 +48,8 @@ services:
         - acr.run/camac-ng/camac-ng/ember-caluma-portal:master
       args:
         - APPLICATION=${APPLICATION}
+        - ENABLE_WATERMARK=${ENABLE_WATERMARK:-false}
+        - WATERMARK=${WATERMARK:-local}
         - WORKSPACE=ember-caluma-portal
       target: prod
 
@@ -59,6 +61,8 @@ services:
         - acr.run/camac-ng/camac-ng/ember-ebau:master
       args:
         - APPLICATION=${APPLICATION}
+        - ENABLE_WATERMARK=${ENABLE_WATERMARK:-false}
+        - WATERMARK=${WATERMARK:-local}
         - WORKSPACE=ember-ebau
       target: prod
 
