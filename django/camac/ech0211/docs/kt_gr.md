@@ -14,7 +14,7 @@ Zur Authentifizierung wird der Standard [OpenID Connect](https://openid.net/conn
 
 ```bash
 curl --request POST \
---url '{keycloak_url}/auth/realms/ebau/protocol/openid-connect/token' \
+--url '{keycloak_url}realms/{keycloak_realm}/protocol/openid-connect/token' \
 --header 'content-type: application/x-www-form-urlencoded' \
 --data grant_type=client_credentials \
 --data scope=openid \
