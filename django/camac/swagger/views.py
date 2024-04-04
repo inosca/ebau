@@ -244,7 +244,9 @@ def get_swagger_description():
     post_table_data = None
     if api_level == "full":
         post_table_data = POST_TABLE_DATA
-    if settings.ECH0211.get("ALLOW_SUBMIT_BY_MUNICIPALITY"):
+    if settings.ECH0211.get("SUBMIT_PLANNING_PERMISSION_APPLICATION", {}).get(
+        "ENABLED"
+    ):
         post_table_data += POST_SUBMIT
 
     get_messages = tabulate(get_table_data, GET_TABLE_HEADERS, tablefmt="github")

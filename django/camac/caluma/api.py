@@ -152,6 +152,9 @@ class CalumaApi:
         """Return true if instance was imported using dossier import."""
         return instance.case.document.form_id == "migriertes-dossier"
 
+    def is_ech_submitted(self, instance):
+        return instance.case.meta.get("ech0211-submitted", False)
+
     def get_migration_type(self, instance):
         answer = instance.case.document.answers.filter(
             question_id="geschaeftstyp"

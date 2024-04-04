@@ -1,19 +1,39 @@
-from collections import namedtuple
+from typing import List, Tuple
 
-from caluma.caluma_form.api import save_answer
-from caluma.caluma_form.models import Question
+import requests
+from alexandria.core import models as alexandria_models
+from alexandria.core.api import (
+    create_document_file as create_alexandria_document_file,
+    create_file as create_alexandria_file,
+)
+from caluma.caluma_form.api import save_answer, save_document
+from caluma.caluma_form.models import Form, Question
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
+from django.core.files.base import ContentFile
+from django.utils.translation import gettext as _
+from lxml import etree
 
+from camac.alexandria.extensions.permissions.extension import (
+    MODE_CREATE,
+    CustomPermission as CustomAlexandriaPermission,
+)
+from camac.caluma.api import CalumaApi
 from camac.constants.kt_bern import ATTACHMENT_SECTION_ALLE_BETEILIGTEN
 from camac.core.utils import canton_aware
 from camac.document.models import Attachment, AttachmentSection
-from camac.instance.models import Instance
-from camac.instance.serializers import CalumaInstanceChangeResponsibleServiceSerializer
+from camac.instance.domain_logic import CreateInstanceLogic
+from camac.instance.models import Instance, InstanceAlexandriaDocument, InstanceState
+from camac.instance.serializers import (
+    CalumaInstanceChangeResponsibleServiceSerializer,
+    CalumaInstanceSubmitSerializer,
+)
+from camac.permissions import events as permissions_events
 from camac.user.models import Service
 
-from .constants import ECH_JUDGEMENT_DECLINED
+from .constants import ECH0211_NAMESPACES, ECH_JUDGEMENT_DECLINED
+from .parsers import ComplexSubmitMappings
 from .signals import ruling
 from .utils import judgement_to_decision
 
@@ -24,7 +44,7 @@ class SendHandlerException(Exception):
         self.status = status
 
 
-class DocumentAccessibilityMixin:
+class AttachmentAccessibilityMixin:
     def get_attachments(self, ech_documents):
         uuids = set([doc.uuid for doc in ech_documents])
         attachments = Attachment.objects.filter(uuid__in=uuids).distinct()
@@ -52,14 +72,77 @@ class DocumentAccessibilityMixin:
                 attachment.attachment_sections.add(section_alle_beteiligten)
 
 
+class AlexandriaDocumentMixin:
+    def create_alexandria_documents(
+        self, xmlDocuments, category: alexandria_models.Category
+    ) -> List[alexandria_models.Document]:
+        documents_to_link = []
+        for doc in xmlDocuments:
+            document = None
+            titles = {}
+            for title in doc.titles.title:
+                titles[title.lang or "de"] = title.value()
+            for file in doc.files.file:
+                file_response = requests.get(file.pathFileName)
+                file_name = file.pathFileName.split("/")[-1]
+                file_obj = ContentFile(file_response.content, name=file_name)
+                if not document:
+                    document, __ = create_alexandria_document_file(
+                        user=self.user,
+                        group=self.group,
+                        category=category,
+                        document_title=titles,
+                        file_name=file_name,
+                        file_content=file_obj,
+                        mime_type=file.mimeType,
+                        file_size=len(file_response.content),
+                        additional_document_attributes={
+                            "metainfo": {
+                                "ech-uuid": doc.uuid,
+                            }
+                        },
+                    )
+                else:
+                    create_alexandria_file(
+                        user=self.user,
+                        group=self.group,
+                        document=document,
+                        name=file_name,
+                        content=file_obj,
+                        mime_type=file.mimeType,
+                        size=len(file_response.content),
+                    )
+            documents_to_link.append(document)
+        return documents_to_link
+
+    def has_alexandria_category_permission(self, category: alexandria_models.Category):
+        available_permissions = CustomAlexandriaPermission().get_available_permissions(
+            self.request,
+            self.instance,
+            category,
+        )
+        if MODE_CREATE not in available_permissions:
+            raise SendHandlerException(
+                "Document category permission denied.",
+                status=400,
+            )
+
+    def link_alexandria_documents(self, documents: List[alexandria_models.Document]):
+        for document in documents:
+            InstanceAlexandriaDocument.objects.create(
+                instance=self.instance, document=document
+            )
+
+
 class BaseSendHandler:
-    def __init__(self, data, queryset, user, group, auth_header, caluma_user):
+    def __init__(self, data, queryset, user, group, auth_header, caluma_user, request):
         self.data = data
         self.user = user
         self.group = group
         self.auth_header = auth_header
         self.caluma_user = caluma_user
         self.instance = self._get_instance(queryset)
+        self.request = request
 
     def _get_instance(self, queryset):
         try:
@@ -71,8 +154,8 @@ class BaseSendHandler:
                 "dossierIdentification must be of type integer", status=400
             )
 
-    def get_instance_id(self):
-        return self.data.eventNotice.planningPermissionApplicationIdentification.dossierIdentification
+    def get_instance_id(self):  # pragma: no cover
+        raise NotImplementedError()
 
     def complete_work_item(self, task, filters={}, context={}):
         return self._process_work_item("complete", task, filters, context)
@@ -99,7 +182,10 @@ class BaseSendHandler:
         raise NotImplementedError()
 
 
-class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
+class NoticeRulingSendHandler(AttachmentAccessibilityMixin, BaseSendHandler):
+    def get_instance_id(self):
+        return self.data.eventNotice.planningPermissionApplicationIdentification.dossierIdentification
+
     def has_permission(self):
         if not super().has_permission()[0]:
             return False, None
@@ -256,26 +342,17 @@ class ChangeResponsibilitySendHandler(BaseSendHandler):
             "to": {"id": new_service.pk, "type": "services"},
         }
 
-        Request = namedtuple(
-            "Request", ["user", "group", "caluma_info", "query_params", "META"]
-        )
-        CalumaInfo = namedtuple("CalumaInfo", "context")
-        Context = namedtuple("Context", "user")
-        request = Request(
-            self.user, self.group, CalumaInfo(Context(self.caluma_user)), {}, {}
-        )
-
         # TODO: move business logic into domain logic to make this less awkward
         serializer = CalumaInstanceChangeResponsibleServiceSerializer(
-            self.instance, data=data, context={"request": request}
+            self.instance, data=data, context={"request": self.request}
         )
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
 
 class AccompanyingReportSendHandler(BaseSendHandler):
-    def __init__(self, data, queryset, user, group, auth_header, caluma_user):
-        super().__init__(data, queryset, user, group, auth_header, caluma_user)
+    def __init__(self, data, queryset, user, group, auth_header, caluma_user, request):
+        super().__init__(data, queryset, user, group, auth_header, caluma_user, request)
         self.inquiry = self._get_inquiry()
 
     def has_permission(self):
@@ -453,9 +530,9 @@ class TaskSendHandler(BaseSendHandler):
         workflow_api.resume_work_item(work_item=inquiry, user=self.caluma_user)
 
 
-class KindOfProceedingsSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
-    def __init__(self, data, queryset, user, group, auth_header, caluma_user):
-        super().__init__(data, queryset, user, group, auth_header, caluma_user)
+class KindOfProceedingsSendHandler(AttachmentAccessibilityMixin, BaseSendHandler):
+    def __init__(self, data, queryset, user, group, auth_header, caluma_user, request):
+        super().__init__(data, queryset, user, group, auth_header, caluma_user, request)
         self.attachments = self.get_attachments(
             self.data.eventKindOfProceedings.document
         )
@@ -486,6 +563,156 @@ class KindOfProceedingsSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
         self.link_to_section(self.attachments)
 
 
+class SubmitPlanningPermissionApplicationSendHandler(
+    BaseSendHandler, AlexandriaDocumentMixin
+):
+    def _get_instance(self, queryset) -> Instance:
+        if self._is_event_type_submit():
+            return None
+
+        return super()._get_instance(queryset)
+
+    def has_permission(self) -> Tuple[bool, str]:
+        if (
+            self.group.role.name
+            in settings.ECH0211["SUBMIT_PLANNING_PERMISSION_APPLICATION"][
+                "ALLOWED_ROLES"
+            ]
+        ):
+            if self._is_event_type_submit():
+                return True, None
+            else:
+                return super().has_permission()
+
+        return False, None
+
+    def get_instance_id(self) -> str:
+        return self.data.eventSubmitPlanningPermissionApplication.planningPermissionApplication.planningPermissionApplicationIdentification.dossierIdentification
+
+    def _save_xml_to_caluma(self, xml_tree, path: str, document, question_config: dict):
+        xml_element = xml_tree.xpath(path, namespaces=ECH0211_NAMESPACES)
+        value = xml_element[0].text if xml_element else question_config["default"]
+        CalumaApi().update_or_create_answer(
+            document, question_config["question_slug"], value, self.caluma_user
+        )
+
+    def _apply_submit(self) -> Instance:
+        # TODO: Since the entire event is handled in one long-running transaction,
+        # this code is susceptible to create duplicate dossier identifiers.
+        # Consider refactoring along the lines of the regular instance submission
+        # (two separate transactions) to make collisions less likely.
+
+        alexandria_category = alexandria_models.Category.objects.get(
+            pk=settings.ECH0211["SUBMIT_PLANNING_PERMISSION_APPLICATION"][
+                "ALEXANDRIA_CATEGORY"
+            ]
+        )
+        # First download all documents, as this step is most likely to fail
+        documents_to_link = self.create_alexandria_documents(
+            self.data.eventSubmitPlanningPermissionApplication.planningPermissionApplication.document,
+            alexandria_category,
+        )
+
+        instance_state = InstanceState.objects.get(name="subm")
+        data = {
+            "instance_state": instance_state,
+            "previous_instance_state": instance_state,
+            "form_id": settings.ECH0211["SUBMIT_PLANNING_PERMISSION_APPLICATION"][
+                "FORM_ID"
+            ],
+            "user": self.user,
+            "group": self.group,
+            "generate_identifier": True,
+        }
+        instance = CreateInstanceLogic.create(
+            data,
+            self.caluma_user,
+            self.user,
+            self.group,
+            start_caluma=True,
+            is_paper=True,
+            caluma_form=self.data.eventSubmitPlanningPermissionApplication.planningPermissionApplication.applicationType.lower(),
+            workflow_slug=settings.ECH0211["SUBMIT_PLANNING_PERMISSION_APPLICATION"][
+                "WORKFLOW"
+            ],
+        )
+        self.instance = instance
+        self.has_alexandria_category_permission(alexandria_category)
+        self.link_alexandria_documents(documents_to_link)
+        # set submit date (if in xml data) to case meta
+        self.instance.case.meta["ech0211-submitted"] = True
+        self.instance.case.save()
+
+        lxml_tree = etree.fromstring(
+            self.data.eventSubmitPlanningPermissionApplication.toxml("utf-8")
+        )
+
+        document = instance.case.document
+        for path, question_config in settings.ECH0211[
+            "SUBMIT_PLANNING_PERMISSION_APPLICATION"
+        ]["QUESTION_MAPPING"]["SIMPLE"].items():
+            self._save_xml_to_caluma(lxml_tree, path, document, question_config)
+
+        for path, table_config in settings.ECH0211[
+            "SUBMIT_PLANNING_PERMISSION_APPLICATION"
+        ]["QUESTION_MAPPING"]["TABLE"].items():
+            xml_elements = lxml_tree.xpath(path, namespaces=ECH0211_NAMESPACES)
+            if not xml_elements:  # pragma: no cover
+                continue
+
+            row_form, row_question, table_question = table_config
+            table_rows = []
+
+            for row in xml_elements:
+                row_document = save_document(form=Form.objects.get(slug=row_form))
+                for value_path, question_config in row_question.items():
+                    self._save_xml_to_caluma(
+                        row, value_path, row_document, question_config
+                    )
+                table_rows.append(row_document.pk)
+
+            save_answer(
+                document=document,
+                question=Question.objects.get(slug=table_question),
+                value=table_rows,
+            )
+
+        ComplexSubmitMappings.execute(lxml_tree, document, self.caluma_user)
+
+        # TODO extract submit into domain logic
+        submit_serializer = CalumaInstanceSubmitSerializer(
+            instance=instance, context={"request": self.request}
+        )
+        case = instance.case
+
+        submit_serializer._set_location_for_municipality(case, instance)
+        instance.save()
+
+        submit_serializer._set_instance_service(case, instance)
+        submit_serializer._generate_identifier(case, instance)
+        submit_serializer._set_submit_date(case, instance)
+        submit_serializer._create_history_entry(_("ECH Dossier submitted"))
+        submit_serializer._complete_submit_work_item(instance)
+        permissions_events.Trigger.instance_submitted(None, instance)
+
+        return instance
+
+    def _apply_file_subsequently(self):
+        raise SendHandlerException(
+            "Not supported.",
+            status=400,
+        )
+
+    def _is_event_type_submit(self) -> bool:
+        return self.data.eventSubmitPlanningPermissionApplication.eventType == "submit"
+
+    def apply(self) -> Instance:
+        if self._is_event_type_submit():
+            return self._apply_submit()
+
+        return self._apply_file_subsequently()
+
+
 def resolve_send_handler(data):
     handler_mapping = {
         "eventAccompanyingReport": AccompanyingReportSendHandler,
@@ -494,6 +721,7 @@ def resolve_send_handler(data):
         "eventNotice": NoticeRulingSendHandler,
         "eventRequest": TaskSendHandler,
         "eventKindOfProceedings": KindOfProceedingsSendHandler,
+        "eventSubmitPlanningPermissionApplication": SubmitPlanningPermissionApplicationSendHandler,
     }
     for event in handler_mapping:
         if getattr(data, event) is not None:
@@ -501,7 +729,7 @@ def resolve_send_handler(data):
     raise SendHandlerException("Message type not supported!")
 
 
-def get_send_handler(data, instance, user, group, auth_header, caluma_user):
+def get_send_handler(data, instance, user, group, auth_header, caluma_user, request):
     return resolve_send_handler(data)(
-        data, instance, user, group, auth_header, caluma_user
+        data, instance, user, group, auth_header, caluma_user, request
     )

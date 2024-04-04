@@ -1,13 +1,24 @@
+from unittest.mock import Mock
+
 import pytest
+import requests
+from alexandria.core.factories import CategoryFactory
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.models import WorkItem
+from django.core.management import call_command
 
+from camac.alexandria.extensions.permissions.extension import (
+    MODE_CREATE,
+    CustomPermission as CustomAlexandriaPermission,
+)
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
 )
 from camac.core.models import InstanceService
+from camac.document.tests.data import django_file
 from camac.ech0211.tests.utils import xml_data
+from camac.instance.document_merge_service import DMSHandler
 from camac.instance.models import Instance
 
 from ..constants import (
@@ -24,6 +35,7 @@ from ..send_handlers import (
     KindOfProceedingsSendHandler,
     NoticeRulingSendHandler,
     SendHandlerException,
+    SubmitPlanningPermissionApplicationSendHandler,
     TaskSendHandler,
     resolve_send_handler,
 )
@@ -38,6 +50,10 @@ from ..send_handlers import (
         ("notice_ruling", NoticeRulingSendHandler),
         ("task", TaskSendHandler),
         ("kind_of_proceedings", KindOfProceedingsSendHandler),
+        (
+            "submit_planning_permission_application",
+            SubmitPlanningPermissionApplicationSendHandler,
+        ),
         ("accompanying_report", None),
     ],
 )
@@ -214,6 +230,7 @@ def test_notice_ruling_send_handler(
         group=admin_user.groups.first(),
         auth_header=None,
         caluma_user=caluma_admin_user,
+        request=None,
     )
     assert handler.has_permission()[0] == has_permission
 
@@ -291,6 +308,7 @@ def test_change_responsibility_send_handler(
     admin_user,
     set_application_be,
     be_ech0211_settings,
+    mocked_request_object,
     instance_state_factory,
     service_factory,
     instance_service_factory,
@@ -343,6 +361,7 @@ def test_change_responsibility_send_handler(
         group=group,
         auth_header=None,
         caluma_user=caluma_admin_user,
+        request=mocked_request_object,
     )
     assert handler.has_permission()[0] is has_permission
 
@@ -444,6 +463,7 @@ def test_close_dossier_send_handler(
         group=group,
         auth_header=None,
         caluma_user=caluma_admin_user,
+        request=None,
     )
 
     assert handler.has_permission()[0] is success
@@ -554,6 +574,7 @@ def test_task_send_handler(
         group=group,
         auth_header="Bearer: some token",
         caluma_user=caluma_admin_user,
+        request=None,
     )
     assert handler.has_permission()[0] is True
 
@@ -610,6 +631,7 @@ def test_task_send_handler_no_permission(
         group=group,
         auth_header=None,
         caluma_user=caluma_admin_user,
+        request=None,
     )
     assert handler.has_permission()[0] is False
 
@@ -671,6 +693,7 @@ def test_kind_of_proceedings_send_handler(
         group=group,
         auth_header=None,
         caluma_user=caluma_admin_user,
+        request=None,
     )
     assert handler.has_permission()[0] is has_permission
 
@@ -766,6 +789,7 @@ def test_accompanying_report_send_handler(
         group=user_group.group,
         auth_header=None,
         caluma_user=caluma_admin_user,
+        request=None,
     )
 
     if not has_inquiry:
@@ -823,4 +847,141 @@ def test_get_instance_id_error(admin_user, group, caluma_admin_user):
             group=group,
             auth_header="Bearer: some token",
             caluma_user=caluma_admin_user,
+            request=None,
         )
+
+
+@pytest.mark.freeze_time("2024-04-24")
+@pytest.mark.parametrize(
+    "role__name,category_permission,pass_permission,test_case,success",
+    [
+        ("municipality-lead", MODE_CREATE, True, "submit", True),
+        ("municipality-lead", MODE_CREATE, True, "file subsequently", False),
+        ("municipality-lead", None, True, "submit", False),
+        ("service-lead", None, False, "submit", False),
+    ],
+)
+def test_submit_send_handler(
+    db,
+    role,
+    settings,
+    gr_ech0211_settings,
+    gr_dms_settings,
+    set_application_gr,
+    caluma_workflow_config_gr,
+    ech_instance_gr,
+    admin_user,
+    caluma_admin_user,
+    ech_snapshot,
+    instance_state_factory,
+    question_factory,
+    mocked_request_object,
+    mailoutbox,
+    notification_template_factory,
+    mocker,
+    form,
+    category_permission,
+    pass_permission,
+    test_case,
+    success,
+):
+    notification_template_factory(slug="empfang-anfragebaugesuch-gesuchsteller")
+    notification_template_factory(slug="empfang-anfragebaugesuch-behorden")
+    CategoryFactory(slug="beilagen-zum-gesuch")
+    CategoryFactory(slug="beilagen-zum-gesuch-weitere-gesuchsunterlagen")
+    gr_ech0211_settings["SUBMIT_PLANNING_PERMISSION_APPLICATION"]["FORM_ID"] = form.pk
+    instance_state_factory(name="new")
+    instance_state_factory(name="subm")
+    question_factory(slug="material-question-exam")
+    question_factory(slug="complete-material-exam")
+    question_factory(slug="oeffentliche-auflage")
+    question_factory(slug="fuer-gvg-freigeben")
+    call_command(
+        "loaddata",
+        settings.ROOT_DIR("kt_gr/config/caluma_form.json"),
+        settings.ROOT_DIR("kt_gr/config/caluma_form_common.json"),
+    )
+    response = Mock(spec=requests.models.Response)
+    response.status_code = 200
+    response.content = (
+        b"%PDF-1.\ntrailer<</Root<</Pages<</Kids[<</MediaBox[0 0 3 3]>>]>>>>>>"
+    )
+    mocker.patch.object(requests, "get", return_value=response)
+    mocker.patch.object(
+        CustomAlexandriaPermission,
+        "get_available_permissions",
+        return_value={category_permission},
+    )
+    file = django_file("multiple-pages.pdf")
+    file.content_type = "application/pdf"
+    mocker.patch.object(
+        DMSHandler,
+        "generate_pdf",
+        return_value=file,
+    )
+
+    group = admin_user.groups.first()
+    group.service = ech_instance_gr.services.first()
+    group.save()
+
+    xml = xml_data("submit_planning_permission_application")
+    if test_case == "file subsequently":
+        xml = xml.replace(
+            "<ns1:eventType>submit</ns1:eventType>",
+            "<ns1:eventType>file subsequently</ns1:eventType>",
+        )
+        xml = xml.replace(
+            "<ns1:dossierIdentification>2323</ns1:dossierIdentification>",
+            f"<ns1:dossierIdentification>{ech_instance_gr.pk}</ns1:dossierIdentification>",
+        )
+
+    data = CreateFromDocument(xml)
+    handler = SubmitPlanningPermissionApplicationSendHandler(
+        data=data,
+        queryset=Instance.objects,
+        user=admin_user,
+        group=group,
+        auth_header="Bearer: some token",
+        caluma_user=caluma_admin_user,
+        request=mocked_request_object,
+    )
+    assert handler.has_permission()[0] is pass_permission
+    if not pass_permission:
+        return
+
+    if success:
+        instance = handler.apply()
+
+        requests.get.assert_called()
+        assert (
+            instance.case.document.answers.get(question_id="parzelle")
+            .documents.first()
+            .answers.get(question_id="parzellennummer")
+            .value
+            == "1586"
+        )
+        assert (
+            instance.case.document.answers.get(
+                question_id="personalien-gesuchstellerin"
+            )
+            .documents.first()
+            .answers.get(question_id="name-gesuchstellerin")
+            .value
+            == "Muster"
+        )
+        assert (
+            instance.case.document.answers.get(
+                question_id="beschreibung-bauvorhaben"
+            ).value
+            == "Testbeschreibung"
+        )
+        assert (
+            instance.alexandria_instance_documents.all().first().document.files.count()
+            == 2
+        )
+
+        assert len(mailoutbox) == 0
+        assert Message.objects.count() == 0
+    else:
+        with pytest.raises(SendHandlerException):
+            handler.apply()
