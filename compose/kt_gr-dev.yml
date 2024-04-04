@@ -90,11 +90,17 @@ services:
 
   ember-caluma-portal:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
+    build:
+      args:
+        - ENABLE_WATERMARK=true
     networks:
       - ebau.local
 
   ember-ebau:
     image: acr.run/camac-ng/camac-ng/ember-ebau:master
+    build:
+      args:
+        - ENABLE_WATERMARK=true
     networks:
       - ebau.local
 

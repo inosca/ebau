@@ -4,11 +4,6 @@ const EmberAddon = require("ember-cli/lib/broccoli/ember-addon");
 
 module.exports = function (defaults) {
   const app = new EmberAddon(defaults, {
-    "@embroider/macros": {
-      setOwnConfig: {
-        appEnv: process.env.APP_ENV ?? "dev",
-      },
-    },
     "ember-validated-form": {
       theme: "uikit",
     },
