@@ -258,21 +258,6 @@ APPLICATIONS = {
             "document_downloaded": "camac.document.side_effects.create_workflow_entry",
         },
         "DOSSIER_IMPORT": {
-            "REQUIRED_KEYS": [
-                "external-id",
-                "parzelle-nr",
-                "erfassungsjahr",
-                "vorhaben",
-                "ort",
-                "baurecht-nr",
-                "gemeinde",
-                "gesuchsteller",
-                "documents",
-            ],
-            "USER": {
-                "KOOR_BG": "import@urec.ch",
-                "MUNICIPALITY": "import.gem@urec.ch",
-            },
             "WRITER_CLASS": "camac.dossier_import.writers.DossierWriter",
         },
         "CUSTOM_NOTIFICATION_TYPES": [
@@ -1377,23 +1362,7 @@ APPLICATIONS = {
         "SIDE_EFFECTS": {
             "document_downloaded": "camac.document.side_effects.create_workflow_entry",
         },
-        "DOSSIER_IMPORT": {
-            "REQUIRED_KEYS": [
-                "external-id",
-                "parzelle-nr",
-                "erfassungsjahr",
-                "vorhaben",
-                "ort",
-                "baurecht-nr",
-                "gemeinde",
-                "gesuchsteller",
-                "documents",
-            ],
-            "USER": {
-                "KOOR_BG": "import@urec.ch",
-                "MUNICIPALITY": "import.gem@urec.ch",
-            },
-        },
+        "DOSSIER_IMPORT": {},
         "GENERALIZED_ROLE_MAPPING": {
             "Vernehmlassungsstelle mit Koordinationsaufgaben": "service-lead",
             "Sekretariat der Gemeindebaubehörde": "municipality-lead",
