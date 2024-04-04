@@ -960,10 +960,6 @@ def caluma_forms_gr(settings):
                 question=question, option=option
             )
 
-    caluma_form_models.Question.objects.create(
-        slug="beschreibung-bauvorhaben", type=caluma_form_models.Question.TYPE_TEXT
-    )
-
     # main form
     question = caluma_form_models.Question.objects.create(
         slug="vorname-gesuchstellerin", type=caluma_form_models.Question.TYPE_TEXT
