@@ -92,20 +92,20 @@ const config = {
     },
     info: {
       confirmed: {
-        color: "success",
+        color: "default",
         status: (prevPositive) =>
           prevPositive ? "construction-monitoring" : "finished",
       },
       changed: {
-        color: "warning",
+        color: "default",
         status: () => "construction-monitoring",
       },
       annulled: {
-        color: "danger",
+        color: "default",
         status: () => "finished",
       },
       rejected: {
-        color: "danger",
+        color: "default",
         status: () => "subm",
       },
     },
