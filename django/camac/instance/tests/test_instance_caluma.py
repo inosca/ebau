@@ -2407,6 +2407,7 @@ def test_be_copy_responsible_user_on_submit(
 @pytest.mark.parametrize("is_migrated", [True, False])
 @pytest.mark.parametrize("is_kog", [True, False])
 @pytest.mark.parametrize("is_appeal", [True, False])
+@pytest.mark.parametrize("is_ech", [True, False])
 def test_instance_name(
     admin_client,
     caluma_workflow_config_be,
@@ -2421,6 +2422,7 @@ def test_instance_name(
     is_migrated,
     is_kog,
     is_appeal,
+    is_ech,
 ):
     def yes_no_german(boolean):
         return "ja" if boolean else "nein"
@@ -2459,6 +2461,10 @@ def test_instance_name(
         service_group.name = "lead-service"
         service_group.save()
 
+    if is_ech:
+        instance.case.meta["ech0211-submitted"] = True
+        instance.case.save()
+
     url = reverse("instance-detail", args=[instance.pk])
 
     response = admin_client.get(url, data={"fields[instances]": "name"})
@@ -2472,10 +2478,11 @@ def test_instance_name(
     else:
         assert "Baugesuch" in name
 
-        assert ("(Papier)" in name) == is_paper
+        assert ("(Papier)" in name) == (is_paper and not is_ech)
         assert ("(Projektänderung)" in name) == is_modification
         assert ("(KoG)" in name) == is_kog
         assert ("(Beschwerdeverfahren)" in name) == is_appeal
+        assert ("(Schnittstelle)" in name) == is_ech
 
 
 @pytest.mark.parametrize("service_group__name", ["municipality"])

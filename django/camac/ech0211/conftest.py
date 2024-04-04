@@ -1,5 +1,6 @@
 import re
 import xml.dom.minidom as minidom
+from collections import namedtuple
 from datetime import datetime
 
 import pytest
@@ -322,3 +323,14 @@ def ech_snapshot(snapshot):
         return snapshot.assert_match(pretty_xml)
 
     return wrapper
+
+
+@pytest.fixture
+def mocked_request_object(admin_user, group, caluma_admin_user):
+    Request = namedtuple(
+        "Request", ["user", "group", "caluma_info", "query_params", "META"]
+    )
+    CalumaInfo = namedtuple("CalumaInfo", "context")
+    Context = namedtuple("Context", "user")
+    request = Request(admin_user, group, CalumaInfo(Context(caluma_admin_user)), {}, {})
+    return request

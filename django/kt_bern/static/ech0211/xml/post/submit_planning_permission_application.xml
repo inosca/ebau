@@ -18,18 +18,18 @@
     <ns1:eventType>submit</ns1:eventType>
     <ns1:planningPermissionApplication>
       <ns1:planningPermissionApplicationIdentification><!-- wird ignoriert -->
-        <ns2:localID>
+        <ns1:localID>
           <ns3:IdCategory>Category</ns3:IdCategory>
           <ns3:Id>2019-001</ns3:Id>
-        </ns2:localID>
-        <ns2:otherID>
+        </ns1:localID>
+        <ns1:otherID>
           <ns3:IdCategory>Category</ns3:IdCategory>
           <ns3:Id>2019-001</ns3:Id>
-        </ns2:otherID>
-        <ns2:dossierIdentification>2323</ns2:dossierIdentification>
+        </ns1:otherID>
+        <ns1:dossierIdentification>2323</ns1:dossierIdentification>
       </ns1:planningPermissionApplicationIdentification>
-      <ns1:description>Testbeschreibung</ns1:description>
-      <ns1:applicationType>Baugesuch</ns1:applicationType>
+      <ns1:description>Testbeschreibung</ns1:description> <!-- required: Titel Vorhaben-->
+      <ns1:applicationType>Baugesuch</ns1:applicationType> <!-- required: Name vom Formular -->
       <ns1:remark>Testbemerkung</ns1:remark>
       <ns1:intendedPurpose>Wohnen, Industrie, Gewerbe, Dienstleistung, Verkauf, Lager, Landwirtschaft, Gastgewerbe, Andere</ns1:intendedPurpose>
       <ns1:parkingLotsYesNo>true</ns1:parkingLotsYesNo>
@@ -45,8 +45,8 @@
       <ns1:locationAddress>
         <ns4:street>Teststrasse</ns4:street>
         <ns4:houseNumber>23</ns4:houseNumber>
-        <ns4:town>Chur</ns4:town>
-        <ns4:swissZipCode>7000</ns4:swissZipCode>
+        <ns4:town>Chur</ns4:town> <!-- required -->
+        <ns4:swissZipCode>7000</ns4:swissZipCode> <!-- required -->
         <ns4:country>
           <ns4:countryNameShort>CH</ns4:countryNameShort>
         </ns4:country>
@@ -55,7 +55,7 @@
         <ns1:realestate>
           <ns3:realestateIdentification>
             <ns3:EGRID>23</ns3:EGRID>
-            <ns3:number>1586</ns3:number>
+            <ns3:number>1586</ns3:number> <!-- required -->
           </ns3:realestateIdentification>
           <ns3:realestateType>8</ns3:realestateType>
           <ns3:coordinates>
@@ -104,7 +104,7 @@
           <ns3:projectStartDate>2019-09-15</ns3:projectStartDate>
           <ns3:totalCostsOfProject>232323</ns3:totalCostsOfProject>
           <ns3:status>6701</ns3:status>
-          <ns3:description>Testbeschreibung&amp;#13;&amp;#10;Neue Zeile&amp;#13;&amp;#10;multiline</ns3:description>
+          <ns3:description>Testbeschreibung&#13;&#10;Neue Zeile&#13;&#10;multiline</ns3:description> <!-- wird ignoriert -->
           <ns3:durationOfConstructionPhase>23</ns3:durationOfConstructionPhase>
         </ns1:constructionProject>
         <ns1:municipality>
@@ -113,26 +113,30 @@
         </ns1:municipality>
       </ns1:constructionProjectInformation>
       <ns1:document>
-        <ns6:uuid>00000000-0000-0000-0000-000000000000</ns6:uuid>
+        <ns6:uuid>00000000-0000-0000-0000-000000000000</ns6:uuid> <!-- required -->
         <ns6:titles>
           <ns7:title>dummy</ns7:title>
         </ns6:titles>
         <ns6:status>signed</ns6:status>
         <ns6:files>
           <ns6:file>
-            <ns6:pathFileName>unknown</ns6:pathFileName>
-            <ns6:mimeType>unknown</ns6:mimeType>
+            <ns6:pathFileName>somewhere/photo.jpg</ns6:pathFileName> <!-- required -->
+            <ns6:mimeType>image/jpg</ns6:mimeType> <!-- required -->
+          </ns6:file>
+          <ns6:file>
+            <ns6:pathFileName>somewhere/building.pdf</ns6:pathFileName> <!-- required -->
+            <ns6:mimeType>application/pdf</ns6:mimeType> <!-- required -->
           </ns6:file>
         </ns6:files>
       </ns1:document>
     </ns1:planningPermissionApplication>
     <ns1:relationshipToPerson>
-      <ns1:role>applicant</ns1:role>
+      <ns1:role>applicant</ns1:role> <!-- required -->
       <ns1:person>
         <ns3:identification>
           <ns3:personIdentification>
-            <ns8:officialName>Muster</ns8:officialName>
-            <ns8:firstName>Max</ns8:firstName>
+            <ns8:officialName>Muster</ns8:officialName> <!-- required -->
+            <ns8:firstName>Max</ns8:firstName> <!-- required -->
           </ns3:personIdentification>
         </ns3:identification>
       </ns1:person>
