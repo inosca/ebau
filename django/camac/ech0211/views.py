@@ -249,6 +249,7 @@ class SendView(ECHInstanceQuerysetMixin, GenericViewSet):
                 request.group,
                 get_authorization_header(request),
                 request.caluma_info.context.user,
+                request,
             )
         except SendHandlerException as e:
             return HttpResponse(str(e), status=404)
@@ -259,11 +260,12 @@ class SendView(ECHInstanceQuerysetMixin, GenericViewSet):
             return HttpResponse(msg, status=403)
 
         try:
-            send_handler.apply()
+            applied = send_handler.apply()
         except SendHandlerException as e:
             return HttpResponse(str(e), status=e.status)
 
-        return HttpResponse(status=201)
+        data = applied.pk if applied else None
+        return Response(data, status=201)
 
 
 class ECHFileView(

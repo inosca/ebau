@@ -848,6 +848,10 @@ msgid "paper"
 msgstr "Papier"
 
 #: camac/instance/serializers.py:991
+msgid "ech-submitted"
+msgstr "Schnittstelle"
+
+#: camac/instance/serializers.py:990
 msgid "modification"
 msgstr "Projektänderung"
 

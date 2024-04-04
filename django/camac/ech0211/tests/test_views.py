@@ -1,10 +1,14 @@
 import datetime
 import json
+from unittest.mock import Mock
 
 import pytest
+import requests
+from alexandria.core.factories import CategoryFactory
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.conf import settings
+from django.core.management import call_command
 from django.urls import reverse
 from rest_framework import status
 
@@ -12,7 +16,9 @@ from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
 )
+from camac.document.tests.data import django_file
 from camac.ech0211.schema.ech_0211_2_0 import CreateFromDocument
+from camac.instance.document_merge_service import DMSHandler
 
 from ...dossier_import.config.kt_schwyz import COORDINATES_MAPPING, PARCEL_MAPPING
 from ...dossier_import.dossier_classes import Coordinates, PlotData
@@ -638,3 +644,91 @@ def test_message_invalid_last(admin_client, set_application_be, reload_ech0211_u
 
     assert response.status_code == status.HTTP_400_BAD_REQUEST
     assert b"'last' parameter must be a valid UUID" in response.content
+
+
+@pytest.mark.parametrize("role__name", ["municipality-lead"])
+def test_send_submit(
+    admin_client,
+    admin_user,
+    set_application_gr,
+    gr_dms_settings,
+    gr_ech0211_settings,
+    form,
+    instance_state_factory,
+    notification_template_factory,
+    question_factory,
+    mocker,
+    ech_instance_gr,
+    caluma_workflow_config_gr,
+    caluma_admin_user,
+    reload_ech0211_urls,
+):
+    question_factory(slug="material-question-exam")
+    question_factory(slug="complete-material-exam")
+    question_factory(slug="oeffentliche-auflage")
+    question_factory(slug="fuer-gvg-freigeben")
+    call_command(
+        "loaddata",
+        settings.ROOT_DIR("kt_gr/config/caluma_form.json"),
+        settings.ROOT_DIR("kt_gr/config/caluma_form_common.json"),
+    )
+    notification_template_factory(slug="empfang-anfragebaugesuch-gesuchsteller")
+    notification_template_factory(slug="empfang-anfragebaugesuch-behorden")
+    CategoryFactory(
+        slug="beilagen-zum-gesuch",
+        metainfo={
+            "access": {
+                "municipality-lead": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                        },
+                    ],
+                },
+            }
+        },
+    )
+    CategoryFactory(
+        slug="beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+        metainfo={
+            "access": {
+                "municipality-lead": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                        },
+                    ],
+                },
+            }
+        },
+    )
+    gr_ech0211_settings["SUBMIT_PLANNING_PERMISSION_APPLICATION"]["FORM_ID"] = form.pk
+    instance_state_factory(name="new")
+    instance_state_factory(name="subm")
+    response = Mock(spec=requests.models.Response)
+    response.status_code = 200
+    response.content = (
+        b"%PDF-1.\ntrailer<</Root<</Pages<</Kids[<</MediaBox[0 0 3 3]>>]>>>>>>"
+    )
+    mocker.patch.object(requests, "get", return_value=response)
+    file = django_file("multiple-pages.pdf")
+    file.content_type = "application/pdf"
+    mocker.patch.object(
+        DMSHandler,
+        "generate_pdf",
+        return_value=file,
+    )
+    group = admin_user.groups.first()
+    group.service = ech_instance_gr.services.first()
+    group.save()
+
+    response = admin_client.post(
+        reverse("send"),
+        data=xml_data("submit_planning_permission_application"),
+        content_type="application/xml",
+    )
+
+    assert response.status_code == 201
+    assert response.content != b""

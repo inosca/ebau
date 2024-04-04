@@ -160,5 +160,76 @@ ECH0211 = {
             "inquiry-answer-status-written-off": None,
             "inquiry-answer-status-not-following": None,
         },
+        "SUBMIT_PLANNING_PERMISSION_APPLICATION": {
+            "ENABLED": True,
+            "ALLOWED_ROLES": ["municipality-lead"],
+            "FORM_ID": 1,
+            "WORKFLOW": "building-permit",
+            "ALEXANDRIA_CATEGORY": "beilagen-zum-gesuch",
+            "QUESTION_MAPPING": {
+                "SIMPLE": {
+                    # xpath: {question_slug, default}
+                    "use-default": {
+                        "question_slug": "vorhaben",
+                        "default": ["vorhaben-andere"],
+                    },
+                    # "planningPermissionApplication.constructionProjectInformation.constructionProject.description": "beschreibung-bauvorhaben",
+                    "ech0211:planningPermissionApplication/ech0211:description": {
+                        "question_slug": "beschreibung-bauvorhaben",
+                    },
+                },
+                "TABLE": {
+                    # xpath
+                    "ech0211:planningPermissionApplication/ech0211:realestateInformation": (
+                        # row_form
+                        "parzelle-tabelle",
+                        # xpath: question_slug
+                        {
+                            "ech0211:realestate/ech0129:realestateIdentification/ech0129:number": {
+                                "question_slug": "parzellennummer"
+                            }
+                        },
+                        # table_question
+                        "parzelle",
+                    ),
+                    "ech0211:relationshipToPerson[ech0211:role='applicant']": (
+                        "personalien-tabelle",
+                        {
+                            "use-default": {
+                                "question_slug": "juristische-person-gesuchstellerin",
+                                "default": "juristische-person-gesuchstellerin-nein",
+                            },
+                            "ech0211:person/ech0129:identification/ech0129:personIdentification/ech0044:officialName": {
+                                "question_slug": "name-gesuchstellerin",
+                            },
+                            "ech0211:person/ech0129:identification/ech0129:personIdentification/ech0044:firstName": {
+                                "question_slug": "vorname-gesuchstellerin",
+                            },
+                            "ech0211:person/ech0129:address/ech0010:town": {
+                                "question_slug": "ort-gesuchstellerin",
+                                "default": "-",
+                            },
+                            "ech0211:person/ech0129:address/ech0010:swissZipCode": {
+                                "question_slug": "plz-gesuchstellerin",
+                                "default": 0000,
+                            },
+                            "ech0211:person/ech0129:address/ech0010:street": {
+                                "question_slug": "strasse-gesuchstellerin",
+                                "default": "-",
+                            },
+                            "ech0211:person/ech0129:phone/ech0129:phoneNumber": {
+                                "question_slug": "telefon-oder-mobile-gesuchstellerin",
+                                "default": "0000000000",
+                            },
+                            "ech0211:person/ech0129:email/ech0129:emailAddress": {
+                                "question_slug": "e-mail-gesuchstellerin",
+                                "default": "-@-.-",
+                            },
+                        },
+                        "personalien-gesuchstellerin",
+                    ),
+                },
+            },
+        },
     },
 }
