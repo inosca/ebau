@@ -17,7 +17,7 @@ export default class CoordinatesPlaceholderComponent extends Component {
     const raw = this.args.field.question.raw.staticContent;
     const matches = raw.matchAll(/{replace-coords:([^}]*)}/g);
 
-    const text = matches.reduce((text, match) => {
+    const text = [...matches].reduce((text, match) => {
       const value =
         this.x && this.y
           ? match[1].replace(/x/g, this.x).replace(/y/g, this.y)
