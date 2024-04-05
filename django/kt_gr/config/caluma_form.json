@@ -6652,7 +6652,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "bericht-zur-umweltvertraeglichkeitspruefung-uvp",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -6667,7 +6667,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "bodenkundliches-fachgutachten",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -6682,7 +6682,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "brandschutzkonzept",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -6697,7 +6697,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "brandschutzplaene",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -6712,7 +6712,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "dispositionsplan-heizungsraum",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -6727,7 +6727,22 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "einfache-brandschutzplaene",
-      "sort": 8
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.ersatzbeitrag-fuer-nicht-zu-erstellende-pflichtschutzplaetze",
+    "fields": {
+      "created_at": "2024-04-05T14:48:09.704Z",
+      "modified_at": "2024-04-05T14:48:09.704Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "ersatzbeitrag-fuer-nicht-zu-erstellende-pflichtschutzplaetze",
+      "sort": 1
     }
   },
   {
@@ -6742,7 +6757,22 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "feststellungsverfuegung",
-      "sort": 13
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.genehmigung-pflichtschutzplaetze",
+    "fields": {
+      "created_at": "2024-04-05T14:43:40.876Z",
+      "modified_at": "2024-04-05T14:43:40.876Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "genehmigung-pflichtschutzplaetze",
+      "sort": 2
     }
   },
   {
@@ -6757,7 +6787,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "gesuch-feuerpolizeiliche-bewilligung",
-      "sort": 22
+      "sort": 21
     }
   },
   {
@@ -6772,7 +6802,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "hinweistext-dokumente",
-      "sort": 23
+      "sort": 22
     }
   },
   {
@@ -6787,7 +6817,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "messbericht",
-      "sort": 21
+      "sort": 20
     }
   },
   {
@@ -6832,7 +6862,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "rodungsgesuchsformular",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -6847,7 +6877,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "sicherheitsdatenblatt",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -6862,7 +6892,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "tragbarkeitsberechnung",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -6877,7 +6907,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vereinbarkeit-zweitwohnungsgesetz",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -6892,7 +6922,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vkf-anerkennungenleistungserklaerung-dop",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -6907,7 +6937,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vorablaerungsbericht-tiefbauamt-leitungen",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -6922,7 +6952,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vorablaerungsbericht-tiefbauamt-naeherbauten",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -6937,7 +6967,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vorablaerungsbericht-tiefbauamt-strassenreklamen",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -6952,7 +6982,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "zusatzbewilligung-naturgefahren",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -24956,6 +24986,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "ersatzbeitrag-fuer-nicht-zu-erstellende-pflichtschutzplaetze-ja",
+    "fields": {
+      "created_at": "2024-04-05T14:48:09.181Z",
+      "modified_at": "2024-04-05T14:48:09.181Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ersatzbeitrag f\\u00fcr nicht zu erstellende Pflichtschutzpl\\u00e4tze\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "ersatz-hecke-ersatzpflanzung",
     "fields": {
       "created_at": "2023-04-24T14:22:10.642Z",
@@ -26101,6 +26147,22 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"SIA-416\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "genehmigung-pflichtschutzplaetze-ja",
+    "fields": {
+      "created_at": "2024-04-05T14:43:40.343Z",
+      "modified_at": "2024-04-05T14:43:40.343Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Genehmigung Pflichtschutzpl\\u00e4tze\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -52696,6 +52758,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "ersatzbeitrag-fuer-nicht-zu-erstellende-pflichtschutzplaetze",
+    "fields": {
+      "created_at": "2024-04-05T14:48:09.478Z",
+      "modified_at": "2024-04-05T14:48:09.478Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ersatzbeitrag f\\u00fcr nicht zu erstellende Pflichtschutzpl\\u00e4tze\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "\"werden-schutzplaetze-erstellt-nein\" != \"werden-schutzplaetze-erstellt\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"[Ersatzbeitrag f\\u00fcr nicht zu erstellende Pflichtschutzpl\\u00e4tze](https://www.gr.ch/DE/institutionen/verwaltung/djsg/amz/zivilschutz/Documents/Frm_Ersatzbeitrag_deutsch_dhe_211217.xls)\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "ersatz-hecke",
     "fields": {
       "created_at": "2023-04-24T14:22:10.798Z",
@@ -55276,6 +55371,39 @@
       "meta": {},
       "data_source": null,
       "row_form": "gefaehrdete-umliegende-objekte-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "genehmigung-pflichtschutzplaetze",
+    "fields": {
+      "created_at": "2024-04-05T14:43:40.670Z",
+      "modified_at": "2024-04-05T14:43:40.670Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Genehmigung Pflichtschutzpl\\u00e4tze\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "\"werden-schutzplaetze-erstellt-ja\" != \"werden-schutzplaetze-erstellt\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"[Genehmigung Pflichtschutzpl\\u00e4tze](https://www.gr.ch/DE/institutionen/verwaltung/djsg/amz/zivilschutz/Documents/Frm_Projektgenehmigung_deutsch_dhe_230310.xls)\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -81736,6 +81864,21 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "ersatzbeitrag-fuer-nicht-zu-erstellende-pflichtschutzplaetze.ersatzbeitrag-fuer-nicht-zu-erstellende-pflichtschutzplaetze-ja",
+    "fields": {
+      "created_at": "2024-04-05T14:48:09.487Z",
+      "modified_at": "2024-04-05T14:48:09.487Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ersatzbeitrag-fuer-nicht-zu-erstellende-pflichtschutzplaetze",
+      "option": "ersatzbeitrag-fuer-nicht-zu-erstellende-pflichtschutzplaetze-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "ersatz-hecke.ersatz-hecke-ersatzpflanzung",
     "fields": {
       "created_at": "2023-10-25T09:18:00.941Z",
@@ -82812,6 +82955,21 @@
       "question": "gebaeudevolumen-nach-norm",
       "option": "gebaeudevolumen-nach-norm-sia-416",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "genehmigung-pflichtschutzplaetze.genehmigung-pflichtschutzplaetze-ja",
+    "fields": {
+      "created_at": "2024-04-05T14:43:40.680Z",
+      "modified_at": "2024-04-05T14:43:40.680Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "genehmigung-pflichtschutzplaetze",
+      "option": "genehmigung-pflichtschutzplaetze-ja",
+      "sort": 1
     }
   },
   {
