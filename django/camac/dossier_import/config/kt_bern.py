@@ -136,9 +136,6 @@ class KtBernDossierWriter(DossierWriter):
     project_author = CalumaListAnswerWriter(
         target="personalien-projektverfasserin", column_mapping=PROJECTAUTHOR_MAPPING
     )
-    is_paper = CalumaAnswerWriter(
-        target="is-paper", value="is-paper-no"
-    )  # static answer
 
     def create_instance(self, dossier: Dossier) -> Instance:
         """Create a Camac NG Instance with a case.
