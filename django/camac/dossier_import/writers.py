@@ -172,13 +172,11 @@ class WorkflowEntryDateWriter(FieldWriter):
 class CalumaAnswerWriter(FieldWriter):
     def __init__(
         self,
-        value_key: str = "value",
         task: str = None,
         formatter: str = None,
         *args,
         **kwargs,
     ):
-        self.value_key = value_key
         self.task = task
         self.formatter = formatter
         super().__init__(*args, **kwargs)

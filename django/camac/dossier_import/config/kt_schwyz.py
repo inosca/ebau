@@ -85,28 +85,23 @@ class KtSchwyzDossierWriter(DossierWriter):
     construction_start_date = BuildingAuthorityRowWriter(
         name="datum-baubeginn",
         target="baukontrolle-realisierung-baubeginn",
-        value_key="date",
     )
     profile_approval_date = BuildingAuthorityRowWriter(
         name="datum-schnurgeruestabnahme",
         target="baukontrolle-realisierung-schnurgeruestabnahme",
-        value_key="date",
     )
     decision_date = CalumaAnswerWriter(
         name="tb-datum",
         target="bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
-        value_key="date",
         task="building-authority",
     )
     final_approval_date = BuildingAuthorityRowWriter(
         name="datum-schlussabnahme",
         target="baukontrolle-realisierung-schlussabnahme",
-        value_key="date",
     )
     completion_date = BuildingAuthorityRowWriter(
         name="datum-bauende",
         target="baukontrolle-realisierung-bauende",
-        value_key="date",
     )
     link = CamacNgAnswerWriter(target="link")
     custom_1 = CamacNgAnswerWriter(target="freies-textfeld-1")

@@ -107,20 +107,12 @@ class KtBernDossierWriter(DossierWriter):
     usage = CalumaAnswerWriter(target="nutzungszone")
     application_type = CalumaAnswerWriter(target="geschaeftstyp-import")
     submit_date = CaseMetaWriter(target="submit-date", formatter="datetime-to-string")
-    decision_date = CalumaAnswerWriter(
-        target="decision-date", value_key="date", task="decision"
-    )
-    publication_date = CalumaAnswerWriter(target="datum-publikation", value_key="date")
-    construction_start_date = CalumaAnswerWriter(
-        target="datum-baubeginn", value_key="date"
-    )
-    profile_approval_date = CalumaAnswerWriter(
-        target="datum-schnurgeruestabnahme", value_key="date"
-    )
-    final_approval_date = CalumaAnswerWriter(
-        target="datum-schlussabnahme", value_key="date"
-    )
-    completion_date = CalumaAnswerWriter(target="bauende", value_key="date")
+    decision_date = CalumaAnswerWriter(target="decision-date", task="decision")
+    publication_date = CalumaAnswerWriter(target="datum-publikation")
+    construction_start_date = CalumaAnswerWriter(target="datum-baubeginn")
+    profile_approval_date = CalumaAnswerWriter(target="datum-schnurgeruestabnahme")
+    final_approval_date = CalumaAnswerWriter(target="datum-schlussabnahme")
+    completion_date = CalumaAnswerWriter(target="bauende")
     link = CalumaAnswerWriter(target="link")
     custom_1 = CalumaAnswerWriter(target="freies-textfeld-1")
     custom_2 = CalumaAnswerWriter(target="freies-textfeld-2")
