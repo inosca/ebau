@@ -14,6 +14,7 @@ from ..extensions.data_sources import (
     Locations,
     Mitberichtsverfahren,
     Municipalities,
+    PreliminaryClarificationTargets,
     Services,
 )
 
@@ -239,3 +240,23 @@ def test_municipalities_so(db, service_factory, service_t_factory):
     assert len(data) == 1
     assert data[0][0] == service.pk
     assert data[0][1]["de"] == "Solothurn"
+
+
+def test_preliminary_clarfication_targets(db, caluma_admin_user, service_factory):
+    service_factory(
+        trans__name="AfU",
+        trans__language="de",
+        service_group__name="service-cantonal",
+    )
+    service_factory(
+        trans__name="Procap",
+        trans__language="de",
+        service_group__name="service-extra-cantonal",
+    )
+
+    data = PreliminaryClarificationTargets().get_data(caluma_admin_user, None, None)
+
+    assert data[0][1]["de"] == "Andere"
+    assert data[1][1]["de"] == "Örtliche Baubehörde"
+    assert data[2][1]["de"] == "AfU"
+    assert data[3][1]["de"] == "Procap"

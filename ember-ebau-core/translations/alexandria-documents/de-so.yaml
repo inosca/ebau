@@ -1,0 +1,2 @@
+documents:
+  confirm: "Hiermit bestätige ich, dass ich {count, plural, =1 {den folgenden Pflichtinhalt} other {die folgenden # Pflichtinhalte}} hochgeladen habe. Bitte beachten Sie, dass die Liste der angegebenen Pflichtdokumente nicht abschliessend ist. Bitte konsultieren Sie die Kantonale Bauverordnung (insbesondere «§ 5 Inhalt des Baugesuches» und «§ 6 Planbeilagen»)."
