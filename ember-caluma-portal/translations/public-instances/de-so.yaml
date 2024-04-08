@@ -1,2 +1,12 @@
 publicInstances:
   applicant: "Bauherr/in"
+
+publicInstancesDetail:
+  copyrightText: "Die hier aufgelegten Dokumente können urheberrechtlich
+  geschützt sein. Das Weiterverwenden der Dokumente oder Teile davon ist nur
+  nach schriftlicher Genehmigung durch die in diesem Baubewilligungsverfahren
+  zuständige Gemeinde gestattet."
+  privacyText: "Es werden hier nur die für das Baubewilligungsverfahren
+  relevanten Dokumente publiziert, die von der Gesuchstellerin bzw. dem
+  Gesuchsteller nicht explizit als vertraulich und nicht öffentlich zugänglich
+  eingestuft wurden."
