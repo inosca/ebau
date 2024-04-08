@@ -15,6 +15,7 @@ do
 		--url 'https://sso.be.ch/auth/realms/ebau/protocol/openid-connect/token' \
 		--header 'content-type: application/x-www-form-urlencoded' \
 		--data grant_type=client_credentials \
+		--data scope=openid \
 		--data client_id=$i \
 		--data client_secret=${credentials[$i]} | jq -r '.access_token')
 
