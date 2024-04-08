@@ -46286,7 +46286,7 @@
       "label": "{\"de\": \"Hinweis zentrale Geb\\u00e4udesteuerung\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\"storenbedienung-zentrale-gebaeudesteuerung\" in \"storenbedienung\"|answer)",
+      "is_hidden": "\"storenbedienung\"|answer != \"storenbedienung-zentrale-gebaeudesteuerung\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
