@@ -2,7 +2,7 @@ from caluma.caluma_data_source.data_sources import BaseDataSource
 from caluma.caluma_data_source.utils import data_source_cache
 from caluma.caluma_form.models import Document
 from django.core.cache import cache
-from django.utils.translation import gettext as _, override
+from django.utils.translation import gettext as _, gettext_noop, override
 
 from camac.caluma.utils import find_answer
 from camac.core.models import Authority
@@ -38,14 +38,14 @@ def get_municipality_label(service, municipality_prefix=False):
     return label
 
 
-def get_others_option():
+def get_additional_option(slug="-1", text=gettext_noop("Others")):
     label = {}
 
     for language in ["de", "fr"]:
         with override(language):
-            label[language] = _("Others")
+            label[language] = _(text)
 
-    return ["-1", label]
+    return [slug, label]
 
 
 class Municipalities(BaseDataSource):
@@ -230,7 +230,7 @@ class Services(BaseDataSource):
             .prefetch_related("trans")
         )
 
-        data = [get_others_option()] + sorted(
+        data = [get_additional_option()] + sorted(
             [
                 [str(service.pk), get_municipality_label(service, True)]
                 for service in services
@@ -313,3 +313,34 @@ class Landowners(BaseDataSource):
             landowner_data.append((row.pk, label))
 
         return landowner_data
+
+
+class PreliminaryClarificationTargets(BaseDataSource):
+    info = (
+        "List of services that can be selected for preliminary clarifications in Kt. SO"
+    )
+
+    @data_source_cache(timeout=3600)
+    def get_data(self, user, question, context):
+        services = (
+            Service.objects.select_related("service_group")
+            .filter(
+                service_parent__isnull=True,
+                service_group__name__in=["service-cantonal", "service-extra-cantonal"],
+                disabled=False,
+            )
+            .prefetch_related("trans")
+        )
+
+        data = [
+            get_additional_option(),
+            get_additional_option("0", gettext_noop("Local building authority")),
+        ] + sorted(
+            [
+                [str(service.pk), get_municipality_label(service, True)]
+                for service in services
+            ],
+            key=lambda x: x[1]["de"].casefold(),
+        )
+
+        return data
