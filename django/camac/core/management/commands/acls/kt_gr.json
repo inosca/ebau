@@ -27,7 +27,17 @@
         "decision",
         "finished"
       ],
-      "support": ["new", "rejected", "subm"],
+      "support": [
+        "new",
+        "subm",
+        "circulation",
+        "finished",
+        "decision",
+        "correction",
+        "init-distribution",
+        "construction-acceptance",
+        "rejected"
+      ],
       "uso": [
         "circulation",
         "construction-acceptance",
@@ -70,7 +80,17 @@
         "decision",
         "finished"
       ],
-      "support": ["new", "rejected", "subm"],
+      "support": [
+        "new",
+        "subm",
+        "circulation",
+        "finished",
+        "decision",
+        "correction",
+        "init-distribution",
+        "construction-acceptance",
+        "rejected"
+      ],
       "uso": [
         "circulation",
         "construction-acceptance",
@@ -97,13 +117,35 @@
         "decision",
         "init-distribution",
         "rejected"
+      ],
+      "support": [
+        "new",
+        "subm",
+        "circulation",
+        "finished",
+        "decision",
+        "correction",
+        "init-distribution",
+        "construction-acceptance",
+        "rejected"
       ]
     }
   },
   "2000006": {
     "label": "Meine Dossiers (Dossier list (Caluma)) > Bauabnahme",
     "acls": {
-      "municipality-lead": ["construction-acceptance", "finished"]
+      "municipality-lead": ["construction-acceptance", "finished"],
+      "support": [
+        "new",
+        "subm",
+        "circulation",
+        "finished",
+        "decision",
+        "correction",
+        "init-distribution",
+        "construction-acceptance",
+        "rejected"
+      ]
     }
   },
   "12000006": {
@@ -114,6 +156,17 @@
         "construction-acceptance",
         "decision",
         "init-distribution",
+        "rejected"
+      ],
+      "support": [
+        "new",
+        "subm",
+        "circulation",
+        "finished",
+        "decision",
+        "correction",
+        "init-distribution",
+        "construction-acceptance",
         "rejected"
       ]
     }
@@ -147,15 +200,15 @@
         "init-distribution"
       ],
       "support": [
-        "circulation",
-        "construction-acceptance",
-        "correction",
-        "decision",
-        "finished",
-        "init-distribution",
         "new",
-        "rejected",
-        "subm"
+        "subm",
+        "circulation",
+        "finished",
+        "decision",
+        "correction",
+        "init-distribution",
+        "construction-acceptance",
+        "rejected"
       ]
     }
   },
@@ -171,6 +224,17 @@
         "init-distribution",
         "rejected",
         "subm"
+      ],
+      "support": [
+        "new",
+        "subm",
+        "circulation",
+        "finished",
+        "decision",
+        "correction",
+        "init-distribution",
+        "construction-acceptance",
+        "rejected"
       ]
     }
   },
@@ -201,12 +265,15 @@
         "finished"
       ],
       "support": [
-        "circulation",
-        "construction-acceptance",
-        "finished",
         "new",
-        "rejected",
-        "subm"
+        "subm",
+        "circulation",
+        "finished",
+        "decision",
+        "correction",
+        "init-distribution",
+        "construction-acceptance",
+        "rejected"
       ],
       "uso": [
         "circulation",
@@ -247,12 +314,15 @@
         "finished"
       ],
       "support": [
-        "circulation",
-        "construction-acceptance",
-        "finished",
         "new",
-        "rejected",
-        "subm"
+        "subm",
+        "circulation",
+        "finished",
+        "decision",
+        "correction",
+        "init-distribution",
+        "construction-acceptance",
+        "rejected"
       ]
     }
   },
@@ -285,12 +355,15 @@
         "finished"
       ],
       "support": [
-        "circulation",
-        "construction-acceptance",
-        "finished",
         "new",
-        "rejected",
-        "subm"
+        "subm",
+        "circulation",
+        "finished",
+        "decision",
+        "correction",
+        "init-distribution",
+        "construction-acceptance",
+        "rejected"
       ]
     }
   },
@@ -305,6 +378,17 @@
         "init-distribution",
         "rejected",
         "subm"
+      ],
+      "support": [
+        "new",
+        "subm",
+        "circulation",
+        "finished",
+        "decision",
+        "correction",
+        "init-distribution",
+        "construction-acceptance",
+        "rejected"
       ]
     }
   },
@@ -319,13 +403,35 @@
         "init-distribution",
         "rejected"
       ],
-      "service-lead": ["circulation", "construction-acceptance", "decision"]
+      "service-lead": ["circulation", "construction-acceptance", "decision"],
+      "support": [
+        "new",
+        "subm",
+        "circulation",
+        "finished",
+        "decision",
+        "correction",
+        "init-distribution",
+        "construction-acceptance",
+        "rejected"
+      ]
     }
   },
   "15000000": {
     "label": "Meine Dossiers (Dossier list (Caluma)) > Entscheid",
     "acls": {
-      "municipality-lead": ["construction-acceptance", "decision"]
+      "municipality-lead": ["construction-acceptance", "decision"],
+      "support": [
+        "new",
+        "subm",
+        "circulation",
+        "finished",
+        "decision",
+        "correction",
+        "init-distribution",
+        "construction-acceptance",
+        "rejected"
+      ]
     }
   },
   "15000001": {
@@ -338,6 +444,17 @@
         "init-distribution",
         "rejected",
         "subm"
+      ],
+      "support": [
+        "new",
+        "subm",
+        "circulation",
+        "finished",
+        "decision",
+        "correction",
+        "init-distribution",
+        "construction-acceptance",
+        "rejected"
       ]
     }
   },
@@ -372,15 +489,15 @@
         "subm"
       ],
       "support": [
-        "circulation",
-        "construction-acceptance",
-        "correction",
-        "decision",
-        "finished",
-        "init-distribution",
         "new",
-        "rejected",
-        "subm"
+        "subm",
+        "circulation",
+        "finished",
+        "decision",
+        "correction",
+        "init-distribution",
+        "construction-acceptance",
+        "rejected"
       ],
       "uso": ["circulation", "construction-acceptance", "decision", "finished"]
     }
@@ -416,15 +533,15 @@
         "subm"
       ],
       "support": [
-        "circulation",
-        "construction-acceptance",
-        "correction",
-        "decision",
-        "finished",
-        "init-distribution",
         "new",
-        "rejected",
-        "subm"
+        "subm",
+        "circulation",
+        "finished",
+        "decision",
+        "correction",
+        "init-distribution",
+        "construction-acceptance",
+        "rejected"
       ],
       "uso": ["circulation", "construction-acceptance", "decision", "finished"]
     }
@@ -457,12 +574,15 @@
         "finished"
       ],
       "support": [
-        "circulation",
-        "construction-acceptance",
-        "finished",
         "new",
-        "rejected",
-        "subm"
+        "subm",
+        "circulation",
+        "finished",
+        "decision",
+        "correction",
+        "init-distribution",
+        "construction-acceptance",
+        "rejected"
       ]
     }
   },
@@ -475,6 +595,17 @@
         "decision",
         "finished",
         "init-distribution",
+        "rejected"
+      ],
+      "support": [
+        "new",
+        "subm",
+        "circulation",
+        "finished",
+        "decision",
+        "correction",
+        "init-distribution",
+        "construction-acceptance",
         "rejected"
       ]
     }
