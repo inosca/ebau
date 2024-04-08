@@ -39,6 +39,10 @@ class PermissionEventHandlerBE(
         ):  # pragma: no cover
             return
 
+        self._grant_construction_control(instance)
+        self._grant_geometer_if_needed(decision, instance)
+
+    def _grant_geometer_if_needed(self, decision, instance):
         # Provide ACL on instance to geometer belonging to municipality
         # if the geometer question was answered with yes on decision
         answer = (
@@ -62,3 +66,14 @@ class PermissionEventHandlerBE(
                 access_level="geometer",
                 service=geometer_service,
             )
+
+    def _grant_construction_control(self, instance):
+        construction_control = instance_utils.get_construction_control(
+            instance.responsible_service()
+        )
+        self.manager.grant(
+            instance,
+            grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+            access_level="construction-control",
+            service=construction_control,
+        )

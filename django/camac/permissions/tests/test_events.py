@@ -87,7 +87,7 @@ def test_instance_submit(db, instance, access_level, permissions_settings):
 
 @pytest.mark.parametrize(
     "involve_geometer,geometer_relation_exists,expected_count",
-    [(True, True, 1), (True, False, 0), (False, True, 0)],
+    [(True, True, 2), (True, False, 1), (False, True, 1)],
 )
 def test_decision_event_handler_be(
     db,
@@ -106,6 +106,7 @@ def test_decision_event_handler_be(
     be_decision_settings,
     use_instance_service,
     be_ech0211_settings,
+    be_access_levels,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
@@ -168,7 +169,6 @@ def test_decision_event_handler_be(
             "decision-geometer-yes" if involve_geometer else "decision-geometer-no"
         ),
     )
-    AccessLevel.objects.create(slug="geometer")
 
     assert InstanceACL.objects.filter(instance=be_instance).count() == 0
 
@@ -181,7 +181,9 @@ def test_decision_event_handler_be(
     assert acls.count() == expected_count
 
     geometer_acl = acls.filter(service=geometer_service)
-    assert geometer_acl.count() == expected_count
+
+    # expected count includes the construction control
+    assert geometer_acl.count() == expected_count - 1
 
 
 @pytest.mark.parametrize(
