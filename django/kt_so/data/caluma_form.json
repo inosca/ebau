@@ -4251,6 +4251,29 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "ade5dedb-4f83-48a6-b932-6ca03a0c0bce",
+    "fields": {
+      "created_at": "2024-04-08T14:41:08.905Z",
+      "modified_at": "2024-04-08T14:41:08.905Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "history_question_type": "choice",
+      "id": "8841accc-b3d5-4375-9fa8-29784543769f",
+      "value": "aushublagerplaetze-oder-baupisten-nein",
+      "meta": {},
+      "date": null,
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "question": "aushublagerplaetze-oder-baupisten",
+      "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
+      "history_date": "2024-04-08T14:41:08.907Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "ae9c5b64-32aa-4b18-a6fb-dbdcef0cdd69",
     "fields": {
       "created_at": "2023-10-05T08:59:50.991Z",
@@ -7402,6 +7425,23 @@
       "modified_by_group": null,
       "question": "sind-objektschutzmassnahmen-geplant",
       "value": ["sind-objektschutzmassnahmen-geplant-nein"],
+      "meta": {},
+      "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "8841accc-b3d5-4375-9fa8-29784543769f",
+    "fields": {
+      "created_at": "2024-04-08T14:41:08.905Z",
+      "modified_at": "2024-04-08T14:41:08.905Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "aushublagerplaetze-oder-baupisten",
+      "value": "aushublagerplaetze-oder-baupisten-nein",
       "meta": {},
       "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
       "date": null

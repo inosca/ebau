@@ -63,6 +63,10 @@ msgstr "nicht aktiviert"
 msgid "Others"
 msgstr "Andere"
 
+#: camac/caluma/extensions/data_sources.py:337
+msgid "Local building authority"
+msgstr "Örtliche Baubehörde"
+
 #: camac/caluma/extensions/dynamic_tasks.py:235
 msgid "Construction step completed"
 msgstr "abgeschlossen"
