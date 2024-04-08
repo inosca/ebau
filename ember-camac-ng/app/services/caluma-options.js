@@ -6,13 +6,13 @@ import { cached } from "tracked-toolbox";
 
 const DISTRIBUTION_NEW_INQUIRY_GROUP_TYPES_MAPPING = {
   roles: {
-    3: ["suggestions", "Fachstellen Gemeinden"], // Gemeinde
-    8: ["suggestions", "Fachstellen Gemeinden"], // Gemeinde Sachbearbeiter
-    11: ["suggestions", "Gemeinde"], // Fachstelle Leitbehörde
-    5: ["suggestions", "subservice"], // Fachstelle
+    3: ["suggestions", "municipalityServices"], // Gemeinde
+    8: ["suggestions", "municipalityServices"], // Gemeinde Sachbearbeiter
+    11: ["suggestions", "municipalities"], // Fachstelle Leitbehörde
+    5: ["suggestions", "subservices"], // Fachstelle
   },
   groups: {
-    7: ["suggestions", "Externe Fachstellen", "Fachstellen"], // Baugesuchszentrale
+    7: ["suggestions", "externalServices", "services"], // Baugesuchszentrale
   },
 };
 
@@ -350,7 +350,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
             services: {
               label: "distribution.services",
               type: "serviceGroup",
-              value: "services",
+              value: "Fachstellen",
             },
             subservices: {
               label: "distribution.subservices",
