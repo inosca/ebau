@@ -311,13 +311,6 @@ def test_construction_acceptance_event_handler_gr(
     assert aib_acl.count() == expected_count
 
 
-@pytest.fixture
-def be_access_levels(be_permissions_settings, db, access_level_factory):
-    for access_level in be_permissions_settings["ACCESS_LEVELS"]:
-        if not AccessLevel.objects.filter(slug=access_level).exists():
-            access_level_factory(slug=access_level)
-
-
 @pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize("role__name", ["Applicant"])
 @pytest.mark.parametrize("use_instance_service", [True, False])
