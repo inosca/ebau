@@ -109,7 +109,7 @@ class DossierImportView(ModelViewSet):
         body = _("The approved dossiers can be viewed here:\n%(import_url)s") % {
             "import_url": build_url(
                 settings.INTERNAL_BASE_URL,
-                settings.APPLICATION["DOSSIER_IMPORT"]["RESOURCE_ID_PATH"],
+                settings.DOSSIER_IMPORT["RESOURCE_ID_PATH"],
                 str(dossier_import.pk),
             )
         }  # resource_id for dossier_import tab

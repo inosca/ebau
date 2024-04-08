@@ -722,9 +722,10 @@ def test_validation(
     mocker,
     dossier_exists,
     settings,
+    dossier_import_settings,
 ):
     mocker.patch(
-        f"{settings.APPLICATION['DOSSIER_IMPORT']['WRITER_CLASS']}.existing_dossier",
+        f"{dossier_import_settings['WRITER_CLASS']}.existing_dossier",
         lambda: dossier_exists,
     )
     dossier_import.source_file = archive_file(input_file)

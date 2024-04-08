@@ -51,9 +51,9 @@ class DossierImportSerializer(serializers.ModelSerializer):
         return verify_source_file(source_file)
 
     def validate(self, data):
-        if settings.APPLICATION["DOSSIER_IMPORT"].get(
-            "LOCATION_REQUIRED", False
-        ) and not data.get("location_id"):
+        if settings.DOSSIER_IMPORT.get("LOCATION_REQUIRED", False) and not data.get(
+            "location_id"
+        ):
             raise ValidationError(_("No location assigned."))
         return data
 

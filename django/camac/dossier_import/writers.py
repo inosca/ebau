@@ -418,7 +418,6 @@ class DossierWriter:
         self,
         user_id,
         group_id: int,
-        import_settings: dict = settings.APPLICATION["DOSSIER_IMPORT"],
         *args,
         **kwargs,
     ):
@@ -427,8 +426,6 @@ class DossierWriter:
         In order to make a clear difference between importing data fields and functional or
         configuration properties make the latter private properties prefixed with an '_' to
         avoid collision (e.g. user is pretty likely to collide at some point)
-
-        E. g. "_import_settings
         """
         self._user = user_id and User.objects.get(pk=user_id)
         self._group = Group.objects.get(pk=group_id)
@@ -436,7 +433,6 @@ class DossierWriter:
             username=self._user.username, group=self._group.service.pk
         )
         self._caluma_user.camac_group = self._group.pk
-        self._import_settings = import_settings
 
     def create_instance(self, dossier: Dossier) -> Instance:
         """Instance etc erstellen."""
@@ -582,12 +578,16 @@ class DossierWriter:
             attachment.path.save(file_path, content, save=True)
             if created:
                 attachment_section = AttachmentSection.objects.get(
-                    attachment_section_id=self._import_settings["ATTACHMENT_SECTION_ID"]
+                    attachment_section_id=settings.DOSSIER_IMPORT[
+                        "ATTACHMENT_SECTION_ID"
+                    ]
                 )
                 attachment_section.attachments.add(attachment)
             att_sec = (
                 attachment.attachment_sections.filter(
-                    attachment_section_id=self._import_settings["ATTACHMENT_SECTION_ID"]
+                    attachment_section_id=settings.DOSSIER_IMPORT[
+                        "ATTACHMENT_SECTION_ID"
+                    ]
                 )
                 .values("name", "attachment_section_id")
                 .first()
