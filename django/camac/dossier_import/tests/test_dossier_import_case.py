@@ -868,13 +868,15 @@ def test_set_workflow_state_be(
         value=str(writer._group.service.pk),
         user=BaseUser(),
     )
+    CalumaApi().update_or_create_answer(
+        document=be_instance.case.document,
+        question_slug="is-paper",
+        value="is-paper-no",
+        user=BaseUser(),
+    )
     if ebau_number:
         be_instance.case.meta["ebau-number"] = ebau_number
         be_instance.case.save()
-
-    writer.is_paper.context = {}
-    writer.is_paper.owner = writer
-    writer.is_paper.write(be_instance, writer.is_paper.value)
 
     dossier = Dossier(id=123, proposal="Just a test")
     dossier._meta = Dossier.Meta(target_state=target_state, workflow=workflow_type)
