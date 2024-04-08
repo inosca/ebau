@@ -1,5 +1,5 @@
 # serializer version: 1
-# name: test_validation_errors[import-example-validation-errors.zip-kt_bern-None-201-Gemeinde]
+# name: test_validation_errors[import-example-validation-errors.zip-be_dossier_import_settings-None-201-Gemeinde]
   dict({
     'created-at': '2021-12-12T01:00:00+01:00',
     'dossier-loader-type': 'zip-archive-xlsx',
@@ -310,7 +310,7 @@
     'status': 'failed',
   })
 # ---
-# name: test_validation_errors[import-example-validation-errors.zip-kt_bern-None-201-municipality-lead]
+# name: test_validation_errors[import-example-validation-errors.zip-be_dossier_import_settings-None-201-municipality-lead]
   dict({
     'created-at': '2021-12-12T01:00:00+01:00',
     'dossier-loader-type': 'zip-archive-xlsx',
@@ -621,7 +621,7 @@
     'status': 'failed',
   })
 # ---
-# name: test_validation_errors[import-example-validation-errors.zip-kt_schwyz-None-400-Gemeinde]
+# name: test_validation_errors[import-example-validation-errors.zip-sz_dossier_import_settings-None-400-Gemeinde]
   dict({
     'errors': list([
       dict({
@@ -635,7 +635,7 @@
     ]),
   })
 # ---
-# name: test_validation_errors[import-example-validation-errors.zip-kt_schwyz-None-400-municipality-lead]
+# name: test_validation_errors[import-example-validation-errors.zip-sz_dossier_import_settings-None-400-municipality-lead]
   dict({
     'errors': list([
       dict({
@@ -649,7 +649,7 @@
     ]),
   })
 # ---
-# name: test_validation_errors[import-example-validation-errors.zip-kt_schwyz-location-201-Gemeinde]
+# name: test_validation_errors[import-example-validation-errors.zip-sz_dossier_import_settings-location-201-Gemeinde]
   dict({
     'created-at': '2021-12-12T01:00:00+01:00',
     'dossier-loader-type': 'zip-archive-xlsx',
@@ -960,7 +960,7 @@
     'status': 'failed',
   })
 # ---
-# name: test_validation_errors[import-example-validation-errors.zip-kt_schwyz-location-201-municipality-lead]
+# name: test_validation_errors[import-example-validation-errors.zip-sz_dossier_import_settings-location-201-municipality-lead]
   dict({
     'created-at': '2021-12-12T01:00:00+01:00',
     'dossier-loader-type': 'zip-archive-xlsx',

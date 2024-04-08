@@ -109,14 +109,11 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
     """
     dossier_import = DossierImport.objects.get(pk=instance_pk)
 
-    configured_writer_cls = import_string(
-        settings.APPLICATION["DOSSIER_IMPORT"]["WRITER_CLASS"]
-    )
+    configured_writer_cls = import_string(settings.DOSSIER_IMPORT["WRITER_CLASS"])
     writer = configured_writer_cls(
         user_id=dossier_import.user.pk,
         group_id=dossier_import.group.pk,
         location_id=dossier_import.location and dossier_import.location.pk,
-        import_settings=settings.APPLICATION["DOSSIER_IMPORT"],
     )
 
     archive = zipfile.ZipFile(dossier_import.source_file.path, "r")

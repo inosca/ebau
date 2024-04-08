@@ -136,7 +136,7 @@ class KtBernDossierWriter(DossierWriter):
         spit out a reasonably generic starting point.
         """
         instance_state = InstanceState.objects.get(
-            pk=self._import_settings["INSTANCE_STATE_MAPPING"]
+            pk=settings.DOSSIER_IMPORT["INSTANCE_STATE_MAPPING"]
             .get(dossier._meta.workflow, {})
             .get(dossier._meta.target_state)
         )
@@ -146,7 +146,7 @@ class KtBernDossierWriter(DossierWriter):
             previous_instance_state=instance_state,
             user=self._user,
             group=self._group,
-            form=Form.objects.get(pk=self._import_settings["FORM_ID"]),
+            form=Form.objects.get(pk=settings.DOSSIER_IMPORT["FORM_ID"]),
         )
 
         workflow_slug = {
@@ -160,7 +160,7 @@ class KtBernDossierWriter(DossierWriter):
             camac_user=self._user,
             group=self._group,
             caluma_form=CalumaForm.objects.get(
-                pk=settings.APPLICATION["DOSSIER_IMPORT"]["CALUMA_FORM"]
+                pk=settings.DOSSIER_IMPORT["CALUMA_FORM"]
             ),
             start_caluma=True,
             workflow_slug=workflow_slug[dossier._meta.workflow],

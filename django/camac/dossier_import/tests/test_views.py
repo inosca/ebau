@@ -39,8 +39,11 @@ def test_api_get_views(
     role,
     archive_file,
     result_count,
+    application_settings,
 ):
-    settings.APPLICATION = settings.APPLICATIONS[config]
+    application_settings["ROLE_PERMISSIONS"] = settings.APPLICATIONS[config][
+        "ROLE_PERMISSIONS"
+    ]
     settings.INTERNAL_BASE_URL = host
     group = group_factory(role=role, service=service)
     dossier_import_factory(
@@ -73,19 +76,19 @@ def test_imported_instance_be_get_name(
     [
         (
             "import-example-validation-errors.zip",
-            "kt_schwyz",
+            lazy_fixture("sz_dossier_import_settings"),
             lazy_fixture("location"),
             status.HTTP_201_CREATED,
         ),
         (
             "import-example-validation-errors.zip",
-            "kt_schwyz",
+            lazy_fixture("sz_dossier_import_settings"),
             None,
             status.HTTP_400_BAD_REQUEST,
         ),
         (
             "import-example-validation-errors.zip",
-            "kt_bern",
+            lazy_fixture("be_dossier_import_settings"),
             None,
             status.HTTP_201_CREATED,
         ),
@@ -96,7 +99,6 @@ def test_validation_errors(
     admin_client,
     group,
     role,
-    settings,
     archive_file,
     snapshot,
     import_file,
@@ -105,7 +107,6 @@ def test_validation_errors(
     expected_status,
 ):
     # create an import case with an uploaded file using the REST endpoint (POST)
-    settings.APPLICATION = settings.APPLICATIONS[config]
     the_file = import_file and archive_file(import_file)
     data = {
         "source_file": (the_file and the_file.file) or "",
@@ -212,10 +213,11 @@ def test_file_validation(
     expected_status,
     expected_result,
     snapshot,
+    dossier_import_settings,
 ):
     # create an import case with an uploaded file using the REST endpoint (POST)
     mocker.patch(
-        f"{settings.APPLICATION['DOSSIER_IMPORT']['WRITER_CLASS']}.existing_dossier",
+        f"{dossier_import_settings['WRITER_CLASS']}.existing_dossier",
         lambda self, dossier_id: dossier_exists,
     )
     the_file = import_file and archive_file(import_file)
@@ -256,7 +258,7 @@ def test_file_validation(
         (
             "start",
             "test",
-            "municipality-lead",
+            "Municipality",
             DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL,
             status.HTTP_200_OK,
             DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
@@ -264,7 +266,7 @@ def test_file_validation(
         (
             "start",
             "prod",
-            "municipality-lead",
+            "Municipality",
             DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL,
             status.HTTP_404_NOT_FOUND,
             None,
@@ -272,7 +274,7 @@ def test_file_validation(
         (
             "start",
             "test",
-            "municipality-lead",
+            "Municipality",
             DossierImport.IMPORT_STATUS_VALIDATION_FAILED,
             status.HTTP_400_BAD_REQUEST,
             None,
@@ -280,7 +282,7 @@ def test_file_validation(
         (
             "confirm",
             "test",
-            "municipality-lead",
+            "Municipality",
             DossierImport.IMPORT_STATUS_IMPORTED,
             status.HTTP_204_NO_CONTENT,
             DossierImport.IMPORT_STATUS_CONFIRMED,
@@ -288,7 +290,7 @@ def test_file_validation(
         (
             "confirm",
             "test",
-            "municipality-lead",
+            "Municipality",
             DossierImport.IMPORT_STATUS_VALIDATION_SUCCESSFUL,
             status.HTTP_400_BAD_REQUEST,
             None,
@@ -296,7 +298,7 @@ def test_file_validation(
         (
             "transmit",
             "test",
-            "support",
+            "Support",
             DossierImport.IMPORT_STATUS_CONFIRMED,
             status.HTTP_200_OK,
             DossierImport.IMPORT_STATUS_TRANSMITTING,
@@ -304,7 +306,7 @@ def test_file_validation(
         (
             "transmit",
             "prod",
-            "support",
+            "Support",
             DossierImport.IMPORT_STATUS_CONFIRMED,
             status.HTTP_403_FORBIDDEN,
             None,
@@ -312,7 +314,7 @@ def test_file_validation(
         (
             "transmit",
             "test",
-            "municipality-lead",
+            "Municipality",
             DossierImport.IMPORT_STATUS_CONFIRMED,
             status.HTTP_403_FORBIDDEN,
             None,
@@ -320,7 +322,7 @@ def test_file_validation(
         (
             "transmit",
             "test",
-            "support",
+            "Support",
             DossierImport.IMPORT_STATUS_IMPORTED,
             status.HTTP_400_BAD_REQUEST,
             None,
@@ -328,7 +330,7 @@ def test_file_validation(
         (
             "undo",
             "test",
-            "support",
+            "Support",
             DossierImport.IMPORT_STATUS_IMPORTED,
             status.HTTP_200_OK,
             DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS,
@@ -336,7 +338,7 @@ def test_file_validation(
         (
             "undo",
             "test",
-            "municipality-lead",
+            "Municipality",
             DossierImport.IMPORT_STATUS_IMPORTED,
             status.HTTP_200_OK,
             DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS,
@@ -344,7 +346,7 @@ def test_file_validation(
         (
             "undo",
             "prod",
-            "support",
+            "Support",
             DossierImport.IMPORT_STATUS_IMPORTED,
             status.HTTP_200_OK,
             DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS,
@@ -352,7 +354,7 @@ def test_file_validation(
         (
             "undo",
             "prod",
-            "municipality-lead",
+            "Municipality",
             DossierImport.IMPORT_STATUS_IMPORTED,
             status.HTTP_404_NOT_FOUND,
             None,
@@ -413,15 +415,13 @@ def test_transmitting_logic(
     archive_file,
     group,
     settings,
-    application_settings,
     requests_mock,
     location_required,
+    dossier_import_settings,
 ):
-    application_settings["DOSSIER_IMPORT"]["PROD_URL"] = "http://ebau.local"
-    application_settings["DOSSIER_IMPORT"]["LOCATION_REQUIRED"] = location_required
-    application_settings["DOSSIER_IMPORT"]["PROD_AUTH_URL"] = (
-        settings.KEYCLOAK_OIDC_TOKEN_URL
-    )
+    dossier_import_settings["PROD_URL"] = "http://ebau.local"
+    dossier_import_settings["LOCATION_REQUIRED"] = location_required
+    dossier_import_settings["PROD_AUTH_URL"] = settings.KEYCLOAK_OIDC_TOKEN_URL
 
     # set a real group ID - useful for testing without the mock
     group.pk = 22507  # Administration Leitbehörde Burgdorf
@@ -462,11 +462,13 @@ def test_transmitting_logic(
     transmit_import(dossier_import)
 
 
-def test_failing_transmission(db, application_settings, requests_mock, dossier_import):
+def test_failing_transmission(
+    db, requests_mock, dossier_import, dossier_import_settings
+):
     PROD_URL = "http://this-could-be-your-production-url.example.com"
     PROD_AUTH_URL = PROD_URL + "/auth/token"
-    application_settings["DOSSIER_IMPORT"]["PROD_URL"] = PROD_URL
-    application_settings["DOSSIER_IMPORT"]["PROD_AUTH_URL"] = PROD_AUTH_URL
+    dossier_import_settings["PROD_URL"] = PROD_URL
+    dossier_import_settings["PROD_AUTH_URL"] = PROD_AUTH_URL
     requests_mock.register_uri("POST", PROD_AUTH_URL, status_code=401)
     requests_mock.register_uri(
         "POST", PROD_URL + "/api/v1/dossier-imports", status_code=401
