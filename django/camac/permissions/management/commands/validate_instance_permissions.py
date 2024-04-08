@@ -25,6 +25,7 @@ class Command(BaseCommand):
 
     ROLE_TO_ACCESSLEVEL = {
         "Einsichtsberechtigte Leitbehörde": "lead-authority-read",
+        "construction-control-lead": "construction-control",
         "municipality-lead": "lead-authority",
         "service-lead": "distribution-service",
         "subservice": "distribution-service",
