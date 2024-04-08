@@ -1,9 +1,31 @@
 from django.db.models import Q
 from django.utils import timezone
-from django_filters.rest_framework import BooleanFilter, CharFilter, FilterSet
+from django_filters.rest_framework import (
+    BooleanFilter,
+    CharFilter,
+    FilterSet,
+    NumberFilter,
+)
 from rest_framework.exceptions import ValidationError
 
-from . import models
+from . import api, models
+
+
+class AccessLevelFilterset(FilterSet):
+    assignable_in_instance = NumberFilter(method="filter_assignable_in_instance")
+
+    def filter_assignable_in_instance(self, qs, name, value):
+        manager = api.PermissionManager.from_request(self.request)
+        permissions = manager.get_permissions(value)
+        if "permissions-grant-any" in permissions:
+            return qs
+        assignable = [
+            perm.replace("permissions-grant-", "")
+            for perm in permissions
+            if perm.startswith("permissions-grant-")
+        ]
+
+        return qs.filter(pk__in=assignable)
 
 
 class InstanceACLFilterSet(FilterSet):

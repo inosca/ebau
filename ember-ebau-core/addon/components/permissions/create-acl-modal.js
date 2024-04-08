@@ -26,8 +26,9 @@ export default class CreateAclModalComponent extends Component {
   }
 
   get availableAccessLevels() {
-    // TODO: restrict to manually configurable access-levels
-    return this.store.findAll("access-level");
+    return this.store.query("access-level", {
+      assignable_in_instance: this.args.instanceId,
+    });
   }
 
   @restartableTask

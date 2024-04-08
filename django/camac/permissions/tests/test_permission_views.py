@@ -1,8 +1,10 @@
 import pytest
 from django.urls import reverse
+from rest_framework import status
 
 from camac.permissions import api
-from camac.permissions.conditions import Callback, RequireInstanceState
+from camac.permissions.conditions import Always, Callback, RequireInstanceState
+from camac.permissions.models import AccessLevel
 from camac.permissions.switcher import (
     get_permission_mode,
     is_permission_mode_fully_enabled,
@@ -143,3 +145,66 @@ def test_no_include_instance(
                 "fully-enabled": is_permission_mode_fully_enabled(),
             },
         }
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "do_filter,grant,expect_results",
+    [
+        (True, "geometer", 1),
+        (True, None, 0),
+        (False, None, "ALL"),
+        (False, "geometer", "ALL"),
+        (True, "any", "ALL"),
+        (False, "any", "ALL"),
+    ],
+)
+def test_assignable_filter(
+    db,
+    be_instance,
+    admin_client,
+    instance_acl_factory,
+    be_permissions_settings,
+    be_access_levels,
+    # params
+    do_filter,
+    grant,
+    expect_results,
+):
+    """
+    Test the asssignable_in_instance filter on the access levels.
+
+    The filter is supposed to only return the access levels that the current
+    user can assign to someone on the given instance.
+    """
+    if expect_results == "ALL":
+        expect_results = AccessLevel.objects.all().count()
+
+    # Drop any configured "grant" permisisons, so we can test the exact
+    # behaviour
+    be_permissions_settings["ACCESS_LEVELS"]["lead-authority"] = [
+        (p, c)
+        for p, c in be_permissions_settings["ACCESS_LEVELS"]["lead-authority"]
+        if not p.startswith("permissions-grant-")
+    ]
+    if grant:
+        # Allow granting of some access levels
+        be_permissions_settings["ACCESS_LEVELS"]["lead-authority"].append(
+            (f"permissions-grant-{grant}", Always())
+        )
+
+    instance_acl_factory(
+        instance=be_instance,
+        service=admin_client.user.get_default_group().service,
+        access_level=AccessLevel.objects.get(pk="lead-authority"),
+    )
+
+    url = reverse("access-levels-list")
+
+    filter_param = {"assignable_in_instance": str(be_instance.pk)}
+
+    resp = admin_client.get(url, filter_param if do_filter else {})
+    assert resp.status_code == status.HTTP_200_OK
+
+    resp_data = resp.json()
+    assert len(resp_data["data"]) == expect_results
