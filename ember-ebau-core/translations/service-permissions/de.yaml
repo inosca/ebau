@@ -4,6 +4,7 @@ service-permissions:
   created-at: "Erstellungsdatum"
   created-by: "Erstellt von"
   email: "E-Mail"
+  email-hint: "Es können mehrere E-Mail-Adressen (mit Komma getrennt) angegeben werden."
   group: "Gruppe"
   name: "Name"
   name-hint: |-
