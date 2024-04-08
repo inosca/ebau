@@ -1636,12 +1636,6 @@ APPLICATIONS = {
                     "recipient_types": ["gvg"],
                 },
             ],
-            "DOSSIERKORREKTUR": [
-                {
-                    "template_slug": "dossierkorrektur",
-                    "recipient_types": ["applicant"],
-                },
-            ],
             "NON_BUILDING_PERMIT_DECISION": [
                 {
                     "template_slug": "beurteilung-gesuchsteller",

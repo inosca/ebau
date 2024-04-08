@@ -147,7 +147,7 @@
     "model": "notification.notificationtemplate",
     "pk": 13,
     "fields": {
-      "slug": "dossierkorrektur",
+      "slug": "beurteilung-gesuchsteller",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -159,7 +159,7 @@
     "model": "notification.notificationtemplate",
     "pk": 14,
     "fields": {
-      "slug": "beurteilung-gesuchsteller",
+      "slug": "beurteilung-behoerden",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -171,7 +171,7 @@
     "model": "notification.notificationtemplate",
     "pk": 15,
     "fields": {
-      "slug": "beurteilung-behoerden",
+      "slug": "bauabnahme",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -183,7 +183,7 @@
     "model": "notification.notificationtemplate",
     "pk": 16,
     "fields": {
-      "slug": "bauabnahme",
+      "slug": "rueckweisung",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -195,7 +195,7 @@
     "model": "notification.notificationtemplate",
     "pk": 17,
     "fields": {
-      "slug": "rueckweisung",
+      "slug": "verfahrensablauf-uso",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -207,7 +207,7 @@
     "model": "notification.notificationtemplate",
     "pk": 18,
     "fields": {
-      "slug": "verfahrensablauf-uso",
+      "slug": "communications-new-message",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -219,7 +219,7 @@
     "model": "notification.notificationtemplate",
     "pk": 19,
     "fields": {
-      "slug": "communications-new-message",
+      "slug": "communications-new-message-internal",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -231,18 +231,6 @@
     "model": "notification.notificationtemplate",
     "pk": 20,
     "fields": {
-      "slug": "communications-new-message-internal",
-      "purpose": null,
-      "subject": null,
-      "body": null,
-      "service": null,
-      "type": "email"
-    }
-  },
-  {
-    "model": "notification.notificationtemplate",
-    "pk": 21,
-    "fields": {
       "slug": "inquiry-reminder",
       "purpose": null,
       "subject": null,
@@ -253,7 +241,7 @@
   },
   {
     "model": "notification.notificationtemplate",
-    "pk": 22,
+    "pk": 21,
     "fields": {
       "slug": "bauabnahme-gesuchsteller",
       "purpose": null,
@@ -412,18 +400,6 @@
     "pk": 13,
     "fields": {
       "template": 13,
-      "template_slug": "dossierkorrektur",
-      "language": "de",
-      "purpose": "Dossierkorrektur (Gesuchsteller)",
-      "subject": "Dossierkorrektur (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\r\n\r\nZu dem von Ihnen eingereichten Dossier mit der Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurden von der Leitbehörde Korrekturen erfasst. Sie können das korrigierte Dossier unter folgendem Link einsehen:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}"
-    }
-  },
-  {
-    "model": "notification.notificationtemplatet",
-    "pk": 14,
-    "fields": {
-      "template": 14,
       "template_slug": "beurteilung-gesuchsteller",
       "language": "de",
       "purpose": "Beurteilung Vorabklärung, Bauanzeige, Solaranlage (Gesuchsteller)",
@@ -433,9 +409,9 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 15,
+    "pk": 14,
     "fields": {
-      "template": 15,
+      "template": 14,
       "template_slug": "beurteilung-behoerden",
       "language": "de",
       "purpose": "Beurteilung Vorabklärung, Bauanzeige, Solaranlage (Behörden)",
@@ -445,9 +421,9 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 16,
+    "pk": 15,
     "fields": {
-      "template": 16,
+      "template": 15,
       "template_slug": "bauabnahme",
       "language": "de",
       "purpose": "Bauabnahme (GVG, AEV, Geometer)",
@@ -457,9 +433,9 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 17,
+    "pk": 16,
     "fields": {
-      "template": 17,
+      "template": 16,
       "template_slug": "rueckweisung",
       "language": "de",
       "purpose": "Rückweisung (Gesuchsteller)",
@@ -469,9 +445,9 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 18,
+    "pk": 17,
     "fields": {
-      "template": 18,
+      "template": 17,
       "template_slug": "verfahrensablauf-uso",
       "language": "de",
       "purpose": "Verfahrensablauf (USO)",
@@ -481,9 +457,9 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 19,
+    "pk": 18,
     "fields": {
-      "template": 19,
+      "template": 18,
       "template_slug": "communications-new-message",
       "language": "de",
       "purpose": "Neue Nachricht (Gesuchsteller)",
@@ -493,9 +469,9 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 20,
+    "pk": 19,
     "fields": {
-      "template": 20,
+      "template": 19,
       "template_slug": "communications-new-message-internal",
       "language": "de",
       "purpose": "Neue Nachricht (Behörden)",
@@ -505,9 +481,9 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 21,
+    "pk": 20,
     "fields": {
-      "template": 21,
+      "template": 20,
       "template_slug": "inquiry-reminder",
       "language": "de",
       "purpose": "Meldung Fristüberschreitung (Fachstelle)",
@@ -517,9 +493,9 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 22,
+    "pk": 21,
     "fields": {
-      "template": 22,
+      "template": 21,
       "template_slug": "bauabnahme-gesuchsteller",
       "language": "de",
       "purpose": "Bauabnahme (Gesuchsteller)",
