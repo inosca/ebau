@@ -1655,6 +1655,9 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         case = self.instance.case
         group = self.context["request"].group
 
+        # This needs to happen before generating the identifier since the identifier might depend on the instance location
+        self._set_location_for_municipality(case, instance)
+
         # generating the identifier happens in it's own transaction to make
         # collisions less likely.
         try:
@@ -1672,7 +1675,6 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
             self._be_handle_internal_workflow(case, instance)
             self._handle_extend_validity_form(case, instance)
-            self._set_location_for_municipality(case, instance)
             self._ur_internal_submission(instance, group)
             self._ur_prepare_cantonal_instances(instance)
 
