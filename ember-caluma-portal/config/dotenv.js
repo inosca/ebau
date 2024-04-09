@@ -13,6 +13,8 @@ module.exports = function () {
       "EGOV_PORTAL_URL",
       "EGOV_PRESTATION_PATH",
       "ENABLE_TOKEN_EXCHANGE",
+      "ENABLE_WATERMARK",
+      "WATERMARK",
     ],
     path: path.join(path.dirname(__dirname), "../.env"),
   };

@@ -38,6 +38,8 @@ module.exports = {
         // environment-specific settings
         portalUrl: process.env.PORTAL_URL || "http://ebau-portal.local",
         soGisUrl: process.env.SO_GIS_URL || "https://geo-i.so.ch",
+        enableWatermark: process.env.ENABLE_WATERMARK ?? false,
+        watermark: process.env.WATERMARK ?? "dev",
         // feature flags
         hasBuildingControl: ENV === "be",
         // token exchange (this is not a regular feature flag because it differs

@@ -1,4 +1,4 @@
-import { getOwnConfig } from "@embroider/macros";
+import { getOwnConfig, isDevelopingApp } from "@embroider/macros";
 
 export default {
   publication: {
@@ -41,7 +41,7 @@ export default {
   login: {
     tokenExchange: getOwnConfig().enableTokenExchange,
   },
-  watermark: true,
+  watermark: isDevelopingApp() || getOwnConfig().enableWatermark,
   municipalityLogo: true,
   communications: true,
 };

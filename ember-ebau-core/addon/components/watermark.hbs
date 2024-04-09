@@ -3,6 +3,6 @@
     class="watermark {{unless this.isPortal 'watermark--internal'}}"
     ...attributes
   >
-    <div class="watermark__badge">{{this.watermark}}</div>
+    {{macroGetOwnConfig "watermark"}}
   </div>
 {{/if}}
