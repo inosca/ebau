@@ -38,9 +38,7 @@ export default class BeGisComponent extends Component {
   @queryManager apollo;
 
   @tracked parcels = [];
-  @tracked gisData = [];
   @tracked showInstructions = false;
-  @tracked showConfirmation = false;
 
   get isBuildingPermitForm() {
     return /^(baugesuch|vorabklaerung-vollstaendig)/.test(
@@ -308,22 +306,6 @@ export default class BeGisComponent extends Component {
   @action
   removeMessageListener() {
     window.removeEventListener("message", (e) => this.receiveMessage(e));
-  }
-
-  @dropTask
-  *saveAdditionalData() {
-    yield Promise.all(
-      this.gisData
-        .filter(({ value }) => !isEmpty(value))
-        .map(async ({ field, value }) => {
-          field.answer.value = value;
-
-          await field.validate.perform();
-          await field.save.perform();
-        }),
-    );
-
-    this.showConfirmation = false;
   }
 
   @action
