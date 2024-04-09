@@ -1335,6 +1335,180 @@
   },
   {
     "model": "alexandria_core.category",
+    "pk": "intern-mit-unterfachstellen",
+    "fields": {
+      "created_at": "2023-11-13T00:00:00Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-11-28T08:52:55.133Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "are": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "marks",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "permission": "delete"
+              }
+            ]
+          },
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "subservice": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "permission": "delete"
+              }
+            ]
+          },
+          "service-lead": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Intern (mit Unterfachstellen)\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\"]",
+      "color": "#024A91",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
     "pk": "nachforderung",
     "fields": {
       "created_at": "2020-08-04T13:24:00.690Z",
