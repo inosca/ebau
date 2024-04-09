@@ -344,24 +344,6 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "decision-task-form",
-    "fields": {
-      "created_at": "2023-12-05T12:48:21.400Z",
-      "modified_at": "2023-12-05T12:48:21.400Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Entscheid / Beurteilung\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "meta": {},
-      "is_published": false,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
     "pk": "dokumente",
     "fields": {
       "created_at": "2021-04-08T06:53:17.185Z",
@@ -563,10 +545,10 @@
     "pk": "gebaeude-tabelle",
     "fields": {
       "created_at": "2020-10-19T12:40:29.693Z",
-      "modified_at": "2020-10-19T12:40:29.693Z",
+      "modified_at": "2024-02-13T14:27:04.475Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "name": "{\"de\": \"Geb\\u00e4ude Tabelle\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -1151,10 +1133,10 @@
     "pk": "ordentliches-bewilligungsverfahren",
     "fields": {
       "created_at": "2021-11-26T12:05:05.166Z",
-      "modified_at": "2023-12-05T10:45:19.088Z",
+      "modified_at": "2021-12-01T13:24:01.648Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "name": "{\"de\": \"Bewilligungsverfahren\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"Bewilligungsverfahren - Dossiereingang bis Bauentscheid\", \"fr\": null, \"it\": null}",
@@ -1400,10 +1382,10 @@
     "pk": "rechtsmittelverfahren",
     "fields": {
       "created_at": "2021-11-26T12:22:18.475Z",
-      "modified_at": "2023-12-05T10:45:48.549Z",
+      "modified_at": "2021-11-28T16:23:45.182Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "name": "{\"de\": \"Publikation / Rechtsmittelverfahren\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"Einsprache bei Bauplanauflage bis Entscheid Bundesgericht\", \"fr\": null, \"it\": null}",
@@ -4644,81 +4626,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "decision-task-form.baubegleitungsprozess",
-    "fields": {
-      "created_at": "2024-03-06T07:24:45.321Z",
-      "modified_at": "2024-03-06T07:24:45.321Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "decision-task-form",
-      "question": "baubegleitungsprozess",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "decision-task-form.decision-task-entscheid-beurteilung",
-    "fields": {
-      "created_at": "2023-12-05T12:49:36.840Z",
-      "modified_at": "2023-12-05T12:49:36.840Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "decision-task-form",
-      "question": "decision-task-entscheid-beurteilung",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "decision-task-form.decision-task-feedback-type",
-    "fields": {
-      "created_at": "2024-03-06T07:22:48.745Z",
-      "modified_at": "2024-03-06T07:22:48.745Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "decision-task-form",
-      "question": "decision-task-feedback-type",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "decision-task-form.decision-task-gebaudeschaetzung",
-    "fields": {
-      "created_at": "2024-03-06T07:24:11.542Z",
-      "modified_at": "2024-03-06T07:24:11.542Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "decision-task-form",
-      "question": "decision-task-gebaudeschaetzung",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "decision-task-form.decision-task-nachfuehrungsgeometer",
-    "fields": {
-      "created_at": "2023-12-05T12:50:25.805Z",
-      "modified_at": "2023-12-05T12:50:25.805Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "decision-task-form",
-      "question": "decision-task-nachfuehrungsgeometer",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "dokumente.bemerkungen-dokumente",
     "fields": {
       "created_at": "2021-04-30T13:22:11.445Z",
@@ -5994,6 +5901,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.angabe-gesamtleistung-zev",
+    "fields": {
+      "created_at": "2024-02-13T14:09:58.069Z",
+      "modified_at": "2024-02-13T14:09:58.069Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "angabe-gesamtleistung-zev",
+      "sort": 29
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "gebaeude-tabelle.angabe-material-und-durchmesser",
     "fields": {
       "created_at": "2023-08-02T06:41:28.880Z",
@@ -6005,6 +5927,21 @@
       "form": "gebaeude-tabelle",
       "question": "angabe-material-und-durchmesser",
       "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.anrechenbare-gebaeudeflaeche",
+    "fields": {
+      "created_at": "2024-02-13T12:35:44.371Z",
+      "modified_at": "2024-02-13T12:35:44.371Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "anrechenbare-gebaeudeflaeche",
+      "sort": 33
     }
   },
   {
@@ -6049,7 +5986,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "art-der-hochbaute",
-      "sort": 38
+      "sort": 43
     }
   },
   {
@@ -6064,7 +6001,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "art-der-montage",
-      "sort": 36
+      "sort": 41
     }
   },
   {
@@ -6079,7 +6016,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "art-der-reklamebaute",
-      "sort": 37
+      "sort": 42
     }
   },
   {
@@ -6199,7 +6136,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "egid",
-      "sort": 39
+      "sort": 44
     }
   },
   {
@@ -6215,6 +6152,21 @@
       "form": "gebaeude-tabelle",
       "question": "energieversorgung",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.erforderliche-gesamtleistung",
+    "fields": {
+      "created_at": "2024-02-14T09:57:16.375Z",
+      "modified_at": "2024-02-14T09:57:16.375Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "erforderliche-gesamtleistung",
+      "sort": 31
     }
   },
   {
@@ -6364,7 +6316,22 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "gebaeudenummer-bezeichnung",
-      "sort": 40
+      "sort": 45
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.gesetzliche-anforderung",
+    "fields": {
+      "created_at": "2024-02-13T12:57:07.100Z",
+      "modified_at": "2024-02-13T12:57:07.100Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "gesetzliche-anforderung",
+      "sort": 30
     }
   },
   {
@@ -6379,7 +6346,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "gleiche-reklamen",
-      "sort": 33
+      "sort": 38
     }
   },
   {
@@ -6394,7 +6361,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "groesse-der-reklame-cm",
-      "sort": 34
+      "sort": 39
     }
   },
   {
@@ -6409,7 +6376,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "hinweis-erfassung-solaranlage",
-      "sort": 29
+      "sort": 34
     }
   },
   {
@@ -6439,7 +6406,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "proposal",
-      "sort": 32
+      "sort": 37
     }
   },
   {
@@ -6454,7 +6421,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "reklamebeleuchtung",
-      "sort": 35
+      "sort": 40
     }
   },
   {
@@ -6469,7 +6436,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "solaranlagenpflicht",
-      "sort": 31
+      "sort": 36
     }
   },
   {
@@ -6484,7 +6451,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "solarpflicht",
-      "sort": 30
+      "sort": 35
     }
   },
   {
@@ -8404,21 +8371,6 @@
       "modified_by_group": null,
       "form": "info-proposal-declaration",
       "question": "allgemeine-informationen-meldung-vorhaben",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "info-proposal-declaration.test-work-item",
-    "fields": {
-      "created_at": "2023-12-01T15:59:50.668Z",
-      "modified_at": "2023-12-01T15:59:50.668Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "info-proposal-declaration",
-      "question": "test-work-item",
       "sort": 1
     }
   },
@@ -16538,6 +16490,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "anrechenbare-grundflaeche-kleiner300",
+    "fields": {
+      "created_at": "2024-02-07T13:59:56.535Z",
+      "modified_at": "2024-02-07T13:59:56.535Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Grundfl\\u00e4che des Geb\\u00e4udes ist kleiner als 300 m2\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "anschluss-bestehend",
     "fields": {
       "created_at": "2020-09-21T06:59:05.302Z",
@@ -16653,13 +16621,13 @@
     "pk": "antrag-ausnahme-solarpflicht-zev",
     "fields": {
       "created_at": "2023-01-13T08:42:48.431Z",
-      "modified_at": "2023-01-13T08:42:48.431Z",
+      "modified_at": "2024-02-13T13:07:05.813Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Beteiligung an einem Zusammenschluss zum Eigenverbrauch ZEV gem\\u00e4ss Energiegesetz Bund\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -18771,38 +18739,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "baubegleitungsprozess-ja",
-    "fields": {
-      "created_at": "2024-03-06T07:24:45.237Z",
-      "modified_at": "2024-03-06T07:24:45.237Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Baubegleitungsprozess erforderlich\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "baubegleitungsprozess-nein",
-    "fields": {
-      "created_at": "2024-03-06T07:24:45.235Z",
-      "modified_at": "2024-03-06T07:24:45.235Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Kein Baubegleitungsprozess\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -22698,6 +22634,70 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "gesetzliche-anforderung-ausnahme",
+    "fields": {
+      "created_at": "2024-02-14T07:25:13.258Z",
+      "modified_at": "2024-02-14T07:25:13.259Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Es wird eine Ausnahme geltend gemacht\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gesetzliche-anforderung-photovoltaikanlage",
+    "fields": {
+      "created_at": "2024-02-13T12:57:06.900Z",
+      "modified_at": "2024-02-13T12:57:06.900Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Photovoltaikanlage\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gesetzliche-anforderung-thermische-solaranlage",
+    "fields": {
+      "created_at": "2024-02-13T12:57:06.889Z",
+      "modified_at": "2024-02-13T12:57:06.889Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"thermische Solaranlage\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gesetzliche-anforderung-zusammenschluss-zum-eigenverbrauch-zev",
+    "fields": {
+      "created_at": "2024-02-13T12:57:06.949Z",
+      "modified_at": "2024-02-13T12:57:06.949Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zusammenschluss zum Eigenverbrauch ZEV\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "gibt-es-oertliche-absaugungen-ja",
     "fields": {
       "created_at": "2020-10-26T09:52:34.469Z",
@@ -24275,38 +24275,6 @@
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "ist-das-vorhaben-bewilligungspflichtig-ja",
-    "fields": {
-      "created_at": "2023-12-05T12:42:01.739Z",
-      "modified_at": "2023-12-05T12:42:01.739Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "ist-das-vorhaben-bewilligungspflichtig-nein",
-    "fields": {
-      "created_at": "2023-12-05T12:42:01.737Z",
-      "modified_at": "2023-12-05T12:42:01.737Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -32506,6 +32474,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "wird-eine-ausnahme-geltend-gemacht-ja",
+    "fields": {
+      "created_at": "2024-02-13T13:01:25.586Z",
+      "modified_at": "2024-02-13T13:01:25.586Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wird-eine-ausnahme-geltend-gemacht-nein",
+    "fields": {
+      "created_at": "2024-02-13T13:01:25.620Z",
+      "modified_at": "2024-02-13T13:01:25.620Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "wuenschen-sie-zum-thema-artenschutz-bei-neubauten-eine-beratung-ja",
     "fields": {
       "created_at": "2020-11-24T11:15:17.128Z",
@@ -33279,37 +33279,6 @@
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "additional-demand-files",
-    "fields": {
-      "created_at": "2023-10-05T15:13:40.643Z",
-      "modified_at": "2024-01-23T09:20:36.239Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Dateien\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \".\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -34445,6 +34414,74 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "angabe-gesamtleistung",
+    "fields": {
+      "created_at": "2024-02-13T14:04:19.574Z",
+      "modified_at": "2024-02-13T14:08:26.048Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Angaben zur Gesamtleistung der geplanten Anlagen bzw. zur ZEV\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "angabe-gesamtleistung-zev",
+    "fields": {
+      "created_at": "2024-02-13T14:09:58.006Z",
+      "modified_at": "2024-02-28T10:29:59.424Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Angabe zur Gesamtleistung der geplanten Anlage bzw. zur ZEV\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "\"solarpflicht-ja\" != \"solarpflicht\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Bitte hier die geplante Gesamtleistung der Anlage eintragen (in kWp f\\u00fcr Phtovoltaikanlagen und in kWth f\\u00fcr thermische Anlagen). Bei ZEV bitten wir Sie die Gesamtleistung und den Standort dieser Anlage anzugeben.\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "angabe-material-und-durchmesser",
     "fields": {
       "created_at": "2023-08-02T06:41:28.719Z",
@@ -34949,6 +34986,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "anrechenbare-gebaeudeflaeche",
+    "fields": {
+      "created_at": "2024-02-13T12:35:44.247Z",
+      "modified_at": "2024-02-28T10:33:48.546Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wie gross ist die anrechenbare Geb\\u00e4udefl\\u00e4che in m2?\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "\"solarpflicht-ja\" != \"solarpflicht\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"###Anrechenbare Geb\\u00e4udefl\\u00e4che\\nAls anrechenbare Geb\\u00e4udefl\\u00e4che gilt die Fl\\u00e4che innerhalb der projizierten Fassadenlinie. Dazu z\\u00e4hlen die Fl\\u00e4chen von Geb\\u00e4uden, Kleinbauten, Anbauten sowie die Fl\\u00e4chen der Teile von Unterniveaubauten, die das massgebende Terain \\u00fcberragen und \\u00fcberdeckt sind. Kleine Anbauten die h\\u00f6chstens 60 cm \\u00fcber die Fassadenlinie vorspringen, m\\u00fcssen nicht angerechnet werden. Ebenso unterirdische Bauten, sofern diese unter gewachsenem Terrain erstellt werden. Bauten die nur teilweise unter bestehenden Terrain liegen und \\u00fcberdeckt sind, z\\u00e4hlen zur anrechenbaren Geb\\u00e4udefl\\u00e4che.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[\"erforderliche-gesamtleistung\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "anschluesse",
     "fields": {
       "created_at": "2023-08-02T06:34:51.651Z",
@@ -35045,15 +35116,15 @@
     "pk": "antrag-ausnahme-solarpflicht",
     "fields": {
       "created_at": "2022-12-20T14:39:22.670Z",
-      "modified_at": "2023-01-13T08:42:48.646Z",
+      "modified_at": "2024-02-14T09:39:00.513Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
-      "label": "{\"de\": \"Die Solaranlage wird aus folgendem Grund nicht realisiert:\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Die Anlage kann aus folgenden Gr\\u00fcnden nicht realisiert werden:\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "!(\n  \"solarpflicht-ja\" ==\"solarpflicht\"|answer\n)",
+      "is_required": "true",
+      "is_hidden": "!(\n  \"gesetzliche-anforderung-ausnahme\" in \"gesetzliche-anforderung\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -35512,10 +35583,10 @@
     "pk": "applicant",
     "fields": {
       "created_at": "2020-08-27T15:39:37.223Z",
-      "modified_at": "2021-04-27T09:24:53.589Z",
+      "modified_at": "2024-02-06T13:06:07.024Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Gesuchsteller/in\", \"fr\": null, \"it\": null}",
       "type": "table",
@@ -35524,11 +35595,16 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
-        "columnsToDisplay": ["last-name", "e-mail", "phone", "first-name"]
+        "columnsToDisplay": [
+          "last-name",
+          "e-mail",
+          "first-name",
+          "juristic-person-name"
+        ]
       },
       "data_source": null,
       "row_form": "personal-data-table",
@@ -37178,37 +37254,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "baubegleitungsprozess",
-    "fields": {
-      "created_at": "2024-03-06T07:24:45.274Z",
-      "modified_at": "2024-03-06T07:24:45.274Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Baubegleitungsprozess\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "baubewilligung",
     "fields": {
       "created_at": "2020-11-09T11:44:38.161Z",
@@ -37243,10 +37288,10 @@
     "pk": "baubewilligung-gueltig-bis",
     "fields": {
       "created_at": "2021-11-28T16:18:50.337Z",
-      "modified_at": "2023-12-05T10:45:02.068Z",
+      "modified_at": "2021-11-28T16:18:50.337Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Baubewilligung g\\u00fcltig bis\", \"fr\": null, \"it\": null}",
       "type": "date",
@@ -37254,14 +37299,11 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {
-        "task": "todo-gueltig-bis",
-        "widgetOverride": "milestones"
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -37497,10 +37539,10 @@
     "pk": "bau-und-einspracheentscheid",
     "fields": {
       "created_at": "2021-11-28T16:17:42.411Z",
-      "modified_at": "2023-12-05T10:44:02.396Z",
+      "modified_at": "2021-11-28T16:17:42.411Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Bau- und Einspracheentscheid\", \"fr\": null, \"it\": null}",
       "type": "date",
@@ -37508,14 +37550,11 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {
-        "task": "todo-abschluss-entscheid-verfuegen",
-        "widgetOverride": "milestones"
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -37986,19 +38025,19 @@
     "pk": "begruendung-ausname-solarpflicht",
     "fields": {
       "created_at": "2022-12-20T14:40:20.249Z",
-      "modified_at": "2022-12-21T12:52:19.922Z",
+      "modified_at": "2024-02-14T09:39:29.184Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Begr\\u00fcndung\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "true",
-      "is_hidden": "!(\n  \"solarpflicht-ja\" ==\"solarpflicht\"|answer\n)",
+      "is_hidden": "!(\n  \"gesetzliche-anforderung-ausnahme\" in \"gesetzliche-anforderung\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"###Ausnahmen\\n####Entgegenstehende, \\u00f6ffentlich-rechtliche Vorschriften\\nWenn die Installation einer Solaranlage anderen \\u00f6ffentlich-rechtlichen Vorschriften  widerspricht (z.B. wenn ein nationales Kulturobjekt betroffen ist und die Installation einer Photovoltaikanlage nach Abkl\\u00e4rung mit der Denkmalpflege nicht m\\u00f6glich ist), geben Sie an um welche Vorschrift es sich handelt und beschreiben Sie den Widerspruch bitte ausf\\u00fchrlich.\\n\\n####Technische Marbarkeit\\nWenn eine Photovoltaikanlage technisch nicht machbar ist, ist dies ausf\\u00fchrlich zu begr\\u00fcnden. Allein die Aussage dass z.B. nicht gen\\u00fcgend Dachfl\\u00e4chen verf\\u00fcgbar sind (das kann bei Terrassenbauten oder MFH mit Attikawohnungen der Fall sein) gen\\u00fcgt nicht. So sind z.B. auch Installationen an Terrassenbr\\u00fcstungen,  Fassaden und vorgelagerten oder freistehenden Kleinbauten (z.B. Garagen) zu pr\\u00fcfen.\\n\\n####Wirtschaftlichkeit\\nEine Ausnahmebewilligung aufgrund der Wirtschaftlichkeit einer Anlage setzt voraus, dass dies im Rahmen einer detaillierten Berechnung belegt wird (siehe Beispiel).\\n\\n####Berechnungsbeispiel Wirtschaftlichkeit:\\nBei einer Dachfl\\u00e4che von 300 m2 ist in der Regel eine Modulfl\\u00e4che von 60 m2 gefordert. Bei angenommenen 5 m2 pro kW ergibt dies eine Leistung von ungef\\u00e4hr 12 kW. Annahme / Durchschnitt: Der Energieertrag einer PV Anlage mit horizontal installierten PV Modulen im Schweizer Mittelland betr\\u00e4gt rund 180 kWh. Pro Jahr liefert eine PV Anlage pro kW installierte Leistung einen Ertrag von 900 kWh/Jahr.\\n\\nBei 12 kW installierten Leistung resultiert somit ein j\\u00e4hrlicher Ertrag von 10'800 kWh/Jahr.\\n\\nBei einem Kapitalzinssatz von 1.75 % und bei einer Nettoinvestitionssumme von Fr. 30'270.-- rechnen sich die Eigenkapitalkosten pro Jahr auf Fr. 1'511.- (Amortisation und Zins). Falls Sie MwSt.- pflichtig sind, ist dies in der Berechnung zu ber\\u00fccksichtigen. Die Betriebskosten (ca. 2.5 Rp/kWh) von Fr. 270.-- werden von den Einnahmen abgezogen. Der Nettoertrag der Anlage betr\\u00e4gt Fr. 163.- pro Jahr. \\n\\n60 % Einspeisung = 6'480 kWh x 0.10 Rp / kWh  = Fr. 648.00, 40 % Eigenverbrauch = 4'320 kWh x 0.30 Rp / kWh\\t= Fr. 1'296.00, j\\u00e4hrliche Eigenkapitalkosten = Fr. 1'511.00, j\\u00e4hrliche Betriebskosten = Fr. 270.00, j\\u00e4hrlicher Nettoertrag = Fr.\\t163.00\\n\\nIn diesem Beispiel ist die Anlage wirtschaftlich.\\nDer Nettoertrag ist positiv, die Anlage muss demnach erstellt werden.\\n\\nQuelle Berechnungsbeispiel:\\nMerkblatt des Kantons Aargau - Energie, Pflicht zur Nutzung der Sonnenenergie vom Dezember 2023\\n\\n####Ersatzbeitrag bei Ausnahmebewilligungen\\nWenn eine Ausnahmebewilligung gew\\u00e4hrt wird, ist die Pflicht zur Nutzung der Sonenenergie gem\\u00e4ss Artikel 29a des Energiereglements (EnR 40.7215) mit einem Ersatzbeitrag abzugelten. F\\u00fcr jedes fehlende kW Anlageleistung ist eine Ersatzabgabe von Fr. 2'500.-- zu entrichten.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Bitte beachten Sie die Ausf\\u00fchrungen im Info\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -40033,10 +40072,10 @@
     "pk": "beschreibung-tiefbaute-landschaft",
     "fields": {
       "created_at": "2021-05-18T11:49:24.839Z",
-      "modified_at": "2021-05-18T11:50:19.554Z",
+      "modified_at": "2024-03-13T13:48:37.722Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
       "type": "textarea",
@@ -40045,7 +40084,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -42398,10 +42437,10 @@
     "pk": "dossiereningang-online",
     "fields": {
       "created_at": "2021-11-26T12:07:36.882Z",
-      "modified_at": "2023-12-05T10:41:54.650Z",
+      "modified_at": "2021-11-26T12:07:36.882Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Dossiereningang (online)\", \"fr\": null, \"it\": null}",
       "type": "date",
@@ -42409,14 +42448,11 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {
-        "milestone": "instance-submitted",
-        "widgetOverride": "milestone-values"
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -42432,10 +42468,10 @@
     "pk": "dossier-erfasst-gbb",
     "fields": {
       "created_at": "2021-11-26T12:18:46.897Z",
-      "modified_at": "2023-12-04T13:03:40.504Z",
+      "modified_at": "2021-11-26T12:18:46.897Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Dossier erfasst durch Gemeindebaubeh\\u00f6rde\", \"fr\": null, \"it\": null}",
       "type": "date",
@@ -42443,14 +42479,11 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {
-        "milestone": "paper-submission",
-        "widgetOverride": "milestone-values"
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -42565,10 +42598,10 @@
     "pk": "dossier-vollstaendig",
     "fields": {
       "created_at": "2021-11-26T12:19:47.424Z",
-      "modified_at": "2023-12-05T10:42:32.413Z",
+      "modified_at": "2021-11-26T12:19:47.424Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Dossier vollst\\u00e4ndig\", \"fr\": null, \"it\": null}",
       "type": "date",
@@ -42576,14 +42609,11 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {
-        "milestone": "click-button-dossier-annehmen",
-        "widgetOverride": "milestone-values"
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -42987,10 +43017,10 @@
     "pk": "einsprachefrist",
     "fields": {
       "created_at": "2021-11-28T16:24:39.318Z",
-      "modified_at": "2023-12-05T10:45:42.922Z",
+      "modified_at": "2021-11-28T16:24:39.318Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Einsprachefrist\", \"fr\": null, \"it\": null}",
       "type": "date",
@@ -42998,14 +43028,11 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {
-        "task": "todo-einsprachefrist",
-        "widgetOverride": "milestones"
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -43922,6 +43949,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "erforderliche-gesamtleistung",
+    "fields": {
+      "created_at": "2024-02-14T09:57:16.310Z",
+      "modified_at": "2024-02-28T10:36:21.938Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erforderliche Gesamtleistung in Watt (W)\", \"fr\": null, \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "\"solarpflicht-ja\" != \"solarpflicht\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Gem\\u00e4ss Artikel 29a des Energiereglements (EnR) muss die Leistung der installierten Solaranlage mindestens 20 Watt (W) pro m2 anrechenbarer Geb\\u00e4udefl\\u00e4che betragen.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "('anrechenbare-gebaeudeflaeche'|answer * 20)|round(2)",
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "erforderliche-unterlagen-kleintankanlagen",
     "fields": {
       "created_at": "2021-11-26T08:34:50.763Z",
@@ -44083,10 +44141,10 @@
     "pk": "erschliessungen",
     "fields": {
       "created_at": "2020-09-19T11:20:51.419Z",
-      "modified_at": "2020-11-25T18:46:40.798Z",
+      "modified_at": "2024-03-13T13:45:09.650Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Infrastruktur: Strassen und Wege\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -44095,7 +44153,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -44213,10 +44271,10 @@
     "pk": "esid",
     "fields": {
       "created_at": "2020-11-25T18:23:53.676Z",
-      "modified_at": "2024-01-29T09:10:38.880Z",
+      "modified_at": "2024-01-29T09:17:04.195Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "stephan.hug@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"ESID\", \"fr\": null, \"it\": null}",
       "type": "integer",
@@ -44899,19 +44957,19 @@
     "pk": "first-name",
     "fields": {
       "created_at": "2020-08-27T15:35:18.028Z",
-      "modified_at": "2020-08-28T15:02:29.765Z",
+      "modified_at": "2024-02-06T12:47:39.527Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Vorname\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -46468,6 +46526,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "gesetzliche-anforderung",
+    "fields": {
+      "created_at": "2024-02-13T12:57:07.023Z",
+      "modified_at": "2024-02-28T10:37:10.540Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wie wird die gesetzliche Anforderung erf\\u00fcllt?\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "\"solarpflicht-ja\" != \"solarpflicht\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "gesetzliche-vorgaben",
     "fields": {
       "created_at": "2022-02-24T15:15:42.451Z",
@@ -47506,6 +47595,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hinweis-ausnahme",
+    "fields": {
+      "created_at": "2024-02-13T14:22:25.871Z",
+      "modified_at": "2024-02-13T14:24:27.096Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis: Ausnahme\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\n  \"wird-eine-ausnahme-geltend-gemacht-ja\" ==\"wird-eine-ausnahme-geltend-gemacht\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Bei Bewilligung einer Ausnahme von der Realisierung einer neuen Anlage muss ein Ersatzbeitrag geleistet werden.ma\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hinweis-auswahl",
     "fields": {
       "created_at": "2023-06-07T09:19:40.178Z",
@@ -47757,7 +47880,7 @@
     "pk": "hinweis-erfassung-solaranlage",
     "fields": {
       "created_at": "2022-12-20T14:26:35.064Z",
-      "modified_at": "2022-12-21T07:18:03.864Z",
+      "modified_at": "2024-02-13T10:16:26.753Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -47770,7 +47893,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"*Bitte erfassen Sie die geplante Solaranlage im Thema Hochbau mit der Tabelle \\\"Geb\\u00e4udetechnik\\\"*\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"*Bitte erfassen Sie die geplante Solaranlage und deren Gesamtleistung zus\\u00e4tzlich im Thema Hochbau mit der Tabelle \\\"Geb\\u00e4udetechnik\\\"*\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -47802,6 +47925,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"**Hinweis zur Meldung von Solaranlagen**\\nBitte verwenden Sie f\\u00fcr die Meldung einer thermischen oder photovoltaischen Solaranlage das separate Formular \\\"SOLARANLAGE\\\".\\n\\nDas Formular \\\"SOLARANLAGE\\\" ist so aufgebaut, dass je nach Art und Lage der Anlage und unter der Voraussetzung, dass die Fragen korrekt beantwortet werden, bereits im Formular gekl\\u00e4rt wird, ob eine Baubewilligung notwendig ist. Wenn dies der Fall ist, werden Sie im Formular darauf hingewiesen, f\\u00fcr die Meldung der Solaranlage das Formular \\u201eBaugesuch\\u201c zu verwenden.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-gis",
+    "fields": {
+      "created_at": "2023-01-20T09:33:41.956Z",
+      "modified_at": "2023-01-20T09:33:47.356Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis GIS\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<span style=\\\"color:red\\\">Aufgrund von technischen Problemen dauert der Ladevorgang der Karte sowie der Gemeindeauswahl aktuell bis zu 5 Minuten. Das Problem wird so rasch wie m\\u00f6glich behoben. Wir entschuldigen uns f\\u00fcr die Unannehmlichkeiten.</span>\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -48699,10 +48853,10 @@
     "pk": "infrastrukturanlagen-landschaft",
     "fields": {
       "created_at": "2020-11-05T15:54:36.014Z",
-      "modified_at": "2020-11-25T18:58:00.988Z",
+      "modified_at": "2024-03-13T13:47:26.208Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Infrastruktur: Versorgung (leitungsbau)\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -48711,7 +48865,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -48730,10 +48884,10 @@
     "pk": "infrastruktur-entsorgung",
     "fields": {
       "created_at": "2020-11-25T18:55:44.971Z",
-      "modified_at": "2020-11-25T19:00:20.861Z",
+      "modified_at": "2024-03-13T13:47:44.228Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Infrastruktur: Entsorgung\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -48742,7 +48896,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -49040,6 +49194,74 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "installierte-gesamtleistung",
+    "fields": {
+      "created_at": "2024-02-13T12:47:57.961Z",
+      "modified_at": "2024-02-14T09:46:46.193Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erforderliche Gesamtleistung in Watt (w)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "!(\n  \"solarpflicht-ja\" ==\"solarpflicht\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Gem\\u00e4ss Artikel 29a des Energiereglements (EnR) muss die Leistung der installierten Solaranlage mindestens 20 Watt (W) pro m2 anrechenbarer Geb\\u00e4udefl\\u00e4che betragen. Die Mindestleistung in W betr\\u00e4gt bei diesem Vorhaben folglich.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "installierte-mindesdtleistungolaranlage-mindestens-20-watt-pro-m2-anreche",
+    "fields": {
+      "created_at": "2024-02-13T12:45:52.681Z",
+      "modified_at": "2024-02-13T12:45:52.681Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gem\\u00e4ss Artikel 29a des Energiereglements (EnR) muss die Leistung der installierten Solaranlage mindestens 20 Watt pro m2 anrechenbarer Geb\\u00e4udefl\\u00e4che betragen. Die Mindestleistung in Watt (W) betr\\u00e4gt bei diesem Vorhaben:\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "invoice-recipient",
     "fields": {
       "created_at": "2020-09-04T08:48:08.921Z",
@@ -49157,37 +49379,6 @@
         "hideLabel": true,
         "widgetOverride": "cf-field/input/hidden"
       },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "ist-das-vorhaben-bewilligungspflichtig",
-    "fields": {
-      "created_at": "2023-12-05T12:42:01.801Z",
-      "modified_at": "2023-12-05T12:42:01.801Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ist das Vorhaben bewilligungspflichtig?\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -50498,19 +50689,19 @@
     "pk": "last-name",
     "fields": {
       "created_at": "2020-08-27T15:35:26.286Z",
-      "modified_at": "2020-08-28T15:02:34.593Z",
+      "modified_at": "2024-02-06T12:47:46.476Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Name\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -51719,10 +51910,10 @@
     "pk": "meldung-bauentscheid-an-geometer",
     "fields": {
       "created_at": "2021-11-29T07:49:01.255Z",
-      "modified_at": "2023-12-05T10:44:22.410Z",
+      "modified_at": "2021-12-02T15:09:57.263Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Meldung Versand Bau- und Einspracheentscheid an Geometer\", \"fr\": null, \"it\": null}",
       "type": "date",
@@ -51731,13 +51922,10 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {
-        "task": "todo-abschluss-entscheid-verfuegen-wenn-geometer-ja",
-        "widgetOverride": "milestones"
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -51753,10 +51941,10 @@
     "pk": "meldung-bauentscheid-gebaeudeschaetzung",
     "fields": {
       "created_at": "2021-12-02T09:52:53.455Z",
-      "modified_at": "2023-12-05T10:44:36.582Z",
+      "modified_at": "2021-12-02T09:52:53.455Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Meldung Bauentscheid an Geb\\u00e4udesch\\u00e4tzung\", \"fr\": null, \"it\": null}",
       "type": "date",
@@ -51764,14 +51952,11 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {
-        "task": "todo-abschluss-entscheid-verfuegen-wenn-gebauedeversich-ja",
-        "widgetOverride": "milestones"
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -52136,10 +52321,10 @@
     "pk": "nachforderung-gbb",
     "fields": {
       "created_at": "2021-11-26T12:19:25.761Z",
-      "modified_at": "2023-12-05T10:42:14.661Z",
+      "modified_at": "2021-11-26T12:19:25.761Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nachforderung durch Gemeindebaubeh\\u00f6rde\", \"fr\": null, \"it\": null}",
       "type": "date",
@@ -52147,14 +52332,11 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {
-        "milestone": "to-do",
-        "widgetOverride": "milestone-values"
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -54260,10 +54442,10 @@
     "pk": "pruefung-durch-gemeinde",
     "fields": {
       "created_at": "2021-11-28T16:07:17.455Z",
-      "modified_at": "2024-03-05T16:10:46.915Z",
+      "modified_at": "2021-11-28T16:07:17.455Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfung durch Gemeinde\", \"fr\": null, \"it\": null}",
       "type": "date",
@@ -54271,14 +54453,11 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {
-        "milestone": "check-completed",
-        "widgetOverride": "milestone-values"
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -54325,10 +54504,10 @@
     "pk": "publikation",
     "fields": {
       "created_at": "2021-11-28T16:24:16.258Z",
-      "modified_at": "2023-12-05T10:45:32.594Z",
+      "modified_at": "2021-11-28T16:24:16.258Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Publikation\", \"fr\": null, \"it\": null}",
       "type": "date",
@@ -54336,14 +54515,11 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {
-        "task": "todo-publication",
-        "widgetOverride": "milestones"
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -56251,7 +56427,7 @@
     "pk": "solaranlagenpflicht",
     "fields": {
       "created_at": "2022-12-20T12:15:13.883Z",
-      "modified_at": "2022-12-20T12:26:13.676Z",
+      "modified_at": "2024-02-13T12:49:32.940Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -56264,7 +56440,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"####Pflicht zur Nutzung der Sonnenenergie bei Geb\\u00e4uden (Neubauten) gem\\u00e4ss Energiegesetz (EnG)\\n\\nGem\\u00e4ss Artikel 45a EnG ist beim Bau neuer Geb\\u00e4ude mit einer anrechenbaren Geb\\u00e4udefl\\u00e4che von mehr als 300 m2 auf den D\\u00e4chern oder an den Fassaden eine Solaranlage, beispielsweise eine Photovoltaik- oder eine Solarthermieanlage, zu erstellen. \\n\\nGem\\u00e4ss Artikel 29a des Energiereglements (EnR) muss die Leistung der installierten Solaranlage mindestens  20 W pro m2 anrechenbarer Geb\\u00e4udefl\\u00e4che betragen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"####Pflicht zur Nutzung der Sonnenenergie bei Geb\\u00e4uden (Neubauten) gem\\u00e4ss Energiegesetz (EnG)\\n\\nGem\\u00e4ss Artikel 45a EnG ist beim Bau neuer Geb\\u00e4ude mit einer anrechenbaren Geb\\u00e4udefl\\u00e4che von mehr als 300 m2 auf den D\\u00e4chern oder an den Fassaden eine Solaranlage, beispielsweise eine Photovoltaik- oder eine Solarthermieanlage, zu erstellen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -56347,10 +56523,41 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "solar-pflicht",
+    "fields": {
+      "created_at": "2024-02-07T13:43:43.101Z",
+      "modified_at": "2024-02-07T13:54:24.575Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Pflicht zur Nutzung der Sonnenenergie\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"#### Pflicht zur Nutzung der Sonenenergie\\nGem\\u00e4ss Artikel 45a des Schweizerischen Energiegesetzes (SR 730.0, vom 1. Februar 2024) besteht beim Bau neuer Geb\\u00e4ude unter bestimmten Voraussetzungen die Pflicht zur Nutzung der Sonnenenergie\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "solarpflicht",
     "fields": {
       "created_at": "2022-12-20T12:03:03.354Z",
-      "modified_at": "2022-12-21T07:38:29.645Z",
+      "modified_at": "2024-02-13T14:12:18.286Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -56361,7 +56568,7 @@
       "is_hidden": "!(\n  \"proposal-neubau\" in \"proposal\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"###Anrechenbare Geb\\u00e4udefl\\u00e4che\\nAls anrechenbare Geb\\u00e4udefl\\u00e4che gilt die Fl\\u00e4che innerhalb der projizierten Fassadenlinie. Dazu z\\u00e4hlen die Fl\\u00e4chen von Geb\\u00e4uden, Kleinbauten, Anbauten sowie die Fl\\u00e4chen der Teile von Unterniveaubauten, die das massgebende Terain \\u00fcberragen und \\u00fcberdeckt sind. Kleine Anbauten die h\\u00f6chstens 60 cm \\u00fcber die Fassadenlinie vorspringen, m\\u00fcssen nicht angerechnet werden. Ebenso unterirdische Bauten, sofern diese unter gewachsenem Terrain erstellt werden. Bauten die nur teilweise unter bestehenden Terrain liegen und \\u00fcberdeckt sind, z\\u00e4hlen zur anrechenbaren Geb\\u00e4udefl\\u00e4che.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -56923,10 +57130,10 @@
     "pk": "start-zirkulation",
     "fields": {
       "created_at": "2021-11-28T16:08:26.731Z",
-      "modified_at": "2023-12-04T13:11:42.856Z",
+      "modified_at": "2021-11-28T16:08:26.731Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Start Zirkulation\", \"fr\": null, \"it\": null}",
       "type": "date",
@@ -56934,14 +57141,11 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {
-        "milestone": "start-municipal-distribution",
-        "widgetOverride": "milestone-values"
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -56988,10 +57192,10 @@
     "pk": "stellungnahme-vorentscheid",
     "fields": {
       "created_at": "2021-11-28T16:16:46.327Z",
-      "modified_at": "2023-12-05T10:43:48.790Z",
+      "modified_at": "2021-11-28T16:16:46.327Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Stellungnahme / Vorentscheid\", \"fr\": null, \"it\": null}",
       "type": "date",
@@ -56999,14 +57203,11 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {
-        "task": "todo-abschluss-entscheid-verfuegen",
-        "widgetOverride": "milestones"
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -57183,15 +57384,15 @@
     "pk": "strassenname",
     "fields": {
       "created_at": "2020-11-25T18:24:59.825Z",
-      "modified_at": "2024-01-29T09:10:08.656Z",
+      "modified_at": "2024-01-29T09:06:56.934Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "stephan.hug@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Strassenname\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!(\n\t\"erschliessungen\"|answer in [\"erschliessungen-liegenschaftszufahrt\", \"erschliessungen-quartierstrasse\", \"erschliessungen-gemeindestrasse\", \"erschliessungen-korporationsstrasse\", \"erschliessungen-gueterstrasse\"]\n)",
+      "is_hidden": "!(\n\t\"erschliessungen\"|answer(\"\") in [\"erschliessungen-liegenschaftszufahrt\", \"erschliessungen-quartierstrasse\", \"erschliessungen-gemeindestrasse\", \"erschliessungen-korporationsstrasse\", \"erschliessungen-gueterstrasse\"]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"##INFO\\n\\nDer Strasssenname wird von der zust\\u00e4ndigen Gemeinde vergeben und im GWR nachgef\\u00fchrt\", \"fr\": null, \"it\": null}",
@@ -57635,10 +57836,10 @@
     "pk": "terrainveraenderungen",
     "fields": {
       "created_at": "2020-09-19T11:19:16.678Z",
-      "modified_at": "2020-11-05T15:51:36.494Z",
+      "modified_at": "2024-03-13T13:39:09.527Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Terrainver\\u00e4nderungen\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -57647,7 +57848,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -57689,43 +57890,6 @@
       "format_validators": "[]",
       "default_answer": null,
       "calc_expression": "1 + 1",
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "test-work-item",
-    "fields": {
-      "created_at": "2023-12-01T15:59:50.603Z",
-      "modified_at": "2023-12-04T07:16:53.647Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "label": "{\"de\": \"test-work-item\", \"fr\": null, \"it\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {
-        "task": "check-permit",
-        "widgetOverride": "complete-work-item"
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
       "calc_dependents": "[]"
     }
   },
@@ -59772,10 +59936,10 @@
     "pk": "versand-bau-und-einspracheentscheid",
     "fields": {
       "created_at": "2021-11-28T16:18:01.199Z",
-      "modified_at": "2023-12-05T10:44:09.197Z",
+      "modified_at": "2021-11-28T16:18:01.199Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Versand Bau- und Einspracheentscheid\", \"fr\": null, \"it\": null}",
       "type": "date",
@@ -59783,14 +59947,11 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {
-        "task": "todo-abschluss-entscheid-verfuegen",
-        "widgetOverride": "milestones"
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -59806,10 +59967,10 @@
     "pk": "versand-stellungnahme-vorentscheid",
     "fields": {
       "created_at": "2021-11-28T16:17:13.461Z",
-      "modified_at": "2023-12-05T10:43:54.023Z",
+      "modified_at": "2021-11-28T16:17:13.461Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Versand Stellungnahme / Vorentscheid\", \"fr\": null, \"it\": null}",
       "type": "date",
@@ -59817,14 +59978,11 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {
-        "task": "todo-abschluss-entscheid-verfuegen",
-        "widgetOverride": "milestones"
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -61109,6 +61267,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "wird-eine-ausnahme-geltend-gemacht",
+    "fields": {
+      "created_at": "2024-02-13T13:01:25.681Z",
+      "modified_at": "2024-02-13T13:01:56.213Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird eine Ausnahme geltend gemacht?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "!(\n  \"solarpflicht-ja\" ==\"solarpflicht\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "wohnungen",
     "fields": {
       "created_at": "2020-11-09T12:42:59.148Z",
@@ -61252,10 +61441,10 @@
     "pk": "zirkulation-abgeschlossen",
     "fields": {
       "created_at": "2021-11-28T16:11:52.805Z",
-      "modified_at": "2023-12-05T10:43:27.245Z",
+      "modified_at": "2021-11-28T16:11:52.805Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Zirkulation abgeschlossen\", \"fr\": null, \"it\": null}",
       "type": "date",
@@ -61263,14 +61452,11 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {
-        "milestone": "distribution-completed",
-        "widgetOverride": "milestone-values"
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -62684,11 +62870,11 @@
     "model": "caluma_form.questionoption",
     "pk": "antrag-ausnahme-solarpflicht.antrag-ausnahme-solarpflicht-technisch",
     "fields": {
-      "created_at": "2023-01-13T08:42:48.659Z",
-      "modified_at": "2023-01-13T08:42:48.659Z",
-      "created_by_user": "admin",
+      "created_at": "2024-02-14T09:39:00.523Z",
+      "modified_at": "2024-02-14T09:39:00.523Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "antrag-ausnahme-solarpflicht",
       "option": "antrag-ausnahme-solarpflicht-technisch",
@@ -62699,11 +62885,11 @@
     "model": "caluma_form.questionoption",
     "pk": "antrag-ausnahme-solarpflicht.antrag-ausnahme-solarpflicht-vorschriften",
     "fields": {
-      "created_at": "2023-01-13T08:42:48.662Z",
-      "modified_at": "2023-01-13T08:42:48.662Z",
-      "created_by_user": "admin",
+      "created_at": "2024-02-14T09:39:00.525Z",
+      "modified_at": "2024-02-14T09:39:00.525Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "antrag-ausnahme-solarpflicht",
       "option": "antrag-ausnahme-solarpflicht-vorschriften",
@@ -62714,11 +62900,11 @@
     "model": "caluma_form.questionoption",
     "pk": "antrag-ausnahme-solarpflicht.antrag-ausnahme-solarpflicht-wirtschaftlich",
     "fields": {
-      "created_at": "2023-01-13T08:42:48.656Z",
-      "modified_at": "2023-01-13T08:42:48.656Z",
-      "created_by_user": "admin",
+      "created_at": "2024-02-14T09:39:00.521Z",
+      "modified_at": "2024-02-14T09:39:00.521Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "antrag-ausnahme-solarpflicht",
       "option": "antrag-ausnahme-solarpflicht-wirtschaftlich",
@@ -62729,11 +62915,11 @@
     "model": "caluma_form.questionoption",
     "pk": "antrag-ausnahme-solarpflicht.antrag-ausnahme-solarpflicht-zev",
     "fields": {
-      "created_at": "2023-01-13T08:42:48.653Z",
-      "modified_at": "2023-01-13T08:42:48.653Z",
-      "created_by_user": "admin",
+      "created_at": "2024-02-14T09:39:00.519Z",
+      "modified_at": "2024-02-14T09:39:00.519Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "antrag-ausnahme-solarpflicht",
       "option": "antrag-ausnahme-solarpflicht-zev",
@@ -64767,36 +64953,6 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "baubegleitungsprozess.baubegleitungsprozess-ja",
-    "fields": {
-      "created_at": "2024-03-06T07:24:45.283Z",
-      "modified_at": "2024-03-06T07:24:45.283Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "question": "baubegleitungsprozess",
-      "option": "baubegleitungsprozess-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "baubegleitungsprozess.baubegleitungsprozess-nein",
-    "fields": {
-      "created_at": "2024-03-06T07:24:45.278Z",
-      "modified_at": "2024-03-06T07:24:45.278Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "question": "baubegleitungsprozess",
-      "option": "baubegleitungsprozess-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "bedachung.bedachung-andere",
     "fields": {
       "created_at": "2021-01-28T08:29:56.409Z",
@@ -66344,11 +66500,11 @@
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-baupiste-temporaer",
     "fields": {
-      "created_at": "2020-11-25T18:46:40.830Z",
-      "modified_at": "2020-11-25T18:46:40.830Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-03-13T13:45:09.688Z",
+      "modified_at": "2024-03-13T13:45:09.688Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-baupiste-temporaer",
@@ -66359,11 +66515,11 @@
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-bewirtschaftungsweg-befahrbar",
     "fields": {
-      "created_at": "2020-11-25T18:46:40.837Z",
-      "modified_at": "2020-11-25T18:46:40.837Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-03-13T13:45:09.692Z",
+      "modified_at": "2024-03-13T13:45:09.692Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-bewirtschaftungsweg-befahrbar",
@@ -66374,11 +66530,11 @@
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-energieversorgung",
     "fields": {
-      "created_at": "2020-11-25T18:46:40.822Z",
-      "modified_at": "2020-11-25T18:46:40.822Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-03-13T13:45:09.682Z",
+      "modified_at": "2024-03-13T13:45:09.682Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-energieversorgung",
@@ -66389,11 +66545,11 @@
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-fussweg",
     "fields": {
-      "created_at": "2020-11-25T18:46:40.848Z",
-      "modified_at": "2020-11-25T18:46:40.848Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-03-13T13:45:09.800Z",
+      "modified_at": "2024-03-13T13:45:09.800Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-fussweg",
@@ -66404,11 +66560,11 @@
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-gemeindestrasse",
     "fields": {
-      "created_at": "2020-11-25T18:46:40.807Z",
-      "modified_at": "2020-11-25T18:46:40.807Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-03-13T13:45:09.664Z",
+      "modified_at": "2024-03-13T13:45:09.664Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-gemeindestrasse",
@@ -66419,11 +66575,11 @@
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-gueterstrasse",
     "fields": {
-      "created_at": "2020-11-25T18:46:40.827Z",
-      "modified_at": "2020-11-25T18:46:40.827Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-03-13T13:45:09.685Z",
+      "modified_at": "2024-03-13T13:45:09.685Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-gueterstrasse",
@@ -66434,11 +66590,11 @@
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-korporationsstrasse",
     "fields": {
-      "created_at": "2020-11-25T18:46:40.811Z",
-      "modified_at": "2020-11-25T18:46:40.811Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-03-13T13:45:09.671Z",
+      "modified_at": "2024-03-13T13:45:09.671Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-korporationsstrasse",
@@ -66449,11 +66605,11 @@
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-liegenschaftsentwaesserung",
     "fields": {
-      "created_at": "2020-11-25T18:46:40.817Z",
-      "modified_at": "2020-11-25T18:46:40.817Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-03-13T13:45:09.677Z",
+      "modified_at": "2024-03-13T13:45:09.677Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-liegenschaftsentwaesserung",
@@ -66464,11 +66620,11 @@
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-liegenschaftszufahrt",
     "fields": {
-      "created_at": "2020-11-25T18:46:40.833Z",
-      "modified_at": "2020-11-25T18:46:40.833Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-03-13T13:45:09.689Z",
+      "modified_at": "2024-03-13T13:45:09.689Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-liegenschaftszufahrt",
@@ -66479,11 +66635,11 @@
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-quartierstrasse",
     "fields": {
-      "created_at": "2020-11-25T18:46:40.814Z",
-      "modified_at": "2020-11-25T18:46:40.814Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-03-13T13:45:09.673Z",
+      "modified_at": "2024-03-13T13:45:09.673Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-quartierstrasse",
@@ -66494,11 +66650,11 @@
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-trinkwasserversorgungsanlage",
     "fields": {
-      "created_at": "2020-11-25T18:46:40.820Z",
-      "modified_at": "2020-11-25T18:46:40.820Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-03-13T13:45:09.679Z",
+      "modified_at": "2024-03-13T13:45:09.679Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-trinkwasserversorgungsanlage",
@@ -66509,11 +66665,11 @@
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-veloweg",
     "fields": {
-      "created_at": "2020-11-25T18:46:40.844Z",
-      "modified_at": "2020-11-25T18:46:40.844Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-03-13T13:45:09.797Z",
+      "modified_at": "2024-03-13T13:45:09.797Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-veloweg",
@@ -66524,11 +66680,11 @@
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-viehtriebweg",
     "fields": {
-      "created_at": "2020-11-25T18:46:40.840Z",
-      "modified_at": "2020-11-25T18:46:40.840Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-03-13T13:45:09.695Z",
+      "modified_at": "2024-03-13T13:45:09.695Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-viehtriebweg",
@@ -66539,11 +66695,11 @@
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-wanderweg",
     "fields": {
-      "created_at": "2020-11-25T18:46:40.851Z",
-      "modified_at": "2020-11-25T18:46:40.851Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-03-13T13:45:09.802Z",
+      "modified_at": "2024-03-13T13:45:09.802Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-wanderweg",
@@ -68307,6 +68463,66 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "gesetzliche-anforderung.gesetzliche-anforderung-ausnahme",
+    "fields": {
+      "created_at": "2024-02-28T10:37:10.557Z",
+      "modified_at": "2024-02-28T10:37:10.557Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "gesetzliche-anforderung",
+      "option": "gesetzliche-anforderung-ausnahme",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gesetzliche-anforderung.gesetzliche-anforderung-photovoltaikanlage",
+    "fields": {
+      "created_at": "2024-02-28T10:37:10.578Z",
+      "modified_at": "2024-02-28T10:37:10.578Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "gesetzliche-anforderung",
+      "option": "gesetzliche-anforderung-photovoltaikanlage",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gesetzliche-anforderung.gesetzliche-anforderung-thermische-solaranlage",
+    "fields": {
+      "created_at": "2024-02-28T10:37:10.586Z",
+      "modified_at": "2024-02-28T10:37:10.586Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "gesetzliche-anforderung",
+      "option": "gesetzliche-anforderung-thermische-solaranlage",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gesetzliche-anforderung.gesetzliche-anforderung-zusammenschluss-zum-eigenverbrauch-zev",
+    "fields": {
+      "created_at": "2024-02-28T10:37:10.566Z",
+      "modified_at": "2024-02-28T10:37:10.566Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "gesetzliche-anforderung",
+      "option": "gesetzliche-anforderung-zusammenschluss-zum-eigenverbrauch-zev",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "gibt-es-oertliche-absaugungen.gibt-es-oertliche-absaugungen-ja",
     "fields": {
       "created_at": "2020-10-26T16:38:05.538Z",
@@ -69359,11 +69575,11 @@
     "model": "caluma_form.questionoption",
     "pk": "infrastrukturanlagen-landschaft.infrastrukturanlagen-landschaft-datenversorgung",
     "fields": {
-      "created_at": "2020-11-25T18:58:00.996Z",
-      "modified_at": "2020-11-25T18:58:00.996Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-03-13T13:47:26.215Z",
+      "modified_at": "2024-03-13T13:47:26.215Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "infrastrukturanlagen-landschaft",
       "option": "infrastrukturanlagen-landschaft-datenversorgung",
@@ -69374,11 +69590,11 @@
     "model": "caluma_form.questionoption",
     "pk": "infrastrukturanlagen-landschaft.infrastrukturanlagen-landschaft-elektriziaet",
     "fields": {
-      "created_at": "2020-11-25T18:58:01.029Z",
-      "modified_at": "2020-11-25T18:58:01.029Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-03-13T13:47:26.230Z",
+      "modified_at": "2024-03-13T13:47:26.230Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "infrastrukturanlagen-landschaft",
       "option": "infrastrukturanlagen-landschaft-elektriziaet",
@@ -69389,11 +69605,11 @@
     "model": "caluma_form.questionoption",
     "pk": "infrastrukturanlagen-landschaft.infrastrukturanlagen-landschaft-fernheizung",
     "fields": {
-      "created_at": "2020-11-25T18:58:01.007Z",
-      "modified_at": "2020-11-25T18:58:01.007Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-03-13T13:47:26.225Z",
+      "modified_at": "2024-03-13T13:47:26.225Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "infrastrukturanlagen-landschaft",
       "option": "infrastrukturanlagen-landschaft-fernheizung",
@@ -69404,11 +69620,11 @@
     "model": "caluma_form.questionoption",
     "pk": "infrastrukturanlagen-landschaft.infrastrukturanlagen-landschaft-gas",
     "fields": {
-      "created_at": "2020-11-25T18:58:01.004Z",
-      "modified_at": "2020-11-25T18:58:01.004Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-03-13T13:47:26.223Z",
+      "modified_at": "2024-03-13T13:47:26.223Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "infrastrukturanlagen-landschaft",
       "option": "infrastrukturanlagen-landschaft-gas",
@@ -69419,11 +69635,11 @@
     "model": "caluma_form.questionoption",
     "pk": "infrastrukturanlagen-landschaft.infrastrukturanlagen-landschaft-trinkwasser",
     "fields": {
-      "created_at": "2020-11-25T18:58:01.026Z",
-      "modified_at": "2020-11-25T18:58:01.026Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-03-13T13:47:26.228Z",
+      "modified_at": "2024-03-13T13:47:26.228Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "infrastrukturanlagen-landschaft",
       "option": "infrastrukturanlagen-landschaft-trinkwasser",
@@ -69434,11 +69650,11 @@
     "model": "caluma_form.questionoption",
     "pk": "infrastrukturanlagen-landschaft.infrastrukturanlagen-landschaft-wasserentsorgung",
     "fields": {
-      "created_at": "2020-11-25T18:58:00.999Z",
-      "modified_at": "2020-11-25T18:58:00.999Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-03-13T13:47:26.220Z",
+      "modified_at": "2024-03-13T13:47:26.220Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "infrastrukturanlagen-landschaft",
       "option": "infrastrukturanlagen-landschaft-wasserentsorgung",
@@ -69449,11 +69665,11 @@
     "model": "caluma_form.questionoption",
     "pk": "infrastruktur-entsorgung.infrastruktur-entsorgung-abwasser",
     "fields": {
-      "created_at": "2020-11-25T19:00:20.869Z",
-      "modified_at": "2020-11-25T19:00:20.869Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-03-13T13:47:44.235Z",
+      "modified_at": "2024-03-13T13:47:44.235Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "infrastruktur-entsorgung",
       "option": "infrastruktur-entsorgung-abwasser",
@@ -69728,36 +69944,6 @@
       "question": "is-paper",
       "option": "is-paper-yes",
       "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "ist-das-vorhaben-bewilligungspflichtig.ist-das-vorhaben-bewilligungspflichtig-ja",
-    "fields": {
-      "created_at": "2023-12-05T12:42:01.821Z",
-      "modified_at": "2023-12-05T12:42:01.821Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "question": "ist-das-vorhaben-bewilligungspflichtig",
-      "option": "ist-das-vorhaben-bewilligungspflichtig-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "ist-das-vorhaben-bewilligungspflichtig.ist-das-vorhaben-bewilligungspflichtig-nein",
-    "fields": {
-      "created_at": "2023-12-05T12:42:01.806Z",
-      "modified_at": "2023-12-05T12:42:01.806Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "question": "ist-das-vorhaben-bewilligungspflichtig",
-      "option": "ist-das-vorhaben-bewilligungspflichtig-nein",
-      "sort": 1
     }
   },
   {
@@ -73274,8 +73460,8 @@
     "model": "caluma_form.questionoption",
     "pk": "solarpflicht.solarpflicht-ja",
     "fields": {
-      "created_at": "2022-12-21T07:38:29.652Z",
-      "modified_at": "2022-12-21T07:38:29.652Z",
+      "created_at": "2024-02-13T14:12:18.292Z",
+      "modified_at": "2024-02-13T14:12:18.292Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -73289,8 +73475,8 @@
     "model": "caluma_form.questionoption",
     "pk": "solarpflicht.solarpflicht-nein",
     "fields": {
-      "created_at": "2022-12-21T07:38:29.650Z",
-      "modified_at": "2022-12-21T07:38:29.650Z",
+      "created_at": "2024-02-13T14:12:18.290Z",
+      "modified_at": "2024-02-13T14:12:18.290Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -73859,11 +74045,11 @@
     "model": "caluma_form.questionoption",
     "pk": "terrainveraenderungen.terrainveraenderungen-bodenverbesserung-mit-materialzufuhr",
     "fields": {
-      "created_at": "2020-11-05T15:51:36.503Z",
-      "modified_at": "2020-11-05T15:51:36.503Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2024-03-13T13:39:09.577Z",
+      "modified_at": "2024-03-13T13:39:09.577Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "terrainveraenderungen",
       "option": "terrainveraenderungen-bodenverbesserung-mit-materialzufuhr",
@@ -73874,11 +74060,11 @@
     "model": "caluma_form.questionoption",
     "pk": "terrainveraenderungen.terrainveraenderungen-bodenverbesserungohne-materialzufuhr",
     "fields": {
-      "created_at": "2020-11-05T15:51:36.507Z",
-      "modified_at": "2020-11-05T15:51:36.507Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2024-03-13T13:39:09.611Z",
+      "modified_at": "2024-03-13T13:39:09.611Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "terrainveraenderungen",
       "option": "terrainveraenderungen-bodenverbesserungohne-materialzufuhr",
@@ -73889,11 +74075,11 @@
     "model": "caluma_form.questionoption",
     "pk": "terrainveraenderungen.terrainveraenderungen-deponie",
     "fields": {
-      "created_at": "2020-11-05T15:51:36.518Z",
-      "modified_at": "2020-11-05T15:51:36.518Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2024-03-13T13:39:09.627Z",
+      "modified_at": "2024-03-13T13:39:09.627Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "terrainveraenderungen",
       "option": "terrainveraenderungen-deponie",
@@ -73904,11 +74090,11 @@
     "model": "caluma_form.questionoption",
     "pk": "terrainveraenderungen.terrainveraenderungen-gelaendeaufschuettung",
     "fields": {
-      "created_at": "2020-11-05T15:51:36.521Z",
-      "modified_at": "2020-11-05T15:51:36.521Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2024-03-13T13:39:09.629Z",
+      "modified_at": "2024-03-13T13:39:09.629Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "terrainveraenderungen",
       "option": "terrainveraenderungen-gelaendeaufschuettung",
@@ -73919,11 +74105,11 @@
     "model": "caluma_form.questionoption",
     "pk": "terrainveraenderungen.terrainveraenderungen-steinabbau",
     "fields": {
-      "created_at": "2020-11-05T15:51:36.512Z",
-      "modified_at": "2020-11-05T15:51:36.512Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2024-03-13T13:39:09.619Z",
+      "modified_at": "2024-03-13T13:39:09.619Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "terrainveraenderungen",
       "option": "terrainveraenderungen-steinabbau",
@@ -73934,11 +74120,11 @@
     "model": "caluma_form.questionoption",
     "pk": "terrainveraenderungen.terrainveraenderungen-steingewinnung-abbau-oberflaechlich",
     "fields": {
-      "created_at": "2020-11-05T15:51:36.515Z",
-      "modified_at": "2020-11-05T15:51:36.515Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2024-03-13T13:39:09.623Z",
+      "modified_at": "2024-03-13T13:39:09.623Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "terrainveraenderungen",
       "option": "terrainveraenderungen-steingewinnung-abbau-oberflaechlich",
@@ -77303,6 +77489,36 @@
       "question": "winter-und-sommerbetrieb",
       "option": "winter-und-sommerbetrieb-nein-nur-winterbetrieb",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wird-eine-ausnahme-geltend-gemacht.wird-eine-ausnahme-geltend-gemacht-ja",
+    "fields": {
+      "created_at": "2024-02-13T13:01:56.220Z",
+      "modified_at": "2024-02-13T13:01:56.220Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "wird-eine-ausnahme-geltend-gemacht",
+      "option": "wird-eine-ausnahme-geltend-gemacht-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wird-eine-ausnahme-geltend-gemacht.wird-eine-ausnahme-geltend-gemacht-nein",
+    "fields": {
+      "created_at": "2024-02-13T13:01:56.217Z",
+      "modified_at": "2024-02-13T13:01:56.217Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "wird-eine-ausnahme-geltend-gemacht",
+      "option": "wird-eine-ausnahme-geltend-gemacht-nein",
+      "sort": 1
     }
   },
   {
