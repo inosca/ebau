@@ -74,6 +74,13 @@
           {{/if}}
         {{/unless}}
       {{/each-in}}
+
+      {{#if @confirmField}}
+        <li data-test-gis-data-row>
+          <CfField @field={{@confirmField}} />
+        </li>
+      {{/if}}
+
     </ul>
   </modal.body>
 
@@ -89,7 +96,7 @@
       @color="primary"
       @label={{t "global.save"}}
       @onClick={{perform this.applyData}}
-      @disabled={{this.applyData.isRunning}}
+      @disabled={{(or this.applyData.isRunning @confirmFieldUnchecked)}}
       @loading={{this.applyData.isRunning}}
       data-test-confirm
     />
