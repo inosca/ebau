@@ -561,7 +561,10 @@
       "modified_by_group": null,
       "name": "{\"de\": \"Migriertes Dossier\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "meta": {},
+      "meta": {
+        "is-creatable": false,
+        "is-main-form": true
+      },
       "is_published": true,
       "is_archived": false,
       "source": null
