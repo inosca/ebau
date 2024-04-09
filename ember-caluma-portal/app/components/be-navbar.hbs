@@ -1,5 +1,6 @@
 {{#if (not (is-embedded))}}
   <nav class="be-navbar">
+    <Watermark />
     <div class="uk-container uk-container-large">
       <div class="uk-width-1-1 uk-position-relative">
         <div class="uk-flex uk-flex-middle uk-flex-between uk-height-1-1">
@@ -31,7 +32,6 @@
                 alt={{t "global.title"}}
               />
             {{/if}}
-            <Watermark />
           </LinkTo>
           <div class="uk-text-right">
             {{#if (is-application "ur")}}

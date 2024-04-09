@@ -12,7 +12,6 @@ const ENV_MAP = {
 const ENVS = Object.values(ENV_MAP);
 const ENV = ENV_MAP[process.env.APPLICATION] || ENVS[0];
 const UNUSED_ENVS = ENVS.filter((e) => e !== ENV).join("|");
-const APP_ENV = process.env.APP_ENV ?? "dev";
 
 module.exports = function (defaults) {
   /**
@@ -61,14 +60,10 @@ module.exports = function (defaults) {
         isBE: ENV === "be",
         isSZ: ENV === "sz",
         isUR: ENV === "ur",
-        appEnv: APP_ENV,
       },
       setConfig: {
         "@ember-data/store": {
           polyfillUUID: true,
-        },
-        "ember-ebau-core": {
-          appEnv: APP_ENV,
         },
       },
     },

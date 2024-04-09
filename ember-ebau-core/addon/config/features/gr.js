@@ -1,3 +1,5 @@
+import { getOwnConfig, isDevelopingApp } from "@embroider/macros";
+
 export default {
   publication: {
     form: true,
@@ -17,6 +19,6 @@ export default {
   caluma: {
     alwaysUseNumberSeparatorWidget: true,
   },
-  watermark: true,
+  watermark: isDevelopingApp() || getOwnConfig().enableWatermark,
   communications: true,
 };

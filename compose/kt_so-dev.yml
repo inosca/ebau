@@ -126,6 +126,8 @@ services:
       EGOV_PORTAL_URL: ${EGOV_PORTAL_URL:-http://egov.local}
       EGOV_PRESTATION_PATH: ${EGOV_PRESTATION_PATH:-/prestation/1}
       ENABLE_TOKEN_EXCHANGE: ${ENABLE_TOKEN_EXCHANGE:-false}
+      ENABLE_WATERMARK: true
+      WATERMARK: local
     networks:
       - ebau.local
 
@@ -135,6 +137,8 @@ services:
       KEYCLOAK_HOST: http://ebau-keycloak.local
       PORTAL_URL: http://ember-portal.local
       SO_GIS_URL: https://geo-i.so.ch
+      ENABLE_WATERMARK: true
+      WATERMARK: local
     networks:
       - ebau.local
 

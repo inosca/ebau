@@ -9,6 +9,8 @@ module.exports = function () {
       "KEYCLOAK_HOST",
       "PORTAL_URL",
       "SO_GIS_URL",
+      "ENABLE_WATERMARK",
+      "WATERMARK",
     ],
     path: path.join(path.dirname(__dirname), "../.env"),
   };
