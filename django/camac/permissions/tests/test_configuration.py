@@ -1,12 +1,10 @@
 from collections import defaultdict
-from dataclasses import dataclass
-from typing import List
 
 import pytest
 from django.conf import settings
 
-from camac.instance.models import InstanceState
-from camac.permissions.conditions import Check, RequireInstanceState
+from camac.permissions.conditions import Check
+from camac.permissions.utils import extract_allowed_states
 
 
 @pytest.mark.xfail(
@@ -22,7 +20,7 @@ def test_duplicate_conditionals(db, any_application):
     access_levels = settings.PERMISSIONS.get("ACCESS_LEVELS", {})
     for access_level, permissions in access_levels.items():
         for perm, check in permissions:
-            key = ",".join(sorted((_extract_allowed_states(check))))
+            key = ",".join(sorted((extract_allowed_states(check))))
 
             seen_perms[key].append(f"{access_level} / {perm}")
             seen_checks[key].append(check)
@@ -62,7 +60,7 @@ def test_conditional_types(db, any_application):
 
     for access_level, permissions in access_levels.items():
         for perm, check in permissions:
-            key = ",".join(sorted((_extract_allowed_states(check))))
+            key = ",".join(sorted((extract_allowed_states(check))))
 
             seen_perms[key].append(f"{access_level} / {perm}")
             seen_checks[key].append(check)
@@ -81,24 +79,3 @@ def test_conditional_types(db, any_application):
                 "Callbacks and raw string permission (state) conditionals "
                 "are not allowed anymore"
             )
-
-
-def _extract_allowed_states(cond: RequireInstanceState) -> List[str]:
-    """List all instance states (untranslated names) that the condition allows.
-
-    Note: This really only works with `RequireInstanceState` conditions
-    as well as combinations (&, |, ~) of them.
-    """
-
-    @dataclass
-    class FakeInstance:
-        instance_state: InstanceState
-
-    try:
-        return [
-            is_.name
-            for is_ in InstanceState.objects.all()
-            if cond.apply(None, FakeInstance(is_))
-        ]
-    except AttributeError:  # pragma: no cover
-        return []
