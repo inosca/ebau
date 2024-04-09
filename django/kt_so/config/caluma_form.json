@@ -551,6 +551,60 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "migriertes-dossier",
+    "fields": {
+      "created_at": "2024-03-26T17:21:55.540Z",
+      "modified_at": "2024-03-26T18:36:44.082Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Migriertes Dossier\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "migriertes-dossier-daten",
+    "fields": {
+      "created_at": "2024-03-28T12:58:52.084Z",
+      "modified_at": "2024-03-28T12:58:52.084Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Migriertes Dossier Daten\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "migriertes-dossier-lokalisierung",
+    "fields": {
+      "created_at": "2024-03-28T13:07:53.436Z",
+      "modified_at": "2024-03-28T13:07:53.436Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Migriertes Dossier Lokalisierung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "naturgefahren",
     "fields": {
       "created_at": "2023-09-11T12:47:30.650Z",
@@ -12541,6 +12595,366 @@
       "form": "lokalisierung",
       "question": "zone",
       "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier-daten.bauende",
+    "fields": {
+      "created_at": "2024-03-28T13:00:22.273Z",
+      "modified_at": "2024-03-28T13:00:22.273Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier-daten",
+      "question": "bauende",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier-daten.datum-baubeginn",
+    "fields": {
+      "created_at": "2024-03-28T12:59:59.273Z",
+      "modified_at": "2024-03-28T12:59:59.273Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier-daten",
+      "question": "datum-baubeginn",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier-daten.datum-publikation",
+    "fields": {
+      "created_at": "2024-03-28T12:59:49.953Z",
+      "modified_at": "2024-03-28T12:59:49.953Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier-daten",
+      "question": "datum-publikation",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier-daten.datum-schlussabnahme",
+    "fields": {
+      "created_at": "2024-03-28T13:00:15.254Z",
+      "modified_at": "2024-03-28T13:00:15.255Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier-daten",
+      "question": "datum-schlussabnahme",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier-daten.datum-schnurgeruestabnahme",
+    "fields": {
+      "created_at": "2024-03-28T13:00:08.034Z",
+      "modified_at": "2024-03-28T13:00:08.034Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier-daten",
+      "question": "datum-schnurgeruestabnahme",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier.freies-textfeld-1",
+    "fields": {
+      "created_at": "2024-03-26T18:17:52.562Z",
+      "modified_at": "2024-03-26T18:17:52.562Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier",
+      "question": "freies-textfeld-1",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier.freies-textfeld-2",
+    "fields": {
+      "created_at": "2024-03-26T18:18:04.621Z",
+      "modified_at": "2024-03-26T18:18:04.621Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier",
+      "question": "freies-textfeld-2",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier.geschaeftstyp",
+    "fields": {
+      "created_at": "2024-03-28T12:57:43.898Z",
+      "modified_at": "2024-03-28T12:57:43.898Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier",
+      "question": "geschaeftstyp",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier.is-paper",
+    "fields": {
+      "created_at": "2024-03-26T18:02:37.224Z",
+      "modified_at": "2024-03-26T18:02:37.224Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier",
+      "question": "is-paper",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier.kantonale-gesuchsnummer",
+    "fields": {
+      "created_at": "2024-03-28T12:58:10.723Z",
+      "modified_at": "2024-03-28T12:58:10.723Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier",
+      "question": "kantonale-gesuchsnummer",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier.kommunale-gesuchsnummer",
+    "fields": {
+      "created_at": "2024-03-28T12:58:00.161Z",
+      "modified_at": "2024-03-28T12:58:00.161Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier",
+      "question": "kommunale-gesuchsnummer",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier.link",
+    "fields": {
+      "created_at": "2024-03-26T18:18:20.804Z",
+      "modified_at": "2024-03-26T18:18:20.804Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier",
+      "question": "link",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier-lokalisierung.gemeinde",
+    "fields": {
+      "created_at": "2024-03-28T13:08:18.492Z",
+      "modified_at": "2024-03-28T13:08:18.492Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier-lokalisierung",
+      "question": "gemeinde",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier-lokalisierung.gis-karte",
+    "fields": {
+      "created_at": "2024-03-28T13:08:12.973Z",
+      "modified_at": "2024-03-28T13:08:12.973Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier-lokalisierung",
+      "question": "gis-karte",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier-lokalisierung.lokalisierung-titel",
+    "fields": {
+      "created_at": "2024-03-28T13:08:03.672Z",
+      "modified_at": "2024-03-28T13:08:03.672Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier-lokalisierung",
+      "question": "lokalisierung-titel",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier-lokalisierung.nutzungsplanung-grundnutzung",
+    "fields": {
+      "created_at": "2024-03-28T13:08:57.537Z",
+      "modified_at": "2024-03-28T13:08:57.537Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier-lokalisierung",
+      "question": "nutzungsplanung-grundnutzung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier-lokalisierung.ort",
+    "fields": {
+      "created_at": "2024-03-28T13:08:43.677Z",
+      "modified_at": "2024-03-28T13:08:43.677Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier-lokalisierung",
+      "question": "ort",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier-lokalisierung.parzellen",
+    "fields": {
+      "created_at": "2024-03-28T13:08:50.648Z",
+      "modified_at": "2024-03-28T13:08:50.648Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier-lokalisierung",
+      "question": "parzellen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier-lokalisierung.strasse-flurname",
+    "fields": {
+      "created_at": "2024-03-28T13:08:29.578Z",
+      "modified_at": "2024-03-28T13:08:29.578Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier-lokalisierung",
+      "question": "strasse-flurname",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier-lokalisierung.strasse-nummer",
+    "fields": {
+      "created_at": "2024-03-28T13:08:34.593Z",
+      "modified_at": "2024-03-28T13:08:34.593Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier-lokalisierung",
+      "question": "strasse-nummer",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier.migriertes-dossier-daten",
+    "fields": {
+      "created_at": "2024-03-28T12:59:19.245Z",
+      "modified_at": "2024-03-28T12:59:19.245Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier",
+      "question": "migriertes-dossier-daten",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier.migriertes-dossier-lokalisierung",
+    "fields": {
+      "created_at": "2024-03-28T13:09:38.105Z",
+      "modified_at": "2024-03-28T13:09:38.105Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier",
+      "question": "migriertes-dossier-lokalisierung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier.personalien",
+    "fields": {
+      "created_at": "2024-03-26T17:57:10.504Z",
+      "modified_at": "2024-03-26T17:57:10.504Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier",
+      "question": "personalien",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier.umschreibung-bauprojekt",
+    "fields": {
+      "created_at": "2024-03-26T17:58:35.295Z",
+      "modified_at": "2024-03-26T17:58:35.295Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier",
+      "question": "umschreibung-bauprojekt",
+      "sort": 11
     }
   },
   {
@@ -32963,6 +33377,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bauende",
+    "fields": {
+      "created_at": "2024-03-28T13:00:22.007Z",
+      "modified_at": "2024-03-28T13:00:22.008Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauende\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "bauen-im-grundwasser",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -36330,6 +36775,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "datum-baubeginn",
+    "fields": {
+      "created_at": "2024-03-28T12:59:58.994Z",
+      "modified_at": "2024-03-28T12:59:58.994Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Datum Baubeginn\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "datum-inbetriebnahme",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -36345,6 +36821,99 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "datum-publikation",
+    "fields": {
+      "created_at": "2024-03-28T12:59:49.640Z",
+      "modified_at": "2024-03-28T12:59:49.640Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Publikationsdatum\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "datum-schlussabnahme",
+    "fields": {
+      "created_at": "2024-03-28T13:00:14.979Z",
+      "modified_at": "2024-03-28T13:00:14.979Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Datum Schlussabnahme\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "datum-schnurgeruestabnahme",
+    "fields": {
+      "created_at": "2024-03-28T13:00:07.730Z",
+      "modified_at": "2024-03-28T13:00:07.730Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Datum Schnurger\\u00fcstabnahme\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -42105,6 +42674,74 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "freies-textfeld-1",
+    "fields": {
+      "created_at": "2024-03-26T18:17:52.516Z",
+      "modified_at": "2024-03-26T18:17:52.516Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Freies Textfeld 1\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "freies-textfeld-2",
+    "fields": {
+      "created_at": "2024-03-26T18:18:04.577Z",
+      "modified_at": "2024-03-26T18:18:04.577Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Freies Textfeld 2\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "fruchtfolgeflaechen-beansprucht",
     "fields": {
       "created_at": "2023-11-09T15:30:55.330Z",
@@ -43342,6 +43979,40 @@
       "configuration": {
         "max_value": null,
         "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "geschaeftstyp",
+    "fields": {
+      "created_at": "2024-03-28T12:57:43.599Z",
+      "modified_at": "2024-03-28T12:57:43.599Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gesch\\u00e4ftstyp\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
       },
       "meta": {},
       "data_source": null,
@@ -48526,6 +49197,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "kantonale-gesuchsnummer",
+    "fields": {
+      "created_at": "2024-03-28T12:58:10.491Z",
+      "modified_at": "2024-03-28T12:58:10.491Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kantonale Gesuchsnummer\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "kategorisierung-tiefbauten",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -48733,6 +49438,40 @@
       "meta": {
         "hideLabel": true
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kommunale-gesuchsnummer",
+    "fields": {
+      "created_at": "2024-03-28T12:57:59.907Z",
+      "modified_at": "2024-03-28T12:57:59.907Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kommunale Gesuchsnummer\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -50466,6 +51205,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "link",
+    "fields": {
+      "created_at": "2024-03-26T18:18:20.760Z",
+      "modified_at": "2024-03-26T18:18:20.760Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Link\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "links-thema-brandschutz",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -51430,6 +52203,68 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "migriertes-dossier-daten",
+    "fields": {
+      "created_at": "2024-03-28T12:59:18.920Z",
+      "modified_at": "2024-03-28T12:59:18.920Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Daten\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "migriertes-dossier-daten",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "migriertes-dossier-lokalisierung",
+    "fields": {
+      "created_at": "2024-03-28T13:09:37.838Z",
+      "modified_at": "2024-03-28T13:09:37.839Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Lokalisierung\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "migriertes-dossier-lokalisierung",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,

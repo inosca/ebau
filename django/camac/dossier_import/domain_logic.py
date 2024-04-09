@@ -61,7 +61,7 @@ def perform_import(dossier_import):
             location_id=dossier_import.location and dossier_import.location.pk,
         )
         dossier_import.messages["import"] = {"details": []}
-        for dossier in loader.load_dossiers(dossier_import.source_file.path):
+        for dossier in loader.load_dossiers(dossier_import.get_archive()):
             try:
                 message = writer.import_dossier(dossier, str(dossier_import.id))
             except Exception as e:  # pragma: no cover  # noqa: B902

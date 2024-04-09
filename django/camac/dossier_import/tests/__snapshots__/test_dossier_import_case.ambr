@@ -281,6 +281,355 @@
 # name: test_record_loading_be[dossier_row_patch9-street-kt_bern-be_instance-True]
   'MeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstr...'
 # ---
+# name: test_record_loading_so[dossier_row_patch0-dossier_number-kt_so-so_instance-False]
+  None
+# ---
+# name: test_record_loading_so[dossier_row_patch0-dossier_number-kt_so-so_instance-True]
+  None
+# ---
+# name: test_record_loading_so[dossier_row_patch1-plot_data-kt_so-so_instance-False]
+  list([
+    dict({
+      'coord_east': 2710662.0,
+      'coord_north': 1225997.0,
+      'egrid_number': 'HK207838123456',
+      'plot_number': '`123`',
+    }),
+    dict({
+      'coord_east': None,
+      'coord_north': None,
+      'egrid_number': 'EGRIDDELLEY',
+      'plot_number': '2BA',
+    }),
+  ])
+# ---
+# name: test_record_loading_so[dossier_row_patch1-plot_data-kt_so-so_instance-True]
+  list([
+    dict({
+      'coord_east': 2710662.0,
+      'coord_north': 1225997.0,
+      'egrid_number': 'HK207838123456',
+      'plot_number': '`123`',
+    }),
+    dict({
+      'coord_east': None,
+      'coord_north': None,
+      'egrid_number': 'EGRIDDELLEY',
+      'plot_number': '2BA',
+    }),
+  ])
+# ---
+# name: test_record_loading_so[dossier_row_patch10-decision_date-kt_so-so_instance-False]
+  None
+# ---
+# name: test_record_loading_so[dossier_row_patch10-decision_date-kt_so-so_instance-True]
+  None
+# ---
+# name: test_record_loading_so[dossier_row_patch11-final_approval_date-kt_so-so_instance-False]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_so[dossier_row_patch11-final_approval_date-kt_so-so_instance-True]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_so[dossier_row_patch12-completion_date-kt_so-so_instance-False]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_so[dossier_row_patch12-completion_date-kt_so-so_instance-True]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_so[dossier_row_patch13-applicants-kt_so-so_instance-False]
+  list([
+    dict({
+      'country': None,
+      'email': 'candy@example.com',
+      'first_name': 'Willy',
+      'has_representative': None,
+      'is_juristic_person': None,
+      'juristic_name': 'Chocolate Factory',
+      'last_name': 'Wonka',
+      'representative_country': None,
+      'representative_email': None,
+      'representative_first_name': None,
+      'representative_last_name': None,
+      'representative_street': None,
+      'representative_street_number': None,
+      'representative_tel': None,
+      'representative_town': None,
+      'representative_zip': None,
+      'street': 'Candy Lane',
+      'street_number': '13',
+      'tel': '+1 101 10 01 101',
+      'town': 'Wonderland',
+      'zip': '1234',
+    }),
+  ])
+# ---
+# name: test_record_loading_so[dossier_row_patch13-applicants-kt_so-so_instance-True]
+  list([
+    dict({
+      'country': None,
+      'email': 'candy@example.com',
+      'first_name': 'Willy',
+      'has_representative': None,
+      'is_juristic_person': None,
+      'juristic_name': 'Chocolate Factory',
+      'last_name': 'Wonka',
+      'representative_country': None,
+      'representative_email': None,
+      'representative_first_name': None,
+      'representative_last_name': None,
+      'representative_street': None,
+      'representative_street_number': None,
+      'representative_tel': None,
+      'representative_town': None,
+      'representative_zip': None,
+      'street': 'Candy Lane',
+      'street_number': '13',
+      'tel': '+1 101 10 01 101',
+      'town': 'Wonderland',
+      'zip': '1234',
+    }),
+  ])
+# ---
+# name: test_record_loading_so[dossier_row_patch14-landowners-kt_so-so_instance-False]
+  list([
+    dict({
+      'country': None,
+      'email': 'candy@example.com',
+      'first_name': 'Willy',
+      'has_representative': None,
+      'is_juristic_person': None,
+      'juristic_name': 'Chocolate Factory',
+      'last_name': 'Wonka',
+      'representative_country': None,
+      'representative_email': None,
+      'representative_first_name': None,
+      'representative_last_name': None,
+      'representative_street': None,
+      'representative_street_number': None,
+      'representative_tel': None,
+      'representative_town': None,
+      'representative_zip': None,
+      'street': 'Candy Lane',
+      'street_number': '13',
+      'tel': '+1 101 10 01 101',
+      'town': 'Wonderland',
+      'zip': '1234',
+    }),
+  ])
+# ---
+# name: test_record_loading_so[dossier_row_patch14-landowners-kt_so-so_instance-True]
+  list([
+    dict({
+      'country': None,
+      'email': 'candy@example.com',
+      'first_name': 'Willy',
+      'has_representative': None,
+      'is_juristic_person': None,
+      'juristic_name': 'Chocolate Factory',
+      'last_name': 'Wonka',
+      'representative_country': None,
+      'representative_email': None,
+      'representative_first_name': None,
+      'representative_last_name': None,
+      'representative_street': None,
+      'representative_street_number': None,
+      'representative_tel': None,
+      'representative_town': None,
+      'representative_zip': None,
+      'street': 'Candy Lane',
+      'street_number': '13',
+      'tel': '+1 101 10 01 101',
+      'town': 'Wonderland',
+      'zip': '1234',
+    }),
+  ])
+# ---
+# name: test_record_loading_so[dossier_row_patch15-project_authors-kt_so-so_instance-False]
+  list([
+    dict({
+      'country': None,
+      'email': 'candy@example.com',
+      'first_name': 'Willy',
+      'has_representative': None,
+      'is_juristic_person': None,
+      'juristic_name': 'Chocolate Factory',
+      'last_name': 'Wonka',
+      'representative_country': None,
+      'representative_email': None,
+      'representative_first_name': None,
+      'representative_last_name': None,
+      'representative_street': None,
+      'representative_street_number': None,
+      'representative_tel': None,
+      'representative_town': None,
+      'representative_zip': None,
+      'street': 'Candy Lane',
+      'street_number': None,
+      'tel': '+1 101 10 01 101',
+      'town': 'Wonderland',
+      'zip': '1234',
+    }),
+  ])
+# ---
+# name: test_record_loading_so[dossier_row_patch15-project_authors-kt_so-so_instance-True]
+  list([
+    dict({
+      'country': None,
+      'email': 'candy@example.com',
+      'first_name': 'Willy',
+      'has_representative': None,
+      'is_juristic_person': None,
+      'juristic_name': 'Chocolate Factory',
+      'last_name': 'Wonka',
+      'representative_country': None,
+      'representative_email': None,
+      'representative_first_name': None,
+      'representative_last_name': None,
+      'representative_street': None,
+      'representative_street_number': None,
+      'representative_tel': None,
+      'representative_town': None,
+      'representative_zip': None,
+      'street': 'Candy Lane',
+      'street_number': None,
+      'tel': '+1 101 10 01 101',
+      'town': 'Wonderland',
+      'zip': '1234',
+    }),
+  ])
+# ---
+# name: test_record_loading_so[dossier_row_patch16-project_authors-kt_so-so_instance-False]
+  list([
+    dict({
+      'country': None,
+      'email': 'urlichkissling@example.com',
+      'first_name': 'Ulrich',
+      'has_representative': None,
+      'is_juristic_person': None,
+      'juristic_name': 'Swisscom',
+      'last_name': 'Kissling',
+      'representative_country': None,
+      'representative_email': None,
+      'representative_first_name': None,
+      'representative_last_name': None,
+      'representative_street': None,
+      'representative_street_number': None,
+      'representative_tel': None,
+      'representative_town': None,
+      'representative_zip': None,
+      'street': 'Gribschstrasse',
+      'street_number': '3a',
+      'tel': '0771234123',
+      'town': 'Steinerberg',
+      'zip': None,
+    }),
+  ])
+# ---
+# name: test_record_loading_so[dossier_row_patch16-project_authors-kt_so-so_instance-True]
+  list([
+  ])
+# ---
+# name: test_record_loading_so[dossier_row_patch2-plot_data-kt_so-so_instance-False]
+  list([
+    dict({
+      'coord_east': None,
+      'coord_north': None,
+      'egrid_number': 'HK207838123456',
+      'plot_number': '`123`',
+    }),
+    dict({
+      'coord_east': None,
+      'coord_north': None,
+      'egrid_number': 'EGRIDDELLEY',
+      'plot_number': '2BA',
+    }),
+  ])
+# ---
+# name: test_record_loading_so[dossier_row_patch2-plot_data-kt_so-so_instance-True]
+  list([
+    dict({
+      'coord_east': None,
+      'coord_north': None,
+      'egrid_number': 'HK207838123456',
+      'plot_number': '`123`',
+    }),
+    dict({
+      'coord_east': None,
+      'coord_north': None,
+      'egrid_number': 'EGRIDDELLEY',
+      'plot_number': '2BA',
+    }),
+  ])
+# ---
+# name: test_record_loading_so[dossier_row_patch3-plot_data-kt_so-so_instance-False]
+  list([
+    dict({
+      'coord_east': 2710662.0,
+      'coord_north': 1225997.0,
+      'egrid_number': 'HK207838123456',
+      'plot_number': '`123`',
+    }),
+    dict({
+      'coord_east': None,
+      'coord_north': None,
+      'egrid_number': 'None',
+      'plot_number': '2BA',
+    }),
+  ])
+# ---
+# name: test_record_loading_so[dossier_row_patch3-plot_data-kt_so-so_instance-True]
+  list([
+    dict({
+      'coord_east': 2710662.0,
+      'coord_north': 1225997.0,
+      'egrid_number': 'HK207838123456',
+      'plot_number': '`123`',
+    }),
+    dict({
+      'coord_east': None,
+      'coord_north': None,
+      'egrid_number': 'None',
+      'plot_number': '2BA',
+    }),
+  ])
+# ---
+# name: test_record_loading_so[dossier_row_patch4-application_type-kt_so-so_instance-False]
+  'Baugesuch'
+# ---
+# name: test_record_loading_so[dossier_row_patch4-application_type-kt_so-so_instance-True]
+  'Baugesuch'
+# ---
+# name: test_record_loading_so[dossier_row_patch5-street-kt_so-so_instance-False]
+  'MeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreet'
+# ---
+# name: test_record_loading_so[dossier_row_patch5-street-kt_so-so_instance-True]
+  'MeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreet'
+# ---
+# name: test_record_loading_so[dossier_row_patch6-submit_date-kt_so-so_instance-False]
+  datetime.datetime(2021, 12, 12, 0, 0)
+# ---
+# name: test_record_loading_so[dossier_row_patch6-submit_date-kt_so-so_instance-True]
+  datetime.datetime(2021, 12, 12, 0, 0)
+# ---
+# name: test_record_loading_so[dossier_row_patch7-publication_date-kt_so-so_instance-False]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_so[dossier_row_patch7-publication_date-kt_so-so_instance-True]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_so[dossier_row_patch8-construction_start_date-kt_so-so_instance-False]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_so[dossier_row_patch8-construction_start_date-kt_so-so_instance-True]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_so[dossier_row_patch9-profile_approval_date-kt_so-so_instance-False]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_so[dossier_row_patch9-profile_approval_date-kt_so-so_instance-True]
+  datetime.date(2021, 12, 12)
+# ---
 # name: test_record_loading_sz[dossier_row_patch0-coordinates-kt_schwyz-sz_instance-False]
   list([
     dict({

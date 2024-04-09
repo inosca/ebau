@@ -82,7 +82,7 @@ MODULE_CONFIG_FIXTURES = {
     "master_data": ["kt_bern", "kt_schwyz", "kt_uri", "kt_gr", "kt_so"],
     "dump": ALL_APPS,
     "ech0211": ["kt_schwyz", "kt_bern", "kt_gr"],
-    "dossier_import": ["kt_schwyz", "kt_bern"],
+    "dossier_import": ["kt_schwyz", "kt_bern", "kt_so"],
 }
 
 for modulename, cantons in MODULE_CONFIG_FIXTURES.items():
