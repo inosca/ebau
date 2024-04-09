@@ -534,7 +534,7 @@
       "is_archived": false,
       "allow_all_forms": false,
       "start_tasks": ["submit"],
-      "allow_forms": ["baugesuch", "erdwaermesonden"]
+      "allow_forms": ["baugesuch", "erdwaermesonden", "migriertes-dossier"]
     }
   }
 ]

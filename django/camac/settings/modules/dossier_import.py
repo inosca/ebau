@@ -71,4 +71,26 @@ DOSSIER_IMPORT = {
         "PROD_SUPPORT_GROUP_ID": 10000,
         "RESOURCE_ID_PATH": "/index/template/resource-id/2000000#/dossier-import/",  # That's required for `reversing` the URL to the dossier-import resource tab in the UI
     },
+    "kt_so": {
+        "ENABLED": True,
+        "WRITER_CLASS": "camac.dossier_import.config.kt_so.KtSolothurnDossierWriter",
+        "INSTANCE_STATE_MAPPING": {
+            "SUBMITTED": 2,  # subm
+            "APPROVED": 8,  # construction-monitoring
+            "REJECTED": 11,  # rejected
+            "WRITTEN OFF": 12,  # withdrawn
+            "DONE": 9,  # finished
+        },
+        "CALUMA_FORM": "migriertes-dossier",
+        "FORM_ID": 1,
+        "ALEXANDRIA_CATEGORY": "intern",
+        "PROD_URL": env.str(
+            "DJANGO_DOSSIER_IMPORT_PROD_URL",
+            "https://ebau.so.ch/",
+        ),
+        "PROD_AUTH_URL": env.str(
+            "DJANGO_DOSSIER_IMPORT_PROD_AUTH_URL",
+            "https://ebau.so.ch/auth/realms/ebau/protocol/openid-connect/token",
+        ),
+    },
 }

@@ -867,7 +867,7 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
                 "work_items__document__answers__answerdocument_set",
                 "work_items__document__answers__answerdocument_set__document__answers",
             ],
-            9,
+            10,
         ),
     ],
 )
