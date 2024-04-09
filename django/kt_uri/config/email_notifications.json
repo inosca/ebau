@@ -1,6 +1,54 @@
 [
   {
     "model": "notification.notificationtemplate",
+    "pk": 1,
+    "fields": {
+      "slug": "send-additional-demand",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 2,
+    "fields": {
+      "slug": "fill-additional-demand",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 3,
+    "fields": {
+      "slug": "additional-demand-decision-accept",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 4,
+    "fields": {
+      "slug": "additional-demand-decision-reject",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
     "pk": 228,
     "fields": {
       "slug": "dossier-an-gemeinde-zuruck-geschickt",
@@ -126,7 +174,7 @@
       "slug": "dossier-abgewiesen",
       "purpose": "2.1 Info an Gesuchsteller - Das Dossier wurde von Gemeinde zurückgewiesen",
       "subject": "Dossier von der Gemeindebaubehörde zurückgewiesen",
-      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nDOSSIER ZURÜCKGEWIESEN \r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nSie haben via URec das Dossier mit der ID {{INSTANCE_ID}} erfasst. Wir stellen fest, dass das Dossier unvollständig ist. Das Dossier wird deshalb zurückgewiesen. Bitte loggen Sie sich im URec Portal ein, vervollständigen Sie das Dossier gemäss unseren Angaben und reichen Sie es erneut ein.\r\n\r\nMit freundliche Grüssen\r\nGemeindebaubehörde {{INSTANCE_LOCATION}}",
+      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nDOSSIER ZURÜCKGEWIESEN \r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nSie haben via URec das Dossier mit der ID {{INSTANCE_ID}} erfasst. Wir stellen fest, dass das Dossier unvollständig ist. Das Dossier wird deshalb zurückgewiesen. Bitte loggen Sie sich im URec Portal ein, vervollständigen Sie das Dossier und reichen Sie es erneut ein.\r\n\r\nMit freundliche Grüssen\r\nGemeindebaubehörde {{INSTANCE_LOCATION}}",
       "service": null,
       "type": "email"
     }
@@ -390,9 +438,57 @@
       "slug": "zirkulation-gestartet-koor-afg",
       "purpose": "9 Info an Fachstelle - Zirkulation gestartet von KOOR AfG",
       "subject": "URec Dossier Nr. {{DOSSIER_NR}} Zirkulation von KOOR AfG gestartet",
-      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nNEUE PENDENZ\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm URec wurde das Dossier Nr. {{DOSSIER_NR}} Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu prüfen und die entsprechende Rückmeldung (Stellungnahme / Verfügung / Planvisum usw.) innert Frist zurückzuschicken.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nSie können das Dossier mit folgendem Link direkt öffnen:\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nBEARBEITUNG IM URec\r\n- DokumentE (bitte inkl. Unterschrift) hochladen.\r\n- Kurzantwort auswählen.\r\n- Art der Sachbearbeitung auswählen.\r\n- Kurzkommentare für die Koordinationsstelle oder für die Gemeindebaubehörde erfassen.\r\n- Gebühren erfassen.\r\n- Senden\r\n\r\nAKTENNACHFORDERUNG\r\nSofern Sie weitere Unterlagen benötigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button «Nachforderung»). Im dafür vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verfügung.\r\n\r\n{{CURRENT_SERVICE_DESCRIPTION}}",
+      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nNEUE PENDENZ\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm URec wurde das Dossier Nr. {{DOSSIER_NR}} Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu prüfen und die entsprechende Rückmeldung (Stellungnahme / Verfügung / Planvisum usw.) innert Frist zurückzuschicken.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nSie können das Dossier mit folgendem Link direkt öffnen:\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nBEARBEITUNG IM URec\r\n- Dokumente (bitte inkl. Unterschrift) hochladen\r\n- Kurzantwort auswählen\r\n- Art der Sachbearbeitung auswählen\r\n- Kurzkommentare für die Koordinationsstelle oder für die Gemeindebaubehörde erfassen\r\n- Gebühren erfassen\r\n- Senden\r\n\r\nAKTENNACHFORDERUNG\r\nSofern Sie weitere Unterlagen benötigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button «Nachforderung»). Im dafür vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verfügung.\r\n\r\n{{CURRENT_SERVICE_DESCRIPTION}}",
       "service": null,
       "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 1,
+    "fields": {
+      "template": 1,
+      "template_slug": "send-additional-demand",
+      "language": "de",
+      "purpose": "Nachforderung, Neu",
+      "subject": "Neue Nachforderung (Dossier-Nr. {{DOSSIER_NR}})",
+      "body": "Guten Tag\r\n\r\nIm eBau gibt es eine neue Nachforderung im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\neBau"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 2,
+    "fields": {
+      "template": 2,
+      "template_slug": "fill-additional-demand",
+      "language": "de",
+      "purpose": "Nachforderung beantwortet",
+      "subject": "Nachforderung beantwortet (Dossier-Nr. {{DOSSIER_NR}})",
+      "body": "Guten Tag\r\n\r\nIm eBau wurde die Nachforderung beantwortet im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 3,
+    "fields": {
+      "template": 3,
+      "template_slug": "additional-demand-decision-accept",
+      "language": "de",
+      "purpose": "Nachforderung geprüft positiv",
+      "subject": "Nachforderung akzeptiert (Dossier-Nr. {{DOSSIER_NR}})",
+      "body": "Guten Tag\r\n\r\nIm eBau wurde die Nachforderung angeschlossen im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 4,
+    "fields": {
+      "template": 4,
+      "template_slug": "additional-demand-decision-reject",
+      "language": "de",
+      "purpose": "Nachforderung geprüft negativ",
+      "subject": "Nachforderung abgelehnt (Dossier-Nr. {{DOSSIER_NR}})",
+      "body": "Guten Tag\r\n\r\nIm eBau wurde ihre Nachforderung abgelehnt im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
     }
   }
 ]

@@ -452,6 +452,10 @@ DUMP = {
         "ENABLED": True,
         "CONFIG": {
             "GROUPS": {
+                "email_notifications": {
+                    "notification.NotificationTemplate": Q(type="email"),
+                    "notification.NotificationTemplateT": Q(template__type="email"),
+                },
                 "dashboard_document": {
                     "caluma_form.Document": Q(form="dashboard"),
                 },
