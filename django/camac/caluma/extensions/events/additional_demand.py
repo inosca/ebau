@@ -5,7 +5,7 @@ from caluma.caluma_workflow.events import (
     post_complete_work_item,
     post_create_work_item,
 )
-from caluma.caluma_workflow.models import Workflow
+from caluma.caluma_workflow.models import Workflow, WorkItem
 from django.conf import settings
 from django.db import transaction
 from django.utils.translation import gettext_noop
@@ -40,6 +40,14 @@ def filter_by_task(settings_keys):
     return filter_by_task_base(settings_keys, get_additional_demand_settings)
 
 
+def _has_pending_checks(work_item):
+    return WorkItem.objects.filter(
+        task_id=settings.ADDITIONAL_DEMAND["CHECK_TASK"],
+        case__family=get_instance(work_item).case.family,
+        status=WorkItem.STATUS_READY,
+    ).exists()
+
+
 @on(post_create_work_item, raise_exception=True)
 @filter_by_task("TASK")
 @transaction.atomic
@@ -55,6 +63,20 @@ def post_create_additional_demand(sender, work_item, user, context=None, **kwarg
         modified_by_user=user.group,
         modified_by_group=user.group,
     )
+
+    instance = get_instance(work_item)
+
+    if settings.ADDITIONAL_DEMAND.get(
+        "STATES"
+    ) and instance.instance_state.name != settings.ADDITIONAL_DEMAND["STATES"].get(
+        "PENDING_ADDITIONAL_DEMANDS"
+    ):
+        camac_user = User.objects.get(username=user.username)
+
+        instance.set_instance_state(
+            settings.ADDITIONAL_DEMAND["STATES"]["PENDING_ADDITIONAL_DEMANDS"],
+            camac_user,
+        )
 
 
 @on(post_complete_case, raise_exception=True)
@@ -101,4 +123,14 @@ def post_complete_check_additional_demand(
             instance,
             User.objects.get(username=user.username),
             gettext_noop(history_entry),
+        )
+
+    instance = get_instance(work_item)
+
+    if settings.ADDITIONAL_DEMAND.get("STATES") and not _has_pending_checks(work_item):
+        camac_user = User.objects.get(username=user.username)
+
+        instance.set_instance_state(
+            instance.previous_instance_state.name,
+            camac_user,
         )

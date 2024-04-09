@@ -1,5 +1,6 @@
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
+import CamacAdditionalDemandFilesComponent from "ember-ebau-core/components/camac-additional-demand-files";
 import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/appeal-button";
 import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
 import DecisionInfoGeometerComponent from "ember-ebau-core/components/decision/info-geometer";
@@ -166,6 +167,12 @@ export default class ApplicationRoute extends Route {
       label: "Milestone values (Kt. UR)",
       component: "milestone-values",
       componentClass: MilestoneValuesComponent,
+    });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "Nachforderungsdateien Camac (Kt. UR)",
+      component: "camac-additional-demand-files",
+      componentClass: CamacAdditionalDemandFilesComponent,
     });
   }
 }
