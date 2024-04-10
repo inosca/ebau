@@ -1,4 +1,5 @@
 import datetime
+import json
 from typing import Union
 
 from alexandria.core.models import BaseModel, Category, Document, File, Tag
@@ -29,7 +30,7 @@ class CustomPermission:
     def get_needed_permissions(self, request, document=None) -> set:
         if request.method == "POST":
             used_permissions = {MODE_CREATE}
-            for key, value in request.data.items():
+            for key, value in request.parsed_data.items():
                 if (
                     key in settings.ALEXANDRIA["RESTRICTED_FIELDS"]
                     and value not in EMPTY_VALUES
@@ -65,8 +66,11 @@ class CustomPermission:
                 new_value = new_value["id"]
             # ManyToManyField
             elif hasattr(old_value, "values_list"):
-                old_value = [str(v) for v in old_value.values_list("pk", flat=True)]
-                new_value = [item["id"] for item in new_value]
+                # can be a set because ids are unique
+                old_value = set(
+                    [str(v) for v in old_value.values_list("pk", flat=True)]
+                )
+                new_value = set([item["id"] for item in new_value])
 
             if old_value != new_value:
                 used_permissions.add(f"{MODE_UPDATE}-{key}")
@@ -134,10 +138,11 @@ class CustomPermission:
         elif request.method == "POST":
             # On creation we don't have any data in the database yet. Therefore
             # we need to get the needed data from the request.
-            instance = Instance.objects.get(
-                pk=request.data["metainfo"]["camac-instance-id"]
-            )
-            category = Category.objects.get(pk=request.data["category"]["id"])
+            data = json.loads(request.data["data"].read().decode("utf-8"))
+            instance = Instance.objects.get(pk=data["metainfo"]["camac-instance-id"])
+            category = Category.objects.get(pk=data["category"])
+            request.parsed_data = data
+            request.data["data"].seek(0)
         else:
             # If there is no document, we called `permission_for` which can be
             # ignored for update and delete requests as `object_permission_for`

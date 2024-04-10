@@ -1,11 +1,12 @@
 from alexandria.core.models import Document
+from alexandria.core.validations import AlexandriaValidator
 from django.conf import settings
 from django.utils.translation import gettext as _
 from generic_permissions.validation import validator_for
 from rest_framework.exceptions import ValidationError
 
 
-class CustomValidation:
+class CustomValidation(AlexandriaValidator):
     @validator_for(Document)
     def validate_void_mark(self, data, context):
         marks = data.get("marks", [])
