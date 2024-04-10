@@ -1,3 +1,5 @@
-import AlexandriaAdapter from "ember-ebau-core/adapters/alexandria";
+import DocumentAdapter from "ember-alexandria/adapters/document";
 
-export default class AlexandriaDocumentAdapter extends AlexandriaAdapter {}
+export default class AlexandriaDocumentAdapter extends DocumentAdapter {
+  namespace = "alexandria/api/v1";
+}

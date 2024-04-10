@@ -113,7 +113,7 @@
     "qrcode": "1.5.3",
     "qunit": "2.20.1",
     "qunit-dom": "3.0.0",
-    "reactiveweb": "1.2.2",
+    "reactiveweb": "1.2.3",
     "sass": "1.72.0",
     "testem-gitlab-reporter": "1.0.0",
     "testem-multi-reporter": "1.2.0",
