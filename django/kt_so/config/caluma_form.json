@@ -168,24 +168,6 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "bauten-ausserhalb-bauzone",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "name": "{\"de\": \"Bauten ausserhalb Bauzone\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "meta": {},
-      "is_published": false,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
     "pk": "brandschutz",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -812,24 +794,6 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Wohnungen Tabelle\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "meta": {},
-      "is_published": false,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
-    "pk": "zivilschutz",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "name": "{\"de\": \"Zivilschutz\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
@@ -4559,201 +4523,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "bauten-ausserhalb-bauzone.bab-titel",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "bauten-ausserhalb-bauzone",
-      "question": "bab-titel",
-      "sort": 13
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bauten-ausserhalb-bauzone.baubewilligung",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "bauten-ausserhalb-bauzone",
-      "question": "baubewilligung",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bauten-ausserhalb-bauzone.bemerkungen-gemeindebaubehoerde",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "bauten-ausserhalb-bauzone",
-      "question": "bemerkungen-gemeindebaubehoerde",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bauten-ausserhalb-bauzone.bestehende-bauten",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "bauten-ausserhalb-bauzone",
-      "question": "bestehende-bauten",
-      "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bauten-ausserhalb-bauzone.bewilligungsdokumente",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "bauten-ausserhalb-bauzone",
-      "question": "bewilligungsdokumente",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bauten-ausserhalb-bauzone.einfuehrungstext",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "bauten-ausserhalb-bauzone",
-      "question": "einfuehrungstext",
-      "sort": 12
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bauten-ausserhalb-bauzone.erklaerung-standortgebundenheit",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "bauten-ausserhalb-bauzone",
-      "question": "erklaerung-standortgebundenheit",
-      "sort": 7
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bauten-ausserhalb-bauzone.errichtungszeitpunkt",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "bauten-ausserhalb-bauzone",
-      "question": "errichtungszeitpunkt",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bauten-ausserhalb-bauzone.grobbeurteilung",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "bauten-ausserhalb-bauzone",
-      "question": "grobbeurteilung",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bauten-ausserhalb-bauzone.hinweis-bab-fachthema",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "bauten-ausserhalb-bauzone",
-      "question": "hinweis-bab-fachthema",
-      "sort": 10
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bauten-ausserhalb-bauzone.landwirtschaftlich-begruendet",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "bauten-ausserhalb-bauzone",
-      "question": "landwirtschaftlich-begruendet",
-      "sort": 11
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bauten-ausserhalb-bauzone.neue-bauten",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "bauten-ausserhalb-bauzone",
-      "question": "neue-bauten",
-      "sort": 9
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bauten-ausserhalb-bauzone.standortbegruendung",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "bauten-ausserhalb-bauzone",
-      "question": "standortbegruendung",
-      "sort": 8
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "brandschutz.andere-gebaeude",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -7589,21 +7358,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "fachthemen.bauten-ausserhalb-bauzone",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "fachthemen",
-      "question": "bauten-ausserhalb-bauzone",
-      "sort": 7
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "fachthemen.brandschutz",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -7675,21 +7429,6 @@
       "form": "fachthemen",
       "question": "wald",
       "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "fachthemen.zivilschutz",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "fachthemen",
-      "question": "zivilschutz",
-      "sort": 6
     }
   },
   {
@@ -16453,96 +16192,6 @@
     }
   },
   {
-    "model": "caluma_form.formquestion",
-    "pk": "zivilschutz.personen-und-gebaeudeschutz",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "zivilschutz",
-      "question": "personen-und-gebaeudeschutz",
-      "sort": 9
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "zivilschutz.schutzraum",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "zivilschutz",
-      "question": "schutzraum",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "zivilschutz.schutzraum-baulich-betroffen",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "zivilschutz",
-      "question": "schutzraum-baulich-betroffen",
-      "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "zivilschutz.schutzraumrelevante-massnahmen",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "zivilschutz",
-      "question": "schutzraumrelevante-massnahmen",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "zivilschutz.schutzraum-vorhanden",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "zivilschutz",
-      "question": "schutzraum-vorhanden",
-      "sort": 7
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "zivilschutz.zivilschutz-titel",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "zivilschutz",
-      "question": "zivilschutz-titel",
-      "sort": 8
-    }
-  },
-  {
     "model": "caluma_form.option",
     "pk": "200m3-abfall-ja",
     "fields": {
@@ -19920,38 +19569,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "bewilligungsdokumente-ja",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "bewilligungsdokumente-nein",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "brandschutzabstand-eingehalten-ja",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -22384,38 +22001,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "grobbeurteilung-standortgebunden",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nicht landwirtschaftliche Nutzung\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "grobbeurteilung-zonenkonform",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Landwirtschaftliche Nutzung\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "grundeigentuemerin-abweichend-ja",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -23585,38 +23170,6 @@
   {
     "model": "caluma_form.option",
     "pk": "landwirtschaft-begruendet-nein",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "landwirtschaftlich-begruendet-ja",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "landwirtschaftlich-begruendet-nein",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
       "modified_at": "2023-07-05T09:47:01.796Z",
@@ -26233,102 +25786,6 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Schnittpl\\u00e4ne\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "schutzraum-antrag",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Es wird ein Antrag auf Leistung eines Ersatzbeitrages gestellt\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "schutzraum-betroffen-ja",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "schutzraum-betroffen-nein",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "schutzraum-neu",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Es wird ein neuer Schutzraum gebaut\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "schutzraumrelevante-massnahmen-ja",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "schutzraumrelevante-massnahmen-nein",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -33067,37 +32524,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "bab-titel",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"BaB Titel\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"##Anforderungen bei Bauten und Anlagen ausserhalb der Bauzone\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "bauabstand-baulinie-an-kantonsstrasse-titel",
     "fields": {
       "created_at": "2023-11-10T10:02:41.345Z",
@@ -33177,37 +32603,6 @@
       "info_text": "{\"de\": \"Der Bauabstand von Wald betr\\u00e4gt gem\\u00e4ss \\u00a7 141 Abs. 1 PBG f\\u00fcr Bauten und bauliche Anlagen 20\\u00a0m. In begr\\u00fcndeten F\\u00e4llen, vorab aus Gr\\u00fcnden der Raumplanung, kann im Rahmen des Zonenplanes eine andere Waldbaulinie (\\u00a7 40 PBG) festgelegt werden.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "baubewilligung",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Baubewilligung f\\u00fcr Bauten die nach 1980 errichtet wurden\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "!(\"landwirtschaftlich-begruendet-nein\" == \"landwirtschaftlich-begruendet\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"####Pr\\u00fcfung der Rechtm\\u00e4ssigkeit der bestehenden Bauten und Anlagen\\nWenn die Baute oder Anlage nach 1980 errichtet wurde, muss als Erstes deren Rechtm\\u00e4ssigkleit gepr\\u00fcft werden (wann wurde die Baubewilligung erteilt?). Bitte f\\u00fcgen Sie alte Baubewilligungsdokumente bei den Unterlagen hinzu (falls die Bewilligungsdokumente nicht verf\\u00fcgbar sind, erkundigen Sie sich bitte bei der zust\\u00e4ndigen Gemeinde).\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -33683,37 +33078,6 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "bauten-ausserhalb-bauzone",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-09-18T17:17:34.194Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Bauten ausserhalb Bauzone\", \"fr\": null, \"it\": null}",
-      "type": "form",
-      "is_required": "false",
-      "is_hidden": "!(\n\t[\n\t\t\"Landwirtschaftszone\",\n\t\t\"Wald\",\n\t\t\"Speziallandwirtschaftszone\",\n\t\t\"Rebbauzone\",\n\t\t\"Naturschutzzone lokal\",\n\t\t\"Gewaesserraumzone\",\n\t\t\"Freihaltezone ausserhalb Bauzonen\",\n\t\t\"Gewaesser\",\n\t\t\"Weilerzone\",\n\t\t\"Verkehrsflaeche ausserhalb Bauzonen\",\n\t\t\"Reservezone\",\n\t\t\"Reservezone, unproduktiv\",\n\t\t\"Deponiezone\",\n\t\t\"Abbauzone\",\n\t\t\"Abbau- und Deponiezone\",\n\t\t\"Zone fuer Sport- und Freizeitanlagen Golf\"\n\t] intersects (\"zone\"|answer || \"\")\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": "bauten-ausserhalb-bauzone",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -34620,40 +33984,6 @@
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Bitte informieren Sie uns hier in Stichworten, falls Sie eines oder mehrere der oben aufgelisteten Pflichtdokumente jetzt (noch) nicht einreichen, jedoch das H\\u00e4ckchen trotzdem setzen, damit das Formular vollst\\u00e4ndig ist und das Dossier eingereicht werden kann.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "bemerkungen-gemeindebaubehoerde",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Bemerkungen zur aktuellen und k\\u00fcnftigen Nutzung\", \"fr\": null, \"it\": null}",
-      "type": "textarea",
-      "is_required": "false",
-      "is_hidden": "!(\"landwirtschaftlich-begruendet-nein\" == \"landwirtschaftlich-begruendet\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"aktuelle -k\\u00fcnftige Nutzung\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -35615,37 +34945,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "bestehende-bauten",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Bestehende Bauten Titel\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "!(\"landwirtschaftlich-begruendet-nein\" == \"landwirtschaftlich-begruendet\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"####Bestehende Bauten und Anlagen (Umnutzung, bauliche Ver\\u00e4nderungen)\\n\\nBestehende Bauten und Anlagen k\\u00f6nnen unter bestimmten Voraussetzungen erneuert, ge\\u00e4ndert und geringf\\u00fcgig erweitert oder abgebrochen und wieder neu aufgebaut werden. Voraussetzungen sind, dass das Geb\\u00e4ude rechtm\\u00e4ssig erstellt wurde und der neuen Nutzung bzw. dem Vorhaben auch keine \\u00fcberwiegenden Interessen entgegenstehen.\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "bestehende-einleitung",
     "fields": {
       "created_at": "2024-02-21T08:19:10.863Z",
@@ -35984,37 +35283,6 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "bewilligungsdokumente",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Sind zur bestehenden Baute oder Anlage Bewilligungsdokumente vorhanden?\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "false",
-      "is_hidden": "!(\"landwirtschaftlich-begruendet-nein\" == \"landwirtschaftlich-begruendet\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -38153,37 +37421,6 @@
       "info_text": "{\"de\": \"Einfache, offene Erholungs- und Jagdeinrichtungen im Wald sind gem\\u00e4ss \\u00a7 23 Abs. 1 WaVSO punktuelle oder unbedeutende Beanspruchungen von Waldboden, welche die Funktionen oder die Bewirtschaftung des Waldes nicht beeintr\\u00e4chtigen. Darunter fallen gem\\u00e4ss \\u00a7 23 Abs. 2 WaVSO einfache Feuerstellen und bescheidene Rastpl\\u00e4tze mit maximal 20 Sitzgelegenheiten (lit. a), Sport- und Lehrpfade (lit. b), Waldfestpl\\u00e4tze ohne st\\u00e4ndige Einrichtungen (lit. c) sowie offene Unterst\\u00e4nde aus Holz von maximal 40 m\\u00b2 \\u00fcberdachter Fl\\u00e4che und ohne sanit\\u00e4re Anlagen (lit. d). Die Zustimmung des Bau- und Justizdepartementes zur Erstellung solcher Erholungs- und Jagdeinrichtungen wird gem\\u00e4ss \\u00a7 23 Abs. 3 WaVSO erteilt, wenn dies im \\u00f6ffentlichen Interesse liegt, das Vorhaben keiner zus\\u00e4tzlichen Erschliessung bedarf und der Waldeigent\\u00fcmer* damit einverstanden ist.\\n\\n*Bei Staatswald ist das Hochbauamt des Kantons Solothurn zust\\u00e4ndig f\\u00fcr die Unterschrift des Grundeigent\\u00fcmers.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "einfuehrungstext",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Einf\\u00fchrungstext BaB\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Bauten und Anlagen die ausserhalb der Bauzone erstellt werden, m\\u00fcssen erh\\u00f6hten Anforderungen gerecht werden. Bewilligungsinstanz (Leitbeh\\u00f6rde) ist die zust\\u00e4ndige Gemeindebaubeh\\u00f6rde. Bevor eine Baubewilligung erteilt werden kann, ist zwingend die Zustimmung der Justizdirektion einzuholen.  Die Gemeindebaubeh\\u00f6rde beurteilt das Vorhaben erstinstanzlich und leitet das Dossier bei positiven Befund an die Koordinationsstelle beim Kanton weiter. Alternativ holt die Gemeindebaubeh\\u00f6rde beim Amt f\\u00fcr Raumentwicklung eine Beurteilung ein bevor sie ein Gesuch erstinstanzlich abweist.\\n\\nDie kantonale Praxis betreffend die Beurteilung von Bauten und Anlagen ausserhalb der Bauzone ist im [BaB Merkblatt](https://www.ur.ch/_docn/212918/Merkblatt_Bauten_ausserhalb_Bauzonen__Reduziert.pdf) detailliert dokumentiert.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -40801,71 +40038,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "erklaerung-standortgebundenheit",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Erkl\\u00e4rung zur Standortgebundenheit\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "!(\"landwirtschaftlich-begruendet-nein\" == \"landwirtschaftlich-begruendet\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Bitte beschreiben Sie, weshalb das Vorhaben nicht innerhalb einer Bauzone bzw. nur am gew\\u00e4hlten Standort realisiert werden kann. Es k\\u00f6nnen nur objektive Gr\\u00fcnde f\\u00fcr eine Bejahung der Standortgebundenheit sprechen (z.B. kann eine Quellfassung nur am Standort des Quellaustritts realisiert werden oder eine Lawinenverbauung muss an einer ganz bestimmten Stelle errichtet werden. Hingegen kann z.B. der Bau eines Fahrzeugunterstandes ohne weiteres auch innerhalb einer Bauzone realisiert werden und ist deshalb nicht standortgebunden). Subjektive Gr\\u00fcnde wie z.B. ein bequemerer Zugang oder eine bessere Aussicht etc. k\\u00f6nnen nicht ber\\u00fccksichtig werden.\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "errichtungszeitpunkt",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Wann wurde das Geb\\u00e4ude errichtet?\", \"fr\": null, \"it\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "!(\"landwirtschaftlich-begruendet-nein\" == \"landwirtschaftlich-begruendet\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "erschliessungen",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -43413,7 +42585,6 @@
         "columnsToDisplay": [
           "anlagetyp",
           "anlagetyp-art",
-          "gehoert-zu-gebaeudenummer",
           "hauptheizungsanlage",
           "heizsystem-art",
           "bezeichnung-dazugehoeriges-gebaeude"
@@ -44404,37 +43575,6 @@
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"---\\n\\n<p class=\\\"uk-text-small uk-margin-remove\\\"><strong>Gleisanlagen</strong> (Art. 13 und 14 ArGV 4): Sicherheitsabst\\u00e4nde, Sicherheitsr\\u00e4ume</p>\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "grobbeurteilung",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Zu welchem Zweck wurde die Baute oder Anlage urspr\\u00fcnglich genutzt?\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "false",
-      "is_hidden": "!(\"landwirtschaftlich-begruendet-nein\" == \"landwirtschaftlich-begruendet\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -45761,37 +44901,6 @@
       "info_text": "{\"de\": \"Gem\\u00e4ss \\u00a7 52 Abs. 3 KBV ist f\\u00fcr die Tatbest\\u00e4nde ausserhalb der Bauzone bei\\nKantonsstrassen das Bau- und Justizdepartement (vertreten durch das Amt\\nf\\u00fcr Verkehr und Tiefbau, zust\\u00e4ndiger Kreis Strassenunterhalt) zust\\u00e4ndig.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"Das (Bau-)Vorhaben ben\\u00f6tigt eine Ausnahmebewilligung zur Unterschreitung des Bauabstandes / der Baulinie an Kantonsstrassen. Gest\\u00fctzt auf \\u00a7\\u00a0138 PBG i.V.m. \\u00a7\\u00a052 KBV k\\u00f6nnen Ausnahmebewilligungen zur Unterschreitung des Bauabstandes, der Baulinie, der Vorbaulinie oder der relativen Baulinie erteilt werden. Der \\u00a7\\u00a067 KBV, auf welchen der \\u00a7\\u00a052 KBV verweist, setzt kumulativ voraus, dass eine Ausnahmebewilligung nur m\\u00f6glich ist, wenn ausserordentliche Verh\\u00e4ltnisse vorliegen, die Einhaltung eine unverh\\u00e4ltnism\\u00e4ssige H\\u00e4rte bedeutet (H\\u00e4rtefall) und mit einer Ausnahmebewilligung weder \\u00f6ffentliche noch sch\\u00fctzenswerte private Interessen verletzt werden.\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "hinweis-bab-fachthema",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Hinweis BaB Fachthema\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "!(\"landwirtschaftlich-begruendet-ja\" == \"landwirtschaftlich-begruendet\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"**Bitte beantworten Sie die Fragen im Fachthema \\\"Landwirtschaft\\\"**\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -50694,37 +49803,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "landwirtschaftlich-begruendet",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ist das Vorhaben landwirtschaftlich begr\\u00fcndet?\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "landwirtschaftliche-baute",
     "fields": {
       "created_at": "2023-11-10T10:40:39.960Z",
@@ -53803,37 +52881,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "neue-bauten",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Neue Bauten und Anlagen\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "!(\"landwirtschaftlich-begruendet-nein\" == \"landwirtschaftlich-begruendet\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"####Bewilligungsvoraussetzungen\\n\\n**Neue Bauten und Anlagen**\\nAusserhalb der Bauzone k\\u00f6nnen neue Bauten und Anlagen nur bewilligt werden, wenn diese zonenkonform sind (z. B. eine landwirtschaftliche \\u00d6konomiebaute in der Landwirtschaftszone) oder wenn sie aus objektiven Gr\\u00fcnden auf einen ganz bestimmten Standort angewiesen sind (z. B. kann die Erstellung einer neuen Quellfassung nur direkt bei der Quelle oder ein Steinschlagschutznetz nur an einer ganz bestimmten Stelle realisiert werden).\\n\\nAlternativ kann ein Vorhaben auch als standortgebunden anerkannt werden, wenn es aus betrieblichen Gr\\u00fcnden zwingend auf einen Standort ausserhalb des Siedlungsgebietes und damit in der Regel auch ausserhalb der Bauzonen erstellt werden kann (z. B. eine Windmessanlage auf einer exponierten Gel\\u00e4ndekuppe usw.).\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "neue-einleitung-fliessgewaesser",
     "fields": {
       "created_at": "2024-02-21T08:15:43.591Z",
@@ -56747,130 +55794,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "schutzraum",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Wird ein neuer Schutzraum gebaut oder ein Antrag auf Leistung eines Ersatzbeitrages gestellt?\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "!(\"schutzraumrelevante-massnahmen-ja\" == \"schutzraumrelevante-massnahmen\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Bitte beachten Sie, dass die zust\\u00e4ndige Beh\\u00f6rde (Amt f\\u00fcr Bev\\u00f6lkerungsschutz und Milit\\u00e4r) entscheidet, ob einem Antrag auf Leistung eines Ersatzbeitrages zur Erf\\u00fcllung der Schutzraumbaupflicht stattgegeben werden kann, oder ob ein Schutzraum erstellt werden muss.\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "schutzraum-baulich-betroffen",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ist ein bestehender Schutzraum durch bauliche Massnahmen betroffen?\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "schutzraumrelevante-massnahmen",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Werden Wohnr\\u00e4ume erstellt oder ver\\u00e4ndert?\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "schutzraum-vorhanden",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Schutzraum  vorhanden?\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Im Thema Lokalisierung wird angezeigt, ob sich auf der ausgew\\u00e4hlten Parzelle und / oder den benachbarten Parzellen ein Schutzraum befindet (falls die Anzeige via Schnittstelle nicht vollst\\u00e4ndig ist k\\u00f6nnen Sie die Abfrage auch direkt auf [www.geo.ur.ch](https://www.geo.ur.ch/?center=962589%2C5922132&zoom=12) machen. Dazu im Menu \\\"Geodatenkatalog die entsprechenden Layer, \\\"Liegenschaften\\\" und \\\"Schutzbautenkataster\\\" ausw\\u00e4hlen.\\n\\nWenn ein Schutzraum in irgendeiner Art baulich betroffen ist, zum Beispiel infolge eines Teilabbruchs eines Geb\\u00e4udes oder durch Freilegung (Abgrabung) eines Teils der Schutzraumh\\u00fclle usw., m\\u00fcssen Sie die folgende Frage mit ja beantworten. Aus den Planunterlagen m\\u00fcssen die baulichen Massnahmen die einen Schutzraum betreffen, ersichtlich sein. Weitere Informationen k\\u00f6nnen Sie dem Fact-Sheet [\\\"Private Schutzr\\u00e4ume\\\"](/assets/downloads/Fact_Sheet_fuer_private_Schutzraeume.pdf) entnehmen.\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "sicherung",
     "fields": {
       "created_at": "2024-02-21T13:46:09.786Z",
@@ -57469,40 +56392,6 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "standortbegruendung",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Standortbegr\\u00fcndung - aufgrund welcher objektiver Gr\\u00fcnde ist das Vorhaben auf den gew\\u00e4hlten Standort angewiesen?\", \"fr\": null, \"it\": null}",
-      "type": "textarea",
-      "is_required": "false",
-      "is_hidden": "!(\"landwirtschaftlich-begruendet-nein\" == \"landwirtschaftlich-begruendet\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"Bitte umschreiben Sie den oder die Gr\\u00fcnde, weshalb das Vorhaben nicht innerhalb einer Bauzone realisiert werden kann.\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -58789,16 +57678,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
-        "columnsToDisplay": [
-          "typ-der-tiefbaute",
-          "anzahl-parkplaetze-bestehend",
-          "anzahl-veloabstellplaetze-bestehend",
-          "tiefbau-siedlung-art",
-          "bestehend",
-          "neu",
-          "infrastrukturanlagen",
-          "anschluss"
-        ]
+        "columnsToDisplay": ["tiefbau-siedlung-art", "anschluss"]
       },
       "data_source": null,
       "row_form": "tiefbau-tabelle",
@@ -58833,10 +57713,8 @@
       "meta": {
         "columnsToDisplay": [
           "tiefbauten-landschaft",
-          "typ-der-tiefbaute",
           "terrainveraenderungen",
           "erschliessungen",
-          "infrastrukturanlagen",
           "tiefbau-landschaft-art",
           "infrastrukturanlagen-landschaft"
         ]
@@ -61722,7 +60600,6 @@
       "configuration": {},
       "meta": {
         "columnsToDisplay": [
-          "schutzraum-betroffen",
           "dazugehoeriges-gebaeude",
           "stockwerktyp",
           "lage",
@@ -61760,68 +60637,6 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "zivilschutz",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-09-18T17:14:37.643Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Zivilschutz\", \"fr\": null, \"it\": null}",
-      "type": "form",
-      "is_required": "false",
-      "is_hidden": "!(\"art-der-bauwerke-hochbaute\" in \"art-der-bauwerke\")",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": "zivilschutz",
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "zivilschutz-titel",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Zivilschutz Titel\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"####Zivilschutz\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -65252,36 +64067,6 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "bewilligungsdokumente.bewilligungsdokumente-ja",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "bewilligungsdokumente",
-      "option": "bewilligungsdokumente-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "bewilligungsdokumente.bewilligungsdokumente-nein",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "bewilligungsdokumente",
-      "option": "bewilligungsdokumente-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "brandschutzabstand-eingehalten.brandschutzabstand-eingehalten-ja",
     "fields": {
       "created_at": "2023-09-18T16:47:53.393Z",
@@ -67592,36 +66377,6 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "grobbeurteilung.grobbeurteilung-standortgebunden",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "grobbeurteilung",
-      "option": "grobbeurteilung-standortgebunden",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "grobbeurteilung.grobbeurteilung-zonenkonform",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "grobbeurteilung",
-      "option": "grobbeurteilung-zonenkonform",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "grundeigentuemerin-abweichend.grundeigentuemerin-abweichend-ja",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -68742,36 +67497,6 @@
       "modified_by_group": null,
       "question": "landwirtschaft-begruendet",
       "option": "landwirtschaft-begruendet-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "landwirtschaftlich-begruendet.landwirtschaftlich-begruendet-ja",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "landwirtschaftlich-begruendet",
-      "option": "landwirtschaftlich-begruendet-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "landwirtschaftlich-begruendet.landwirtschaftlich-begruendet-nein",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "landwirtschaftlich-begruendet",
-      "option": "landwirtschaftlich-begruendet-nein",
       "sort": 1
     }
   },
@@ -71218,96 +69943,6 @@
       "question": "schnittplaene",
       "option": "schnittplaene-ja",
       "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "schutzraum-baulich-betroffen.schutzraum-betroffen-ja",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "schutzraum-baulich-betroffen",
-      "option": "schutzraum-betroffen-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "schutzraum-baulich-betroffen.schutzraum-betroffen-nein",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "schutzraum-baulich-betroffen",
-      "option": "schutzraum-betroffen-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "schutzraumrelevante-massnahmen.schutzraumrelevante-massnahmen-ja",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "schutzraumrelevante-massnahmen",
-      "option": "schutzraumrelevante-massnahmen-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "schutzraumrelevante-massnahmen.schutzraumrelevante-massnahmen-nein",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "schutzraumrelevante-massnahmen",
-      "option": "schutzraumrelevante-massnahmen-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "schutzraum.schutzraum-antrag",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "schutzraum",
-      "option": "schutzraum-antrag",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "schutzraum.schutzraum-neu",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "schutzraum",
-      "option": "schutzraum-neu",
-      "sort": 2
     }
   },
   {
