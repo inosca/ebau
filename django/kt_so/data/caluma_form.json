@@ -1330,52 +1330,6 @@
   },
   {
     "model": "caluma_form.historicalanswer",
-    "pk": "0cd8ab88-50df-484a-9e8e-311465514e73",
-    "fields": {
-      "created_at": "2023-09-08T17:01:48.418Z",
-      "modified_at": "2023-09-08T17:01:48.418Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "history_question_type": "choice",
-      "id": "69b1c1e7-34b5-4f66-acac-603c5e132423",
-      "value": "entwasserungsplan-ja",
-      "meta": {},
-      "date": null,
-      "history_user_id": null,
-      "question": "entwasserungsplan",
-      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
-      "history_date": "2023-11-01T07:38:24.566Z",
-      "history_change_reason": null,
-      "history_type": "-"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
-    "pk": "0cfaf5a2-9e25-476a-8834-e70334f60cf5",
-    "fields": {
-      "created_at": "2023-09-08T17:01:48.418Z",
-      "modified_at": "2023-09-08T17:01:48.418Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "history_question_type": "choice",
-      "id": "69b1c1e7-34b5-4f66-acac-603c5e132423",
-      "value": "entwasserungsplan-ja",
-      "meta": {},
-      "date": null,
-      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "question": "entwasserungsplan",
-      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
-      "history_date": "2023-09-08T17:01:48.430Z",
-      "history_change_reason": null,
-      "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
     "pk": "0d5d8234-58db-4423-83cf-13f6d81c6a4b",
     "fields": {
       "created_at": "2023-11-27T09:24:25.510Z",
@@ -1997,29 +1951,6 @@
   },
   {
     "model": "caluma_form.historicalanswer",
-    "pk": "34bb276b-ec14-4c31-9c6e-558849dceaa8",
-    "fields": {
-      "created_at": "2023-09-08T17:01:52.471Z",
-      "modified_at": "2023-09-08T17:01:52.471Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "history_question_type": "choice",
-      "id": "80c2f49c-46b7-45a2-bed8-1b4367076ae3",
-      "value": "groesse-der-baustelle-groesser-4000",
-      "meta": {},
-      "date": null,
-      "history_user_id": null,
-      "question": "groesse-der-baustelle",
-      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
-      "history_date": "2023-11-01T07:38:24.564Z",
-      "history_change_reason": null,
-      "history_type": "-"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
     "pk": "3525ea28-cc7f-4f2e-89ce-f75b84d9e5d2",
     "fields": {
       "created_at": "2023-10-05T08:57:38.655Z",
@@ -2549,29 +2480,6 @@
   },
   {
     "model": "caluma_form.historicalanswer",
-    "pk": "56350123-c547-49d6-be74-bcbd9909cba7",
-    "fields": {
-      "created_at": "2023-10-05T08:59:50.991Z",
-      "modified_at": "2023-10-05T08:59:50.991Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "history_question_type": "choice",
-      "id": "fcc85c0b-5552-4b6c-8a45-c1f1de885606",
-      "value": "groesse-der-baustelle-kleiner-4000",
-      "meta": {},
-      "date": null,
-      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "question": "groesse-der-baustelle",
-      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
-      "history_date": "2023-10-05T08:59:50.994Z",
-      "history_change_reason": null,
-      "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
     "pk": "56e68e52-4c8d-4768-93e8-f3e04eb45e03",
     "fields": {
       "created_at": "2023-10-05T08:59:55.571Z",
@@ -3049,29 +2957,6 @@
       "question": "telefon",
       "document": "61ffdfe2-bd4c-4bb4-aa1b-0c2ee8606596",
       "history_date": "2023-10-05T08:57:10.413Z",
-      "history_change_reason": null,
-      "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
-    "pk": "70f7ae42-de35-41dd-9d34-22f22be1e4ca",
-    "fields": {
-      "created_at": "2023-09-08T17:02:13.696Z",
-      "modified_at": "2023-09-08T17:02:13.696Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "history_question_type": "choice",
-      "id": "ac23f587-a157-4ee3-9a19-0969e4837e16",
-      "value": "schutzraum-betroffen-nein",
-      "meta": {},
-      "date": null,
-      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "question": "schutzraum-baulich-betroffen",
-      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
-      "history_date": "2023-09-08T17:02:13.708Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -4274,75 +4159,6 @@
   },
   {
     "model": "caluma_form.historicalanswer",
-    "pk": "ae9c5b64-32aa-4b18-a6fb-dbdcef0cdd69",
-    "fields": {
-      "created_at": "2023-10-05T08:59:50.991Z",
-      "modified_at": "2023-10-05T08:59:50.991Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "history_question_type": "choice",
-      "id": "fcc85c0b-5552-4b6c-8a45-c1f1de885606",
-      "value": "groesse-der-baustelle-kleiner-4000",
-      "meta": {},
-      "date": null,
-      "history_user_id": null,
-      "question": "groesse-der-baustelle",
-      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
-      "history_date": "2023-11-01T07:38:24.560Z",
-      "history_change_reason": null,
-      "history_type": "-"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
-    "pk": "b1c8485c-c8ef-4d22-9f34-d33123d331c9",
-    "fields": {
-      "created_at": "2023-10-05T08:59:45.943Z",
-      "modified_at": "2023-10-05T08:59:45.943Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "history_question_type": "choice",
-      "id": "03ce096c-f658-4cec-8a2f-3da8445d3f00",
-      "value": "entwasserungsplan-nein",
-      "meta": {},
-      "date": null,
-      "history_user_id": null,
-      "question": "entwasserungsplan",
-      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
-      "history_date": "2023-11-01T07:38:24.568Z",
-      "history_change_reason": null,
-      "history_type": "-"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
-    "pk": "b3e3a92f-4739-4ea2-9bdb-e7ce30e6e6db",
-    "fields": {
-      "created_at": "2023-09-08T17:01:52.471Z",
-      "modified_at": "2023-09-08T17:01:52.471Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "history_question_type": "choice",
-      "id": "80c2f49c-46b7-45a2-bed8-1b4367076ae3",
-      "value": "groesse-der-baustelle-groesser-4000",
-      "meta": {},
-      "date": null,
-      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "question": "groesse-der-baustelle",
-      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
-      "history_date": "2023-09-08T17:01:52.473Z",
-      "history_change_reason": null,
-      "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
     "pk": "b4cf9b89-3df7-4e12-8c85-951c4671eddb",
     "fields": {
       "created_at": "2023-09-08T17:01:42.963Z",
@@ -4521,29 +4337,6 @@
       "question": "rechnungsempfaengerin-abweichend",
       "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
       "history_date": "2023-10-05T08:58:24.758Z",
-      "history_change_reason": null,
-      "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
-    "pk": "bc2ea28b-13ea-490a-9a10-a34cf6e05084",
-    "fields": {
-      "created_at": "2023-09-08T17:02:14.454Z",
-      "modified_at": "2023-09-08T17:02:14.454Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "history_question_type": "choice",
-      "id": "d176685e-bc65-4f96-9c45-6fd0192dadf7",
-      "value": "schutzraumrelevante-massnahmen-nein",
-      "meta": {},
-      "date": null,
-      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "question": "schutzraumrelevante-massnahmen",
-      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
-      "history_date": "2023-09-08T17:02:14.456Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -5349,29 +5142,6 @@
       "question": "plz",
       "document": "504b4147-3372-406d-b283-0e7476c7092d",
       "history_date": "2023-11-27T09:20:53.358Z",
-      "history_change_reason": null,
-      "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
-    "pk": "f2a5e0e2-f406-4d8a-9086-ffc443115a70",
-    "fields": {
-      "created_at": "2023-10-05T08:59:45.943Z",
-      "modified_at": "2023-10-05T08:59:45.943Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "history_question_type": "choice",
-      "id": "03ce096c-f658-4cec-8a2f-3da8445d3f00",
-      "value": "entwasserungsplan-nein",
-      "meta": {},
-      "date": null,
-      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "question": "entwasserungsplan",
-      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
-      "history_date": "2023-10-05T08:59:45.945Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -8010,23 +7780,6 @@
   },
   {
     "model": "caluma_form.answer",
-    "pk": "ac23f587-a157-4ee3-9a19-0969e4837e16",
-    "fields": {
-      "created_at": "2023-09-08T17:02:13.696Z",
-      "modified_at": "2023-09-08T17:02:13.696Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "schutzraum-baulich-betroffen",
-      "value": "schutzraum-betroffen-nein",
-      "meta": {},
-      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
     "pk": "acffe74b-56fb-42e0-9470-86f5d363a25b",
     "fields": {
       "created_at": "2023-11-27T09:20:09.976Z",
@@ -8583,23 +8336,6 @@
       "value": "Testerstrasse",
       "meta": {},
       "document": "2b450a93-28b6-4cd8-a0e9-48708a66eca9",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
-    "pk": "d176685e-bc65-4f96-9c45-6fd0192dadf7",
-    "fields": {
-      "created_at": "2023-09-08T17:02:14.454Z",
-      "modified_at": "2023-09-08T17:02:14.454Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "schutzraumrelevante-massnahmen",
-      "value": "schutzraumrelevante-massnahmen-nein",
-      "meta": {},
-      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
       "date": null
     }
   },
