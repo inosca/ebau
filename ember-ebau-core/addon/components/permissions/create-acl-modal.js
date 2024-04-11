@@ -26,8 +26,9 @@ export default class CreateAclModalComponent extends Component {
   }
 
   get availableAccessLevels() {
-    // TODO: restrict to manually configurable access-levels
-    return this.store.findAll("access-level");
+    return this.store.query("access-level", {
+      assignable_in_instance: this.args.instanceId,
+    });
   }
 
   @restartableTask
@@ -89,6 +90,9 @@ export default class CreateAclModalComponent extends Component {
     } catch (error) {
       console.error(error);
       this.notification.danger(this.intl.t("permissions.saveError"));
+
+      // close the modal dialog (otherwise the notification is hidden)
+      this.args.onHide();
     }
   });
 }

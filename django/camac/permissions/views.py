@@ -192,9 +192,13 @@ class InstancePermissionsViewset(
 class AccessLevelViewset(ReadOnlyModelViewSet):
     serializer_class = serializers.AccessLevelSerializer
     queryset = models.AccessLevel.objects.all()
+    filterset_class = filters.AccessLevelFilterset
 
     @permission_aware
     def get_queryset(self):
+        # TODO is this still correct? We're post-Geometer permissions
+        # now, so non-municpality users should likely sse the access levels
+        # as well...
         return super().get_queryset().none()
 
     def get_queryset_for_municipality(self):
