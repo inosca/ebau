@@ -3,6 +3,7 @@ from functools import wraps
 from logging import getLogger
 from typing import Callable, Type
 
+from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -101,6 +102,7 @@ class Trigger:
     construction_acceptance_completed = EventTrigger()
     instance_submitted = EventTrigger()
     changed_responsible_service = EventTrigger()
+    inquiry_sent = EventTrigger()
 
     applicant_added = EventTrigger("Whenever an applicant is invited/added")
     applicant_removed = EventTrigger("Whenever an applicant is removed")
@@ -191,6 +193,9 @@ class EmptyEventHandler(PermissionEventHandler):
         return  # pragma: no cover
 
     def applicant_removed(self, instance: Instance, applicant):
+        return  # pragma: no cover
+
+    def inquiry_sent(self, instance: Instance, work_item: WorkItem):
         return  # pragma: no cover
 
 

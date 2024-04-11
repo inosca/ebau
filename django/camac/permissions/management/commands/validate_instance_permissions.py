@@ -29,6 +29,8 @@ class Command(BaseCommand):
     ROLE_TO_ACCESSLEVEL = {
         "Einsichtsberechtigte Leitbehörde": "lead-authority-read",
         "municipality-lead": "lead-authority",
+        "service-lead": "distribution-service",
+        "subservice": "distribution-service",
     }
 
     def __init__(self, *args, **kwargs):
