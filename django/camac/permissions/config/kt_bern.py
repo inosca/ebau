@@ -69,7 +69,7 @@ class PermissionEventHandlerBE(
 
     def _grant_construction_control(self, instance):
         construction_control = instance_utils.get_construction_control(
-            instance.responsible_service()
+            instance_utils.get_municipality(instance)
         )
         self.manager.grant(
             instance,
