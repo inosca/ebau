@@ -9,7 +9,7 @@ from rest_framework import status
 
 from camac.constants import kt_gr as gr_constants
 from camac.permissions import events, exceptions
-from camac.permissions.models import AccessLevel, InstanceACL
+from camac.permissions.models import InstanceACL
 from camac.permissions.switcher import PERMISSION_MODE
 from camac.user.models import ServiceRelation
 
