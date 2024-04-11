@@ -223,7 +223,7 @@ BE_PERMISSIONS_SETTINGS = {
             ("documents-read", BE_SERVICE_STATES_DEFAULT),
             ("dms-generate-read", BE_SERVICE_STATES_DEFAULT),
             ("responsibilities-read", BE_SERVICE_STATES_DEFAULT),
-            ("dossier-validation-read", BE_SERVICE_STATES_DEFAULT),
+            ("audit-read", BE_SERVICE_STATES_DEFAULT),
             (
                 "distribution-read",
                 BE_SERVICE_STATES_DEFAULT
@@ -231,7 +231,7 @@ BE_PERMISSIONS_SETTINGS = {
                     ["finished_internal", "in_progress", "in_progress_internal"]
                 ),
             ),
-            ("fees-read", BE_SERVICE_STATES_DEFAULT),
+            ("billing-read", BE_SERVICE_STATES_DEFAULT),
             ("legal-submission-read", BE_SERVICE_STATES_DEFAULT),
             ("journal-read", BE_SERVICE_STATES_DEFAULT),
             ("changelog-read", BE_SERVICE_STATES_DEFAULT),
