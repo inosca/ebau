@@ -358,21 +358,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "complete-instance.steuerverwaltung-informieren",
-    "fields": {
-      "created_at": "2023-11-10T09:04:30.362Z",
-      "modified_at": "2023-11-10T09:04:30.362Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "complete-instance",
-      "question": "steuerverwaltung-informieren",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "complete-instance.verfahren-abschliessen",
     "fields": {
       "created_at": "2023-11-10T09:04:43.682Z",
@@ -1461,22 +1446,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Alle Auflagen, die bis zum jetzigen Zeitpunkt erledigt werden konnten, wurden erledigt.\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "steuerverwaltung-informieren-steuerverwaltung-informieren",
-    "fields": {
-      "created_at": "2023-11-10T09:05:42.096Z",
-      "modified_at": "2023-11-10T09:06:44.330Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Steuerverwaltung informieren\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2828,39 +2797,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "steuerverwaltung-informieren",
-    "fields": {
-      "created_at": "2023-11-10T08:45:18.181Z",
-      "modified_at": "2023-11-10T09:06:44.419Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Steuerverwaltung informieren\", \"fr\": null, \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "verfahren-abschliessen",
     "fields": {
       "created_at": "2023-11-10T08:46:06.499Z",
@@ -3342,21 +3278,6 @@
       "modified_by_group": null,
       "question": "construction-step-zwischenkontrolle-melden-bestaetigung",
       "option": "construction-step-zwischenkontrolle-melden-bestaetigung-text",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "steuerverwaltung-informieren.steuerverwaltung-informieren-steuerverwaltung-informieren",
-    "fields": {
-      "created_at": "2023-11-10T09:06:44.423Z",
-      "modified_at": "2023-11-10T09:06:44.423Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "steuerverwaltung-informieren",
-      "option": "steuerverwaltung-informieren-steuerverwaltung-informieren",
       "sort": 1
     }
   }
