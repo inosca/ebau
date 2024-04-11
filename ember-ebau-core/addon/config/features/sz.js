@@ -13,4 +13,7 @@ export default {
     createPaper: false,
     exportExcel: true,
   },
+  journal: {
+    snippets: true,
+  },
 };
