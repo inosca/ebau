@@ -112,3 +112,15 @@ class ChangeResponsibleServiceHandlerMixin:
             access_level="lead-authority",
             service=to_service,
         )
+
+
+class DistributionHandlerMixin:
+    def inquiry_sent(self, instance: Instance, work_item):
+        for addr in work_item.addressed_groups:
+            addr_service = Service.objects.get(pk=addr)
+            self.manager.grant(
+                instance,
+                grant_type="SERVICE",
+                access_level="distribution-service",
+                service=addr_service,
+            )

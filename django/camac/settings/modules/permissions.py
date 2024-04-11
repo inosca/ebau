@@ -83,6 +83,23 @@ BE_MUNICIPALITY_STATES_EXCEPT_MIGRATED = (
     )
 )
 
+BE_SERVICE_STATES_DEFAULT = RequireInstanceState(
+    [
+        "circulation",
+        "coordination",
+        "evaluated",
+        "sb1",
+        "sb2",
+        "conclusion",
+        "rejected",
+        "finished",
+        "archived",
+        "in_progress",
+        "in_progress_internal",
+        "finished_internal",
+    ]
+)
+
 BE_CONSTRUCTION_CONTROL_STATES = RequireInstanceState(
     [
         "sb1",
@@ -247,6 +264,40 @@ PERMISSIONS: PermissionsConfig = {
             ],
             "lead-authority": BE_MUNICIPALITY_READ_PERMISSIONS,
             "involved-authority": BE_MUNICIPALITY_READ_PERMISSIONS,
+            "distribution-service": [
+                ("work-items-read", BE_SERVICE_STATES_DEFAULT),
+                ("communications-read", BE_SERVICE_STATES_DEFAULT),
+                ("form-read", BE_SERVICE_STATES_DEFAULT),
+                ("documents-read", BE_SERVICE_STATES_DEFAULT),
+                ("dms-generate-read", BE_SERVICE_STATES_DEFAULT),
+                ("responsibilities-read", BE_SERVICE_STATES_DEFAULT),
+                ("dossier-validation-read", BE_SERVICE_STATES_DEFAULT),
+                (
+                    "distribution-read",
+                    BE_SERVICE_STATES_DEFAULT
+                    & ~RequireInstanceState(
+                        ["finished_internal", "in_progress", "in_progress_internal"]
+                    ),
+                ),
+                ("fees-read", BE_SERVICE_STATES_DEFAULT),
+                ("legal-submission-read", BE_SERVICE_STATES_DEFAULT),
+                ("journal-read", BE_SERVICE_STATES_DEFAULT),
+                ("changelog-read", BE_SERVICE_STATES_DEFAULT),
+                ("history-read", BE_SERVICE_STATES_DEFAULT),
+                (
+                    "decision-read",
+                    BE_SERVICE_STATES_DEFAULT
+                    & ~RequireInstanceState(
+                        [
+                            "circulation",
+                            "coordination",
+                            "in_progress",
+                            "in_progress_internal",
+                            "rejected",
+                        ]
+                    ),
+                ),
+            ],
         },
         "EVENT_HANDLER": "camac.permissions.config.kt_bern.PermissionEventHandlerBE",
         "ENABLED": True,
@@ -257,6 +308,7 @@ PERMISSIONS: PermissionsConfig = {
             "APPLICANT": "applicant",
             "MUNICIPALITY": "lead-authority",
             "MUNICIPALITY_INVOLVED": "involved-authority",
+            "DISTRIBUTION_INVITEE": "distribution-service",
         },
         "ENABLE_CACHE": True,
     },

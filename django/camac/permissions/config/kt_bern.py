@@ -9,6 +9,7 @@ from camac.user.models import ServiceRelation
 from .common import (
     ApplicantsEventHandlerMixin,
     ChangeResponsibleServiceHandlerMixin,
+    DistributionHandlerMixin,
     InstanceSubmissionHandlerMixin,
 )
 
@@ -17,6 +18,7 @@ class PermissionEventHandlerBE(
     ApplicantsEventHandlerMixin,
     InstanceSubmissionHandlerMixin,
     ChangeResponsibleServiceHandlerMixin,
+    DistributionHandlerMixin,
     EmptyEventHandler,
 ):
     # applicant_added is in ApplicantEvents
