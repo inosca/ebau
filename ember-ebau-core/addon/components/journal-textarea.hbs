@@ -1,12 +1,15 @@
 <div>
-  <Textarea
-    class="uk-textarea"
-    @value={{@journalEntry.text}}
-    rows="5"
-    aria-label="{{t "journal.textareaEdit"}}"
-    {{autoresize mode="height"}}
-    data-test-textarea
-  />
+  <Snippets @disabled={{not (has-feature "journal.snippets")}}>
+    <Textarea
+      class="uk-textarea"
+      @value={{@journalEntry.text}}
+      rows="5"
+      aria-label={{t "journal.textareaEdit"}}
+      {{autoresize mode="height"}}
+      data-test-textarea
+    />
+
+  </Snippets>
   <form class="uk-flex uk-flex-between uk-form-horizontal uk-margin-top">
     <div class="uk-flex uk-flex-middle">
       <UkToggleSwitch
@@ -28,7 +31,7 @@
             maxlength="5"
             name="duration"
             class="uk-input uk-form-width-xsmall
-              {{unless this.isValidDuration "uk-form-danger"}}"
+              {{unless this.isValidDuration 'uk-form-danger'}}"
             type="text"
             {{on "input" this.validateDuration}}
           />
