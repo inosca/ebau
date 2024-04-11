@@ -1582,6 +1582,15 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         if settings.APPLICATION.get("LOG_NOTIFICATIONS"):
             receiver_emails = self._recipient_log(recipients)
 
+            # Don't create history entries for notifications with no receivers (only for SZ)
+            if (
+                not settings.APPLICATION.get(
+                    "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS", True
+                )
+                and not receiver_emails
+            ):
+                return
+
             title = "Notifikation gesendet an {0} ({1})".format(
                 receiver_emails, subject
             )
