@@ -25,7 +25,7 @@
     'users',
   ])
 # ---
-# name: test_instance_list[Municipality-instance__user3-18-1-editable3-new]
+# name: test_instance_list[Municipality-instance__user3-20-1-editable3-new]
   list([
     'circulations',
     'forms',
@@ -51,7 +51,7 @@
     'users',
   ])
 # ---
-# name: test_instance_list[Service-instance__user4-18-1-editable4-new]
+# name: test_instance_list[Service-instance__user4-20-1-editable4-new]
   list([
     'circulations',
     'forms',
