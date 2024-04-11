@@ -2471,7 +2471,8 @@ ALEXANDRIA = load_module_settings("alexandria")
 ALEXANDRIA_CREATED_BY_USER_PROPERTY = "alexandria_user"
 ALEXANDRIA_CREATED_BY_GROUP_PROPERTY = "alexandria_group"
 GENERIC_PERMISSIONS_VISIBILITY_CLASSES = [
-    "camac.alexandria.extensions.visibilities.CustomVisibility"
+    "camac.alexandria.extensions.visibilities.CustomVisibility",
+    "camac.tags.visibilities.TagsVisibility",
 ]
 GENERIC_PERMISSIONS_PERMISSION_CLASSES = [
     "camac.alexandria.extensions.permissions.CustomPermission"

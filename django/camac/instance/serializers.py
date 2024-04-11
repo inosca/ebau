@@ -17,6 +17,10 @@ from django.db import transaction
 from django.db.models import Q
 from django.utils import timezone
 from django.utils.translation import gettext as _, gettext_noop
+from generic_permissions.visibilities import (
+    VisibilityResourceRelatedField,
+    VisibilitySerializerMixin,
+)
 from rest_framework import exceptions
 from rest_framework_json_api import relations, serializers
 
@@ -99,7 +103,9 @@ class FormSerializer(serializers.ModelSerializer):
         fields = ("name", "description")
 
 
-class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
+class InstanceSerializer(
+    InstanceEditableMixin, VisibilitySerializerMixin, serializers.ModelSerializer
+):
     # TODO once more than one Camac-NG project uses Caluma as a form
     # this serializer needs to be split up into what is actually
     # Caluma and what is project specific
@@ -120,7 +126,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         default=NewInstanceStateDefault(),
     )
 
-    keywords = serializers.ResourceRelatedField(
+    keywords = VisibilityResourceRelatedField(
         queryset=Keyword.objects, required=False, many=True
     )
 
