@@ -17,7 +17,7 @@ from django.utils import timezone
 from camac.applicants import models as applicants_models
 from camac.core.models import InstanceService
 from camac.instance.models import Instance
-from camac.instance.utils import get_construction_control
+from camac.instance.utils import get_construction_control, get_municipality
 from camac.permissions import models as permission_models
 from camac.permissions.api import PermissionManager
 from camac.permissions.exceptions import RevocationRejected
@@ -277,7 +277,7 @@ class Command(BaseCommand):
         inst_iter = self._iter_qs(qs, instance_prefix=None)
         log.info(f"    Checking {inst_iter.total} instances for construction control")
         for instance in inst_iter:
-            municipality_svc = instance.responsible_service()
+            municipality_svc = get_municipality(instance)
             try:
                 construction_control = get_construction_control(municipality_svc)
             except Exception:
