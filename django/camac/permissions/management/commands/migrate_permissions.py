@@ -17,6 +17,7 @@ from django.utils import timezone
 from camac.applicants import models as applicants_models
 from camac.core.models import InstanceService
 from camac.instance.models import Instance
+from camac.instance.utils import get_construction_control
 from camac.permissions import models as permission_models
 from camac.permissions.api import PermissionManager
 from camac.permissions.exceptions import RevocationRejected
@@ -254,8 +255,44 @@ class Command(BaseCommand):
             )
         if invited_service := conf.get("DISTRIBUTION_INVITEE"):
             permissions.update(self._build_distribution_permissions(invited_service))
+        if construction_control := conf.get("CONSTRUCTION_CONTROL"):
+            permissions.update(
+                self._build_construction_control_permissions(construction_control)
+            )
 
         return permissions
+
+    def _build_construction_control_permissions(self, construction_control):
+        qs = Instance.objects.all()
+
+        # TODO this is stolen from the attachment (document) module, but
+        # serves the same purpose
+        after_decision_states = settings.APPLICATION.get(
+            "ATTACHMENT_AFTER_DECISION_STATES", None
+        )
+
+        if after_decision_states:
+            qs = qs.filter(instance_state__name__in=after_decision_states)
+
+        inst_iter = self._iter_qs(qs, instance_prefix=None)
+        log.info(f"    Checking {inst_iter.total} instances for construction control")
+        for instance in inst_iter:
+            municipality_svc = instance.responsible_service()
+            try:
+                construction_control = get_construction_control(municipality_svc)
+            except Exception:
+                # TODO log?
+                pass
+                continue
+
+            yield ACL(
+                access_level="construction-control",
+                state=STATE_ACTIVE,
+                service_id=construction_control.pk,
+                instance_id=instance.pk,
+                type=permission_models.GRANT_CHOICES.SERVICE.value,
+                start_time=timezone.now(),
+            )
 
     def _build_municipality_permissions(self, level_active, level_inactive):
         # Note: This is roughly derived from

@@ -115,6 +115,29 @@ BE_CONSTRUCTION_CONTROL_STATES = RequireInstanceState(
 BE_REJECTION_POSSIBLE_STATES = RequireInstanceState(
     ["rejected", "circulation_init", "circulation"]
 )
+BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES = RequireInstanceState(
+    ["sb1", "sb2", "conclusion", "finished", "archived", "finished_internal"]
+)
+BE_CONSTRUCTION_CONTROL_PERMISSIONS = [
+    ("history-read", BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES),
+    ("documents-read", BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES),
+    ("dms-generate-read", BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES),
+    ("responsibilities-read", BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES),
+    ("decision-read", BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES),
+    (
+        # TODO is this a bug in the configuration or why does this differ
+        # from all the other construction control permissions?
+        "construction-control-read",
+        BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES
+        & ~RequireInstanceState(["finished_internal", "archived", "finished"]),
+    ),
+    ("journal-read", BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES),
+    ("changelog-read", BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES),
+    ("form-read", BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES),
+    ("work-items-read", BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES),
+    ("communications-read", BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES),
+]
+
 BE_MUNICIPALITY_READ_PERMISSIONS = [
     ("communications-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
     ("geometer-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
@@ -264,6 +287,7 @@ PERMISSIONS: PermissionsConfig = {
             ],
             "lead-authority": BE_MUNICIPALITY_READ_PERMISSIONS,
             "involved-authority": BE_MUNICIPALITY_READ_PERMISSIONS,
+            "construction-control": BE_CONSTRUCTION_CONTROL_PERMISSIONS,
             "distribution-service": [
                 ("work-items-read", BE_SERVICE_STATES_DEFAULT),
                 ("communications-read", BE_SERVICE_STATES_DEFAULT),
@@ -309,6 +333,7 @@ PERMISSIONS: PermissionsConfig = {
             "MUNICIPALITY": "lead-authority",
             "MUNICIPALITY_INVOLVED": "involved-authority",
             "DISTRIBUTION_INVITEE": "distribution-service",
+            "CONSTRUCTION_CONTROL": "construction-control",
         },
         "ENABLE_CACHE": True,
     },

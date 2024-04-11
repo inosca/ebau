@@ -1,7 +1,5 @@
 from collections import defaultdict
-from dataclasses import dataclass
 from logging import getLogger
-from typing import List
 
 from django.conf import settings
 from django.core.management.base import BaseCommand
@@ -9,8 +7,7 @@ from django.core.management.base import BaseCommand
 from camac.core.models import (
     InstanceResource,
 )
-from camac.instance.models import InstanceState
-from camac.permissions.conditions import RequireInstanceState
+from camac.permissions.utils import extract_allowed_states
 
 log = getLogger(__name__)
 
@@ -28,6 +25,7 @@ class Command(BaseCommand):
 
     ROLE_TO_ACCESSLEVEL = {
         "Einsichtsberechtigte Leitbehörde": "lead-authority-read",
+        "construction-control-lead": "construction-control",
         "municipality-lead": "lead-authority",
         "service-lead": "distribution-service",
         "subservice": "distribution-service",
@@ -84,9 +82,7 @@ class Command(BaseCommand):
                 )
                 return
 
-            permission_module_states = set(
-                self._extract_allowed_states(permission_cond)
-            )
+            permission_module_states = set(extract_allowed_states(permission_cond))
             camac_acl_states = set(instance_states)
 
             too_much_in_config = permission_module_states - camac_acl_states
@@ -112,23 +108,3 @@ class Command(BaseCommand):
         if message not in self._seen_logs:
             self._seen_logs.add(message)
             log_fn(message)
-
-    def _extract_allowed_states(self, cond: RequireInstanceState) -> List[str]:
-        """List all instance states (untranslated names) that the condition allows.
-
-        Note: This really only works with `RequireInstanceState` conditions
-        as well as combinations (&, |, ~) of them.
-        """
-
-        @dataclass
-        class FakeInstance:
-            instance_state: InstanceState
-
-        try:
-            return [
-                is_.name
-                for is_ in InstanceState.objects.all()
-                if cond.apply(None, FakeInstance(is_))
-            ]
-        except AttributeError:
-            return []

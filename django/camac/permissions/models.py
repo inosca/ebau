@@ -245,3 +245,9 @@ class InstanceACL(models.Model):
         has_ended = self.end_time and self.end_time < now
 
         return has_started and not has_ended
+
+    def __str__(self):  # pragma: no cover
+        act = "active" if self.is_active() else "inact"
+        return (
+            f"InstanceACL({self.pk};i={self.instance_id};{self.access_level_id};{act})"
+        )
