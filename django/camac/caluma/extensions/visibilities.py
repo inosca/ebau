@@ -291,8 +291,10 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
             # Construction-monitoring work-item addressed to current service
             Q(addressed_groups__contains=[str(group.service_id)])
         )
-    
-    def visible_construction_step_work_items_expression_for_trusted_service(self, group):
+
+    def visible_construction_step_work_items_expression_for_trusted_service(
+        self, group
+    ):
         return Value(True)
 
     def visible_construction_step_work_items_expression_for_support(
