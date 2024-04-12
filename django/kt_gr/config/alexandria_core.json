@@ -6,10 +6,11 @@
       "created_at": "2020-08-04T13:24:00.704Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2020-08-04T13:24:00.704Z",
+      "modified_at": "2024-04-12T12:11:43.044Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
+        "sort": 3,
         "access": {
           "are": {
             "visibility": "all",
@@ -456,10 +457,11 @@
       "created_at": "2020-08-04T13:24:00.704Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2020-08-04T13:24:00.704Z",
+      "modified_at": "2024-04-12T12:14:28.681Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
+        "sort": 5,
         "access": {
           "are": {
             "visibility": "all"
@@ -530,10 +532,11 @@
       "created_at": "2020-08-04T13:24:00.677Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2020-08-04T13:24:00.677Z",
+      "modified_at": "2024-04-12T12:11:00.429Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
+        "sort": 1,
         "access": {
           "are": {
             "visibility": "all",
@@ -859,10 +862,11 @@
       "created_at": "2020-08-04T13:24:00.699Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2020-08-04T13:24:00.699Z",
+      "modified_at": "2024-04-12T12:12:49.238Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
+        "sort": 4,
         "access": {
           "are": {
             "visibility": "all",
@@ -1132,10 +1136,11 @@
       "created_at": "2020-08-04T13:24:00.708Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2020-08-04T13:24:00.708Z",
+      "modified_at": "2024-04-12T12:18:25.761Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
+        "sort": 6,
         "access": {
           "are": {
             "visibility": "service",
@@ -1327,7 +1332,7 @@
         }
       },
       "name": "{\"de\": \"Intern\", \"fr\": \"\", \"it\": \"Interno\"}",
-      "description": "{\"de\": \"Hier werden Dokumente hochgeladen, welche nur innerhalb der eigenen Organisation sichtbar sein sollen. In diesem Ordner bestehen keine Einschr\\u00e4nkungen hinsichtlich der erlaubten Dateiformate.\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Hier werden Dokumente hochgeladen, welche nur innerhalb der eigenen Organisation (ohne Unterfachstellen) sichtbar sein sollen. In diesem Ordner bestehen keine Einschr\\u00e4nkungen hinsichtlich der erlaubten Dateiformate.\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\"]",
       "color": "#DB8B72",
       "parent": null
@@ -1340,10 +1345,11 @@
       "created_at": "2023-11-13T00:00:00Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2023-11-28T08:52:55.133Z",
+      "modified_at": "2024-04-12T12:18:34.637Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
+        "sort": 7,
         "access": {
           "are": {
             "visibility": "service-and-subservice",
@@ -1501,9 +1507,9 @@
         }
       },
       "name": "{\"de\": \"Intern (mit Unterfachstellen)\", \"fr\": \"\", \"it\": \"\"}",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Hier werden Dokumente hochgeladen, welche innerhalb der eigenen Organisation (mit Unterfachstellen) sichtbar sein sollen. In diesem Ordner bestehen keine Einschr\\u00e4nkungen hinsichtlich der erlaubten Dateiformate.\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\"]",
-      "color": "#024A91",
+      "color": "#af6023",
       "parent": null
     }
   },
@@ -1514,10 +1520,11 @@
       "created_at": "2020-08-04T13:24:00.690Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2020-08-04T13:24:00.690Z",
+      "modified_at": "2024-04-12T12:11:27.135Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
+        "sort": 2,
         "access": {
           "are": {
             "visibility": "all",
