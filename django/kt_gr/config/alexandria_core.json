@@ -785,17 +785,39 @@
   },
   {
     "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch-brandschutz",
+    "fields": {
+      "created_at": "2024-04-12T15:10:45.367Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2024-04-12T15:58:53.144Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 3
+      },
+      "name": "{\"de\": \"Brandschutz (Feuerpolizei)\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Unter die Begriffe Brandschutz (Feuerpolizei) fallen alle f\\u00fcr die feuerpolizeiliche Bewilligung notwendigen Gesuchsunterlagen (Situationsplan, Brandschutzpl\\u00e4ne [Grundriss, Schnitte, Fassaden etc.], Brandschutzkonzept, evtl. VKF-Zulassungen, Leistungserkl\\u00e4rungen etc.).\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
+      "color": "#9CDD69",
+      "parent": "beilagen-zum-gesuch"
+    }
+  },
+  {
+    "model": "alexandria_core.category",
     "pk": "beilagen-zum-gesuch-grundstuecksangaben",
     "fields": {
       "created_at": "2023-08-23T13:17:14.214Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2023-08-23T14:14:56.223Z",
+      "modified_at": "2024-04-12T15:58:42.172Z",
       "modified_by_user": null,
       "modified_by_group": null,
-      "metainfo": {},
-      "name": "{\"de\": \"Grundst\\u00fccksangaben\", \"fr\": \"\", \"it\": \"\"}",
-      "description": "{\"de\": \"Unter den Begriff *Grundst\\u00fccksangaben* fallen Gesuchsunterlagen wie z.B. Kartenausschnitt 1:25000, Grundbuchauszug und Situationsplan 1:500 oder 1:1000, Situationsplan mit Anschl\\u00fcssen f\\u00fcr Wasser, Kanalisation, elektrischen Strom und Telefon, Dienstbarkeiten etc.\", \"fr\": \"\", \"it\": \"\"}",
+      "metainfo": {
+        "sort": 1
+      },
+      "name": "{\"de\": \"Grundst\\u00fccksangaben, Projektpl\\u00e4ne und -beschrieb\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Unter die Begriffe Situationspl\\u00e4ne, Projektpl\\u00e4ne, Projektbeschrieb, Grundst\\u00fcckangaben fallen Gesuchsunterlagen wie z.B. Kartenausschnitt 1:25'000, Grundbuchauszug und Situationsplan 1:500 oder 1:1'000, Aufnahmepl\\u00e4ne (Grundrisse, Schnitte, Ansichten, L\\u00e4ngen- und Querprofile, Normalprofile) und fachgerechte Projektpl\\u00e4ne (Grundrisse, Schnitte, Ansichten, L\\u00e4ngen- und Querprofile, Normalprofile), Umgebungspl\\u00e4ne, Kanalisationsplan, Baubeschrieb etc.\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch"
@@ -808,30 +830,14 @@
       "created_at": "2023-08-23T13:17:37.288Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2023-08-23T14:14:59.452Z",
+      "modified_at": "2024-04-12T15:58:25.630Z",
       "modified_by_user": null,
       "modified_by_group": null,
-      "metainfo": {},
+      "metainfo": {
+        "sort": 2
+      },
       "name": "{\"de\": \"Gutachten, Nachweise, Begr\\u00fcndungen\", \"fr\": \"\", \"it\": \"\"}",
-      "description": "{\"de\": \"Unter die Begriffe *Gutachten, Nachweise, Begr\\u00fcndungen* fallen Gesuchsunterlagen wie z.B. Fotodokumentation der bestehenden Baute/Anlage, Formulare zu Zusatzgesuchen (Rodungsgesuch),  etc..\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
-      "color": "#9CDD69",
-      "parent": "beilagen-zum-gesuch"
-    }
-  },
-  {
-    "model": "alexandria_core.category",
-    "pk": "beilagen-zum-gesuch-projektplaene-projektbeschrieb",
-    "fields": {
-      "created_at": "2023-08-23T13:17:57.988Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_at": "2023-08-23T14:15:01.518Z",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "metainfo": {},
-      "name": "{\"de\": \"Projektpl\\u00e4ne, Projektbeschrieb\", \"fr\": \"\", \"it\": \"\"}",
-      "description": "{\"de\": \"Unter die Begriffe *Projektpl\\u00e4ne, Projektbeschrieb* fallen Gesuchsunterlagen wie z.B. Aufnahmepl\\u00e4ne (Grundrisse, Schnitte, Ansichten, L\\u00e4ngen- und Querprofile, Normalprofile) und fachgerechte Projektpl\\u00e4ne (Grundrisse, Schnitte, Ansichten, L\\u00e4ngen- und Querprofile, Normalprofile), Umgebungspl\\u00e4ne, Baubeschrieb etc.\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Unter die Begriffe *Gutachten, Nachweise, Begr\\u00fcndungen* fallen Gesuchsunterlagen wie z.B. Fotodokumentation der bestehenden Baute/Anlage, Formulare zu Zusatzgesuchen (Rodungsgesuch) etc.\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch"
@@ -844,12 +850,14 @@
       "created_at": "2023-08-23T13:18:15.877Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2023-08-23T14:15:03.551Z",
+      "modified_at": "2024-04-12T15:58:11.799Z",
       "modified_by_user": null,
       "modified_by_group": null,
-      "metainfo": {},
+      "metainfo": {
+        "sort": 4
+      },
       "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
-      "description": "{\"de\": \"Unter den Begriff *weitere Gesuchsunterlagen* fallen Gesuchsunterlagen wie z.B. detaillierte Berechnungen der anzuwenden Nutzungsziffern, L\\u00e4rmschutznachweise, Brandschutznachweise, Energienachweise, Bericht zur Umweltvert\\u00e4glichkeitspr\\u00fcfung (UVP), Bodenkundliches Fachgutachten, Vopr\\u00fcfungsentscheid der Geb\\u00e4udeversicherung.\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Unter den Begriff *weitere Gesuchsunterlagen* fallen Gesuchsunterlagen wie z.B. detaillierte Berechnungen der anzuwenden Nutzungsziffern, L\\u00e4rmschutznachweise, Energienachweise, Bericht zur Umweltvert\\u00e4glichkeitspr\\u00fcfung (UVP), Bodenkundliches Fachgutachten, Vopr\\u00fcfungsentscheid der Geb\\u00e4udeversicherung.\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch"
