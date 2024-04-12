@@ -75,6 +75,13 @@ CONSTRUCTION_MONITORING = {
             ],
         },
     },
+    "kt_uri": {
+        "ENABLED": True,
+        "PREVIOUS_INSTANCE_STATE": "done",
+        "CONSTRUCTION_MONITORING_INSTANCE_STATE": "control",
+        "NOTIFICATIONS": {},
+        "NOTIFICATION_RECIPIENTS": {},
+    },
     "demo": {
         "ENABLED": True,
     },

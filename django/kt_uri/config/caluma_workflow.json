@@ -35,7 +35,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['construction-supervision', 'after-decision-ur']|tasks"
+      "next": "['after-decision-ur', 'after-make-decision']|tasks"
     }
   },
   {

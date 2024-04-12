@@ -468,10 +468,9 @@ DUMP = {
                 "caluma_instance_management_form": generate_form_dump_config(
                     regex=r"^instance-management$"
                 ),
-                # Distribution
                 **DISTRIBUTION_DUMP_CONFIG,
-                # Additional demand
                 **ADDITIONAL_DEMAND_DUMP_CONFIG,
+                **CONSTRUCTION_MONITORING_DUMP_CONFIG,
             },
             "EXCLUDED_MODELS": [
                 "user.Group",

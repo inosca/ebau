@@ -1,6 +1,6 @@
 import datetime
 import json
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
 import pytest
 import requests
@@ -11,6 +11,8 @@ from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.models import Case, WorkItem
 from django.utils.dateparse import parse_datetime
 from inflection import underscore
+
+from camac.caluma.extensions.permissions import CustomPermission
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
@@ -658,3 +660,13 @@ def test_create_work_item_permission(
     )
 
     assert not result.errors if can_create else result.errors
+
+
+def test_has_caluma_form_edit_permission_for_municipality():
+    permission = CustomPermission()
+
+    with patch.object(
+        permission, "has_caluma_form_edit_permission_for_municipality"
+    ) as mock_function:
+        permission.has_caluma_form_edit_permission_for_trusted_service(None, None)
+        mock_function.assert_called_once()
