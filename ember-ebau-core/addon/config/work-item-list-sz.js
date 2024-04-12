@@ -1,8 +1,11 @@
 export default {
   showTaskFilter: true,
   availableTasks: {
-    roles: {},
+    roles: {
+      municipality: ["complete-check", "init-distribution", "make-decision"],
+      service: ["fill-inquiry", "check-inquiry", "alter-inquiry"],
+    },
     services: {},
-    default: ["complete-check", "init-distribution", "make-decision"],
+    default: [],
   },
 };
