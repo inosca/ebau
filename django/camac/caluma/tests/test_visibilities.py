@@ -10,7 +10,7 @@ from caluma.caluma_workflow import (
 )
 from caluma.caluma_workflow.api import skip_work_item
 from caluma.schema import schema
-from django.db.models import Q
+from django.db.models import Q, Value
 from pytest_factoryboy import LazyFixture
 
 from camac.caluma.extensions.visibilities import CustomVisibility, CustomVisibilitySZ
@@ -1072,3 +1072,14 @@ def test_visibility_performance_heuristic_cases(
     # filter will apply on *any* case, and thus not return the child cases, as
     # is with the root case filters
     assert len(result.data["allCases"]["edges"])
+
+
+def test_visible_construction_step_work_items_expression_for_trusted_service():
+    custom_visibility = CustomVisibility()
+
+    assert (
+        custom_visibility.visible_construction_step_work_items_expression_for_trusted_service(
+            None
+        )
+        == Value(True)
+    )
