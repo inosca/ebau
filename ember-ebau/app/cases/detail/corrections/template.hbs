@@ -24,8 +24,25 @@
           }}
         />
         {{#if (cannot "correct instance" this.instance.record)}}
-          <p class="uk-text-muted">{{t "corrections.document.not-available"}}</p>
+          <p class="uk-text-muted">{{t "corrections.not-available"}}</p>
         {{/if}}
+      {{/if}}
+    </div>
+    <div>
+      <p class="uk-text-large">{{t "corrections.withdraw.title"}}</p>
+      <p>{{t "corrections.withdraw.description" htmlSafe=true}}</p>
+      <UkButton
+        @color="primary"
+        @label={{t "corrections.withdraw.title"}}
+        @onClick={{perform this.withdrawInstance}}
+        @loading={{this.withdrawInstance.isRunning}}
+        @disabled={{or
+          this.withdrawInstance.isRunning
+          (cannot "withdraw instance" this.instance.record)
+        }}
+      />
+      {{#if (cannot "withdraw instance" this.instance.record)}}
+        <p class="uk-text-muted">{{t "corrections.not-available"}}</p>
       {{/if}}
     </div>
   </div>

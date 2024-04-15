@@ -6,6 +6,7 @@ from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db import transaction
 
+from camac.caluma.api import CalumaApi
 from camac.core.utils import create_history_entry
 from camac.instance.models import Instance
 from camac.notification.utils import send_mail_without_request
@@ -24,11 +25,18 @@ class WithdrawalLogic:
         if not settings.WITHDRAWAL:
             return False
 
-        return (
-            instance.instance_state.name
-            in settings.WITHDRAWAL["ALLOWED_INSTANCE_STATES"]
-            and get_role_name(camac_group) == "applicant"
-            and instance.involved_applicants.filter(invitee=camac_user).exists()
+        return instance.instance_state.name in settings.WITHDRAWAL[
+            "ALLOWED_INSTANCE_STATES"
+        ] and (
+            (
+                get_role_name(camac_group) == "applicant"
+                and instance.involved_applicants.filter(invitee=camac_user).exists()
+            )
+            or (
+                get_role_name(camac_group) == "municipality"
+                and camac_group.service == instance.responsible_service()
+                and CalumaApi().is_paper(instance)
+            )
         )
 
     @classmethod

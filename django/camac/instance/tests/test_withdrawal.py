@@ -1,4 +1,6 @@
 import pytest
+from caluma.caluma_form.api import save_answer
+from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.api import skip_work_item
 from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
@@ -9,25 +11,37 @@ from camac.instance.domain_logic import WithdrawalLogic
 
 
 @pytest.mark.parametrize(
-    "instance_state__name,role__name,is_applicant,has_permission",
+    "instance_state__name,role__name,is_applicant,is_paper,has_permission",
     [
-        ("subm", "Applicant", True, True),
-        ("decision", "Applicant", True, False),  # wrong instance state
-        ("subm", "Municipality", True, False),  # wrong role
-        ("subm", "Applicant", False, False),  # not an applicant
+        ("subm", "Applicant", True, False, True),
+        ("subm", "Municipality", False, True, True),
+        ("subm", "Municipality", False, False, False),  # not paper instance
+        ("decision", "Applicant", True, False, False),  # wrong instance state
+        ("subm", "Support", True, False, False),  # wrong role
+        ("subm", "Applicant", False, False, False),  # not an applicant
     ],
 )
 def test_has_permission(
     db,
     admin_user,
     applicant_factory,
-    so_instance,
+    caluma_admin_user,
     group,
     has_permission,
     is_applicant,
+    is_paper,
+    so_instance,
 ):
     if is_applicant:
         applicant_factory(instance=so_instance, invitee=admin_user)
+
+    if is_paper:
+        save_answer(
+            document=so_instance.case.document,
+            question=Question.objects.get(pk="is-paper"),
+            value="is-paper-yes",
+            user=caluma_admin_user,
+        )
 
     assert (
         WithdrawalLogic.has_permission(so_instance, admin_user, group) == has_permission
