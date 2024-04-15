@@ -17,7 +17,7 @@ mutation CreateFlow1 {
     input: {
       workflow: "building-permit"
       tasks: ["submit"]
-      next: "['accept', 'create-manual-workitems', 'instance-management']|tasks"
+      next: "['complete-check', 'create-manual-workitems', 'instance-management']|tasks"
     }
   ) {
     clientMutationId
@@ -25,18 +25,6 @@ mutation CreateFlow1 {
 }
 
 mutation CreateFlow2 {
-  addWorkflowFlow(
-    input: {
-      workflow: "building-permit"
-      tasks: ["accept"]
-      next: "['complete-check']|tasks"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateFlow3 {
   addWorkflowFlow(
     input: {
       workflow: "building-permit"
@@ -48,7 +36,7 @@ mutation CreateFlow3 {
   }
 }
 
-mutation CreateFlow4 {
+mutation CreateFlow3 {
   addWorkflowFlow(
     input: {
       workflow: "building-permit"
@@ -60,7 +48,7 @@ mutation CreateFlow4 {
   }
 }
 
-mutation CreateFlow5 {
+mutation CreateFlow4 {
   addWorkflowFlow(
     input: {
       workflow: "building-permit"
@@ -73,7 +61,7 @@ mutation CreateFlow5 {
   }
 }
 
-mutation CreateFlow6 {
+mutation CreateFlow5 {
   addWorkflowFlow(
     input: {
       workflow: "building-permit"

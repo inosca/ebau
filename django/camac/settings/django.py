@@ -1137,7 +1137,7 @@ APPLICATIONS = {
                 "old",
             ],
             "SIMPLE_WORKFLOW": {
-                "accept": {
+                "check-permit": {
                     "next_instance_state": "comm",
                 },
                 "complete-distribution": {
