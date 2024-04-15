@@ -59,11 +59,11 @@ importers:
         specifier: 1.1.2
         version: 1.1.2
       '@projectcaluma/ember-core':
-        specifier: 12.11.0
-        version: 12.11.0(@glimmer/component@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
+        specifier: 12.11.1
+        version: 12.11.1(@glimmer/component@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
       '@projectcaluma/ember-testing':
-        specifier: 12.11.0
-        version: 12.11.0(@ember/test-helpers@3.3.0)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-qunit@8.0.2)(ember-source@4.12.3)(webpack@5.90.3)
+        specifier: 12.11.1
+        version: 12.11.1(@ember/test-helpers@3.3.0)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-qunit@8.0.2)(ember-source@4.12.3)(webpack@5.90.3)
       broccoli-asset-rev:
         specifier: 3.0.0
         version: 3.0.0
@@ -353,17 +353,17 @@ importers:
         specifier: 1.1.2
         version: 1.1.2
       '@projectcaluma/ember-core':
-        specifier: 12.11.0
-        version: 12.11.0(@glimmer/component@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
+        specifier: 12.11.1
+        version: 12.11.1(@glimmer/component@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
       '@projectcaluma/ember-form':
-        specifier: 12.11.0
-        version: 12.11.0(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(@projectcaluma/ember-workflow@12.11.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
+        specifier: 12.11.1
+        version: 12.11.1(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(@projectcaluma/ember-workflow@12.11.1)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
       '@projectcaluma/ember-form-builder':
-        specifier: 12.11.0
-        version: 12.11.0(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(@projectcaluma/ember-workflow@12.11.0)(ember-data@4.12.5)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
+        specifier: 12.11.1
+        version: 12.11.1(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(@projectcaluma/ember-workflow@12.11.1)(ember-data@4.12.5)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
       '@projectcaluma/ember-testing':
-        specifier: 12.11.0
-        version: 12.11.0(@ember/test-helpers@3.3.0)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-qunit@8.0.2)(ember-source@4.12.3)(webpack@5.90.3)
+        specifier: 12.11.1
+        version: 12.11.1(@ember/test-helpers@3.3.0)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-qunit@8.0.2)(ember-source@4.12.3)(webpack@5.90.3)
       broccoli-asset-rev:
         specifier: 3.0.0
         version: 3.0.0
@@ -641,23 +641,23 @@ importers:
         specifier: 1.1.2
         version: 1.1.2
       '@projectcaluma/ember-core':
-        specifier: 12.11.0
-        version: 12.11.0(@glimmer/component@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
+        specifier: 12.11.1
+        version: 12.11.1(@glimmer/component@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
       '@projectcaluma/ember-distribution':
-        specifier: 12.11.0
-        version: 12.11.0(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
+        specifier: 12.11.1
+        version: 12.11.1(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
       '@projectcaluma/ember-form':
-        specifier: 12.11.0
-        version: 12.11.0(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(@projectcaluma/ember-workflow@12.11.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
+        specifier: 12.11.1
+        version: 12.11.1(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(@projectcaluma/ember-workflow@12.11.1)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
       '@projectcaluma/ember-form-builder':
-        specifier: 12.11.0
-        version: 12.11.0(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(@projectcaluma/ember-workflow@12.11.0)(ember-data@4.12.5)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
+        specifier: 12.11.1
+        version: 12.11.1(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(@projectcaluma/ember-workflow@12.11.1)(ember-data@4.12.5)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
       '@projectcaluma/ember-testing':
-        specifier: 12.11.0
-        version: 12.11.0(@ember/test-helpers@3.3.0)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-qunit@8.0.2)(ember-source@4.12.3)(webpack@5.90.3)
+        specifier: 12.11.1
+        version: 12.11.1(@ember/test-helpers@3.3.0)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-qunit@8.0.2)(ember-source@4.12.3)(webpack@5.90.3)
       '@projectcaluma/ember-workflow':
-        specifier: 12.11.0
-        version: 12.11.0(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
+        specifier: 12.11.1
+        version: 12.11.1(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
       broccoli-asset-rev:
         specifier: 3.0.0
         version: 3.0.0
@@ -923,14 +923,14 @@ importers:
         specifier: 1.1.2
         version: 1.1.2
       '@projectcaluma/ember-core':
-        specifier: 12.11.0
-        version: 12.11.0(@glimmer/component@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
+        specifier: 12.11.1
+        version: 12.11.1(@glimmer/component@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
       '@projectcaluma/ember-distribution':
-        specifier: 12.11.0
-        version: 12.11.0(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
+        specifier: 12.11.1
+        version: 12.11.1(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
       '@projectcaluma/ember-form':
-        specifier: 12.11.0
-        version: 12.11.0(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(@projectcaluma/ember-workflow@12.11.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
+        specifier: 12.11.1
+        version: 12.11.1(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(@projectcaluma/ember-workflow@12.11.1)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
       broccoli-asset-rev:
         specifier: 3.0.0
         version: 3.0.0
@@ -1154,14 +1154,14 @@ importers:
         specifier: 1.1.2
         version: 1.1.2
       '@projectcaluma/ember-core':
-        specifier: 12.11.0
-        version: 12.11.0(@glimmer/component@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
+        specifier: 12.11.1
+        version: 12.11.1(@glimmer/component@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
       '@projectcaluma/ember-form':
-        specifier: 12.11.0
-        version: 12.11.0(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(@projectcaluma/ember-workflow@12.11.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
+        specifier: 12.11.1
+        version: 12.11.1(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(@projectcaluma/ember-workflow@12.11.1)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
       '@projectcaluma/ember-workflow':
-        specifier: 12.11.0
-        version: 12.11.0(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
+        specifier: 12.11.1
+        version: 12.11.1(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
       ember-alexandria:
         specifier: 7.1.2
         version: 7.1.2(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.3)(webpack@5.90.3)
@@ -1284,8 +1284,8 @@ importers:
         specifier: 3.0.3
         version: 3.0.3
       '@projectcaluma/ember-testing':
-        specifier: 12.11.0
-        version: 12.11.0(@ember/test-helpers@3.3.0)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-qunit@8.0.2)(ember-source@4.12.3)(webpack@5.90.3)
+        specifier: 12.11.1
+        version: 12.11.1(@ember/test-helpers@3.3.0)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-qunit@8.0.2)(ember-source@4.12.3)(webpack@5.90.3)
       broccoli-asset-rev:
         specifier: 3.0.0
         version: 3.0.0
@@ -3548,8 +3548,8 @@ packages:
       style-value-types: 3.2.0
       tslib: 1.14.1
 
-  /@projectcaluma/ember-core@12.11.0(@glimmer/component@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3):
-    resolution: {integrity: sha512-TIbsA+YPCS+30dE7duYQrAa8rGtzi8y4ih9Y6jtGaaXVR6W6Tm+RUnQyIoE6IeFaybjcLMLLbiTJHBzFV4m34Q==}
+  /@projectcaluma/ember-core@12.11.1(@glimmer/component@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3):
+    resolution: {integrity: sha512-caN7MHlwoWKe6A4d00ndfXUxwXZHxc6Tl+HjAAOk2gUZwlPbaRIskZkUbvhYWJ3ai8XvKPfNzQVseu2juWGdRg==}
     engines: {node: '>= 18'}
     peerDependencies:
       ember-data: '*'
@@ -3595,8 +3595,8 @@ packages:
       - typescript
       - webpack
 
-  /@projectcaluma/ember-distribution@12.11.0(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3):
-    resolution: {integrity: sha512-7VZf5/KzGo6NDI4JPIHw7urbam/THzCf58U35kcsZdYmCpjKPX9gDS/wegHf6EAqT73I2gXEISyPtcoaq9rIzg==}
+  /@projectcaluma/ember-distribution@12.11.1(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3):
+    resolution: {integrity: sha512-Aw8/7qOWxz/FF+bRf258GZDi3J1v4qDeqdHa7k+R3ARvhLrQbDll76+UlTxCoIHMqkYYbo+Nog0ToZmOAs1V9g==}
     engines: {node: '>= 18'}
     peerDependencies:
       ember-engines: ^0.9.0
@@ -3608,9 +3608,9 @@ packages:
       '@embroider/macros': 1.15.0(@glint/template@1.4.0)
       '@glimmer/component': 1.1.2(@babel/core@7.24.3)
       '@glimmer/tracking': 1.1.2
-      '@projectcaluma/ember-core': 12.11.0(@glimmer/component@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
-      '@projectcaluma/ember-form': 12.11.0(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(@projectcaluma/ember-workflow@12.11.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
-      '@projectcaluma/ember-workflow': 12.11.0(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
+      '@projectcaluma/ember-core': 12.11.1(@glimmer/component@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
+      '@projectcaluma/ember-form': 12.11.1(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(@projectcaluma/ember-workflow@12.11.1)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
+      '@projectcaluma/ember-workflow': 12.11.1(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
       ember-apollo-client: 4.0.2(@glint/template@1.4.0)(graphql@15.8.0)(webpack@5.90.3)
       ember-auto-import: 2.7.2(@glint/template@1.4.0)(webpack@5.90.3)
       ember-can: 4.2.0
@@ -3650,8 +3650,8 @@ packages:
       - webpack
     dev: true
 
-  /@projectcaluma/ember-form-builder@12.11.0(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(@projectcaluma/ember-workflow@12.11.0)(ember-data@4.12.5)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3):
-    resolution: {integrity: sha512-WzwMM0CIcs83j2VbvblF5ZuUKGKICz3aCWBM1tyIqyeJ7eT4ftpTT9ZxAfeyWE2SWHOMjIiJWOfr/dDSAe61Dw==}
+  /@projectcaluma/ember-form-builder@12.11.1(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(@projectcaluma/ember-workflow@12.11.1)(ember-data@4.12.5)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3):
+    resolution: {integrity: sha512-jxIeQPEI2IuNLCzFRA2Vw/QjDtDAtC6NzeqjjjMWc4+uiOHs7agb/fzzh0AHx7i28jYU2p+jt7ZbNMGyhLFDAg==}
     engines: {node: '>= 18'}
     peerDependencies:
       ember-engines: ^0.9.0
@@ -3664,8 +3664,8 @@ packages:
       '@embroider/macros': 1.15.0(@glint/template@1.4.0)
       '@glimmer/component': 1.1.2(@babel/core@7.24.3)
       '@glimmer/tracking': 1.1.2
-      '@projectcaluma/ember-core': 12.11.0(@glimmer/component@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
-      '@projectcaluma/ember-form': 12.11.0(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(@projectcaluma/ember-workflow@12.11.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
+      '@projectcaluma/ember-core': 12.11.1(@glimmer/component@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
+      '@projectcaluma/ember-form': 12.11.1(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(@projectcaluma/ember-workflow@12.11.1)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
       codejar: 4.2.0
       ember-apollo-client: 4.0.2(@glint/template@1.4.0)(graphql@15.8.0)(webpack@5.90.3)
       ember-auto-import: 2.7.2(@glint/template@1.4.0)(webpack@5.90.3)
@@ -3713,11 +3713,11 @@ packages:
       - webpack
     dev: true
 
-  /@projectcaluma/ember-form@12.11.0(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(@projectcaluma/ember-workflow@12.11.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3):
-    resolution: {integrity: sha512-YKIKavPvlKfUnhkQVy6/dMdOu/iWhI2zZzZjYstlRA4QOwXsIzhG+Ohxcem4enljrIcAAFcIc1v4OXqLfSb6Pw==}
+  /@projectcaluma/ember-form@12.11.1(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(@projectcaluma/ember-workflow@12.11.1)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3):
+    resolution: {integrity: sha512-bQDWLtR6m4cmFJVDm5RD+cZYDZuSnv7QBfhhZhU7ChEy0+aJZwb9oYAZTLBLw3XbMzr9uCkc5rlNSToMCt7Prg==}
     engines: {node: '>= 18'}
     peerDependencies:
-      '@projectcaluma/ember-workflow': ^12.11.0
+      '@projectcaluma/ember-workflow': ^12.11.1
       ember-source: ^4.0.0
     peerDependenciesMeta:
       '@projectcaluma/ember-workflow':
@@ -3729,8 +3729,8 @@ packages:
       '@embroider/util': 1.13.0(@glint/template@1.4.0)(ember-source@4.12.3)
       '@glimmer/component': 1.1.2(@babel/core@7.24.3)
       '@glimmer/tracking': 1.1.2
-      '@projectcaluma/ember-core': 12.11.0(@glimmer/component@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
-      '@projectcaluma/ember-workflow': 12.11.0(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
+      '@projectcaluma/ember-core': 12.11.1(@glimmer/component@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
+      '@projectcaluma/ember-workflow': 12.11.1(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
       ember-apollo-client: 4.0.2(@glint/template@1.4.0)(graphql@15.8.0)(webpack@5.90.3)
       ember-auto-import: 2.7.2(@glint/template@1.4.0)(webpack@5.90.3)
       ember-autoresize-modifier: 0.7.0(@glint/template@1.4.0)(ember-source@4.12.3)(webpack@5.90.3)
@@ -3772,8 +3772,8 @@ packages:
       - typescript
       - webpack
 
-  /@projectcaluma/ember-testing@12.11.0(@ember/test-helpers@3.3.0)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-qunit@8.0.2)(ember-source@4.12.3)(webpack@5.90.3):
-    resolution: {integrity: sha512-gAuITODZPxnVvnQQ+xwCt3diLK+DyLCWuApJqG255AwolNIffI7ekznCK/C3C7WoUU9HOBG25NB8L9eGQXjnuw==}
+  /@projectcaluma/ember-testing@12.11.1(@ember/test-helpers@3.3.0)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-qunit@8.0.2)(ember-source@4.12.3)(webpack@5.90.3):
+    resolution: {integrity: sha512-gvcYUf0Lm8yfE8nNpmKEAcdefI3LkPwNpCiRFaZ7RC/lMrIE6yd2bLsF2G9asHRIoIYvYftgyq4+9LNGNooptw==}
     engines: {node: '>= 18'}
     peerDependencies:
       ember-source: ^4.0.0
@@ -3812,15 +3812,15 @@ packages:
       - webpack
     dev: true
 
-  /@projectcaluma/ember-workflow@12.11.0(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3):
-    resolution: {integrity: sha512-BWRDqCo4GJLrrkVZEsVCQF1ZQpV3jQdsYYSonzAV8osyeFy6SxavYXdyonWZrxRsxSmM9oEietYkPshVEJLLDg==}
+  /@projectcaluma/ember-workflow@12.11.1(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3):
+    resolution: {integrity: sha512-DEe/TiX5wh4kS50BPKJXvAWNn8Of+9/ew2s7VqmUNKYzBbFD5QllB33+fLmP0djSAQ9qrYAVXh36ertjSfoPKw==}
     engines: {node: '>= 18'}
     peerDependencies:
       ember-source: ^4.0.0
     dependencies:
       '@babel/core': 7.24.3
       '@glimmer/component': 1.1.2(@babel/core@7.24.3)
-      '@projectcaluma/ember-core': 12.11.0(@glimmer/component@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
+      '@projectcaluma/ember-core': 12.11.1(@glimmer/component@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.3)(webpack@5.90.3)
       ember-apollo-client: 4.0.2(@glint/template@1.4.0)(graphql@15.8.0)(webpack@5.90.3)
       ember-auto-import: 2.7.2(@glint/template@1.4.0)(webpack@5.90.3)
       ember-cli-babel: 8.2.0(@babel/core@7.24.3)
