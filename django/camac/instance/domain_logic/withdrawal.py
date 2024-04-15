@@ -1,10 +1,13 @@
 from caluma.caluma_form.api import save_answer
-from caluma.caluma_form.models import Question
+from caluma.caluma_form.models import Answer, Question
 from caluma.caluma_user.models import OIDCUser
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db import transaction
+from django.db.models import Exists, OuterRef, Q
+from django.db.models.query import QuerySet
+from django.utils import timezone
 
 from camac.caluma.api import CalumaApi
 from camac.core.utils import create_history_entry
@@ -12,6 +15,37 @@ from camac.instance.models import Instance
 from camac.notification.utils import send_mail_without_request
 from camac.user.models import Group, User
 from camac.user.permissions import get_role_name
+
+
+def get_active_and_future_publications(instance: Instance) -> QuerySet[WorkItem]:
+    if not settings.PUBLICATION:  # pragma: no cover
+        return WorkItem.objects.none()
+
+    work_items = WorkItem.objects.filter(
+        **{
+            "case": instance.case,
+            "task_id__in": settings.PUBLICATION["FILL_TASKS"],
+            "meta__is-published": True,
+            "status": WorkItem.STATUS_COMPLETED,
+        }
+    )
+
+    range_filters = Q()
+    for _, end_question in settings.PUBLICATION.get("RANGE_QUESTIONS"):
+        # return all publication work items that have an end date in the future
+        # as we need to cancel them. Those are either currently active or will
+        # be active in the future.
+        range_filters |= Q(
+            Exists(
+                Answer.objects.filter(
+                    document_id=OuterRef("document_id"),
+                    question_id=end_question,
+                    date__gte=timezone.now(),
+                )
+            )
+        )
+
+    return work_items.filter(range_filters)
 
 
 class WithdrawalLogic:
@@ -56,6 +90,11 @@ class WithdrawalLogic:
                 case__family__instance=instance,
             ):
                 getattr(workflow_api, f"{action}_work_item")(work_item, caluma_user)
+
+        # cancel active publications
+        for work_item in get_active_and_future_publications(instance):
+            work_item.meta["is-published"] = False
+            work_item.save()
 
         # pre-fill decision answer
         save_answer(
