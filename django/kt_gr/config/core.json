@@ -1010,7 +1010,7 @@
       "hidden": 0,
       "sort": 5,
       "form_group": 2000000,
-      "require_permission": null
+      "require_permission": "responsible-read"
     }
   },
   {
@@ -1122,7 +1122,7 @@
       "hidden": 0,
       "sort": 12,
       "form_group": 2000000,
-      "require_permission": null
+      "require_permission": "decision-read"
     }
   },
   {
