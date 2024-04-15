@@ -25,6 +25,14 @@ def _gr_include_special_service(instance, service_name):
         return False
 
     if service_name == "gvg":
+        # GVG can only be included in "building permit"-type decisions
+        # TODO(GR): replace this once preliminary clarification workflow
+        # has been introduced
+        if instance.case.document.form.slug in [
+            "bauanzeige",
+            "vorlaeufige-beurteilung",
+        ]:  # pragma: no cover
+            return False
         task_id = settings.DECISION["TASK"]
         question_id = "fuer-gvg-freigeben"
     elif service_name == "aib":

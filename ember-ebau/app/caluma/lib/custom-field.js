@@ -29,6 +29,17 @@ export default class CustomField extends Field {
     return { workflow, form, isAppeal };
   }
 
+  get hidden() {
+    if (macroCondition(getOwnConfig().application === "gr")) {
+      if (["fuer-gvg-freigeben", "info-gvg"].includes(this.question.slug)) {
+        return ["bauanzeige", "vorlaeufige-beurteilung"].includes(
+          this.caseInformation?.value?.form,
+        );
+      }
+    }
+    return super.hidden;
+  }
+
   get enabledOptions() {
     if (macroCondition(getOwnConfig().application === "gr")) {
       if (this.question.slug !== "decision-decision") {

@@ -25,6 +25,9 @@ def get_notification_config(instance):
         return settings.APPLICATION["NOTIFICATIONS"].get(
             "DECISION_PRELIMINARY_CLARIFICATION", []
         )
+    elif instance.case.meta.get("is-appeal") and settings.APPEAL:
+        return settings.APPEAL["NOTIFICATIONS"].get("APPEAL_DECISION", [])
+    # TODO(GR): replace by preliminary clarification workflow
     elif instance.case.document.form.slug in [
         "bauanzeige",
         "vorlaeufige-beurteilung",
@@ -32,8 +35,6 @@ def get_notification_config(instance):
         return settings.APPLICATION["NOTIFICATIONS"].get(
             "NON_BUILDING_PERMIT_DECISION", []
         )
-    elif instance.case.meta.get("is-appeal") and settings.APPEAL:
-        return settings.APPEAL["NOTIFICATIONS"].get("APPEAL_DECISION", [])
 
     return settings.APPLICATION["NOTIFICATIONS"].get("DECISION", [])
 
