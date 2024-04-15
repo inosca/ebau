@@ -181,6 +181,7 @@ APPLICATIONS = {
         "INTERNAL_FRONTEND": "ebau",
         "USE_CAMAC_ADMIN": True,
         "LOG_NOTIFICATIONS": True,
+        "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
             # Commonly used roles
@@ -282,6 +283,7 @@ APPLICATIONS = {
         "INCLUDE_STATIC_FILES": [("xml", "kt_schwyz/static/ech0211/xml/")],
         "USE_CAMAC_ADMIN": True,
         "LOG_NOTIFICATIONS": True,
+        "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": False,
         "ROLE_PERMISSIONS": {
             "Portal": "applicant",
             "Gemeinde": "municipality",
@@ -676,6 +678,7 @@ APPLICATIONS = {
         "USE_CAMAC_ADMIN": True,
         "INCLUDE_STATIC_FILES": [("xml", "kt_bern/static/ech0211/xml")],
         "LOG_NOTIFICATIONS": True,
+        "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
         "SYSTEM_USER": "service-account-camac-admin",
         "ATTACHMENT_SECTION_INTERNAL": 4,
         "ROLE_PERMISSIONS": {
@@ -1091,6 +1094,7 @@ APPLICATIONS = {
         "USE_CAMAC_ADMIN": True,
         "ENABLE_PUBLIC_CALUMA": True,
         "LOG_NOTIFICATIONS": False,
+        "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
         "FORM_BACKEND": "caluma",
         "PUBLICATION_DURATION": timedelta(days=20),
         "PORTAL_USER_ID": 1209,
@@ -1372,6 +1376,7 @@ APPLICATIONS = {
         "INTERNAL_FRONTEND": "ebau",
         "USE_CAMAC_ADMIN": True,
         "LOG_NOTIFICATIONS": True,
+        "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
             "service": "service",
@@ -1459,6 +1464,7 @@ APPLICATIONS = {
         "USE_CAMAC_ADMIN": False,
         "INCLUDE_STATIC_FILES": [("xml", "kt_bern/static/ech0211/xml")],
         "LOG_NOTIFICATIONS": True,
+        "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
         "STORE_PDF": {
             "SECTION": {
                 "MAIN": {
@@ -1666,6 +1672,7 @@ APPLICATIONS = {
         "TAGGED_RELEASES": True,
         "USE_CAMAC_ADMIN": False,
         "LOG_NOTIFICATIONS": True,
+        "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
         "ENABLE_PUBLIC_CALUMA": True,
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {

@@ -1674,3 +1674,14 @@ def test_notification_additional_demand(
     assert serializer._get_recipients_additional_demand_inviter(gr_instance) == [
         {"to": inviter.email}
     ]
+
+
+def test_notifications_without_receivers_sz(
+    db, sz_instance, admin_user, application_settings
+):
+    application_settings["LOG_NOTIFICATIONS_WITH_NO_RECEIVERS"] = False
+    serializer = serializers.NotificationTemplateSendmailSerializer()
+    serializer._create_history_entry(
+        sz_instance, "test subject", "test body", [], "applicant", admin_user
+    )
+    assert HistoryEntry.objects.all().count() == 0
