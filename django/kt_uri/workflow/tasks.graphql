@@ -29,24 +29,10 @@ mutation CreateFillOutPermitTask {
 }
 
 mutation CreateCheckPermitTask {
-  saveSimpleTask(
-    input: {
-      slug: "accept"
-      name: "Dossier annehmen"
-      addressGroups: "['municipality']|groups"
-      controlGroups: "['municipality']|groups"
-      leadTime: 259200 # 3 days
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateCheckPermitTask {
   saveCompleteTaskFormTask(
     input: {
       slug: "complete-check"
-      name: "Dossier prüfen"
+      name: "Prüfung Gemeindebaubehörde"
       addressGroups: "['municipality']|groups"
       controlGroups: "['municipality']|groups"
       leadTime: 259200 # 3 days,
@@ -105,7 +91,7 @@ mutation CreateDecisionTask {
   saveCompleteTaskFormTask(
     input: {
       slug: "decision"
-      name: "Entscheid / Beurteilung eröffnen"
+      name: "Stellungnahme / Entscheid"
       addressGroups: "['municipality']|groups"
       controlGroups: "['municipality']|groups"
       leadTime: 2419200 # 28 days,
@@ -120,7 +106,7 @@ mutation CreateConstructionSupervisionTask {
   saveSimpleTask(
     input: {
       slug: "construction-supervision"
-      name: "Entscheid / Beurteilung eröffnen"
+      name: "Bauverwaltung"
       addressGroups: "['municipality']|groups"
       controlGroups: "['municipality']|groups"
       leadTime: 47347200 # 1.5 years (ceil(1.5 * 365) * 24 * 60 * 60)
