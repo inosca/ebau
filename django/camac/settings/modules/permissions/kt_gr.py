@@ -8,6 +8,8 @@ GR_PERMISSIONS_SETTINGS = {
             ("form-read", Always()),
             # all documents can be read
             ("documents-read", Always()),
+            ("decision-read", Always()),
+            ("responsible-read", Always()),
         ],
     },
     "EVENT_HANDLER": "camac.permissions.config.kt_gr.PermissionEventHandlerGR",
