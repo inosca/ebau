@@ -152,7 +152,10 @@ def test_no_include_instance(
     "do_filter,grant,expect_results",
     [
         (True, "geometer", 1),
-        (True, None, 0),
+        # TODO: in the transition phase, having no permission is interpreted as
+        # "permission module is not used yet for this role"
+        # replace next line with (True, None, 0) once permission module is fully enabled
+        (True, None, "ALL"),
         (False, None, "ALL"),
         (False, "geometer", "ALL"),
         (True, "any", "ALL"),
