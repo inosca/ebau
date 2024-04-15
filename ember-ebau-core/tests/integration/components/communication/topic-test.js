@@ -30,6 +30,11 @@ module("Integration | Component | communication/topic", function (hooks) {
       .hasText(
         `Erstellt von ${this.topic.initiatedByEntity.name} (${this.topic.initiatedBy.name} ${this.topic.initiatedBy.surname})`,
       );
+    assert
+      .dom("[data-test-involved-entities]")
+      .hasText(
+        `Teilnehmer: ${this.topic.involvedEntities.map((e) => e.name).join(", ")}`,
+      );
     assert.dom("[data-test-message-list]").exists();
     assert.dom("[data-test-message-input]").exists();
     assert.dom("[data-test-no-replies]").doesNotExist();
