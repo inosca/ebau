@@ -68,7 +68,7 @@ MODULE_CONFIG_FIXTURES = {
     # which have keys depending on whether the settings are actually available
     "appeal": ["kt_bern", "kt_so"],
     "distribution": ["kt_bern", "kt_schwyz", "kt_gr", "kt_so", "kt_uri"],
-    "publication": ["kt_gr"],
+    "publication": ["kt_gr", "kt_so"],
     "decision": ["kt_bern", "kt_gr", "kt_so"],
     "dms": ["kt_bern", "kt_gr", "kt_uri"],
     "additional_demand": ["kt_gr", "kt_so", "kt_uri"],
