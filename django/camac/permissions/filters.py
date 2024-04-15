@@ -17,6 +17,10 @@ class AccessLevelFilterset(FilterSet):
     def filter_assignable_in_instance(self, qs, name, value):
         manager = api.PermissionManager.from_request(self.request)
         permissions = manager.get_permissions(value)
+        # TODO: this needs to be removed in favor of the permission module
+        # as soon as the municipality permissions are migrated.
+        if not permissions:
+            return qs
         if "permissions-grant-any" in permissions:
             return qs
         assignable = [
