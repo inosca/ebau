@@ -31,6 +31,7 @@ communications:
     uploadToDMS: Anhang ins Dokumentenmodul hochladen
     uploadedToDMS: Im Dokumentenmodul gespeichert
     attachmentSections: Kategorien
+    involvedEntities: "Teilnehmer: {entities}"
 
   new:
     linkFile: Sie können auch Dateien aus

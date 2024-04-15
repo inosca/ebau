@@ -31,6 +31,7 @@ communications:
     uploadToDMS: Télécharger l'annexe dans le module de documents
     uploadedToDMS: Enregistré dans le module de documents
     attachmentSections: Catégories
+    involvedEntities: "Participants : {entities}"
 
   new:
     linkFile: Vous pouvez également lier directement des fichiers

@@ -36,6 +36,10 @@ export default class CommunicationTopicComponent extends Component {
     );
   }
 
+  get involvedEntities() {
+    return this.topic?.involvedEntities.map((entity) => entity.name).join(", ");
+  }
+
   topicResource = findRecord(this, "communications-topic", () => [
     this.args.topicId,
     { include: "initiated_by" },
