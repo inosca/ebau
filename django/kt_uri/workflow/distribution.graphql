@@ -41,7 +41,7 @@ mutation CreateInquiryTask {
   saveSimpleTask(
     input: {
       slug: "create-inquiry"
-      name: "Stellungnahme erstellen"
+      name: "Dossier bearbeiten"
       addressGroups: "['distribution_create_inquiry']|groups"
       isMultipleInstance: true
       continueAsync: true
@@ -55,7 +55,7 @@ mutation InquiryTask {
   saveCompleteTaskFormTask(
     input: {
       slug: "inquiry"
-      name: "Stellungnahme ausfüllen"
+      name: "Rückmeldung verfassen"
       form: "inquiry"
       addressGroups: "info.context.addressed_groups"
       controlGroups: "info.prev_work_item.addressed_groups"
@@ -84,7 +84,7 @@ mutation CheckInquiriesTask {
   saveSimpleTask(
     input: {
       slug: "check-inquiries"
-      name: "Stellungnahmen prüfen"
+      name: "Rückmeldungen prüfen"
       addressGroups: "info.prev_work_item.controlling_groups"
       controlGroups: "info.prev_work_item.controlling_groups"
       leadTime: 864000 # 10 days

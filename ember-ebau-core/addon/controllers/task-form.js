@@ -26,6 +26,7 @@ export default class TaskFormController extends Controller {
   @action
   redirectToWorkItems() {
     if (
+      // TODO: This is spaghetti. Refactor. Currently it is very easy to break a canton by adding or removing a task type here that another canton uses without knowing about it.
       [
         "decision",
         "formal-exam",
@@ -33,6 +34,7 @@ export default class TaskFormController extends Controller {
         "construction-acceptance",
         "geometer",
         "complete-instance",
+        "complete-check",
       ].includes(this.model)
     ) {
       this.ebauModules.redirectToWorkItems();
