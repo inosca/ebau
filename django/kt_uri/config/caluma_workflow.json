@@ -14,6 +14,19 @@
   },
   {
     "model": "caluma_workflow.flow",
+    "pk": "1295ebd3-106b-4b56-b15f-ff3fcd771c24",
+    "fields": {
+      "created_at": "2024-04-15T08:27:24.253Z",
+      "modified_at": "2024-04-15T08:27:24.253Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['distribution', 'after-complete-check-ur']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "3a7917a3-bd0e-409e-a1c4-d243ceddc3b1",
     "fields": {
       "created_at": "2024-01-23T08:26:30.581Z",
@@ -36,19 +49,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "next": "['after-decision-ur', 'after-make-decision']|tasks"
-    }
-  },
-  {
-    "model": "caluma_workflow.flow",
-    "pk": "8780ee1c-8e1d-4662-94fe-61ec4572b8d0",
-    "fields": {
-      "created_at": "2023-12-08T13:57:23.949Z",
-      "modified_at": "2023-12-08T13:57:23.949Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "next": "['distribution', 'after-complete-check-ur']|tasks"
     }
   },
   {
@@ -151,12 +151,12 @@
     "pk": "complete-check",
     "fields": {
       "created_at": "2023-12-05T12:22:27.176Z",
-      "modified_at": "2023-12-05T12:22:27.176Z",
+      "modified_at": "2024-04-15T08:27:22.404Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
-      "name": "{\"de\": \"Dossier pr\\u00fcfen\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Pr\\u00fcfung Gemeindebaubeh\\u00f6rde\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {},
@@ -174,12 +174,12 @@
     "pk": "construction-supervision",
     "fields": {
       "created_at": "2023-11-02T10:16:19.188Z",
-      "modified_at": "2023-11-02T10:19:23.152Z",
+      "modified_at": "2024-04-15T08:27:30.239Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "name": "{\"de\": \"Baubegleitung durchf\\u00fchren\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Bauverwaltung\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "simple",
       "meta": {},
@@ -222,12 +222,12 @@
     "pk": "decision",
     "fields": {
       "created_at": "2023-11-02T10:16:17.415Z",
-      "modified_at": "2023-12-05T12:22:31.776Z",
+      "modified_at": "2024-04-15T08:27:29.121Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "name": "{\"de\": \"Entscheid / Beurteilung er\\u00f6ffnen\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Stellungnahme / Entscheid\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {},
@@ -412,6 +412,22 @@
   },
   {
     "model": "caluma_workflow.taskflow",
+    "pk": "50623705-e75d-4f85-9b98-f21c9418802a",
+    "fields": {
+      "created_at": "2024-04-15T08:27:24.254Z",
+      "modified_at": "2024-04-15T08:27:24.254Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "complete-check",
+      "flow": "1295ebd3-106b-4b56-b15f-ff3fcd771c24",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
     "pk": "53e0682a-6db8-4887-94fa-9858a14af2ac",
     "fields": {
       "created_at": "2023-12-05T13:05:32.830Z",
@@ -439,22 +455,6 @@
       "workflow": "building-permit",
       "task": "submit",
       "flow": "0315e623-34ce-4115-8268-4a2a405137fb",
-      "redoable": null
-    }
-  },
-  {
-    "model": "caluma_workflow.taskflow",
-    "pk": "5dd94636-7abc-44ef-943a-9b87df85feb3",
-    "fields": {
-      "created_at": "2023-12-08T13:57:23.949Z",
-      "modified_at": "2023-12-08T13:57:23.949Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "workflow": "building-permit",
-      "task": "complete-check",
-      "flow": "8780ee1c-8e1d-4662-94fe-61ec4572b8d0",
       "redoable": null
     }
   },
