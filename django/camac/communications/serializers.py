@@ -150,6 +150,14 @@ class TopicSerializer(serializers.ModelSerializer):
     def _can_invite_applicants(self, my_entity):
         instance = Instance.objects.get(pk=self.initial_data["instance"]["id"])
 
+        if not instance.involved_applicants.exists():
+            # On instances without any applicants (paper instances) adding the
+            # applicants as involved entity is prohibited. We explicitly check
+            # for the applicants and not only whether it's a paper instance
+            # because in theory, the municipality can create a paper instance
+            # and then add the applicant manually.
+            return False
+
         group = self.context["request"].group
         if group.role.name.endswith("-readonly"):  # pragma: no cover
             return False
