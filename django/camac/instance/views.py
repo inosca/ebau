@@ -17,6 +17,7 @@ from django.utils import timezone
 from django.utils.translation import gettext as _
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
+from generic_permissions.visibilities import VisibilityViewMixin
 from rest_framework import response, status
 from rest_framework.decorators import action
 from rest_framework.exceptions import NotFound, ValidationError
@@ -100,7 +101,10 @@ class FormConfigDownloadView(RetrieveAPIView):
 
 
 class InstanceView(
-    mixins.InstanceQuerysetMixin, mixins.InstanceEditableMixin, views.ModelViewSet
+    mixins.InstanceQuerysetMixin,
+    mixins.InstanceEditableMixin,
+    VisibilityViewMixin,
+    views.ModelViewSet,
 ):
     instance_field = None
     """
