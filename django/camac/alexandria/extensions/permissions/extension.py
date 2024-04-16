@@ -181,12 +181,8 @@ class CustomPermission:
         return needed_permissions.issubset(available_permissions)
 
     @permission_for(File)
-    @object_permission_for(File)
-    def has_permission_for_file(self, request, file=None):
-        if file is None:
-            document = Document.objects.get(pk=request.data["document"])
-        else:
-            document = file.document
+    def has_permission_for_file(self, request):
+        document = Document.objects.get(pk=request.data["document"])
 
         # replacement files can only be created by same organization
         if (
@@ -209,6 +205,11 @@ class CustomPermission:
         needed_permissions = {"create-files"}
         return needed_permissions.issubset(available_permissions)
 
+    @object_permission_for(File)
+    def has_object_permission_for_file(self, request, file):  # pragma: no cover
+        # patch or delete not allowed
+        return False
+
     @permission_for(Tag)
     @object_permission_for(Tag)
     def has_permission_for_tag(self, request, tag=None):
@@ -225,9 +226,3 @@ class CustomPermission:
             return tag.created_by_group == str(request.group.service_id)
 
         return False
-
-    @object_permission_for(Category)
-    def has_permission_for_category(self, request, category):
-        # Needed for detail view, editing over API not allowed.
-        # Therefore no need to check for permissions.
-        return True
