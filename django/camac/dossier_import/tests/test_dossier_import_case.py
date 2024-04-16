@@ -51,6 +51,7 @@ def test_bad_file_format_dossier_xlsx(
     ["municipality"],
 )
 @pytest.mark.parametrize("location__communal_federal_number", ["1312"])
+@pytest.mark.parametrize("service__external_identifier", ["2601"])
 @pytest.mark.parametrize(
     "config,camac_instance",
     [
@@ -107,8 +108,8 @@ def test_create_instance_dossier_import_case(
             "import-id": str(dossier_import.pk),
             "camac-instance-id": first_instance.pk,
             "submit-date": "2017-04-12T00:00:00",
-            "dossier-number": "2017-1",
-            "dossier-number-sort": 2017000001,
+            "dossier-number": "2601-2017-1",
+            "dossier-number-sort": 26012017000001,
         }
     deletion = Instance.objects.filter(
         **{"case__meta__import-id": str(dossier_import.pk)}

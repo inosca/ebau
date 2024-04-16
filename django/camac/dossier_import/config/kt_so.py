@@ -16,7 +16,7 @@ from django.db import transaction
 
 from camac.caluma.extensions.events.general import get_caluma_setting
 from camac.core.models import InstanceService
-from camac.core.utils import generate_dossier_nr, generate_sort_key
+from camac.core.utils import generate_sort_key
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.messages import (
     DOSSIER_IMPORT_STATUS_ERROR,
@@ -137,7 +137,17 @@ class KtSolothurnDossierWriter(DossierWriter):
             start_caluma=True,
         )
 
-        dossier_number = generate_dossier_nr(instance, dossier.submit_date.year)
+        InstanceService.objects.create(
+            instance=instance,
+            service_id=self._group.service_id,
+            active=1,
+            activation_date=None,
+        )
+
+        dossier_number = CreateInstanceLogic.generate_identifier(
+            instance, dossier.submit_date.year
+        )
+
         instance.case.meta.update(
             {
                 "dossier-number": dossier_number,
@@ -145,13 +155,6 @@ class KtSolothurnDossierWriter(DossierWriter):
             }
         )
         instance.case.save()
-
-        InstanceService.objects.create(
-            instance=instance,
-            service_id=self._group.service_id,
-            active=1,
-            activation_date=None,
-        )
 
         return instance
 
