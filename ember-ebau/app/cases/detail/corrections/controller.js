@@ -9,6 +9,7 @@ export default class CorrectionsController extends Controller {
   @service fetch;
   @service intl;
   @service notification;
+  @service ebauModules;
 
   instance = findRecord(this, "instance", () => this.model.id);
 
@@ -38,6 +39,22 @@ export default class CorrectionsController extends Controller {
       } else {
         this.notification.danger(this.intl.t("corrections.document.error"));
       }
+    }
+  }
+
+  @dropTask
+  @confirmTask("corrections.withdraw.confirm")
+  *withdrawInstance() {
+    try {
+      yield this.fetch.fetch(`/api/v1/instances/${this.model.id}/withdraw`, {
+        method: "POST",
+      });
+
+      this.notification.success(this.intl.t("corrections.withdraw.success"));
+
+      yield this.ebauModules.redirectToWorkItems();
+    } catch (error) {
+      this.notification.danger(this.intl.t("corrections.withdraw.error"));
     }
   }
 }
