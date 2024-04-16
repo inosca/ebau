@@ -1,3 +1,5 @@
+$watermark-background-color: #a9a9a9 !default;
+
 .watermark {
   z-index: 9999;
   width: 150px;
@@ -10,7 +12,7 @@
   letter-spacing: 1px;
   color: #fff;
   transform: rotate(-45deg);
-  background-color: #a9a9a9;
+  background-color: $watermark-background-color;
   text-transform: uppercase;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
