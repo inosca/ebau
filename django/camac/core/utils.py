@@ -3,9 +3,9 @@ from typing import Callable
 
 from caluma.caluma_workflow.models import Case
 from django.conf import settings
-from django.db.models import CharField, IntegerField
+from django.db.models import CharField, IntegerField, Value
 from django.db.models.fields.json import KeyTextTransform
-from django.db.models.functions import Cast, Substr
+from django.db.models.functions import Cast, Replace
 from django.utils import timezone
 
 from camac.core.models import HistoryActionConfig
@@ -14,20 +14,37 @@ from camac.user.models import User
 
 
 def generate_sort_key(special_id: str) -> int:
-    year, number = special_id.split("-")[-2:]
+    """Generate a sortable integer key from a dossier number.
+
+    This function splits the dossier number (which can have different formats)
+    by dashes and concatenates all integer parts to a number. However, the last
+    part is always the index - in order to provide reliable sorting, that index
+    is being zero padded to six digits before being concatenated to the rest.
+
+    A few examples:
+
+    - BE / GR ([YYYY]-[N]): 2023-1 => 2023000001
+    - SO ([BfS]-[YYYY]-[N]): 2601-2023-1 => 26012023000001
+    """
+
+    parts = [part for part in special_id.split("-") if part.isdigit()]
+    index = parts.pop()
+
     # up to 1 million cases a year before it rolls over and causes issues
-    return int(year) * 1_000_000 + int(number)
+    return int("".join([*parts, index.zfill(6)]))
 
 
-def generate_special_id(special_id_key: str, instance, year: int) -> str:
+def generate_special_id(special_id_key: str, instance, prefix: str) -> str:
     max_increment = (
         Case.objects.exclude(pk=instance.case_id if instance else None)
-        .filter(**{f"meta__{special_id_key}__startswith": year})
+        .filter(**{f"meta__{special_id_key}__startswith": prefix})
         .annotate(
-            # TODO this can be switched to use dossier-number-sort, after everyone has migrated
-            # 2020-1234 -> 1234
             increment=Cast(
-                Substr(Cast(KeyTextTransform(special_id_key, "meta"), CharField()), 6),
+                Replace(
+                    Cast(KeyTextTransform(special_id_key, "meta"), CharField()),
+                    Value(prefix),
+                    Value(""),
+                ),
                 IntegerField(),
             )
         )
@@ -36,17 +53,17 @@ def generate_special_id(special_id_key: str, instance, year: int) -> str:
         .first()
     ) or 0
 
-    return f"{year}-{max_increment + 1}"
+    return f"{prefix}{max_increment + 1}"
 
 
 def generate_ebau_nr(instance, year: int) -> str:
     """Generate the next eBau number (Kt. BE)."""
-    return generate_special_id("ebau-number", instance, year)
+    return generate_special_id("ebau-number", instance, f"{year}-")
 
 
 def generate_dossier_nr(instance, year: int) -> str:
-    """Generate the next Dossier number (Kt. GR, SO)."""
-    return generate_special_id("dossier-number", instance, year)
+    """Generate the next Dossier number (Kt. GR)."""
+    return generate_special_id("dossier-number", instance, f"{year}-")
 
 
 def assign_ebau_nr(instance, year=None) -> str:

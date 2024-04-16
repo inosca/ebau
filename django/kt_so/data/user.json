@@ -5317,86 +5317,6 @@
   },
   {
     "model": "user.group",
-    "pk": 334,
-    "fields": {
-      "role": 5,
-      "service": 67,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 335,
-    "fields": {
-      "role": 4,
-      "service": 67,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 336,
-    "fields": {
-      "role": 6,
-      "service": 67,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 337,
-    "fields": {
-      "role": 8,
-      "service": 67,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 338,
-    "fields": {
-      "role": 7,
-      "service": 67,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 339,
     "fields": {
       "role": 5,
@@ -10429,7 +10349,7 @@
     "fields": {
       "group": 134,
       "language": "de",
-      "name": "Leitung Gemeinde Erlinsbach SO",
+      "name": "Leitung Gemeinde Erlinsbach",
       "city": null
     }
   },
@@ -10439,7 +10359,7 @@
     "fields": {
       "group": 135,
       "language": "de",
-      "name": "Administration Gemeinde Erlinsbach SO",
+      "name": "Administration Gemeinde Erlinsbach",
       "city": null
     }
   },
@@ -10449,7 +10369,7 @@
     "fields": {
       "group": 136,
       "language": "de",
-      "name": "Sachbearbeitung Gemeinde Erlinsbach SO",
+      "name": "Sachbearbeitung Gemeinde Erlinsbach",
       "city": null
     }
   },
@@ -10459,7 +10379,7 @@
     "fields": {
       "group": 137,
       "language": "de",
-      "name": "Einsichtsberechtigte Gemeinde Erlinsbach SO",
+      "name": "Einsichtsberechtigte Gemeinde Erlinsbach",
       "city": null
     }
   },
@@ -10469,7 +10389,7 @@
     "fields": {
       "group": 138,
       "language": "de",
-      "name": "Baubegleitung Gemeinde Erlinsbach SO",
+      "name": "Baubegleitung Gemeinde Erlinsbach",
       "city": null
     }
   },
@@ -12420,56 +12340,6 @@
       "group": 333,
       "language": "de",
       "name": "Baubegleitung Gemeinde Lüterkofen-Ichertswil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 334,
-    "fields": {
-      "group": 334,
-      "language": "de",
-      "name": "Leitung Gemeinde Lüterswil-Gächliwil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 335,
-    "fields": {
-      "group": 335,
-      "language": "de",
-      "name": "Administration Gemeinde Lüterswil-Gächliwil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 336,
-    "fields": {
-      "group": 336,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Lüterswil-Gächliwil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 337,
-    "fields": {
-      "group": 337,
-      "language": "de",
-      "name": "Einsichtsberechtigte Gemeinde Lüterswil-Gächliwil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 338,
-    "fields": {
-      "group": 338,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Lüterswil-Gächliwil",
       "city": null
     }
   },
@@ -14953,7 +14823,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2601"
     }
   },
   {
@@ -14974,7 +14845,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2421"
     }
   },
   {
@@ -14995,7 +14867,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2511"
     }
   },
   {
@@ -15016,7 +14889,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2541"
     }
   },
   {
@@ -15037,7 +14911,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2422"
     }
   },
   {
@@ -15058,7 +14933,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2611"
     }
   },
   {
@@ -15079,7 +14955,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2471"
     }
   },
   {
@@ -15100,7 +14977,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2612"
     }
   },
   {
@@ -15121,7 +14999,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2542"
     }
   },
   {
@@ -15142,7 +15021,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2543"
     }
   },
   {
@@ -15163,7 +15043,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2513"
     }
   },
   {
@@ -15184,7 +15065,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2445"
     }
   },
   {
@@ -15205,7 +15087,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2514"
     }
   },
   {
@@ -15226,7 +15109,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2571"
     }
   },
   {
@@ -15247,7 +15131,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2613"
     }
   },
   {
@@ -15268,7 +15153,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2465"
     }
   },
   {
@@ -15289,7 +15175,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2472"
     }
   },
   {
@@ -15310,7 +15197,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2614"
     }
   },
   {
@@ -15331,7 +15219,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2572"
     }
   },
   {
@@ -15352,7 +15241,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2516"
     }
   },
   {
@@ -15373,7 +15263,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2517"
     }
   },
   {
@@ -15394,7 +15285,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2473"
     }
   },
   {
@@ -15415,7 +15307,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2535"
     }
   },
   {
@@ -15436,7 +15329,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2573"
     }
   },
   {
@@ -15457,7 +15351,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2401"
     }
   },
   {
@@ -15478,7 +15373,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2574"
     }
   },
   {
@@ -15499,7 +15395,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2503"
     }
   },
   {
@@ -15520,7 +15417,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2615"
     }
   },
   {
@@ -15541,7 +15439,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2518"
     }
   },
   {
@@ -15562,7 +15461,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2616"
     }
   },
   {
@@ -15583,7 +15483,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2544"
     }
   },
   {
@@ -15604,7 +15505,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2545"
     }
   },
   {
@@ -15625,7 +15527,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2575"
     }
   },
   {
@@ -15646,7 +15549,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2474"
     }
   },
   {
@@ -15667,7 +15571,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2519"
     }
   },
   {
@@ -15688,7 +15593,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2546"
     }
   },
   {
@@ -15709,7 +15615,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2576"
     }
   },
   {
@@ -15730,7 +15637,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2617"
     }
   },
   {
@@ -15751,7 +15659,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2547"
     }
   },
   {
@@ -15772,7 +15681,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2578"
     }
   },
   {
@@ -15793,7 +15703,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2579"
     }
   },
   {
@@ -15814,7 +15725,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2520"
     }
   },
   {
@@ -15835,7 +15747,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2402"
     }
   },
   {
@@ -15856,7 +15769,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2491"
     }
   },
   {
@@ -15877,7 +15791,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2424"
     }
   },
   {
@@ -15898,7 +15813,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2618"
     }
   },
   {
@@ -15919,7 +15835,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2475"
     }
   },
   {
@@ -15940,7 +15857,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2476"
     }
   },
   {
@@ -15961,7 +15879,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2425"
     }
   },
   {
@@ -15982,7 +15901,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2523"
     }
   },
   {
@@ -16003,7 +15923,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2548"
     }
   },
   {
@@ -16024,7 +15945,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2524"
     }
   },
   {
@@ -16045,7 +15967,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2549"
     }
   },
   {
@@ -16066,7 +15989,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2580"
     }
   },
   {
@@ -16087,7 +16011,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2403"
     }
   },
   {
@@ -16108,7 +16033,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2492"
     }
   },
   {
@@ -16129,7 +16055,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2619"
     }
   },
   {
@@ -16150,7 +16077,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2525"
     }
   },
   {
@@ -16171,7 +16099,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2550"
     }
   },
   {
@@ -16192,7 +16121,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2426"
     }
   },
   {
@@ -16213,7 +16143,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2526"
     }
   },
   {
@@ -16234,7 +16165,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2551"
     }
   },
   {
@@ -16255,7 +16187,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2493"
     }
   },
   {
@@ -16276,7 +16209,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2464"
     }
   },
   {
@@ -16297,7 +16231,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2527"
     }
   },
   {
@@ -16318,28 +16253,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
-    }
-  },
-  {
-    "model": "user.service",
-    "pk": 67,
-    "fields": {
-      "service_group": 1,
-      "service_parent": null,
-      "name": null,
-      "description": null,
-      "sort": 1,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": "email@example.ch",
-      "website": null,
-      "logo": "",
-      "disabled": 0,
-      "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2455"
     }
   },
   {
@@ -16360,7 +16275,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2427"
     }
   },
   {
@@ -16381,7 +16297,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2620"
     }
   },
   {
@@ -16402,7 +16319,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2457"
     }
   },
   {
@@ -16423,7 +16341,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2477"
     }
   },
   {
@@ -16444,7 +16363,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2428"
     }
   },
   {
@@ -16465,7 +16385,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2404"
     }
   },
   {
@@ -16486,7 +16407,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2405"
     }
   },
   {
@@ -16507,7 +16429,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2495"
     }
   },
   {
@@ -16528,7 +16451,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2478"
     }
   },
   {
@@ -16549,7 +16473,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2621"
     }
   },
   {
@@ -16570,7 +16495,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2406"
     }
   },
   {
@@ -16591,7 +16517,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2553"
     }
   },
   {
@@ -16612,7 +16539,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2528"
     }
   },
   {
@@ -16633,7 +16561,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2497"
     }
   },
   {
@@ -16654,7 +16583,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2529"
     }
   },
   {
@@ -16675,7 +16605,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2407"
     }
   },
   {
@@ -16696,7 +16627,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2581"
     }
   },
   {
@@ -16717,7 +16649,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2530"
     }
   },
   {
@@ -16738,7 +16671,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2582"
     }
   },
   {
@@ -16759,7 +16693,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2554"
     }
   },
   {
@@ -16780,7 +16715,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2479"
     }
   },
   {
@@ -16801,7 +16737,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2555"
     }
   },
   {
@@ -16822,7 +16759,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2461"
     }
   },
   {
@@ -16843,7 +16781,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2583"
     }
   },
   {
@@ -16864,7 +16803,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2480"
     }
   },
   {
@@ -16885,7 +16825,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2556"
     }
   },
   {
@@ -16906,7 +16847,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2584"
     }
   },
   {
@@ -16927,7 +16869,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2499"
     }
   },
   {
@@ -16948,7 +16891,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2532"
     }
   },
   {
@@ -16969,7 +16913,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2500"
     }
   },
   {
@@ -16990,7 +16935,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2463"
     }
   },
   {
@@ -17011,7 +16957,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2585"
     }
   },
   {
@@ -17032,7 +16979,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2586"
     }
   },
   {
@@ -17053,7 +17001,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2430"
     }
   },
   {
@@ -17074,7 +17023,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2501"
     }
   },
   {
@@ -17095,7 +17045,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2502"
     }
   },
   {
@@ -17116,7 +17067,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2481"
     }
   },
   {
@@ -17137,7 +17089,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2408"
     }
   },
   {
@@ -17158,7 +17111,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2534"
     }
   },
   {
@@ -17179,7 +17133,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": "2622"
     }
   },
   {
@@ -17200,7 +17155,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": null
     }
   },
   {
@@ -17221,7 +17177,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": null
     }
   },
   {
@@ -17242,7 +17199,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": null
     }
   },
   {
@@ -17263,7 +17221,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": null
     }
   },
   {
@@ -17284,7 +17243,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": null
     }
   },
   {
@@ -17305,7 +17265,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": null
     }
   },
   {
@@ -17326,7 +17287,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": null
     }
   },
   {
@@ -17347,7 +17309,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": null
     }
   },
   {
@@ -17368,7 +17331,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": null
     }
   },
   {
@@ -17389,7 +17353,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": null
     }
   },
   {
@@ -17410,7 +17375,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": null
     }
   },
   {
@@ -17431,7 +17397,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": null
     }
   },
   {
@@ -17452,7 +17419,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": null
     }
   },
   {
@@ -17473,7 +17441,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": null
     }
   },
   {
@@ -17494,7 +17463,8 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
-      "responsibility_construction_control": false
+      "responsibility_construction_control": false,
+      "external_identifier": null
     }
   },
   {
@@ -17789,8 +17759,8 @@
     "fields": {
       "service": 27,
       "language": "de",
-      "name": "Gemeinde Erlinsbach SO",
-      "description": "Gemeinde Erlinsbach SO",
+      "name": "Gemeinde Erlinsbach",
+      "description": "Gemeinde Erlinsbach",
       "city": null
     }
   },
@@ -18220,17 +18190,6 @@
       "language": "de",
       "name": "Gemeinde Lüterkofen-Ichertswil",
       "description": "Gemeinde Lüterkofen-Ichertswil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.servicet",
-    "pk": 67,
-    "fields": {
-      "service": 67,
-      "language": "de",
-      "name": "Gemeinde Lüterswil-Gächliwil",
-      "description": "Gemeinde Lüterswil-Gächliwil",
       "city": null
     }
   },

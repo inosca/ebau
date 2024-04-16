@@ -30,6 +30,36 @@
   },
   {
     "model": "caluma_workflow.historicalcase",
+    "pk": "04ad4a68-f813-4b02-a753-2090a418549e",
+    "fields": {
+      "history_user_id": null,
+      "created_at": "2023-07-07T07:31:31.665Z",
+      "modified_at": "2024-04-17T08:55:39.761Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "087e3c47-df7c-4c6d-a80c-19ef8c0f116d",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "status": "running",
+      "meta": {
+        "submit-date": "2023-10-05T09:00:36+0000",
+        "dossier-number": "2601-2023-1",
+        "camac-instance-id": 1,
+        "dossier-number-sort": 26012023000001
+      },
+      "family": "087e3c47-df7c-4c6d-a80c-19ef8c0f116d",
+      "workflow": "building-permit",
+      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "history_date": "2024-04-17T08:55:39.762Z",
+      "history_change_reason": null,
+      "history_type": "~"
+    }
+  },
+  {
+    "model": "caluma_workflow.historicalcase",
     "pk": "0cb79969-39db-4c12-a236-1a89d4b2e79f",
     "fields": {
       "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -51,6 +81,36 @@
       "history_date": "2023-11-27T09:24:55.368Z",
       "history_change_reason": null,
       "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_workflow.historicalcase",
+    "pk": "6519ca36-ee80-455c-b4df-2d3dae19e17c",
+    "fields": {
+      "history_user_id": null,
+      "created_at": "2023-10-05T08:55:21.287Z",
+      "modified_at": "2024-04-17T08:55:39.773Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "484dcd39-ea8e-4553-828d-50bc1408a3f0",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "status": "running",
+      "meta": {
+        "submit-date": "2023-11-27T09:21:30+0000",
+        "dossier-number": "2601-2023-2",
+        "camac-instance-id": 2,
+        "dossier-number-sort": 26012023000002
+      },
+      "family": "484dcd39-ea8e-4553-828d-50bc1408a3f0",
+      "workflow": "building-permit",
+      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
+      "history_date": "2024-04-17T08:55:39.774Z",
+      "history_change_reason": null,
+      "history_type": "~"
     }
   },
   {
@@ -215,7 +275,7 @@
     "pk": "087e3c47-df7c-4c6d-a80c-19ef8c0f116d",
     "fields": {
       "created_at": "2023-07-07T07:31:31.665Z",
-      "modified_at": "2023-10-05T09:00:36.405Z",
+      "modified_at": "2024-04-17T08:55:39.761Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": null,
@@ -228,9 +288,9 @@
       "status": "running",
       "meta": {
         "submit-date": "2023-10-05T09:00:36+0000",
-        "dossier-number": "2023-1",
+        "dossier-number": "2601-2023-1",
         "camac-instance-id": 1,
-        "dossier-number-sort": 2023000001
+        "dossier-number-sort": 26012023000001
       },
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2"
     }
@@ -282,7 +342,7 @@
     "pk": "484dcd39-ea8e-4553-828d-50bc1408a3f0",
     "fields": {
       "created_at": "2023-10-05T08:55:21.287Z",
-      "modified_at": "2023-11-27T09:21:30.946Z",
+      "modified_at": "2024-04-17T08:55:39.773Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": null,
@@ -295,9 +355,9 @@
       "status": "running",
       "meta": {
         "submit-date": "2023-11-27T09:21:30+0000",
-        "dossier-number": "2023-2",
+        "dossier-number": "2601-2023-2",
         "camac-instance-id": 2,
-        "dossier-number-sort": 2023000002
+        "dossier-number-sort": 26012023000002
       },
       "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31"
     }

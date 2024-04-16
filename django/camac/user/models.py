@@ -644,6 +644,13 @@ class Service(core_models.MultilingualModel, models.Model):
         default=False, verbose_name=_("Apply responsibility in construction control?")
     )
 
+    # An external identifier is a unique identifier which is does not live in
+    # our system. This could be a number of things like e.g. the BfS number for
+    # municipalities or a UID (Enterprise Identification Number) for companies.
+    external_identifier = models.CharField(
+        max_length=100, blank=True, null=True, verbose_name=_("External identifier")
+    )
+
     functional_services = models.ManyToManyField(
         # We make it asymmetrical, to denote the direction of the relationship.
         "self",

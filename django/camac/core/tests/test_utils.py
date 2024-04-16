@@ -79,4 +79,5 @@ def test_generate_sort_key(db, case_factory):
     assert utils.generate_sort_key(utils.generate_ebau_nr(None, 2020)) == 2020000124
 
     assert utils.generate_sort_key("2020-999999") == 2020999999
-    assert utils.generate_sort_key("abab-12-abab-2020-999999") == 2020999999
+    assert utils.generate_sort_key("KW-07-21-999999") == 721999999
+    assert utils.generate_sort_key("1201-2021-13") == 12012021000013
