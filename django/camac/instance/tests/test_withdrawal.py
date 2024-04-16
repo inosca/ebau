@@ -1,4 +1,8 @@
+from datetime import date
+
 import pytest
+from caluma.caluma_form.api import save_answer
+from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.api import skip_work_item
 from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
@@ -8,26 +12,70 @@ from camac.core.models import HistoryActionConfig
 from camac.instance.domain_logic import WithdrawalLogic
 
 
+@pytest.fixture
+def publications(so_instance, so_publication_settings, utils, work_item_factory):
+    work_items = []
+
+    for start, end in [
+        (date(2024, 4, 1), date(2024, 4, 10)),  # past
+        (date(2024, 4, 10), date(2024, 4, 20)),  # active
+        (date(2024, 4, 20), date(2024, 4, 30)),  # future
+    ]:
+        work_item = work_item_factory(
+            task_id=so_publication_settings["FILL_TASKS"][0],
+            status=WorkItem.STATUS_COMPLETED,
+            case=so_instance.case,
+            meta={"is-published": True},
+        )
+
+        utils.add_answer(
+            work_item.document,
+            so_publication_settings["RANGE_QUESTIONS"][0][0],
+            start,
+        )
+        utils.add_answer(
+            work_item.document,
+            so_publication_settings["RANGE_QUESTIONS"][0][1],
+            end,
+        )
+
+        work_items.append(work_item)
+
+    return work_items
+
+
 @pytest.mark.parametrize(
-    "instance_state__name,role__name,is_applicant,has_permission",
+    "instance_state__name,role__name,is_applicant,is_paper,has_permission",
     [
-        ("subm", "Applicant", True, True),
-        ("decision", "Applicant", True, False),  # wrong instance state
-        ("subm", "Municipality", True, False),  # wrong role
-        ("subm", "Applicant", False, False),  # not an applicant
+        ("subm", "Applicant", True, False, True),
+        ("subm", "Municipality", False, True, True),
+        ("subm", "Municipality", False, False, False),  # not paper instance
+        ("decision", "Applicant", True, False, False),  # wrong instance state
+        ("subm", "Support", True, False, False),  # wrong role
+        ("subm", "Applicant", False, False, False),  # not an applicant
     ],
 )
 def test_has_permission(
     db,
     admin_user,
     applicant_factory,
-    so_instance,
+    caluma_admin_user,
     group,
     has_permission,
     is_applicant,
+    is_paper,
+    so_instance,
 ):
     if is_applicant:
         applicant_factory(instance=so_instance, invitee=admin_user)
+
+    if is_paper:
+        save_answer(
+            document=so_instance.case.document,
+            question=Question.objects.get(pk="is-paper"),
+            value="is-paper-yes",
+            user=caluma_admin_user,
+        )
 
     assert (
         WithdrawalLogic.has_permission(so_instance, admin_user, group) == has_permission
@@ -44,14 +92,15 @@ def test_has_permission_module_disabled(
     assert not WithdrawalLogic.has_permission(so_instance, admin_user, group)
 
 
+@pytest.mark.freeze("2024-04-15")
 @pytest.mark.parametrize("role__name", ["applicant"])
 @pytest.mark.parametrize(
-    "instance_state__name,skipped_work_items",
+    "instance_state__name,has_publications,skipped_work_items",
     [
-        ("subm", ["submit"]),
-        ("material-exam", ["submit", "formal-exam"]),
-        ("init-distribution", ["submit", "formal-exam", "material-exam"]),
-        ("distribution", ["submit", "formal-exam", "material-exam"]),
+        ("subm", False, ["submit"]),
+        ("material-exam", False, ["submit", "formal-exam"]),
+        ("init-distribution", False, ["submit", "formal-exam", "material-exam"]),
+        ("distribution", True, ["submit", "formal-exam", "material-exam"]),
     ],
 )
 def test_withdraw_instance(
@@ -70,6 +119,8 @@ def test_withdraw_instance(
     form_question_factory,
     skipped_work_items,
     mailoutbox,
+    has_publications,
+    request,
 ):
     so_instance.involved_applicants.all().delete()
     applicant_factory(instance=so_instance, invitee=admin_user)
@@ -100,6 +151,13 @@ def test_withdraw_instance(
             user=caluma_admin_user,
         )
 
+    if has_publications:
+        (
+            past_publication,
+            active_publication,
+            future_publication,
+        ) = request.getfixturevalue("publications")
+
     url = reverse("instance-withdraw", args=[so_instance.pk])
     response = admin_client.post(url)
 
@@ -127,3 +185,12 @@ def test_withdraw_instance(
 
     assert len(mailoutbox) == 1
     assert notification_template.subject in mailoutbox[0].subject
+
+    if has_publications:
+        past_publication.refresh_from_db()
+        active_publication.refresh_from_db()
+        future_publication.refresh_from_db()
+
+        assert past_publication.meta["is-published"]
+        assert not active_publication.meta["is-published"]
+        assert not future_publication.meta["is-published"]

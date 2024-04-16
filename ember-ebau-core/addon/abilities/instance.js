@@ -135,4 +135,15 @@ export default class InstanceAbility extends Ability {
     }
     return isAuthority(this.model, this.ebauModules.serviceId);
   }
+
+  get canWithdraw() {
+    return (
+      this.model.isPaper &&
+      isAuthority(this.model, this.ebauModules.serviceId) &&
+      hasInstanceState(
+        this.model,
+        mainConfig.withdrawal?.allowedInstanceStates ?? [],
+      )
+    );
+  }
 }
