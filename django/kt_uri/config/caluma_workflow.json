@@ -1,19 +1,6 @@
 [
   {
     "model": "caluma_workflow.flow",
-    "pk": "0315e623-34ce-4115-8268-4a2a405137fb",
-    "fields": {
-      "created_at": "2024-01-23T08:26:29.690Z",
-      "modified_at": "2024-01-23T08:26:29.690Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "next": "['accept', 'create-manual-workitems', 'instance-management']|tasks"
-    }
-  },
-  {
-    "model": "caluma_workflow.flow",
     "pk": "1295ebd3-106b-4b56-b15f-ff3fcd771c24",
     "fields": {
       "created_at": "2024-04-15T08:27:24.253Z",
@@ -49,6 +36,19 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "next": "['after-decision-ur', 'after-make-decision']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "7f2c57bc-dd15-4bcc-8c36-0802d38e7b10",
+    "fields": {
+      "created_at": "2024-04-16T10:56:15.583Z",
+      "modified_at": "2024-04-16T10:56:15.583Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['complete-check', 'create-manual-workitems', 'instance-management']|tasks"
     }
   },
   {
@@ -396,6 +396,22 @@
   },
   {
     "model": "caluma_workflow.taskflow",
+    "pk": "1b1e429f-5e05-4d0d-8d57-6c5148da5651",
+    "fields": {
+      "created_at": "2024-04-16T10:56:15.584Z",
+      "modified_at": "2024-04-16T10:56:15.584Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "submit",
+      "flow": "7f2c57bc-dd15-4bcc-8c36-0802d38e7b10",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
     "pk": "47d5f946-048f-41f8-9688-72f066234b93",
     "fields": {
       "created_at": "2023-11-02T10:19:40.900Z",
@@ -440,22 +456,6 @@
       "task": "decision",
       "flow": "75acf820-4e0c-4eec-976e-b645ca5b05aa",
       "redoable": "'distribution'|task"
-    }
-  },
-  {
-    "model": "caluma_workflow.taskflow",
-    "pk": "5562547d-edbb-41e5-bc2b-12f246fe8621",
-    "fields": {
-      "created_at": "2024-01-23T08:26:29.691Z",
-      "modified_at": "2024-01-23T08:26:29.691Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "workflow": "building-permit",
-      "task": "submit",
-      "flow": "0315e623-34ce-4115-8268-4a2a405137fb",
-      "redoable": null
     }
   },
   {
