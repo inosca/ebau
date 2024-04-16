@@ -14,19 +14,6 @@
   },
   {
     "model": "caluma_workflow.flow",
-    "pk": "3a7917a3-bd0e-409e-a1c4-d243ceddc3b1",
-    "fields": {
-      "created_at": "2024-01-23T08:26:30.581Z",
-      "modified_at": "2024-01-23T08:26:30.581Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "next": "['complete-check', 'init-additional-demand', 'additional-demand']|tasks"
-    }
-  },
-  {
-    "model": "caluma_workflow.flow",
     "pk": "75acf820-4e0c-4eec-976e-b645ca5b05aa",
     "fields": {
       "created_at": "2023-12-05T13:05:32.829Z",
@@ -75,29 +62,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "next": "['archive']|tasks"
-    }
-  },
-  {
-    "model": "caluma_workflow.task",
-    "pk": "accept",
-    "fields": {
-      "created_at": "2023-12-05T12:22:03.549Z",
-      "modified_at": "2023-12-05T12:22:03.549Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Dossier annehmen\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "type": "simple",
-      "meta": {},
-      "address_groups": "['municipality']|groups",
-      "control_groups": "['municipality']|groups",
-      "is_archived": false,
-      "form": null,
-      "lead_time": 259200,
-      "is_multiple_instance": false,
-      "continue_async": false
     }
   },
   {
@@ -376,22 +340,6 @@
       "lead_time": null,
       "is_multiple_instance": false,
       "continue_async": false
-    }
-  },
-  {
-    "model": "caluma_workflow.taskflow",
-    "pk": "028b8508-e667-4220-ad27-27137548236a",
-    "fields": {
-      "created_at": "2024-01-23T08:26:30.582Z",
-      "modified_at": "2024-01-23T08:26:30.582Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "workflow": "building-permit",
-      "task": "accept",
-      "flow": "3a7917a3-bd0e-409e-a1c4-d243ceddc3b1",
-      "redoable": null
     }
   },
   {
