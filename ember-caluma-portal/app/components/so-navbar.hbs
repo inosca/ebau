@@ -90,6 +90,7 @@
                       </a>
                     </li>
                   {{/each}}
+                  <li><a href="{{this.internalLink}}"><FaIcon @icon="arrow-up-right-from-square" />{{t "nav.internal"}}</a></li>
                 {{/if}}
                 <li><a href="" {{on "click" this.logout}}><FaIcon @icon="power-off" />{{t "nav.logout"}}</a></li>
               </ul>
