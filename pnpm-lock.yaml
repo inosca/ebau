@@ -371,8 +371,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0
       ember-alexandria:
-        specifier: 7.2.0-beta.1
-        version: 7.2.0-beta.1(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.5)(webpack@5.90.3)
+        specifier: 8.0.0
+        version: 8.0.0(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.5)(webpack@5.90.3)
       ember-apollo-client:
         specifier: 4.0.2
         version: 4.0.2(@glint/template@1.4.0)(graphql@15.8.0)(webpack@5.90.3)
@@ -938,8 +938,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0
       ember-alexandria:
-        specifier: 7.2.0-beta.1
-        version: 7.2.0-beta.1(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.5)(webpack@5.90.3)
+        specifier: 8.0.0
+        version: 8.0.0(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.5)(webpack@5.90.3)
       ember-apollo-client:
         specifier: 4.0.2
         version: 4.0.2(@glint/template@1.4.0)(graphql@15.8.0)(webpack@5.90.3)
@@ -1163,8 +1163,8 @@ importers:
         specifier: 12.13.0
         version: 12.13.0(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.5)(webpack@5.90.3)
       ember-alexandria:
-        specifier: 7.2.0-beta.1
-        version: 7.2.0-beta.1(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.5)(webpack@5.90.3)
+        specifier: 8.0.0
+        version: 8.0.0(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.5)(webpack@5.90.3)
       ember-apollo-client:
         specifier: 4.1.1
         version: 4.1.1(@glint/template@1.4.0)(graphql@15.8.0)(webpack@5.90.3)
@@ -8328,8 +8328,8 @@ packages:
   /electron-to-chromium@1.4.717:
     resolution: {integrity: sha512-6Fmg8QkkumNOwuZ/5mIbMU9WI3H2fmn5ajcVya64I5Yr5CcNmO7vcLt0Y7c96DCiMO5/9G+4sI2r6eEvdg1F7A==}
 
-  /ember-alexandria@7.2.0-beta.1(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.5)(webpack@5.90.3):
-    resolution: {integrity: sha512-WQzPw69DJSoUuWBoeTVS7hlVlKrhwZpYdKsX4+zNw+P63UJvv0ycZ9ELE3jxJcd/pP1PgX7fVyN5EwNwGTV7WQ==}
+  /ember-alexandria@8.0.0(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.5)(webpack@5.90.3):
+    resolution: {integrity: sha512-AoV23NBvd0Dv27b0cePHzk1cQ4oMbRfpUjSfiIzWwMLR8OsRE7EaaD/ffZEmertV11ZuZdi8oPKaGiDQj08BLw==}
     engines: {node: '>= 18'}
     peerDependencies:
       ember-engines: ^0.9.0
@@ -8364,6 +8364,7 @@ packages:
       ember-promise-helpers: 2.0.0
       ember-simple-auth-oidc: 6.0.1(@ember/test-helpers@3.3.0)(@glint/template@1.4.0)(ember-source@4.12.3)(graphql@15.8.0)(webpack@5.90.3)
       ember-source: 4.12.3(@babel/core@7.24.3)(@glimmer/component@1.1.2)(@glint/template@1.4.0)(webpack@5.90.3)
+      ember-test-selectors: 6.0.0
       ember-truth-helpers: 4.0.3(ember-source@4.12.3)
       ember-uikit: 9.1.1(@glint/template@1.4.0)(ember-source@4.12.3)(webpack@5.90.3)
       file-saver: 2.0.5
@@ -10597,7 +10598,6 @@ packages:
       ember-cli-version-checker: 5.1.2
     transitivePeerDependencies:
       - supports-color
-    dev: true
 
   /ember-text-measurer@0.6.0:
     resolution: {integrity: sha512-/aZs2x2i6kT4a5tAW+zenH2wg8AbRK9jKxLkbVsKl/1ublNl27idVRdov1gJ+zgWu3DNK7whcfVycXtlaybYQw==}
