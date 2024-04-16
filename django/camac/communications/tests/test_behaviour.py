@@ -105,32 +105,43 @@ def test_mark_as_unread(db, admin_client, communications_message, be_instance):
 
 
 @pytest.mark.parametrize(
-    "access,entities,roles_with_applicant_contact,expect_status",
+    "access,entities,roles_with_applicant_contact,has_applicants,expect_status",
     [
         (
             "lead",
             ["APPLICANT"],
             ["active_or_involved_lead_authority"],
+            True,
             HTTP_201_CREATED,
         ),
         (
             "lead",
             ["APPLICANT", "_valid_entity_"],
             ["active_or_involved_lead_authority"],
+            True,
             HTTP_201_CREATED,
         ),
         (
             "lead",
             ["APPLICANT", "9999999"],
             ["active_or_involved_lead_authority"],
+            True,
             HTTP_400_BAD_REQUEST,
         ),
-        ("service", ["APPLICANT"], ["service"], HTTP_201_CREATED),
-        ("lead", ["APPLICANT"], ["service"], HTTP_400_BAD_REQUEST),
+        ("service", ["APPLICANT"], ["service"], True, HTTP_201_CREATED),
+        ("lead", ["APPLICANT"], ["service"], True, HTTP_400_BAD_REQUEST),
         (
             None,
             ["APPLICANT"],
             ["active_or_involved_lead_authority", "service"],
+            True,
+            HTTP_400_BAD_REQUEST,
+        ),
+        (
+            "lead",
+            ["APPLICANT"],
+            ["active_or_involved_lead_authority"],
+            False,
             HTTP_400_BAD_REQUEST,
         ),
     ],
@@ -143,18 +154,22 @@ def test_validate_entities(
     admin_client,
     entities,
     expect_status,
-    settings,
+    communications_settings,
     roles_with_applicant_contact,
     access,
     disable_ech0211_settings,
     mocker,
+    has_applicants,
 ):
-    settings.COMMUNICATIONS["ROLES_WITH_APPLICANT_CONTACT"] = (
+    communications_settings["ROLES_WITH_APPLICANT_CONTACT"] = (
         roles_with_applicant_contact
     )
     my_service = admin_client.user.get_default_group().service
     entity_ids = [e.replace("_valid_entity_", str(my_service.pk)) for e in entities]
     entities = [{"id": e} for e in entity_ids]  # No need to write the name here
+
+    if not has_applicants:
+        be_instance.involved_applicants.all().delete()
 
     mocker.patch(
         "camac.instance.models.Instance.has_inquiry", return_value=(access == "service")
@@ -219,7 +234,13 @@ def test_validate_entities_can_add_applicant(
     admin_client,
     entities,
     expect_status,
+    communications_settings,
 ):
+    communications_settings["ROLES_WITH_APPLICANT_CONTACT"] = [
+        "active_or_involved_lead_authority",
+        "service",
+    ]
+
     if has_involved_service:
         entities.append(str(service_factory().pk))
 
