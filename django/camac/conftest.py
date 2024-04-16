@@ -409,7 +409,7 @@ def media_root(tmpdir_factory, settings):
 @pytest.fixture(autouse=True)
 def mock_clamd(mocker):
     mocker.patch(
-        "alexandria.core.serializers.validate_file_infection", return_value=None
+        "alexandria.core.validations.validate_file_infection", return_value=None
     )
     mocker.patch(
         "camac.document.serializers.validate_file_infection", return_value=None

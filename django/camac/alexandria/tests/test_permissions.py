@@ -1,5 +1,6 @@
 import datetime
 import io
+import json
 
 import pytest
 from alexandria.core.factories import (
@@ -20,6 +21,23 @@ from rest_framework.status import (
     HTTP_404_NOT_FOUND,
     HTTP_405_METHOD_NOT_ALLOWED,
 )
+
+
+def document_post_data(category_id, instance_id, metainfo={}):
+    return {
+        "content": io.BytesIO(
+            b"%PDF-1.\ntrailer<</Root<</Pages<</Kids[<</MediaBox[0 0 3 3]>>]>>>>>>"
+        ),
+        "data": io.BytesIO(
+            json.dumps(
+                {
+                    "title": {"en": "Test", "de": "Important"},
+                    "category": category_id,
+                    "metainfo": {"camac-instance-id": instance_id, **metainfo},
+                }
+            ).encode("utf-8")
+        ),
+    }
 
 
 @pytest.mark.parametrize(
@@ -219,25 +237,6 @@ def test_document_permission(
 ):
     applicant_factory(invitee=admin_client.user, instance=instance)
     alexandria_category = CategoryFactory(metainfo={"access": access})
-    url = reverse("document-list")
-
-    data = {
-        "data": {
-            "type": "documents",
-            "attributes": {
-                "title": {"de": "Important"},
-                "metainfo": {"camac-instance-id": instance.pk},
-            },
-            "relationships": {
-                "category": {
-                    "data": {
-                        "id": alexandria_category.pk,
-                        "type": "categories",
-                    },
-                },
-            },
-        },
-    }
 
     if method in ["patch", "delete"]:
         doc = DocumentFactory(
@@ -247,9 +246,31 @@ def test_document_permission(
             created_by_group=caluma_admin_user.group,
         )
         url = reverse("document-detail", args=[doc.pk])
-        data["data"]["id"] = str(doc.pk)
+        data_format = None
+        data = {
+            "data": {
+                "id": doc.pk,
+                "type": "documents",
+                "attributes": {
+                    "title": {"de": "Important"},
+                    "metainfo": {"camac-instance-id": instance.pk},
+                },
+                "relationships": {
+                    "category": {
+                        "data": {
+                            "id": alexandria_category.pk,
+                            "type": "categories",
+                        },
+                    },
+                },
+            },
+        }
+    else:
+        url = reverse("document-list")
+        data_format = "multipart"
+        data = document_post_data(alexandria_category.pk, instance.pk)
 
-    response = getattr(admin_client, method)(url, data)
+    response = getattr(admin_client, method)(url, data, format=data_format)
 
     assert response.status_code == status_code
 
@@ -357,10 +378,6 @@ def test_document_permission(
 def test_file_permission(
     db, role, mocker, admin_client, instance, access, method, status_code
 ):
-    mocker.patch(
-        "alexandria.core.serializers.validate_file_infection", return_value=None
-    )
-
     alexandria_category = CategoryFactory(metainfo={"access": access})
     doc = DocumentFactory(
         title="Foo",
@@ -411,10 +428,6 @@ def test_file_replace_permission(
     status_code,
     set_application_gr,
 ):
-    mocker.patch(
-        "alexandria.core.serializers.validate_file_infection", return_value=None
-    )
-
     alexandria_category = CategoryFactory(
         metainfo={
             "access": {
@@ -547,11 +560,22 @@ def test_nested_permission(db, role, applicant_factory, admin_client, instance):
     )
     category = CategoryFactory(parent=parent_category)
 
+    response = admin_client.post(
+        reverse("document-list"),
+        document_post_data(category.pk, instance.pk),
+        format="multipart",
+    )
+    assert response.status_code == HTTP_201_CREATED
+
+    result = response.json()
+    assert result["data"]["attributes"]["title"]["de"] == "Important"
+
     data = {
         "data": {
+            "id": result["data"]["id"],
             "type": "documents",
             "attributes": {
-                "title": {"de": "Important"},
+                "title": {"de": "More important"},
                 "metainfo": {"camac-instance-id": instance.pk},
             },
             "relationships": {
@@ -564,15 +588,6 @@ def test_nested_permission(db, role, applicant_factory, admin_client, instance):
             },
         },
     }
-
-    response = admin_client.post(reverse("document-list"), data)
-    assert response.status_code == HTTP_201_CREATED
-
-    result = response.json()
-    assert result["data"]["attributes"]["title"]["de"] == "Important"
-
-    data["data"]["id"] = result["data"]["id"]
-    data["data"]["attributes"]["title"]["de"] = "More important"
 
     patch_response = admin_client.patch(
         reverse("document-detail", args=[result["data"]["id"]]), data
@@ -628,13 +643,29 @@ def test_patch_fields(
     document.tags.add(tag)
     document.save()
     file = FileFactory(document=document)
+    file_data = [
+        {
+            "id": file.pk,
+            "type": "files",
+        },
+        {
+            "id": file.renderings.first().pk,
+            "type": "files",
+        },
+    ]
 
     if "metainfo" in changes:
-        metainfo = {}
+        metainfo = {"camac-instance-id": instance.pk, "caluma-document-id": document.pk}
     if "tags" in changes:
         tag = TagFactory()
     if "files" in changes:
         file = FileFactory()
+        file_data = [
+            {
+                "id": file.pk,
+                "type": "files",
+            },
+        ]
     if "date" in changes:
         date = datetime.date(2023, 12, 1)
 
@@ -658,12 +689,7 @@ def test_patch_fields(
                     ],
                 },
                 "files": {
-                    "data": [
-                        {
-                            "id": file.pk,
-                            "type": "files",
-                        }
-                    ],
+                    "data": file_data,
                 },
             },
         },
@@ -675,72 +701,11 @@ def test_patch_fields(
     assert patch_response.status_code == expected_status
 
 
+@pytest.mark.parametrize("role__name", ["applicant"])
 @pytest.mark.parametrize(
-    "role__name,method,status_code,access,include_fields",
+    "status_code,access,include_fields",
     [
         (
-            "applicant",
-            "post",
-            HTTP_201_CREATED,
-            {
-                "applicant": {
-                    "visibility": "all",
-                    "permissions": [
-                        {
-                            "permission": "create",
-                            "fields": ["title", "metainfo", "category", "marks"],
-                            "scope": "All",
-                        },
-                    ],
-                },
-            },
-            "marks",
-        ),
-        (
-            "applicant",
-            "post",
-            HTTP_201_CREATED,
-            {
-                "applicant": {
-                    "visibility": "all",
-                    "permissions": [
-                        {
-                            "permission": "create",
-                            "fields": ["title", "metainfo", "category", "tags"],
-                            "scope": "All",
-                        },
-                    ],
-                },
-            },
-            "tags",
-        ),
-        (
-            "applicant",
-            "post",
-            HTTP_201_CREATED,
-            {
-                "applicant": {
-                    "visibility": "all",
-                    "permissions": [
-                        {
-                            "permission": "create",
-                            "fields": [
-                                "title",
-                                "metainfo",
-                                "category",
-                                "marks",
-                                "tags",
-                            ],
-                            "scope": "All",
-                        },
-                    ],
-                },
-            },
-            "marks+tags",
-        ),
-        (
-            "applicant",
-            "patch",
             HTTP_200_OK,
             {
                 "applicant": {
@@ -757,8 +722,6 @@ def test_patch_fields(
             "marks",
         ),
         (
-            "applicant",
-            "patch",
             HTTP_200_OK,
             {
                 "applicant": {
@@ -775,8 +738,6 @@ def test_patch_fields(
             "tags",
         ),
         (
-            "applicant",
-            "patch",
             HTTP_200_OK,
             {
                 "applicant": {
@@ -799,26 +760,6 @@ def test_patch_fields(
             "marks+tags",
         ),
         (
-            "applicant",
-            "post",
-            HTTP_403_FORBIDDEN,
-            {
-                "applicant": {
-                    "visibility": "all",
-                    "permissions": [
-                        {
-                            "permission": "create",
-                            "fields": ["title", "metainfo", "category", "tags"],
-                            "scope": "All",
-                        },
-                    ],
-                },
-            },
-            "marks",
-        ),
-        (
-            "applicant",
-            "patch",
             HTTP_403_FORBIDDEN,
             {
                 "applicant": {
@@ -846,7 +787,6 @@ def test_marks(
     caluma_admin_user,
     instance,
     access,
-    method,
     status_code,
     include_fields,
 ):
@@ -873,8 +813,17 @@ def test_marks(
             }
         )
 
+    doc = DocumentFactory(
+        title="Foo",
+        category=alexandria_category,
+        metainfo={"camac-instance-id": instance.pk},
+        created_by_group=caluma_admin_user.group,
+    )
+    url = reverse("document-detail", args=[doc.pk])
+
     data = {
         "data": {
+            "id": doc.pk,
             "type": "documents",
             "attributes": {
                 "title": {"de": "Important"},
@@ -897,17 +846,7 @@ def test_marks(
         },
     }
 
-    if method in ["patch", "delete"]:
-        doc = DocumentFactory(
-            title="Foo",
-            category=alexandria_category,
-            metainfo={"camac-instance-id": instance.pk},
-            created_by_group=caluma_admin_user.group,
-        )
-        url = reverse("document-detail", args=[doc.pk])
-        data["data"]["id"] = str(doc.pk)
-
-    response = getattr(admin_client, method)(url, data)
+    response = admin_client.patch(url, data)
 
     assert response.status_code == status_code
 
@@ -1213,22 +1152,11 @@ def test_condition_ready_work_item_additional_demand(
 
         response = admin_client.delete(reverse("document-detail", args=[document.pk]))
     elif method == "post":
-        data = {
-            "data": {
-                "type": "documents",
-                "attributes": {"title": {"de": "Foo"}, "metainfo": metainfo},
-                "relationships": {
-                    "category": {
-                        "data": {
-                            "id": category.pk,
-                            "type": "categories",
-                        },
-                    },
-                },
-            },
-        }
+        data = document_post_data(category.pk, gr_instance.pk, metainfo)
 
-        response = admin_client.post(reverse("document-list"), data=data)
+        response = getattr(admin_client, method)(
+            reverse("document-list"), data, format="multipart"
+        )
 
     assert response.status_code == status_code
 
@@ -1431,8 +1359,12 @@ def test_condition_instance_state(
         )
         url = reverse("document-detail", args=[doc.pk])
         data["data"]["id"] = str(doc.pk)
+    else:
+        data = document_post_data(alexandria_category.pk, gr_instance.pk)
 
-    response = getattr(admin_client, method)(url, data)
+    response = getattr(admin_client, method)(
+        url, data, format="multipart" if method == "post" else None
+    )
 
     assert response.status_code == status_code
 
@@ -1567,29 +1499,10 @@ def test_condition_paper_instance(
 ):
     applicant_factory(invitee=admin_client.user, instance=gr_instance)
     alexandria_category = CategoryFactory(metainfo={"access": access})
-    url = reverse("document-list")
     if status_code != HTTP_403_FORBIDDEN:
         gr_instance.case.document.answers.create(
             question_id="is-paper", value="is-paper-yes"
         )
-
-    data = {
-        "data": {
-            "type": "documents",
-            "attributes": {
-                "title": {"de": "Important"},
-                "metainfo": {"camac-instance-id": gr_instance.pk},
-            },
-            "relationships": {
-                "category": {
-                    "data": {
-                        "id": alexandria_category.pk,
-                        "type": "categories",
-                    },
-                },
-            },
-        },
-    }
 
     if method in ["patch", "delete"]:
         doc = DocumentFactory(
@@ -1598,9 +1511,31 @@ def test_condition_paper_instance(
             metainfo={"camac-instance-id": gr_instance.pk},
         )
         url = reverse("document-detail", args=[doc.pk])
-        data["data"]["id"] = str(doc.pk)
+        data_format = None
+        data = {
+            "data": {
+                "id": doc.pk,
+                "type": "documents",
+                "attributes": {
+                    "title": {"de": "Important"},
+                    "metainfo": {"camac-instance-id": gr_instance.pk},
+                },
+                "relationships": {
+                    "category": {
+                        "data": {
+                            "id": alexandria_category.pk,
+                            "type": "categories",
+                        },
+                    },
+                },
+            },
+        }
+    else:
+        url = reverse("document-list")
+        data_format = "multipart"
+        data = document_post_data(alexandria_category.pk, gr_instance.pk)
 
-    response = getattr(admin_client, method)(url, data)
+    response = getattr(admin_client, method)(url, data, format=data_format)
 
     assert response.status_code == status_code
 

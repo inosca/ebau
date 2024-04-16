@@ -19,7 +19,7 @@ class ReadyWorkItem(Condition):
         if self.document:
             document_id = self.document.metainfo.get("caluma-document-id")
         else:
-            document_id = self.request.data["metainfo"].get("caluma-document-id")
+            document_id = self.request.parsed_data["metainfo"].get("caluma-document-id")
 
         if not document_id:
             return None
