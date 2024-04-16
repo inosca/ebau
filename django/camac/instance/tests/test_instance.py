@@ -37,8 +37,8 @@ from camac.instance.models import HistoryEntryT, InstanceGroup, InstanceState
         # reader should see instances from other users but has no editables
         ("Reader", LazyFixture("user"), 19, 1, set()),
         ("Canton", LazyFixture("user"), 19, 1, {"form", "document"}),
-        ("Municipality", LazyFixture("user"), 18, 1, {"form", "document"}),
-        ("Service", LazyFixture("user"), 18, 1, {"form", "document"}),
+        ("Municipality", LazyFixture("user"), 20, 1, {"form", "document"}),
+        ("Service", LazyFixture("user"), 20, 1, {"form", "document"}),
         ("Public", LazyFixture("user"), 2, 0, {}),
     ],
 )
