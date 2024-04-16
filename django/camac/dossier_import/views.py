@@ -28,6 +28,7 @@ def is_prod():
     return (
         "local" not in settings.INTERNAL_BASE_URL
         and "test" not in settings.INTERNAL_BASE_URL
+        and "-t" not in settings.INTERNAL_BASE_URL
     )
 
 
