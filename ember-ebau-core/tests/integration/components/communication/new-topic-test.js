@@ -181,6 +181,7 @@ module("Integration | Component | communication/new-topic", function (hooks) {
     this.ebauModules.serviceId = group.service.id;
     this.instance = this.server.create("instance", {
       activeService: group.service,
+      involvedApplicants: [this.server.create("applicant")],
     });
 
     const services = this.server.createList("service", 1, {

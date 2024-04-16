@@ -35,6 +35,11 @@ export default class extends Ability {
     if (this.ebauModules.isReadOnlyRole) {
       return false;
     }
+
+    if (!this.model?.get("instance.involvedApplicants.length")) {
+      return false;
+    }
+
     const rolesWithApplicantContact =
       mainConfig.communication.rolesWithApplicantContact;
 

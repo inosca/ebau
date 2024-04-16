@@ -60,7 +60,11 @@ export default class CommunicationNewTopicComponent extends Component {
       const instance = await this.store.findRecord(
         "instance",
         this.args.instanceId,
-        { include: "involved_services,active_service,services", reload: true },
+        {
+          include:
+            "involved_services,active_service,services,involved_applicants",
+          reload: true,
+        },
       );
 
       const topic = this.store.createRecord("communications-topic", {

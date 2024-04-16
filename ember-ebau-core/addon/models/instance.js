@@ -45,6 +45,8 @@ export default class InstanceModel extends Model {
   @hasMany("user", { inverse: null, async: true, readOnly: true })
   responsibleServiceUsers;
   @hasMany("keyword", { inverse: "instances", async: true }) keywords;
+  @hasMany("applicant", { inverse: "instance", async: false })
+  involvedApplicants;
 
   unlink() {
     const adapter = this.store.adapterFor("instance");
