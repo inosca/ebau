@@ -164,3 +164,41 @@ def test_billing_entry_charge(db, admin_client, billing_v2_entry):
 
     billing_v2_entry.refresh_from_db()
     assert billing_v2_entry.date_charged == timezone.now().date()
+
+
+@pytest.mark.freeze_time("2023-11-06")
+@pytest.mark.parametrize(
+    "role__name,is_charged,is_other_group,expect_forbidden",
+    [
+        ("Municipality", True, False, True),
+        ("Municipality", False, False, False),
+        ("Municipality", False, True, True),
+    ],
+)
+def test_billing_entry_delete(
+    db,
+    admin_client,
+    billing_v2_entry,
+    is_charged,
+    is_other_group,
+    expect_forbidden,
+    group_factory,
+):
+    if is_charged:
+        billing_v2_entry.date_charged = timezone.now().date()
+
+    if is_other_group:
+        billing_v2_entry.group = group_factory()
+
+    billing_v2_entry.save()
+
+    url = reverse("billing-v2-entry-detail", args=[billing_v2_entry.pk])
+    response = admin_client.delete(url)
+
+    assert response.status_code == (
+        status.HTTP_403_FORBIDDEN if expect_forbidden else status.HTTP_204_NO_CONTENT
+    )
+    assert (
+        BillingV2Entry.objects.filter(pk=billing_v2_entry.pk).exists()
+        == expect_forbidden
+    )
