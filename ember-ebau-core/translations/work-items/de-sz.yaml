@@ -4,3 +4,6 @@ workItems:
       init-distribution: "Zirkulation initialisieren ({count})"
       complete-check: "Vollständigkeitsprüfung durchführen ({count})"
       make-decision: "Entscheid verfügen ({count})"
+      fill-inquiry: "Stellungnahme verfassen ({count})"
+      check-inquiry: "Stellungnahme prüfen ({count})"
+      alter-inquiry: "Stellungnahme anpassen ({count})"
