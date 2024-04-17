@@ -3,7 +3,7 @@ from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
-from camac.instance import models
+from camac.instance import models, serializers
 
 
 @pytest.mark.parametrize(
@@ -367,3 +367,44 @@ def test_form_field_side_effect_history_entry(
             instance.history.first().title
             == application_settings["FORM_FIELD_HISTORY_ENTRY"][0]["title"]
         )
+
+
+@pytest.mark.parametrize(
+    "role__name",
+    [("Municipality"), ("Service"), ("Applicant"), ("Public")],
+)
+def test_form_field_scrubbing(db, mocker, form_field, group, role, set_application_sz):
+    is_public = role.name == "Public"
+
+    if is_public:
+        group = None
+
+    value = [
+        {
+            "key-1": "test",
+            "key-2": {
+                "key-3": "test-2",
+                "tel": "122345545",
+                "email": "test@example.org",
+            },
+            "tel": "12083472",
+            "email": "test@example.org",
+        }
+    ]
+    scrubbed_value = [
+        {
+            "key-1": "test",
+            "key-2": {"key-3": "test-2", "tel": None, "email": None},
+            "tel": None,
+            "email": None,
+        }
+    ]
+
+    form_field.value = value
+    form_field.save()
+
+    mocker.patch("camac.user.permissions.get_group", return_value=group)
+    serializer = serializers.FormFieldSerializer(form_field)
+    serialized_form_field = serializer.data
+
+    assert serialized_form_field["value"] == scrubbed_value if is_public else value
