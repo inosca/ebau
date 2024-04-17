@@ -2333,3 +2333,57 @@ def test_linked_instances_ur(db, ur_instance, instance_factory, set_application_
 
     ur_instance.refresh_from_db()
     assert list(ur_instance.get_linked_instances()) == [other_instance]
+
+
+def test_is_active_or_involved_lead_authority(
+    db,
+    instance,
+    instance_service_factory,
+    service_factory,
+    use_instance_service,
+):
+    service = service_factory()
+    instance_service = instance_service_factory(
+        instance=instance, service=service, active=1
+    )
+
+    assert instance.is_active_or_involved_lead_authority(service.pk)
+
+    instance_service.active = 0
+    instance_service.save()
+    assert instance.is_active_or_involved_lead_authority(service.pk)
+
+    instance_service.delete()
+    assert not instance.is_active_or_involved_lead_authority(service.pk)
+
+
+def test_has_inquiry(
+    db,
+    gr_instance,
+    service_factory,
+    work_item_factory,
+    gr_distribution_settings,
+):
+    service = service_factory()
+    inquiry = work_item_factory(
+        task=caluma_workflow_models.Task.objects.get(slug="inquiry"),
+        case=gr_instance.case,
+        addressed_groups=[str(service.pk)],
+        status=caluma_workflow_models.WorkItem.STATUS_READY,
+    )
+
+    assert gr_instance.has_inquiry(service.pk)
+
+    inquiry.status = caluma_workflow_models.WorkItem.STATUS_SUSPENDED
+    inquiry.save()
+
+    assert not gr_instance.has_inquiry(service.pk)
+
+    inquiry.status = caluma_workflow_models.WorkItem.STATUS_CANCELED
+    inquiry.save()
+
+    assert not gr_instance.has_inquiry(service.pk)
+
+    inquiry.delete()
+
+    assert not gr_instance.has_inquiry(service.pk)
