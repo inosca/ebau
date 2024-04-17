@@ -99,6 +99,7 @@ def instance_for_appeal_so(
     service,
     settings,
     so_decision_settings,
+    so_construction_monitoring_settings,
 ):
     application_settings["ACTIVE_SERVICES"] = settings.APPLICATIONS["kt_so"][
         "ACTIVE_SERVICES"
@@ -119,6 +120,7 @@ def instance_for_appeal_so(
     instance_state_factory(name="init-distribution")
     instance_state_factory(name="distribution")
     instance_state_factory(name="decision")
+    instance_state_factory(name="decided")
     instance_state_factory(name="construction-monitoring")
     instance_state_factory(name="finished")
 
@@ -282,8 +284,8 @@ def test_instance_appeal(
         (
             "Service",
             "decision",
-            "construction-monitoring",
-            "construction-monitoring",
+            "decided",
+            "decided",
             status.HTTP_403_FORBIDDEN,
         ),
         # Wrong instance state
@@ -292,22 +294,15 @@ def test_instance_appeal(
         (
             "Municipality",
             "new",
-            "finished",
-            "finished",
+            "decided",
+            "decided",
             status.HTTP_403_FORBIDDEN,
         ),
         # Correct instance state and previous instance state
         (
             "Municipality",
             "decision",
-            "construction-monitoring",
-            "finished",
-            status.HTTP_201_CREATED,
-        ),
-        (
-            "Municipality",
-            "decision",
-            "finished",
+            "decided",
             "finished",
             status.HTTP_201_CREATED,
         ),

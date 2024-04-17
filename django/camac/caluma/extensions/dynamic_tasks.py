@@ -12,13 +12,14 @@ from camac.caluma.extensions.events.construction_monitoring import (
     construction_step_can_continue,
 )
 from camac.caluma.extensions.events.general import get_instance
-from camac.core.utils import create_history_entry
+from camac.core.utils import canton_aware, create_history_entry
 from camac.instance import domain_logic
 from camac.user.models import User
 
 
 class CustomDynamicTasks(BaseDynamicTasks):
     @register_dynamic_task("after-decision")
+    @canton_aware
     def resolve_after_decision(self, case, user, prev_work_item, context):
         if not domain_logic.DecisionLogic.should_continue_after_decision(
             case.instance, prev_work_item
@@ -39,6 +40,39 @@ class CustomDynamicTasks(BaseDynamicTasks):
             tasks.append("geometer")
 
         return tasks
+
+    @canton_aware
+    def resolve_after_decision_so(self, case, user, prev_work_item, context):
+        if domain_logic.DecisionLogic.should_continue_after_decision(
+            case.instance, prev_work_item
+        ):
+            return [
+                settings.CONSTRUCTION_MONITORING["INIT_CONSTRUCTION_MONITORING_TASK"]
+            ]
+
+        decision = domain_logic.DecisionLogic.get_decision_answer(
+            question_id=settings.DECISION["QUESTIONS"]["DECISION"],
+            work_item=prev_work_item,
+        )
+
+        if (
+            case.meta.get("is-appeal")
+            and decision != settings.APPEAL["ANSWERS"]["DECISION"]["CONFIRMED"]
+        ):
+            # If the decision comes from an appeal which is not confirmed
+            # (either changed or rejected) the workflow is finished because
+            # there will be a new copy of the instance which is used for the
+            # further workflow
+            return []
+
+        if (
+            case.instance.instance_state.name
+            == settings.WITHDRAWAL["INSTANCE_STATE_CONFIRMED"]
+        ):
+            # If the decision comes from a withdrawal, the workflow is finished
+            return []
+
+        return [settings.CONSTRUCTION_MONITORING["COMPLETE_INSTANCE_TASK"]]
 
     @register_dynamic_task("after-decision-ur")
     def resolve_after_decision_ur(self, case, user, prev_work_item, context):

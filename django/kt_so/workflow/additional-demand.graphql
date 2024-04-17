@@ -45,7 +45,7 @@ mutation FillAdditionalDemandTask {
     input: {
       slug: "fill-additional-demand"
       name: "Nachforderung ausfüllen"
-      addressGroups: "[]"
+      addressGroups: "[\"applicant\"]"
       controlGroups: "info.prev_work_item.addressed_groups"
       form: "fill-additional-demand"
     }

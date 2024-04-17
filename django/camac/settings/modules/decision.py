@@ -19,7 +19,8 @@ DECISION = {
                 "REJECTED": "decision-decision-rejected",
             },
         },
-        "INSTANCE_STATE_AFTER_DECISION": "construction-monitoring",
+        "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "construction-monitoring",
+        "INSTANCE_STATE_AFTER_NEGATIVE_DECISION": "finished",
         "TASKS_AFTER_BUILDING_PERMIT_DECISION": ["construction-monitoring"],
     },
     "kt_bern": {
@@ -50,7 +51,7 @@ DECISION = {
                 "UNKNOWN": "decision-approval-type-unknown",
             },
         },
-        "INSTANCE_STATE_AFTER_DECISION": "sb1",
+        "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "sb1",
         "TASKS_AFTER_BUILDING_PERMIT_DECISION": [
             "sb1",
             "create-manual-workitems",
@@ -76,6 +77,8 @@ DECISION = {
                 "OHNE_WIEDERHERSTELLUNG": "entscheid-bauabschlag-ohne-wiederherstellung",
             },
         },
+        "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "decided",
+        "INSTANCE_STATE_AFTER_NEGATIVE_DECISION": "decided",
     },
     "kt_gr": {
         "ENABLED": True,
@@ -91,7 +94,7 @@ DECISION = {
                 "OTHER": "decision-decision-other",
             },
         },
-        "INSTANCE_STATE_AFTER_DECISION": "construction-acceptance",
+        "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "construction-acceptance",
         "TASKS_AFTER_BUILDING_PERMIT_DECISION": ["construction-acceptance"],
     },
     "test": {
