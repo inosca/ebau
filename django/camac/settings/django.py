@@ -670,6 +670,7 @@ APPLICATIONS = {
         ],
         "THUMBNAIL_SIZE": "x300",
         "DOCUMENT_BACKEND": "camac-ng",
+        "SCRUB_FORMFIELD_KEYS_FOR_PUBLIC": ["tel", "email"],
     },
     "kt_bern": {
         "SHORT_NAME": "be",
