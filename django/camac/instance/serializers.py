@@ -2,6 +2,7 @@ import itertools
 import json
 import re
 from collections import namedtuple
+from functools import singledispatchmethod
 from io import StringIO
 from logging import getLogger
 
@@ -2161,8 +2162,36 @@ class InstanceSubmitSerializer(InstanceSerializer):
         return instance
 
 
+class ScrubbedJSONField(serializers.JSONField):
+    @permission_aware
+    def to_representation(self, data):
+        return super().to_representation(data)
+
+    def to_representation_for_public(self, data):
+        representation = super().to_representation(data)
+        return self._scrub(representation)
+
+    @singledispatchmethod
+    def _scrub(self, data):
+        return data
+
+    @_scrub.register
+    def _(self, data: list):
+        return [self._scrub(entry) for entry in data]
+
+    @_scrub.register
+    def _(self, data: dict):
+        scrub_keys = settings.APPLICATION["SCRUB_FORMFIELD_KEYS_FOR_PUBLIC"]
+        return {
+            key: None if key in scrub_keys else self._scrub(value)
+            for key, value in data.items()
+        }
+
+
 class FormFieldSerializer(InstanceEditableMixin, serializers.ModelSerializer):
     included_serializers = {"instance": InstanceSerializer}
+
+    value = ScrubbedJSONField()
 
     def validate_name(self, name):
         # TODO: check whether question is part of used form
