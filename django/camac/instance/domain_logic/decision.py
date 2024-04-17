@@ -1,5 +1,8 @@
+from typing import Optional, Union
+
+from caluma.caluma_form.models import Answer
 from caluma.caluma_workflow import models as workflow_models
-from caluma.caluma_workflow.api import skip_work_item
+from caluma.caluma_workflow.api import cancel_work_item, skip_work_item
 from django.conf import settings
 
 from camac.core.utils import canton_aware, generate_sort_key
@@ -31,18 +34,22 @@ class DecisionLogic:
                 )
             else:
                 instance.set_instance_state(
-                    settings.DECISION["INSTANCE_STATE_AFTER_DECISION"],
+                    settings.DECISION["INSTANCE_STATE_AFTER_POSITIVE_DECISION"],
                     camac_user,
                 )
         elif (
             settings.WITHDRAWAL
             and instance.instance_state.name == settings.WITHDRAWAL["INSTANCE_STATE"]
         ):
+            cls.cancel_manual_work_items(instance, user)
             instance.set_instance_state(
                 settings.WITHDRAWAL["INSTANCE_STATE_CONFIRMED"], camac_user
             )
         else:
-            instance.set_instance_state("finished", camac_user)
+            instance.set_instance_state(
+                settings.DECISION["INSTANCE_STATE_AFTER_NEGATIVE_DECISION"],
+                camac_user,
+            )
 
         cls.handle_appeal_decision(instance, work_item, user, camac_user)
 
@@ -51,54 +58,58 @@ class DecisionLogic:
     def should_continue_after_decision(
         cls, instance: Instance, work_item: workflow_models.WorkItem
     ) -> bool:
-        decision = (
-            work_item.document.answers.filter(
-                question_id=settings.DECISION["QUESTIONS"]["DECISION"]
+        return (
+            cls.get_decision_answer(
+                question_id=settings.DECISION["QUESTIONS"]["DECISION"],
+                work_item=work_item,
             )
-            .values_list("value", flat=True)
-            .first()
+            == settings.DECISION["ANSWERS"]["DECISION"]["APPROVED"]
         )
-
-        if not decision:  # pragma: no cover
-            return False
-
-        return decision == settings.DECISION["ANSWERS"]["DECISION"]["APPROVED"]
 
     @classmethod
     def should_continue_after_decision_so(
         cls, instance: Instance, work_item: workflow_models.WorkItem
     ) -> bool:
         if instance.instance_state.name == settings.WITHDRAWAL["INSTANCE_STATE"]:
+            # If the current instance state is withdrawal (Zum Rückzug) we don't
+            # even care what decision is selected, the workflow is finished in
+            # every case.
             return False
 
-        decision = (
-            work_item.document.answers.filter(
-                question_id=settings.DECISION["QUESTIONS"]["DECISION"]
-            )
-            .values_list("value", flat=True)
-            .first()
+        decision = cls.get_decision_answer(
+            question_id=settings.DECISION["QUESTIONS"]["DECISION"],
+            work_item=work_item,
         )
 
-        if not decision:  # pragma: no cover
-            return False
-
-        if settings.APPEAL and work_item.case.meta.get("is-appeal"):
+        if work_item.case.meta.get("is-appeal"):
+            # For appeal decisions, we need to check if the appeal decision is
+            # confirmed and then check the decision of the previous instance to
+            # determine whether we continue the workflow or not
             previous_instance = work_item.case.document.source.case.instance
-            previous_state = previous_instance.previous_instance_state.name
 
-            return (
-                decision == settings.APPEAL["ANSWERS"]["DECISION"]["CONFIRMED"]
-                and previous_state == "construction-monitoring"
+            return decision == settings.APPEAL["ANSWERS"]["DECISION"][
+                "CONFIRMED"
+            ] and cls.is_positive_decision_so(
+                cls.get_decision_answer(
+                    question_id=settings.DECISION["QUESTIONS"]["DECISION"],
+                    instance=previous_instance,
+                ),
+                cls.get_decision_answer(
+                    question_id=settings.DECISION["QUESTIONS"]["BAUABSCHLAG"],
+                    instance=previous_instance,
+                ),
             )
 
-        construction_tee = (
-            work_item.document.answers.filter(
-                question_id=settings.DECISION["QUESTIONS"]["BAUABSCHLAG"]
-            )
-            .values_list("value", flat=True)
-            .first()
+        return cls.is_positive_decision_so(
+            decision,
+            cls.get_decision_answer(
+                question_id=settings.DECISION["QUESTIONS"]["BAUABSCHLAG"],
+                work_item=work_item,
+            ),
         )
 
+    @classmethod
+    def is_positive_decision_so(cls, decision, construction_tee):
         return (
             decision
             in [
@@ -115,16 +126,10 @@ class DecisionLogic:
     def should_continue_after_decision_be(
         cls, instance: Instance, work_item: workflow_models.WorkItem
     ) -> bool:
-        decision = (
-            work_item.document.answers.filter(
-                question_id=settings.DECISION["QUESTIONS"]["DECISION"]
-            )
-            .values_list("value", flat=True)
-            .first()
+        decision = cls.get_decision_answer(
+            question_id=settings.DECISION["QUESTIONS"]["DECISION"],
+            work_item=work_item,
         )
-
-        if not decision:  # pragma: no cover
-            return False
 
         if settings.APPEAL and work_item.case.meta.get("is-appeal"):
             previous_instance = work_item.case.document.source.case.instance
@@ -137,12 +142,9 @@ class DecisionLogic:
             elif decision == settings.APPEAL["ANSWERS"]["DECISION"]["REJECTED"]:
                 return False
 
-        approval_type = (
-            work_item.document.answers.filter(
-                question_id=settings.DECISION["QUESTIONS"]["APPROVAL_TYPE"]
-            )
-            .values_list("value", flat=True)
-            .first()
+        approval_type = cls.get_decision_answer(
+            question_id=settings.DECISION["QUESTIONS"]["APPROVAL_TYPE"],
+            work_item=work_item,
         )
 
         return (
@@ -192,12 +194,9 @@ class DecisionLogic:
         if not settings.APPEAL or not instance.case.meta.get("is-appeal"):
             return
 
-        decision = (
-            work_item.document.answers.filter(
-                question_id=settings.DECISION["QUESTIONS"]["DECISION"]
-            )
-            .values_list("value", flat=True)
-            .first()
+        decision = cls.get_decision_answer(
+            question_id=settings.DECISION["QUESTIONS"]["DECISION"],
+            work_item=work_item,
         )
 
         if (
@@ -248,3 +247,38 @@ class DecisionLogic:
                     new_instance.set_instance_state(
                         settings.DECISION["INSTANCE_STATE"], camac_user
                     )
+
+                # Finish old instance
+                cls.cancel_manual_work_items(instance, user)
+                instance.set_instance_state("finished", camac_user)
+
+    @classmethod
+    def get_decision_answer(
+        cls,
+        question_id: str,
+        work_item: Optional[workflow_models.WorkItem] = None,
+        instance: Optional[Instance] = None,
+    ) -> Union[str, None]:
+        filters = None
+
+        if work_item:
+            filters = {"document__work_item": work_item}
+        elif instance:
+            filters = {"document__work_item__case__instance": instance}
+
+        return (
+            Answer.objects.filter(question_id=question_id, **filters)
+            .values_list("value", flat=True)
+            .first()
+            if filters
+            else None
+        )
+
+    @classmethod
+    def cancel_manual_work_items(cls, instance, user):
+        for manual_work_item in workflow_models.WorkItem.objects.filter(
+            task_id=settings.APPLICATION["CALUMA"]["MANUAL_WORK_ITEM_TASK"],
+            status=workflow_models.WorkItem.STATUS_READY,
+            case__family__instance=instance,
+        ):
+            cancel_work_item(manual_work_item, user)

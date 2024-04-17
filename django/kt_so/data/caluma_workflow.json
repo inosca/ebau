@@ -3715,7 +3715,7 @@
         "notify-deadline": true,
         "notify-completed": false
       },
-      "addressed_groups": "[]",
+      "addressed_groups": "[\"applicant\"]",
       "controlling_groups": "[]",
       "assigned_users": "[]",
       "case": "087e3c47-df7c-4c6d-a80c-19ef8c0f116d",
@@ -4323,7 +4323,7 @@
         "notify-deadline": true,
         "notify-completed": false
       },
-      "addressed_groups": "[]",
+      "addressed_groups": "[\"applicant\"]",
       "controlling_groups": "[]",
       "assigned_users": "[]",
       "case": "0bbfa433-1fd9-41dc-a834-6f24bb31458e",
@@ -4547,7 +4547,7 @@
         "notify-deadline": true,
         "notify-completed": false
       },
-      "addressed_groups": "[]",
+      "addressed_groups": "[\"applicant\"]",
       "controlling_groups": "[]",
       "assigned_users": "[]",
       "case": "484dcd39-ea8e-4553-828d-50bc1408a3f0",

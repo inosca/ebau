@@ -2,13 +2,14 @@ import pytest
 from caluma.caluma_core.events import send_event
 from caluma.caluma_form.factories import FormFactory
 from caluma.caluma_form.models import Question
+from caluma.caluma_workflow.api import complete_work_item
 from caluma.caluma_workflow.events import post_complete_work_item
-from caluma.caluma_workflow.models import Workflow, WorkItem
+from caluma.caluma_workflow.models import Case, Workflow, WorkItem
 from django.core.management import call_command
 
 from camac.core.models import HistoryActionConfig
 from camac.instance.domain_logic import DecisionLogic
-from camac.instance.models import HistoryEntryT, Instance, InstanceState
+from camac.instance.models import HistoryEntryT, Instance
 from camac.instance.utils import copy_instance
 
 
@@ -428,58 +429,66 @@ def test_complete_decision_withdrawn(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "previous_instance_state,expected_instance_state,decision,expect_copy,expected_copy_instance_state",
+    "previous_decision,appeal_decision,expected_work_items,expect_copy,expected_copy_instance_state",
     [
         (
-            "construction-monitoring",
-            "construction-monitoring",
+            "APPROVED",
             "CONFIRMED",
+            ["create-manual-workitems", "init-construction-monitoring"],
             False,
             None,
         ),
-        ("finished", "finished", "CONFIRMED", False, None),
-        ("construction-monitoring", "finished", "CHANGED", True, "decision"),
-        ("finished", "finished", "CHANGED", True, "decision"),
-        ("construction-monitoring", "finished", "REJECTED", True, "subm"),
-        ("finished", "finished", "REJECTED", True, "subm"),
+        (
+            "REJECTED",
+            "CONFIRMED",
+            ["create-manual-workitems", "complete-instance"],
+            False,
+            None,
+        ),
+        ("APPROVED", "CHANGED", [], True, "decision"),
+        ("APPROVED", "REJECTED", [], True, "subm"),
     ],
 )
 def test_complete_decision_appeal_so(
     db,
     admin_user,
-    so_appeal_settings,
-    so_instance,
+    appeal_decision,
+    application_settings,
     caluma_admin_user,
     decision_factory_so,
-    decision,
-    expect_copy,
-    expected_instance_state,
-    expected_copy_instance_state,
-    instance_state_factory,
-    previous_instance_state,
-    settings,
-    application_settings,
-    so_decision_settings,
     disable_ech0211_settings,
+    expect_copy,
+    expected_copy_instance_state,
+    expected_work_items,
+    instance_state_factory,
+    previous_decision,
+    settings,
+    so_appeal_settings,
+    so_construction_monitoring_settings,
+    so_decision_settings,
+    so_instance,
+    work_item_factory,
 ):
     settings.APPLICATION_NAME = "kt_so"
     application_settings["SHORT_NAME"] = "so"
 
     instance_state_factory(name="new")
     instance_state_factory(name="subm")
-    instance_state_factory(name="construction-monitoring")
     instance_state_factory(name="finished")
     instance_state_factory(name="decision")
+    instance_state_factory(name="decided")
 
-    so_instance.previous_instance_state = InstanceState.objects.get(
-        name=previous_instance_state
+    # Prepare "normal" instance that got an appeal after the decision
+    work_item_factory(task_id=so_decision_settings["TASK"], case=so_instance.case)
+    decision_factory_so(
+        so_instance, so_decision_settings["ANSWERS"]["DECISION"][previous_decision]
     )
-    so_instance.save()
 
     so_instance.case.workflow = Workflow.objects.get(pk="building-permit")
     so_instance.case.meta.update({"has-appeal": True})
     so_instance.case.save()
 
+    # Copy that instance into an appeal instance
     instance = copy_instance(
         instance=so_instance,
         group=admin_user.groups.first(),
@@ -488,23 +497,24 @@ def test_complete_decision_appeal_so(
         new_meta={"dossier-number": "2024-1", "is-appeal": True},
     )
 
+    # Prepare and complete appeal decision
     work_item = decision_factory_so(
-        instance, so_appeal_settings["ANSWERS"]["DECISION"][decision]
+        instance, so_appeal_settings["ANSWERS"]["DECISION"][appeal_decision]
     )
 
-    send_event(
-        post_complete_work_item,
-        sender="post_complete_work_item",
-        work_item=work_item,
-        user=caluma_admin_user,
-        context={},
-    )
+    complete_work_item(work_item, caluma_admin_user)
 
     instance.refresh_from_db()
 
-    assert instance.instance_state.name == expected_instance_state
+    assert set(
+        instance.case.work_items.filter(status=WorkItem.STATUS_READY).values_list(
+            "task_id", flat=True
+        )
+    ) == set(expected_work_items)
 
     if expect_copy:
+        assert instance.case.status == Case.STATUS_COMPLETED
+
         new_instance = Instance.objects.get(
             case__document__source=instance.case.document
         )
@@ -512,4 +522,9 @@ def test_complete_decision_appeal_so(
         assert "is-rejected-appeal" in new_instance.case.meta
         assert "dossier-number" in new_instance.case.meta
         assert "dossier-number-sort" in new_instance.case.meta
+
+        assert new_instance.case.status == Case.STATUS_RUNNING
         assert new_instance.instance_state.name == expected_copy_instance_state
+    else:
+        assert instance.case.status == Case.STATUS_RUNNING
+        assert instance.instance_state.name == "decided"

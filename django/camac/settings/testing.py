@@ -75,7 +75,7 @@ MODULE_CONFIG_FIXTURES = {
     "alexandria": ["kt_gr", "kt_so"],
     "rejection": ["kt_bern", "kt_so"],
     "withdrawal": ["kt_so"],
-    "construction_monitoring": ["kt_schwyz"],
+    "construction_monitoring": ["kt_schwyz", "kt_so"],
     "permissions": ["kt_bern", "kt_gr", "kt_so"],
     "communications": ["kt_bern", "kt_gr", "kt_so"],
     "placeholders": ["kt_bern", "kt_so"],

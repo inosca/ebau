@@ -131,19 +131,18 @@ def load_fixtures_so(
     db,
     settings,
     caluma_workflow_config_so,
-    instance_state_factory,
     so_dossier_import_settings,
     so_decision_settings,
+    so_construction_monitoring_settings,
 ):
     extra_fixtures = [
         settings.ROOT_DIR("kt_so/config/caluma_form.json"),
         settings.ROOT_DIR("kt_so/config/caluma_decision_form.json"),
+        settings.ROOT_DIR("kt_so/config/caluma_construction_monitoring_form.json"),
+        settings.ROOT_DIR("kt_so/config/caluma_construction_monitoring_workflow.json"),
     ]
 
     caluma_workflow_config_so.allow_forms.add("migriertes-dossier")
-
-    for pk in so_dossier_import_settings["INSTANCE_STATE_MAPPING"].values():
-        instance_state_factory(pk=pk)
 
     so_dossier_import_settings["ALEXANDRIA_CATEGORY"] = CategoryFactory().pk
 

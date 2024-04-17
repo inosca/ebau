@@ -49,7 +49,7 @@ APPEAL = {
     },
     "kt_so": {
         "ENABLED": True,
-        "INSTANCE_STATES_AFTER_DECISION": ["construction-monitoring", "finished"],
+        "INSTANCE_STATES_AFTER_DECISION": ["decided"],
         "QUESTIONS": {
             "TABLE": "beschwerdeverfahren-tabelle",
             "TYPE": "beschwerdetyp",
