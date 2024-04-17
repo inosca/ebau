@@ -31,6 +31,9 @@ module("Unit | Ability | billing-v2-entry", function (hooks) {
 
     this.owner.lookup("service:ebau-modules").serviceId = service.id;
     assert.ok(ability.canDelete);
+
+    model.dateCharged = "2024-04-17";
+    assert.notOk(ability.canDelete);
   });
 
   test.each(
