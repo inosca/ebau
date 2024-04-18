@@ -294,7 +294,25 @@ export default class CaseTableComponent extends Component {
                     ],
                   },
                 }
-              : {}),
+              : macroCondition(getOwnConfig().application === "so")
+                ? {
+                    personalDetails: {
+                      searchAnswers: [
+                        {
+                          questions: [
+                            "juristische-person-name",
+                            "nachname",
+                            "vorname",
+                          ],
+                          value: filter.personalDetails,
+                        },
+                      ],
+                    },
+                    form: {
+                      documentForms: filter.form?.split(","),
+                    },
+                  }
+                : {}),
     };
 
     const searchFilters = Object.entries(filter)
@@ -436,6 +454,11 @@ export default class CaseTableComponent extends Component {
       ...(macroCondition(getOwnConfig().application === "gr")
         ? {
             "fields[instances]": "id,name,decision,instance_state,involved_at",
+          }
+        : {}),
+      ...(macroCondition(getOwnConfig().application === "so")
+        ? {
+            "fields[instances]": "id,name,decision,instance_state,is_paper",
           }
         : {}),
     });
