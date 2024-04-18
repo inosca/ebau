@@ -1576,6 +1576,44 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("MUNICIPALITY_LOGO")],
         description=_("Logo of the municipality"),
     )
+    alle_rechnungsempfaenger = fields.MasterDataPersonField(
+        source="invoice_recipients",
+        aliases=[_("ALL_INVOICE_RECIPIENTS")],
+        description=_("Names of all invoice recipients"),
+    )
+    alle_rechnungsempfaenger_name_adresse = fields.MasterDataPersonField(
+        source="invoice_recipients",
+        fields="__all__",
+        aliases=[_("ALL_INVOICE_RECIPIENTS_NAME_ADDRESS")],
+        description=_("Names and adressesof all invoice recipients"),
+    )
+    rechnungsempfaenger = fields.MasterDataPersonField(
+        source="invoice_recipients",
+        only_first=True,
+        aliases=[_("INVOICE_RECIPIENT")],
+        description=_("Name of the first invoice recipient"),
+    )
+    rechnungsempfaenger_adresse_1 = fields.MasterDataPersonField(
+        source="invoice_recipients",
+        only_first=True,
+        fields=["address_1"],
+        aliases=[_("INVOICE_RECIPIENT_ADDRESS_1")],
+        description=_("Address line 1 of the first invoice recipient"),
+    )
+    rechnungsempfaenger_adresse_2 = fields.MasterDataPersonField(
+        source="invoice_recipients",
+        only_first=True,
+        fields=["address_2"],
+        aliases=[_("INVOICE_RECIPIENT_ADDRESS_2")],
+        description=_("Address line 2 of the first invoice recipient"),
+    )
+    rechnungsempfaenger_name_adresse = fields.MasterDataPersonField(
+        source="invoice_recipients",
+        only_first=True,
+        fields="__all__",
+        aliases=[_("INVOICE_RECIPIENT_NAME_ADDRESS")],
+        description=_("Name and address of the first invoice recipient"),
+    )
 
     class Meta:
         exclude = [
