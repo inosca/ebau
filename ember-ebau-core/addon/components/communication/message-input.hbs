@@ -28,7 +28,11 @@
   </div>
 
   {{#unless this.disabled}}
-    <Dropzone @multiple={{true}} @onFileAdded={{this.addFiles}}>
+    <Dropzone
+      @multiple={{true}}
+      @onFileAdded={{this.addFiles}}
+      @onValidationError={{this.onValidationError}}
+    >
       <:content>
         {{#if (can "link attachments on message")}}
           <p>

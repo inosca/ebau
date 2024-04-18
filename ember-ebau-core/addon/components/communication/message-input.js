@@ -4,8 +4,10 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 
 export default class CommunicationMessageInputComponent extends Component {
+  @service notification;
   @service ebauModules;
   @service store;
+  @service intl;
 
   @tracked showDocumentUpload = false;
   @tracked attachmentSection;
@@ -60,5 +62,10 @@ export default class CommunicationMessageInputComponent extends Component {
     if (event.key === "Enter" && event.ctrlKey && !this.sendDisabled) {
       this.args.onCtrlEnter?.();
     }
+  }
+
+  @action
+  onValidationError() {
+    this.notification.danger(this.intl.t("documents.wrongMimeType"));
   }
 }
