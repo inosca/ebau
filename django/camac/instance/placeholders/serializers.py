@@ -1614,9 +1614,15 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("INVOICE_RECIPIENT_NAME_ADDRESS")],
         description=_("Name and address of the first invoice recipient"),
     )
+    bauentscheid_datum = fields.DecisionField(
+        source="entscheid-datum",
+        aliases=[_("DECISION_DATE")],
+        description=_("Decision date"),
+    )
 
     class Meta:
         exclude = [
+            "decision_date",
             "description_modification",
             "nebenbestimmungen",
             "stellungnahme",

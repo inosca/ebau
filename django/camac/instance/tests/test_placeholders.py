@@ -300,6 +300,7 @@ def test_dms_placeholders_so(
     mocker,
     multilang,
     utils,
+    document_factory,
 ):
     # Authority
     authority = service_factory(
@@ -563,6 +564,15 @@ def test_dms_placeholders_so(
         variant="original",
     )
 
+    # Decision
+    decision_work_item = work_item_factory(
+        case=so_instance.case,
+        task_id="decision",
+        status=WorkItem.STATUS_COMPLETED,
+        document=document_factory(form_id="entscheid"),
+    )
+    utils.add_answer(decision_work_item.document, "entscheid-datum", date(2024, 4, 18))
+
     url = reverse("instance-dms-placeholders", args=[so_instance.pk])
 
     response = admin_client.get(url)
@@ -576,6 +586,7 @@ def test_dms_placeholders_so(
         "ALLE_RECHNUNGSEMPFAENGER",
         "ANGEMELDET_EMAIL",
         "ANGEMELDET_NAME",
+        "BAUENTSCHEID_DATUM",
         "BAUHERR_VERTRETER_ADRESSE_1",
         "BAUHERR_VERTRETER_ADRESSE_2",
         "BAUHERR_VERTRETER_NAME_ADRESSE",
