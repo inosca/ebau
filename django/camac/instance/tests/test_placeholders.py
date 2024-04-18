@@ -300,6 +300,7 @@ def test_dms_placeholders_so(
     mocker,
     multilang,
     utils,
+    document_factory,
 ):
     # Authority
     authority = service_factory(
@@ -391,6 +392,39 @@ def test_dms_placeholders_so(
                 "vertretung-nummer": 7,
                 "vertretung-plz": 2540,
                 "vertretung-ort": "Grenchen",
+            },
+        ],
+        row_form_id="personalien-tabelle",
+    )
+
+    # Invoice recipients
+    utils.add_table_answer(
+        so_instance.case.document,
+        "rechnungsempfaengerin",
+        [
+            {
+                "juristische-person": "juristische-person-nein",
+                "vorname": "Karl",
+                "nachname": "Rechnungsempfänger",
+                "strasse": "Eine Strasse",
+                "strasse-nummer": 1,
+                "plz": 4507,
+                "ort": "Andere Stadt",
+                "vertretung": "vertretung-ja",
+                "vertretung-vorname": "Hand",
+                "vertretung-nachname": "Vertreter",
+                "vertretung-strasse": "Teststrasse",
+                "vertretung-nummer": 9,
+                "vertretung-plz": 4704,
+                "vertretung-ort": "Stadt",
+            },
+            {
+                "juristische-person": "juristische-person-ja",
+                "juristische-person-name": "Rechnungs AG",
+                "strasse": "Strasse",
+                "strasse-nummer": 43,
+                "plz": 4502,
+                "ort": "Dorf",
             },
         ],
         row_form_id="personalien-tabelle",
@@ -530,6 +564,15 @@ def test_dms_placeholders_so(
         variant="original",
     )
 
+    # Decision
+    decision_work_item = work_item_factory(
+        case=so_instance.case,
+        task_id="decision",
+        status=WorkItem.STATUS_COMPLETED,
+        document=document_factory(form_id="entscheid"),
+    )
+    utils.add_answer(decision_work_item.document, "entscheid-datum", date(2024, 4, 18))
+
     url = reverse("instance-dms-placeholders", args=[so_instance.pk])
 
     response = admin_client.get(url)
@@ -539,8 +582,11 @@ def test_dms_placeholders_so(
     checked_keys = [
         "ALLE_BAUHERREN_VERTRETER_NAME_ADRESSE",
         "ALLE_BAUHERREN_VERTRETER",
+        "ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE",
+        "ALLE_RECHNUNGSEMPFAENGER",
         "ANGEMELDET_EMAIL",
         "ANGEMELDET_NAME",
+        "BAUENTSCHEID_DATUM",
         "BAUHERR_VERTRETER_ADRESSE_1",
         "BAUHERR_VERTRETER_ADRESSE_2",
         "BAUHERR_VERTRETER_NAME_ADRESSE",
@@ -564,6 +610,10 @@ def test_dms_placeholders_so(
         "PUBLIKATION_ENDE",
         "PUBLIKATION_ORGAN",
         "PUBLIKATION_START",
+        "RECHNUNGSEMPFAENGER_ADRESSE_1",
+        "RECHNUNGSEMPFAENGER_ADRESSE_2",
+        "RECHNUNGSEMPFAENGER_NAME_ADRESSE",
+        "RECHNUNGSEMPFAENGER",
     ]
 
     assert {
