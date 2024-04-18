@@ -19,16 +19,20 @@
 </div>
 
 <div class="uk-margin">
+  {{#if (not (has-feature "dms.hideDownloadButton"))}}
+    <UkButton
+      @color="primary"
+      @disabled={{or this.merge.isRunning this.placeholders.isLoading (not this.template)}}
+      @loading={{and this.merge.isRunning (eq (get this.merge.lastRunning.args 0) false)}}
+      @onClick={{perform this.merge false}}
+    >
+      {{t "dms.merge"}}
+    </UkButton>
+  {{/if}}
   <UkButton
-    @color="primary"
+    @color={{if (has-feature "dms.hideDownloadButton") "primary" "default"}}
     @disabled={{or this.merge.isRunning this.placeholders.isLoading (not this.template)}}
-    @onClick={{perform this.merge false}}
-  >
-    {{t "dms.merge"}}
-  </UkButton>
-  <UkButton
-    @color="default"
-    @disabled={{or this.merge.isRunning this.placeholders.isLoading (not this.template)}}
+    @loading={{and this.merge.isRunning (eq (get this.merge.lastRunning.args 0) true)}}
     @onClick={{perform this.merge true}}
   >
     {{t "dms.merge-and-save"}}
