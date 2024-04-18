@@ -27,6 +27,10 @@ dms:
   save-error: "Fehler beim Speichern der Vorlage"
   validation-error: "Es können nur .docx und .xlsx Dateien hochgeladen werden"
 
+  error: "Aufgrund von einem unerwarteten Fehler konnte das Vorlagenmodul für
+  dieses Dossier nicht geladen werden. Bitte versuchen Sie es später erneut oder
+  kontaktieren Sie den Support."
+
   docs:
     general-info-title: "Allgemeine Hinweise"
     general-info-text: "Platzhalter können mit doppelt geschweiften Klammern in
