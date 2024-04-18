@@ -13,6 +13,7 @@ from alexandria.core.factories import (
 )
 from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
+from requests import Response
 from rest_framework.status import (
     HTTP_200_OK,
     HTTP_201_CREATED,
@@ -1675,5 +1676,72 @@ def test_move_document(
     }
 
     response = admin_client.patch(reverse("document-detail", args=[document.pk]), data)
+
+    assert response.status_code == status_code
+
+
+@pytest.mark.parametrize(
+    "role__name,status_code,access",
+    [
+        (
+            "municipality",
+            HTTP_201_CREATED,
+            {
+                "municipality": {
+                    "visibility": "all",
+                    "permissions": [
+                        {"permission": "create", "scope": "All"},
+                    ],
+                },
+            },
+        ),
+        (
+            "municipality",
+            HTTP_403_FORBIDDEN,
+            {
+                "municipality": {
+                    "visibility": "all",
+                },
+            },
+        ),
+    ],
+)
+def test_document_convert(
+    db,
+    role,
+    dms_settings,
+    applicant_factory,
+    admin_client,
+    caluma_admin_user,
+    settings,
+    instance,
+    mocker,
+    status_code,
+    access,
+):
+    settings.ALEXANDRIA_ENABLE_PDF_CONVERSION = True
+    applicant_factory(invitee=admin_client.user, instance=instance)
+    alexandria_category = CategoryFactory(metainfo={"access": access})
+
+    doc = DocumentFactory(
+        title="Foo",
+        category=alexandria_category,
+        metainfo={"camac-instance-id": instance.pk},
+        created_by_group=caluma_admin_user.group,
+    )
+    FileFactory(name="File", document=doc)
+    url = reverse("document-convert", args=[doc.pk])
+
+    resp = Response()
+    resp.status_code = HTTP_201_CREATED
+    resp._content = (
+        b"%PDF-1.\ntrailer<</Root<</Pages<</Kids[<</MediaBox[0 0 3 3]>>]>>>>>>"
+    )
+    mocker.patch(
+        "requests.post",
+        return_value=resp,
+    )
+
+    response = admin_client.post(url)
 
     assert response.status_code == status_code
