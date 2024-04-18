@@ -197,7 +197,7 @@ class AccessLevelViewset(ReadOnlyModelViewSet):
     @permission_aware
     def get_queryset(self):
         # TODO is this still correct? We're post-Geometer permissions
-        # now, so non-municpality users should likely sse the access levels
+        # now, so non-municpality users should likely see the access levels
         # as well...
         return super().get_queryset().none()
 
