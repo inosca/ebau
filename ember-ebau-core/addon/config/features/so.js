@@ -41,6 +41,9 @@ export default {
   login: {
     tokenExchange: getOwnConfig().enableTokenExchange,
   },
+  dms: {
+    hideDownloadButton: true,
+  },
   watermark: isDevelopingApp() || getOwnConfig().enableWatermark,
   municipalityLogo: true,
   communications: true,
