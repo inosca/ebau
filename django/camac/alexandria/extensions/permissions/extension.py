@@ -48,11 +48,11 @@ class CustomPermission:
     def get_needed_patch_permissions(self, request, document) -> set:  # noqa: C901
         used_permissions = {MODE_UPDATE}
         for key in settings.ALEXANDRIA["RESTRICTED_FIELDS"]:
-            if key not in request.data:
+            if key not in request.parsed_data:
                 continue
 
             old_value = getattr(document, key)
-            new_value = request.data.get(key)
+            new_value = request.parsed_data.get(key)
 
             # LocalizedTextField
             if isinstance(old_value, LocalizedStringValue):
@@ -135,6 +135,7 @@ class CustomPermission:
             # On update and delete we can get the needed data from the database
             instance = document.instance_document.instance
             category = document.category
+            request.parsed_data = request.data
         elif request.method == "POST":
             # On creation we don't have any data in the database yet. Therefore
             # we need to get the needed data from the request.
@@ -163,7 +164,9 @@ class CustomPermission:
 
         # if the category changed, we need to check whether we are allowed to
         # create a document in the new category as well
-        new_category_id = get_dict_item(request.data, "category.id", default=None)
+        new_category_id = get_dict_item(
+            request.parsed_data, "category.id", default=None
+        )
         if new_category_id and category.pk != new_category_id:
             new_category = Category.objects.get(pk=new_category_id)
 
