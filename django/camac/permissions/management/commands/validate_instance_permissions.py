@@ -7,7 +7,7 @@ from django.core.management.base import BaseCommand
 from camac.core.models import (
     InstanceResource,
 )
-from camac.permissions.utils import extract_allowed_states
+from camac.permissions.utils import IncompatibleCheck, extract_allowed_states
 
 log = getLogger(__name__)
 
@@ -89,7 +89,16 @@ class Command(BaseCommand):
                 )
                 return
 
-            permission_module_states = set(extract_allowed_states(permission_cond))
+            try:
+                permission_module_states = set(extract_allowed_states(permission_cond))
+            except IncompatibleCheck:
+                self.log_once(
+                    log.warning,
+                    f"'{access_level}': '{ir.require_permission}' has a "
+                    "non-instance-state check. Skipping",
+                )
+                continue
+
             camac_acl_states = set(instance_states)
 
             too_much_in_config = permission_module_states - camac_acl_states
