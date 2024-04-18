@@ -5037,6 +5037,30 @@
       'nested_aliases': dict({
       }),
     }),
+    'ALLE_RECHNUNGSEMPFAENGER': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_RECHNUNGSEMPFAENGER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Namen aller Rechnungsempfänger/innen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Namen und Adressen aller Rechnungsempfänger/innen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'ANGEMELDET_EMAIL': dict({
       'aliases': list([
         dict({
@@ -5081,6 +5105,18 @@
       ]),
       'description': dict({
         'de': 'Datum an dem das Dossier eingereicht wurde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'BAUENTSCHEID_DATUM': dict({
+      'aliases': list([
+        dict({
+          'de': 'BAUENTSCHEID_DATUM',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Datum des Bauentscheids',
       }),
       'nested_aliases': dict({
       }),
@@ -5141,18 +5177,6 @@
       ]),
       'description': dict({
         'de': 'Beschreibung des Bauvorhabens',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
-    'DECISION_DATE': dict({
-      'aliases': list([
-        dict({
-          'de': 'BAUENTSCHEID_DATUM',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Datum des Bauentscheids',
       }),
       'nested_aliases': dict({
       }),
@@ -6128,6 +6152,54 @@
       ]),
       'description': dict({
         'de': 'Startdatum der Publikation des Dossiers',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'RECHNUNGSEMPFAENGER': dict({
+      'aliases': list([
+        dict({
+          'de': 'RECHNUNGSEMPFAENGER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name des/r ersten Rechnungsempfänger/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'RECHNUNGSEMPFAENGER_ADRESSE_1': dict({
+      'aliases': list([
+        dict({
+          'de': 'RECHNUNGSEMPFAENGER_ADRESSE_1',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Adresslinie 1 des/r ersten Rechnungsempfänger/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'RECHNUNGSEMPFAENGER_ADRESSE_2': dict({
+      'aliases': list([
+        dict({
+          'de': 'RECHNUNGSEMPFAENGER_ADRESSE_2',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Adresslinie 2 des/r ersten Rechnungsempfänger/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'RECHNUNGSEMPFAENGER_NAME_ADRESSE': dict({
+      'aliases': list([
+        dict({
+          'de': 'RECHNUNGSEMPFAENGER_NAME_ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name und Adresse des/r ersten Rechnungsempfänger/in',
       }),
       'nested_aliases': dict({
       }),
@@ -7355,6 +7427,8 @@
     'ALLE_PROJEKTVERFASSER',
     'ALLE_PROJEKTVERFASSER_NAME_ADDRESS',
     'ALLE_PROJEKTVERFASSER_NAME_ADRESSE',
+    'ALLE_RECHNUNGSEMPFAENGER',
+    'ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE',
     'ANGEMELDET_EMAIL',
     'ANGEMELDET_NAME',
     'BASE_URL',
@@ -7369,7 +7443,6 @@
     'BAUHERR_VERTRETER_ADRESSE_2',
     'BAUHERR_VERTRETER_NAME_ADRESSE',
     'BESCHREIBUNG_BAUVORHABEN',
-    'DECISION_DATE',
     'DOSSIER_NUMBER',
     'DOSSIER_NUMMER',
     'DOSSIER_TYP',
@@ -7532,6 +7605,10 @@
     'PUBLIKATION_ORGAN[].EMAIL',
     'PUBLIKATION_ORGAN[].NAME',
     'PUBLIKATION_START',
+    'RECHNUNGSEMPFAENGER',
+    'RECHNUNGSEMPFAENGER_ADRESSE_1',
+    'RECHNUNGSEMPFAENGER_ADRESSE_2',
+    'RECHNUNGSEMPFAENGER_NAME_ADRESSE',
     'STATUS',
     'TODAY',
     'ZIRKULATION_ALLE',
@@ -8308,8 +8385,11 @@
   dict({
     'ALLE_BAUHERREN_VERTRETER': 'Judith Vertreterin, Max Vertreten',
     'ALLE_BAUHERREN_VERTRETER_NAME_ADRESSE': 'Judith Vertreterin, Teststrasse 99, 4702 Oensingen, Max Vertreten, Weg 7, 2540 Grenchen',
+    'ALLE_RECHNUNGSEMPFAENGER': 'Karl Rechnungsempfänger, Rechnungs AG',
+    'ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Karl Rechnungsempfänger, Eine Strasse 1, 4507 Andere Stadt, Rechnungs AG, Strasse 43, 4502 Dorf',
     'ANGEMELDET_EMAIL': 'admin@example.com',
     'ANGEMELDET_NAME': 'Admin User',
+    'BAUENTSCHEID_DATUM': '18. April 2024',
     'BAUHERR_VERTRETER': 'Judith Vertreterin',
     'BAUHERR_VERTRETER_ADRESSE_1': 'Teststrasse 99',
     'BAUHERR_VERTRETER_ADRESSE_2': '4702 Oensingen',
@@ -8331,11 +8411,17 @@
     'EIGENE_GEBUEHREN_TOTAL': '629.76',
     'EINGEREICHTE_PLAENE': list([
       dict({
-        'BESCHREIBUNG': 'Participant among sound than growth may. Gas than use I serious.',
+        'BESCHREIBUNG': '''
+          That she purpose control summer. Show cover important off glass. Activity himself color like nothing.
+          Maintain simply employee son race number teach. Notice third simply ahead often.
+        ''',
         'CATEGORY': 'beilagen-zum-gesuch-projektplaene-projektbeschrieb',
         'CREATED_AT': '18.01.2024 13:37',
         'CREATED_BY': 'Admin User',
-        'DESCRIPTION': 'Participant among sound than growth may. Gas than use I serious.',
+        'DESCRIPTION': '''
+          That she purpose control summer. Show cover important off glass. Activity himself color like nothing.
+          Maintain simply employee son race number teach. Notice third simply ahead often.
+        ''',
         'ERSTELLT_AM': '18.01.2024 13:37',
         'ERSTELLT_VON': 'Admin User',
         'GEAENDERT_AM': '18.01.2024 13:37',
@@ -8356,17 +8442,11 @@
     ]),
     'EINGEREICHTE_UNTERLAGEN': list([
       dict({
-        'BESCHREIBUNG': '''
-          Ahead will moment PM current happen turn. Then situation rise Mrs. Yourself college clearly hotel.
-          Business per radio customer. Resource require pattern just break around.
-        ''',
+        'BESCHREIBUNG': 'Per hope serious television specific conference partner. Fire middle economic within pull. Choose sit road evidence serve.',
         'CATEGORY': 'beilagen-zum-gesuch',
         'CREATED_AT': '18.01.2024 13:37',
         'CREATED_BY': 'Admin User',
-        'DESCRIPTION': '''
-          Ahead will moment PM current happen turn. Then situation rise Mrs. Yourself college clearly hotel.
-          Business per radio customer. Resource require pattern just break around.
-        ''',
+        'DESCRIPTION': 'Per hope serious television specific conference partner. Fire middle economic within pull. Choose sit road evidence serve.',
         'ERSTELLT_AM': '18.01.2024 13:37',
         'ERSTELLT_VON': 'Admin User',
         'GEAENDERT_AM': '18.01.2024 13:37',
@@ -8385,11 +8465,17 @@
         ]),
       }),
       dict({
-        'BESCHREIBUNG': 'Participant among sound than growth may. Gas than use I serious.',
+        'BESCHREIBUNG': '''
+          That she purpose control summer. Show cover important off glass. Activity himself color like nothing.
+          Maintain simply employee son race number teach. Notice third simply ahead often.
+        ''',
         'CATEGORY': 'beilagen-zum-gesuch-projektplaene-projektbeschrieb',
         'CREATED_AT': '18.01.2024 13:37',
         'CREATED_BY': 'Admin User',
-        'DESCRIPTION': 'Participant among sound than growth may. Gas than use I serious.',
+        'DESCRIPTION': '''
+          That she purpose control summer. Show cover important off glass. Activity himself color like nothing.
+          Maintain simply employee son race number teach. Notice third simply ahead often.
+        ''',
         'ERSTELLT_AM': '18.01.2024 13:37',
         'ERSTELLT_VON': 'Admin User',
         'GEAENDERT_AM': '18.01.2024 13:37',
@@ -8432,11 +8518,17 @@
     ]),
     'ENTSCHEIDDOKUMENTE': list([
       dict({
-        'BESCHREIBUNG': 'Suggest remain kid child life. Power together imagine put away.',
+        'BESCHREIBUNG': '''
+          Can allow whole its grow. Affect help according in product here. Business management growth same picture.
+          Respond peace center moment various. Miss whether executive bad experience quality.
+        ''',
         'CATEGORY': 'beteiligte-behoerden',
         'CREATED_AT': '18.01.2024 13:37',
         'CREATED_BY': 'Admin User',
-        'DESCRIPTION': 'Suggest remain kid child life. Power together imagine put away.',
+        'DESCRIPTION': '''
+          Can allow whole its grow. Affect help according in product here. Business management growth same picture.
+          Respond peace center moment various. Miss whether executive bad experience quality.
+        ''',
         'ERSTELLT_AM': '18.01.2024 13:37',
         'ERSTELLT_VON': 'Admin User',
         'GEAENDERT_AM': '18.01.2024 13:37',
@@ -8495,6 +8587,10 @@
     'PUBLIKATION_ORGAN': list([
     ]),
     'PUBLIKATION_START': '1. Dezember 2023',
+    'RECHNUNGSEMPFAENGER': 'Karl Rechnungsempfänger',
+    'RECHNUNGSEMPFAENGER_ADRESSE_1': 'Eine Strasse 1',
+    'RECHNUNGSEMPFAENGER_ADRESSE_2': '4507 Andere Stadt',
+    'RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Karl Rechnungsempfänger, Eine Strasse 1, 4507 Andere Stadt',
   })
 # ---
 # name: test_dms_placeholders_ur[Municipality]

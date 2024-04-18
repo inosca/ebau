@@ -2162,6 +2162,11 @@ MASTER_DATA = {
                 "projektverfasserin",
                 {"column_mapping": SO_PERSONAL_DATA_MAPPING},
             ),
+            "invoice_recipients": (
+                "table",
+                "rechnungsempfaengerin",
+                {"column_mapping": SO_PERSONAL_DATA_MAPPING},
+            ),
             "proposal": ("answer", "umschreibung-bauprojekt"),
             "joined_street_and_number": ("static", False),
             "street": ("answer", "strasse-flurname"),

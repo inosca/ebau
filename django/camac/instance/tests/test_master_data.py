@@ -561,6 +561,63 @@ def so_master_data_case(
         ],
     )
 
+    # Landowner
+    utils.add_table_answer(
+        document,
+        "grundeigentuemer",
+        [
+            {
+                "vorname": "Sandra",
+                "nachname": "Grundeigentümerin",
+                "strasse": "Strasse",
+                "strasse-nummer": 23,
+                "plz": 1000,
+                "ort": "Dorf",
+                "land": "Schweiz",
+                "email": "sandra@gmail.com",
+                "telefon": "012 345 67 90",
+            }
+        ],
+    )
+
+    # Project author
+    utils.add_table_answer(
+        document,
+        "projektverfasserin",
+        [
+            {
+                "vorname": "Karl",
+                "nachname": "Projektverfasser",
+                "strasse": "Weg",
+                "strasse-nummer": 3,
+                "plz": 1001,
+                "ort": "Stadt",
+                "land": "Schweiz",
+                "email": "karl@gmail.com",
+                "telefon": "012 345 67 91",
+            }
+        ],
+    )
+
+    # Invoice recipient
+    utils.add_table_answer(
+        document,
+        "rechnungsempfaengerin",
+        [
+            {
+                "vorname": "Rudolf",
+                "nachname": "Rechnungsempfänger",
+                "strasse": "Ein Weg",
+                "strasse-nummer": 33,
+                "plz": 1002,
+                "ort": "Ein Dorf",
+                "land": "Schweiz",
+                "email": "rudolf@gmail.com",
+                "telefon": "012 345 67 92",
+            }
+        ],
+    )
+
     # Buildings
     utils.add_table_answer(
         document,
