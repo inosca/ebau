@@ -358,7 +358,12 @@ def test_grant_validations(
 @pytest.mark.parametrize("instance_state__name", ["state-foo"])
 @pytest.mark.parametrize("role__name", ["role-bar"])
 def test_condition_objects(
-    db, permissions_settings, access_level, instance, admin_client
+    db,
+    permissions_settings,
+    access_level,
+    instance_state,
+    be_instance,
+    admin_client,
 ):
     permissions_settings["ACCESS_LEVELS"] = {
         access_level.pk: [
@@ -371,6 +376,7 @@ def test_condition_objects(
                 conditions.HasRole(["role-bar"]) & conditions.Never(),
             ),
             ("not-bar", ~conditions.HasRole(["role-bar"])),
+            ("with-inquiry", conditions.HasInquiry()),
         ]
     }
 
@@ -378,7 +384,7 @@ def test_condition_objects(
         user=admin_client.user,
         service=None,
         token=None,
-        instance=instance,
+        instance=be_instance,
         access_level=access_level,
         grant_type="USER",
     )
@@ -386,7 +392,9 @@ def test_condition_objects(
     # We request permissions via API so we can test the full userinfo stuff
     # that we'd have to (badly) fake if talking directly to the lowlevel api
     # Check permissions before...
-    resp = admin_client.get(reverse("instance-permissions-detail", args=[instance.pk]))
+    resp = admin_client.get(
+        reverse("instance-permissions-detail", args=[be_instance.pk])
+    )
 
     result = resp.json()["data"]["attributes"]["permissions"]
     assert sorted(result) == sorted(["foo", "bar", "never-or-always"])
