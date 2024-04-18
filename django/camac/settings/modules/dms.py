@@ -260,7 +260,7 @@ DMS = {
         "ALEXANDRIA_DOCUMENT_CATEGORIES": [
             "beilagen-zum-gesuch-grundstuecksangaben",
             "beilagen-zum-gesuch-gutachten-nachweise-begruendungen",
-            "beilagen-zum-gesuch-brandschutz",
+            "beilagen-zum-gesuch-projektplaene-projektbeschrieb",
             "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
         ],
     },
