@@ -396,6 +396,39 @@ def test_dms_placeholders_so(
         row_form_id="personalien-tabelle",
     )
 
+    # Invoice recipients
+    utils.add_table_answer(
+        so_instance.case.document,
+        "rechnungsempfaengerin",
+        [
+            {
+                "juristische-person": "juristische-person-nein",
+                "vorname": "Karl",
+                "nachname": "Rechnungsempfänger",
+                "strasse": "Eine Strasse",
+                "strasse-nummer": 1,
+                "plz": 4507,
+                "ort": "Andere Stadt",
+                "vertretung": "vertretung-ja",
+                "vertretung-vorname": "Hand",
+                "vertretung-nachname": "Vertreter",
+                "vertretung-strasse": "Teststrasse",
+                "vertretung-nummer": 9,
+                "vertretung-plz": 4704,
+                "vertretung-ort": "Stadt",
+            },
+            {
+                "juristische-person": "juristische-person-ja",
+                "juristische-person-name": "Rechnungs AG",
+                "strasse": "Strasse",
+                "strasse-nummer": 43,
+                "plz": 4502,
+                "ort": "Dorf",
+            },
+        ],
+        row_form_id="personalien-tabelle",
+    )
+
     # Objection
     objections_work_item = work_item_factory(
         task_id="einsprachen",
@@ -539,6 +572,8 @@ def test_dms_placeholders_so(
     checked_keys = [
         "ALLE_BAUHERREN_VERTRETER_NAME_ADRESSE",
         "ALLE_BAUHERREN_VERTRETER",
+        "ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE",
+        "ALLE_RECHNUNGSEMPFAENGER",
         "ANGEMELDET_EMAIL",
         "ANGEMELDET_NAME",
         "BAUHERR_VERTRETER_ADRESSE_1",
@@ -564,6 +599,10 @@ def test_dms_placeholders_so(
         "PUBLIKATION_ENDE",
         "PUBLIKATION_ORGAN",
         "PUBLIKATION_START",
+        "RECHNUNGSEMPFAENGER_ADRESSE_1",
+        "RECHNUNGSEMPFAENGER_ADRESSE_2",
+        "RECHNUNGSEMPFAENGER_NAME_ADRESSE",
+        "RECHNUNGSEMPFAENGER",
     ]
 
     assert {
