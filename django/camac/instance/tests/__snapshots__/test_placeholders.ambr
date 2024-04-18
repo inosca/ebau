@@ -5109,6 +5109,18 @@
       'nested_aliases': dict({
       }),
     }),
+    'BAUENTSCHEID_DATUM': dict({
+      'aliases': list([
+        dict({
+          'de': 'BAUENTSCHEID_DATUM',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Datum des Bauentscheids',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'BAUHERR_VERTRETER': dict({
       'aliases': list([
         dict({
@@ -5165,18 +5177,6 @@
       ]),
       'description': dict({
         'de': 'Beschreibung des Bauvorhabens',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
-    'DECISION_DATE': dict({
-      'aliases': list([
-        dict({
-          'de': 'BAUENTSCHEID_DATUM',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Datum des Bauentscheids',
       }),
       'nested_aliases': dict({
       }),
@@ -7443,7 +7443,6 @@
     'BAUHERR_VERTRETER_ADRESSE_2',
     'BAUHERR_VERTRETER_NAME_ADRESSE',
     'BESCHREIBUNG_BAUVORHABEN',
-    'DECISION_DATE',
     'DOSSIER_NUMBER',
     'DOSSIER_NUMMER',
     'DOSSIER_TYP',
@@ -8390,6 +8389,7 @@
     'ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Karl Rechnungsempfänger, Eine Strasse 1, 4507 Andere Stadt, Rechnungs AG, Strasse 43, 4502 Dorf',
     'ANGEMELDET_EMAIL': 'admin@example.com',
     'ANGEMELDET_NAME': 'Admin User',
+    'BAUENTSCHEID_DATUM': '18. April 2024',
     'BAUHERR_VERTRETER': 'Judith Vertreterin',
     'BAUHERR_VERTRETER_ADRESSE_1': 'Teststrasse 99',
     'BAUHERR_VERTRETER_ADRESSE_2': '4702 Oensingen',
