@@ -1,9 +1,12 @@
 import { getOwner } from "@ember/application";
 import Service, { inject as service } from "@ember/service";
+import { tracked } from "@glimmer/tracking";
 import { singularize } from "ember-inflector";
 
 export default class EbauModulesService extends Service {
   @service router;
+
+  @tracked instanceId;
 
   registeredModules = {};
 

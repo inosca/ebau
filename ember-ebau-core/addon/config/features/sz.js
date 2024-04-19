@@ -16,4 +16,5 @@ export default {
   journal: {
     snippets: true,
   },
+  constructionMonitoring: true,
 };
