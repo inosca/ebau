@@ -67,6 +67,15 @@ known-third-party = [
 ]
 
 
+[tool.whichtest]
+
+exempt = [
+    '.*/urls\.py',
+    '.*/test_.*\.py',
+    '.*/conftest\.py',
+    '^camac/settings/.*',
+]
+
 [tool.pytest.ini_options]
 addopts = "--no-migrations --reuse-db --randomly-seed=1521188766 --randomly-dont-reorganize"
 DJANGO_SETTINGS_MODULE = "camac.settings"
@@ -95,6 +104,8 @@ filterwarnings = [
 
 [tool.coverage.run]
 source = ["."]
+
+dynamic_context = "test_function"
 
 [tool.coverage.report]
 fail_under = 100
@@ -137,6 +148,8 @@ omit = [
     "camac/core/views.py",
     "camac/core/tests/test_publication_permissions.py",
     "camac/core/serializers.py",
+    # Utility for code inspection
+    "camac/tools/whichtest.py",
     # One off commands
     "camac/dossier_import/management/commands/fix_identifiers_schuebelbach.py",
     "camac/dossier_import/management/commands/fix_addresses_schuebelbach.py",
