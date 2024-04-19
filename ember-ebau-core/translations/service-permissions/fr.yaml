@@ -4,6 +4,7 @@ service-permissions:
   created-at: "Date de création"
   created-by: "Créer par"
   email: "Courriel"
+  email-hint: "Il est possible d'indiquer plusieurs adresses électroniques (séparées par une virgule)."
   group: "Groupe"
   name: "Nom"
   name-hint: |-
