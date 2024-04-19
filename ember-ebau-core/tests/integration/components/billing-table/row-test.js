@@ -27,7 +27,7 @@ module("Integration | Component | billing-table/row", function (hooks) {
       organization: "municipal",
       billingType: "direct",
       dateAdded: "2023-11-01",
-      dateCharged: "2023-11-08",
+      dateCharged: null,
       group: this.server.create("group", { service }),
     });
 
@@ -71,12 +71,18 @@ module("Integration | Component | billing-table/row", function (hooks) {
       .hasText("1’210.13 inkl. 7.7% MWSt");
     assert.dom("td[data-test-entry-final-rate]").hasText("1’210.13");
     assert.dom("td[data-test-entry-added]").hasText("01.11.2023");
-    assert.dom("td[data-test-entry-charged]").hasText("08.11.2023");
     assert.dom("td[data-test-entry-organization]").hasText("Kommunal");
     assert
       .dom("td[data-test-entry-billing-type]")
       .hasText(`Direkt verrechnet (KST ${this.entry.costCenter})`);
     assert.dom("td[data-test-entry-delete] button[data-test-delete]").exists();
+
+    this.entry.dateCharged = "2023-11-08";
+    await render(hbs`<BillingTable::Row @entry={{this.entry}} />`);
+    assert.dom("td[data-test-entry-charged]").hasText("08.11.2023");
+    assert
+      .dom("td[data-test-entry-delete] button[data-test-delete]")
+      .doesNotExist();
 
     this.features.disable("billing.charge");
     stub(BillingV2EntryAbility.prototype, "canCharge").get(() => false);
@@ -136,13 +142,12 @@ module("Integration | Component | billing-table/row", function (hooks) {
       hbs`<BillingTable::Row @entry={{this.entry}} @onToggle={{this.toggle}} />`,
     );
 
-    assert.dom("input[data-test-toggle]").isDisabled();
-    this.entry.dateCharged = null;
-    await settled();
     assert.dom("input[data-test-toggle]").isEnabled();
-
     await click("input[data-test-toggle]");
-
     assert.verifySteps(["toggle"]);
+
+    this.entry.dateCharged = "2023-11-08";
+    await settled();
+    assert.dom("input[data-test-toggle]").isDisabled();
   });
 });

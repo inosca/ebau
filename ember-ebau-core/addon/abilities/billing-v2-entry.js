@@ -34,7 +34,7 @@ export default class BillingV2EntryAbility extends Ability {
   get canDelete() {
     return (
       parseInt(this.model.get("group.service.id")) ===
-      parseInt(this.ebauModules.serviceId)
+        parseInt(this.ebauModules.serviceId) && !this.model.dateCharged
     );
   }
 }

@@ -32,6 +32,11 @@ class BillingV2EntryViewset(ModelViewSet, InstanceQuerysetMixin):
             == self.request.group.service
         )
 
+    def has_object_destroy_permission(self, obj):
+        return not obj.date_charged and (
+            obj.group.service == self.request.group.service
+        )
+
     @action(methods=["PATCH"], detail=True)
     @transaction.atomic
     def charge(self, request, pk=None):
