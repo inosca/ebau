@@ -671,12 +671,20 @@ DISTRIBUTION = {
                     "gefaehrdung-durch-oberflaechenabfluss-ja",
                 ): [115],
                 (
-                    "sind-objektschutzmassnahmen-geplant"
-                    "sind-objektschutzmassnahmen-geplant-beratung-erwuenscht"
+                    "sind-objektschutzmassnahmen-geplant",
+                    "sind-objektschutzmassnahmen-geplant-beratung-erwuenscht",
                 ): [115],
                 (
-                    "sind-objektschutzmassnahmen-geplant"
-                    "sind-objektschutzmassnahmen-geplant-ja"
+                    "sind-objektschutzmassnahmen-geplant",
+                    "sind-objektschutzmassnahmen-geplant-ja",
+                ): [115],
+                (
+                    "mindest-und-grenzabstaende",
+                    "mindest-und-grenzabstaende-keine",
+                ): [115],
+                (
+                    "bauprojekt-art",
+                    "bauprojekt-art-andere",
                 ): [115],
             },
         },
