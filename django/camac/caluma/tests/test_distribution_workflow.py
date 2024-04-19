@@ -414,6 +414,7 @@ def test_send_inquiry_gr(
     settings,
     set_application_gr,
     gr_ech0211_settings,
+    gr_additional_demand_settings,
 ):
     addressed_service = service_factory(service_group__name="uso")
     work_item_factory(
@@ -768,6 +769,65 @@ def test_distribution_complete_history(
         assert be_instance.history.last().get_trans_attr("title") == "complete"
     else:
         assert be_instance.history.last().get_trans_attr("title") == "skip"
+
+
+def test_reopen_distribution_additional_demand(
+    db,
+    gr_instance,
+    caluma_admin_user,
+    distribution_child_case_gr,
+    gr_distribution_settings,
+    gr_additional_demand_settings,
+    service_factory,
+    inquiry_factory_gr,
+    disable_ech0211_settings,
+):
+    service_with_sent_inquiry = service_factory()
+
+    inquiry_factory_gr(to_service=service_with_sent_inquiry, sent=True)
+
+    additional_demand_work_items_before = list(
+        distribution_child_case_gr.work_items.filter(
+            task_id=gr_additional_demand_settings["CREATE_TASK"],
+            status=WorkItem.STATUS_READY,
+        )
+    )
+    assert len(additional_demand_work_items_before) == 2
+
+    complete_distribution = distribution_child_case_gr.work_items.get(
+        task_id=gr_distribution_settings["DISTRIBUTION_COMPLETE_TASK"]
+    )
+
+    # complete distribution to create proper workflow status for reopening the
+    # distribution again
+    complete_work_item(work_item=complete_distribution, user=caluma_admin_user)
+
+    # additional demand work items are cancelled when distribution is completed
+    for wi in additional_demand_work_items_before:
+        wi.refresh_from_db()
+        assert wi.status == WorkItem.STATUS_CANCELED
+
+    distribution = gr_instance.case.work_items.get(
+        task_id=gr_distribution_settings["DISTRIBUTION_TASK"]
+    )
+
+    # redo distribution
+    redo_work_item(work_item=distribution, user=caluma_admin_user)
+
+    # old work items are still cancelled
+    for wi in additional_demand_work_items_before:
+        wi.refresh_from_db()
+        assert wi.status == WorkItem.STATUS_CANCELED
+
+    # new READY work items are created
+    additional_demand_work_items_after = distribution_child_case_gr.work_items.filter(
+        task_id=gr_additional_demand_settings["CREATE_TASK"],
+        status=WorkItem.STATUS_READY,
+    )
+    assert additional_demand_work_items_after.count() == 2
+    assert list(
+        additional_demand_work_items_after.values_list("addressed_groups", flat=True)
+    ) == [wi.addressed_groups for wi in additional_demand_work_items_before]
 
 
 def test_reopen_distribution(

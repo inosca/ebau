@@ -1,8 +1,9 @@
 import pytest
 from caluma.caluma_core.events import send_event
+from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.api import complete_work_item
 from caluma.caluma_workflow.events import post_complete_case, post_create_work_item
-from caluma.caluma_workflow.models import Case, WorkItem
+from caluma.caluma_workflow.models import Case, Task, WorkItem
 
 from camac.instance.models import HistoryActionConfig
 
@@ -55,7 +56,7 @@ def test_additonal_demand(
 @pytest.mark.parametrize("decision", ["REJECTED", "ACCEPTED"])
 def test_additonal_demand_check_notification(
     db,
-    additional_demand_settings,
+    gr_additional_demand_settings,
     answer_factory,
     caluma_admin_user,
     decision,
@@ -67,7 +68,7 @@ def test_additonal_demand_check_notification(
     accepted_notification = notification_template_factory()
     rejected_notification = notification_template_factory()
 
-    additional_demand_settings["NOTIFICATIONS"] = {
+    gr_additional_demand_settings["NOTIFICATIONS"] = {
         "ACCEPTED": [
             {
                 "template_slug": accepted_notification.slug,
@@ -81,18 +82,20 @@ def test_additonal_demand_check_notification(
             }
         ],
     }
-    additional_demand_settings["HISTORY_ENTRIES"] = {
+    gr_additional_demand_settings["HISTORY_ENTRIES"] = {
         "ACCEPTED": "Test accepted",
         "REJECTED": "Test rejected",
     }
 
     answer = answer_factory(
-        question__slug=additional_demand_settings["QUESTIONS"]["DECISION"],
-        value=additional_demand_settings["ANSWERS"]["DECISION"][decision],
+        question=Question.objects.get(
+            slug=gr_additional_demand_settings["QUESTIONS"]["DECISION"]
+        ),
+        value=gr_additional_demand_settings["ANSWERS"]["DECISION"][decision],
     )
 
     work_item = work_item_factory(
-        task__slug=additional_demand_settings["CHECK_TASK"],
+        task=Task.objects.get(slug=gr_additional_demand_settings["CHECK_TASK"]),
         document=answer.document,
         child_case=None,
         case=gr_instance.case,

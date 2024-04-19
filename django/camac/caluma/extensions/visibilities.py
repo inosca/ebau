@@ -207,6 +207,8 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
     def visible_additional_demands_expression(self, group):
         if settings.APPLICATION.get("PORTAL_GROUP") == self.request.group.pk:
             return (
+                # applicants see the base work item only if an additional demand has
+                # been created
                 ~Q(task_id=settings.ADDITIONAL_DEMAND["TASK"])
                 | Q(
                     task_id=settings.ADDITIONAL_DEMAND["TASK"],
@@ -215,6 +217,8 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
                     ],
                 )
             ) & (
+                # applicants see additional work items addressed to the municipality (fill, check)
+                # only if they are completed (i.e. sent)
                 ~Q(
                     task_id__in=[
                         settings.ADDITIONAL_DEMAND["CHECK_TASK"],
@@ -230,6 +234,8 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
                 )
             )
         else:
+            # municipalities see the applicants' "fill" work item only after it has been
+            # completed (i.e. sent to the municipality)
             return ~Q(task_id=settings.ADDITIONAL_DEMAND["FILL_TASK"]) | Q(
                 task_id=settings.ADDITIONAL_DEMAND["FILL_TASK"],
                 status=workflow_models.WorkItem.STATUS_COMPLETED,
