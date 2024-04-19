@@ -1209,6 +1209,7 @@ APPLICATIONS = {
             "Vernehmlassungsstelle ohne Koordinationsaufgaben": "trusted_service",
             "System-Betrieb": "support",
             "Oereb Api": "oereb_api",
+            "Portal User": "applicant",
             # "Portal User": None,  # Uses the fallback permissions
             # "Admin": None,
             # "Architect": None,
