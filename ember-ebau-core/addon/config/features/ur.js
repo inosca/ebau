@@ -5,4 +5,5 @@ export default {
     related: false,
     disableAuthentication: true,
   },
+  constructionMonitoring: true,
 };

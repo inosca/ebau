@@ -3,6 +3,7 @@ import { inject as service } from "@ember/service";
 import registerAdditionalDemand from "ember-ebau-core/modules/additional-demand";
 import registerCommunications from "ember-ebau-core/modules/communications";
 import registerCommunicationsGlobal from "ember-ebau-core/modules/communications-global";
+import registerConstructionMonitoring from "ember-ebau-core/modules/construction-monitoring";
 
 import config from "caluma-portal/config/environment";
 
@@ -40,6 +41,7 @@ Router.map(function () {
         this.route("applicants");
         registerCommunications(this);
         registerAdditionalDemand(this);
+        registerConstructionMonitoring(this);
       });
     });
 

@@ -268,16 +268,18 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
             | (
                 # Applicants can see construction stages as soon as the planning
                 # has been completed
-                Exists(
-                    workflow_models.WorkItem.objects.filter(
-                        task_id=settings.CONSTRUCTION_MONITORING[
-                            "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"
-                        ],
-                        status=workflow_models.WorkItem.STATUS_COMPLETED,
-                        case__parent_work_item__pk=OuterRef("pk"),
-                    )
+                Q(
+                    Exists(
+                        workflow_models.WorkItem.objects.filter(
+                            task_id=settings.CONSTRUCTION_MONITORING[
+                                "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"
+                            ],
+                            status=workflow_models.WorkItem.STATUS_COMPLETED,
+                            case__parent_work_item__pk=OuterRef("pk"),
+                        )
+                    ),
+                    is_construction_stage=True,
                 )
-                & Q(is_construction_stage=True)
             )
         )
 

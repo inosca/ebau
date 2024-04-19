@@ -40,12 +40,7 @@
         )
       }}
         <Tab.item
-          @href={{concat
-            "/instances/"
-            @model
-            "/"
-            this.instance.calumaForm
-          }}
+          @href={{concat "/instances/" @model "/" this.instance.calumaForm}}
           as |active|
         >
           <AriaHeading @enabled={{active}}>
@@ -142,6 +137,16 @@
         {{#if (not (is-embedded))}}
           <InstanceSupport @instance={{this.instance}} />
         {{/if}}
+      {{/if}}
+      {{#if (has-feature "constructionMonitoring")}}
+        <Tab.item
+          @href={{concat "/instances/" @model "/construction-monitoring"}}
+          as |active|
+        >
+          <AriaHeading @enabled={{active}}>
+            {{t "nav.construction-monitoring"}}
+          </AriaHeading>
+        </Tab.item>
       {{/if}}
     </UkTab>
   {{/if}}
