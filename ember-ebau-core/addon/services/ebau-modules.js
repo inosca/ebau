@@ -6,6 +6,10 @@ import { singularize } from "ember-inflector";
 export default class EbauModulesService extends Service {
   @service router;
 
+  // Ember autotracking fails to update properly if this is not tracked here
+  // and instead only marked as @tracked in classes that extend this Service.
+  // The reason for this is currently not clear. Do not remove this or the
+  // ember-caluma-portal might have issues with autotracking / template re-rendering.
   @tracked instanceId;
 
   registeredModules = {};
