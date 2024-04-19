@@ -311,6 +311,17 @@ export default class CaseTableComponent extends Component {
                     form: {
                       documentForms: filter.form?.split(","),
                     },
+                    // Override parcel filter in order to provice an exact match
+                    // instead of contains matching.
+                    parcel: {
+                      hasAnswer: [
+                        {
+                          question: caseTableConfig.parcelSlugs[0],
+                          lookup: "EXACT",
+                          value: filter.parcel,
+                        },
+                      ],
+                    },
                   }
                 : {}),
     };
