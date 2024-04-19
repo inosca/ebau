@@ -24,6 +24,7 @@ from caluma.caluma_workflow.events import (
 from caluma.caluma_workflow.models import Task, Workflow, WorkItem
 from django.conf import settings
 from django.db import transaction
+from django.db.models import Q
 from django.utils.timezone import now
 
 from camac.caluma.utils import (
@@ -225,6 +226,28 @@ def post_redo_distribution(sender, work_item, user, context=None, **kwargs):
                 case=work_item.case,
                 status=WorkItem.STATUS_READY,
                 previous_work_item=work_item.previous_work_item,
+            )
+
+    if settings.ADDITIONAL_DEMAND.get("CREATE_TASK"):
+        # re-create init-additional-demand work-items for each addressed group that
+        # has a previously canceled one
+        work_items_to_recreate = (
+            work_item.child_case.work_items.filter(
+                task_id=settings.ADDITIONAL_DEMAND["CREATE_TASK"],
+                status=WorkItem.STATUS_CANCELED,
+            )
+            .filter(~Q(addressed_groups=[]))
+            .order_by("addressed_groups", "-created_at")
+            .distinct("addressed_groups")
+        )
+        for wi in work_items_to_recreate:
+            WorkItem.objects.create(
+                task=wi.task,
+                name=wi.name,
+                addressed_groups=wi.addressed_groups,
+                case=wi.case,
+                status=WorkItem.STATUS_READY,
+                previous_work_item=wi,
             )
 
 

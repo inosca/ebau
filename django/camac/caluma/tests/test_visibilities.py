@@ -333,7 +333,10 @@ def test_work_item_visibility(
     )
 
 
-@pytest.mark.parametrize("role__name", ["Applicant", "Municipality"])
+@pytest.mark.parametrize(
+    "role__name",
+    ["Applicant", "Municipality"],
+)
 def test_work_item_additional_demand_visibility(
     db,
     additional_demand_settings,
@@ -359,32 +362,45 @@ def test_work_item_additional_demand_visibility(
         group = admin_user.groups.first()
         application_settings["PORTAL_GROUP"] = group.pk
 
-    # create additional demands
+    # create child case which is not yet visible to applicant,
+    # because additional demand has not been sent yet
     child_case_hidden = case_factory(
         family=gr_instance.case, workflow_id="additional-demand"
     )
+    # base work item, visible for municipality
     caluma_workflow_factories.WorkItemFactory(
         task_id="additional-demand", case=gr_instance.case, child_case=child_case_hidden
     )
+    # work item that carries the "additional demand" form for municipalities
+    # visible only for municipality because it is in READY state (demand has not been sent yet)
     caluma_workflow_factories.WorkItemFactory(
         task_id="send-additional-demand",
         case=child_case_hidden,
         status=caluma_workflow_models.WorkItem.STATUS_READY,
     )
+
+    # create another child case which is visible to the applicant,
+    # because additional demand has been sent
     child_case = case_factory(family=gr_instance.case, workflow_id="additional-demand")
-    caluma_workflow_factories.WorkItemFactory(
+    # base work item, visible for applicant now as well
+    visible_base = caluma_workflow_factories.WorkItemFactory(
         task_id="additional-demand", case=gr_instance.case, child_case=child_case
     )
-    caluma_workflow_factories.WorkItemFactory(
+    # work item that carries the "additional demand" form for municipalities
+    # visible for applicant because it is COMPLETED
+    visible_send = caluma_workflow_factories.WorkItemFactory(
         task_id="send-additional-demand",
         case=child_case,
         status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
     )
-    caluma_workflow_factories.WorkItemFactory(
+    # work item for answering the additional demand, visible for muni + applicant
+    visible_fill = caluma_workflow_factories.WorkItemFactory(
         task_id="fill-additional-demand",
         case=child_case,
         status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
     )
+    # work item for checking the additional demand, visible only for municipality
+    # because it has not been completed yet
     caluma_workflow_factories.WorkItemFactory(
         task_id="check-additional-demand",
         case=child_case,
@@ -414,9 +430,17 @@ def test_work_item_additional_demand_visibility(
         [
             extract_global_id(edge["node"]["id"])
             for edge in result.data["allWorkItems"]["edges"]
+            if edge["node"]["task"]["slug"] != "submit"
         ]
     )
-    assert len(visible_workitems) == 1
+    if role.name == "Applicant":
+        assert visible_workitems == {
+            str(visible_base.pk),
+            str(visible_fill.pk),
+            str(visible_send.pk),
+        }
+    else:
+        assert len(visible_workitems) == 6
 
 
 @pytest.mark.parametrize(

@@ -613,7 +613,8 @@ def caluma_workflow_config_gr(
     call_command(
         "loaddata",
         settings.ROOT_DIR("kt_gr/config/caluma_workflow.json"),
-        settings.ROOT_DIR("kt_bern/config/caluma_distribution.json"),
+        settings.ROOT_DIR("kt_gr/config/caluma_distribution.json"),
+        settings.ROOT_DIR("kt_gr/config/caluma_additional_demand.json"),
     )
 
     workflow = caluma_workflow_models.Workflow.objects.first()
