@@ -29,6 +29,7 @@ class Command(BaseCommand):
         "municipality-lead": "lead-authority",
         "service-lead": "distribution-service",
         "subservice": "distribution-service",
+        "support": "support",
     }
 
     def __init__(self, *args, **kwargs):

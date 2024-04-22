@@ -10,6 +10,7 @@ from .common import (
     ApplicantsEventHandlerMixin,
     ChangeResponsibleServiceHandlerMixin,
     DistributionHandlerMixin,
+    GrantSupportOnCreationHandlerMixin,
     InstanceSubmissionHandlerMixin,
 )
 
@@ -19,11 +20,10 @@ class PermissionEventHandlerBE(
     InstanceSubmissionHandlerMixin,
     ChangeResponsibleServiceHandlerMixin,
     DistributionHandlerMixin,
+    GrantSupportOnCreationHandlerMixin,
+    # EmptyEventHandler needs to be last!
     EmptyEventHandler,
 ):
-    # applicant_added is in ApplicantEvents
-    # applicant_removed is in ApplicantEvents
-
     def decision_decreed(self, instance: Instance):
         decision = instance.case.work_items.filter(
             task_id="decision",
