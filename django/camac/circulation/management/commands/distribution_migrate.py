@@ -544,6 +544,7 @@ class Command(BaseCommand):
                         service_parent_id=responsible_service.pk,
                         service_id=activation.service_parent_id,
                         reason="Automatisch generiert durch die Migration der Zirkulationen",
+                        circulation_answer_id=activation.circulation_answer_id,
                     )
                     responsible_service_to_koor_activation.save()
 
