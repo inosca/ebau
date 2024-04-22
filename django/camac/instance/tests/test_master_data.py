@@ -8,6 +8,8 @@ from caluma.caluma_workflow import (
 )
 from django.utils.translation import override
 
+from camac.tests.data import so_personal_row_factory
+
 from ..master_data import MasterData
 
 
@@ -477,14 +479,7 @@ def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock, uti
 
 
 @pytest.fixture
-def so_master_data_case(
-    db,
-    so_instance,
-    workflow_entry_factory,
-    camac_answer_factory,
-    master_data_is_visible_mock,
-    utils,
-):
+def so_master_data_case(db, master_data_is_visible_mock, so_instance, utils):
     so_instance.case.meta = {
         "dossier-number": "2024-1",
         "submit-date": "2024-02-22T13:17:08+0000",
@@ -531,91 +526,17 @@ def so_master_data_case(
     )
 
     # Applicant
-    utils.add_table_answer(
-        document,
-        "bauherrin",
-        [
-            {
-                "vorname": "Max",
-                "nachname": "Mustermann",
-                "juristische-person": "juristische-person-ja",
-                "juristische-person-name": "ACME AG",
-                "strasse": "Teststrasse",
-                "strasse-nummer": 123,
-                "plz": 1233,
-                "ort": "Musterdorf",
-                "land": "Schweiz",
-                "email": "max.mustermann@acme.com",
-                "telefon": "012 345 67 89",
-                "vertretung": "vertretung-ja",
-                "vertretung-nachname": "Meier",
-                "vertretung-vorname": "Hans",
-                "vertretung-strasse": "Strasse",
-                "vertretung-nummer": 55,
-                "vertretung-plz": 4500,
-                "vertretung-ort": "Solothurn",
-                "vertretung-land": "Schweiz",
-                "vertretung-e-mail": "hans.meier@vertretung.ch",
-                "vertretung-telefon": "013 333 33 33",
-            }
-        ],
-    )
+    utils.add_table_answer(document, "bauherrin", [so_personal_row_factory(True, True)])
 
     # Landowner
-    utils.add_table_answer(
-        document,
-        "grundeigentuemer",
-        [
-            {
-                "vorname": "Sandra",
-                "nachname": "Grundeigentümerin",
-                "strasse": "Strasse",
-                "strasse-nummer": 23,
-                "plz": 1000,
-                "ort": "Dorf",
-                "land": "Schweiz",
-                "email": "sandra@gmail.com",
-                "telefon": "012 345 67 90",
-            }
-        ],
-    )
+    utils.add_table_answer(document, "grundeigentuemer", [so_personal_row_factory()])
 
     # Project author
-    utils.add_table_answer(
-        document,
-        "projektverfasserin",
-        [
-            {
-                "vorname": "Karl",
-                "nachname": "Projektverfasser",
-                "strasse": "Weg",
-                "strasse-nummer": 3,
-                "plz": 1001,
-                "ort": "Stadt",
-                "land": "Schweiz",
-                "email": "karl@gmail.com",
-                "telefon": "012 345 67 91",
-            }
-        ],
-    )
+    utils.add_table_answer(document, "projektverfasserin", [so_personal_row_factory()])
 
     # Invoice recipient
     utils.add_table_answer(
-        document,
-        "rechnungsempfaengerin",
-        [
-            {
-                "vorname": "Rudolf",
-                "nachname": "Rechnungsempfänger",
-                "strasse": "Ein Weg",
-                "strasse-nummer": 33,
-                "plz": 1002,
-                "ort": "Ein Dorf",
-                "land": "Schweiz",
-                "email": "rudolf@gmail.com",
-                "telefon": "012 345 67 92",
-            }
-        ],
+        document, "rechnungsempfaengerin", [so_personal_row_factory()]
     )
 
     # Buildings
@@ -919,12 +840,13 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
                 "document__answers__question__options",
                 "document__answers__answerdocument_set",
                 "document__answers__answerdocument_set__document__answers",
+                "document__answers__answerdocument_set__document__answers__question__options",
                 "document__dynamicoption_set",
                 "work_items__document__answers",
                 "work_items__document__answers__answerdocument_set",
                 "work_items__document__answers__answerdocument_set__document__answers",
             ],
-            10,
+            12,
         ),
     ],
 )

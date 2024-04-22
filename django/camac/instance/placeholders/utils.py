@@ -80,7 +80,9 @@ def get_person_name(
     if include_name:
         parts.append(
             clean_join(
-                person.get(f"{prefix}first_name"), person.get(f"{prefix}last_name")
+                person.get(f"{prefix}salutation"),
+                person.get(f"{prefix}first_name"),
+                person.get(f"{prefix}last_name"),
             )
         )
 
@@ -122,6 +124,9 @@ def row_to_person(document: Document) -> dict:
     mapping = settings.PLACEHOLDERS["PERSON_MAPPING"]
 
     return {
+        "salutation": find_answer(document, mapping["SALUTATION"])
+        if "SALUTATION" in mapping
+        else None,
         "first_name": find_answer(document, mapping["FIRST_NAME"]),
         "last_name": find_answer(document, mapping["LAST_NAME"]),
         "juristic_name": find_answer(document, mapping["JURISTIC_NAME"]),

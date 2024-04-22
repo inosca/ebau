@@ -1,4 +1,5 @@
 SO_PERSONAL_DATA_MAPPING = {
+    "salutation": ("anrede", {"value_parser": "option", "prop": "label"}),
     "last_name": "nachname",
     "first_name": "vorname",
     "street": "strasse",
@@ -36,6 +37,10 @@ SO_PERSONAL_DATA_MAPPING = {
                 },
             )
         },
+    ),
+    "representative_salutation": (
+        "vertretung-anrede",
+        {"value_parser": "option", "prop": "label"},
     ),
     "representative_last_name": "vertretung-nachname",
     "representative_first_name": "vertretung-vorname",
