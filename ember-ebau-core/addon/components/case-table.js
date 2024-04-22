@@ -406,6 +406,8 @@ export default class CaseTableComponent extends Component {
                   keywords: this.args.filter.keywords,
                   decision: this.args.filter.decision,
                   is_paper: this.args.filter.paper,
+                  inquiry_state: this.args.filter.inquiryState,
+                  inquiry_answer: this.args.filter.inquiryAnswer,
                 }
               : macroCondition(getOwnConfig().application === "so")
                 ? {
