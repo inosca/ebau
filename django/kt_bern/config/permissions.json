@@ -21,6 +21,16 @@
   },
   {
     "model": "permissions.accesslevel",
+    "pk": "distribution-service",
+    "fields": {
+      "name": "{\"de\": \"Fachstelle\", \"fr\": \"Service\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "required_grant_type": "SERVICE",
+      "applicable_area": "INTERNAL"
+    }
+  },
+  {
+    "model": "permissions.accesslevel",
     "pk": "geometer",
     "fields": {
       "name": "{\"de\": \"Nachf\\u00fchrungsgeometer\", \"fr\": \"G\\u00e9om\\u00e8tre conservatrice ou g\\u00e9om\\u00e8tre conservateur\", \"it\": \"\"}",
