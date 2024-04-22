@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-18 12:35+0200\n"
-"PO-Revision-Date: 2024-04-18 12:35+0200\n"
+"PO-Revision-Date: 2024-04-22 09:33+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -180,8 +180,8 @@ msgstr "STICHWORTE"
 
 #: camac/instance/placeholders/fields.py:914
 #, python-format
-msgid "%(title)s (submitted as %(original_title)s) on %(date)s at %(time)s"
-msgstr "%(title)s (eingereicht als %(original_title)s) am %(date)s um %(time)s"
+msgid "%(title)s (submitted as %(original_title)s on %(date)s at %(time)s)"
+msgstr "%(title)s (eingereicht als %(original_title)s am %(date)s um %(time)s)"
 
 #: camac/instance/placeholders/serializers.py:113
 msgid "Address of the concerned property"

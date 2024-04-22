@@ -911,7 +911,7 @@ class AlexandriaSimpleDocumentField(AlexandriaDocumentField):
         return ",\n".join(
             [
                 gettext(
-                    "%(title)s (submitted as %(original_title)s) on %(date)s at %(time)s"
+                    "%(title)s (submitted as %(original_title)s on %(date)s at %(time)s)"
                 )
                 % {
                     "title": document.title[get_language()],
