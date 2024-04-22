@@ -92,7 +92,7 @@ def test_has_permission_module_disabled(
     assert not WithdrawalLogic.has_permission(so_instance, admin_user, group)
 
 
-@pytest.mark.freeze("2024-04-15")
+@pytest.mark.freeze_time("2024-04-15", tick=True)
 @pytest.mark.parametrize("role__name", ["applicant"])
 @pytest.mark.parametrize(
     "instance_state__name,has_publications,skipped_work_items",
