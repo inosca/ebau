@@ -1725,10 +1725,20 @@ class Utils:
             )
         if options:
             for option in options:
+                if isinstance(option, tuple):
+                    o_slug = option[0]
+                    o_label = option[1]
+                else:
+                    o_slug = option
+                    o_label = option.capitalize()
+
+                if caluma_form_models.Option.objects.filter(pk=o_slug).exists():
+                    continue
+
                 caluma_form_factories.QuestionOptionFactory(
                     question=question,
-                    option__slug=option,
-                    option__label=option.capitalize(),
+                    option__slug=o_slug,
+                    option__label=o_label,
                 )
         return question
 

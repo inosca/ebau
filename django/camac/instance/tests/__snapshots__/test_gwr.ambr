@@ -246,15 +246,15 @@
         'country': dict({
           'countryNameShort': 'ch',
         }),
-        'houseNumber': 123,
-        'street': 'Teststrasse',
-        'swissZipCode': 1233,
-        'town': 'Musterdorf',
+        'houseNumber': '0194',
+        'street': 'French Lodge',
+        'swissZipCode': 1072,
+        'town': 'West Jessicafurt',
       }),
       'identification': dict({
         'isOrganisation': True,
         'organisationIdentification': dict({
-          'organisationName': 'ACME AG',
+          'organisationName': 'Drake, Allen and Bennett',
         }),
         'personIdentification': None,
       }),
