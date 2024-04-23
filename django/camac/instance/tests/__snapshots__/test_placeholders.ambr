@@ -5371,6 +5371,16 @@
             'de': 'EINSPRECHENDE',
           }),
         ]),
+        'EINSPRECHENDE.ADRESSE': list([
+          dict({
+            'de': 'ADRESSE',
+          }),
+        ]),
+        'EINSPRECHENDE.NAME': list([
+          dict({
+            'de': 'NAME',
+          }),
+        ]),
       }),
     }),
     'ENTSCHEIDDOKUMENTE': dict({
@@ -7474,6 +7484,9 @@
     'EINSPRACHEN[]',
     'EINSPRACHEN[].DATUM_POSTSTEMPEL',
     'EINSPRACHEN[].EINSPRECHENDE',
+    'EINSPRACHEN[].EINSPRECHENDE[]',
+    'EINSPRACHEN[].EINSPRECHENDE[].ADRESSE',
+    'EINSPRACHEN[].EINSPRECHENDE[].NAME',
     'ENTSCHEIDDOKUMENTE',
     'ENTSCHEIDDOKUMENTE[]',
     'ENTSCHEIDDOKUMENTE[].BESCHREIBUNG',
@@ -8474,11 +8487,21 @@
     'EINSPRACHEN': list([
       dict({
         'DATUM_POSTSTEMPEL': '12.12.2023',
-        'EINSPRECHENDE': 'Frau Sharon Hall',
+        'EINSPRECHENDE': list([
+          dict({
+            'ADRESSE': 'Rhonda Street 672, 4339 Loriborough',
+            'NAME': 'Frau Sharon Hall',
+          }),
+        ]),
       }),
       dict({
         'DATUM_POSTSTEMPEL': '22.12.2023',
-        'EINSPRECHENDE': 'Harris LLC, Frau Autumn Jimenez',
+        'EINSPRECHENDE': list([
+          dict({
+            'ADRESSE': 'Raymond Harbor 6993, 7310 New Cindy',
+            'NAME': 'Harris LLC, Frau Autumn Jimenez',
+          }),
+        ]),
       }),
     ]),
     'ENTSCHEIDDOKUMENTE': list([
