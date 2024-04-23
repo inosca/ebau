@@ -1,6 +1,7 @@
 import csv
 import itertools
 import json
+import re
 from collections import OrderedDict
 
 from caluma.caluma_form.models import Answer
@@ -71,9 +72,74 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         return [self.get_aliased_value_item(item, parsed_aliases) for item in value]
 
     def get_aliased_value_item(self, item, aliases):
+        """Recursively enrich complex placeholder data.
+
+        Enreich one item of a list value based on the available aliases for all
+        configured languages.
+
+        item = {
+            "date": 1,
+            "opposing": [
+                {
+                    "address": 1,
+                },
+                {
+                    "address": 1,
+                },
+            ],
+        }
+
+        aliases = {
+            "date": ["datum"],
+            "opposing": ["einsprechende"],
+            "opposing.address": ["adresse"],
+        }
+
+        result = self.get_aliased_value_item(item, aliases)
+
+        Will return the following structure:
+
+        result = {
+            "date": 1,
+            "datum": 1,
+            "opposing": [
+                {
+                    "address": 1,
+                    "adresse": 1,
+                },
+                {
+                    "address": 1,
+                    "adresse": 1,
+                },
+            ],
+            "einsprechende": [
+                {
+                    "address": 1,
+                    "adresse": 1,
+                },
+                {
+                    "address": 1,
+                    "adresse": 1,
+                },
+            ],
+        }
+        """
+
         parsed_item = {}
 
         for key, value in item.items():
+            double_nested_re = re.compile(rf"^{key}\.")
+            double_nested_aliases = {
+                double_nested_re.sub("", alias_key): alias_values
+                for alias_key, alias_values in aliases.items()
+                if double_nested_re.search(alias_key)
+            }
+
+            if double_nested_aliases:
+                value = [
+                    self.get_aliased_value_item(v, double_nested_aliases) for v in value
+                ]
+
             value = sanitize_value(value)
 
             if key not in aliases[key]:

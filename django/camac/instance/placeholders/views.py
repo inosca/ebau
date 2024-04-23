@@ -79,9 +79,17 @@ class DMSPlaceholdersDocsView(RetrieveAPIView):
                     nested_names.add(nested_base)
 
                     for nested_name, nested_aliases_list in nested_aliases.items():
+                        base_prefix = nested_base
+
+                        if "." in nested_name:
+                            prefix, nested_name = nested_name.split(".")
+                            base_prefix = f"{nested_base}.{prefix}[]"
+
+                            nested_names.add(base_prefix)
+
                         nested_names.update(
                             [
-                                f"{nested_base}.{alias}"
+                                f"{base_prefix}.{alias}"
                                 for alias in [
                                     nested_name,
                                     *chain(*[x.values() for x in nested_aliases_list]),
