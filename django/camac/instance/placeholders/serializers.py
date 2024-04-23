@@ -1471,10 +1471,6 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("PUBLICATION_DATE_OFFICIAL_GAZETTE")],
         description=_("Date of the publication in the official gazette"),
     )
-    einsprechende = fields.LegalClaimantsField(
-        aliases=[_("OPPOSING")],
-        description=_("Opposing with address"),
-    )
     einsprachen = fields.LegalSubmissionField(
         aliases=[_("OBJECTIONS")],
         description=_("All objections"),

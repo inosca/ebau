@@ -514,7 +514,6 @@ def test_dms_placeholders_so(
         "EINGEREICHTE_PLAENE",
         "EINGEREICHTE_UNTERLAGEN",
         "EINSPRACHEN",
-        "EINSPRECHENDE",
         "ENTSCHEIDDOKUMENTE",
         "GEBUEHREN_TOTAL",
         "GEBUEHREN",
