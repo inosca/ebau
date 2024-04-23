@@ -21,6 +21,7 @@ from camac.instance.utils import get_construction_control, get_municipality
 from camac.permissions import models as permission_models
 from camac.permissions.api import PermissionManager
 from camac.permissions.exceptions import RevocationRejected
+from camac.user.models import Role
 
 log = getLogger(__name__)
 
@@ -255,6 +256,8 @@ class Command(BaseCommand):
             )
         if invited_service := conf.get("DISTRIBUTION_INVITEE"):
             permissions.update(self._build_distribution_permissions(invited_service))
+        if support_level := conf.get("SUPPORT"):
+            permissions.update(self._build_support_permissions(support_level))
         if construction_control := conf.get("CONSTRUCTION_CONTROL"):
             permissions.update(
                 self._build_construction_control_permissions(construction_control)
@@ -337,6 +340,29 @@ class Command(BaseCommand):
                     metainfo={"instance-group-id": str(inst.group.pk)},
                 )
 
+    def get_support_role(self):
+        # Find the correct support role via ROLE_PERMISSIONS setting
+        role_perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
+        try:
+            role_name = next(k for k, v in role_perms if v == "support")
+        except StopIteration:
+            raise Exception(
+                "Unable to find support role configuration in ROLE_PERMISSIONS"
+            )
+        else:
+            return Role.objects.get(name=role_name)
+
+    def _build_support_permissions(self, support_level):
+        support_acl = partial(ACL, access_level=support_level, state=STATE_ACTIVE)
+
+        support_role = self.get_support_role()
+
+        inst_iter = self._iter_qs(Instance.objects.all(), "")
+        log.info(f"    Adding support to {inst_iter.total} instances")
+
+        for inst in inst_iter:
+            yield support_acl(role=support_role, instance=inst)
+
     def _build_distribution_permissions(self, access_level):
         make_acl = partial(ACL, access_level=access_level, state=STATE_ACTIVE)
 
@@ -404,6 +430,8 @@ class Command(BaseCommand):
         # any effect on the *current* situation!
         qs = permission_models.InstanceACL.objects.exclude(
             created_by_event="manual-creation"
+            # TODO: Some geometer ACLs still slip through here, which shouldn't
+            # happen (PROD data): Are these manually-created or automatic?
         ).exclude(end_time__lte=timezone.now())
         for acl in self._iter_qs(qs, instance_prefix="instance"):
             aclstate = STATE_ACTIVE if acl.is_active() else STATE_REVOKED
