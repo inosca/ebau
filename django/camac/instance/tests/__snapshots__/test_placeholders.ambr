@@ -5373,28 +5373,6 @@
         ]),
       }),
     }),
-    'EINSPRECHENDE': dict({
-      'aliases': list([
-        dict({
-          'de': 'EINSPRECHENDE',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Einsprechende mit Adresse',
-      }),
-      'nested_aliases': dict({
-        'ADDRESS': list([
-          dict({
-            'de': 'ADRESSE',
-          }),
-        ]),
-        'NAME': list([
-          dict({
-            'de': 'NAME',
-          }),
-        ]),
-      }),
-    }),
     'ENTSCHEIDDOKUMENTE': dict({
       'aliases': list([
         dict({
@@ -7496,11 +7474,6 @@
     'EINSPRACHEN[]',
     'EINSPRACHEN[].DATUM_POSTSTEMPEL',
     'EINSPRACHEN[].EINSPRECHENDE',
-    'EINSPRECHENDE',
-    'EINSPRECHENDE[]',
-    'EINSPRECHENDE[].ADDRESS',
-    'EINSPRECHENDE[].ADRESSE',
-    'EINSPRECHENDE[].NAME',
     'ENTSCHEIDDOKUMENTE',
     'ENTSCHEIDDOKUMENTE[]',
     'ENTSCHEIDDOKUMENTE[].BESCHREIBUNG',
@@ -8506,18 +8479,6 @@
       dict({
         'DATUM_POSTSTEMPEL': '22.12.2023',
         'EINSPRECHENDE': 'Harris LLC, Frau Autumn Jimenez',
-      }),
-    ]),
-    'EINSPRECHENDE': list([
-      dict({
-        'ADDRESS': 'Rhonda Street 672, 4339 Loriborough',
-        'ADRESSE': 'Rhonda Street 672, 4339 Loriborough',
-        'NAME': 'Frau Sharon Hall',
-      }),
-      dict({
-        'ADDRESS': 'Raymond Harbor 6993, 7310 New Cindy',
-        'ADRESSE': 'Raymond Harbor 6993, 7310 New Cindy',
-        'NAME': 'Harris LLC, Frau Autumn Jimenez',
       }),
     ]),
     'ENTSCHEIDDOKUMENTE': list([
