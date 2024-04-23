@@ -772,37 +772,27 @@ def test_instance_submit_cantonal_territory_usage_ur(
     mocker,
     admin_client,
     settings,
-    caluma_workflow_config_ur,
     ur_instance,
     notification_template,
     application_settings,
     mock_generate_and_store_pdf,
-    workflow_item_factory,
     location_factory,
     group_factory,
-    role_factory,
     instance_state_factory,
     submit_to,
     service_factory,
     authority_location_factory,
-    ur_master_data_settings,
+    caluma_workflow_config_ur,
     disable_ech0211_settings,
+    ur_master_data_case,
 ):
     settings.APPLICATION_NAME = "kt_uri"
     application_settings["CALUMA"]["USE_LOCATION"] = True
     application_settings["CALUMA"]["GENERATE_IDENTIFIER"] = False
     application_settings["USE_INSTANCE_SERVICE"] = False
 
-    cantonal_territory_form = caluma_form_factories.FormFactory(
-        slug="cantonal-territory-usage"
-    )
-    cantonal_territory_form.questions.create(
-        slug="veranstaltung-art",
-        type=caluma_form_models.Question.TYPE_TEXT,
-    )
-
     caluma_form_factories.FormFactory(slug="personalien")
-    ur_instance.case.document.form = cantonal_territory_form
+    ur_instance.case.document.form_id = "cantonal-territory-usage"
     ur_instance.case.document.save()
 
     koor_service = service_factory(email=f"{submit_to}@example.com")
@@ -812,6 +802,7 @@ def test_instance_submit_cantonal_territory_usage_ur(
     koor_email = koor_group.service.email
 
     veranstaltung = "umzug" if submit_to == "KOOR_BD" else "sportanlass"
+    ur_instance.case.document.answers.get(question_id="veranstaltung-art").delete()
     ur_instance.case.document.answers.create(
         value=f"veranstaltung-art-{veranstaltung}", question_id="veranstaltung-art"
     )
@@ -833,13 +824,7 @@ def test_instance_submit_cantonal_territory_usage_ur(
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
 
-    workflow_item_factory(workflow_item_id=ur_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
-
-    location = location_factory()
-
-    ur_instance.case.document.answers.create(
-        value=str(location.communal_federal_number), question_id="municipality"
-    )
+    location = location_factory(communal_federal_number="1")
 
     authority_location_factory(location=location)
 
@@ -1025,7 +1010,6 @@ def test_instance_submit_pgv_gemeindestrasse_ur(
 )
 def test_instance_submit_mitbericht_kanton_doesnt_send_mail(
     admin_client,
-    settings,
     ur_instance,
     application_settings,
     mock_generate_and_store_pdf,
@@ -1033,17 +1017,23 @@ def test_instance_submit_mitbericht_kanton_doesnt_send_mail(
     instance_state_factory,
     authority_location_factory,
     disable_ech0211_settings,
+    set_application_ur,
+    ur_master_data_case,
 ):
-    settings.APPLICATION_NAME = "kt_uri"
-
-    mitbericht_kanton_form = caluma_form_factories.FormFactory(slug="mitbericht-kanton")
-    ur_instance.case.document.form = mitbericht_kanton_form
+    ur_instance.case.document.form_id = "mitbericht-kanton"
     ur_instance.case.document.save()
 
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
 
     location = location_factory()
 
+    ur_instance.case.document.answers.get(question_id="municipality").delete()
+    caluma_form_factories.DynamicOptionFactory(
+        question_id="municipality",
+        document=ur_instance.case.document,
+        slug=str(location.communal_federal_number),
+        label={"de": "Some place"},
+    )
     ur_instance.case.document.answers.create(
         value=str(location.communal_federal_number), question_id="municipality"
     )
@@ -1177,28 +1167,11 @@ def test_oereb_instance_copy_for_koor_afj(
     attachment_factory,
     utils,
     disable_ech0211_settings,
+    ur_master_data_case,
 ):
-    settings.APPLICATION_NAME = "kt_uri"
-    application_settings["ACTIVE_SERVICES"] = {
-        "MUNICIPALITY": {
-            "FILTERS": {
-                "service__service_group__name__in": [
-                    "Sekretariate Gemeindebaubehörden",
-                    "Koordinationsstellen",
-                ]
-            },
-            "DEFAULT": True,
-        },
-    }
+    settings.APPLICATION_NAME = "kt_uri"  # can't use set_application_ur here because we already use ur_master_data_case (the two factories conflict with each other)
 
     ur_instance.form = form_factory(name="camac-form")
-    ur_instance.attachments.add(
-        attachment_factory(
-            name=ur_instance.case.document.form.name,
-            instance=ur_instance,
-            service=ur_instance.group.service,
-        )
-    )
     ur_instance.save()
 
     ur_instance.case.document.form_id = form_slug
@@ -1219,6 +1192,14 @@ def test_oereb_instance_copy_for_koor_afj(
 
     location = location_factory()
     authority_location_factory(location=location)
+
+    ur_instance.case.document.answers.get(question_id="municipality").delete()
+    caluma_form_factories.DynamicOptionFactory(
+        question_id="municipality",
+        document=ur_instance.case.document,
+        slug=str(location.communal_federal_number),
+        label={"de": "Some place"},
+    )
 
     gbb_altdorf_service = service_factory(
         email="gbb-altdorf@example.com",
@@ -1264,15 +1245,8 @@ def test_oereb_instance_copy_for_koor_afj(
             "waldfeststellung-mit-statischen-waldgrenzen-gemeinde-ja",
         )
 
-    utils.add_answer(
-        ur_instance.case.document,
-        "form-type",
-        f"form-type-{form_slug}",
-    )
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
-
-    workflow_item_factory(workflow_item_id=ur_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
 
     instance_state_factory(name="ext")
     instance_state_factory(name="comm")
