@@ -23,6 +23,7 @@ PLACEHOLDERS = {
             "LEGAL_CLAIMANTS_TABLE_QUESTION": "einsprache-einsprechende",
         },
         "PERSON_MAPPING": {
+            "SALUTATION": "anrede",
             "IS_JURISTIC": "juristische-person",
             "IS_JURISTIC_YES": "juristische-person-ja",
             "JURISTIC_NAME": "juristische-person-name",
