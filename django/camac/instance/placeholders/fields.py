@@ -471,6 +471,8 @@ class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
             return {
                 "DATUM_POSTSTEMPEL": [_("DATE_POSTMARK")],
                 "EINSPRECHENDE": [_("OPPOSING")],
+                "EINSPRECHENDE.NAME": [_("NAME")],
+                "EINSPRECHENDE.ADRESSE": [_("ADDRESS")],
             }
 
         nested_aliases = {
@@ -499,7 +501,7 @@ class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
                     "LEGAL_CLAIMANTS_TABLE_QUESTION"
                 ],
             ):
-                legal_claimants.append(get_person_name(row_to_person(claimant)))
+                legal_claimants.append(row_to_person(claimant))
 
             if settings.APPLICATION_NAME == "kt_bern":
                 legal_submission = {
@@ -510,12 +512,25 @@ class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
                         document, "legal-submission-document-date"
                     ),
                     "TITEL": find_answer(document, "legal-submission-title"),
-                    "RECHTSBEGEHRENDE": clean_join(*legal_claimants, separator=", "),
+                    "RECHTSBEGEHRENDE": clean_join(
+                        *[get_person_name(person) for person in legal_claimants],
+                        separator=", ",
+                    ),
                 }
             elif settings.APPLICATION_NAME == "kt_so":
                 legal_submission = {
                     "DATUM_POSTSTEMPEL": find_answer(document, "einsprache-datum"),
-                    "EINSPRECHENDE": clean_join(*legal_claimants, separator=", "),
+                    "EINSPRECHENDE": [
+                        {
+                            "NAME": get_person_name(person),
+                            "ADRESSE": clean_join(
+                                get_person_address_1(person),
+                                get_person_address_2(person),
+                                separator=", ",
+                            ),
+                        }
+                        for person in legal_claimants
+                    ],
                 }
 
             if self.type == "legal-submission-type-objection":
