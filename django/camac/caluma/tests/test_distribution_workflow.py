@@ -908,8 +908,8 @@ def test_reopen_distribution(
     ).exists()
 
     # the service that had an inquiry in the previous distribution run should
-    # have a work item to create a new inquiry
-    assert distribution_child_case_be.work_items.filter(
+    # **not** have a work item to create a new inquiry
+    assert not distribution_child_case_be.work_items.filter(
         task_id=be_distribution_settings["INQUIRY_CREATE_TASK"],
         addressed_groups__contains=[str(service_with_sent_inquiry.pk)],
         status=WorkItem.STATUS_READY,

@@ -163,33 +163,20 @@ def post_redo_distribution(sender, work_item, user, context=None, **kwargs):
             context={},
         )
 
-    services = Service.objects.filter(
-        pk__in=[
-            *work_item.addressed_groups,
-            *chain(
-                *work_item.child_case.work_items.filter(
-                    task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                    status__in=[WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED],
-                ).values_list("addressed_groups", flat=True)
-            ),
-        ]
-    ).exclude(service_parent__isnull=False)
-
+    # create work item that allows lead authority to invite
     create_inquiry_task = Task.objects.get(
         pk=settings.DISTRIBUTION["INQUIRY_CREATE_TASK"]
     )
 
-    for service in services:
-        WorkItem.objects.create(
-            task=create_inquiry_task,
-            name=create_inquiry_task.name,
-            addressed_groups=[str(service.pk)],
-            controlling_groups=[str(service.pk)],
-            case=work_item.child_case,
-            status=WorkItem.STATUS_READY,
-            created_by_user=user.username,
-            created_by_group=user.group,
-        )
+    WorkItem.objects.create(
+        task=create_inquiry_task,
+        name=create_inquiry_task.name,
+        addressed_groups=work_item.addressed_groups,
+        case=work_item.child_case,
+        status=WorkItem.STATUS_READY,
+        created_by_user=user.username,
+        created_by_group=user.group,
+    )
 
     instance = get_instance(work_item)
     camac_user = User.objects.get(username=user.username)
