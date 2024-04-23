@@ -27,17 +27,21 @@ using the ACL.
   +--------+   0..* +-------+      0..* | - revoked_at        |
   | Group  |--------| User  |-----------| - metainfo          |
   +--------+ 0..*   +-------+ 0..1      +---------------------+
- 0..* |                                          | 0..*
-      | 1                                        |
-  +--------+     +----------------------+        |
-  | Role   |     | AccessLevel          |--------`
-  +--------+     | - label              | 1
-                 | - require_grant_type |
-                 +----------------------+                       ^
-                      0..* |                                    | Database
-  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~|~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-                           |                                    | Configuration
-                           |                                    v (settings/modules/permissions.py)
+ 0..* |                                 0..*|    | 0..*
+      |                                     |    |
+      |                                     |    |
+      |     ,-------------------------------´    |
+      |     |                                    |
+      | 1   |0..1                                |
+    +--------+      +----------------------+     |
+    | Role   |      | AccessLevel          |-----´
+    +--------+      | - label              | 1
+                    | - require_grant_type |
+                    +----------------------+                ^
+                      0..* |                                | Database
+  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~|~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+                           |                                | Configuration
+                           |                                v (settings/modules/permissions.py)
                            |         +------------------+
                            `---------| Permission       |
                                 1..* | - identifier     |
@@ -52,13 +56,13 @@ past, and `end_time` is either in the future or `NULL`. This allows for Instance
 ACLs to never be deleted. A revocation happens by setting the `end_time` to a
 specific time.
 
-Users may either be assigned directly to the ACL, or indirectly via a service
-(also see below for ACL types). When assigned via service, the connection is
+Users may either be assigned directly to the ACL, or indirectly via a service, or
+a role (also see below for ACL types). When assigned via service, the connection is
 only considered active if a matching `X-Camac-Group` header is present.
 
 `InstanceACL`s can be of different types, denoted in the `grant_type`
 field. Grant types can be either `service`, `user`, `authenticated-public`,
-`anonymous-public`, or `token`.
+`anonymous-public`, `role`, or `token`.
 
 This is done explicitly for clarity, even if it could also be done implicitly,
 by applying certain rules (for example if it's `service`, a service must
