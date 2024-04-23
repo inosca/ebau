@@ -24,6 +24,7 @@ from caluma.caluma_workflow.events import (
 from caluma.caluma_workflow.models import Task, Workflow, WorkItem
 from django.conf import settings
 from django.db import transaction
+from django.db.models import Q
 from django.utils.timezone import now
 
 from camac.caluma.utils import (
@@ -162,33 +163,20 @@ def post_redo_distribution(sender, work_item, user, context=None, **kwargs):
             context={},
         )
 
-    services = Service.objects.filter(
-        pk__in=[
-            *work_item.addressed_groups,
-            *chain(
-                *work_item.child_case.work_items.filter(
-                    task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                    status__in=[WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED],
-                ).values_list("addressed_groups", flat=True)
-            ),
-        ]
-    ).exclude(service_parent__isnull=False)
-
+    # create work item that allows lead authority to invite
     create_inquiry_task = Task.objects.get(
         pk=settings.DISTRIBUTION["INQUIRY_CREATE_TASK"]
     )
 
-    for service in services:
-        WorkItem.objects.create(
-            task=create_inquiry_task,
-            name=create_inquiry_task.name,
-            addressed_groups=[str(service.pk)],
-            controlling_groups=[str(service.pk)],
-            case=work_item.child_case,
-            status=WorkItem.STATUS_READY,
-            created_by_user=user.username,
-            created_by_group=user.group,
-        )
+    WorkItem.objects.create(
+        task=create_inquiry_task,
+        name=create_inquiry_task.name,
+        addressed_groups=work_item.addressed_groups,
+        case=work_item.child_case,
+        status=WorkItem.STATUS_READY,
+        created_by_user=user.username,
+        created_by_group=user.group,
+    )
 
     instance = get_instance(work_item)
     camac_user = User.objects.get(username=user.username)
@@ -225,6 +213,28 @@ def post_redo_distribution(sender, work_item, user, context=None, **kwargs):
                 case=work_item.case,
                 status=WorkItem.STATUS_READY,
                 previous_work_item=work_item.previous_work_item,
+            )
+
+    if settings.ADDITIONAL_DEMAND.get("CREATE_TASK"):
+        # re-create init-additional-demand work-items for each addressed group that
+        # has a previously canceled one
+        work_items_to_recreate = (
+            work_item.child_case.work_items.filter(
+                task_id=settings.ADDITIONAL_DEMAND["CREATE_TASK"],
+                status=WorkItem.STATUS_CANCELED,
+            )
+            .filter(~Q(addressed_groups=[]))
+            .order_by("addressed_groups", "-created_at")
+            .distinct("addressed_groups")
+        )
+        for wi in work_items_to_recreate:
+            WorkItem.objects.create(
+                task=wi.task,
+                name=wi.name,
+                addressed_groups=wi.addressed_groups,
+                case=wi.case,
+                status=WorkItem.STATUS_READY,
+                previous_work_item=wi,
             )
 
 
