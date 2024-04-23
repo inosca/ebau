@@ -22,6 +22,7 @@ from pytest_lazyfixture import lazy_fixture
 from rest_framework import status
 
 from camac.instance.placeholders.utils import get_tel_and_email, human_readable_date
+from camac.tests.data import so_personal_row_factory
 
 from .test_master_data import be_master_data_case, gr_master_data_case  # noqa
 
@@ -353,46 +354,9 @@ def test_dms_placeholders_so(
         so_instance.case.document,
         "bauherrin",
         [
-            {
-                "juristische-person": "juristische-person-nein",
-                "vorname": "Sandra",
-                "nachname": "Bauherrin",
-                "strasse": "Eine Strasse",
-                "strasse-nummer": 13,
-                "plz": 4500,
-                "ort": "Solothurn",
-                "vertretung": "vertretung-ja",
-                "vertretung-vorname": "Judith",
-                "vertretung-nachname": "Vertreterin",
-                "vertretung-strasse": "Teststrasse",
-                "vertretung-nummer": 99,
-                "vertretung-plz": 4702,
-                "vertretung-ort": "Oensingen",
-            },
-            {
-                "juristische-person": "juristische-person-ja",
-                "juristische-person-name": "Test AG",
-                "strasse": "Teststrasse",
-                "strasse-nummer": 41,
-                "plz": 4500,
-                "ort": "Solothurn",
-            },
-            {
-                "juristische-person": "juristische-person-nein",
-                "vorname": "Carl",
-                "nachname": "Builder",
-                "strasse": "Strasse",
-                "strasse-nummer": 1,
-                "plz": 4500,
-                "ort": "Solothurn",
-                "vertretung": "vertretung-ja",
-                "vertretung-vorname": "Max",
-                "vertretung-nachname": "Vertreten",
-                "vertretung-strasse": "Weg",
-                "vertretung-nummer": 7,
-                "vertretung-plz": 2540,
-                "vertretung-ort": "Grenchen",
-            },
+            so_personal_row_factory(False, True),
+            so_personal_row_factory(True),
+            so_personal_row_factory(False, True),
         ],
         row_form_id="personalien-tabelle",
     )
@@ -401,32 +365,7 @@ def test_dms_placeholders_so(
     utils.add_table_answer(
         so_instance.case.document,
         "rechnungsempfaengerin",
-        [
-            {
-                "juristische-person": "juristische-person-nein",
-                "vorname": "Karl",
-                "nachname": "Rechnungsempfänger",
-                "strasse": "Eine Strasse",
-                "strasse-nummer": 1,
-                "plz": 4507,
-                "ort": "Andere Stadt",
-                "vertretung": "vertretung-ja",
-                "vertretung-vorname": "Hand",
-                "vertretung-nachname": "Vertreter",
-                "vertretung-strasse": "Teststrasse",
-                "vertretung-nummer": 9,
-                "vertretung-plz": 4704,
-                "vertretung-ort": "Stadt",
-            },
-            {
-                "juristische-person": "juristische-person-ja",
-                "juristische-person-name": "Rechnungs AG",
-                "strasse": "Strasse",
-                "strasse-nummer": 43,
-                "plz": 4502,
-                "ort": "Dorf",
-            },
-        ],
+        [so_personal_row_factory(False, True), so_personal_row_factory(True)],
         row_form_id="personalien-tabelle",
     )
 
@@ -452,35 +391,14 @@ def test_dms_placeholders_so(
     utils.add_table_answer(
         objections.first().document,
         "einsprache-einsprechende",
-        [
-            {
-                "juristische-person": "juristische-person-nein",
-                "vorname": "Heinz",
-                "nachname": "Einsprachenmann",
-                "strasse": "Beispielstrasse",
-                "strasse-nummer": 1,
-                "plz": 4321,
-                "ort": "Beispieldorf",
-            }
-        ],
+        [so_personal_row_factory()],
         row_form_id="personalien-tabelle",
     )
 
     utils.add_table_answer(
         objections.last().document,
         "einsprache-einsprechende",
-        [
-            {
-                "juristische-person": "juristische-person-ja",
-                "juristische-person-name": "Einsprache AG",
-                "vorname": "Sandra",
-                "nachname": "Anwältin",
-                "strasse": "Beispielstrasse",
-                "strasse-nummer": 3,
-                "plz": 4321,
-                "ort": "Beispieldorf",
-            }
-        ],
+        [so_personal_row_factory(True)],
         row_form_id="personalien-tabelle",
     )
 
