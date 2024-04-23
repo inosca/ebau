@@ -1513,24 +1513,36 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             existing_instance = models.Instance.objects.get(pk=existing_instance_id)
             link_instances(instance, existing_instance)
 
-    def _ur_get_responsible_service(self, case, instance):
-        if settings.APPLICATION_NAME != "kt_uri":
-            return  # pragma: no cover
+    def _ur_get_responsible_service(self, instance):
+        form_slug = instance.case.document.form.slug
 
-        # special cases
-        if (
-            case.document.form_id == "bgbb"
-            and instance.group_id == uri_constants.KOOR_AFG_GROUP_ID
+        if form_slug == "cantonal-territory-usage":
+            event_type_answer = self.get_master_data(instance.case).veranstaltung_art
+
+            if event_type_answer in settings.APPLICATION["CALUMA"].get("KOOR_SD_SLUGS"):
+                return Service.objects.get(pk=uri_constants.KOOR_SD_SERVICE_ID)
+            else:
+                return Service.objects.get(pk=uri_constants.KOOR_BD_SERVICE_ID)
+
+        elif form_slug in [
+            "konzession-waermeentnahme",
+            "bohrbewilligung-waermeentnahme",
+        ]:
+            return Service.objects.get(pk=uri_constants.KOOR_AFE_SERVICE_ID)
+        elif form_slug == "pgv-gemeindestrasse":
+            return Service.objects.get(pk=uri_constants.KOOR_BD_SERVICE_ID)
+        elif (
+            form_slug == "bgbb" and instance.group_id == uri_constants.KOOR_AFG_GROUP_ID
         ):
             return Service.objects.get(pk=uri_constants.KOOR_AFG_SERVICE_ID)
 
-        communal_federal_number = case.document.answers.get(
-            question_id="municipality"
-        ).value
-
         # fallback default case
         return Service.objects.get(
-            Q(groups__locations__communal_federal_number=communal_federal_number)
+            Q(
+                groups__locations__communal_federal_number=self.get_master_data(
+                    instance.case
+                ).municipality_slug
+            )
             & Q(service_group__name="Sekretariate Gemeindebaubehörden")
         )
 
@@ -1539,7 +1551,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             "USE_INSTANCE_SERVICE"
         ) and not instance.responsible_service(filter_type="municipality"):
             if settings.APPLICATION_NAME == "kt_uri":
-                service = self._ur_get_responsible_service(case, instance)
+                service = self._ur_get_responsible_service(instance)
 
                 InstanceService.objects.create(
                     instance=self.instance,
