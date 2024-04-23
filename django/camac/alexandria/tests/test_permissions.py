@@ -11,7 +11,7 @@ from alexandria.core.factories import (
     MarkFactory,
     TagFactory,
 )
-from caluma.caluma_workflow.models import WorkItem
+from caluma.caluma_workflow.models import Task, WorkItem
 from django.urls import reverse
 from requests import Response
 from rest_framework.status import (
@@ -1113,7 +1113,7 @@ def test_condition_ready_work_item_additional_demand(
     )
 
     work_item = work_item_factory(
-        task__pk="fill-additional-demand",
+        task=Task.objects.get(slug="fill-additional-demand"),
         case=gr_instance.case,
         status=work_item_status,
     )
