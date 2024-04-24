@@ -40,7 +40,7 @@ const CHOICE_FIELD_KEYS = ["municipality"];
 
 const CENTER = { lat: 46.881301, lng: 8.643078 };
 
-const LAYERS = ["urec:urec_darstellungslayer"];
+const LAYERS = ["urec:urec_darstellungslayer_v2"];
 
 const RESOLUTIONS = [50, 20, 10, 5, 2.5, 2, 1.5, 1, 0.5, 0.25, 0.1, 0.05];
 
@@ -180,7 +180,7 @@ export default class UrGisComponent extends Component {
         this.parcels = [];
         const features = data.features
           .map(function (feature) {
-            return feature.properties.typ_kt_bezeichnung;
+            return feature.properties.typ_bezeichnung;
           })
           .filter(function (feature) {
             return !!feature;
