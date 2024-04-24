@@ -1705,7 +1705,9 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 user_pk=self.context["request"].user.pk,
                 group_pk=group.pk,
             )
-            permissions_events.Trigger.instance_submitted(None, instance)
+            permissions_events.Trigger.instance_submitted(
+                self.context["request"], instance
+            )
 
             self._send_notifications(case)
 
