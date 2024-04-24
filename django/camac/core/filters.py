@@ -1,8 +1,10 @@
+from django.db.models import Q
 from django_filters.rest_framework import FilterSet
 
 from camac.filters import NumberFilter, NumberMultiValueFilter
 from camac.instance.models import Instance
 from camac.permissions.api import PermissionManager
+from camac.permissions.switcher import is_permission_mode_fully_enabled
 
 from . import models
 
@@ -38,17 +40,17 @@ class InstanceResourceFilterSet(FilterSet):
     def filter_instance(self, qs, name, value):
         instance = Instance.objects.get(pk=value)
 
-        permissions_for_instance = PermissionManager.from_request(
-            self.request
-        ).get_permissions(instance)
+        permission_module_filter = Q(
+            require_permission__in=PermissionManager.from_request(
+                self.request
+            ).get_permissions(instance),
+            require_permission__isnull=False,
+        )
 
-        if permissions_for_instance:
-            # If the user has "new" permissions on this instance,
-            # ignore any instance ACLs that may also apply.
-            return qs.filter(
-                require_permission__in=permissions_for_instance,
-                require_permission__isnull=False,
-            )
+        if is_permission_mode_fully_enabled():
+            # If the permissions module is in "fully on" mode, disregard
+            # any old IR acls and only return the IRs with new permissions
+            return qs.filter(permission_module_filter)
 
         # TODO: this needs to be removed in favor of the permission module
         # as soon as the municipality permissions are migrated.
@@ -58,8 +60,11 @@ class InstanceResourceFilterSet(FilterSet):
             qs = qs.exclude(class_field__contains="appeal-include")
 
         return qs.filter(
-            role_acls__instance_state=instance.instance_state,
-            role_acls__role=self.request.group.role,
+            Q(
+                role_acls__instance_state=instance.instance_state,
+                role_acls__role=self.request.group.role,
+            )
+            | permission_module_filter
         )
 
     class Meta:
