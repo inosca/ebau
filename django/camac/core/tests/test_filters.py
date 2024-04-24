@@ -89,6 +89,8 @@ def test_instance_resource_filter_instance(
     expect_results,
 ):
     permissions_settings["ACCESS_LEVELS"] = {access_level.pk: [("foo", Always())]}
+    if has_permission:
+        permissions_settings["PERMISSION_MODE"] = "CHECKING"
 
     role = admin_client.user.groups.first().role
 
