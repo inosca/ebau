@@ -59,6 +59,12 @@ class Command(BaseCommand):
                     log.info, f"Role {role_name} not mapped to access level - skippping"
                 )
                 continue
+            if access_level not in settings.PERMISSIONS["ACCESS_LEVELS"]:
+                self.log_once(
+                    log.warning,
+                    f"Access level {access_level} not configured yet - skipping",
+                )
+                continue
             mapped_permissions[role_name].append(role_acl.instance_state.name)
 
         for role_name, instance_states in mapped_permissions.items():
