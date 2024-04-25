@@ -1,0 +1,33 @@
+<a href="" {{on "click" this.toggle}}>
+  <UkIcon @icon="info" class="uk-text-danger" />
+</a>
+
+<UkModal
+  @visible={{this.showModal}}
+  @onHide={{fn (mut this.showModal) false}}
+  as |Modal|
+>
+  <Modal.body>
+    <p class="uk-text-large">{{t "instances.status.modal-title"}}</p>
+    <table class="uk-table uk-table-small">
+      <tbody>
+        {{#each this.publicInstanceStates as |publicInstanceState|}}
+          <tr>
+            <td
+              class="uk-text-bold uk-width-auto uk-text-nowrap uk-padding-remove-left uk-padding-remove-bottom"
+            >
+              {{t (concat "instances.status." publicInstanceState)}}
+            </td>
+            <td
+              class="uk-width-expand uk-padding-remove-left uk-padding-remove-bottom"
+            >
+              {{t
+                (concat "instances.status." publicInstanceState "-description")
+              }}
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </Modal.body>
+</UkModal>

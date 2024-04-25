@@ -34,4 +34,7 @@ export default {
     v3: true,
   },
   communications: true,
+  portal: {
+    stateInfoButton: true,
+  },
 };
