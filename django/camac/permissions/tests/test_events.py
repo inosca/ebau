@@ -497,3 +497,20 @@ def test_send_inquiry(
 
     assert new_acl.access_level.slug == "distribution-service"
     assert new_acl.grant_type == "SERVICE"
+
+
+@pytest.mark.parametrize("instance_state__name", ["subm", "somethingelse"])
+def test_submitted_so(so_access_levels, so_instance, instance_acl_factory):
+    # We test, in other places, the whole calling infra, so here we can
+    # get away with just testing the event handler directly
+
+    the_acl = instance_acl_factory(
+        instance=so_instance, access_level_id="municipality-before-submission"
+    )
+
+    assert the_acl.is_active()
+    events.Trigger.instance_submitted(None, so_instance)
+    the_acl.refresh_from_db()
+
+    should_be_active = so_instance.instance_state.name == "somethingelse"
+    assert the_acl.is_active() == should_be_active
