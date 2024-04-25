@@ -80,7 +80,6 @@ def get_person_name(
     if include_name:
         parts.append(
             clean_join(
-                person.get(f"{prefix}salutation"),
                 person.get(f"{prefix}first_name"),
                 person.get(f"{prefix}last_name"),
             )

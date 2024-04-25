@@ -5121,6 +5121,18 @@
       'nested_aliases': dict({
       }),
     }),
+    'BAUHERR_ANREDE': dict({
+      'aliases': list([
+        dict({
+          'de': 'BAUHERR_ANREDE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Anrede des/r ersten Bauherr/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'BAUHERR_VERTRETER': dict({
       'aliases': list([
         dict({
@@ -5361,24 +5373,44 @@
         'de': 'Alle Einsprachen',
       }),
       'nested_aliases': dict({
+        'ALLE_EINSPRECHENDEN': list([
+          dict({
+            'de': 'ALLE_EINSPRECHENDEN',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.ADRESSE': list([
+          dict({
+            'de': 'ADRESSE',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.ANREDE': list([
+          dict({
+            'de': 'ANREDE',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.NAME': list([
+          dict({
+            'de': 'NAME',
+          }),
+        ]),
         'DATUM_POSTSTEMPEL': list([
           dict({
             'de': 'DATUM_POSTSTEMPEL',
           }),
         ]),
-        'EINSPRECHENDE': list([
+        'EINSPRECHER_ADRESSE': list([
           dict({
-            'de': 'EINSPRECHENDE',
+            'de': 'EINSPRECHER_ADRESSE',
           }),
         ]),
-        'EINSPRECHENDE.ADRESSE': list([
+        'EINSPRECHER_ANREDE': list([
           dict({
-            'de': 'ADRESSE',
+            'de': 'EINSPRECHER_ANREDE',
           }),
         ]),
-        'EINSPRECHENDE.NAME': list([
+        'EINSPRECHER_NAME': list([
           dict({
-            'de': 'NAME',
+            'de': 'EINSPRECHER_NAME',
           }),
         ]),
       }),
@@ -7425,6 +7457,7 @@
     'BAUHERR',
     'BAUHERR_ADRESSE_1',
     'BAUHERR_ADRESSE_2',
+    'BAUHERR_ANREDE',
     'BAUHERR_NAME_ADRESSE',
     'BAUHERR_VERTRETER',
     'BAUHERR_VERTRETER_ADRESSE_1',
@@ -7482,11 +7515,15 @@
     'EINGEREICHTE_UNTERLAGEN[].TAGS',
     'EINSPRACHEN',
     'EINSPRACHEN[]',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[]',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].ADRESSE',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].ANREDE',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].NAME',
     'EINSPRACHEN[].DATUM_POSTSTEMPEL',
-    'EINSPRACHEN[].EINSPRECHENDE',
-    'EINSPRACHEN[].EINSPRECHENDE[]',
-    'EINSPRACHEN[].EINSPRECHENDE[].ADRESSE',
-    'EINSPRACHEN[].EINSPRECHENDE[].NAME',
+    'EINSPRACHEN[].EINSPRECHER_ADRESSE',
+    'EINSPRACHEN[].EINSPRECHER_ANREDE',
+    'EINSPRACHEN[].EINSPRECHER_NAME',
     'ENTSCHEIDDOKUMENTE',
     'ENTSCHEIDDOKUMENTE[]',
     'ENTSCHEIDDOKUMENTE[].BESCHREIBUNG',
@@ -8369,17 +8406,18 @@
 # ---
 # name: test_dms_placeholders_so[Municipality]
   dict({
-    'ALLE_BAUHERREN_VERTRETER': 'Herr Mark Russo, Herr Patrick Dougherty',
-    'ALLE_BAUHERREN_VERTRETER_NAME_ADRESSE': 'Herr Mark Russo, Martinez Pines 20675, 4308 Darrenfurt, Herr Patrick Dougherty, Andrew Field 9877, 1884 Lisaburgh',
-    'ALLE_RECHNUNGSEMPFAENGER': 'Frau Gina Young, Harmon, Ray and Johnson, Frau Donna Ruiz',
-    'ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Frau Gina Young, Jessica Station 7762, 1520 Stephensburgh, Harmon, Ray and Johnson, Frau Donna Ruiz, Clark Road 9402, 5057 Richmondton',
+    'ALLE_BAUHERREN_VERTRETER': 'Mark Russo, Patrick Dougherty',
+    'ALLE_BAUHERREN_VERTRETER_NAME_ADRESSE': 'Mark Russo, Martinez Pines 20675, 4308 Darrenfurt, Patrick Dougherty, Andrew Field 9877, 1884 Lisaburgh',
+    'ALLE_RECHNUNGSEMPFAENGER': 'Gina Young, Harmon, Ray and Johnson, Donna Ruiz',
+    'ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Gina Young, Jessica Station 7762, 1520 Stephensburgh, Harmon, Ray and Johnson, Donna Ruiz, Clark Road 9402, 5057 Richmondton',
     'ANGEMELDET_EMAIL': 'admin@example.com',
     'ANGEMELDET_NAME': 'Admin User',
     'BAUENTSCHEID_DATUM': '18. April 2024',
-    'BAUHERR_VERTRETER': 'Herr Mark Russo',
+    'BAUHERR_ANREDE': 'Herr',
+    'BAUHERR_VERTRETER': 'Mark Russo',
     'BAUHERR_VERTRETER_ADRESSE_1': 'Martinez Pines 20675',
     'BAUHERR_VERTRETER_ADRESSE_2': '4308 Darrenfurt',
-    'BAUHERR_VERTRETER_NAME_ADRESSE': 'Herr Mark Russo, Martinez Pines 20675, 4308 Darrenfurt',
+    'BAUHERR_VERTRETER_NAME_ADRESSE': 'Mark Russo, Martinez Pines 20675, 4308 Darrenfurt',
     'EIGENE_GEBUEHREN': list([
       dict({
         'BETRAG': '553.25',
@@ -8398,17 +8436,15 @@
     'EINGEREICHTE_PLAENE': list([
       dict({
         'BESCHREIBUNG': '''
-          Help guess trip improve need. Something professor table leave wish simply test edge.
-          Less instead painting final always throughout ago. Truth thus race thousand.
-          Forward today mention put.
+          Treatment cost do out responsibility manager. Program manager alone what.
+          Actually why join structure. Big realize loss owner investment.
         ''',
         'CATEGORY': 'beilagen-zum-gesuch-projektplaene-projektbeschrieb',
         'CREATED_AT': '18.01.2024 13:37',
         'CREATED_BY': 'Admin User',
         'DESCRIPTION': '''
-          Help guess trip improve need. Something professor table leave wish simply test edge.
-          Less instead painting final always throughout ago. Truth thus race thousand.
-          Forward today mention put.
+          Treatment cost do out responsibility manager. Program manager alone what.
+          Actually why join structure. Big realize loss owner investment.
         ''',
         'ERSTELLT_AM': '18.01.2024 13:37',
         'ERSTELLT_VON': 'Admin User',
@@ -8430,11 +8466,17 @@
     ]),
     'EINGEREICHTE_UNTERLAGEN': list([
       dict({
-        'BESCHREIBUNG': 'Heavy add sea other building carry. Section see program. True theory ability another war past. Building significant girl forget.',
+        'BESCHREIBUNG': '''
+          Responsibility what material your there reduce. Argue where while event article school night into. Foot night buy couple goal cultural.
+          Front condition voice trial. Buy country base along production.
+        ''',
         'CATEGORY': 'beilagen-zum-gesuch',
         'CREATED_AT': '18.01.2024 13:37',
         'CREATED_BY': 'Admin User',
-        'DESCRIPTION': 'Heavy add sea other building carry. Section see program. True theory ability another war past. Building significant girl forget.',
+        'DESCRIPTION': '''
+          Responsibility what material your there reduce. Argue where while event article school night into. Foot night buy couple goal cultural.
+          Front condition voice trial. Buy country base along production.
+        ''',
         'ERSTELLT_AM': '18.01.2024 13:37',
         'ERSTELLT_VON': 'Admin User',
         'GEAENDERT_AM': '18.01.2024 13:37',
@@ -8454,17 +8496,15 @@
       }),
       dict({
         'BESCHREIBUNG': '''
-          Help guess trip improve need. Something professor table leave wish simply test edge.
-          Less instead painting final always throughout ago. Truth thus race thousand.
-          Forward today mention put.
+          Treatment cost do out responsibility manager. Program manager alone what.
+          Actually why join structure. Big realize loss owner investment.
         ''',
         'CATEGORY': 'beilagen-zum-gesuch-projektplaene-projektbeschrieb',
         'CREATED_AT': '18.01.2024 13:37',
         'CREATED_BY': 'Admin User',
         'DESCRIPTION': '''
-          Help guess trip improve need. Something professor table leave wish simply test edge.
-          Less instead painting final always throughout ago. Truth thus race thousand.
-          Forward today mention put.
+          Treatment cost do out responsibility manager. Program manager alone what.
+          Actually why join structure. Big realize loss owner investment.
         ''',
         'ERSTELLT_AM': '18.01.2024 13:37',
         'ERSTELLT_VON': 'Admin User',
@@ -8486,31 +8526,44 @@
     ]),
     'EINSPRACHEN': list([
       dict({
-        'DATUM_POSTSTEMPEL': '12.12.2023',
-        'EINSPRECHENDE': list([
+        'ALLE_EINSPRECHENDEN': list([
           dict({
             'ADRESSE': 'Rhonda Street 672, 4339 Loriborough',
-            'NAME': 'Frau Sharon Hall',
+            'ANREDE': 'Frau',
+            'NAME': 'Sharon Hall',
+          }),
+          dict({
+            'ADRESSE': 'James Oval 250, 8477 North Hunter',
+            'ANREDE': 'Frau',
+            'NAME': 'Denise Smith',
           }),
         ]),
+        'DATUM_POSTSTEMPEL': '12.12.2023',
+        'EINSPRECHER_ADRESSE': 'Rhonda Street 672, 4339 Loriborough',
+        'EINSPRECHER_ANREDE': 'Frau',
+        'EINSPRECHER_NAME': 'Sharon Hall',
       }),
       dict({
-        'DATUM_POSTSTEMPEL': '22.12.2023',
-        'EINSPRECHENDE': list([
+        'ALLE_EINSPRECHENDEN': list([
           dict({
-            'ADRESSE': 'Raymond Harbor 6993, 7310 New Cindy',
-            'NAME': 'Harris LLC, Frau Autumn Jimenez',
+            'ADRESSE': 'Nguyen Street 856, 5865 West Ashley',
+            'ANREDE': 'Frau',
+            'NAME': 'Coleman LLC, Ellen Edwards',
           }),
         ]),
+        'DATUM_POSTSTEMPEL': '22.12.2023',
+        'EINSPRECHER_ADRESSE': 'Nguyen Street 856, 5865 West Ashley',
+        'EINSPRECHER_ANREDE': 'Frau',
+        'EINSPRECHER_NAME': 'Coleman LLC, Ellen Edwards',
       }),
     ]),
     'ENTSCHEIDDOKUMENTE': list([
       dict({
-        'BESCHREIBUNG': 'Can song development news trouble economy pay. Let identify rich possible billion under economic. Within relationship series do culture require fill.',
+        'BESCHREIBUNG': 'Real approach store if. Ok and per any without drive degree. Always help small add sometimes quality anyone machine.',
         'CATEGORY': 'beteiligte-behoerden',
         'CREATED_AT': '18.01.2024 13:37',
         'CREATED_BY': 'Admin User',
-        'DESCRIPTION': 'Can song development news trouble economy pay. Let identify rich possible billion under economic. Within relationship series do culture require fill.',
+        'DESCRIPTION': 'Real approach store if. Ok and per any without drive degree. Always help small add sometimes quality anyone machine.',
         'ERSTELLT_AM': '18.01.2024 13:37',
         'ERSTELLT_VON': 'Admin User',
         'GEAENDERT_AM': '18.01.2024 13:37',
@@ -8569,10 +8622,10 @@
     'PUBLIKATION_ORGAN': list([
     ]),
     'PUBLIKATION_START': '1. Dezember 2023',
-    'RECHNUNGSEMPFAENGER': 'Frau Gina Young',
+    'RECHNUNGSEMPFAENGER': 'Gina Young',
     'RECHNUNGSEMPFAENGER_ADRESSE_1': 'Jessica Station 7762',
     'RECHNUNGSEMPFAENGER_ADRESSE_2': '1520 Stephensburgh',
-    'RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Frau Gina Young, Jessica Station 7762, 1520 Stephensburgh',
+    'RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Gina Young, Jessica Station 7762, 1520 Stephensburgh',
   })
 # ---
 # name: test_dms_placeholders_ur[Municipality]

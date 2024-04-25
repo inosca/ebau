@@ -390,7 +390,10 @@ def test_dms_placeholders_so(
     utils.add_table_answer(
         objections.first().document,
         "einsprache-einsprechende",
-        [so_personal_row_factory()],
+        [
+            so_personal_row_factory(),
+            so_personal_row_factory(),
+        ],
         row_form_id="personalien-tabelle",
     )
 
@@ -504,6 +507,7 @@ def test_dms_placeholders_so(
         "ANGEMELDET_EMAIL",
         "ANGEMELDET_NAME",
         "BAUENTSCHEID_DATUM",
+        "BAUHERR_ANREDE",
         "BAUHERR_VERTRETER_ADRESSE_1",
         "BAUHERR_VERTRETER_ADRESSE_2",
         "BAUHERR_VERTRETER_NAME_ADRESSE",
