@@ -470,9 +470,13 @@ class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
         if settings.APPLICATION_NAME == "kt_so":
             return {
                 "DATUM_POSTSTEMPEL": [_("DATE_POSTMARK")],
-                "EINSPRECHENDE": [_("OPPOSING")],
-                "EINSPRECHENDE.NAME": [_("NAME")],
-                "EINSPRECHENDE.ADRESSE": [_("ADDRESS")],
+                "EINSPRECHER_NAME": [_("OPPOSING_NAME")],
+                "EINSPRECHER_ADRESSE": [_("OPPOSING_ADDRESS")],
+                "EINSPRECHER_ANREDE": [_("OPPOSING_SALUTATION")],
+                "ALLE_EINSPRECHENDEN": [_("ALL_OPPOSING")],
+                "ALLE_EINSPRECHENDEN.NAME": [_("NAME")],
+                "ALLE_EINSPRECHENDEN.ADRESSE": [_("ADDRESS")],
+                "ALLE_EINSPRECHENDEN.ANREDE": [_("SALUTATION")],
             }
 
         nested_aliases = {
@@ -520,7 +524,20 @@ class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
             elif settings.APPLICATION_NAME == "kt_so":
                 legal_submission = {
                     "DATUM_POSTSTEMPEL": find_answer(document, "einsprache-datum"),
-                    "EINSPRECHENDE": [
+                    "EINSPRECHER_NAME": get_person_name(legal_claimants[0])
+                    if len(legal_claimants)
+                    else None,
+                    "EINSPRECHER_ADRESSE": clean_join(
+                        get_person_address_1(legal_claimants[0]),
+                        get_person_address_2(legal_claimants[0]),
+                        separator=", ",
+                    )
+                    if len(legal_claimants)
+                    else None,
+                    "EINSPRECHER_ANREDE": legal_claimants[0].get("salutation")
+                    if len(legal_claimants)
+                    else None,
+                    "ALLE_EINSPRECHENDEN": [
                         {
                             "NAME": get_person_name(person),
                             "ADRESSE": clean_join(
@@ -528,6 +545,7 @@ class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
                                 get_person_address_2(person),
                                 separator=", ",
                             ),
+                            "ANREDE": person.get("salutation"),
                         }
                         for person in legal_claimants
                     ],
@@ -647,6 +665,9 @@ class MasterDataPersonField(MasterDataField):
             return ""
 
         parts = []
+
+        if "salutation" in self.fields:
+            parts.append(row.get("salutation"))
 
         if "juristic_name" in self.fields:
             parts.append(
