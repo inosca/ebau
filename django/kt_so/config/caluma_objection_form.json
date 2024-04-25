@@ -147,7 +147,7 @@
     "pk": "einsprache-einsprechende",
     "fields": {
       "created_at": "2023-11-09T12:13:30.298Z",
-      "modified_at": "2023-11-23T08:30:18.468Z",
+      "modified_at": "2024-04-25T11:44:35.548Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -163,7 +163,13 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
-        "columnsToDisplay": ["vorname", "nachname", "telefon", "e-mail"]
+        "columnsToDisplay": [
+          "juristische-person-name",
+          "vorname",
+          "nachname",
+          "telefon",
+          "e-mail"
+        ]
       },
       "data_source": null,
       "row_form": "personalien-tabelle",

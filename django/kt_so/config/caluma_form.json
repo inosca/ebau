@@ -29090,7 +29090,7 @@
     "pk": "ansprechperson-fuer-rueckfragen",
     "fields": {
       "created_at": "2024-02-21T16:45:11.692Z",
-      "modified_at": "2024-02-21T16:45:11.692Z",
+      "modified_at": "2024-04-25T11:44:35.574Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -29105,7 +29105,15 @@
       "hint_text": "{\"de\": \"i.d.R. Geolog*in\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "columnsToDisplay": [
+          "juristische-person-name",
+          "vorname",
+          "nachname",
+          "telefon",
+          "e-mail"
+        ]
+      },
       "data_source": null,
       "row_form": "personalien-tabelle",
       "sub_form": null,
@@ -31666,7 +31674,7 @@
     "pk": "bauherrin",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2024-04-25T11:44:35.579Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -31682,7 +31690,13 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
-        "columnsToDisplay": ["nachname", "e-mail", "telefon", "vorname"]
+        "columnsToDisplay": [
+          "juristische-person-name",
+          "vorname",
+          "nachname",
+          "telefon",
+          "e-mail"
+        ]
       },
       "data_source": null,
       "row_form": "personalien-tabelle",
@@ -42110,7 +42124,7 @@
     "pk": "grundeigentuemerin",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2024-04-25T11:44:35.584Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -42126,7 +42140,13 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
-        "columnsToDisplay": ["nachname", "vorname", "e-mail", "telefon"]
+        "columnsToDisplay": [
+          "juristische-person-name",
+          "vorname",
+          "nachname",
+          "telefon",
+          "e-mail"
+        ]
       },
       "data_source": null,
       "row_form": "personalien-tabelle",
@@ -52737,7 +52757,7 @@
     "pk": "projektverfasserin",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2024-04-25T11:44:35.588Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -52753,7 +52773,13 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
-        "columnsToDisplay": ["vorname", "nachname", "telefon", "e-mail"]
+        "columnsToDisplay": [
+          "juristische-person-name",
+          "vorname",
+          "nachname",
+          "telefon",
+          "e-mail"
+        ]
       },
       "data_source": null,
       "row_form": "personalien-tabelle",
@@ -53158,7 +53184,7 @@
     "pk": "rechnungsempfaengerin",
     "fields": {
       "created_at": "2023-09-18T15:00:58.519Z",
-      "modified_at": "2023-09-18T15:01:40.282Z",
+      "modified_at": "2024-04-25T11:44:35.593Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -53174,7 +53200,13 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
-        "columnsToDisplay": ["vorname", "nachname", "telefon", "e-mail"]
+        "columnsToDisplay": [
+          "juristische-person-name",
+          "vorname",
+          "nachname",
+          "telefon",
+          "e-mail"
+        ]
       },
       "data_source": null,
       "row_form": "personalien-tabelle",
