@@ -69,7 +69,6 @@ const config = {
     answerSlugs: {
       decision: "entscheid-entscheid",
       remarks: "entscheid-bemerkungen",
-      rejected: "entscheid-entscheid-beschwerde-zurueckgewiesen",
     },
     colorMapping: {
       "entscheid-entscheid-zustimmung": "uk-alert-success",
@@ -87,8 +86,11 @@ const config = {
     answerSlugs: {
       "entscheid-entscheid-beschwerde-bestaetigt": "confirmed",
       "entscheid-entscheid-beschwerde-geaendert": "changed",
-      "entscheid-entscheid-beschwerde-aufgehoben": "annulled",
       "entscheid-entscheid-beschwerde-zurueckgewiesen": "rejected",
+      willGenerateCopy: [
+        "entscheid-entscheid-beschwerde-geaendert",
+        "entscheid-entscheid-beschwerde-zurueckgewiesen",
+      ],
     },
     info: {
       confirmed: {
@@ -98,11 +100,7 @@ const config = {
       },
       changed: {
         color: "default",
-        status: () => "construction-monitoring",
-      },
-      annulled: {
-        color: "default",
-        status: () => "finished",
+        status: () => "decision",
       },
       rejected: {
         color: "default",

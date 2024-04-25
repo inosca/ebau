@@ -14,7 +14,6 @@ decision:
       Dieses Dossier wird nach dem Bestätigen des Entscheides in den
       gegenteiligen Status des vorhergehenden Entscheides <b>({status})</b>
       versetzt.
-    annulled: ""
     rejected: |-
       Dieses Dossier wird nach dem Erfassen des Entscheides kopiert und in den
       Status <b>"{status}"</b> versetzt. Das momentane Dossier wird
