@@ -67,7 +67,6 @@ APPEAL = {
             "DECISION": {
                 "CONFIRMED": "entscheid-entscheid-beschwerde-bestaetigt",
                 "CHANGED": "entscheid-entscheid-beschwerde-geaendert",
-                "ANNULLED": "entscheid-entscheid-beschwerde-aufgehoben",
                 "REJECTED": "entscheid-entscheid-beschwerde-zurueckgewiesen",
             },
         },

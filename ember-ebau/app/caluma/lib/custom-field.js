@@ -81,7 +81,6 @@ export default class CustomField extends Field {
         return [
           "entscheid-entscheid-beschwerde-bestaetigt",
           "entscheid-entscheid-beschwerde-geaendert",
-          "entscheid-entscheid-beschwerde-aufgehoben",
           "entscheid-entscheid-beschwerde-zurueckgewiesen",
         ];
       } else if (workflow === "building-permit") {

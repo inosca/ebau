@@ -1,6 +1,5 @@
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
-import { isTesting, macroCondition } from "@embroider/macros";
 import CfFieldInputActionButtonComponent from "@projectcaluma/ember-form/components/cf-field/input/action-button";
 import { queryManager } from "ember-apollo-client";
 import { trackedFunction } from "reactiveweb/function";
@@ -124,11 +123,7 @@ export default class DecisionSubmitButtonComponent extends CfFieldInputActionBut
       (meta) => meta["is-rejected-appeal"],
     )["camac-instance-id"];
 
-    if (macroCondition(isTesting())) {
-      this.args.redirectTo(copiedInstanceId);
-    } else {
-      this.ebauModules.redirectToInstance(copiedInstanceId);
-    }
+    this.ebauModules.redirectToInstance(copiedInstanceId);
   }
 
   @action
@@ -149,9 +144,11 @@ export default class DecisionSubmitButtonComponent extends CfFieldInputActionBut
   async onSuccess() {
     if (
       this.isAppeal &&
-      this.args.field.document.findAnswer(
-        mainConfig.decision.answerSlugs.decision,
-      ) === mainConfig.decision.answerSlugs.rejected
+      mainConfig.appeal.answerSlugs.willGenerateCopy.includes(
+        this.args.field.document.findAnswer(
+          mainConfig.decision.answerSlugs.decision,
+        ),
+      )
     ) {
       return await this.redirectToCopiedInstance();
     }
