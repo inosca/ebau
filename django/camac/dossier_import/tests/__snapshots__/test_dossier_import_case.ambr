@@ -57,7 +57,7 @@
   list([
     dict({
       'first_name': 'Willy',
-      'is_juristic_person': None,
+      'is_juristic_person': True,
       'juristic_name': 'Chocolate Factory',
       'last_name': 'Wonka',
       'street': 'Candy Lane',
@@ -71,7 +71,7 @@
   list([
     dict({
       'first_name': 'Willy',
-      'is_juristic_person': None,
+      'is_juristic_person': True,
       'juristic_name': 'Chocolate Factory',
       'last_name': 'Wonka',
       'street': 'Candy Lane',
@@ -85,7 +85,7 @@
   list([
     dict({
       'first_name': 'Willy',
-      'is_juristic_person': None,
+      'is_juristic_person': True,
       'juristic_name': 'Chocolate Factory',
       'last_name': 'Wonka',
       'street': 'Candy Lane',
@@ -99,7 +99,7 @@
   list([
     dict({
       'first_name': 'Willy',
-      'is_juristic_person': None,
+      'is_juristic_person': True,
       'juristic_name': 'Chocolate Factory',
       'last_name': 'Wonka',
       'street': 'Candy Lane',
@@ -113,8 +113,8 @@
   list([
     dict({
       'first_name': 'Willy',
-      'is_juristic_person': None,
-      'juristic_name': 'Chocolate Factory',
+      'is_juristic_person': False,
+      'juristic_name': None,
       'last_name': 'Wonka',
       'street': 'Candy Lane',
       'street_number': None,
@@ -127,8 +127,8 @@
   list([
     dict({
       'first_name': 'Willy',
-      'is_juristic_person': None,
-      'juristic_name': 'Chocolate Factory',
+      'is_juristic_person': False,
+      'juristic_name': None,
       'last_name': 'Wonka',
       'street': 'Candy Lane',
       'street_number': None,
@@ -147,7 +147,7 @@
   list([
     dict({
       'first_name': 'Ulrich',
-      'is_juristic_person': None,
+      'is_juristic_person': True,
       'juristic_name': 'Swisscom',
       'last_name': 'Kissling',
       'street': 'Gribschstrasse',
@@ -344,7 +344,7 @@
       'email': 'candy@example.com',
       'first_name': 'Willy',
       'has_representative': None,
-      'is_juristic_person': None,
+      'is_juristic_person': True,
       'juristic_name': 'Chocolate Factory',
       'last_name': 'Wonka',
       'representative_country': None,
@@ -373,7 +373,7 @@
       'email': 'candy@example.com',
       'first_name': 'Willy',
       'has_representative': None,
-      'is_juristic_person': None,
+      'is_juristic_person': True,
       'juristic_name': 'Chocolate Factory',
       'last_name': 'Wonka',
       'representative_country': None,
@@ -402,7 +402,7 @@
       'email': 'candy@example.com',
       'first_name': 'Willy',
       'has_representative': None,
-      'is_juristic_person': None,
+      'is_juristic_person': True,
       'juristic_name': 'Chocolate Factory',
       'last_name': 'Wonka',
       'representative_country': None,
@@ -431,7 +431,7 @@
       'email': 'candy@example.com',
       'first_name': 'Willy',
       'has_representative': None,
-      'is_juristic_person': None,
+      'is_juristic_person': True,
       'juristic_name': 'Chocolate Factory',
       'last_name': 'Wonka',
       'representative_country': None,
@@ -460,8 +460,8 @@
       'email': 'candy@example.com',
       'first_name': 'Willy',
       'has_representative': None,
-      'is_juristic_person': None,
-      'juristic_name': 'Chocolate Factory',
+      'is_juristic_person': False,
+      'juristic_name': None,
       'last_name': 'Wonka',
       'representative_country': None,
       'representative_email': None,
@@ -489,8 +489,8 @@
       'email': 'candy@example.com',
       'first_name': 'Willy',
       'has_representative': None,
-      'is_juristic_person': None,
-      'juristic_name': 'Chocolate Factory',
+      'is_juristic_person': False,
+      'juristic_name': None,
       'last_name': 'Wonka',
       'representative_country': None,
       'representative_email': None,
@@ -518,7 +518,7 @@
       'email': 'urlichkissling@example.com',
       'first_name': 'Ulrich',
       'has_representative': None,
-      'is_juristic_person': None,
+      'is_juristic_person': True,
       'juristic_name': 'Swisscom',
       'last_name': 'Kissling',
       'representative_country': None,
@@ -761,12 +761,12 @@
 # name: test_record_loading_sz[dossier_row_patch13-project_authors-kt_schwyz-sz_instance-False]
   list([
     dict({
-      'company': 'Chocolate Factory',
+      'company': None,
       'country': 'Schweiz',
       'email': 'candy@example.com',
       'first_name': 'Willy',
       'is_juristic_person': None,
-      'juristic_name': 'Chocolate Factory',
+      'juristic_name': None,
       'last_name': 'Wonka',
       'phone': '+1 101 10 01 101',
       'street': 'Candy Lane',
@@ -778,12 +778,12 @@
 # name: test_record_loading_sz[dossier_row_patch13-project_authors-kt_schwyz-sz_instance-True]
   list([
     dict({
-      'company': 'Chocolate Factory',
+      'company': None,
       'country': 'Schweiz',
       'email': 'candy@example.com',
       'first_name': 'Willy',
       'is_juristic_person': None,
-      'juristic_name': 'Chocolate Factory',
+      'juristic_name': None,
       'last_name': 'Wonka',
       'phone': '+1 101 10 01 101',
       'street': 'Candy Lane',

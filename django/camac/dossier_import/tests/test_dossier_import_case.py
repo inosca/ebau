@@ -302,7 +302,7 @@ COMMON_IMPORT_ROWS = [
             [
                 ("PROJECTAUTHOR-FIRST-NAME", "Willy"),
                 ("PROJECTAUTHOR-LAST-NAME", "Wonka"),
-                ("PROJECTAUTHOR-COMPANY", "Chocolate Factory"),
+                ("PROJECTAUTHOR-COMPANY", None),
                 ("PROJECTAUTHOR-STREET", "Candy Lane"),
                 ("PROJECTAUTHOR-STREET-NUMBER", None),
                 ("PROJECTAUTHOR-CITY", "Wonderland"),

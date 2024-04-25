@@ -47,6 +47,7 @@ class FieldWriter:
         owner=None,
         context=None,
         column_mapping: Optional[dict] = None,
+        value_mapping: Optional[dict] = None,
         protected: bool = False,
     ):
         # The field writer allows for static values: set value in the field definition
@@ -56,6 +57,7 @@ class FieldWriter:
         self.target = target
         self.value = value
         self.column_mapping = column_mapping
+        self.value_mapping = value_mapping
         self.owner = owner
         self.context = context
         self.name = name or target
@@ -316,7 +318,7 @@ class CalumaListAnswerWriter(FieldWriter):
                 row_documents.append(row_document)
                 for field in fields(obj):
                     value = getattr(obj, field.name)
-                    if not value:
+                    if value is None:
                         continue
                     try:
                         question = Question.objects.get(
@@ -330,6 +332,9 @@ class CalumaListAnswerWriter(FieldWriter):
                             Question.TYPE_TEXTAREA,
                         ]:
                             value = str(value)
+
+                        if self.value_mapping and field.name in self.value_mapping:
+                            value = self.value_mapping[field.name].get(value, value)
 
                         form_api.save_answer(
                             question=question,
