@@ -907,7 +907,7 @@ def test_event_skip_circulation_ur(
     assert complete_distribution_work_item.status == expected_status
 
 
-def test_convert_instance_ur(
+def test_convert_solar_instance_to_construction_permit_ur(
     db,
     task_factory,
     work_item_factory,
@@ -920,9 +920,11 @@ def test_convert_instance_ur(
     form_factory,
     mocker,
     set_application_ur,
+    instance_state_factory,
 ):
     solar_form = form_factory()
     construction_form = form_factory()
+    instance_state_factory(name="comm")
     mocker.patch("camac.constants.kt_uri.FORM_MELDUNG_SOLARANLAGE", solar_form.pk)
     mocker.patch("camac.constants.kt_uri.FORM_BAUGESUCH", construction_form.pk)
 
