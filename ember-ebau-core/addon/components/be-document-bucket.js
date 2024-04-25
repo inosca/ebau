@@ -36,6 +36,11 @@ export default class BeDocumentBucketComponent extends Component {
     return attachmentsConfig.useConfidential;
   }
 
+  get documentBucketHint() {
+    const hint = `documents.buckets.${this.slug}-hint`;
+    return this.intl.exists(hint) ? this.intl.t(hint) : "";
+  }
+
   @task
   *upload(file) {
     return yield this.onUpload({ file: file.file, bucket: this.slug });
