@@ -680,7 +680,7 @@ DISTRIBUTION = {
                 ): [115],
                 (
                     "mindest-und-grenzabstaende",
-                    "mindest-und-grenzabstaende-keine",
+                    "mindest-und-grenzabstaende-gebaeudeabstand",
                 ): [115],
                 (
                     "bauprojekt-art",
