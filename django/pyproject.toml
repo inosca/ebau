@@ -67,6 +67,15 @@ known-third-party = [
 ]
 
 
+[tool.whichtest]
+
+exempt = [
+    '.*/urls\.py',
+    '.*/test_.*\.py',
+    '.*/conftest\.py',
+    '^camac/settings/.*',
+]
+
 [tool.pytest.ini_options]
 addopts = "--no-migrations --reuse-db --randomly-seed=1521188766 --randomly-dont-reorganize"
 DJANGO_SETTINGS_MODULE = "camac.settings"
@@ -96,6 +105,8 @@ filterwarnings = [
 [tool.coverage.run]
 source = ["."]
 
+dynamic_context = "test_function"
+
 [tool.coverage.report]
 fail_under = 100
 exclude_lines = [
@@ -112,6 +123,8 @@ omit = [
     "*/admin.py",
     "**/admin/*.py",
     "camac/ech0211/schema/*",
+    "camac/ech0211/scripts/build_ech0211_parser.py",
+    "camac/ech0211/management/commands/fix_ech_circulation_answer.py",
     "manage.py",
     "setup.py",
     "form_json_helper.py",
@@ -127,6 +140,10 @@ omit = [
     "camac/core/management/commands/importservices.py",
     "camac/core/management/commands/sequencenamespace.py",
     "camac/instance/management/commands/duplicate_instance.py",
+    "camac/instance/management/commands/create_rsta_migrated_instance.py",
+    "camac/instance/management/commands/fix_broken_be_instances.py",
+    "camac/instance/management/commands/fix_decision_documents.py",
+    "camac/instance/management/commands/migrate_activations.py",
     "camac/core/management/commands/repair_sz_workflow.py",
     # Permission module temporary commands. These are used during the transition
     # phase and will be removed again later on.
@@ -137,6 +154,8 @@ omit = [
     "camac/core/views.py",
     "camac/core/tests/test_publication_permissions.py",
     "camac/core/serializers.py",
+    # Utility for code inspection
+    "camac/tools/whichtest.py",
     # One off commands
     "camac/dossier_import/management/commands/fix_identifiers_schuebelbach.py",
     "camac/dossier_import/management/commands/fix_addresses_schuebelbach.py",
@@ -154,12 +173,12 @@ omit = [
     "camac/core/management/commands/migrate_uri_instances.py",
     "camac/core/management/commands/fix_einfache_vorabklaerung.py",
     "camac/core/management/commands/restore_preliminary_clarification.py",
-    "camac/ech0211/management/commands/fix_ech_circulation_answer.py",
     "camac/core/management/commands/migrate_work_item_controlling.py",
     "camac/core/management/commands/initialize_information_of_neighbors.py",
     "camac/core/management/commands/migrate_stockwerk_uri.py",
     "camac/core/management/commands/migrate_oereb_forms.py",
     "camac/core/management/commands/migrate_oereb_form_types.py",
+    "camac/core/management/commands/config/*",
     "camac/core/management/commands/migrate_archive_instance_work_items.py",
     "camac/core/management/commands/migrate_workflow_items_sz.py",
     "camac/core/management/commands/migrate_workflow_items_sz_v2.py",

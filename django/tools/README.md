@@ -40,4 +40,37 @@ The help text is reproduced here for completeness:
      --install   Install into Git config (repo-local)
 ```
 
-<!-- vim:set syntax=markdown sw=3 ts=3 et tw=78: -->
+
+## whichtest
+
+`whichtest.py` - inspect coverage data
+
+This utility allows you to inspect coverage data to find out which test
+is covering which part of your code. Useful to figure out which tests to run
+locally when you changed a particular piece of code.
+
+Note: This requires up-to-date coverage data, which can be obtained by running
+`pytest --cov`. If you don't have current coverage data, you may get errors, or
+invalid output.
+
+Usage:
+
+* `python whichtest.py path/to_some_file.py`
+* `python whichtest.py path/to_some_file.py:123`
+
+This will give you a list of test cases for the given file, or, if you pass
+the line number as well, just for the given line.
+
+* `python whichtest.py --check-locality`
+* `python whichtest.py --check-locality [-v|--verbose]`
+
+Output the test locality score: The number of lines that are covered, across
+the code base, by a test within the same module / django app.
+
+If you enable verbose mode, it will output every line that's not covered by
+a "local" test.
+
+Note that this is rather generic and certain cases are not caught correctly yet:
+For example urls.py files may be re-imported by some tests, but also at django
+startup, so they look like "foreign covered" in here despite being strictly
+declarative/module-scope code only. This is a limitation of coverage.py.
