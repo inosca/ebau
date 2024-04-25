@@ -1602,6 +1602,13 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("ALL_BUILDER_REPRESENTATIVES_NAME_ADDRESS")],
         description=_("Names and addresses of all builder representatives"),
     )
+    bauherr_anrede = fields.MasterDataPersonField(
+        source="applicants",
+        only_first=True,
+        fields=["salutation"],
+        aliases=[_("BUILDER_SALUTATION")],
+        description=_("Salutation of the first builder"),
+    )
     bauherr_vertreter = fields.MasterDataPersonField(
         source="applicants",
         only_first=True,

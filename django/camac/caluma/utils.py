@@ -95,7 +95,7 @@ def get_answer_display_value(
     elif answer.question.type == Question.TYPE_DATE:
         return answer.date.strftime(date_format) if answer.date else None
     elif answer.question.type == Question.TYPE_TABLE:
-        return answer.documents.all()
+        return answer.documents.order_by("-answerdocument__sort")
 
     return answer.value
 
