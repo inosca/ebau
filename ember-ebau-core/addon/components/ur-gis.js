@@ -93,6 +93,11 @@ function EPSG2056toLatLng(coordinates) {
 const filterFeatureById = (features, id) =>
   features.find((feature) => feature.id.includes(id));
 
+const filterSeveralFeaturesByIds = (features, ids) =>
+  features.filter((feature) => {
+    return ids.includes(feature.id.split(".")[0]);
+  });
+
 const addFeatureStaticText = (featureData, layerName, label) => {
   const maybeLayer = filterFeatureById(featureData, layerName);
   if (maybeLayer) {
@@ -220,7 +225,58 @@ export default class UrGisComponent extends Component {
           "Fruchtfolgefläche",
         );
 
+        const gewaesserraum = filterFeatureById(
+          data.features,
+          "ch190_rkr_gewaesserraum_gewaesserraum",
+        );
+
+        const gewaessernetz = filterFeatureById(
+          data.features,
+          "gewaessernetz_linien",
+        );
+
+        const schutzobjekte = filterSeveralFeaturesByIds(data.features, [
+          "ur010_kantonales_inventar_schutzobjekte_flaechen",
+          "ur010_kantonales_inventar_schutzobjekte_linien",
+          "ur010_kantonales_inventar_schutzobjekte_punkte",
+        ]);
+
+        const schutzmassnahmen = filterSeveralFeaturesByIds(data.features, [
+          "urec:ur065_rkr_scmn_gmd_na_la_nat_reg_gebiet_point",
+          "urec:ur065_rkr_scmn_gmd_na_la_nat_reg_gebiet_line",
+          "urec:ur065_rkr_scmn_gmd_na_la_nat_reg_gebiet_polygon",
+          "urec:ur066_rkr_scmn_gmd_na_la_lokal_gebiet_point",
+          "urec:ur066_rkr_scmn_gmd_na_la_lokal_gebiet_line",
+          "urec:ur066_rkr_scmn_gmd_na_la_lokal_gebiet_polygon",
+          "urec:ur067_rkr_scmn_gmd_ku_de_nat_reg_gebiet_point",
+          "urec:ur067_rkr_scmn_gmd_ku_de_nat_reg_gebiet_line",
+          "urec:ur067_rkr_scmn_gmd_ku_de_nat_reg_gebiet_polygon",
+          "urec:ur068_rkr_scmn_gmd_ku_de_lokal_gebiet_point",
+          "urec:ur068_rkr_scmn_gmd_ku_de_lokal_gebiet_line",
+          "urec:ur068_rkr_scmn_gmd_ku_de_lokal_gebiet_polygon",
+        ]);
+
+        schutzobjekte.forEach((element) => {
+          if (element && element.properties.name) {
+            features.push(element.properties.name);
+          }
+        });
+
+        schutzmassnahmen.forEach((element) => {
+          if (element && element.properties.typ_bezeichnung) {
+            features.push(element.properties.typ_bezeichnung);
+          }
+        });
+
         features.push(grundwasser, fruchtfolgefläche);
+
+        if (gewaessernetz && gewaessernetz.properties.typ) {
+          features.push(gewaessernetz.properties.typ);
+        }
+
+        if (gewaesserraum && gewaesserraum.properties.typ_kt_bezeichnung) {
+          features.push(gewaesserraum.properties.typ_kt_bezeichnung);
+        }
 
         if (archFeature && archFeature.properties.name) {
           features.push("Archäologisches Fundwartungsgebiet");
