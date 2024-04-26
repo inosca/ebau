@@ -103,6 +103,8 @@ services:
       ALEXANDRIA_DMS_URL: http://document-merge-service:8000/document-merge-service/api/v1
     networks:
       - ebau.local
+    tty: true
+    stdin_open: true
     command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0:80 --pythonpath /app/$APPLICATION"
 
   django-q:
