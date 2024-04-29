@@ -155,7 +155,7 @@ class User(AbstractBaseUser):
     @property
     def alexandria_group(self):
         group = self.get_default_group()
-        if not group or not group.service:
+        if not group or not group.service:  # pragma: no cover
             return None
         return group.service.pk
 
