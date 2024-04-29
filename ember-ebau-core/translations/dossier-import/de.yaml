@@ -131,7 +131,7 @@ dossierImport:
         description: |-
           Löscht den Import sowie alle dabei importieren Dossiers.
         buttonLabel: Import rückgängig machen
-        started: Rückgängigmache des Imports gestartet.
+        started: Rückgängigmachen des Imports gestartet.
         success: Der Import wurde erfolgreich rückgängig gemacht.
         error: Beim Rückgängigmachen des Imports ist etwas schiefgegangen.
       cleanImport:

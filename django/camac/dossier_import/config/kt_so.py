@@ -40,7 +40,15 @@ from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.models import Form, Instance, InstanceState
 from camac.tags.models import Keyword
 
+PERSON_VALUE_MAPPING = {
+    "is_juristic_person": {
+        True: "juristische-person-ja",
+        False: "juristische-person-nein",
+    }
+}
+
 PERSON_MAPPING = {
+    "is_juristic_person": "juristische-person",
     "company": "juristische-person-name",
     "last_name": "nachname",
     "first_name": "vorname",
@@ -88,13 +96,19 @@ class KtSolothurnDossierWriter(DossierWriter):
     street_number = CalumaAnswerWriter(target="strasse-nummer", formatter="to-string")
     city = CalumaAnswerWriter(target="ort")
     applicant = CalumaListAnswerWriter(
-        target="bauherrin", column_mapping=PERSON_MAPPING
+        target="bauherrin",
+        column_mapping=PERSON_MAPPING,
+        value_mapping=PERSON_VALUE_MAPPING,
     )
     landowner = CalumaListAnswerWriter(
-        target="grundeigentuemerin", column_mapping=PERSON_MAPPING
+        target="grundeigentuemerin",
+        column_mapping=PERSON_MAPPING,
+        value_mapping=PERSON_VALUE_MAPPING,
     )
     project_author = CalumaListAnswerWriter(
-        target="projektverfasserin", column_mapping=PERSON_MAPPING
+        target="projektverfasserin",
+        column_mapping=PERSON_MAPPING,
+        value_mapping=PERSON_VALUE_MAPPING,
     )
 
     def create_instance(self, dossier: Dossier) -> Instance:

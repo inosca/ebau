@@ -45,6 +45,10 @@ class Person:
     town: Optional[str]
     phone: Optional[str]
     email: Optional[str]
+    is_juristic_person: Optional[bool] = False
+
+    def __post_init__(self):
+        self.is_juristic_person = bool(self.company)
 
 
 @dataclass
