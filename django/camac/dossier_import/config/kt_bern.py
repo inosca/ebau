@@ -38,6 +38,7 @@ from camac.instance.utils import get_construction_control, set_construction_cont
 from camac.tags.models import Tags
 
 APPLICANT_MAPPING = {
+    "is_juristic_person": "juristische-person-gesuchstellerin",
     "company": "name-juristische-person-gesuchstellerin",
     "last_name": "name-gesuchstellerin",
     "first_name": "vorname-gesuchstellerin",
@@ -50,6 +51,7 @@ APPLICANT_MAPPING = {
 }
 
 LANDOWNER_MAPPING = {
+    "is_juristic_person": "juristische-person-grundeigentuemerin",
     "company": "name-juristische-person-grundeigentuemerin",
     "last_name": "name-grundeigentuemerin",
     "first_name": "vorname-grundeigentuemerin",
@@ -62,6 +64,7 @@ LANDOWNER_MAPPING = {
 }
 
 PROJECTAUTHOR_MAPPING = {
+    "is_juristic_person": "juristische-person-projektverfasserin",
     "company": "name-juristische-person-projektverfasserin",
     "last_name": "name-projektverfasserin",
     "first_name": "vorname-projektverfasserin",
@@ -120,13 +123,34 @@ class KtBernDossierWriter(DossierWriter):
     street_number = CalumaAnswerWriter(target="nr", formatter="to-string")
     city = CalumaAnswerWriter(target="ort-grundstueck")
     applicant = CalumaListAnswerWriter(
-        target="personalien-gesuchstellerin", column_mapping=APPLICANT_MAPPING
+        target="personalien-gesuchstellerin",
+        column_mapping=APPLICANT_MAPPING,
+        value_mapping={
+            "is_juristic_person": {
+                True: "juristische-person-gesuchstellerin-ja",
+                False: "juristische-person-gesuchstellerin-nein",
+            }
+        },
     )
     landowner = CalumaListAnswerWriter(
-        target="personalien-grundeigentumerin", column_mapping=LANDOWNER_MAPPING
+        target="personalien-grundeigentumerin",
+        column_mapping=LANDOWNER_MAPPING,
+        value_mapping={
+            "is_juristic_person": {
+                True: "juristische-person-grundeigentuemerin-ja",
+                False: "juristische-person-grundeigentuemerin-nein",
+            }
+        },
     )
     project_author = CalumaListAnswerWriter(
-        target="personalien-projektverfasserin", column_mapping=PROJECTAUTHOR_MAPPING
+        target="personalien-projektverfasserin",
+        column_mapping=PROJECTAUTHOR_MAPPING,
+        value_mapping={
+            "is_juristic_person": {
+                True: "juristische-person-projektverfasserin-ja",
+                False: "juristische-person-projektverfasserin-nein",
+            }
+        },
     )
 
     def create_instance(self, dossier: Dossier) -> Instance:

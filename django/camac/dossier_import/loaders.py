@@ -160,6 +160,7 @@ class XlsxFileDossierLoader:
                 getattr(XlsxFileDossierLoader.Column, f"{prefix}_{field.name}").value
             )
             for field in fields(Person)
+            if hasattr(XlsxFileDossierLoader.Column, f"{prefix}_{field.name}")
         }
         if any(person.values()):
             return [Person(**person)]
