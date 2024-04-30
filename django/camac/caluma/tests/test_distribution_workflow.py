@@ -825,9 +825,13 @@ def test_reopen_distribution_additional_demand(
         status=WorkItem.STATUS_READY,
     )
     assert additional_demand_work_items_after.count() == 2
-    assert list(
-        additional_demand_work_items_after.values_list("addressed_groups", flat=True)
-    ) == [wi.addressed_groups for wi in additional_demand_work_items_before]
+    assert sorted(
+        list(
+            additional_demand_work_items_after.values_list(
+                "addressed_groups", flat=True
+            )
+        )
+    ) == sorted([wi.addressed_groups for wi in additional_demand_work_items_before])
 
 
 def test_reopen_distribution(
