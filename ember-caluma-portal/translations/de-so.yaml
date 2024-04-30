@@ -15,6 +15,9 @@ instances:
   activateFurtherPersons: "Weitere Personen für dieses Dossier freischalten"
 
   new:
+    preliminary-clarification:
+      title: "Voranfrage"
+      info: ""
     building-permit:
       info: ""
     special-procedure:
