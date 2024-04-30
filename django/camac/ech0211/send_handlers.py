@@ -74,7 +74,9 @@ class AttachmentAccessibilityMixin:
 
 class AlexandriaDocumentMixin:
     def create_alexandria_documents(
-        self, xmlDocuments, category: alexandria_models.Category
+        self,
+        xmlDocuments,
+        category: alexandria_models.Category,
     ) -> List[alexandria_models.Document]:
         documents_to_link = []
         for doc in xmlDocuments:
@@ -133,6 +135,13 @@ class AlexandriaDocumentMixin:
                 instance=self.instance, document=document
             )
 
+    def convert_xml_to_alexandria_documents(self, xmlDocuments, category_slug: str):
+        category = alexandria_models.Category.objects.get(slug=category_slug)
+        self.has_alexandria_category_permission(category)
+        documents = self.create_alexandria_documents(xmlDocuments, category)
+        self.link_alexandria_documents(documents)
+        return documents
+
 
 class BaseSendHandler:
     def __init__(self, data, queryset, user, group, auth_header, caluma_user, request):
@@ -182,7 +191,9 @@ class BaseSendHandler:
         raise NotImplementedError()
 
 
-class NoticeRulingSendHandler(AttachmentAccessibilityMixin, BaseSendHandler):
+class NoticeRulingSendHandler(
+    AttachmentAccessibilityMixin, AlexandriaDocumentMixin, BaseSendHandler
+):
     def get_instance_id(self):
         return self.data.eventNotice.planningPermissionApplicationIdentification.dossierIdentification
 
@@ -232,12 +243,23 @@ class NoticeRulingSendHandler(AttachmentAccessibilityMixin, BaseSendHandler):
         return decision_document
 
     def apply(self):
-        attachments = self.get_attachments(self.data.eventNotice.document)
-        if not self.has_attachment_permissions(attachments):
-            raise SendHandlerException(
-                "You don't have permission for at least one document you provided.",
-                status=403,
+        if settings.ALEXANDRIA["ENABLED"]:
+            decision_mark = alexandria_models.Mark.objects.get(
+                pk=settings.ECH0211["NOTICE_RULING"]["ALEXANDRIA_MARK"]
             )
+            alexandria_documents = self.convert_xml_to_alexandria_documents(
+                self.data.eventNotice.document,
+                settings.ECH0211["NOTICE_RULING"]["ALEXANDRIA_CATEGORY"],
+            )
+            for doc in alexandria_documents:
+                doc.marks.add(decision_mark)
+        else:
+            attachments = self.get_attachments(self.data.eventNotice.document)
+            if not self.has_attachment_permissions(attachments):
+                raise SendHandlerException(
+                    "You don't have permission for at least one document you provided.",
+                    status=403,
+                )
 
         case = self.instance.case
         workflow_slug = case.workflow_id
@@ -307,7 +329,8 @@ class NoticeRulingSendHandler(AttachmentAccessibilityMixin, BaseSendHandler):
             # for "normal" judgements
             self.complete_work_item(settings.DECISION["TASK"])
 
-        self.link_to_section(attachments)
+        if not settings.ALEXANDRIA["ENABLED"]:
+            self.link_to_section(attachments)
 
 
 class ChangeResponsibilitySendHandler(BaseSendHandler):
@@ -530,7 +553,9 @@ class TaskSendHandler(BaseSendHandler):
         workflow_api.resume_work_item(work_item=inquiry, user=self.caluma_user)
 
 
-class KindOfProceedingsSendHandler(AttachmentAccessibilityMixin, BaseSendHandler):
+class KindOfProceedingsSendHandler(
+    AttachmentAccessibilityMixin, AlexandriaDocumentMixin, BaseSendHandler
+):
     def __init__(self, data, queryset, user, group, auth_header, caluma_user, request):
         super().__init__(data, queryset, user, group, auth_header, caluma_user, request)
         self.attachments = self.get_attachments(
@@ -553,6 +578,14 @@ class KindOfProceedingsSendHandler(AttachmentAccessibilityMixin, BaseSendHandler
         return True, None
 
     def apply(self):
+        if settings.ALEXANDRIA["ENABLED"]:
+            self.convert_xml_to_alexandria_documents(
+                self.data.eventKindOfProceedings.document,
+                settings.ECH0211["KIND_OF_PROCEEDINGS"]["ALEXANDRIA_CATEGORY"],
+            )
+            self.complete_work_item(settings.DISTRIBUTION["DISTRIBUTION_INIT_TASK"])
+            return
+
         if not self.has_attachment_permissions(self.attachments):
             raise SendHandlerException(
                 "You don't have permission for at least one document you provided.",
@@ -637,6 +670,7 @@ class SubmitPlanningPermissionApplicationSendHandler(
             ],
         )
         self.instance = instance
+        # permisison check needs instance
         self.has_alexandria_category_permission(alexandria_category)
         self.link_alexandria_documents(documents_to_link)
         # set submit date (if in xml data) to case meta

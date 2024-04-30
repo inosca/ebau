@@ -148,6 +148,8 @@ ECH0211 = {
         "NOTICE_RULING": {
             "ALLOWED_STATES": ["decision", "circulation"],
             "ONLY_DECLINE": ["distribution-init"],
+            "ALEXANDRIA_CATEGORY": "alle-beteiligten",
+            "ALEXANDRIA_MARK": "decision",
         },
         "JUDGEMENT_MAPPING": {
             "inquiry-answer-status-approved": 1,
@@ -159,6 +161,9 @@ ECH0211 = {
             "inquiry-answer-status-negative": 4,
             "inquiry-answer-status-written-off": None,
             "inquiry-answer-status-not-following": None,
+        },
+        "KIND_OF_PROCEEDINGS": {
+            "ALEXANDRIA_CATEGORY": "alle-beteiligten",
         },
         "SUBMIT_PLANNING_PERMISSION_APPLICATION": {
             "ENABLED": True,
