@@ -371,8 +371,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0
       ember-alexandria:
-        specifier: 8.0.1
-        version: 8.0.1(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.5)(webpack@5.90.3)
+        specifier: 8.0.2
+        version: 8.0.2(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.5)(webpack@5.90.3)
       ember-apollo-client:
         specifier: 4.0.2
         version: 4.0.2(@glint/template@1.4.0)(graphql@15.8.0)(webpack@5.90.3)
@@ -938,8 +938,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0
       ember-alexandria:
-        specifier: 8.0.1
-        version: 8.0.1(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.5)(webpack@5.90.3)
+        specifier: 8.0.2
+        version: 8.0.2(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.5)(webpack@5.90.3)
       ember-apollo-client:
         specifier: 4.0.2
         version: 4.0.2(@glint/template@1.4.0)(graphql@15.8.0)(webpack@5.90.3)
@@ -1163,8 +1163,8 @@ importers:
         specifier: 12.13.0
         version: 12.13.0(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.5)(webpack@5.90.3)
       ember-alexandria:
-        specifier: 8.0.1
-        version: 8.0.1(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.5)(webpack@5.90.3)
+        specifier: 8.0.2
+        version: 8.0.2(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.5)(webpack@5.90.3)
       ember-apollo-client:
         specifier: 4.1.1
         version: 4.1.1(@glint/template@1.4.0)(graphql@15.8.0)(webpack@5.90.3)
@@ -8320,8 +8320,8 @@ packages:
   /electron-to-chromium@1.4.748:
     resolution: {integrity: sha512-VWqjOlPZn70UZ8FTKUOkUvBLeTQ0xpty66qV0yJcAGY2/CthI4xyW9aEozRVtuwv3Kpf5xTesmJUcPwuJmgP4A==}
 
-  /ember-alexandria@8.0.1(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.5)(webpack@5.90.3):
-    resolution: {integrity: sha512-/WHVMm31zvBadVA1eGDDT8386kNswxIsSNS+xvprSXxLwbFbjot6FFtox5+yF/Ih9/666fUMn9i95TZ9gwPj0g==}
+  /ember-alexandria@8.0.2(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.5)(webpack@5.90.3):
+    resolution: {integrity: sha512-0aJXUlqb5/OY4Pm3bmVaOynKh7271DWVdMnbXyB8Twa6ZeQUnwstT8EwmVNwEhl45fcrhBBMIXzLWedAdt8a+w==}
     engines: {node: '>= 18'}
     peerDependencies:
       ember-engines: ^0.9.0
@@ -8362,7 +8362,7 @@ packages:
       file-saver: 2.0.5
       flatpickr: 4.6.13
       luxon: 3.4.4
-      mime: 4.0.2
+      mime: 4.0.3
       reactiveweb: 1.2.3(@babel/core@7.24.4)(@ember/test-waiters@3.1.0)(@glimmer/component@1.1.2)(@glimmer/tracking@1.1.2)(@glint/template@1.4.0)(ember-source@4.12.3)
     transitivePeerDependencies:
       - '@ember-data/store'
@@ -13776,8 +13776,8 @@ packages:
     hasBin: true
     dev: true
 
-  /mime@4.0.2:
-    resolution: {integrity: sha512-rSR2L7RhEm0ifwn6lZAa+CcLy7EEl6POovp3QcnFHb/C5P4B+h6u+yCQPQaWzNdecHL8p85zRowrAjpF9F46Og==}
+  /mime@4.0.3:
+    resolution: {integrity: sha512-KgUb15Oorc0NEKPbvfa0wRU+PItIEZmiv+pyAO2i0oTIVTJhlzMclU7w4RXWQrSOVH5ax/p/CkIO7KI4OyFJTQ==}
     engines: {node: '>=16'}
     hasBin: true
 
