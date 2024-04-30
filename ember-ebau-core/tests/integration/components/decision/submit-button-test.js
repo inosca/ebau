@@ -7,10 +7,12 @@ import { module, test } from "qunit";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
 import id from "dummy/tests/helpers/graphql-id";
+import { setupConfig } from "ember-ebau-core/test-support";
 
 module("Integration | Component | decision/submit-button", function (hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
+  setupConfig(hooks);
 
   hooks.beforeEach(function (assert) {
     this.isAppeal = false;
@@ -164,16 +166,29 @@ module("Integration | Component | decision/submit-button", function (hooks) {
   test("it redirects to the new instance after submitting rejected appeal decisions", async function (assert) {
     this.isAppeal = true;
 
-    this.redirect = (id) => {
+    this.config.set("decision", {
+      answerSlugs: {
+        decision: "decision-decision-assessment",
+      },
+    });
+
+    this.config.set("appeal", {
+      answerSlugs: {
+        willGenerateCopy: ["decision-decision-assessment-appeal-rejected"],
+      },
+    });
+
+    this.owner.lookup("service:ebau-modules").redirectToInstance = (
+      instanceId,
+    ) => {
       assert.step("redirect");
-      assert.strictEqual(id, 2);
+      assert.strictEqual(instanceId, 2);
     };
 
     await render(hbs`
       <Decision::SubmitButton
         @field={{this.field}}
         @context={{hash instanceId=1}}
-        @redirectTo={{this.redirect}}
       />`);
 
     await click("button");

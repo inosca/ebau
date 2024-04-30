@@ -428,16 +428,20 @@ def test_complete_decision_withdrawn(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "previous_instance_state,expected_instance_state,decision,expect_copy",
+    "previous_instance_state,expected_instance_state,decision,expect_copy,expected_copy_instance_state",
     [
-        ("construction-monitoring", "construction-monitoring", "CONFIRMED", False),
-        ("finished", "finished", "CONFIRMED", False),
-        ("construction-monitoring", "construction-monitoring", "CHANGED", False),
-        ("finished", "construction-monitoring", "CHANGED", False),
-        ("construction-monitoring", "finished", "ANNULLED", False),
-        ("finished", "finished", "ANNULLED", False),
-        ("construction-monitoring", "finished", "REJECTED", True),
-        ("finished", "finished", "REJECTED", True),
+        (
+            "construction-monitoring",
+            "construction-monitoring",
+            "CONFIRMED",
+            False,
+            None,
+        ),
+        ("finished", "finished", "CONFIRMED", False, None),
+        ("construction-monitoring", "finished", "CHANGED", True, "decision"),
+        ("finished", "finished", "CHANGED", True, "decision"),
+        ("construction-monitoring", "finished", "REJECTED", True, "subm"),
+        ("finished", "finished", "REJECTED", True, "subm"),
     ],
 )
 def test_complete_decision_appeal_so(
@@ -450,6 +454,7 @@ def test_complete_decision_appeal_so(
     decision,
     expect_copy,
     expected_instance_state,
+    expected_copy_instance_state,
     instance_state_factory,
     previous_instance_state,
     settings,
@@ -464,6 +469,7 @@ def test_complete_decision_appeal_so(
     instance_state_factory(name="subm")
     instance_state_factory(name="construction-monitoring")
     instance_state_factory(name="finished")
+    instance_state_factory(name="decision")
 
     so_instance.previous_instance_state = InstanceState.objects.get(
         name=previous_instance_state
@@ -506,4 +512,4 @@ def test_complete_decision_appeal_so(
         assert "is-rejected-appeal" in new_instance.case.meta
         assert "dossier-number" in new_instance.case.meta
         assert "dossier-number-sort" in new_instance.case.meta
-        assert new_instance.instance_state.name == "subm"
+        assert new_instance.instance_state.name == expected_copy_instance_state

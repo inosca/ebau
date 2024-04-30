@@ -93,7 +93,6 @@ export default {
     answerSlugs: {
       decision: "decision-decision-assessment",
       remarks: "decision-remarks",
-      rejected: "decision-decision-assessment-appeal-rejected",
     },
     colorMapping: {
       "decision-decision-assessment-positive": "uk-alert-success",
@@ -115,6 +114,7 @@ export default {
       "decision-decision-assessment-appeal-confirmed": "confirmed",
       "decision-decision-assessment-appeal-changed": "changed",
       "decision-decision-assessment-appeal-rejected": "rejected",
+      willGenerateCopy: ["decision-decision-assessment-appeal-rejected"],
     },
     info: {
       confirmed: {

@@ -1,5 +1,4 @@
 import { inject as service } from "@ember/service";
-import { macroCondition, isTesting } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
@@ -65,11 +64,7 @@ export default class DecisionAppealButtonComponent extends Component {
       const result = yield response.json();
       const newInstanceId = result.data.id;
 
-      if (macroCondition(isTesting())) {
-        this.args.redirectTo(newInstanceId);
-      } else {
-        this.ebauModules.redirectToInstance(newInstanceId);
-      }
+      this.ebauModules.redirectToInstance(newInstanceId);
     } catch (e) {
       this.notification.danger(this.intl.t("decision.appeal-error"));
     }
