@@ -204,7 +204,7 @@
   
   '''
 # ---
-# name: test_kind_of_proceedings_send_handler[True]
+# name: test_kind_of_proceedings_send_handler[True-False]
   '''
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
@@ -242,7 +242,45 @@
   
   '''
 # ---
-# name: test_notice_ruling_send_handler[1-circulation-True-False-leitbehoerde-sb1-municipality]
+# name: test_kind_of_proceedings_send_handler[True-True]
+  '''
+  <?xml version="1.0" ?>
+  <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
+  	<ns1:deliveryHeader>
+  		<ns2:senderId>http://ebau.local</ns2:senderId>
+  		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
+  		<ns2:messageType>5200032</ns2:messageType>
+  		<ns2:sendingApplication>
+  			<ns2:manufacturer>Adfinis AG</ns2:manufacturer>
+  			<ns2:product>camac</ns2:product>
+  			<ns2:productVersion><!-- VERSION --></ns2:productVersion>
+  		</ns2:sendingApplication>
+  		<ns2:subject>status notification</ns2:subject>
+  		<ns2:messageDate>2022-06-03T00:00:00Z</ns2:messageDate>
+  		<ns2:action>1</ns2:action>
+  		<ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
+  	</ns1:deliveryHeader>
+  	<ns1:eventStatusNotification>
+  		<ns1:eventType>status notification</ns1:eventType>
+  		<ns1:planningPermissionApplicationIdentification>
+  			<ns1:localID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:localID>
+  			<ns1:otherID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:otherID>
+  			<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
+  		</ns1:planningPermissionApplicationIdentification>
+  		<ns1:status>in progress</ns1:status>
+  		<ns1:remark>circulation</ns1:remark>
+  	</ns1:eventStatusNotification>
+  </ns1:delivery>
+  
+  '''
+# ---
+# name: test_notice_ruling_send_handler[1-circulation-True-False-leitbehoerde-sb1-False-municipality]
   '''
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
@@ -280,7 +318,7 @@
   
   '''
 # ---
-# name: test_notice_ruling_send_handler[1-circulation-True-False-rsta-sb1-municipality]
+# name: test_notice_ruling_send_handler[1-circulation-True-False-rsta-sb1-False-municipality]
   '''
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
@@ -318,7 +356,7 @@
   
   '''
 # ---
-# name: test_notice_ruling_send_handler[1-circulation-True-True-leitbehoerde-evaluated-municipality]
+# name: test_notice_ruling_send_handler[1-circulation-True-True-leitbehoerde-evaluated-False-municipality]
   '''
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
@@ -356,7 +394,45 @@
   
   '''
 # ---
-# name: test_notice_ruling_send_handler[1-coordination-True-False-leitbehoerde-sb1-municipality]
+# name: test_notice_ruling_send_handler[1-circulation-True-True-leitbehoerde-evaluated-True-municipality]
+  '''
+  <?xml version="1.0" ?>
+  <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
+  	<ns1:deliveryHeader>
+  		<ns2:senderId>http://ebau.local</ns2:senderId>
+  		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
+  		<ns2:messageType>5200036</ns2:messageType>
+  		<ns2:sendingApplication>
+  			<ns2:manufacturer>Adfinis AG</ns2:manufacturer>
+  			<ns2:product>camac</ns2:product>
+  			<ns2:productVersion><!-- VERSION --></ns2:productVersion>
+  		</ns2:sendingApplication>
+  		<ns2:subject>status notification</ns2:subject>
+  		<ns2:messageDate>2022-06-03T00:00:00Z</ns2:messageDate>
+  		<ns2:action>1</ns2:action>
+  		<ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
+  	</ns1:deliveryHeader>
+  	<ns1:eventStatusNotification>
+  		<ns1:eventType>status notification</ns1:eventType>
+  		<ns1:planningPermissionApplicationIdentification>
+  			<ns1:localID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:localID>
+  			<ns1:otherID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:otherID>
+  			<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
+  		</ns1:planningPermissionApplicationIdentification>
+  		<ns1:status>in progress</ns1:status>
+  		<ns1:remark>evaluated</ns1:remark>
+  	</ns1:eventStatusNotification>
+  </ns1:delivery>
+  
+  '''
+# ---
+# name: test_notice_ruling_send_handler[1-coordination-True-False-leitbehoerde-sb1-False-municipality]
   '''
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
@@ -394,7 +470,7 @@
   
   '''
 # ---
-# name: test_notice_ruling_send_handler[4-circulation_init-True-False-leitbehoerde-rejected-municipality]
+# name: test_notice_ruling_send_handler[4-circulation_init-True-False-leitbehoerde-rejected-False-municipality]
   '''
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">

@@ -311,7 +311,9 @@ def test_send(
     caluma_admin_user,
     be_decision_settings,
     reload_ech0211_urls,
+    alexandria_settings,
 ):
+    alexandria_settings["ENABLED"] = False
     if has_permission:
         service_group_baukontrolle = service_group_factory(name="construction-control")
 
@@ -391,7 +393,9 @@ def test_send_400_invalid_judgement(
     caluma_admin_user,
     settings,
     reload_ech0211_urls,
+    alexandria_settings,
 ):
+    alexandria_settings["ENABLED"] = False
     attachment_section_beteiligte_behoerden = attachment_section_factory(
         pk=ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN
     )
@@ -470,7 +474,9 @@ def test_send_403_attachment_permissions(
     mocker,
     be_distribution_settings,
     reload_ech0211_urls,
+    alexandria_settings,
 ):
+    alexandria_settings["ENABLED"] = False
     mocker.patch.object(
         NoticeRulingSendHandler, "has_permission", return_value=(True, None)
     )
@@ -506,7 +512,9 @@ def test_send_404_attachment_missing(
     role_factory,
     settings,
     reload_ech0211_urls,
+    alexandria_settings,
 ):
+    alexandria_settings["ENABLED"] = False
     group = admin_user.groups.first()
     group.service = ech_instance_be.services.first()
     group.role = role_factory(name="support")
