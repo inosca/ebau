@@ -5,9 +5,11 @@ from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
 from django.utils import timezone
+from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from camac.constants import kt_gr as gr_constants
+from camac.instance.models import Instance
 from camac.permissions import events, exceptions
 from camac.permissions.models import InstanceACL
 from camac.permissions.switcher import PERMISSION_MODE
@@ -456,6 +458,50 @@ def test_change_responsible_service(
     assert lead.filter(service=new_responsible).exists()
     assert not involved.filter(service=new_responsible).exists()
     assert involved.filter(service=old_responsible).exists()
+
+
+@pytest.mark.parametrize(
+    "instance_state__name,instance__location",
+    [("new", None), ("new", LazyFixture("location"))],
+)
+def test_create_instance_event_be(
+    admin_client,
+    admin_user,
+    form,
+    instance_state,
+    be_instance,
+    role_factory,
+    be_access_levels,
+    caluma_forms_be,
+    caluma_workflow_config_be,
+    be_permissions_settings,
+):
+    url = reverse("instance-list")
+
+    support_role = role_factory(name="support")
+
+    data = {
+        "data": {
+            "type": "instances",
+            "id": None,
+            "attributes": {
+                "caluma-form": "main-form",
+                "caluma-workflow": "building-permit",
+            },
+            "relationships": {},
+        }
+    }
+
+    response = admin_client.post(url, data=data)
+    assert response.status_code == status.HTTP_201_CREATED
+
+    instance_id = response.json()["data"]["id"]
+    inst = Instance.objects.get(pk=instance_id)
+
+    support_acl = inst.acls.filter(access_level_id="support").get()
+
+    assert support_acl.is_active()
+    assert support_acl.role == support_role
 
 
 @pytest.mark.parametrize("instance_state__name", ["circulation"])

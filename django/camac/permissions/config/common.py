@@ -5,7 +5,7 @@ from django.conf import settings
 from camac.instance.models import Instance
 from camac.permissions import api as permissions_api
 from camac.permissions.models import AccessLevel, InstanceACL
-from camac.user.models import Service
+from camac.user.models import Role, Service
 
 log = getLogger(__name__)
 
@@ -124,3 +124,14 @@ class DistributionHandlerMixin:
                 access_level="distribution-service",
                 service=addr_service,
             )
+
+
+class GrantSupportOnCreationHandlerMixin:
+    def instance_created(self, instance: Instance):
+        support_role = Role.objects.get(name="support")
+        self.manager.grant(
+            instance,
+            grant_type="ROLE",
+            access_level="support",
+            role=support_role,
+        )

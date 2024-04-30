@@ -90,6 +90,9 @@ BE_CONSTRUCTION_CONTROL_PERMISSIONS = [
     ("communications-read", BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES),
 ]
 
+# Support always has access to instance (and (almost?) all IRs on it)
+SUPPORT_CONDITION = Always()
+
 BE_MUNICIPALITY_READ_PERMISSIONS = [
     ("communications-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
     ("geometer-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
@@ -216,6 +219,14 @@ BE_PERMISSIONS_SETTINGS = {
         "lead-authority": BE_MUNICIPALITY_READ_PERMISSIONS,
         "involved-authority": BE_MUNICIPALITY_READ_PERMISSIONS,
         "construction-control": BE_CONSTRUCTION_CONTROL_PERMISSIONS,
+        "support": [
+            ("support-read", SUPPORT_CONDITION),
+            ("form-read", SUPPORT_CONDITION),
+            ("documents-read", SUPPORT_CONDITION),
+            ("audit-log-read", SUPPORT_CONDITION),
+            ("changelog-read", SUPPORT_CONDITION),
+            ("history-read", SUPPORT_CONDITION),
+        ],
         "distribution-service": [
             ("work-items-read", BE_SERVICE_STATES_DEFAULT),
             ("communications-read", BE_SERVICE_STATES_DEFAULT),

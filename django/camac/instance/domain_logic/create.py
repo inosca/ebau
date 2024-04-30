@@ -639,4 +639,6 @@ class CreateInstanceLogic:
             skip_exported_form_attachment,
         )
 
+        Trigger.instance_created(None, instance)
+
         return instance

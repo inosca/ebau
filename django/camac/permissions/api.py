@@ -13,7 +13,7 @@ from camac.permissions import models
 from camac.permissions.conditions import Check
 from camac.permissions.models import AccessLevel, InstanceACL
 from camac.user import models as user_models
-from camac.user.models import Service, User
+from camac.user.models import Role, Service, User
 
 from . import exceptions
 
@@ -215,6 +215,7 @@ class PermissionManager:
         access_level: Union[AccessLevel, str],
         user: Optional[User] = None,
         service: Optional[Service] = None,
+        role: Optional[Role] = None,
         token: Optional[str] = None,
         starting_at: Optional[datetime] = None,
         ends_at: Optional[datetime] = None,
@@ -251,6 +252,7 @@ class PermissionManager:
             user=user,
             service=service,
             token=token,
+            role=role,
             starting_at=starting_at,
             ends_at=ends_at,
             access_level=access_level,
@@ -263,6 +265,7 @@ class PermissionManager:
             access_level=access_level,
             service=service,
             token=token,
+            role=role,
             end_time=ends_at,
             created_by_user=self.userinfo.user,
             created_by_event=event_name,
@@ -357,6 +360,7 @@ def _validate_grant(  # noqa: C901
     grant_type,
     user,
     service,
+    role,
     token,
     ends_at,
     starting_at,
@@ -370,34 +374,37 @@ def _validate_grant(  # noqa: C901
             f"Access level requires grant type {access_level.required_grant_type}"
         )
 
-    if grant_type == models.GRANT_CHOICES.USER.value:
-        is_ok = user and not service and not token
-        if not is_ok:
-            raise exceptions.GrantValidationError(
-                "Grant type USER must have only the `user` value set"
-            )
-    elif grant_type == models.GRANT_CHOICES.SERVICE.value:
-        is_ok = service and not user and not token
-        if not is_ok:
-            raise exceptions.GrantValidationError(
-                "Grant type SERVICE must have only the `service` value set"
-            )
-    elif grant_type == models.GRANT_CHOICES.TOKEN.value:
-        is_ok = token and not service and not user
-        if not is_ok:
-            raise exceptions.GrantValidationError(
-                "Grant type TOKEN must have only the `token` value set"
-            )
-    elif grant_type in [
+    # Ensure given grant type is valid
+    if grant_type not in models.GRANT_CHOICES:
+        raise exceptions.GrantValidationError(f"Unhandled grant type {grant_type}")
+
+    # Anonymous must not have any parameters. All others (parametrized ones)
+    # must have exactly one (and the right one as well).
+    only_one = {"SERVICE": service, "TOKEN": token, "ROLE": role, "USER": user}
+    has_required_param = only_one.pop(grant_type, None)
+    anonymous_ok = not has_required_param and not any(only_one.values())
+    parametrized_ok = has_required_param and not any(only_one.values())
+
+    is_anonymous = grant_type in (
         models.GRANT_CHOICES.ANONYMOUS_PUBLIC.value,
         models.GRANT_CHOICES.AUTHENTICATED_PUBLIC.value,
-    ]:
-        if user or service or token:
-            raise exceptions.GrantValidationError(
-                "Anonymous grants must not have user or service or token"
-            )
-    else:
-        raise exceptions.GrantValidationError(f"Unhandled grant type {grant_type}")
+    )
+    is_parametrized = not is_anonymous
+
+    if is_anonymous and not anonymous_ok:
+        # ANONYMOUS_* are unparametrized grant types - they are not limiting
+        # audience to a specific user group. If we reach this, then there's at
+        # least one limiting parameter given that we do not want.
+        raise exceptions.GrantValidationError(
+            "Anonymous grants must not have user or service or token"
+        )
+    elif is_parametrized and not parametrized_ok:
+        # All "parametrized" grant types must have exactly the matching
+        # parameter given for the grant type, and none of the other parameters.
+        param = grant_type.lower()
+        raise exceptions.GrantValidationError(
+            f"Grant type {grant_type} must have only the `{param}` value set"
+        )
 
     if ends_at and ends_at <= starting_at:
         raise exceptions.GrantValidationError(

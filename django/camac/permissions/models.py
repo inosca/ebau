@@ -19,6 +19,11 @@ class GRANT_CHOICES(models.TextChoices):
     # linked to said service.
     SERVICE = "SERVICE", "Service"
 
+    # Grant type: Role means user must have the linked
+    # role, AND the x-camac-group header refers to a group
+    # linked to said role.
+    ROLE = "ROLE", "Role"
+
     # User directly linked
     USER = "USER", "User"
 
@@ -89,6 +94,13 @@ class InstanceACL(models.Model):
         blank=True,
         on_delete=models.CASCADE,
         related_name="acls",
+    )
+    role = models.ForeignKey(
+        user_models.Role,
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE,
+        related_name="instance_acls",
     )
     token = models.CharField(max_length=250, null=True, blank=True, default=None)
 
