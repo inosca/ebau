@@ -92,8 +92,10 @@ module("Integration | Component | decision/appeal-button", function (hooks) {
       201,
     );
 
-    this.redirect = (id) => {
-      assert.strictEqual(id, 99);
+    this.owner.lookup("service:ebau-modules").redirectToInstance = (
+      instanceId,
+    ) => {
+      assert.strictEqual(instanceId, 99);
       assert.step("redirect");
     };
 
@@ -101,7 +103,6 @@ module("Integration | Component | decision/appeal-button", function (hooks) {
       <Decision::AppealButton
         @field={{this.field}}
         @context={{hash instanceId=this.instance.id}}
-        @redirectTo={{this.redirect}}
       />
     `);
 

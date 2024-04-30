@@ -1,4 +1,5 @@
 from caluma.caluma_workflow import models as workflow_models
+from caluma.caluma_workflow.api import skip_work_item
 from django.conf import settings
 
 from camac.core.utils import canton_aware, generate_sort_key
@@ -88,7 +89,7 @@ class DecisionLogic:
             return (
                 decision == settings.APPEAL["ANSWERS"]["DECISION"]["CONFIRMED"]
                 and previous_state == "construction-monitoring"
-            ) or decision == settings.APPEAL["ANSWERS"]["DECISION"]["CHANGED"]
+            )
 
         construction_tee = (
             work_item.document.answers.filter(
@@ -191,10 +192,19 @@ class DecisionLogic:
         if not settings.APPEAL or not instance.case.meta.get("is-appeal"):
             return
 
-        if work_item.document.answers.filter(
-            question_id=settings.APPEAL["QUESTIONS"]["DECISION"],
-            value=settings.APPEAL["ANSWERS"]["DECISION"]["REJECTED"],
-        ).exists():
+        decision = (
+            work_item.document.answers.filter(
+                question_id=settings.DECISION["QUESTIONS"]["DECISION"]
+            )
+            .values_list("value", flat=True)
+            .first()
+        )
+
+        if (
+            decision == settings.APPEAL["ANSWERS"]["DECISION"]["REJECTED"]
+            or settings.APPLICATION_NAME == "kt_so"
+            and decision == settings.APPEAL["ANSWERS"]["DECISION"]["CHANGED"]
+        ):
             new_instance = copy_instance(
                 instance=instance,
                 group=Group.objects.get(pk=user.camac_group),
@@ -213,10 +223,28 @@ class DecisionLogic:
                     ebau_number=instance.case.meta.get("ebau-number"),
                     caluma_user=user,
                 )
-            else:
+            elif settings.APPLICATION_NAME == "kt_so":
                 identifier = CreateInstanceLogic.generate_identifier(new_instance)
                 new_instance.case.meta["dossier-number"] = identifier
                 new_instance.case.meta["dossier-number-sort"] = generate_sort_key(
                     identifier
                 )
                 new_instance.case.save()
+
+                if decision == settings.APPEAL["ANSWERS"]["DECISION"]["CHANGED"]:
+                    for task_id in [
+                        "formal-exam",
+                        "material-exam",
+                        "distribution",
+                        "publication",
+                    ]:
+                        for work_item in workflow_models.WorkItem.objects.filter(
+                            task_id=task_id,
+                            status=workflow_models.WorkItem.STATUS_READY,
+                            case__family__instance=new_instance,
+                        ):
+                            skip_work_item(work_item, user)
+
+                    new_instance.set_instance_state(
+                        settings.DECISION["INSTANCE_STATE"], camac_user
+                    )
