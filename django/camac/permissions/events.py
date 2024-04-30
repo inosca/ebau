@@ -100,6 +100,7 @@ class Trigger:
 
     decision_decreed = EventTrigger()
     construction_acceptance_completed = EventTrigger()
+    instance_created = EventTrigger()
     instance_submitted = EventTrigger()
     changed_responsible_service = EventTrigger()
     inquiry_sent = EventTrigger()
@@ -145,6 +146,9 @@ class PermissionEventHandler(metaclass=ABCMeta):
     def decision_decreed(self, instance: Instance): ...  # pragma: no cover
 
     @abstractmethod
+    def instance_created(self, instance: Instance): ...  # pragma: no cover
+
+    @abstractmethod
     def construction_acceptance_completed(
         self, instance: Instance
     ): ...  # pragma: no cover
@@ -174,6 +178,9 @@ class EmptyEventHandler(PermissionEventHandler):
     It implements every relevant event handler, but with no actual
     effects.
     """
+
+    def instance_created(self, instance: Instance):
+        return  # pragma: no cover
 
     def decision_decreed(self, instance: Instance):
         return  # pragma: no cover

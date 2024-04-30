@@ -58,5 +58,15 @@
       "required_grant_type": "SERVICE",
       "applicable_area": "INTERNAL"
     }
+  },
+  {
+    "model": "permissions.accesslevel",
+    "pk": "support",
+    "fields": {
+      "name": "{\"de\": \"Support\", \"fr\": \"Support\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "required_grant_type": "ROLE",
+      "applicable_area": "ANY"
+    }
   }
 ]
