@@ -3336,7 +3336,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "angaben-zum-ersatzstandort",
-      "sort": 17
+      "sort": 14
     }
   },
   {
@@ -3351,7 +3351,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "angaben-zur-wiederbepflanzung",
-      "sort": 16
+      "sort": 13
     }
   },
   {
@@ -3366,7 +3366,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "art-der-entfernung-der-hecke",
-      "sort": 20
+      "sort": 17
     }
   },
   {
@@ -3381,7 +3381,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "ausnahmetatbestand",
-      "sort": 30
+      "sort": 27
     }
   },
   {
@@ -3456,7 +3456,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "bauabstand-baulinie-an-kantonsstrasse-titel",
-      "sort": 12
+      "sort": 9
     }
   },
   {
@@ -3471,7 +3471,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "bauabstand-kantonsstrasse-unterschritten",
-      "sort": 11
+      "sort": 8
     }
   },
   {
@@ -3486,7 +3486,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "bauabstand-unterschritten",
-      "sort": 34
+      "sort": 31
     }
   },
   {
@@ -3516,7 +3516,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "begruendung-ausnahmebewilligung-hecken",
-      "sort": 24
+      "sort": 21
     }
   },
   {
@@ -3531,7 +3531,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "begruendung-ausnahmebewilligung-unterschreitung-bauabstand",
-      "sort": 9
+      "sort": 6
     }
   },
   {
@@ -3546,7 +3546,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "begruendung-ausnahmetatbestand",
-      "sort": 29
+      "sort": 26
     }
   },
   {
@@ -3561,7 +3561,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "begruendung-entfernung-hecke",
-      "sort": 19
+      "sort": 16
     }
   },
   {
@@ -3576,7 +3576,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "die-bauherrschaft-betreibt",
-      "sort": 5
+      "sort": 38
     }
   },
   {
@@ -3591,7 +3591,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "fruchtfolgeflaechen-beansprucht",
-      "sort": 39
+      "sort": 36
     }
   },
   {
@@ -3606,7 +3606,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "hecke-entfernt",
-      "sort": 22
+      "sort": 19
     }
   },
   {
@@ -3621,7 +3621,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "hecken-titel",
-      "sort": 27
+      "sort": 24
     }
   },
   {
@@ -3636,7 +3636,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "hinweis-ausnahmebewilligung",
-      "sort": 31
+      "sort": 28
     }
   },
   {
@@ -3651,7 +3651,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "hinweis-ausnahmebewilligung-entfernung-von-hecken",
-      "sort": 21
+      "sort": 18
     }
   },
   {
@@ -3666,7 +3666,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "hinweis-ausnahmebewilligung-hecken",
-      "sort": 25
+      "sort": 22
     }
   },
   {
@@ -3681,7 +3681,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "hinweis-ausnahmebewilligung-unterschreitung-bauabstand",
-      "sort": 10
+      "sort": 7
     }
   },
   {
@@ -3696,7 +3696,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "hinweis-fruchtfolgeflaechen",
-      "sort": 38
+      "sort": 35
     }
   },
   {
@@ -3711,7 +3711,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "hinweis-keine-ausnahmebewilligung",
-      "sort": 32
+      "sort": 29
     }
   },
   {
@@ -3726,7 +3726,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "hinweis-wegebau",
-      "sort": 36
+      "sort": 33
     }
   },
   {
@@ -3741,7 +3741,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "hinweis-zusaetzliche-gesuchsunterlagen",
-      "sort": 28
+      "sort": 25
     }
   },
   {
@@ -3756,7 +3756,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "hinweis-zusaetzliche-gesuchsunterlagen-entfernung-hecken",
-      "sort": 15
+      "sort": 12
     }
   },
   {
@@ -3771,7 +3771,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "hinweis-zusaetzliche-gesuchsunterlagen-entfernung-hecken-teilweise",
-      "sort": 13
+      "sort": 10
     }
   },
   {
@@ -3786,7 +3786,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "hinweis-zusaetzliche-gesuchsunterlagen-entfernung-hecken-temporaer",
-      "sort": 14
+      "sort": 11
     }
   },
   {
@@ -3801,7 +3801,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "hinweis-zusaetzliche-gesuchsunterlagen-hecken",
-      "sort": 23
+      "sort": 20
     }
   },
   {
@@ -3816,7 +3816,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "hinweis-zusaetzliche-gesuchsunterlagen-kantonsstrasse",
-      "sort": 8
+      "sort": 5
     }
   },
   {
@@ -3831,7 +3831,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "oeffentliche-strasse",
-      "sort": 33
+      "sort": 30
     }
   },
   {
@@ -3846,7 +3846,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "unterschreitung-heckenabstand",
-      "sort": 26
+      "sort": 23
     }
   },
   {
@@ -3861,7 +3861,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "vorhaben-innerhalb-der-landwirtschaftszone",
-      "sort": 6
+      "sort": 39
     }
   },
   {
@@ -3876,7 +3876,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "vorhaben-innerhalb-des-waldes",
-      "sort": 4
+      "sort": 37
     }
   },
   {
@@ -3891,7 +3891,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "waldabstand-titel",
-      "sort": 35
+      "sort": 32
     }
   },
   {
@@ -3906,7 +3906,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "wegebau",
-      "sort": 37
+      "sort": 34
     }
   },
   {
@@ -3921,22 +3921,7 @@
       "modified_by_group": null,
       "form": "bauen-ausserhalb-bauzone",
       "question": "wegfallende-heckenflaeche",
-      "sort": 18
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bauen-ausserhalb-bauzone.weiterfuehrende-themenfelder-bab-titel",
-    "fields": {
-      "created_at": "2024-04-05T13:31:58.716Z",
-      "modified_at": "2024-04-05T13:31:58.716Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "bauen-ausserhalb-bauzone",
-      "question": "weiterfuehrende-themenfelder-bab-titel",
-      "sort": 7
+      "sort": 15
     }
   },
   {
@@ -4131,7 +4116,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "art-der-bauwerke",
-      "sort": 17
+      "sort": 23
     }
   },
   {
@@ -4146,7 +4131,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "aushublagerplaetze-oder-baupisten",
-      "sort": 24
+      "sort": 17
     }
   },
   {
@@ -4161,7 +4146,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "bab",
-      "sort": 23
+      "sort": 14
     }
   },
   {
@@ -4176,7 +4161,22 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "bab-nachtraeglich-anforderungen",
-      "sort": 20
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt.bab-titel",
+    "fields": {
+      "created_at": "2024-04-29T11:30:22.701Z",
+      "modified_at": "2024-04-29T11:30:22.701Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauprojekt",
+      "question": "bab-titel",
+      "sort": 18
     }
   },
   {
@@ -4191,22 +4191,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "bauprojekt-titel",
-      "sort": 26
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bauprojekt.bauvorhaben-innerhalb-bauzone-mit-temporaerer-auswirkung-auf-nichtbauzone",
-    "fields": {
-      "created_at": "2024-04-05T13:26:03.171Z",
-      "modified_at": "2024-04-05T13:26:03.171Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "bauprojekt",
-      "question": "bauvorhaben-innerhalb-bauzone-mit-temporaerer-auswirkung-auf-nichtbauzone",
-      "sort": 25
+      "sort": 27
     }
   },
   {
@@ -4236,7 +4221,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "behig",
-      "sort": 13
+      "sort": 19
     }
   },
   {
@@ -4266,7 +4251,22 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "beschreibung",
-      "sort": 14
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt.datum-bis-zu-welchem-der-rueckbau-erfolgt",
+    "fields": {
+      "created_at": "2024-04-29T13:47:13.678Z",
+      "modified_at": "2024-04-29T13:47:13.678Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauprojekt",
+      "question": "datum-bis-zu-welchem-der-rueckbau-erfolgt",
+      "sort": 16
     }
   },
   {
@@ -4386,7 +4386,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "hinweis-art-der-arbeiten",
-      "sort": 16
+      "sort": 22
     }
   },
   {
@@ -4401,7 +4401,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "hinweis-aushublagerplaetze-sowie-baupisten",
-      "sort": 22
+      "sort": 15
     }
   },
   {
@@ -4446,7 +4446,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "nutzungszwecke",
-      "sort": 15
+      "sort": 21
     }
   },
   {
@@ -4461,7 +4461,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "stand-der-realisierung",
-      "sort": 19
+      "sort": 25
     }
   },
   {
@@ -4476,7 +4476,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "status-bauprojekt",
-      "sort": 21
+      "sort": 26
     }
   },
   {
@@ -4521,7 +4521,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "umschreibung-bauprojekt",
-      "sort": 18
+      "sort": 24
     }
   },
   {
@@ -4746,7 +4746,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "angaben-zum-aktuellen-und-zukuenftigen-tierbestand",
-      "sort": 54
+      "sort": 57
     }
   },
   {
@@ -4761,7 +4761,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "angaben-zum-ersatzstandort-der-hecke",
-      "sort": 62
+      "sort": 65
     }
   },
   {
@@ -4776,7 +4776,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "angaben-zur-wiederbepflanzung-der-hecke",
-      "sort": 61
+      "sort": 64
     }
   },
   {
@@ -4791,7 +4791,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "arbeitsvoranschlag-arbeitskraeftebedarf",
-      "sort": 55
+      "sort": 58
     }
   },
   {
@@ -4806,7 +4806,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "auflistung-aller-zufahrtswege",
-      "sort": 68
+      "sort": 71
     }
   },
   {
@@ -4821,7 +4821,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "begruendung-der-ueberschreitung-der-zulaessigen-unentbehrlichen-landwirtschaftlichen-wohnflaeche",
-      "sort": 47
+      "sort": 50
     }
   },
   {
@@ -4836,7 +4836,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "bemerkungen-dokumente",
-      "sort": 94
+      "sort": 96
     }
   },
   {
@@ -4866,7 +4866,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "beschrieb-herstellung-urspruengliches-zustandes",
-      "sort": 73
+      "sort": 76
     }
   },
   {
@@ -4896,7 +4896,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "bestehende-strassen-wege",
-      "sort": 66
+      "sort": 69
     }
   },
   {
@@ -4911,7 +4911,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "betriebskonzept",
-      "sort": 58
+      "sort": 61
     }
   },
   {
@@ -4926,7 +4926,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "betriebskonzept-art-24b-rpg",
-      "sort": 57
+      "sort": 60
     }
   },
   {
@@ -4956,7 +4956,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "betriebsvoranschlag",
-      "sort": 56
+      "sort": 59
     }
   },
   {
@@ -4971,7 +4971,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "brandschutzplaene",
-      "sort": 88
+      "sort": 90
     }
   },
   {
@@ -4986,7 +4986,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "deklaration-der-vorhandenen-wohngebaeude-flaechen",
-      "sort": 49
+      "sort": 52
     }
   },
   {
@@ -5061,7 +5061,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "einverstaendniserklaerung-betroffener-grundeigentuemer",
-      "sort": 72
+      "sort": 75
     }
   },
   {
@@ -5076,7 +5076,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "energienachweis",
-      "sort": 86
+      "sort": 89
     }
   },
   {
@@ -5091,7 +5091,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "entwaesserungsplan",
-      "sort": 83
+      "sort": 86
     }
   },
   {
@@ -5106,7 +5106,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "erhebungsbogen-baulicher-gewaesserschutz-mit-entwaesserungsplan",
-      "sort": 50
+      "sort": 53
     }
   },
   {
@@ -5136,7 +5136,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "fassadenplaene",
-      "sort": 89
+      "sort": 91
     }
   },
   {
@@ -5166,7 +5166,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "flaechennachweis-erweiterungen",
-      "sort": 45
+      "sort": 48
     }
   },
   {
@@ -5196,7 +5196,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "formular-deckungsbeitrag-trockensubstanz",
-      "sort": 52
+      "sort": 55
     }
   },
   {
@@ -5211,7 +5211,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "fotodokumentation",
-      "sort": 81
+      "sort": 84
     }
   },
   {
@@ -5226,7 +5226,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "fotos-des-teilweise-ausgefuehrten-objektes",
-      "sort": 71
+      "sort": 74
     }
   },
   {
@@ -5241,7 +5241,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "gemeinschaftsvertrag",
-      "sort": 51
+      "sort": 54
     }
   },
   {
@@ -5271,7 +5271,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "grundrissplaene",
-      "sort": 91
+      "sort": 93
     }
   },
   {
@@ -5316,7 +5316,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "laengenprofile",
-      "sort": 82
+      "sort": 85
     }
   },
   {
@@ -5331,7 +5331,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "laengen-und-querprofil-strasse",
-      "sort": 69
+      "sort": 72
     }
   },
   {
@@ -5376,7 +5376,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-dass-schutzobjekt-in-seiner-substanz-erhalten-ist",
-      "sort": 40
+      "sort": 43
     }
   },
   {
@@ -5391,7 +5391,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-der-formellen-unterschutzstellung",
-      "sort": 42
+      "sort": 45
     }
   },
   {
@@ -5436,7 +5436,22 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-erschliessung",
-      "sort": 38
+      "sort": 40
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.nachweis-erschliessung-24d",
+    "fields": {
+      "created_at": "2024-04-30T08:13:25.006Z",
+      "modified_at": "2024-04-30T08:13:25.006Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "nachweis-erschliessung-24d",
+      "sort": 39
     }
   },
   {
@@ -5451,7 +5466,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-erstellung-bodenschutz",
-      "sort": 76
+      "sort": 78
     }
   },
   {
@@ -5466,7 +5481,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-erweiterungen-fuer-zeitgemaesse-wohnnutzung",
-      "sort": 43
+      "sort": 46
     }
   },
   {
@@ -5481,7 +5496,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-fachliche-qualifikation",
-      "sort": 46
+      "sort": 49
     }
   },
   {
@@ -5496,7 +5511,22 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-kein-bedarf-fuer-bisherigen-zweck",
-      "sort": 39
+      "sort": 42
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.nachweis-kein-bedarf-fuer-bisherigen-zweck-24b",
+    "fields": {
+      "created_at": "2024-04-30T08:08:40.854Z",
+      "modified_at": "2024-04-30T08:08:40.854Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "nachweis-kein-bedarf-fuer-bisherigen-zweck-24b",
+      "sort": 41
     }
   },
   {
@@ -5511,7 +5541,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-keine-terrainveraenderungen",
-      "sort": 77
+      "sort": 79
     }
   },
   {
@@ -5541,6 +5571,21 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-landw-bewirtschaftung-nicht-gefaehrdet",
+      "sort": 38
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.nachweis-landw-bewirtschaftung-nicht-gefaehrdet-24d",
+    "fields": {
+      "created_at": "2024-04-30T08:13:46.701Z",
+      "modified_at": "2024-04-30T08:13:46.701Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "nachweis-landw-bewirtschaftung-nicht-gefaehrdet-24d",
       "sort": 37
     }
   },
@@ -5556,7 +5601,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-landwirtschaftlicher-nutzflaechen",
-      "sort": 59
+      "sort": 62
     }
   },
   {
@@ -5571,7 +5616,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-land-wohnbaute-in-ihrer-substanz-erhalten",
-      "sort": 44
+      "sort": 47
     }
   },
   {
@@ -5586,7 +5631,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-produkteherkunft",
-      "sort": 53
+      "sort": 56
     }
   },
   {
@@ -5646,7 +5691,22 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-standortgebundenheit",
-      "sort": 78
+      "sort": 81
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.nachweis-standortgebundenheit-2",
+    "fields": {
+      "created_at": "2024-04-29T12:02:56.105Z",
+      "modified_at": "2024-04-29T12:02:56.105Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "nachweis-standortgebundenheit-2",
+      "sort": 80
     }
   },
   {
@@ -5661,7 +5721,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-veraenderungen-unerlaesslich",
-      "sort": 41
+      "sort": 44
     }
   },
   {
@@ -5706,7 +5766,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "neubau-strassen-wege",
-      "sort": 67
+      "sort": 70
     }
   },
   {
@@ -5721,7 +5781,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "normalprofil",
-      "sort": 84
+      "sort": 87
     }
   },
   {
@@ -6081,7 +6141,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "querprofile",
-      "sort": 85
+      "sort": 88
     }
   },
   {
@@ -6101,21 +6161,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "dokumente.rueckbau-datum",
-    "fields": {
-      "created_at": "2023-11-09T15:00:33.093Z",
-      "modified_at": "2023-11-09T15:00:33.093Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente",
-      "question": "rueckbau-datum",
-      "sort": 74
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "dokumente.schnittplaene",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -6126,7 +6171,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "schnittplaene",
-      "sort": 90
+      "sort": 92
     }
   },
   {
@@ -6141,7 +6186,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-1-1000",
-      "sort": 93
+      "sort": 95
     }
   },
   {
@@ -6156,7 +6201,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-1-500",
-      "sort": 92
+      "sort": 94
     }
   },
   {
@@ -6171,7 +6216,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-inkl-vermasstem-abstand-zur-kantonsstrasse",
-      "sort": 60
+      "sort": 63
     }
   },
   {
@@ -6186,7 +6231,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-inkl-vermasster-heckengrenze",
-      "sort": 64
+      "sort": 67
     }
   },
   {
@@ -6201,7 +6246,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-inkl-vermasster-waldabstand",
-      "sort": 65
+      "sort": 68
     }
   },
   {
@@ -6216,7 +6261,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-inkl-vermassung-betroffener-hecke-wegfallende-flaeche",
-      "sort": 63
+      "sort": 66
     }
   },
   {
@@ -6246,7 +6291,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-strasse",
-      "sort": 70
+      "sort": 73
     }
   },
   {
@@ -6276,7 +6321,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "technischer-beschrieb",
-      "sort": 79
+      "sort": 82
     }
   },
   {
@@ -6321,7 +6366,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "unterlagen-fuer-berechnung-des-unentbehrlichen-landwirtschaftlichen-wohnbedarfs",
-      "sort": 48
+      "sort": 51
     }
   },
   {
@@ -6336,7 +6381,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vermasster-situationsplan",
-      "sort": 75
+      "sort": 77
     }
   },
   {
@@ -6366,7 +6411,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "werkleitungsplan",
-      "sort": 80
+      "sort": 83
     }
   },
   {
@@ -22986,13 +23031,29 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "nachweis-erschliessung-ja",
+    "pk": "nachweis-erschliessung-24d-ja",
     "fields": {
-      "created_at": "2023-11-13T08:30:01.287Z",
-      "modified_at": "2023-11-13T08:30:01.287Z",
+      "created_at": "2024-04-30T08:13:24.497Z",
+      "modified_at": "2024-04-30T08:13:24.497Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nachweis Erschliessung (Art. 24d Abs. 3 Bst. c RPG)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nachweis-erschliessung-ja",
+    "fields": {
+      "created_at": "2023-11-13T08:30:01.287Z",
+      "modified_at": "2024-04-30T08:11:08.348Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Nachweis Erschliessung (Art. 24b RPG i.V.m. Art. 43a Bst. c RPV)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
@@ -23050,13 +23111,29 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "nachweis-kein-bedarf-fuer-bisherigen-zweck-ja",
+    "pk": "nachweis-kein-bedarf-fuer-bisherigen-zweck-24b-ja",
     "fields": {
-      "created_at": "2023-11-13T09:39:06.795Z",
-      "modified_at": "2023-11-13T09:39:06.795Z",
+      "created_at": "2024-04-30T08:08:40.246Z",
+      "modified_at": "2024-04-30T08:08:40.246Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nachweis kein Bedarf f\\u00fcr bisherigen Zweck (Art. 24b RPG i.V.m. Art. 43a Bst. a und b RPV)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nachweis-kein-bedarf-fuer-bisherigen-zweck-ja",
+    "fields": {
+      "created_at": "2023-11-13T09:39:06.795Z",
+      "modified_at": "2024-04-30T08:08:05.123Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Nachweis kein Bedarf f\\u00fcr bisherigen Zweck (Art. 24d Abs. 3 Bst. a RPG)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
@@ -23098,13 +23175,29 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "nachweis-landw-bewirtschaftung-nicht-gefaehrdet-ja",
+    "pk": "nachweis-landw-bewirtschaftung-nicht-gefaehrdet-art-24d-abs-3-bst-d-rpg-ja",
     "fields": {
-      "created_at": "2023-11-13T08:33:41.457Z",
-      "modified_at": "2023-11-13T08:33:41.458Z",
+      "created_at": "2024-04-30T08:13:46.187Z",
+      "modified_at": "2024-04-30T08:13:46.187Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nachweis landw. Bewirtschaftung nicht gef\\u00e4hrdet (Art. 24d Abs. 3 Bst. d RPG)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nachweis-landw-bewirtschaftung-nicht-gefaehrdet-ja",
+    "fields": {
+      "created_at": "2023-11-13T08:33:41.457Z",
+      "modified_at": "2024-04-30T08:12:07.147Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Nachweis landw. Bewirtschaftung nicht gef\\u00e4hrdet (Art. 24b RPG i.V.m. Art. 43a Bst. d RPG)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
@@ -23203,6 +23296,22 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nachweis, sofern anderer massgeblicher Vergleichszustand als 01.07.1972\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nachweis-standortgebundenheit-2-ja",
+    "fields": {
+      "created_at": "2024-04-29T12:02:55.617Z",
+      "modified_at": "2024-04-29T12:02:55.617Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nachweis der Standortgebundenheit (Art. 24 RPG)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -24643,22 +24752,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "rueckbau-datum-ja",
-    "fields": {
-      "created_at": "2023-11-09T15:00:32.735Z",
-      "modified_at": "2023-11-09T15:00:32.735Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Datum, bis zu welchem der R\\u00fcckbau erfolgt\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -30831,12 +30924,12 @@
     "pk": "aushublagerplaetze-oder-baupisten",
     "fields": {
       "created_at": "2023-11-09T14:40:54.576Z",
-      "modified_at": "2024-04-05T13:24:30.895Z",
+      "modified_at": "2024-04-29T11:28:55.425Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Beinhaltet das (Bau-)Vorhaben \\\"tempor\\u00e4re Installations- und Aushublagerpl\\u00e4tze sowie Baupisten\\\" ausserhalb der Bauzone?\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Hat das innerhalb der Bauzone liegende (Bau-)vorhaben \\\"tempor\\u00e4re Installations- und Aushublagerpl\\u00e4tze sowie Baupisten\\\" ausserhalb der Bauzone zur Folge?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "false",
@@ -31209,7 +31302,7 @@
     "pk": "bab-allgemeine-angaben-titel",
     "fields": {
       "created_at": "2023-11-09T15:06:12.767Z",
-      "modified_at": "2023-11-09T15:07:21.869Z",
+      "modified_at": "2024-04-29T11:33:25.585Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -31222,7 +31315,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"### Allgemeine Angaben\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"#### Allgemeine Angaben\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -31240,7 +31333,7 @@
     "pk": "bab-ausnahmebewilligung",
     "fields": {
       "created_at": "2023-11-13T08:00:15.070Z",
-      "modified_at": "2024-04-08T08:54:30.144Z",
+      "modified_at": "2024-04-30T09:53:58.704Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -31248,7 +31341,7 @@
       "label": "{\"de\": \"Ausnahmebewilligungen nach Art. 24 ff. RPG\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!(\n\t\"die-bauherrschaft-betreibt\"|answer == \"die-bauherrschaft-betreibt-keinen-landwirtschaftlichen-betrieb\" ||\n\t\"vorhaben-innerhalb-des-waldes\"|answer == \"vorhaben-innerhalb-des-waldes-nein\" ||\n\t\"einfache-offene-erholungs-und-jagdeinrichtung\"|answer in [\n\t\t\"einfache-offene-erholungs-und-jagdeinrichtung-nein\",\n\t\t\"einfache-offene-erholungs-und-jagdeinrichtung-teilweise\"\n\t] ||\n\t\"landwirtschaftliche-baute\"|answer in [\n\t\t\"landwirtschaftliche-baute-nein\",\n\t\t\"landwirtschaftliche-baute-teilweise\"\n\t] ||\n\t\"forstliche-baute-oder-anlage-teilweise\" == \"forstliche-baute-oder-anlage\"|answer\n)",
+      "is_hidden": "!(\n\t(\n\t\t\"vorhaben-innerhalb-der-landwirtschaftszone\"|answer == \"vorhaben-innerhalb-der-landwirtschaftszone-nein\" &&\n\t\t\"vorhaben-innerhalb-des-waldes\"|answer == \"vorhaben-innerhalb-des-waldes-nein\"\n\t) ||\n\t(\n\t\t\"vorhaben-innerhalb-der-landwirtschaftszone\"|answer == \"vorhaben-innerhalb-der-landwirtschaftszone-ja\" &&\n\t\t(\n\t\t\t\"die-bauherrschaft-betreibt\"|answer == \"die-bauherrschaft-betreibt-keinen-landwirtschaftlichen-betrieb\" ||\n\t\t\t(\n\t\t\t\t\"die-bauherrschaft-betreibt\"|answer in [\n\t\t\t\t\t\"die-bauherrschaft-betreibt-landwirtschaftliches-gewerbe\",\n\t\t\t\t\t\"die-bauherrschaft-betreibt-landwirtschaftlichen-nebenerwerbsbetrieb\"\n\t\t\t\t] &&\n\t\t\t\t\"landwirtschaftliche-baute\"|answer in [\n\t\t\t\t\t\"landwirtschaftliche-baute-nein\",\n\t\t\t\t\t\"landwirtschaftliche-baute-teilweise\"\n\t\t\t\t]\n\t\t\t)\n\t\t)\n    ) ||\n    (\n    \t\"vorhaben-innerhalb-des-waldes\"|answer == \"vorhaben-innerhalb-des-waldes-ja\" &&\n    \t(\n    \t\t(\n    \t\t\t\"forstliche-baute-oder-anlage\"|answer == \"forstliche-baute-oder-anlage-nein\" &&\n    \t\t\t\"dient-schutz-vor-naturgefahren-oder-biodiversitaet\"|answer == \"dient-schutz-vor-naturgefahren-oder-biodiversitaet-nein\" &&\n    \t\t\t\"einfache-offene-erholungs-und-jagdeinrichtung\"|answer == \"einfache-offene-erholungs-und-jagdeinrichtung-nein\"\n    \t\t) ||\n    \t\t(\n    \t\t\t\"forstliche-baute-oder-anlage\"|answer == \"forstliche-baute-oder-anlage-teilweise\" &&\n    \t\t\t\"dient-schutz-vor-naturgefahren-oder-biodiversitaet\"|answer == \"dient-schutz-vor-naturgefahren-oder-biodiversitaet-nein\" &&\n    \t\t\t\"einfache-offene-erholungs-und-jagdeinrichtung\"|answer == \"einfache-offene-erholungs-und-jagdeinrichtung-nein\"\n    \t\t) ||\n    \t\t(\n    \t\t\t\"forstliche-baute-oder-anlage\"|answer == \"forstliche-baute-oder-anlage-nein\" &&\n    \t\t\t\"dient-schutz-vor-naturgefahren-oder-biodiversitaet\"|answer == \"dient-schutz-vor-naturgefahren-oder-biodiversitaet-teilweise\" &&\n    \t\t\t\"einfache-offene-erholungs-und-jagdeinrichtung\"|answer == \"einfache-offene-erholungs-und-jagdeinrichtung-nein\"\n    \t\t) ||\n    \t\t(\n    \t\t\t\"forstliche-baute-oder-anlage\"|answer == \"forstliche-baute-oder-anlage-nein\" &&\n    \t\t\t\"dient-schutz-vor-naturgefahren-oder-biodiversitaet\"|answer == \"dient-schutz-vor-naturgefahren-oder-biodiversitaet-nein\" &&\n    \t\t\t\"einfache-offene-erholungs-und-jagdeinrichtung\"|answer == \"einfache-offene-erholungs-und-jagdeinrichtung-teilweise\"\n    \t\t)\n    \t)\n    )\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -31347,6 +31440,37 @@
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"Zus\\u00e4tzliche Anforderungen an die Gesuchsunterlagen:\\n\\n- Aktuelle Fotos s\\u00e4mtlicher vom bereits realisierten Bauvorhaben betroffenen Bauten und Anlagen (bei Bauten von aussen und innen) inkl. Situations-/Grundrissplan, in welchem eingezeichnet ist, welches Foto was zeigt, beilegen\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-titel",
+    "fields": {
+      "created_at": "2024-04-29T11:30:22.492Z",
+      "modified_at": "2024-04-29T11:30:22.493Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"BaB Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\\n\\n#### Bauen ausserhalb der Bauzone\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -31519,7 +31643,7 @@
     "pk": "bauen-ausserhalb-bauzone",
     "fields": {
       "created_at": "2023-11-09T14:36:10.325Z",
-      "modified_at": "2024-04-08T08:44:23.060Z",
+      "modified_at": "2024-04-29T11:52:03.026Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -31527,7 +31651,7 @@
       "label": "{\"de\": \"Bauen ausserhalb Bauzone\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!(\n\t\"bab\"|answer == \"bab-ja\" ||\n\t\"aushublagerplaetze-oder-baupisten\"|answer == \"aushublagerplaetze-oder-baupisten-ja\"\n)",
+      "is_hidden": "\"bab\"|answer != \"bab-ja\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -32619,7 +32743,7 @@
     "pk": "beinhaltet-das-bau-vorhaben-stallbauten",
     "fields": {
       "created_at": "2023-11-10T12:37:46.756Z",
-      "modified_at": "2024-04-08T11:29:29.426Z",
+      "modified_at": "2024-04-30T09:34:32.837Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -32627,7 +32751,7 @@
       "label": "{\"de\": \"Beinhaltet das (Bau-)Vorhaben Stallbauten?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\t\"landwirtschaftliche-baute\"|answer in [\n\t\t\"landwirtschaftliche-baute-ja\",\n\t\t\"landwirtschaftliche-baute-teilweise\"\n\t]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -34679,6 +34803,37 @@
       "type": "date",
       "is_required": "false",
       "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "datum-bis-zu-welchem-der-rueckbau-erfolgt",
+    "fields": {
+      "created_at": "2024-04-29T13:47:13.384Z",
+      "modified_at": "2024-04-29T13:47:13.384Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Datum, bis zu welchem der R\\u00fcckbau erfolgt\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "\"aushublagerplaetze-oder-baupisten\"|answer != \"aushublagerplaetze-oder-baupisten-ja\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -40477,19 +40632,19 @@
     "pk": "fuell-und-waschplaetze",
     "fields": {
       "created_at": "2023-11-13T07:27:22.605Z",
-      "modified_at": "2023-11-13T07:27:22.605Z",
+      "modified_at": "2024-04-30T09:34:47.633Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Beinhaltet das (Bau-)Vorhaben \\\"F\\u00fcll und Waschpl\\u00e4tze\\\"?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\t\"landwirtschaftliche-baute\"|answer in [\n\t\t\"landwirtschaftliche-baute-ja\",\n\t\t\"landwirtschaftliche-baute-teilweise\"\n\t]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -40635,7 +40790,7 @@
     "pk": "futter-strohlagerung",
     "fields": {
       "created_at": "2023-11-13T07:38:48.113Z",
-      "modified_at": "2024-04-05T14:40:11.704Z",
+      "modified_at": "2024-04-30T09:34:56.317Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -40643,7 +40798,7 @@
       "label": "{\"de\": \"Beinhaltet das (Bau-)Vorhaben eine Futter- bzw. Strohlagerung (inkl. Heu- und Silolagerraum)\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\t\"landwirtschaftliche-baute\"|answer in [\n\t\t\"landwirtschaftliche-baute-ja\",\n\t\t\"landwirtschaftliche-baute-teilweise\"\n\t]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -43100,7 +43255,7 @@
     "pk": "hinweis-aushublagerplaetze-sowie-baupisten",
     "fields": {
       "created_at": "2023-11-09T15:32:18.691Z",
-      "modified_at": "2023-11-27T09:53:51.125Z",
+      "modified_at": "2024-04-29T15:05:51.634Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -43113,7 +43268,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Zus\\u00e4tzliche Anforderungen an die Gesuchsunterlagen:\\n\\n* Nachweis Standortgebundenheit (inkl. Auflistung, welche Alternativstandorte insbesondere innerhalb der Bauzone gepr\\u00fcft wurden und weshalb diese nicht in Frage kommen)\\n* Nachweis, dass keine Terrainver\\u00e4nderungen stattfinden (Querprofile)\\n* Nachweis Erstellung in Bezug auf Bodenschutz sachgerecht\\n* Vermasster Situationsplan\\n* Datum, bis zu welchem der R\\u00fcckbau erfolgt\\n* Beschrieb, wie der urspr\\u00fcngliche Zustand wiederhergestellt wird\\n* Einverst\\u00e4ndniserkl\\u00e4rung betroffene/r Grundeigent\\u00fcmer/-in\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Zus\\u00e4tzliche Anforderungen an die Gesuchsunterlagen:\\n\\n* Nachweis Standortgebundenheit (inkl. Auflistung, welche Alternativstandorte insbesondere innerhalb der Bauzone gepr\\u00fcft wurden und weshalb diese nicht in Frage kommen)\\n* Nachweis, dass keine Terrainver\\u00e4nderungen stattfinden (Querprofile)\\n* Nachweis Erstellung in Bezug auf Bodenschutz sachgerecht\\n* Vermasster Situationsplan\\n* Beschrieb, wie der urspr\\u00fcngliche Zustand wiederhergestellt wird\\n* Einverst\\u00e4ndniserkl\\u00e4rung betroffene/r Grundeigent\\u00fcmer/-in\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -43255,7 +43410,7 @@
     "pk": "hinweis-bauten-und-anlagen-fuer-bodenunabhaengige-produktion",
     "fields": {
       "created_at": "2023-11-13T07:06:46.630Z",
-      "modified_at": "2023-11-27T10:55:04.859Z",
+      "modified_at": "2024-04-29T11:40:49.955Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -43266,9 +43421,9 @@
       "is_hidden": "!(\"art-der-landwirtschaftlichen-baute-bodenunabhaengige-produktion\" in \"art-der-landwirtschaftlichen-baute\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Muster siehe Link [Landwirtschaftliches Bauen - Konferenz der Landwirtschafts\\u00e4mter der Schweiz](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen)\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n\\n**Bauten und Anlagen f\\u00fcr die bodenunabh\\u00e4ngige Produktion - Bauten und Anlagen, die \\u00fcber die innere Aufstockung von Landwirtschafts-, Gem\\u00fcsebau- und Gartenbaubetriebe hinausgehen (Art. 16a Abs. 3 RPG / Art. 38 RPV) \\u2013 Checkliste BaB Z8**\\n\\n* Betriebskonzept<br>Das Betriebskonzept hat insbesondere folgendes zu beinhalten:\\n    * Bedarfsnachweis (Nachweis der Betriebsnotwendigkeit)\\n    * Nachweis der l\\u00e4ngerfristigen Existenzf\\u00e4higkeit\\n    * Nachfolgeregelung, falls die Betriebsleitung \\u00e4lter als 55-j\\u00e4hrig ist\\n(anerkannter Nachweis z.B. in Form eines Gewerbepacht-, Generationengemeinschafts- oder Kaufvertrags zur Hof\\u00fcbergabe)\\n* Nachweis Emissionsabstand\\n* Formular [Berechnung von Mindestabst\\u00e4nden bei Tierhaltungsanlagen (nach FAT-Bericht Nr. 476)](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-umwelt/landwirtschaft/gerueche-und-tierhaltung/)\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n**Bauten und Anlagen f\\u00fcr die bodenunabh\\u00e4ngige Produktion - Bauten und Anlagen, die \\u00fcber die innere Aufstockung von Landwirtschafts-, Gem\\u00fcsebau- und Gartenbaubetriebe hinausgehen (Art. 16a Abs. 3 RPG / Art. 38 RPV) \\u2013 Checkliste BaB Z8**\\n\\n* Betriebskonzept (Muster siehe Link [Landwirtschaftliches Bauen - Konferenz der Landwirtschafts\\u00e4mter der Schweiz](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen))<br>Das Betriebskonzept hat insbesondere folgendes zu beinhalten:\\n    * Bedarfsnachweis (Nachweis der Betriebsnotwendigkeit)\\n    * Nachweis der l\\u00e4ngerfristigen Existenzf\\u00e4higkeit\\n    * Nachfolgeregelung, falls die Betriebsleitung \\u00e4lter als 55-j\\u00e4hrig ist\\n(anerkannter Nachweis z.B. in Form eines Gewerbepacht-, Generationengemeinschafts- oder Kaufvertrags zur Hof\\u00fcbergabe)\\n* Nachweis Emissionsabstand\\n* Formular [Berechnung von Mindestabst\\u00e4nden bei Tierhaltungsanlagen (nach FAT-Bericht Nr. 476)](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-umwelt/landwirtschaft/gerueche-und-tierhaltung/)\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -43286,7 +43441,7 @@
     "pk": "hinweis-bauten-und-anlagen-fuer-energiegewinnung-aus-biomasse",
     "fields": {
       "created_at": "2023-11-13T07:15:07.890Z",
-      "modified_at": "2023-11-27T10:55:13.532Z",
+      "modified_at": "2024-04-29T11:41:01.170Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -43297,9 +43452,9 @@
       "is_hidden": "!(\"art-der-landwirtschaftlichen-baute-zonenkonforme-bauten\" in \"art-der-landwirtschaftlichen-baute\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Muster siehe Link [Landwirtschaftliches Bauen - Konferenz der Landwirtschafts\\u00e4mter der Schweiz](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen)\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n\\n**Zonenkonforme Bauten und Anlagen f\\u00fcr die Energiegewinnung aus Biomasse (Art. 16a Abs. 1bis RPG / Art. 34a Abs. 1-4 RPV) \\u2013 Checkliste BaB Z9**\\n\\n* Betriebskonzept<br>Das Betriebskonzept hat insbesondere folgendes zu beinhalten:\\n    * Bedarfsnachweis (Nachweis der Betriebsnotwendigkeit)\\n    * Nachweis der l\\u00e4ngerfristigen Existenzf\\u00e4higkeit\\n    * Nachfolgeregelung, falls die Betriebsleitung \\u00e4lter als 55-j\\u00e4hrig ist\\n(anerkannter Nachweis z.B. in Form eines Gewerbepacht-, Generationengemeinschafts- oder Kaufvertrags zur Hof\\u00fcbergabe)\\n* Betriebsvoranschlag\\n* Arbeitsvoranschlag (Arbeitskr\\u00e4ftebedarf)\\n* Nachweis Produkteherkunft\\n* Nachweis Emissionsabstand\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n**Zonenkonforme Bauten und Anlagen f\\u00fcr die Energiegewinnung aus Biomasse (Art. 16a Abs. 1<sup>bis</sup> RPG / Art. 34a Abs. 1-4 RPV) \\u2013 Checkliste BaB Z9**\\n\\n* Betriebskonzept (Muster siehe Link [Landwirtschaftliches Bauen - Konferenz der Landwirtschafts\\u00e4mter der Schweiz](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen))<br>Das Betriebskonzept hat insbesondere folgendes zu beinhalten:\\n    * Bedarfsnachweis (Nachweis der Betriebsnotwendigkeit)\\n    * Nachweis der l\\u00e4ngerfristigen Existenzf\\u00e4higkeit\\n    * Nachfolgeregelung, falls die Betriebsleitung \\u00e4lter als 55-j\\u00e4hrig ist\\n(anerkannter Nachweis z.B. in Form eines Gewerbepacht-, Generationengemeinschafts- oder Kaufvertrags zur Hof\\u00fcbergabe)\\n* Betriebsvoranschlag\\n* Arbeitsvoranschlag (Arbeitskr\\u00e4ftebedarf)\\n* Nachweis Produkteherkunft\\n* Nachweis Emissionsabstand\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -43658,7 +43813,7 @@
     "pk": "hinweis-erneuerung-bestehender-zonenwidrig-gewordener-bauten-und-anlagen",
     "fields": {
       "created_at": "2023-11-13T09:10:17.269Z",
-      "modified_at": "2024-04-08T11:08:24.215Z",
+      "modified_at": "2024-04-29T11:49:17.890Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -43671,7 +43826,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n\\n**24c - Erneuerung, \\u00c4nderung und Erweiterung bestehender zonenwidrig gewordener Bauten und Anlagen**\\n\\n* Nachweis bestimmungsgem\\u00e4sse Nutzbarkeit<br><span class=\\\"uk-text-italic uk-text-muted\\\">Falls in den letzten Jahren bereits ein Baugesuch eingereicht wurde, kann mit dieser Beilage auch zugewartet werden. Bei Bedarf w\\u00fcrde das Amt f\\u00fcr Raumplanung eine entsprechende Nachforderung machen.</span>\\n    * Fotodokumentation: aktuelle Fotos des bestehenden Zustands und Fotos des Referenzzustands (i.d.R. 01.07.1972) sowie allf\\u00e4lliger Ver\\u00e4nderungen jeweils aussen und s\\u00e4mtlicher R\\u00e4ume im Inneren (aktuelle Fotos, welche insbesondere den Zustand der tragenden Konstruktionen, Fussb\\u00f6den und Dach sowie der vorhandenen Fenster und T\\u00fcren, K\\u00fccheneinrichtungen, sanit\\u00e4ren Anlagen und Kaminanlage zeigen sowie ein \\u00dcbersichtsplan aus welchem ersichtlich ist, welches Foto was zeigt)\\n    * Dokumentation allf\\u00e4lliger Leerst\\u00e4nde [inkl. Angabe von bis]\\n    * Funktionsf\\u00e4higkeit von Strom-, Wasser- und Abwasseranschluss\\n* Nachweis der Rechtm\\u00e4ssigkeit der Baute / Anlage (inkl. Umgebung)<br><span class=\\\"uk-text-italic uk-text-muted\\\">Falls in den letzten Jahren bereits ein Baugesuch eingereicht wurde, kann mit dieser Beilage auch zugewartet werden. Bei Bedarf w\\u00fcrde das Amt f\\u00fcr Raumplanung eine entsprechende Nachforderung machen.</span><br>Baubewilligung inkl. Bewilligungen Bau- und Justizdepartement gem\\u00e4ss \\u00a7 38<sup>bis</sup> Abs. 1 PBG sowie Planunterlagen [inkl. s\\u00e4mtlicher Erweiterungen/\\u00c4nderungen])\\n* Berechnung nach Art. 42 Abs. 3 RPV\\n    * Grundrisspl\\u00e4ne, Fassaden und Schnitte mit Vermassung und Zweckbestimmung jedes Raumes per 1. Juli 1972 (Bestandesaufnahme) und die gleichen, aber separate Pl\\u00e4ne des aktuellen Bauvorhabens (jeweils inkl. s\\u00e4mtlicher Nebengeb\\u00e4ude). In den Grundriss- und Schnittpl\\u00e4nen ist die lichte H\\u00f6he von 1,0 m einzuzeichnen;\\n    * Sofern seit dem 1. Juli 1972 Ver\\u00e4nderungen erfolgt sind und dies f\\u00fcr das Verst\\u00e4ndnis notwendig ist (z.B. Abbr\\u00fcche): Grundrisspl\\u00e4ne, Fassaden und Schnitte mit Vermassung und Zweckbestimmung jedes Raumes aller Ver\\u00e4nderungen\\n(jeweils inkl. s\\u00e4mtlicher Nebengeb\\u00e4ude);\\n    * [Ausgef\\u00fcllte Tabelle f\\u00fcr Berechnungen nach Art. 42 Abs. 3 RPV](https://www.are.admin.ch/are/de/home/raumentwicklung-und-raumplanung/raumplanungsrecht/bauen-ausserhalb-der-bauzonen.html);\\n    * \\u00dcbersichtsplan als Erkl\\u00e4rung/Erg\\u00e4nzung zur Berechnung mit der ausgewiesenen anrechenbaren Bruttogeschossfl\\u00e4che (aBGF) respektive Brutto-Nebenfl\\u00e4che (BNF) einschliesslich der Mauer- und Wandquerschnitte (Grundriss je Geschoss, aBGF- / BNF-Fl\\u00e4chen unterschiedlich eingef\\u00e4rbt).\\n* Farb- und Materialkonzept (Angaben zu Materialien und Farben f\\u00fcr Fassaden, D\\u00e4cher, Fenster, Aussent\\u00fcren, Tore, Solaranlagen etc.), sofern Informationen nicht aus Pl\\u00e4nen / Baubeschrieb hervorgehen\\n* Umgebungsplan mit Angabe von Erschliessungsfl\\u00e4chen, Belagsarten, Terrainverlauf und H\\u00f6henangaben sowie von B\\u00e4umen, Hecken, Sitzpl\\u00e4tzen, Treppen, Mauern etc. (sofern Informationen nicht aus Situationsplan hervorgehen)\\n* Versicherungspolice der Solothurnischen Geb\\u00e4udeversicherung\\n* Massgeblicher Vergleichszustand<br>Das Bau- und Justizdepartement geht davon aus, dass im vorliegenden Fall der massgebliche Vergleichszustand der Zustand per 1. Juli 1972 ist, als erstmals eine strenge Trennung von Baugebiet und Nichtbaugebiet eingef\\u00fchrt wurde. Sollte das betroffene Grundst\\u00fcck zu einem sp\\u00e4teren Zeitpunkt dem Nichtbaugebiet zugewiesen worden sein, sind die entsprechenden Belege einzureichen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n**Erneuerung, \\u00c4nderung und Erweiterung bestehender zonenwidrig gewordener Bauten und Anlagen (Art. 24c RPG) \\u2013 Checkliste BaB A6**\\n\\n* Nachweis bestimmungsgem\\u00e4sse Nutzbarkeit<br><span class=\\\"uk-text-italic uk-text-muted\\\">Falls in den letzten Jahren bereits ein Baugesuch eingereicht wurde, kann mit dieser Beilage auch zugewartet werden. Bei Bedarf w\\u00fcrde das Amt f\\u00fcr Raumplanung eine entsprechende Nachforderung machen.</span>\\n    * Fotodokumentation: aktuelle Fotos des bestehenden Zustands und Fotos des Referenzzustands (i.d.R. 01.07.1972) sowie allf\\u00e4lliger Ver\\u00e4nderungen jeweils aussen und s\\u00e4mtlicher R\\u00e4ume im Inneren (aktuelle Fotos, welche insbesondere den Zustand der tragenden Konstruktionen, Fussb\\u00f6den und Dach sowie der vorhandenen Fenster und T\\u00fcren, K\\u00fccheneinrichtungen, sanit\\u00e4ren Anlagen und Kaminanlage zeigen sowie ein \\u00dcbersichtsplan aus welchem ersichtlich ist, welches Foto was zeigt)\\n    * Dokumentation allf\\u00e4lliger Leerst\\u00e4nde (inkl. Angabe von bis)\\n    * Funktionsf\\u00e4higkeit von Strom-, Wasser- und Abwasseranschluss\\n* Nachweis der Rechtm\\u00e4ssigkeit der Baute / Anlage (inkl. Umgebung)<br><span class=\\\"uk-text-italic uk-text-muted\\\">Falls in den letzten Jahren bereits ein Baugesuch eingereicht wurde, kann mit dieser Beilage auch zugewartet werden. Bei Bedarf w\\u00fcrde das Amt f\\u00fcr Raumplanung eine entsprechende Nachforderung machen.</span><br>(Baubewilligung inkl. Bewilligungen Bau- und Justizdepartement gem\\u00e4ss \\u00a7 38<sup>bis</sup> Abs. 1 PBG sowie Planunterlagen [inkl. s\\u00e4mtlicher Erweiterungen/\\u00c4nderungen])\\n* Berechnung nach Art. 42 Abs. 3 RPV\\n    * Grundrisspl\\u00e4ne, Fassaden und Schnitte mit Vermassung und Zweckbestimmung jedes Raumes per 1. Juli 1972 (Bestandesaufnahme) und die gleichen, aber separate Pl\\u00e4ne des aktuellen Bauvorhabens (jeweils inkl. s\\u00e4mtlicher Nebengeb\\u00e4ude). In den Grundriss- und Schnittpl\\u00e4nen ist die lichte H\\u00f6he von 1,0 m einzuzeichnen;\\n    * Sofern seit dem 1. Juli 1972 Ver\\u00e4nderungen erfolgt sind und dies f\\u00fcr das Verst\\u00e4ndnis notwendig ist (z.B. Abbr\\u00fcche): Grundrisspl\\u00e4ne, Fassaden und Schnitte mit Vermassung und Zweckbestimmung jedes Raumes aller Ver\\u00e4nderungen\\n(jeweils inkl. s\\u00e4mtlicher Nebengeb\\u00e4ude);\\n    * [Ausgef\\u00fcllte Tabelle f\\u00fcr Berechnungen nach Art. 42 Abs. 3 RPV](https://www.are.admin.ch/are/de/home/raumentwicklung-und-raumplanung/raumplanungsrecht/bauen-ausserhalb-der-bauzonen.html);\\n    * \\u00dcbersichtsplan als Erkl\\u00e4rung/Erg\\u00e4nzung zur Berechnung mit der ausgewiesenen anrechenbaren Bruttogeschossfl\\u00e4che (aBGF) respektive Brutto-Nebenfl\\u00e4che (BNF) einschliesslich der Mauer- und Wandquerschnitte (Grundriss je Geschoss, aBGF- / BNF-Fl\\u00e4chen unterschiedlich eingef\\u00e4rbt).\\n* Farb- und Materialkonzept (Angaben zu Materialien und Farben f\\u00fcr Fassaden, D\\u00e4cher, Fenster, Aussent\\u00fcren, Tore, Solaranlagen etc.), sofern Informationen nicht aus Pl\\u00e4nen / Baubeschrieb hervorgehen\\n* Umgebungsplan mit Angabe von Erschliessungsfl\\u00e4chen, Belagsarten, Terrainverlauf und H\\u00f6henangaben sowie von B\\u00e4umen, Hecken, Sitzpl\\u00e4tzen, Treppen, Mauern etc. (sofern Informationen nicht aus Situationsplan hervorgehen)\\n* Versicherungspolice der Solothurnischen Geb\\u00e4udeversicherung\\n* Massgeblicher Vergleichszustand<br>Das Bau- und Justizdepartement geht davon aus, dass im vorliegenden Fall der massgebliche Vergleichszustand der Zustand per 1. Juli 1972 ist, als erstmals eine strenge Trennung von Baugebiet und Nichtbaugebiet eingef\\u00fchrt wurde. Sollte das betroffene Grundst\\u00fcck zu einem sp\\u00e4teren Zeitpunkt dem Nichtbaugebiet zugewiesen worden sein, sind die entsprechenden Belege einzureichen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -44063,7 +44218,7 @@
     "pk": "hinweis-innere-aufstockung-gemuese-und-gartenbau",
     "fields": {
       "created_at": "2023-11-10T15:14:41Z",
-      "modified_at": "2023-11-27T10:54:15.116Z",
+      "modified_at": "2024-04-29T11:40:38.569Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -44074,9 +44229,9 @@
       "is_hidden": "!(\"art-der-landwirtschaftlichen-baute-gemuese-und-gartenbau\" in \"art-der-landwirtschaftlichen-baute\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Muster siehe Link [Landwirtschaftliches Bauen - Konferenz der Landwirtschafts\\u00e4mter der Schweiz](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen)\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n\\n**Innere Aufstockung - Bauten und Anlagen f\\u00fcr beschr\\u00e4nkten bodenunabh\\u00e4ngigen Gem\\u00fcse- und Gartenbau (Art. 16a Abs. 2 RPG / Art. 37 RPV) \\u2013 Checkliste BaB Z7**\\n\\n* Nachweis landwirtschaftlicher Nutzfl\\u00e4chen (Eigen- und Pachtland)\\n* Betriebskonzept<br>Das Betriebskonzept hat insbesondere folgendes zu beinhalten:\\n    * Bedarfsnachweis (Nachweis der Betriebsnotwendigkeit)\\n    * Nachweis der l\\u00e4ngerfristigen Existenzf\\u00e4higkeit\\n    * Nachfolgeregelung, falls die Betriebsleitung \\u00e4lter als 55-j\\u00e4hrig ist\\n(anerkannter Nachweis z.B. in Form eines Gewerbepacht-, Generationengemeinschafts- oder Kaufvertrags zur Hof\\u00fcbergabe)\\n* Betriebsvoranschlag\\n* Arbeitsvoranschlag (Arbeitskr\\u00e4ftebedarf)\\n* Formular [Deckungsbeitrag-/Trockensubstanz-Kalkulation gem\\u00e4ss Art. 36 RPV](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen)\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n**Innere Aufstockung - Bauten und Anlagen f\\u00fcr beschr\\u00e4nkten bodenunabh\\u00e4ngigen Gem\\u00fcse- und Gartenbau (Art. 16a Abs. 2 RPG / Art. 37 RPV) \\u2013 Checkliste BaB Z7**\\n\\n* Nachweis landwirtschaftlicher Nutzfl\\u00e4chen (Eigen- und Pachtland)\\n* Betriebskonzept (Muster siehe Link [Landwirtschaftliches Bauen - Konferenz der Landwirtschafts\\u00e4mter der Schweiz](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen))<br>Das Betriebskonzept hat insbesondere folgendes zu beinhalten:\\n    * Bedarfsnachweis (Nachweis der Betriebsnotwendigkeit)\\n    * Nachweis der l\\u00e4ngerfristigen Existenzf\\u00e4higkeit\\n    * Nachfolgeregelung, falls die Betriebsleitung \\u00e4lter als 55-j\\u00e4hrig ist\\n(anerkannter Nachweis z.B. in Form eines Gewerbepacht-, Generationengemeinschafts- oder Kaufvertrags zur Hof\\u00fcbergabe)\\n* Betriebsvoranschlag\\n* Arbeitsvoranschlag (Arbeitskr\\u00e4ftebedarf)\\n* Formular [Deckungsbeitrag-/Trockensubstanz-Kalkulation gem\\u00e4ss Art. 36 RPV](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen)\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -44094,7 +44249,7 @@
     "pk": "hinweis-innere-aufstockung-tierhaltung",
     "fields": {
       "created_at": "2023-11-10T14:57:25.686Z",
-      "modified_at": "2023-11-27T10:53:29.220Z",
+      "modified_at": "2024-04-29T11:40:25.894Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -44105,9 +44260,9 @@
       "is_hidden": "!(\"art-der-landwirtschaftlichen-baute-innere-aufstockung\" in \"art-der-landwirtschaftlichen-baute\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Muster siehe Link [Landwirtschaftliches Bauen - Konferenz der Landwirtschafts\\u00e4mter der Schweiz](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen)\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n\\n**Innere Aufstockung - Bauten und Anlagen f\\u00fcr beschr\\u00e4nkte bodenunabh\\u00e4ngige Tierhaltung (Art. 16a Abs. 2 RPG / Art. 36 RPV) \\u2013 Checkliste BaB Z6**\\n\\n* Nachweis landwirtschaftlicher Nutzfl\\u00e4chen (Eigen- und Pachtland)\\n* Betriebskonzept<br>Das Betriebskonzept hat insbesondere folgendes zu beinhalten:\\n    * Bedarfsnachweis (Nachweis der Betriebsnotwendigkeit)\\n    * Nachweis der l\\u00e4ngerfristigen Existenzf\\u00e4higkeit\\n    * Nachfolgeregelung, falls die Betriebsleitung \\u00e4lter als 55-j\\u00e4hrig ist\\n(anerkannter Nachweis z.B. in Form eines Gewerbepacht-, Generationengemeinschafts- oder Kaufvertrags zur Hof\\u00fcbergabe)\\n* Betriebsvoranschlag\\n* Arbeitsvoranschlag (Arbeitskr\\u00e4ftebedarf)\\n* Formular [Deckungsbeitrag-/Trockensubstanz-Kalkulation gem\\u00e4ss Art. 36 RPV](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen)\\n* N\\u00e4hrstoffbilanz\\n* Nachweis Emissionsabstand\\n* Formular [Berechnung von Mindestabst\\u00e4nden bei Tierhaltungsanlagen (nach FAT-Bericht Nr. 476)](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-umwelt/landwirtschaft/gerueche-und-tierhaltung/)\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n**Innere Aufstockung - Bauten und Anlagen f\\u00fcr beschr\\u00e4nkte bodenunabh\\u00e4ngige Tierhaltung (Art. 16a Abs. 2 RPG / Art. 36 RPV) \\u2013 Checkliste BaB Z6**\\n\\n* Nachweis landwirtschaftlicher Nutzfl\\u00e4chen (Eigen- und Pachtland)\\n* Betriebskonzept (Muster siehe Link [Landwirtschaftliches Bauen - Konferenz der Landwirtschafts\\u00e4mter der Schweiz](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen))<br>Das Betriebskonzept hat insbesondere folgendes zu beinhalten:\\n    * Bedarfsnachweis (Nachweis der Betriebsnotwendigkeit)\\n    * Nachweis der l\\u00e4ngerfristigen Existenzf\\u00e4higkeit\\n    * Nachfolgeregelung, falls die Betriebsleitung \\u00e4lter als 55-j\\u00e4hrig ist\\n(anerkannter Nachweis z.B. in Form eines Gewerbepacht-, Generationengemeinschafts- oder Kaufvertrags zur Hof\\u00fcbergabe)\\n* Betriebsvoranschlag\\n* Arbeitsvoranschlag (Arbeitskr\\u00e4ftebedarf)\\n* Formular [Deckungsbeitrag-/Trockensubstanz-Kalkulation gem\\u00e4ss Art. 36 RPV](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen)\\n* N\\u00e4hrstoffbilanz\\n* Nachweis Emissionsabstand\\n* Formular [Berechnung von Mindestabst\\u00e4nden bei Tierhaltungsanlagen (nach FAT-Bericht Nr. 476)](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-umwelt/landwirtschaft/gerueche-und-tierhaltung/)\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -44280,7 +44435,7 @@
     "pk": "hinweis-nebenerwerbslandwirtschaft",
     "fields": {
       "created_at": "2023-11-10T14:00:42.354Z",
-      "modified_at": "2023-11-27T10:50:52.819Z",
+      "modified_at": "2024-04-29T11:40:05.786Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -44291,9 +44446,9 @@
       "is_hidden": "!(\"art-der-landwirtschaftlichen-baute-nebenerwerbslandwirtschaft\" in \"art-der-landwirtschaftlichen-baute\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Muster siehe Link [Landwirtschaftliches Bauen - Konferenz der Landwirtschafts\\u00e4mter der Schweiz](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen)\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n\\n**Nebenerwerbslandwirtschaft (als Abgrenzung zur Freizeit-Landwirtschaft, Art. 34 Abs. 5 RPV) \\u2013 Checkliste BaB Z4**\\n\\n* Betriebskonzept<br>Das Betriebskonzept hat insbesondere folgendes zu beinhalten:\\n    * Globalvoranschlag\\n    * Angaben zur Bewirtschaftung (Gr\\u00f6sse, Umfang und Art der Bewirtschaftung, Standardarbeitskr\\u00e4fte; Langfristigkeit)\\n    * Angaben zum Erwerbseinkommen\\n    * Angaben zu bereits vorhandener Infrastrukturanlagen (z.B. Maschinenpark)\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n**Nebenerwerbslandwirtschaft (als Abgrenzung zur Freizeit-Landwirtschaft, Art. 34 Abs. 5 RPV) \\u2013 Checkliste BaB Z4**\\n\\n* Betriebskonzept (Muster siehe Link [Landwirtschaftliches Bauen - Konferenz der Landwirtschafts\\u00e4mter der Schweiz](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen))<br>Das Betriebskonzept hat insbesondere folgendes zu beinhalten:\\n    * Globalvoranschlag\\n    * Angaben zur Bewirtschaftung (Gr\\u00f6sse, Umfang und Art der Bewirtschaftung, Standardarbeitskr\\u00e4fte; Langfristigkeit)\\n    * Angaben zum Erwerbseinkommen\\n    * Angaben zu bereits vorhandener Infrastrukturanlagen (z.B. Maschinenpark)\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -44497,7 +44652,7 @@
     "pk": "hinweis-pferdehaltung",
     "fields": {
       "created_at": "2023-11-13T07:22:43.536Z",
-      "modified_at": "2023-11-27T10:57:12.006Z",
+      "modified_at": "2024-04-29T11:41:09.077Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -44508,9 +44663,9 @@
       "is_hidden": "!(\"art-der-landwirtschaftlichen-baute-pferdehaltung\" in \"art-der-landwirtschaftlichen-baute\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Muster siehe Link [Landwirtschaftliches Bauen - Konferenz der Landwirtschafts\\u00e4mter der Schweiz](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen)\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n\\n**Pferdehaltung in der Landwirtschaft (Art. 16abis RPG / Art. 34b RPV) \\u2013 Checkliste BaB Z10**\\n\\n* Betriebskonzept<br>Das Betriebskonzept hat insbesondere folgendes zu beinhalten:\\n    * Bedarfsnachweis (Nachweis der Betriebsnotwendigkeit)\\n    * Nachweis der l\\u00e4ngerfristigen Existenzf\\u00e4higkeit\\n    * Nachfolgeregelung, falls die Betriebsleitung \\u00e4lter als 55-j\\u00e4hrig ist\\n(anerkannter Nachweis z.B. in Form eines Gewerbepacht-, Generationengemeinschafts- oder Kaufvertrags zur Hof\\u00fcbergabe)\\n* Betriebsvoranschlag\\n* Arbeitsvoranschlag (Arbeitskr\\u00e4ftebedarf)\\n* Nachweis Produkteherkunft\\n* Nachweis Emissionsabstand\\n* Formular [Berechnung von Mindestabst\\u00e4nden bei Tierhaltungsanlagen (nach FAT-Bericht Nr. 476)](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-umwelt/landwirtschaft/gerueche-und-tierhaltung/)\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n**Pferdehaltung in der Landwirtschaft (Art. 16a<sup>bis</sup> RPG / Art. 34b RPV) \\u2013 Checkliste BaB Z10**\\n\\n* Betriebskonzept (Muster siehe Link [Landwirtschaftliches Bauen - Konferenz der Landwirtschafts\\u00e4mter der Schweiz](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen))<br>Das Betriebskonzept hat insbesondere folgendes zu beinhalten:\\n    * Bedarfsnachweis (Nachweis der Betriebsnotwendigkeit)\\n    * Nachweis der l\\u00e4ngerfristigen Existenzf\\u00e4higkeit\\n    * Nachfolgeregelung, falls die Betriebsleitung \\u00e4lter als 55-j\\u00e4hrig ist\\n(anerkannter Nachweis z.B. in Form eines Gewerbepacht-, Generationengemeinschafts- oder Kaufvertrags zur Hof\\u00fcbergabe)\\n* Betriebsvoranschlag\\n* Arbeitsvoranschlag (Arbeitskr\\u00e4ftebedarf)\\n* Nachweis Produkteherkunft\\n* Nachweis Emissionsabstand\\n* Formular [Berechnung von Mindestabst\\u00e4nden bei Tierhaltungsanlagen (nach FAT-Bericht Nr. 476)](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-umwelt/landwirtschaft/gerueche-und-tierhaltung/)\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -44528,7 +44683,7 @@
     "pk": "hinweis-stallbauten",
     "fields": {
       "created_at": "2023-11-10T14:28:12.714Z",
-      "modified_at": "2023-11-27T10:52:17.147Z",
+      "modified_at": "2024-04-29T11:40:15.310Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -44539,9 +44694,9 @@
       "is_hidden": "!(\"art-der-landwirtschaftlichen-baute-gemeinschaftliche-stallbauten\" in \"art-der-landwirtschaftlichen-baute\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Muster siehe Link [Landwirtschaftliches Bauen - Konferenz der Landwirtschafts\\u00e4mter der Schweiz](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen)\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n\\n**Gemeinschaftliche Stallbauten (Art. 35 RPV) \\u2013 Checkliste BaB Z5**\\n\\n* Nachweis landwirtschaftlicher Nutzfl\\u00e4chen (Eigen- und Pachtland)\\n* Betriebskonzept<br>Das Betriebskonzept hat insbesondere folgendes zu beinhalten:\\n    * Bedarfsnachweis (Nachweis der Betriebsnotwendigkeit)\\n    * Nachweis der l\\u00e4ngerfristigen Existenzf\\u00e4higkeit\\n    * Nachfolgeregelung, falls die Betriebsleitung \\u00e4lter als 55-j\\u00e4hrig ist\\n(anerkannter Nachweis z.B. in Form eines Gewerbepacht-, Generationengemeinschafts- oder Kaufvertrags zur Hof\\u00fcbergabe)\\n* Betriebsvoranschlag\\n* Arbeitsvoranschlag (Arbeitskr\\u00e4ftebedarf)\\n* Formular [Deckungsbeitrag-/Trockensubstanz-Kalkulation gem\\u00e4ss Art. 36 RPV](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen)\\n* Gemeinschaftsvertrag\\n* Erhebungsbogen baulicher Gew\\u00e4sserschutz mit Entw\\u00e4sserungsplan\\n* Nachweis Emissionsabstand\\n* Formular [Berechnung von Mindestabst\\u00e4nden bei Tierhaltungsanlagen (nach FAT-Bericht Nr. 476)](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-umwelt/landwirtschaft/gerueche-und-tierhaltung/)\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n**Gemeinschaftliche Stallbauten (Art. 35 RPV) \\u2013 Checkliste BaB Z5**\\n\\n* Nachweis landwirtschaftlicher Nutzfl\\u00e4chen (Eigen- und Pachtland)\\n* Betriebskonzept (Muster siehe Link [Landwirtschaftliches Bauen - Konferenz der Landwirtschafts\\u00e4mter der Schweiz](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen))<br>Das Betriebskonzept hat insbesondere folgendes zu beinhalten:\\n    * Bedarfsnachweis (Nachweis der Betriebsnotwendigkeit)\\n    * Nachweis der l\\u00e4ngerfristigen Existenzf\\u00e4higkeit\\n    * Nachfolgeregelung, falls die Betriebsleitung \\u00e4lter als 55-j\\u00e4hrig ist\\n(anerkannter Nachweis z.B. in Form eines Gewerbepacht-, Generationengemeinschafts- oder Kaufvertrags zur Hof\\u00fcbergabe)\\n* Betriebsvoranschlag\\n* Arbeitsvoranschlag (Arbeitskr\\u00e4ftebedarf)\\n* Formular [Deckungsbeitrag-/Trockensubstanz-Kalkulation gem\\u00e4ss Art. 36 RPV](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen)\\n* Gemeinschaftsvertrag\\n* Erhebungsbogen baulicher Gew\\u00e4sserschutz mit Entw\\u00e4sserungsplan\\n* Nachweis Emissionsabstand\\n* Formular [Berechnung von Mindestabst\\u00e4nden bei Tierhaltungsanlagen (nach FAT-Bericht Nr. 476)](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-umwelt/landwirtschaft/gerueche-und-tierhaltung/)\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -44590,7 +44745,7 @@
     "pk": "hinweis-stellplaetze-camping-auf-dem-bauernhof-ja",
     "fields": {
       "created_at": "2023-11-13T08:21:55.885Z",
-      "modified_at": "2024-04-08T10:57:30.539Z",
+      "modified_at": "2024-04-29T11:43:29.936Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -44603,7 +44758,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"* Betriebskonzept (Muster siehe Link [Landwirtschaftliches Bauen - Konferenz der Landwirtschafts\\u00e4mter der Schweiz](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen))<br>Das Betriebskonzept hat insbesondere folgendes zu beinhalten:\\n    * Beschrieb und Begr\\u00fcndung des Bauvorhabens (inkl. Betriebszeiten, Angaben zur\\nzuk\\u00fcnftigen Nutzung bestehender Bauten)\\n    * Nachweis enger sachlicher Bezug zum landwirtschaftlichen Gewerbe\\n(Wie werden G\\u00e4ste in Betrieb einbezogen/eingebunden? Nachweis, dass Angebot\\n2 / 13nur durch ein landwirtschaftliches Gewerbe angeboten werden kann)\\n    * Personal / Arbeitsaufwand: Wer erledigt die anfallende Arbeit in Zusammenhang mit den Stellpl\\u00e4tzen auf dem Bauernhof? Wird zus\\u00e4tzliches Personal angestellt? Wer hat die Leitung f\\u00fcr den Bereich Stellpl\\u00e4tze auf dem Bauernhof?\\n* Nachweis der fachlichen Qualifikation zur F\\u00fchrung des Nebenbetriebs durch Betriebsleiter/-in (oder Ehegatten)\\n* Fl\\u00e4chennachweis der Erweiterungen der bestehenden Bauten und Anlagen innerhalb und ausserhalb (inkl. Fahrnisbauten wie Tipis, Zelte, Wohnwagen, Container etc.)\\n* Falls eine bestehende Baute ben\\u00f6tigt wird: Nachweis, dass die Baute f\\u00fcr den bisherigen zonenkonformen Zweck nicht mehr ben\\u00f6tigt wird oder sichergestellt wird, dass sie zu diesem Zweck erhalten bleibt und die neue Nutzung keine Ersatzbaute zur Folge hat, die nicht notwendig ist. Insbesondere auch, dass die verbleibenden Raumkapazit\\u00e4ten f\\u00fcr die\\ngegenw\\u00e4rtigen/k\\u00fcnftigen landwirtschaftlichen Bed\\u00fcrfnisse gen\\u00fcgen.\\n* Nachweis, dass h\\u00f6chstens eine geringf\\u00fcgige Erweiterung der bestehenden Erschliessung notwendig ist und s\\u00e4mtliche Infrastrukturkosten, die im Zusammenhang mit der bewilligten Nutzung anfallen, auf die Eigent\\u00fcmerin oder den Eigent\\u00fcmer \\u00fcberw\\u00e4lzt\\nwerden.\\n* Nachweis, dass die landwirtschaftliche Bewirtschaftung der umliegenden Grundst\\u00fccke nicht gef\\u00e4hrdet ist.\\n* Situations-/Umgebungsplan (allenfalls auch Grundrissplan, falls Angebote [teilweise] in Bauten) mit Stellpl\\u00e4tzen, Infrastruktur (sanit\\u00e4re Einrichtungen, Standorte von Grillstellen, Spielger\\u00e4te, Tischen und St\\u00fchlen), inkl. Vermassung der beanspruchten Fl\\u00e4che\\n* Beschrieb inkl. Plan der Abwasserentsorgung sowie Wasser- und Stromversorgung (oder Information, dass nicht angeboten wird)\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"* Betriebskonzept (Muster siehe Link [Landwirtschaftliches Bauen - Konferenz der Landwirtschafts\\u00e4mter der Schweiz](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen))<br>Das Betriebskonzept hat insbesondere folgendes zu beinhalten:\\n    * Beschrieb und Begr\\u00fcndung des Bauvorhabens (inkl. Betriebszeiten, Angaben zur\\nzuk\\u00fcnftigen Nutzung bestehender Bauten)\\n    * Nachweis enger sachlicher Bezug zum landwirtschaftlichen Gewerbe\\n(Wie werden G\\u00e4ste in Betrieb einbezogen/eingebunden? Nachweis, dass Angebot nur durch ein landwirtschaftliches Gewerbe angeboten werden kann)\\n    * Personal / Arbeitsaufwand: Wer erledigt die anfallende Arbeit in Zusammenhang mit den Stellpl\\u00e4tzen auf dem Bauernhof? Wird zus\\u00e4tzliches Personal angestellt? Wer hat die Leitung f\\u00fcr den Bereich Stellpl\\u00e4tze auf dem Bauernhof?\\n* Nachweis der fachlichen Qualifikation zur F\\u00fchrung des Nebenbetriebs durch Betriebsleiter/-in (oder Ehegatten)\\n* Fl\\u00e4chennachweis der Erweiterungen der bestehenden Bauten und Anlagen innerhalb und ausserhalb (inkl. Fahrnisbauten wie Tipis, Zelte, Wohnwagen, Container etc.)\\n* Falls eine bestehende Baute ben\\u00f6tigt wird: Nachweis, dass die Baute f\\u00fcr den bisherigen zonenkonformen Zweck nicht mehr ben\\u00f6tigt wird oder sichergestellt wird, dass sie zu diesem Zweck erhalten bleibt und die neue Nutzung keine Ersatzbaute zur Folge hat, die nicht notwendig ist. Insbesondere auch, dass die verbleibenden Raumkapazit\\u00e4ten f\\u00fcr die\\ngegenw\\u00e4rtigen/k\\u00fcnftigen landwirtschaftlichen Bed\\u00fcrfnisse gen\\u00fcgen.\\n* Nachweis, dass h\\u00f6chstens eine geringf\\u00fcgige Erweiterung der bestehenden Erschliessung notwendig ist und s\\u00e4mtliche Infrastrukturkosten, die im Zusammenhang mit der bewilligten Nutzung anfallen, auf die Eigent\\u00fcmerin oder den Eigent\\u00fcmer \\u00fcberw\\u00e4lzt\\nwerden.\\n* Nachweis, dass die landwirtschaftliche Bewirtschaftung der umliegenden Grundst\\u00fccke nicht gef\\u00e4hrdet ist.\\n* Situations-/Umgebungsplan (allenfalls auch Grundrissplan, falls Angebote [teilweise] in Bauten) mit Stellpl\\u00e4tzen, Infrastruktur (sanit\\u00e4re Einrichtungen, Standorte von Grillstellen, Spielger\\u00e4te, Tischen und St\\u00fchlen), inkl. Vermassung der beanspruchten Fl\\u00e4che\\n* Beschrieb inkl. Plan der Abwasserentsorgung sowie Wasser- und Stromversorgung (oder Information, dass nicht angeboten wird)\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -44900,7 +45055,7 @@
     "pk": "hinweis-wiederaufbau-bestehender-zonenwidrig-gewordener-bauten-und-anlagen",
     "fields": {
       "created_at": "2023-11-13T09:19:34.761Z",
-      "modified_at": "2024-04-08T11:09:00.430Z",
+      "modified_at": "2024-04-29T11:49:41.058Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -44913,7 +45068,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n\\n**24c - Wiederaufbau bestehender zonenwidrig gewordener Bauten und Anlagen**\\n\\n* Nachweis bestimmungsgem\\u00e4sse Nutzbarkeit<br><span class=\\\"uk-text-italic uk-text-muted\\\">Falls in den letzten Jahren bereits ein Baugesuch eingereicht wurde, kann mit dieser Beilage auch zugewartet werden. Bei Bedarf w\\u00fcrde das Amt f\\u00fcr Raumplanung eine entsprechende Nachforderung machen.</span>\\n    * Fotodokumentation: aktuelle Fotos des bestehenden Zustands und Fotos des Referenzzustands (i.d.R. 01.07.1972) sowie allf\\u00e4lliger Ver\\u00e4nderungen jeweils aussen und s\\u00e4mtlicher R\\u00e4ume im Inneren (aktuelle Fotos, welche insbesondere den Zustand der tragenden Konstruktionen, Fussb\\u00f6den und Dach sowie der vorhandenen Fenster und T\\u00fcren, K\\u00fccheneinrichtungen, sanit\\u00e4ren Anlagen und Kaminanlage zeigen sowie ein \\u00dcbersichtsplan aus welchem ersichtlich ist, welches Foto was zeigt)\\n    * Dokumentation allf\\u00e4lliger Leerst\\u00e4nde [inkl. Angabe von bis]\\n    * Funktionsf\\u00e4higkeit von Strom-, Wasser- und Abwasseranschluss\\n* Nachweis der Rechtm\\u00e4ssigkeit der Baute / Anlage (inkl. Umgebung)<br><span class=\\\"uk-text-italic uk-text-muted\\\">Falls in den letzten Jahren bereits ein Baugesuch eingereicht wurde, kann mit dieser Beilage auch zugewartet werden. Bei Bedarf w\\u00fcrde das Amt f\\u00fcr Raumplanung eine entsprechende Nachforderung machen.</span><br>Baubewilligung inkl. Bewilligungen Bau- und Justizdepartement gem\\u00e4ss \\u00a7 38<sup>bis</sup> Abs. 1 PBG sowie Planunterlagen [inkl. s\\u00e4mtlicher Erweiterungen/\\u00c4nderungen])\\n* Berechnung nach Art. 42 Abs. 3 RPV\\n    * Grundrisspl\\u00e4ne, Fassaden und Schnitte mit Vermassung und Zweckbestimmung jedes Raumes per 1. Juli 1972 (Bestandesaufnahme) und die gleichen, aber separate Pl\\u00e4ne des aktuellen Bauvorhabens (jeweils inkl. s\\u00e4mtlicher Nebengeb\\u00e4ude). In den Grundriss- und Schnittpl\\u00e4nen ist die lichte H\\u00f6he von 1,0 m einzuzeichnen;\\n    * Sofern seit dem 1. Juli 1972 Ver\\u00e4nderungen erfolgt sind und dies f\\u00fcr das Verst\\u00e4ndnis notwendig ist (z.B. Abbr\\u00fcche): Grundrisspl\\u00e4ne, Fassaden und Schnitte mit Vermassung und Zweckbestimmung jedes Raumes aller Ver\\u00e4nderungen\\n(jeweils inkl. s\\u00e4mtlicher Nebengeb\\u00e4ude);\\n    * [Ausgef\\u00fcllte Tabelle f\\u00fcr Berechnungen nach Art. 42 Abs. 3 RPV](https://www.are.admin.ch/are/de/home/raumentwicklung-und-raumplanung/raumplanungsrecht/bauen-ausserhalb-der-bauzonen.html);\\n    * \\u00dcbersichtsplan als Erkl\\u00e4rung/Erg\\u00e4nzung zur Berechnung mit der ausgewiesenen anrechenbaren Bruttogeschossfl\\u00e4che (aBGF) respektive Brutto-Nebenfl\\u00e4che (BNF) einschliesslich der Mauer- und Wandquerschnitte (Grundriss je Geschoss, aBGF- / BNF-Fl\\u00e4chen unterschiedlich eingef\\u00e4rbt).\\n* Farb- und Materialkonzept (Angaben zu Materialien und Farben f\\u00fcr Fassaden, D\\u00e4cher, Fenster, Aussent\\u00fcren, Tore, Solaranlagen etc.), sofern Informationen nicht aus Pl\\u00e4nen / Baubeschrieb hervorgehen\\n* Umgebungsplan mit Angabe von Erschliessungsfl\\u00e4chen, Belagsarten, Terrainverlauf und H\\u00f6henangaben sowie von B\\u00e4umen, Hecken, Sitzpl\\u00e4tzen, Treppen, Mauern etc. (sofern Informationen nicht aus Situationsplan hervorgehen)\\n* Versicherungspolice der Solothurnischen Geb\\u00e4udeversicherung\\n* Massgeblicher Vergleichszustand<br>Das Bau- und Justizdepartement geht davon aus, dass im vorliegenden Fall der massgebliche Vergleichszustand der Zustand per 1. Juli 1972 ist, als erstmals eine strenge Trennung von Baugebiet und Nichtbaugebiet eingef\\u00fchrt wurde. Sollte das betroffene Grundst\\u00fcck zu einem sp\\u00e4teren Zeitpunkt dem Nichtbaugebiet zugewiesen worden sein, sind die entsprechenden Belege einzureichen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n**Wiederaufbau bestehender zonenwidrig gewordener Bauten und Anlagen (Art. 24c RPG) \\u2013 Checkliste BaB A7**\\n\\n* Nachweis bestimmungsgem\\u00e4sse Nutzbarkeit<br><span class=\\\"uk-text-italic uk-text-muted\\\">Falls in den letzten Jahren bereits ein Baugesuch eingereicht wurde, kann mit dieser Beilage auch zugewartet werden. Bei Bedarf w\\u00fcrde das Amt f\\u00fcr Raumplanung eine entsprechende Nachforderung machen.</span>\\n    * Fotodokumentation: aktuelle Fotos des bestehenden Zustands und Fotos des Referenzzustands (i.d.R. 01.07.1972) sowie allf\\u00e4lliger Ver\\u00e4nderungen jeweils aussen und s\\u00e4mtlicher R\\u00e4ume im Inneren (aktuelle Fotos, welche insbesondere den Zustand der tragenden Konstruktionen, Fussb\\u00f6den und Dach sowie der vorhandenen Fenster und T\\u00fcren, K\\u00fccheneinrichtungen, sanit\\u00e4ren Anlagen und Kaminanlage zeigen sowie ein \\u00dcbersichtsplan aus welchem ersichtlich ist, welches Foto was zeigt)\\n    * Dokumentation allf\\u00e4lliger Leerst\\u00e4nde (inkl. Angabe von bis)\\n    * Funktionsf\\u00e4higkeit von Strom-, Wasser- und Abwasseranschluss\\n* Nachweis der Rechtm\\u00e4ssigkeit der Baute / Anlage (inkl. Umgebung)<br><span class=\\\"uk-text-italic uk-text-muted\\\">Falls in den letzten Jahren bereits ein Baugesuch eingereicht wurde, kann mit dieser Beilage auch zugewartet werden. Bei Bedarf w\\u00fcrde das Amt f\\u00fcr Raumplanung eine entsprechende Nachforderung machen.</span><br>(Baubewilligung inkl. Bewilligungen Bau- und Justizdepartement gem\\u00e4ss \\u00a7 38<sup>bis</sup> Abs. 1 PBG sowie Planunterlagen [inkl. s\\u00e4mtlicher Erweiterungen/\\u00c4nderungen])\\n* Berechnung nach Art. 42 Abs. 3 RPV\\n    * Grundrisspl\\u00e4ne, Fassaden und Schnitte mit Vermassung und Zweckbestimmung jedes Raumes per 1. Juli 1972 (Bestandesaufnahme) und die gleichen, aber separate Pl\\u00e4ne des aktuellen Bauvorhabens (jeweils inkl. s\\u00e4mtlicher Nebengeb\\u00e4ude). In den Grundriss- und Schnittpl\\u00e4nen ist die lichte H\\u00f6he von 1,0 m einzuzeichnen;\\n    * Sofern seit dem 1. Juli 1972 Ver\\u00e4nderungen erfolgt sind und dies f\\u00fcr das Verst\\u00e4ndnis notwendig ist (z.B. Abbr\\u00fcche): Grundrisspl\\u00e4ne, Fassaden und Schnitte mit Vermassung und Zweckbestimmung jedes Raumes aller Ver\\u00e4nderungen\\n(jeweils inkl. s\\u00e4mtlicher Nebengeb\\u00e4ude);\\n    * [Ausgef\\u00fcllte Tabelle f\\u00fcr Berechnungen nach Art. 42 Abs. 3 RPV](https://www.are.admin.ch/are/de/home/raumentwicklung-und-raumplanung/raumplanungsrecht/bauen-ausserhalb-der-bauzonen.html);\\n    * \\u00dcbersichtsplan als Erkl\\u00e4rung/Erg\\u00e4nzung zur Berechnung mit der ausgewiesenen anrechenbaren Bruttogeschossfl\\u00e4che (aBGF) respektive Brutto-Nebenfl\\u00e4che (BNF) einschliesslich der Mauer- und Wandquerschnitte (Grundriss je Geschoss, aBGF- / BNF-Fl\\u00e4chen unterschiedlich eingef\\u00e4rbt).\\n* Farb- und Materialkonzept (Angaben zu Materialien und Farben f\\u00fcr Fassaden, D\\u00e4cher, Fenster, Aussent\\u00fcren, Tore, Solaranlagen etc.), sofern Informationen nicht aus Pl\\u00e4nen / Baubeschrieb hervorgehen\\n* Umgebungsplan mit Angabe von Erschliessungsfl\\u00e4chen, Belagsarten, Terrainverlauf und H\\u00f6henangaben sowie von B\\u00e4umen, Hecken, Sitzpl\\u00e4tzen, Treppen, Mauern etc. (sofern Informationen nicht aus Situationsplan hervorgehen)\\n* Versicherungspolice der Solothurnischen Geb\\u00e4udeversicherung\\n* Massgeblicher Vergleichszustand<br>Das Bau- und Justizdepartement geht davon aus, dass im vorliegenden Fall der massgebliche Vergleichszustand der Zustand per 1. Juli 1972 ist, als erstmals eine strenge Trennung von Baugebiet und Nichtbaugebiet eingef\\u00fchrt wurde. Sollte das betroffene Grundst\\u00fcck zu einem sp\\u00e4teren Zeitpunkt dem Nichtbaugebiet zugewiesen worden sein, sind die entsprechenden Belege einzureichen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -44993,7 +45148,7 @@
     "pk": "hinweis-zusaetzliche-gesuchsunterlagen-aufbereitung",
     "fields": {
       "created_at": "2023-11-10T13:18:51.312Z",
-      "modified_at": "2023-11-27T10:46:07.382Z",
+      "modified_at": "2024-04-29T11:39:44.999Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -45004,9 +45159,9 @@
       "is_hidden": "!(\"art-der-landwirtschaftlichen-baute-bauten-und-anlagen-aufbereitung\" in \"art-der-landwirtschaftlichen-baute\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Muster siehe Link [Landwirtschaftliches Bauen - Konferenz der Landwirtschafts\\u00e4mter der Schweiz](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen)\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n\\n**Bauten und Anlagen f\\u00fcr Aufbereitung, Lagerung, Verkauf landwirtschaftlicher oder gartenbaulicher Produkte (Art. 16a Abs. 1 RPG / Art. 34 Abs. 2 und 4 RPV) \\u2013 Checkliste BaB Z2**\\n\\n* Betriebskonzept<br>Das Betriebskonzept hat insbesondere folgendes zu beinhalten:\\n    * Bedarfsnachweis (Nachweis der Betriebsnotwendigkeit)\\n    * Nachweis der l\\u00e4ngerfristigen Existenzf\\u00e4higkeit\\n    * Nachfolgeregelung, falls die Betriebsleitung \\u00e4lter als 55-j\\u00e4hrig ist\\n(anerkannter Nachweis z.B. in Form eines Gewerbepacht-, Generationengemeinschafts- oder Kaufvertrags zur Hof\\u00fcbergabe)\\n    * Auflistung der Produkte, welche verkauft werden sollen\\n    * Nachweis, dass Produkte in der Region und zu mehr als der H\\u00e4lfte auf dem Standortbetrieb oder auf den in einer Produktionsgemeinschaft zusammengeschlossenen Betrieben erzeugt werden\\n    * Auflistung der notwendigen Investitionen\\n    * Auflistung wer (Betriebsleiterfamilie, Personal, etc.) die Aufbereitung bzw. Verarbeitung ausf\\u00fchrt\\n* Betriebsvoranschlag\\n* Nachweis Produkteherkunft\\n* Erhebungsboden baulicher Gew\\u00e4sserschutz mit Entw\\u00e4sserungsplan (nur bei R\\u00fcstr\\u00e4umen)\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n**Bauten und Anlagen f\\u00fcr Aufbereitung, Lagerung, Verkauf landwirtschaftlicher oder gartenbaulicher Produkte (Art. 16a Abs. 1 RPG / Art. 34 Abs. 2 und 4 RPV) \\u2013 Checkliste BaB Z2**\\n\\n* Betriebskonzept (Muster siehe Link [Landwirtschaftliches Bauen - Konferenz der Landwirtschafts\\u00e4mter der Schweiz](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen))<br>Das Betriebskonzept hat insbesondere folgendes zu beinhalten:\\n    * Bedarfsnachweis (Nachweis der Betriebsnotwendigkeit)\\n    * Nachweis der l\\u00e4ngerfristigen Existenzf\\u00e4higkeit\\n    * Nachfolgeregelung, falls die Betriebsleitung \\u00e4lter als 55-j\\u00e4hrig ist\\n(anerkannter Nachweis z.B. in Form eines Gewerbepacht-, Generationengemeinschafts- oder Kaufvertrags zur Hof\\u00fcbergabe)\\n    * Auflistung der Produkte, welche verkauft werden sollen\\n    * Nachweis, dass Produkte in der Region und zu mehr als der H\\u00e4lfte auf dem Standortbetrieb oder auf den in einer Produktionsgemeinschaft zusammengeschlossenen Betrieben erzeugt werden\\n    * Auflistung der notwendigen Investitionen\\n    * Auflistung wer (Betriebsleiterfamilie, Personal, etc.) die Aufbereitung bzw. Verarbeitung ausf\\u00fchrt\\n* Betriebsvoranschlag\\n* Nachweis Produkteherkunft\\n* Erhebungsboden baulicher Gew\\u00e4sserschutz mit Entw\\u00e4sserungsplan (nur bei R\\u00fcstr\\u00e4umen)\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -45303,7 +45458,7 @@
     "pk": "hinweis-zusaetzliche-gesuchsunterlagen-landwirtschaftlicher-wohnbedarf",
     "fields": {
       "created_at": "2023-11-10T13:45:01.964Z",
-      "modified_at": "2024-04-05T14:36:19.780Z",
+      "modified_at": "2024-04-29T11:36:19.907Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -45316,7 +45471,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n\\n**Bauten f\\u00fcr unentbehrlichen landwirtschaftlichen Wohnbedarf (Art. 16a Abs. 1 RPG / Art. 34 Abs. 3 und 4 RPV) \\u2013 Checkliste BaB Z3**\\n\\n* Nachweis landwirtschaftlicher Nutzfl\\u00e4chen (Eigen- und Pachtland)\\n* Betriebskonzept (Muster siehe Link [Landwirtschaftliches Bauen - Konferenz der Landwirtschafts\\u00e4mter der Schweiz](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen))<br>Das Betriebskonzept hat insbesondere folgendes zu beinhalten:\\n    * Bedarfsnachweis (Nachweis der Betriebsnotwendigkeit)\\n    * Nachweis der l\\u00e4ngerfristigen Existenzf\\u00e4higkeit\\n    * Nachfolgeregelung, falls die Betriebsleitung \\u00e4lter als 55-j\\u00e4hrig ist\\n(anerkannter Nachweis z.B. in Form eines Gewerbepacht-, Generationengemeinschafts- oder Kaufvertrags zur Hof\\u00fcbergabe)\\n* Arbeitsvoranschlag (Arbeitskr\\u00e4ftebedarf)\\n* Erhebungsbogen baulicher Gew\\u00e4sserschutz mit Entw\\u00e4sserungsplan\\n* Deklaration der vorhandenen Wohngeb\\u00e4ude/-fl\\u00e4chen<br>Die Deklaration hat insbesondere folgendes zu beinhalten:\\n    * Welche Wohnh\\u00e4user geh\\u00f6ren zum landwirtschaftlichen Gewerbe?\\n(inkl. Angabe der Adresse sowie Grundriss-, Schnitt-, Fassadenpl\\u00e4ne und Deklaration der vorhandenen Wohnfl\\u00e4che)\\n    * Wie viele Wohnungen sind in diesen Wohnh\\u00e4usern enthalten und durch wen werden diese Wohnungen bewohnt?\\n    * Haben die Bewohnenden einen Bezug zum landwirtschaftlichen Gewerbe und wenn ja, welchen?\\n* Unterlagen f\\u00fcr Berechnung des unentbehrlichen landwirtschaftlichen Wohnbedarfs / Bruttogeschossfl\\u00e4che<br>Wenn das Bauvorhaben \\u00c4nderungen an der Bruttogeschossfl\\u00e4che des zur Folge hat, werden f\\u00fcr die Berechnung folgende Unterlagen ben\\u00f6tigt:\\n    * Grundrisspl\\u00e4ne, Fassaden und Schnitte mit Vermassung und Zweckbestimmung sowie der ausgewiesenen Bruttogeschossfl\\u00e4che (einschliesslich der Mauer- und Wandquerschnitte) jedes Raumes und jedes Geb\\u00e4udes des landwirtschaftlichen Gewerbes, welche direkt und indirekt der Wohnnutzung dienen (Betriebsleiter-, Alten- und Angestelltenwohnung). In den Grundriss- und Schnittpl\\u00e4nen ist die lichte H\\u00f6he von 1,0 m einzuzeichnen.\\n    * Es sind auch s\\u00e4mtliche Schmutzschleusen (Garderobe inkl. Dusche / WC) in \\u00d6konomiegeb\\u00e4uden, Stallb\\u00fcros, sowie Zimmer f\\u00fcr Aushilfen, Angestellte oder Lernende in den Pl\\u00e4nen aufzuf\\u00fchren.\\n    * Berechnung der bestehenden und der neuen Wohnfl\\u00e4chen\\n* Begr\\u00fcndung der \\u00dcberschreitung der zul\\u00e4ssigen unentbehrlichen landwirtschaftlichen Wohnfl\\u00e4che<br>Wenn das Bauvorhaben die zul\\u00e4ssige unentbehrliche landwirtschaftliche Wohnfl\\u00e4che (Grundfl\\u00e4che 1. Wohneinheit 200 m\\u00b2 resp. 220 m\\u00b2; 2.\\u00a0Wohneinheit 100\\u00a0m\\u00b2) \\u00fcberschreitet:<br>Begr\\u00fcndung, weshalb vorliegend eine grossz\\u00fcgigere Wohnfl\\u00e4che die Kriterien des unentbehrlichen landwirtschaftlichen Wohnbedarfes erf\\u00fcllt.\\n* Umgebungsplan mit Angabe von Erschliessungsfl\\u00e4chen, Belagsarten, Terrainverlauf und H\\u00f6henangaben sowie von B\\u00e4umen, Hecken, Sitzpl\\u00e4tzen, Treppen, Mauern etc., sofern Neubau oder Anbau und Informationen nicht aus dem Situationsplan hervorgehen\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n**Bauten f\\u00fcr unentbehrlichen landwirtschaftlichen Wohnbedarf (Art. 16a Abs. 1 RPG / Art. 34 Abs. 3 und 4 RPV) \\u2013 Checkliste BaB Z3**\\n\\n* Nachweis landwirtschaftlicher Nutzfl\\u00e4chen (Eigen- und Pachtland)\\n* Betriebskonzept (Muster siehe Link [Landwirtschaftliches Bauen - Konferenz der Landwirtschafts\\u00e4mter der Schweiz](https://ldkcdca.cloudrexx.com/de/kolas-cosac/Geschaefte/Landwirtschaftliches-Bauen))<br>Das Betriebskonzept hat insbesondere folgendes zu beinhalten:\\n    * Bedarfsnachweis (Nachweis der Betriebsnotwendigkeit)\\n    * Nachweis der l\\u00e4ngerfristigen Existenzf\\u00e4higkeit\\n    * Nachfolgeregelung, falls die Betriebsleitung \\u00e4lter als 55-j\\u00e4hrig ist\\n(anerkannter Nachweis z.B. in Form eines Gewerbepacht-, Generationengemeinschafts- oder Kaufvertrags zur Hof\\u00fcbergabe)\\n* Arbeitsvoranschlag (Arbeitskr\\u00e4ftebedarf)\\n* Erhebungsbogen baulicher Gew\\u00e4sserschutz mit Entw\\u00e4sserungsplan\\n* Deklaration der vorhandenen Wohngeb\\u00e4ude/-fl\\u00e4chen<br>Die Deklaration hat insbesondere folgendes zu beinhalten:\\n    * Welche Wohnh\\u00e4user geh\\u00f6ren zum landwirtschaftlichen Gewerbe?\\n(inkl. Angabe der Adresse sowie Grundriss-, Schnitt-, Fassadenpl\\u00e4ne und Deklaration der vorhandenen Wohnfl\\u00e4che)\\n    * Wie viele Wohnungen sind in diesen Wohnh\\u00e4usern enthalten und durch wen werden diese Wohnungen bewohnt?\\n    * Haben die Bewohnenden einen Bezug zum landwirtschaftlichen Gewerbe und wenn ja, welchen?\\n* Unterlagen f\\u00fcr Berechnung des unentbehrlichen landwirtschaftlichen Wohnbedarfs / Bruttogeschossfl\\u00e4che<br>Wenn das Bauvorhaben \\u00c4nderungen an der Bruttogeschossfl\\u00e4che zur Folge hat, werden f\\u00fcr die Berechnung folgende Unterlagen ben\\u00f6tigt:\\n    * Grundrisspl\\u00e4ne, Fassaden und Schnitte mit Vermassung und Zweckbestimmung sowie der ausgewiesenen Bruttogeschossfl\\u00e4che (einschliesslich der Mauer- und Wandquerschnitte) jedes Raumes und jedes Geb\\u00e4udes des landwirtschaftlichen Gewerbes, welche direkt und indirekt der Wohnnutzung dienen (Betriebsleiter-, Alten- und Angestelltenwohnung). In den Grundriss- und Schnittpl\\u00e4nen ist die lichte H\\u00f6he von 1,0 m einzuzeichnen.\\n    * Es sind auch s\\u00e4mtliche Schmutzschleusen (Garderobe inkl. Dusche / WC) in \\u00d6konomiegeb\\u00e4uden, Stallb\\u00fcros, sowie Zimmer f\\u00fcr Aushilfen, Angestellte oder Lernende in den Pl\\u00e4nen aufzuf\\u00fchren.\\n    * Berechnung der bestehenden und der neuen Wohnfl\\u00e4chen\\n* Begr\\u00fcndung der \\u00dcberschreitung der zul\\u00e4ssigen unentbehrlichen landwirtschaftlichen Wohnfl\\u00e4che<br>Wenn das Bauvorhaben die zul\\u00e4ssige unentbehrliche landwirtschaftliche Wohnfl\\u00e4che (Grundfl\\u00e4che 1. Wohneinheit 200 m\\u00b2 resp. 220 m\\u00b2; 2.\\u00a0Wohneinheit 100\\u00a0m\\u00b2) \\u00fcberschreitet:<br>Begr\\u00fcndung, weshalb vorliegend eine grossz\\u00fcgigere Wohnfl\\u00e4che die Kriterien des unentbehrlichen landwirtschaftlichen Wohnbedarfes erf\\u00fcllt.\\n* Umgebungsplan mit Angabe von Erschliessungsfl\\u00e4chen, Belagsarten, Terrainverlauf und H\\u00f6henangaben sowie von B\\u00e4umen, Hecken, Sitzpl\\u00e4tzen, Treppen, Mauern etc., sofern Neubau oder Anbau und Informationen nicht aus dem Situationsplan hervorgehen\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -49955,7 +50110,7 @@
     "pk": "nachweis-erschliessung",
     "fields": {
       "created_at": "2023-11-13T08:30:01.474Z",
-      "modified_at": "2024-04-08T13:40:43.616Z",
+      "modified_at": "2024-04-30T08:14:36.910Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -49963,7 +50118,40 @@
       "label": "{\"de\": \"Nachweis Erschliessung (Art. 24b RPG i.V.m. Art. 43a Bst. c RPV)\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!(\n\t[\n\t\t\"bau-vorhaben-betrifft-umwidmung-in-landwirtschaftsfremde-wohnnutzung\",\n\t\t\"bau-vorhaben-betrifft-vollstaendige-zweckaenderung-von-geschuetzten-bauten-und-anlagen\"\n\t]\n\tintersects \"bau-vorhaben-betrifft\"|answer ||\n\t\"stellplaetze-camping-auf-dem-bauernhof\"|answer in [\n\t\t\"stellplaetze-camping-auf-dem-bauernhof-ja\",\n\t\t\"stellplaetze-camping-auf-dem-bauernhof-nein\"\n\t]\n)",
+      "is_hidden": "!(\n\t\"stellplaetze-camping-auf-dem-bauernhof\"|answer in [\n\t\t\"stellplaetze-camping-auf-dem-bauernhof-ja\",\n\t\t\"stellplaetze-camping-auf-dem-bauernhof-nein\"\n\t]\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "nachweis-erschliessung-24d",
+    "fields": {
+      "created_at": "2024-04-30T08:13:24.751Z",
+      "modified_at": "2024-04-30T09:08:27.453Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nachweis Erschliessung (Art. 24d Abs. 3 Bst. c RPG)\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\n\t[\n\t\t\"bau-vorhaben-betrifft-umwidmung-in-landwirtschaftsfremde-wohnnutzung\",\n\t\t\"bau-vorhaben-betrifft-vollstaendige-zweckaenderung-von-geschuetzten-bauten-und-anlagen\"\n\t] intersects \"bau-vorhaben-betrifft\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -50087,7 +50275,7 @@
     "pk": "nachweis-gewerbliche-bauten",
     "fields": {
       "created_at": "2023-11-13T10:06:14.683Z",
-      "modified_at": "2024-04-08T08:59:36.281Z",
+      "modified_at": "2024-04-29T11:48:27.561Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -50100,7 +50288,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n\\n**Zweck\\u00e4nderung und \\u00c4nderung von zonenfremden gewerblichen Bauten (Art. 37a RPG) \\u2013 Checkliste BaB A10**\\n\\n* Nachweis der Rechtm\\u00e4ssigkeit der Baute / Anlage (inkl. Umgebung)<br>(Baubewilligung inkl. Bewilligungen Bau- und Justizdepartement gem\\u00e4ss \\u00a7 38<sup>bis</sup> Abs. 1 PBG sowie Planunterlagen [inkl. s\\u00e4mtlicher Erweiterungen/\\u00c4nderungen])\\n* Nutzungskonzept bisher und neu<br>(Beschrieb der bisherigen gewerblichen Nutzung (inkl. Dauer und allf\\u00e4llige Unterbr\\u00fcche) und der geplanten gewerblichen Nutzung [inkl. Angaben \\u00fcber nachteilige Einwirkungen auf die Umgebung, Ausweis \\u00fcber Massnahmen gegen \\u00fcberm\\u00e4ssige Einwirkungen, Angaben \\u00fcber die vorgesehene Vorbehandlung des Abwassers, soweit diese n\\u00f6tig ist])\\n* Nachweis, dass keine wesentlichen neuen Auswirkungen auf Raum oder Umwelt\\nentstehen.\\n* Umgebungsplan mit Angabe von Erschliessungsfl\\u00e4chen, Belagsarten, Terrainverlauf und H\\u00f6henangaben sowie von B\\u00e4umen, Hecken, Sitzpl\\u00e4tzen, Treppen, Mauern etc. (sofern Informationen nicht aus Situationsplan hervorgehen)\\n* Versicherungspolice der Solothurnischen Geb\\u00e4udeversicherung\\n* Nur bei \\u00c4nderung (Erweiterung):\\n    * Grundrisspl\\u00e4ne, Fassaden und Schnitte mit Vermassung und Zweckbestimmung jedes Raumes per 1. Juli 1972 (Bestandesaufnahme) und die gleichen, aber separate Pl\\u00e4ne des aktuellen Bauvorhabens (jeweils inkl. s\\u00e4mtlicher Nebengeb\\u00e4ude). In den Grundriss- und Schnittpl\\u00e4nen ist die lichte H\\u00f6he von 1,0 m einzuzeichnen.\\n    * Sofern seit dem 1. Juli 1972 Ver\\u00e4nderungen erfolgt sind und dies f\\u00fcr das Verst\\u00e4ndnis notwendig ist (z.B. Abbr\\u00fcche): Grundrisspl\\u00e4ne, Fassaden und Schnitte mit Vermassung und Zweckbestimmung jedes Raumes aller Ver\\u00e4nderungen (jeweils inkl. s\\u00e4mtlicher Nebengeb\\u00e4ude).\\n    * Sofern Erweiterung und diese mehr als 100 m\\u00b2: Betriebskonzept (inkl. Nachweis der Betriebsnotwendigkeit / Nachweis, dass Erweiterung f\\u00fcr die Fortf\\u00fchrung des Betriebs unerl\\u00e4sslich ist\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n**Zweck\\u00e4nderung und \\u00c4nderung von zonenfremden gewerblichen Bauten (Art. 37a RPG) \\u2013 Checkliste BaB A10**\\n\\n* Nachweis der Rechtm\\u00e4ssigkeit der Baute / Anlage (inkl. Umgebung)<br>(Baubewilligung inkl. Bewilligungen Bau- und Justizdepartement gem\\u00e4ss \\u00a7 38<sup>bis</sup> Abs. 1 PBG sowie Planunterlagen [inkl. s\\u00e4mtlicher Erweiterungen/\\u00c4nderungen])\\n* Nutzungskonzept bisher und neu<br>(Beschrieb der bisherigen gewerblichen Nutzung [inkl. Dauer und allf\\u00e4llige Unterbr\\u00fcche] und der geplanten gewerblichen Nutzung [inkl. Angaben \\u00fcber nachteilige Einwirkungen auf die Umgebung, Ausweis \\u00fcber Massnahmen gegen \\u00fcberm\\u00e4ssige Einwirkungen, Angaben \\u00fcber die vorgesehene Vorbehandlung des Abwassers, soweit diese n\\u00f6tig ist])\\n* Nachweis, dass keine wesentlichen neuen Auswirkungen auf Raum oder Umwelt\\nentstehen.\\n* Umgebungsplan mit Angabe von Erschliessungsfl\\u00e4chen, Belagsarten, Terrainverlauf und H\\u00f6henangaben sowie von B\\u00e4umen, Hecken, Sitzpl\\u00e4tzen, Treppen, Mauern etc. (sofern Informationen nicht aus Situationsplan hervorgehen)\\n* Versicherungspolice der Solothurnischen Geb\\u00e4udeversicherung\\n* Nur bei \\u00c4nderung (Erweiterung):\\n    * Grundrisspl\\u00e4ne, Fassaden und Schnitte mit Vermassung und Zweckbestimmung jedes Raumes per 1. Juli 1972 (Bestandesaufnahme) und die gleichen, aber separate Pl\\u00e4ne des aktuellen Bauvorhabens (jeweils inkl. s\\u00e4mtlicher Nebengeb\\u00e4ude). In den Grundriss- und Schnittpl\\u00e4nen ist die lichte H\\u00f6he von 1,0 m einzuzeichnen.\\n    * Sofern seit dem 1. Juli 1972 Ver\\u00e4nderungen erfolgt sind und dies f\\u00fcr das Verst\\u00e4ndnis notwendig ist (z.B. Abbr\\u00fcche): Grundrisspl\\u00e4ne, Fassaden und Schnitte mit Vermassung und Zweckbestimmung jedes Raumes aller Ver\\u00e4nderungen (jeweils inkl. s\\u00e4mtlicher Nebengeb\\u00e4ude).\\n    * Sofern Erweiterung und diese mehr als 100 m\\u00b2: Betriebskonzept (inkl. Nachweis der Betriebsnotwendigkeit / Nachweis, dass Erweiterung f\\u00fcr die Fortf\\u00fchrung des Betriebs unerl\\u00e4sslich ist\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -50118,7 +50306,7 @@
     "pk": "nachweis-kein-bedarf-fuer-bisherigen-zweck",
     "fields": {
       "created_at": "2023-11-13T09:39:06.963Z",
-      "modified_at": "2024-04-08T13:41:05.376Z",
+      "modified_at": "2024-04-30T09:08:34.739Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -50126,7 +50314,40 @@
       "label": "{\"de\": \"Nachweis kein Bedarf f\\u00fcr bisherigen Zweck (Art. 24d Abs. 3 Bst. a RPG)\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!(\n\t[\n\t\t\"bau-vorhaben-betrifft-umwidmung-in-landwirtschaftsfremde-wohnnutzung\",\n\t\t\"bau-vorhaben-betrifft-vollstaendige-zweckaenderung-von-geschuetzten-bauten-und-anlagen\"\n\t]\n\tintersects \"bau-vorhaben-betrifft\"|answer ||\n\t\"stellplaetze-camping-auf-dem-bauernhof\"|answer in [\n\t\t\"stellplaetze-camping-auf-dem-bauernhof-ja\",\n\t\t\"stellplaetze-camping-auf-dem-bauernhof-nein\"\n\t]\n)",
+      "is_hidden": "!(\n\t[\n\t\t\"bau-vorhaben-betrifft-umwidmung-in-landwirtschaftsfremde-wohnnutzung\",\n\t\t\"bau-vorhaben-betrifft-vollstaendige-zweckaenderung-von-geschuetzten-bauten-und-anlagen\"\n\t] intersects \"bau-vorhaben-betrifft\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "nachweis-kein-bedarf-fuer-bisherigen-zweck-24b",
+    "fields": {
+      "created_at": "2024-04-30T08:08:40.563Z",
+      "modified_at": "2024-04-30T08:09:33.792Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nachweis kein Bedarf f\\u00fcr bisherigen Zweck (Art. 24b RPG i.V.m. Art. 43a Bst. a und b RPV)\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\n\t\"stellplaetze-camping-auf-dem-bauernhof\"|answer in [\n\t\t\"stellplaetze-camping-auf-dem-bauernhof-ja\",\n\t\t\"stellplaetze-camping-auf-dem-bauernhof-nein\"\n\t]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -50217,7 +50438,7 @@
     "pk": "nachweis-landw-bewirtschaftung-nicht-gefaehrdet",
     "fields": {
       "created_at": "2023-11-13T08:33:41.626Z",
-      "modified_at": "2024-04-08T13:38:09.969Z",
+      "modified_at": "2024-04-30T08:15:02.792Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -50225,7 +50446,40 @@
       "label": "{\"de\": \"Nachweis landw. Bewirtschaftung nicht gef\\u00e4hrdet (Art. 24b RPG i.V.m. Art. 43a Bst. d RPG)\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!(\n\t[\n\t\t\"bau-vorhaben-betrifft-umwidmung-in-landwirtschaftsfremde-wohnnutzung\",\n\t\t\"bau-vorhaben-betrifft-vollstaendige-zweckaenderung-von-geschuetzten-bauten-und-anlagen\"\n\t]\n\tintersects \"bau-vorhaben-betrifft\"|answer ||\n\t\"stellplaetze-camping-auf-dem-bauernhof\"|answer == \"stellplaetze-camping-auf-dem-bauernhof-ja\"\n)",
+      "is_hidden": "!(\n\t\"stellplaetze-camping-auf-dem-bauernhof\"|answer == \"stellplaetze-camping-auf-dem-bauernhof-ja\"\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "nachweis-landw-bewirtschaftung-nicht-gefaehrdet-24d",
+    "fields": {
+      "created_at": "2024-04-30T08:13:46.412Z",
+      "modified_at": "2024-04-30T09:09:31.391Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nachweis landw. Bewirtschaftung nicht gef\\u00e4hrdet (Art. 24d Abs. 3 Bst. d RPG)\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\n\t[\n\t\t\"bau-vorhaben-betrifft-umwidmung-in-landwirtschaftsfremde-wohnnutzung\",\n\t\t\"bau-vorhaben-betrifft-vollstaendige-zweckaenderung-von-geschuetzten-bauten-und-anlagen\"\n\t] intersects \"bau-vorhaben-betrifft\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -50448,7 +50702,7 @@
     "pk": "nachweis-standortgebundenheit",
     "fields": {
       "created_at": "2023-11-09T14:48:11.954Z",
-      "modified_at": "2024-04-08T13:22:43.908Z",
+      "modified_at": "2024-04-29T12:03:30.175Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -50456,11 +50710,44 @@
       "label": "{\"de\": \"Nachweis der Standortgebundenheit (Art. 24 RPG)\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!(\n\t\"aushublagerplaetze-oder-baupisten\"|answer == \"aushublagerplaetze-oder-baupisten-ja\" ||\n\t\"bau-vorhaben-betrifft-standortgebundene-bauten-und-anlagen\" in \"bau-vorhaben-betrifft\"|answer\n)",
+      "is_hidden": "\"aushublagerplaetze-oder-baupisten\"|answer != \"aushublagerplaetze-oder-baupisten-ja\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"inkl. Auflistung, welche Alternativstandorte insbesondere innerhalb der Bauzone gepr\\u00fcft wurden und weshalb diese nicht in Frage kommen.\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "nachweis-standortgebundenheit-2",
+    "fields": {
+      "created_at": "2024-04-29T12:02:55.860Z",
+      "modified_at": "2024-04-29T12:03:39.686Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nachweis der Standortgebundenheit (Art. 24 RPG)\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\n\t\"bau-vorhaben-betrifft-standortgebundene-bauten-und-anlagen\" in \"bau-vorhaben-betrifft\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -51612,7 +51899,7 @@
     "pk": "nutzungszwecke",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2024-01-04T13:16:18.546Z",
+      "modified_at": "2024-04-30T08:38:26.529Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -53319,7 +53606,7 @@
     "pk": "remisen",
     "fields": {
       "created_at": "2023-11-10T12:46:35.167Z",
-      "modified_at": "2024-04-08T11:29:40.032Z",
+      "modified_at": "2024-04-30T09:34:40.260Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -53327,7 +53614,7 @@
       "label": "{\"de\": \"Beinhaltet das (Bau-)Vorhaben Remisen?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\t\"landwirtschaftliche-baute\"|answer in [\n\t\t\"landwirtschaftliche-baute-ja\",\n\t\t\"landwirtschaftliche-baute-teilweise\"\n\t]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Remisen = Einstellr\\u00e4ume f\\u00fcr landw. Maschinen und Ger\\u00e4te; dazu z\\u00e4hlen oder k\\u00f6nnen auch z\\u00e4hlen: Werkstatt, Garage / Einstellplatz f\\u00fcr Familie, \\u00d6l- und Treibstofflager, R\\u00e4ume f\\u00fcr Chemikalien, Pflanzenbehandlungsmittel usw.\", \"fr\": null, \"it\": null}",
@@ -53403,39 +53690,6 @@
         "min_length": null
       },
       "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "rueckbau-datum",
-    "fields": {
-      "created_at": "2023-11-09T15:00:32.923Z",
-      "modified_at": "2023-11-09T15:00:51.457Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Datum, bis zu welchem der R\\u00fcckbau erfolgt\", \"fr\": null, \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "true",
-      "is_hidden": "\"aushublagerplaetze-oder-baupisten-ja\" != \"aushublagerplaetze-oder-baupisten\"|answer",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true
-      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -53768,19 +54022,19 @@
     "pk": "siloanlagen-siloballenlager-nicht-auf-dem-hofareal",
     "fields": {
       "created_at": "2023-11-13T07:42:38.589Z",
-      "modified_at": "2023-11-13T07:42:38.589Z",
+      "modified_at": "2024-04-30T09:35:03.733Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Beinhaltet das (Bau-)Vorhaben Siloanlagen und/oder Siloballenlager, welche sich nicht auf dem Hofareal selbst befinden?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\t\"landwirtschaftliche-baute\"|answer in [\n\t\t\"landwirtschaftliche-baute-ja\",\n\t\t\"landwirtschaftliche-baute-teilweise\"\n\t]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -60261,8 +60515,8 @@
     "model": "caluma_form.questionoption",
     "pk": "aushublagerplaetze-oder-baupisten.aushublagerplaetze-oder-baupisten-ja",
     "fields": {
-      "created_at": "2024-04-05T13:24:30.916Z",
-      "modified_at": "2024-04-05T13:24:30.916Z",
+      "created_at": "2024-04-29T11:28:55.441Z",
+      "modified_at": "2024-04-29T11:28:55.441Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -60276,8 +60530,8 @@
     "model": "caluma_form.questionoption",
     "pk": "aushublagerplaetze-oder-baupisten.aushublagerplaetze-oder-baupisten-nein",
     "fields": {
-      "created_at": "2024-04-05T13:24:30.909Z",
-      "modified_at": "2024-04-05T13:24:30.909Z",
+      "created_at": "2024-04-29T11:28:55.436Z",
+      "modified_at": "2024-04-29T11:28:55.436Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -61296,8 +61550,8 @@
     "model": "caluma_form.questionoption",
     "pk": "beinhaltet-das-bau-vorhaben-stallbauten.beinhaltet-das-bau-vorhaben-stallbauten-ja",
     "fields": {
-      "created_at": "2024-04-08T11:29:29.441Z",
-      "modified_at": "2024-04-08T11:29:29.441Z",
+      "created_at": "2024-04-30T09:34:32.854Z",
+      "modified_at": "2024-04-30T09:34:32.854Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -61311,8 +61565,8 @@
     "model": "caluma_form.questionoption",
     "pk": "beinhaltet-das-bau-vorhaben-stallbauten.beinhaltet-das-bau-vorhaben-stallbauten-nein",
     "fields": {
-      "created_at": "2024-04-08T11:29:29.436Z",
-      "modified_at": "2024-04-08T11:29:29.436Z",
+      "created_at": "2024-04-30T09:34:32.848Z",
+      "modified_at": "2024-04-30T09:34:32.848Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -63366,8 +63620,8 @@
     "model": "caluma_form.questionoption",
     "pk": "fuell-und-waschplaetze.fuell-und-waschplaetze-ja",
     "fields": {
-      "created_at": "2023-11-13T07:27:22.627Z",
-      "modified_at": "2023-11-13T07:27:22.627Z",
+      "created_at": "2024-04-30T09:34:47.649Z",
+      "modified_at": "2024-04-30T09:34:47.649Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -63381,8 +63635,8 @@
     "model": "caluma_form.questionoption",
     "pk": "fuell-und-waschplaetze.fuell-und-waschplaetze-nein",
     "fields": {
-      "created_at": "2023-11-13T07:27:22.613Z",
-      "modified_at": "2023-11-13T07:27:22.613Z",
+      "created_at": "2024-04-30T09:34:47.643Z",
+      "modified_at": "2024-04-30T09:34:47.643Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -63471,8 +63725,8 @@
     "model": "caluma_form.questionoption",
     "pk": "futter-strohlagerung.futter-strohlagerung-ja",
     "fields": {
-      "created_at": "2024-04-05T14:40:11.719Z",
-      "modified_at": "2024-04-05T14:40:11.719Z",
+      "created_at": "2024-04-30T09:34:56.334Z",
+      "modified_at": "2024-04-30T09:34:56.334Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -63486,8 +63740,8 @@
     "model": "caluma_form.questionoption",
     "pk": "futter-strohlagerung.futter-strohlagerung-nein",
     "fields": {
-      "created_at": "2024-04-05T14:40:11.714Z",
-      "modified_at": "2024-04-05T14:40:11.714Z",
+      "created_at": "2024-04-30T09:34:56.328Z",
+      "modified_at": "2024-04-30T09:34:56.328Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -65614,10 +65868,25 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "nachweis-erschliessung-24d.nachweis-erschliessung-24d-ja",
+    "fields": {
+      "created_at": "2024-04-30T09:08:27.463Z",
+      "modified_at": "2024-04-30T09:08:27.463Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nachweis-erschliessung-24d",
+      "option": "nachweis-erschliessung-24d-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "nachweis-erschliessung.nachweis-erschliessung-ja",
     "fields": {
-      "created_at": "2024-04-08T13:40:43.625Z",
-      "modified_at": "2024-04-08T13:40:43.625Z",
+      "created_at": "2024-04-30T08:14:36.920Z",
+      "modified_at": "2024-04-30T08:14:36.920Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -65674,10 +65943,25 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "nachweis-kein-bedarf-fuer-bisherigen-zweck-24b.nachweis-kein-bedarf-fuer-bisherigen-zweck-24b-ja",
+    "fields": {
+      "created_at": "2024-04-30T08:09:33.802Z",
+      "modified_at": "2024-04-30T08:09:33.802Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nachweis-kein-bedarf-fuer-bisherigen-zweck-24b",
+      "option": "nachweis-kein-bedarf-fuer-bisherigen-zweck-24b-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "nachweis-kein-bedarf-fuer-bisherigen-zweck.nachweis-kein-bedarf-fuer-bisherigen-zweck-ja",
     "fields": {
-      "created_at": "2024-04-08T13:41:05.385Z",
-      "modified_at": "2024-04-08T13:41:05.385Z",
+      "created_at": "2024-04-30T09:08:34.748Z",
+      "modified_at": "2024-04-30T09:08:34.748Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -65719,10 +66003,25 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "nachweis-landw-bewirtschaftung-nicht-gefaehrdet-24d.nachweis-landw-bewirtschaftung-nicht-gefaehrdet-art-24d-abs-3-bst-d-rpg-ja",
+    "fields": {
+      "created_at": "2024-04-30T09:09:31.405Z",
+      "modified_at": "2024-04-30T09:09:31.405Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nachweis-landw-bewirtschaftung-nicht-gefaehrdet-24d",
+      "option": "nachweis-landw-bewirtschaftung-nicht-gefaehrdet-art-24d-abs-3-bst-d-rpg-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "nachweis-landw-bewirtschaftung-nicht-gefaehrdet.nachweis-landw-bewirtschaftung-nicht-gefaehrdet-ja",
     "fields": {
-      "created_at": "2024-04-08T13:38:09.996Z",
-      "modified_at": "2024-04-08T13:38:09.996Z",
+      "created_at": "2024-04-30T08:15:02.805Z",
+      "modified_at": "2024-04-30T08:15:02.805Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -65824,10 +66123,25 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "nachweis-standortgebundenheit-2.nachweis-standortgebundenheit-2-ja",
+    "fields": {
+      "created_at": "2024-04-29T12:03:39.694Z",
+      "modified_at": "2024-04-29T12:03:39.694Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nachweis-standortgebundenheit-2",
+      "option": "nachweis-standortgebundenheit-2-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "nachweis-standortgebundenheit.nachweis-standortgebundenheit-ja",
     "fields": {
-      "created_at": "2024-04-08T13:22:43.916Z",
-      "modified_at": "2024-04-08T13:22:43.916Z",
+      "created_at": "2024-04-29T12:03:30.182Z",
+      "modified_at": "2024-04-29T12:03:30.182Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -66336,8 +66650,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszwecke.nutzungszwecke-andere",
     "fields": {
-      "created_at": "2024-01-04T13:16:18.559Z",
-      "modified_at": "2024-01-04T13:16:18.559Z",
+      "created_at": "2024-04-30T08:38:26.538Z",
+      "modified_at": "2024-04-30T08:38:26.538Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -66351,8 +66665,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszwecke.nutzungszwecke-dienstleistung",
     "fields": {
-      "created_at": "2024-01-04T13:16:18.594Z",
-      "modified_at": "2024-01-04T13:16:18.594Z",
+      "created_at": "2024-04-30T08:38:26.574Z",
+      "modified_at": "2024-04-30T08:38:26.574Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -66366,8 +66680,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszwecke.nutzungszwecke-forstwirtschaft",
     "fields": {
-      "created_at": "2024-01-04T13:16:18.576Z",
-      "modified_at": "2024-01-04T13:16:18.576Z",
+      "created_at": "2024-04-30T08:38:26.554Z",
+      "modified_at": "2024-04-30T08:38:26.554Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -66381,8 +66695,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszwecke.nutzungszwecke-gastgewerbe",
     "fields": {
-      "created_at": "2024-01-04T13:16:18.570Z",
-      "modified_at": "2024-01-04T13:16:18.570Z",
+      "created_at": "2024-04-30T08:38:26.549Z",
+      "modified_at": "2024-04-30T08:38:26.549Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -66396,8 +66710,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszwecke.nutzungszwecke-gewerbe",
     "fields": {
-      "created_at": "2024-01-04T13:16:18.598Z",
-      "modified_at": "2024-01-04T13:16:18.598Z",
+      "created_at": "2024-04-30T08:38:26.579Z",
+      "modified_at": "2024-04-30T08:38:26.579Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -66411,8 +66725,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszwecke.nutzungszwecke-industrie",
     "fields": {
-      "created_at": "2024-01-04T13:16:18.603Z",
-      "modified_at": "2024-01-04T13:16:18.603Z",
+      "created_at": "2024-04-30T08:38:26.584Z",
+      "modified_at": "2024-04-30T08:38:26.584Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -66426,8 +66740,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszwecke.nutzungszwecke-lager",
     "fields": {
-      "created_at": "2024-01-04T13:16:18.585Z",
-      "modified_at": "2024-01-04T13:16:18.585Z",
+      "created_at": "2024-04-30T08:38:26.565Z",
+      "modified_at": "2024-04-30T08:38:26.565Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -66441,8 +66755,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszwecke.nutzungszwecke-landwirtschaft",
     "fields": {
-      "created_at": "2024-01-04T13:16:18.581Z",
-      "modified_at": "2024-01-04T13:16:18.581Z",
+      "created_at": "2024-04-30T08:38:26.559Z",
+      "modified_at": "2024-04-30T08:38:26.559Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -66456,8 +66770,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszwecke.nutzungszwecke-oeffentlich-zugaenglich",
     "fields": {
-      "created_at": "2024-01-04T13:16:18.565Z",
-      "modified_at": "2024-01-04T13:16:18.565Z",
+      "created_at": "2024-04-30T08:38:26.544Z",
+      "modified_at": "2024-04-30T08:38:26.544Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -66471,8 +66785,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszwecke.nutzungszwecke-verkauf",
     "fields": {
-      "created_at": "2024-01-04T13:16:18.590Z",
-      "modified_at": "2024-01-04T13:16:18.590Z",
+      "created_at": "2024-04-30T08:38:26.569Z",
+      "modified_at": "2024-04-30T08:38:26.569Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -66486,8 +66800,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszwecke.nutzungszwecke-wohnen",
     "fields": {
-      "created_at": "2024-01-04T13:16:18.607Z",
-      "modified_at": "2024-01-04T13:16:18.607Z",
+      "created_at": "2024-04-30T08:38:26.589Z",
+      "modified_at": "2024-04-30T08:38:26.589Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -67146,8 +67460,8 @@
     "model": "caluma_form.questionoption",
     "pk": "remisen.remisen-ja",
     "fields": {
-      "created_at": "2024-04-08T11:29:40.050Z",
-      "modified_at": "2024-04-08T11:29:40.050Z",
+      "created_at": "2024-04-30T09:34:40.278Z",
+      "modified_at": "2024-04-30T09:34:40.278Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -67161,29 +67475,14 @@
     "model": "caluma_form.questionoption",
     "pk": "remisen.remisen-nein",
     "fields": {
-      "created_at": "2024-04-08T11:29:40.043Z",
-      "modified_at": "2024-04-08T11:29:40.043Z",
+      "created_at": "2024-04-30T09:34:40.273Z",
+      "modified_at": "2024-04-30T09:34:40.273Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "remisen",
       "option": "remisen-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "rueckbau-datum.rueckbau-datum-ja",
-    "fields": {
-      "created_at": "2023-11-09T15:00:51.468Z",
-      "modified_at": "2023-11-09T15:00:51.468Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "rueckbau-datum",
-      "option": "rueckbau-datum-ja",
       "sort": 1
     }
   },
@@ -67356,8 +67655,8 @@
     "model": "caluma_form.questionoption",
     "pk": "siloanlagen-siloballenlager-nicht-auf-dem-hofareal.siloanlagen-siloballenlager-nicht-auf-dem-hofareal-ja",
     "fields": {
-      "created_at": "2023-11-13T07:42:38.611Z",
-      "modified_at": "2023-11-13T07:42:38.611Z",
+      "created_at": "2024-04-30T09:35:03.750Z",
+      "modified_at": "2024-04-30T09:35:03.750Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -67371,8 +67670,8 @@
     "model": "caluma_form.questionoption",
     "pk": "siloanlagen-siloballenlager-nicht-auf-dem-hofareal.siloanlagen-siloballenlager-nicht-auf-dem-hofareal-nein",
     "fields": {
-      "created_at": "2023-11-13T07:42:38.597Z",
-      "modified_at": "2023-11-13T07:42:38.597Z",
+      "created_at": "2024-04-30T09:35:03.744Z",
+      "modified_at": "2024-04-30T09:35:03.744Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
