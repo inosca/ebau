@@ -26,7 +26,7 @@ def test_duplicate_conditionals(db, any_application):
             seen_checks[key].append(check)
 
     for key, checks in seen_checks.items():
-        if len(checks) <= 2:
+        if len(checks) <= 2:  # pragma: no cover
             # no dupes here
             continue
 
@@ -66,7 +66,7 @@ def test_conditional_types(db, any_application):
             seen_checks[key].append(check)
 
     for key, checks in seen_checks.items():
-        if len(checks) <= 2:
+        if len(checks) <= 2:  # pragma: no cover
             # no dupes here
             continue
 
