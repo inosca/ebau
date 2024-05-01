@@ -25,6 +25,7 @@
           {{#each this.tableColumns as |tColumn|}}
             <td
               class="
+                {{if (eq tColumn.name "dossierNumber") "uk-text-nowrap"}}
                 {{if (eq tColumn.name "intent") "uk-text-truncate uk-table-expand"}}
                 {{if (includes tColumn.name (array "applicants" "address")) "uk-text-break"}}
               "

@@ -39,10 +39,10 @@
   			<ns4:files>
   				<ns4:file>
   					<ns4:pathFileName>http://ebau.local/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns4:pathFileName>
-  					<ns4:mimeType>text/cmd</ns4:mimeType>
+  					<ns4:mimeType>model/vrml</ns4:mimeType>
   				</ns4:file>
   			</ns4:files>
-  			<ns4:documentKind>Patrick Adams</ns4:documentKind>
+  			<ns4:documentKind>John Lopez</ns4:documentKind>
   		</ns1:document>
   		<ns1:remark>Wird in das Feld &quot;Stellungnahme&quot; übernommen.</ns1:remark>
   		<ns1:ancillaryClauses>Wird in das Feld &quot;Nebenbestimmungen&quot; übernommen.; Wird in das Feld &quot;Nebenbestimmungen&quot; übernommen.</ns1:ancillaryClauses>
@@ -111,12 +111,12 @@
   						<ns4:organisationIdCategory>ebaube</ns4:organisationIdCategory>
   						<ns4:organisationId><!-- ORGANISATION_ID --></ns4:organisationId>
   					</ns4:localOrganisationId>
-  					<ns4:organisationName>Eduardo Collins</ns4:organisationName>
+  					<ns4:organisationName>Erin Wilson</ns4:organisationName>
   					<ns4:legalForm>0223</ns4:legalForm>
   				</ns3:buildingAuthorityIdentificationType>
   				<ns3:address>
   					<ns6:street>None</ns6:street>
-  					<ns6:town>South Brian</ns6:town>
+  					<ns6:town>Jonathanside</ns6:town>
   					<ns6:country>
   						<ns6:countryNameShort>CH</ns6:countryNameShort>
   					</ns6:country>

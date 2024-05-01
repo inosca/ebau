@@ -30,6 +30,7 @@ class ServiceFactory(DjangoModelFactory):
     trans = RelatedFactory("camac.user.factories.ServiceTFactory", "service")
     notification = 1
     logo = ImageField()
+    external_identifier = Faker("pyint", min_value=1000, max_value=9999)
 
     class Meta:
         model = models.Service
