@@ -123,7 +123,12 @@ def instance_for_appeal_so(
     instance_state_factory(name="finished")
 
     def wrapper(instance_state_name, previous_instance_state_name):
-        so_instance.case.meta.update({"dossier-number": "2023-123"})
+        so_instance.case.meta.update(
+            {
+                "dossier-number": "2023-123",
+                "submit-date": "2024-04-30T20:04:00.000Z",
+            }
+        )
         so_instance.case.save()
 
         for task_id in [
@@ -359,6 +364,9 @@ def test_instance_appeal_so(
         assert (
             new_instance.case.meta["dossier-number"]
             != instance.case.meta["dossier-number"]
+        )
+        assert (
+            new_instance.case.meta["submit-date"] == instance.case.meta["submit-date"]
         )
 
         assert new_instance.instance_state.name == "decision"

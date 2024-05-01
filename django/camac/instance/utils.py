@@ -243,6 +243,10 @@ def copy_instance(
             user=caluma_user,
         )
 
+        if old_submit_date := instance.case.meta.get("submit-date"):
+            new_instance.case.meta["submit-date"] = old_submit_date
+            new_instance.case.save()
+
         new_instance.set_instance_state("subm", user)
 
     return new_instance
