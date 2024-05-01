@@ -472,6 +472,7 @@ def test_create_instance_event_be(
     be_instance,
     role_factory,
     be_access_levels,
+    set_application_be,
     caluma_forms_be,
     caluma_workflow_config_be,
     be_permissions_settings,
