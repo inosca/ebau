@@ -281,7 +281,13 @@ DMS = {
                 },
             },
             "baugesuch": {
-                "forms": ["baugesuch", "erdwaermesonden"],
+                "forms": [
+                    "baugesuch",
+                    "erdwaermesonden",
+                    "migriertes-dossier",
+                    "voranfrage",
+                    "meldung",
+                ],
                 "template": "form",
                 "personalien": "personalien",
                 "exclude_slugs": [
