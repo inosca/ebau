@@ -48,5 +48,14 @@
       "name": "Guest",
       "group_prefix": null
     }
+  },
+  {
+    "model": "user.role",
+    "pk": 3,
+    "fields": {
+      "role_parent": null,
+      "name": "Support",
+      "group_prefix": null
+    }
   }
 ]

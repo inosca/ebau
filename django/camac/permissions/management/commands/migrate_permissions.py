@@ -21,7 +21,7 @@ from camac.instance.utils import get_construction_control, get_municipality
 from camac.permissions import models as permission_models
 from camac.permissions.api import PermissionManager
 from camac.permissions.exceptions import RevocationRejected
-from camac.user.models import Role
+from camac.user.utils import get_support_role
 
 log = getLogger(__name__)
 
@@ -340,22 +340,10 @@ class Command(BaseCommand):
                     metainfo={"instance-group-id": str(inst.group.pk)},
                 )
 
-    def get_support_role(self):
-        # Find the correct support role via ROLE_PERMISSIONS setting
-        role_perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
-        try:
-            role_name = next(k for k, v in role_perms if v == "support")
-        except StopIteration:
-            raise Exception(
-                "Unable to find support role configuration in ROLE_PERMISSIONS"
-            )
-        else:
-            return Role.objects.get(name=role_name)
-
     def _build_support_permissions(self, support_level):
         support_acl = partial(ACL, access_level=support_level, state=STATE_ACTIVE)
 
-        support_role = self.get_support_role()
+        support_role = get_support_role()
 
         inst_iter = self._iter_qs(Instance.objects.all(), "")
         log.info(f"    Adding support to {inst_iter.total} instances")
