@@ -235,5 +235,8 @@ omit = [
     "camac/circulation/management/commands/distribution_*.py",
     # Views only used in migrations
     "camac/core/db_views.py",
+    # SO dossier number migration
+    "camac/user/management/commands/import_bfs_nr.py",
+    "camac/instance/management/commands/migrate_dossier_numbers_so.py",
 ]
 show_missing = true

@@ -1662,8 +1662,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         case = self.instance.case
         group = self.context["request"].group
 
-        # This needs to happen before generating the identifier since the identifier might depend on the instance location
+        # This needs to happen before generating the identifier since the
+        # identifier might depend on the instance location or instance service
+        # relation
         self._set_location_for_municipality(case, instance)
+        self._set_instance_service(case, instance)
 
         # generating the identifier happens in it's own transaction to make
         # collisions less likely.
@@ -1688,7 +1691,6 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             instance.save()
 
             self._ur_link_technische_bewilligung(instance)
-            self._set_instance_service(case, instance)
             self._set_authority(instance)
             self._set_submit_date(case, instance)
             self._generate_and_store_pdf(instance)

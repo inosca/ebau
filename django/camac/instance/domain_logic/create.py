@@ -17,7 +17,12 @@ from camac.caluma.api import CalumaApi
 from camac.caluma.extensions.data_sources import Municipalities
 from camac.constants import kt_uri as ur_constants
 from camac.core.models import InstanceLocation, InstanceService
-from camac.core.utils import canton_aware, generate_dossier_nr, generate_sort_key
+from camac.core.utils import (
+    canton_aware,
+    generate_dossier_nr,
+    generate_sort_key,
+    generate_special_id,
+)
 from camac.instance.models import Instance, InstanceGroup
 from camac.permissions.events import Trigger
 from camac.user.permissions import permission_aware
@@ -283,10 +288,22 @@ class CreateInstanceLogic:
         return generate_dossier_nr(instance, year or timezone.now().year)
 
     @classmethod
-    def generate_identifier_so(
-        cls, instance: Instance, year: int = None
-    ) -> str:  # pragma: no cover
-        return generate_dossier_nr(instance, year or timezone.now().year)
+    def generate_identifier_so(cls, instance: Instance, year: int = None) -> str:
+        authority = instance.responsible_service()
+
+        if not authority:
+            raise ValidationError("Instance does not have a responsible service")
+
+        if not authority.external_identifier:
+            raise ValidationError(
+                "Responsible service does not have an external identifier"
+            )
+
+        return generate_special_id(
+            "dossier-number",
+            instance,
+            f"{authority.external_identifier}-{year or timezone.now().year}-",
+        )
 
     @staticmethod
     def initialize_caluma(

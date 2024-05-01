@@ -661,8 +661,8 @@
     ]),
     'legal_representatives': list([
     ]),
-    'municipality': 'Duncanchester',
-    'municipality_name': 'Duncanchester',
+    'municipality': 'South Carlos',
+    'municipality_name': 'South Carlos',
     'nature_risk': None,
     'organization_category': 'ebausz',
     'parking_lots': None,
@@ -767,8 +767,8 @@
     ]),
     'legal_representatives': list([
     ]),
-    'municipality': 'Duncanchester',
-    'municipality_name': 'Duncanchester',
+    'municipality': 'South Carlos',
+    'municipality_name': 'South Carlos',
     'nature_risk': None,
     'organization_category': 'ebausz',
     'parking_lots': None,
