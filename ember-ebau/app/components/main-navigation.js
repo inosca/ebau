@@ -64,6 +64,7 @@ export default class MainNavigationComponent extends Component {
 
     if (this.session.group === adminGroup) {
       window.location.href = "/django/admin";
+      return;
     }
 
     await this.fetch.fetch(`/api/v1/public-groups/${group}/set-default`, {
