@@ -240,6 +240,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "dokumente-voranfrage",
+    "fields": {
+      "created_at": "2024-04-30T10:17:57.529Z",
+      "modified_at": "2024-04-30T10:17:57.529Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dokumente Voranfrage\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "dokumente-ohne-bab"
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "durchgefuehrte-vorabklaerungen",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -315,15 +333,15 @@
     "pk": "erdwaermesonden",
     "fields": {
       "created_at": "2023-11-02T07:35:08.109Z",
-      "modified_at": "2023-11-02T07:35:08.109Z",
+      "modified_at": "2024-04-30T10:10:17.911Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Erdw\\u00e4rmesonden (EWS)\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {
-        "order": 1,
+        "order": 2,
         "category": "special-procedure",
         "is-creatable": true,
         "is-main-form": true
@@ -527,6 +545,29 @@
       "description": "{\"de\": \"Baugesuch > Lokalisierung\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "meldung",
+    "fields": {
+      "created_at": "2024-04-30T10:10:07.019Z",
+      "modified_at": "2024-04-30T10:10:07.019Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Meldung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {
+        "order": 1,
+        "category": "special-procedure",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": true,
       "is_archived": false,
       "source": null
     }
@@ -761,6 +802,47 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Verkehr\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "voranfrage",
+    "fields": {
+      "created_at": "2024-04-30T10:09:47.426Z",
+      "modified_at": "2024-04-30T10:09:47.426Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Voranfrage\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {
+        "order": 1,
+        "category": "preliminary-clarification",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "vorhaben",
+    "fields": {
+      "created_at": "2024-04-30T10:22:37.144Z",
+      "modified_at": "2024-04-30T10:22:37.144Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Vorhaben\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
@@ -6401,6 +6483,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "dokumente-voranfrage.dokumente-platzhalter",
+    "fields": {
+      "created_at": "2024-04-30T10:21:06.290Z",
+      "modified_at": "2024-04-30T10:21:06.290Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-voranfrage",
+      "question": "dokumente-platzhalter",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "dokumente.werkleitungsplan",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -11876,6 +11973,96 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "meldung.allgemeine-informationen",
+    "fields": {
+      "created_at": "2024-04-30T10:26:38.311Z",
+      "modified_at": "2024-04-30T10:26:38.311Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "meldung",
+      "question": "allgemeine-informationen",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "meldung.dokumente-voranfrage",
+    "fields": {
+      "created_at": "2024-04-30T10:27:08.166Z",
+      "modified_at": "2024-04-30T10:27:08.166Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "meldung",
+      "question": "dokumente-voranfrage",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "meldung.einreichen",
+    "fields": {
+      "created_at": "2024-04-30T10:27:13.898Z",
+      "modified_at": "2024-04-30T10:27:13.898Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "meldung",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "meldung.lokalisierung",
+    "fields": {
+      "created_at": "2024-04-30T10:26:43.755Z",
+      "modified_at": "2024-04-30T10:26:43.755Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "meldung",
+      "question": "lokalisierung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "meldung.personalien",
+    "fields": {
+      "created_at": "2024-04-30T10:26:49.526Z",
+      "modified_at": "2024-04-30T10:26:49.526Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "meldung",
+      "question": "personalien",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "meldung.vorhaben",
+    "fields": {
+      "created_at": "2024-04-30T10:27:00.676Z",
+      "modified_at": "2024-04-30T10:27:00.676Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "meldung",
+      "question": "vorhaben",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "migriertes-dossier-daten.bauende",
     "fields": {
       "created_at": "2024-03-28T13:00:22.273Z",
@@ -15382,6 +15569,141 @@
       "form": "verkehr",
       "question": "strassen-und-langsamverkehr",
       "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "voranfrage.allgemeine-informationen",
+    "fields": {
+      "created_at": "2024-04-30T10:16:32.722Z",
+      "modified_at": "2024-04-30T10:16:32.722Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "voranfrage",
+      "question": "allgemeine-informationen",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "voranfrage.dokumente-voranfrage",
+    "fields": {
+      "created_at": "2024-04-30T10:18:55.345Z",
+      "modified_at": "2024-04-30T10:18:55.345Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "voranfrage",
+      "question": "dokumente-voranfrage",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "voranfrage.einreichen",
+    "fields": {
+      "created_at": "2024-04-30T10:17:03.335Z",
+      "modified_at": "2024-04-30T10:17:03.335Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "voranfrage",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "voranfrage.lokalisierung",
+    "fields": {
+      "created_at": "2024-04-30T10:16:39.625Z",
+      "modified_at": "2024-04-30T10:16:39.625Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "voranfrage",
+      "question": "lokalisierung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "voranfrage.personalien",
+    "fields": {
+      "created_at": "2024-04-30T10:16:48.208Z",
+      "modified_at": "2024-04-30T10:16:48.208Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "voranfrage",
+      "question": "personalien",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "voranfrage.vorhaben",
+    "fields": {
+      "created_at": "2024-04-30T10:24:14.405Z",
+      "modified_at": "2024-04-30T10:24:14.405Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "voranfrage",
+      "question": "vorhaben",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorhaben.bemerkungen",
+    "fields": {
+      "created_at": "2024-04-30T10:23:37.943Z",
+      "modified_at": "2024-04-30T10:23:37.943Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorhaben",
+      "question": "bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorhaben.umschreibung-bauprojekt",
+    "fields": {
+      "created_at": "2024-04-30T10:23:24.801Z",
+      "modified_at": "2024-04-30T10:23:24.801Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorhaben",
+      "question": "umschreibung-bauprojekt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorhaben.vorhaben-titel",
+    "fields": {
+      "created_at": "2024-04-30T10:23:13.397Z",
+      "modified_at": "2024-04-30T10:23:13.397Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorhaben",
+      "question": "vorhaben-titel",
+      "sort": 3
     }
   },
   {
@@ -19152,6 +19474,22 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Dimensionierungsnachweis\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "dokumente-platzhalter-ja",
+    "fields": {
+      "created_at": "2024-04-30T10:21:05.702Z",
+      "modified_at": "2024-04-30T10:21:05.702Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Platzhalter\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -35577,6 +35915,78 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "dokumente-ohne-bab",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dokumente-platzhalter",
+    "fields": {
+      "created_at": "2024-04-30T10:21:05.966Z",
+      "modified_at": "2024-04-30T10:21:05.966Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente Platzhalter\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dokumente-voranfrage",
+    "fields": {
+      "created_at": "2024-04-30T10:18:55.043Z",
+      "modified_at": "2024-04-30T10:21:44.123Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "alexandria-documents-form",
+        "alexandria-categories": [
+          "beilagen-zum-gesuch-grundstuecksangaben",
+          "beilagen-zum-gesuch-gutachten-nachweise-begruendungen",
+          "beilagen-zum-gesuch-projektplaene-projektbeschrieb",
+          "beilagen-zum-gesuch-weitere-gesuchsunterlagen"
+        ]
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "dokumente-voranfrage",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -57958,6 +58368,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "vorhaben",
+    "fields": {
+      "created_at": "2024-04-30T10:24:14.158Z",
+      "modified_at": "2024-04-30T10:24:14.158Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorhaben\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "vorhaben",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "vorhaben-innerhalb-der-landwirtschaftszone",
     "fields": {
       "created_at": "2023-11-10T10:19:22.120Z",
@@ -58006,6 +58447,37 @@
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vorhaben-titel",
+    "fields": {
+      "created_at": "2024-04-30T10:23:13.189Z",
+      "modified_at": "2024-04-30T10:23:13.189Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorhaben Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"## Vorhaben\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -62188,6 +62660,21 @@
       "modified_by_group": null,
       "question": "dimensionierungsnachweis",
       "option": "dimensionierungsnachweis-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "dokumente-platzhalter.dokumente-platzhalter-ja",
+    "fields": {
+      "created_at": "2024-04-30T10:21:05.975Z",
+      "modified_at": "2024-04-30T10:21:05.975Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "dokumente-platzhalter",
+      "option": "dokumente-platzhalter-ja",
       "sort": 1
     }
   },
