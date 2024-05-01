@@ -5,5 +5,6 @@ FORM_DESCRIPTIONS = [
     "Vorabklärung",
     "Vorentscheid gemäss § 84 PBG",
     "Projektgenehmigungsgesuch gemäss § 15 StraG",
+    "Projektgenehmigungsgesuch gemäss § 16 StraG",
     "Migriertes Dossier",
 ]
