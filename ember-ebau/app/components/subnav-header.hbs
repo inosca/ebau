@@ -6,6 +6,9 @@
     {{#if @case.instanceState}}
       <span class="uk-label subnav-header__label subnav-header__label--primary">{{@case.instanceState}}</span>
     {{/if}}
+    {{#if @case.decision}}
+      <span class="uk-label subnav-header__label subnav-header__label--secondary">{{@case.decision}}</span>
+    {{/if}}
     {{#if @case.instance.isPaper}}
       <span class="uk-label subnav-header__label">{{t "nav.paper"}}</span>
     {{/if}}
