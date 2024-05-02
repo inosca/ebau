@@ -862,6 +862,7 @@ class DecisionField(AliasedMixin, serializers.ReadOnlyField):
 class AlexandriaDocumentField(AliasedMixin, serializers.ReadOnlyField):
     nested_aliases = {
         "NAME": [_("NAME")],
+        "ORIGINAL_NAME": [_("ORIGINAL_NAME")],
         "DESCRIPTION": [_("DESCRIPTION")],
         "CREATED_AT": [_("CREATED_AT")],
         "CREATED_BY": [_("CREATED_BY")],
@@ -926,6 +927,10 @@ class AlexandriaDocumentField(AliasedMixin, serializers.ReadOnlyField):
             data.append(
                 {
                     "NAME": document.title.de,
+                    "ORIGINAL_NAME": document.files.filter(variant="original")
+                    .order_by("-created_at")
+                    .first()
+                    .name,
                     "DESCRIPTION": document.description.de,
                     "CREATED_AT": document.created_at.strftime("%d.%m.%Y %H:%M"),
                     "CREATED_BY": created_by,
