@@ -20,7 +20,10 @@ export default class CustomCfFieldLabelComponent extends Component {
     const gisValue = this.args.field.answer.raw.meta?.["gis-value"];
     const value = this.args.field.answer.serializedValue;
 
-    if (!gisValue || JSON.stringify(value) === JSON.stringify(gisValue)) {
+    if (
+      gisValue === undefined ||
+      JSON.stringify(value) === JSON.stringify(gisValue)
+    ) {
       return null;
     }
 
