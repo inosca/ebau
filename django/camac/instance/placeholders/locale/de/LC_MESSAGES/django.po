@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-25 11:46+0200\n"
-"PO-Revision-Date: 2024-04-22 09:33+0200\n"
+"PO-Revision-Date: 2024-05-02 14:31+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -162,39 +162,43 @@ msgid "ADDRESS_2"
 msgstr "ADRESSE_2"
 
 #: camac/instance/placeholders/fields.py:865
+msgid "ORIGINAL_NAME"
+msgstr "ORIGINAL_NAME"
+
+#: camac/instance/placeholders/fields.py:866
 msgid "DESCRIPTION"
 msgstr "BESCHREIBUNG"
 
-#: camac/instance/placeholders/fields.py:866
+#: camac/instance/placeholders/fields.py:867
 msgid "CREATED_AT"
 msgstr "ERSTELLT_AM"
 
-#: camac/instance/placeholders/fields.py:867
+#: camac/instance/placeholders/fields.py:868
 msgid "CREATED_BY"
 msgstr "ERSTELLT_VON"
 
-#: camac/instance/placeholders/fields.py:868
+#: camac/instance/placeholders/fields.py:869
 msgid "MODIFIED_AT"
 msgstr "GEAENDERT_AM"
 
-#: camac/instance/placeholders/fields.py:869
+#: camac/instance/placeholders/fields.py:870
 msgid "MODIFIED_BY"
 msgstr "GEAENDERT_VON"
 
-#: camac/instance/placeholders/fields.py:870
+#: camac/instance/placeholders/fields.py:871
 msgid "CATEGORY"
 msgstr "KATEGORIE"
 
-#: camac/instance/placeholders/fields.py:871
+#: camac/instance/placeholders/fields.py:872
 msgid "MARKS"
 msgstr "MARKIERUNGEN"
 
-#: camac/instance/placeholders/fields.py:872
+#: camac/instance/placeholders/fields.py:873
 #: camac/instance/placeholders/serializers.py:1268
 msgid "TAGS"
 msgstr "STICHWORTE"
 
-#: camac/instance/placeholders/fields.py:950
+#: camac/instance/placeholders/fields.py:951
 #, python-format
 msgid "%(title)s (submitted as %(original_title)s on %(date)s at %(time)s)"
 msgstr "%(title)s (eingereicht als %(original_title)s am %(date)s um %(time)s)"
