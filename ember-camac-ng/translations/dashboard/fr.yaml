@@ -12,6 +12,7 @@ dashboard:
   egrid: ""
   basicUsage: ""
   overlayUsage: ""
+  protectedObjects: ""
   furtherPeople: ""
   linkToForm: ""
   nfd: ""

@@ -305,6 +305,11 @@
           {{this.models.caseModel.overlayUsage}}
         </CaseDashboard::Column>
       </tr>
+      <tr>
+        <CaseDashboard::Column @header={{t "dashboard.protectedObjects"}}>
+          {{this.models.caseModel.protectedObjects}}
+        </CaseDashboard::Column>
+      </tr>
 
     </CaseDashboard::Section>
     {{#if this.models.parcelPicture}}
