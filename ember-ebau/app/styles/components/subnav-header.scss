@@ -21,5 +21,11 @@
       color: $global-primary-background;
       border: 1px solid $global-primary-background;
     }
+
+    &--secondary {
+      background: color.scale($global-secondary-background, $alpha: -80%);
+      color: $global-secondary-background;
+      border: 1px solid $global-secondary-background;
+    }
   }
 }
