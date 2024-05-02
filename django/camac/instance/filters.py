@@ -520,24 +520,40 @@ class OerebLegalStateFilter(CharFilter):
 
 class InquiryStateFilter(CharFilter):
     def filter(self, qs, value, *args, **kwargs):
-        if value in ["pending", "completed"]:
+        if value in EMPTY_VALUES:
+            return qs
+
+        if value == "pending":
             inquiries = WorkItem.objects.filter(
                 task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
                 addressed_groups__contains=[str(self.parent.request.group.service_id)],
-                status__in=(
-                    [WorkItem.STATUS_READY]
-                    if value == "pending"
-                    else [WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED]
-                ),
+                status=WorkItem.STATUS_READY,
             )
 
-            return qs.filter(
-                pk__in=list(
-                    inquiries.values_list("case__family__instance__pk", flat=True)
+        elif value == "completed":
+            # instances are considered completed if they have at least one completed
+            # or skipped inquiry, and no ready inquiry in the same case.
+            inquiries = WorkItem.objects.annotate(
+                has_open_sibling_inquiry=Exists(
+                    WorkItem.objects.filter(
+                        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+                        status=WorkItem.STATUS_READY,
+                        addressed_groups__contains=[
+                            str(self.parent.request.group.service_id)
+                        ],
+                        case=OuterRef("case"),
+                    )
                 )
+            ).filter(
+                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+                addressed_groups__contains=[str(self.parent.request.group.service_id)],
+                status__in=[WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED],
+                has_open_sibling_inquiry=False,
             )
 
-        return super().filter(qs, value)
+        return qs.filter(
+            pk__in=list(inquiries.values_list("case__family__instance__pk", flat=True))
+        )
 
 
 class InquiryDateFilter(DateFilter):
