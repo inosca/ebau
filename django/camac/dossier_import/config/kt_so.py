@@ -77,7 +77,9 @@ class KtSolothurnDossierWriter(DossierWriter):
         target="kommunale-gesuchsnummer", formatter="to-string"
     )
     proposal = CalumaAnswerWriter(target="umschreibung-bauprojekt")
-    cantonal_id = CalumaAnswerWriter(target="kantonale-gesuchsnummer")
+    cantonal_id = CalumaAnswerWriter(
+        target="kantonale-gesuchsnummer", formatter="to-string"
+    )
     plot_data = CalumaPlotDataWriter(
         target="parzellen", column_mapping=PLOT_DATA_MAPPING
     )
