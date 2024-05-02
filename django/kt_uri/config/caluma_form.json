@@ -344,6 +344,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "decision-task-form",
+    "fields": {
+      "created_at": "2023-12-05T12:48:21.400Z",
+      "modified_at": "2024-04-26T12:31:21.534Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Entscheid / Beurteilung (ALT)\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": true,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "dokumente",
     "fields": {
       "created_at": "2021-04-08T06:53:17.185Z",
@@ -8746,7 +8764,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "gis-karte",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -8761,7 +8779,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "grundnutzung",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -8776,7 +8794,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "lokalisierung-anleitung",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -8791,7 +8809,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "lokalisierung-titel",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -8806,7 +8824,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "municipality",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -8821,7 +8839,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "parcel-city",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -8836,7 +8854,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "parcels",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -8851,7 +8869,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "parcel-street",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -8866,7 +8884,22 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "parzellen-oder-baurechtsnummer",
-      "sort": 8
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lokalisierung.schutzobjekte",
+    "fields": {
+      "created_at": "2024-05-02T10:23:21.025Z",
+      "modified_at": "2024-05-02T10:23:21.025Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lokalisierung",
+      "question": "schutzobjekte",
+      "sort": 1
     }
   },
   {
@@ -8881,7 +8914,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "street-number",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -8896,7 +8929,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "ueberlagerte-nutzungen",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -31194,6 +31227,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "unterlagen-vollstaendig-ja",
+    "fields": {
+      "created_at": "2024-04-29T05:47:50.606Z",
+      "modified_at": "2024-04-29T05:47:50.606Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "unterlagen-vollstaendig-ja-nachreichung",
+    "fields": {
+      "created_at": "2024-04-29T05:47:50.607Z",
+      "modified_at": "2024-04-29T05:47:50.607Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja, einzelne Pl\\u00e4ne / Unterlagen werden nachgereicht\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "veranstaltung-art-andere",
     "fields": {
       "created_at": "2020-10-21T12:56:14.633Z",
@@ -33279,6 +33344,37 @@
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "additional-demand-files",
+    "fields": {
+      "created_at": "2023-10-05T15:13:40.643Z",
+      "modified_at": "2024-01-23T09:20:36.239Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dateien\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \".\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -37234,6 +37330,37 @@
       "label": "{\"de\": \"Baubeginn erfolgt\", \"fr\": null, \"it\": null}",
       "type": "date",
       "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "baubegleitungsprozess",
+    "fields": {
+      "created_at": "2024-03-06T07:24:45.274Z",
+      "modified_at": "2024-03-06T07:24:45.274Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baubegleitungsprozess\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -47694,10 +47821,10 @@
     "pk": "hinweis-baubewilligungspflicht",
     "fields": {
       "created_at": "2020-11-13T06:55:15.160Z",
-      "modified_at": "2024-04-17T06:24:40.453Z",
+      "modified_at": "2020-12-15T09:27:06.792Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Hinweis Baubewilligungspflicht\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -47707,7 +47834,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Bitte erfassen Sie die geplante/n Solar- und/oder Photovoltaikanlage/n mit der Tabelle unten (es k\\u00f6nnen mehrere Datens\\u00e4tze erfasst werden). \\n\\nHier finden Sie weitere Informationen zur Baubewilligungspflicht von Solaranlagen:\\n- [Merkblatt \\\"Baugesuche einreichen\\\"](https://www.ur.ch/_docn/187159/Merkblatt_Baugesuche_einreichen_Version_1.2.pdf) \\n- [Merkblatt \\\"Solaranlagen\\\"](https://www.ur.ch/_docn/375886/Merkblatt_Solaranlagen_0.8.pdf)\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Bitte erfassen Sie die geplante/n Solar- und/oder Photovoltaikanlage/n mit der Tabelle unten (es k\\u00f6nnen mehrere Datens\\u00e4tze erfasst werden). \\n\\nWeitere Informationen zur Baubewilligungspflicht von Solaranlagen k\\u00f6nnen Sie dem [Merkblatt \\\"Baugesuche einreichen\\\"](https://www.ur.ch/_docn/187159/Merkblatt_Baugesuche_einreichen_Version_1.2.pdf) entnehmen.\\n\\n---\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -49379,6 +49506,37 @@
         "hideLabel": true,
         "widgetOverride": "cf-field/input/hidden"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ist-das-vorhaben-bewilligungspflichtig",
+    "fields": {
+      "created_at": "2023-12-05T12:42:01.801Z",
+      "modified_at": "2023-12-05T12:42:01.801Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist das Vorhaben bewilligungspflichtig?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -55876,6 +56034,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "schutzobjekte",
+    "fields": {
+      "created_at": "2024-05-02T10:23:20.950Z",
+      "modified_at": "2024-05-02T10:23:20.950Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schutzobjekte\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "schutzraum",
     "fields": {
       "created_at": "2020-11-05T07:32:49.038Z",
@@ -57890,6 +58082,43 @@
       "format_validators": "[]",
       "default_answer": null,
       "calc_expression": "1 + 1",
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "test-work-item",
+    "fields": {
+      "created_at": "2023-12-01T15:59:50.603Z",
+      "modified_at": "2023-12-04T07:16:53.647Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"test-work-item\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "task": "check-permit",
+        "widgetOverride": "complete-work-item"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
       "calc_dependents": "[]"
     }
   },
