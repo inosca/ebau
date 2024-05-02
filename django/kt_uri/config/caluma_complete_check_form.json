@@ -4,15 +4,15 @@
     "pk": "complete-check",
     "fields": {
       "created_at": "2023-12-05T12:21:28.929Z",
-      "modified_at": "2023-12-05T12:21:28.929Z",
+      "modified_at": "2024-04-29T05:53:07.859Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "name": "{\"de\": \"Vollst\\u00e4ndigkeitspr\\u00fcfung\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
-      "is_published": false,
+      "is_published": true,
       "is_archived": false,
       "source": null
     }
@@ -44,7 +44,7 @@
       "modified_by_group": null,
       "form": "complete-check",
       "question": "complete-check-baubewilligungspflichtig",
-      "sort": 4
+      "sort": 8
     }
   },
   {
@@ -74,6 +74,66 @@
       "modified_by_group": null,
       "form": "complete-check",
       "question": "complete-check-vollstaendigkeitspruefung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-check.erforderlichen-unterlagen",
+    "fields": {
+      "created_at": "2024-04-29T05:52:22.642Z",
+      "modified_at": "2024-04-29T05:52:22.642Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-check",
+      "question": "erforderlichen-unterlagen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-check.profilierung",
+    "fields": {
+      "created_at": "2024-04-29T05:40:29.346Z",
+      "modified_at": "2024-04-29T05:40:29.346Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-check",
+      "question": "profilierung",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-check.unterschriften",
+    "fields": {
+      "created_at": "2024-04-29T05:41:40.224Z",
+      "modified_at": "2024-04-29T05:41:40.224Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-check",
+      "question": "unterschriften",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-check.unterschriftenblatt-eingereicht",
+    "fields": {
+      "created_at": "2024-04-29T05:44:15.911Z",
+      "modified_at": "2024-04-29T05:44:15.911Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-check",
+      "question": "unterschriftenblatt-eingereicht",
       "sort": 5
     }
   },
@@ -82,12 +142,12 @@
     "pk": "complete-check-baubewilligungspflichtig-baubewilligungspflichtig",
     "fields": {
       "created_at": "2023-12-08T13:10:25.341Z",
-      "modified_at": "2023-12-08T13:10:25.341Z",
+      "modified_at": "2024-04-29T05:32:42.851Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Baubewilligungspflichtig\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Ja, das Vorhaben ist Baubewilligungspflichtig\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -98,12 +158,12 @@
     "pk": "complete-check-baubewilligungspflichtig-nicht-baubewilligungspflichtig",
     "fields": {
       "created_at": "2023-12-08T13:10:25.339Z",
-      "modified_at": "2023-12-08T13:10:25.339Z",
+      "modified_at": "2024-04-29T05:32:42.850Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Nicht baubewilligungspflichtig\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Nein, das Vorhaben ist micht baubewilligungspflichtig\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -114,12 +174,12 @@
     "pk": "complete-check-vollstaendigkeitspruefung-complete",
     "fields": {
       "created_at": "2023-12-08T13:09:42.624Z",
-      "modified_at": "2023-12-08T13:09:42.624Z",
+      "modified_at": "2024-04-29T05:39:10.300Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Dossier ist gen\\u00fcgend dokumentiert\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Dossier ist vollst\\u00e4ndig\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -130,12 +190,204 @@
     "pk": "complete-check-vollstaendigkeitspruefung-incomplete",
     "fields": {
       "created_at": "2023-12-08T13:09:42.625Z",
-      "modified_at": "2023-12-08T13:09:42.625Z",
+      "modified_at": "2024-04-29T05:39:10.298Z",
       "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nachforderung, weiter zur materiellen Pr\\u00fcfung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "complete-check-vollstaendigkeitspruefung-incomplete-wait",
+    "fields": {
+      "created_at": "2024-04-29T05:39:10.302Z",
+      "modified_at": "2024-04-29T05:39:10.302Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Dossier ist unvollst\\u00e4ndig\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Nachforderung, auf Antwort warten\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "complete-check-vollstaendigkeitspruefung-reject",
+    "fields": {
+      "created_at": "2024-04-29T05:39:10.308Z",
+      "modified_at": "2024-04-29T05:39:10.308Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dossier zur\\u00fcckweisen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "erforderlichen-unterlagen-ja",
+    "fields": {
+      "created_at": "2024-04-29T05:52:22.328Z",
+      "modified_at": "2024-04-29T05:52:22.328Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "erforderlichen-unterlagen-nachreichung",
+    "fields": {
+      "created_at": "2024-04-29T05:52:22.481Z",
+      "modified_at": "2024-04-29T05:52:22.481Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein, einzelne Unterlagen werden nachgereicht\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "erforderlichen-unterlagen-nein",
+    "fields": {
+      "created_at": "2024-04-29T05:52:22.411Z",
+      "modified_at": "2024-04-29T05:52:22.411Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "profilierung-erforderlich",
+    "fields": {
+      "created_at": "2024-04-29T05:40:29.152Z",
+      "modified_at": "2024-04-29T05:40:29.152Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erforderlich\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "profilierung-nicht-erforderlich",
+    "fields": {
+      "created_at": "2024-04-29T05:40:29.158Z",
+      "modified_at": "2024-04-29T05:40:29.158Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht erforderlich\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "unterschriftenblatt-eingereicht-ja",
+    "fields": {
+      "created_at": "2024-04-29T05:44:06.263Z",
+      "modified_at": "2024-04-29T05:44:15.739Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "unterschriftenblatt-eingereicht-nein",
+    "fields": {
+      "created_at": "2024-04-29T05:44:06.254Z",
+      "modified_at": "2024-04-29T05:44:15.761Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "unterschriftenblatt-eingereicht-x",
+    "fields": {
+      "created_at": "2024-04-29T05:44:15.760Z",
+      "modified_at": "2024-04-29T05:45:14.011Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Das Formular wurde digital signiert\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "unterschriften-ja",
+    "fields": {
+      "created_at": "2024-04-29T05:41:40.085Z",
+      "modified_at": "2024-04-29T05:41:40.085Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "unterschriften-nein",
+    "fields": {
+      "created_at": "2024-04-29T05:41:40.084Z",
+      "modified_at": "2024-04-29T05:41:40.084Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -182,12 +434,12 @@
     "pk": "complete-check-baubewilligungspflichtig",
     "fields": {
       "created_at": "2023-12-08T09:59:09.968Z",
-      "modified_at": "2023-12-08T13:10:25.386Z",
+      "modified_at": "2024-04-29T05:32:42.920Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Kl\\u00e4rung Baubewilligungspflicht\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Baubewilligungsverfahren durchf\\u00fchren?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "context|debug",
@@ -247,14 +499,138 @@
     "pk": "complete-check-vollstaendigkeitspruefung",
     "fields": {
       "created_at": "2023-12-08T09:58:18.628Z",
-      "modified_at": "2023-12-08T13:09:42.680Z",
+      "modified_at": "2024-04-29T05:39:10.380Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Vollst\\u00e4ndigkeitspr\\u00fcfung\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Resultat der Vollst\\u00e4ndigkeitspr\\u00fcfung\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "erforderlichen-unterlagen",
+    "fields": {
+      "created_at": "2024-04-29T05:52:22.546Z",
+      "modified_at": "2024-04-29T05:52:22.546Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Liegen alle f\\u00fcr die Baurteilung erforderlichen Unterlagen / Pl\\u00e4ne vor?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "profilierung",
+    "fields": {
+      "created_at": "2024-04-29T05:40:29.233Z",
+      "modified_at": "2024-04-29T05:40:29.233Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Profilierung\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "unterschriften",
+    "fields": {
+      "created_at": "2024-04-29T05:41:40.146Z",
+      "modified_at": "2024-04-29T05:41:40.146Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Liegen alle erforderlichen Unterschriften vor?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "unterschriftenblatt-eingereicht",
+    "fields": {
+      "created_at": "2024-04-29T05:44:15.824Z",
+      "modified_at": "2024-04-29T05:45:14.082Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wurde das unterzeichnete Unterschriftenblatt physisch eingereicht?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -277,11 +653,11 @@
     "model": "caluma_form.questionoption",
     "pk": "complete-check-baubewilligungspflichtig.complete-check-baubewilligungspflichtig-baubewilligungspflichtig",
     "fields": {
-      "created_at": "2023-12-08T13:10:25.391Z",
-      "modified_at": "2023-12-08T13:10:25.391Z",
-      "created_by_user": "admin",
+      "created_at": "2024-04-29T05:32:42.926Z",
+      "modified_at": "2024-04-29T05:32:42.926Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "complete-check-baubewilligungspflichtig",
       "option": "complete-check-baubewilligungspflichtig-baubewilligungspflichtig",
@@ -292,11 +668,11 @@
     "model": "caluma_form.questionoption",
     "pk": "complete-check-baubewilligungspflichtig.complete-check-baubewilligungspflichtig-nicht-baubewilligungspflichtig",
     "fields": {
-      "created_at": "2023-12-08T13:10:25.389Z",
-      "modified_at": "2023-12-08T13:10:25.389Z",
-      "created_by_user": "admin",
+      "created_at": "2024-04-29T05:32:42.924Z",
+      "modified_at": "2024-04-29T05:32:42.924Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "complete-check-baubewilligungspflichtig",
       "option": "complete-check-baubewilligungspflichtig-nicht-baubewilligungspflichtig",
@@ -307,29 +683,209 @@
     "model": "caluma_form.questionoption",
     "pk": "complete-check-vollstaendigkeitspruefung.complete-check-vollstaendigkeitspruefung-complete",
     "fields": {
-      "created_at": "2023-12-08T13:09:42.688Z",
-      "modified_at": "2023-12-08T13:09:42.688Z",
-      "created_by_user": "admin",
+      "created_at": "2024-04-29T05:39:10.391Z",
+      "modified_at": "2024-04-29T05:39:10.391Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "complete-check-vollstaendigkeitspruefung",
       "option": "complete-check-vollstaendigkeitspruefung-complete",
-      "sort": 2
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "complete-check-vollstaendigkeitspruefung.complete-check-vollstaendigkeitspruefung-incomplete",
     "fields": {
-      "created_at": "2023-12-08T13:09:42.686Z",
-      "modified_at": "2023-12-08T13:09:42.686Z",
-      "created_by_user": "admin",
+      "created_at": "2024-04-29T05:39:10.389Z",
+      "modified_at": "2024-04-29T05:39:10.389Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "complete-check-vollstaendigkeitspruefung",
       "option": "complete-check-vollstaendigkeitspruefung-incomplete",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "complete-check-vollstaendigkeitspruefung.complete-check-vollstaendigkeitspruefung-incomplete-wait",
+    "fields": {
+      "created_at": "2024-04-29T05:39:10.387Z",
+      "modified_at": "2024-04-29T05:39:10.387Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "complete-check-vollstaendigkeitspruefung",
+      "option": "complete-check-vollstaendigkeitspruefung-incomplete-wait",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "complete-check-vollstaendigkeitspruefung.complete-check-vollstaendigkeitspruefung-reject",
+    "fields": {
+      "created_at": "2024-04-29T05:39:10.385Z",
+      "modified_at": "2024-04-29T05:39:10.385Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "complete-check-vollstaendigkeitspruefung",
+      "option": "complete-check-vollstaendigkeitspruefung-reject",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "erforderlichen-unterlagen.erforderlichen-unterlagen-ja",
+    "fields": {
+      "created_at": "2024-04-29T05:52:22.560Z",
+      "modified_at": "2024-04-29T05:52:22.560Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "erforderlichen-unterlagen",
+      "option": "erforderlichen-unterlagen-ja",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "erforderlichen-unterlagen.erforderlichen-unterlagen-nachreichung",
+    "fields": {
+      "created_at": "2024-04-29T05:52:22.557Z",
+      "modified_at": "2024-04-29T05:52:22.557Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "erforderlichen-unterlagen",
+      "option": "erforderlichen-unterlagen-nachreichung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "erforderlichen-unterlagen.erforderlichen-unterlagen-nein",
+    "fields": {
+      "created_at": "2024-04-29T05:52:22.551Z",
+      "modified_at": "2024-04-29T05:52:22.551Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "erforderlichen-unterlagen",
+      "option": "erforderlichen-unterlagen-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "profilierung.profilierung-erforderlich",
+    "fields": {
+      "created_at": "2024-04-29T05:40:29.249Z",
+      "modified_at": "2024-04-29T05:40:29.249Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "profilierung",
+      "option": "profilierung-erforderlich",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "profilierung.profilierung-nicht-erforderlich",
+    "fields": {
+      "created_at": "2024-04-29T05:40:29.241Z",
+      "modified_at": "2024-04-29T05:40:29.241Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "profilierung",
+      "option": "profilierung-nicht-erforderlich",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "unterschriftenblatt-eingereicht.unterschriftenblatt-eingereicht-ja",
+    "fields": {
+      "created_at": "2024-04-29T05:45:14.091Z",
+      "modified_at": "2024-04-29T05:45:14.091Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "unterschriftenblatt-eingereicht",
+      "option": "unterschriftenblatt-eingereicht-ja",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "unterschriftenblatt-eingereicht.unterschriftenblatt-eingereicht-nein",
+    "fields": {
+      "created_at": "2024-04-29T05:45:14.088Z",
+      "modified_at": "2024-04-29T05:45:14.088Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "unterschriftenblatt-eingereicht",
+      "option": "unterschriftenblatt-eingereicht-nein",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "unterschriftenblatt-eingereicht.unterschriftenblatt-eingereicht-x",
+    "fields": {
+      "created_at": "2024-04-29T05:45:14.086Z",
+      "modified_at": "2024-04-29T05:45:14.086Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "unterschriftenblatt-eingereicht",
+      "option": "unterschriftenblatt-eingereicht-x",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "unterschriften.unterschriften-ja",
+    "fields": {
+      "created_at": "2024-04-29T05:41:40.160Z",
+      "modified_at": "2024-04-29T05:41:40.160Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "unterschriften",
+      "option": "unterschriften-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "unterschriften.unterschriften-nein",
+    "fields": {
+      "created_at": "2024-04-29T05:41:40.152Z",
+      "modified_at": "2024-04-29T05:41:40.152Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "unterschriften",
+      "option": "unterschriften-nein",
       "sort": 1
     }
   }
