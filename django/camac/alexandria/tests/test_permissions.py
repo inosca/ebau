@@ -23,6 +23,8 @@ from rest_framework.status import (
     HTTP_405_METHOD_NOT_ALLOWED,
 )
 
+from camac.permissions import api
+
 
 def document_post_data(category_id, instance_id, metainfo={}):
     return {
@@ -1745,3 +1747,60 @@ def test_document_convert(
     response = admin_client.post(url)
 
     assert response.status_code == status_code
+
+
+@pytest.mark.parametrize("role__name", ["service-lead"])
+def test_gr_document_read_permission(
+    db,
+    role,
+    service,
+    gr_permissions_settings,
+    set_application_gr,
+    admin_client,
+    access_level_factory,
+    gr_instance,
+):
+    access_level = access_level_factory(slug="read")
+    alexandria_category = CategoryFactory(
+        metainfo={
+            "access": {
+                "service-lead": {
+                    "visibility": "all",
+                    "permissions": [
+                        {"permission": "update", "scope": "All"},
+                    ],
+                }
+            }
+        }
+    )
+
+    doc = DocumentFactory(
+        title="Foo",
+        category=alexandria_category,
+        metainfo={"camac-instance-id": gr_instance.pk},
+    )
+    url = reverse("document-detail", args=[doc.pk])
+    data = {
+        "data": {
+            "id": doc.pk,
+            "type": "documents",
+            "attributes": {
+                "title": {"de": "Change not allowed"},
+            },
+        },
+    }
+
+    response = admin_client.patch(url, data)
+
+    assert response.status_code == HTTP_404_NOT_FOUND
+
+    api.grant(
+        gr_instance,
+        grant_type=api.GRANT_CHOICES.SERVICE.value,
+        access_level=access_level,
+        service=service,
+    )
+
+    response = admin_client.patch(url, data)
+
+    assert response.status_code == HTTP_403_FORBIDDEN
