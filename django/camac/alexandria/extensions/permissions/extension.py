@@ -11,6 +11,7 @@ from localized_fields.value import LocalizedStringValue
 from camac.alexandria.extensions.common import get_role
 from camac.alexandria.extensions.permissions import conditions, scopes
 from camac.instance.models import Instance
+from camac.permissions.api import PermissionManager
 from camac.utils import get_dict_item
 
 
@@ -91,6 +92,11 @@ class CustomPermission:
             return set()
 
         available_permissions = set()
+
+        # FIXME: workaround until full permission module integration
+        manager = PermissionManager.from_request(request)
+        if manager.has_any(instance, ["documents-read"]):
+            return set()
 
         for permission in category_permissions["permissions"]:
             all_checks_met = True
