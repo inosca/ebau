@@ -35,6 +35,7 @@ const SIMPLE_FIELD_KEYS = [
   "parzellen-oder-baurechtsnummer",
   "ueberlagerte-nutzungen",
   "grundnutzung",
+  "schutzobjekte",
 ];
 const CHOICE_FIELD_KEYS = ["municipality"];
 
@@ -235,11 +236,16 @@ export default class UrGisComponent extends Component {
           "gewaessernetz_linien",
         );
 
-        const schutzobjekte = filterSeveralFeaturesByIds(data.features, [
-          "ur010_kantonales_inventar_schutzobjekte_flaechen",
-          "ur010_kantonales_inventar_schutzobjekte_linien",
-          "ur010_kantonales_inventar_schutzobjekte_punkte",
-        ]);
+        const listeSchutzobjekte = [];
+
+        const schutzobjekteFeatures = filterSeveralFeaturesByIds(
+          data.features,
+          [
+            "ur010_kantonales_inventar_schutzobjekte_flaechen",
+            "ur010_kantonales_inventar_schutzobjekte_linien",
+            "ur010_kantonales_inventar_schutzobjekte_punkte",
+          ],
+        );
 
         const schutzmassnahmen = filterSeveralFeaturesByIds(data.features, [
           "urec:ur065_rkr_scmn_gmd_na_la_nat_reg_gebiet_point",
@@ -256,15 +262,15 @@ export default class UrGisComponent extends Component {
           "urec:ur068_rkr_scmn_gmd_ku_de_lokal_gebiet_polygon",
         ]);
 
-        schutzobjekte.forEach((element) => {
+        schutzobjekteFeatures.forEach((element) => {
           if (element && element.properties.name) {
-            features.push(element.properties.name);
+            listeSchutzobjekte.push(element.properties.name);
           }
         });
 
         schutzmassnahmen.forEach((element) => {
           if (element && element.properties.typ_bezeichnung) {
-            features.push(element.properties.typ_bezeichnung);
+            listeSchutzobjekte.push(element.properties.typ_bezeichnung);
           }
         });
 
@@ -282,6 +288,7 @@ export default class UrGisComponent extends Component {
           features.push("Archäologisches Fundwartungsgebiet");
         }
 
+        const schutzobjekte = listeSchutzobjekte.filter(Boolean).join(", ");
         const ueberlagerteNutzungen = features.filter(Boolean).join(", ");
         const parcelNumber = liegenschaftFeature.properties.nummer;
 
@@ -296,6 +303,7 @@ export default class UrGisComponent extends Component {
           egrid,
           municipality,
           grundnutzung,
+          schutzobjekte,
           "parcel-number": parcelNumber,
           "parzellen-oder-baurechtsnummer": selbstrechtFeature
             ? selbstrechtFeature.properties.nummer
@@ -334,7 +342,7 @@ export default class UrGisComponent extends Component {
           .filter(Boolean)
           .join(", ")}`;
 
-        const nutzungInfo = [grundnutzung, ueberlagerteNutzungen]
+        const nutzungInfo = [grundnutzung, ueberlagerteNutzungen, schutzobjekte]
           .filter(Boolean)
           .join(", ");
 
