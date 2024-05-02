@@ -353,7 +353,22 @@
       "modified_by_group": null,
       "form": "complete-instance",
       "question": "complete-instance-title",
-      "sort": 4
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-instance.grundbucheintrag-zwg",
+    "fields": {
+      "created_at": "2024-04-29T12:35:40.497Z",
+      "modified_at": "2024-04-29T12:35:40.497Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-instance",
+      "question": "grundbucheintrag-zwg",
+      "sort": 1
     }
   },
   {
@@ -368,7 +383,7 @@
       "modified_by_group": null,
       "form": "complete-instance",
       "question": "verfahren-abschliessen",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -473,7 +488,7 @@
       "modified_by_group": null,
       "form": "construction-step-kanalisation-kontrollieren",
       "question": "construction-step-kanalisation-kontrollieren-bemerkungen",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -488,7 +503,7 @@
       "modified_by_group": null,
       "form": "construction-step-kanalisation-kontrollieren",
       "question": "construction-step-kanalisation-kontrollieren-datum-der-abnahme",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -503,7 +518,7 @@
       "modified_by_group": null,
       "form": "construction-step-kanalisation-kontrollieren",
       "question": "construction-step-kanalisationsabnahme-is-approved",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -1446,6 +1461,38 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Alle Auflagen, die bis zum jetzigen Zeitpunkt erledigt werden konnten, wurden erledigt.\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "grundbucheintrag-zwg-ja",
+    "fields": {
+      "created_at": "2024-04-29T12:35:39.095Z",
+      "modified_at": "2024-04-29T12:35:39.095Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "grundbucheintrag-zwg-nein",
+    "fields": {
+      "created_at": "2024-04-29T12:35:39.089Z",
+      "modified_at": "2024-04-29T12:35:39.089Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2797,6 +2844,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "grundbucheintrag-zwg",
+    "fields": {
+      "created_at": "2024-04-29T12:35:40.072Z",
+      "modified_at": "2024-04-29T12:35:40.072Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grundbucheintrag ZWG\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "verfahren-abschliessen",
     "fields": {
       "created_at": "2023-11-10T08:46:06.499Z",
@@ -3278,6 +3356,36 @@
       "modified_by_group": null,
       "question": "construction-step-zwischenkontrolle-melden-bestaetigung",
       "option": "construction-step-zwischenkontrolle-melden-bestaetigung-text",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "grundbucheintrag-zwg.grundbucheintrag-zwg-ja",
+    "fields": {
+      "created_at": "2024-04-29T12:35:40.087Z",
+      "modified_at": "2024-04-29T12:35:40.087Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "grundbucheintrag-zwg",
+      "option": "grundbucheintrag-zwg-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "grundbucheintrag-zwg.grundbucheintrag-zwg-nein",
+    "fields": {
+      "created_at": "2024-04-29T12:35:40.080Z",
+      "modified_at": "2024-04-29T12:35:40.080Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "grundbucheintrag-zwg",
+      "option": "grundbucheintrag-zwg-nein",
       "sort": 1
     }
   }
