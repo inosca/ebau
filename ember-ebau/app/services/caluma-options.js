@@ -14,6 +14,9 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
   alwaysUseNumberSeparatorWidget = hasFeature(
     "caluma.alwaysUseNumberSeparatorWidget",
   );
+  useNumberSeparatorWidgetAsDefault = hasFeature(
+    "caluma.useNumberSeparatorWidgetAsDefault",
+  );
 
   get currentGroupId() {
     return this.session.service?.id;

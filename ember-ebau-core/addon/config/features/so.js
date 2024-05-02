@@ -33,7 +33,7 @@ export default {
     municipalityBeforeSubmission: true,
   },
   caluma: {
-    alwaysUseNumberSeparatorWidget: true,
+    useNumberSeparatorWidgetAsDefault: true,
   },
   gis: {
     showChanges: true,
