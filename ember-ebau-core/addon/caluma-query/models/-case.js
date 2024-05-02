@@ -84,6 +84,10 @@ export default class CustomCaseBaseModel extends CaseModel {
     return this.raw.meta[answerSlugs.specialId];
   }
 
+  get decision() {
+    return this.instance?.decision;
+  }
+
   get form() {
     return this.instance?.name;
   }
