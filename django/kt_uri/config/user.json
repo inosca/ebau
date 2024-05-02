@@ -675,6 +675,14 @@
   },
   {
     "model": "user.servicegroup",
+    "pk": 73,
+    "fields": {
+      "name": "Gemeinderäte - interne Pendenzen",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
     "pk": 74,
     "fields": {
       "name": "Umweltschutzverbände",
