@@ -134,6 +134,12 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
     );
   }
 
+  get protectedObjects() {
+    return (
+      getAnswer(this.raw.document, "schutzobjekte")?.node.stringValue ?? ""
+    );
+  }
+
   get communalFederalNumber() {
     return this.instance?.get("location.communalFederalNumber");
   }
@@ -275,6 +281,7 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
               "leitbehoerde"
               "grundnutzung"
               "ueberlagerte-nutzungen"
+              "schutzobjekte"
               "typ-des-verfahrens"
               "oereb-thema"
               "oereb-thema-gemeinde"
