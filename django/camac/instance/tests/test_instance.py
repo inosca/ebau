@@ -2387,3 +2387,68 @@ def test_has_inquiry(
     inquiry.delete()
 
     assert not gr_instance.has_inquiry(service.pk)
+
+
+@pytest.mark.parametrize(
+    "inquiry_state,has_open_work_item,expected",
+    [
+        ("pending", True, 1),
+        ("pending", False, 0),
+        ("completed", True, 0),
+        ("completed", False, 1),
+    ],
+)
+def test_inquiry_state_filter(
+    admin_user,
+    admin_client,
+    caluma_workflow_config_gr,
+    instance_with_case,
+    instance_factory,
+    work_item_factory,
+    gr_distribution_settings,
+    document_factory,
+    inquiry_state,
+    has_open_work_item,
+    expected,
+):
+    url = reverse("instance-list")
+
+    instance = instance_with_case(instance_factory(user=admin_user))
+
+    # unrelated work item (wrong task)
+    work_item_factory(
+        case=instance.case,
+        task_id="foo",
+        status=caluma_workflow_models.WorkItem.STATUS_READY,
+        addressed_groups=[str(admin_client.user.groups.first().service_id)],
+    )
+    # unrelated work item (wrong addressed group)
+    work_item_factory(
+        case=instance.case,
+        task_id="inquiry",
+        status=caluma_workflow_models.WorkItem.STATUS_READY,
+        addressed_groups=["432985034"],
+    )
+    # unrelated work item (wrong case)
+    work_item_factory(
+        task_id="inquiry",
+        status=caluma_workflow_models.WorkItem.STATUS_READY,
+        addressed_groups=[str(admin_client.user.groups.first().service_id)],
+    )
+    if has_open_work_item:
+        work_item_factory(
+            case=instance.case,
+            task_id="inquiry",
+            status=caluma_workflow_models.WorkItem.STATUS_READY,
+            addressed_groups=[str(admin_client.user.groups.first().service_id)],
+        )
+    work_item_factory(
+        case=instance.case,
+        task_id="inquiry",
+        status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+        addressed_groups=[str(admin_client.user.groups.first().service_id)],
+    )
+
+    response = admin_client.get(url, data={"inquiry_state": inquiry_state})
+    assert response.status_code == status.HTTP_200_OK
+    assert len(response.json()["data"]) == expected
