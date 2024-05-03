@@ -5,3 +5,5 @@ cases:
   filters:
     submitDateAfter: "Eingereicht (von)"
     submitDateBefore: "Eingereicht (bis)"
+    decision: "Entscheid"
+    parcel: "Parzellennummer"

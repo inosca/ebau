@@ -1692,8 +1692,11 @@ APPLICATIONS = {
         },
         "DEMO_MODE_GROUPS": [
             5,  # Leitung Gemeinde Solothurn
+            7,  # Baubegleitung Gemeinde Solothurn
             8,  # Einsichtsberechtigte Gemeinde Solothurn
             539,  # Leitung Amt für Umwelt (AfU)
+            551,  # Leitung Amt für Wald, Jagd und Fischerei
+            560,  # Leitung Solothurnische Gebäudeversicherung (SGV)
         ],
         "ADMIN_GROUP": 1,
         "IS_MULTILINGUAL": True,
