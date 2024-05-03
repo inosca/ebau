@@ -187,22 +187,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "entscheid-entscheid-beschwerde-aufgehoben",
-    "fields": {
-      "created_at": "2024-03-14T15:41:00.126Z",
-      "modified_at": "2024-04-25T14:14:45.845Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Entscheid aufgehoben\", \"fr\": null, \"it\": null}",
-      "is_archived": true,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "entscheid-entscheid-beschwerde-bestaetigt",
     "fields": {
       "created_at": "2024-02-15T06:10:14.042Z",
@@ -602,22 +586,7 @@
       "modified_by_group": null,
       "question": "entscheid-entscheid",
       "option": "entscheid-entscheid-ablehnung",
-      "sort": 8
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "entscheid-entscheid.entscheid-entscheid-beschwerde-aufgehoben",
-    "fields": {
-      "created_at": "2024-04-25T14:14:46.300Z",
-      "modified_at": "2024-04-25T14:14:46.300Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "entscheid-entscheid",
-      "option": "entscheid-entscheid-beschwerde-aufgehoben",
-      "sort": 2
+      "sort": 7
     }
   },
   {
@@ -632,7 +601,7 @@
       "modified_by_group": null,
       "question": "entscheid-entscheid",
       "option": "entscheid-entscheid-beschwerde-bestaetigt",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -647,7 +616,7 @@
       "modified_by_group": null,
       "question": "entscheid-entscheid",
       "option": "entscheid-entscheid-beschwerde-geaendert",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -677,7 +646,7 @@
       "modified_by_group": null,
       "question": "entscheid-entscheid",
       "option": "entscheid-entscheid-rueckzug",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -692,7 +661,7 @@
       "modified_by_group": null,
       "question": "entscheid-entscheid",
       "option": "entscheid-entscheid-teilzustimmung",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -707,7 +676,7 @@
       "modified_by_group": null,
       "question": "entscheid-entscheid",
       "option": "entscheid-entscheid-zustimmung",
-      "sort": 7
+      "sort": 6
     }
   }
 ]
