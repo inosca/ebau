@@ -1,4 +1,7 @@
 decision:
+  submit:
+    appeal: "Entscheid der Beschwerdeinstanz bestätigen"
+
   appeal:
     confirmed: |-
       Dieses Dossier wird nach dem Erfassen des Entscheides in den Status

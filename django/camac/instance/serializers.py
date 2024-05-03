@@ -2614,6 +2614,12 @@ class CalumaInstanceAppealSerializer(serializers.Serializer):
             new_instance.case.save()
             new_instance.set_instance_state("decision", user)
 
+            decision_work_item = new_instance.case.work_items.get(
+                task_id=settings.DECISION["TASK"]
+            )
+            decision_work_item.name = _("Confirm decision of appeal authority")
+            decision_work_item.save()
+
             instance.set_instance_state("finished", user)
 
         # Add history entry to source instance
