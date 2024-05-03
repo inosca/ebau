@@ -385,6 +385,8 @@ class InstanceView(
             == settings.DECISION["INSTANCE_STATE"]
             and instance.instance_state.name
             in settings.APPEAL["INSTANCE_STATES_AFTER_DECISION"]
+            and not instance.case.meta.get("has-appeal")
+            and not instance.case.meta.get("is-appeal")
         )
 
     @permission_aware
