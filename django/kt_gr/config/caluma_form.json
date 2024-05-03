@@ -38255,7 +38255,7 @@
     "pk": "100-prozent-volumen",
     "fields": {
       "created_at": "2023-04-19T10:47:21.151Z",
-      "modified_at": "2023-10-27T14:14:07.587Z",
+      "modified_at": "2024-05-03T06:50:03.911Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -38273,7 +38273,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -38667,7 +38669,7 @@
     "pk": "abgas-luft-menge",
     "fields": {
       "created_at": "2023-04-24T12:40:57.778Z",
-      "modified_at": "2023-10-27T14:14:06.748Z",
+      "modified_at": "2024-05-03T06:50:03.928Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -38685,7 +38687,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -38769,7 +38773,7 @@
     "pk": "abgasvolumen-bhkw",
     "fields": {
       "created_at": "2023-07-12T15:15:36.206Z",
-      "modified_at": "2023-10-27T14:14:07.783Z",
+      "modified_at": "2024-05-03T06:50:03.934Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -38787,7 +38791,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -38803,7 +38809,7 @@
     "pk": "abgasvolumen-nmh",
     "fields": {
       "created_at": "2023-07-12T14:50:10.122Z",
-      "modified_at": "2023-10-27T14:14:07.786Z",
+      "modified_at": "2024-05-03T06:50:03.939Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -38821,7 +38827,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -39286,7 +39294,7 @@
     "pk": "abstaende-zu-nachbargebaeude",
     "fields": {
       "created_at": "2023-05-25T07:02:03.081Z",
-      "modified_at": "2023-10-27T14:14:06.814Z",
+      "modified_at": "2024-05-03T06:50:03.944Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -39304,7 +39312,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -39385,7 +39395,7 @@
     "pk": "abtransport-volumen",
     "fields": {
       "created_at": "2023-04-12T09:08:51.835Z",
-      "modified_at": "2023-10-25T17:16:42.895Z",
+      "modified_at": "2024-05-03T06:50:03.950Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -39403,7 +39413,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -39834,7 +39846,7 @@
     "pk": "ammoniak-bhkw",
     "fields": {
       "created_at": "2023-07-12T15:14:54.446Z",
-      "modified_at": "2023-10-27T14:14:07.789Z",
+      "modified_at": "2024-05-03T06:50:03.955Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -39852,7 +39864,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40581,7 +40595,7 @@
     "pk": "anzahl",
     "fields": {
       "created_at": "2023-07-03T08:30:42.879Z",
-      "modified_at": "2023-10-25T08:58:02.704Z",
+      "modified_at": "2024-05-03T06:50:03.960Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -40599,7 +40613,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40615,7 +40631,7 @@
     "pk": "anzahl-anlagen",
     "fields": {
       "created_at": "2023-06-14T11:27:20.045Z",
-      "modified_at": "2023-10-25T09:48:48.530Z",
+      "modified_at": "2024-05-03T06:50:03.965Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -40633,7 +40649,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40649,7 +40667,7 @@
     "pk": "anzahl-behaelter",
     "fields": {
       "created_at": "2023-04-24T10:03:54.508Z",
-      "modified_at": "2023-10-27T14:14:06.968Z",
+      "modified_at": "2024-05-03T06:50:03.970Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -40667,7 +40685,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40683,7 +40703,7 @@
     "pk": "anzahl-beruecksichtigter-nachbarsonden-im-umkreis-von-50-m",
     "fields": {
       "created_at": "2023-04-20T14:17:13.491Z",
-      "modified_at": "2023-10-27T14:14:07.540Z",
+      "modified_at": "2024-05-03T06:50:03.974Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -40701,7 +40721,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40717,7 +40739,7 @@
     "pk": "anzahl-erdwaermesonden",
     "fields": {
       "created_at": "2023-04-20T13:47:05.393Z",
-      "modified_at": "2023-10-27T14:14:07.542Z",
+      "modified_at": "2024-05-03T06:50:03.979Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -40735,7 +40757,9 @@
         "max_value": null,
         "min_value": 5
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40751,7 +40775,7 @@
     "pk": "anzahl-hydranten",
     "fields": {
       "created_at": "2023-05-25T07:38:51.145Z",
-      "modified_at": "2023-10-27T14:14:06.827Z",
+      "modified_at": "2024-05-03T06:50:03.984Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -40769,7 +40793,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40785,7 +40811,7 @@
     "pk": "anzahl-kammern",
     "fields": {
       "created_at": "2023-04-19T11:00:09.113Z",
-      "modified_at": "2023-10-27T14:14:07.592Z",
+      "modified_at": "2024-05-03T06:50:03.989Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -40803,7 +40829,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40855,7 +40883,7 @@
     "pk": "anzahl-mitarbeitende",
     "fields": {
       "created_at": "2023-06-02T12:57:32.574Z",
-      "modified_at": "2023-10-27T14:14:07.233Z",
+      "modified_at": "2024-05-03T06:50:03.993Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -40873,7 +40901,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40889,7 +40919,7 @@
     "pk": "anzahl-mitarbeitende-produktion",
     "fields": {
       "created_at": "2023-06-02T12:58:05.876Z",
-      "modified_at": "2023-10-27T14:14:07.236Z",
+      "modified_at": "2024-05-03T06:50:03.998Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -40907,7 +40937,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40923,7 +40955,7 @@
     "pk": "anzahl-module",
     "fields": {
       "created_at": "2023-04-20T09:53:43.118Z",
-      "modified_at": "2023-04-20T09:53:43.118Z",
+      "modified_at": "2024-05-03T06:50:04.003Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -40941,7 +40973,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40957,7 +40991,7 @@
     "pk": "anzahl-personen",
     "fields": {
       "created_at": "2023-05-25T08:41:17.100Z",
-      "modified_at": "2023-10-27T14:14:06.830Z",
+      "modified_at": "2024-05-03T06:50:04.008Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -40975,7 +41009,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40991,7 +41027,7 @@
     "pk": "anzahl-personen-dauerhaft-im-wohnhaus",
     "fields": {
       "created_at": "2023-04-14T07:45:12.457Z",
-      "modified_at": "2023-10-25T07:32:35.537Z",
+      "modified_at": "2024-05-03T06:50:04.012Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -41009,7 +41045,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -41061,7 +41099,7 @@
     "pk": "anzahl-schutzplaetze-spital",
     "fields": {
       "created_at": "2023-04-19T12:16:21.128Z",
-      "modified_at": "2023-10-27T14:14:07.732Z",
+      "modified_at": "2024-05-03T06:50:04.017Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -41079,7 +41117,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -41095,7 +41135,7 @@
     "pk": "anzahl-schutzplaetze-wohnhaus",
     "fields": {
       "created_at": "2023-04-19T12:15:51.809Z",
-      "modified_at": "2023-10-27T14:14:07.734Z",
+      "modified_at": "2024-05-03T06:50:04.023Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -41113,7 +41153,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -41129,7 +41171,7 @@
     "pk": "anzahl-seiten-mit-umrandung",
     "fields": {
       "created_at": "2023-04-12T12:30:09.381Z",
-      "modified_at": "2023-10-25T07:30:06.785Z",
+      "modified_at": "2024-05-03T06:50:04.028Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -41147,7 +41189,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -41163,7 +41207,7 @@
     "pk": "anzahl-sondenbohrungen",
     "fields": {
       "created_at": "2023-04-20T11:54:22.323Z",
-      "modified_at": "2023-10-27T14:14:07.985Z",
+      "modified_at": "2024-05-03T06:50:04.033Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -41181,7 +41225,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -41197,7 +41243,7 @@
     "pk": "anzahl-sondierungen",
     "fields": {
       "created_at": "2023-04-20T14:51:33.991Z",
-      "modified_at": "2023-10-27T14:14:07.169Z",
+      "modified_at": "2024-05-03T06:50:04.039Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -41215,7 +41261,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -41355,7 +41403,7 @@
     "pk": "anzahl-tanksaeulen",
     "fields": {
       "created_at": "2023-04-20T08:42:02.299Z",
-      "modified_at": "2023-10-27T14:14:07.595Z",
+      "modified_at": "2024-05-03T06:50:04.044Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -41373,7 +41421,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -41389,7 +41439,7 @@
     "pk": "anzahl-tanksaeulen-ableitung-der-abgase",
     "fields": {
       "created_at": "2023-04-24T10:05:13.493Z",
-      "modified_at": "2023-05-23T13:48:24.752Z",
+      "modified_at": "2024-05-03T06:50:04.053Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -41407,7 +41457,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -41423,7 +41475,7 @@
     "pk": "anzahl-wohnungen",
     "fields": {
       "created_at": "2023-05-25T08:46:07.729Z",
-      "modified_at": "2023-10-27T14:14:06.833Z",
+      "modified_at": "2024-05-03T06:50:04.063Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -41441,7 +41493,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -43197,7 +43251,7 @@
     "pk": "bab-baujahr",
     "fields": {
       "created_at": "2023-10-19T09:09:37.604Z",
-      "modified_at": "2023-10-25T07:24:14.654Z",
+      "modified_at": "2024-05-03T06:50:04.070Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -43215,7 +43269,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -43679,7 +43735,7 @@
     "pk": "baujahr",
     "fields": {
       "created_at": "2023-06-14T11:44:59.993Z",
-      "modified_at": "2023-10-25T09:44:23.624Z",
+      "modified_at": "2024-05-03T06:50:04.075Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -43697,7 +43753,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -43713,7 +43771,7 @@
     "pk": "baujahr-bhkw",
     "fields": {
       "created_at": "2023-07-12T15:02:59.114Z",
-      "modified_at": "2023-10-27T14:14:07.791Z",
+      "modified_at": "2024-05-03T06:50:04.082Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -43731,7 +43789,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -43747,7 +43807,7 @@
     "pk": "baujahr-der-anlage",
     "fields": {
       "created_at": "2023-04-24T12:24:42.040Z",
-      "modified_at": "2023-10-27T14:14:06.759Z",
+      "modified_at": "2024-05-03T06:50:04.088Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -43765,7 +43825,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -43781,7 +43843,7 @@
     "pk": "baujahr-holzfeuerung",
     "fields": {
       "created_at": "2023-07-14T11:25:34.824Z",
-      "modified_at": "2023-07-14T11:25:34.824Z",
+      "modified_at": "2024-05-03T06:50:04.094Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -43799,7 +43861,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -43815,7 +43879,7 @@
     "pk": "baujahr-lageranlage",
     "fields": {
       "created_at": "2023-04-19T10:35:28.812Z",
-      "modified_at": "2023-10-27T14:14:07.616Z",
+      "modified_at": "2024-05-03T06:50:04.100Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -43833,7 +43897,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -43849,7 +43915,7 @@
     "pk": "baujahr-notstromanlage",
     "fields": {
       "created_at": "2023-07-12T08:50:02.894Z",
-      "modified_at": "2023-10-27T14:14:07.794Z",
+      "modified_at": "2024-05-03T06:50:04.107Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -43867,7 +43933,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -43883,7 +43951,7 @@
     "pk": "baujahr-oel-gasfeuerung",
     "fields": {
       "created_at": "2023-07-13T11:40:38.604Z",
-      "modified_at": "2023-10-25T09:38:16.495Z",
+      "modified_at": "2024-05-03T06:50:04.113Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -43901,7 +43969,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -43948,7 +44018,7 @@
     "pk": "baukosten",
     "fields": {
       "created_at": "2023-04-12T07:52:08.352Z",
-      "modified_at": "2023-10-26T06:59:32.774Z",
+      "modified_at": "2024-05-03T06:50:04.120Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -43966,7 +44036,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -44385,7 +44457,7 @@
     "pk": "beanspruchte-flaeche",
     "fields": {
       "created_at": "2023-04-21T07:48:02.198Z",
-      "modified_at": "2023-10-27T14:14:07.917Z",
+      "modified_at": "2024-05-03T06:50:04.127Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -44405,7 +44477,9 @@
         "max_length": null,
         "min_length": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -47688,7 +47762,7 @@
     "pk": "betriebsleiter-anzahl-wohnungen",
     "fields": {
       "created_at": "2023-04-12T11:30:52.748Z",
-      "modified_at": "2023-10-25T07:27:48.651Z",
+      "modified_at": "2024-05-03T06:50:04.139Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -47706,7 +47780,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -47722,7 +47798,7 @@
     "pk": "betriebsleiter-baujahr",
     "fields": {
       "created_at": "2023-04-12T11:31:08.272Z",
-      "modified_at": "2023-10-25T07:27:54.144Z",
+      "modified_at": "2024-05-03T06:50:04.146Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -47740,7 +47816,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -48010,7 +48088,7 @@
     "pk": "betriebsstunden-hjahr",
     "fields": {
       "created_at": "2023-06-14T11:27:50.948Z",
-      "modified_at": "2023-10-25T09:48:54.741Z",
+      "modified_at": "2024-05-03T06:50:04.153Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -48028,7 +48106,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -48397,7 +48477,7 @@
     "pk": "bis-jahr",
     "fields": {
       "created_at": "2023-04-12T10:50:36.057Z",
-      "modified_at": "2023-10-19T09:00:47.324Z",
+      "modified_at": "2024-05-03T06:50:04.160Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -48415,7 +48495,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -48715,7 +48797,7 @@
     "pk": "bohrdurchmesser",
     "fields": {
       "created_at": "2023-04-20T14:52:51.742Z",
-      "modified_at": "2023-10-27T14:14:07.180Z",
+      "modified_at": "2024-05-03T06:50:04.167Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -48733,7 +48815,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -48885,7 +48969,7 @@
     "pk": "bohrtiefe",
     "fields": {
       "created_at": "2023-04-20T14:52:01.459Z",
-      "modified_at": "2023-10-27T14:14:07.185Z",
+      "modified_at": "2024-05-03T06:50:04.174Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -48903,7 +48987,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -48919,7 +49005,7 @@
     "pk": "bohrtiefe-der-erdwaermesonden",
     "fields": {
       "created_at": "2023-04-20T13:47:47.417Z",
-      "modified_at": "2023-10-27T14:14:07.545Z",
+      "modified_at": "2024-05-03T06:50:04.181Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -48937,7 +49023,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -48953,7 +49041,7 @@
     "pk": "bohrtiefe-pro-erdwaermesonde",
     "fields": {
       "created_at": "2023-04-20T11:55:11.297Z",
-      "modified_at": "2023-10-27T14:14:08.010Z",
+      "modified_at": "2024-05-03T06:50:04.188Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -48971,7 +49059,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -49371,7 +49461,7 @@
     "pk": "breite",
     "fields": {
       "created_at": "2023-04-19T10:48:30.981Z",
-      "modified_at": "2023-10-27T14:14:07.629Z",
+      "modified_at": "2024-05-03T06:50:04.194Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -49389,7 +49479,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -49828,7 +49920,7 @@
     "pk": "dachneigung-prozent",
     "fields": {
       "created_at": "2023-06-16T14:41:32.259Z",
-      "modified_at": "2023-10-27T14:14:07.755Z",
+      "modified_at": "2024-05-03T06:50:04.202Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -49846,7 +49938,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -50206,7 +50300,7 @@
     "pk": "die-angaben-beziehen-sich-auf-das-betriebsjahr",
     "fields": {
       "created_at": "2023-06-14T11:53:11.399Z",
-      "modified_at": "2023-10-27T14:14:07.269Z",
+      "modified_at": "2024-05-03T06:50:04.215Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -50224,7 +50318,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -50336,7 +50432,7 @@
     "pk": "dieselruss",
     "fields": {
       "created_at": "2023-07-12T14:54:30.981Z",
-      "modified_at": "2023-10-27T14:14:07.812Z",
+      "modified_at": "2024-05-03T06:50:04.231Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -50354,7 +50450,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -50370,7 +50468,7 @@
     "pk": "dieselruss-bhkw",
     "fields": {
       "created_at": "2023-07-12T15:13:39.743Z",
-      "modified_at": "2023-10-27T14:14:07.815Z",
+      "modified_at": "2024-05-03T06:50:04.241Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -50388,7 +50486,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -50438,7 +50538,7 @@
     "pk": "distanz-des-hydranten",
     "fields": {
       "created_at": "2023-05-25T07:38:30.792Z",
-      "modified_at": "2023-10-27T14:14:06.873Z",
+      "modified_at": "2024-05-03T06:50:04.248Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -50456,7 +50556,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -50648,7 +50750,7 @@
     "pk": "druckentlastungsflaeche",
     "fields": {
       "created_at": "2023-04-24T07:47:58.933Z",
-      "modified_at": "2023-04-27T13:37:50.383Z",
+      "modified_at": "2024-05-03T06:50:04.254Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -50666,7 +50768,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -50682,7 +50786,7 @@
     "pk": "durchmesser",
     "fields": {
       "created_at": "2023-04-19T10:56:11.635Z",
-      "modified_at": "2023-10-27T14:14:07.631Z",
+      "modified_at": "2024-05-03T06:50:04.261Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -50700,7 +50804,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -50716,7 +50822,7 @@
     "pk": "durchmesser-ablaufleitung-fuer-fluessiggas",
     "fields": {
       "created_at": "2023-04-24T08:00:55.159Z",
-      "modified_at": "2023-04-27T13:40:17.182Z",
+      "modified_at": "2024-05-03T06:50:04.268Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -50734,7 +50840,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -50750,7 +50858,7 @@
     "pk": "durchmesser-guellesilo",
     "fields": {
       "created_at": "2023-04-14T07:40:24.443Z",
-      "modified_at": "2023-10-25T07:31:56.661Z",
+      "modified_at": "2024-05-03T06:50:04.274Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -50768,7 +50876,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -50815,7 +50925,7 @@
     "pk": "egid",
     "fields": {
       "created_at": "2023-05-19T08:58:50.081Z",
-      "modified_at": "2023-05-19T08:58:50.081Z",
+      "modified_at": "2024-05-03T06:50:04.281Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -50833,7 +50943,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -50883,7 +50995,7 @@
     "pk": "eigenland",
     "fields": {
       "created_at": "2023-04-12T11:24:04.285Z",
-      "modified_at": "2023-10-27T12:50:07.438Z",
+      "modified_at": "2024-05-03T06:50:04.291Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -50901,7 +51013,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -51232,7 +51346,7 @@
     "pk": "einleitungsbewilligung-bewilligungs-nr",
     "fields": {
       "created_at": "2023-04-19T07:38:27.019Z",
-      "modified_at": "2023-10-27T14:14:06.658Z",
+      "modified_at": "2024-05-03T06:50:04.298Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -51250,7 +51364,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -51519,7 +51635,7 @@
     "pk": "emissionserklaerung-bewilligungs-nr",
     "fields": {
       "created_at": "2023-04-19T07:45:29.273Z",
-      "modified_at": "2023-10-27T14:14:06.663Z",
+      "modified_at": "2024-05-03T06:50:04.304Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -51537,7 +51653,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -51677,7 +51795,7 @@
     "pk": "energiebezugsflaeche",
     "fields": {
       "created_at": "2023-06-26T09:56:23.969Z",
-      "modified_at": "2023-11-10T11:05:31.405Z",
+      "modified_at": "2024-05-03T06:50:04.311Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -51695,7 +51813,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -51935,7 +52055,7 @@
     "pk": "entnahmebrunnen-rohrdurchmesser-brauchwasser",
     "fields": {
       "created_at": "2023-04-21T09:22:52.108Z",
-      "modified_at": "2023-10-27T14:14:07.490Z",
+      "modified_at": "2024-05-03T06:50:04.319Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -51953,7 +52073,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -51969,7 +52091,7 @@
     "pk": "entnahmebrunnen-tiefe",
     "fields": {
       "created_at": "2023-04-20T12:55:27.031Z",
-      "modified_at": "2023-10-27T14:14:08.015Z",
+      "modified_at": "2024-05-03T06:50:04.326Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -51987,7 +52109,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -52003,7 +52127,7 @@
     "pk": "entnahmebrunnen-tiefe-brauchwasser",
     "fields": {
       "created_at": "2023-04-21T09:24:00.911Z",
-      "modified_at": "2023-10-27T14:14:07.493Z",
+      "modified_at": "2024-05-03T06:50:04.332Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -52021,7 +52145,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -52068,7 +52194,7 @@
     "pk": "entsorgte-menge-chemikalienreste",
     "fields": {
       "created_at": "2023-06-14T14:05:31.073Z",
-      "modified_at": "2023-10-27T14:14:07.271Z",
+      "modified_at": "2024-05-03T06:50:04.348Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -52086,7 +52212,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -52102,7 +52230,7 @@
     "pk": "entsorgte-menge-farb-lackabfaelle",
     "fields": {
       "created_at": "2023-06-14T14:02:08.574Z",
-      "modified_at": "2023-10-27T14:14:07.274Z",
+      "modified_at": "2024-05-03T06:50:04.364Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -52120,7 +52248,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -52136,7 +52266,7 @@
     "pk": "entsorgte-menge-filtermatten-aus-spritzkabine",
     "fields": {
       "created_at": "2023-06-14T14:04:36.360Z",
-      "modified_at": "2023-10-27T14:14:07.277Z",
+      "modified_at": "2024-05-03T06:50:04.373Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -52154,7 +52284,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -52170,7 +52302,7 @@
     "pk": "entsorgte-menge-reinigungs-entfettungsmittel-verschmutzt-pro-jahr-kg",
     "fields": {
       "created_at": "2023-06-14T14:03:20.826Z",
-      "modified_at": "2023-10-27T14:14:07.279Z",
+      "modified_at": "2024-05-03T06:50:04.385Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -52188,7 +52320,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -52204,7 +52338,7 @@
     "pk": "entsorgte-menge-weitere-sonderabfaelle",
     "fields": {
       "created_at": "2023-06-14T14:12:25.640Z",
-      "modified_at": "2023-10-27T14:14:07.282Z",
+      "modified_at": "2024-05-03T06:50:04.393Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -52222,7 +52356,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -52238,7 +52374,7 @@
     "pk": "entsorgte-voc-menge",
     "fields": {
       "created_at": "2023-06-14T12:02:07.031Z",
-      "modified_at": "2023-10-25T09:51:04.615Z",
+      "modified_at": "2024-05-03T06:50:04.402Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -52256,7 +52392,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -52504,7 +52642,7 @@
     "pk": "entzugsleistung-aus-erdwaermesonde",
     "fields": {
       "created_at": "2023-04-20T14:19:32.075Z",
-      "modified_at": "2023-10-27T14:14:07.547Z",
+      "modified_at": "2024-05-03T06:50:04.414Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -52522,7 +52660,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -52538,7 +52678,7 @@
     "pk": "erdregisterflaeche",
     "fields": {
       "created_at": "2023-04-20T12:07:22.471Z",
-      "modified_at": "2023-10-27T14:14:08.018Z",
+      "modified_at": "2024-05-03T06:50:04.423Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -52556,7 +52696,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -52826,7 +52968,7 @@
     "pk": "erstellungskosten",
     "fields": {
       "created_at": "2023-04-20T09:54:14.507Z",
-      "modified_at": "2023-10-25T06:35:39.016Z",
+      "modified_at": "2024-05-03T06:50:04.449Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -52844,7 +52986,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -52860,7 +53004,7 @@
     "pk": "ertragswert-in-chf",
     "fields": {
       "created_at": "2023-04-12T11:32:20.636Z",
-      "modified_at": "2023-10-25T07:27:43.041Z",
+      "modified_at": "2024-05-03T06:50:04.459Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -52878,7 +53022,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -52894,7 +53040,7 @@
     "pk": "erwartete-jahresleistung",
     "fields": {
       "created_at": "2023-04-20T11:05:34.662Z",
-      "modified_at": "2023-10-25T06:35:56.966Z",
+      "modified_at": "2024-05-03T06:50:04.467Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -52912,7 +53058,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -52928,7 +53076,7 @@
     "pk": "ewid",
     "fields": {
       "created_at": "2023-05-19T10:29:39.267Z",
-      "modified_at": "2023-05-19T10:29:39.267Z",
+      "modified_at": "2024-05-03T06:50:04.480Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -52946,7 +53094,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -53828,7 +53978,7 @@
     "pk": "festsoffe-bhkw",
     "fields": {
       "created_at": "2023-07-12T15:13:03.927Z",
-      "modified_at": "2023-10-27T14:14:07.830Z",
+      "modified_at": "2024-05-03T06:50:04.495Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -53846,7 +53996,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -54028,7 +54180,7 @@
     "pk": "feststoffe",
     "fields": {
       "created_at": "2023-07-12T14:53:57.833Z",
-      "modified_at": "2023-10-27T14:14:07.833Z",
+      "modified_at": "2024-05-03T06:50:04.511Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -54046,7 +54198,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -54124,7 +54278,7 @@
     "pk": "feuerungswaermeleistung",
     "fields": {
       "created_at": "2023-07-12T08:59:05.439Z",
-      "modified_at": "2023-10-27T14:14:07.835Z",
+      "modified_at": "2024-05-03T06:50:04.527Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -54142,7 +54296,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -54226,7 +54382,7 @@
     "pk": "feuerungswaermeleistung-oel-gasfeuerung",
     "fields": {
       "created_at": "2023-07-13T11:42:02.293Z",
-      "modified_at": "2023-10-25T09:38:44.488Z",
+      "modified_at": "2024-05-03T06:50:04.540Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -54244,7 +54400,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -54353,7 +54511,7 @@
     "pk": "flaeche",
     "fields": {
       "created_at": "2023-04-21T08:59:06.363Z",
-      "modified_at": "2023-10-27T14:14:08.089Z",
+      "modified_at": "2024-05-03T06:50:04.553Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -54371,7 +54529,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -54387,7 +54547,7 @@
     "pk": "flaeche-der-ersatzpflanzung",
     "fields": {
       "created_at": "2023-04-24T14:24:02.086Z",
-      "modified_at": "2023-10-25T09:18:16.884Z",
+      "modified_at": "2024-05-03T06:50:04.563Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -54405,7 +54565,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -54421,7 +54583,7 @@
     "pk": "flaeche-hecken",
     "fields": {
       "created_at": "2023-04-24T14:10:28.089Z",
-      "modified_at": "2023-10-25T09:16:48.457Z",
+      "modified_at": "2024-05-03T06:50:04.574Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -54439,7 +54601,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -54455,7 +54619,7 @@
     "pk": "flaeche-in-m2",
     "fields": {
       "created_at": "2023-05-19T10:35:35.681Z",
-      "modified_at": "2023-05-19T10:35:35.681Z",
+      "modified_at": "2024-05-03T06:50:04.586Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -54473,7 +54637,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -54647,7 +54813,7 @@
     "pk": "fuellmenge",
     "fields": {
       "created_at": "2023-04-20T11:48:16.817Z",
-      "modified_at": "2023-10-27T14:14:08.020Z",
+      "modified_at": "2024-05-03T06:50:04.597Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -54665,7 +54831,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -54681,7 +54849,7 @@
     "pk": "fuellmenge-erdregister",
     "fields": {
       "created_at": "2023-04-20T12:10:01.197Z",
-      "modified_at": "2023-10-27T14:14:08.023Z",
+      "modified_at": "2024-05-03T06:50:04.608Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -54699,7 +54867,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -55061,7 +55231,7 @@
     "pk": "gebaeudekubatur",
     "fields": {
       "created_at": "2023-04-12T07:50:27.132Z",
-      "modified_at": "2023-04-27T06:03:35.689Z",
+      "modified_at": "2024-05-03T06:50:04.619Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -55079,7 +55249,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -55193,7 +55365,7 @@
     "pk": "gebaeudevolumen-m",
     "fields": {
       "created_at": "2023-06-26T09:57:09.401Z",
-      "modified_at": "2023-06-26T10:06:23.136Z",
+      "modified_at": "2024-05-03T06:50:04.630Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -55211,7 +55383,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -55320,7 +55494,7 @@
     "pk": "geplante-nutzung-installierte-pumpenleistung",
     "fields": {
       "created_at": "2023-04-20T15:08:36.207Z",
-      "modified_at": "2023-10-27T14:14:07.193Z",
+      "modified_at": "2024-05-03T06:50:04.641Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -55338,7 +55512,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -55354,7 +55530,7 @@
     "pk": "geplante-nutzung-maximale-foerdermenge",
     "fields": {
       "created_at": "2023-04-20T15:07:58.738Z",
-      "modified_at": "2023-10-27T14:14:07.195Z",
+      "modified_at": "2024-05-03T06:50:04.653Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -55372,7 +55548,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -55484,7 +55662,7 @@
     "pk": "gesamte-verkaufsflaeche-m",
     "fields": {
       "created_at": "2023-05-25T08:40:37.527Z",
-      "modified_at": "2023-10-27T14:14:06.891Z",
+      "modified_at": "2024-05-03T06:50:04.664Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -55502,7 +55680,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -55552,7 +55732,7 @@
     "pk": "gesamtleistung-der-anlage",
     "fields": {
       "created_at": "2023-04-20T11:04:43.228Z",
-      "modified_at": "2023-10-25T06:35:49.735Z",
+      "modified_at": "2024-05-03T06:50:04.675Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -55570,7 +55750,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -55586,7 +55768,7 @@
     "pk": "gesamtvolumen-grube",
     "fields": {
       "created_at": "2023-04-21T06:55:28.567Z",
-      "modified_at": "2023-10-27T14:14:07.449Z",
+      "modified_at": "2024-05-03T06:50:04.686Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -55604,7 +55786,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -55620,7 +55804,7 @@
     "pk": "gesamtvolumen-oberflaechengewaesser",
     "fields": {
       "created_at": "2023-04-21T06:56:04.649Z",
-      "modified_at": "2023-10-27T14:14:07.451Z",
+      "modified_at": "2024-05-03T06:50:04.696Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -55638,7 +55822,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -55654,7 +55840,7 @@
     "pk": "gesamtvolumgen-steinbruch",
     "fields": {
       "created_at": "2023-04-21T06:54:46.455Z",
-      "modified_at": "2023-10-27T14:14:07.454Z",
+      "modified_at": "2024-05-03T06:50:04.707Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -55672,7 +55858,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -55688,7 +55876,7 @@
     "pk": "geschosszahl-ueber-terrain",
     "fields": {
       "created_at": "2023-05-25T06:57:10.142Z",
-      "modified_at": "2023-10-27T14:14:06.893Z",
+      "modified_at": "2024-05-03T06:50:04.718Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -55706,7 +55894,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -55722,7 +55912,7 @@
     "pk": "geschosszahl-unter-terrain",
     "fields": {
       "created_at": "2023-05-25T06:56:56.026Z",
-      "modified_at": "2023-10-27T14:14:06.896Z",
+      "modified_at": "2024-05-03T06:50:04.728Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -55740,7 +55930,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -56247,7 +56439,7 @@
     "pk": "grundflaeche-m",
     "fields": {
       "created_at": "2023-05-25T08:44:22.161Z",
-      "modified_at": "2023-10-27T14:14:06.898Z",
+      "modified_at": "2024-05-03T06:50:04.738Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -56265,7 +56457,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -56476,7 +56670,7 @@
     "pk": "guellelager-breite",
     "fields": {
       "created_at": "2023-04-14T07:39:24.837Z",
-      "modified_at": "2023-10-25T07:31:43.105Z",
+      "modified_at": "2024-05-03T06:50:04.749Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -56494,7 +56688,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -56510,7 +56706,7 @@
     "pk": "guellelager-hoehe",
     "fields": {
       "created_at": "2023-04-14T07:39:48.306Z",
-      "modified_at": "2023-10-25T07:31:49.781Z",
+      "modified_at": "2024-05-03T06:50:04.760Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -56528,7 +56724,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -56544,7 +56742,7 @@
     "pk": "guellelager-laenge",
     "fields": {
       "created_at": "2023-04-12T12:47:41.828Z",
-      "modified_at": "2023-10-25T07:31:37.257Z",
+      "modified_at": "2024-05-03T06:50:04.767Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -56562,7 +56760,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -56609,7 +56809,7 @@
     "pk": "guellelager-nutzvolumen",
     "fields": {
       "created_at": "2023-04-14T07:41:07.757Z",
-      "modified_at": "2023-10-25T07:32:04.158Z",
+      "modified_at": "2024-05-03T06:50:04.773Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -56627,7 +56827,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -56739,7 +56941,7 @@
     "pk": "gwr-gebaeudevolumen",
     "fields": {
       "created_at": "2023-06-27T09:39:01.192Z",
-      "modified_at": "2023-11-10T11:05:19.581Z",
+      "modified_at": "2024-05-03T06:50:04.778Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -56757,7 +56959,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -56965,7 +57169,7 @@
     "pk": "handfeuerloescher-stueck",
     "fields": {
       "created_at": "2023-05-25T07:43:48.531Z",
-      "modified_at": "2023-10-27T14:14:06.903Z",
+      "modified_at": "2024-05-03T06:50:04.784Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -56983,7 +57187,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -57092,7 +57298,7 @@
     "pk": "heizleistung-waermepumpe-verdampfer",
     "fields": {
       "created_at": "2023-04-20T11:47:48.964Z",
-      "modified_at": "2023-10-27T14:14:08.026Z",
+      "modified_at": "2024-05-03T06:50:04.794Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -57110,7 +57316,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -57126,7 +57334,7 @@
     "pk": "heizleistung-waermepumpeverdampfer",
     "fields": {
       "created_at": "2023-04-20T14:16:22.325Z",
-      "modified_at": "2023-10-27T14:14:07.550Z",
+      "modified_at": "2024-05-03T06:50:04.804Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -57144,7 +57352,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -58384,7 +58594,7 @@
     "pk": "hoehe",
     "fields": {
       "created_at": "2023-04-19T10:49:01.293Z",
-      "modified_at": "2023-10-27T14:14:07.642Z",
+      "modified_at": "2024-05-03T06:50:04.811Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -58402,7 +58612,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -58669,7 +58881,7 @@
     "pk": "inbetriebnahme-geplant-jahr",
     "fields": {
       "created_at": "2023-07-12T08:59:29.677Z",
-      "modified_at": "2023-10-27T14:14:07.843Z",
+      "modified_at": "2024-05-03T06:50:04.820Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -58687,7 +58899,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -59155,7 +59369,7 @@
     "pk": "installierte-pumpenleistung-brauchwasser",
     "fields": {
       "created_at": "2023-04-21T09:21:53.392Z",
-      "modified_at": "2023-10-27T14:14:07.495Z",
+      "modified_at": "2024-05-03T06:50:04.826Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -59173,7 +59387,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -59406,7 +59622,7 @@
     "pk": "jahreslaufzeit-der-waermepumpe",
     "fields": {
       "created_at": "2023-04-20T14:22:51.930Z",
-      "modified_at": "2023-10-27T14:14:07.553Z",
+      "modified_at": "2024-05-03T06:50:04.832Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -59424,7 +59640,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -59440,7 +59658,7 @@
     "pk": "jahresverbrauch-umschlag",
     "fields": {
       "created_at": "2023-04-20T08:33:30.326Z",
-      "modified_at": "2023-10-27T14:14:07.645Z",
+      "modified_at": "2024-05-03T06:50:04.837Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -59458,7 +59676,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -59474,7 +59694,7 @@
     "pk": "kaelteleistung-waermepumpeverdampfer",
     "fields": {
       "created_at": "2023-04-20T14:15:23.698Z",
-      "modified_at": "2023-10-27T14:14:07.558Z",
+      "modified_at": "2024-05-03T06:50:04.843Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -59492,7 +59712,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -59669,7 +59891,7 @@
     "pk": "kaminhoehe-ab-boden",
     "fields": {
       "created_at": "2023-07-12T15:29:46.455Z",
-      "modified_at": "2023-10-27T14:14:07.846Z",
+      "modified_at": "2024-05-03T06:50:04.850Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -59687,7 +59909,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -59703,7 +59927,7 @@
     "pk": "kaminhoehe-ab-boden-feuerungsanlagen",
     "fields": {
       "created_at": "2023-07-14T12:31:28.454Z",
-      "modified_at": "2023-10-27T14:14:07.410Z",
+      "modified_at": "2024-05-03T06:50:04.855Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -59721,7 +59945,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -59737,7 +59963,7 @@
     "pk": "kaminhoehe-ueber-giebel",
     "fields": {
       "created_at": "2023-07-12T15:30:49.101Z",
-      "modified_at": "2023-10-27T14:14:07.848Z",
+      "modified_at": "2024-05-03T06:50:04.861Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -59755,7 +59981,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -59771,7 +59999,7 @@
     "pk": "kaminhoehe-ueber-giebel-feuerungsanlagen",
     "fields": {
       "created_at": "2023-07-14T12:34:21.330Z",
-      "modified_at": "2023-10-27T14:14:07.412Z",
+      "modified_at": "2024-05-03T06:50:04.867Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -59789,7 +60017,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -59935,7 +60165,7 @@
     "pk": "kesselnennleistung",
     "fields": {
       "created_at": "2023-07-13T11:41:27.476Z",
-      "modified_at": "2023-10-25T09:38:26.533Z",
+      "modified_at": "2024-05-03T06:50:04.874Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -59953,7 +60183,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -59969,7 +60201,7 @@
     "pk": "kesselnennleistung-holzfeuerung",
     "fields": {
       "created_at": "2023-07-14T11:26:05.777Z",
-      "modified_at": "2023-07-14T11:26:05.777Z",
+      "modified_at": "2024-05-03T06:50:04.880Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -59987,7 +60219,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -60068,7 +60302,7 @@
     "pk": "kohlenmonoxid",
     "fields": {
       "created_at": "2023-07-12T14:51:38.992Z",
-      "modified_at": "2023-10-27T14:14:07.851Z",
+      "modified_at": "2024-05-03T06:50:04.886Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -60086,7 +60320,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -60102,7 +60338,7 @@
     "pk": "kohlenmonoxid-bhkw",
     "fields": {
       "created_at": "2023-07-12T15:11:23.922Z",
-      "modified_at": "2023-10-27T14:14:07.854Z",
+      "modified_at": "2024-05-03T06:50:04.892Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -60120,7 +60356,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -60353,7 +60591,7 @@
     "pk": "kosten-pro-m3",
     "fields": {
       "created_at": "2023-04-12T07:51:33.595Z",
-      "modified_at": "2023-04-27T06:03:42.739Z",
+      "modified_at": "2024-05-03T06:50:04.898Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -60371,7 +60609,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -60452,7 +60692,7 @@
     "pk": "laenge",
     "fields": {
       "created_at": "2023-04-19T10:48:17.973Z",
-      "modified_at": "2023-10-27T14:14:07.648Z",
+      "modified_at": "2024-05-03T06:50:04.903Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -60470,7 +60710,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -60486,7 +60728,7 @@
     "pk": "laenge-der-ersatzpflanzung",
     "fields": {
       "created_at": "2023-04-24T14:23:09.484Z",
-      "modified_at": "2023-10-25T09:18:08.846Z",
+      "modified_at": "2024-05-03T06:50:04.909Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -60504,7 +60746,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -60520,7 +60764,7 @@
     "pk": "laenge-hecken",
     "fields": {
       "created_at": "2023-04-24T14:09:57.327Z",
-      "modified_at": "2023-10-25T09:16:35.610Z",
+      "modified_at": "2024-05-03T06:50:04.919Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -60538,7 +60782,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -60653,7 +60899,7 @@
     "pk": "lagekoordinaten-nord",
     "fields": {
       "created_at": "2019-03-28T14:14:29.069Z",
-      "modified_at": "2020-01-14T13:43:48.418Z",
+      "modified_at": "2024-05-03T06:50:04.928Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": null,
@@ -60671,7 +60917,9 @@
         "max_value": 1300000.999,
         "min_value": 1070000.0
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -60687,7 +60935,7 @@
     "pk": "lagekoordinaten-ost",
     "fields": {
       "created_at": "2019-03-28T14:14:04.276Z",
-      "modified_at": "2020-01-14T13:43:43.444Z",
+      "modified_at": "2024-05-03T06:50:04.938Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": null,
@@ -60705,7 +60953,9 @@
         "max_value": 2840000.999,
         "min_value": 2480000.0
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -60938,7 +61188,7 @@
     "pk": "lastprofil-spezifische-sondenbelastung",
     "fields": {
       "created_at": "2023-04-20T14:18:54.865Z",
-      "modified_at": "2023-10-27T14:14:07.555Z",
+      "modified_at": "2024-05-03T06:50:04.947Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -60956,7 +61206,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -61003,7 +61255,7 @@
     "pk": "laufbreite-der-haupttreppe",
     "fields": {
       "created_at": "2023-05-25T07:27:12.850Z",
-      "modified_at": "2023-10-27T14:14:06.909Z",
+      "modified_at": "2024-05-03T06:50:04.954Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -61021,7 +61273,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -61402,7 +61656,7 @@
     "pk": "letztes-betriebsjahr",
     "fields": {
       "created_at": "2023-04-24T12:22:14.572Z",
-      "modified_at": "2023-10-27T14:14:06.771Z",
+      "modified_at": "2024-05-03T06:50:04.133Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -61420,7 +61674,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -61467,7 +61723,7 @@
     "pk": "luftwechselrate",
     "fields": {
       "created_at": "2023-07-07T08:19:56.327Z",
-      "modified_at": "2023-10-27T14:14:07.057Z",
+      "modified_at": "2024-05-03T06:50:04.960Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -61485,7 +61741,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -61817,7 +62075,7 @@
     "pk": "materialablagerung-flaeche",
     "fields": {
       "created_at": "2023-04-12T09:04:36.603Z",
-      "modified_at": "2023-10-27T14:18:11.230Z",
+      "modified_at": "2024-05-03T06:50:04.966Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -61835,7 +62093,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -61882,7 +62142,7 @@
     "pk": "materialablagerung-volumen",
     "fields": {
       "created_at": "2023-04-12T09:05:07.063Z",
-      "modified_at": "2023-10-27T14:18:29.911Z",
+      "modified_at": "2024-05-03T06:50:04.972Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -61900,7 +62160,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -62346,7 +62608,7 @@
     "pk": "max-annahmemenge-pro-jahr",
     "fields": {
       "created_at": "2023-04-19T08:36:30.930Z",
-      "modified_at": "2023-10-25T07:38:59.716Z",
+      "modified_at": "2024-05-03T06:50:04.978Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62364,7 +62626,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -62414,7 +62678,7 @@
     "pk": "maximale-entnahmemenge-brauchwasser",
     "fields": {
       "created_at": "2023-04-21T09:18:38.634Z",
-      "modified_at": "2023-10-27T14:14:07.503Z",
+      "modified_at": "2024-05-03T06:50:04.983Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -62432,7 +62696,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -62448,7 +62714,7 @@
     "pk": "maximale-entnahme-temperatur",
     "fields": {
       "created_at": "2023-04-20T12:59:20.127Z",
-      "modified_at": "2023-10-27T14:14:08.039Z",
+      "modified_at": "2024-05-03T06:50:04.989Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62466,7 +62732,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -62482,7 +62750,7 @@
     "pk": "maximale-entnahme-temperatur-brauchwasser",
     "fields": {
       "created_at": "2023-04-21T09:27:01.295Z",
-      "modified_at": "2023-10-27T14:14:07.506Z",
+      "modified_at": "2024-05-03T06:50:04.996Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -62500,7 +62768,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -62550,7 +62820,7 @@
     "pk": "maximale-temperaturdifferenz-brauchwasser",
     "fields": {
       "created_at": "2023-04-21T09:28:25.939Z",
-      "modified_at": "2023-10-27T14:14:07.499Z",
+      "modified_at": "2024-05-03T06:50:05.004Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -62568,7 +62838,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -62584,7 +62856,7 @@
     "pk": "max-lagermenge-im-betrieb",
     "fields": {
       "created_at": "2023-04-19T08:37:06.478Z",
-      "modified_at": "2023-10-25T07:39:06.816Z",
+      "modified_at": "2024-05-03T06:50:05.014Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62602,7 +62874,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -62618,7 +62892,7 @@
     "pk": "max-personenbelegung-im-groessten-raum",
     "fields": {
       "created_at": "2023-05-25T08:42:42.349Z",
-      "modified_at": "2023-10-27T14:14:06.911Z",
+      "modified_at": "2024-05-03T06:50:05.020Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62636,7 +62910,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -62776,7 +63052,7 @@
     "pk": "menge-pro-jahr",
     "fields": {
       "created_at": "2023-04-24T13:02:30.302Z",
-      "modified_at": "2023-04-24T13:02:30.302Z",
+      "modified_at": "2024-05-03T06:50:05.025Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -62794,7 +63070,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -62970,7 +63248,7 @@
     "pk": "minimale-entnahme-temperatur",
     "fields": {
       "created_at": "2023-04-20T12:57:51.928Z",
-      "modified_at": "2023-10-27T14:14:08.044Z",
+      "modified_at": "2024-05-03T06:50:05.030Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62988,7 +63266,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -63004,7 +63284,7 @@
     "pk": "minimale-entnahme-temperatur-brauchwasser",
     "fields": {
       "created_at": "2023-04-21T09:26:04.903Z",
-      "modified_at": "2023-10-27T14:14:07.508Z",
+      "modified_at": "2024-05-03T06:50:05.036Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -63022,7 +63302,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -63038,7 +63320,7 @@
     "pk": "minimale-sondenruecklauftemperatur",
     "fields": {
       "created_at": "2023-04-20T14:22:20.629Z",
-      "modified_at": "2023-10-27T14:14:07.560Z",
+      "modified_at": "2024-05-03T06:50:05.041Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -63056,7 +63338,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -63106,7 +63390,7 @@
     "pk": "mistlager-breite",
     "fields": {
       "created_at": "2023-04-12T12:29:26.383Z",
-      "modified_at": "2023-10-25T07:29:50.666Z",
+      "modified_at": "2024-05-03T06:50:05.047Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -63124,7 +63408,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -63140,7 +63426,7 @@
     "pk": "mistlager-hoehe",
     "fields": {
       "created_at": "2023-04-12T12:29:55.134Z",
-      "modified_at": "2023-10-25T07:29:57.107Z",
+      "modified_at": "2024-05-03T06:50:05.052Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -63158,7 +63444,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -63205,7 +63493,7 @@
     "pk": "mistlager-laenge",
     "fields": {
       "created_at": "2023-04-12T12:29:14.082Z",
-      "modified_at": "2023-10-25T07:29:43.315Z",
+      "modified_at": "2024-05-03T06:50:05.058Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -63223,7 +63511,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -63858,7 +64148,7 @@
     "pk": "nennleistung-kw",
     "fields": {
       "created_at": "2023-06-14T11:44:37.919Z",
-      "modified_at": "2023-10-25T09:44:18.021Z",
+      "modified_at": "2024-05-03T06:50:05.063Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -63876,7 +64166,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -63892,7 +64184,7 @@
     "pk": "nennwaermeleistung",
     "fields": {
       "created_at": "2023-07-03T15:44:47.523Z",
-      "modified_at": "2023-10-25T09:01:16.869Z",
+      "modified_at": "2024-05-03T06:50:05.068Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -63910,7 +64202,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -63926,7 +64220,7 @@
     "pk": "nennwaermeleistung-kw",
     "fields": {
       "created_at": "2023-07-03T08:35:31.123Z",
-      "modified_at": "2023-10-25T08:58:24.534Z",
+      "modified_at": "2024-05-03T06:50:05.073Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -63944,7 +64238,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -63960,7 +64256,7 @@
     "pk": "nennwaermeleistung-waermepumpe",
     "fields": {
       "created_at": "2023-07-03T15:58:24.218Z",
-      "modified_at": "2023-10-27T14:14:07.093Z",
+      "modified_at": "2024-05-03T06:50:05.078Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -63978,7 +64274,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -64529,7 +64827,7 @@
     "pk": "nutzvolumen-guellebehaelter",
     "fields": {
       "created_at": "2023-04-12T12:37:35.899Z",
-      "modified_at": "2023-10-25T07:30:38.408Z",
+      "modified_at": "2024-05-03T06:50:05.083Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -64547,7 +64845,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -64563,7 +64863,7 @@
     "pk": "oberboden-auffuellhoehe",
     "fields": {
       "created_at": "2023-04-21T08:14:45.921Z",
-      "modified_at": "2023-10-27T14:14:07.945Z",
+      "modified_at": "2024-05-03T06:50:05.088Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -64581,7 +64881,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -64597,7 +64899,7 @@
     "pk": "oberboden-menge",
     "fields": {
       "created_at": "2023-04-21T08:10:12.305Z",
-      "modified_at": "2023-10-27T14:14:07.947Z",
+      "modified_at": "2024-05-03T06:50:05.093Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -64615,7 +64917,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -64631,7 +64935,7 @@
     "pk": "objektabstand",
     "fields": {
       "created_at": "2023-04-24T11:49:37.504Z",
-      "modified_at": "2023-10-25T09:11:38.375Z",
+      "modified_at": "2024-05-03T06:50:05.098Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -64649,7 +64953,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -64853,7 +65159,7 @@
     "pk": "pachtland",
     "fields": {
       "created_at": "2023-04-12T11:24:17.423Z",
-      "modified_at": "2023-10-27T12:49:54.058Z",
+      "modified_at": "2024-05-03T06:50:05.103Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -64871,7 +65177,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -65081,7 +65389,7 @@
     "pk": "plz-parzelle",
     "fields": {
       "created_at": "2019-04-04T09:23:41.093Z",
-      "modified_at": "2019-04-04T09:23:41.093Z",
+      "modified_at": "2024-05-03T06:50:05.108Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": null,
@@ -65099,7 +65407,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -65384,7 +65694,7 @@
     "pk": "produktionsmenge",
     "fields": {
       "created_at": "2023-04-24T12:26:49.810Z",
-      "modified_at": "2023-10-27T14:14:06.776Z",
+      "modified_at": "2024-05-03T06:50:05.113Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -65402,7 +65712,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -65700,7 +66012,7 @@
     "pk": "pumpversuch-maximale-foerdermenge",
     "fields": {
       "created_at": "2023-04-20T15:04:40.975Z",
-      "modified_at": "2023-10-27T14:14:07.213Z",
+      "modified_at": "2024-05-03T06:50:05.118Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -65718,7 +66030,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -65798,7 +66112,7 @@
     "pk": "quadrat-cm-oben",
     "fields": {
       "created_at": "2023-04-24T07:55:07.865Z",
-      "modified_at": "2023-10-27T14:14:07.100Z",
+      "modified_at": "2024-05-03T06:50:05.123Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -65816,7 +66130,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -65897,7 +66213,7 @@
     "pk": "querschnitt-abgasanlage",
     "fields": {
       "created_at": "2023-07-07T08:49:26.462Z",
-      "modified_at": "2023-10-25T09:05:32.912Z",
+      "modified_at": "2024-05-03T06:50:05.128Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -65915,7 +66231,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -65931,7 +66249,7 @@
     "pk": "querschnitt-ableitung-der-abgase",
     "fields": {
       "created_at": "2023-04-24T08:38:20.383Z",
-      "modified_at": "2023-04-27T13:41:57.990Z",
+      "modified_at": "2024-05-03T06:50:05.133Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -65949,7 +66267,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -65965,7 +66285,7 @@
     "pk": "querschnitt-mm",
     "fields": {
       "created_at": "2023-07-07T08:49:26.462Z",
-      "modified_at": "2023-07-07T08:49:26.462Z",
+      "modified_at": "2024-05-03T06:50:05.138Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -65983,7 +66303,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -65999,7 +66321,7 @@
     "pk": "rauminhalt",
     "fields": {
       "created_at": "2023-04-24T07:47:08.885Z",
-      "modified_at": "2023-04-27T13:37:40.610Z",
+      "modified_at": "2024-05-03T06:50:05.142Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -66017,7 +66339,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -66064,7 +66388,7 @@
     "pk": "raumlueftung-ableitung-der-abgase",
     "fields": {
       "created_at": "2023-04-24T10:05:54.950Z",
-      "modified_at": "2023-10-27T14:14:07.108Z",
+      "modified_at": "2024-05-03T06:50:05.147Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -66082,7 +66406,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -66225,7 +66551,7 @@
     "pk": "rekuperator",
     "fields": {
       "created_at": "2023-07-13T11:44:24.574Z",
-      "modified_at": "2023-10-25T09:39:13.350Z",
+      "modified_at": "2024-05-03T06:50:05.153Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -66243,7 +66569,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -66387,7 +66715,7 @@
     "pk": "rohrdurchmesser",
     "fields": {
       "created_at": "2023-04-20T14:53:20.532Z",
-      "modified_at": "2023-10-27T14:14:07.215Z",
+      "modified_at": "2024-05-03T06:50:05.157Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -66405,7 +66733,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -66452,7 +66782,7 @@
     "pk": "rueckgabebrunnen-rohrdurchmesser",
     "fields": {
       "created_at": "2023-04-20T12:56:08.694Z",
-      "modified_at": "2023-10-27T14:14:08.049Z",
+      "modified_at": "2024-05-03T06:50:05.162Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -66470,7 +66800,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -66486,7 +66818,7 @@
     "pk": "rueckgabebrunnen-rohrdurchmesser-brauchwasser",
     "fields": {
       "created_at": "2023-04-21T09:24:26.179Z",
-      "modified_at": "2023-10-27T14:14:07.511Z",
+      "modified_at": "2024-05-03T06:50:05.168Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -66504,7 +66836,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -66520,7 +66854,7 @@
     "pk": "rueckgabebrunnen-tiefe",
     "fields": {
       "created_at": "2023-04-20T12:56:40.069Z",
-      "modified_at": "2023-10-27T14:14:08.051Z",
+      "modified_at": "2024-05-03T06:50:05.173Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -66538,7 +66872,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -66554,7 +66890,7 @@
     "pk": "rueckgabebrunnen-tiefe-brauchwasser",
     "fields": {
       "created_at": "2023-04-21T09:24:53.962Z",
-      "modified_at": "2023-10-27T14:14:07.513Z",
+      "modified_at": "2024-05-03T06:50:05.178Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -66572,7 +66908,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -67090,7 +67428,7 @@
     "pk": "schuettmaterial-volumen",
     "fields": {
       "created_at": "2023-04-12T09:07:20.261Z",
-      "modified_at": "2023-10-25T17:15:27.167Z",
+      "modified_at": "2024-05-03T06:50:05.183Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -67108,7 +67446,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -67439,7 +67779,7 @@
     "pk": "solaranlage-leistung",
     "fields": {
       "created_at": "2023-04-24T07:35:36.285Z",
-      "modified_at": "2023-10-27T14:14:07.115Z",
+      "modified_at": "2024-05-03T06:50:05.188Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -67457,7 +67797,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -67628,7 +67970,7 @@
     "pk": "sondenabstand",
     "fields": {
       "created_at": "2023-04-20T13:49:56.667Z",
-      "modified_at": "2023-10-27T14:14:07.563Z",
+      "modified_at": "2024-05-03T06:50:05.193Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -67646,7 +67988,9 @@
         "max_value": null,
         "min_value": 5
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -67662,7 +68006,7 @@
     "pk": "sondenaussendurchmesser",
     "fields": {
       "created_at": "2023-04-20T14:20:53.296Z",
-      "modified_at": "2023-10-27T14:14:07.566Z",
+      "modified_at": "2024-05-03T06:50:05.198Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -67680,7 +68024,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -67696,7 +68042,7 @@
     "pk": "sondenaussendurchmesser-mm",
     "fields": {
       "created_at": "2023-04-20T14:13:33.604Z",
-      "modified_at": "2023-10-27T14:14:07.568Z",
+      "modified_at": "2024-05-03T06:50:05.204Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -67714,7 +68060,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -67823,7 +68171,7 @@
     "pk": "spital-anzahl-betten",
     "fields": {
       "created_at": "2023-04-18T19:03:25.921Z",
-      "modified_at": "2023-10-27T14:14:07.739Z",
+      "modified_at": "2024-05-03T06:50:05.209Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -67841,7 +68189,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -68297,7 +68647,7 @@
     "pk": "stickstoffdioxide",
     "fields": {
       "created_at": "2023-07-12T14:53:12.924Z",
-      "modified_at": "2023-10-27T14:14:07.889Z",
+      "modified_at": "2024-05-03T06:50:05.218Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -68315,7 +68665,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -68331,7 +68683,7 @@
     "pk": "stickstoffdioxide-bhkw",
     "fields": {
       "created_at": "2023-07-12T15:12:29.477Z",
-      "modified_at": "2023-10-27T14:14:07.892Z",
+      "modified_at": "2024-05-03T06:50:05.227Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -68349,7 +68701,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -68365,7 +68719,7 @@
     "pk": "stockwerknummer",
     "fields": {
       "created_at": "2023-05-19T10:30:59.066Z",
-      "modified_at": "2023-05-19T10:30:59.066Z",
+      "modified_at": "2024-05-03T06:50:05.236Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -68383,7 +68737,9 @@
         "max_value": null,
         "min_value": 1
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -68497,7 +68853,7 @@
     "pk": "stunden-pro-woche",
     "fields": {
       "created_at": "2023-04-24T12:30:12.479Z",
-      "modified_at": "2023-10-27T14:14:06.781Z",
+      "modified_at": "2024-05-03T06:50:05.244Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -68515,7 +68871,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -68531,7 +68889,7 @@
     "pk": "svgw-nr",
     "fields": {
       "created_at": "2023-07-03T08:31:37.203Z",
-      "modified_at": "2023-10-25T08:58:07.453Z",
+      "modified_at": "2024-05-03T06:50:05.252Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -68551,7 +68909,9 @@
         "max_length": null,
         "min_length": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -68567,7 +68927,7 @@
     "pk": "svgw-nr-ce-erklaerung",
     "fields": {
       "created_at": "2023-07-03T15:43:51.879Z",
-      "modified_at": "2023-10-25T09:01:12.368Z",
+      "modified_at": "2024-05-03T06:50:05.267Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -68585,7 +68945,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -69582,7 +69944,7 @@
     "pk": "tuere-vkf-nr",
     "fields": {
       "created_at": "2023-04-24T07:46:25.050Z",
-      "modified_at": "2023-10-27T14:14:07.125Z",
+      "modified_at": "2024-05-03T06:50:05.282Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -69600,7 +69962,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -70006,7 +70370,7 @@
     "pk": "ueberdeckung-register",
     "fields": {
       "created_at": "2023-04-20T12:10:42.721Z",
-      "modified_at": "2023-10-27T14:14:08.056Z",
+      "modified_at": "2024-05-03T06:50:05.298Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70024,7 +70388,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -70040,7 +70406,7 @@
     "pk": "ueber-dem-boden-m",
     "fields": {
       "created_at": "2023-04-24T12:37:42.321Z",
-      "modified_at": "2023-10-27T14:14:06.786Z",
+      "modified_at": "2024-05-03T06:50:05.310Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -70058,7 +70424,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -70328,7 +70696,7 @@
     "pk": "unterboden-auffuellhoehe",
     "fields": {
       "created_at": "2023-04-21T08:15:39.887Z",
-      "modified_at": "2023-10-27T14:14:07.957Z",
+      "modified_at": "2024-05-03T06:50:05.320Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70346,7 +70714,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -70362,7 +70732,7 @@
     "pk": "unterboden-menge",
     "fields": {
       "created_at": "2023-04-21T08:15:24.506Z",
-      "modified_at": "2023-10-27T14:14:07.960Z",
+      "modified_at": "2024-05-03T06:50:05.331Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70380,7 +70750,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -70396,7 +70768,7 @@
     "pk": "untergrund-auffuellhoehe",
     "fields": {
       "created_at": "2023-04-21T08:16:23.172Z",
-      "modified_at": "2023-10-27T14:14:07.963Z",
+      "modified_at": "2024-05-03T06:50:05.341Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70414,7 +70786,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -70430,7 +70804,7 @@
     "pk": "untergrund-menge",
     "fields": {
       "created_at": "2023-04-21T08:16:02.019Z",
-      "modified_at": "2023-10-27T14:14:07.965Z",
+      "modified_at": "2024-05-03T06:50:05.354Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70448,7 +70822,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -70622,7 +70998,7 @@
     "pk": "verbrauch-kg-pro-jahr",
     "fields": {
       "created_at": "2023-06-14T11:59:12.623Z",
-      "modified_at": "2023-10-25T09:50:47.198Z",
+      "modified_at": "2024-05-03T06:50:05.369Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70640,7 +71016,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -70951,7 +71329,7 @@
     "pk": "veva-nr",
     "fields": {
       "created_at": "2023-04-19T07:57:33.455Z",
-      "modified_at": "2023-10-27T14:14:06.681Z",
+      "modified_at": "2024-05-03T06:50:05.378Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70969,7 +71347,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -71053,7 +71433,7 @@
     "pk": "vkf-nr",
     "fields": {
       "created_at": "2023-07-03T15:42:52.988Z",
-      "modified_at": "2023-10-25T09:01:07.029Z",
+      "modified_at": "2024-05-03T06:50:05.386Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -71071,7 +71451,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -71087,7 +71469,7 @@
     "pk": "vkf-nr-ableitung-der-abgase",
     "fields": {
       "created_at": "2023-04-24T08:40:03.552Z",
-      "modified_at": "2023-04-27T13:43:02.532Z",
+      "modified_at": "2024-05-03T06:50:05.393Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -71105,7 +71487,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -71155,7 +71539,7 @@
     "pk": "vkf-nr-brandschutzelement-agbasanlage",
     "fields": {
       "created_at": "2023-07-07T08:51:25.318Z",
-      "modified_at": "2023-10-25T09:05:48.596Z",
+      "modified_at": "2024-05-03T06:50:05.400Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -71173,7 +71557,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -71189,7 +71575,7 @@
     "pk": "vkf-nr-tuere-ableitung-der-abgase",
     "fields": {
       "created_at": "2023-04-24T10:11:54.065Z",
-      "modified_at": "2023-10-27T14:14:07.135Z",
+      "modified_at": "2024-05-03T06:50:05.407Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -71207,7 +71593,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -71254,7 +71642,7 @@
     "pk": "voc-gehalt",
     "fields": {
       "created_at": "2023-06-14T12:01:06.587Z",
-      "modified_at": "2023-10-25T09:50:53.708Z",
+      "modified_at": "2024-05-03T06:50:05.413Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -71272,7 +71660,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -71288,7 +71678,7 @@
     "pk": "voc-menge-kg-pro-jahr",
     "fields": {
       "created_at": "2023-06-14T12:01:40.377Z",
-      "modified_at": "2023-10-25T09:50:59.242Z",
+      "modified_at": "2024-05-03T06:50:05.420Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -71306,7 +71696,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -71804,7 +72196,7 @@
     "pk": "vorgesehene-entnahme-pro-jahr",
     "fields": {
       "created_at": "2023-04-21T06:57:18.922Z",
-      "modified_at": "2023-10-27T14:14:07.462Z",
+      "modified_at": "2024-05-03T06:50:05.428Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -71822,7 +72214,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -72061,7 +72455,7 @@
     "pk": "waermeentzug-aus-erdwaermesonde",
     "fields": {
       "created_at": "2023-04-20T14:19:55.797Z",
-      "modified_at": "2023-10-27T14:14:07.574Z",
+      "modified_at": "2024-05-03T06:50:05.434Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -72079,7 +72473,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -72607,7 +73003,7 @@
     "pk": "wasserentnahmemenge",
     "fields": {
       "created_at": "2023-04-21T08:55:06.540Z",
-      "modified_at": "2023-10-27T14:14:08.102Z",
+      "modified_at": "2024-05-03T06:50:05.440Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -72625,7 +73021,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -72737,7 +73135,7 @@
     "pk": "wasserloeschposten-stueck",
     "fields": {
       "created_at": "2023-05-25T07:40:39.981Z",
-      "modified_at": "2023-10-27T14:14:06.937Z",
+      "modified_at": "2024-05-03T06:50:05.446Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -72755,7 +73153,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -73315,7 +73715,7 @@
     "pk": "wie-viele-liter-benzin-wird-pro-jahr-umgeschlagen",
     "fields": {
       "created_at": "2023-06-14T11:49:32.847Z",
-      "modified_at": "2023-10-27T14:14:07.326Z",
+      "modified_at": "2024-05-03T06:50:05.452Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -73333,7 +73733,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -73349,7 +73751,7 @@
     "pk": "wie-viel-liter-diesel-wird-pro-jahr-umgeschlagen",
     "fields": {
       "created_at": "2023-06-14T11:50:06.718Z",
-      "modified_at": "2023-10-27T14:14:07.328Z",
+      "modified_at": "2024-05-03T06:50:05.463Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -73367,7 +73769,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -73662,7 +74066,7 @@
     "pk": "wochen-pro-jahr",
     "fields": {
       "created_at": "2023-04-24T12:30:38.267Z",
-      "modified_at": "2023-10-27T14:14:06.791Z",
+      "modified_at": "2024-05-03T06:50:04.435Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -73680,7 +74084,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -73696,7 +74102,7 @@
     "pk": "wohnhaus-anzahl-zimmer",
     "fields": {
       "created_at": "2023-04-18T19:01:55.491Z",
-      "modified_at": "2023-10-27T14:14:07.744Z",
+      "modified_at": "2024-05-03T06:50:05.472Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -73714,7 +74120,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -74024,7 +74432,7 @@
     "pk": "zulaessiger-betriebsueberdruck",
     "fields": {
       "created_at": "2023-04-24T10:18:08.442Z",
-      "modified_at": "2023-10-27T14:14:07.138Z",
+      "modified_at": "2024-05-03T06:50:05.478Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -74042,7 +74450,9 @@
         "max_value": null,
         "min_value": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
