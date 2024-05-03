@@ -19,17 +19,21 @@ export default class DecisionAppealButtonComponent extends Component {
 
   instance = findRecord(this, "instance", () => [this.args.context.instanceId]);
 
-  hasAppeal = trackedFunction(this, async () => {
+  hasOrIsAppeal = trackedFunction(this, async () => {
     const response = await this.apollo.query({
       query: getCaseMetaQuery,
       variables: { instanceId: this.args.context.instanceId },
     });
 
-    return response.allCases.edges[0]?.node.meta["has-appeal"] ?? false;
+    const meta = response.allCases.edges[0]?.node.meta;
+    const hasAppeal = meta?.["has-appeal"] ?? false;
+    const isAppeal = meta?.["is-appeal"] ?? false;
+
+    return hasAppeal || isAppeal;
   });
 
   get isVisible() {
-    if (!this.instance.record || !this.hasAppeal.isResolved) {
+    if (!this.instance.record || !this.hasOrIsAppeal.isResolved) {
       return false;
     }
 
@@ -47,8 +51,8 @@ export default class DecisionAppealButtonComponent extends Component {
       ].includes(
         parseInt(this.instance.record.belongsTo("instanceState").id()),
       ) &&
-      // Instance doesn't already have an appeal
-      !this.hasAppeal.value
+      // Instance doesn't already have an appeal or is an appeal instance
+      !this.hasOrIsAppeal.value
     );
   }
 

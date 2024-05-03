@@ -42,7 +42,7 @@ def instance_for_appeal(
     instance_state_factory(name="conclusion")
     instance_state_factory(name="finished")
 
-    def wrapper(instance_state_name, previous_instance_state_name):
+    def wrapper(instance_state_name, previous_instance_state_name, meta={}):
         be_instance.case.meta.update({"ebau-number": "2023-123"})
         be_instance.case.save()
 
@@ -79,6 +79,10 @@ def instance_for_appeal(
         )
         be_instance.instance_state = InstanceState.objects.get(name=instance_state_name)
         be_instance.save()
+
+        be_instance.case.refresh_from_db()
+        be_instance.case.meta.update(meta)
+        be_instance.case.save()
 
         return be_instance
 
@@ -187,18 +191,37 @@ def test_instance_appeal_404(db, instance, admin_client):
 
 
 @pytest.mark.parametrize(
-    "role__name,previous_instance_state_name,instance_state_name,expected_instance_state,expected_status",
+    "role__name,previous_instance_state_name,instance_state_name,meta,expected_instance_state,expected_status",
     [
         # Wrong role
-        ("Service", "coordination", "sb1", "sb1", status.HTTP_403_FORBIDDEN),
+        ("Service", "coordination", "sb1", {}, "sb1", status.HTTP_403_FORBIDDEN),
         # Wrong instance state
-        ("Municipality", "coordination", "new", "new", status.HTTP_403_FORBIDDEN),
+        ("Municipality", "coordination", "new", {}, "new", status.HTTP_403_FORBIDDEN),
         # Wrong previous instance state
         (
             "Municipality",
             "conclusion",
             "finished",
+            {},
             "finished",
+            status.HTTP_403_FORBIDDEN,
+        ),
+        # Instance already has an appeal
+        (
+            "Municipality",
+            "coordination",
+            "sb1",
+            {"has-appeal": True},
+            "sb1",
+            status.HTTP_403_FORBIDDEN,
+        ),
+        # Instance already is an appeal
+        (
+            "Municipality",
+            "coordination",
+            "sb1",
+            {"is-appeal": True},
+            "sb1",
             status.HTTP_403_FORBIDDEN,
         ),
         # Correct instance state and previous instance state
@@ -206,6 +229,7 @@ def test_instance_appeal_404(db, instance, admin_client):
             "Municipality",
             "coordination",
             "sb1",
+            {},
             "finished",
             status.HTTP_201_CREATED,
         ),
@@ -213,6 +237,7 @@ def test_instance_appeal_404(db, instance, admin_client):
             "Municipality",
             "coordination",
             "finished",
+            {},
             "finished",
             status.HTTP_201_CREATED,
         ),
@@ -235,6 +260,7 @@ def test_instance_appeal(
     settings,
     application_settings,
     be_ech0211_settings,
+    meta,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
@@ -245,7 +271,9 @@ def test_instance_appeal(
         }
     ]
 
-    instance = instance_for_appeal(instance_state_name, previous_instance_state_name)
+    instance = instance_for_appeal(
+        instance_state_name, previous_instance_state_name, meta
+    )
 
     if role.name != "Municipality":
         active_inquiry_factory()
