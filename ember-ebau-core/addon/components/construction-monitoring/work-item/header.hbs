@@ -12,9 +12,19 @@
             {{this.metaInfo}}
         </span>
         {{#if (and this.isMunicipality (can "edit work item of construction-step" @workItem))}}
-        <a class="uk-link-text uk-text-danger" href={{this.workItemLink}}>
-            {{t "construction-monitoring.construction-step.work-item.edit-deadline"}}
-        </a>
+          {{#if (eq this.ebauModules.applicationName "camac-ng")}}
+            <a class="uk-link-text uk-text-danger" href={{this.workItemLink}}>
+              {{t "construction-monitoring.construction-step.work-item.edit-deadline"}}
+            </a>
+          {{else}}
+            <LinkTo
+              class="uk-link-text uk-text-danger"
+              @route="cases.detail.work-items.edit"
+              @models={{array this.ebauModules.instanceId (decode-id @workItem.id)}}
+            >
+              {{t "construction-monitoring.construction-step.work-item.edit-deadline"}}
+            </LinkTo>
+          {{/if}}
         {{/if}}
     </div>
 </div>

@@ -949,35 +949,38 @@ def test_set_workflow_state_be(
             "DONE",
             [
                 ("submit", "skipped"),
-                ("create-manual-workitems", "ready"),
+                ("create-manual-workitems", "canceled"),
                 ("formal-exam", "skipped"),
                 ("init-additional-demand", "canceled"),
                 ("material-exam", "skipped"),
                 ("publication", "skipped"),
                 ("distribution", "skipped"),
                 ("decision", "skipped"),
+                ("init-construction-monitoring", "skipped"),
+                ("complete-instance", "skipped"),
             ],
-            "running",  # SO workflow is not done yet - this will change in the future
+            "completed",
         ),
         (
             "REJECTED",
             [
                 ("submit", "skipped"),
-                ("create-manual-workitems", "ready"),
+                ("create-manual-workitems", "canceled"),
                 ("formal-exam", "skipped"),
                 ("init-additional-demand", "canceled"),
                 ("material-exam", "skipped"),
                 ("publication", "skipped"),
                 ("distribution", "skipped"),
                 ("decision", "skipped"),
+                ("complete-instance", "skipped"),
             ],
-            "running",  # SO workflow is not done yet - this will change in the future
+            "completed",
         ),
         (
             "WRITTEN OFF",
             [
                 ("submit", "skipped"),
-                ("create-manual-workitems", "ready"),
+                ("create-manual-workitems", "canceled"),
                 ("formal-exam", "skipped"),
                 ("init-additional-demand", "canceled"),
                 ("material-exam", "skipped"),
@@ -985,7 +988,7 @@ def test_set_workflow_state_be(
                 ("distribution", "skipped"),
                 ("decision", "skipped"),
             ],
-            "running",  # SO workflow is not done yet - this will change in the future
+            "completed",
         ),
     ],
 )
@@ -1006,9 +1009,11 @@ def test_set_workflow_state_so(
     writer._set_workflow_state(so_instance, dossier)
 
     for task_id, expected_status in expected_work_items_states:
+        work_item = so_instance.case.work_items.get(task_id=task_id)
         assert (
-            so_instance.case.work_items.get(task_id=task_id).status == expected_status
-        )
+            work_item.status == expected_status
+        ), f"Expected status {expected_status} for work item {task_id} but got {work_item.status}"
+
     assert so_instance.case.status == expected_case_status
 
 

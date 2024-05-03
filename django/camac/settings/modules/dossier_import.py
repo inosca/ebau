@@ -75,11 +75,11 @@ DOSSIER_IMPORT = {
         "ENABLED": True,
         "WRITER_CLASS": "camac.dossier_import.config.kt_so.KtSolothurnDossierWriter",
         "INSTANCE_STATE_MAPPING": {
-            "SUBMITTED": 2,  # subm
-            "APPROVED": 8,  # construction-monitoring
-            "REJECTED": 11,  # rejected
-            "WRITTEN OFF": 12,  # withdrawn
-            "DONE": 9,  # finished
+            "SUBMITTED": "subm",
+            "APPROVED": "decided",
+            "REJECTED": "finished",
+            "WRITTEN OFF": "withdrawn",
+            "DONE": "finished",
         },
         "CALUMA_FORM": "migriertes-dossier",
         "FORM_ID": 1,

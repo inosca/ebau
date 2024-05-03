@@ -47,4 +47,5 @@ export default {
   watermark: isDevelopingApp() || getOwnConfig().enableWatermark,
   municipalityLogo: true,
   communications: true,
+  constructionMonitoring: true,
 };

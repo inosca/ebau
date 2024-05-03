@@ -577,15 +577,13 @@ DUMP = {
                     regex=r"^publikation?$"
                 ),
                 "caluma_decision_form": generate_form_dump_config(regex=r"^entscheid$"),
-                # Distribution
-                **DISTRIBUTION_DUMP_CONFIG,
-                # Additional demand
-                **ADDITIONAL_DEMAND_DUMP_CONFIG,
-                # Objections
                 "caluma_objection_form": generate_form_dump_config(
                     regex=r"^einsprache(n)?"
                 ),
                 "caluma_appeal_form": generate_form_dump_config(regex=r"^beschwerde"),
+                **DISTRIBUTION_DUMP_CONFIG,
+                **ADDITIONAL_DEMAND_DUMP_CONFIG,
+                **CONSTRUCTION_MONITORING_DUMP_CONFIG,
             },
             "EXCLUDED_MODELS": [
                 "user.Group",

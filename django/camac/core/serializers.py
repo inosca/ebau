@@ -207,6 +207,7 @@ class InstanceResourceSerializer(serializers.ModelSerializer, MultilingualSerial
                 "/ember-camac-ng/permissions.phtml": "permissions",
                 "/ember-camac-ng/gwr.phtml": "gwr/projects",
                 "/ember-camac-ng/communications.phtml": "communications",
+                "/ember-camac-ng/construction-monitoring.phtml": "construction-monitoring",
             }
             return type_mapping.get(obj.template)
 
