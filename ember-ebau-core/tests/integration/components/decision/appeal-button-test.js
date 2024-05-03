@@ -13,7 +13,7 @@ module("Integration | Component | decision/appeal-button", function (hooks) {
   setupMirage(hooks);
 
   hooks.beforeEach(function () {
-    this.hasAppeal = false;
+    this.meta = {};
     this.field = { question: { raw: { label: "Beschwerde eingegangen" } } };
 
     this.instanceStates = {
@@ -37,7 +37,7 @@ module("Integration | Component | decision/appeal-button", function (hooks) {
               {
                 node: {
                   id: id("Case"),
-                  meta: { "has-appeal": this.hasAppeal },
+                  meta: this.meta,
                 },
               },
             ],
@@ -46,27 +46,28 @@ module("Integration | Component | decision/appeal-button", function (hooks) {
       };
     });
 
-    this.initialize = (current, previous, hasAppeal = false) => {
+    this.initialize = (current, previous, meta = {}) => {
       this.instance = this.server.create("instance", {
         instanceState:
           this.instanceStates[current] ?? this.server.create("instance-state"),
         previousInstanceState:
           this.instanceStates[previous] ?? this.server.create("instance-state"),
       });
-      this.hasAppeal = hasAppeal;
+      this.meta = meta;
     };
   });
 
   testBE.each(
     "it renders only if correct states are given",
     [
-      [null, null, false, false],
-      ["sb1", "coordination", false, true],
-      ["finished", "coordination", false, true],
-      ["finished", "coordination", true, false],
+      [null, null, {}, false],
+      ["sb1", "coordination", {}, true],
+      ["finished", "coordination", {}, true],
+      ["finished", "coordination", { "is-appeal": true }, false],
+      ["finished", "coordination", { "has-appeal": true }, false],
     ],
-    async function (assert, [current, previous, hasAppeal, hasButton]) {
-      this.initialize(current, previous, hasAppeal);
+    async function (assert, [current, previous, meta, hasButton]) {
+      this.initialize(current, previous, meta);
 
       await render(
         hbs`<Decision::AppealButton @field={{this.field}} @context={{hash instanceId=this.instance.id}} />`,
