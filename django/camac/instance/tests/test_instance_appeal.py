@@ -394,6 +394,14 @@ def test_instance_appeal_so(
 
         assert new_instance.instance_state.name == "decision"
 
+        decision_work_item = new_instance.case.work_items.get(task_id="decision")
+
+        assert decision_work_item.status == WorkItem.STATUS_READY
+        assert (
+            decision_work_item.name["de"]
+            == "Entscheid der Beschwerdeinstanz bestätigen"
+        )
+
         assert len(mailoutbox) == 1
         assert notification_template.subject in mailoutbox[0].subject
 

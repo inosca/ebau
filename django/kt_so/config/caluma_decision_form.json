@@ -195,7 +195,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Entscheid best\\u00e4tigt\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Beschwerde Entscheid best\\u00e4tigt\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -211,7 +211,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Entscheid ge\\u00e4ndert / aufgehoben\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Beschwerde Entscheid ge\\u00e4ndert / aufgehoben\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -227,7 +227,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Entscheid zur\\u00fcckgewiesen\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Beschwerde Entscheid zur\\u00fcckgewiesen\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
