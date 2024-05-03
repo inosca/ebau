@@ -1,5 +1,9 @@
 decision:
   appeal:
+    confirmed: |-
+      Dieses Dossier wird nach dem Erfassen des Entscheides in den Status
+      <b>"{status}"</b> versetzt. Die Leitbehörde kann das Verfahren wie geplant
+      weiterführen.
     changed: |-
       Dieses Dossier wird nach dem Erfassen des Entscheides kopiert und in den
       Status <b>"{status}"</b> versetzt. Das momentane Dossier wird

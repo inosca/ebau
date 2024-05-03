@@ -4,6 +4,7 @@
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -15,8 +16,14 @@
         "withdrawal",
         "withdrawn"
       ],
+      "municipality-construction-monitoring": [
+        "construction-monitoring",
+        "decided",
+        "finished"
+      ],
       "municipality-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -30,6 +37,7 @@
       ],
       "service-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -38,6 +46,7 @@
       ],
       "service-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -46,6 +55,7 @@
       ],
       "subservice": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -59,6 +69,7 @@
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -70,8 +81,14 @@
         "withdrawal",
         "withdrawn"
       ],
+      "municipality-construction-monitoring": [
+        "construction-monitoring",
+        "decided",
+        "finished"
+      ],
       "municipality-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -85,6 +102,7 @@
       ],
       "municipality-read": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -98,6 +116,7 @@
       ],
       "service-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -106,6 +125,7 @@
       ],
       "service-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -114,6 +134,7 @@
       ],
       "subservice": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -128,6 +149,7 @@
       "municipality-clerk": [
         "construction-monitoring",
         "correction",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -139,9 +161,15 @@
         "withdrawal",
         "withdrawn"
       ],
+      "municipality-construction-monitoring": [
+        "construction-monitoring",
+        "decided",
+        "finished"
+      ],
       "municipality-lead": [
         "construction-monitoring",
         "correction",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -156,6 +184,7 @@
       "municipality-read": [
         "construction-monitoring",
         "correction",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -169,6 +198,7 @@
       ],
       "service-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -177,6 +207,7 @@
       ],
       "service-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -185,6 +216,7 @@
       ],
       "subservice": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -198,6 +230,7 @@
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -209,8 +242,14 @@
         "withdrawal",
         "withdrawn"
       ],
+      "municipality-construction-monitoring": [
+        "construction-monitoring",
+        "decided",
+        "finished"
+      ],
       "municipality-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -224,6 +263,7 @@
       ],
       "municipality-read": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -242,6 +282,7 @@
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -252,8 +293,14 @@
         "withdrawal",
         "withdrawn"
       ],
+      "municipality-construction-monitoring": [
+        "construction-monitoring",
+        "decided",
+        "finished"
+      ],
       "municipality-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -266,6 +313,7 @@
       ],
       "municipality-read": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -283,6 +331,7 @@
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -292,6 +341,7 @@
       ],
       "municipality-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -301,6 +351,7 @@
       ],
       "municipality-read": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -315,6 +366,7 @@
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -326,8 +378,14 @@
         "withdrawal",
         "withdrawn"
       ],
+      "municipality-construction-monitoring": [
+        "construction-monitoring",
+        "decided",
+        "finished"
+      ],
       "municipality-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -341,6 +399,7 @@
       ],
       "municipality-read": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -354,6 +413,7 @@
       ],
       "service-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -362,6 +422,7 @@
       ],
       "service-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -370,6 +431,7 @@
       ],
       "subservice": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -383,6 +445,7 @@
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -394,8 +457,14 @@
         "withdrawal",
         "withdrawn"
       ],
+      "municipality-construction-monitoring": [
+        "construction-monitoring",
+        "decided",
+        "finished"
+      ],
       "municipality-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -409,6 +478,7 @@
       ],
       "municipality-read": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -422,6 +492,7 @@
       ],
       "service-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -430,6 +501,7 @@
       ],
       "service-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -438,6 +510,7 @@
       ],
       "subservice": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -451,6 +524,7 @@
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -462,8 +536,14 @@
         "withdrawal",
         "withdrawn"
       ],
+      "municipality-construction-monitoring": [
+        "construction-monitoring",
+        "decided",
+        "finished"
+      ],
       "municipality-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -477,6 +557,7 @@
       ],
       "service-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -485,6 +566,7 @@
       ],
       "service-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -493,6 +575,7 @@
       ],
       "subservice": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -506,6 +589,7 @@
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -513,8 +597,14 @@
         "withdrawal",
         "withdrawn"
       ],
+      "municipality-construction-monitoring": [
+        "construction-monitoring",
+        "decided",
+        "finished"
+      ],
       "municipality-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -524,6 +614,7 @@
       ],
       "municipality-read": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -533,6 +624,7 @@
       ],
       "service-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -541,6 +633,7 @@
       ],
       "service-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -549,6 +642,7 @@
       ],
       "subservice": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -562,6 +656,7 @@
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -575,6 +670,7 @@
       ],
       "municipality-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -588,6 +684,7 @@
       ],
       "municipality-read": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -601,6 +698,7 @@
       ],
       "service-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -609,6 +707,7 @@
       ],
       "service-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -617,6 +716,7 @@
       ],
       "subservice": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -631,6 +731,7 @@
       "municipality-clerk": [
         "construction-monitoring",
         "correction",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -645,6 +746,7 @@
       "municipality-lead": [
         "construction-monitoring",
         "correction",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -663,6 +765,7 @@
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "finished",
         "withdrawal",
@@ -670,6 +773,7 @@
       ],
       "municipality-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "finished",
         "withdrawal",
@@ -677,6 +781,7 @@
       ],
       "municipality-read": [
         "construction-monitoring",
+        "decided",
         "decision",
         "finished",
         "withdrawal",
@@ -689,6 +794,7 @@
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -700,6 +806,7 @@
       ],
       "municipality-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -711,6 +818,7 @@
       ],
       "service-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -719,6 +827,7 @@
       ],
       "service-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -727,6 +836,7 @@
       ],
       "subservice": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -740,6 +850,7 @@
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -753,6 +864,7 @@
       ],
       "municipality-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -766,6 +878,7 @@
       ],
       "service-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -774,6 +887,7 @@
       ],
       "service-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -782,6 +896,7 @@
       ],
       "subservice": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -802,6 +917,7 @@
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -811,6 +927,7 @@
       ],
       "municipality-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -820,6 +937,7 @@
       ],
       "municipality-read": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -829,6 +947,7 @@
       ],
       "service-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -837,6 +956,7 @@
       ],
       "service-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -845,6 +965,7 @@
       ],
       "subservice": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -858,6 +979,7 @@
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -871,6 +993,7 @@
       ],
       "municipality-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -884,6 +1007,7 @@
       ],
       "service-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -892,6 +1016,7 @@
       ],
       "service-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -900,6 +1025,7 @@
       ],
       "subservice": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -913,6 +1039,7 @@
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -922,6 +1049,7 @@
       ],
       "municipality-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -936,6 +1064,7 @@
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -945,6 +1074,7 @@
       ],
       "municipality-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -955,6 +1085,7 @@
       ],
       "municipality-read": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -969,6 +1100,7 @@
     "acls": {
       "municipality-lead": [
         "construction-monitoring",
+        "decided",
         "decision",
         "distribution",
         "finished",
@@ -979,6 +1111,26 @@
         "subm",
         "withdrawal",
         "withdrawn"
+      ]
+    }
+  },
+  "22": {
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Baubegleitung",
+    "acls": {
+      "municipality-construction-monitoring": [
+        "construction-monitoring",
+        "decided",
+        "finished"
+      ]
+    }
+  },
+  "23": {
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Verfahren abschliessen",
+    "acls": {
+      "municipality-construction-monitoring": [
+        "construction-monitoring",
+        "decided",
+        "finished"
       ]
     }
   }

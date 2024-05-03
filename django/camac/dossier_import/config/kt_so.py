@@ -37,6 +37,7 @@ from camac.dossier_import.writers import (
     DossierWriter,
 )
 from camac.instance.domain_logic import CreateInstanceLogic
+from camac.instance.domain_logic.decision import DecisionLogic
 from camac.instance.models import Form, Instance, InstanceState
 from camac.tags.models import Keyword
 
@@ -115,7 +116,7 @@ class KtSolothurnDossierWriter(DossierWriter):
 
     def create_instance(self, dossier: Dossier) -> Instance:
         instance_state = InstanceState.objects.get(
-            pk=settings.DOSSIER_IMPORT["INSTANCE_STATE_MAPPING"].get(
+            name=settings.DOSSIER_IMPORT["INSTANCE_STATE_MAPPING"].get(
                 dossier._meta.target_state
             )
         )
@@ -317,17 +318,18 @@ class KtSolothurnDossierWriter(DossierWriter):
             "distribution",
             "decision",
         ]
-        DONE = DECIDED
+        REJECTED = DECIDED + ["complete-instance"]
+        DONE = DECIDED + ["init-construction-monitoring", "complete-instance"]
 
         path_to_state = {
-            "SUBMITTED": SUBMITTED,
-            "APPROVED": DECIDED,
-            "REJECTED": DECIDED,
-            "WRITTEN OFF": DECIDED,
-            "DONE": DONE,
+            TargetStatus.SUBMITTED.value: SUBMITTED,
+            TargetStatus.APPROVED.value: DECIDED,
+            TargetStatus.REJECTED.value: REJECTED,
+            TargetStatus.WRITTEN_OFF.value: DECIDED,
+            TargetStatus.DONE.value: DONE,
         }
 
-        default_context = {"no-notification": True, "no-history": True}
+        default_context = {"no-notification": True, "no-history": True, "skip": True}
 
         # In order for a work item to be completed no sibling work items can be
         # in state ready. They have to be dealt with in advance.
@@ -346,6 +348,18 @@ class KtSolothurnDossierWriter(DossierWriter):
 
             if task_id == "decision":
                 self.write_decision_form(work_item, dossier)
+
+                if target_state == TargetStatus.WRITTEN_OFF.value:
+                    # Set instance state to withdrawal so that the workflow
+                    # creates the correct work items. This will be resetted
+                    # afterwards in the post_complete_decision_building_permit
+                    # method
+                    instance.set_instance_state(
+                        settings.WITHDRAWAL["INSTANCE_STATE"], self._user
+                    )
+                    DecisionLogic.post_complete_decision_building_permit(
+                        instance, work_item, self._caluma_user, self._user
+                    )
 
             if config := get_caluma_setting("PRE_COMPLETE") and get_caluma_setting(
                 "PRE_COMPLETE"

@@ -1761,6 +1761,10 @@ APPLICATIONS = {
                         "recipient_types": ["work_item_controlling"],
                     },
                 },
+                "complete-instance": {
+                    "next_instance_state": "finished",
+                    "history_text": _("Procedure completed"),
+                },
             },
             "PRE_COMPLETE": {
                 # Cancel init-additional-demand after material-exam as it will
@@ -1775,9 +1779,11 @@ APPLICATIONS = {
                 "distribution": {"cancel": ["additional-demand"]},
                 # Complete, skip and cancel various work items after decision
                 "decision": {
-                    "skip": ["publication", "fill-publication", "objections"],
+                    "skip": ["publication", "fill-publication", "objections", "appeal"],
                     "cancel": ["create-publication"],
                 },
+                # Cancel manual work items after complete instance
+                "complete-instance": {"cancel": ["create-manual-workitems"]},
             },
             "PUBLIC_STATUS": {
                 "USE_SLUGS": True,

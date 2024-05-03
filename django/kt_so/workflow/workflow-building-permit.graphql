@@ -107,7 +107,7 @@ mutation CreateFlowAfterDecision {
     input: {
       workflow: "building-permit"
       tasks: ["decision"]
-      next: "[]|tasks"
+      next: "[\"after-decision\"]|tasks"
       redoable: "'distribution'|task"
     }
   ) {

@@ -2614,8 +2614,7 @@ class CalumaInstanceAppealSerializer(serializers.Serializer):
             new_instance.case.save()
             new_instance.set_instance_state("decision", user)
 
-            if instance.instance_state.name == "construction-monitoring":
-                instance.set_instance_state("finished", user)
+            instance.set_instance_state("finished", user)
 
         # Add history entry to source instance
         create_history_entry(instance, user, gettext_noop("Appeal received"))

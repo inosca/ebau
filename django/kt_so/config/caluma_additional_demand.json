@@ -606,7 +606,7 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {},
-      "address_groups": "[]",
+      "address_groups": "[\"applicant\"]",
       "control_groups": "info.prev_work_item.addressed_groups",
       "is_archived": false,
       "form": "fill-additional-demand",

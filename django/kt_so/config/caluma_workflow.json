@@ -74,7 +74,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "[]|tasks"
+      "next": "[\"after-decision\"]|tasks"
     }
   },
   {
@@ -380,7 +380,7 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_workflow_form",
       "meta": {},
-      "address_groups": "[]",
+      "address_groups": "[\"applicant\"]",
       "control_groups": null,
       "is_archived": false,
       "form": null,

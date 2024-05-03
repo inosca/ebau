@@ -18,6 +18,7 @@ const config = {
     rejected: 11,
     withdrawn: 12,
     withdrawal: 13,
+    decided: 14,
   },
   answerSlugs: {
     objectStreet: "strasse-flurname",
@@ -80,8 +81,8 @@ const config = {
   appeal: {
     instanceStates: {
       decision: "decision",
-      afterPositive: "construction-monitoring",
-      afterNegative: "finished",
+      afterPositive: "decided",
+      afterNegative: "decided",
     },
     answerSlugs: {
       "entscheid-entscheid-beschwerde-bestaetigt": "confirmed",
@@ -95,8 +96,7 @@ const config = {
     info: {
       confirmed: {
         color: "default",
-        status: (prevPositive) =>
-          prevPositive ? "construction-monitoring" : "finished",
+        status: () => "decided",
       },
       changed: {
         color: "default",
