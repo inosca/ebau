@@ -322,6 +322,15 @@ export default class CaseTableComponent extends Component {
                         },
                       ],
                     },
+                    municipality: {
+                      hasAnswer: [
+                        {
+                          question: "gemeinde",
+                          value: filter.municipality,
+                          lookup: "EXACT",
+                        },
+                      ],
+                    },
                   }
                 : {}),
     };
@@ -413,6 +422,7 @@ export default class CaseTableComponent extends Component {
                 ? {
                     keywords: this.args.filter.keywords,
                     is_paper: this.args.filter.paper,
+                    decision: this.args.filter.decision,
                   }
                 : {}),
     };
