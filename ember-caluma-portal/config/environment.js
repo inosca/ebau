@@ -429,8 +429,9 @@ module.exports = function (environment) {
       realm: "ebau",
       internalFrontend: "ebau",
       supportGroups: [3],
-      defaultInstanceStateCategory: "pending",
+      defaultInstanceStateCategory: "all",
       instanceStateCategories: {
+        all: Object.values(instanceStatesSo),
         pending: [
           instanceStatesSo.new,
           instanceStatesSo.subm,
