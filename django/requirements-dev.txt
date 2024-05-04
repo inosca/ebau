@@ -20,7 +20,7 @@ pytest-lazy-fixture==0.6.3
 pytest-mock==3.14.0
 pytest-randomly==3.15.0
 pytest-vcr==1.0.2
-pytest-xdist==3.5.0
+pytest-xdist==3.6.1
 remote-pdb==2.1.0
 requests-mock==1.12.1
 syrupy==4.6.1
