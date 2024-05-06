@@ -77,8 +77,9 @@ class AlexandriaDocumentMixin:
         self,
         xmlDocuments,
         category: alexandria_models.Category,
+        skip_linking=False,
     ) -> List[alexandria_models.Document]:
-        documents_to_link = []
+        created_documents = []
         for doc in xmlDocuments:
             document = None
             titles = {}
@@ -114,10 +115,16 @@ class AlexandriaDocumentMixin:
                         mime_type=file.mimeType,
                         size=len(file_response.content),
                     )
-            documents_to_link.append(document)
-        return documents_to_link
+            created_documents.append(document)
 
-    def has_alexandria_category_permission(self, category: alexandria_models.Category):
+        if not skip_linking:
+            self.link_alexandria_documents(created_documents)
+
+        return created_documents
+
+    def check_alexandria_category_permission(
+        self, category: alexandria_models.Category
+    ):
         available_permissions = CustomAlexandriaPermission().get_available_permissions(
             self.request,
             self.instance,
@@ -137,10 +144,8 @@ class AlexandriaDocumentMixin:
 
     def convert_xml_to_alexandria_documents(self, xmlDocuments, category_slug: str):
         category = alexandria_models.Category.objects.get(slug=category_slug)
-        self.has_alexandria_category_permission(category)
-        documents = self.create_alexandria_documents(xmlDocuments, category)
-        self.link_alexandria_documents(documents)
-        return documents
+        self.check_alexandria_category_permission(category)
+        return self.create_alexandria_documents(xmlDocuments, category)
 
 
 class BaseSendHandler:
@@ -243,7 +248,7 @@ class NoticeRulingSendHandler(
         return decision_document
 
     def apply(self):
-        if settings.ALEXANDRIA["ENABLED"]:
+        if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
             decision_mark = alexandria_models.Mark.objects.get(
                 pk=settings.ECH0211["NOTICE_RULING"]["ALEXANDRIA_MARK"]
             )
@@ -329,7 +334,7 @@ class NoticeRulingSendHandler(
             # for "normal" judgements
             self.complete_work_item(settings.DECISION["TASK"])
 
-        if not settings.ALEXANDRIA["ENABLED"]:
+        if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
             self.link_to_section(attachments)
 
 
@@ -578,7 +583,7 @@ class KindOfProceedingsSendHandler(
         return True, None
 
     def apply(self):
-        if settings.ALEXANDRIA["ENABLED"]:
+        if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
             self.convert_xml_to_alexandria_documents(
                 self.data.eventKindOfProceedings.document,
                 settings.ECH0211["KIND_OF_PROCEEDINGS"]["ALEXANDRIA_CATEGORY"],
@@ -644,6 +649,7 @@ class SubmitPlanningPermissionApplicationSendHandler(
         documents_to_link = self.create_alexandria_documents(
             self.data.eventSubmitPlanningPermissionApplication.planningPermissionApplication.document,
             alexandria_category,
+            skip_linking=True,
         )
 
         instance_state = InstanceState.objects.get(name="subm")
@@ -671,7 +677,7 @@ class SubmitPlanningPermissionApplicationSendHandler(
         )
         self.instance = instance
         # permisison check needs instance
-        self.has_alexandria_category_permission(alexandria_category)
+        self.check_alexandria_category_permission(alexandria_category)
         self.link_alexandria_documents(documents_to_link)
         # set submit date (if in xml data) to case meta
         self.instance.case.meta["ech0211-submitted"] = True
