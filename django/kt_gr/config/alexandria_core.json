@@ -6,7 +6,7 @@
       "created_at": "2020-08-04T13:24:00.704Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-04-12T12:11:43.044Z",
+      "modified_at": "2024-05-06T07:48:39.915Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -274,7 +274,7 @@
       },
       "name": "{\"de\": \"Alle Beteiligten\", \"fr\": \"\", \"it\": \"Tutti coinvolti\"}",
       "description": "{\"de\": \"Hier werden von der Leitbeh\\u00f6rde Dokumente hochgeladen, welche f\\u00fcr alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Verfahrensprogramm, Bauentscheid). Gesuchstellenden werden diese Dokumente im eBau-Portal unter *R\\u00fcckmeldungen* angezeigt.\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\"]",
       "color": "#CB68C1",
       "parent": null
     }
@@ -457,7 +457,7 @@
       "created_at": "2020-08-04T13:24:00.704Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-04-12T12:14:28.681Z",
+      "modified_at": "2024-05-06T07:49:01.082Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -520,7 +520,7 @@
       },
       "name": "{\"de\": \"Bauabnahme\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Hier werden von der Leitbeh\\u00f6rde Dokumente zur Bauabnahme hochgeladen, welche f\\u00fcr alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Bauabnahmeprotokoll). Gesuchstellenden werden diese Dokumente im eBau-Portal unter R\\u00fcckmeldungen angezeigt.\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\"]",
       "color": "#CB68C1",
       "parent": null
     }
@@ -870,7 +870,7 @@
       "created_at": "2020-08-04T13:24:00.699Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-04-12T12:12:49.238Z",
+      "modified_at": "2024-05-06T07:48:50.813Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -1132,7 +1132,7 @@
       },
       "name": "{\"de\": \"Beteiligte Beh\\u00f6rden\", \"fr\": \"\", \"it\": \"Autorit\\u00e0 coinvolte\"}",
       "description": "{\"de\": \"Hier werden die von den beteiligten Beh\\u00f6rden erfassten Dokumente (z.B. Verf\\u00fcgungen, Amts- und Fachberichte, Stellungnahmen) hochgeladen. Diese Dokumente sind nur f\\u00fcr die am Verfahren beteiligten Beh\\u00f6rden sichtbar, nicht aber f\\u00fcr die Gesuchstellenden.\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\"]",
       "color": "#8791EC",
       "parent": null
     }
@@ -1144,7 +1144,7 @@
       "created_at": "2020-08-04T13:24:00.708Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-04-12T12:18:25.761Z",
+      "modified_at": "2024-05-06T07:49:11.644Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -1341,7 +1341,7 @@
       },
       "name": "{\"de\": \"Intern\", \"fr\": \"\", \"it\": \"Interno\"}",
       "description": "{\"de\": \"Hier werden Dokumente hochgeladen, welche nur innerhalb der eigenen Organisation (ohne Unterfachstellen) sichtbar sein sollen. In diesem Ordner bestehen keine Einschr\\u00e4nkungen hinsichtlich der erlaubten Dateiformate.\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"image/vnd.dwg\"]",
       "color": "#DB8B72",
       "parent": null
     }
@@ -1353,7 +1353,7 @@
       "created_at": "2023-11-13T00:00:00Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-04-12T12:18:34.637Z",
+      "modified_at": "2024-05-06T07:49:24.643Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -1516,7 +1516,7 @@
       },
       "name": "{\"de\": \"Intern (mit Unterfachstellen)\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Hier werden Dokumente hochgeladen, welche innerhalb der eigenen Organisation (mit Unterfachstellen) sichtbar sein sollen. In diesem Ordner bestehen keine Einschr\\u00e4nkungen hinsichtlich der erlaubten Dateiformate.\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"image/vnd.dwg\"]",
       "color": "#af6023",
       "parent": null
     }
@@ -1528,7 +1528,7 @@
       "created_at": "2020-08-04T13:24:00.690Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-04-12T12:11:27.135Z",
+      "modified_at": "2024-05-06T07:48:19.857Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -1742,7 +1742,7 @@
       },
       "name": "{\"de\": \"Nachforderung\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Diese Dokumente wurden vom Gesuchstellenden im Rahmen von Nachforderungen hochgeladen und sind f\\u00fcr alle am Verfahren beteiligten Beh\\u00f6rden einsehbar.\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\"]",
       "color": "#66CFC9",
       "parent": null
     }
