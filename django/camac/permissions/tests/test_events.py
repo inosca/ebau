@@ -414,6 +414,9 @@ def test_change_responsible_service(
     new_responsible = service_factory()
 
     old_responsible = be_instance.instance_services.get(active=1).service
+    old_responsible.service_group.name = "lead-authority"
+    old_responsible.service_group.save()
+
     instance_acl_factory(
         instance=be_instance, access_level_id="lead-authority", service=old_responsible
     )
