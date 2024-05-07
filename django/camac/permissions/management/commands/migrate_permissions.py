@@ -12,6 +12,7 @@ from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.db import transaction
+from django.db.models import Q
 from django.utils import timezone
 
 from camac.applicants import models as applicants_models
@@ -251,7 +252,11 @@ class Command(BaseCommand):
             inactive_lead_authority = conf.get("MUNICIPALITY_INVOLVED")
             permissions.update(
                 self._build_municipality_permissions(
-                    lead_authority, inactive_lead_authority
+                    lead_authority,
+                    inactive_lead_authority,
+                    filters=settings.PERMISSIONS.get("MIGRATION_FILTERS", {}).get(
+                        "municipality", Q()
+                    ),
                 )
             )
         if invited_service := conf.get("DISTRIBUTION_INVITEE"):
@@ -277,6 +282,9 @@ class Command(BaseCommand):
         if after_decision_states:
             qs = qs.filter(instance_state__name__in=after_decision_states)
 
+        # TODO should we use instance services here as well?
+        # So we could properly map how it is in the application
+
         inst_iter = self._iter_qs(qs, instance_prefix=None)
         log.info(f"    Checking {inst_iter.total} instances for construction control")
         for instance in inst_iter:
@@ -297,7 +305,7 @@ class Command(BaseCommand):
                 start_time=timezone.now(),
             )
 
-    def _build_municipality_permissions(self, level_active, level_inactive):
+    def _build_municipality_permissions(self, level_active, level_inactive, filters):
         # Note: This is roughly derived from
         # InstanceQuerysetMixin.get_queryset_for_municipality()
         log.info("  Checking for municipality access rules")
@@ -309,7 +317,11 @@ class Command(BaseCommand):
 
         # Instance Services map quite nicely. TODO: Only responsible services,
         # or only of a certain service group?
-        is_iter = self._iter_qs(InstanceService.objects.filter(), "instance")
+        instance_services = InstanceService.objects.filter(filters)
+        # TODO apply municipality filter if any
+        breakpoint()
+        is_iter = self._iter_qs(instance_services, "instance")
+
         log.info(f"    Checking {is_iter.total} instance services")
 
         for instance_service in is_iter:
