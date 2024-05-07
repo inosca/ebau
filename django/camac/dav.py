@@ -1,4 +1,5 @@
 import os
+from datetime import timedelta
 from pathlib import Path
 from shutil import copy2
 
@@ -92,9 +93,13 @@ def pre_write_callback(token):
     user, attachment = token.payload
     user = User.objects.get(id=user)
     attachment = Attachment.objects.get(attachment_id=attachment)
-    if attachment.user != user:
-        version_filter = AttachmentVersion.objects.filter(attachment=attachment)
-        version_obj = version_filter.order_by("-version").first()
+    version_filter = AttachmentVersion.objects.filter(attachment=attachment)
+    version_obj = version_filter.order_by("-version").first()
+    threshold = timedelta(minutes=settings.MANABI_VERSION_CREATION_THRESHOLD)
+    delta = threshold * 2
+    if version_obj:
+        delta = timezone.now() - version_obj.created_at
+    if attachment.user != user or delta > threshold:
         version = 0
         if version_obj:
             version = version_obj.version + 1

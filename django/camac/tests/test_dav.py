@@ -1,4 +1,5 @@
 import os
+from datetime import timedelta
 from functools import partial
 from io import BytesIO
 from pathlib import Path
@@ -71,6 +72,11 @@ def prepare_file():
     return file_path
 
 
+def count_versions(attachment):
+    version_filter = models.AttachmentVersion.objects.filter(attachment=attachment)
+    return version_filter.order_by("-version").count()
+
+
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Municipality", LazyFixture("admin_user"))]
 )
@@ -82,7 +88,11 @@ def test_callback(
     mocker,
     admin_client,
     role,
+    freezer,
 ):
+    freezer.move_to("2000-10-10")
+    delta = timedelta(minutes=(settings.MANABI_VERSION_CREATION_THRESHOLD / 2) + 1)
+    tick = partial(freezer.tick, delta)
     prepare_file()
     orig_encode = base36.encode
     encodes = []
@@ -112,16 +122,42 @@ def test_callback(
     put = partial(do_put, dav, environ, start_response, file_exists, attachment)
     get(file_exists)
 
+    # User based version creation
     put(user1)
+    assert count_versions(attachment) == 1
     assert encodes == [0]
 
     put(user1)
     assert encodes == [0]
 
     put(user2)
+    assert count_versions(attachment) == 2
     assert encodes == [0, 1]
     get(file_exists)
     assert results == ["200 OK"] + ["204 No Content"] * 3 + ["200 OK"]
+
+    # Time based version creation
+    results = []
+    put(user2)
+    assert encodes == [0, 1]
+
+    tick()
+    put(user2)
+    assert encodes == [0, 1]
+
+    tick()
+    put(user2)
+    assert encodes == [0, 1, 2]
+
+    tick()
+    put(user2)
+    assert encodes == [0, 1, 2]
+
+    tick()
+    put(user2)
+    assert encodes == [0, 1, 2, 3]
+    assert results == ["204 No Content"] * 5
+    assert count_versions(attachment) == 4
 
     # Get version via API
     url = reverse("attachmentversion-list")
