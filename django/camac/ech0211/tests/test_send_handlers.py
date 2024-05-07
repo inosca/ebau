@@ -2,7 +2,7 @@ from unittest.mock import Mock
 
 import pytest
 import requests
-from alexandria.core.factories import CategoryFactory
+from alexandria.core.factories import CategoryFactory, MarkFactory
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.models import WorkItem
 from django.core.management import call_command
@@ -41,6 +41,16 @@ from ..send_handlers import (
 )
 
 
+@pytest.fixture
+def mock_request_get(mocker):
+    response = Mock(spec=requests.models.Response)
+    response.status_code = 200
+    response.content = (
+        b"%PDF-1.\ntrailer<</Root<</Pages<</Kids[<</MediaBox[0 0 3 3]>>]>>>>>>"
+    )
+    mocker.patch.object(requests, "get", return_value=response)
+
+
 @pytest.mark.parametrize(
     "xml_file,expected_send_handler",
     [
@@ -70,7 +80,7 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
 @pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize("service_group__name", ["municipality"])
 @pytest.mark.parametrize(
-    "judgement,instance_state_name,has_permission,is_vorabklaerung,active,expected_state_name",
+    "judgement,instance_state_name,has_permission,is_vorabklaerung,active,expected_state_name,document_backend",
     [
         (
             ECH_JUDGEMENT_DECLINED,
@@ -79,6 +89,7 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
             False,
             "leitbehoerde",
             "rejected",
+            "camac-ng",
         ),
         (
             ECH_JUDGEMENT_WRITTEN_OFF,
@@ -87,6 +98,7 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
             False,
             "leitbehoerde",
             None,
+            "camac-ng",
         ),
         (
             ECH_JUDGEMENT_APPROVED,
@@ -95,6 +107,7 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
             False,
             "leitbehoerde",
             "sb1",
+            "camac-ng",
         ),
         (
             ECH_JUDGEMENT_APPROVED,
@@ -103,14 +116,17 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
             False,
             "leitbehoerde",
             "sb1",
+            "camac-ng",
         ),
+        (ECH_JUDGEMENT_APPROVED, "circulation", True, False, "rsta", "sb1", "camac-ng"),
         (
             ECH_JUDGEMENT_APPROVED,
             "circulation",
             True,
-            False,
-            "rsta",
-            "sb1",
+            True,
+            "leitbehoerde",
+            "evaluated",
+            "camac-ng",
         ),
         (
             ECH_JUDGEMENT_APPROVED,
@@ -119,6 +135,7 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
             True,
             "leitbehoerde",
             "evaluated",
+            "alexandria",
         ),
         (
             ECH_JUDGEMENT_DECLINED,
@@ -127,6 +144,7 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
             "leitbehoerde",
             False,
             None,
+            "camac-ng",
         ),
     ],
 )
@@ -155,8 +173,14 @@ def test_notice_ruling_send_handler(
     decision_factory,
     settings,
     be_decision_settings,
+    application_settings,
+    document_backend,
+    mock_request_get,
+    mocked_request_object,
+    mocker,
 ):
     settings.APPLICATION_NAME = "kt_bern"
+    application_settings["DOCUMENT_BACKEND"] = document_backend
     if is_vorabklaerung:
         notification_template_factory(slug="08-beurteilung-zu-voranfrage-gesuchsteller")
         notification_template_factory(slug="08-beurteilung-zu-voranfrage-behoerden")
@@ -198,6 +222,16 @@ def test_notice_ruling_send_handler(
     ech_instance_service.service = active_service
     ech_instance_service.save()
 
+    category = CategoryFactory()
+    mark = MarkFactory()
+    be_ech0211_settings["NOTICE_RULING"]["ALEXANDRIA_CATEGORY"] = category.pk
+    be_ech0211_settings["NOTICE_RULING"]["ALEXANDRIA_MARK"] = mark.pk
+    mocker.patch.object(
+        CustomAlexandriaPermission,
+        "get_available_permissions",
+        return_value={MODE_CREATE},
+    )
+
     attachment_section_beteiligte_behoerden = attachment_section_factory(
         pk=ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN
     )
@@ -230,7 +264,7 @@ def test_notice_ruling_send_handler(
         group=admin_user.groups.first(),
         auth_header=None,
         caluma_user=caluma_admin_user,
-        request=None,
+        request=mocked_request_object,
     )
     assert handler.has_permission()[0] == has_permission
 
@@ -262,10 +296,14 @@ def test_notice_ruling_send_handler(
         message = Message.objects.first()
         assert message.receiver == ech_instance_be.responsible_service()
         ech_snapshot(message.body)
-        attachment.refresh_from_db()
-        assert attachment.attachment_sections.get(
-            pk=ATTACHMENT_SECTION_ALLE_BETEILIGTEN
-        )
+        if document_backend == "alexandria":
+            assert category.documents.count() == 1
+            assert category.documents.first().marks.first().pk == mark.pk
+        else:
+            attachment.refresh_from_db()
+            assert attachment.attachment_sections.get(
+                pk=ATTACHMENT_SECTION_ALLE_BETEILIGTEN
+            )
 
         if expected_state_name == "rejected":
             # if the instance is rejected, there should not be a decision work item
@@ -637,7 +675,10 @@ def test_task_send_handler_no_permission(
 
 
 @pytest.mark.freeze_time("2022-06-03")
-@pytest.mark.parametrize("has_permission", [True, False])
+@pytest.mark.parametrize(
+    "has_permission,document_backend",
+    [(True, "alexandria"), (True, "camac-ng"), (False, "camac-ng")],
+)
 def test_kind_of_proceedings_send_handler(
     db,
     admin_user,
@@ -653,8 +694,21 @@ def test_kind_of_proceedings_send_handler(
     mailoutbox,
     notification_template_factory,
     set_application_be,
+    document_backend,
+    mock_request_get,
+    mocked_request_object,
+    mocker,
 ):
     notification_template_factory(slug="03-verfahrensablauf-gesuchsteller")
+
+    set_application_be["DOCUMENT_BACKEND"] = document_backend
+    category = CategoryFactory()
+    be_ech0211_settings["KIND_OF_PROCEEDINGS"] = {"ALEXANDRIA_CATEGORY": category.pk}
+    mocker.patch.object(
+        CustomAlexandriaPermission,
+        "get_available_permissions",
+        return_value={MODE_CREATE},
+    )
 
     attachment_section_beteiligte_behoerden = attachment_section_factory(
         pk=ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN
@@ -693,7 +747,7 @@ def test_kind_of_proceedings_send_handler(
         group=group,
         auth_header=None,
         caluma_user=caluma_admin_user,
-        request=None,
+        request=mocked_request_object,
     )
     assert handler.has_permission()[0] is has_permission
 
@@ -720,9 +774,12 @@ def test_kind_of_proceedings_send_handler(
         assert message.receiver == ech_instance_be.responsible_service()
         ech_snapshot(message.body)
 
-        assert attachment.attachment_sections.get(
-            pk=ATTACHMENT_SECTION_ALLE_BETEILIGTEN
-        )
+        if document_backend == "alexandria":
+            assert category.documents.count() == 1
+        else:
+            assert attachment.attachment_sections.get(
+                pk=ATTACHMENT_SECTION_ALLE_BETEILIGTEN
+            )
 
         assert (
             ech_instance_be.involved_applicants.first().invitee.email
