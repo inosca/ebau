@@ -1,6 +1,7 @@
 import { action } from "@ember/object";
 import { guidFor } from "@ember/object/internals";
 import Component from "@glimmer/component";
+import mime from "mime";
 
 export default class DropzoneComponent extends Component {
   get queueName() {
@@ -27,7 +28,8 @@ export default class DropzoneComponent extends Component {
 
   @action
   validate(file) {
-    if (!this.allowedMimetypes.includes(file.type)) {
+    const type = file.type || mime.getType(file.name);
+    if (!this.allowedMimetypes.includes(type)) {
       this.args.onValidationError?.(file);
 
       return false;

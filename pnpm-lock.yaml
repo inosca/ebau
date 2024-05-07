@@ -1243,6 +1243,9 @@ importers:
       luxon:
         specifier: 3.4.4
         version: 3.4.4
+      mime:
+        specifier: ^4.0.3
+        version: 4.0.3
       proj4:
         specifier: 2.10.0
         version: 2.10.0
