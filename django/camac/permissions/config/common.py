@@ -84,8 +84,10 @@ class ChangeResponsibleServiceHandlerMixin:
         involved_accesslevel = {
             "lead-authority": "involved-authority",
             "construction-control": "involved-construction-control",
+            "municipality": "involved-authority",
         }
         new_accesslevel_from_servicegroup = {
+            "municipality": "lead-authority",
             "lead-authority": "lead-authority",
             "construction-control": "construction-control",
         }
