@@ -7,7 +7,7 @@ from rest_framework import status
 
 from camac.permissions import api
 from camac.permissions.conditions import Always
-from camac.permissions.models import InstanceACL
+from camac.permissions.models import AccessLevel, InstanceACL
 from camac.permissions.switcher import PERMISSION_MODE
 from camac.utils import get_dict_item
 
@@ -371,6 +371,9 @@ def test_get_access_levels(
     # Listing of access levels should only be allowed for the users who can
     # create (or revoke) ACLs (at least for now).
 
+    # TODO: This can be dropped in favour of test_assignable_filter() below,
+    # once we drop the permission_aware get_queryset in the AccessLevelViewset
+
     url = reverse("access-levels-list")
     result = admin_client.get(url)
     assert result.status_code == status.HTTP_200_OK
@@ -392,6 +395,80 @@ def test_get_access_levels(
         }
     else:
         assert result.json() == {"data": []}
+
+
+@pytest.mark.parametrize(
+    "do_filter,grant,permission_mode, role__name, expect_results",
+    [
+        # Permission mode is FULL: User can only see access levels that are
+        # explicitly allowed to be assigned *on the given instance*
+        (True, "geometer", "FULL", "Municipality", 1),
+        (True, None, "FULL", "Municipality", 0),
+        (False, None, "FULL", "Municipality", "ALL"),
+        (False, "geometer", "FULL", "Municipality", "ALL"),
+        (True, "any", "FULL", "Municipality", "ALL"),
+        (False, "any", "FULL", "Municipality", "ALL"),
+        # Permission mode is OFF: Old mode, can't filter except by role
+        (True, "geometer", "OFF", "Municipality", "ALL"),
+        (True, "geometer", "OFF", "Geometer", 0),
+        (False, "geometer", "OFF", "Municipality", "ALL"),
+        # AccessLevelViewset.get_queryset() is @permission_aware, therefore
+        # non-municipality users never see anything here (for now)
+        (False, "geometer", "OFF", "Geometer", 0),
+    ],
+)
+def test_assignable_filter(
+    db,
+    be_instance,
+    admin_client,
+    instance_acl_factory,
+    be_permissions_settings,
+    be_access_levels,
+    # params
+    permission_mode,
+    do_filter,
+    grant,
+    expect_results,
+):
+    """
+    Test the asssignable_in_instance filter on the access levels.
+
+    The filter is supposed to only return the access levels that the current
+    user can assign to someone on the given instance.
+    """
+    if expect_results == "ALL":
+        expect_results = AccessLevel.objects.all().count()
+
+    # Drop any configured "grant" permisisons, so we can test the exact
+    # behaviour
+    be_permissions_settings["ACCESS_LEVELS"]["lead-authority"] = [
+        (p, c)
+        for p, c in be_permissions_settings["ACCESS_LEVELS"]["lead-authority"]
+        if not p.startswith("permissions-grant-")
+    ]
+    if grant:
+        # Allow granting of some access levels
+        be_permissions_settings["ACCESS_LEVELS"]["lead-authority"].append(
+            (f"permissions-grant-{grant}", Always())
+        )
+
+    be_permissions_settings["PERMISSION_MODE"] = permission_mode
+
+    instance_acl_factory(
+        instance=be_instance,
+        service=admin_client.user.get_default_group().service,
+        access_level=AccessLevel.objects.get(pk="lead-authority"),
+    )
+
+    url = reverse("access-levels-list")
+
+    filter_param = {"assignable_in_instance": str(be_instance.pk)}
+
+    resp = admin_client.get(url, filter_param if do_filter else {})
+    assert resp.status_code == status.HTTP_200_OK
+
+    resp_data = resp.json()
+    assert len(resp_data["data"]) == expect_results
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])

@@ -8,12 +8,16 @@ from django_filters.rest_framework import (
 )
 from rest_framework.exceptions import ValidationError
 
+from camac.permissions.switcher import permission_switching_method
+from camac.user.permissions import permission_aware
+
 from . import api, models
 
 
 class AccessLevelFilterset(FilterSet):
     assignable_in_instance = NumberFilter(method="filter_assignable_in_instance")
 
+    @permission_switching_method
     def filter_assignable_in_instance(self, qs, name, value):
         # Permission for municipality before submission is never assignable
         # through the UI. TODO: Remove this in favor of a "permissions-grant-xy"
@@ -23,10 +27,7 @@ class AccessLevelFilterset(FilterSet):
 
         manager = api.PermissionManager.from_request(self.request)
         permissions = manager.get_permissions(value)
-        # TODO: this needs to be removed in favor of the permission module
-        # as soon as the municipality permissions are migrated.
-        if not permissions:
-            return qs
+
         if "permissions-grant-any" in permissions:
             return qs
         assignable = [
@@ -36,6 +37,14 @@ class AccessLevelFilterset(FilterSet):
         ]
 
         return qs.filter(pk__in=assignable)
+
+    @filter_assignable_in_instance.register_old
+    @permission_aware
+    def filter_assignable_in_instance_rbac(self, qs, name, value):
+        return qs.none()
+
+    def filter_assignable_in_instance_rbac_for_municipality(self, qs, name, value):
+        return qs
 
 
 class InstanceACLFilterSet(FilterSet):
