@@ -4,6 +4,7 @@ from camac.instance import domain_logic, utils as instance_utils
 from camac.instance.models import Instance
 from camac.permissions import api as permissions_api
 from camac.permissions.events import EmptyEventHandler
+from camac.permissions.models import InstanceACL
 from camac.user.models import ServiceRelation
 
 from .common import (
@@ -77,3 +78,22 @@ class PermissionEventHandlerBE(
             access_level="construction-control",
             service=construction_control,
         )
+
+    def instance_copied(self, instance: Instance, from_instance: Instance):
+        current_acls = InstanceACL.currently_active().filter(
+            instance=from_instance,
+        )
+
+        if instance.case.meta.get("is-appeal") or instance.case.meta.get(
+            "is-rejected-appeal"
+        ):
+            current_acls = current_acls.filter(
+                access_level_id__in=["lead-authority", "applicant"]
+            )
+        # else: if we don't have any appeal flag, copy everything. This is a
+        # commandline copy, not a "part-of-the-process-process" copy
+
+        for acl in current_acls:
+            acl.pk = None
+            acl.instance = instance
+            acl.save()

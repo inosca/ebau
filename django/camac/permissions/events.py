@@ -104,6 +104,7 @@ class Trigger:
     instance_submitted = EventTrigger()
     changed_responsible_service = EventTrigger()
     inquiry_sent = EventTrigger()
+    instance_copied = EventTrigger()
 
     applicant_added = EventTrigger("Whenever an applicant is invited/added")
     applicant_removed = EventTrigger("Whenever an applicant is removed")
@@ -203,6 +204,9 @@ class EmptyEventHandler(PermissionEventHandler):
         return  # pragma: no cover
 
     def inquiry_sent(self, instance: Instance, work_item: WorkItem):
+        return  # pragma: no cover
+
+    def instance_copied(self, instance: Instance, from_instance: Instance):
         return  # pragma: no cover
 
 
