@@ -8,6 +8,7 @@ from caluma.caluma_form.factories import (
 )
 from caluma.caluma_form.models import DynamicOption, Question
 from caluma.caluma_workflow.factories import WorkItemFactory
+from caluma.caluma_workflow.models import Case
 from django.conf import settings
 from django.urls import reverse
 from django.utils import timezone
@@ -821,3 +822,38 @@ def test_disabled_publication(
     )
 
     assert len(response.json()["data"]) == 0
+
+
+@pytest.mark.freeze_time("2024-05-13")
+def test_publication_order_by_dossier_number_sort(
+    db,
+    admin_client,
+    caluma_workflow_config_so,
+    instance_factory,
+    instance_with_case,
+    mocker,
+    settings,
+    so_publication_settings,
+):
+    settings.APPLICATION_NAME = "kt_so"
+
+    instance1 = instance_with_case(instance_factory())
+    instance2 = instance_with_case(instance_factory())
+
+    instance1.case.meta["dossier-number-sort"] = 2
+    instance1.case.save()
+    instance2.case.meta["dossier-number-sort"] = 1
+    instance2.case.save()
+
+    mocker.patch(
+        "camac.instance.mixins.InstanceQuerysetMixin.get_queryset_for_public",
+        return_value=Case.objects.filter(instance__pk__in=[instance1.pk, instance2.pk]),
+    )
+
+    response = admin_client.get(
+        reverse("public-caluma-instance"),
+        HTTP_X_CAMAC_PUBLIC_ACCESS=True,
+    )
+
+    assert response.json()["data"][0]["id"] == str(instance2.case.pk)
+    assert response.json()["data"][1]["id"] == str(instance1.case.pk)
