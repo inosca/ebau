@@ -1575,7 +1575,7 @@
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "name": "{\"de\": \"Zirkulation initialisieren\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Zirkulation starten\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "simple",
       "meta": {
@@ -1603,7 +1603,7 @@
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "name": "{\"de\": \"R\\u00fcckmeldung verfassen\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Dossier bearbeiten / R\\u00fcckmeldung verfassen\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
