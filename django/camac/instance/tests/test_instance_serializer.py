@@ -77,3 +77,53 @@ def test_get_authority(
     assert (
         serializer._get_authority_pk(ur_instance) == expected_authority_pk
     ), "it sets the correct authority for the dossier type"
+
+
+@pytest.mark.parametrize(
+    "form_slug,service_name,veranstaltungs_art",
+    [
+        (
+            "cantonal-territory-usage",
+            "KOOR_SD_SERVICE_ID",
+            "veranstaltung-art-sportanlass",
+        ),
+        ("cantonal-territory-usage", "KOOR_BD_SERVICE_ID", None),
+        ("konzession-waermeentnahme", "KOOR_AFE_SERVICE_ID", None),
+        ("bohrbewilligung-waermeentnahme", "KOOR_AFE_SERVICE_ID", None),
+        ("pgv-gemeindestrasse", "KOOR_BD_SERVICE_ID", None),
+        ("bgbb", "KOOR_AFG_SERVICE_ID", None),
+    ],
+)
+def test_ur_get_responsible_service(
+    db,
+    ur_instance,
+    form_slug,
+    service_name,
+    service_factory,
+    mocker,
+    utils,
+    set_application_ur,
+    veranstaltungs_art,
+    form_question_factory,
+):
+    serializer = CalumaInstanceSubmitSerializer()
+    mock_service = service_factory()
+
+    ur_instance.case.document.form_id = form_slug
+    ur_instance.case.document.save()
+
+    mocker.patch.object(uri_constants, service_name, mock_service.pk)
+    mocker.patch.object(uri_constants, "KOOR_AFG_GROUP_ID", ur_instance.group.pk)
+
+    if veranstaltungs_art:
+        form_question_factory(
+            form=ur_instance.case.document.form,
+            question__slug="veranstaltung-art",
+        )
+        utils.add_answer(
+            ur_instance.case.document,
+            "veranstaltung-art",
+            "veranstaltung-art-sportanlass",
+        )
+
+    assert serializer._ur_get_responsible_service(ur_instance) == mock_service

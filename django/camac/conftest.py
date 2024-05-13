@@ -578,6 +578,8 @@ def caluma_workflow_config_ur(
         "konzession-waermeentnahme",
         "bohrbewilligung-waermeentnahme",
         "bgbb",
+        "mitbericht-kanton",
+        "cantonal-territory-usage",
     ]:
         form = caluma_form_factories.FormFactory(slug=form_slug)
         question, _ = caluma_form_models.Question.objects.get_or_create(
