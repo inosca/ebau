@@ -1,3 +1,4 @@
+import DMSAdminNewController from "ember-ebau-core/controllers/dms-admin/new";
 import { registerModule } from "ember-ebau-core/modules";
 import DMSAdminRoute from "ember-ebau-core/routes/dms-admin";
 import DMSAdminEditRoute from "ember-ebau-core/routes/dms-admin/edit";
@@ -21,7 +22,9 @@ export default function register(router, options = {}) {
       "dms-admin/edit": DMSAdminEditRoute,
       "dms-admin/new": DMSAdminNewRoute,
     },
-    controllers: {},
+    controllers: {
+      "dms-admin/new": DMSAdminNewController,
+    },
     templates: {
       "dms-admin": DMSAdminTemplate,
       "dms-admin/index": DMSAdminIndexTemplate,

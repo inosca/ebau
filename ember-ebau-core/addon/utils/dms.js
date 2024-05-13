@@ -12,5 +12,5 @@ export const MIME_TYPE_TO_EXTENSION = {
 };
 
 export function sortByDescription(a, b) {
-  return a.description.localeCompare(b.description);
+  return a?.description?.localeCompare(b?.description);
 }

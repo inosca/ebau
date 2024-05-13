@@ -1,6 +1,8 @@
 <h2 class="uk-margin-remove-top">
   {{#if @slug}}
     {{t "dms.edit"}}
+  {{else if @shared}}
+    {{t "dms.newShared"}}
   {{else}}
     {{t "dms.new"}}
   {{/if}}

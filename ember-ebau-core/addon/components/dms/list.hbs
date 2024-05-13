@@ -13,121 +13,47 @@
 
   <Dms::Docs @title={{t "dms.docs.title-admin"}} @showGeneralInfo={{true}} />
 
-  <table class="uk-table uk-table-striped uk-table-middle">
-    <thead>
-      <tr>
-        <th>{{t "dms.name"}}</th>
-        <th>{{t "dms.category"}}</th>
-        <th>{{t "dms.modifiedAt"}}</th>
-        <th>{{t "dms.modifiedBy"}}</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each this.ownTemplates as |template|}}
-        <tr>
-          <td>{{template.description}}</td>
-          <td>{{or template.meta.category "-"}}</td>
-          <td>{{if
-              template.modifiedByUser
-              (format-date template.modifiedAt format="datetime")
-            }}</td>
-          <td>{{get
-              (find-by "username" template.modifiedByUser this.users)
-              "fullName"
-            }}</td>
-          <td class="uk-text-right">
-            <LinkTo
-              @route={{module-route "dms-admin" "edit"}}
-              @model={{template.id}}
-              class="uk-button uk-button-link uk-margin-small-right"
-              {{uk-tooltip (t "dms.edit") pos="left"}}
-            >
-              <UkIcon @icon="pencil" />
-            </LinkTo>
-            <button
-              type="button"
-              class="uk-button uk-button-link"
-              {{uk-tooltip (t "dms.download") pos="left"}}
-              {{on "click" (perform this.downloadTemplate template)}}
-            >
-              <UkIcon @icon="download" />
-            </button>
-          </td>
-        </tr>
-      {{else}}
-        <tr>
-          <td colspan="5" class="uk-text-center uk-text-italic">
-            {{t "dms.empty"}}
-          </td>
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
+  <Dms::TemplateTable
+    @templates={{this.ownTemplates}}
+    @own={{true}}
+    @users={{this.users}}
+  />
 
+  {{#if (can "view shared dms-template")}}
+    <div class="uk-flex uk-flex-between uk-flex-middle uk-margin-bottom">
+      <h2 class="uk-margin-remove">{{t "dms.sharedTemplates"}}</h2>
+      {{#if (can "edit shared dms-template")}}
+        <LinkTo
+          @route={{module-route "dms-admin" "new"}}
+          @query={{hash shared=true}}
+          class="uk-button uk-button-primary"
+        >
+          {{t "dms.newShared"}}
+        </LinkTo>
+      {{/if}}
+    </div>
+    <p class="uk-text-default">{{t
+        "dms.sharedTemplatesInfo"
+        serviceGroup=this.dms.serviceGroupName
+      }}</p>
+
+    <Dms::TemplateTable
+      @templates={{this.sharedTemplates}}
+      @shared={{true}}
+      @users={{this.users}}
+    />
+
+  {{/if}}
   {{#if this.inheritedTemplates}}
     <h2>{{t "dms.inheritedTemplates"}}</h2>
+    <Dms::TemplateTable
+      @templates={{this.inheritedTemplates}}
+      @users={{this.users}}
+    />
 
-    <table class="uk-table uk-table-striped uk-table-middle">
-      <thead>
-        <tr>
-          <th>{{t "dms.name"}}</th>
-          <th>{{t "dms.category"}}</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each this.inheritedTemplates as |template|}}
-          <tr>
-            <td>{{template.description}}</td>
-            <td>{{or template.meta.category "-"}}</td>
-            <td class="uk-text-right">
-              <button
-                type="button"
-                class="uk-button uk-button-link"
-                {{uk-tooltip (t "dms.download") pos="left"}}
-                {{on "click" (perform this.downloadTemplate template)}}
-              >
-                <UkIcon @icon="download" />
-              </button>
-            </td>
-          </tr>
-        {{/each}}
-      </tbody>
-    </table>
   {{/if}}
 
   <h2>{{t "dms.system"}}</h2>
 
-  <table class="uk-table uk-table-striped uk-table-middle">
-    <thead>
-      <tr>
-        <th>{{t "dms.name"}}</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each this.systemTemplates as |template|}}
-        <tr>
-          <td>{{template.description}}</td>
-          <td class="uk-text-right">
-            <button
-              type="button"
-              class="uk-button uk-button-link"
-              {{uk-tooltip (t "dms.download") pos="left"}}
-              {{on "click" (perform this.downloadTemplate template)}}
-            >
-              <UkIcon @icon="download" />
-            </button>
-          </td>
-        </tr>
-      {{else}}
-        <tr>
-          <td colspan="2" class="uk-text-center uk-text-italic">
-            {{t "dms.empty"}}
-          </td>
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
+  <Dms::TemplateTable @templates={{this.systemTemplates}} @system={{true}} />
 {{/if}}
