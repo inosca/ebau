@@ -514,7 +514,7 @@
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "name": "{\"de\": \"Nachforderung\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Nachforderung beim Gesuchsteller\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "simple",
       "meta": {},
