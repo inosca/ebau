@@ -322,7 +322,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         rows = CalumaApi().get_table_answer("parcels", instance)
         if rows:
             numbers = [self._get_row_answer_value(row, "parcel-number") for row in rows]
-            return ", ".join([n for n in numbers if n is not None])
+            return ", ".join([str(n) for n in numbers if n is not None])
         return None
 
     def get_street(self, instance):
