@@ -1369,38 +1369,41 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
                 ),
             ).order_by("instance__location__name", "publication_end_date", "dossier_nr")
         elif settings.PUBLICATION.get("BACKEND") == "caluma":
-            special_id = (
-                "ebau-number"
-                if settings.APPLICATION_NAME == "kt_bern"
-                else "dossier-number"
-            )
-            queryset = queryset.annotate(
-                dossier_nr=Cast(
-                    KeyTextTransform(
-                        special_id,
-                        "meta",
+            if settings.APPLICATION_NAME in ["kt_gr", "kt_so"]:
+                queryset = queryset.order_by("meta__dossier-number-sort")
+            else:
+                special_id = (
+                    "ebau-number"
+                    if settings.APPLICATION_NAME == "kt_bern"
+                    else "dossier-number"
+                )
+                queryset = queryset.annotate(
+                    dossier_nr=Cast(
+                        KeyTextTransform(
+                            special_id,
+                            "meta",
+                        ),
+                        CharField(),
                     ),
-                    CharField(),
-                ),
-                year=Cast(
-                    Func(
-                        F("dossier_nr"),
-                        Value(r"-\d+$"),
-                        Value(""),
-                        function="regexp_replace",
+                    year=Cast(
+                        Func(
+                            F("dossier_nr"),
+                            Value(r"-\d+$"),
+                            Value(""),
+                            function="regexp_replace",
+                        ),
+                        IntegerField(),
                     ),
-                    IntegerField(),
-                ),
-                nr=Cast(
-                    Func(
-                        F("dossier_nr"),
-                        Value(r"^\d+-"),
-                        Value(""),
-                        function="regexp_replace",
+                    nr=Cast(
+                        Func(
+                            F("dossier_nr"),
+                            Value(r"^\d+-"),
+                            Value(""),
+                            function="regexp_replace",
+                        ),
+                        IntegerField(),
                     ),
-                    IntegerField(),
-                ),
-            ).order_by("year", "nr")
+                ).order_by("year", "nr")
 
         return queryset
 
