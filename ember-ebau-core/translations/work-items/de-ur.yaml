@@ -1,12 +1,10 @@
 workItems:
   filters:
     task:
-      accept: "Annehmen ({count})"
       complete-check: "Dossier prüfen ({count})"
       init-distribution: "Zirkulation initialisieren ({count})"
       inquiry: "Stellungnahme ausfüllen ({count})"
       check-inquiries: "Stellungnahmen prüfen ({count})"
-      check-distribution: "Zirkulation prüfen ({count})"
       decision: "Entscheid ({count})"
-      construction-supervision: "Baubegleitung ({count})"
-      archive: "Archivieren ({count})"
+      init-construction-monitoring: "Baubegleitung starten ({count})"
+      complete-instance: "Verfahren abschliessen ({count})"
