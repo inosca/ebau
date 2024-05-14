@@ -213,6 +213,7 @@ instances:
 
   new:
     title: "Nouveau dossier"
+    title-paper: "Nouveau dossier papier"
     kind: "De quel type de dossier s'agit-il?"
     convertFromInfo: "Vous créez un nouveau dossier basé sur les données déjà existantes de la demande préalable complète {dossierId}{ebauNr}."
 

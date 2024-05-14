@@ -217,6 +217,7 @@ instances:
 
   new:
     title: "Neues Dossier"
+    title-paper: "Neues Papierdossier"
     kind: "Um welche Art von Dossier handelt es sich?"
     convertFromInfo: "Sie erstellen ein neues Dossier aus den bereits bestehenden Daten der vollständigen Vorabklärung {dossierId}{ebauNr}."
 
