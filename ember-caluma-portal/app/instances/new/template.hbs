@@ -1,15 +1,21 @@
 <LoadingOrNotfound @hasPermission={{can "create instance"}}>
-  <h1 class="uk-text-center">{{t "instances.new.title"}}</h1>
-
-  <p class="uk-text-center uk-text-large">{{t "instances.new.kind"}}</p>
-
-  {{#if this.convertFrom}}
-    <div class="uk-background-muted uk-margin-auto uk-width-1-2 uk-text-center uk-padding-small">
-      {{t "instances.new.convertFromInfo" dossierId=this.convertFrom ebauNr=(if this.ebauNumber.value (concat " (" this.ebauNumber.value ")"))}}
-    </div>
-  {{/if}}
-
   {{#let (can "create paper instance") as |isPaper|}}
+    <h1 class="uk-text-center">
+      {{#if isPaper}}
+        {{t "instances.new.title-paper"}}
+      {{else}}
+        {{t "instances.new.title"}}
+      {{/if}}
+    </h1>
+
+    <p class="uk-text-center uk-text-large">{{t "instances.new.kind"}}</p>
+
+    {{#if this.convertFrom}}
+      <div class="uk-background-muted uk-margin-auto uk-width-1-2 uk-text-center uk-padding-small">
+        {{t "instances.new.convertFromInfo" dossierId=this.convertFrom ebauNr=(if this.ebauNumber.value (concat " (" this.ebauNumber.value ")"))}}
+      </div>
+    {{/if}}
+
     {{#if (and isPaper (not (is-application "ur" "so")))}}
       <div class="uk-flex uk-flex-center uk-margin-large-top">
         <div class="uk-alert uk-alert-warning uk-width-large">
