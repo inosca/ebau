@@ -2146,7 +2146,7 @@ REGISTRATION_URL = env.str(
 # Token exchange config
 TOKEN_EXCHANGE_CLIENT = env.str("TOKEN_EXCHANGE_CLIENT", default="token-exchange")
 TOKEN_EXCHANGE_CLIENT_SECRET = env.str(
-    "TOKEN_EXCHANGE_CLIENT",
+    "TOKEN_EXCHANGE_CLIENT_SECRET",
     default=default(
         "76e3ScwJqsP0EMsYHKmEyBjlE1bNeOU1", require_if(ENABLE_TOKEN_EXCHANGE)
     ),
