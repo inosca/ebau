@@ -2169,13 +2169,19 @@ TOKEN_EXCHANGE_JWT_ISSUER = env.str(
     "TOKEN_EXCHANGE_JWT_ISSUER",
     default=default("http://egov.local", require_if(ENABLE_TOKEN_EXCHANGE)),
 )
-TOKEN_EXCHANGE_JWT_IDENTIFIER_PROPERTY = "profileId"
-TOKEN_EXCHANGE_JWT_SYNC_PROPERTIES = {
-    # jwt_property: keycloak_property
-    "firstName": "firstName",
-    "name": "lastName",
-    "email": "email",
-}
+TOKEN_EXCHANGE_JWT_IDENTIFIER_PROPERTY = env.str(
+    "TOKEN_EXCHANGE_JWT_IDENTIFIER_PROPERTY", default="profileId"
+)
+TOKEN_EXCHANGE_JWT_SYNC_PROPERTIES = env.dict(
+    "TOKEN_EXCHANGE_JWT_SYNC_PROPERTIES",
+    cast={"value": str},
+    default={
+        # jwt_property: keycloak_property
+        "firstName": "firstName",
+        "name": "lastName",
+        "email": "email",
+    },
+)
 
 # JWT token claim used as the username for newly created Camac users. (This is
 # also used in the caluma settings.py, we redefine it here so it is explicit)
