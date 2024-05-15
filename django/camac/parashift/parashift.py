@@ -1,4 +1,3 @@
-import gc
 import io
 import math
 
@@ -147,11 +146,7 @@ class ParashiftImporter:
                     "data": bytes_file,
                 }
             )
-            output = None
-            gc.collect()
 
-        pdf = None
-        gc.collect()
         return documents
 
     def run(self, from_id, to_id):
@@ -169,16 +164,12 @@ class ParashiftImporter:
                 )
             ).json()
 
-            records = [self.fetch_data(rec["id"]) for rec in result["data"]]
-            records = [r for r in records if r is not None]
+            for rec in result["data"]:
+                data = self.fetch_data(rec["id"])
 
-            print(f"found {len(records)} dossiers, start cropping...")
-            for record in records:
-                record["documents"] = self.crop_pdf(record)
-
-            dossiers += import_dossiers(records, self.bfs_nr)
-            records = None
-            gc.collect()
+                if data:
+                    data["documents"] = self.crop_pdf(data)
+                    dossiers += import_dossiers([data], self.bfs_nr)
 
         return dossiers
 
