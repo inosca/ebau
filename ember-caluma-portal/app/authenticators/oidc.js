@@ -1,5 +1,7 @@
+import { getConfig } from "@embroider/macros";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import OidcAuthenticator from "ember-simple-auth-oidc/authenticators/oidc";
+import getAbsoluteUrl from "ember-simple-auth-oidc/utils/absolute-url";
 
 export default class extends OidcAuthenticator {
   restore(sessionData) {
@@ -16,5 +18,23 @@ export default class extends OidcAuthenticator {
     }
 
     return super.restore(sessionData);
+  }
+
+  singleLogout(idToken) {
+    if (!this.session.isTokenExchange) {
+      return super.singleLogout(idToken);
+    }
+
+    const params = [
+      `post_logout_redirect_uri=${getConfig("ember-ebau-core").eGovPortalURL}`,
+    ];
+
+    if (idToken) {
+      params.push(`id_token_hint=${idToken}`);
+    }
+
+    this._redirectToUrl(
+      `${getAbsoluteUrl(this.config.endSessionEndpoint, this.config.host)}?${params.join("&")}`,
+    );
   }
 }
