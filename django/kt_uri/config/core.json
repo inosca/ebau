@@ -14669,7 +14669,7 @@
     "fields": {
       "available_instance_resource": "dashboard",
       "resource": 12000003,
-      "name": "Bearbeitung",
+      "name": "Dashboard",
       "description": null,
       "template": null,
       "class_field": null,
@@ -14797,7 +14797,7 @@
     "fields": {
       "available_instance_resource": "workitemlistinstance",
       "resource": 12000003,
-      "name": "Aufgaben",
+      "name": "Dossierbezogene Aufgaben",
       "description": null,
       "template": null,
       "class_field": null,
@@ -14973,7 +14973,7 @@
     "fields": {
       "available_instance_resource": "taskform",
       "resource": 12000003,
-      "name": "Prüfung Gemeindebehörde",
+      "name": "Vollständigkeitsprüfung",
       "description": null,
       "template": null,
       "class_field": null,
