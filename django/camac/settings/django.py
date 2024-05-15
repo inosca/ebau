@@ -2151,7 +2151,7 @@ TOKEN_EXCHANGE_CLIENT_SECRET = env.str(
         "76e3ScwJqsP0EMsYHKmEyBjlE1bNeOU1", require_if(ENABLE_TOKEN_EXCHANGE)
     ),
 )
-TOKEN_EXCHANGE_USERNAME_TEMPLATE = "egov:{identifier}"
+TOKEN_EXCHANGE_USERNAME_PREFIX = "egov:"
 
 # External JWT token config
 TOKEN_EXCHANGE_JWE_SECRET = env.str(

@@ -36,6 +36,6 @@ def extract_sync_data(jwt_data: dict) -> dict:
 
 
 def build_username(jwt_data: dict):
-    return settings.TOKEN_EXCHANGE_USERNAME_TEMPLATE.format(
-        identifier=jwt_data[settings.TOKEN_EXCHANGE_JWT_IDENTIFIER_PROPERTY]
+    return settings.TOKEN_EXCHANGE_USERNAME_PREFIX + str(
+        jwt_data[settings.TOKEN_EXCHANGE_JWT_IDENTIFIER_PROPERTY]
     )
