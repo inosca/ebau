@@ -612,9 +612,9 @@
     "otpPolicyPeriod": 30,
     "otpPolicyCodeReusable": false,
     "otpSupportedApplications": [
-      "totpAppMicrosoftAuthenticatorName",
+      "totpAppGoogleName",
       "totpAppFreeOTPName",
-      "totpAppGoogleName"
+      "totpAppMicrosoftAuthenticatorName"
     ],
     "webAuthnPolicyRpEntityName": "keycloak",
     "webAuthnPolicySignatureAlgorithms": ["ES256"],
@@ -3209,9 +3209,9 @@
     "otpPolicyPeriod": 30,
     "otpPolicyCodeReusable": false,
     "otpSupportedApplications": [
-      "totpAppMicrosoftAuthenticatorName",
+      "totpAppGoogleName",
       "totpAppFreeOTPName",
-      "totpAppGoogleName"
+      "totpAppMicrosoftAuthenticatorName"
     ],
     "webAuthnPolicyRpEntityName": "keycloak",
     "webAuthnPolicySignatureAlgorithms": ["ES256"],
@@ -5232,21 +5232,18 @@
         "description": "",
         "rootUrl": "",
         "adminUrl": "",
-        "baseUrl": "http://ebau-portal.local",
+        "baseUrl": "",
         "surrogateAuthRequired": false,
         "enabled": true,
         "alwaysDisplayInConsole": false,
         "clientAuthenticatorType": "client-secret",
         "secret": "76e3ScwJqsP0EMsYHKmEyBjlE1bNeOU1",
-        "redirectUris": [
-          "http://ebau-portal.local/*",
-          "http://localhost:4200/*"
-        ],
-        "webOrigins": ["http://ebau-portal.local"],
+        "redirectUris": ["", "http://egov.local/*"],
+        "webOrigins": ["+"],
         "notBefore": 0,
         "bearerOnly": false,
         "consentRequired": false,
-        "standardFlowEnabled": false,
+        "standardFlowEnabled": true,
         "implicitFlowEnabled": false,
         "directAccessGrantsEnabled": true,
         "serviceAccountsEnabled": true,
