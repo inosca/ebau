@@ -1,10 +1,13 @@
 workItems:
   filters:
     task:
-      complete-check: "Dossier prüfen ({count})"
-      init-distribution: "Zirkulation initialisieren ({count})"
-      inquiry: "Stellungnahme ausfüllen ({count})"
-      check-inquiries: "Stellungnahmen prüfen ({count})"
-      decision: "Entscheid ({count})"
-      init-construction-monitoring: "Baubegleitung starten ({count})"
-      complete-instance: "Verfahren abschliessen ({count})"
+      complete-check: 'Neues Dossier prüfen <span class="pending">({count})</span>'
+      init-distribution: 'Zirkulation starten <span class="pending">({count})</span>'
+      inquiry: 'Dossier bearbeiten / Rückmeldung verfassen <span class="pending">({count})</span>'
+      check-inquiries: 'Rückmeldungen prüfen <span class="pending">({count})</span>'
+      decision: 'Entscheid <span class="pending">({count})</span>'
+      init-construction-monitoring: 'Baubegleitung starten <span class="pending">({count})</span>'
+      complete-instance: 'Verfahren abschliessen <span class="pending">({count})</span>'
+    role: "Art der Beteiligung"
+    urgent: "Nach Fristen"
+    new: "Nach Dossiereingang"
