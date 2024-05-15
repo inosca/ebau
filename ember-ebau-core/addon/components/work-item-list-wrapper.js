@@ -166,6 +166,7 @@ export default class WorkItemListWrapperComponent extends Component {
       ...Object.keys(allTasks).map((task, i) => ({
         label: this.intl.t(`workItems.filters.task.${this._taskSlugs[i]}`, {
           count: allTasks[task].totalCount,
+          htmlSafe: true,
         }),
         value: this._taskSlugs[i],
       })), // prepare options for select
