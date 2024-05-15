@@ -53,6 +53,7 @@ class KeycloakClient:
             json={
                 "username": username,
                 "enabled": True,
+                "emailVerified": True,
                 **extract_sync_data(data),
             },
             headers={
