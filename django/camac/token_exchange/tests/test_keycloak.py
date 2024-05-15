@@ -9,14 +9,19 @@ def test_keycloak_client(snapshot):
     client = KeycloakClient()
 
     username = "egov:123"
-    user_data = {"firstName": "Test", "name": "User", "email": "email@example.com"}
+    user_data = {
+        "firstName": "Test",
+        "name": "User",
+        "email": "email@example.com",
+        "organisationName": "",
+    }
 
     # first call should create a new user
     assert not client.update_or_create_user(username, user_data)
     assert client.get_user(username) == snapshot
 
     # second call should update the existing user
-    user_data.update({"firstName": "John", "name": "Doe"})
+    user_data["organisationName"] = "ACME Inc."
 
     assert client.update_or_create_user(username, user_data)
     assert client.get_user(username) == snapshot

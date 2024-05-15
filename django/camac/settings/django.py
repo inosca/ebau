@@ -2180,6 +2180,7 @@ TOKEN_EXCHANGE_JWT_SYNC_PROPERTIES = env.dict(
         "firstName": "firstName",
         "name": "lastName",
         "email": "email",
+        "organisationName": "organisationName",
     },
 )
 
