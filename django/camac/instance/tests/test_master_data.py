@@ -521,6 +521,7 @@ def so_master_data_case(db, master_data_is_visible_mock, so_instance, utils):
                 "e-grid": "CH123456789",
                 "lagekoordinaten-ost": 2690970.9,
                 "lagekoordinaten-nord": 1192891.9,
+                "plz": "4500",
             }
         ],
     )

@@ -303,11 +303,25 @@ class GwrSerializer(serializers.Serializer):
                         if settings.APPLICATION_NAME in ["kt_uri", "kt_so"]
                         else None
                     ),
+                    "buildingEntrance": (
+                        self.get_buildingEntrance(case)
+                        if settings.APPLICATION_NAME == "kt_so"
+                        else None
+                    ),
                     "dwellings": self.get_dwellings(building),
                 },
             }
             for building in buildings
         ]
+
+    @catch_and_log()
+    def get_buildingEntrance(self, case):
+        zip = None
+
+        if len(self.master_data.plot_data):
+            zip = self.master_data.plot_data[0].get("zip")
+
+        return {"locality": {"swissZipCode": zip}}
 
     @catch_and_log()
     def get_typeOfPermit(self, case):
