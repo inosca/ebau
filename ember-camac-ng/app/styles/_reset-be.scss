@@ -29,3 +29,7 @@ a:focus {
 .uk-button:not(.uk-button-link) {
   @extend .uk-button-small;
 }
+
+.border-highlight {
+  border-left: 4px solid $global-danger-background;
+}
