@@ -3,6 +3,7 @@ import { inject as service } from "@ember/service";
 import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/appeal-button";
 import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
 import DecisionInfoGeometerComponent from "ember-ebau-core/components/decision/info-geometer";
+import DecisionInfoMissingGeometerInvolvementComponent from "ember-ebau-core/components/decision/info-missing-geometer-involvement";
 import DecisionSubmitButtonComponent from "ember-ebau-core/components/decision/submit-button";
 import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
@@ -135,6 +136,12 @@ export default class ApplicationRoute extends Route {
       label: "Hilfetext Nachführungsgeometer",
       component: "decision/info-geometer",
       componentClass: DecisionInfoGeometerComponent,
+    });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "Hilfetext fehlende Einbindung des Nachführungsgeometer",
+      component: "decision/info-missing-geometer-involvement",
+      componentClass: DecisionInfoMissingGeometerInvolvementComponent,
     });
 
     this.calumaOptions.registerComponentOverride({
