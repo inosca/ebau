@@ -4,15 +4,15 @@
     "pk": "decision",
     "fields": {
       "created_at": "2023-12-05T12:21:44.592Z",
-      "modified_at": "2024-04-26T12:31:10.627Z",
+      "modified_at": "2024-05-15T14:43:00.442Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "name": "{\"de\": \"Entscheid / Beurteilung\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
-      "is_published": false,
+      "is_published": true,
       "is_archived": false,
       "source": null
     }
@@ -216,6 +216,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "decision-task-entscheid-beurteilung-keine-bewilligung-notwendig",
+    "fields": {
+      "created_at": "2024-05-15T11:59:09.024Z",
+      "modified_at": "2024-05-15T11:59:26.179Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Keine formelle Bewilligung notwendig\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "decision-task-feedback-type-bau-und-einspracheentscheid",
     "fields": {
       "created_at": "2024-03-06T07:22:48.603Z",
@@ -379,13 +395,13 @@
     "pk": "gemeinde-mit-zwg-einschraenkungen-ja",
     "fields": {
       "created_at": "2024-04-29T08:49:57.113Z",
-      "modified_at": "2024-04-29T08:49:57.113Z",
+      "modified_at": "2024-05-15T15:30:01.566Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -395,13 +411,13 @@
     "pk": "gemeinde-mit-zwg-einschraenkungen-nein",
     "fields": {
       "created_at": "2024-04-29T08:49:57.114Z",
-      "modified_at": "2024-04-29T08:49:57.114Z",
+      "modified_at": "2024-05-15T15:30:01.572Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -428,6 +444,38 @@
     "fields": {
       "created_at": "2024-04-29T08:51:17.654Z",
       "modified_at": "2024-04-29T08:51:17.654Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zwg-anwenden-ja",
+    "fields": {
+      "created_at": "2024-05-15T15:30:01.542Z",
+      "modified_at": "2024-05-15T15:30:01.542Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zwg-anwenden-nein",
+    "fields": {
+      "created_at": "2024-05-15T15:30:01.518Z",
+      "modified_at": "2024-05-15T15:30:01.518Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": null,
@@ -474,7 +522,7 @@
     "pk": "beschwerderecht-und-eroeffnung",
     "fields": {
       "created_at": "2024-04-29T11:34:41.285Z",
-      "modified_at": "2024-04-29T12:58:04.243Z",
+      "modified_at": "2024-05-15T15:30:23.830Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -539,7 +587,7 @@
     "pk": "decision-task-entscheid-beurteilung",
     "fields": {
       "created_at": "2023-12-05T12:49:36.784Z",
-      "modified_at": "2024-04-29T05:28:46.717Z",
+      "modified_at": "2024-05-15T12:00:10.971Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -601,7 +649,7 @@
     "pk": "decision-task-gebaudeschaetzung",
     "fields": {
       "created_at": "2024-03-06T07:24:11.497Z",
-      "modified_at": "2024-04-29T12:13:48.147Z",
+      "modified_at": "2024-05-15T15:20:05.490Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -613,7 +661,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Mit der Auswahl \\\"Meldung erforderlich\\\" bei Geb\\u00e4udesch\\u00e4tzung, erh\\u00e4lt diese beim Abschliessen der Aufgabe eine neue Aufgabe (Geb\\u00e4udeversicherungswert pr\\u00fcfen) und eine E-Mail die die Aufgabe ank\\u00fcndigt. Es ist keine weitere Mail erforderlich.\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Mit der Auswahl \\\"Meldung erforderlich\\\" erh\\u00e4lt die Geb\\u00e4udeversicherung beim Abschliessen der Aufgabe eine neue Aufgabe (\\\"Geb\\u00e4udeversicherungswert pr\\u00fcfen\\\") und eine E-Mail die die Aufgabe ank\\u00fcndigt. Es ist keine weitere Mail erforderlich.\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -632,7 +680,7 @@
     "pk": "decision-task-nachfuehrungsgeometer",
     "fields": {
       "created_at": "2023-12-05T12:50:25.755Z",
-      "modified_at": "2024-04-29T12:12:04.829Z",
+      "modified_at": "2024-05-15T15:18:01.203Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -643,8 +691,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Mit der Auswahl \\\"Meldung erforderlich\\\" beim Geometer erh\\u00e4lt dieser beim Abschliessen der Aufgabe eine neue Aufgabe (provisorische Vermessung pr\\u00fcfen\\\" und eine E-Mail die die Aufgabe ank\\u00fcndigt. Es ist keine weitere Mail erforderlich.\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"Ist eine Pr\\u00fcfung durch die Nachf\\u00fchrungsgeometer notwendig?\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Mit der Auswahl \\\"Meldung erforderlich\\\" erh\\u00e4lt der Geometer beim Abschliessen der Aufgabe eine neue Aufgabe (provisorische Vermessung pr\\u00fcfen\\\" und eine E-Mail die die Aufgabe ank\\u00fcndigt. Es ist keine weitere Mail erforderlich.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Mit der Auswahl \\\"Meldung erforderlich\\\" erh\\u00e4lt der Geometer beim Abschliessen der Aufgabe eine neue Aufgabe (\\\"provisorische Vermessung pr\\u00fcfen\\\") und eine E-Mail die die Aufgabe ank\\u00fcndigt. Es ist keine weitere Mail erforderlich.I\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -725,7 +773,7 @@
     "pk": "zwg-anwenden",
     "fields": {
       "created_at": "2024-04-29T08:49:57.193Z",
-      "modified_at": "2024-04-29T11:53:04.282Z",
+      "modified_at": "2024-05-15T15:30:01.654Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -783,32 +831,47 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "decision-task-entscheid-beurteilung.decision-task-entscheid-beurteilung-keine-bewilligung-notwendig",
+    "fields": {
+      "created_at": "2024-05-15T12:00:10.976Z",
+      "modified_at": "2024-05-15T12:00:10.976Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "decision-task-entscheid-beurteilung",
+      "option": "decision-task-entscheid-beurteilung-keine-bewilligung-notwendig",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "decision-task-entscheid-beurteilung.entscheid-beurteilung-bewilligt",
     "fields": {
-      "created_at": "2024-04-29T05:28:46.759Z",
-      "modified_at": "2024-04-29T05:28:46.759Z",
+      "created_at": "2024-05-15T12:00:10.980Z",
+      "modified_at": "2024-05-15T12:00:10.980Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "decision-task-entscheid-beurteilung",
       "option": "entscheid-beurteilung-bewilligt",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "decision-task-entscheid-beurteilung.entscheid-beurteilung-nicht-bewilligt",
     "fields": {
-      "created_at": "2024-04-29T05:28:46.745Z",
-      "modified_at": "2024-04-29T05:28:46.745Z",
+      "created_at": "2024-05-15T12:00:10.978Z",
+      "modified_at": "2024-05-15T12:00:10.978Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "decision-task-entscheid-beurteilung",
       "option": "entscheid-beurteilung-nicht-bewilligt",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -875,8 +938,8 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-task-gebaudeschaetzung.decision-task-gebaudeschaetzung-ja",
     "fields": {
-      "created_at": "2024-04-29T12:13:48.154Z",
-      "modified_at": "2024-04-29T12:13:48.154Z",
+      "created_at": "2024-05-15T15:20:05.496Z",
+      "modified_at": "2024-05-15T15:20:05.496Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -890,8 +953,8 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-task-gebaudeschaetzung.decision-task-gebaudeschaetzung-nein",
     "fields": {
-      "created_at": "2024-04-29T12:13:48.151Z",
-      "modified_at": "2024-04-29T12:13:48.151Z",
+      "created_at": "2024-05-15T15:20:05.494Z",
+      "modified_at": "2024-05-15T15:20:05.494Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -905,8 +968,8 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-task-nachfuehrungsgeometer.decision-task-nachfuehrungsgeometer-ja",
     "fields": {
-      "created_at": "2024-04-29T12:12:04.837Z",
-      "modified_at": "2024-04-29T12:12:04.837Z",
+      "created_at": "2024-05-15T15:18:01.210Z",
+      "modified_at": "2024-05-15T15:18:01.210Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -920,8 +983,8 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-task-nachfuehrungsgeometer.decision-task-nachfuehrungsgeometer-nein",
     "fields": {
-      "created_at": "2024-04-29T12:12:04.834Z",
-      "modified_at": "2024-04-29T12:12:04.834Z",
+      "created_at": "2024-05-15T15:18:01.207Z",
+      "modified_at": "2024-05-15T15:18:01.207Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -965,29 +1028,59 @@
     "model": "caluma_form.questionoption",
     "pk": "zwg-anwenden.gemeinde-mit-zwg-einschraenkungen-ja",
     "fields": {
-      "created_at": "2024-04-29T11:53:04.291Z",
-      "modified_at": "2024-04-29T11:53:04.291Z",
+      "created_at": "2024-05-15T15:30:01.666Z",
+      "modified_at": "2024-05-15T15:30:01.666Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "zwg-anwenden",
       "option": "gemeinde-mit-zwg-einschraenkungen-ja",
-      "sort": 2
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "zwg-anwenden.gemeinde-mit-zwg-einschraenkungen-nein",
     "fields": {
-      "created_at": "2024-04-29T11:53:04.286Z",
-      "modified_at": "2024-04-29T11:53:04.286Z",
+      "created_at": "2024-05-15T15:30:01.663Z",
+      "modified_at": "2024-05-15T15:30:01.663Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "zwg-anwenden",
       "option": "gemeinde-mit-zwg-einschraenkungen-nein",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zwg-anwenden.zwg-anwenden-ja",
+    "fields": {
+      "created_at": "2024-05-15T15:30:01.662Z",
+      "modified_at": "2024-05-15T15:30:01.662Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "zwg-anwenden",
+      "option": "zwg-anwenden-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zwg-anwenden.zwg-anwenden-nein",
+    "fields": {
+      "created_at": "2024-05-15T15:30:01.659Z",
+      "modified_at": "2024-05-15T15:30:01.659Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "zwg-anwenden",
+      "option": "zwg-anwenden-nein",
       "sort": 1
     }
   }
