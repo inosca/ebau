@@ -17,6 +17,8 @@ for the requested token exchange: https://github.com/keycloak/keycloak/issues/17
 ![Create scope step 2](./images/client-scope-2.png)
 ![Create scope step 3](./images/client-scope-3.png)
 
+**Important:** Make sure there is a mapper that writes the `username` property into the `sub` claim!
+
 ## 4. Create new positive client policy "token-exchange"
 
 ![Create policy step 1](./images/create-policy-1.png)

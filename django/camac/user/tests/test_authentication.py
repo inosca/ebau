@@ -277,3 +277,23 @@ def test_authenticate_applicants(
     ).exists()
 
     assert not Applicant.objects.filter(pk=pending_obsolete_applicant.pk).exists()
+
+
+@pytest.mark.parametrize(
+    "user__username,expect_invitee", [("test", False), ("egov:123", True)]
+)
+def test_update_applicants_token_exchange(
+    db, applicant_factory, expect_invitee, settings, user
+):
+    settings.ENABLE_TOKEN_EXCHANGE = True
+
+    pending_applicant = applicant_factory(email=user.email, invitee=None)
+
+    JSONWebTokenKeycloakAuthentication()._update_applicants(user)
+
+    pending_applicant.refresh_from_db()
+
+    if expect_invitee:
+        assert pending_applicant.invitee == user
+    else:
+        assert pending_applicant.invitee is None

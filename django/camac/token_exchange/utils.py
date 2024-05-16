@@ -21,13 +21,21 @@ def extract_jwt_data(encrypted_token: str) -> dict:
 
 
 def extract_sync_data(jwt_data: dict) -> dict:
-    return {
-        keycloak_property: jwt_data[jwt_property]
+    data = {
+        keycloak_property: jwt_data.get(jwt_property)
         for jwt_property, keycloak_property in settings.TOKEN_EXCHANGE_JWT_SYNC_PROPERTIES.items()
     }
 
+    organisationName = data.pop("organisationName")
+
+    if organisationName:
+        data["firstName"] = ""
+        data["lastName"] = organisationName
+
+    return data
+
 
 def build_username(jwt_data: dict):
-    return settings.TOKEN_EXCHANGE_USERNAME_TEMPLATE.format(
-        identifier=jwt_data[settings.TOKEN_EXCHANGE_JWT_IDENTIFIER_PROPERTY]
+    return settings.TOKEN_EXCHANGE_USERNAME_PREFIX + str(
+        jwt_data[settings.TOKEN_EXCHANGE_JWT_IDENTIFIER_PROPERTY]
     )

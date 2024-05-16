@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db.models import Q
 from django.utils.translation import gettext as _
@@ -30,9 +31,16 @@ class ApplicantSerializer(serializers.ModelSerializer, InstanceEditableMixin):
         User = get_user_model()
         data["email"] = data["email"].lower()
 
-        data["invitee"] = User.objects.filter(
-            email=data["email"], disabled=False
-        ).first()
+        email_filter = Q(email=data["email"])
+
+        if settings.ENABLE_TOKEN_EXCHANGE:
+            # If token exchange is enabled, we need to make sure that only users
+            # using that login method can be invited as applicants.
+            email_filter &= Q(
+                username__startswith=settings.TOKEN_EXCHANGE_USERNAME_PREFIX
+            )
+
+        data["invitee"] = User.objects.filter(email_filter, disabled=False).first()
 
         unique_filter = (
             Q(email=data["email"])

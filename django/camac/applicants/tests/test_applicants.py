@@ -272,3 +272,31 @@ def test_missing_applicant_access_level(
 
     # This is the warning we're looking for
     assert "Access level 'applicant' is not configured" in caplog.messages
+
+
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+def test_applicant_create_token_exchange(
+    admin_client, instance, settings, user_factory
+):
+    settings.ENABLE_TOKEN_EXCHANGE = True
+
+    user_factory(username="test", email="test@example.com")
+    egov_user = user_factory(username="egov:1", email="test@example.com")
+
+    response = admin_client.post(
+        reverse("applicant-list"),
+        data={
+            "data": {
+                "type": "applicants",
+                "attributes": {"email": "test@example.com"},
+                "relationships": {
+                    "instance": {"data": {"id": instance.pk, "type": "instances"}}
+                },
+            }
+        },
+    )
+
+    assert response.status_code == status.HTTP_201_CREATED
+    assert egov_user.pk == int(
+        response.json()["data"]["relationships"]["invitee"]["data"]["id"]
+    )
