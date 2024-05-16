@@ -1,5 +1,6 @@
 from datetime import timedelta
 
+from caluma.caluma_form.models import Document
 from caluma.caluma_user.models import AnonymousUser
 from caluma.caluma_workflow.models import Task, WorkItem
 from caluma.caluma_workflow.utils import get_jexl_groups
@@ -239,6 +240,7 @@ class Command(BaseCommand):
             controlling_groups=get_jexl_groups(
                 task.control_groups, task, case, AnonymousUser(), None, context
             ),
+            document=Document.objects.create_document_for_task(task, None),
         )
 
         work_item.created_at = created_at if created_at else work_item.created_at
