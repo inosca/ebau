@@ -353,7 +353,22 @@
       "modified_by_group": null,
       "form": "complete-instance",
       "question": "complete-instance-title",
-      "sort": 3
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-instance.dossier-mit-ac",
+    "fields": {
+      "created_at": "2024-05-15T14:39:26.315Z",
+      "modified_at": "2024-05-15T14:39:26.315Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-instance",
+      "question": "dossier-mit-ac",
+      "sort": 1
     }
   },
   {
@@ -368,7 +383,7 @@
       "modified_by_group": null,
       "form": "complete-instance",
       "question": "grundbucheintrag-zwg",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -383,7 +398,7 @@
       "modified_by_group": null,
       "form": "complete-instance",
       "question": "verfahren-abschliessen",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -1292,6 +1307,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "construction-step-schlussabnahme-projekt-is-approved-nachkontrolle",
+    "fields": {
+      "created_at": "2024-05-15T15:40:57.481Z",
+      "modified_at": "2024-05-15T15:40:57.481Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nachkontrolle notwendig\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "construction-step-schlussabnahme-projekt-is-approved-no",
     "fields": {
       "created_at": "2024-01-17T09:57:45.158Z",
@@ -1327,12 +1358,12 @@
     "pk": "construction-step-schlussabnahme-projekt-melden-bestaetigung-confirm",
     "fields": {
       "created_at": "2024-01-17T09:54:24.044Z",
-      "modified_at": "2024-01-17T09:54:24.044Z",
+      "modified_at": "2024-05-15T16:16:01.235Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Alle Auflagen die bis zum jetzigen Zeitpunkt erledigt werden konnten, wurden erledigt.\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Alle Auflagen die bis zum jetzigen Zeitpunkt erledigt mussten,  wurden erledigt.\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1461,6 +1492,54 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Alle Auflagen, die bis zum jetzigen Zeitpunkt erledigt werden konnten, wurden erledigt.\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "dossier-mit-ac-ja-kontrolle-durch-gemeindebaubehoerde",
+    "fields": {
+      "created_at": "2024-05-15T14:39:26.161Z",
+      "modified_at": "2024-05-15T14:39:26.161Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja, Kontrolle durch Gemeindebaubeh\\u00f6rde\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "dossier-mit-ac-ja-kontrolle-durch-kantonale-fachstelle",
+    "fields": {
+      "created_at": "2024-05-15T14:39:26.118Z",
+      "modified_at": "2024-05-15T14:39:26.118Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja, Kontrolle durch kantonale Fachstelle\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "dossier-mit-ac-nein",
+    "fields": {
+      "created_at": "2024-05-15T14:39:26.171Z",
+      "modified_at": "2024-05-15T14:39:26.171Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2324,10 +2403,10 @@
     "pk": "construction-step-schlussabnahme-projekt-is-approved",
     "fields": {
       "created_at": "2024-01-17T09:57:45.221Z",
-      "modified_at": "2024-01-17T09:57:45.221Z",
+      "modified_at": "2024-05-15T15:40:57.551Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Abnahmeergebnis\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -2335,8 +2414,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -2389,10 +2468,10 @@
     "pk": "construction-step-schlussabnahme-projekt-melden-bestaetigung",
     "fields": {
       "created_at": "2024-01-17T09:54:24.102Z",
-      "modified_at": "2024-01-17T09:54:24.102Z",
+      "modified_at": "2024-05-15T16:16:01.308Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Best\\u00e4tigung\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
@@ -2400,8 +2479,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -2844,6 +2923,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "dossier-mit-ac",
+    "fields": {
+      "created_at": "2024-05-15T14:39:26.235Z",
+      "modified_at": "2024-05-15T14:40:04.045Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dossier mit mittel- bzw. langfristigem Auflagen-Controlling?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "grundbucheintrag-zwg",
     "fields": {
       "created_at": "2024-04-29T12:35:40.072Z",
@@ -3106,43 +3216,58 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "construction-step-schlussabnahme-projekt-is-approved.construction-step-schlussabnahme-projekt-is-approved-nachkontrolle",
+    "fields": {
+      "created_at": "2024-05-15T15:40:57.555Z",
+      "modified_at": "2024-05-15T15:40:57.555Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "construction-step-schlussabnahme-projekt-is-approved",
+      "option": "construction-step-schlussabnahme-projekt-is-approved-nachkontrolle",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "construction-step-schlussabnahme-projekt-is-approved.construction-step-schlussabnahme-projekt-is-approved-no",
     "fields": {
-      "created_at": "2024-01-17T09:57:45.226Z",
-      "modified_at": "2024-01-17T09:57:45.226Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2024-05-15T15:40:57.557Z",
+      "modified_at": "2024-05-15T15:40:57.557Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "construction-step-schlussabnahme-projekt-is-approved",
       "option": "construction-step-schlussabnahme-projekt-is-approved-no",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-step-schlussabnahme-projekt-is-approved.construction-step-schlussabnahme-projekt-is-approved-yes",
     "fields": {
-      "created_at": "2024-01-17T09:57:45.229Z",
-      "modified_at": "2024-01-17T09:57:45.229Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2024-05-15T15:40:57.559Z",
+      "modified_at": "2024-05-15T15:40:57.559Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "construction-step-schlussabnahme-projekt-is-approved",
       "option": "construction-step-schlussabnahme-projekt-is-approved-yes",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-step-schlussabnahme-projekt-melden-bestaetigung.construction-step-schlussabnahme-projekt-melden-bestaetigung-confirm",
     "fields": {
-      "created_at": "2024-01-17T09:54:24.107Z",
-      "modified_at": "2024-01-17T09:54:24.107Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2024-05-15T16:16:01.312Z",
+      "modified_at": "2024-05-15T16:16:01.312Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "construction-step-schlussabnahme-projekt-melden-bestaetigung",
       "option": "construction-step-schlussabnahme-projekt-melden-bestaetigung-confirm",
@@ -3357,6 +3482,51 @@
       "question": "construction-step-zwischenkontrolle-melden-bestaetigung",
       "option": "construction-step-zwischenkontrolle-melden-bestaetigung-text",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "dossier-mit-ac.dossier-mit-ac-ja-kontrolle-durch-gemeindebaubehoerde",
+    "fields": {
+      "created_at": "2024-05-15T14:40:04.054Z",
+      "modified_at": "2024-05-15T14:40:04.054Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "dossier-mit-ac",
+      "option": "dossier-mit-ac-ja-kontrolle-durch-gemeindebaubehoerde",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "dossier-mit-ac.dossier-mit-ac-ja-kontrolle-durch-kantonale-fachstelle",
+    "fields": {
+      "created_at": "2024-05-15T14:40:04.050Z",
+      "modified_at": "2024-05-15T14:40:04.050Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "dossier-mit-ac",
+      "option": "dossier-mit-ac-ja-kontrolle-durch-kantonale-fachstelle",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "dossier-mit-ac.dossier-mit-ac-nein",
+    "fields": {
+      "created_at": "2024-05-15T14:40:04.053Z",
+      "modified_at": "2024-05-15T14:40:04.053Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "dossier-mit-ac",
+      "option": "dossier-mit-ac-nein",
+      "sort": 2
     }
   },
   {
