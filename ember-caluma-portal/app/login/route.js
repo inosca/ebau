@@ -59,6 +59,11 @@ export default class LoginRoute extends OIDCAuthenticationRoute {
   }
 
   async exchangeToken(token) {
+    if (this.session.isAuthenticated) {
+      // make sure there is no active session before exchanging a token
+      await this.session.invalidate();
+    }
+
     try {
       const response = await fetch("/api/v1/auth/token-exchange", {
         method: "POST",

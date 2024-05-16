@@ -180,6 +180,14 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
                 )
 
     def _update_applicants(self, user):
+        # If token exchange is enabled, this logic must only be executed if the
+        # current user logged in via that method as all other users can't be
+        # applicants.
+        if settings.ENABLE_TOKEN_EXCHANGE and not user.username.startswith(
+            settings.TOKEN_EXCHANGE_USERNAME_PREFIX
+        ):
+            return
+
         pending_applicants = Applicant.objects.filter(email=user.email, invitee=None)
 
         # Remove pending applicants that already have a connection to that user.

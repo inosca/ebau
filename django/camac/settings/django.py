@@ -2146,12 +2146,12 @@ REGISTRATION_URL = env.str(
 # Token exchange config
 TOKEN_EXCHANGE_CLIENT = env.str("TOKEN_EXCHANGE_CLIENT", default="token-exchange")
 TOKEN_EXCHANGE_CLIENT_SECRET = env.str(
-    "TOKEN_EXCHANGE_CLIENT",
+    "TOKEN_EXCHANGE_CLIENT_SECRET",
     default=default(
         "76e3ScwJqsP0EMsYHKmEyBjlE1bNeOU1", require_if(ENABLE_TOKEN_EXCHANGE)
     ),
 )
-TOKEN_EXCHANGE_USERNAME_TEMPLATE = "egov:{identifier}"
+TOKEN_EXCHANGE_USERNAME_PREFIX = "egov:"
 
 # External JWT token config
 TOKEN_EXCHANGE_JWE_SECRET = env.str(
@@ -2180,6 +2180,7 @@ TOKEN_EXCHANGE_JWT_SYNC_PROPERTIES = env.dict(
         "firstName": "firstName",
         "name": "lastName",
         "email": "email",
+        "organisationName": "organisationName",
     },
 )
 
