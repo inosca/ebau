@@ -41,6 +41,7 @@
       dict({
         'building': dict({
           'buildingCategory': None,
+          'buildingEntrance': None,
           'civilDefenseShelter': None,
           'dateOfConstruction': None,
           'dwellings': list([
@@ -114,6 +115,7 @@
       dict({
         'building': dict({
           'buildingCategory': 1060,
+          'buildingEntrance': None,
           'civilDefenseShelter': None,
           'dateOfConstruction': None,
           'dwellings': list([
@@ -192,6 +194,7 @@
       dict({
         'building': dict({
           'buildingCategory': 1020,
+          'buildingEntrance': None,
           'civilDefenseShelter': True,
           'dateOfConstruction': None,
           'dwellings': list([
@@ -246,15 +249,15 @@
         'country': dict({
           'countryNameShort': 'ch',
         }),
-        'houseNumber': '0194',
-        'street': 'French Lodge',
-        'swissZipCode': 1072,
-        'town': 'West Jessicafurt',
+        'houseNumber': '565',
+        'street': 'Anthony Unions',
+        'swissZipCode': 7429,
+        'town': 'Schultzbury',
       }),
       'identification': dict({
         'isOrganisation': True,
         'organisationIdentification': dict({
-          'organisationName': 'Drake, Allen and Bennett',
+          'organisationName': 'Wells, Arroyo and Sims',
         }),
         'personIdentification': None,
       }),
@@ -280,6 +283,11 @@
       dict({
         'building': dict({
           'buildingCategory': 1060,
+          'buildingEntrance': dict({
+            'locality': dict({
+              'swissZipCode': '4500',
+            }),
+          }),
           'civilDefenseShelter': None,
           'dateOfConstruction': None,
           'dwellings': list([
@@ -381,6 +389,7 @@
       dict({
         'building': dict({
           'buildingCategory': 1060,
+          'buildingEntrance': None,
           'civilDefenseShelter': None,
           'dateOfConstruction': dict({
             'yearMonthDay': '2021-08-05',

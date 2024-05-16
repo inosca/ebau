@@ -2201,6 +2201,7 @@ MASTER_DATA = {
                         "egrid_number": "e-grid",
                         "coord_east": "lagekoordinaten-ost",
                         "coord_north": "lagekoordinaten-nord",
+                        "zip": "plz",
                     }
                 },
             ),

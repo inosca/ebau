@@ -294,12 +294,14 @@
       'coord_north': 1225997.0,
       'egrid_number': 'HK207838123456',
       'plot_number': '`123`',
+      'zip': None,
     }),
     dict({
       'coord_east': None,
       'coord_north': None,
       'egrid_number': 'EGRIDDELLEY',
       'plot_number': '2BA',
+      'zip': None,
     }),
   ])
 # ---
@@ -310,12 +312,14 @@
       'coord_north': 1225997.0,
       'egrid_number': 'HK207838123456',
       'plot_number': '`123`',
+      'zip': None,
     }),
     dict({
       'coord_east': None,
       'coord_north': None,
       'egrid_number': 'EGRIDDELLEY',
       'plot_number': '2BA',
+      'zip': None,
     }),
   ])
 # ---
@@ -551,12 +555,14 @@
       'coord_north': None,
       'egrid_number': 'HK207838123456',
       'plot_number': '`123`',
+      'zip': None,
     }),
     dict({
       'coord_east': None,
       'coord_north': None,
       'egrid_number': 'EGRIDDELLEY',
       'plot_number': '2BA',
+      'zip': None,
     }),
   ])
 # ---
@@ -567,12 +573,14 @@
       'coord_north': None,
       'egrid_number': 'HK207838123456',
       'plot_number': '`123`',
+      'zip': None,
     }),
     dict({
       'coord_east': None,
       'coord_north': None,
       'egrid_number': 'EGRIDDELLEY',
       'plot_number': '2BA',
+      'zip': None,
     }),
   ])
 # ---
@@ -583,12 +591,14 @@
       'coord_north': 1225997.0,
       'egrid_number': 'HK207838123456',
       'plot_number': '`123`',
+      'zip': None,
     }),
     dict({
       'coord_east': None,
       'coord_north': None,
       'egrid_number': 'None',
       'plot_number': '2BA',
+      'zip': None,
     }),
   ])
 # ---
@@ -599,12 +609,14 @@
       'coord_north': 1225997.0,
       'egrid_number': 'HK207838123456',
       'plot_number': '`123`',
+      'zip': None,
     }),
     dict({
       'coord_east': None,
       'coord_north': None,
       'egrid_number': 'None',
       'plot_number': '2BA',
+      'zip': None,
     }),
   ])
 # ---
