@@ -451,18 +451,6 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
                 ? false
                 : true,
             },
-            cantonalServices: {
-              label: "distribution.cantonal-services",
-              type: "serviceGroup",
-              value: [
-                "Fachstellen Justizdirektion",
-                "Fachstellen Gesundheits- Sozial- und Umweltdirektion",
-                "Fachstellen Sicherheitsdirektion",
-                "Fachstellen Volkswirtschaftsdirektion",
-                "Fachstellen Bildungs- und Kulturdirektion",
-                "Fachstellen Finanzdirektion",
-              ].join(","),
-            },
             coordinationServices: {
               label: "distribution.coordination-services",
               type: "serviceGroup",
@@ -478,31 +466,41 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
                     "Umweltschutzverbände",
                     "Infrastrukturanlagen Pendenzen von Koordinationstellen",
                   ]
-                : [
-                    "Bundesstellen",
-                    "Umweltschutzverbände",
-                    "Infrastrukturanlagen Pendenzen von Gemeinden",
-                  ]
+                : ["Infrastrukturanlagen Pendenzen von Gemeinden"]
               ).join(","),
             },
           },
         },
         permissions: {
-          // ...permissions,
-          // ...{
           completeDistribution: () => true,
           reopenDistribution: () => true,
-          createInquiry: () => true,
+          createInquiry: () =>
+            this.shoebox.isCoordinationRole || this.shoebox.isLeadRole,
           editInquiry: () => true,
           sendInquiry: () => true,
           withdrawInquiry: () => true,
           completeInquiryChildWorkItem: () => true,
           reopenInquiry: () => true,
           checkInquiries: () => true,
-          // },
         },
         hooks,
       };
+
+      if (this.shoebox.isCoordinationRole) {
+        // Types which are only visible for coordination roles
+        config.new.types.cantonalServices = {
+          label: "distribution.cantonal-services",
+          type: "serviceGroup",
+          value: [
+            "Fachstellen Justizdirektion",
+            "Fachstellen Gesundheits- Sozial- und Umweltdirektion",
+            "Fachstellen Sicherheitsdirektion",
+            "Fachstellen Volkswirtschaftsdirektion",
+            "Fachstellen Bildungs- und Kulturdirektion",
+            "Fachstellen Finanzdirektion",
+          ].join(","),
+        };
+      }
 
       return config;
     }
