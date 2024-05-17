@@ -10,7 +10,7 @@ export default {
         "init-construction-monitoring",
         "complete-instance",
       ],
-      service: ["inquiry", "check-inquiries"],
+      service: ["inquiry"],
       coordination: ["inquiry", "check-inquiries"],
     },
     services: {},
