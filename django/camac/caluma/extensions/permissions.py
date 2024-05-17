@@ -533,5 +533,8 @@ class CustomPermission(BasePermission):
     def has_caluma_form_edit_permission_for_trusted_service(self, document, info):
         return self.has_caluma_form_edit_permission_for_municipality(document, info)
 
+    def has_caluma_form_edit_permission_for_coordination(self, document, info):
+        return self.has_caluma_form_edit_permission_for_municipality(document, info)
+
     def has_caluma_form_edit_permission_for_support(self, document, info):
         return True
