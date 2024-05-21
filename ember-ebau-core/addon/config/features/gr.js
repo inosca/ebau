@@ -17,7 +17,7 @@ export default {
     exportExcel: false,
   },
   caluma: {
-    alwaysUseNumberSeparatorWidget: true,
+    useNumberSeparatorWidgetAsDefault: true,
   },
   watermark: isDevelopingApp() || getOwnConfig().enableWatermark,
   communications: true,

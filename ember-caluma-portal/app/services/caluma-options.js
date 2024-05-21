@@ -2,9 +2,6 @@ import CalumaOptionsService from "@projectcaluma/ember-core/services/caluma-opti
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
 export default class CustomCalumaOptionsService extends CalumaOptionsService {
-  alwaysUseNumberSeparatorWidget = hasFeature(
-    "caluma.alwaysUseNumberSeparatorWidget",
-  );
   useNumberSeparatorWidgetAsDefault = hasFeature(
     "caluma.useNumberSeparatorWidgetAsDefault",
   );
