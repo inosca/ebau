@@ -43,6 +43,7 @@ RUN \
   libsecret-1-0 \
   poppler-utils \
   webp \
+  wait-for-it \
   zlib1g-dev \
 && rm -rf /var/lib/apt/lists/*
 
@@ -64,4 +65,4 @@ COPY . $APP_HOME
 
 EXPOSE 80
 
-CMD /bin/sh -c "./wait-for-it.sh $DATABASE_HOST:$DATABASE_PORT -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py camac_load && uwsgi"
+CMD /bin/sh -c "wait-for-it $DATABASE_HOST:$DATABASE_PORT -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py camac_load && uwsgi"
