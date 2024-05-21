@@ -50,3 +50,15 @@ def get_service_parent_and_children(service_id: Union[int, str]) -> List[str]:
     )
 
     return [str(id) for id in ids if id is not None]
+
+
+def get_user_and_group(request):
+    if request is None:  # pragma: no cover
+        return None, None
+
+    user = request.user.pk
+    group = request.group
+    if group:
+        group = group.service.pk
+
+    return user, group

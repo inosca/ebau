@@ -2493,8 +2493,9 @@ DOSSIER_IMPORT = load_module_settings("dossier_import")
 
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")
-ALEXANDRIA_CREATED_BY_USER_PROPERTY = "alexandria_user"
-ALEXANDRIA_CREATED_BY_GROUP_PROPERTY = "alexandria_group"
+ALEXANDRIA_GET_USER_AND_GROUP_FUNCTION = (
+    "camac.alexandria.extensions.common.get_user_and_group"
+)
 GENERIC_PERMISSIONS_VISIBILITY_CLASSES = [
     "camac.alexandria.extensions.visibilities.CustomVisibility",
     "camac.tags.visibilities.TagsVisibility",
