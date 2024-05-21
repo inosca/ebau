@@ -1,5 +1,5 @@
 <ul ...attributes>
-  {{#if @isAuthenticated}}
+  {{#if (and @isAuthenticated (not @isPublicAccess))}}
     <li><LinkTo @route="index">{{t "global.title"}}</LinkTo></li>
     <li><LinkTo @route="instances">{{t "nav.instances"}}</LinkTo></li>
     {{#if (and (has-feature "communications") (not @isInternal))}}
@@ -11,7 +11,7 @@
       </li>
     {{/if}}
   {{/if}}
-  {{#if (or @isAuthenticated (has-feature "publication.disableAuthentication"))}}
+  {{#if (and (or @isAuthenticated (has-feature "publication.disableAuthentication")) @isPublicAccess)}}
     <li><LinkTo @route="public-instances">{{t "nav.public-instance"}}</LinkTo></li>
   {{/if}}
   {{#if @showFormBuilder}}
