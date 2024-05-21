@@ -1,3 +1,5 @@
+ARG VERSION=22.0.1
+
 # stage 1: build keycloak themes using maven
 # based on https://docs.docker.com/language/java/build-images/
 FROM eclipse-temurin:17-jdk-jammy as theme-builder
@@ -16,7 +18,7 @@ RUN ["./mvnw", "deploy"]
 # Sadly, we can't separate the build and run stages because we need the
 # distributed cache config (which happens during build time) to be configurable
 # via environment variables.
-FROM quay.io/keycloak/keycloak:22.0.1 as keycloak-builder
+FROM quay.io/keycloak/keycloak:${VERSION} as keycloak-builder
 
 ENV KC_DB=postgres
 ENV KC_HTTP_RELATIVE_PATH=/auth
