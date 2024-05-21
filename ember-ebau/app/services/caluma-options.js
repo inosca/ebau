@@ -11,9 +11,6 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
   @service store;
   @service fetch;
 
-  alwaysUseNumberSeparatorWidget = hasFeature(
-    "caluma.alwaysUseNumberSeparatorWidget",
-  );
   useNumberSeparatorWidgetAsDefault = hasFeature(
     "caluma.useNumberSeparatorWidgetAsDefault",
   );
