@@ -2296,7 +2296,10 @@ MASTER_DATA = {
                 "wohnungen",
                 {
                     "column_mapping": {
-                        "name_of_building": "dazugehoeriges-gebaeude",
+                        "name_of_building": (
+                            "dazugehoeriges-gebaeude-auswahl",
+                            {"value_parser": "dynamic_option", "prop": "label"},
+                        ),
                         "floor_type": (
                             "stockwerktyp",
                             {
@@ -2370,7 +2373,10 @@ MASTER_DATA = {
                 "gebaeudetechnik",
                 {
                     "column_mapping": {
-                        "name_of_building": "bezeichnung-dazugehoeriges-gebaeude",
+                        "name_of_building": (
+                            "dazugehoeriges-gebaeude-auswahl",
+                            {"value_parser": "dynamic_option", "prop": "label"},
+                        ),
                         "type": "anlagetyp",
                         "information_source": (
                             "default",

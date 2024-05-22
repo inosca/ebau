@@ -344,3 +344,23 @@ class PreliminaryClarificationTargets(BaseDataSource):
         )
 
         return data
+
+
+class Buildings(BaseDataSource):
+    info = "Selection of the buildings from the current instance"
+
+    def get_data(self, user, question, context):
+        if not context:  # pragma: no cover
+            return []
+
+        document = Document.objects.get(case__instance__pk=context.get("instanceId"))
+        buildings = find_answer(document, "gebaeude")
+
+        return (
+            [
+                (building.pk, find_answer(building, "gebaeude-bezeichnung"))
+                for building in buildings
+            ]
+            if buildings
+            else None
+        )
