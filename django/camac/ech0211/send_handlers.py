@@ -321,7 +321,10 @@ class NoticeRulingSendHandler(
 
             self._find_and_fill_geometer(decision_document)
 
-            if workflow_slug == "building-permit":
+            if (
+                workflow_slug == "building-permit"
+                and "APPROVAL_TYPE" in settings.DECISION["QUESTIONS"]
+            ):
                 save_answer(
                     document=decision_document,
                     question=Question.objects.get(
