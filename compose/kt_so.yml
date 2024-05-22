@@ -55,6 +55,8 @@ services:
       context: ../keycloak
       cache_from:
         - acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-master}
+      args:
+        VERSION: 24.0.4
 
   document-merge-service:
     image: acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_TAG:-master}
