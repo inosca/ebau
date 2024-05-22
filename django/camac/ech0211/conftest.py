@@ -334,3 +334,65 @@ def mocked_request_object(admin_user, group, caluma_admin_user):
     Context = namedtuple("Context", "user")
     request = Request(admin_user, group, CalumaInfo(Context(caluma_admin_user)), {}, {})
     return request
+
+
+@pytest.fixture
+def ech_instance_so(ech_instance, instance_with_case, caluma_workflow_config_so, utils):
+    ech_instance = instance_with_case(ech_instance)
+    ech_instance.case.meta["dossier-number"] = "2106-2024-1"
+
+    municipality = ech_instance.instance_services.first().service
+    municipality.name = "Testgemeinde"
+    municipality.save()
+    utils.add_answer(
+        ech_instance.case.document,
+        "gemeinde",
+        str(municipality.pk),
+    )
+    DynamicOption.objects.create(
+        document=ech_instance.case.document,
+        question_id="gemeinde",
+        slug=str(municipality.pk),
+        label=municipality.name,
+    )
+
+    utils.add_answer(
+        ech_instance.case.document, "umschreibung-bauprojekt", "Testvorhaben"
+    )
+    utils.add_table_answer(
+        ech_instance.case.document,
+        "parzelle",
+        [{"parzellennummer": "1586", "e-grid": "CH123456789"}],
+    )
+    utils.add_answer(ech_instance.case.document, "strasse-flurname", "Musterstrasse")
+    utils.add_answer(ech_instance.case.document, "strasse-nummer", 4)
+    utils.add_answer(ech_instance.case.document, "ort", "Solothurn")
+    utils.add_table_answer(
+        ech_instance.case.document,
+        "bauherrin",
+        [
+            {
+                "vorname": "Testvorname",
+                "nachname": "Testname",
+                "ort": "Testort ",
+                "plz": 1234,
+                "strasse": "Teststrasse",
+                "strasse-nummer": "1",
+                "telefon": "012312311",
+                "e-mail": "a@b.ch",
+            }
+        ],
+    )
+    FileFactory(
+        pk="57a93396-454c-4a55-b48f-d114ad264df9",
+        variant="original",
+        name="Situationsplan.pdf",
+        document=DocumentFactory(
+            pk="f8380740-d73a-4683-8909-2ced929ddbc5",
+            metainfo={"camac-instance-id": ech_instance.pk},
+            title="Situationsplan",
+            category__name="Beilagen zum Gesuch",
+        ),
+    )
+
+    return ech_instance

@@ -500,11 +500,16 @@ def so_master_data_case(
     # Simple data
     utils.add_answer(document, "is-paper", "is-paper-no")
     utils.add_answer(document, "umschreibung-bauprojekt", "Grosses Haus")
+    utils.add_answer(document, "bemerkungen", "Das Haus ist wirklich gross..")
     utils.add_answer(document, "strasse-flurname", "Musterstrasse")
     utils.add_answer(document, "strasse-nummer", 4)
     utils.add_answer(document, "gesamtkosten", 129000)
     utils.add_answer(document, "ort", "Musterdorf")
     utils.add_answer(document, "nutzungsplanung-grundnutzung", "Wohnzone 3")
+    utils.add_answer(
+        document, "nutzungszwecke", "nutzungszwecke-wohnen", label="Wohnen"
+    )
+    utils.add_answer(document, "dauer-in-monaten", 18)
     utils.add_answer(
         document,
         "art-der-bauwerke",
@@ -634,6 +639,20 @@ def so_master_data_case(
             slug=building_slug,
             label={"de": "Villa"},
         )
+
+    # Nature risk
+    utils.add_table_answer(
+        document,
+        "gefahrenkartenprozesse",
+        [
+            {
+                "prozessart": {
+                    "value": "prozessart-murgang",
+                    "options": [("prozessart-murgang", "Murgang")],
+                },
+            }
+        ],
+    )
 
     return so_instance.case
 

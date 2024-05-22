@@ -15,6 +15,7 @@ from camac.constants.kt_bern import (
     ECH_TASK_SB1_SUBMITTED,
     ECH_TASK_SB2_SUBMITTED,
     ECH_TASK_STELLUNGNAHME,
+    ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION,
 )
 from camac.settings.env import env
 
@@ -235,6 +236,72 @@ ECH0211 = {
                     ),
                 },
             },
+        },
+    },
+    "kt_so": {
+        "ENABLED": True,
+        "STATUS_NOTIFICATION_TYPES": [
+            {
+                "new_state": "init-distribution",
+                "type": ECH_STATUS_NOTIFICATION_PRUEFUNG_ABGESCHLOSSEN,
+            },
+            {
+                "new_state": "distribution",
+                "type": ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET,
+            },
+            {
+                "new_state": "construction-monitoring",
+                "type": ECH_STATUS_NOTIFICATION_BAUBEGLEITUNG,
+            },
+            {
+                "new_state": "finished",
+                "type": ECH_STATUS_NOTIFICATION_ABGESCHLOSSEN,
+            },
+            {
+                "new_state": "rejected",
+                "type": ECH_STATUS_NOTIFICATION_ZURUECKGEWIESEN,
+            },
+            {
+                "new_state": "decision",
+                "type": ECH_STATUS_NOTIFICATION_IN_KOORDINATION,
+            },
+            {
+                "new_state": "withdrawn",
+                "type": ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION,
+            },
+        ],
+        "TASK_MAP": {
+            "circulation": {
+                "message_type": ECH_TASK_STELLUNGNAHME,
+                "comment": _("Inquiry sent"),
+                "category": "beilagen-zum-gesuch",
+            },
+        },
+        "REDIRECTS": {
+            r"instance/<int:instance_id>/": "/cases/%(instance_id)i",
+            r"claim/<int:instance_id>/": "/cases/%(instance_id)i/additional-demand",
+            r"dossier-check/<int:instance_id>/": "/cases/%(instance_id)i/task-form/formal-exam",
+        },
+        "ALLOWED_CATEGORIES": [
+            "beteiligte-behoerden",
+            "intern",
+            "intern-mit-unterfachstellen",
+        ],
+        "NOTICE_RULING": {
+            "ALLOWED_STATES": ["decision", "circulation"],
+            "ONLY_DECLINE": ["distribution-init"],
+            "ALEXANDRIA_CATEGORY": "beteiligte-behoerden",
+            "ALEXANDRIA_MARK": "decision",
+        },
+        "JUDGEMENT_MAPPING": {
+            "inquiry-answer-status-positive": 1,
+            "inquiry-answer-status-negative": 4,
+            "inquiry-answer-status-additional-demand": 4,
+            "inquiry-answer-status-rejection": 4,
+            "inquiry-answer-status-no-comment": None,
+        },
+        "KIND_OF_PROCEEDINGS": {
+            "ALEXANDRIA_CATEGORY": "beteiligte-behoerden",
         },
     },
 }

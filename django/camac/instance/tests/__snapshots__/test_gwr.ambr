@@ -249,15 +249,15 @@
         'country': dict({
           'countryNameShort': 'ch',
         }),
-        'houseNumber': '3552',
-        'street': 'Denise Forge',
-        'swissZipCode': 3025,
-        'town': 'West Laura',
+        'houseNumber': '166',
+        'street': 'Blackburn Canyon',
+        'swissZipCode': 7736,
+        'town': 'Lake Bethton',
       }),
       'identification': dict({
         'isOrganisation': True,
         'organisationIdentification': dict({
-          'organisationName': 'Marshall Inc',
+          'organisationName': 'Wilson-Brewer',
         }),
         'personIdentification': None,
       }),
