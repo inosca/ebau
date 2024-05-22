@@ -511,7 +511,7 @@
     "model": "gis.gisdatasource",
     "pk": "f2169071-f7bc-4449-8e24-c2743f4b90c7",
     "fields": {
-      "description": "EGRID & Parzellennummer",
+      "description": "EGRID & Grundstücksnummer",
       "client": "camac.gis.clients.sogis.SoGisClient",
       "config": {
         "layer": "ch.so.agi.av.grundstuecke.rechtskraeftig.data",

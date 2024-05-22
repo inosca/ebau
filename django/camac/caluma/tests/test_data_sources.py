@@ -9,6 +9,7 @@ from ..extensions.countries import COUNTRIES
 from ..extensions.data_sources import (
     Attachments,
     Authorities,
+    Buildings,
     Countries,
     Landowners,
     Locations,
@@ -260,3 +261,31 @@ def test_preliminary_clarfication_targets(db, caluma_admin_user, service_factory
     assert data[1][1]["de"] == "Örtliche Baubehörde"
     assert data[2][1]["de"] == "AfU"
     assert data[3][1]["de"] == "Procap"
+
+
+def test_buildings(db, caluma_admin_user, question_factory, so_instance, utils):
+    question = question_factory(
+        slug="gebaeude",
+        type=caluma_form_models.Question.TYPE_TABLE,
+    )
+
+    utils.add_table_answer(
+        so_instance.case.document,
+        question,
+        [
+            {"gebaeude-bezeichnung": "MFH 1"},
+            {"gebaeude-bezeichnung": "MFH 2"},
+            {"gebaeude-bezeichnung": "EFH 1"},
+        ],
+    )
+
+    data = Buildings().get_data(
+        caluma_admin_user,
+        question,
+        {"instanceId": so_instance.pk},
+    )
+
+    names = set([item[1] for item in data])
+
+    assert len(data) == 3
+    assert names == {"MFH 1", "MFH 2", "EFH 1"}
