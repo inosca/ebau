@@ -287,6 +287,7 @@ class MessageSerializer(serializers.ModelSerializer):
 
     attachments = CommunicationsAttachmentField(many=True, required=False)
 
+    @transaction.atomic
     def create(self, data):
         attachments = data.pop("attachments", [])
         message = super().create(data)
