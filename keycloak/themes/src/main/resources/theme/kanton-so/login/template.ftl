@@ -91,7 +91,9 @@
                 </div>
             <#else>
                 <h1 id="kc-page-title"><#nested "header"></h1>
-                <p>${msg("loginAccountSubtitle")?no_esc}</p>
+                <#if (msg("loginAccountSubtitle")?has_content)>
+                    <p>${msg("loginAccountSubtitle")?no_esc}</p>
+                </#if>
             </#if>
         <#else>
             <#if displayRequiredFields>
