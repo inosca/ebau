@@ -465,9 +465,17 @@ class UserGroupSerializer(serializers.ModelSerializer):
         )
 
         try:
-            user = models.User.objects.get(
-                email=validated_data.pop("email"), disabled=0
-            )
+            queryset = models.User.objects.filter(disabled=0)
+
+            if settings.ENABLE_TOKEN_EXCHANGE:
+                # If token exchange is enabled, we need to make sure that only
+                # users **not** using that login method can be granted access to
+                # a group.
+                queryset = queryset.exclude(
+                    username__startswith=settings.TOKEN_EXCHANGE_USERNAME_PREFIX
+                )
+
+            user = queryset.get(email=validated_data.pop("email"))
         except models.User.DoesNotExist:
             raise ValidationError(
                 _(
