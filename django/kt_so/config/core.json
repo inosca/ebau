@@ -676,7 +676,7 @@
       "hidden": 0,
       "sort": 1,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "communications-read"
     }
   },
   {

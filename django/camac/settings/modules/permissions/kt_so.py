@@ -13,6 +13,7 @@ SO_PERMISSIONS_SETTINGS = {
         "read": [
             ("form-read", Always()),
             ("documents-read", Always()),
+            ("communications-read", Always()),
         ],
     },
     "EVENT_HANDLER": "camac.permissions.config.kt_so.PermissionEventHandlerSO",
