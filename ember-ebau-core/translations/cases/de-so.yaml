@@ -7,3 +7,6 @@ cases:
     submitDateBefore: "Eingereicht (bis)"
     decision: "Entscheid"
     parcel: "Parzellennummer"
+
+  formCategories:
+    preliminary-clarification: "Voranfrage"

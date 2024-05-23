@@ -2,8 +2,8 @@ import pytest
 from caluma.caluma_core.events import send_event
 from caluma.caluma_form.factories import FormFactory
 from caluma.caluma_form.models import Question
-from caluma.caluma_workflow.api import complete_work_item
-from caluma.caluma_workflow.events import post_complete_work_item
+from caluma.caluma_workflow.api import cancel_work_item, complete_work_item
+from caluma.caluma_workflow.events import post_complete_work_item, post_create_work_item
 from caluma.caluma_workflow.models import Case, Workflow, WorkItem
 from django.core.management import call_command
 
@@ -528,3 +528,101 @@ def test_complete_decision_appeal_so(
     else:
         assert instance.case.status == Case.STATUS_RUNNING
         assert instance.instance_state.name == "decided"
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("form_slug", ["voranfrage", "meldung"])
+def test_complete_decision_simplified_workflow_so(
+    db,
+    application_settings,
+    caluma_admin_user,
+    decision_factory_so,
+    disable_ech0211_settings,
+    form_slug,
+    instance_state_factory,
+    multilang,
+    settings,
+    so_decision_settings,
+    so_instance,
+    work_item_factory,
+):
+    settings.APPLICATION_NAME = "kt_so"
+    application_settings["SHORT_NAME"] = "so"
+
+    instance_state_factory(name="finished")
+
+    so_instance.case.document.form_id = form_slug
+    so_instance.case.document.save()
+
+    # In order to not test the whole workflow, we cancel the submit work item
+    # and create a decision work item for the test.
+    cancel_work_item(
+        so_instance.case.work_items.filter(task_id="submit").first(),
+        caluma_admin_user,
+    )
+    decision_work_item = work_item_factory(
+        task_id=so_decision_settings["TASK"],
+        case=so_instance.case,
+        child_case=None,
+    )
+    decision_factory_so(
+        so_instance,
+        so_decision_settings["ANSWERS"]["DECISION"]["POSITIVE"],
+    )
+
+    complete_work_item(decision_work_item, caluma_admin_user)
+
+    so_instance.refresh_from_db()
+
+    assert not so_instance.case.work_items.filter(status=WorkItem.STATUS_READY).exists()
+    assert so_instance.case.status == Case.STATUS_COMPLETED
+    assert so_instance.instance_state.name == "finished"
+    assert (
+        so_instance.history.filter(history_type=HistoryActionConfig.HISTORY_TYPE_STATUS)
+        .latest("created_at")
+        .get_trans_attr("title")
+        == "Beurteilung abgeschlossen"
+    )
+
+
+@pytest.mark.parametrize(
+    "is_appeal,form_slug,expected_work_item_name",
+    [
+        (False, "voranfrage", "Dossier beurteilen"),
+        (False, "meldung", "Dossier beurteilen"),
+        (True, "main-form", "Entscheid der Beschwerdeinstanz bestätigen"),
+    ],
+)
+def test_decision_work_item_name(
+    work_item_factory,
+    caluma_admin_user,
+    is_appeal,
+    form_slug,
+    expected_work_item_name,
+    so_decision_settings,
+    settings,
+    so_instance,
+):
+    settings.APPLICATION_NAME = "kt_so"
+
+    work_item = work_item_factory(
+        task_id=so_decision_settings["TASK"], case=so_instance.case
+    )
+
+    so_instance.case.meta["is-appeal"] = is_appeal
+    so_instance.case.save()
+
+    so_instance.case.document.form_id = form_slug
+    so_instance.case.document.save()
+
+    send_event(
+        post_create_work_item,
+        sender="post_create_work_item",
+        work_item=work_item,
+        user=caluma_admin_user,
+        context={},
+    )
+
+    work_item.refresh_from_db()
+
+    assert work_item.name.translate() == expected_work_item_name

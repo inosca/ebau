@@ -1668,6 +1668,14 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 user=self.context["request"].caluma_info.context.user,
             )
 
+    def _so_handle_special_forms(self, instance):
+        user = self.context["request"].user
+
+        if instance.case.document.form_id == "voranfrage":
+            instance.set_instance_state("init-distribution", user)
+        elif instance.case.document.form_id == "meldung":
+            instance.set_instance_state("decision", user)
+
     def update(self, instance, validated_data):
         request_logger.info(f"Submitting instance {instance.pk}")
 
@@ -1699,6 +1707,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             self._handle_extend_validity_form(case, instance)
             self._ur_internal_submission(instance, group)
             self._ur_prepare_cantonal_instances(instance)
+            self._so_handle_special_forms(instance)
 
             instance.save()
 
@@ -2625,12 +2634,6 @@ class CalumaInstanceAppealSerializer(serializers.Serializer):
             )
             new_instance.case.save()
             new_instance.set_instance_state("decision", user)
-
-            decision_work_item = new_instance.case.work_items.get(
-                task_id=settings.DECISION["TASK"]
-            )
-            decision_work_item.name = _("Confirm decision of appeal authority")
-            decision_work_item.save()
 
             instance.set_instance_state("finished", user)
 

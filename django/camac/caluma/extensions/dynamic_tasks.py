@@ -72,6 +72,11 @@ class CustomDynamicTasks(BaseDynamicTasks):
             # If the decision comes from a withdrawal, the workflow is finished
             return []
 
+        if case.document.form_id in ["voranfrage", "meldung"]:
+            # Preliminary clarifications and construction notifications are
+            # always finished after the decision
+            return []
+
         return [settings.CONSTRUCTION_MONITORING["COMPLETE_INSTANCE_TASK"]]
 
     @register_dynamic_task("after-decision-ur")
@@ -181,6 +186,10 @@ class CustomDynamicTasks(BaseDynamicTasks):
     def resolve_after_submit(self, case, user, prev_work_item, context):
         if case.meta.get("is-appeal"):
             return ["create-manual-workitems", "appeal", "decision"]
+        elif case.document.form_id == "voranfrage":
+            return ["create-manual-workitems", "distribution"]
+        elif case.document.form_id == "meldung":
+            return ["create-manual-workitems", "decision"]
 
         return ["create-manual-workitems", "formal-exam", "init-additional-demand"]
 

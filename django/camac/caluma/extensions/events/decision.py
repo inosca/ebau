@@ -6,7 +6,7 @@ from caluma.caluma_workflow.events import post_complete_work_item, post_create_w
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db import transaction
-from django.utils.translation import gettext_noop
+from django.utils.translation import gettext as _, gettext_noop
 
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import ruling
@@ -134,9 +134,27 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
         == settings.WITHDRAWAL["INSTANCE_STATE_CONFIRMED"]
     ):
         history_text = settings.WITHDRAWAL["HISTORY_ENTRIES"]["CONFIRMED"]
-    elif workflow == "building-permit":
+    elif workflow == "building-permit" and (
+        not settings.APPLICATION_NAME == "kt_so"
+        or work_item.case.document.form_id not in ["voranfrage", "meldung"]
+    ):
         history_text = gettext_noop("Decision decreed")
 
     # create history entry
     if not context or not context.get("no-history"):
         create_history_entry(instance, camac_user, history_text)
+
+
+@on(post_create_work_item, raise_exception=True)
+@transaction.atomic
+@filter_events(
+    lambda work_item: work_item.task.slug == settings.DECISION.get("TASK")
+    and settings.APPLICATION_NAME == "kt_so"
+)
+def rename_decision_work_item(sender, work_item, user, context, **kwargs):
+    if work_item.case.meta.get("is-appeal"):
+        work_item.name = _("Confirm decision of appeal authority")
+        work_item.save()
+    elif work_item.case.document.form_id in ["voranfrage", "meldung"]:
+        work_item.name = _("Evaluate instance")
+        work_item.save()
