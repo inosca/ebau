@@ -135,6 +135,14 @@ msgstr "Beurteilung abgeschlossen"
 msgid "Decision decreed"
 msgstr "Bauentscheid verfügt"
 
+#: camac/caluma/extensions/events/decision.py:156
+msgid "Confirm decision of appeal authority"
+msgstr "Entscheid der Beschwerdeinstanz bestätigen"
+
+#: camac/caluma/extensions/events/decision.py:159
+msgid "Evaluate instance"
+msgstr "Dossier beurteilen"
+
 #: camac/caluma/extensions/events/ebau_number.py:35
 msgid "Assigned ebau number"
 msgstr "eBau-Nr. vergeben"
@@ -963,10 +971,6 @@ msgstr "Ungültige Frage %(question)s."
 #, python-format
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr "%(permission)s darf die Frage %(question)s nicht bearbeiten."
-
-#: camac/instance/serializers.py:2620
-msgid "Confirm decision of appeal authority"
-msgstr "Entscheid der Beschwerdeinstanz bestätigen"
 
 #: camac/instance/serializers.py:2626
 msgid "Appeal received"

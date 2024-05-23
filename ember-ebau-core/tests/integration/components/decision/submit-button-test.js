@@ -66,6 +66,13 @@ module("Integration | Component | decision/submit-button", function (hooks) {
                   node: {
                     id: id("Case"),
                     meta: { "is-appeal": this.isAppeal },
+                    document: {
+                      id: id("Document"),
+                      form: {
+                        id: id("Form", "baugesuch"),
+                        slug: "baugesuch",
+                      },
+                    },
                   },
                 },
               ],

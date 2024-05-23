@@ -75,7 +75,7 @@ export default class CustomField extends Field {
 
       if (!this.caseInformation.value) return [];
 
-      const { workflow, isAppeal } = this.caseInformation.value;
+      const { form, isAppeal } = this.caseInformation.value;
 
       if (isAppeal) {
         return [
@@ -83,14 +83,20 @@ export default class CustomField extends Field {
           "entscheid-entscheid-beschwerde-geaendert",
           "entscheid-entscheid-beschwerde-zurueckgewiesen",
         ];
-      } else if (workflow === "building-permit") {
+      } else if (["voranfrage", "meldung"].includes(form)) {
         return [
-          "entscheid-entscheid-ablehnung",
-          "entscheid-entscheid-zustimmung",
-          "entscheid-entscheid-teilzustimmung",
+          "entscheid-entscheid-positiv",
+          "entscheid-entscheid-negativ",
           "entscheid-entscheid-rueckzug",
         ];
       }
+
+      return [
+        "entscheid-entscheid-ablehnung",
+        "entscheid-entscheid-zustimmung",
+        "entscheid-entscheid-teilzustimmung",
+        "entscheid-entscheid-rueckzug",
+      ];
     }
 
     return null;

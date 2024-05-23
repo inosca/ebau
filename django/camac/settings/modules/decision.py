@@ -71,6 +71,9 @@ DECISION = {
                 "REJECTED": "entscheid-entscheid-ablehnung",
                 "PARTIALLY_APPROVED": "entscheid-entscheid-teilzustimmung",
                 "WITHDRAWAL": "entscheid-entscheid-rueckzug",
+                # Only for preliminary clarification and construction notification
+                "POSITIVE": "entscheid-entscheid-positiv",
+                "NEGATIVE": "entscheid-entscheid-negativ",
             },
             "BAUABSCHLAG": {
                 "MIT_WIEDERHERSTELLUNG": "entscheid-bauabschlag-mit-wiederherstellung",

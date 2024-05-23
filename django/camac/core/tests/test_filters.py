@@ -130,20 +130,75 @@ def test_instance_resource_filter_instance(
     assert received == expect_results
 
 
-@pytest.mark.parametrize("is_appeal", [True, False])
-def test_instance_resource_appeal_only(
+@pytest.mark.parametrize(
+    "is_appeal,form_slug,expected_ir_names",
+    [
+        (
+            True,
+            "main-form",
+            {
+                "always-visible",
+                "appeal-include",
+                "preliminary-clarification-exclude",
+                "construction-notification-exclude",
+            },
+        ),
+        (
+            False,
+            "main-form",
+            {
+                "always-visible",
+                "appeal-exclude",
+                "preliminary-clarification-exclude",
+                "construction-notification-exclude",
+            },
+        ),
+        (
+            False,
+            "voranfrage",
+            {
+                "always-visible",
+                "appeal-exclude",
+                "construction-notification-exclude",
+            },
+        ),
+        (
+            False,
+            "meldung",
+            {
+                "always-visible",
+                "appeal-exclude",
+                "preliminary-clarification-exclude",
+            },
+        ),
+    ],
+)
+def test_instance_class_field_filters(
     admin_client,
-    so_instance,
+    expected_ir_names,
+    form_factory,
+    form_slug,
     instance_resource_factory,
-    role,
     ir_role_acl_factory,
     is_appeal,
+    role,
+    so_instance,
+    settings,
 ):
-    visible_ir = instance_resource_factory()
-    appeal_include_ir = instance_resource_factory(class_field="appeal-include")
-    appeal_exclude_ir = instance_resource_factory(class_field="appeal-exclude")
+    settings.APPLICATION_NAME = "kt_so"
 
-    for ir in [visible_ir, appeal_include_ir, appeal_exclude_ir]:
+    irs = [
+        instance_resource_factory(name=class_field, class_field=class_field)
+        for class_field in [
+            "always-visible",
+            "appeal-include",
+            "appeal-exclude",
+            "preliminary-clarification-exclude",
+            "construction-notification-exclude",
+        ]
+    ]
+
+    for ir in irs:
         ir_role_acl_factory(
             role=role,
             instance_state=so_instance.instance_state,
@@ -154,14 +209,15 @@ def test_instance_resource_appeal_only(
         so_instance.case.meta.update({"is-appeal": True})
         so_instance.case.save()
 
+    so_instance.case.document.form_id = form_slug
+    so_instance.case.document.save()
+
     response = admin_client.get(
         reverse("instance-resource-list"), {"instance": so_instance.pk}
     )
 
     assert response.status_code == status.HTTP_200_OK
 
-    ids = [int(record["id"]) for record in response.json()["data"]]
-
-    assert visible_ir.pk in ids
-    assert (appeal_include_ir.pk in ids) == is_appeal
-    assert (appeal_exclude_ir.pk in ids) != is_appeal
+    assert {
+        record["attributes"]["name"] for record in response.json()["data"]
+    } == expected_ir_names
