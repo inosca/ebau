@@ -117,3 +117,39 @@ def test_user_group_delete(admin_client, user_group):
     response = admin_client.delete(reverse("usergroup-detail", args=[user_group.pk]))
 
     assert response.status_code == status.HTTP_204_NO_CONTENT
+
+
+def test_user_group_create_token_exchange_enabled(
+    admin_client, group, settings, user_factory
+):
+    settings.ENABLE_TOKEN_EXCHANGE = True
+
+    email = "test@example.com"
+    regular_user = user_factory(email=email)
+    # egov user with the same email as the regular user. this user must be
+    # ignored and can't be granted a user group
+    user_factory(email=email, username="egov:123")
+
+    response = admin_client.post(
+        reverse("usergroup-list"),
+        data={
+            "data": {
+                "id": None,
+                "type": "user-groups",
+                "attributes": {"email": email},
+                "relationships": {
+                    "group": {
+                        "data": {
+                            "id": group.pk,
+                            "type": "groups",
+                        }
+                    },
+                },
+            }
+        },
+    )
+
+    assert response.status_code == status.HTTP_201_CREATED
+    assert response.json()["data"]["relationships"]["user"]["data"]["id"] == str(
+        regular_user.pk
+    )
