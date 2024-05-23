@@ -19,12 +19,6 @@ class AccessLevelFilterset(FilterSet):
 
     @permission_switching_method
     def filter_assignable_in_instance(self, qs, name, value):
-        # Permission for municipality before submission is never assignable
-        # through the UI. TODO: Remove this in favor of a "permissions-grant-xy"
-        # permission for the municipality as soon as Kt. SO has migrated the
-        # municipality permissions.
-        qs = qs.exclude(pk="municipality-before-submission")
-
         manager = api.PermissionManager.from_request(self.request)
         permissions = manager.get_permissions(value)
 
@@ -44,6 +38,12 @@ class AccessLevelFilterset(FilterSet):
         return qs.none()
 
     def filter_assignable_in_instance_rbac_for_municipality(self, qs, name, value):
+        # Permission for municipality before submission is never assignable
+        # through the UI. TODO: Remove this in favor of a "permissions-grant-xy"
+        # permission for the municipality as soon as Kt. SO has migrated the
+        # municipality permissions.
+        qs = qs.exclude(pk="municipality-before-submission")
+
         return qs
 
 
