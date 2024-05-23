@@ -9,6 +9,7 @@ services:
   ember-camac-ng:
     image: acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_TAG:-master}
     build:
+      target: prod-env
       context: ../
       dockerfile: ./Dockerfile.ember
       cache_from:
