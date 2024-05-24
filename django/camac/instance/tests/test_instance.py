@@ -14,9 +14,10 @@ from freezegun import freeze_time
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
+from camac.applicants.models import Applicant
 from camac.core.models import InstanceLocation, WorkflowEntry
 from camac.instance import domain_logic, serializers
-from camac.instance.models import HistoryEntryT, InstanceGroup, InstanceState
+from camac.instance.models import FormField, HistoryEntryT, InstanceGroup, InstanceState
 
 
 @pytest.mark.freeze_time("2018-04-17")
@@ -1420,6 +1421,11 @@ def test_instance_submit_sz(
 ):
     application_settings["SHORT_NAME"] = "sz"
     application_settings["NOTIFICATIONS"]["SUBMIT"] = notification_template.slug
+    application_settings["NOTIFICATIONS"]["APPLICANT"] = {
+        "NEW": notification_template.slug,
+        "EXISTING": notification_template.slug,
+    }
+
     application_settings["WORKFLOW_ITEMS"]["SUBMIT"] = workflow_item.pk
     application_settings["INSTANCE_IDENTIFIER_FORM_ABBR"] = {"vbs": "PV"}
     application_settings["SHORT_DOSSIER_NUMBER"] = short_dossier_number
@@ -1461,6 +1467,22 @@ def test_instance_submit_sz(
     add_field(
         name="punkte", value=[[{"lat": 47.02433179952733, "lng": 8.634144559228435}]]
     )
+    add_field(
+        name="bauherrschaft-v3",
+        value=[
+            {
+                "ort": "Test city",
+                "plz": 9952,
+                "tel": "1234567890",
+                "name": "Lawouza",
+                "email": "test@test.test",
+                "anrede": "Frau",
+                "strasse": "Oberstrasse 755",
+                "vorname": "Yinou",
+            }
+        ],
+    )
+
     if form.name == "geschaeftskontrolle":
         add_field(name="meta", value='{"formType": "vbs"}')
 
@@ -1486,7 +1508,7 @@ def test_instance_submit_sz(
         instance.refresh_from_db()
         assert instance.instance_state.name == "subm"
 
-        assert len(mailoutbox) == 1
+        assert len(mailoutbox) == 2
         mail = mailoutbox[0]
         mail.subject == notification_template.subject
 
@@ -1495,6 +1517,16 @@ def test_instance_submit_sz(
         ).exists()
 
         assert case.work_items.filter(task_id="submit", status="completed").exists()
+
+        involved_person_email = (
+            FormField.objects.filter(name="bauherrschaft-v3", instance=instance.pk)
+            .get()
+            .value[0]["email"]
+        )
+
+        assert Applicant.objects.filter(
+            instance=instance.pk, email=involved_person_email
+        ).exists()
 
 
 @pytest.mark.parametrize("role__name", ["Canton"])
