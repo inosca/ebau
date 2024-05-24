@@ -27,20 +27,24 @@ from rest_framework.settings import api_settings
 from rest_framework_json_api import views
 from rest_framework_json_api.views import ReadOnlyModelViewSet
 
+from camac.applicants.models import Applicant
 from camac.caluma.api import CalumaApi
 from camac.caluma.utils import sync_inquiry_deadline
 from camac.constants import kt_uri as ur_constants
 from camac.core.models import InstanceService, PublicationEntry, WorkflowEntry
+from camac.core.utils import canton_aware
 from camac.core.views import SendfileHttpResponse
 from camac.document.models import Attachment, AttachmentSection
 from camac.instance.domain_logic import RejectionLogic, WithdrawalLogic
 from camac.instance.master_data import MasterData
+from camac.instance.models import FormField
 from camac.instance.utils import build_document_prefetch_statements
 from camac.notification.utils import send_mail
 from camac.permissions import api as permissions_api
+from camac.permissions.events import Trigger
 from camac.permissions.models import InstanceACL
 from camac.swagger.utils import get_operation_description, group_param
-from camac.user.models import Service
+from camac.user.models import Service, User
 from camac.user.permissions import (
     DefaultPermission,
     IsApplication,
@@ -674,7 +678,55 @@ class InstanceView(
                 instance={"id": pk, "type": "instances"},
             )
 
+        self.add_project_personalities_to_applicants(instance)
+
         return response.Response(data=serializer.data)
+
+    def get_project_personalities_emails(self, instance):
+        form_fields_value = FormField.objects.filter(
+            instance=instance,
+            name__in=[
+                "grundeigentumerschaft-v2",
+                "bauherrschaft-v3",
+                "projektverfasser-planer-v3",
+                "vertreter-mit-vollmacht-v2",
+            ],
+        ).values("value")
+
+        emails = [
+            field["value"][0].get("email")
+            for field in form_fields_value
+            if field["value"] and field["value"][0].get("email")
+        ]
+
+        return emails
+
+    @canton_aware
+    def add_project_personalities_to_applicants(self, instance):
+        involved_emails = self.get_project_personalities_emails(instance)
+        notification_template = settings.APPLICATION["NOTIFICATIONS"]["APPLICANT"].get(
+            "NEW"
+        )
+
+        for email in involved_emails:
+            applicant = Applicant.objects.create(
+                instance=instance,
+                user=instance.user,
+                email=email,
+                invitee=User.objects.filter(email=email).first(),
+            )
+
+            Trigger.applicant_added(
+                request=self.request, instance=instance, applicant=applicant
+            )
+            if notification_template:
+                send_mail(
+                    notification_template,
+                    self.get_serializer_context(),
+                    recipient_types=["email_list"],
+                    email_list=email,
+                    instance={"id": instance.pk, "type": "instances"},
+                )
 
     def _custom_serializer_action(
         self, request, pk=None, status_code=None, perform_save=True
