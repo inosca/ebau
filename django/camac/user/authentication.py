@@ -118,12 +118,22 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 
         # We used the keycloak user id as the username in camac
         username = data[username_claim]
+        name_default = username
+
+        if settings.ENABLE_TOKEN_EXCHANGE and username.startswith(
+            settings.TOKEN_EXCHANGE_USERNAME_PREFIX
+        ):
+            # Token exchange users might have an empty value in either
+            # given_name or family_name. If that is the case, the property must
+            # remain empty as it's a company.
+            name_default = ""
+
         all_defaults = {
             "language": language[:2],
             "email": data.get("email"),
             "username": username,
-            "name": data.get("given_name", username),
-            "surname": data.get("family_name", username),
+            "name": data.get("given_name", name_default),
+            "surname": data.get("family_name", name_default),
             "city": data.get("city", ""),
             "zip": data.get("zip", ""),
             "address": clean_join(
