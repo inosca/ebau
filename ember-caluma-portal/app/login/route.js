@@ -14,6 +14,7 @@ function getQueryParam(transition, name) {
 export default class LoginRoute extends OIDCAuthenticationRoute {
   queryParams = {
     token: { refreshModel: true },
+    nextUrl: { refreshModel: true },
   };
 
   async afterModel(_, transition) {
@@ -45,7 +46,9 @@ export default class LoginRoute extends OIDCAuthenticationRoute {
     }
 
     if (!this.session.data.nextURL) {
-      const url = this.session.attemptedTransition?.intent?.url;
+      const url =
+        getQueryParam(transition, "nextUrl") ??
+        this.session.attemptedTransition?.intent?.url;
       this.session.set("data.nextURL", url);
     }
 
