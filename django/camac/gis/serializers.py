@@ -59,7 +59,7 @@ class GISApplySerializer(serializers.Serializer):
             question=question,
             document=document,
             user=self.context["request"].caluma_info.context.user,
-            value=answer_value,
+            value=int(answer_value) if question.type == "integer" else answer_value,
             meta={"gis-value": answer_value},
         )
 
