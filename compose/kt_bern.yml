@@ -17,8 +17,10 @@ services:
         APPLICATION: ${APPLICATION}
         APP_ENV: ${APP_ENV:-production}
         PORTAL_URL: $$PORTAL_URL
+        KEYCLOAK_HOST: $$KEYCLOAK_HOST
+        REPLACE_ENV: \$${KEYCLOAK_HOST},\$${PORTAL_URL}
         WORKSPACE: ember-camac-ng
-      target: prod
+      target: prod-env
 
   ember-caluma-portal:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_TAG:-master}
@@ -29,8 +31,11 @@ services:
         - acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_TAG:-master}
       args:
         APPLICATION: ${APPLICATION}
+        KEYCLOAK_HOST: $$KEYCLOAK_HOST
+        INTERNAL_URL: $$INTERNAL_HOST
+        REPLACE_ENV: \$${KEYCLOAK_HOST},\$${INTERNAL_URL}
         WORKSPACE: ember-caluma-portal
-      target: prod
+      target: prod-env
 
 
   document-merge-service:
