@@ -5,7 +5,7 @@ const locales = require("./locales");
 module.exports = function (environment) {
   // eslint-disable-next-line no-console
   console.log(
-    `build env: APPLICATION: ${process.env.APPLICATION}, KEYCLOAK_HOST: ${process.env.KEYCLOAK_HOST}`,
+    `build env: APPLICATION: ${process.env.APPLICATION}, KEYCLOAK_HOST: ${process.env.KEYCLOAK_HOST}, KEYCLOAK_REALM: ${process.env.KEYCLOAK_REALM}`,
   );
   const app = process.env.APPLICATION || "kt_bern";
   const instanceStatesBe = {
@@ -480,6 +480,7 @@ module.exports = function (environment) {
   }[app];
 
   const oidcHost = process.env.KEYCLOAK_HOST || "http://ebau-keycloak.local";
+  const oidcRealm = process.env.KEYCLOAK_REALM || appConfig.realm;
   const internalURL =
     process.env.INTERNAL_URL ||
     (appConfig.internalFrontend === "camac"
@@ -493,10 +494,10 @@ module.exports = function (environment) {
     environment,
     rootURL: "/",
     locationType: "history",
-    profileURL: `${oidcHost}/auth/realms/${appConfig.realm}/account?referrer=portal#/personal-info`,
+    profileURL: `${oidcHost}/auth/realms/${oidcRealm}/account?referrer=portal#/personal-info`,
     historySupportMiddleware: true,
     "ember-simple-auth-oidc": {
-      host: `${oidcHost}/auth/realms/${appConfig.realm}/protocol/openid-connect`,
+      host: `${oidcHost}/auth/realms/${oidcRealm}/protocol/openid-connect`,
       clientId: "portal",
       authEndpoint: "/auth",
       tokenEndpoint: "/token",
