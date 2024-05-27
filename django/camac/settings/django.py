@@ -122,6 +122,7 @@ INSTALLED_APPS = [
     "manabi_migrations",
     "adminsortable2",
     "django_json_widget",
+    "hurricane",
 ]
 
 if DEBUG:  # pragma: no cover
