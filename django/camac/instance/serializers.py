@@ -1537,14 +1537,14 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             return Service.objects.get(pk=uri_constants.KOOR_AFG_SERVICE_ID)
 
         # fallback default case
-        return Service.objects.get(
+        return Service.objects.filter(
             Q(
                 groups__locations__communal_federal_number=self.get_master_data(
                     instance.case
                 ).municipality_slug
             )
             & Q(service_group__name="Sekretariate Gemeindebaubehörden")
-        )
+        ).first()
 
     def _set_instance_service(self, case, instance):
         if settings.APPLICATION.get(
