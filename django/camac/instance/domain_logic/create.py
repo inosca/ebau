@@ -383,10 +383,6 @@ class CreateInstanceLogic:
                     user,
                 )
 
-        if group.pk == settings.APPLICATION.get("PORTAL_GROUP", False):
-            # TODO pre-fill user data into personal data table
-            pass
-
         if is_paper:
             # prefill municipality question if possible
             value = str(group.service.pk)
