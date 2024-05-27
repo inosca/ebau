@@ -18,7 +18,8 @@ services:
         APP_ENV: ${APP_ENV:-production}
         PORTAL_URL: $$PORTAL_URL
         KEYCLOAK_HOST: $$KEYCLOAK_HOST
-        REPLACE_ENV: \$${KEYCLOAK_HOST},\$${PORTAL_URL}
+        KEYCLOAK_REALM: $$KEYCLOAK_REALM
+        REPLACE_ENV: \$${KEYCLOAK_HOST},\$${KEYCLOAK_REALM}\$${PORTAL_URL}
         WORKSPACE: ember-camac-ng
       target: prod-env
 
@@ -32,8 +33,9 @@ services:
       args:
         APPLICATION: ${APPLICATION}
         KEYCLOAK_HOST: $$KEYCLOAK_HOST
+        KEYCLOAK_REALM: $$KEYCLOAK_REALM
         INTERNAL_URL: $$INTERNAL_HOST
-        REPLACE_ENV: \$${KEYCLOAK_HOST},\$${INTERNAL_URL}
+        REPLACE_ENV: \$${KEYCLOAK_HOST},\$${KEYCLOAK_REALM},\$${INTERNAL_URL}
         WORKSPACE: ember-caluma-portal
       target: prod-env
 

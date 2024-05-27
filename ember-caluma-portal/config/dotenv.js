@@ -7,6 +7,7 @@ module.exports = function () {
     clientAllowedKeys: [
       "APPLICATION",
       "KEYCLOAK_HOST",
+      "KEYCLOAK_REALM",
       "BE_GIS_URL",
       "SO_GIS_URL",
       "INTERNAL_URL",
