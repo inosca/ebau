@@ -100,6 +100,7 @@ filterwarnings = [
     "ignore:Built-in schema generation is deprecated.*:DeprecationWarning",
     # Issue in pytest-factoryboy
     "ignore:.*_after_postgeneration will stop saving the instance.*:DeprecationWarning",
+    "ignore:distutils Version classes are deprecated.*:DeprecationWarning",
 ]
 
 [tool.coverage.run]
