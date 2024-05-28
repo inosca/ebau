@@ -33,9 +33,6 @@ export default class MainNavigationComponent extends Component {
   }
 
   get showLanguageSwitcher() {
-    if (name === "gr") {
-      return false;
-    }
     return this.languages.length > 1;
   }
 
