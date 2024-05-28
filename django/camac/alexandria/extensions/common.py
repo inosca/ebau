@@ -58,7 +58,7 @@ def get_user_and_group(request):
 
     user = request.user.pk
     camac_group = request.group
-    if camac_group is None or camac_group.service is None:  # pragma: no cover
+    if not camac_group or camac_group.service is None:  # pragma: no cover
         group = None
     else:
         group = camac_group.service.pk
