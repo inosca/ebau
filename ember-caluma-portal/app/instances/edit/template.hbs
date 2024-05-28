@@ -133,12 +133,7 @@
           </Tab.item>
         {{/if}}
       {{/if}}
-      {{#if (macroCondition (macroGetOwnConfig "enableInstanceSupport"))}}
-        {{#if (not (is-embedded))}}
-          <InstanceSupport @instance={{this.instance}} />
-        {{/if}}
-      {{/if}}
-      {{#if (has-feature "constructionMonitoring")}}
+      {{#if (can "read construction-monitoring of instance" this.instance)}}
         <Tab.item
           @href={{concat "/instances/" @model "/construction-monitoring"}}
           as |active|
@@ -147,6 +142,11 @@
             {{t "nav.construction-monitoring"}}
           </AriaHeading>
         </Tab.item>
+      {{/if}}
+      {{#if (macroCondition (macroGetOwnConfig "enableInstanceSupport"))}}
+        {{#if (not (is-embedded))}}
+          <InstanceSupport @instance={{this.instance}} />
+        {{/if}}
       {{/if}}
     </UkTab>
   {{/if}}

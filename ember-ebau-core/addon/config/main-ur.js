@@ -128,4 +128,10 @@ export default {
     "beschrieb-verfahren",
   ],
   customDeadlineServiceGroupSlugs: ["Koordinationsstellen"],
+  constructionMonitoring: {
+    instanceStates: ["control"],
+  },
+  instanceStates: {
+    control: 34,
+  },
 };
