@@ -168,4 +168,15 @@ export default class InstanceAbility extends Ability {
   get canManageMunicipalityAccessBeforeSubmission() {
     return hasInstanceState(this.model, "new") && this.canManageApplicants;
   }
+
+  get canReadConstructionMonitoring() {
+    return (
+      hasFeature("constructionMonitoring") &&
+      hasInstanceState(
+        this.model,
+        mainConfig.constructionMonitoring?.instanceStates ?? [],
+      ) &&
+      (!this.session.isInternal || this.model.isPaper)
+    );
+  }
 }
