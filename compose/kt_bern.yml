@@ -19,7 +19,7 @@ services:
         PORTAL_URL: $$PORTAL_URL
         KEYCLOAK_HOST: $$KEYCLOAK_HOST
         KEYCLOAK_REALM: $$KEYCLOAK_REALM
-        REPLACE_ENV: \$${KEYCLOAK_HOST},\$${KEYCLOAK_REALM}\$${PORTAL_URL}
+        REPLACE_ENV: \$${KEYCLOAK_HOST},\$${KEYCLOAK_REALM},\$${PORTAL_URL}
         WORKSPACE: ember-camac-ng
       target: prod-env
 
