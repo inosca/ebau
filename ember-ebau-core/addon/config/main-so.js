@@ -151,6 +151,9 @@ const config = {
     municipalityAdminRole: 4, // Administration Gemeinde
     municipalityServiceGroup: 1, // Gemeinde
   },
+  constructionMonitoring: {
+    instanceStates: ["construction-monitoring", "finished"],
+  },
 };
 
 config.intentSlugs = [config.answerSlugs.description];
