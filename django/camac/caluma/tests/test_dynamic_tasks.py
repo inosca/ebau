@@ -1,5 +1,6 @@
 import pytest
 from caluma.caluma_form.api import save_answer
+from caluma.caluma_form.factories import FormFactory
 from caluma.caluma_form.models import DynamicOption, Question
 from caluma.caluma_workflow.api import complete_work_item, skip_work_item
 from caluma.caluma_workflow.models import Case, WorkItem
@@ -303,15 +304,27 @@ def test_dynamic_task_after_ebau_number(
 
 
 @pytest.mark.parametrize(
-    "is_appeal,expected_tasks",
+    "is_appeal,form_slug,expected_tasks",
     [
         (
             False,
+            "main-form",
             {"create-manual-workitems", "formal-exam", "init-additional-demand"},
         ),
         (
             True,
+            "main-form",
             {"create-manual-workitems", "appeal", "decision"},
+        ),
+        (
+            False,
+            "voranfrage",
+            {"create-manual-workitems", "distribution"},
+        ),
+        (
+            False,
+            "meldung",
+            {"create-manual-workitems", "decision"},
         ),
     ],
 )
@@ -321,8 +334,12 @@ def test_dynamic_task_after_submit(
     expected_tasks,
     is_appeal,
     case_factory,
+    form_slug,
 ):
-    case = case_factory(meta={"is-appeal": True} if is_appeal else {})
+    case = case_factory(
+        meta={"is-appeal": True} if is_appeal else {},
+        document__form=FormFactory(slug=form_slug),
+    )
 
     tasks = set(
         CustomDynamicTasks().resolve_after_submit(case, caluma_admin_user, None, None)

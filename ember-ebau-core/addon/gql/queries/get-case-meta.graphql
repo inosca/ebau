@@ -7,6 +7,13 @@ query GetCaseMeta($instanceId: GenericScalar!) {
       node {
         id
         meta
+        document {
+          id
+          form {
+            id
+            slug
+          }
+        }
       }
     }
   }

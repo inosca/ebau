@@ -45,6 +45,13 @@ class DecisionLogic:
             instance.set_instance_state(
                 settings.WITHDRAWAL["INSTANCE_STATE_CONFIRMED"], camac_user
             )
+        elif (
+            settings.APPLICATION_NAME == "kt_so"
+            and instance.case.document.form_id in ["voranfrage", "meldung"]
+        ):
+            cls.cancel_manual_work_items(instance, user)
+            instance.set_instance_state("finished", camac_user)
+
         else:
             instance.set_instance_state(
                 settings.DECISION["INSTANCE_STATE_AFTER_NEGATIVE_DECISION"],

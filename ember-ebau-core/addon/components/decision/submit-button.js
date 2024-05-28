@@ -1,5 +1,6 @@
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
+import { macroCondition, getOwnConfig } from "@embroider/macros";
 import CfFieldInputActionButtonComponent from "@projectcaluma/ember-form/components/cf-field/input/action-button";
 import { queryManager } from "ember-apollo-client";
 import { trackedFunction } from "reactiveweb/function";
@@ -27,13 +28,15 @@ export default class DecisionSubmitButtonComponent extends CfFieldInputActionBut
 
   @queryManager apollo;
 
-  caseMeta = trackedFunction(this, async () => {
+  caseInfo = trackedFunction(this, async () => {
     const response = await this.apollo.query({
       query: getCaseMetaQuery,
       variables: { instanceId: this.args.context.instanceId },
     });
 
-    return response.allCases.edges[0]?.node.meta ?? {};
+    const _case = response.allCases.edges[0]?.node;
+
+    return { meta: _case?.meta ?? {}, form: _case?.document.form.slug };
   });
 
   get isPartial() {
@@ -48,6 +51,10 @@ export default class DecisionSubmitButtonComponent extends CfFieldInputActionBut
   }
 
   get isPreliminaryClarification() {
+    if (macroCondition(getOwnConfig().application === "so")) {
+      return ["voranfrage", "meldung"].includes(this.caseInfo.value?.form);
+    }
+
     try {
       return (
         this.args.field.document.findAnswer("decision-workflow") ===
@@ -59,7 +66,7 @@ export default class DecisionSubmitButtonComponent extends CfFieldInputActionBut
   }
 
   get isAppeal() {
-    return this.caseMeta.value?.["is-appeal"] ?? false;
+    return this.caseInfo.value?.meta["is-appeal"] ?? false;
   }
 
   get label() {

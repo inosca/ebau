@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db.models import Q
 from django_filters.rest_framework import FilterSet
 
@@ -52,12 +53,7 @@ class InstanceResourceFilterSet(FilterSet):
             # any old IR acls and only return the IRs with new permissions
             return qs.filter(permission_module_filter)
 
-        # TODO: this needs to be removed in favor of the permission module
-        # as soon as the municipality permissions are migrated.
-        if instance.case and instance.case.meta.get("is-appeal"):
-            qs = qs.exclude(class_field__contains="appeal-exclude")
-        else:
-            qs = qs.exclude(class_field__contains="appeal-include")
+        qs = self._apply_ir_class_field_filters(qs, instance)
 
         return qs.filter(
             Q(
@@ -66,6 +62,25 @@ class InstanceResourceFilterSet(FilterSet):
             )
             | permission_module_filter
         )
+
+    def _apply_ir_class_field_filters(self, qs, instance):
+        if settings.APPLICATION_NAME != "kt_so":
+            return qs
+
+        # TODO: this needs to be removed in favor of the permission module
+        # as soon as the municipality permissions are migrated.
+        if instance.case and instance.case.meta.get("is-appeal"):
+            qs = qs.exclude(class_field__contains="appeal-exclude")
+        else:
+            qs = qs.exclude(class_field__contains="appeal-include")
+
+        if instance.case and instance.case.document.form_id == "voranfrage":
+            qs = qs.exclude(class_field__contains="preliminary-clarification-exclude")
+
+        if instance.case and instance.case.document.form_id == "meldung":
+            qs = qs.exclude(class_field__contains="construction-notification-exclude")
+
+        return qs
 
     class Meta:
         model = models.InstanceResource
