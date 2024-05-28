@@ -1,3 +1,4 @@
+import { getOwner } from "@ember/application";
 import { getConfig } from "@embroider/macros";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import OIDCAuthenticationRoute from "ember-simple-auth-oidc/routes/oidc-authentication";
@@ -82,13 +83,13 @@ export default class LoginRoute extends OIDCAuthenticationRoute {
         throw new Error(detail);
       }
 
+      const authenticator = getOwner(this).lookup("authenticator:oidc");
+      const raw = await response.json();
+      const parsed = await authenticator._handleAuthResponse(raw);
+
       // initialize session with already existing token
       // this is unusual for OIDC, so we need to call a private method
-      this.session.session._setup(
-        "authenticator:oidc",
-        await response.json(),
-        true,
-      );
+      this.session.session._setup("authenticator:oidc", parsed, true);
     } catch (error) {
       console.error(error);
     }
