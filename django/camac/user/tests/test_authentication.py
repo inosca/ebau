@@ -1,7 +1,6 @@
 import json
 
 import pytest
-from django.conf import settings
 from jose.exceptions import ExpiredSignatureError, JOSEError
 from mozilla_django_oidc.contrib.drf import OIDCAuthentication
 from rest_framework import exceptions, status
@@ -16,7 +15,7 @@ def test_authenticate_no_headers(rf):
     assert JSONWebTokenKeycloakAuthentication().authenticate(request) is None
 
 
-def test_authenticate_disabled_user(rf, admin_user, mocker, clear_cache):
+def test_authenticate_disabled_user(rf, admin_user, mocker, clear_cache, settings):
     token_dict = {
         "sub": admin_user.username,
         "email": admin_user.email,
@@ -48,7 +47,6 @@ def test_authenticate_disabled_user(rf, admin_user, mocker, clear_cache):
                 "email": "new-guy@example.com",
                 "family_name": "New",
                 "given_name": "Guy",
-                settings.OIDC_USERNAME_CLAIM: "new-here",
             },
             "new-here",
         ),
@@ -57,7 +55,6 @@ def test_authenticate_disabled_user(rf, admin_user, mocker, clear_cache):
                 "sub": "service-account-gemeinde",
                 "email": "new-guy@example.com",
                 "clientId": "testClient",
-                settings.OIDC_USERNAME_CLAIM: "service-account-gemeinde",
             },
             "service-account-gemeinde",
         ),
@@ -75,6 +72,8 @@ def test_authenticate_new_user(
     applicant_factory,
     clear_cache,
 ):
+    token_value[settings.OIDC_USERNAME_CLAIM] = token_value["sub"]
+
     applicant_factory(email=token_value["email"], invitee=None)
 
     if demo_mode:
@@ -109,7 +108,6 @@ def test_authenticate_new_user(
                 "sub": "service-account-gemeinde",
                 "email": "new-guy@example.com",
                 "clientId": "testClient",
-                settings.OIDC_USERNAME_CLAIM: "service-account-gemeinde",
             },
             "new-guy@example.com",
         ),
@@ -117,7 +115,6 @@ def test_authenticate_new_user(
             {
                 "sub": "service-account-gemeinde",
                 "clientId": "testClient",
-                settings.OIDC_USERNAME_CLAIM: "service-account-gemeinde",
             },
             "service-account-gemeinde@placeholder.org",
         ),
@@ -131,7 +128,10 @@ def test_authenticate_email_fallback(
     applicant_factory,
     clear_cache,
     expected,
+    settings,
 ):
+    token_value[settings.OIDC_USERNAME_CLAIM] = token_value["sub"]
+
     decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
     decode_token.return_value = token_value
     mocker.patch("keycloak.KeycloakOpenID.certs")
@@ -145,7 +145,7 @@ def test_authenticate_email_fallback(
     assert user.email == expected
 
 
-def test_authenticate_ok(rf, admin_user, mocker, clear_cache):
+def test_authenticate_ok(rf, admin_user, mocker, clear_cache, settings):
     token_value = {
         "sub": admin_user.username,
         "email": admin_user.email,
@@ -189,6 +189,7 @@ def test_django_admin_oidc_authentication(
     is_id_token,
     requests_mock,
     settings,
+    clear_cache,
 ):
     userinfo = {"sub": "1", "preferred_username": "1"}
     requests_mock.get(settings.OIDC_OP_USER_ENDPOINT, text=json.dumps(userinfo))
@@ -238,7 +239,7 @@ def test_authenticate_header(db, rf, settings):
 
 
 def test_authenticate_applicants(
-    rf, admin_user, mocker, applicant_factory, instance_factory
+    rf, admin_user, mocker, applicant_factory, instance_factory, clear_cache, settings
 ):
     new_email = "test@test.ch"
 
@@ -283,7 +284,7 @@ def test_authenticate_applicants(
     "user__username,expect_invitee", [("test", False), ("egov:123", True)]
 )
 def test_update_applicants_token_exchange(
-    db, applicant_factory, expect_invitee, settings, user
+    db, applicant_factory, expect_invitee, settings, user, clear_cache
 ):
     settings.ENABLE_TOKEN_EXCHANGE = True
 
@@ -297,3 +298,27 @@ def test_update_applicants_token_exchange(
         assert pending_applicant.invitee == user
     else:
         assert pending_applicant.invitee is None
+
+
+def test_authenticate_token_exchange_company_name(rf, mocker, settings, clear_cache):
+    settings.ENABLE_TOKEN_EXCHANGE = True
+
+    token_data = {
+        "sub": "egov:2",
+        "email": "test@example.com",
+        "family_name": "Acme Inc.",
+        # Explicitly no `given_name` in here
+        settings.OIDC_USERNAME_CLAIM: "egov:2",
+    }
+
+    decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
+    decode_token.return_value = token_data
+    mocker.patch("keycloak.KeycloakOpenID.certs")
+
+    userinfo = mocker.patch("keycloak.KeycloakOpenID.userinfo")
+    userinfo.return_value = token_data
+
+    request = rf.request(HTTP_AUTHORIZATION="Bearer some_token")
+    user, _ = JSONWebTokenKeycloakAuthentication().authenticate(request)
+
+    assert user.get_full_name() == "Acme Inc."
