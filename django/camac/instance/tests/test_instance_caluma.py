@@ -2799,3 +2799,69 @@ def test_inquiry_and_decision_data(
 
     assert response.status_code == status.HTTP_200_OK
     snapshot.assert_match(response.json()["data"][0]["attributes"])
+
+
+@pytest.mark.parametrize(
+    "role__name,instance_state__name,instance__user",
+    [("Applicant", "new", LazyFixture("admin_user"))],
+)
+@pytest.mark.parametrize(
+    "form_slug,expected_instance_state,expected_work_items",
+    [
+        (
+            "main-form",
+            "subm",
+            {"create-manual-workitems", "formal-exam", "init-additional-demand"},
+        ),
+        (
+            "voranfrage",
+            "init-distribution",
+            {"create-manual-workitems", "distribution"},
+        ),
+        (
+            "meldung",
+            "decision",
+            {"create-manual-workitems", "decision"},
+        ),
+    ],
+)
+def test_instance_submit_so(
+    admin_client,
+    application_settings,
+    disable_ech0211_settings,
+    expected_instance_state,
+    expected_work_items,
+    form_slug,
+    instance_state_factory,
+    mock_generate_and_store_pdf,
+    mocker,
+    settings,
+    so_instance,
+):
+    settings.APPLICATION_NAME = "kt_so"
+    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
+    application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = False
+
+    instance_state_factory(name="init-distribution")
+    instance_state_factory(name="decision")
+    instance_state_factory(name="subm")
+
+    mocker.patch(
+        "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notifications"
+    )
+
+    so_instance.case.document.form_id = form_slug
+    so_instance.case.document.save()
+
+    response = admin_client.post(reverse("instance-submit", args=[so_instance.pk]))
+
+    so_instance.refresh_from_db()
+
+    assert response.status_code == status.HTTP_200_OK
+
+    work_items = so_instance.case.work_items.filter(
+        status=caluma_workflow_models.WorkItem.STATUS_READY
+    ).values_list("task_id", flat=True)
+
+    assert so_instance.instance_state.name == expected_instance_state
+    assert set(work_items) == expected_work_items
