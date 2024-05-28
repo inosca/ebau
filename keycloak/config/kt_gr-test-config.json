@@ -5760,7 +5760,7 @@
       ]
     },
     "internationalizationEnabled": true,
-    "supportedLocales": ["de", "it"],
+    "supportedLocales": ["de"],
     "defaultLocale": "de",
     "authenticationFlows": [
       {
