@@ -5266,7 +5266,11 @@
         "alwaysDisplayInConsole": false,
         "clientAuthenticatorType": "client-secret",
         "secret": "76e3ScwJqsP0EMsYHKmEyBjlE1bNeOU1",
-        "redirectUris": ["", "http://egov.local/*"],
+        "redirectUris": [
+          "http://egov.local/*",
+          "http://localhost:4200/*",
+          "http://ebau-portal/*"
+        ],
         "webOrigins": ["+"],
         "notBefore": 0,
         "bearerOnly": false,
