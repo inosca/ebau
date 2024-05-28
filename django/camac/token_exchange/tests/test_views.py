@@ -40,7 +40,7 @@ def test_token_exchange(
         mocker.patch(
             "camac.token_exchange.keycloak.KeycloakClient.get_token",
             side_effect=HTTPError(
-                response=FakeResponse({"error_description": "some keycloak error"})
+                response=FakeResponse({"errorMessage": "some keycloak error"})
             ),
         )
     else:

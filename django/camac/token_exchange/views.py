@@ -1,5 +1,7 @@
+import json
+
 from jose.exceptions import JOSEError
-from requests import HTTPError
+from requests import HTTPError, JSONDecodeError
 from rest_framework import exceptions, response, status
 from rest_framework.parsers import JSONParser
 from rest_framework.renderers import JSONRenderer
@@ -30,9 +32,12 @@ class TokenExchangeView(APIView):
 
             token = keycloak_client.token_exchange(username)
         except HTTPError as e:
-            raise exceptions.AuthenticationFailed(
-                e.response.json()["error_description"]
-            ) from e
+            try:
+                result = e.response.json()
+                message = result.get("errorMessage", json.dumps(result))
+            except JSONDecodeError:  # pragma: no cover
+                message = e.response.text
+            raise exceptions.AuthenticationFailed(message) from e
         except JOSEError as e:
             raise exceptions.AuthenticationFailed(str(e)) from e
 
