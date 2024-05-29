@@ -156,5 +156,6 @@ def rename_decision_work_item(sender, work_item, user, context, **kwargs):
         work_item.name = _("Confirm decision of appeal authority")
         work_item.save()
     elif work_item.case.document.form_id in ["voranfrage", "meldung"]:
-        work_item.name = _("Evaluate instance")
+        form_name = work_item.case.document.form.name.translate()
+        work_item.name = _("Evaluate %(form_name)s") % {"form_name": form_name}
         work_item.save()
