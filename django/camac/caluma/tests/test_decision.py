@@ -1,7 +1,7 @@
 import pytest
 from caluma.caluma_core.events import send_event
 from caluma.caluma_form.factories import FormFactory
-from caluma.caluma_form.models import Question
+from caluma.caluma_form.models import Form, Question
 from caluma.caluma_workflow.api import cancel_work_item, complete_work_item
 from caluma.caluma_workflow.events import post_complete_work_item, post_create_work_item
 from caluma.caluma_workflow.models import Case, Workflow, WorkItem
@@ -588,8 +588,8 @@ def test_complete_decision_simplified_workflow_so(
 @pytest.mark.parametrize(
     "is_appeal,form_slug,expected_work_item_name",
     [
-        (False, "voranfrage", "Dossier beurteilen"),
-        (False, "meldung", "Dossier beurteilen"),
+        (False, "voranfrage", "Voranfrage beurteilen"),
+        (False, "meldung", "Meldung (Anzeige) beurteilen"),
         (True, "main-form", "Entscheid der Beschwerdeinstanz bestätigen"),
     ],
 )
@@ -604,6 +604,9 @@ def test_decision_work_item_name(
     so_instance,
 ):
     settings.APPLICATION_NAME = "kt_so"
+
+    Form.objects.filter(pk="voranfrage").update(name={"de": "Voranfrage"})
+    Form.objects.filter(pk="meldung").update(name={"de": "Meldung (Anzeige)"})
 
     work_item = work_item_factory(
         task_id=so_decision_settings["TASK"], case=so_instance.case
