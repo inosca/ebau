@@ -559,7 +559,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Meldung\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Meldung (Anzeige)\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {
         "order": 1,
@@ -6703,7 +6703,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "formulardownload-pdf",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -6718,6 +6718,21 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "hinweis-pdf-und-einreichen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "einreichen.titel-einreichung",
+    "fields": {
+      "created_at": "2024-05-29T12:55:33.520Z",
+      "modified_at": "2024-05-29T12:55:33.520Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "einreichen",
+      "question": "titel-einreichung",
       "sort": 5
     }
   },
@@ -6733,7 +6748,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "unterschriftenblatt-pdf",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -33261,13 +33276,13 @@
       "created_by_group": null,
       "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
       "modified_by_group": null,
-      "label": "{\"de\": \"Bemerkungen (falls keine oder nicht alle oben aufgef\\u00fchrten Dokumente hochgeladen wurden)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Bitte informieren Sie uns hier in Stichworten, falls Sie eines oder mehrere der oben aufgelisteten Pflichtdokumente jetzt (noch) nicht einreichen, jedoch das H\\u00e4ckchen trotzdem setzen, damit das Formular vollst\\u00e4ndig ist und das Dossier eingereicht werden kann.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -40645,7 +40660,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Bei Bedarf k\\u00f6nnen Sie das Formular herunterladen.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -45104,15 +45119,15 @@
       "created_by_group": null,
       "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
       "modified_by_group": null,
-      "label": "{\"de\": \"Hinweis pdf und Einreichen\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Hinweis PDF und Einreichen\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "info.root.form in [\"voranfrage\", \"meldung\"]",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"### Einreichung\\n\\nMit Klick auf die Schaltfl\\u00e4che \\\"Einreichen\\\" best\\u00e4tigen Sie, dass das Formular vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt wurde. Ihr Gesuch ist bei der zust\\u00e4ndigen Beh\\u00f6rde zur Pr\\u00fcfung eingereicht. Sie k\\u00f6nnen an den Formulareintr\\u00e4gen keine Ver\\u00e4nderungen mehr vornehmen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Mit Klick auf die Schaltfl\\u00e4che \\\"Einreichen\\\" best\\u00e4tigen Sie, dass das Formular vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt wurde. Ihr Gesuch ist bei der zust\\u00e4ndigen Beh\\u00f6rde zur Pr\\u00fcfung eingereicht. Sie k\\u00f6nnen an den Formulareintr\\u00e4gen keine Ver\\u00e4nderungen mehr vornehmen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -56717,6 +56732,37 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "titel-einreichung",
+    "fields": {
+      "created_at": "2024-05-29T12:55:33.237Z",
+      "modified_at": "2024-05-29T12:55:33.237Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Titel Einreichung\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"## Einreichung\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
