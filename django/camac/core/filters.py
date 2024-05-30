@@ -69,16 +69,26 @@ class InstanceResourceFilterSet(FilterSet):
 
         # TODO: this needs to be removed in favor of the permission module
         # as soon as the municipality permissions are migrated.
-        if instance.case and instance.case.meta.get("is-appeal"):
+        if instance.case.meta.get("is-appeal"):
             qs = qs.exclude(class_field__contains="appeal-exclude")
         else:
             qs = qs.exclude(class_field__contains="appeal-include")
 
-        if instance.case and instance.case.document.form_id == "voranfrage":
+        if instance.case.document.form_id == "voranfrage":
             qs = qs.exclude(class_field__contains="preliminary-clarification-exclude")
 
-        if instance.case and instance.case.document.form_id == "meldung":
+        if instance.case.document.form_id == "meldung":
             qs = qs.exclude(class_field__contains="construction-notification-exclude")
+
+        if not instance.case.meta.get("is-bab"):
+            qs = qs.exclude(class_field__contains="bab-include")
+
+        if (
+            settings.BAB
+            and self.request.group.service.service_group.name
+            != settings.BAB["SERVICE_GROUP"]
+        ):
+            qs = qs.exclude(class_field__contains="service-bab-only")
 
         return qs
 

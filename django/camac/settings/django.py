@@ -1698,6 +1698,7 @@ APPLICATIONS = {
             539,  # Leitung Amt für Umwelt (AfU)
             551,  # Leitung Amt für Wald, Jagd und Fischerei
             560,  # Leitung Solothurnische Gebäudeversicherung (SGV)
+            542,  # Leitung Amt für Raumplanung (ARP)
         ],
         "ADMIN_GROUP": 1,
         "IS_MULTILINGUAL": True,
@@ -1787,7 +1788,10 @@ APPLICATIONS = {
                     "cancel": ["create-publication"],
                 },
                 # Cancel manual work items after complete instance
-                "complete-instance": {"cancel": ["create-manual-workitems"]},
+                "complete-instance": {
+                    "skip": ["material-exam-bab"],
+                    "cancel": ["create-manual-workitems"],
+                },
             },
             "PUBLIC_STATUS": {
                 "USE_SLUGS": True,
@@ -2491,6 +2495,7 @@ DUMP = load_module_settings("dump")
 CONSTRUCTION_MONITORING = load_module_settings("construction_monitoring")
 ECH0211 = load_module_settings("ech0211")
 DOSSIER_IMPORT = load_module_settings("dossier_import")
+BAB = load_module_settings("bab")
 
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")

@@ -2567,6 +2567,38 @@ MASTER_DATA = {
                 "datum-publikation",
                 {"value_key": "date"},
             ),
+            # BaB (Bauen ausserhab Bauzone)
+            "is_bab": ("case_meta", "is-bab"),
+            "is_bab_temporary": (
+                "answer",
+                "aushublagerplaetze-oder-baupisten",
+                {
+                    "value_parser": (
+                        "value_mapping",
+                        {
+                            "mapping": {
+                                "aushublagerplaetze-oder-baupisten-ja": True,
+                                "aushublagerplaetze-oder-baupisten-nein": False,
+                            }
+                        },
+                    )
+                },
+            ),
+            "is_bab_location": (
+                "answer",
+                "bab",
+                {
+                    "value_parser": (
+                        "value_mapping",
+                        {
+                            "mapping": {
+                                "bab-ja": True,
+                                "bab-nein": False,
+                            }
+                        },
+                    )
+                },
+            ),
         },
     },
 }

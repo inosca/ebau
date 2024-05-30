@@ -1676,6 +1676,15 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         elif instance.case.document.form_id == "meldung":
             instance.set_instance_state("decision", user)
 
+    def _so_handle_bab(self, instance):
+        if not settings.BAB:
+            return
+
+        md = self.get_master_data(instance.case)
+
+        if any(getattr(md, prop) for prop in settings.BAB["MASTER_DATA_PROPERTIES"]):
+            instance.case.meta["is-bab"] = True
+
     def update(self, instance, validated_data):
         request_logger.info(f"Submitting instance {instance.pk}")
 
@@ -1708,6 +1717,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             self._ur_internal_submission(instance, group)
             self._ur_prepare_cantonal_instances(instance)
             self._so_handle_special_forms(instance)
+            self._so_handle_bab(instance)
 
             instance.save()
 

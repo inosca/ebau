@@ -997,6 +997,7 @@ def caluma_forms_so(settings):
     caluma_form_models.Form.objects.create(slug="migriertes-dossier")
     caluma_form_models.Form.objects.create(slug="voranfrage")
     caluma_form_models.Form.objects.create(slug="meldung")
+    caluma_form_models.Form.objects.create(slug="materielle-pruefung-bab")
 
     # dynamic choice options get cached, so we clear them
     # to ensure the new "gemeinde" options will be valid

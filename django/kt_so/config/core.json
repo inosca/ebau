@@ -482,7 +482,7 @@
       "template": "/ember-camac-ng/publication.phtml",
       "class_field": "menu-category-process appeal-exclude preliminary-clarification-exclude construction-notification-exclude",
       "hidden": 0,
-      "sort": 9,
+      "sort": 10,
       "form_group": 1,
       "require_permission": null
     }
@@ -498,7 +498,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 17,
+      "sort": 19,
       "form_group": 1,
       "require_permission": null
     }
@@ -514,7 +514,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 18,
+      "sort": 20,
       "form_group": 1,
       "require_permission": null
     }
@@ -546,7 +546,7 @@
       "template": "/ember-camac-ng/distribution.phtml",
       "class_field": "menu-category-process appeal-exclude construction-notification-exclude",
       "hidden": 0,
-      "sort": 8,
+      "sort": 9,
       "form_group": 1,
       "require_permission": null
     }
@@ -562,7 +562,7 @@
       "template": "/ember-camac-ng/additional-demand.phtml",
       "class_field": "menu-category-extraordinary appeal-exclude construction-notification-exclude",
       "hidden": 0,
-      "sort": 14,
+      "sort": 16,
       "form_group": 1,
       "require_permission": null
     }
@@ -578,7 +578,7 @@
       "template": "/ember-camac-ng/corrections.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 19,
+      "sort": 21,
       "form_group": 1,
       "require_permission": null
     }
@@ -594,7 +594,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 11,
+      "sort": 12,
       "form_group": 1,
       "require_permission": null
     }
@@ -626,7 +626,7 @@
       "template": "/ember-camac-ng/billing.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 16,
+      "sort": 18,
       "form_group": 1,
       "require_permission": null
     }
@@ -642,7 +642,7 @@
       "template": "/ember-camac-ng/rejection.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 12,
+      "sort": 15,
       "form_group": 1,
       "require_permission": null
     }
@@ -658,7 +658,7 @@
       "template": "/ember-camac-ng/legal-submission.phtml",
       "class_field": "menu-category-extraordinary appeal-exclude preliminary-clarification-exclude construction-notification-exclude",
       "hidden": 0,
-      "sort": 15,
+      "sort": 17,
       "form_group": 1,
       "require_permission": null
     }
@@ -706,7 +706,7 @@
       "template": null,
       "class_field": "menu-category-process appeal-include",
       "hidden": 0,
-      "sort": 10,
+      "sort": 11,
       "form_group": 1,
       "require_permission": null
     }
@@ -722,7 +722,7 @@
       "template": "/ember-camac-ng/permissions.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 20,
+      "sort": 22,
       "form_group": 1,
       "require_permission": null
     }
@@ -738,7 +738,7 @@
       "template": "/ember-camac-ng/construction-monitoring.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 21,
+      "sort": 14,
       "form_group": 1,
       "require_permission": null
     }
@@ -754,7 +754,23 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 22,
+      "sort": 23,
+      "form_group": 1,
+      "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 24,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 3,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": "menu-category-process bab-include service-bab-only",
+      "hidden": 0,
+      "sort": 8,
       "form_group": 1,
       "require_permission": null
     }
@@ -986,6 +1002,16 @@
       "instance_resource": 23,
       "language": "de",
       "name": "Verfahren abschliessen",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 24,
+    "fields": {
+      "instance_resource": 24,
+      "language": "de",
+      "name": "Materielle Prüfung BaB",
       "description": null
     }
   },
@@ -8424,6 +8450,132 @@
     }
   },
   {
+    "model": "core.irroleacl",
+    "pk": 854,
+    "fields": {
+      "instance_resource": 24,
+      "role": 10,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 855,
+    "fields": {
+      "instance_resource": 24,
+      "role": 10,
+      "instance_state": 8
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 856,
+    "fields": {
+      "instance_resource": 24,
+      "role": 10,
+      "instance_state": 14
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 857,
+    "fields": {
+      "instance_resource": 24,
+      "role": 10,
+      "instance_state": 7
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 858,
+    "fields": {
+      "instance_resource": 24,
+      "role": 10,
+      "instance_state": 9
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 859,
+    "fields": {
+      "instance_resource": 24,
+      "role": 10,
+      "instance_state": 13
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 860,
+    "fields": {
+      "instance_resource": 24,
+      "role": 10,
+      "instance_state": 12
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 861,
+    "fields": {
+      "instance_resource": 24,
+      "role": 11,
+      "instance_state": 8
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 862,
+    "fields": {
+      "instance_resource": 24,
+      "role": 11,
+      "instance_state": 14
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 863,
+    "fields": {
+      "instance_resource": 24,
+      "role": 11,
+      "instance_state": 7
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 864,
+    "fields": {
+      "instance_resource": 24,
+      "role": 11,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 865,
+    "fields": {
+      "instance_resource": 24,
+      "role": 11,
+      "instance_state": 9
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 866,
+    "fields": {
+      "instance_resource": 24,
+      "role": 11,
+      "instance_state": 13
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 867,
+    "fields": {
+      "instance_resource": 24,
+      "role": 11,
+      "instance_state": 12
+    }
+  },
+  {
     "model": "core.irtaskform",
     "pk": 4,
     "fields": {
@@ -8456,6 +8608,13 @@
     "pk": 23,
     "fields": {
       "task": "complete-instance"
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 24,
+    "fields": {
+      "task": "material-exam-bab"
     }
   },
   {

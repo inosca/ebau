@@ -131,10 +131,11 @@ def test_instance_resource_filter_instance(
 
 
 @pytest.mark.parametrize(
-    "is_appeal,form_slug,expected_ir_names",
+    "case_meta,service_group__name,form_slug,expected_ir_names",
     [
         (
-            True,
+            {"is-appeal": True},
+            "municipality",
             "main-form",
             {
                 "always-visible",
@@ -144,7 +145,8 @@ def test_instance_resource_filter_instance(
             },
         ),
         (
-            False,
+            None,
+            "municipality",
             "main-form",
             {
                 "always-visible",
@@ -154,7 +156,8 @@ def test_instance_resource_filter_instance(
             },
         ),
         (
-            False,
+            None,
+            "municipality",
             "voranfrage",
             {
                 "always-visible",
@@ -163,7 +166,8 @@ def test_instance_resource_filter_instance(
             },
         ),
         (
-            False,
+            None,
+            "municipality",
             "meldung",
             {
                 "always-visible",
@@ -171,19 +175,33 @@ def test_instance_resource_filter_instance(
                 "preliminary-clarification-exclude",
             },
         ),
+        (
+            {"is-bab": True},
+            "service-bab",
+            "main-form",
+            {
+                "always-visible",
+                "appeal-exclude",
+                "preliminary-clarification-exclude",
+                "construction-notification-exclude",
+                "bab-include",
+                "service-bab-only",
+            },
+        ),
     ],
 )
 def test_instance_class_field_filters(
     admin_client,
+    case_meta,
     expected_ir_names,
     form_factory,
     form_slug,
     instance_resource_factory,
     ir_role_acl_factory,
-    is_appeal,
     role,
-    so_instance,
     settings,
+    so_bab_settings,
+    so_instance,
 ):
     settings.APPLICATION_NAME = "kt_so"
 
@@ -195,6 +213,8 @@ def test_instance_class_field_filters(
             "appeal-exclude",
             "preliminary-clarification-exclude",
             "construction-notification-exclude",
+            "bab-include",
+            "service-bab-only",
         ]
     ]
 
@@ -205,8 +225,8 @@ def test_instance_class_field_filters(
             instance_resource=ir,
         )
 
-    if is_appeal:
-        so_instance.case.meta.update({"is-appeal": True})
+    if case_meta:
+        so_instance.case.meta.update(case_meta)
         so_instance.case.save()
 
     so_instance.case.document.form_id = form_slug
