@@ -254,13 +254,19 @@ def test_preliminary_clarfication_targets(db, caluma_admin_user, service_factory
         trans__language="de",
         service_group__name="service-extra-cantonal",
     )
+    service_factory(
+        trans__name="ARP",
+        trans__language="de",
+        service_group__name="service-bab",
+    )
 
     data = PreliminaryClarificationTargets().get_data(caluma_admin_user, None, None)
 
     assert data[0][1]["de"] == "Andere"
     assert data[1][1]["de"] == "Örtliche Baubehörde"
     assert data[2][1]["de"] == "AfU"
-    assert data[3][1]["de"] == "Procap"
+    assert data[3][1]["de"] == "ARP"
+    assert data[4][1]["de"] == "Procap"
 
 
 def test_buildings(db, caluma_admin_user, question_factory, so_instance, utils):

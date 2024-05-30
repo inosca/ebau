@@ -252,6 +252,14 @@
     }
   },
   {
+    "model": "user.servicegroup",
+    "pk": 4,
+    "fields": {
+      "name": "service-bab",
+      "sort": null
+    }
+  },
+  {
     "model": "user.servicegroupt",
     "pk": 1,
     "fields": {
@@ -276,6 +284,15 @@
       "service_group": 3,
       "language": "de",
       "name": "Ausserkantonale Fachstelle"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 4,
+    "fields": {
+      "service_group": 4,
+      "language": "de",
+      "name": "Fachstelle BaB"
     }
   }
 ]

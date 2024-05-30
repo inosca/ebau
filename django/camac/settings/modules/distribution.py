@@ -686,6 +686,11 @@ DISTRIBUTION = {
                     "brandschutzplaene",
                     "brandschutzplaene-ja",
                 ): [115],
+                (
+                    "aushublagerplaetze-oder-baupisten",
+                    "aushublagerplaetze-oder-baupisten-ja",
+                ): [109],
+                ("bab", "bab-ja"): [109],
             },
         },
     },

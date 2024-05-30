@@ -249,15 +249,15 @@
         'country': dict({
           'countryNameShort': 'ch',
         }),
-        'houseNumber': '565',
-        'street': 'Anthony Unions',
-        'swissZipCode': 7429,
-        'town': 'Schultzbury',
+        'houseNumber': '3552',
+        'street': 'Denise Forge',
+        'swissZipCode': 3025,
+        'town': 'West Laura',
       }),
       'identification': dict({
         'isOrganisation': True,
         'organisationIdentification': dict({
-          'organisationName': 'Wells, Arroyo and Sims',
+          'organisationName': 'Marshall Inc',
         }),
         'personIdentification': None,
       }),
