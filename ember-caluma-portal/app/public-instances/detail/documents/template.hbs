@@ -9,7 +9,9 @@
         <th class="uk-text-nowrap">{{t "instances.special-id"}}</th>
         <th class="uk-text-nowrap">{{t "publicInstancesDetail.fileName"}}</th>
         <th class="uk-text-nowrap">{{t "publicInstancesDetail.size"}}</th>
-        <th class="uk-text-nowrap">{{t "publicInstancesDetail.date"}}</th>
+        {{#if (not (is-application "be"))}}
+          <th class="uk-text-nowrap">{{t "publicInstancesDetail.date"}}</th>
+        {{/if}}
       </tr>
     </thead>
     <tbody>
@@ -43,7 +45,9 @@
               {{/if}}
             </td>
             <td>{{attachment.filesize}}</td>
-            <td>{{format-date attachment.date format="date"}}</td>
+            {{#if (not (is-application "be"))}}
+              <td>{{format-date attachment.date format="date"}}</td>
+            {{/if}}
           </tr>
         {{/each}}
       {{else}}
