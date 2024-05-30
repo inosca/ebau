@@ -6703,22 +6703,52 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "formulardownload-pdf",
-      "sort": 3
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "einreichen.hinweis-pdf-und-einreichen",
+    "pk": "einreichen.hinweis-gesuch",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2024-05-31T09:26:18.820Z",
+      "modified_at": "2024-05-31T09:26:18.820Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": null,
       "modified_by_group": null,
       "form": "einreichen",
-      "question": "hinweis-pdf-und-einreichen",
-      "sort": 4
+      "question": "hinweis-gesuch",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "einreichen.hinweis-meldung",
+    "fields": {
+      "created_at": "2024-05-31T09:23:24.324Z",
+      "modified_at": "2024-05-31T09:23:24.324Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "einreichen",
+      "question": "hinweis-meldung",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "einreichen.hinweis-voranfrage",
+    "fields": {
+      "created_at": "2024-05-31T09:24:10.013Z",
+      "modified_at": "2024-05-31T09:24:10.013Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "einreichen",
+      "question": "hinweis-voranfrage",
+      "sort": 7
     }
   },
   {
@@ -6733,7 +6763,22 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "titel-einreichung",
-      "sort": 5
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "einreichen.unterschriftenblatt-hinweis",
+    "fields": {
+      "created_at": "2024-05-30T13:04:02.339Z",
+      "modified_at": "2024-05-30T13:04:02.339Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "einreichen",
+      "question": "unterschriftenblatt-hinweis",
+      "sort": 3
     }
   },
   {
@@ -40660,7 +40705,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Bei Bedarf k\\u00f6nnen Sie das Formular herunterladen.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -44584,6 +44629,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hinweis-gesuch",
+    "fields": {
+      "created_at": "2024-05-31T09:26:18.393Z",
+      "modified_at": "2024-05-31T09:28:07.355Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Gesuch\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "info.root.form in [\"voranfrage\", \"meldung\"]",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Mit Klick auf die Schaltfl\\u00e4che \\\"Einreichen\\\" best\\u00e4tigen Sie, dass das Formular vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt wurde. Ihr Gesuch ist bei der zust\\u00e4ndigen Beh\\u00f6rde zur Pr\\u00fcfung eingereicht. Sie k\\u00f6nnen an den Formulareintr\\u00e4gen keine Ver\\u00e4nderungen mehr vornehmen.\\n\\nBei Bedarf k\\u00f6nnen Sie das Formular herunterladen:\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hinweis-gesuch-fuer-lageranlagen",
     "fields": {
       "created_at": "2023-10-23T13:28:28.578Z",
@@ -44956,6 +45032,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hinweis-meldung",
+    "fields": {
+      "created_at": "2024-05-31T09:23:23.986Z",
+      "modified_at": "2024-05-31T09:28:32.375Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Meldung\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "info.root.form != \"meldung\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Mit Klick auf die Schaltfl\\u00e4che \\\"Einreichen\\\" best\\u00e4tigen Sie, dass das Formular vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt wurde. Ihre Meldung (Anzeige) ist bei der zust\\u00e4ndigen Beh\\u00f6rde zur Pr\\u00fcfung eingereicht. Sie k\\u00f6nnen an den Formulareintr\\u00e4gen keine Ver\\u00e4nderungen mehr\\nvornehmen.\\n\\nBei Bedarf k\\u00f6nnen Sie das Formular herunterladen:\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hinweis-nebenerwerbslandwirtschaft",
     "fields": {
       "created_at": "2023-11-10T14:00:42.354Z",
@@ -45097,37 +45204,6 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"**Wichtige Hinweise**\\n\\n- Parkpl\\u00e4tze mit mehr als 500 Stellpl\\u00e4tzen sind UVP pflichtig.\\n- Grunds\\u00e4tzlich ist bei allen Parkierungsanlagen zu pr\\u00fcfen, ob und wie viele behindertengerechte Parkpl\\u00e4tze erstellt werden m\\u00fcssen.\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "hinweis-pdf-und-einreichen",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-09-21T07:03:45.343Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Hinweis PDF und Einreichen\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "info.root.form in [\"voranfrage\", \"meldung\"]",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Mit Klick auf die Schaltfl\\u00e4che \\\"Einreichen\\\" best\\u00e4tigen Sie, dass das Formular vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt wurde. Ihr Gesuch ist bei der zust\\u00e4ndigen Beh\\u00f6rde zur Pr\\u00fcfung eingereicht. Sie k\\u00f6nnen an den Formulareintr\\u00e4gen keine Ver\\u00e4nderungen mehr vornehmen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -45500,6 +45576,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"---\\n\\n**Vollst\\u00e4ndige Zweck\\u00e4nderung von gesch\\u00fctzten Bauten und Anlagen (Art. 24d Abs. 2 und 3 RPG) \\u2013 Checkliste BaB A9**\\n\\n* Nachweis der formellen Unterschutzstellung<br>(kommunaler Schutz = Kopie Gemeinderatsbeschluss bez\\u00fcglich Unterschutzstellung und Kopie Schutzverf\\u00fcgung [\\u00a7 122 PBG]; kantonaler Schutz = Kopie Regierungsratsbeschluss)\\n* Nachweis, dass die geplante Ver\\u00e4nderung f\\u00fcr den Erhalt des Schutzobjekts unerl\\u00e4sslich ist inkl. Aufstellung des finanziellen Aufwands f\\u00fcr den Erhalt / Unterhalt und Berechnung der Rendite nach Realisierung des Bauvorhabens.\\n* Nachweis, dass die gesch\\u00fctzte Baute / Anlage in ihrer Substanz erhalten ist. (mind. Fotos von aussen sowie s\\u00e4mtlicher R\\u00e4ume im Inneren, welche insbesondere den Zustand der tragenden Konstruktionen, Fussb\\u00f6den und Dach sowie der vorhandenen Fenster und T\\u00fcren, K\\u00fccheneinrichtungen, sanit\\u00e4ren Anlagen und Kaminanlage zeigen sowie ein \\u00dcbersichtsplan aus welchem ersichtlich ist, welches Foto was zeigt)\\n* Nachweis, dass die Baute f\\u00fcr den bisherigen Zweck nicht mehr ben\\u00f6tigt wird, f\\u00fcr die vorgesehene Nutzung geeignet ist und keine Ersatzbaute zur Folge hat, die nicht notwendig ist. Insbesondere auch, dass die verbleibenden Raumkapazit\\u00e4ten f\\u00fcr die gegenw\\u00e4rtigen/k\\u00fcnftigen landwirtschaftlichen Bed\\u00fcrfnisse gen\\u00fcgen.\\n* Nachweis, dass h\\u00f6chstens eine geringf\\u00fcgige Erweiterung der bestehenden Erschliessung notwendig ist und s\\u00e4mtliche Infrastrukturkosten, die im Zusammenhang mit der Zweck\\u00e4nderung der Bauten und Anlagen anfallen, auf deren Eigent\\u00fcmer \\u00fcberw\\u00e4lzt werden.\\n* Nachweis, dass die landwirtschaftliche Bewirtschaftung des umliegenden Grundst\\u00fccks nicht gef\\u00e4hrdet ist.\\n* Versicherungspolice der Solothurnischen Geb\\u00e4udeversicherung\\n* Umgebungsplan mit Angabe von Erschliessungsfl\\u00e4chen, Belagsarten, Terrainverlauf und H\\u00f6henangaben sowie von B\\u00e4umen, Hecken, Sitzpl\\u00e4tzen, Treppen, Mauern etc. (sofern Informationen nicht aus Situationsplan hervorgehen)\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-voranfrage",
+    "fields": {
+      "created_at": "2024-05-31T09:24:09.582Z",
+      "modified_at": "2024-05-31T09:28:19.179Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Voranfrage\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "info.root.form != \"voranfrage\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Mit Klick auf die Schaltfl\\u00e4che \\\"Einreichen\\\" ist Ihre Voranfrage bei der zust\\u00e4ndigen Beh\\u00f6rde zur Beurteilung eingereicht. Sie k\\u00f6nnen an den Formulareintr\\u00e4gen keine Ver\\u00e4nderungen mehr vornehmen.\\n\\nBei Bedarf k\\u00f6nnen Sie das Formular herunterladen:\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -57455,6 +57562,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "unterschriftenblatt-hinweis",
+    "fields": {
+      "created_at": "2024-05-30T13:04:02.064Z",
+      "modified_at": "2024-05-31T09:21:04.001Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Unterschriftenblatt Hinweis\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "info.root.form in [\"voranfrage\", \"meldung\"]",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<p class=\\\"uk-margin-remove-bottom\\\">Bitte drucken Sie das Unterschriftenblatt aus und schicken Sie es per Papierpost <strong>mit den erforderlichen Unterschriften</strong> der zust\\u00e4ndigen Baubeh\\u00f6rde.</p>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "unterschriftenblatt-pdf",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -57469,7 +57607,7 @@
       "is_hidden": "info.root.form in [\"voranfrage\", \"meldung\"]",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Bitte erstellen Sie das PDF-Formular, drucken Sie es aus und schicken Sie es unterzeichnet der zust\\u00e4ndigen Baubeh\\u00f6rde. Alle weiteren Unterlagen m\\u00fcssen nur nach Bedarf physisch eingereicht werden. Die Baubeh\\u00f6rde wird Ihnen falls notwendig eine entsprechende Meldung schicken.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
