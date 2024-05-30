@@ -26,7 +26,7 @@
     "@adfinis/eslint-config": "2.1.1",
     "@babel/core": "7.24.5",
     "@babel/eslint-parser": "7.23.10",
-    "@ember-data/store": "4.12.5",
+    "@ember-data/store": "4.12.8",
     "@ember/optional-features": "2.1.0",
     "@ember/render-modifiers": "2.1.0",
     "@ember/test-helpers": "3.3.0",
