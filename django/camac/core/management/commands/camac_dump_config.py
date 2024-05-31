@@ -6,6 +6,7 @@ from django.apps import apps
 from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.core.serializers.json import Serializer
+from django.db.models import Q
 
 
 class CamacDumpSerializer(Serializer):
@@ -70,20 +71,20 @@ class Command(BaseCommand):
 
             excluded_pks = []
 
-            for filter_group, model_filters in settings.DUMP["CONFIG"][
-                "GROUPS"
-            ].items():
-                if model_identifier in model_filters:
-                    filtered_queryset = (
-                        model.objects.exclude(pk__in=excluded_pks)
-                        .filter(model_filters[model_identifier])
-                        .distinct()
-                        .order_by("pk")
-                    )
+            for (
+                filter_group,
+                model_filters,
+            ) in self.get_filter_groups_ordered_by_complexity(model_identifier).items():
+                filtered_queryset = (
+                    model.objects.exclude(pk__in=excluded_pks)
+                    .filter(model_filters)
+                    .distinct()
+                    .order_by("pk")
+                )
 
-                    excluded_pks += list(filtered_queryset.values_list("pk", flat=True))
+                excluded_pks += list(filtered_queryset.values_list("pk", flat=True))
 
-                    self.groups[filter_group].append(filtered_queryset)
+                self.groups[filter_group].append(filtered_queryset)
 
             if not group_only:
                 self.groups[app_label].append(
@@ -91,3 +92,35 @@ class Command(BaseCommand):
                 )
 
         self.dump(options["output_dir"])
+
+    def get_filter_groups_ordered_by_complexity(
+        self, model_identifier: str
+    ) -> collections.OrderedDict:
+        return collections.OrderedDict(
+            sorted(
+                [
+                    (
+                        name,
+                        filters[model_identifier],
+                    )
+                    for name, filters in settings.DUMP["CONFIG"]["GROUPS"].items()
+                    if model_identifier in filters
+                ],
+                key=lambda tpl: self.get_condition_complexity_score(tpl[1]),
+                reverse=True,
+            )
+        )
+
+    def get_condition_complexity_score(self, condition: Q) -> int:
+        score = 0
+
+        for child in condition.children:
+            if isinstance(child, Q):  # pragma: no cover
+                # This is not needed yet as we don't have any nested conditions.
+                # However, we should leave it as otherwise no one will get why
+                # it doesn't work as expected as soon as we have the use case.
+                score += self.get_condition_complexity_score(child)
+            else:
+                score += 1
+
+        return score
