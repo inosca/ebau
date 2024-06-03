@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-26 12:02+0100\n"
-"PO-Revision-Date: 2023-03-21 08:21+0100\n"
+"POT-Creation-Date: 2024-05-28 17:54+0200\n"
+"PO-Revision-Date: 2024-05-31 13:25+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: camac/admin.py:16 camac/admin.py:17
 msgid "eBau"
@@ -307,95 +307,95 @@ msgstr ""
 msgid "Specifying an \"attachments\" filter is mandatory!"
 msgstr ""
 
-#: camac/dossier_import/loaders.py:232
+#: camac/dossier_import/loaders.py:277
 #, python-format
 msgid ""
 "The given coordinates (E: %(e)i and N: %(n)i) are not in Switzerland or are "
 "not using the Swiss coordinate system (epsg:2056)."
 msgstr ""
 
-#: camac/dossier_import/loaders.py:252
+#: camac/dossier_import/loaders.py:295
 #, python-format
 msgid "Failed to load and transform coordinates from E: %(e)i and N: %(n)i"
 msgstr ""
 
-#: camac/dossier_import/loaders.py:300
+#: camac/dossier_import/loaders.py:352
 #, python-format
 msgid ""
 "Failed to load plot with numbers `%(plot_numbers)s` and egrid values "
 "`%(egrids)s`"
 msgstr ""
 
-#: camac/dossier_import/loaders.py:314 camac/dossier_import/validation.py:116
+#: camac/dossier_import/loaders.py:365 camac/dossier_import/validation.py:322
 msgid "Meta data file in archive is corrupt or not a valid .xlsx file."
 msgstr ""
 
-#: camac/dossier_import/messages.py:156
+#: camac/dossier_import/messages.py:171
 msgid "have the same ID"
 msgstr ""
 
-#: camac/dossier_import/messages.py:158
+#: camac/dossier_import/messages.py:173
 msgid ""
 "have an invalid value in date field. Please use the format \"DD.MM.YYYY\" (e."
 "g. \"13.04.2021\")"
 msgstr ""
 
-#: camac/dossier_import/messages.py:160
+#: camac/dossier_import/messages.py:175
 msgid "have an invalid status"
 msgstr ""
 
-#: camac/dossier_import/messages.py:162
+#: camac/dossier_import/messages.py:177
 msgid "miss a value in a required field"
 msgstr ""
 
-#: camac/dossier_import/messages.py:164
+#: camac/dossier_import/messages.py:179
 msgid "don't have a unique ID"
 msgstr ""
 
-#: camac/dossier_import/messages.py:165
+#: camac/dossier_import/messages.py:180
 msgid "have an invalid value"
 msgstr ""
 
-#: camac/dossier_import/messages.py:167
+#: camac/dossier_import/messages.py:182
 msgid "have at least one document with an unknown file type"
 msgstr ""
 
-#: camac/dossier_import/messages.py:170
+#: camac/dossier_import/messages.py:185
 msgid "have an inconsistent workflow state"
 msgstr ""
 
-#: camac/dossier_import/messages.py:195
+#: camac/dossier_import/messages.py:215
 #, python-format
 msgid "%(count)i dossiers %(message)s. Affected dossiers:%(entries)s"
 msgstr ""
 
-#: camac/dossier_import/models.py:155
+#: camac/dossier_import/models.py:159
 #, python-format
 msgid ""
 "The import took more than %(timeout)i seconds to complete and timed out."
 msgstr ""
 
-#: camac/dossier_import/serializers.py:57 camac/instance/serializers.py:2059
+#: camac/dossier_import/serializers.py:57 camac/instance/serializers.py:2123
 msgid "No location assigned."
 msgstr ""
 
-#: camac/dossier_import/validation.py:44
+#: camac/dossier_import/validation.py:48
 msgid "To start an import please upload a file."
 msgstr ""
 
-#: camac/dossier_import/validation.py:49
+#: camac/dossier_import/validation.py:53
 msgid "Uploaded file is not a valid .zip file"
 msgstr ""
 
-#: camac/dossier_import/validation.py:54
+#: camac/dossier_import/validation.py:58
 msgid "No metadata file 'dossiers.xlsx' found in uploaded archive."
 msgstr ""
 
-#: camac/dossier_import/validation.py:60
+#: camac/dossier_import/validation.py:64
 msgid "Metadata file `dossiers.xlsx` is not a valid .xlsx file."
 msgstr ""
 
-#: camac/dossier_import/validation.py:76
+#: camac/dossier_import/validation.py:80
 #, python-format
 msgid ""
 "%(count)i document folders were not found in the metadata file and will not "
@@ -403,19 +403,23 @@ msgid ""
 "%(entries)s"
 msgstr ""
 
-#: camac/dossier_import/validation.py:83
+#: camac/dossier_import/validation.py:87
 #, python-format
 msgid "%(count)i dossiers have no document folder."
 msgstr ""
 
-#: camac/dossier_import/validation.py:127
-#, python-format
-msgid ""
-"Meta data file in archive is missing required columns %(missing)s. Found "
-"%(found)s"
+#: camac/dossier_import/validation.py:228
+msgid "STATUS will be ignored when updating the dossier"
 msgstr ""
 
-#: camac/dossier_import/validation.py:135
+#: camac/dossier_import/validation.py:292
+#, python-format
+msgid ""
+"Meta data file in archive is missing required columns %(missing)s. Required "
+"columns %(required)s"
+msgstr ""
+
+#: camac/dossier_import/validation.py:330
 #, python-format
 msgid ""
 "Found unknown columns: %(extra)s. Those columns will be ignored while "
@@ -440,13 +444,9 @@ msgid ""
 "%(import_url)s"
 msgstr ""
 
-#: camac/dossier_import/writers.py:198
+#: camac/dossier_import/writers.py:299
 #, python-format
 msgid "Value \"%(value)s\" in field %(target)s is too long (max: %(max)s)"
-msgstr ""
-
-#: camac/ech0211/event_handlers.py:243
-msgid "Inquiry sent"
 msgstr ""
 
 #: camac/ech0211/event_handlers.py:248 camac/instance/serializers.py:1682
@@ -491,6 +491,11 @@ msgstr ""
 msgid "Federal GIS Switzerland"
 msgstr ""
 
+#: camac/gis/serializers.py:30
+#, python-format
+msgid "Cache for key %(key)s does not exist"
+msgstr ""
+
 #: camac/gis/utils.py:25
 msgid "Coordinates must be floats"
 msgstr ""
@@ -511,7 +516,7 @@ msgstr "Indirizzo"
 msgid "Plots"
 msgstr ""
 
-#: camac/instance/document_merge_service.py:85
+#: camac/instance/document_merge_service.py:86
 msgid "Project Owner"
 msgstr ""
 
@@ -1069,6 +1074,10 @@ msgstr ""
 #: camac/settings/modules/distribution.py:577
 #: camac/settings/modules/distribution.py:613
 msgid "Circulation reopened"
+msgstr ""
+
+#: camac/settings/modules/ech0211.py:68 camac/settings/modules/ech0211.py:138
+msgid "Inquiry sent"
 msgstr ""
 
 #: camac/settings/modules/rejection.py:10

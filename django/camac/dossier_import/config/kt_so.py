@@ -60,9 +60,9 @@ PLOT_DATA_MAPPING = {
 
 class KtSolothurnDossierWriter(DossierWriter):
     id: str = CalumaAnswerWriter(
-        target="kommunale-gesuchsnummer", formatter="to-string"
+        target="kommunale-gesuchsnummer", formatter="to-string", protected=True
     )
-    proposal = CalumaAnswerWriter(target="umschreibung-bauprojekt")
+    proposal = CalumaAnswerWriter(target="umschreibung-bauprojekt", protected=True)
     cantonal_id = CalumaAnswerWriter(
         target="kantonale-gesuchsnummer", formatter="to-string"
     )
@@ -71,7 +71,9 @@ class KtSolothurnDossierWriter(DossierWriter):
     )
     usage = CalumaAnswerWriter(target="nutzungsplanung-grundnutzung")
     application_type = CalumaAnswerWriter(target="geschaeftstyp")
-    submit_date = CaseMetaWriter(target="submit-date", formatter="datetime-to-string")
+    submit_date = CaseMetaWriter(
+        target="submit-date", formatter="datetime-to-string", protected=True
+    )
     publication_date = CalumaAnswerWriter(target="datum-publikation")
     construction_start_date = CalumaAnswerWriter(target="datum-baubeginn")
     profile_approval_date = CalumaAnswerWriter(target="datum-schnurgeruestabnahme")

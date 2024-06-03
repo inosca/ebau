@@ -6,6 +6,7 @@ from typing import Generator, Iterable, List, Optional, Tuple
 
 import openpyxl
 from django.conf import settings
+from django.utils.timezone import datetime
 from django.utils.translation import gettext as _
 from pyproj import Transformer
 
@@ -64,6 +65,8 @@ class XlsxFileDossierLoader:
 
     """
 
+    date_format = "%d.%m.%Y"
+
     dossier_class = Dossier
     path_to_dossiers_file: str
     simple_fields = [
@@ -75,14 +78,16 @@ class XlsxFileDossierLoader:
         "city",
         "usage",
         "application_type",
+        "custom_1",
+        "custom_2",
+        "link",
+    ]
+    date_fields = [
         "submit_date",
         "publication_date",
         "decision_date",
         "construction_start_date",
         "completion_date",
-        "custom_1",
-        "custom_2",
-        "link",
         "decision_date",
         "final_approval_date",
         "profile_approval_date",
@@ -154,7 +159,6 @@ class XlsxFileDossierLoader:
           ...
 
         """
-
         person = {
             field.name: dossier_row.get(
                 getattr(XlsxFileDossierLoader.Column, f"{prefix}_{field.name}").value
@@ -162,6 +166,13 @@ class XlsxFileDossierLoader:
             for field in fields(Person)
             if hasattr(XlsxFileDossierLoader.Column, f"{prefix}_{field.name}")
         }
+        if any(
+            [
+                value == settings.DOSSIER_IMPORT["DELETE_KEYWORD"]
+                for value in person.values()
+            ]
+        ):
+            return [settings.DOSSIER_IMPORT["DELETE_KEYWORD"]]
         if any(person.values()):
             return [Person(**person)]
 
@@ -194,6 +205,30 @@ class XlsxFileDossierLoader:
                 key,
                 dossier_row.get(getattr(XlsxFileDossierLoader.Column, key).value),
             )
+        for key in self.date_fields:
+            date = dossier_row.get(getattr(XlsxFileDossierLoader.Column, key).value)
+            if not date:
+                continue
+            if not isinstance(date, datetime):
+                if date == settings.DOSSIER_IMPORT["DELETE_KEYWORD"]:
+                    setattr(dossier, key, date)
+                    continue
+                try:
+                    date = datetime.strptime(date, self.date_format)
+                except (ValueError, TypeError):
+                    dossier._meta.errors.append(
+                        FieldValidationMessage(
+                            level=Severity.ERROR.value,
+                            field=key,
+                            code=MessageCodes.FIELD_VALIDATION_ERROR.value,
+                            detail=(
+                                f"{date} is not valid for field {key}. Allowed format: "
+                                f"{datetime.strftime(datetime.now(), self.date_format)}"
+                            ),
+                        )
+                    )
+                    date = date
+            setattr(dossier, key, date)
 
         dossier.plot_data, load_plot_data_errors = self.load_plot_data(dossier_row)
         if load_plot_data_errors:  # pragma: no cover
@@ -224,6 +259,14 @@ class XlsxFileDossierLoader:
         npoints = npoints.split(",") if isinstance(npoints, str) else [npoints]
         for e, n in zip(epoints, npoints):
             e, n = numbers(e), numbers(n)
+
+            if any(
+                [
+                    val == settings.DOSSIER_IMPORT["DELETE_KEYWORD"]
+                    for val in epoints + npoints
+                ]
+            ):
+                return [settings.DOSSIER_IMPORT["DELETE_KEYWORD"]], messages
             if not (2480000 < e < 2840000.999) or not (1070000 < n < 1300000.999):
                 messages.append(
                     FieldValidationMessage(
@@ -282,6 +325,15 @@ class XlsxFileDossierLoader:
             municipality = dossier_row.get(
                 getattr(XlsxFileDossierLoader.Column, "city").value
             )
+
+            # handle deletable value
+            if any(
+                [
+                    val == settings.DOSSIER_IMPORT["DELETE_KEYWORD"]
+                    for val in plot_numbers + egrids + [municipality]
+                ]
+            ):
+                return [settings.DOSSIER_IMPORT["DELETE_KEYWORD"]], messages
             for number, egrid in itertools.zip_longest(plot_numbers, egrids):
                 out.append(
                     PlotData(
