@@ -130,8 +130,8 @@ def test_validation_errors(
     resp = resp.json()
     data = resp.get("data", None)
     if data:
-        del data["attributes"]["source-file"]
-        snapshot.assert_match(data["attributes"])
+        snapshot.assert_match(data["attributes"]["messages"]["validation"]["details"])
+        snapshot.assert_match(data["attributes"]["messages"]["validation"]["summary"])
     else:
         snapshot.assert_match(resp)
 
@@ -139,67 +139,76 @@ def test_validation_errors(
 @pytest.mark.parametrize("role__name", ["Support"])
 @pytest.mark.parametrize("dossier_exists", [False, lazy_fixture("instance")])
 @pytest.mark.parametrize(
+    # expected_status expands for `dossier_exists`
+    # results: union of messages for import and reimport
     "import_file,expected_status,expected_result",
     [
         (
-            "import-missing-status-column.zip",
-            status.HTTP_400_BAD_REQUEST,
-            "Spalte {'STATUS'} fehlt in der Metadatendatei des Archivs.",
+            "import-example-no-errors-reimport.zip",
+            (status.HTTP_201_CREATED, status.HTTP_201_CREATED),
+            None,
         ),
-        ("import-example.zip", status.HTTP_201_CREATED, None),
+        (
+            "import-missing-status-column.zip",
+            (status.HTTP_400_BAD_REQUEST, status.HTTP_201_CREATED),
+            "Spalte STATUS fehlt in der Metadatendatei des Archivs",
+        ),
         (
             "import-dossiers-file-wrong-format.zip",
-            status.HTTP_400_BAD_REQUEST,
+            (status.HTTP_400_BAD_REQUEST, status.HTTP_400_BAD_REQUEST),
             "Die Metadatendatei `dossiers.xlsx` ist kein gültiges Xlsx-Format.",
         ),
         (
             "import-no-dossiers-file.zip",
-            status.HTTP_400_BAD_REQUEST,
+            (status.HTTP_400_BAD_REQUEST, status.HTTP_400_BAD_REQUEST),
             "Metadatendatei `dossiers.xlsx` fehlt im hochgeladenen Archiv.",
         ),
         (
             "garbage.zip",
-            status.HTTP_400_BAD_REQUEST,
+            (status.HTTP_400_BAD_REQUEST, status.HTTP_400_BAD_REQUEST),
             "Die hochgeladene Datei ist kein gültiges Zip-Format",
         ),
         (
             "import-missing-optional-columns.zip",
-            status.HTTP_201_CREATED,
+            (status.HTTP_201_CREATED, status.HTTP_201_CREATED),
             {"error": []},
         ),
         (
             "import-example-sparse.zip",
-            status.HTTP_201_CREATED,
+            (status.HTTP_201_CREATED, status.HTTP_201_CREATED),
             {"error": []},
         ),
         (
             "import-empty-headings.zip",
-            status.HTTP_201_CREATED,
+            (status.HTTP_201_CREATED, status.HTTP_201_CREATED),
             {"error": []},
         ),
         (
             "import-example-validation-errors.zip",
-            status.HTTP_201_CREATED,
+            (status.HTTP_201_CREATED, status.HTTP_201_CREATED),
             {
                 "error": [
                     "1 Dossiers haben einen ungültigen Status. Betroffene Dossiers:\n2017-86: 'DONKED' (status)",
+                    "1 Dossiers haben ein ungültiges Datum. Datumsangaben bitte im Format \"DD.MM.YYYY\" (e.g. \"13.04.2021\") machen. Betroffene Dossiers:\n2017-84: 'not-a-date' (submit-date), 'not-a-date' (publication-date), 'not-a-date' (decision-date), 'not-a-date' (construction-start-date), 'not-a-date' (profile-approval-date), 'not-a-date' (final-approval-date), 'not-a-date' (completion-date)",
                     "2 Dossiers fehlt ein Wert in einem zwingenden Feld. Betroffene Dossiers:\n2017-87: status,\n9: submit_date",
+                    "1 Dossiers fehlt ein Wert in einem zwingenden Feld. Betroffene Dossiers:\n9: submit-date",
                 ]
             },
         ),
         (
             "import-example-orphan-dirs.zip",
-            status.HTTP_201_CREATED,
+            (status.HTTP_201_CREATED, status.HTTP_201_CREATED),
             {
                 "warning": [
                     "2 Dokumentenverzeichnisse haben keine Referenz in der Metadatendatei und werden nicht importiert:\n2017-11, 2017-22",
                     "2 Dossiers ohne Dokumentenverzeichnis.",
+                    "2 Dossiers gefunden und werden bei Re-Import aktualisiert. Betroffene Dossiers:\n2017-53: '2017-53' (ID),\n2017-84: '2017-84' (ID)",
                 ]
             },
         ),
         (
             None,
-            status.HTTP_400_BAD_REQUEST,
+            (status.HTTP_400_BAD_REQUEST, status.HTTP_400_BAD_REQUEST),
             "Bitte eine Datei mitreichen, um einen Import zu starten.",
         ),
     ],
@@ -236,17 +245,18 @@ def test_file_validation(
         },
         format="multipart",
     )
-    assert resp.status_code == expected_status
+    assert (
+        resp.status_code == expected_status[0]
+        if not dossier_exists
+        else expected_status[1]
+    )
     if resp.status_code != status.HTTP_201_CREATED:
         assert expected_result in str(resp.data[0]["detail"])
     else:
-        if expected_result is not None:
+        if isinstance(expected_result, dict) and expected_result is not None:
             for key, value in expected_result.items():
-                for left, right in zip(
-                    sorted(value),
-                    sorted(resp.data["messages"]["validation"]["summary"][key]),
-                ):
-                    assert left in right
+                for msg in sorted(resp.data["messages"]["validation"]["summary"][key]):
+                    assert msg in value
         admin_client.delete(reverse("dossier-import-detail", args=(resp.data["id"],)))
 
 
@@ -436,7 +446,7 @@ def test_transmitting_logic(
     # disabling the mocks will upload the file to the local dev env - useful for more realistic resting!
     requests_mock.register_uri(
         "POST",
-        "/auth/realms/ebau/protocol/openid-connect/token",
+        dossier_import_settings["PROD_AUTH_URL"],
         json={"access_token": "hello123"},
         complete_qs=True,
     )
@@ -447,7 +457,7 @@ def test_transmitting_logic(
 
     requests_mock.register_uri(
         "POST",
-        build_url(settings.INTERNAL_BASE_URL, "/api/v1/dossier-imports"),
+        build_url(dossier_import_settings["PROD_URL"], reverse("dossier-import-list")),
         json={
             "data": {
                 "type": "dossier-imports",

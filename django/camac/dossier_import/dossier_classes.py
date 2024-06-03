@@ -1,6 +1,6 @@
 import datetime
 from dataclasses import dataclass, field
-from typing import List, Optional
+from typing import List, Optional, Union
 from typing.io import IO
 
 from camac.instance.models import Instance
@@ -62,27 +62,27 @@ class Dossier:
     id: str
     proposal: str
     cantonal_id: Optional[str] = None
-    plot_data: Optional[List[PlotData]] = None
-    coordinates: Optional[List[Coordinates]] = None
+    plot_data: Optional[Union[List[PlotData], str]] = None
+    coordinates: Optional[Union[List[Coordinates], str]] = None
     street: Optional[str] = None
     street_number: Optional[str] = None
     city: Optional[str] = None
     usage: Optional[str] = None
     application_type: Optional[str] = None
-    submit_date: Optional[datetime.datetime] = None
-    publication_date: Optional[datetime.datetime] = None
-    decision_date: Optional[datetime.datetime] = None
-    construction_start_date: Optional[datetime.datetime] = None
-    profile_approval_date: Optional[datetime.datetime] = None
-    final_approval_date: Optional[datetime.datetime] = None
-    completion_date: Optional[datetime.datetime] = None
+    submit_date: Optional[Union[datetime.datetime, str]] = None
+    publication_date: Optional[Union[datetime.datetime, str]] = None
+    decision_date: Optional[Union[datetime.datetime, str]] = None
+    construction_start_date: Optional[Union[datetime.datetime, str]] = None
+    profile_approval_date: Optional[Union[datetime.datetime, str]] = None
+    final_approval_date: Optional[Union[datetime.datetime, str]] = None
+    completion_date: Optional[Union[datetime.datetime, str]] = None
     link: Optional[str] = None
     custom_1: Optional[str] = None
     custom_2: Optional[str] = None
-    applicant: Optional[List[Person]] = None
-    landowner: Optional[List[Person]] = None
-    project_author: Optional[List[Person]] = None
-    attachments: Optional[List[Attachment]] = None
+    applicant: Optional[Union[List[Person], str]] = None
+    landowner: Optional[Union[List[Person], str]] = None
+    project_author: Optional[Union[List[Person], str]] = None
+    attachments: Optional[Union[List[Attachment], str]] = None
 
     @dataclass
     class Meta:

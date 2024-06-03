@@ -90,16 +90,18 @@ class KtBernDossierWriter(DossierWriter):
     """
 
     id: str = CalumaAnswerWriter(
-        target="kommunale-gesuchsnummer", formatter="to-string"
+        target="kommunale-gesuchsnummer", formatter="to-string", protected=True
     )
-    proposal = CalumaAnswerWriter(target="beschreibung-bauvorhaben")
+    proposal = CalumaAnswerWriter(target="beschreibung-bauvorhaben", protected=True)
     cantonal_id = EbauNumberWriter(target="ebau-number")
     plot_data = CalumaPlotDataWriter(
         target="parzelle", column_mapping=PLOT_DATA_MAPPING
     )
     usage = CalumaAnswerWriter(target="nutzungszone")
     application_type = CalumaAnswerWriter(target="geschaeftstyp-import")
-    submit_date = CaseMetaWriter(target="submit-date", formatter="datetime-to-string")
+    submit_date = CaseMetaWriter(
+        target="submit-date", formatter="datetime-to-string", protected=True
+    )
     decision_date = CalumaAnswerWriter(target="decision-date", task="decision")
     publication_date = CalumaAnswerWriter(target="datum-publikation")
     construction_start_date = CalumaAnswerWriter(target="datum-baubeginn")

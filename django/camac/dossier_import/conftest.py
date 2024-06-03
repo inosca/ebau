@@ -5,13 +5,17 @@ from pathlib import Path
 
 import pytest
 from alexandria.core.factories import CategoryFactory
+from django.conf import settings
 from django.core.files import File
 from django.core.management import call_command
 from django.utils.module_loading import import_string
 
 from camac.dossier_import.loaders import XlsxFileDossierLoader
-from camac.dossier_import.tests.test_dossier_import_case import TEST_IMPORT_FILE_PATH
 from camac.user.models import Group
+
+TEST_IMPORT_FILE_PATH = str(
+    Path(settings.ROOT_DIR) / "camac/dossier_import/tests/data/"
+)
 
 
 @pytest.fixture
@@ -95,7 +99,7 @@ def dossier_row_full(dossier_row_sparse):
 
 
 @pytest.fixture()
-def dossier(dossier_row_full):
+def dossier(dossier_row_full, dossier_import_settings):
     loader = XlsxFileDossierLoader()
     return loader._load_dossier(dossier_row_full)
 
@@ -106,32 +110,14 @@ def dossier_loader():
 
 
 @pytest.fixture
-def make_dossier_writer(
-    db,
-    settings,
-    user,
-    group,
-    role,
-    location,
-):
-    def init_writer(config):
-        Group.objects.get_or_create(pk=group.pk, defaults={"role": role})
-        writer_cls = import_string(settings.DOSSIER_IMPORT["WRITER_CLASS"])
-        return writer_cls(
-            user_id=user.pk,
-            group_id=group.pk,
-            location_id=location.pk,
-        )
-
-    return init_writer
-
-
-@pytest.fixture
 def load_fixtures_so(
     db,
     settings,
     caluma_workflow_config_so,
     so_dossier_import_settings,
+    document_factory,
+    dynamic_option_factory,
+    service_factory,
     so_decision_settings,
     so_construction_monitoring_settings,
 ):
@@ -143,10 +129,14 @@ def load_fixtures_so(
     ]
 
     caluma_workflow_config_so.allow_forms.add("migriertes-dossier")
+    service = service_factory(service_group__name="municipality")
+    dynamic_option_factory(
+        slug=str(service.pk), question_id="gemeinde", document=document_factory()
+    )
 
     so_dossier_import_settings["ALEXANDRIA_CATEGORY"] = CategoryFactory().pk
 
-    yield None, extra_fixtures
+    yield service, extra_fixtures
 
 
 @pytest.fixture
@@ -155,7 +145,6 @@ def load_fixtures_sz(
     settings,
     caluma_workflow_config_sz,
     sz_construction_monitoring_settings,
-    instance_state_factory,
     workflow_item_factory,
 ):
     django_fixture_paths = [
@@ -176,7 +165,6 @@ def load_fixtures_be(
     be_decision_settings,
     decision_factory,
     service_factory,
-    instance_state_factory,
     construction_control_for,
     document_factory,
     dynamic_option_factory,
@@ -200,8 +188,10 @@ def setup_dossier_writer(
     db,
     settings,
     form,
+    role,
     user,
-    make_dossier_writer,
+    group,
+    location,
     attachment_section,
     application_settings,
 ):
@@ -223,13 +213,20 @@ def setup_dossier_writer(
         )
 
         dossier_import_settings["USER"] = user.username
+        writer_cls = import_string(settings.DOSSIER_IMPORT["WRITER_CLASS"])
+        this_group, _ = Group.objects.update_or_create(
+            pk=group.pk, defaults={"role": role}
+        )
+        dossier_writer = writer_cls(
+            user_id=user.pk,
+            group_id=this_group.pk,
+            location_id=location.pk,
+        )
 
-        dossier_writer = make_dossier_writer(config)
-        group = dossier_writer._group
-
-        if config == "kt_bern":
-            group.service = service
-            group.save()
+        if config in ["kt_bern", "kt_so"]:
+            this_group.service = service
+            this_group.save()
+            dossier_writer._group.refresh_from_db()
         elif config == "kt_schwyz":
             application_settings["SHORT_DOSSIER_NUMBER"] = True
 
@@ -239,7 +236,6 @@ def setup_dossier_writer(
         fixture_paths = common_fixtures_paths + config_fixtures
         if len(fixture_paths):
             call_command("loaddata", *fixture_paths)
-
         return dossier_writer
 
     return wrapper

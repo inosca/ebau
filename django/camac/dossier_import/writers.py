@@ -72,7 +72,8 @@ class FieldWriter:
         self.name = name or target
         self.protected = protected
 
-    def can_delete(self):  # pragma: no cover TODO: cover
+    @property
+    def can_delete(self):  # pragma: todo cover
         if not self.protected:
             return True
         if dossier := self.context.get("dossier"):
@@ -90,23 +91,41 @@ class CamacNgAnswerWriter(FieldWriter):
     def write(self, instance, value):
         if not value:
             return
-        (
-            form_field,
-            created,
-        ) = instance.fields.get_or_create(name=self.target, defaults=dict(value=value))
-        if not created:  # pragma: no cover
+
+        form_field = instance.fields.filter(name=self.target).first()
+        if value == self.owner.delete_keyword:
+            if self.can_delete and form_field:
+                form_field.delete()
+                if dossier := self.context.get("dossier"):
+                    dossier._meta.warnings.append(
+                        FieldValidationMessage(
+                            level=Severity.INFO.value,
+                            code=MessageCodes.VALUE_DELETED.value,
+                            field=self.target,
+                            detail="Value deleted",
+                        )
+                    )
+            return
+        form_field = form_field or instance.fields.create(name=self.target, value=value)
+        if form_field.value != value:
             form_field.value = value
             form_field.save()
 
 
-class CamacNgListAnswerWriter(FieldWriter):
+class CamacNgListAnswerWriter(CamacNgAnswerWriter):
     column_mapping = None
 
     def write(self, instance, values):
         if not values:
             return
+        if values == self.owner.delete_keyword or any(
+            [val == self.owner.delete_keyword for val in values]
+        ):
+            return super().write(instance, self.owner.delete_keyword)
+
         if not any(any(asdict(obj).values()) for obj in values):  # pragma: no cover
             return
+
         result = []
         for obj in values:
             # Ignore if a dataclass without any meaningful data makes it this far
@@ -118,13 +137,7 @@ class CamacNgListAnswerWriter(FieldWriter):
                     for key, column_name in self.column_mapping.items()
                 }
             )
-
-        field, created = instance.fields.get_or_create(
-            name=self.target, defaults=dict(value=result)
-        )
-        if not created:  # pragma: no cover
-            field.value = result
-            field.save()
+        super().write(instance, result)
 
 
 class CamacNgPersonListAnswerWriter(CamacNgListAnswerWriter):
@@ -133,23 +146,31 @@ class CamacNgPersonListAnswerWriter(CamacNgListAnswerWriter):
     def write(self, instance, value):
         if not value:
             return
+        if any([val == self.owner.delete_keyword for val in value]):
+            return super().write(instance, self.owner.delete_keyword)
+
         for person in value:
             person.street = safe_join((person.street, person.street_number))
         super().write(instance, value)
 
 
 class CamacNgStreetWriter(CamacNgAnswerWriter):
-    """Combing street and street-number into one field."""
+    """Combine street and street-number into one field."""
 
     def write(self, instance, value):
         if not value:
             return
         dossier = self.context.get("dossier")
-        super().write(instance, safe_join((dossier.street, dossier.street_number)))
+        value = (
+            value
+            if value == self.owner.delete_keyword
+            else safe_join((dossier.street, dossier.street_number))
+        )
+        super().write(instance, value)
 
 
 class WorkflowEntryDateWriter(FieldWriter):
-    """Writes dates to workflow entries by workflow entry id.
+    """Write dates to workflow entries by workflow entry id.
 
     Make sure to set up application with workflow_items from
     `core.workflowitem` preferably dumped to application's
@@ -167,17 +188,30 @@ class WorkflowEntryDateWriter(FieldWriter):
     def write(self, instance, value):
         if not value:  # pragma: no cov
             return
+        entry = WorkflowEntry.objects.filter(
+            instance=instance, workflow_item_id=self.target
+        ).first()
+        if value == self.owner.delete_keyword:
+            if not self.can_delete:  # pragma: no cover
+                return
+            if entry:
+                entry.delete()
+            return
+
         if not timezone.is_aware(value):
             value = timezone.make_aware(value)
         value = value.replace(hour=12)
-        entry, created = WorkflowEntry.objects.get_or_create(
-            instance=instance,
-            workflow_item_id=self.target,
-            defaults={"workflow_date": value, "group": instance.group_id},
-        )
-        if not created:  # pragma: no cover
-            entry.workflow_date = value
-            entry.save()
+
+        if not entry:
+            WorkflowEntry.objects.create(
+                instance=instance,
+                workflow_item_id=self.target,
+                workflow_date=value,
+                group=instance.group_id,
+            )
+            return
+        entry.workflow_date = value
+        entry.save()
 
 
 class CalumaAnswerWriter(FieldWriter):
@@ -202,7 +236,19 @@ class CalumaAnswerWriter(FieldWriter):
             if self.task:
                 work_item = instance.case.work_items.filter(task_id=self.task).first()
 
-                if not work_item:  # pragma: no cover
+                if not work_item:
+                    if value == self.owner.delete_keyword:  # pragma: no cover
+                        dossier._meta.warnings.append(
+                            Message(
+                                level=Severity.WARNING.value,
+                                code=MessageCodes.DELETION_HAS_NO_EFFECT,
+                                detail=(
+                                    f"Deleting {self.target} has no effect because"
+                                    f" work item {self.task} does not exist. Skipping."
+                                ),
+                            )
+                        )
+                        return
                     dossier._meta.errors.append(
                         Message(
                             level=Severity.WARNING.value,
@@ -216,6 +262,29 @@ class CalumaAnswerWriter(FieldWriter):
             else:
                 document = instance.case.document
             question = Question.objects.get(slug=self.target)
+
+            if value == self.owner.delete_keyword:
+                answer = document.answers.filter(question=question).first()
+                if not answer:
+                    dossier._meta.warnings.append(
+                        Message(
+                            level=Severity.WARNING.value,
+                            code=MessageCodes.DELETION_HAS_NO_EFFECT.value,
+                            detail=f"Deleting {self.target} without effect",
+                        )
+                    )
+                    return
+                answer.delete()
+                dossier._meta.warnings.append(
+                    FieldValidationMessage(
+                        level=Severity.WARNING.value,
+                        code=MessageCodes.FORM_DATA_WRITTEN.value,
+                        field=self.target,
+                        detail="Value deleted",
+                    )
+                )
+                return
+
             if (
                 question.type == "text"
                 and question.max_length
@@ -248,7 +317,7 @@ class CalumaAnswerWriter(FieldWriter):
                     Message(
                         level=Severity.WARNING.value,
                         code=MessageCodes.FIELD_VALIDATION_ERROR.value,
-                        detail=f"Failed to write {value} to {self.target} for dossier {instance}",
+                        detail=f"Failed to write {value} to {self.target}",
                     )
                 )
                 return
@@ -273,7 +342,10 @@ class BuildingAuthorityRowWriter(CalumaAnswerWriter):
                 Message(
                     level=Severity.WARNING.value,
                     code=MessageCodes.INCONSISTENT_WORKFLOW_STATE.value,
-                    detail=f"Missing building-authority work item, cannot write {self.target}",
+                    detail=(
+                        "Missing building-authority work item, cannot write ",
+                        f"{self.target}. Dossier state {dossier._meta.target_state} ",
+                    ),
                 )
             )
             return
@@ -291,6 +363,20 @@ class BuildingAuthorityRowWriter(CalumaAnswerWriter):
             AnswerDocument.objects.create(answer=table_answer, document=row_document)
 
         question = Question.objects.get(pk=self.target)
+
+        if value == self.owner.delete_keyword:
+            row_document.answers.filter(question=question).delete()
+            if dossier := self.context.get("dossier"):
+                dossier._meta.warnings.append(
+                    Message(
+                        level=Severity.INFO.value,
+                        code=MessageCodes.VALUE_DELETED.value,
+                        detail=f"Deleted {self.target} on building-authority.",
+                    )
+                )
+
+            return
+
         try:
             form_api.save_answer(
                 question=question,
@@ -300,12 +386,12 @@ class BuildingAuthorityRowWriter(CalumaAnswerWriter):
                     username=self.owner._user.username, group=self.owner._group.pk
                 ),
             )
-        except ValidationError:  # pragma: no cover
+        except ValidationError as e:  # pragma: no cover
             dossier._meta.errors.append(
                 Message(
                     level=Severity.WARNING.value,
                     code=MessageCodes.FIELD_VALIDATION_ERROR.value,
-                    detail=f"Failed to write {value} to {self.target} for dossier {instance}",
+                    detail=f"Failed to write {value} to {self.target} for dossier {instance}: {e}",
                 )
             )
             return
@@ -315,6 +401,16 @@ class CalumaListAnswerWriter(FieldWriter):
     def write(self, instance, values):  # noqa: C901
         if not values:
             return
+
+        if values == self.owner.delete_keyword or any(
+            [val == self.owner.delete_keyword for val in values]
+        ):
+            # avoid creating entries with the e. g. <delete> value if the
+            # answer does not exist
+            if answer := instance.case.document.answers.filter(
+                question__slug=self.target
+            ).first():
+                return answer.documents.all().delete()
         if not any(any(asdict(obj).values()) for obj in values):  # pragma: no cover
             return
         table_question = Question.objects.get(slug=self.target)
@@ -382,9 +478,15 @@ class CalumaPlotDataWriter(CalumaListAnswerWriter):
     def write(self, instance, values):
         if not values:
             return
+
         compiled = []
         dossier = self.context.get("dossier")
         coordinates = dossier.coordinates if dossier else []
+
+        if values == self.owner.delete_keyword or any(
+            [val == self.owner.delete_keyword for val in values]
+        ):
+            return super().write(instance, self.owner.delete_keyword)
         for plot_data, coordinate in itertools.zip_longest(values, coordinates or []):
             compiled.append(
                 CalumaPlotData(
@@ -405,6 +507,13 @@ class CaseMetaWriter(FieldWriter):
     def write(self, instance, value):
         if not value:
             return
+
+        if value == self.owner.delete_keyword:
+            if self.can_delete and instance.case.meta.get(self.target):
+                del instance.case.meta[self.target]
+                instance.case.save()
+            return
+
         formatted_value = value
         if self.formatter == "datetime-to-string":
             formatted_value = datetime.strftime(value, SUBMIT_DATE_FORMAT)
@@ -412,8 +521,12 @@ class CaseMetaWriter(FieldWriter):
         instance.case.save()
 
 
-class EbauNumberWriter(CalumaAnswerWriter):
+class EbauNumberWriter(FieldWriter):
     def write(self, instance, value):  # noqa: C901
+        # do not rewrite the ebau-number
+        if instance.case.meta.get("ebau-number"):
+            return
+
         dossier = self.context.get("dossier")
         if not dossier.submit_date:
             detail = (
@@ -438,6 +551,8 @@ class EbauNumberWriter(CalumaAnswerWriter):
 
 
 class DossierWriter:
+    delete_keyword = settings.DOSSIER_IMPORT["DELETE_KEYWORD"]
+
     class ConfigurationError(Exception):
         pass
 

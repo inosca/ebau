@@ -1,4 +1,3 @@
-import datetime
 import zipfile
 from enum import Enum
 from typing import List
@@ -154,6 +153,27 @@ def _validate_date_fields(
                 "messages": dossier_messages,
             }
 
+            if date.value == settings.DOSSIER_IMPORT["DELETE_KEYWORD"]:
+                if allow_delete:
+                    messages.append_or_update_dossier_message(
+                        code=MessageCodes.VALUE_DELETED,
+                        detail="Date will be deleted",
+                        level=messages.Severity.INFO.value,
+                        **message_defaults,
+                    )
+                    continue
+                else:
+                    messages.append_or_update_dossier_message(
+                        code=MessageCodes.FIELD_VALIDATION_ERROR,
+                        detail=(
+                            f"Ignoring {date.value} for {date_column.value.lower()} because ",
+                            "Deletion is not supported for new dossiers",
+                        ),
+                        level=messages.Severity.WARNING.value,
+                        **message_defaults,
+                    )
+                    continue
+
             if not isinstance(date.value, timezone.datetime):
                 try:
                     date = timezone.datetime.strptime(
@@ -168,6 +188,33 @@ def _validate_date_fields(
                     )
                     valid = False
     return valid
+
+
+def _validate_existing_dossier(dossier_id, dossier_msgs, worksheet):
+    messages.append_or_update_dossier_message(
+        dossier_id=dossier_id,
+        field_name="ID",
+        detail=dossier_id,
+        code=MessageCodes.UPDATE_DOSSIER.value,
+        messages=dossier_msgs,
+        level=messages.Severity.WARNING.value,
+    )
+    # reimporting does not require the "STATUS" column to be present, therefore
+    # we do cannot ta
+    if (
+        status := get_dossier_cell_by_column(dossier_id, "status", worksheet)
+    ) and status.value:
+        messages.append_or_update_dossier_message(
+            dossier_id=dossier_id,
+            field_name="STATUS",
+            detail=_("STATUS will be ignored when updating the dossier"),
+            code=MessageCodes.UPDATE_DOSSIER.value,
+            messages=dossier_msgs,
+            level=messages.Severity.INFO.value,
+        )
+
+    _validate_date_fields(dossier_id, dossier_msgs, worksheet, allow_delete=True)
+    return True
 
 
 def _validate_new_dossier(dossier_id, dossier_msgs, worksheet):
@@ -306,12 +353,11 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
                 valid_dossier_ids.append(dossier_id)
             continue
 
+        # otherwise handle reimport
+        valid = _validate_existing_dossier(
             dossier_id,
-            "ID",
-            f"Dossier with {dossier_id} already exists",
-            MessageCodes.DUPLICATE_IDENTFIER_ERROR.value,
             dossier_msgs,
-            level=messages.Severity.ERROR.value,
+            worksheet,
         )
         if valid:
             valid_dossier_ids.append(dossier_id)

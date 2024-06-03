@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import List, Union
+from typing import List, Literal, Union
 
 from dataclasses_json import dataclass_json
 from django.utils.translation import gettext as _
@@ -78,6 +78,8 @@ class MessageCodes(str, Enum):
     ATTACHMENT_CREATED = "attachment-created"
     SET_WORKFLOW_STATE = "workflow-state-set"
     UNDO_IMPORT_TRIGGERED = "undo-import-triggered"
+    UPDATE_DOSSIER = "update-dossier"
+    VALUE_DELETED = "value-deleted"
 
     # warnings
     DUPLICATE_DOSSIER = "duplicate-dossier"
@@ -89,6 +91,10 @@ class MessageCodes(str, Enum):
     MIME_TYPE_UNKNOWN = "mime-type-unknown"
     WORKFLOW_SKIP_ITEM_FAILED = "skip-workitem-failed"  # not user-facing
     INCONSISTENT_WORKFLOW_STATE = "inconsistent-workflow-state"  # trying to write dates that should not exist at the current state of workflow
+    WRITING_READ_ONLY_FIELD = (
+        "writing-read-only-field"  # on existing instance when reimporting
+    )
+    DELETION_HAS_NO_EFFECT = "deletion-has-no-effect"  # e.g. the value wasn't set or the work item does not exist
 
     # errors
     TASK_TIMED_OUT = "task-timed-out"
@@ -103,9 +109,9 @@ def get_message_max_level(message_list: List[Message], default=Severity.DEBUG.va
 
 
 def aggregate_messages_by_level(message_object: dict, level: str) -> list:
-    """Filter messages field section by message status.
+    r"""Aggregate dossier messages by level grouped by message.
 
-    Message object is a dict:
+    The message_object is a collection of dossier summaries:
     {
         "details": [
             {
@@ -117,11 +123,24 @@ def aggregate_messages_by_level(message_object: dict, level: str) -> list:
                         "detail": "not a date",
                         "field": "SUBMIT-DATE",
                         "level": 2,  # warning
-                    }
+                    },
+                    ...
                 ]
             }
-        ]
+        ],
+        ...
+
     }
+
+    The result is a list of messages counting the occurrence of a message and listing
+    affected dossier-ids. E. g.
+    [
+        ...
+        '2 Dossiers haben ein ungültiges Datum. Datumsangaben bitte im Format "DD.MM.YYYY" (e.g. "13.04.2021") machen. Betroffene Dossiers:\n2017-84: \'2-2-2\' (submit-date)',
+        '3 Dossiers ...',
+        ...
+    ]
+
     """
     result = []
     if message_object:
@@ -144,7 +163,7 @@ def aggregate_messages_by_level(message_object: dict, level: str) -> list:
 
             if filtered_summaries:
                 result.append(compile_message_for_code(code, filtered_summaries))
-    return result
+    return sorted(result)
 
 
 def compile_message_for_code(code, filtered_summaries):
@@ -167,6 +186,9 @@ def compile_message_for_code(code, filtered_summaries):
             'have an invalid value in date field. Please use the format "DD.MM.YYYY" (e.g. "13.04.2021")'
         ),
         MessageCodes.STATUS_CHOICE_VALIDATION_ERROR.value: _("have an invalid status"),
+        MessageCodes.UPDATE_DOSSIER.value: _("will be updated"),
+        MessageCodes.VALUE_DELETED.value: _("cleared values"),
+        MessageCodes.ATTACHMENT_UPDATED.value: _("updated attachments"),
         MessageCodes.MISSING_REQUIRED_VALUE_ERROR.value: _(
             "miss a value in a required field"
         ),
@@ -195,9 +217,9 @@ def compile_message_for_code(code, filtered_summaries):
                 if format_message(message)
             ]
         )
-        if entries:
-            return f"{summary['dossier_id']}: {entries}"
-        return summary["dossier_id"]
+        return (
+            f"{summary['dossier_id']}: {entries}" if entries else summary["dossier_id"]
+        )
 
     entries = [
         format_summary(summary)
@@ -224,6 +246,10 @@ def update_summary(dossier_import):
         validation_message_object["summary"]["error"] += aggregate_messages_by_level(
             validation_message_object, Severity.ERROR.value
         )
+        if validation_details := validation_message_object.get("details"):
+            validation_message_object["details"] = sorted(
+                validation_details, key=lambda x: str(x["dossier_id"])
+            )
         dossier_import.messages["validation"] = validation_message_object
         dossier_import.save()
 
@@ -247,6 +273,10 @@ def update_summary(dossier_import):
                 ).count(),
             }
         )
+        if import_details := import_message_object.get("details"):
+            import_message_object["details"] = sorted(
+                import_details, key=lambda x: str(x["dossier_id"])
+            )
         dossier_import.messages["import"] = import_message_object
         dossier_import.save()
     return dossier_import
@@ -261,7 +291,7 @@ def append_or_update_dossier_message(
     )
     if not dossier_msg:
         dossier_msg = DossierSummary(
-            status=DOSSIER_IMPORT_STATUS_ERROR,
+            status=DOSSIER_IMPORT_STATUS_SUCCESS,
             details=[],
             dossier_id=dossier_id,
         )
@@ -276,23 +306,33 @@ def append_or_update_dossier_message(
     )
 
 
-def update_messages_section_detail(message: DossierSummary, dossier_import, section):
+Sections = ["validation", "import"]
+
+
+def update_messages_section_detail(
+    message: DossierSummary,
+    section: Literal[Sections],
+    dossier_import,
+):
     """Update DossierImport.messages with dossier message detail.
 
-    This is to avoid overwriting previous messages on the current dossier with new
-    messages.
+    This is to avoid overwriting previous messages on the current dossier with
+    new messages.
 
-    message is an instance of DossierMessage.
+    message: an instance of DossierSummary. It carries a unique dossier_id, the
+        status of the dossier based on validation results and a set of details
+        that is a list of messages regarding that dossier
+        (field validations etc.)
 
-    dossier_import is an instance of DossierImport
+    dossier_import: an instance of camac.dossier_import.models.DossierImport
 
-    section: str, one of "validation" or "import"
+    section: to what section of the messages should it be appended.
 
-    Input message is transformed to dictionary that can be saved to the DossierImport.messages
-    field
+    The input message is transformed to a dictionary that can be saved to the
+    DossierImport.messages field.
     """
-    if section not in ["validation", "import"]:  # pragma: no cover
-        raise ValueError(f"`section` must be one of {', '.join(section)}.")
+    if section not in Sections:  # pragma: no cover
+        raise ValueError(f"`section` must be one of {', '.join(Sections)}.")
     message_exists = next(
         (
             d
@@ -303,7 +343,7 @@ def update_messages_section_detail(message: DossierSummary, dossier_import, sect
     )
     if not message_exists:
         message_exists = message.to_dict()
-        dossier_import.messages["validation"]["details"].append(message_exists)
+        dossier_import.messages[section]["details"].append(message_exists)
     message_exists.update(message.to_dict())
 
 

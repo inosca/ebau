@@ -62,8 +62,8 @@ class KtSchwyzDossierWriter(DossierWriter):
       containing the documents to be attached to the dossier.
     """
 
-    id: str = CamacNgAnswerWriter(target="kommunale-gesuchsnummer")
-    proposal = CamacNgAnswerWriter(target="bezeichnung")
+    id: str = CamacNgAnswerWriter(target="kommunale-gesuchsnummer", protected=True)
+    proposal = CamacNgAnswerWriter(target="bezeichnung", protected=True)
     cantonal_id = CamacNgAnswerWriter(target="kantonale-gesuchsnummer")
     plot_data = CamacNgListAnswerWriter(
         target="parzellen", column_mapping=PARCEL_MAPPING
@@ -73,7 +73,9 @@ class KtSchwyzDossierWriter(DossierWriter):
     )
     usage = CamacNgAnswerWriter(target="betroffene-nutzungszonen")
     application_type = CamacNgAnswerWriter(target="verfahrensart-migriertes-dossier")
-    submit_date = WorkflowEntryDateWriter(target=10, name="einreichedatum")
+    submit_date = WorkflowEntryDateWriter(
+        target=10, name="einreichedatum", protected=True
+    )
     publication_date = WorkflowEntryDateWriter(name="publikationsdatum", target=15)
 
     construction_start_date = BuildingAuthorityRowWriter(
@@ -174,6 +176,7 @@ class KtSchwyzDossierWriter(DossierWriter):
         method is still implemented to make it explicit and allow
         for better testing.
         """
+        self.cantonal_id.owner = self
         self.cantonal_id.write(instance, dossier_id)
 
     def _set_workflow_state(

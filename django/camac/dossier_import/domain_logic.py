@@ -1,5 +1,6 @@
 import os
 import re
+import sys
 import time
 import traceback
 from dataclasses import asdict
@@ -63,7 +64,10 @@ def perform_import(dossier_import):
         dossier_import.messages["import"] = {"details": []}
         for dossier in loader.load_dossiers(dossier_import.get_archive()):
             try:
-                message = writer.import_dossier(dossier, str(dossier_import.id))
+                message = writer.import_dossier(
+                    dossier,
+                    str(dossier_import.id),
+                )
             except Exception as e:  # pragma: no cover  # noqa: B902
                 # We need to catch unhandled exeptions in single dossier imports
                 # and keep it going.
@@ -103,7 +107,7 @@ def perform_import(dossier_import):
     except Exception as e:  # pragma: no cover  # noqa: B902
         # This is just the last straw. An exception caught here
         # aborts the import session.
-        log.exception(e)
+        log.exception(e, exc_info=True)
         dossier_import.messages["import"]["exception"] = str(e)
         dossier_import.status = DossierImport.IMPORT_STATUS_IMPORT_FAILED
 
@@ -190,8 +194,8 @@ def clean_import(dossier_import):
         dossier_import.delete_file()
         dossier_import.status = DossierImport.IMPORT_STATUS_CLEANED
     except Exception as e:  # pragma: no cover # noqa: B902
-        log.exception(e)
-        dossier_import.messages["import"]["exception"] = str(e)
+        log.exception(e, exc_info=True)
+        dossier_import.messages["import"]["exception"] = str(sys.exc_info())
         dossier_import.status = DossierImport.IMPORT_STATUS_CLEAN_FAILED
     finally:
         dossier_import.save()
