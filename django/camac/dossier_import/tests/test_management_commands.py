@@ -88,13 +88,7 @@ def test_import_dossiers_manage_command(
 
 
 @pytest.mark.parametrize("config", ["kt_schwyz"])
-def test_validate_dossiers_manage_command(
-    db,
-    settings,
-    setup_dossier_writer,
-    config,
-    snapshot,
-):
+def test_validate_dossiers_manage_command(db, settings, setup_dossier_writer, config):
     writer = setup_dossier_writer(config)
     out = StringIO()
     call_command(
