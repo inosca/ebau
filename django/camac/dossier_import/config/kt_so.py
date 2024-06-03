@@ -1,9 +1,5 @@
-import re
 from typing import List
 
-import magic
-from alexandria.core.api import create_document_file
-from alexandria.core.models import Category
 from caluma.caluma_form import api as form_api
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Form as CalumaForm, Question
@@ -11,22 +7,15 @@ from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import skip_work_item
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
-from django.core.files import File
-from django.db import transaction
 
 from camac.caluma.extensions.events.general import get_caluma_setting
 from camac.core.models import InstanceService
 from camac.core.utils import generate_sort_key
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.messages import (
-    DOSSIER_IMPORT_STATUS_ERROR,
-    DOSSIER_IMPORT_STATUS_SUCCESS,
-    DOSSIER_IMPORT_STATUS_WARNING,
-    DossierSummary,
     Message,
     MessageCodes,
     Severity,
-    get_message_max_level,
 )
 from camac.dossier_import.validation import TargetStatus
 from camac.dossier_import.writers import (
@@ -67,10 +56,6 @@ PLOT_DATA_MAPPING = {
     "coord_east": "lagekoordinaten-ost",
     "coord_north": "lagekoordinaten-nord",
 }
-
-
-class ConfigurationError(Exception):
-    pass
 
 
 class KtSolothurnDossierWriter(DossierWriter):
@@ -179,99 +164,16 @@ class KtSolothurnDossierWriter(DossierWriter):
         else:
             instance.keywords.create(name=dossier_id, service=self._group.service)
 
-    @transaction.atomic
-    def import_dossier(
-        self, dossier: Dossier, import_session_id: str, allow_updates: bool = False
-    ) -> DossierSummary:
-        dossier_summary = DossierSummary(
-            dossier_id=dossier.id, status=DOSSIER_IMPORT_STATUS_SUCCESS, details=[]
+    def _post_create_instance(self, instance: Instance, dossier: Dossier):
+        save_answer(
+            document=instance.case.document,
+            question=Question.objects.get(slug="gemeinde"),
+            value=str(self._group.service_id),
+            user=self._caluma_user,
         )
 
-        # copy messages from loader to summary
-        dossier_summary.details += dossier._meta.errors
-
-        if dossier._meta.missing:
-            dossier_summary.details.append(
-                Message(
-                    level=Severity.ERROR.value,
-                    code=MessageCodes.MISSING_REQUIRED_VALUE_ERROR.value,
-                    detail=f"missing values in required fields: {dossier._meta.missing}",
-                )
-            )
-            dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
-            return dossier_summary
-        created = False
-        if instance := self.existing_dossier(dossier.id):
-            if not allow_updates:  # pragma: todo cover
-                dossier_summary.details.append(
-                    Message(
-                        level=Severity.WARNING.value,
-                        code=MessageCodes.DUPLICATE_DOSSIER.value,
-                        detail=f"Dossier with ID {dossier.id} already exists.",
-                    )
-                )
-                dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
-                return dossier_summary
-        else:
-            instance = self.create_instance(dossier)
-            created = True
-            self.set_dossier_id(instance, dossier.id)
-
-            dossier_summary.details.append(
-                Message(
-                    level=Severity.DEBUG.value,
-                    code=MessageCodes.INSTANCE_CREATED.value,
-                    detail=f"Instance created with ID:  {instance.pk}",
-                )
-            )
-
-        dossier_summary.instance_id = instance.pk
-        dossier_summary.details += self._create_dossier_attachments(dossier, instance)
-
-        # prevent workflowstate skipping if the instance is updated
-        # and also keep history
-        if created:
-            instance.case.meta["import-id"] = import_session_id
-            instance.case.save()
-
-            save_answer(
-                document=instance.case.document,
-                question=Question.objects.get(slug="gemeinde"),
-                value=str(self._group.service_id),
-                user=self._caluma_user,
-            )
-
-            workflow_message = self._set_workflow_state(instance, dossier)
-            dossier_summary.details.append(
-                Message(
-                    level=get_message_max_level(workflow_message),
-                    code=MessageCodes.SET_WORKFLOW_STATE.value,
-                    detail=workflow_message,
-                )
-            )
-
-            instance.history.all().delete()
-
-        self.write_fields(instance, dossier)
+    def _post_write_fields(self, instance, dossier):
         self._write_triage_fields(instance)
-        dossier_summary.details += dossier._meta.warnings
-        dossier_summary.details += dossier._meta.errors
-        dossier_summary.details.append(
-            Message(
-                level=Severity.DEBUG.value,
-                code=MessageCodes.FORM_DATA_WRITTEN.value,
-                detail="Form data written.",
-            )
-        )
-
-        if (
-            get_message_max_level(dossier_summary.details) == Severity.ERROR.value
-        ):  # pragma: no cover
-            dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
-        if get_message_max_level(dossier_summary.details) == Severity.WARNING.value:
-            dossier_summary.status = DOSSIER_IMPORT_STATUS_WARNING  # pragma: no cover
-
-        return dossier_summary
 
     def _write_triage_fields(self, instance: Instance):
         """Write triage answers for personal data.
@@ -341,7 +243,10 @@ class KtSolothurnDossierWriter(DossierWriter):
                     Message(
                         level=Severity.ERROR.value,
                         code=MessageCodes.WORKFLOW_SKIP_ITEM_FAILED.value,
-                        detail=f"Skip work item with task_id {task_id} failed with {ConfigurationError(e)}.",
+                        detail=(
+                            f"Skip work item with task_id {task_id} failed with "
+                            f"{DossierWriter.ConfigurationError(e)}."
+                        ),
                     )
                 )
                 continue
@@ -421,62 +326,5 @@ class KtSolothurnDossierWriter(DossierWriter):
                 user=self._caluma_user,
             )
 
-    def _create_dossier_attachments(
-        self, dossier: Dossier, instance: Instance
-    ) -> List[Message]:
-        messages = []
-        if not dossier.attachments:  # pragma: no cover
-            return messages
-
-        for document in dossier.attachments:
-            content = File(document.file_accessor)
-
-            filename = re.sub(
-                r"^{dossier_id}/".format(dossier_id=dossier.id),
-                "",
-                document.name.encode("utf-8", errors="ignore").decode(
-                    "utf-8", errors="ignore"
-                ),
-            )
-
-            mimimi = magic.Magic(mime=True, uncompress=True)
-            mime_type = mimimi.from_buffer(content.file.read())
-            content.file.seek(0)
-
-            if not mime_type:  # pragma: no cover
-                messages.append(
-                    Message(
-                        level=Severity.WARNING.value,
-                        code=MessageCodes.MIME_TYPE_UNKNOWN,
-                        detail=filename,
-                    )
-                )
-                continue
-
-            category = Category.objects.get(
-                pk=settings.DOSSIER_IMPORT["ALEXANDRIA_CATEGORY"]
-            )
-
-            # TODO: implement reimport
-            doc, _ = create_document_file(
-                user=self._user.pk,
-                group=self._group.service.pk,
-                category=category,
-                document_title=filename,
-                file_name=filename,
-                file_content=content,
-                mime_type=mime_type,
-                file_size=content.size,
-                additional_document_attributes={
-                    "metainfo": {"camac-instance-id": str(instance.pk)},
-                },
-            )
-
-            messages.append(
-                Message(
-                    level=Severity.INFO.value,
-                    code=MessageCodes.ATTACHMENT_CREATED.value,
-                    detail=f"{doc.title.translate()} ({doc.get_latest_original().mime_type}) in section {category.name.translate()}",
-                )
-            )
-        return messages
+    def _handle_document(self, *args, **kwargs):
+        return self._handle_alexandria_document(*args, **kwargs)
