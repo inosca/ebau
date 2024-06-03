@@ -70,12 +70,9 @@ export default class InstanceAbility extends Ability {
     );
   }
 
-  // UR
+  // GR and UR
   get canLinkDossiers() {
-    return (
-      this.ebauModules.baseRole === "municipality" ||
-      this.ebauModules.baseRole === "coordination"
-    );
+    return ["municipality", "coordination"].includes(this.ebauModules.baseRole);
   }
 
   get canWriteForm() {

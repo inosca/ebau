@@ -1,0 +1,28 @@
+<UkModal
+  class="uk-modal-container"
+  @visible={{true}}
+  as |Modal|
+>
+  <Modal.body>
+    <button
+      type="button"
+      class="uk-modal-close-default"
+      uk-close
+      {{on "click" @toggleModal}}
+    >
+    </button>
+    <h2 class="uk-modal-title">
+      {{t "cases.miscellaneous.modalTitle"}}
+      {{@plots}},
+      {{@municipality}}
+    </h2>
+    <LinkedInstances::Table
+      @instancesOnSamePlot={{@instancesOnSamePlot}}
+      @linkedInstances={{@currentInstance.linkedInstances}}
+      @filters={{@filters}}
+      @onLink={{@onLink}}
+      @onUnlink={{@onUnlink}}
+      @currentInstanceId={{@currentInstance.id}}
+    />
+  </Modal.body>
+</UkModal>

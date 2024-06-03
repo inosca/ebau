@@ -5,6 +5,7 @@ export default {
   prodUrl: "www.ebau.apps.be.ch",
   showInstanceIdAfterSubmission: true,
   documentBackend: "camac",
+  showIdInInternalArea: false,
   gwr: {
     cantonAbbreviation: "BE",
     importModels: ["project"],

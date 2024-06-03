@@ -5,21 +5,26 @@ import calumaQuery from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 
+import config from "ember-ebau-core/config/main";
+
 export default class LinkedInstancesTableComponent extends Component {
   @queryManager apollo;
 
   @service store;
+  @service ebauModules;
 
   @calumaQuery({ query: allCases, options: "options" }) casesQuery;
 
-  tableColumns = [
-    "instanceId",
-    "dossierNumber",
-    "form",
-    "street",
-    "intent",
-    "instanceState",
-  ];
+  get tableColumns() {
+    return [
+      ...(config.showIdInInternalArea ? ["instanceId"] : []),
+      "dossierNumber",
+      "form",
+      "street",
+      "intent",
+      "instanceState",
+    ];
+  }
 
   get options() {
     return {
@@ -59,12 +64,5 @@ export default class LinkedInstancesTableComponent extends Component {
   @action
   loadNextPage() {
     this.casesQuery.fetchMore();
-  }
-
-  @action
-  redirectToCase(caseRecord) {
-    location.assign(
-      `/index/redirect-to-instance-resource/instance-id/${caseRecord.instanceId}/`,
-    );
   }
 }

@@ -609,5 +609,49 @@
         "rejected"
       ]
     }
+  },
+  "12000017": {
+    "label": "Meine Dossiers (Dossier list (Caluma)) > Verknüpfte Dossiers",
+    "acls": {
+      "municipality-lead": [
+        "circulation",
+        "construction-acceptance",
+        "correction",
+        "decision",
+        "finished",
+        "init-distribution",
+        "rejected",
+        "subm"
+      ],
+      "service-lead": [
+        "circulation",
+        "construction-acceptance",
+        "decision",
+        "finished",
+        "rejected"
+      ],
+      "subservice": [
+        "circulation",
+        "construction-acceptance",
+        "correction",
+        "decision",
+        "finished",
+        "init-distribution",
+        "new",
+        "subm"
+      ],
+      "support": [
+        "new",
+        "subm",
+        "circulation",
+        "finished",
+        "decision",
+        "correction",
+        "init-distribution",
+        "construction-acceptance",
+        "rejected"
+      ],
+      "uso": ["circulation", "construction-acceptance", "decision", "finished"]
+    }
   }
 }
