@@ -7,21 +7,15 @@ from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import skip_work_item
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
-from django.db import transaction
 from rest_framework.exceptions import ValidationError
 
 from camac.caluma.extensions.events.general import get_caluma_setting
 from camac.core.models import InstanceService
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.messages import (
-    DOSSIER_IMPORT_STATUS_ERROR,
-    DOSSIER_IMPORT_STATUS_SUCCESS,
-    DOSSIER_IMPORT_STATUS_WARNING,
-    DossierSummary,
     Message,
     MessageCodes,
     Severity,
-    get_message_max_level,
 )
 from camac.dossier_import.validation import TargetStatus
 from camac.dossier_import.writers import (
@@ -82,10 +76,6 @@ PLOT_DATA_MAPPING = {
     "coord_east": "lagekoordinaten-ost",
     "coord_north": "lagekoordinaten-nord",
 }
-
-
-class ConfigurationError(Exception):
-    pass
 
 
 class KtBernDossierWriter(DossierWriter):
@@ -205,6 +195,44 @@ class KtBernDossierWriter(DossierWriter):
 
         return instance
 
+    def _post_write_fields(self, instance, dossier):
+        self._write_triage_fields(instance)
+
+    def _write_triage_fields(self, instance: Instance):
+        """Write triage answers for personal data.
+
+        The table questions for landowner, and project author are only displayed
+        if the associated triage question whether the data is different from the
+        applicant is answered with yes. This method checks if there is any data
+        in the personal table and answers the triage question accordingly.
+        """
+
+        pass  # TODO: do something similar to kt_so e. g. below
+        # for table_question in [
+        #     "personalien-grundeigentuemerin",
+        #     "personalien-projektverfasserin",
+        #     # As the invoice recipient can not be passed to the import, the
+        #     # table will always be empty and the triage question will always be
+        #     # answered with "no". However, we still use the same logic as for
+        #     # the others in order to avoid more code.
+        #     "personalien-rechnungsempfaengerin",
+        # ]:
+        # table_answer = instance.case.document.answers.filter(
+        #     question_id=table_question
+        # ).first()
+        # has_rows = table_answer.documents.exists() if table_answer else False
+
+        # suffix = "ja" if has_rows else "nein"
+        # triage_question = f"{table_question}-abweichend"
+        # value = f"{triage_question}-{suffix}"
+
+        # form_api.save_answer(
+        #     document=instance.case.document,
+        #     question=Question.objects.get(pk=triage_question),
+        #     value=value,
+        #     user=self._caluma_user,
+        # )
+
     def existing_dossier(self, dossier_id):
         return (
             tag := Tags.objects.filter(
@@ -222,93 +250,13 @@ class KtBernDossierWriter(DossierWriter):
             name=dossier_id, service=construction_control, instance=instance
         )
 
-    @transaction.atomic
-    def import_dossier(
-        self, dossier: Dossier, import_session_id: str, allow_updates: bool = False
-    ) -> DossierSummary:
-        dossier_summary = DossierSummary(
-            dossier_id=dossier.id, status=DOSSIER_IMPORT_STATUS_SUCCESS, details=[]
+    def _post_create_instance(self, instance, dossier):
+        save_answer(
+            document=instance.case.document,
+            question=Question.objects.get(slug="gemeinde"),
+            value=str(self._group.service_id),
+            user=self._caluma_user,
         )
-
-        # copy messages from loader to summary
-        dossier_summary.details += dossier._meta.errors
-
-        if dossier._meta.missing:
-            dossier_summary.details.append(
-                Message(
-                    level=Severity.ERROR.value,
-                    code=MessageCodes.MISSING_REQUIRED_VALUE_ERROR.value,
-                    detail=f"missing values in required fields: {dossier._meta.missing}",
-                )
-            )
-            dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
-            return dossier_summary
-        created = False
-        if instance := self.existing_dossier(dossier.id):
-            dossier_summary.dossier_id = instance.pk
-            if not allow_updates:
-                dossier_summary.details.append(
-                    Message(
-                        level=Severity.WARNING.value,
-                        code=MessageCodes.DUPLICATE_DOSSIER.value,
-                        detail=f"Dossier with ID {dossier.id} already exists.",
-                    )
-                )
-                dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
-                return dossier_summary
-        else:
-            instance = self.create_instance(dossier)
-            created = True
-            self.set_dossier_id(instance, dossier.id)
-        dossier_summary.instance_id = instance.pk
-        dossier_summary.details.append(
-            Message(
-                level=Severity.DEBUG.value,
-                code=MessageCodes.INSTANCE_CREATED.value,
-                detail=f"Instance created with ID:  {instance.pk}",
-            )
-        )
-        dossier_summary.details += self._create_dossier_attachments(dossier, instance)
-        if created:
-            instance.case.meta["import-id"] = import_session_id
-            instance.case.save()
-            q_municipality = Question.objects.get(slug="gemeinde")
-            save_answer(
-                document=instance.case.document,
-                question=q_municipality,
-                value=str(self._group.service_id),
-                user=self._caluma_user,
-            )
-
-            workflow_message = self._set_workflow_state(instance, dossier)
-            dossier_summary.details.append(
-                Message(
-                    level=get_message_max_level(workflow_message),
-                    code=MessageCodes.SET_WORKFLOW_STATE.value,
-                    detail=workflow_message,
-                )
-            )
-            instance.history.all().delete()
-
-        self.write_fields(instance, dossier)
-        dossier_summary.details += dossier._meta.warnings
-        dossier_summary.details += dossier._meta.errors
-        dossier_summary.details.append(
-            Message(
-                level=Severity.DEBUG.value,
-                code=MessageCodes.FORM_DATA_WRITTEN.value,
-                detail="Form data written.",
-            )
-        )
-
-        if (
-            get_message_max_level(dossier_summary.details) == Severity.ERROR.value
-        ):  # pragma: no cover
-            dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
-        if get_message_max_level(dossier_summary.details) == Severity.WARNING.value:
-            dossier_summary.status = DOSSIER_IMPORT_STATUS_WARNING  # pragma: no cover
-
-        return dossier_summary
 
     def _set_workflow_state(  # noqa: C901
         self,
@@ -364,7 +312,10 @@ class KtBernDossierWriter(DossierWriter):
                     Message(
                         level=Severity.ERROR.value,
                         code=MessageCodes.WORKFLOW_SKIP_ITEM_FAILED.value,
-                        detail=f"Skip work item with task_id {task_id} failed with {ConfigurationError(e)}.",
+                        detail=(
+                            f"Skip work item with task_id {task_id} failed with "
+                            f"{DossierWriter.ConfigurationError(e)}."
+                        ),
                     )
                 )
                 continue

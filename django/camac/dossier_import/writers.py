@@ -14,18 +14,27 @@ from caluma.caluma_user.models import BaseUser
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.files import File
-from django.db import IntegrityError
+from django.db import IntegrityError, transaction
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from future.moves import itertools
 from rest_framework.exceptions import ValidationError
 
 from camac.core.models import WorkflowEntry
-from camac.document.models import Attachment, AttachmentSection
 from camac.dossier_import.domain_logic import get_or_create_ebau_nr
 from camac.dossier_import.dossier_classes import CalumaPlotData, Dossier
 from camac.dossier_import.loaders import safe_join
-from camac.dossier_import.messages import Message, MessageCodes, Severity
+from camac.dossier_import.messages import (
+    DOSSIER_IMPORT_STATUS_ERROR,
+    DOSSIER_IMPORT_STATUS_SUCCESS,
+    DOSSIER_IMPORT_STATUS_WARNING,
+    DossierSummary,
+    FieldValidationMessage,
+    Message,
+    MessageCodes,
+    Severity,
+    get_message_max_level,
+)
 from camac.instance.domain_logic import SUBMIT_DATE_FORMAT
 from camac.instance.models import Instance
 from camac.user.models import Group, User
@@ -429,6 +438,9 @@ class EbauNumberWriter(CalumaAnswerWriter):
 
 
 class DossierWriter:
+    class ConfigurationError(Exception):
+        pass
+
     def __init__(
         self,
         user_id,
@@ -450,8 +462,8 @@ class DossierWriter:
         self._caluma_user.camac_group = self._group.pk
 
     def create_instance(self, dossier: Dossier) -> Instance:
-        """Instance etc erstellen."""
-        raise NotImplementedError  # pragma: no cover
+        """Create the instance."""
+        raise DossierWriter.ConfigurationError  # pragma: no cover
 
     def write_fields(self, instance: Instance, dossier: Dossier):
         for field in fields(dossier):
@@ -461,32 +473,317 @@ class DossierWriter:
                 writer.context = {"dossier": dossier}
                 writer.write(instance, getattr(dossier, field.name, None))
 
-    def import_dossier(self, dossier: Dossier) -> Message:
-        # instance = self.create_instance(dossier)
-        # self.write_fields(instance, dossier)
-        # self._handle_dossier_attachments(dossier)
-        # self._set_workflow_state(instance, dossier.Meta.target_state)
-        raise NotImplementedError  # pragma: no cover
+    @transaction.atomic
+    def import_dossier(
+        self, dossier: Dossier, import_session_id: str
+    ) -> DossierSummary:
+        """Handle importing of a single dossier.
 
-    def existing_dossier(self, dossier_id):
+        Importing a single dossier is composed of a number of steps some of which
+        are mandatory, some are optional. The mandatory will rise a
+        ConfigurationError exception if undefined.
+
+        Since importing can be repeated for a single dossier we need to be able to
+        identify the dataset about to be imported with an existing dossier in the
+        db. To avoid code duplication the importing or re-importing procedure is
+        the same for all configurations with a set of predefined methods and hooks
+        that are called by the `import_dossier` method.
+
+        # identifcation
+        instance = self.existing_dossier(dossier_id)   # mandatory
+
+        # new dossier
+        instance = self.create_instance(dossier)       # mandatory
+        self._post_create_instance(instance, dossier)  # optional
+        self.set_dossier_id(instance, dossier_id)      # mandatory
+
+        # all dossiers
+        self.write_fields(instance, dossier)           # generic
+        self._post_write_fields(instance, dossier)     # optional
+        self._handle_dossier_attachments(dossier)      # mandatory
+        self._set_workflow_state(instance, dossier)    # mandatory
+        """
+
+        dossier_summary = DossierSummary(
+            dossier_id=dossier.id, status=DOSSIER_IMPORT_STATUS_SUCCESS, details=[]
+        )
+        # copy messages from loader to summary
+        dossier_summary.details += dossier._meta.errors
+        instance = None
+        created = True
+        if instance := self.existing_dossier(dossier.id):
+            created = False
+            dossier_summary.instance_id = instance.pk
+            dossier_summary.details.append(
+                Message(
+                    level=Severity.WARNING.value,
+                    code=MessageCodes.UPDATE_DOSSIER.value,
+                    detail="updating values of existing dossier",
+                )
+            )
+        if not instance:
+            if dossier._meta.missing:
+                dossier_summary.details.append(
+                    Message(
+                        level=Severity.ERROR.value,
+                        code=MessageCodes.MISSING_REQUIRED_VALUE_ERROR.value,
+                        detail=f"missing values in required fields: {dossier._meta.missing}",
+                    )
+                )
+                dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
+                return dossier_summary
+            instance = self.create_instance(dossier)
+            dossier_summary.instance_id = str(instance.pk)
+            self._post_create_instance(instance, dossier)
+            self.set_dossier_id(instance, dossier.id)
+            dossier_summary.details.append(
+                Message(
+                    level=Severity.DEBUG.value,
+                    code=MessageCodes.INSTANCE_CREATED.value,
+                    detail=f"Instance created with ID:  {instance.pk}",
+                )
+            )
+
+        dossier_summary.details += self._create_dossier_attachments(dossier, instance)
+
+        # prevent workflowstate skipping if the instance is updated
+        # and also keep history
+        if created:
+            instance.case.meta["import-id"] = import_session_id
+            instance.case.save()
+
+            workflow_message = self._set_workflow_state(instance, dossier)
+            instance.history.all().delete()
+            dossier_summary.details.append(
+                Message(
+                    level=get_message_max_level(workflow_message),
+                    code=MessageCodes.SET_WORKFLOW_STATE.value,
+                    detail=workflow_message,
+                )
+            )
+
+        self.write_fields(instance, dossier)
+
+        self._post_write_fields(instance, dossier)
+
+        # collect all messages by severity level
+        dossier_summary.details += dossier._meta.warnings
+        dossier_summary.details += dossier._meta.errors
+        dossier_summary.details.append(
+            Message(
+                level=Severity.DEBUG.value,
+                code=MessageCodes.FORM_DATA_WRITTEN.value,
+                detail="Form data written.",
+            )
+        )
+        # update the current dossier's status based on messages
+        if (
+            get_message_max_level(dossier_summary.details) == Severity.ERROR.value
+        ):  # pragma: no cover
+            dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
+        if get_message_max_level(dossier_summary.details) == Severity.WARNING.value:
+            dossier_summary.status = DOSSIER_IMPORT_STATUS_WARNING  # pragma: no cover
+
+        return dossier_summary
+
+    def existing_dossier(self, dossier_id: str) -> Optional[Instance]:
         """Return the instance identified by dossier_id.
 
         Different configs use different methods to identify instances. This
         is just an abstraction that is needed for retrieving instances
         when reimporting dossiers.
         """
-        raise NotImplementedError  # pragma: no cover
+        raise DossierWriter.ConfigurationError  # pragma: no cover
 
-    def set_dossier_id(self, instance, dossier_id):
+    def set_dossier_id(self, instance: Instance, dossier_id: str):
         """Make the instance retrievable by dossier_id.
 
         The reverse of `self.existing_dossier`
         """
-        raise NotImplementedError  # pragma: no cover
+        raise DossierWriter.ConfigurationError  # pragma: no cover
 
-    def _set_workflow_state(self, instance: Instance, target_state: str):
+    def _set_workflow_state(
+        self, instance: Instance, dossier: Dossier
+    ) -> List[Message]:
         """Fast-Forward case to Dossier.Meta.target_state."""
-        raise NotImplementedError  # pragma: no cover
+        raise DossierWriter.ConfigurationError  # pragma: no cover
+
+    def _post_create_instance(
+        self, instance: Instance, dossier: Dossier
+    ) -> Optional[List[Message]]:
+        """Do stuff in import_dossier after a new instance was created.
+
+        Overwrite this in your config for custom behaviour.
+        """
+        return
+
+    def _post_write_fields(self, instance, dossier) -> Optional[List[Message]]:
+        """Do stuff after fields have been written.
+
+        Overwrite this in your config for custom behaviour.
+        """
+        return
+
+    def _handle_document(
+        self, content: File, filename: str, mime_type: str, instance: Instance
+    ):
+        """Handle a single document when importing.
+
+        Pick one of the provided helper methods based on the configuration or overwrite
+        the whole thing.
+
+        Defaults to _handle_legacy_document
+
+        Other options:
+         - _handle_alexandria_document
+        """
+        return self._handle_legacy_document(content, filename, mime_type, instance)
+
+    def _handle_alexandria_document(
+        self, content: File, filename: str, mime_type: str, instance: Instance
+    ) -> List[Message]:
+        """Handle a single document when importing if documents are managed with Alexandria.
+
+        Requires settings.DOSSIER_IMPORT['ALEXANDRIA_CATEGORY'] to be set.
+        """
+        from alexandria.core.api import create_document_file, create_file
+        from alexandria.core.models import Category, Document as AlexandriaDocument
+
+        messages = []
+        category = Category.objects.get(
+            pk=settings.DOSSIER_IMPORT["ALEXANDRIA_CATEGORY"]
+        )
+        if document := AlexandriaDocument.objects.filter(
+            title=filename, **{"metainfo__camac-instance-id": str(instance.pk)}
+        ).first():
+            original = document.get_latest_original()
+            if original.checksum == original.make_checksum(content.read()):
+                return messages
+            content.seek(0)
+            create_file(
+                document,
+                user=self._user.pk,
+                group=self._group.pk,
+                name=filename,
+                content=content,
+                mime_type=mime_type,
+                size=content.size,
+            )
+
+            messages.append(
+                Message(
+                    level=Severity.WARNING.value,
+                    code=MessageCodes.ATTACHMENT_UPDATED.value,
+                    detail=filename,
+                )
+            )
+            return messages
+        doc, _ = create_document_file(
+            user=self._user.pk,
+            group=self._group.service.pk,
+            category=category,
+            document_title=filename,
+            file_name=filename,
+            file_content=content,
+            mime_type=mime_type,
+            file_size=content.size,
+            additional_document_attributes={
+                "metainfo": {"camac-instance-id": str(instance.pk)},
+            },
+        )
+
+        messages.append(
+            Message(
+                level=Severity.INFO.value,
+                code=MessageCodes.ATTACHMENT_CREATED.value,
+                detail=f"{doc.title.translate()} ({doc.get_latest_original().mime_type}) in section {category.name.translate()}",
+            )
+        )
+        return messages
+
+    def _handle_legacy_document(
+        self, content: File, filename: str, mime_type: str, instance: Instance
+    ) -> List[Message]:
+        """Handle importing documents in the legacy Attachment based structure.
+
+        Requires settings.DOSSIER_IMPORT['ATTACHMENT_SECTION_ID'] to be set.
+        """
+        from camac.document.models import Attachment, AttachmentSection
+
+        messages = []
+        defaults = dict(
+            user=self._user,
+            instance=instance,
+            service=self._group.service,
+            group=self._group,
+            name=filename,
+            size=content.size,
+            context={},
+            date=timezone.localtime(),
+            mime_type=mime_type,
+        )
+
+        attachment, created = Attachment.objects.get_or_create(
+            instance=instance,
+            name=filename,
+            defaults=defaults,
+        )
+
+        # If an attachment by the same name exists we'll overwrite the file, unless the data is identical.
+        # Django's own `FileField.path.save` method cannot be used because it would create another
+        # file with a random suffix, thus cluttering the file system.
+        if not created:  # pragma: todo cover
+            if (
+                hashlib.md5(attachment.path.file.read()).digest()
+                == hashlib.md5(content.read()).digest()
+            ):
+                return messages
+            content.seek(0)
+            try:
+                with Path(attachment.path.path).open("wb") as file:
+                    file.write(content.read())
+            except OSError as e:  # pragma: no cover
+                tb = traceback.format_exc()
+                log.exception(tb)
+                messages.append(
+                    Message(
+                        level=Severity.ERROR.value,
+                        code=MessageCodes.UNHANDLED_EXCEPTION,
+                        detail=f"Something went wrong replacing '{filename}' with error: {e}",
+                    )
+                )
+                return messages
+            defaults["size"] = attachment.path.size
+            Attachment.objects.filter(pk=attachment.pk).update(**defaults)
+            messages.append(
+                Message(
+                    level=Severity.WARNING.value,
+                    code=MessageCodes.ATTACHMENT_UPDATED.value,
+                    detail=attachment.name,
+                )
+            )
+            return messages
+        attachment.path.save(filename, content, save=True)
+        if created:
+            attachment_section = AttachmentSection.objects.get(
+                attachment_section_id=settings.DOSSIER_IMPORT["ATTACHMENT_SECTION_ID"]
+            )
+            attachment_section.attachments.add(attachment)
+        att_sec = (
+            attachment.attachment_sections.filter(
+                attachment_section_id=settings.DOSSIER_IMPORT["ATTACHMENT_SECTION_ID"]
+            )
+            .values("name", "attachment_section_id")
+            .first()
+        )
+        messages.append(
+            Message(
+                level=Severity.INFO.value,
+                code=MessageCodes.ATTACHMENT_CREATED.value,
+                detail=f"{attachment.name} ({attachment.mime_type}) in section {'{name} ({attachment_section_id})'.format(**att_sec)}",
+            )
+        )
+        return messages
 
     def _create_dossier_attachments(
         self, dossier: Dossier, instance: Instance
@@ -499,9 +796,10 @@ class DossierWriter:
         python-magic is used to guess the MIME type.
 
         If an attachment by that name already exists the contents will be
-        replaced, rather than creating a new one
+        replaced, rather than creating a new one.
         """
         messages = []
+
         if not dossier.attachments:
             return messages
 
@@ -515,7 +813,7 @@ class DossierWriter:
         for document in dossier.attachments:
             content = File(document.file_accessor)
 
-            file_path = re.sub(
+            filename = re.sub(
                 # ensure that dossier.id is only removed at the beginning of a path
                 r"^{dossier_id}/".format(dossier_id=dossier.id),
                 "",
@@ -533,85 +831,11 @@ class DossierWriter:
                     Message(
                         level=Severity.WARNING.value,
                         code=MessageCodes.MIME_TYPE_UNKNOWN,
-                        detail=file_path,
+                        detail=filename,
                     )
                 )
                 continue
 
-            defaults = dict(
-                user=self._user,
-                instance=instance,
-                service=self._group.service,
-                group=self._group,
-                name=file_path,
-                size=content.size,
-                context={},
-                date=timezone.localtime(),
-                mime_type=mime_type,
-            )
+            messages += self._handle_document(content, filename, mime_type, instance)
 
-            attachment, created = Attachment.objects.get_or_create(
-                instance=instance,
-                name=file_path,
-                defaults=defaults,
-            )
-
-            # If an attachment by the same name exists we'll overwrite the file, unless the data is identical.
-            # Django's own `FileField.path.save` method cannot be used because it would create another
-            # file with a random suffix, thus cluttering the file system.
-            if not created:  # pragma: no cover   TODO: cover
-                if (
-                    hashlib.md5(attachment.path.file.read()).digest()
-                    == hashlib.md5(content.read()).digest()
-                ):
-                    continue
-                content.seek(0)
-                try:
-                    with Path(attachment.path.path).open("wb") as file:
-                        file.write(content.read())
-                except OSError as e:  # pragma: no cover
-                    tb = traceback.format_exc()
-                    log.exception(tb)
-                    messages.append(
-                        Message(
-                            level=Severity.ERROR.value,
-                            code=MessageCodes.UNHANDLED_EXCEPTION,
-                            detail=f"Something went wrong replacing '{file_path}' with error: {e}",
-                        )
-                    )
-                    continue
-                defaults["size"] = attachment.path.size
-                Attachment.objects.filter(pk=attachment.pk).update(**defaults)
-                messages.append(
-                    Message(
-                        level=Severity.INFO.value,
-                        code=MessageCodes.ATTACHMENT_UPDATED.value,
-                        detail=attachment.name,
-                    )
-                )
-                continue
-            attachment.path.save(file_path, content, save=True)
-            if created:
-                attachment_section = AttachmentSection.objects.get(
-                    attachment_section_id=settings.DOSSIER_IMPORT[
-                        "ATTACHMENT_SECTION_ID"
-                    ]
-                )
-                attachment_section.attachments.add(attachment)
-            att_sec = (
-                attachment.attachment_sections.filter(
-                    attachment_section_id=settings.DOSSIER_IMPORT[
-                        "ATTACHMENT_SECTION_ID"
-                    ]
-                )
-                .values("name", "attachment_section_id")
-                .first()
-            )
-            messages.append(
-                Message(
-                    level=Severity.INFO.value,
-                    code=MessageCodes.ATTACHMENT_CREATED.value,
-                    detail=f"{attachment.name} ({attachment.mime_type}) in section {'{name} ({attachment_section_id})'.format(**att_sec)}",
-                )
-            )
         return messages
