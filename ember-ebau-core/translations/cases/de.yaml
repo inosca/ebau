@@ -135,6 +135,8 @@ cases:
     enterDossierNumber: "Dossiernummer eingeben"
     showAll: "Alle anzeigen"
     modalTitle: "Alle Dossiers auf Parzelle"
+    noLinkedInstances: "Es wurden noch keine Dossiers verknüpft."
+    noInstancesOnSamePlot: "Es wurden keine Dossiers auf dieser Parzelle gefunden."
 
   new:
     title: "Neues Gesuch erstellen"

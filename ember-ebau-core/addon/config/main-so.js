@@ -4,6 +4,7 @@ const config = {
   fallbackLanguage: "de",
   allowApplicantManualWorkItem: false,
   documentBackend: "alexandria",
+  showIdInInternalArea: false,
   instanceStates: {
     new: 1,
     subm: 2,
