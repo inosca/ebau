@@ -1,0 +1,20 @@
+<div class="uk-text-center uk-flex uk-flex-column uk-flex-middle">
+  <h1 class="uk-margin-medium-bottom">{{t "support.type"}}</h1>
+  {{#if this.showSection}}
+    <p class="uk-text-large uk-width-large uk-animation-fade uk-margin-remove-top uk-margin-medium-bottom">{{t (concat "support." this.showSection) htmlSafe=true}}</p>
+  {{/if}}
+  <div>
+    <UkButton
+      @label={{t "global.yes"}}
+      @size="large"
+      @color={{if (eq this.showSection "professional") "primary"}}
+      @onClick={{fn (mut this.showSection) "professional"}}
+    />
+    <UkButton
+      @label={{t "global.no"}}
+      @size="large"
+      @color={{if (eq this.showSection "technical") "primary"}}
+      @onClick={{fn (mut this.showSection) "technical"}}
+    />
+  </div>
+</div>
