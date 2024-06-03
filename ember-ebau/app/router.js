@@ -8,6 +8,7 @@ import registerConstructionMonitoring from "ember-ebau-core/modules/construction
 import registerDMSAdmin from "ember-ebau-core/modules/dms-admin";
 import registerDossierImport from "ember-ebau-core/modules/dossier-import";
 import registerLegalSubmission from "ember-ebau-core/modules/legal-submission";
+import registerLinkedInstances from "ember-ebau-core/modules/linked-instances";
 import registerPermissions from "ember-ebau-core/modules/permissions";
 import registerPublication from "ember-ebau-core/modules/publication";
 import registerRejection from "ember-ebau-core/modules/rejection";
@@ -78,6 +79,7 @@ Router.map(function () {
         registerRejection(this);
         registerPermissions(this);
         registerConstructionMonitoring(this);
+        registerLinkedInstances(this);
       });
       this.route("new");
       this.route("not-found");

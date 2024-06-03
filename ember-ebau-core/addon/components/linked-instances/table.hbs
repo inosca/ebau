@@ -1,6 +1,4 @@
-<PaginationInfo @query={{this.casesQuery}} />
-
-<table {{did-insert this.setup}}>
+<table class="uk-table uk-table-striped uk-width-1-1" {{did-insert this.setup}}>
   <thead>
     <tr>
       {{#each this.tableColumns as |tColumn|}}
@@ -23,10 +21,19 @@
             }}
             title={{ if (eq tColumn "intent") case.intent }}
           >
-            {{#if (eq tColumn "instanceId")}}
-              <a href="/index/redirect-to-instance-resource/instance-id/{{case.instanceId}}">
-                {{case.instanceId}}
-              </a>
+            {{#if (and
+              (eq tColumn "dossierNumber")
+              (not-eq this.instanceIdAsInt case.instanceId)
+            ) }}
+              {{#if this.ebauModules.isCamac}}
+                <a href="/index/redirect-to-instance-resource/instance-id/{{case.instanceId}}">
+                  {{get case tColumn}}
+                </a>
+              {{else}}
+                <LinkTo @route="cases.detail.linked-instances" @model={{case.instanceId}}>
+                  {{get case tColumn}}
+                </LinkTo>
+              {{/if}}
             {{else}}
               {{get case tColumn}}
             {{/if}}
@@ -58,17 +65,22 @@
         </td>
       </tr>
     {{/each}}
-
-    <tr>
-      {{#if (and this.casesQuery.hasNextPage (not this.casesQuery.isLoading))}}
-        <td colspan="99" class="uk-text-center">
-          <button type="button" {{on "click" this.loadNextPage}}>
-            {{t "global.loadMore"}}
-          </button>
-        </td>
-      {{/if}}
-    </tr>
   </tbody>
 </table>
+{{#if (and this.casesQuery.hasNextPage (not this.casesQuery.isLoading))}}
+  <div class="uk-flex">
+    <UkButton
+      class="uk-margin-auto"
+      @color="primary"
+      @onClick={{this.loadNextPage}}
+    >
+      {{t "global.loadMore"}}
+    </UkButton>
+  </div>
+{{else if this.casesQuery.isLoading}}
+  <div class="uk-flex uk-flex-center">
+    <UkSpinner />
+  </div>
+{{/if}}
 
 <PaginationInfo @query={{this.casesQuery}} />

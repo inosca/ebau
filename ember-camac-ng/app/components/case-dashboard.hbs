@@ -29,117 +29,19 @@
         <CaseDashboard::Column
           @header={{t "cases.tableHeaders.linkedInstances"}}
         >
-          {{#if this.currentInstance.linkedInstances.length}}
-            <ul class="uk-list uk-list-collapse">
-              {{#each this.currentInstance.linkedInstances as |linkedInstance|}}
-                <li class="uk-margin-small">
-                  <div class="uk-flex uk-flex-right">
-                    <a
-                      class="uk-width-expand"
-                      href="/index/redirect-to-instance-resource/instance-id/{{linkedInstance.id}}"
-                    >
-                      {{linkedInstance.form.name}}
-                      ({{linkedInstance.dossierNumber}})
-                    </a>
-                    {{#if
-                      (can
-                        "link dossiers to instance"
-                        this.models.caseModel.instance
-                      )
-                    }}
-                      <button
-                        class="uk-button-link uk-flex"
-                        ratio="0.8"
-                        uk-icon="trash"
-                        type="button"
-                        title={{t "cases.miscellaneous.unLinkInstance"}}
-                        {{on
-                          "click"
-                          (perform this.unLinkDossier linkedInstance)
-                        }}
-                      >
-                      </button>
-                    {{/if}}
-                  </div>
-                </li>
-              {{/each}}
-            </ul>
-          {{/if}}
-          {{#if
-            (can "link dossiers to instance" this.models.caseModel.instance)
-          }}
-            <div>
-              <Input
-                @type="text"
-                @value={{this.dossierNumber}}
-                class="uk-input uk-form-width-medium uk-form-small"
-                aria-label={{t "cases.miscellaneous.linkedInstances"}}
-                placeholder={{t "cases.miscellaneous.enterDossierNumber"}}
-              />
-              <button
-                id={{t "cases.miscellaneous.linkedInstances"}}
-                class="uk-button uk-button-small uk-button-primary"
-                type="button"
-                title={{t "cases.miscellaneous.linkInstance"}}
-                {{on "click" (perform this.searchAndLinkDossier)}}
-              >
-                <UkIcon @icon="plus" />
-              </button>
-            </div>
-          {{/if}}
+          <LinkedInstances
+            @currentInstance={{this.currentInstance}}
+            @case={{this.models.caseModel}}
+          />
         </CaseDashboard::Column>
         <CaseDashboard::Column
           @header={{t "cases.tableHeaders.instancesOnSamePlot"}}
         >
-          {{#if this.instancesOnSamePlot.length}}
-            <ul class="uk-list uk-list-collapse">
-              {{#each this.instancesOnSamePlot as |instanceOnSamePlot index|}}
-                {{#if (lt index 5)}}
-                  <li class="uk-margin-small">
-                    <div class="uk-flex uk-flex-right">
-                      <a
-                        class="uk-width-expand"
-                        href="/index/redirect-to-instance-resource/instance-id/{{instanceOnSamePlot.id}}"
-                      >
-                        {{instanceOnSamePlot.form.name}}
-                        ({{instanceOnSamePlot.dossierNumber}})
-                      </a>
-                      {{#if
-                        (can
-                          "link dossiers to instance"
-                          this.models.caseModel.instance
-                        )
-                      }}
-                        <LinkInstanceButton
-                          @type={{if
-                            (includes
-                              instanceOnSamePlot this.linkedAndOnSamePlot
-                            )
-                            "unlink"
-                            "link"
-                          }}
-                          @onLink={{this.linkDossier}}
-                          @onUnlink={{this.unLinkDossier}}
-                          @instanceOnSamePlot={{instanceOnSamePlot}}
-                        />
-                      {{/if}}
-                    </div>
-                  </li>
-                {{/if}}
-              {{/each}}
-            </ul>
-            {{#if (gte this.instancesOnSamePlot.length 5)}}
-              <button
-                class="uk-button uk-button-small uk-button-default"
-                type="button"
-                {{on "click" this.toggleModal}}
-              >
-                {{t "cases.miscellaneous.showAll"}}
-                ({{this.totalInstancesOnSamePlot}})
-              </button>
-            {{/if}}
-          {{/if}}
-        </CaseDashboard::Column>
+          <InstancesOnSamePlot
+            @currentInstance={{this.currentInstance}}
+            @case={{this.models.caseModel}}
+          />
+       </CaseDashboard::Column>
       </tr>
       <tr>
         <CaseDashboard::Journal
@@ -323,38 +225,5 @@
         </tr>
       </CaseDashboard::Section>
     {{/if}}
-  {{/if}}
-
-  {{! render modal in if such that instances table only loads data after opening the modal }}
-  {{#if this.showModal}}
-    <UkModal
-      @dialogClass="uk-width-2xlarge"
-      class="uk-modal-container"
-      @visible={{true}}
-      as |Modal|
-    >
-      <Modal.body>
-        <button
-          type="button"
-          class="uk-modal-close-default"
-          uk-close
-          {{on "click" this.toggleModal}}
-        >
-        </button>
-        <h2 class="uk-modal-title">
-          {{t "cases.miscellaneous.modalTitle"}}
-          {{this.models.caseModel.parcel}},
-          {{this.models.caseModel.municipality}}
-        </h2>
-        <LinkedInstancesTable
-          @instancesOnSamePlot={{this.instancesOnSamePlot}}
-          @linkedInstances={{this.currentInstance.linkedInstances}}
-          @filters={{this.samePlotFilters}}
-          @onLink={{this.linkDossier}}
-          @onUnlink={{this.unLinkDossier}}
-          @currentInstanceId={{@instanceId}}
-        />
-      </Modal.body>
-    </UkModal>
   {{/if}}
 </div>

@@ -56,30 +56,8 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
     return this.instance?.get("user.username");
   }
 
-  get street() {
-    const street =
-      getAnswer(this.raw.document, "parcel-street")?.node.stringValue ?? "";
-    const number =
-      getAnswer(this.raw.document, "street-number")?.node.stringValue ?? "";
-
-    return `${street} ${number}`;
-  }
-
   get dossierNumber() {
     return this.raw.meta["dossier-number"];
-  }
-
-  get municipalityNode() {
-    const answer = getAnswer(this.raw.document, "municipality");
-    return answer?.node;
-  }
-
-  get municipality() {
-    return this.municipalityNode?.selectedOption?.label;
-  }
-
-  get municipalityId() {
-    return this.municipalityNode?.stringValue;
   }
 
   get location() {

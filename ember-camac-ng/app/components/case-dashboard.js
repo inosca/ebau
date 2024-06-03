@@ -1,5 +1,4 @@
 import { getOwner, setOwner } from "@ember/application";
-import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
@@ -8,8 +7,6 @@ import { dropTask, lastValue } from "ember-concurrency";
 import CustomCaseModel from "ember-ebau-core/caluma-query/models/case";
 import mainConfig from "ember-ebau-core/config/main";
 import { gql } from "graphql-tag";
-
-import getCaseFromParcelsQuery from "camac-ng/gql/queries/get-case-from-parcels.graphql";
 
 const WORKFLOW_ITEM_IDS = [
   12, // Dossier erfasst
@@ -28,15 +25,10 @@ function convertToBase64(blob) {
 export default class CaseDashboardComponent extends Component {
   @queryManager apollo;
 
-  @service intl;
   @service store;
   @service shoebox;
   @service fetch;
-  @service notification;
 
-  @tracked dossierNumber;
-  @tracked showModal = false;
-  @tracked totalInstanceOnSamePlot;
   @tracked totalJournalEntries;
 
   get isLoading() {
@@ -47,28 +39,16 @@ export default class CaseDashboardComponent extends Component {
     return this.shoebox.baseRole === "service";
   }
 
-  get linkedAndOnSamePlot() {
-    return this.currentInstance.linkedInstances.filter((value) =>
-      this.instancesOnSamePlot.includes(value),
-    );
-  }
-
   get journalInstanceResourceId() {
     return mainConfig.instanceResourceRedirects.journal[
       this.shoebox.content.roleId
     ];
   }
 
-  @action
-  toggleModal() {
-    this.showModal = !this.showModal;
-  }
-
   @dropTask
   *initialize() {
     yield this.fetchCurrentInstance.perform(true);
     yield this.fetchModels.perform();
-    yield this.fetchInstancesOnSamePlot.perform();
   }
 
   @lastValue("fetchCurrentInstance") currentInstance;
@@ -78,153 +58,6 @@ export default class CaseDashboardComponent extends Component {
       reload,
       include: "linked_instances",
     });
-  }
-
-  get samePlotFilters() {
-    const plotNumbers = this.models?.caseModel.parcel;
-    const municipality = this.models?.caseModel.municipalityId;
-
-    if (!municipality || !plotNumbers || plotNumbers.length === 0) {
-      return false;
-    }
-    return [
-      {
-        question: "parcel-number",
-        // TODO use "IN" lookup to search for all parcels once
-        // https://github.com/projectcaluma/caluma/pull/1677 landed
-        value: plotNumbers[0],
-      },
-      {
-        question: "municipality",
-        value: municipality,
-      },
-    ];
-  }
-
-  get totalInstancesOnSamePlot() {
-    return this.instancesOnSamePlot?.length;
-  }
-
-  @lastValue("fetchInstancesOnSamePlot") instancesOnSamePlot;
-  @dropTask
-  *fetchInstancesOnSamePlot() {
-    try {
-      if (!this.samePlotFilters) {
-        return;
-      }
-
-      const caseEdges = yield this.apollo.query(
-        {
-          query: getCaseFromParcelsQuery,
-          variables: {
-            hasAnswerFilter: this.samePlotFilters,
-          },
-        },
-        "allCases.edges",
-      );
-
-      const instanceIds = caseEdges
-        .map(({ node }) => node.meta["camac-instance-id"])
-        .filter((id) => id !== parseInt(this.currentInstance.id));
-
-      if (!instanceIds.length) {
-        return null;
-      }
-
-      const instances = yield this.store.query("instance", {
-        instance_id: instanceIds.join(","),
-        instance_state: mainConfig.submittedStates.join(","),
-      });
-
-      return instances;
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  @dropTask
-  *searchAndLinkDossier() {
-    try {
-      const caseRecord = yield this.apollo.query(
-        {
-          query: gql`
-            query GetCase($metaFilter: [JSONValueFilterType]) {
-              allCases(filter: [{ metaValue: $metaFilter }]) {
-                edges {
-                  node {
-                    ...CaseFragment
-                  }
-                }
-              }
-            }
-
-            fragment CaseFragment on Case ${CustomCaseModel.fragment}
-          `,
-          variables: {
-            metaFilter: [
-              {
-                key: "dossier-number",
-                value: this.dossierNumber.trim(),
-              },
-            ],
-          },
-        },
-        "allCases.edges",
-      );
-      const modelInstance = new CustomCaseModel(caseRecord?.[0]?.node);
-      return yield this.linkDossier.perform(
-        modelInstance.meta["camac-instance-id"],
-      );
-    } catch (e) {
-      console.error(e);
-      this.notification.danger(
-        this.intl.t("cases.miscellaneous.linkInstanceError"),
-      );
-    }
-  }
-
-  @dropTask
-  *linkDossier(instanceId) {
-    try {
-      yield this.fetch.fetch(`/api/v1/instances/${this.args.instanceId}/link`, {
-        method: "PATCH",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          data: {
-            attributes: {
-              "link-to": instanceId,
-            },
-          },
-        }),
-      });
-
-      yield this.fetchCurrentInstance.perform(true);
-      this.dossierNumber = null;
-      this.notification.success(
-        this.intl.t("cases.miscellaneous.linkInstanceSuccess"),
-      );
-    } catch (e) {
-      console.error(e);
-      this.notification.danger(
-        this.intl.t("cases.miscellaneous.linkInstanceError"),
-      );
-    }
-  }
-
-  @dropTask
-  *unLinkDossier(instance) {
-    try {
-      yield instance.unlink();
-      yield this.fetchCurrentInstance.perform();
-      this.notification.success(
-        this.intl.t("cases.miscellaneous.unLinkInstanceSuccess"),
-      );
-    } catch (e) {
-      console.error(e);
-      this.notification.danger(
-        this.intl.t("cases.miscellaneous.unLinkInstanceError"),
-      );
-    }
   }
 
   @lastValue("fetchModels") models;
