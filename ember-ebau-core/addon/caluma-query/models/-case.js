@@ -117,6 +117,13 @@ export default class CustomCaseBaseModel extends CaseModel {
     );
   }
 
+  get street() {
+    const street = this.getAnswerDisplayValue(answerSlugs.objectStreet);
+    const number = this.getAnswerDisplayValue(answerSlugs.objectNumber);
+
+    return [street, number].filter(Boolean).join(" ").trim();
+  }
+
   get applicants() {
     const applicants =
       this.getAnswer(answerSlugs.personalDataApplicant)?.node.value ?? [];
@@ -145,6 +152,10 @@ export default class CustomCaseBaseModel extends CaseModel {
     });
 
     return applicantNames.filter(Boolean).join(", ");
+  }
+
+  get municipalityId() {
+    return this.getAnswer(answerSlugs.municipality)?.node.stringValue;
   }
 
   get municipality() {

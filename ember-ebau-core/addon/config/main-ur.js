@@ -5,6 +5,7 @@ export default {
   prodUrl: "urec.ur.ch",
   showInstanceIdAfterSubmission: true,
   documentBackend: "camac",
+  showIdInInternalArea: true,
   gwr: {
     cantonAbbreviation: "UR",
     importModels: ["project", "building", "dwelling"],
@@ -41,6 +42,7 @@ export default {
     description: "proposal-description",
     municipality: "municipality",
     specialId: "dossier-number",
+    parcel: "parcels",
     parcelNumber: "parcel-number",
     oerebProcedure: "typ-des-verfahrens",
     oerebTopicsCanton: "oereb-thema",

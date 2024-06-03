@@ -4,6 +4,7 @@ export default {
   fallbackLanguage: "de",
   prodUrl: "behoerden.ebau-sz.ch",
   documentBackend: "camac",
+  showIdInInternalArea: false,
   gwr: {
     cantonAbbreviation: "SZ",
     importModels: ["project", "building", "dwelling"],

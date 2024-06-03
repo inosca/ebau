@@ -1,5 +1,5 @@
 query GetCaseFromParcels($hasAnswerFilter: [HasAnswerFilterType]) {
-  allCases(filter: { hasAnswer: $hasAnswerFilter }) {
+  allCases(filter: [{ hasAnswer: $hasAnswerFilter }]) {
     edges {
       node {
         id

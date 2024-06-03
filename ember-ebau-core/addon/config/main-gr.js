@@ -5,6 +5,7 @@ export default {
   prodUrl: "ebau.admin.gr.ch",
   allowApplicantManualWorkItem: false,
   documentBackend: "alexandria",
+  showIdInInternalArea: false,
   serviceGroups: {
     authorityBaB: 3,
   },
@@ -22,6 +23,16 @@ export default {
     importModels: ["project", "building", "dwelling"],
     modalContainer: "body",
   },
+  submittedStates: [
+    120004, // subm
+    120005, // circulation
+    120006, // finished
+    120007, // decision
+    120008, // correction
+    120009, // init-distribution
+    120010, // construction-acceptance
+    120011, // rejected
+  ],
   answerSlugs: {
     objectStreet: "street-and-housenumber",
     objectLocation: "ort-grundstueck",
