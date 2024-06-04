@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-31 13:14+0200\n"
-"PO-Revision-Date: 2024-05-28 18:03+0200\n"
+"POT-Creation-Date: 2024-06-04 12:00+0200\n"
+"PO-Revision-Date: 2024-06-04 12:06+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -390,8 +390,8 @@ msgid ""
 "have an invalid value in date field. Please use the format \"DD.MM.YYYY\" (e."
 "g. \"13.04.2021\")"
 msgstr ""
-"n'ont pas de valeur date valable. Veuillez utilizer le format \"DD.MM."
-"YYYY\" (e.g. \"13.04.2021\")"
+"n'ont pas de valeur date valable. Veuillez utilizer le format \"DD.MM.YYYY\" "
+"(e.g. \"13.04.2021\")"
 
 #: camac/dossier_import/messages.py:188
 msgid "have an invalid status"
@@ -523,6 +523,15 @@ msgid ""
 msgstr ""
 "Les dossiers approuvés peuvent être consultés ici :\n"
 "%(import_url)s"
+
+#: camac/dossier_import/writers.py:246
+#, python-format
+msgid ""
+"Deleting %(target)s has no effect because work item %(task)s does not exist. "
+"Skipping."
+msgstr ""
+"La suppression de %(target)s n'a aucun effet car l'élément de travail "
+"%(task)s n'existe pas. Sauter."
 
 #: camac/dossier_import/writers.py:299
 #, python-format

@@ -533,6 +533,15 @@ msgstr ""
 "Die genehmigten Dossiers können hier eingesehen werden:\n"
 "%(import_url)s"
 
+#: camac/dossier_import/writers.py:246
+#, python-format
+msgid ""
+"Deleting %(target)s has no effect because work item %(task)s does not exist. "
+"Skipping."
+msgstr ""
+"%(target)s löschen ist nicht möglich, weil die Aufgabe %(task)s fehlt. Wird "
+"übersprungen."
+
 #: camac/dossier_import/writers.py:299
 #, python-format
 msgid "Value \"%(value)s\" in field %(target)s is too long (max: %(max)s)"
