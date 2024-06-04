@@ -3158,7 +3158,7 @@
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-kanalisationsabnahme",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -3218,7 +3218,7 @@
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-schnurgeruestabnahme",
-      "sort": 6
+      "sort": 5
     }
   },
   {
