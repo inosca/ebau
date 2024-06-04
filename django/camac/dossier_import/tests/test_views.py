@@ -253,7 +253,7 @@ def test_file_validation(
     if resp.status_code != status.HTTP_201_CREATED:
         assert expected_result in str(resp.data[0]["detail"])
     else:
-        if isinstance(expected_result, dict) and expected_result is not None:
+        if isinstance(expected_result, dict):
             for key, value in expected_result.items():
                 for msg in sorted(resp.data["messages"]["validation"]["summary"][key]):
                     assert msg in value

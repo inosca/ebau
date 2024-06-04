@@ -272,7 +272,7 @@ def update_summary(dossier_import):
                     **{"instance__case__meta__import-id": str(dossier_import.pk)}
                 ).count(),
                 "updated": Instance.objects.filter(
-                    **{"case__meta__updated": str(dossier_import.pk)}
+                    **{"case__meta__updated-with-import": str(dossier_import.pk)}
                 ).count(),
             }
         )
