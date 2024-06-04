@@ -1156,5 +1156,70 @@
         "withdrawn"
       ]
     }
+  },
+  "25": {
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Verknüpfte Dossiers",
+    "acls": {
+      "municipality-clerk": [
+        "construction-monitoring",
+        "decided",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "reject",
+        "rejected",
+        "subm",
+        "withdrawal",
+        "withdrawn"
+      ],
+      "municipality-construction-monitoring": [
+        "construction-monitoring",
+        "decided",
+        "finished"
+      ],
+      "municipality-lead": [
+        "construction-monitoring",
+        "decided",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "reject",
+        "rejected",
+        "subm",
+        "withdrawal",
+        "withdrawn"
+      ],
+      "service-clerk": [
+        "construction-monitoring",
+        "decided",
+        "decision",
+        "distribution",
+        "finished",
+        "withdrawal",
+        "withdrawn"
+      ],
+      "service-lead": [
+        "construction-monitoring",
+        "decided",
+        "decision",
+        "distribution",
+        "finished",
+        "withdrawal",
+        "withdrawn"
+      ],
+      "subservice": [
+        "construction-monitoring",
+        "decided",
+        "decision",
+        "distribution",
+        "finished",
+        "withdrawal",
+        "withdrawn"
+      ]
+    }
   }
 }
