@@ -18,6 +18,7 @@ from camac.dossier_import.messages import (
     MessageCodes,
     Severity,
 )
+from camac.dossier_import.validation import TargetStatus
 from camac.dossier_import.writers import (
     BuildingAuthorityRowWriter,
     CalumaAnswerWriter,
@@ -212,7 +213,6 @@ class KtSchwyzDossierWriter(DossierWriter):
             "distribution",
             "make-decision",
         ]
-        # TODO: Test dossier-import in status DONE
         DONE = (
             APPROVED
             + (
@@ -225,8 +225,14 @@ class KtSchwyzDossierWriter(DossierWriter):
                 "archive-instance",
             ]
         )
+        WRITTEN_OFF = SUBMITTED + ["depreciate-case"]
 
-        path_to_state = {"SUBMITTED": SUBMITTED, "APPROVED": APPROVED, "DONE": DONE}
+        path_to_state = {
+            TargetStatus.SUBMITTED.value: SUBMITTED,
+            TargetStatus.APPROVED.value: APPROVED,
+            TargetStatus.DONE.value: DONE,
+            TargetStatus.WRITTEN_OFF.value: WRITTEN_OFF,
+        }
 
         default_context = {"no-notification": True, "no-history": True, "skip": True}
 
@@ -240,14 +246,18 @@ class KtSchwyzDossierWriter(DossierWriter):
                     Message(
                         level=Severity.ERROR.value,
                         code=MessageCodes.WORKFLOW_SKIP_ITEM_FAILED.value,
-                        detail=f"Skip work item with task_id {task_id} failed with {ConfigurationError(e)}.",
+                        detail=(
+                            f"Skip work item with task_id {task_id} "
+                            f"failed with {ConfigurationError(e)}."
+                        ),
                     )
                 )
                 continue
             # overwrite side effects for import
             config = deepcopy(get_caluma_setting("PRE_COMPLETE"))
             # skip side effects in task `make-decision`
-            config and config.pop("depreciate-case", None)
+            if config and target_state != TargetStatus.WRITTEN_OFF.value:
+                config.pop("depreciate-case", None)
             if config.get("make-decision"):
                 config["make-decision"]["cancel"] = ["publication"]
             config = config and config.get(work_item.task_id)
