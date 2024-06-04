@@ -398,7 +398,10 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     )
     koordinaten = fields.AliasedMethodField(
         aliases=[_("COORDINATES")],
-        description=_("Coordinates of the parcel"),
+        description={
+            "default": _("Coordinates of the parcel"),
+            "so": _("Coordinates of the property"),
+        },
     )
     language = fields.AliasedMethodField(
         aliases=[_("LANGUAGE")],
@@ -578,10 +581,15 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         description=_("The location of the building site"),
     )
     parzelle = fields.AliasedMethodField(
-        aliases=[_("PARCEL")],
+        aliases=[
+            {
+                "default": _("PARCEL"),
+                "so": _("PROPERTY"),
+            }
+        ],
         description={
             "default": _("Parcel selected by the applicant"),
-            "so": _("Parcel selected by the builder"),
+            "so": _("Property selected by the builder"),
         },
     )
     projektverfasser_address_1 = fields.MasterDataPersonField(

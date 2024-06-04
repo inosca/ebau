@@ -7,10 +7,16 @@
       <h2>
         {{or this.case.type this.case.document.form.name}}
         {{this.instance.typeDetail}}
-        <span class="uk-text-light">
-          ({{t "instances.instance-id"}}
-          {{this.model}})
-        </span>
+        {{#if (not (has-feature "instanceOverview.useSpecialId"))}}
+          <span class="uk-text-light">
+            ({{t "instances.instance-id"}}
+            {{this.model}})
+          </span>
+        {{else if this.case.specialId}}
+          <span class="uk-text-light">
+            ({{this.case.specialId}})
+          </span>
+        {{/if}}
       </h2>
       {{#if (has-feature "municipalityLogo")}}
         <ActiveMunicipalityLogo @case={{this.case}} />

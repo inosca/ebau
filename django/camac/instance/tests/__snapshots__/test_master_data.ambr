@@ -395,7 +395,7 @@
     'zip': 3000,
   })
 # ---
-# name: test_master_data[so_master_data_settings-de-so_master_data_case-select_related5-prefetch_related5-12]
+# name: test_master_data[so_master_data_settings-de-so_master_data_case-select_related5-prefetch_related5-17]
   dict({
     'applicants': list([
       dict({
