@@ -628,7 +628,7 @@ class DossierWriter:
         created = True
         if instance := self.existing_dossier(dossier.id):
             created = False
-            instance.case.meta["updated"] = import_session_id
+            instance.case.meta["updated-with-import"] = import_session_id
             instance.case.save()
             dossier_summary.instance_id = instance.pk
             dossier_summary.details.append(

@@ -62,7 +62,7 @@ class KtSchwyzDossierWriter(DossierWriter):
       containing the documents to be attached to the dossier.
     """
 
-    id: str = CamacNgAnswerWriter(target="kommunale-gesuchsnummer", protected=True)
+    id = CamacNgAnswerWriter(target="kommunale-gesuchsnummer", protected=True)
     proposal = CamacNgAnswerWriter(target="bezeichnung", protected=True)
     cantonal_id = CamacNgAnswerWriter(target="kantonale-gesuchsnummer")
     plot_data = CamacNgListAnswerWriter(

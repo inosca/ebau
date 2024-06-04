@@ -89,7 +89,7 @@ class KtBernDossierWriter(DossierWriter):
       containing the documents to be attached to the dossier.
     """
 
-    id: str = CalumaAnswerWriter(
+    id = CalumaAnswerWriter(
         target="kommunale-gesuchsnummer", formatter="to-string", protected=True
     )
     proposal = CalumaAnswerWriter(target="beschreibung-bauvorhaben", protected=True)

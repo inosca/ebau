@@ -167,10 +167,8 @@ class XlsxFileDossierLoader:
             if hasattr(XlsxFileDossierLoader.Column, f"{prefix}_{field.name}")
         }
         if any(
-            [
-                value == settings.DOSSIER_IMPORT["DELETE_KEYWORD"]
-                for value in person.values()
-            ]
+            value == settings.DOSSIER_IMPORT["DELETE_KEYWORD"]
+            for value in person.values()
         ):
             return [settings.DOSSIER_IMPORT["DELETE_KEYWORD"]]
         if any(person.values()):
@@ -261,10 +259,8 @@ class XlsxFileDossierLoader:
             e, n = numbers(e), numbers(n)
 
             if any(
-                [
-                    val == settings.DOSSIER_IMPORT["DELETE_KEYWORD"]
-                    for val in epoints + npoints
-                ]
+                val == settings.DOSSIER_IMPORT["DELETE_KEYWORD"]
+                for val in epoints + npoints
             ):
                 return [settings.DOSSIER_IMPORT["DELETE_KEYWORD"]], messages
             if not (2480000 < e < 2840000.999) or not (1070000 < n < 1300000.999):
@@ -328,10 +324,8 @@ class XlsxFileDossierLoader:
 
             # handle deletable value
             if any(
-                [
-                    val == settings.DOSSIER_IMPORT["DELETE_KEYWORD"]
-                    for val in plot_numbers + egrids + [municipality]
-                ]
+                val == settings.DOSSIER_IMPORT["DELETE_KEYWORD"]
+                for val in plot_numbers + egrids + [municipality]
             ):
                 return [settings.DOSSIER_IMPORT["DELETE_KEYWORD"]], messages
             for number, egrid in itertools.zip_longest(plot_numbers, egrids):

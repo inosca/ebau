@@ -91,14 +91,7 @@ def test_create_instance_dossier_import_case(
         dossier_import.messages["import"]["details"].append(message.to_dict())
     update_summary(dossier_import)
     assert dossier_import.messages["import"]["summary"]["stats"]["dossiers"] == 2
-    # kt_schwyz throws warnings if building-authority dependent dates are provided
-    # that cannot be written if the target state of the dossier does not provide
-    # required work_items
-    assert (
-        len(dossier_import.messages["import"]["summary"]["warning"]) == 0
-        if config != "kt_schwyz"
-        else 2
-    )
+    assert len(dossier_import.messages["import"]["summary"]["warning"]) == 0
     assert len(dossier_import.messages["import"]["summary"]["error"]) == 0
 
     instances = Instance.objects.filter(
@@ -837,7 +830,9 @@ def test_validation(
     )
     dossier_import.source_file = archive_file(input_file)
     dossier_import.save()
-    if not all([expected_exception, expected_exception]):
+
+    # test validations that don't raise an exception
+    if not any([expected_exception, expected_existing]):
         dossier_import = validate_zip_archive_structure(str(dossier_import.pk))
         snapshot.assert_match(
             sorted(

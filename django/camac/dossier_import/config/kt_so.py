@@ -59,7 +59,7 @@ PLOT_DATA_MAPPING = {
 
 
 class KtSolothurnDossierWriter(DossierWriter):
-    id: str = CalumaAnswerWriter(
+    id = CalumaAnswerWriter(
         target="kommunale-gesuchsnummer", formatter="to-string", protected=True
     )
     proposal = CalumaAnswerWriter(target="umschreibung-bauprojekt", protected=True)

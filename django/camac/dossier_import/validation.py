@@ -161,7 +161,7 @@ def _validate_date_fields(
                         level=messages.Severity.INFO.value,
                         **message_defaults,
                     )
-                    continue
+
                 else:
                     messages.append_or_update_dossier_message(
                         code=MessageCodes.FIELD_VALIDATION_ERROR,
@@ -172,7 +172,8 @@ def _validate_date_fields(
                         level=messages.Severity.WARNING.value,
                         **message_defaults,
                     )
-                    continue
+
+                continue
 
             if not isinstance(date.value, timezone.datetime):
                 try:
