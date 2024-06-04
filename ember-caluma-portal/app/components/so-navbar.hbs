@@ -21,12 +21,14 @@
         <SoNavbar::Nav
           @isAuthenticated={{this.session.isAuthenticated}}
           @isInternal={{this.session.isInternal}}
+          @isPublicAccess={{this.session.enforcePublicAccess}}
           @showFormBuilder={{this.showFormBuilder}}
         />
       </div>
       <SoNavbar::Nav
         @isAuthenticated={{this.session.isAuthenticated}}
         @isInternal={{this.session.isInternal}}
+        @isPublicAccess={{this.session.enforcePublicAccess}}
         @showFormBuilder={{this.showFormBuilder}}
         class="uk-visible@m"
       />

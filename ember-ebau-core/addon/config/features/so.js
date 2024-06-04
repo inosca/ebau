@@ -22,9 +22,6 @@ export default {
     snippets: false,
     revert: false,
   },
-  index: {
-    publicInstances: true,
-  },
   cases: {
     createPaper: true,
     exportExcel: false,

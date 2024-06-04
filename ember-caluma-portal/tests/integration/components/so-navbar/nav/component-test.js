@@ -21,7 +21,6 @@ module("Integration | Component | so-navbar/nav", function (hooks) {
       t("global.title"),
       t("nav.instances"),
       t("nav.communications"),
-      t("nav.public-instance"),
     ];
 
     navItems.forEach((label, i) => {
