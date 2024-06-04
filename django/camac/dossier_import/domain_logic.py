@@ -16,7 +16,6 @@ from django.utils.module_loading import import_string
 from requests_toolbelt.multipart.encoder import MultipartEncoder
 
 from camac.core.utils import generate_ebau_nr
-from camac.document.models import Attachment
 from camac.dossier_import.loaders import XlsxFileDossierLoader
 from camac.dossier_import.messages import (
     DOSSIER_IMPORT_STATUS_ERROR,
@@ -91,14 +90,6 @@ def perform_import(dossier_import):
             dossier_import.messages["import"]["details"].append(asdict(message))
             dossier_import.save()
         update_summary(dossier_import)
-        dossier_import.messages["import"]["summary"]["stats"] = {
-            "dossiers": Instance.objects.filter(
-                **{"case__meta__import-id": str(dossier_import.pk)}
-            ).count(),
-            "attachments": Attachment.objects.filter(
-                **{"instance__case__meta__import-id": str(dossier_import.pk)}
-            ).count(),
-        }
         dossier_import.messages["import"]["completed"] = timezone.localtime().strftime(
             "%Y-%m-%dT%H:%M:%S%z"
         )

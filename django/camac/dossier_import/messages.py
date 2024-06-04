@@ -271,6 +271,9 @@ def update_summary(dossier_import):
                 "documents": Attachment.objects.filter(
                     **{"instance__case__meta__import-id": str(dossier_import.pk)}
                 ).count(),
+                "updated": Instance.objects.filter(
+                    **{"case__meta__updated": str(dossier_import.pk)}
+                ).count(),
             }
         )
         if import_details := import_message_object.get("details"):

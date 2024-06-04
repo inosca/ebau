@@ -242,10 +242,10 @@ class CalumaAnswerWriter(FieldWriter):
                             Message(
                                 level=Severity.WARNING.value,
                                 code=MessageCodes.DELETION_HAS_NO_EFFECT,
-                                detail=(
-                                    f"Deleting {self.target} has no effect because"
-                                    f" work item {self.task} does not exist. Skipping."
-                                ),
+                                detail=_(
+                                    "Deleting %(target)s has no effect because work item %(task)s does not exist. Skipping."
+                                )
+                                % {"target": self.target, "task": self.task},
                             )
                         )
                         return
@@ -628,12 +628,14 @@ class DossierWriter:
         created = True
         if instance := self.existing_dossier(dossier.id):
             created = False
+            instance.case.meta["updated"] = import_session_id
+            instance.case.save()
             dossier_summary.instance_id = instance.pk
             dossier_summary.details.append(
                 Message(
                     level=Severity.WARNING.value,
                     code=MessageCodes.UPDATE_DOSSIER.value,
-                    detail="updating values of existing dossier",
+                    detail="",
                 )
             )
         if not instance:
