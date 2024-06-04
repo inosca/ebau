@@ -1,12 +1,13 @@
 cases:
   tableHeaders:
     applicants: Bauherr/in
+    parcel: Grundstück
 
   filters:
     submitDateAfter: "Eingereicht (von)"
     submitDateBefore: "Eingereicht (bis)"
     decision: "Entscheid"
-    parcel: "Parzellennummer"
+    parcel: "Grundstücksnummer"
 
   formCategories:
     preliminary-clarification: "Voranfrage"

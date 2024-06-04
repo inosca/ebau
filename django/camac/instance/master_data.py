@@ -642,7 +642,7 @@ class MasterData(object):
         dynamic_option = next(
             filter(
                 lambda dynamic_option: dynamic_option.slug == value,
-                self.case.document.dynamicoption_set.all(),
+                answer.document.dynamicoption_set.all(),
             ),
             None,
         )

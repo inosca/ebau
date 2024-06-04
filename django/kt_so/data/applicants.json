@@ -31,5 +31,27 @@
       "created": "2023-11-27T09:20:09.650Z",
       "email": "admin@example.com"
     }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 4,
+    "fields": {
+      "instance": 4,
+      "user": 1,
+      "invitee": 1,
+      "created": "2024-05-31T10:25:34.596Z",
+      "email": "admin@example.com"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 5,
+    "fields": {
+      "instance": 5,
+      "user": 1,
+      "invitee": 1,
+      "created": "2024-05-31T10:26:28.697Z",
+      "email": "admin@example.com"
+    }
   }
 ]

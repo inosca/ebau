@@ -2,6 +2,7 @@ from datetime import date
 
 import pytest
 from caluma.caluma_form import factories as caluma_form_factories
+from caluma.caluma_form.models import Question
 from caluma.caluma_workflow import (
     factories as caluma_workflow_factories,
     models as caluma_workflow_models,
@@ -479,7 +480,14 @@ def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock, uti
 
 
 @pytest.fixture
-def so_master_data_case(db, master_data_is_visible_mock, so_instance, utils):
+def so_master_data_case(
+    db,
+    master_data_is_visible_mock,
+    so_instance,
+    utils,
+    question_factory,
+    dynamic_option_factory,
+):
     so_instance.case.meta = {
         "dossier-number": "2024-1",
         "submit-date": "2024-02-22T13:17:08+0000",
@@ -504,7 +512,7 @@ def so_master_data_case(db, master_data_is_visible_mock, so_instance, utils):
 
     # Municipality
     utils.add_answer(document, "gemeinde", "1")
-    caluma_form_factories.DynamicOptionFactory(
+    dynamic_option_factory(
         question_id="gemeinde",
         document=so_instance.case.document,
         slug="1",
@@ -541,7 +549,7 @@ def so_master_data_case(db, master_data_is_visible_mock, so_instance, utils):
     )
 
     # Buildings
-    utils.add_table_answer(
+    buildings = utils.add_table_answer(
         document,
         "gebaeude",
         [
@@ -555,12 +563,11 @@ def so_master_data_case(db, master_data_is_visible_mock, so_instance, utils):
     )
 
     # Dwellings
-    utils.add_table_answer(
+    dwellings = utils.add_table_answer(
         document,
         "wohnungen",
         [
             {
-                "dazugehoeriges-gebaeude": "Villa",
                 "stockwerktyp": "stockwerktyp-obergeschoss",
                 "stockwerknummer": "2",
                 "lage": "Süd",
@@ -571,7 +578,6 @@ def so_master_data_case(db, master_data_is_visible_mock, so_instance, utils):
                 "zwg": "zwg-keine",
             },
             {
-                "dazugehoeriges-gebaeude": "Villa",
                 "stockwerktyp": "stockwerktyp-parterre",
                 "lage": "Nord",
                 "anzahl-zimmer": "10",
@@ -584,30 +590,41 @@ def so_master_data_case(db, master_data_is_visible_mock, so_instance, utils):
     )
 
     # Energy devices
-    utils.add_table_answer(
+    energy_devices = utils.add_table_answer(
         document,
         "gebaeudetechnik",
         [
             {
-                "bezeichnung-dazugehoeriges-gebaeude": "Villa",
                 "anlagetyp": "anlagetyp-heizung-und-warmwasseraufbereitung",
                 "heizsystem-art": "-hauptheizung",
                 "hauptheizungsanlage": "hauptheizungsanlage-erdsonde",
             },
             {
-                "bezeichnung-dazugehoeriges-gebaeude": "Villa",
                 "anlagetyp": "anlagetyp-hauptheizung",
                 "heizsystem-art": "-zusatzheizung",
                 "hauptheizungsanlage": "hauptheizungsanlage-sonne-thermisch",
             },
             {
-                "bezeichnung-dazugehoeriges-gebaeude": "Villa",
                 "anlagetyp": "anlagetyp-warmwasser",
                 "heizsystem-art": "-zusatzheizung",
                 "hauptheizungsanlage": "hauptheizungsanlage-fernwaerme",
             },
         ],
     )
+
+    building_question = question_factory(
+        slug="dazugehoeriges-gebaeude-auswahl", type=Question.TYPE_DYNAMIC_CHOICE
+    )
+    building_slug = str(buildings.documents.first().pk)
+
+    for row in dwellings.documents.all().union(energy_devices.documents.all()):
+        utils.add_answer(row, building_question.pk, building_slug)
+        dynamic_option_factory(
+            question=building_question,
+            document=row,
+            slug=building_slug,
+            label={"de": "Villa"},
+        )
 
     return so_instance.case
 
@@ -847,7 +864,7 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
                 "work_items__document__answers__answerdocument_set",
                 "work_items__document__answers__answerdocument_set__document__answers",
             ],
-            12,
+            17,
         ),
     ],
 )

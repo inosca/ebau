@@ -5758,7 +5758,7 @@
         }),
       ]),
       'description': dict({
-        'de': 'Lagekoordinaten der Parzelle(n)',
+        'de': 'Lagekoordinaten des Grundstückes',
       }),
       'nested_aliases': dict({
       }),
@@ -6057,11 +6057,11 @@
     'PARZELLE': dict({
       'aliases': list([
         dict({
-          'de': 'PARZELLE',
+          'de': 'GRUNDSTUECK',
         }),
       ]),
       'description': dict({
-        'de': 'Die ausgewählte Parzelle(n) des/der Bauherr/in',
+        'de': 'Das ausgewählte Grundstück des/der Bauherr/in',
       }),
       'nested_aliases': dict({
       }),
@@ -7601,6 +7601,7 @@
     'GRUNDEIGENTUEMER_ADRESSE_2',
     'GRUNDEIGENTUEMER_NAME_ADDRESS',
     'GRUNDEIGENTUEMER_NAME_ADRESSE',
+    'GRUNDSTUECK',
     'HEUTE',
     'JURISTIC_NAME',
     'JURISTISCHER_NAME',

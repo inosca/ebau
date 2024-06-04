@@ -41,6 +41,9 @@ export default {
   dms: {
     hideDownloadButton: true,
   },
+  instanceOverview: {
+    useSpecialId: true,
+  },
   watermark: isDevelopingApp() || getOwnConfig().enableWatermark,
   municipalityLogo: true,
   communications: true,
