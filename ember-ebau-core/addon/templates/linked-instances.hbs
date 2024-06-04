@@ -1,1 +1,21 @@
-{{outlet}}
+{{#if this.case.loading}}
+  <div class="uk-flex uk-flex-center">
+    <UkSpinner />
+  </div>
+{{else}}
+  <div uk-grid>
+    {{#if this.case}}
+      <div class="uk-width-1-2@m">
+        <h3>{{t "cases.tableHeaders.linkedInstances"}}</h3>
+        <LinkedInstances @currentInstance={{this.model}} @case={{this.case}} />
+      </div>
+      <div class="uk-width-1-2@m">
+        <h3>{{t "cases.tableHeaders.instancesOnSamePlot"}}</h3>
+        <InstancesOnSamePlot
+          @currentInstance={{this.model}}
+          @case={{this.case}}
+        />
+      </div>
+    {{/if}}
+  </div>
+{{/if}}
