@@ -40,17 +40,17 @@ export default class LoginRoute extends OIDCAuthenticationRoute {
   async handleTokenExchangeAuthentication(transition) {
     const token = getQueryParam(transition, "token");
 
-    if (token) {
-      // If we have a token from the eGov portal, we need to exchange it for a
-      // token from our OIDC provider
-      return await this.exchangeToken(token);
-    }
-
     if (!this.session.data.nextURL) {
       const url =
         getQueryParam(transition, "nextUrl") ??
         this.session.attemptedTransition?.intent?.url;
       this.session.set("data.nextURL", url);
+    }
+
+    if (token) {
+      // If we have a token from the eGov portal, we need to exchange it for a
+      // token from our OIDC provider
+      return await this.exchangeToken(token);
     }
 
     location.replace(
@@ -89,7 +89,7 @@ export default class LoginRoute extends OIDCAuthenticationRoute {
 
       // initialize session with already existing token
       // this is unusual for OIDC, so we need to call a private method
-      this.session.session._setup("authenticator:oidc", parsed, true);
+      await this.session.session._setup("authenticator:oidc", parsed, true);
     } catch (error) {
       console.error(error);
     }
