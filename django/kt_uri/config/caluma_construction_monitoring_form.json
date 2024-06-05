@@ -292,10 +292,10 @@
     "pk": "construction-step-schnurgeruest-kontrollieren",
     "fields": {
       "created_at": "2023-10-27T12:59:35.982Z",
-      "modified_at": "2023-10-27T12:59:35.982Z",
+      "modified_at": "2024-05-27T08:19:19.985Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "name": "{\"de\": \"Schnurger\\u00fcst kontrollieren\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
