@@ -1,0 +1,6 @@
+gis:
+  point-error: Das Grundstück konnte nicht ausgewählt werden.
+
+  search:
+    placeholder: "Nach Adresse oder Grundstück suchen..."
+    empty: "Keine Adressen oder Grundstücke gefunden"
