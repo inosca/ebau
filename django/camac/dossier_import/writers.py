@@ -275,14 +275,6 @@ class CalumaAnswerWriter(FieldWriter):
                     )
                     return
                 answer.delete()
-                dossier._meta.warnings.append(
-                    FieldValidationMessage(
-                        level=Severity.WARNING.value,
-                        code=MessageCodes.FORM_DATA_WRITTEN.value,
-                        field=self.target,
-                        detail="Value deleted",
-                    )
-                )
                 return
 
             if (
@@ -366,15 +358,6 @@ class BuildingAuthorityRowWriter(CalumaAnswerWriter):
 
         if value == self.owner.delete_keyword:
             row_document.answers.filter(question=question).delete()
-            if dossier := self.context.get("dossier"):
-                dossier._meta.warnings.append(
-                    Message(
-                        level=Severity.INFO.value,
-                        code=MessageCodes.VALUE_DELETED.value,
-                        detail=f"Deleted {self.target} on building-authority.",
-                    )
-                )
-
             return
 
         try:
@@ -789,7 +772,7 @@ class DossierWriter:
 
             messages.append(
                 Message(
-                    level=Severity.WARNING.value,
+                    level=Severity.INFO.value,
                     code=MessageCodes.ATTACHMENT_UPDATED.value,
                     detail=filename,
                 )
