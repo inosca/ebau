@@ -844,7 +844,37 @@
       "modified_by_group": null,
       "form": "allgemeine-informationen",
       "question": "anleitung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-informationen.is-paper",
+    "fields": {
+      "created_at": "2024-06-05T13:07:54.823Z",
+      "modified_at": "2024-06-05T13:07:54.823Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-informationen",
+      "question": "is-paper",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-informationen.projektaenderung",
+    "fields": {
+      "created_at": "2024-06-05T13:07:50.393Z",
+      "modified_at": "2024-06-05T13:07:50.393Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-informationen",
+      "question": "projektaenderung",
+      "sort": 1
     }
   },
   {
@@ -4294,7 +4324,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "dauer-in-monaten",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -4354,7 +4384,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "geplanter-baustart",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -4519,7 +4549,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "umbauter-raum",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -6590,21 +6620,6 @@
       "form": "durchgefuehrte-vorabklaerung-tabelle",
       "question": "telefon-oder-mobil",
       "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "einreichen.bestaetigung-digitale-kommunikation",
-    "fields": {
-      "created_at": "2024-05-22T09:31:11.647Z",
-      "modified_at": "2024-05-22T09:31:11.647Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "einreichen",
-      "question": "bestaetigung-digitale-kommunikation",
-      "sort": 2
     }
   },
   {
@@ -12709,7 +12724,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "bauherrin",
-      "sort": 9
+      "sort": 7
     }
   },
   {
@@ -12724,7 +12739,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "grundeigentuemerin",
-      "sort": 7
+      "sort": 5
     }
   },
   {
@@ -12739,22 +12754,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "grundeigentuemerin-abweichend",
-      "sort": 8
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "personalien.is-paper",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "personalien",
-      "question": "is-paper",
-      "sort": 2
+      "sort": 6
     }
   },
   {
@@ -12769,22 +12769,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "personalien-titel",
-      "sort": 10
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "personalien.projektaenderung",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "personalien",
-      "question": "projektaenderung",
-      "sort": 1
+      "sort": 8
     }
   },
   {
@@ -12799,7 +12784,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "projektverfasserin",
-      "sort": 5
+      "sort": 3
     }
   },
   {
@@ -12814,7 +12799,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "projektverfasserin-abweichend",
-      "sort": 6
+      "sort": 4
     }
   },
   {
@@ -12829,7 +12814,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "rechnungsempfaengerin",
-      "sort": 3
+      "sort": 1
     }
   },
   {
@@ -12844,7 +12829,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "rechnungsempfaengerin-abweichend",
-      "sort": 4
+      "sort": 2
     }
   },
   {
@@ -18603,22 +18588,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "bestaetigung-digitale-kommunikation-ja",
-    "fields": {
-      "created_at": "2024-05-22T09:31:10.611Z",
-      "modified_at": "2024-05-22T09:31:10.611Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja, ich m\\u00f6chte gerne von der zust\\u00e4ndigen Gemeinde Dokumente und Anfragen wie Nachforderungen und Nachfragen etc. digital \\u00fcber das eBau-Portal jeweils mit einer Ank\\u00fcndigung per E-Mail erhalten (Bauverf\\u00fcgungen m\\u00fcssen aus rechtlichen Gr\\u00fcnden zun\\u00e4chst noch per Papierpost zugestellt werden)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -27965,7 +27934,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Der Abflussbeiwert (C) ber\\u00fccksichtigt die Beschaffenheit der beregneten Fl\\u00e4che, die daraus resultierende Abminderung und die Verz\\u00f6gerung des Abflusses. Sie SN 59200:2012 im Kapitel 7.3.6 \\u00abAbflussbeiwert (C)\\u00bb.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Der Abflussbeiwert (C) ber\\u00fccksichtigt die Beschaffenheit der beregneten Fl\\u00e4che, die daraus resultierende Abminderung und die Verz\\u00f6gerung des Abflusses. Sie SN 59200:2012 im Kapitel 7.3.6 \\\"Abflussbeiwert (C)\\\".\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -32929,7 +32898,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Sie haben \\u00abAndere\\u00bb ausgew\\u00e4hlt. Bitte beschreiben Sie diesen Nutzungszweck bei der Frage \\u00abWelche Nutzungszwecke beinhaltet das Bauprojekt?\\u00bb\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Sie haben \\\"Andere\\\" ausgew\\u00e4hlt. Bitte beschreiben Sie diesen Nutzungszweck.\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "true",
       "is_hidden": "!(\"nutzungszwecke-andere\" in \"nutzungszwecke\"|answer)",
@@ -33269,9 +33238,9 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Sie haben \\u00abAndere Tiefbaute\\u00bb ausgew\\u00e4hlt. Bitte beschreiben Sie diese Tiefbaute.\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Sie haben \\\"Andere Tiefbaute\\\" ausgew\\u00e4hlt. Bitte beschreiben Sie diese Tiefbaute.\", \"fr\": null, \"it\": null}",
       "type": "textarea",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\n  \"tiefbau-siedlung-art\"|answer == \"tiefbau-siedlung-art-andere-tiefbauten\"\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -33303,9 +33272,9 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Sie haben \\u00abAndere Tiefbaute\\u00bb ausgew\\u00e4hlt. Bitte beschreiben Sie diese Tiefbaute.\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Sie haben \\\"Andere Tiefbaute\\\" ausgew\\u00e4hlt. Bitte beschreiben Sie diese Tiefbaute.\", \"fr\": null, \"it\": null}",
       "type": "textarea",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "\"tiefbau-landschaft-art\"|answer != \"tiefbau-landschaft-art-andere\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -33581,39 +33550,6 @@
       "static_content": "{\"de\": \"---\\n\\n<p class=\\\"uk-text-small uk-margin-remove\\\"><strong>Besondere Gefahren f\\u00fcr Arbeitnehmende</strong> (Art. 31 ArGV 4): Asbest; gesundheitsgef\\u00e4hrdender L\\u00e4rm; ionisierende und nicht ionisierende Strahlung; Viren, Bakterien und andere Mikroorganismen etc.</p>\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "bestaetigung-digitale-kommunikation",
-    "fields": {
-      "created_at": "2024-05-22T09:31:11.112Z",
-      "modified_at": "2024-05-31T10:24:43.297Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja, ich m\\u00f6chte gerne von der zust\\u00e4ndigen Gemeinde Dokumente und Anfragen wie Nachforderungen und Nachfragen etc. digital \\u00fcber das eBau-Portal jeweils mit einer Ank\\u00fcndigung per E-Mail erhalten (Bauverf\\u00fcgungen m\\u00fcssen aus rechtlichen Gr\\u00fcnden zun\\u00e4chst noch per Papierpost zugestellt werden)\", \"fr\": null, \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "true",
-      "is_hidden": "info.root.form in [\"voranfrage\", \"meldung\"]",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true
-      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -34255,7 +34191,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Handelt es sich bei Ihrem Vorhaben um die Brandschutz-Geb\\u00e4udekategorien \\u00abEinfamilienh\\u00e4user\\u00bb und / oder \\u00abNebengeb\\u00e4ude\\u00bb?\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Handelt es sich bei Ihrem Vorhaben um die Brandschutz-Geb\\u00e4udekategorien \\\"Einfamilienh\\u00e4user\\\" und / oder \\\"Nebengeb\\u00e4ude\\\"?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
@@ -40982,7 +40918,7 @@
       "is_hidden": "!(\n  \"projekt-energienachweis-huelle\" in \"projekt-energienachweis\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"####INFO\\n2a Einzelbauteilnachweis W\\u00e4rmed\\u00e4mmung\\nGem\\u00e4ss Norm SIA 380/1 \\u00abThermische Energie im Hochbau\\u00bb, Ausgabe 2009. Bei Neubauten sind alle Bauteile nachzuweisen, welche die beheizte oder gek\\u00fchlte Zone l\\u00fcckenlos umschliessen. Bei Umbauten oder Umnutzungen sind nur die betroffenen Bauteile nachzuweisen.\\n\\n2b Systemnachweis W\\u00e4rmed\\u00e4mmung\\nGem\\u00e4ss Norm SIA 380/1 \\u00abThermische Energie im Hochbau\\u00bb, Ausgabe 2009. Bei Neubauten ist der Heizw\\u00e4rmebedarf f\\u00fcr die gesamte beheizte oder gek\\u00fchlte Zone nachzuweisen. Der Systemnachweis f\\u00fcr Umbauten und Umnutzungen hat im Minimum alle R\\u00e4ume zu umfassen, die Bauteile aufweisen, die vom Umbau oder von der Umnutzung betroffen werden.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"####INFO\\n2a Einzelbauteilnachweis W\\u00e4rmed\\u00e4mmung\\nGem\\u00e4ss Norm SIA 380/1 \\\"Thermische Energie im Hochbau\\\", Ausgabe 2009. Bei Neubauten sind alle Bauteile nachzuweisen, welche die beheizte oder gek\\u00fchlte Zone l\\u00fcckenlos umschliessen. Bei Umbauten oder Umnutzungen sind nur die betroffenen Bauteile nachzuweisen.\\n\\n2b Systemnachweis W\\u00e4rmed\\u00e4mmung\\nGem\\u00e4ss Norm SIA 380/1 \\\"Thermische Energie im Hochbau\\\", Ausgabe 2009. Bei Neubauten ist der Heizw\\u00e4rmebedarf f\\u00fcr die gesamte beheizte oder gek\\u00fchlte Zone nachzuweisen. Der Systemnachweis f\\u00fcr Umbauten und Umnutzungen hat im Minimum alle R\\u00e4ume zu umfassen, die Bauteile aufweisen, die vom Umbau oder von der Umnutzung betroffen werden.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -43542,7 +43478,7 @@
       "is_hidden": "!(\"niederschlagsabwasser-einleitung-in-oberflaechengewaesser\" in \"niederschlagsabwasser\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"**I. Erl\\u00e4uterungen zum Einleiten in ein Gew\\u00e4sser von nicht verschmutztem Abwasser** (Niederschlagsab- und Sickerwasser)\\n\\n**i. Normen, Richtlinien, Empfehlungen und Arbeitshilfen**\\n\\nBei der Projektierung von Versickerungsanlagen stehen folgende Unterlagen zur Verf\\u00fcgung:\\n\\n* VSA-Richtlinie \\u00abAbwasserbewirtschaftung bei Regenwetter\\u00bb\\n* Schweizer Norm, SN 592000:2012 \\u00abAnlagen f\\u00fcr die Liegenschaftsentw\\u00e4sserung \\u2013 Planung und Ausf\\u00fchrung\\u00bb\\n* KBOB Empfehlung 2001/1 \\u00abMetalle f\\u00fcr D\\u00e4cher und Fassaden\\u00bb vom Bundesamt f\\u00fcr Bauten und Logistik \\n* KBOB Empfehlung 2019/1 \\u00abVersickerung und Retention von Niederschlagswasser im Liegenschaftsbereich\\u00bb vom Bundesamt f\\u00fcr Bauten und Logistik\\n* AfU-Merkblatt \\u00abVersickerung und Einleitung von nicht verschmutztem Abwasser\\u00bb\\n\\n**ii. Technische Grunds\\u00e4tze**\\n\\nBez\\u00fcglich des Einsatzes von unbeschichteten Metallen wird auf die KBOB Empfehlung 2001/1 \\u00abMetalle f\\u00fcr D\\u00e4cher und Fassaden\\u00bb verwiesen. F\\u00fcr die Einleitung von Niederschlagsabwasser und Sickerwasser in ein Gew\\u00e4sser von Fl\\u00e4chen mit unbeschichteten Metallinstallationen und Eindeckungen (z.B. Kupfer, Zink, Zinn und Blei) > 500 m\\u00b2 ist eine technische Behandlungsmassnahme (k\\u00fcnstlicher Adsorber) obligatorisch.\\n\\n**iii. Gesetzliche Grundlagen**\\n\\nNach Art. 7, Abs. 2 des Gew\\u00e4sserschutzgesetzes (GSchG; SR 814.20) ist nicht verschmutztes Abwasser versickern zu lassen. Gem\\u00e4ss \\u00a7 22 und Anhang II der kantonalen Verordnung \\u00fcber Wasser, Boden und Abfall (VWBA; BGS 712.16) ist die Einwohnergemeinde f\\u00fcr die Bewilligung von Versickerungsanlagen und Einleitungen im Wohn-, B\\u00fcro- und Landwirtschaftsbereich sowie bei Verkehrswegen wie Geh- und Radwegen, Privatstrassen und Gemeindestrassen zust\\u00e4ndig.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"**I. Erl\\u00e4uterungen zum Einleiten in ein Gew\\u00e4sser von nicht verschmutztem Abwasser** (Niederschlagsab- und Sickerwasser)\\n\\n**i. Normen, Richtlinien, Empfehlungen und Arbeitshilfen**\\n\\nBei der Projektierung von Versickerungsanlagen stehen folgende Unterlagen zur Verf\\u00fcgung:\\n\\n* VSA-Richtlinie \\\"Abwasserbewirtschaftung bei Regenwetter\\\"\\n* Schweizer Norm, SN 592000:2012 \\\"Anlagen f\\u00fcr die Liegenschaftsentw\\u00e4sserung \\u2013 Planung und Ausf\\u00fchrung\\\"\\n* KBOB Empfehlung 2001/1 \\\"Metalle f\\u00fcr D\\u00e4cher und Fassaden\\\" vom Bundesamt f\\u00fcr Bauten und Logistik \\n* KBOB Empfehlung 2019/1 \\\"Versickerung und Retention von Niederschlagswasser im Liegenschaftsbereich\\\" vom Bundesamt f\\u00fcr Bauten und Logistik\\n* AfU-Merkblatt \\\"Versickerung und Einleitung von nicht verschmutztem Abwasser\\\"\\n\\n**ii. Technische Grunds\\u00e4tze**\\n\\nBez\\u00fcglich des Einsatzes von unbeschichteten Metallen wird auf die KBOB Empfehlung 2001/1 \\\"Metalle f\\u00fcr D\\u00e4cher und Fassaden\\\" verwiesen. F\\u00fcr die Einleitung von Niederschlagsabwasser und Sickerwasser in ein Gew\\u00e4sser von Fl\\u00e4chen mit unbeschichteten Metallinstallationen und Eindeckungen (z.B. Kupfer, Zink, Zinn und Blei) > 500 m\\u00b2 ist eine technische Behandlungsmassnahme (k\\u00fcnstlicher Adsorber) obligatorisch.\\n\\n**iii. Gesetzliche Grundlagen**\\n\\nNach Art. 7, Abs. 2 des Gew\\u00e4sserschutzgesetzes (GSchG; SR 814.20) ist nicht verschmutztes Abwasser versickern zu lassen. Gem\\u00e4ss \\u00a7 22 und Anhang II der kantonalen Verordnung \\u00fcber Wasser, Boden und Abfall (VWBA; BGS 712.16) ist die Einwohnergemeinde f\\u00fcr die Bewilligung von Versickerungsanlagen und Einleitungen im Wohn-, B\\u00fcro- und Landwirtschaftsbereich sowie bei Verkehrswegen wie Geh- und Radwegen, Privatstrassen und Gemeindestrassen zust\\u00e4ndig.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"**Einzureichende Unterlagen zum Einleitungsgesuch**\\n\\n* Der Standort der Einleitung muss in einem Situationsplan ersichtlich sein\\n* Entw\\u00e4sserungsplan 1:200 (Angabe der Oberfl\\u00e4chenmaterialien und der Fl\\u00e4chennutzung sowie der Fl\\u00e4chenabgrenzung, Standorte der Versickerungsanlage(n), Schlammsammler und Kontrollsch\\u00e4chte, Gef\\u00e4llsverh\\u00e4ltnisse)\\n* Detailschnitt 1:50 mit eingezeichnetem Niedrig- und Hochwasserstand, bauliche Gestaltung der Einleitung (Materialien, Gef\\u00e4lle, Durchmesser)\\n* Hydraulischer Bericht (Zul\\u00e4ssigkeitspr\\u00fcfung f\\u00fcr die stoffliche und hydraulische Belastung, Abkl\\u00e4rung der Abflusskapazit\\u00e4t, Hochwasserverh\\u00e4ltnisse, R\\u00fcckstauproblematik, Abwasseranfall, etc.)\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -44784,7 +44720,7 @@
       "is_hidden": "!(\"niederschlagsabwasser-versickerungsanlage\" in \"niederschlagsabwasser\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"**I. Erl\\u00e4uterungen zum Versickern von nicht verschmutztem Abwasser** (Niederschlagsab- und\\nSickerwasser)\\n\\n**i. Normen, Richtlinien, Empfehlungen und Arbeitshilfen**\\n\\nBei der Projektierung von Versickerungsanlagen stehen folgende Unterlagen zur Verf\\u00fcgung:\\n- VSA-Richtlinie \\u00abAbwasserbewirtschaftung bei Regenwetter\\u00bb\\n- Schweizer Norm, SN 592000:2012 \\u00abAnlagen f\\u00fcr die Liegenschaftsentw\\u00e4sserung \\u2013 Planung\\nund Ausf\\u00fchrung\\u00bb\\n- KBOB Empfehlung 2001/1 \\u00abMetalle f\\u00fcr D\\u00e4cher und Fassaden\\u00bb vom Bundesamt f\\u00fcr Bauten\\nund Logistik\\n- KBOB Empfehlung 2019/1 \\u00abVersickerung und Retention von Niederschlagswasser im\\nLiegenschaftsbereich\\u00bb vom Bundesamt f\\u00fcr Bauten und Logistik\\n- AfU-Merkblatt \\u00abVersickerung und Einleitung von nicht verschmutztem Abwasser\\u00bb\\n\\n**ii. Technische Grunds\\u00e4tze**\\n\\nDie technische Ausgestaltung und Dimensionierung der Versickerungsanlagen einschliesslich der\\nerforderlichen Retentions-, Vorreinigungsanlagen und Behandlungsmassnahmen richtet sich nach\\nder VSA-Richtlinie \\u00abAbwasserbewirtschaftung bei Regenwetter\\u00bb und nach der Schweizer-Norm SN\\n592 000:2012 \\u00abAnlagen f\\u00fcr die Liegenschaftsentw\\u00e4sserung \\u2013 Planung und Ausf\\u00fchrung\\u00bb.\\nGegebenenfalls ist die Versickerungsf\\u00e4higkeit des Bodens durch einen Versickerungsversuch\\nnachzuweisen. Die Bauherrschaft hat f\\u00fcr diese Belange einen Fachmann beizuziehen.\\n\\nBez\\u00fcglich des Einsatzes von unbeschichteten Metallen wird auf die KBOB Empfehlung 2001/1\\n\\u00abMetalle f\\u00fcr D\\u00e4cher und Fassaden\\u00bb verwiesen. F\\u00fcr die Versickerung von Regenwasser von Fl\\u00e4chen\\nmit unbeschichteten Metallinstallationen und \\u2013einde-ckungen (z.B. Kupfer, Zink, Zinn und Blei) > 50\\nm\\u00b2 ist eine technische Behandlungsmassnahme (k\\u00fcnstlicher Adsorber) obligatorisch.\\n\\nBei den Versickerungsanlagen ist zu beachten, dass ab Muldensohle bzw. Unterkante Filterschicht\\nbis zum Hochwasserspiegel eine nat\\u00fcrliche vertikale Filterschicht von mindestens 1.00 m vorhanden\\nsein muss. Nicht zul\\u00e4ssig sind Versickerungen \\u00fcber Schluckbrunnen (Direkteinleitungen ins\\nGrundwasser). Durch bauliche Massnahmen muss ferner sichergestellt sein, dass die\\nVersickerungsanlagen nicht zweckentfremdet werden k\\u00f6nnen. Das System des\\nVersickerungswassers muss vollst\\u00e4ndig vom System des Schmutzabwassers getrennt sein.\\n\\n**iii. Gesetzliche Grundlagen**\\n\\nNach Art. 7, Abs. 2 des Gew\\u00e4sserschutzgesetzes (GSchG; SR 814.20) ist nicht verschmutztes\\nAbwasser versickern zu lassen. Gem\\u00e4ss \\u00a7 22 und Anhang II der kantonalen Verordnung \\u00fcber\\nWasser, Boden und Abfall (VWBA; BGS 712.16) ist die Einwohnergemeinde f\\u00fcr die Bewilligung von\\nVersickerungsanlagen und Einleitungen im Wohn-, B\\u00fcro- und Landwirtschaftsbereich sowie bei\\nVerkehrswegen wie Geh- und Radwegen, Privatstrassen und Gemeindestrassen zust\\u00e4ndig.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"**I. Erl\\u00e4uterungen zum Versickern von nicht verschmutztem Abwasser** (Niederschlagsab- und\\nSickerwasser)\\n\\n**i. Normen, Richtlinien, Empfehlungen und Arbeitshilfen**\\n\\nBei der Projektierung von Versickerungsanlagen stehen folgende Unterlagen zur Verf\\u00fcgung:\\n- VSA-Richtlinie \\\"Abwasserbewirtschaftung bei Regenwetter\\\"\\n- Schweizer Norm, SN 592000:2012 \\\"Anlagen f\\u00fcr die Liegenschaftsentw\\u00e4sserung \\u2013 Planung\\nund Ausf\\u00fchrung\\\"\\n- KBOB Empfehlung 2001/1 \\\"Metalle f\\u00fcr D\\u00e4cher und Fassaden\\\" vom Bundesamt f\\u00fcr Bauten\\nund Logistik\\n- KBOB Empfehlung 2019/1 \\\"Versickerung und Retention von Niederschlagswasser im\\nLiegenschaftsbereich\\\" vom Bundesamt f\\u00fcr Bauten und Logistik\\n- AfU-Merkblatt \\\"Versickerung und Einleitung von nicht verschmutztem Abwasser\\\"\\n\\n**ii. Technische Grunds\\u00e4tze**\\n\\nDie technische Ausgestaltung und Dimensionierung der Versickerungsanlagen einschliesslich der\\nerforderlichen Retentions-, Vorreinigungsanlagen und Behandlungsmassnahmen richtet sich nach\\nder VSA-Richtlinie \\\"Abwasserbewirtschaftung bei Regenwetter\\\" und nach der Schweizer-Norm SN\\n592 000:2012 \\\"Anlagen f\\u00fcr die Liegenschaftsentw\\u00e4sserung \\u2013 Planung und Ausf\\u00fchrung\\\".\\nGegebenenfalls ist die Versickerungsf\\u00e4higkeit des Bodens durch einen Versickerungsversuch\\nnachzuweisen. Die Bauherrschaft hat f\\u00fcr diese Belange einen Fachmann beizuziehen.\\n\\nBez\\u00fcglich des Einsatzes von unbeschichteten Metallen wird auf die KBOB Empfehlung 2001/1\\n\\\"Metalle f\\u00fcr D\\u00e4cher und Fassaden\\\" verwiesen. F\\u00fcr die Versickerung von Regenwasser von Fl\\u00e4chen\\nmit unbeschichteten Metallinstallationen und \\u2013einde-ckungen (z.B. Kupfer, Zink, Zinn und Blei) > 50\\nm\\u00b2 ist eine technische Behandlungsmassnahme (k\\u00fcnstlicher Adsorber) obligatorisch.\\n\\nBei den Versickerungsanlagen ist zu beachten, dass ab Muldensohle bzw. Unterkante Filterschicht\\nbis zum Hochwasserspiegel eine nat\\u00fcrliche vertikale Filterschicht von mindestens 1.00 m vorhanden\\nsein muss. Nicht zul\\u00e4ssig sind Versickerungen \\u00fcber Schluckbrunnen (Direkteinleitungen ins\\nGrundwasser). Durch bauliche Massnahmen muss ferner sichergestellt sein, dass die\\nVersickerungsanlagen nicht zweckentfremdet werden k\\u00f6nnen. Das System des\\nVersickerungswassers muss vollst\\u00e4ndig vom System des Schmutzabwassers getrennt sein.\\n\\n**iii. Gesetzliche Grundlagen**\\n\\nNach Art. 7, Abs. 2 des Gew\\u00e4sserschutzgesetzes (GSchG; SR 814.20) ist nicht verschmutztes\\nAbwasser versickern zu lassen. Gem\\u00e4ss \\u00a7 22 und Anhang II der kantonalen Verordnung \\u00fcber\\nWasser, Boden und Abfall (VWBA; BGS 712.16) ist die Einwohnergemeinde f\\u00fcr die Bewilligung von\\nVersickerungsanlagen und Einleitungen im Wohn-, B\\u00fcro- und Landwirtschaftsbereich sowie bei\\nVerkehrswegen wie Geh- und Radwegen, Privatstrassen und Gemeindestrassen zust\\u00e4ndig.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"**Einzureichende Unterlagen zum Versickerungsgesuch**\\n* Der Standort der Versickerungsanlage(n) muss in einem Situationsplan ersichtlich sein.\\n* Entw\\u00e4sserungsplan 1:200 (Angabe der Oberfl\\u00e4chenmaterialien und der Fl\\u00e4chennutzung\\nsowie der Fl\\u00e4chenabgrenzung, Standorte der Versickerungsanlage(n), Schlammsammler und\\nKontrollsch\\u00e4chte, Gef\\u00e4llsverh\\u00e4ltnisse)\\n* Detailplan (Grundriss / Schnitte) 1:50 der Versickerungsanlage(n) mit Kotenangaben m \\u00fc.M.,\\nmit eingezeichnetem h\\u00f6chstem Grundwasserspiegel (HGW), bauliche Gestaltung (Materialien,\\nAbmessungen, Durchmesser)\\n* Hydrogeologischer Bericht (Baugrundverh\\u00e4ltnisse, Sickerleistung des Untergrundes, h\\u00f6chster\\nGrundwasserspiegel (HGW) etc.), Bemessungsnachweis f\\u00fcr Adsorberanlage\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -45623,7 +45559,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"## Hochbauten / Wohnungen / Geb\\u00e4udetechnik\\n\\n**Bitte beachten:** F\\u00fcr die Erfassung von Tiefbauanlagen, die im Rahmen eines Hochbauprojekts gleichzeitig erstellt werden (z.B. Parkpl\\u00e4tze, Veloparkpl\\u00e4tze, Infrastrukturanlagen wie Trinkwasseranschluss, Abwasserentsorgung, Elektrizit\\u00e4t usw.), unter dem Menupunkt Bauprojekte bei \\u00abArt der Bauwerke\\u00bb den Punkt \\u00abTiefbaute\\u00bb ankreuzen und die erforderlichen Angaben im Menu \\u00abTiefbau\\u00bb erfassen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"## Hochbauten / Wohnungen / Geb\\u00e4udetechnik\\n\\n**Bitte beachten:** F\\u00fcr die Erfassung von Tiefbauanlagen, die im Rahmen eines Hochbauprojekts gleichzeitig erstellt werden (z.B. Parkpl\\u00e4tze, Veloparkpl\\u00e4tze, Infrastrukturanlagen wie Trinkwasseranschluss, Abwasserentsorgung, Elektrizit\\u00e4t usw.), unter dem Menupunkt Bauprojekte bei \\\"Art der Bauwerke\\\" den Punkt \\\"Tiefbaute\\\" ankreuzen und die erforderlichen Angaben im Menu \\\"Tiefbau\\\" erfassen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -47691,7 +47627,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"####INFO\\nDie Lage auf dem Stockwerk dient dazu, einzelne Wohnungen eines Geb\\u00e4udes, welche bez\\u00fcglich der Stockwerkangabe und der Anzahl Zimmer identisch sind, voneinander zu unterscheiden.\\n\\nEs kann sich um Angaben wie \\u00abLinks\\u00bb/ \\u00abMitte\\u00bb/ \\u00abRechts\\u00bboder andere eindeutige und best\\u00e4ndige Charakteristiken wie \\u00abNord\\u00bb/ \\u00abOst\\u00bb/ \\u00abS\\u00fcd\\u00bb/ \\u00abWest\\u00bbhandeln.\\n\\nF\\u00fcr Wohnungen in Geb\\u00e4uden mit mehr als drei Wohnungen pro Stockwerk wird anstelle einer Lagebezeichnung die Erfassung einer physischen Wohnungsnummer empfohlen.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"####INFO\\nDie Lage auf dem Stockwerk dient dazu, einzelne Wohnungen eines Geb\\u00e4udes, welche bez\\u00fcglich der Stockwerkangabe und der Anzahl Zimmer identisch sind, voneinander zu unterscheiden.\\n\\nEs kann sich um Angaben wie \\\"Links\\\"/ \\\"Mitte\\\"/ \\\"Rechts\\\"oder andere eindeutige und best\\u00e4ndige Charakteristiken wie \\\"Nord\\\"/ \\\"Ost\\\"/ \\\"S\\u00fcd\\\"/ \\\"West\\\"handeln.\\n\\nF\\u00fcr Wohnungen in Geb\\u00e4uden mit mehr als drei Wohnungen pro Stockwerk wird anstelle einer Lagebezeichnung die Erfassung einer physischen Wohnungsnummer empfohlen.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -47988,7 +47924,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Wenn das (Bau-)Vorhaben folgendes betrifft/enth\\u00e4lt, muss die Frage mit \\u00abTeilweise\\u00bb oder \\u00abNein\\u00bb beantwortet werden, da es sich dabei um zonenfremde Nutzungen handelt:\\n\\n* Nichtlandwirtschaftliche Nebenbetriebe (Art. 24b RPG; Checkliste BaB A4)\\n* die Wohnnutzung eines landwirtschaftlichen Nebenerwerbsbetrieb (ab 0.2 SAK bis 0.74 SAK)\\n* Umwidmung einer landwirtschaftlichen in eine landwirtschaftsfremde Wohnnutzung (Art. 24d Abs. 1 und 3 RPG; Checkliste BaB A8)\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Wenn das (Bau-)Vorhaben folgendes betrifft/enth\\u00e4lt, muss die Frage mit \\\"Teilweise\\\" oder \\\"Nein\\\" beantwortet werden, da es sich dabei um zonenfremde Nutzungen handelt:\\n\\n* Nichtlandwirtschaftliche Nebenbetriebe (Art. 24b RPG; Checkliste BaB A4)\\n* die Wohnnutzung eines landwirtschaftlichen Nebenerwerbsbetrieb (ab 0.2 SAK bis 0.74 SAK)\\n* Umwidmung einer landwirtschaftlichen in eine landwirtschaftsfremde Wohnnutzung (Art. 24d Abs. 1 und 3 RPG; Checkliste BaB A8)\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -48785,7 +48721,7 @@
       "label": "{\"de\": \"Massnahmen zum Schutz vor Naturgefahren Titel\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\n\t[\n\t\t\"gefahrenstufen-geringe-gefaehrdung\",\n\t\t\"gefahrenstufen-mittlere-gefaehrdung\",\n\t\t\"gefahrenstufen-erhebliche-gefaehrdung\",\n\t\t\"gefahrenstufen-restgefaehrdung\"\n\t] intersects \"gefahrenstufen\"|answer\n)",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -51764,7 +51700,7 @@
       "label": "{\"de\": \"W\\u00fcnschen Sie eine Beratung zu Objektschutzmassnahmen?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
-      "is_hidden": "!(\n\t[\n\t\t\"gefahrenstufen-geringe-gefaehrdung\",\n\t\t\"gefahrenstufen-mittlere-gefaehrdung\",\n\t\t\"gefahrenstufen-erhebliche-gefaehrdung\",\n\t\t\"gefahrenstufen-restgefaehrdung\"\n\t] intersects \"gefahrenstufen\"|answer\n)",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -51795,7 +51731,7 @@
       "label": "{\"de\": \"Haben Sie Objektschutzmassnahmen geplant?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
-      "is_hidden": "!(\n\t[\n\t\t\"gefahrenstufen-geringe-gefaehrdung\",\n\t\t\"gefahrenstufen-mittlere-gefaehrdung\",\n\t\t\"gefahrenstufen-erhebliche-gefaehrdung\",\n\t\t\"gefahrenstufen-restgefaehrdung\"\n\t] intersects \"gefahrenstufen\"|answer\n)",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -53155,7 +53091,7 @@
       "is_hidden": "False",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"####Hinweise und Erkl\\u00e4rungen\\n\\n- 0 Nachweis MINERGIE-Label\\nF\\u00fcr das Projekt besteht ein MINERGIE-Label: Kopie des provisorischen  Zertifikats beilegen. Auf Formular EN-2b \\u00abSystemnachweis W\\u00e4rmed\\u00e4mmung\\u00bb  bei Beilagen auf MINERGIE-Label hinweisen. Mit der Unterschrift bei \\u00abNachweis erarbeitet durch\\u00bb wird best\\u00e4tigt, dass das Bauvorhaben gem\\u00e4ss MINERGIE- Label ausgef\\u00fchrt wird. Bei Privater Kontrolle sind ausser dem erw\\u00e4hnten Formu-lar EN-2b und der Kopie des provisorischen Zertifikats keine weiteren Beilagen zu den Bereichen W\\u00e4rmed\\u00e4mmung und H\\u00f6chstanteil n\\u00f6tig. Fehlt die Unterschrift Private Kontrolle, sind alle Unterlagen beizulegen, da die Beh\\u00f6rde diese f\\u00fcr die Ausf\\u00fchrungskontrolle ben\\u00f6tigt.\\n\\n- 1Nachweis H\\u00f6chstanteil nichterneuerbarer Energien\\n(EnG Artikel 3 bis 5, EnR Artiekl 14 und 15)\\n\\nDer Nachweis kann entweder durch die Wahl einer Standardl\\u00f6sung oder durch eine Berechnung des H\\u00f6chstanteils nichterneuerbarer Energien erbracht werden. Dieser Nachweis ist zu erbringen bei:\\n\\u2013Neubauten\\n\\u2013neubauartigen Umbauten\\n\\u2013Anbauten und Aufstockungen, wenn die neu geschaffene Energiebezugsfl\\u00e4che mehr als 50 m\\u00b2 und gleichzeitig mehr als 20% der Energiebezugsfl\\u00e4che des bestehenden Geb\\u00e4udeteiles betr\\u00e4gt; oder wenn mehr als 1000 m\\u00b2 Energie-bezugsfl\\u00e4che neu geschaffen werden.\\n\\n- 2a Einzelbauteilnachweis W\\u00e4rmed\\u00e4mmung\\nEnG Artiekl 3 bis 5; EnR Artikel 5 bis 7)\\n\\nGem\\u00e4ss Norm SIA 380/1 \\u00abThermische Energie im Hochbau\\u00bb, Ausgabe 2009. Bei Neubauten sind alle Bauteile nachzuweisen, welche die beheizte oder gek\\u00fchlte Zone l\\u00fcckenlos umschliessen. Bei Umbauten oder Umnutzungen sind nur die betroffenen Bauteile nachzuweisen.\\n\\n- 2b Systemnachweis W\\u00e4rmed\\u00e4mmung\\n(EnG Artikel 3 bis 5; EnR Artiekl 5 bis 7)\\n\\nGem\\u00e4ss Norm SIA 380/1 \\u00abThermische Energie im Hochbau\\u00bb, Ausgabe 2009. Bei Neubauten ist der Heizw\\u00e4rmebedarf f\\u00fcr die gesamte beheizte oder gek\\u00fchlte Zone nachzuweisen. Der Systemnachweis f\\u00fcr Umbauten und Umnutzungen hat im Minimum alle R\\u00e4ume zu umfassen, die Bauteile aufweisen, die vom Umbau oder von der Umnutzung betroffen werden.\\n\\n- 3 Nachweis Heizungs- und Warmwasseranlagen\\n(EnG Artikel 3 bis 5; EnR Artikel 12 bis 13 und 20 bis 21)\\n\\nDer Nachweis ist f\\u00fcr alle neuen und f\\u00fcr die von einem Umbau betroffenen  bestehenden Anlagenteile zu erbringen.\\n\\n- 4 Nachweis L\\u00fcftungstechnische Anlagen\\n(EnG Artikel 3 bis 5; EnR Artikel 18 bis 21)\\n\\nDer Nachweis ist f\\u00fcr alle neuen und f\\u00fcr die von einem Umbau betroffenen  bestehenden Anlagenteile zu erbringen.\\n\\n- 5 Nachweis f\\u00fcr K\\u00fchlung und/oder Befeuchtung\\n(EnG Artikel 3 bis 5; EnR Artikel 17,20,21)\\n\\nDer Nachweis ist f\\u00fcr alle neuen und f\\u00fcr die von einem Umbau betroffenen  bestehenden Anlagenteile zu erbringen.\\n\\n- 6/7/8 Nachweis K\\u00fchlr\\u00e4ume/Gew\\u00e4chsh\\u00e4user/Traglufthallen\\n(EnG Artikel 3 bis 5; EnR Artikel 9 bis 11)\\n\\nDer Nachweis ist f\\u00fcr alle neuen und f\\u00fcr die von einem Umbau oder einer  Umnutzung betroffenen Bauteile zu erbringen. Bei K\\u00fchlr\\u00e4umen: Angaben  \\u00fcber die bei der K\\u00e4lteerzeugung allenfalls entstehende Abw\\u00e4rme sind bei  den Heizungsanlagen (vgl. EN-3) anzubringen.\\n\\n- 10/11 Nachweis Heizungen im Freien/Freiluftb\\u00e4der\\n(EnG Artikel 3 bis 5; EnR Artikel 24 und 25)\\n\\nDer Nachweis ist f\\u00fcr alle neuen, ersetzten und von einem Umbau betroffenen  bestehenden Anlagenteile, sowie bei einem Ersatz der W\\u00e4rmeerzeugung zu erbringen.\\n\\n- 12 Nachweis ortsfeste elektrische Widerstandsheizungen\\n(EnG Artikel 7; EnR Artikel 23)\\n\\nDer Nachweis ist f\\u00fcr alle neuen Elektroheizungen mit mehr als 3 kW oder f\\u00fcr  die Erweiterung um mehr als 3 kW Anschlussleistung zu erbringen.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"####Hinweise und Erkl\\u00e4rungen\\n\\n- 0 Nachweis MINERGIE-Label\\nF\\u00fcr das Projekt besteht ein MINERGIE-Label: Kopie des provisorischen  Zertifikats beilegen. Auf Formular EN-2b \\\"Systemnachweis W\\u00e4rmed\\u00e4mmung\\\"  bei Beilagen auf MINERGIE-Label hinweisen. Mit der Unterschrift bei \\\"Nachweis erarbeitet durch\\\" wird best\\u00e4tigt, dass das Bauvorhaben gem\\u00e4ss MINERGIE- Label ausgef\\u00fchrt wird. Bei Privater Kontrolle sind ausser dem erw\\u00e4hnten Formu-lar EN-2b und der Kopie des provisorischen Zertifikats keine weiteren Beilagen zu den Bereichen W\\u00e4rmed\\u00e4mmung und H\\u00f6chstanteil n\\u00f6tig. Fehlt die Unterschrift Private Kontrolle, sind alle Unterlagen beizulegen, da die Beh\\u00f6rde diese f\\u00fcr die Ausf\\u00fchrungskontrolle ben\\u00f6tigt.\\n\\n- 1Nachweis H\\u00f6chstanteil nichterneuerbarer Energien\\n(EnG Artikel 3 bis 5, EnR Artiekl 14 und 15)\\n\\nDer Nachweis kann entweder durch die Wahl einer Standardl\\u00f6sung oder durch eine Berechnung des H\\u00f6chstanteils nichterneuerbarer Energien erbracht werden. Dieser Nachweis ist zu erbringen bei:\\n\\u2013Neubauten\\n\\u2013neubauartigen Umbauten\\n\\u2013Anbauten und Aufstockungen, wenn die neu geschaffene Energiebezugsfl\\u00e4che mehr als 50 m\\u00b2 und gleichzeitig mehr als 20% der Energiebezugsfl\\u00e4che des bestehenden Geb\\u00e4udeteiles betr\\u00e4gt; oder wenn mehr als 1000 m\\u00b2 Energie-bezugsfl\\u00e4che neu geschaffen werden.\\n\\n- 2a Einzelbauteilnachweis W\\u00e4rmed\\u00e4mmung\\nEnG Artiekl 3 bis 5; EnR Artikel 5 bis 7)\\n\\nGem\\u00e4ss Norm SIA 380/1 \\\"Thermische Energie im Hochbau\\\", Ausgabe 2009. Bei Neubauten sind alle Bauteile nachzuweisen, welche die beheizte oder gek\\u00fchlte Zone l\\u00fcckenlos umschliessen. Bei Umbauten oder Umnutzungen sind nur die betroffenen Bauteile nachzuweisen.\\n\\n- 2b Systemnachweis W\\u00e4rmed\\u00e4mmung\\n(EnG Artikel 3 bis 5; EnR Artiekl 5 bis 7)\\n\\nGem\\u00e4ss Norm SIA 380/1 \\\"Thermische Energie im Hochbau\\\", Ausgabe 2009. Bei Neubauten ist der Heizw\\u00e4rmebedarf f\\u00fcr die gesamte beheizte oder gek\\u00fchlte Zone nachzuweisen. Der Systemnachweis f\\u00fcr Umbauten und Umnutzungen hat im Minimum alle R\\u00e4ume zu umfassen, die Bauteile aufweisen, die vom Umbau oder von der Umnutzung betroffen werden.\\n\\n- 3 Nachweis Heizungs- und Warmwasseranlagen\\n(EnG Artikel 3 bis 5; EnR Artikel 12 bis 13 und 20 bis 21)\\n\\nDer Nachweis ist f\\u00fcr alle neuen und f\\u00fcr die von einem Umbau betroffenen  bestehenden Anlagenteile zu erbringen.\\n\\n- 4 Nachweis L\\u00fcftungstechnische Anlagen\\n(EnG Artikel 3 bis 5; EnR Artikel 18 bis 21)\\n\\nDer Nachweis ist f\\u00fcr alle neuen und f\\u00fcr die von einem Umbau betroffenen  bestehenden Anlagenteile zu erbringen.\\n\\n- 5 Nachweis f\\u00fcr K\\u00fchlung und/oder Befeuchtung\\n(EnG Artikel 3 bis 5; EnR Artikel 17,20,21)\\n\\nDer Nachweis ist f\\u00fcr alle neuen und f\\u00fcr die von einem Umbau betroffenen  bestehenden Anlagenteile zu erbringen.\\n\\n- 6/7/8 Nachweis K\\u00fchlr\\u00e4ume/Gew\\u00e4chsh\\u00e4user/Traglufthallen\\n(EnG Artikel 3 bis 5; EnR Artikel 9 bis 11)\\n\\nDer Nachweis ist f\\u00fcr alle neuen und f\\u00fcr die von einem Umbau oder einer  Umnutzung betroffenen Bauteile zu erbringen. Bei K\\u00fchlr\\u00e4umen: Angaben  \\u00fcber die bei der K\\u00e4lteerzeugung allenfalls entstehende Abw\\u00e4rme sind bei  den Heizungsanlagen (vgl. EN-3) anzubringen.\\n\\n- 10/11 Nachweis Heizungen im Freien/Freiluftb\\u00e4der\\n(EnG Artikel 3 bis 5; EnR Artikel 24 und 25)\\n\\nDer Nachweis ist f\\u00fcr alle neuen, ersetzten und von einem Umbau betroffenen  bestehenden Anlagenteile, sowie bei einem Ersatz der W\\u00e4rmeerzeugung zu erbringen.\\n\\n- 12 Nachweis ortsfeste elektrische Widerstandsheizungen\\n(EnG Artikel 7; EnR Artikel 23)\\n\\nDer Nachweis ist f\\u00fcr alle neuen Elektroheizungen mit mehr als 3 kW oder f\\u00fcr  die Erweiterung um mehr als 3 kW Anschlussleistung zu erbringen.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"##Energienachweis\\n\\nEin Energienachweis ist in der Regel notwendig bei beheizten oder gek\\u00fchlten Neubauten, Umbauten, Erweiterungen und Zweck\\u00e4nderungen, oder wenn in der Geb\\u00e4udeh\\u00fclle einzelne Bauteile ersetzt, oder neu ged\\u00e4mmt werden. Ebenfalls notwendig ist der Nachweis, wenn geb\\u00e4udetechnische Anlagen wie Heizungen, L\\u00fcftungen, Klima- und/oder K\\u00e4lteanlagen ersetzt oder neu eingebaut werden. Bitte w\\u00e4hlen Sie die entsprechenden baulichen Umst\\u00e4nde aus, die bei Ihrem Vorhaben zutreffen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -55489,7 +55425,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"##Tiefbauprojekte / Umgebung und Anschl\\u00fcsse zu Hochbauprojekten\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"##Tiefbauprojekte / Umgebung und / oder Anschl\\u00fcsse zu Hochbauprojekten\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -58331,7 +58267,7 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Wohnungen\", \"fr\": null, \"it\": null}",
       "type": "table",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "!(\n\t[\n\t\t\"typ-des-bauwerks-mehrfamilienhaus\",\n\t\t\"typ-des-bauwerks-wohn-und-geschaftshaus\",\n\t\t\"typ-des-bauwerks-bauten-und-anlagen-gastgewerbe\",\n\t\t\"typ-des-bauwerks-heim-mit-unterkunft\",\n\t\t\"typ-des-bauwerks-wohnheim-ohne-pflege\",\n\t\t\"typ-des-bauwerks-spital\",\n\t\t\"typ-des-bauwerks-schulen\",\n\t\t\"typ-des-bauwerks-landwirtschaft-betrieb-wohnteil\"\n\t] intersects \"gebaeude\"|answer|mapby(\"typ-des-bauwerks\")\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -61261,21 +61197,6 @@
       "modified_by_group": null,
       "question": "besondere-gefahren-fuer-arbeitnehmende-relevant",
       "option": "besondere-gefahren-fuer-arbeitnehmende-relevant-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "bestaetigung-digitale-kommunikation.bestaetigung-digitale-kommunikation-ja",
-    "fields": {
-      "created_at": "2024-05-31T10:24:43.309Z",
-      "modified_at": "2024-05-31T10:24:43.309Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "bestaetigung-digitale-kommunikation",
-      "option": "bestaetigung-digitale-kommunikation-ja",
       "sort": 1
     }
   },
