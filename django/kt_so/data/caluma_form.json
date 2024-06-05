@@ -1596,23 +1596,6 @@
   },
   {
     "model": "caluma_form.answer",
-    "pk": "2ac22103-dabc-409e-bb94-86726349c9da",
-    "fields": {
-      "created_at": "2024-05-22T15:18:54.145Z",
-      "modified_at": "2024-05-22T15:18:54.145Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "bestaetigung-digitale-kommunikation",
-      "value": ["bestaetigung-digitale-kommunikation-ja"],
-      "meta": {},
-      "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
     "pk": "2b61fb9c-e15e-481e-9d4d-92d27d339eac",
     "fields": {
       "created_at": "2024-05-31T10:29:37.304Z",
@@ -3245,23 +3228,6 @@
       "modified_by_group": null,
       "question": "ess-und-aufenthaltsraeume-pausenraeume-relevant",
       "value": "ess-und-aufenthaltsraeume-pausenraeume-relevant-nein",
-      "meta": {},
-      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
-    "pk": "68a35e08-d389-4cf6-bbbe-efba244ebbeb",
-    "fields": {
-      "created_at": "2024-05-22T15:16:23.230Z",
-      "modified_at": "2024-05-22T15:16:23.230Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "bestaetigung-digitale-kommunikation",
-      "value": ["bestaetigung-digitale-kommunikation-ja"],
       "meta": {},
       "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
       "date": null
@@ -5194,23 +5160,6 @@
       "value": "oberflaechenbehandlungsanlagen-relevant-nein",
       "meta": {},
       "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
-    "pk": "b3a2c208-e9b5-4e99-acb3-2c555e4fdf93",
-    "fields": {
-      "created_at": "2024-05-22T15:13:56.630Z",
-      "modified_at": "2024-05-22T15:13:56.630Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "bestaetigung-digitale-kommunikation",
-      "value": ["bestaetigung-digitale-kommunikation-ja"],
-      "meta": {},
-      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
       "date": null
     }
   },
