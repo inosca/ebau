@@ -84,6 +84,7 @@ MODULE_CONFIG_FIXTURES = {
     "ech0211": ["kt_schwyz", "kt_bern", "kt_gr"],
     "dossier_import": ["kt_schwyz", "kt_bern", "kt_so"],
     "bab": ["kt_so"],
+    "project_modification": [],
 }
 
 for modulename, cantons in MODULE_CONFIG_FIXTURES.items():

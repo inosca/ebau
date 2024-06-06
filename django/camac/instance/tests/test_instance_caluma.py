@@ -99,6 +99,7 @@ def test_create_instance_caluma_be(
     extend_validity,
     instance_service_factory,
     convert_to_building_permit,
+    project_modification_settings,
 ):
     headers = {}
 
@@ -111,7 +112,7 @@ def test_create_instance_caluma_be(
 
     instance_state_factory(name="old")
 
-    application_settings["CALUMA"]["MODIFICATION_ALLOW_FORMS"] = ["main-form"]
+    project_modification_settings["ALLOW_FORMS"] = ["main-form"]
 
     location = Location.objects.first()
     body = {
@@ -253,6 +254,7 @@ def test_create_instance_caluma_ur(  # noqa: C901
     authority_factory,
     settings,
     paper,
+    project_modification_settings,
 ):
     headers = {}
 
@@ -270,7 +272,7 @@ def test_create_instance_caluma_ur(  # noqa: C901
     instance_state_factory(name="ext")
     instance_state_factory(name="new")
 
-    application_settings["CALUMA"]["MODIFICATION_ALLOW_FORMS"] = ["main-form"]
+    project_modification_settings["ALLOW_FORMS"] = ["main-form"]
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
 
@@ -2526,9 +2528,9 @@ def test_create_instance_caluma_modification(
     form,
     mock_nfd_permissions,
     caluma_workflow_config_be,
-    application_settings,
     caluma_form,
     expected_status,
+    project_modification_settings,
 ):
     instance_state_factory(name="new")
 
@@ -2538,8 +2540,8 @@ def test_create_instance_caluma_modification(
         caluma_form_models.Form.objects.create(slug="verlaerungerung-geltungsdauer"),
     )
 
-    application_settings["CALUMA"]["MODIFICATION_ALLOW_FORMS"] = ["baugesuch"]
-    application_settings["CALUMA"]["MODIFICATION_DISALLOW_STATES"] = ["new"]
+    project_modification_settings["ALLOW_FORMS"] = ["main-form"]
+    project_modification_settings["DISALLOW_STATES"] = ["new"]
 
     create_response = admin_client.post(
         reverse("instance-list"),
@@ -2603,11 +2605,11 @@ def test_create_instance_from_modification(
     instance_state_factory,
     role,
     mock_nfd_permissions,
-    application_settings,
+    project_modification_settings,
 ):
     instance_state_factory(name="new")
 
-    application_settings["CALUMA"]["MODIFICATION_ALLOW_FORMS"] = ["main-form"]
+    project_modification_settings["ALLOW_FORMS"] = ["main-form"]
 
     Answer.objects.create(
         document=be_instance.case.document,

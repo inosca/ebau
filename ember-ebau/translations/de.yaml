@@ -6,6 +6,7 @@ nav:
   paper: "Papier"
   appeal: "Beschwerdeverfahren"
   bab: "BaB"
+  modification: "Projektänderung"
   masterData:
     label: "Stammdaten"
     hide: "Stammdaten verstecken"

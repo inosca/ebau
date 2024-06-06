@@ -102,11 +102,10 @@ export default class InstanceAbility extends Ability {
     const form = this.model?.calumaForm;
 
     return (
-      this.instanceStateId &&
-      form &&
-      (config.APPLICATION?.modification?.allowForms || []).includes(form) &&
-      !(config.APPLICATION?.modification?.disallowStates || []).includes(
-        this.instanceStateId,
+      (mainConfig.modification?.allowForms ?? []).includes(form) &&
+      !hasInstanceState(
+        this.model,
+        mainConfig.modification?.disallowStates ?? [],
       ) &&
       (!this.session.isInternal ||
         (this.session.isInternal && this.model.isPaper) ||
