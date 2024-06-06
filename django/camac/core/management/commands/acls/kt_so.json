@@ -761,7 +761,7 @@
     }
   },
   "13": {
-    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Entscheid",
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Entscheid / Beurteilung",
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
@@ -1131,6 +1131,29 @@
         "construction-monitoring",
         "decided",
         "finished"
+      ]
+    }
+  },
+  "24": {
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Materielle Prüfung BaB",
+    "acls": {
+      "service-clerk": [
+        "construction-monitoring",
+        "decided",
+        "decision",
+        "distribution",
+        "finished",
+        "withdrawal",
+        "withdrawn"
+      ],
+      "service-lead": [
+        "construction-monitoring",
+        "decided",
+        "decision",
+        "distribution",
+        "finished",
+        "withdrawal",
+        "withdrawn"
       ]
     }
   }

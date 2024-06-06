@@ -326,7 +326,11 @@ class PreliminaryClarificationTargets(BaseDataSource):
             Service.objects.select_related("service_group")
             .filter(
                 service_parent__isnull=True,
-                service_group__name__in=["service-cantonal", "service-extra-cantonal"],
+                service_group__name__in=[
+                    "service-cantonal",
+                    "service-extra-cantonal",
+                    "service-bab",
+                ],
                 disabled=False,
             )
             .prefetch_related("trans")

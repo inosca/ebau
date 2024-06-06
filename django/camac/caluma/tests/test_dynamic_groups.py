@@ -266,3 +266,11 @@ def test_dynamic_groups_ur(
     )
 
     assert result == [str(expected_group_pk)]
+
+
+def test_dynamic_group_service_bab(db, service_factory, so_bab_settings, so_instance):
+    service = service_factory(service_group__name=so_bab_settings["SERVICE_GROUP"])
+
+    assert CustomDynamicGroups().resolve("service-bab")(
+        None, so_instance.case, None, None, None
+    ) == [str(service.pk)]

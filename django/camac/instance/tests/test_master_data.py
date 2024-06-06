@@ -491,6 +491,7 @@ def so_master_data_case(
     so_instance.case.meta = {
         "dossier-number": "2024-1",
         "submit-date": "2024-02-22T13:17:08+0000",
+        "is-bab": True,
     }
     so_instance.case.save()
 
@@ -509,6 +510,14 @@ def so_master_data_case(
         "art-der-bauwerke",
         ["art-der-bauwerke-hochbaute", "art-der-bauwerke-tiefbaute"],
     )
+
+    # BaB
+    utils.add_answer(
+        document,
+        "aushublagerplaetze-oder-baupisten",
+        "aushublagerplaetze-oder-baupisten-nein",
+    )
+    utils.add_answer(document, "bab", "bab-ja")
 
     # Municipality
     utils.add_answer(document, "gemeinde", "1")

@@ -1872,6 +1872,23 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "31fd7c9b-ff1c-4b4a-8f3a-1478086b056b",
+    "fields": {
+      "created_at": "2024-06-05T07:45:44.616Z",
+      "modified_at": "2024-06-05T07:45:44.616Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nachweis-keine-terrainveraenderungen",
+      "value": ["nachweis-keine-terrainveraenderungen-ja"],
+      "meta": {},
+      "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "34ab448f-b7a6-4751-a8df-7ebd36f46654",
     "fields": {
       "created_at": "2023-11-27T09:22:21.550Z",
@@ -2613,6 +2630,23 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "51787fd1-9642-4e56-b57a-a41e97931d04",
+    "fields": {
+      "created_at": "2024-06-05T07:45:47.477Z",
+      "modified_at": "2024-06-05T07:45:47.477Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "beschrieb-herstellung-urspruengliches-zustandes",
+      "value": ["beschrieb-herstellung-urspruengliches-zustandes-ja"],
+      "meta": {},
+      "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "518a13b6-4f46-48f3-b289-dfe69ae0c619",
     "fields": {
       "created_at": "2023-11-27T09:23:20.039Z",
@@ -2780,6 +2814,23 @@
       "value": "Sandra Muster",
       "meta": {},
       "document": "f02b0999-cc76-431b-a76b-70ab34f2bcee",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "5713a974-4682-43a4-af7f-1d7aceddff6b",
+    "fields": {
+      "created_at": "2024-06-05T07:45:47.225Z",
+      "modified_at": "2024-06-05T07:45:47.225Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vermasster-situationsplan",
+      "value": ["vermasster-situationsplan-ja"],
+      "meta": {},
+      "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
       "date": null
     }
   },
@@ -3196,6 +3247,23 @@
       "value": "test@test.ch",
       "meta": {},
       "document": "0f785b8e-17f2-455e-af79-afd9517d51d7",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "658188ad-adbe-4f96-9282-f9d15725aeaa",
+    "fields": {
+      "created_at": "2024-06-05T07:45:47.546Z",
+      "modified_at": "2024-06-05T07:45:47.546Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "einverstaendniserklaerung-betroffener-grundeigentuemer",
+      "value": ["einverstaendniserklaerung-betroffener-grundeigentuemer-ja"],
+      "meta": {},
+      "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
       "date": null
     }
   },
@@ -3943,13 +4011,13 @@
     "pk": "8841accc-b3d5-4375-9fa8-29784543769f",
     "fields": {
       "created_at": "2024-04-08T14:41:08.905Z",
-      "modified_at": "2024-04-08T14:41:08.905Z",
+      "modified_at": "2024-06-05T07:45:29.019Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "aushublagerplaetze-oder-baupisten",
-      "value": "aushublagerplaetze-oder-baupisten-nein",
+      "value": "aushublagerplaetze-oder-baupisten-ja",
       "meta": {},
       "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
       "date": null
@@ -5131,6 +5199,23 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "b19feb35-ebea-4602-8c56-d77e260e81cb",
+    "fields": {
+      "created_at": "2024-06-05T07:45:46.676Z",
+      "modified_at": "2024-06-05T07:45:46.676Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nachweis-erstellung-bodenschutz",
+      "value": ["nachweis-erstellung-bodenschutz-ja"],
+      "meta": {},
+      "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "b2076b91-8f80-472a-981b-10c832ccc8db",
     "fields": {
       "created_at": "2023-07-07T07:32:14.695Z",
@@ -6299,6 +6384,23 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "e51bd418-962e-4b42-98f0-2147354fe707",
+    "fields": {
+      "created_at": "2024-06-05T07:45:43.144Z",
+      "modified_at": "2024-06-05T07:45:43.144Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nachweis-standortgebundenheit",
+      "value": ["nachweis-standortgebundenheit-ja"],
+      "meta": {},
+      "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "e5b82394-763a-4b48-ad05-eff2439565de",
     "fields": {
       "created_at": "2024-05-31T10:30:24.346Z",
@@ -6688,6 +6790,23 @@
       "meta": {},
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
       "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "f8dd70c7-930b-4f50-a497-7405c07420b0",
+    "fields": {
+      "created_at": "2024-06-05T07:45:31.637Z",
+      "modified_at": "2024-06-05T07:45:34.805Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "datum-bis-zu-welchem-der-rueckbau-erfolgt",
+      "value": null,
+      "meta": {},
+      "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
+      "date": "2025-06-05"
     }
   },
   {

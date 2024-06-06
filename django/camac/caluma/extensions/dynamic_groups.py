@@ -138,3 +138,16 @@ class CustomDynamicGroups(BaseDynamicGroups):
         return [
             str(Service.objects.get(pk=uri_constants.FGS_SERVICE_ID).pk)
         ]  # FGS Fachstelle für Gebäudeschätzung
+
+    @register_dynamic_group("service-bab")
+    def resolve_service_bab(self, task, case, user, prev_work_item, context, **kwargs):
+        return (
+            [
+                str(service.pk)
+                for service in Service.objects.filter(
+                    service_group__name=settings.BAB["SERVICE_GROUP"]
+                )[:1]
+            ]
+            if settings.BAB
+            else []
+        )

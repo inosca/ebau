@@ -14817,6 +14817,17 @@
     }
   },
   {
+    "model": "user.usergroup",
+    "pk": 14,
+    "fields": {
+      "user": 1,
+      "group": 542,
+      "default_group": 0,
+      "created_at": "2024-06-05T07:55:29.749Z",
+      "created_by": 1
+    }
+  },
+  {
     "model": "user.service",
     "pk": 1,
     "fields": {
@@ -17174,7 +17185,7 @@
     "model": "user.service",
     "pk": 109,
     "fields": {
-      "service_group": 2,
+      "service_group": 4,
       "service_parent": null,
       "name": null,
       "description": null,

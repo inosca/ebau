@@ -2865,3 +2865,42 @@ def test_instance_submit_so(
 
     assert so_instance.instance_state.name == expected_instance_state
     assert set(work_items) == expected_work_items
+
+
+@pytest.mark.parametrize(
+    "role__name,instance_state__name,instance__user",
+    [("Applicant", "new", LazyFixture("admin_user"))],
+)
+@pytest.mark.parametrize("bab_question", ["bab", "aushublagerplaetze-oder-baupisten"])
+def test_instance_submit_so_bab(
+    admin_client,
+    application_settings,
+    bab_question,
+    disable_ech0211_settings,
+    instance_state_factory,
+    master_data_is_visible_mock,
+    mock_generate_and_store_pdf,
+    mocker,
+    settings,
+    so_bab_settings,
+    so_instance,
+    so_master_data_settings,
+    utils,
+):
+    settings.APPLICATION_NAME = "kt_so"
+    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
+    application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = False
+
+    instance_state_factory(name="subm")
+    mocker.patch(
+        "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notifications"
+    )
+
+    utils.add_answer(so_instance.case.document, bab_question, f"{bab_question}-ja")
+
+    response = admin_client.post(reverse("instance-submit", args=[so_instance.pk]))
+
+    so_instance.refresh_from_db()
+
+    assert response.status_code == status.HTTP_200_OK
+    assert so_instance.case.meta.get("is-bab") is True

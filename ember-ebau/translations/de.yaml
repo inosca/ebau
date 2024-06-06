@@ -5,6 +5,7 @@ nav:
   documents: "Dokumente"
   paper: "Papier"
   appeal: "Beschwerdeverfahren"
+  bab: "BaB"
   masterData:
     label: "Stammdaten"
     hide: "Stammdaten verstecken"
