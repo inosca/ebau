@@ -77,6 +77,8 @@ const config = {
       "entscheid-entscheid-ablehnung": "uk-alert-danger",
       "entscheid-entscheid-teilzustimmung": "uk-alert-warning",
       "entscheid-entscheid-rueckzug": "uk-alert-warning",
+      "entscheid-entscheid-positiv": "uk-alert-success",
+      "entscheid-entscheid-negativ": "uk-alert-danger",
     },
   },
   appeal: {
