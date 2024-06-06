@@ -1,0 +1,115 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "materielle-pruefung-bab",
+    "fields": {
+      "created_at": "2024-06-05T07:40:37.934Z",
+      "modified_at": "2024-06-05T07:40:37.934Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Materielle Pr\\u00fcfung BaB\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab.materielle-pruefung-bab-bemerkungen",
+    "fields": {
+      "created_at": "2024-06-05T07:42:45.754Z",
+      "modified_at": "2024-06-05T07:42:45.754Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab",
+      "question": "materielle-pruefung-bab-bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab.materielle-pruefung-bab-platzhalter",
+    "fields": {
+      "created_at": "2024-06-05T07:42:17.701Z",
+      "modified_at": "2024-06-05T07:42:17.701Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab",
+      "question": "materielle-pruefung-bab-platzhalter",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-bab-bemerkungen",
+    "fields": {
+      "created_at": "2024-06-05T07:42:45.502Z",
+      "modified_at": "2024-06-05T07:42:45.502Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-bab-platzhalter",
+    "fields": {
+      "created_at": "2024-06-05T07:42:17.369Z",
+      "modified_at": "2024-06-05T08:09:12.848Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Materielle Pr\\u00fcfung BaB Platzhalter\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"## Materielle Pr\\u00fcfung BaB\\n\\n*Das Formular f\\u00fcr die materielle Pr\\u00fcfung BaB wurde noch nicht endg\\u00fcltig spezifiziert. Dies wird in einem kommenden Release erg\\u00e4nzt. Dieses Formular dient nur als Beispiel und hat keinerlei fachliche Relevanz.*\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  }
+]

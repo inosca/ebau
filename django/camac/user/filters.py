@@ -1,8 +1,11 @@
 from functools import reduce
 
+from caluma.caluma_form.models import Answer
+from caluma.caluma_workflow.models import Case, WorkItem
 from django.conf import settings
 from django.contrib.auth import get_user_model
-from django.db.models import Q, Subquery
+from django.db.models import Exists, OuterRef, Q, Subquery
+from django.utils import timezone
 from django_filters.constants import EMPTY_VALUES
 from django_filters.rest_framework import (
     BooleanFilter,
@@ -40,6 +43,9 @@ class PublicServiceFilterSet(FilterSet):
     suggestion_for_instance = NumberFilter(method="filter_suggestion_for_instance")
     exclude_own_service = BooleanFilter(method="filter_exclude_own_service")
     service_name = CharFilter(method="filter_service_name")
+    available_in_distribution_for_instance = NumberFilter(
+        method="filter_available_in_distribution_for_instance"
+    )
 
     # ?provider_for=geometer;999111 (service id)
     provider_for = CharFilter(method="filter_provider_for")
@@ -100,6 +106,65 @@ class PublicServiceFilterSet(FilterSet):
 
         return queryset.filter(reduce(lambda a, b: a | b, filters)).distinct()
 
+    def filter_available_in_distribution_for_instance(self, queryset, name, value):
+        if not settings.BAB:  # pragma: no cover
+            return queryset
+
+        case = Case.objects.get(instance__pk=value)
+
+        if (
+            not case.meta.get("is-bab")
+            or self.request.group.service.service_group.name
+            == settings.BAB["SERVICE_GROUP"]
+        ):
+            return queryset
+
+        # If the instance is BaB, a fix set of service can only be included in
+        # distribution of the BaB service
+        queryset = queryset.exclude(pk__in=settings.BAB["EXCLUDED_IN_DISTRIBUTION"])
+
+        has_completed_publication = (
+            WorkItem.objects.filter(
+                **{
+                    "case": case,
+                    "task_id__in": settings.PUBLICATION["FILL_TASKS"],
+                    "meta__is-published": True,
+                    "status": WorkItem.STATUS_COMPLETED,
+                }
+            )
+            .filter(
+                Q(
+                    Exists(
+                        Answer.objects.filter(
+                            document_id=OuterRef("document_id"),
+                            question_id="publikation-ende",
+                            date__lte=timezone.now(),
+                        )
+                    )
+                )
+                & Q(
+                    Exists(
+                        Answer.objects.filter(
+                            document_id=OuterRef("document_id"),
+                            question_id="publikation-amtsblatt",
+                            date__isnull=False,
+                        )
+                    )
+                )
+            )
+            .exists()
+        )
+
+        # If the instance is BaB, the BaB service can only be included in the
+        # distribution as soon as a publication in the official gazette
+        # (Amtsblatt) is already done and finished.
+        if not has_completed_publication:
+            queryset = queryset.exclude(
+                service_group__name=settings.BAB["SERVICE_GROUP"]
+            )
+
+        return queryset
+
     def filter_suggestion_for_instance(self, queryset, name, value):
         return queryset.filter(
             pk__in=get_service_suggestions(Instance.objects.get(pk=value))
@@ -143,6 +208,7 @@ class PublicServiceFilterSet(FilterSet):
             "service_group",
             "has_parent",
             "available_in_distribution",
+            "available_in_distribution_for_instance",
             "service_group_name",
             "service_parent",
             "suggestion_for_instance",

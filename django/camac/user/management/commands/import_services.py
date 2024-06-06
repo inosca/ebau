@@ -41,6 +41,7 @@ def get_type_map(canton):
                 1: ServiceGroup.objects.get(pk=1),  # Gemeinde
                 2: ServiceGroup.objects.get(pk=2),  # Kantonale Fachstelle
                 3: ServiceGroup.objects.get(pk=3),  # Ausserkantonale Fachstelle
+                4: ServiceGroup.objects.get(pk=4),  # Fachstelle BaB
             },
             "ROLE": {
                 1: {
@@ -62,11 +63,17 @@ def get_type_map(canton):
                     "lead": Role.objects.get(pk=10),  # Leitung Fachstelle
                     "clerk": Role.objects.get(pk=11),  # Sachbearbeitung Fachstelle
                 },
+                4: {
+                    "admin": Role.objects.get(pk=9),  # Administration Fachstelle
+                    "lead": Role.objects.get(pk=10),  # Leitung Fachstelle
+                    "clerk": Role.objects.get(pk=11),  # Sachbearbeitung Fachstelle
+                },
             },
             "PREFIX": {
                 1: "Gemeinde",
                 2: None,
                 3: None,
+                4: None,
             },
         }
 

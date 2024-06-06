@@ -248,7 +248,12 @@ class CustomDynamicTasks(BaseDynamicTasks):
         if prev_work_item.task_id == "formal-exam":
             return ["material-exam"]
         elif prev_work_item.task_id == "material-exam":
-            return ["distribution", "publication", "fill-publication", "objections"]
+            tasks = ["distribution", "publication", "fill-publication", "objections"]
+
+            if prev_work_item.case.meta.get("is-bab"):
+                tasks.append("material-exam-bab")
+
+            return tasks
 
         return []  # pragma: no cover
 

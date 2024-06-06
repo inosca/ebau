@@ -425,15 +425,28 @@ def test_dynamic_task_after_create_inquiry(
 
 
 @pytest.mark.parametrize(
-    "task_id,has_rejection_answer,expected_tasks",
+    "task_id,has_rejection_answer,is_bab,expected_tasks",
     [
-        ("formal-exam", True, ["reject"]),
-        ("material-exam", True, ["reject"]),
-        ("formal-exam", False, ["material-exam"]),
+        ("formal-exam", True, False, ["reject"]),
+        ("material-exam", True, False, ["reject"]),
+        ("formal-exam", False, False, ["material-exam"]),
         (
             "material-exam",
             False,
+            False,
             ["distribution", "publication", "fill-publication", "objections"],
+        ),
+        (
+            "material-exam",
+            False,
+            True,
+            [
+                "distribution",
+                "publication",
+                "fill-publication",
+                "objections",
+                "material-exam-bab",
+            ],
         ),
     ],
 )
@@ -442,6 +455,7 @@ def test_dynamic_task_after_exam(
     answer_factory,
     expected_tasks,
     has_rejection_answer,
+    is_bab,
     so_instance,
     so_rejection_settings,
     task_id,
@@ -455,6 +469,10 @@ def test_dynamic_task_after_exam(
             question__slug=so_rejection_settings["WORK_ITEM"]["ON_ANSWER"][task_id][0],
             value=so_rejection_settings["WORK_ITEM"]["ON_ANSWER"][task_id][1],
         )
+
+    if is_bab:
+        work_item.case.meta.update({"is-bab": True})
+        work_item.case.save()
 
     assert (
         CustomDynamicTasks().resolve_after_exam(so_instance.case, None, work_item, None)
