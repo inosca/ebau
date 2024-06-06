@@ -157,6 +157,10 @@ const config = {
   constructionMonitoring: {
     instanceStates: ["construction-monitoring", "finished"],
   },
+  modification: {
+    allowForms: ["baugesuch"],
+    disallowStates: ["new", "finished"],
+  },
 };
 
 config.intentSlugs = [config.answerSlugs.description];

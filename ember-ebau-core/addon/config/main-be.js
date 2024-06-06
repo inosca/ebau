@@ -173,4 +173,18 @@ export default {
     municipalityAdminRole: 20007, // Administration Leitbehörde
     municipalityServiceGroup: 2, // Leitbehörde Gemeinde
   },
+  modification: {
+    allowForms: [
+      "baugesuch",
+      "baugesuch-v2",
+      "baugesuch-v3",
+      "baugesuch-generell",
+      "baugesuch-generell-v2",
+      "baugesuch-generell-v3",
+      "baugesuch-mit-uvp",
+      "baugesuch-mit-uvp-v2",
+      "baugesuch-mit-uvp-v3",
+    ],
+    disallowStates: ["new", "archived", "finished"],
+  },
 };

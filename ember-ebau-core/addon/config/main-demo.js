@@ -1,4 +1,10 @@
 export default {
+  instanceStates: {
+    new: 1,
+    subm: 120004,
+    circ: 120005,
+    finished: 120006,
+  },
   answerSlugs: {},
   personalSuggestions: {
     tableQuestions: [
@@ -16,5 +22,9 @@ export default {
   },
   communication: {
     rolesWithApplicantContact: ["activeOrInolvedLeadAuthority"],
+  },
+  modification: {
+    allowForms: ["baugesuch"],
+    disallowStates: ["new", "finished"],
   },
 };

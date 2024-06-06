@@ -138,9 +138,11 @@
         <h3 class="instance-overview__action-title">
           {{t "instances.modificationTitle"}}
         </h3>
-        <p>
-          {{t "instances.modificationText"}}
-        </p>
+        {{#if (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))}}
+          <p>
+            {{t "instances.modificationText"}}
+          </p>
+        {{/if}}
         <UkButton
           @onClick={{perform this.createModification}}
           @disabled={{this.createModification.isRunning}}

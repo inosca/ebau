@@ -1102,10 +1102,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             )
 
         if is_modification and (
-            caluma_form
-            not in settings.APPLICATION["CALUMA"].get("MODIFICATION_ALLOW_FORMS", [])
+            caluma_form not in settings.PROJECT_MODIFICATION.get("ALLOW_FORMS", [])
             or source_instance.instance_state.name
-            in settings.APPLICATION["CALUMA"].get("MODIFICATION_DISALLOW_STATES", [])
+            in settings.PROJECT_MODIFICATION.get("DISALLOW_STATES", [])
         ):
             raise exceptions.ValidationError(_("Project modification is not allowed"))
 
