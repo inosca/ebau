@@ -228,6 +228,10 @@ BE_PERMISSIONS_SETTINGS = {
         ],
         "lead-authority": BE_ACTIVE_LEAD_AUTHORITY_PERMISSIONS,
         "involved-authority": BE_INVOLVED_LEAD_AUTHORITY_PERMISSIONS,
+        "read": [
+            ("form-read", Always()),
+            ("documents-read", Always()),
+        ],
         "construction-control": BE_CONSTRUCTION_CONTROL_PERMISSIONS,
         "involved-construction-control": BE_CONSTRUCTION_CONTROL_PERMISSIONS,
         "support": [
