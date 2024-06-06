@@ -172,4 +172,11 @@ export default {
     labelField: "label",
     showWithoutOptions: true,
   },
+  appeal: {
+    type: "select",
+    options: "appealOptions",
+    valueField: "value",
+    labelField: "label",
+    showWithoutOptions: true,
+  },
 };
