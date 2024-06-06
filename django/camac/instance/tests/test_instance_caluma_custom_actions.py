@@ -814,6 +814,7 @@ def test_correction(
         assert be_instance.instance_state.name == "subm"
 
 
+@pytest.mark.freeze_time("2024-06-06 08:00")
 @pytest.mark.parametrize(
     "role__name,instance_state__name,expected_status",
     [
@@ -848,11 +849,16 @@ def test_grant_municipality_access(
     assert grant_response.status_code == expected_status
 
     if expected_status == status.HTTP_204_NO_CONTENT:
-        assert (
+        acl = (
             InstanceACL.currently_active()
             .filter(instance=instance, access_level=access_level, service=service)
-            .exists()
+            .first()
         )
+
+        assert acl
+        assert (
+            acl.end_time.isoformat() == "2024-06-06T16:00:00+00:00"
+        ), '"municipality-before-submission" permission should be revoked automatically 8 hours after creation'
 
     revoke_response = admin_client.delete(url)
     assert revoke_response.status_code == expected_status
