@@ -94,10 +94,6 @@ module.exports = function (environment) {
         excludeFromDocuments: [],
       },
       instanceStates: instanceStatesDemo,
-      modification: {
-        allowForms: ["baugesuch"],
-        disallowStates: [instanceStatesDemo.new, instanceStatesDemo.finished],
-      },
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [
         {
@@ -172,24 +168,6 @@ module.exports = function (environment) {
         excludeFromDocuments: ["dokumente-platzhalter"],
       },
       instanceStates: instanceStatesBe,
-      modification: {
-        allowForms: [
-          "baugesuch",
-          "baugesuch-v2",
-          "baugesuch-v3",
-          "baugesuch-generell",
-          "baugesuch-generell-v2",
-          "baugesuch-generell-v3",
-          "baugesuch-mit-uvp",
-          "baugesuch-mit-uvp-v2",
-          "baugesuch-mit-uvp-v3",
-        ],
-        disallowStates: [
-          instanceStatesBe.new,
-          instanceStatesBe.archived,
-          instanceStatesBe.finished,
-        ],
-      },
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [
         {
@@ -267,15 +245,6 @@ module.exports = function (environment) {
           26, // arch
           27, // del
           33, // old
-        ],
-      },
-      modification: {
-        allowForms: ["building-permit"],
-        disallowStates: [
-          instanceStatesUr.new,
-          instanceStatesUr.archived,
-          instanceStatesUr.finished,
-          instanceStatesUr.old,
         ],
       },
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
@@ -407,10 +376,6 @@ module.exports = function (environment) {
         feedbackSections: ["alle-beteiligten", "bauabnahme"],
       },
       instanceStates: instanceStatesGr,
-      modification: {
-        allowForms: ["baugesuch"],
-        disallowStates: [instanceStatesGr.new],
-      },
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [
         {
@@ -465,10 +430,6 @@ module.exports = function (environment) {
         excludeFromDocuments: [],
       },
       instanceStates: instanceStatesSo,
-      modification: {
-        allowForms: [],
-        disallowStates: [instanceStatesSo.new],
-      },
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [
         {

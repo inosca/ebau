@@ -122,4 +122,8 @@ export default {
   communication: {
     rolesWithApplicantContact: ["activeOrInolvedLeadAuthority", "service"],
   },
+  modification: {
+    allowForms: ["baugesuch"],
+    disallowStates: ["new"],
+  },
 };

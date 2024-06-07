@@ -15,6 +15,9 @@
     {{#if @case.meta.is-bab}}
       <span class="uk-label subnav-header__label">{{t "nav.bab"}}</span>
     {{/if}}
+    {{#if @case.instance.isModification}}
+      <span class="uk-label subnav-header__label">{{t "nav.modification"}}</span>
+    {{/if}}
     {{#if @case.meta.is-appeal}}
       <span class="uk-label subnav-header__label">{{t "nav.appeal"}}</span>
     {{/if}}
