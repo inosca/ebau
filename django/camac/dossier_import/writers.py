@@ -2,6 +2,7 @@ import hashlib
 import logging
 import re
 import traceback
+import weakref
 from dataclasses import asdict, fields
 from datetime import datetime
 from pathlib import Path
@@ -67,7 +68,7 @@ class FieldWriter:
         self.value = value
         self.column_mapping = column_mapping
         self.value_mapping = value_mapping
-        self.owner = owner
+        self.owner = weakref.proxy(owner) if owner else None
         self.context = context
         self.name = name or target
         self.protected = protected
@@ -567,7 +568,7 @@ class DossierWriter:
         for field in fields(dossier):
             writer = getattr(self, field.name, None)
             if writer:
-                writer.owner = self
+                writer.owner = weakref.proxy(self)
                 writer.context = {"dossier": dossier}
                 writer.write(instance, getattr(dossier, field.name, None))
 

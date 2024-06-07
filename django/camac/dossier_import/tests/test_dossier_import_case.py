@@ -1,3 +1,4 @@
+import weakref
 from pathlib import Path
 
 import pytest
@@ -693,7 +694,7 @@ def test_delete_case_meta_field(
         case_meta_field = CaseMetaWriter(target=target)
 
     writer = Writer(user_id=user.pk, group_id=group.pk)
-    writer.case_meta_field.owner = writer
+    writer.case_meta_field.owner = weakref.proxy(writer)
     writer.case_meta_field.write(be_instance, "the-meta")
     be_instance.refresh_from_db()
     assert be_instance.case.meta.get(target) is not None
