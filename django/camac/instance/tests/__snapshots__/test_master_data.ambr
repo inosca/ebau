@@ -176,9 +176,23 @@
     'situation': 'Sachverhalt Test',
     'solar_panels': list([
     ]),
-    'stfv_critial_value_exceeded': None,
-    'stfv_risk_assessment': None,
-    'stfv_short_report_date': None,
+    'stfv_regulation': list([
+      None,
+      True,
+      False,
+    ]),
+    'stfv_regulation_gentech': list([
+      None,
+      False,
+      True,
+    ]),
+    'stfv_risk_assessment': True,
+    'stfv_short_report': True,
+    'stfv_special_waste_exceeded': list([
+      None,
+      False,
+      False,
+    ]),
     'street': 'Musterstrasse',
     'street_number': 4,
     'submit_date': datetime.datetime(2021, 3, 31, 13, 17, 8, tzinfo=tzutc()),
@@ -374,9 +388,23 @@
     'situation': 'Sachverhalt Test',
     'solar_panels': list([
     ]),
-    'stfv_critial_value_exceeded': None,
-    'stfv_risk_assessment': None,
-    'stfv_short_report_date': None,
+    'stfv_regulation': list([
+      None,
+      True,
+      False,
+    ]),
+    'stfv_regulation_gentech': list([
+      None,
+      False,
+      True,
+    ]),
+    'stfv_risk_assessment': True,
+    'stfv_short_report': True,
+    'stfv_special_waste_exceeded': list([
+      None,
+      False,
+      False,
+    ]),
     'street': 'Musterstrasse',
     'street_number': 4,
     'submit_date': datetime.datetime(2021, 3, 31, 13, 17, 8, tzinfo=tzutc()),

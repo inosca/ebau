@@ -363,6 +363,27 @@ def be_master_data_case(db, be_instance, group, master_data_is_visible_mock, uti
         document, "ausschankraeume", [{"sitzplaetze": 20}, {"sitzplaetze": 15}]
     )
 
+    # Störfallvorsorge
+    utils.add_answer(
+        document,
+        "triagefrage-stoerfallvorsorge-v3",
+        "triagefrage-stoerfallvorsorge-v3-ja",
+    )
+    utils.add_answer(
+        document,
+        "sv-geltungsbereich-begruendung-v3",
+        [
+            "sv-geltungsbereich-gebruendung-v3-mengenschwellen-ueberschritten",
+            "sv-geltungsbereich-begruendung-v3-gefahrenpotential",
+            "sv-geltungsbereich-begruendung-v3-einschliessungsverordnung-klasse-3-oder-4",
+        ],
+    )
+    utils.add_answer(
+        document,
+        "sv-kurzbericht-risikoermittlung-v3",
+        "sv-kurzbericht-risikoermittlung-v3-kurzbericht-risikoermittlung",
+    )
+
     return be_instance.case
 
 
