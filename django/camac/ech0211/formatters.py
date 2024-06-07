@@ -806,6 +806,10 @@ class CantonSpecific:
         return cls.caluma_decision_ruling(instance, md)
 
     @classmethod
+    def decision_ruling_so(cls, instance, md):
+        return cls.caluma_decision_ruling(instance, md)
+
+    @classmethod
     def caluma_decision_ruling(cls, instance, md):
         caluma_workflow_slug = instance.case.workflow.slug
         work_item = instance.case.work_items.filter(

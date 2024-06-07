@@ -30,6 +30,12 @@ from camac.ech0211 import formatters
             lazy_fixture("ech_instance_sz"),
             lazy_fixture("sz_master_data_settings"),
         ),
+        (
+            "kt_so",
+            lazy_fixture("set_application_so"),
+            lazy_fixture("ech_instance_so"),
+            lazy_fixture("so_master_data_settings"),
+        ),
     ],
 )
 def test_generate_delivery(

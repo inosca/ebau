@@ -2599,6 +2599,32 @@ MASTER_DATA = {
                     )
                 },
             ),
+            # eCH0211
+            "construction_duration": ("answer", "dauer-in-monaten"),
+            "legal_representatives": ("static", []),
+            "nature_risk": (
+                "table",
+                "gefahrenkartenprozesse",
+                {
+                    "column_mapping": {
+                        "risk_type": (
+                            "prozessart",
+                            {"value_parser": "option", "prop": "label"},
+                        )
+                    }
+                },
+            ),
+            "organization_category": ("static", "ebauso"),
+            "parking_lots": ("static", None),
+            "proceeding_type": ("static", None),
+            "remark": ("answer", "bemerkungen"),
+            "usage_type": (
+                "answer",
+                "nutzungszwecke",
+                {"value_parser": "option", "prop": "label"},
+            ),
+            "usage_zone": ("answer", "nutzungsplanung-grundnutzung"),
+            "zip": ("static", None),
         },
     },
 }
