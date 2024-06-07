@@ -1,3 +1,4 @@
+import weakref
 from copy import deepcopy
 from typing import List
 
@@ -176,7 +177,7 @@ class KtSchwyzDossierWriter(DossierWriter):
         method is still implemented to make it explicit and allow
         for better testing.
         """
-        self.cantonal_id.owner = self
+        self.cantonal_id.owner = weakref.proxy(self)
         self.cantonal_id.write(instance, dossier_id)
 
     def _set_workflow_state(
