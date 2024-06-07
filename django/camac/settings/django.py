@@ -891,22 +891,6 @@ APPLICATIONS = {
                 "zutrittsermaechtigung",
                 "klaerung-baubewilligungspflicht",
             ],
-            "MODIFICATION_ALLOW_FORMS": [
-                "baugesuch",
-                "baugesuch-v2",
-                "baugesuch-v3",
-                "baugesuch-generell",
-                "baugesuch-generell-v2",
-                "baugesuch-generell-v3",
-                "baugesuch-mit-uvp",
-                "baugesuch-mit-uvp-v2",
-                "baugesuch-mit-uvp-v3",
-            ],
-            "MODIFICATION_DISALLOW_STATES": [
-                "new",
-                "finished",
-                "archived",
-            ],
             "COPY_PAPER_ANSWER_TO": ["nfd", "sb1", "sb2"],
             "COPY_PERSONAL": [
                 {
@@ -1134,14 +1118,6 @@ APPLICATIONS = {
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
             "SYNC_FORM_TYPE": True,
             "SUBMIT_TASKS": ["submit"],
-            "MODIFICATION_ALLOW_FORMS": [
-                "building-permit",
-            ],
-            "MODIFICATION_DISALLOW_STATES": [
-                "new",
-                "done",
-                "old",
-            ],
             "SIMPLE_WORKFLOW": {
                 "complete-check": {
                     "next_instance_state": "comm",
@@ -1534,9 +1510,6 @@ APPLICATIONS = {
             "GENERATE_IDENTIFIER": True,
             "USE_LOCATION": False,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
-            "MODIFICATION_ALLOW_FORMS": [
-                "baugesuch",
-            ],
             "PRE_COMPLETE": {
                 "decision": {
                     "skip": [
@@ -1737,7 +1710,6 @@ APPLICATIONS = {
             "GENERATE_IDENTIFIER": True,
             "USE_LOCATION": False,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
-            "MODIFICATION_ALLOW_FORMS": [],
             "SIMPLE_WORKFLOW": {
                 "formal-exam": {
                     "next_instance_state": "material-exam",
@@ -2496,6 +2468,7 @@ CONSTRUCTION_MONITORING = load_module_settings("construction_monitoring")
 ECH0211 = load_module_settings("ech0211")
 DOSSIER_IMPORT = load_module_settings("dossier_import")
 BAB = load_module_settings("bab")
+PROJECT_MODIFICATION = load_module_settings("project_modification")
 
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")

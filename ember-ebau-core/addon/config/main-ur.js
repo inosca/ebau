@@ -134,6 +134,15 @@ export default {
     instanceStates: ["control"],
   },
   instanceStates: {
+    new: 28,
+    finished: 25, // done
+    archived: 26, // arch
+    rejected: 31,
+    old: 33,
     control: 34,
+  },
+  modification: {
+    allowForms: ["building-permit"],
+    disallowStates: ["new", "archived", "finished", "old"],
   },
 };
