@@ -985,20 +985,109 @@ MASTER_DATA = {
                     }
                 },
             ),
-            "stfv_short_report_date": (
+            "stfv_short_report": (
                 "answer",
-                "sv-vollzug-kurzbericht-v3",
-                {"value_key": "date"},
+                [
+                    "liegt-kurzbericht-vor",  # v1 form
+                    "sv-kurzbericht-risikoermittlung-v3",  # v3 form
+                ],
+                {
+                    "value_parser": (
+                        "value_mapping",
+                        {
+                            "mapping": {
+                                "liegt-kurzbericht-vor-ja": True,
+                                "liegt-kurzbericht-vor-nein": False,
+                                "sv-kurzbericht-risikoermittlung-v3-kurzbericht": True,
+                                "sv-kurzbericht-risikoermittlung-v3-risikoermittlung": False,
+                                "sv-kurzbericht-risikoermittlung-v3-kurzbericht-risikoermittlung": True,
+                                "sv-kurzbericht-risikoermittlung-v3-nein": False,
+                            }
+                        },
+                    )
+                },
             ),
-            "stfv_critial_value_exceeded": (
+            "stfv_special_waste_exceeded": (
                 "answer",
-                "triagefrage-stoerfallvorsorge-v3",
-                {"value_parser": "option"},
+                [
+                    "mengenschwelle-sonderabfaelle-ueberschritten",  # v1 form
+                    "sv-geltungsbereich-begruendung-v3",  # v3 form
+                ],
+                {
+                    "value_parser": (
+                        "value_mapping",
+                        {
+                            "mapping": {
+                                "mengenschwelle-sonderabfaelle-ueberschritten-nein": False,
+                                "mengenschwelle-sonderabfaelle-ueberschritten-ja": True,
+                                "sv-geltungsbereich-begruendung-v3-mengenschwellen-ueberschritten": True,
+                                "sv-geltungsbereich-begruendung-v3-einschliessungsverordnung-klasse-3-oder-4": False,
+                                "sv-geltungsbereich-begruendung-v3-gefahrenpotential": False,
+                            }
+                        },
+                    )
+                },
             ),
             "stfv_risk_assessment": (
                 "answer",
-                "sv-vollzug-risikoermittlung-v3",
-                {"value_key": "date"},
+                [
+                    "liegt-risikoermittlung-vor",  # v1 form
+                    "sv-kurzbericht-risikoermittlung-v3",  # v3 form
+                ],
+                {
+                    "value_parser": (
+                        "value_mapping",
+                        {
+                            "mapping": {
+                                "liegt-risikoermittlung-vor-ja": True,
+                                "liegt-risikoermittlung-vor-nein": False,
+                                "sv-kurzbericht-risikoermittlung-v3-risikoermittlung": True,
+                                "sv-kurzbericht-risikoermittlung-v3-kurzbericht": False,
+                                "sv-kurzbericht-risikoermittlung-v3-kurzbericht-risikoermittlung": True,
+                                "sv-kurzbericht-risikoermittlung-v3-nein": False,
+                            }
+                        },
+                    )
+                },
+            ),
+            "stfv_regulation": (
+                "answer",
+                [
+                    "gefaehrlich-fuer-bevoelkerung-oder-umwelt",  # v1 form
+                    "sv-geltungsbereich-begruendung-v3",  # v3 form
+                ],
+                {
+                    "value_parser": (
+                        "value_mapping",
+                        {
+                            "mapping": {
+                                "gefaehrlich-fuer-bevoelkerung-oder-umwelt-nein": False,
+                                "gefaehrlich-fuer-bevoelkerung-oder-umwelt-ja": True,
+                                "sv-geltungsbereich-begruendung-v3-mengenschwellen-ueberschritten": False,
+                                "sv-geltungsbereich-begruendung-v3-einschliessungsverordnung-klasse-3-oder-4": False,
+                                "sv-geltungsbereich-begruendung-v3-gefahrenpotential": True,
+                            }
+                        },
+                    )
+                },
+            ),
+            "stfv_regulation_gentech": (
+                "answer",
+                [
+                    "sv-geltungsbereich-begruendung-v3",  # v3 form
+                ],
+                {
+                    "value_parser": (
+                        "value_mapping",
+                        {
+                            "mapping": {
+                                "sv-geltungsbereich-begruendung-v3-mengenschwellen-ueberschritten": False,
+                                "sv-geltungsbereich-begruendung-v3-einschliessungsverordnung-klasse-3-oder-4": True,
+                                "sv-geltungsbereich-begruendung-v3-gefahrenpotential": False,
+                            }
+                        },
+                    )
+                },
             ),
             "fire_protection_systems": (
                 "table",

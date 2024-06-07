@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-11 17:25+0200\n"
-"PO-Revision-Date: 2024-04-22 09:33+0200\n"
+"PO-Revision-Date: 2024-10-09 13:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.4.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: camac/instance/placeholders/fields.py
 msgid "Authority"
@@ -1884,20 +1884,44 @@ msgid "ENERGY_STORAGE_CAPACITY"
 msgstr "CAPACITE_DE_STOCKAGE_D_ENERGIE"
 
 #: camac/instance/placeholders/serializers.py
-msgid "STFV_SHORT_REPORT_DATE"
-msgstr "STFV_DATE_DU_RAPPORT_COURT"
+msgid "STFV_SHORT_REPORT"
+msgstr "OPAM_RAPPORT_SUCCINCT"
 
 #: camac/instance/placeholders/serializers.py
-msgid "STFV short report date"
-msgstr "StfV date du rapport court"
+msgid "STFV short report"
+msgstr "OPAM Rapport Succinct existant"
 
 #: camac/instance/placeholders/serializers.py
-msgid "STFV_CRITIAL_VALUE_EXCEEDED"
-msgstr "STFV_VALEUR_CRITIQUE_DEPASSEE"
+msgid "STFV_SPECIAL_WASTE_EXCEEDED"
+msgstr "OPAM_QUANTITATIFS_SUBSTANCES_PREPARATIONS_DECHETS_DEPASSANT"
 
 #: camac/instance/placeholders/serializers.py
-msgid "StfV critial value exceeded"
-msgstr "Dépassement de la valeur critique StfV"
+msgid "STFV special waste exceeded"
+msgstr "OPAM Qantitatives substances depassant"
+
+#: camac/instance/placeholders/serializers.py
+msgid "STFV_RISK_ASSESSMENT"
+msgstr "OPAM_EDTUE_RISQUE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "STFV risk assessment"
+msgstr "OPAM édude Risque"
+
+#: camac/instance/placeholders/serializers.py
+msgid "STFV_REGULATION"
+msgstr "OPAM_ASSUJETTIE_ART_1_ABS_3"
+
+#: camac/instance/placeholders/serializers.py
+msgid "STFV regulation"
+msgstr "OPAM assujettie"
+
+#: camac/instance/placeholders/serializers.py
+msgid "STFV_REGULATION_GENTECH"
+msgstr "OPAM_GENETIQUEMENT_ART_1_ABS_2"
+
+#: camac/instance/placeholders/serializers.py
+msgid "STFV regulation gentech"
+msgstr "OPAM Genetiquement"
 
 #: camac/instance/placeholders/serializers.py
 msgid "FIRE_PROTECTION_SYSTEMS"
@@ -2252,3 +2276,11 @@ msgstr ""
 #: camac/instance/placeholders/serializers.py
 msgid "Zone"
 msgstr ""
+
+#: camac/instance/placeholders/utils.py
+msgid "Yes"
+msgstr "Oui"
+
+#: camac/instance/placeholders/utils.py
+msgid "No"
+msgstr "Non"
