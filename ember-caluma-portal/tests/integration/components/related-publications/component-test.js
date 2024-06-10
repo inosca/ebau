@@ -16,11 +16,9 @@ module("Integration | Component | related-publications", function (hooks) {
     assert.dom(this.element).hasText("");
 
     // Template block usage:
-    await render(hbs`
-      <RelatedPublications>
-        template block text
-      </RelatedPublications>
-    `);
+    await render(hbs`<RelatedPublications>
+  template block text
+</RelatedPublications>`);
 
     assert.dom(this.element).hasText("template block text");
   });

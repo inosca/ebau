@@ -12,7 +12,10 @@
   </div>
 {{/if}}
 
-<table class="uk-table uk-table-striped uk-table-middle billing-table" data-test-billing-table>
+<table
+  class="uk-table uk-table-striped uk-table-middle billing-table"
+  data-test-billing-table
+>
   <thead>
     <tr>
       {{#if (can "charge billing-v2-entries")}}
@@ -24,7 +27,7 @@
             title={{t "billing.toggle-all"}}
             data-test-toggle-all
             {{on "change" @onToggleAll}}
-          >
+          />
         </th>
       {{/if}}
       <th data-test-text>{{t "billing.position"}}</th>
@@ -68,7 +71,10 @@
         />
       {{else}}
         <tr>
-          <td class="uk-text-center uk-text-italic" colspan={{this.fullColspan}}>
+          <td
+            class="uk-text-center uk-text-italic"
+            colspan={{this.fullColspan}}
+          >
             {{t "global.empty"}}
           </td>
         </tr>

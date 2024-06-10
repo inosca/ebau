@@ -28,7 +28,8 @@
       @onChange={{fn (mut this.group)}}
       @selected={{this.group}}
       @searchField="name"
-      @noMatchesMessage={{t "global.noMatch"}} as |group|
+      @noMatchesMessage={{t "global.noMatch"}}
+      as |group|
     >
       {{group.name}}
     </PowerSelect>

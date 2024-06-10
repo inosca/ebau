@@ -23,7 +23,11 @@
         @color="primary"
         @disabled={{not this.selectedSearchResult}}
         @label={{t "gis.select"}}
-        @onClick={{fn this.setPoint this.selectedSearchResult.value.lat this.selectedSearchResult.value.lng}}
+        @onClick={{fn
+          this.setPoint
+          this.selectedSearchResult.value.lat
+          this.selectedSearchResult.value.lng
+        }}
       />
     </div>
   </div>
@@ -46,21 +50,22 @@
     @transparent={{true}}
     @format="image/png"
     @layers="ch.so.agi.gemeindegrenzen"
-    @url="{{macroGetOwnConfig "soGisUrl"}}/api/wms"
+    @url="{{macroGetOwnConfig 'soGisUrl'}}/api/wms"
   />
   <map.tile
     @opacity={{0.4}}
-    @url="{{macroGetOwnConfig "soGisUrl"}}/api/wmts/1.0.0/ch.so.agi.hintergrundkarte_ortho/default/2056/{z}/{y}/{x}"
+    @url="{{macroGetOwnConfig
+      'soGisUrl'
+    }}/api/wmts/1.0.0/ch.so.agi.hintergrundkarte_ortho/default/2056/{z}/{y}/{x}"
   />
   <map.tile
     @opacity={{0.7}}
-    @url="{{macroGetOwnConfig "soGisUrl"}}/api/wmts/1.0.0/ch.so.agi.hintergrundkarte_sw/default/2056/{z}/{y}/{x}"
+    @url="{{macroGetOwnConfig
+      'soGisUrl'
+    }}/api/wmts/1.0.0/ch.so.agi.hintergrundkarte_sw/default/2056/{z}/{y}/{x}"
   />
   {{#if this.point}}
-    <map.marker
-      @lat={{this.point.lat}}
-      @lng={{this.point.lng}}
-    />
+    <map.marker @lat={{this.point.lat}} @lng={{this.point.lng}} />
   {{/if}}
 </LeafletMap>
 

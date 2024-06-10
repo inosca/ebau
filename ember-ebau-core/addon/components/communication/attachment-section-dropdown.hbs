@@ -9,7 +9,10 @@
       {{else}}
         {{#each this.attachmentSections.value as |attachmentSection|}}
           <li>
-            <a href="#" {{on "click" (fn this.selectSection attachmentSection)}}>
+            <a
+              href="#"
+              {{on "click" (fn this.selectSection attachmentSection)}}
+            >
               {{attachmentSection.name}}
             </a>
             {{#if attachmentSection.children.length}}

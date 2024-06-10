@@ -1,8 +1,16 @@
 {{#if this.notification.all.length}}
   <div>
     {{#each this.notification.all as |notification|}}
-      <div class="uk-alert uk-alert-{{or notification.type "default"}}" {{did-insert (fn this.scheduleRemoval notification)}}>
-        <a href="" class="uk-alert-close" uk-close {{on "click" (fn this.remove notification)}}>
+      <div
+        class="uk-alert uk-alert-{{or notification.type 'default'}}"
+        {{did-insert (fn this.scheduleRemoval notification)}}
+      >
+        <a
+          href=""
+          class="uk-alert-close"
+          uk-close
+          {{on "click" (fn this.remove notification)}}
+        >
           <span hidden>{{t "global.close"}}</span>
         </a>
         {{notification.message}}
@@ -12,11 +20,19 @@
             class="uk-button uk-button-link uk-text-default uk-text-bold uk-display-block uk-margin-small-top"
             {{on "click" notification.toggleTechnicalInfo}}
           >
-            <UkIcon @icon={{if notification.showTechnicalInfo "triangle-down" "triangle-right"}} />
+            <UkIcon
+              @icon={{if
+                notification.showTechnicalInfo
+                "triangle-down"
+                "triangle-right"
+              }}
+            />
             {{t "global.technicalInfo"}}
           </button>
           {{#if notification.showTechnicalInfo}}
-            <pre class="uk-margin-small-top">{{notification.options.technicalInfo}}</pre>
+            <pre
+              class="uk-margin-small-top"
+            >{{notification.options.technicalInfo}}</pre>
           {{/if}}
         {{/if}}
       </div>

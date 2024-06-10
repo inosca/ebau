@@ -3,12 +3,21 @@
 {{else}}
   <div class="uk-position-relative">
     {{#if this.edit}}
-      <Textarea @value={{this.data.value.content}} rows="10" class="uk-textarea" aria-label={{t "static-content.content"}} />
+      <Textarea
+        @value={{this.data.value.content}}
+        rows="10"
+        class="uk-textarea"
+        aria-label={{t "static-content.content"}}
+      />
       <div class="uk-text-right uk-margin">
         <UkButton @onClick={{this.reset}}>{{t "global.cancel"}}</UkButton>
-        <UkButton @color="primary" @loading={{this.save.isRunning}} @onClick={{perform this.save}}>{{t "global.save"}}</UkButton>
+        <UkButton
+          @color="primary"
+          @loading={{this.save.isRunning}}
+          @onClick={{perform this.save}}
+        >{{t "global.save"}}</UkButton>
       </div>
-      <hr>
+      <hr />
     {{else if (can "edit static-content")}}
       <UkButton
         class="uk-position-top-right uk-margin-right uk-margin-top"
@@ -19,6 +28,9 @@
       </UkButton>
     {{/if}}
 
-    <MarkdownToHtml class="markdown-content" @markdown={{or this.data.value.content}} />
+    <MarkdownToHtml
+      class="markdown-content"
+      @markdown={{or this.data.value.content}}
+    />
   </div>
 {{/if}}

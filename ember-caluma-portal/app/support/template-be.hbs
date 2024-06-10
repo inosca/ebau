@@ -1,7 +1,9 @@
 <div class="uk-text-center uk-flex uk-flex-column uk-flex-middle">
   <h1 class="uk-margin-medium-bottom">{{t "support.type"}}</h1>
   {{#if this.showSection}}
-    <p class="uk-text-large uk-width-large uk-animation-fade uk-margin-remove-top uk-margin-medium-bottom">{{t (concat "support." this.showSection) htmlSafe=true}}</p>
+    <p
+      class="uk-text-large uk-width-large uk-animation-fade uk-margin-remove-top uk-margin-medium-bottom"
+    >{{t (concat "support." this.showSection) htmlSafe=true}}</p>
   {{/if}}
   <div>
     <UkButton

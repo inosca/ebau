@@ -12,9 +12,9 @@ module("Integration | Component | snippets", function (hooks) {
   test("it renders", async function (assert) {
     this.set("field", { answer: { value: "" } });
 
-    await render(hbs`
-      <Snippets @field={{@field}}>template block text</Snippets>
-    `);
+    await render(
+      hbs`<Snippets @field={{@field}}>template block text</Snippets>`,
+    );
 
     assert.ok(this.element.textContent.includes("template block text"));
   });

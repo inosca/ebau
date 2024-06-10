@@ -10,8 +10,7 @@
     @name="type"
     @label={{t "workItems.filters.type"}}
     @selected={{@type}}
-    @options={{
-      array
+    @options={{array
       (hash value="all" label=(t "workItems.filters.all"))
       (hash value="unread" label=(t "workItems.filters.unread"))
     }}
@@ -22,8 +21,7 @@
     @name="status"
     @label={{t "workItems.filters.status"}}
     @selected={{@status}}
-    @options={{
-      array
+    @options={{array
       (hash value="READY" label=(t "workItems.filters.open"))
       (hash value="COMPLETED" label=(t "workItems.filters.closed"))
       (hash value="SUSPENDED" label=(t "workItems.filters.suspended"))
@@ -34,8 +32,7 @@
     @name="role"
     @label={{t "workItems.filters.role"}}
     @selected={{@role}}
-    @options={{
-      array
+    @options={{array
       (hash value="active" label=(t "workItems.filters.active"))
       (hash value="control" label=(t "workItems.filters.control"))
     }}
@@ -45,8 +42,7 @@
     @name="order"
     @label={{t "workItems.filters.order"}}
     @selected={{@order}}
-    @options={{
-      array
+    @options={{array
       (hash value="urgent" label=(t "workItems.filters.urgent"))
       (hash value="new" label=(t "workItems.filters.new"))
     }}

@@ -16,11 +16,9 @@ module("Integration | Component | be-attachment-list", function (hooks) {
     assert.dom(this.element).hasText("");
 
     // Template block usage:
-    await render(hbs`
-      <BeAttachmentList>
-        template block text
-      </BeAttachmentList>
-    `);
+    await render(hbs`<BeAttachmentList>
+  template block text
+</BeAttachmentList>`);
 
     assert.dom(this.element).hasText("template block text");
   });

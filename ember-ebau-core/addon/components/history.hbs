@@ -28,8 +28,11 @@
               <div>
                 {{entry.title}}
                 {{#if (and entry.body entry.expand)}}
-                  <hr class="uk-margin-small-top uk-margin-small-bottom">
-                  <span class="uk-text-italic multi-line-text" data-test-history-body>{{entry.body}}</span>
+                  <hr class="uk-margin-small-top uk-margin-small-bottom" />
+                  <span
+                    class="uk-text-italic multi-line-text"
+                    data-test-history-body
+                  >{{entry.body}}</span>
                 {{/if}}
               </div>
             </td>
@@ -44,11 +47,13 @@
                 <UkButton
                   @color="link"
                   @onClick={{toggle "expand" entry}}
-                  title={{t (if entry.expand "history.collapse" "history.expand")}}
+                  title={{t
+                    (if entry.expand "history.collapse" "history.expand")
+                  }}
                   class="uk-flex-inline table-controls"
                   data-test-history-toggle
                 >
-                  <UkIcon @icon="arrow-{{if entry.expand "up" "down"}}" />
+                  <UkIcon @icon="arrow-{{if entry.expand 'up' 'down'}}" />
                 </UkButton>
               {{/if}}
             </td>

@@ -35,7 +35,7 @@
     </tr>
     {{#if (can "view statistic" "claims")}}
       <tr>
-      <td class="uk-text-bold">{{t "statistics.claim-count"}}</td>
+        <td class="uk-text-bold">{{t "statistics.claim-count"}}</td>
         <td class="uk-text-right">
           {{#if this.fetchClaimsSummary.isRunning}}
             <UkSpinner ratio={{0.5}} />

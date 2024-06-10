@@ -14,7 +14,10 @@ module("Integration | Component | journal-textarea", function (hooks) {
     this.set("journal", journal);
 
     await render(
-      hbs`<JournalTextarea @journalEntry={{this.journal}} @showJournalEntryDuration={{false}}/>`,
+      hbs`<JournalTextarea
+  @journalEntry={{this.journal}}
+  @showJournalEntryDuration={{false}}
+/>`,
     );
 
     await fillIn("[data-test-textarea]", "Lorem ipsum");
@@ -29,7 +32,10 @@ module("Integration | Component | journal-textarea", function (hooks) {
     this.set("journal", journal);
 
     await render(
-      hbs`<JournalTextarea @journalEntry={{this.journal}} @showJournalEntryDuration={{true}}/>`,
+      hbs`<JournalTextarea
+  @journalEntry={{this.journal}}
+  @showJournalEntryDuration={{true}}
+/>`,
     );
 
     await fillIn("[data-test-textarea]", "Lorem ipsum");

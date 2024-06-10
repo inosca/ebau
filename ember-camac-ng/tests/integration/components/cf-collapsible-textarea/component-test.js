@@ -10,7 +10,7 @@ module("Integration | Component | cf-collapsible-textarea", function (hooks) {
   test("it renders", async function (assert) {
     this.set("field", { question: { label: "Textarea" } });
 
-    await render(hbs`<CfCollapsibleTextarea @field={{this.field}}/>`);
+    await render(hbs`<CfCollapsibleTextarea @field={{this.field}} />`);
 
     assert.dom("textarea").doesNotExist();
     assert.dom("span[icon='chevron-right']").exists();

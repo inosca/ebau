@@ -16,11 +16,9 @@ module("Integration | Component | be-claims-form/edit", function (hooks) {
     assert.dom(this.element).hasText("");
 
     // Template block usage:
-    await render(hbs`
-      <BeClaimsForm::Edit>
-        template block text
-      </BeClaimsForm::Edit>
-    `);
+    await render(hbs`<BeClaimsForm::Edit>
+  template block text
+</BeClaimsForm::Edit>`);
 
     assert.dom(this.element).hasText("template block text");
   });

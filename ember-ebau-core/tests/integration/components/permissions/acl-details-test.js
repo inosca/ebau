@@ -31,7 +31,7 @@ module("Integration | Component | permissions/acl-details", function (hooks) {
     this.onHide = () => (this.acl = undefined);
 
     await render(
-      hbs`<Permissions::AclDetails @instanceAcl={{this.acl}} @onHide={{this.onHide}}/>`,
+      hbs`<Permissions::AclDetails @instanceAcl={{this.acl}} @onHide={{this.onHide}} />`,
     );
 
     assert

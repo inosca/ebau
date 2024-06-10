@@ -24,12 +24,9 @@ module("Integration | Component | link-attachments", function (hooks) {
     };
     this.context = { instanceId: instance.id };
 
-    await render(hbs`
-      <LinkAttachments
-        @field={{this.field}}
-        @context={{this.context}}
-      />
-    `);
+    await render(
+      hbs`<LinkAttachments @field={{this.field}} @context={{this.context}} />`,
+    );
 
     assert.dom(".link-attachments__preview").exists({ count: 2 });
     assert.dom(".link-attachments__preview").hasText(attachments[0].name);

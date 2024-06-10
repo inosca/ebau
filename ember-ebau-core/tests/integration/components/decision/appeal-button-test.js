@@ -70,7 +70,10 @@ module("Integration | Component | decision/appeal-button", function (hooks) {
       this.initialize(current, previous, meta);
 
       await render(
-        hbs`<Decision::AppealButton @field={{this.field}} @context={{hash instanceId=this.instance.id}} />`,
+        hbs`<Decision::AppealButton
+  @field={{this.field}}
+  @context={{hash instanceId=this.instance.id}}
+/>`,
       );
 
       if (hasButton) {
@@ -100,12 +103,10 @@ module("Integration | Component | decision/appeal-button", function (hooks) {
       assert.step("redirect");
     };
 
-    await render(hbs`
-      <Decision::AppealButton
-        @field={{this.field}}
-        @context={{hash instanceId=this.instance.id}}
-      />
-    `);
+    await render(hbs`<Decision::AppealButton
+  @field={{this.field}}
+  @context={{hash instanceId=this.instance.id}}
+/>`);
 
     await click("button");
 

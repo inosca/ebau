@@ -4,7 +4,10 @@
     <div class="uk-container uk-container-large">
       <div class="uk-width-1-1 uk-position-relative">
         <div class="uk-flex uk-flex-middle uk-flex-between uk-height-1-1">
-          <LinkTo @route="index" class={{concat "main-logo-" (application-name) " uk-link-reset"}}>
+          <LinkTo
+            @route="index"
+            class={{concat "main-logo-" (application-name) " uk-link-reset"}}
+          >
             {{#if (is-application "be")}}
               <img
                 class="uk-height-1-1"
@@ -41,7 +44,9 @@
                 alt={{t "global.title"}}
               />
             {{/if}}
-            {{#if (and this.session.isAuthenticated this.session.groups.length)}}
+            {{#if
+              (and this.session.isAuthenticated this.session.groups.length)
+            }}
               <div class="uk-margin-small-top uk-margin-small-bottom">
                 <a href="{{this.internalLink}}" class="be-navbar-internal-link">
                   {{t "nav.internal"}}
@@ -59,21 +64,34 @@
             {{! template-lint-disable no-unknown-arguments-for-builtin-components }}
             {{#if this.session.isAuthenticated}}
               <UkSubnav::Item @href="/">{{t "nav.index"}}</UkSubnav::Item>
-              <UkSubnav::Item @href="/instances">{{t "nav.instances"}}</UkSubnav::Item>
+              <UkSubnav::Item @href="/instances">{{t
+                  "nav.instances"
+                }}</UkSubnav::Item>
               {{#if
                 (and
                   (has-feature "communications") (not this.session.isInternal)
                 )
               }}
-                <UkSubnav::Item @href="/communications-global">{{t "nav.communications" }}
-                  <Communication::UnreadMessageBadge class="uk-margin-small-left" />
+                <UkSubnav::Item @href="/communications-global">{{t
+                    "nav.communications"
+                  }}
+                  <Communication::UnreadMessageBadge
+                    class="uk-margin-small-left"
+                  />
                 </UkSubnav::Item>
               {{/if}}
               {{#if (macroCondition (macroGetOwnConfig "enableSupport"))}}
-                <UkSubnav::Item @href="/support">{{t "nav.support"}}</UkSubnav::Item>
+                <UkSubnav::Item @href="/support">{{t
+                    "nav.support"
+                  }}</UkSubnav::Item>
               {{/if}}
             {{/if}}
-            {{#if (or this.session.isAuthenticated (has-feature "publication.disableAuthentication"))}}
+            {{#if
+              (or
+                this.session.isAuthenticated
+                (has-feature "publication.disableAuthentication")
+              )
+            }}
               <UkSubnav::Item @href="/public-instances">
                 {{t "nav.public-instance"}}
               </UkSubnav::Item>
@@ -84,7 +102,9 @@
               {{/if}}
             {{/if}}
             {{#if this.showFormBuilder}}
-              <UkSubnav::Item @href="/form-builder">{{t "nav.form-builder"}}</UkSubnav::Item>
+              <UkSubnav::Item @href="/form-builder">{{t
+                  "nav.form-builder"
+                }}</UkSubnav::Item>
             {{/if}}
           </ul>
         </div>
@@ -119,7 +139,12 @@
                       </li>
                       <li class="uk-nav-divider"></li>
                       {{#each this.session.groups as |g|}}
-                        <li class={{if (eq g.id this.session.group.id) "uk-active"}}>
+                        <li
+                          class={{if
+                            (eq g.id this.session.group.id)
+                            "uk-active"
+                          }}
+                        >
                           <a
                             data-test-group={{g.id}}
                             href="#"
@@ -145,7 +170,11 @@
             {{/if}}
             {{#if (macroCondition (macroGetOwnConfig "showProfileLink"))}}
               <li>
-                <a href={{this.profileURL}} title={{t "nav.profile" }} uk-icon="user">
+                <a
+                  href={{this.profileURL}}
+                  title={{t "nav.profile"}}
+                  uk-icon="user"
+                >
                   <span class="uk-hidden">
                     {{t "nav.profile"}}
                   </span>

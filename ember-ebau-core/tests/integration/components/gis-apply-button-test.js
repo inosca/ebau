@@ -89,10 +89,10 @@ module("Integration | Component | gis-apply-button", function (hooks) {
       });
 
       await render(hbs`<GisApplyButton
-      @disabled={{false}}
-      @params={{this.params}}
-      @document={{this.document}}
-    />`);
+  @disabled={{false}}
+  @params={{this.params}}
+  @document={{this.document}}
+/>`);
 
       assert.dom("[data-test-apply]").exists();
 

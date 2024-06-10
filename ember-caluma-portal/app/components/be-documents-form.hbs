@@ -1,13 +1,21 @@
 {{#if this.showHint}}
   <p>
     {{t "documents.hint1"}}
-    <a target="_blank" rel="noopener noreferrer" href={{t "documents.linkEarthquake"}}>{{t "documents.hintEarthquake"}}</a>
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href={{t "documents.linkEarthquake"}}
+    >{{t "documents.hintEarthquake"}}</a>
     {{t "documents.hint2"}}
-    <a target="_blank" rel="noopener noreferrer" href={{t "documents.linkMunicipalityForms"}}>{{t "documents.hintMunicipalityForms"}}</a>
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href={{t "documents.linkMunicipalityForms"}}
+    >{{t "documents.hintMunicipalityForms"}}</a>
     {{t "documents.hint3"}}
   </p>
 
-  <hr>
+  <hr />
 {{/if}}
 
 {{#if this.allRequiredTags.length}}
@@ -23,21 +31,20 @@
     <p class="uk-margin">{{t (concat "documents.tags." title)}}</p>
     <div class="uk-margin-left">
       {{#each fields as |field|}}
-        <CfField/input @field={{field}} @disabled={{@disabled}} />
+        <CfField input @field={{field}} @disabled={{@disabled}} />
       {{/each}}
     </div>
   {{/each-in}}
 
-  <hr>
+  <hr />
 {{/if}}
 
 {{#if this.allOtherFields.length}}
   {{#each this.allOtherFields as |field|}}
-    <CfField/input @field={{field}} @disabled={{@disabled}} />
+    <CfField input @field={{field}} @disabled={{@disabled}} />
   {{/each}}
-  <hr>
+  <hr />
 {{/if}}
-
 
 <div
   uk-grid="masonry: next"

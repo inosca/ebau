@@ -4,6 +4,9 @@
     class="uk-position-right"
   >
     <UkIcon @icon="warning" class="uk-text-warning" />
-    {{t "publicInstancesDetail.related" count=this.relatedPublicInstances.value.length}}
+    {{t
+      "publicInstancesDetail.related"
+      count=this.relatedPublicInstances.value.length
+    }}
   </UkTab::Item>
 {{/if}}

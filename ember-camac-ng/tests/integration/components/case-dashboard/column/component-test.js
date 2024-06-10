@@ -16,11 +16,9 @@ module("Integration | Component | case-dashboard/column", function (hooks) {
     assert.dom(this.element).hasText("");
 
     // Template block usage:
-    await render(hbs`
-      <CaseDashboard::Column>
-        template block text
-      </CaseDashboard::Column>
-    `);
+    await render(hbs`<CaseDashboard::Column>
+  template block text
+</CaseDashboard::Column>`);
 
     assert.dom(this.element).hasText("template block text");
   });

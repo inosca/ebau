@@ -7,19 +7,9 @@
     as |dropzone|
   >
     <div
-      class="
-        uk-placeholder
-        uk-height-1-1
-        uk-margin-remove
-        uk-text-center
-        uk-padding-medium
-        uk-flex
-        uk-flex-middle
-        uk-flex-start
-        uk-flex-column
-        dropzone
-        {{if dropzone.active "dropzone--active uk-box-shadow-medium"}}
-      "
+      class="uk-placeholder uk-height-1-1 uk-margin-remove uk-text-center uk-padding-medium uk-flex uk-flex-middle uk-flex-start uk-flex-column dropzone
+        {{if dropzone.active 'dropzone--active uk-box-shadow-medium'}}
+        "
     >
       {{yield to="header"}}
       <UkIcon @icon="cloud-upload" @ratio={{3}} class="uk-margin-bottom" />
@@ -43,7 +33,7 @@
           hidden
           required
           {{queue.selectFile filter=this.validate}}
-        >
+        />
         {{yield to="content"}}
       </div>
       {{yield to="footer"}}

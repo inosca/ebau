@@ -22,12 +22,9 @@ module("Integration | Component | qr-code", function (hooks) {
     this.field = { document: { uuid } };
     this.context = { instanceId: 1 };
 
-    await render(hbs`
-      <QrCode
-        @field={{this.field}}
-        @context={{this.context}}
-      />
-    `);
+    await render(
+      hbs`<QrCode @field={{this.field}} @context={{this.context}} />`,
+    );
 
     assert.dom("img").exists();
     assert.dom("img").hasAttribute("src", /^data:image\/png/);

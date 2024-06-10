@@ -8,12 +8,10 @@ module("Integration | Component | link-attachments/overlay", function (hooks) {
   setupRenderingTest(hooks);
 
   test("it renders", async function (assert) {
-    await render(hbs`
-      <LinkAttachments::Overlay
-        @attachment={{this.attachment}}
-        @selected={{this.selected}}
-      />
-    `);
+    await render(hbs`<LinkAttachments::Overlay
+  @attachment={{this.attachment}}
+  @selected={{this.selected}}
+/>`);
 
     assert
       .dom(".uk-overlay.uk-overlay-primary")

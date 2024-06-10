@@ -9,18 +9,32 @@
         <div uk-grid class="uk-grid-small">
           <div class="uk-width-expand">
             {{#if attachment.path}}
-              <a href="#" title={{t "documents.download"}} class="uk-text-bold uk-text-link" {{on "click" (perform attachment.download)}}>
-                {{attachment.displayNameOrReplaced}} {{if attachment.context.isConfidential (t "documents.confidential") ""}}
+              <a
+                href="#"
+                title={{t "documents.download"}}
+                class="uk-text-bold uk-text-link"
+                {{on "click" (perform attachment.download)}}
+              >
+                {{attachment.displayNameOrReplaced}}
+                {{if
+                  attachment.context.isConfidential
+                  (t "documents.confidential")
+                  ""
+                }}
               </a>
             {{else}}
-              <span class="uk-text-bold">{{or attachment.context.displayName attachment.name}}</span>
+              <span class="uk-text-bold">{{or
+                  attachment.context.displayName
+                  attachment.name
+                }}</span>
             {{/if}}
             <span class="uk-text-meta uk-text-small">
               {{attachment.filesize}}
             </span>
-            <br>
+            <br />
             <span class="uk-text-meta">
-              {{t "documents.date"
+              {{t
+                "documents.date"
                 date=(format-date attachment.date format="date")
                 time=(format-time attachment.date format="hhmm")
               }}
@@ -28,17 +42,32 @@
           </div>
           {{#if @deletable}}
             <div class="uk-flex uk-flex-middle">
-              <button type="button" class="uk-icon-button" uk-icon="trash" title={{t "global.delete"}} {{on "click" (fn @onDelete attachment)}}></button>
+              <button
+                type="button"
+                class="uk-icon-button"
+                uk-icon="trash"
+                title={{t "global.delete"}}
+                {{on "click" (fn @onDelete attachment)}}
+              ></button>
               {{#if @useConfidential}}
                 {{#if (includes attachment.id @attachmentLoading)}}
                   <UkSpinner @ratio={{1.1}} />
-                {{ else}}
+                {{else}}
                   <button
                     type="button"
                     class="uk-icon-button"
-                    uk-icon={{if attachment.context.isConfidential "lock" "unlock"}}
-                    title={{if attachment.context.isConfidential (t "documents.setNonConfidential") (t "documents.setConfidential")}}
-                    {{on "click" (perform @onConfidential attachment)}}>
+                    uk-icon={{if
+                      attachment.context.isConfidential
+                      "lock"
+                      "unlock"
+                    }}
+                    title={{if
+                      attachment.context.isConfidential
+                      (t "documents.setNonConfidential")
+                      (t "documents.setConfidential")
+                    }}
+                    {{on "click" (perform @onConfidential attachment)}}
+                  >
                   </button>
                 {{/if}}
               {{/if}}

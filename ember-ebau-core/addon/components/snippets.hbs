@@ -1,4 +1,7 @@
-<div class="uk-width-1-1 uk-flex-inline" {{did-insert this.registerInputElement}}>
+<div
+  class="uk-width-1-1 uk-flex-inline"
+  {{did-insert this.registerInputElement}}
+>
   {{yield}}
   {{#unless @disabled}}
     <button
@@ -7,19 +10,33 @@
       class="uk-margin-small-left"
       type="button"
     ></button>
-    <div uk-dropdown="mode: hover; pos: bottom-right" class="uk-padding-small uk-height-max-large uk-width-medium" uk-overflow-auto>
+    <div
+      uk-dropdown="mode: hover; pos: bottom-right"
+      class="uk-padding-small uk-height-max-large uk-width-medium"
+      uk-overflow-auto
+    >
       {{#if this.snippets.isRunning}}
         <UkSpinner class="uk-animation-fade" />
       {{else}}
         <ul uk-accordion="multiple: true" class="uk-margin-remove">
           {{#each-in this.snippets.value as |category snippets|}}
             <li>
-              <a class="uk-accordion-title uk-text-default" href="#">{{category}}</a>
+              <a
+                class="uk-accordion-title uk-text-default"
+                href="#"
+              >{{category}}</a>
               <div class="uk-accordion-content">
                 <ul class="uk-list uk-list-bullet">
                   {{#each snippets as |snippet|}}
                     <li>
-                      <a class="uk-link-text" href="" {{on "click" (fn (perform this.applySnippet) snippet.id)}}>
+                      <a
+                        class="uk-link-text"
+                        href=""
+                        {{on
+                          "click"
+                          (fn (perform this.applySnippet) snippet.id)
+                        }}
+                      >
                         {{snippet.subject}}
                       </a>
                     </li>

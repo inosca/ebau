@@ -16,11 +16,9 @@ module("Integration | Component | active-municipality-logo", function (hooks) {
     assert.dom(this.element).hasText("");
 
     // Template block usage:
-    await render(hbs`
-      <ActiveMunicipalityLogo>
-        template block text
-      </ActiveMunicipalityLogo>
-    `);
+    await render(hbs`<ActiveMunicipalityLogo>
+  template block text
+</ActiveMunicipalityLogo>`);
 
     assert.dom(this.element).hasText("template block text");
   });

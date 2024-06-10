@@ -2,9 +2,13 @@
   <div>
     <a
       class="uk-link"
-      href={{t "dashboard.linkToForm" instanceId=@instanceId instanceResourceId=this.formInstanceResourceId}}
+      href={{t
+        "dashboard.linkToForm"
+        instanceId=@instanceId
+        instanceResourceId=this.formInstanceResourceId
+      }}
     >
-      {{ t "dashboard.furtherPeople" numberOfPersons=(sub @numberOfPersons 1)}}
+      {{t "dashboard.furtherPeople" numberOfPersons=(sub @numberOfPersons 1)}}
     </a>
   </div>
 {{/if}}

@@ -11,8 +11,15 @@
       </li>
     {{/if}}
   {{/if}}
-  {{#if (and (or @isAuthenticated (has-feature "publication.disableAuthentication")) @isPublicAccess)}}
-    <li><LinkTo @route="public-instances">{{t "nav.public-instance"}}</LinkTo></li>
+  {{#if
+    (and
+      (or @isAuthenticated (has-feature "publication.disableAuthentication"))
+      @isPublicAccess
+    )
+  }}
+    <li><LinkTo @route="public-instances">{{t
+          "nav.public-instance"
+        }}</LinkTo></li>
   {{/if}}
   {{#if @showFormBuilder}}
     <li><LinkTo @route="form-builder">{{t "nav.form-builder"}}</LinkTo></li>

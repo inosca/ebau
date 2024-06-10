@@ -18,11 +18,9 @@ module(
       assert.strictEqual(this.element.textContent.trim(), "");
 
       // Template block usage:
-      await render(hbs`
-      <DossierImportDetailBlock>
-        template block text
-      </DossierImportDetailBlock>
-    `);
+      await render(hbs`<DossierImportDetailBlock>
+  template block text
+</DossierImportDetailBlock>`);
 
       assert.strictEqual(
         this.element.textContent.trim(),

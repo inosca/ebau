@@ -12,7 +12,8 @@
       @searchEnabled={{true}}
       @searchField="description"
       @noMatchesMessage={{t "global.empty"}}
-    as |template|>
+      as |template|
+    >
       {{template.description}}
     </PowerSelect>
   </div>
@@ -22,8 +23,15 @@
   {{#if (not (has-feature "dms.hideDownloadButton"))}}
     <UkButton
       @color="primary"
-      @disabled={{or this.merge.isRunning this.placeholders.isLoading (not this.template)}}
-      @loading={{and this.merge.isRunning (eq (get this.merge.lastRunning.args 0) false)}}
+      @disabled={{or
+        this.merge.isRunning
+        this.placeholders.isLoading
+        (not this.template)
+      }}
+      @loading={{and
+        this.merge.isRunning
+        (eq (get this.merge.lastRunning.args 0) false)
+      }}
       @onClick={{perform this.merge false}}
     >
       {{t "dms.merge"}}
@@ -31,8 +39,15 @@
   {{/if}}
   <UkButton
     @color={{if (has-feature "dms.hideDownloadButton") "primary" "default"}}
-    @disabled={{or this.merge.isRunning this.placeholders.isLoading (not this.template)}}
-    @loading={{and this.merge.isRunning (eq (get this.merge.lastRunning.args 0) true)}}
+    @disabled={{or
+      this.merge.isRunning
+      this.placeholders.isLoading
+      (not this.template)
+    }}
+    @loading={{and
+      this.merge.isRunning
+      (eq (get this.merge.lastRunning.args 0) true)
+    }}
     @onClick={{perform this.merge true}}
   >
     {{t "dms.merge-and-save"}}
@@ -45,7 +60,9 @@
   </UkFlex>
 {{else if this.placeholders.isError}}
   <div class="uk-margin uk-flex uk-flex-center">
-    <div class="uk-alert-danger uk-width-1-2 uk-padding-small">{{t "dms.error"}}</div>
+    <div class="uk-alert-danger uk-width-1-2 uk-padding-small">{{t
+        "dms.error"
+      }}</div>
   </div>
 {{else}}
   <Dms::Docs
