@@ -81,6 +81,7 @@
     "ember-simple-auth-oidc": "6.0.1",
     "ember-source": "4.12.3",
     "ember-template-lint": "5.13.0",
+    "ember-template-lint-plugin-prettier": "5.0.0",
     "ember-truth-helpers": "4.0.3",
     "ember-uikit": "9.1.1",
     "eslint": "8.57.0",
