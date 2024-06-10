@@ -1,4 +1,9 @@
-<iframe class="gis-map" title={{t "gis.title"}} name="map" src={{this.link}}></iframe>
+<iframe
+  class="gis-map"
+  title={{t "gis.title"}}
+  name="map"
+  src={{this.link}}
+></iframe>
 
 <div
   {{did-insert this.addMessageListener}}
@@ -16,7 +21,7 @@
       @instanceId={{@context.instanceId}}
     />
 
-   <button
+    <button
       type="button"
       uk-icon="warning"
       class="uk-margin-small-left"
@@ -41,14 +46,22 @@
     <ul class="uk-margin-remove-bottom uk-margin-small-top">
       {{#each this.oerebLinkData as |data|}}
         <li>
-          <a href="https://oerebview.apps.be.ch/#!/d/{{data.egrid}}" target="_blank" rel="noopener noreferrer">{{ t "gis.parcel" }} {{data.parcel}} ({{data.egrid}})</a>
+          <a
+            href="https://oerebview.apps.be.ch/#!/d/{{data.egrid}}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >{{t "gis.parcel"}} {{data.parcel}} ({{data.egrid}})</a>
         </li>
       {{/each}}
     </ul>
   </div>
 {{/if}}
 
-<UkModal @visible={{this.showInstructions}} @onHide={{fn (mut this.showInstructions) false}} as |Modal|>
+<UkModal
+  @visible={{this.showInstructions}}
+  @onHide={{fn (mut this.showInstructions) false}}
+  as |Modal|
+>
   <Modal.body>{{t "gis.info-override"}}</Modal.body>
 </UkModal>
 
@@ -57,14 +70,15 @@
   @escClose={{false}}
   @bgClose={{false}}
   @onHide={{fn (mut this.showConfirmation) false}}
-as |Modal|>
+  as |Modal|
+>
   <Modal.body>
     <h1 class="uk-modal-title">{{t "gis.additional.title"}}</h1>
 
     <ul class="uk-list uk-list-divider">
       {{#each this.gisData as |data|}}
         <li>
-          <strong>{{data.field.question.raw.label}}</strong><br>
+          <strong>{{data.field.question.raw.label}}</strong><br />
           {{or data.valuePretty "-"}}
         </li>
       {{/each}}

@@ -3,11 +3,22 @@
     <ul uk-tab class="uk-tab-left">
       {{#each this.claimTypes as |type|}}
         <li class={{if (eq type this.activeClaimType) "uk-active"}}>
-          <a href="#" {{on "click" (queue (fn (mut this.activeClaimType) type) (fn (mut this.editedClaim) null))}}>
+          <a
+            href="#"
+            {{on
+              "click"
+              (queue
+                (fn (mut this.activeClaimType) type)
+                (fn (mut this.editedClaim) null)
+              )
+            }}
+          >
             <div class="uk-width-1-1 uk-flex-inline uk-flex-between">
               {{t (concat "claims.filter." type)}}
               {{#let (get this.claims type) as |entries|}}
-                {{#if entries.length}}<UkBadge @label={{entries.length}} />{{/if}}
+                {{#if entries.length}}<UkBadge
+                    @label={{entries.length}}
+                  />{{/if}}
               {{/let}}
             </div>
           </a>
@@ -32,7 +43,9 @@
         @editedClaim={{this.editedClaim}}
         @onEdit={{this.setEditedClaim}}
       >
-        <p class="uk-text-italic">{{t (concat "claims.empty." this.activeClaimType)}}</p>
+        <p class="uk-text-italic">{{t
+            (concat "claims.empty." this.activeClaimType)
+          }}</p>
       </BeClaimsForm::list>
     {{/if}}
   </div>

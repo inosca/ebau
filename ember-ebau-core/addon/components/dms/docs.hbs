@@ -1,14 +1,18 @@
 <div class="uk-margin">
-  <button type="button" class="uk-button uk-button-link uk-text-default uk-text-bold" {{on "click" (fn (mut this.expand) (not this.expand))}}>
+  <button
+    type="button"
+    class="uk-button uk-button-link uk-text-default uk-text-bold"
+    {{on "click" (fn (mut this.expand) (not this.expand))}}
+  >
     <UkIcon @icon={{if this.expand "triangle-down" "triangle-right"}} />
     {{@title}}
   </button>
 
   {{#if this.expand}}
     {{#if @showGeneralInfo}}
-    <p class="uk-text-bold">{{t "dms.docs.general-info-title"}}</p>
-    <p>{{t "dms.docs.general-info-text" htmlSafe=true}}</p>
-    <p class="uk-text-bold">{{t "dms.docs.title-placeholders"}}</p>
+      <p class="uk-text-bold">{{t "dms.docs.general-info-title"}}</p>
+      <p>{{t "dms.docs.general-info-text" htmlSafe=true}}</p>
+      <p class="uk-text-bold">{{t "dms.docs.title-placeholders"}}</p>
     {{/if}}
 
     <div class="uk-margin">
@@ -65,7 +69,10 @@
                       rel="noopener noreferrer"
                     >{{placeholder.value}}</a>
                   {{else if (and placeholder.isImage placeholder.value)}}
-                    <img src="{{placeholder.value}}" alt={{placeholder.description}}>
+                    <img
+                      src="{{placeholder.value}}"
+                      alt={{placeholder.description}}
+                    />
                   {{else}}
                     {{placeholder.value}}
                   {{/if}}
@@ -82,7 +89,8 @@
 <UkModal
   @visible={{this.showComplexInfo}}
   @onHide={{fn (mut this.showComplexInfo) false}}
-as |Modal|>
+  as |Modal|
+>
   <Modal.body>
     {{t "dms.docs.complexInfo" htmlSafe=true}}
   </Modal.body>

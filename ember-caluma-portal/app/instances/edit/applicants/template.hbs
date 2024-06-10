@@ -1,5 +1,8 @@
 <LoadingOrNotfound
-  @hasPermission={{can "read applicants of instance" this.editController.instance}}
+  @hasPermission={{can
+    "read applicants of instance"
+    this.editController.instance
+  }}
 >
   <table class="uk-table uk-table-striped">
     <thead>
@@ -7,7 +10,12 @@
         <th>{{t "instances.applicants.invitee"}}</th>
         <th>{{t "instances.applicants.created"}}</th>
         <th>{{t "instances.applicants.user"}}</th>
-        {{#if (and (gt this.applicants.length 1) (can "manage applicants of instance" this.editController.instance))}}
+        {{#if
+          (and
+            (gt this.applicants.length 1)
+            (can "manage applicants of instance" this.editController.instance)
+          )
+        }}
           <td></td>
         {{/if}}
       </tr>
@@ -21,20 +29,27 @@
               <span class="uk-text-meta">({{applicant.invitee.email}})</span>
             {{else}}
               {{applicant.email}}
-              <span class="uk-text-meta">({{t "instances.applicants.unregistered"}})</span>
+              <span class="uk-text-meta">({{t
+                  "instances.applicants.unregistered"
+                }})</span>
             {{/if}}
           </td>
           <td>{{format-date applicant.created format="datetime"}}</td>
           <td>{{applicant.user.fullName}}</td>
-          {{#if (and (gt this.applicants.length 1) (can "manage applicants of instance" this.editController.instance))}}
+          {{#if
+            (and
+              (gt this.applicants.length 1)
+              (can "manage applicants of instance" this.editController.instance)
+            )
+          }}
             <td class="uk-text-right">
-                <button
-                  type="button"
-                  class="uk-icon-button"
-                  uk-icon="trash"
-                  title={{t "global.delete"}}
-                  {{on "click" (perform this.delete applicant)}}
-                ></button>
+              <button
+                type="button"
+                class="uk-icon-button"
+                uk-icon="trash"
+                title={{t "global.delete"}}
+                {{on "click" (perform this.delete applicant)}}
+              ></button>
             </td>
           {{/if}}
         </tr>
@@ -47,7 +62,6 @@
       {{/each}}
     </tbody>
   </table>
-
 
   {{#if (can "manage applicants of instance" this.editController.instance)}}
     <form uk-grid class="uk-grid-small" onsubmit={{perform this.add}}>
@@ -72,7 +86,11 @@
         </div>
       </div>
       <div class="uk-width-auto">
-        <UkButton @type="submit" @color="primary" @disabled={{not this.email.length}}>{{t "instances.applicants.add"}}</UkButton>
+        <UkButton
+          @type="submit"
+          @color="primary"
+          @disabled={{not this.email.length}}
+        >{{t "instances.applicants.add"}}</UkButton>
       </div>
     </form>
   {{/if}}
@@ -110,9 +128,21 @@
       </table>
     {{/if}}
 
-    {{#if (can "manage municipality access before submission of instance" this.editController.instance)}}
-      {{#if (and (not this.currentMunicipality.value) (not this.currentMunicipality.isLoading))}}
-        <div class="uk-alert uk-alert-danger">{{t "instances.applicants.municipality-info-empty"}}</div>
+    {{#if
+      (can
+        "manage municipality access before submission of instance"
+        this.editController.instance
+      )
+    }}
+      {{#if
+        (and
+          (not this.currentMunicipality.value)
+          (not this.currentMunicipality.isLoading)
+        )
+      }}
+        <div class="uk-alert uk-alert-danger">{{t
+            "instances.applicants.municipality-info-empty"
+          }}</div>
       {{/if}}
 
       <UkButton
@@ -125,7 +155,12 @@
           )
         }}
         @loading={{this.toggleMunicipalityAccess.isRunning}}
-        @label={{t (concat "instances.applicants." (if this.municipalityHasPermission "revoke" "authorize"))}}
+        @label={{t
+          (concat
+            "instances.applicants."
+            (if this.municipalityHasPermission "revoke" "authorize")
+          )
+        }}
       />
     {{/if}}
   {{/if}}

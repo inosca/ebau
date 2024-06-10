@@ -22,7 +22,9 @@
           required
         />
         {{#if this.postfix}}
-          <div class="uk-width-auto uk-flex uk-flex-middle uk-margin-small-left">
+          <div
+            class="uk-width-auto uk-flex uk-flex-middle uk-margin-small-left"
+          >
             ({{this.postfix}})
           </div>
         {{/if}}
@@ -50,7 +52,9 @@
           required
         />
       </div>
-      <span class="uk-text-small uk-text-muted">{{t "service-permissions.email-hint"}}</span>
+      <span class="uk-text-small uk-text-muted">{{t
+          "service-permissions.email-hint"
+        }}</span>
     </div>
     <div class="uk-margin">
       <label class="uk-form-label uk-text-bold" for="phone">
@@ -130,7 +134,9 @@
           id="website"
           placeholder={{t "service-permissions.website-placeholder"}}
         />
-        <span class="uk-text-small uk-text-muted">{{t "service-permissions.website-hint"}}</span>
+        <span class="uk-text-small uk-text-muted">{{t
+            "service-permissions.website-hint"
+          }}</span>
       </div>
     </div>
     {{#if @showNotification}}
@@ -152,8 +158,12 @@
           @value={{this.service.value.responsibilityConstructionControl}}
           @size="small"
           @name="responsibility-construction-control"
-          @onToggle={{fn (mut this.service.value.responsibilityConstructionControl)}}
-          @onLabel={{t "service-permissions.responsibility-construction-control"}}
+          @onToggle={{fn
+            (mut this.service.value.responsibilityConstructionControl)
+          }}
+          @onLabel={{t
+            "service-permissions.responsibility-construction-control"
+          }}
           @offLabel=""
           @showLabels={{true}}
         />
@@ -180,7 +190,11 @@
         @loading={{this.save.isRunning}}
       />
       {{#if @backRoute}}
-        <UkButton @onClick={{this.back}} @label={{t "global.back"}} @color="default" />
+        <UkButton
+          @onClick={{this.back}}
+          @label={{t "global.back"}}
+          @color="default"
+        />
       {{/if}}
     </div>
   </form>

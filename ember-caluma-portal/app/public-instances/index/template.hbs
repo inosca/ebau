@@ -10,7 +10,8 @@
       @searchField="label"
       @allowClear={{true}}
       @onChange={{this.updateMunicipality}}
-    as |option|>
+      as |option|
+    >
       {{option.label}}
     </PowerSelect>
   </div>
@@ -52,7 +53,10 @@
           <td>{{publicInstance.street}}</td>
           <td>{{publicInstance.parcels}}</td>
           {{#if (has-feature "publication.endDate")}}
-            <td>{{format-date publicInstance.publicationEndDate format="date"}}</td>
+            <td>{{format-date
+                publicInstance.publicationEndDate
+                format="date"
+              }}</td>
           {{/if}}
         </tr>
       {{/each}}

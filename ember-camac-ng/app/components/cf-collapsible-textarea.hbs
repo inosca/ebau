@@ -6,9 +6,17 @@
 >
   <CfField::label @field={{@field}} class="pointer" />
 
-  <UkIcon @icon={{if this.collapsed "chevron-right" "chevron-down"}} @ratio={{0.75}} />
+  <UkIcon
+    @icon={{if this.collapsed "chevron-right" "chevron-down"}}
+    @ratio={{0.75}}
+  />
 </a>
 
 {{#unless this.collapsed}}
-  <CfField::Input::Textarea @field={{@field}} @onSave={{@onSave}} @disabled={{@disabled}} @context={{@context}}/>
+  <CfField::Input::Textarea
+    @field={{@field}}
+    @onSave={{@onSave}}
+    @disabled={{@disabled}}
+    @context={{@context}}
+  />
 {{/unless}}

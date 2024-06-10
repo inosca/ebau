@@ -16,11 +16,9 @@ module("Integration | Component | datepicker", function (hooks) {
     assert.dom(this.element).hasText("");
 
     // Template block usage:
-    await render(hbs`
-      <Datepicker>
-        template block text
-      </Datepicker>
-    `);
+    await render(hbs`<Datepicker>
+  template block text
+</Datepicker>`);
 
     assert.dom(this.element).hasText("template block text");
   });

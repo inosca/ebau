@@ -1,8 +1,15 @@
 <form class="uk-margin">
   <div class="uk-grid-small uk-width-1-4" uk-grid>
     <div>
-      <label class="uk-text-bold" for="instance">{{t "statistics.dossier-number"}}</label>
-      <input class="uk-input" id="instance" value={{this.instance}} {{on "input" (perform this.setInstance)}}>
+      <label class="uk-text-bold" for="instance">{{t
+          "statistics.dossier-number"
+        }}</label>
+      <input
+        class="uk-input"
+        id="instance"
+        value={{this.instance}}
+        {{on "input" (perform this.setInstance)}}
+      />
     </div>
   </div>
 </form>

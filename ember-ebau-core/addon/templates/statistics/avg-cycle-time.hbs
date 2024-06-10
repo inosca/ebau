@@ -1,8 +1,14 @@
 <form class="uk-margin">
   <div class="uk-grid-small uk-width-1-4 uk-child-width-1-1" uk-grid>
     <div>
-      <label class="uk-text-bold" for="procedure">{{t "statistics.procedure"}}</label>
-      <select class="uk-select" id="procedure" {{on "change" this.setProcedure}}>
+      <label class="uk-text-bold" for="procedure">{{t
+          "statistics.procedure"
+        }}</label>
+      <select
+        class="uk-select"
+        id="procedure"
+        {{on "change" this.setProcedure}}
+      >
         {{#each this.procedures.value as |opt|}}
           <option
             value={{opt.slug}}
@@ -18,9 +24,15 @@
   <thead>
     <tr>
       <th>{{t "statistics.year"}}</th>
-      <th class="uk-width-1-4 uk-text-right">{{t "statistics.instance-count"}}</th>
-      <th class="uk-width-1-4 uk-text-right">{{t "statistics.avg-cycle-time"}}</th>
-      <th class="uk-width-1-4 uk-text-right">{{t "statistics.avg-net-cycle-time"}}</th>
+      <th class="uk-width-1-4 uk-text-right">{{t
+          "statistics.instance-count"
+        }}</th>
+      <th class="uk-width-1-4 uk-text-right">{{t
+          "statistics.avg-cycle-time"
+        }}</th>
+      <th class="uk-width-1-4 uk-text-right">{{t
+          "statistics.avg-net-cycle-time"
+        }}</th>
     </tr>
   </thead>
   <tbody>
@@ -33,13 +45,24 @@
         <tr>
           <td class="uk-text-bold">{{row.year}}</td>
           <td class="uk-text-right">{{row.count}}</td>
-          <td class="uk-text-right">{{t "statistics.days" count=row.avg_total_cycle_time}}</td>
-          <td class="uk-text-right">{{t "statistics.days" count=row.avg_net_cycle_time}}</td>
+          <td class="uk-text-right">{{t
+              "statistics.days"
+              count=row.avg_total_cycle_time
+            }}</td>
+          <td class="uk-text-right">{{t
+              "statistics.days"
+              count=row.avg_net_cycle_time
+            }}</td>
         </tr>
       {{else}}
         <tr>
           <td class="uk-text-center uk-text-italic" colspan="4">
-            {{t "statistics.empty" type=(get (find-by "slug" this.procedure this.procedures.value) "label")}}
+            {{t
+              "statistics.empty"
+              type=(get
+                (find-by "slug" this.procedure this.procedures.value) "label"
+              )
+            }}
           </td>
         </tr>
       {{/each}}

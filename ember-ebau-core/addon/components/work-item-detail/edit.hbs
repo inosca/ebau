@@ -5,7 +5,10 @@
 {{else if this.workItem}}
   <h2 class="uk-margin-remove-top">{{this.workItem.name}}</h2>
 
-  <p class="uk-text-italic white-space-pre-wrap">{{or this.workItem.description "-"}}</p>
+  <p class="uk-text-italic white-space-pre-wrap">{{or
+      this.workItem.description
+      "-"
+    }}</p>
 
   <div class="uk-grid-small uk-child-width-1-5" uk-grid>
     <div>
@@ -43,21 +46,21 @@
   </div>
 
   {{#if this.workItem.isCompleted}}
-    <LinkTo @route={{concat @baseRoute ".index"}} class="uk-button uk-button-default uk-margin-top">
+    <LinkTo
+      @route={{concat @baseRoute ".index"}}
+      class="uk-button uk-button-default uk-margin-top"
+    >
       {{t "global.back"}}
     </LinkTo>
 
   {{else}}
     <h2>{{t "workItems.actions.edit"}}</h2>
 
-    <form
-      class="uk-form-stacked"
-      {{on "submit" (perform this.saveWorkItem)}}
-    >
+    <form class="uk-form-stacked" {{on "submit" (perform this.saveWorkItem)}}>
       {{#if this.workItem.isAddressedToCurrentService}}
         <div class="uk-margin">
           <label class="uk-form-label uk-text-bold">
-              {{t "workItems.assignedUser"}}
+            {{t "workItems.assignedUser"}}
           </label>
           <div class="uk-form-controls">
             <PowerSelect
@@ -67,7 +70,8 @@
               @options={{this.users.records}}
               @selected={{this.workItem.assignedUser}}
               @noMatchesMessage={{t "global.noMatch"}}
-              @onChange={{fn (mut this.workItem.assignedUser)}} as |user|
+              @onChange={{fn (mut this.workItem.assignedUser)}}
+              as |user|
             >
               {{user.fullName}}
             </PowerSelect>
@@ -81,7 +85,12 @@
             {{t "workItems.description"}}
           </label>
           <div class="uk-form-controls">
-            <Textarea id="description" @value={{this.workItem.description}} class="uk-textarea" {{autoresize mode="height"}} />
+            <Textarea
+              id="description"
+              @value={{this.workItem.description}}
+              class="uk-textarea"
+              {{autoresize mode="height"}}
+            />
           </div>
         </div>
 
@@ -127,7 +136,10 @@
       {{/if}}
 
       <div>
-        <LinkTo @route={{concat @baseRoute ".index"}} class="uk-button uk-button-default">
+        <LinkTo
+          @route={{concat @baseRoute ".index"}}
+          class="uk-button uk-button-default"
+        >
           {{t "global.cancel"}}
         </LinkTo>
 
@@ -151,7 +163,13 @@
           {{t "workItems.comment"}}
         </label>
         <div class="uk-form-controls">
-            <Textarea @value={{this.workItem.meta.completion-comment}} name="comment" id="comment" class="uk-textarea" {{autoresize mode="height"}} />
+          <Textarea
+            @value={{this.workItem.meta.completion-comment}}
+            name="comment"
+            id="comment"
+            class="uk-textarea"
+            {{autoresize mode="height"}}
+          />
         </div>
       </div>
 

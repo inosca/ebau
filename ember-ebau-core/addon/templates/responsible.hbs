@@ -19,13 +19,18 @@
           <td>{{responsibility.responsibleUser.fullName}}</td>
         </tr>
       {{else}}
-        <tr><td class="uk-text-center" colspan="2">{{t "global.empty"}}</td></tr>
+        <tr><td class="uk-text-center" colspan="2">{{t
+              "global.empty"
+            }}</td></tr>
       {{/each}}
     </tbody>
   </table>
 
   {{#if (can "edit responsible-service")}}
-    <form {{on "submit" (perform this.saveResponsibility)}} class="uk-form-stacked">
+    <form
+      {{on "submit" (perform this.saveResponsibility)}}
+      class="uk-form-stacked"
+    >
       <label class="uk-form-label" for="responsible-user-select">
         {{t "responsible.responsible"}}
       </label>
@@ -42,7 +47,8 @@
             @allowClear={{true}}
             class="uk-select"
             id="responsible-user-select"
-            data-test-responsible-user-select as |user|
+            data-test-responsible-user-select
+            as |user|
           >
             {{user.fullName}}
           </PowerSelect>
@@ -50,7 +56,10 @@
         <div>
           <div class="uk-text-right uk-margin">
             <UkButton
-              @disabled={{or (not this.selectedUser) this.saveResponsibility.isRunning}}
+              @disabled={{or
+                (not this.selectedUser)
+                this.saveResponsibility.isRunning
+              }}
               @color="primary"
               @type="submit"
               @loading={{this.saveResponsibility.isRunning}}

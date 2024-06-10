@@ -2,8 +2,15 @@
   <Watermark />
   <div class="so-navbar__header">
     <div class="so-navbar__header__logo">
-      <a href={{macroGetConfig "ember-ebau-core" "eGovPortalURL"}} target="_blank" rel="noopener noreferrer">
-        <img src="/assets/images/logo-my.so.ch-header.png" alt={{t "so-footer.e-gov-title"}}>
+      <a
+        href={{macroGetConfig "ember-ebau-core" "eGovPortalURL"}}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="/assets/images/logo-my.so.ch-header.png"
+          alt={{t "so-footer.e-gov-title"}}
+        />
       </a>
     </div>
   </div>
@@ -35,8 +42,12 @@
     </div>
     <div>
       <ul>
-        <li><a href={{macroGetConfig "ember-ebau-core" "eGovPortalURL"}}>{{t "so-footer.leave"}}</a></li>
-        <li><a href="https://so.ch/ebau" title={{t "nav.faq"}}><FaIcon @icon="question-circle" /></a></li>
+        <li><a href={{macroGetConfig "ember-ebau-core" "eGovPortalURL"}}>{{t
+              "so-footer.leave"
+            }}</a></li>
+        <li><a href="https://so.ch/ebau" title={{t "nav.faq"}}><FaIcon
+              @icon="question-circle"
+            /></a></li>
         {{#if (and this.session.isAuthenticated this.session.user)}}
           <li>
             <a href="#">
@@ -44,7 +55,7 @@
                 src="/assets/images/my.so.ch-profile.png"
                 class="so-navbar__nav__profile"
                 alt={{this.session.user.fullName}}
-              >
+              />
               <div class="so-navbar__nav__user uk-hidden@l">
                 <FaIcon @icon="caret-down" />
               </div>
@@ -66,8 +77,15 @@
               offset="0"
             >
               <ul>
-                <li class="uk-hidden@l"><a href="#">{{this.session.user.fullName}}</a></li>
-                {{#if (and this.session.groups.length (not this.session.isTokenExchange))}}
+                <li class="uk-hidden@l"><a
+                    href="#"
+                  >{{this.session.user.fullName}}</a></li>
+                {{#if
+                  (and
+                    this.session.groups.length
+                    (not this.session.isTokenExchange)
+                  )
+                }}
                   {{#if (not (has-feature "login.tokenExchange"))}}
                     <li>
                       <a
@@ -92,15 +110,23 @@
                       </a>
                     </li>
                   {{/each}}
-                  <li><a href="{{this.internalLink}}"><FaIcon @icon="arrow-up-right-from-square" />{{t "nav.internal"}}</a></li>
+                  <li><a href="{{this.internalLink}}"><FaIcon
+                        @icon="arrow-up-right-from-square"
+                      />{{t "nav.internal"}}</a></li>
                 {{/if}}
-                <li><a href="" {{on "click" this.logout}}><FaIcon @icon="power-off" />{{t "nav.logout"}}</a></li>
+                <li><a href="" {{on "click" this.logout}}><FaIcon
+                      @icon="power-off"
+                    />{{t "nav.logout"}}</a></li>
               </ul>
             </div>
           </li>
         {{/if}}
         {{#if this.session.isAuthenticated}}
-          <li><a href="" title={{t "nav.logout"}} {{on "click" this.logout}}><FaIcon @icon="power-off" /></a></li>
+          <li><a
+              href=""
+              title={{t "nav.logout"}}
+              {{on "click" this.logout}}
+            ><FaIcon @icon="power-off" /></a></li>
         {{/if}}
       </ul>
     </div>

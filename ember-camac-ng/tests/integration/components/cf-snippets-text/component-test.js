@@ -13,7 +13,7 @@ module("Integration | Component | cf-snippets-text", function (hooks) {
   test("it renders", async function (assert) {
     this.field = { answer: { value: "" } };
 
-    await render(hbs`<CfSnippetsText @field={{@field}}/>`);
+    await render(hbs`<CfSnippetsText @field={{@field}} />`);
 
     assert.dom(this.element).hasText(t("global.empty"));
   });

@@ -3,7 +3,9 @@
     <UkSpinner @ratio="2" />
   </div>
 {{else}}
-  <h3 class="uk-text-large uk-margin-remove-top">{{t "communications.new.newTopic"}}</h3>
+  <h3 class="uk-text-large uk-margin-remove-top">{{t
+      "communications.new.newTopic"
+    }}</h3>
 
   <form class="uk-form-stacked" {{on "submit" this.preventDefault}}>
     {{#if (can "involve entities on topic" this.topic)}}

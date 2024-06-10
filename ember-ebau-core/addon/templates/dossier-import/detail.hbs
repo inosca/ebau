@@ -2,14 +2,17 @@
   <div uk-spinner></div>
 {{else}}
   <DossierImportDetailBlock @title={{t "dossierImport.detail.filename"}}>
-      {{this.import.filename}}
+    {{this.import.filename}}
   </DossierImportDetailBlock>
   <DossierImportDetailBlock @title={{t "dossierImport.detail.created"}}>
-      {{format-date this.import.createdAt format="datetime"}} {{t "global.by" }}
-      {{(if this.isProd this.import.group.name this.import.user.fullName)}}
+    {{format-date this.import.createdAt format="datetime"}}
+    {{t "global.by"}}
+    {{(if this.isProd this.import.group.name this.import.user.fullName)}}
   </DossierImportDetailBlock>
   {{#if (or this.isValidated this.isImported)}}
-    <DossierImportDetailBlock @title={{t "dossierImport.detail.analysis.title"}}>
+    <DossierImportDetailBlock
+      @title={{t "dossierImport.detail.analysis.title"}}
+    >
       <div>
         <DossierImportIconText
           @status={{if (eq this.import.status "failed") "error" "success"}}
@@ -20,7 +23,11 @@
         {{#if (or this.summary.error.length this.summary.warning.length)}}
           <div class="uk-margin-small-top">
             <div class="uk-margin-small-bottom">
-              {{t (concat "dossierImport.detail.analysis.issuesInfo." this.import.status)}}
+              {{t
+                (concat
+                  "dossierImport.detail.analysis.issuesInfo." this.import.status
+                )
+              }}
             </div>
             <div class="uk-margin-small-left">
               {{#each this.summary.error as |error|}}
@@ -49,7 +56,12 @@
         {{#let this.summary.stats as |stats|}}
           {{#if (or stats.dossiers stats.attachments)}}
             <div class="uk-margin-small-bottom">
-              {{t (concat "dossierImport.detail.statistics.infoSuccess." this.import.status)}}
+              {{t
+                (concat
+                  "dossierImport.detail.statistics.infoSuccess."
+                  this.import.status
+                )
+              }}
             </div>
             <DossierImportIconText
               class={{if stats.attachments "dossier-import__margin-small"}}
@@ -70,7 +82,12 @@
             />
           {{else}}
             <div>
-              {{t (concat "dossierImport.detail.statistics.infoFailure." this.import.status)}}
+              {{t
+                (concat
+                  "dossierImport.detail.statistics.infoFailure."
+                  this.import.status
+                )
+              }}
             </div>
           {{/if}}
         {{/let}}
@@ -80,17 +97,11 @@
   <DossierImportDetailBlock @title={{t "dossierImport.detail.status.title"}}>
     <div>
       <div class="uk-text-bold uk-margin-small">
-        {{t
-          (concat
-            "dossierImport.imports.status." this.import.status
-          )
-        }}
+        {{t (concat "dossierImport.imports.status." this.import.status)}}
       </div>
       <div>
         {{t
-          (concat
-            "dossierImport.detail.status.description." this.import.status
-          )
+          (concat "dossierImport.detail.status.description." this.import.status)
         }}
       </div>
       {{#if this.isValidated}}
@@ -105,12 +116,20 @@
       {{/if}}
       {{#if (eq this.import.status "import-failed")}}
         <details class="uk-margin-small-top">
-          <summary>{{t "dossierImport.detail.status.technicalDetails"}}</summary>
-          <pre class="uk-margin-remove-top">{{this.import.messages.import.exception}}</pre>
+          <summary>{{t
+              "dossierImport.detail.status.technicalDetails"
+            }}</summary>
+          <pre
+            class="uk-margin-remove-top"
+          >{{this.import.messages.import.exception}}</pre>
         </details>
       {{/if}}
       {{#if (eq this.import.status "in-progress")}}
-        <progress class="uk-progress" value={{this.progress}} max={{this.total}}></progress>
+        <progress
+          class="uk-progress"
+          value={{this.progress}}
+          max={{this.total}}
+        ></progress>
       {{/if}}
     </div>
   </DossierImportDetailBlock>

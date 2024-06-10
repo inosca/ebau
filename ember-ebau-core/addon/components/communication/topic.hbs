@@ -6,7 +6,10 @@
   <div class="communications-topic" ...attributes>
     <UkFlex @horizontal="between">
       <div>
-        <h3 class="uk-text-large uk-margin-remove" data-test-subject>{{this.topic.subject}}</h3>
+        <h3
+          class="uk-text-large uk-margin-remove"
+          data-test-subject
+        >{{this.topic.subject}}</h3>
         <p class="uk-margin-remove uk-text-meta" data-test-created-by>
           {{t
             "communications.detail.createdBy"
@@ -15,7 +18,10 @@
           }}
         </p>
         <p class="uk-margin-remove uk-text-meta" data-test-involved-entities>
-          {{t "communications.detail.involvedEntities" entities=this.involvedEntities}}
+          {{t
+            "communications.detail.involvedEntities"
+            entities=this.involvedEntities
+          }}
         </p>
       </div>
       <UkFlex @vertical="bottom">

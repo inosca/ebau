@@ -1,9 +1,6 @@
 <h2>{{t "workItems.new"}}</h2>
 
-<form
-  class="uk-form-stacked"
-  {{on "submit" (perform this.createWorkItem)}}
->
+<form class="uk-form-stacked" {{on "submit" (perform this.createWorkItem)}}>
   <div class="uk-margin">
     <label class="uk-form-label uk-text-bold">
       {{t "workItems.responsible"}}
@@ -18,7 +15,8 @@
         @options={{this.services}}
         @selected={{this.responsibleService}}
         @noMatchesMessage={{t "global.noMatch"}}
-        @onChange={{fn (mut this.responsibleService)}} as |service|
+        @onChange={{fn (mut this.responsibleService)}}
+        as |service|
       >
         {{service.name}}
       </PowerSelect>
@@ -39,7 +37,8 @@
         @options={{this.users.records}}
         @selected={{this.responsibleUser}}
         @noMatchesMessage={{t "global.noMatch"}}
-        @onChange={{fn (mut this.responsibleUser)}} as |user|
+        @onChange={{fn (mut this.responsibleUser)}}
+        as |user|
       >
         {{user.fullName}}
       </PowerSelect>
@@ -52,7 +51,14 @@
       <span class="uk-text-danger">*</span>
     </label>
     <div class="uk-form-controls">
-      <Input @type="text" @value={{mut this.workItem.title}} name="title" id="title" required={{true}} class="uk-input" />
+      <Input
+        @type="text"
+        @value={{mut this.workItem.title}}
+        name="title"
+        id="title"
+        required={{true}}
+        class="uk-input"
+      />
     </div>
   </div>
 
@@ -61,7 +67,13 @@
       {{t "workItems.description"}}
     </label>
     <div class="uk-form-controls">
-      <Textarea @value={{this.workItem.description}} name="description" id="description" class="uk-textarea" {{autoresize mode="height"}} />
+      <Textarea
+        @value={{this.workItem.description}}
+        name="description"
+        id="description"
+        class="uk-textarea"
+        {{autoresize mode="height"}}
+      />
     </div>
   </div>
 
@@ -106,7 +118,10 @@
   </div>
 
   <div>
-    <LinkTo @route={{concat @baseRoute ".index"}} class="uk-button uk-button-default">
+    <LinkTo
+      @route={{concat @baseRoute ".index"}}
+      class="uk-button uk-button-default"
+    >
       {{t "global.cancel"}}
     </LinkTo>
 

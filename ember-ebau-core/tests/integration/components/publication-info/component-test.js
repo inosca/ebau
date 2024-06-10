@@ -40,14 +40,12 @@ module("Integration | Component | publication-info", function (hooks) {
       },
     });
 
-    await render(hbs`
-      <PublicationInfo
-        @instanceId={{1}}
-        @type="public"
-        @status="COMPLETED"
-        @isPublished={{true}}
-      />
-    `);
+    await render(hbs`<PublicationInfo
+  @instanceId={{1}}
+  @type="public"
+  @status="COMPLETED"
+  @isPublished={{true}}
+/>`);
 
     assert
       .dom(this.element)
@@ -59,14 +57,12 @@ module("Integration | Component | publication-info", function (hooks) {
   });
 
   test("it renders info for unpublished publication", async function (assert) {
-    await render(hbs`
-      <PublicationInfo
-        @instanceId={{1}}
-        @type="public"
-        @status="READY"
-        @isPublished={{false}}
-      />
-    `);
+    await render(hbs`<PublicationInfo
+  @instanceId={{1}}
+  @type="public"
+  @status="READY"
+  @isPublished={{false}}
+/>`);
 
     assert
       .dom(this.element)
@@ -78,14 +74,12 @@ module("Integration | Component | publication-info", function (hooks) {
   });
 
   test("it renders info for canceled publication", async function (assert) {
-    await render(hbs`
-      <PublicationInfo
-        @instanceId={{1}}
-        @type="public"
-        @status="COMPLETED"
-        @isPublished={{false}}
-      />
-    `);
+    await render(hbs`<PublicationInfo
+  @instanceId={{1}}
+  @type="public"
+  @status="COMPLETED"
+  @isPublished={{false}}
+/>`);
 
     assert
       .dom(this.element)
@@ -97,14 +91,12 @@ module("Integration | Component | publication-info", function (hooks) {
   });
 
   test("it renders info for unpublished information of neighbors", async function (assert) {
-    await render(hbs`
-      <PublicationInfo
-        @instanceId={{1}}
-        @type="neighbors"
-        @status="READY"
-        @isPublished={{false}}
-      />
-    `);
+    await render(hbs`<PublicationInfo
+  @instanceId={{1}}
+  @type="neighbors"
+  @status="READY"
+  @isPublished={{false}}
+/>`);
 
     assert
       .dom(this.element)
@@ -116,14 +108,12 @@ module("Integration | Component | publication-info", function (hooks) {
   });
 
   test("it renders info for canceled information of neighbors", async function (assert) {
-    await render(hbs`
-      <PublicationInfo
-        @instanceId={{1}}
-        @type="neighbors"
-        @status="COMPLETED"
-        @isPublished={{false}}
-      />
-    `);
+    await render(hbs`<PublicationInfo
+  @instanceId={{1}}
+  @type="neighbors"
+  @status="COMPLETED"
+  @isPublished={{false}}
+/>`);
 
     assert
       .dom(this.element)

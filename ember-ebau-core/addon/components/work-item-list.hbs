@@ -7,7 +7,9 @@
         </th>
       {{/if}}
       {{#each @columns as |column|}}
-        <th class={{if (eq column "task") "uk-width-1-4"}}>{{t (concat "workItems." column)}}</th>
+        <th class={{if (eq column "task") "uk-width-1-4"}}>{{t
+            (concat "workItems." column)
+          }}</th>
       {{/each}}
       <th>
         <span hidden>{{t "workItems.actions.title"}}</span>
@@ -41,7 +43,11 @@
           {{#if @query.isLoading}}
             <UkSpinner @ratio="0.5" />
           {{else}}
-            <button type="button" class="uk-button uk-button-link" {{on "click" @query.fetchMore}}>
+            <button
+              type="button"
+              class="uk-button uk-button-link"
+              {{on "click" @query.fetchMore}}
+            >
               {{t "global.loadMore"}}
             </button>
           {{/if}}

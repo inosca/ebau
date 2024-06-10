@@ -11,7 +11,10 @@
     {{#if this.loadThumbnail.isRunning}}
       <UkSpinner />
     {{else if this.loadThumbnail.lastSuccessful.value}}
-      <img src={{this.loadThumbnail.lastSuccessful.value}} alt={{t "publicInstancesDetail.documentPreview"}} />
+      <img
+        src={{this.loadThumbnail.lastSuccessful.value}}
+        alt={{t "publicInstancesDetail.documentPreview"}}
+      />
     {{else}}
       <div>
         <UkIcon @icon="warning" class="uk-flex uk-flex-center uk-text-danger" />

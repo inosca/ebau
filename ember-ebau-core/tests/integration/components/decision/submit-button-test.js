@@ -192,11 +192,9 @@ module("Integration | Component | decision/submit-button", function (hooks) {
       assert.strictEqual(instanceId, 2);
     };
 
-    await render(hbs`
-      <Decision::SubmitButton
-        @field={{this.field}}
-        @context={{hash instanceId=1}}
-      />`);
+    await render(
+      hbs`<Decision::SubmitButton @field={{this.field}} @context={{hash instanceId=1}} />`,
+    );
 
     await click("button");
 

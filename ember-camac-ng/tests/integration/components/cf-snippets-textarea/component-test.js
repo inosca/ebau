@@ -13,7 +13,7 @@ module("Integration | Component | cf-snippets-textarea", function (hooks) {
   test("it renders", async function (assert) {
     this.field = { answer: { value: "" } };
 
-    await render(hbs`<CfSnippetsTextarea @field={{@field}}/>`);
+    await render(hbs`<CfSnippetsTextarea @field={{@field}} />`);
 
     assert.dom(this.element).hasText(t("global.empty"));
   });

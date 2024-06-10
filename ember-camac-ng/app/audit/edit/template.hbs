@@ -4,10 +4,17 @@
       <span class="uk-text-bold">
         {{this.audit.type}}
       </span>
-      {{#if (and this.audit.modifiedByUser this.audit.modifiedByService this.audit.modifiedAt)}}
+      {{#if
+        (and
+          this.audit.modifiedByUser
+          this.audit.modifiedByService
+          this.audit.modifiedAt
+        )
+      }}
         -
         <span class="uk-text-meta">
-          {{t "audit.titleMeta"
+          {{t
+            "audit.titleMeta"
             user=this.audit.modifiedByUser.fullName
             service=this.audit.modifiedByService.name
             date=(format-date this.audit.modifiedAt format="datetime")
@@ -19,16 +26,23 @@
   {{/if}}
 
   <div class="uk-text-right">
-    <a href="" class="no-loading" {{on "click" (perform this.back)}}>{{t "audit.back"}}</a>
+    <a href="" class="no-loading" {{on "click" (perform this.back)}}>{{t
+        "audit.back"
+      }}</a>
   </div>
 </div>
 
-<hr>
+<hr />
 
 <CfContent
   @documentId={{this.model}}
-  @disabled={{cannot "edit audit" this.auditController.auditWorkItem audit=this.audit}}
-as |content|>
+  @disabled={{cannot
+    "edit audit"
+    this.auditController.auditWorkItem
+    audit=this.audit
+  }}
+  as |content|
+>
   {{#if (gt content.document.fieldsets.length 1)}}
     <div uk-grid>
       <div class="uk-width-1-1 uk-width-1-3@m">
@@ -43,7 +57,10 @@ as |content|>
               @onToggle={{this.materialExamSwitcher.toggleTestItem}}
               class="x-small"
             />
-            <label class="uk-text-meta uk-margin-small-top" for="toggle-test-item-fields">
+            <label
+              class="uk-text-meta uk-margin-small-top"
+              for="toggle-test-item-fields"
+            >
               {{t "audit.onlyExamItems"}}
             </label>
 
@@ -54,7 +71,10 @@ as |content|>
               @onToggle={{this.materialExamSwitcher.toggleDefect}}
               class="x-small uk-margin-small-top"
             />
-            <label class="uk-text-meta uk-margin-small-top" for="toggle-defect-fields">
+            <label
+              class="uk-text-meta uk-margin-small-top"
+              for="toggle-defect-fields"
+            >
               {{t "audit.onlyDefectItems"}}
             </label>
           </div>
@@ -62,7 +82,7 @@ as |content|>
       </div>
       <div class="uk-width-1-1 uk-width-2-3@m">
         {{content.form}}
-        <hr>
+        <hr />
         {{content.pagination}}
       </div>
     </div>

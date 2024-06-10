@@ -1,9 +1,15 @@
 <tr>
-  <td><LinkTo @route="audit.edit" @model={{@audit.id}}>{{@audit.type}}</LinkTo></td>
+  <td><LinkTo
+      @route="audit.edit"
+      @model={{@audit.id}}
+    >{{@audit.type}}</LinkTo></td>
   <td>{{@audit.municipality.name}}</td>
   <td>
-    {{#if (and @audit.modifiedByUser @audit.modifiedByService @audit.modifiedAt)}}
-      {{t "audit.modifiedText"
+    {{#if
+      (and @audit.modifiedByUser @audit.modifiedByService @audit.modifiedAt)
+    }}
+      {{t
+        "audit.modifiedText"
         user=@audit.modifiedByUser.fullName
         service=@audit.modifiedByService.name
         date=(format-date @audit.modifiedAt format="datetime")

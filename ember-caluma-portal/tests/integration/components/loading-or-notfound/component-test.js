@@ -24,11 +24,9 @@ module("Integration | Component | loading-or-notfound", function (hooks) {
   });
 
   test("it displays the content if not loading and permitted", async function (assert) {
-    await render(hbs`
-      <LoadingOrNotfound @hasPermission={{true}} @loading={{false}}>
-        <h1>Test</h1>
-      </LoadingOrNotfound>
-    `);
+    await render(hbs`<LoadingOrNotfound @hasPermission={{true}} @loading={{false}}>
+  <h1>Test</h1>
+</LoadingOrNotfound>`);
 
     assert.dom("h1").hasText("Test");
   });

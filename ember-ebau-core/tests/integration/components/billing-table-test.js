@@ -38,11 +38,11 @@ module("Integration | Component | billing-table", function (hooks) {
     this.features.disable("billing.displayService");
 
     await render(hbs`<BillingTable
-      @entries={{this.entries}}
-      @onToggleAll={{this.noop}}
-      @onToggleRow={{this.noop}}
-      @onRefresh={{this.noop}}
-    />`);
+  @entries={{this.entries}}
+  @onToggleAll={{this.noop}}
+  @onToggleRow={{this.noop}}
+  @onRefresh={{this.noop}}
+/>`);
 
     assert.dom("thead tr th").exists({ count: 11 });
     assert
@@ -75,11 +75,11 @@ module("Integration | Component | billing-table", function (hooks) {
     this.features.enable("billing.displayService");
 
     await render(hbs`<BillingTable
-      @entries={{this.entries}}
-      @onToggleAll={{this.noop}}
-      @onToggleRow={{this.noop}}
-      @onRefresh={{this.noop}}
-    />`);
+  @entries={{this.entries}}
+  @onToggleAll={{this.noop}}
+  @onToggleRow={{this.noop}}
+  @onRefresh={{this.noop}}
+/>`);
 
     assert.dom("th[data-test-group]").doesNotExist();
     assert.dom("th[data-test-service]").hasText(t("billing.service"));
@@ -89,11 +89,11 @@ module("Integration | Component | billing-table", function (hooks) {
     this.features.enable("billing.charge");
 
     await render(hbs`<BillingTable
-      @entries={{this.entries}}
-      @onToggleAll={{this.noop}}
-      @onToggleRow={{this.noop}}
-      @onRefresh={{this.noop}}
-    />`);
+  @entries={{this.entries}}
+  @onToggleAll={{this.noop}}
+  @onToggleRow={{this.noop}}
+  @onRefresh={{this.noop}}
+/>`);
 
     assert.dom("tbody tr").exists({ count: 5 });
 
@@ -109,11 +109,11 @@ module("Integration | Component | billing-table", function (hooks) {
     this.toggleRow = () => assert.step("toggle-row");
 
     await render(hbs`<BillingTable
-      @entries={{this.entries}}
-      @onToggleAll={{this.toggleAll}}
-      @onToggleRow={{this.toggleRow}}
-      @onRefresh={{this.noop}}
-    />`);
+  @entries={{this.entries}}
+  @onToggleAll={{this.toggleAll}}
+  @onToggleRow={{this.toggleRow}}
+  @onRefresh={{this.noop}}
+/>`);
 
     await click("input[data-test-toggle-all]");
     await click("input[data-test-toggle]:not([disabled])");

@@ -5,7 +5,9 @@
   {{else}}
     <BeNavbar />
   {{/if}}
-  <section class="uk-container uk-container-large uk-padding">{{outlet}}</section>
+  <section
+    class="uk-container uk-container-large uk-padding"
+  >{{outlet}}</section>
 </main>
 {{#if (is-application "so")}}
   <SoFooter />

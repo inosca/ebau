@@ -16,11 +16,9 @@ module("Integration | Component | case-header", function (hooks) {
     assert.dom(this.element).hasText("");
 
     // Template block usage:
-    await render(hbs`
-      <CaseHeader>
-        template block text
-      </CaseHeader>
-    `);
+    await render(hbs`<CaseHeader>
+  template block text
+</CaseHeader>`);
 
     assert.dom(this.element).hasText("template block text");
   });
