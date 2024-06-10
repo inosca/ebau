@@ -2,6 +2,8 @@ version: "3.4"
 services:
   cache:
     image: memcached:1.6-alpine
+    networks:
+      - ebau.local
 
   proxy:
     image: nginx:1.25-alpine
@@ -187,6 +189,7 @@ services:
         APPLICATION: ${APPLICATION}
     depends_on:
       - db
+      - cache
     networks:
       - ebau.local
     environment:
