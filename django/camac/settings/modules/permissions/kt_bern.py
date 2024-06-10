@@ -1,4 +1,11 @@
-from camac.permissions.conditions import Always, HasRole, RequireInstanceState
+from django.db.models import Q
+
+from camac.permissions.conditions import (
+    Always,
+    HasRole,
+    IsAppeal,
+    RequireInstanceState,
+)
 from camac.permissions.switcher import PERMISSION_MODE
 
 BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES = RequireInstanceState(
@@ -64,6 +71,18 @@ BE_CONSTRUCTION_CONTROL_STATES = RequireInstanceState(
     ]
 )
 
+POST_DECISION_STATES = RequireInstanceState(
+    [
+        "evaluated",
+        "sb1",
+        "sb2",
+        "conclusion",
+        "finished",
+        "archived",
+        "finished_internal",
+    ]
+)
+
 BE_REJECTION_POSSIBLE_STATES = RequireInstanceState(
     ["rejected", "circulation_init", "circulation"]
 )
@@ -93,7 +112,7 @@ BE_CONSTRUCTION_CONTROL_PERMISSIONS = [
 # Support always has access to instance (and (almost?) all IRs on it)
 SUPPORT_CONDITION = Always()
 
-BE_MUNICIPALITY_READ_PERMISSIONS = [
+BE_INVOLVED_LEAD_AUTHORITY_PERMISSIONS = [
     ("communications-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
     ("geometer-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
     ("responsible-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
@@ -172,40 +191,32 @@ BE_MUNICIPALITY_READ_PERMISSIONS = [
     ),
     ("distribution-read", BE_MUNICIPALITY_STATES_EXCEPT_MIGRATED),
     ("workitems-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
+    ("appeal-read", IsAppeal()),
 ]
+
+BE_ACTIVE_LEAD_AUTHORITY_PERMISSIONS = BE_INVOLVED_LEAD_AUTHORITY_PERMISSIONS + [
+    (
+        "corrections-read",
+        BE_MUNICIPALITY_ACCESSIBLE_STATES
+        | RequireInstanceState(["corrected", "correction"]),
+    ),
+]
+
+GEOMETER_RW = (
+    HasRole(["geometer-lead", "geometer-clerk"]) & BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES
+)
+
 
 BE_PERMISSIONS_SETTINGS = {
     "PERMISSION_MODE": PERMISSION_MODE.OFF,
     "ACCESS_LEVELS": {
         "geometer": [
-            # TODO: For ACLs that can be manually granted, read-permissions
-            # for the relevant modules should be available at any time the
-            # ACL can be granted. System-managed ACLs and write permissions
-            # should be more restrictive, since we know when they are created.
             ("form-read", Always()),
-            # all documents can be read, but only a specific category can be written
             ("documents-read", Always()),
-            # TODO: Handle attachment section permissions through permissions module?
-            # ("documents-write-sb1-paper", ["sb1", "sb2"]),
-            # TODO: permission "document" corresponds to editable permission, should be changed
-            # to permissions module naming convention once the InstanceEditableMixin
-            # is refactored / removed
             ("document", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
-            (
-                "workitems-read",
-                HasRole(["geometer-lead", "geometer-clerk"])
-                & BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES,
-            ),
-            (
-                "communications-read",
-                HasRole(["geometer-lead", "geometer-clerk"])
-                & BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES,
-            ),
-            (
-                "dms-generate-read",
-                HasRole(["geometer-lead", "geometer-clerk"])
-                & BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES,
-            ),
+            ("workitems-read", GEOMETER_RW),
+            ("communications-read", GEOMETER_RW),
+            ("dms-generate-read", GEOMETER_RW),
             ("geometer-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
             ("responsible-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
             ("journal-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
@@ -216,9 +227,10 @@ BE_PERMISSIONS_SETTINGS = {
             ("applicant-add", Always()),
             ("applicant-read", Always()),
         ],
-        "lead-authority": BE_MUNICIPALITY_READ_PERMISSIONS,
-        "involved-authority": BE_MUNICIPALITY_READ_PERMISSIONS,
+        "lead-authority": BE_ACTIVE_LEAD_AUTHORITY_PERMISSIONS,
+        "involved-authority": BE_INVOLVED_LEAD_AUTHORITY_PERMISSIONS,
         "construction-control": BE_CONSTRUCTION_CONTROL_PERMISSIONS,
+        "involved-construction-control": BE_CONSTRUCTION_CONTROL_PERMISSIONS,
         "support": [
             ("support-read", SUPPORT_CONDITION),
             ("form-read", SUPPORT_CONDITION),
@@ -247,19 +259,7 @@ BE_PERMISSIONS_SETTINGS = {
             ("journal-read", BE_SERVICE_STATES_DEFAULT),
             ("changelog-read", BE_SERVICE_STATES_DEFAULT),
             ("history-read", BE_SERVICE_STATES_DEFAULT),
-            (
-                "decision-read",
-                BE_SERVICE_STATES_DEFAULT
-                & ~RequireInstanceState(
-                    [
-                        "circulation",
-                        "coordination",
-                        "in_progress",
-                        "in_progress_internal",
-                        "rejected",
-                    ]
-                ),
-            ),
+            ("decision-read", POST_DECISION_STATES),
         ],
     },
     "EVENT_HANDLER": "camac.permissions.config.kt_bern.PermissionEventHandlerBE",
@@ -273,6 +273,15 @@ BE_PERMISSIONS_SETTINGS = {
         "MUNICIPALITY_INVOLVED": "involved-authority",
         "DISTRIBUTION_INVITEE": "distribution-service",
         "CONSTRUCTION_CONTROL": "construction-control",
+        # TODO refactor somehow to something more explicit
+    },
+    "MIGRATION_FILTERS": {
+        # Specific filters for being more exact about what data to fetch,
+        # where neccessary
+        "municipality": Q(
+            Q(service__service_group__name="municipality")
+            | Q(service__service_group__name="district")
+        ),
     },
     "ENABLE_CACHE": True,
 }
