@@ -14,7 +14,9 @@
     </div>
     {{#if this.showResponsibleServiceUsers}}
       <div class="select-responsible-service-user uk-margin-small-left">
-        <label class="uk-form-label" for="type">{{t "responsible.responsiblePerson"}}</label>
+        <label class="uk-form-label" for="type">{{t
+            "responsible.responsiblePerson"
+          }}</label>
         <div class="uk-form-controls">
           <PowerSelect
             @searchEnabled={{true}}
@@ -28,7 +30,7 @@
             as |option|
           >
             {{option.fullName}}
-        </PowerSelect>
+          </PowerSelect>
         </div>
       </div>
     {{/if}}
@@ -54,7 +56,7 @@
       <th>{{t "communications.participants"}}</th>
       <th>{{t "communications.date"}}</th>
       {{#if this.showResponsibleServiceUsers}}
-      <th>{{t "responsible.responsiblePerson"}}</th>
+        <th>{{t "responsible.responsiblePerson"}}</th>
       {{/if}}
     </tr>
   </thead>
@@ -70,7 +72,15 @@
           <FaIcon
             @fixedWidth={{true}}
             @icon={{if topic.hasUnread "envelope" "envelope-open"}}
-            {{uk-tooltip (t (concat "communications.list." (if topic.hasUnread "has" "no") "-unread"))}}
+            {{uk-tooltip
+              (t
+                (concat
+                  "communications.list."
+                  (if topic.hasUnread "has" "no")
+                  "-unread"
+                )
+              )
+            }}
           />
         </td>
         {{#unless @instanceId}}
@@ -83,16 +93,19 @@
         <td data-test-involved-entities>
           {{#each topic.involvedEntities as |entity|}}
             {{entity.name}}
-            <br>
+            <br />
           {{/each}}
         </td>
-        <td class="uk-text-nowrap">{{format-date topic.created format="datetime"}}</td>
+        <td class="uk-text-nowrap">{{format-date
+            topic.created
+            format="datetime"
+          }}</td>
         {{#if this.showResponsibleServiceUsers}}
-        <td class="uk-text-nowrap">
-          {{#each topic.responsibleServiceUsers as |user index|}}
-            {{~concat (if index ", " "") user.fullName~}}
-          {{/each}}
-        </td>
+          <td class="uk-text-nowrap">
+            {{#each topic.responsibleServiceUsers as |user index|}}
+              {{~concat (if index ", " "") user.fullName~}}
+            {{/each}}
+          </td>
         {{/if}}
       </tr>
     {{else}}

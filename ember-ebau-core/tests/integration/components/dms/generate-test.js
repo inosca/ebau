@@ -16,11 +16,9 @@ module("Integration | Component | dms/generate", function (hooks) {
     assert.dom(this.element).hasText("");
 
     // Template block usage:
-    await render(hbs`
-      <Dms::Generate>
-        template block text
-      </Dms::Generate>
-    `);
+    await render(hbs`<Dms::Generate>
+  template block text
+</Dms::Generate>`);
 
     assert.dom(this.element).hasText("template block text");
   });

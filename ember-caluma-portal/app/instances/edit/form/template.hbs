@@ -10,17 +10,22 @@
   {{#if (is-embedded)}}
     <CfContent
       @documentId={{decode-id this.document.value.id}}
-      @disabled={{cannot "write form of instance" this.editController.instance form=this.document.value.form}}
+      @disabled={{cannot
+        "write form of instance"
+        this.editController.instance
+        form=this.document.value.form
+      }}
       @useAsHeading={{true}}
       @headingBaseLevel={{2}}
       @context={{hash instanceId=this.editController.model}}
-    as |content|>
+      as |content|
+    >
       {{#if (gt content.document.fieldsets.length 1)}}
         <div uk-grid>
           <div class="uk-width-1-1 uk-width-1-3@s"><content.navigation /></div>
           <div class="uk-width-1-1 uk-width-2-3@s">
             <content.form />
-            <hr>
+            <hr />
             <content.pagination />
           </div>
         </div>
@@ -31,7 +36,11 @@
   {{else}}
     <CfContent
       @documentId={{decode-id this.document.value.id}}
-      @disabled={{cannot "write form of instance" this.editController.instance form=this.document.value.form}}
+      @disabled={{cannot
+        "write form of instance"
+        this.editController.instance
+        form=this.document.value.form
+      }}
       @useAsHeading={{true}}
       @headingBaseLevel={{2}}
       @context={{hash instanceId=this.editController.model}}

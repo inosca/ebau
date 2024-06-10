@@ -16,11 +16,9 @@ module("Integration | Component | case-dashboard/address", function (hooks) {
     assert.equal(this.element.textContent.trim(), "");
 
     // Template block usage:
-    await render(hbs`
-      <CaseDashboard::Address>
-        template block text
-      </CaseDashboard::Address>
-    `);
+    await render(hbs`<CaseDashboard::Address>
+  template block text
+</CaseDashboard::Address>`);
 
     assert.equal(this.element.textContent.trim(), "template block text");
   });

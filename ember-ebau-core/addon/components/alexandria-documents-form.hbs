@@ -30,7 +30,8 @@
   <div
     uk-grid
     uk-height-match
-    class="uk-grid-small uk-child-width-1-1 {{if (gt this.categories.value.length 1) "uk-child-width-1-2@m"}}"
+    class="uk-grid-small uk-child-width-1-1
+      {{if (gt this.categories.value.length 1) 'uk-child-width-1-2@m'}}"
   >
     {{#each this.categories.value as |category|}}
       <AlexandriaDocumentBucket

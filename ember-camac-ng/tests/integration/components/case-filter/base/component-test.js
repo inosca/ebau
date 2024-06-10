@@ -9,11 +9,9 @@ module("Integration | Component | case-filter/base", function (hooks) {
 
   test("it renders", async function (assert) {
     // Template block usage:
-    await render(hbs`
-      <CaseFilter::Base @filterName="instanceState">
-        template block text
-      </CaseFilter::Base>
-    `);
+    await render(hbs`<CaseFilter::Base @filterName="instanceState">
+  template block text
+</CaseFilter::Base>`);
 
     assert.ok(this.element.textContent.trim());
   });

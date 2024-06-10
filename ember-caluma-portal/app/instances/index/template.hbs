@@ -3,7 +3,9 @@
 
   {{#if (can "create instance")}}
     <div>
-      <LinkTo @route="instances.new" class="uk-button uk-button-secondary">{{t "instances.new.title"}}</LinkTo>
+      <LinkTo @route="instances.new" class="uk-button uk-button-secondary">{{t
+          "instances.new.title"
+        }}</LinkTo>
     </div>
   {{/if}}
 </div>
@@ -14,7 +16,15 @@
   </div>
 {{else if this.rootForms.value}}
   <form {{on "submit" this.applyFilters}}>
-    <div uk-grid class="uk-grid-small uk-margin uk-child-width-1-1 {{if (is-application "be") "uk-child-width-1-4@l" "uk-child-width-1-3@l"}}">
+    <div
+      uk-grid
+      class="uk-grid-small uk-margin uk-child-width-1-1
+        {{if
+          (is-application 'be')
+          'uk-child-width-1-4@l'
+          'uk-child-width-1-3@l'
+        }}"
+    >
       <div>
         <label class="uk-form-label" for="type">{{t "instances.type"}}</label>
         <div class="uk-form-controls">
@@ -23,13 +33,16 @@
             @options={{this.formFilterOptions}}
             @searchField="name"
             @onChange={{fn (mut this.types)}}
-          as |form|>
+            as |form|
+          >
             {{form.name}}
           </PowerSelectMultiple>
         </div>
       </div>
       <div>
-        <label class="uk-form-label" for="instanceId">{{t "instances.instance-id"}}</label>
+        <label class="uk-form-label" for="instanceId">{{t
+            "instances.instance-id"
+          }}</label>
         <div class="uk-form-controls">
           <input
             type="number"
@@ -39,12 +52,14 @@
             id="instanceId"
             value={{this.instanceId}}
             {{on "change" this.updateFilter}}
-          >
+          />
         </div>
       </div>
       {{#if this.hasSpecialId}}
         <div>
-          <label class="uk-form-label" for="specialId">{{t "instances.special-id"}}</label>
+          <label class="uk-form-label" for="specialId">{{t
+              "instances.special-id"
+            }}</label>
           <div class="uk-form-controls">
             <input
               type="text"
@@ -53,12 +68,14 @@
               id="specialId"
               value={{this.specialId}}
               {{on "change" this.updateFilter}}
-            >
+            />
           </div>
         </div>
       {{/if}}
       <div>
-        <label class="uk-form-label" for="parcel">{{t "instances.parcel"}}</label>
+        <label class="uk-form-label" for="parcel">{{t
+            "instances.parcel"
+          }}</label>
         <div class="uk-form-controls">
           <input
             type="text"
@@ -67,11 +84,13 @@
             id="parcel"
             value={{this.parcel}}
             {{on "change" this.updateFilter}}
-          >
+          />
         </div>
       </div>
       <div>
-        <label class="uk-form-label" for="address">{{t "instances.address"}}</label>
+        <label class="uk-form-label" for="address">{{t
+            "instances.address"
+          }}</label>
         <div class="uk-form-controls">
           <input
             type="text"
@@ -80,12 +99,14 @@
             id="address"
             value={{this.address}}
             {{on "change" this.updateFilter}}
-          >
+          />
         </div>
       </div>
       {{#if (is-application "be")}}
         <div>
-          <label class="uk-form-label" for="applicant">{{t "instances.applicant" }}</label>
+          <label class="uk-form-label" for="applicant">{{t
+              "instances.applicant"
+            }}</label>
           <div class="uk-form-controls">
             <input
               type="text"
@@ -94,7 +115,7 @@
               id="applicant"
               value={{this.applicant}}
               {{on "change" this.updateFilter}}
-            >
+            />
           </div>
         </div>
       {{/if}}
@@ -123,7 +144,9 @@
       </div>
       {{#if this.session.isInternal}}
         <div class={{if this.hasSpecialId "uk-width-1-1"}}>
-          <label class="uk-form-label">{{t "instances.onlyPaperDossiers"}}</label>
+          <label class="uk-form-label">{{t
+              "instances.onlyPaperDossiers"
+            }}</label>
           <div class="uk-form-controls">
             <UkToggleSwitch
               @value={{this.onlyPaper}}
@@ -133,7 +156,9 @@
           </div>
         </div>
       {{/if}}
-      <div class="uk-button-group uk-flex uk-flex-left uk-flex-bottom uk-width-1-2">
+      <div
+        class="uk-button-group uk-flex uk-flex-left uk-flex-bottom uk-width-1-2"
+      >
         {{#each this.categories as |c|}}
           <UkButton
             @label={{t (concat "instances.categories." c)}}
@@ -160,7 +185,7 @@
     </div>
   </form>
 
-  <hr>
+  <hr />
 
   {{#if (and this.cases.isLoading (eq this.cases.value.length 0))}}
     <div class="uk-text-center uk-padding">
@@ -169,16 +194,29 @@
   {{else if this.cases.value.length}}
     <div uk-grid>
       <div class="uk-width-expand uk-flex uk-flex-middle uk-text-meta">
-        <span>{{t "instances.pageInfo" length=this.cases.value.length total=this.cases.totalCount htmlSafe=true}}</span>
+        <span>{{t
+            "instances.pageInfo"
+            length=this.cases.value.length
+            total=this.cases.totalCount
+            htmlSafe=true
+          }}</span>
       </div>
 
       <div class="uk-width-auto uk-flex uk-flex-middle">
         <label class="uk-text-meta uk-text-nowrap" for="order">
           {{t "instances.orderBy"}}:
         </label>
-        <select class="uk-select uk-form-small uk-margin-small-left" name="order" id="order" {{on "change" this.updateOrder}}>
+        <select
+          class="uk-select uk-form-small uk-margin-small-left"
+          name="order"
+          id="order"
+          {{on "change" this.updateOrder}}
+        >
           {{#each this.orderOptions as |o|}}
-            <option value={{o.value}} selected={{eq this.order o.value}}>{{t o.label}} ({{t o.direction}})</option>
+            <option value={{o.value}} selected={{eq this.order o.value}}>{{t
+                o.label
+              }}
+              ({{t o.direction}})</option>
           {{/each}}
         </select>
       </div>
@@ -205,20 +243,37 @@
         {{#each this.cases.value as |case|}}
           <tr class="uk-table-middle">
             <td>
-              <LinkTo @route="instances.edit" @model={{case.instanceId}} class="uk-text-bold">{{case.instanceId}}</LinkTo>
+              <LinkTo
+                @route="instances.edit"
+                @model={{case.instanceId}}
+                class="uk-text-bold"
+              >{{case.instanceId}}</LinkTo>
             </td>
             {{#if this.hasSpecialId}}
               <td class="uk-text-nowrap">{{case.specialId}}</td>
             {{/if}}
-            <td class="uk-text-nowrap">{{case.type}} {{case.instance.typeDetail}}</td>
+            <td class="uk-text-nowrap">{{case.type}}
+              {{case.instance.typeDetail}}</td>
             <td>{{case.municipality}}</td>
-            <td class="uk-text-truncate" title={{case.address}}>{{case.address}}</td>
+            <td
+              class="uk-text-truncate"
+              title={{case.address}}
+            >{{case.address}}</td>
             {{#if (is-application "be")}}
-              <td class="uk-text-truncate" title={{case.applicant}}>{{case.applicant}}</td>
+              <td
+                class="uk-text-truncate"
+                title={{case.applicant}}
+              >{{case.applicant}}</td>
             {{/if}}
-            <td>{{if case.submitDate (format-date case.submitDate format="date")}}</td>
+            <td>{{if
+                case.submitDate
+                (format-date case.submitDate format="date")
+              }}</td>
             <td>{{case.status}}</td>
-            <td class="uk-text-truncate" title={{case.description}}>{{case.description}}</td>
+            <td
+              class="uk-text-truncate"
+              title={{case.description}}
+            >{{case.description}}</td>
           </tr>
         {{/each}}
         {{#if this.cases.hasNextPage}}
@@ -237,10 +292,18 @@
   {{else}}
     <UkFlex @horizontal="center" @vertical="middle" @direction="column">
       <div class="uk-text-center uk-width-large">
-        <object data="/assets/images/stamp-document.svg" class="uk-width-medium">{{t "instances.new.title"}}</object>
-        <p class="uk-margin-remove-top uk-text-large">{{t "instances.emptyTitle"}}</p>
+        <object
+          data="/assets/images/stamp-document.svg"
+          class="uk-width-medium"
+        >{{t "instances.new.title"}}</object>
+        <p class="uk-margin-remove-top uk-text-large">{{t
+            "instances.emptyTitle"
+          }}</p>
         <p>{{t "instances.emptyText"}}</p>
-        <LinkTo @route="instances.new" class="uk-button uk-button-primary uk-button-large">{{t "instances.new.title"}}</LinkTo>
+        <LinkTo
+          @route="instances.new"
+          class="uk-button uk-button-primary uk-button-large"
+        >{{t "instances.new.title"}}</LinkTo>
       </div>
     </UkFlex>
   {{/if}}

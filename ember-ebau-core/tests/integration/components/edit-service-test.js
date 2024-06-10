@@ -16,11 +16,9 @@ module("Integration | Component | edit-service", function (hooks) {
     assert.dom(this.element).hasText("");
 
     // Template block usage:
-    await render(hbs`
-      <EditService>
-        template block text
-      </EditService>
-    `);
+    await render(hbs`<EditService>
+  template block text
+</EditService>`);
 
     assert.dom(this.element).hasText("template block text");
   });

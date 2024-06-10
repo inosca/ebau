@@ -1,7 +1,7 @@
 {{#if @claims.length}}
   {{#each @claims as |row|}}
     <BeClaimsForm::list::item @claim={{row}} @onEdit={{@onEdit}} />
-    {{#if (has-next row @claims)}}<hr>{{/if}}
+    {{#if (has-next row @claims)}}<hr />{{/if}}
   {{/each}}
 {{else}}
   {{yield}}

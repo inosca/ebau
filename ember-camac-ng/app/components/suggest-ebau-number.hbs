@@ -2,7 +2,12 @@
   <div class="uk-background-muted uk-padding-small uk-flex uk-flex-middle">
     <div class="uk-width-expand">
       {{t "ebauNumber.suggestion"}}
-      <a href="/index/redirect-to-instance-resource/instance-id/{{get this.sourceMeta.value "camac-instance-id"}}">
+      <a
+        href="/index/redirect-to-instance-resource/instance-id/{{get
+          this.sourceMeta.value
+          'camac-instance-id'
+        }}"
+      >
         {{get this.sourceMeta.value "ebau-number"}}
       </a>
     </div>

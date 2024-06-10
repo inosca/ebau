@@ -16,11 +16,9 @@ module("Integration | Component | dms/edit", function (hooks) {
     assert.dom(this.element).hasText("");
 
     // Template block usage:
-    await render(hbs`
-      <Dms::Edit>
-        template block text
-      </Dms::Edit>
-    `);
+    await render(hbs`<Dms::Edit>
+  template block text
+</Dms::Edit>`);
 
     assert.dom(this.element).hasText("template block text");
   });

@@ -28,7 +28,9 @@
             <a href="#">
               <div>
                 <span class="uk-text-bold">{{this.session.user.fullName}}</span>
-                <div class="uk-navbar-subtitle">{{this.session.groupModel.name}}</div>
+                <div
+                  class="uk-navbar-subtitle"
+                >{{this.session.groupModel.name}}</div>
               </div>
               <span uk-drop-parent-icon></span>
             </a>
@@ -60,7 +62,9 @@
           </li>
           {{#if this.showLanguageSwitcher}}
             <li>
-              <a href="#">{{get this.languageNames this.session.language}}<span uk-drop-parent-icon></span></a>
+              <a href="#">{{get this.languageNames this.session.language}}<span
+                  uk-drop-parent-icon
+                ></span></a>
               <div
                 uk-dropdown
                 animation="uk-animation-slide-top-small"
@@ -73,10 +77,7 @@
                 <ul class="uk-nav uk-dropdown-nav">
                   {{#each this.languages as |lang|}}
                     <li>
-                      <a
-                        href="#"
-                        {{on "click" (fn this.setLanguage lang)}}
-                      >
+                      <a href="#" {{on "click" (fn this.setLanguage lang)}}>
                         {{get this.languageNames lang}}
                       </a>
                     </li>

@@ -15,11 +15,17 @@
       {{on "click" (fn @onToggle @attachment.id)}}
       data-test-toggle
     >
-      <LinkAttachments::Overlay @attachment={{@attachment}} @selected={{@selected}} />
+      <LinkAttachments::Overlay
+        @attachment={{@attachment}}
+        @selected={{@selected}}
+      />
     </button>
   {{else}}
     <div class="link-attachments__preview" style={{this.style}}>
-      <LinkAttachments::Overlay @attachment={{@attachment}} @selected={{@selected}} />
+      <LinkAttachments::Overlay
+        @attachment={{@attachment}}
+        @selected={{@selected}}
+      />
     </div>
   {{/if}}
 </div>

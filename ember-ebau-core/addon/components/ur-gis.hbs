@@ -18,7 +18,8 @@
   @onClick={{perform this.getFeatures value="latlng"}}
   @onLoad={{perform this.handleLoad}}
   @crs={{this.crs}}
-  class="uk-width-1-1 uk-height-large uk-margin" as |map|
+  class="uk-width-1-1 uk-height-large uk-margin"
+  as |map|
 >
   <map.wms-tile
     @transparent={{true}}
@@ -28,10 +29,7 @@
     @url={{this.url}}
   />
   {{#if this.point}}
-    <map.marker
-      @lat={{this.point.lat}}
-      @lng={{this.point.lng}}
-    />
+    <map.marker @lat={{this.point.lat}} @lng={{this.point.lng}} />
   {{/if}}
 
   {{#each this.parcels as |parcel|}}
@@ -44,7 +42,7 @@
 </LeafletMap>
 
 {{#each this.parcels as |parcel|}}
-  <p>{{parcel.parcelInfo}}<br>{{parcel.nutzungInfo}}</p>
+  <p>{{parcel.parcelInfo}}<br />{{parcel.nutzungInfo}}</p>
 {{/each}}
 
 {{#unless @disabled}}

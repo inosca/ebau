@@ -121,12 +121,13 @@
     />
   {{/unless}}
   {{#if this.centerCoordinate}}
-    <span class="centered-coordinates">{{t "gis.centeredCoordinates"}}: {{format-coordinate this.centerCoordinate}}
-    (<a
-      class="uk-link-text"
-      href={{this.centerCoordinateUrl}}
-      target="_blank"
-      rel="noopener noreferrer"
+    <span class="centered-coordinates">{{t "gis.centeredCoordinates"}}:
+      {{format-coordinate this.centerCoordinate}}
+      (<a
+        class="uk-link-text"
+        href={{this.centerCoordinateUrl}}
+        target="_blank"
+        rel="noopener noreferrer"
       >{{t "gis.openInGeoGR"}}</a>)</span>
   {{/if}}
 

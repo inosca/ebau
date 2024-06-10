@@ -22,7 +22,7 @@ module("Integration | Component | communication/topic", function (hooks) {
       topic: this.topic,
     });
 
-    await render(hbs`<Communication::Topic @topicId={{this.topic.id}}/>`);
+    await render(hbs`<Communication::Topic @topicId={{this.topic.id}} />`);
 
     assert.dom("[data-test-subject]").hasText(this.topic.subject);
     assert
@@ -59,7 +59,7 @@ module("Integration | Component | communication/topic", function (hooks) {
       topic: this.topic,
     });
 
-    await render(hbs`<Communication::Topic @topicId={{this.topic.id}}/>`);
+    await render(hbs`<Communication::Topic @topicId={{this.topic.id}} />`);
 
     assert.dom("[data-test-message-input]").doesNotExist();
     assert.dom("[data-test-no-replies]").exists();

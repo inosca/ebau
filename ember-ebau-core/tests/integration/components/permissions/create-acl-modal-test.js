@@ -41,11 +41,11 @@ module(
 
       await render(
         hbs`<Permissions::CreateAclModal
-          @visible={{this.visible}}
-          @instanceId={{this.instance.id}}
-          @onHide={{this.onHide}}
-          @afterCreate={{this.afterCreate}}
-        />`,
+  @visible={{this.visible}}
+  @instanceId={{this.instance.id}}
+  @onHide={{this.onHide}}
+  @afterCreate={{this.afterCreate}}
+/>`,
       );
 
       assert.dom("[data-test-modal-create-instance-acl]").isNotVisible();

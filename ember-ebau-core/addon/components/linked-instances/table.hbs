@@ -12,25 +12,39 @@
   <tbody>
     {{#each this.casesQuery.value as |case|}}
       <tr
-        class={{if (and @instancesOnSamePlot (includes case.instanceId this.linkedInstanceIds)) "uk-text-muted"}}
+        class={{if
+          (and
+            @instancesOnSamePlot
+            (includes case.instanceId this.linkedInstanceIds)
+          )
+          "uk-text-muted"
+        }}
       >
         {{#each this.tableColumns as |tColumn|}}
           <td
-            class={{
-              if (eq tColumn "intent") "uk-text-truncate uk-table-expand"
+            class={{if
+              (eq tColumn "intent")
+              "uk-text-truncate uk-table-expand"
             }}
-            title={{ if (eq tColumn "intent") case.intent }}
+            title={{if (eq tColumn "intent") case.intent}}
           >
-            {{#if (and
-              (eq tColumn "dossierNumber")
-              (not-eq this.instanceIdAsInt case.instanceId)
-            ) }}
+            {{#if
+              (and
+                (eq tColumn "dossierNumber")
+                (not-eq this.instanceIdAsInt case.instanceId)
+              )
+            }}
               {{#if this.ebauModules.isCamac}}
-                <a href="/index/redirect-to-instance-resource/instance-id/{{case.instanceId}}">
+                <a
+                  href="/index/redirect-to-instance-resource/instance-id/{{case.instanceId}}"
+                >
                   {{get case tColumn}}
                 </a>
               {{else}}
-                <LinkTo @route="cases.detail.linked-instances" @model={{case.instanceId}}>
+                <LinkTo
+                  @route="cases.detail.linked-instances"
+                  @model={{case.instanceId}}
+                >
                   {{get case tColumn}}
                 </LinkTo>
               {{/if}}
@@ -40,15 +54,19 @@
           </td>
         {{/each}}
         {{#if @instancesOnSamePlot}}
-          {{#if (not-eq this.instanceIdAsInt case.instanceId) }}
-          <td>
-            <LinkInstanceButton
-              @type={{if (includes case.instanceId this.linkedInstanceIds) "unlink" "link"}}
-              @onLink={{@onLink}}
-              @onUnlink={{@onUnlink}}
-              @instanceOnSamePlot={{case.instance}}
-            />
-          </td>
+          {{#if (not-eq this.instanceIdAsInt case.instanceId)}}
+            <td>
+              <LinkInstanceButton
+                @type={{if
+                  (includes case.instanceId this.linkedInstanceIds)
+                  "unlink"
+                  "link"
+                }}
+                @onLink={{@onLink}}
+                @onUnlink={{@onUnlink}}
+                @instanceOnSamePlot={{case.instance}}
+              />
+            </td>
           {{else}}
             <td></td>
           {{/if}}

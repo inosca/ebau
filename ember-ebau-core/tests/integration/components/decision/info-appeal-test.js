@@ -87,7 +87,7 @@ module("Integration | Component | decision/info-appeal", function (hooks) {
       this.initialize(decision, this.instanceStates[previousInstanceState]);
 
       await render(
-        hbs`<Decision::InfoAppeal @context={{hash instanceId=1}} @field={{this.field}}/>`,
+        hbs`<Decision::InfoAppeal @context={{hash instanceId=1}} @field={{this.field}} />`,
       );
 
       assert.dom(".uk-alert").hasClass(`uk-alert-${expectedColor}`);

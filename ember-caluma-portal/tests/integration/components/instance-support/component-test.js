@@ -16,11 +16,9 @@ module("Integration | Component | instance-support", function (hooks) {
     assert.dom(this.element).hasText("");
 
     // Template block usage:
-    await render(hbs`
-      <InstanceSupport>
-        template block text
-      </InstanceSupport>
-    `);
+    await render(hbs`<InstanceSupport>
+  template block text
+</InstanceSupport>`);
 
     assert.dom(this.element).hasText("template block text");
   });

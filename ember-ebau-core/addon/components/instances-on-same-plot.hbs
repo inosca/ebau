@@ -1,20 +1,29 @@
 <div class="linked-instances-grid uk-margin-bottom">
   {{#each this.instancesOnSamePlot.value as |instanceOnSamePlot index|}}
     {{#if (lt index 5)}}
-      {{#if this.ebauModules.isCamac }}
-        <a href="/index/redirect-to-instance-resource/instance-id/{{instanceOnSamePlot.id}}">
+      {{#if this.ebauModules.isCamac}}
+        <a
+          href="/index/redirect-to-instance-resource/instance-id/{{instanceOnSamePlot.id}}"
+        >
           {{instanceOnSamePlot.name}}
           ({{instanceOnSamePlot.dossierNumber}})
         </a>
       {{else}}
-        <LinkTo @route="cases.detail.linked-instances" @model={{instanceOnSamePlot.id}}>
+        <LinkTo
+          @route="cases.detail.linked-instances"
+          @model={{instanceOnSamePlot.id}}
+        >
           {{instanceOnSamePlot.name}}
           ({{instanceOnSamePlot.dossierNumber}})
         </LinkTo>
       {{/if}}
       {{#if (can "link dossiers to instance" @currentInstance)}}
         <LinkInstanceButton
-          @type={{if (includes instanceOnSamePlot this.linkedAndOnSamePlot) "unlink" "link" }}
+          @type={{if
+            (includes instanceOnSamePlot this.linkedAndOnSamePlot)
+            "unlink"
+            "link"
+          }}
           @onLink={{this.linkDossier}}
           @onUnlink={{this.unLinkDossier}}
           @instanceOnSamePlot={{instanceOnSamePlot}}
@@ -22,7 +31,9 @@
       {{/if}}
     {{/if}}
   {{else}}
-    <p class="uk-text-meta">{{t "cases.miscellaneous.noInstancesOnSamePlot"}}</p>
+    <p class="uk-text-meta">{{t
+        "cases.miscellaneous.noInstancesOnSamePlot"
+      }}</p>
   {{/each}}
 </div>
 {{#if (gte this.instancesOnSamePlot.value.length 5)}}
@@ -45,5 +56,5 @@
     @onUnlink={{this.unLinkDossier}}
     @toggleModal={{this.toggleModal}}
     @filters={{this.samePlotFilters}}
-   />
+  />
 {{/if}}

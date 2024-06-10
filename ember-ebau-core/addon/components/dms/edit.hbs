@@ -40,7 +40,9 @@
           name="category"
           id="category"
         />
-        <span class="uk-text-small uk-text-muted">{{t "dms.categoryHint"}}</span>
+        <span class="uk-text-small uk-text-muted">{{t
+            "dms.categoryHint"
+          }}</span>
       </div>
     </div>
     <div class="uk-margin">
@@ -79,7 +81,9 @@
       >
         {{t "global.save"}}
       </UkButton>
-      <UkButton @onClick={{this.back}} @color="default">{{t "global.back"}}</UkButton>
+      <UkButton @onClick={{this.back}} @color="default">{{t
+          "global.back"
+        }}</UkButton>
       {{#if @slug}}
         <UkButton
           @disabled={{this.delete.isRunning}}

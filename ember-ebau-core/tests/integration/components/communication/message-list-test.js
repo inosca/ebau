@@ -41,7 +41,10 @@ module(
       this.refresh = () => {};
 
       await render(
-        hbs`<Communication::MessageList @messages={{this.messages}} @refresh={{this.refresh}}/>`,
+        hbs`<Communication::MessageList
+  @messages={{this.messages}}
+  @refresh={{this.refresh}}
+/>`,
       );
 
       assert.dom("[data-test-empty]").exists();

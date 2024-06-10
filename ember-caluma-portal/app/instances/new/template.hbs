@@ -11,38 +11,63 @@
     <p class="uk-text-center uk-text-large">{{t "instances.new.kind"}}</p>
 
     {{#if this.convertFrom}}
-      <div class="uk-background-muted uk-margin-auto uk-width-1-2 uk-text-center uk-padding-small">
-        {{t "instances.new.convertFromInfo" dossierId=this.convertFrom ebauNr=(if this.ebauNumber.value (concat " (" this.ebauNumber.value ")"))}}
+      <div
+        class="uk-background-muted uk-margin-auto uk-width-1-2 uk-text-center uk-padding-small"
+      >
+        {{t
+          "instances.new.convertFromInfo"
+          dossierId=this.convertFrom
+          ebauNr=(if
+            this.ebauNumber.value (concat " (" this.ebauNumber.value ")")
+          )
+        }}
       </div>
     {{/if}}
 
     {{#if (and isPaper (not (is-application "ur" "so")))}}
       <div class="uk-flex uk-flex-center uk-margin-large-top">
         <div class="uk-alert uk-alert-warning uk-width-large">
-          <strong>{{t "paper.noteTitle"}}</strong> {{t "paper.noteBody"}}
+          <strong>{{t "paper.noteTitle"}}</strong>
+          {{t "paper.noteBody"}}
         </div>
       </div>
     {{/if}}
 
     {{#if this.columns}}
-      <div uk-grid class="uk-grid uk-grid-small uk-child-width-1-1 uk-child-width-1-{{this.columns.length}}@s uk-margin-bottom uk-margin-large-top">
+      <div
+        uk-grid
+        class="uk-grid uk-grid-small uk-child-width-1-1 uk-child-width-1-{{this.columns.length}}@s uk-margin-bottom uk-margin-large-top"
+      >
         {{#each this.columns as |category|}}
           {{#let (get this.forms.value category) as |forms|}}
             <div class="uk-text-center">
               <p class="uk-flex-inline uk-text-large uk-flex-middle">
                 {{t (concat "instances.new." category ".title")}}
                 {{#if (t (concat "instances.new." category ".info"))}}
-                  <CfField::info @text={{t (concat "instances.new." category ".info")}} />
+                  <CfField::info
+                    @text={{t (concat "instances.new." category ".info")}}
+                  />
                 {{/if}}
               </p>
               {{#each forms as |form|}}
                 <UkButton
                   @width="1-1"
-                  @label={{concat form.name " " (if isPaper (concat "(" (t "paper.type") ")"))}}
-                  @color={{if (eq form.slug this.selectedForm.slug) "secondary" "default"}}
+                  @label={{concat
+                    form.name
+                    " "
+                    (if isPaper (concat "(" (t "paper.type") ")"))
+                  }}
+                  @color={{if
+                    (eq form.slug this.selectedForm.slug)
+                    "secondary"
+                    "default"
+                  }}
                   @onClick={{fn (mut this.selectedForm) form}}
                   class="uk-margin-small-bottom"
-                  disabled={{and this.convertFrom (not-eq form.meta.category "building-permit")}}
+                  disabled={{and
+                    this.convertFrom
+                    (not-eq form.meta.category "building-permit")
+                  }}
                 />
               {{/each}}
             </div>
@@ -56,7 +81,10 @@
         @color="primary"
         @label={{t "global.continue"}}
         @disabled={{or (not this.selectedForm) this.save.isRunning}}
-        @loading={{or this.save.isRunning this.convertToBuildingPermit.isRunning}}
+        @loading={{or
+          this.save.isRunning
+          this.convertToBuildingPermit.isRunning
+        }}
         @onClick={{perform this.save}}
       />
     </div>

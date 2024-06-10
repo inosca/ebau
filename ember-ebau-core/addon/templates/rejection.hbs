@@ -36,7 +36,12 @@
         <label class="uk-form-label">{{t "rejection.feedback"}}</label>
         <div class="uk-form-controls">
           <div class="uk-flex uk-flex-middle">
-            <Snippets @disabled={{or (not canReject) (not (has-feature "rejection.snippets"))}}>
+            <Snippets
+              @disabled={{or
+                (not canReject)
+                (not (has-feature "rejection.snippets"))
+              }}
+            >
               <Textarea
                 required
                 id="feedback"

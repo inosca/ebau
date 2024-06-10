@@ -12,13 +12,11 @@ module("Integration | Component | case-table/header", function (hooks) {
     this.column = { name: "test" };
     this.order = "foo";
 
-    await render(hbs`
-      <CaseTable::Header
-        @column={{this.column}}
-        @currentOrder={{this.order}}
-        @onSetOrder={{fn (mut this.order)}}
-      />
-    `);
+    await render(hbs`<CaseTable::Header
+  @column={{this.column}}
+  @currentOrder={{this.order}}
+  @onSetOrder={{fn (mut this.order)}}
+/>`);
 
     assert.dom("th").hasText(t("cases.tableHeaders.test"));
     assert.dom("th > a").doesNotExist();

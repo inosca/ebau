@@ -30,7 +30,7 @@ module("Integration | Component | permissions/acl-table", function (hooks) {
     });
 
     await render(
-      hbs`<Permissions::AclTable @instanceId={{this.instance.id}}/>`,
+      hbs`<Permissions::AclTable @instanceId={{this.instance.id}} />`,
     );
 
     await click("button[data-test-filter-button=active]");
@@ -82,7 +82,7 @@ module("Integration | Component | permissions/acl-table", function (hooks) {
     });
 
     await render(
-      hbs`<Permissions::AclTable @instanceId={{this.instance.id}}/>`,
+      hbs`<Permissions::AclTable @instanceId={{this.instance.id}} />`,
     );
     await click("[data-test-instance-acl]>td>a");
     await waitFor(".permissions-module-modal-dialog");

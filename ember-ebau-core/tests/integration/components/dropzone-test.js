@@ -16,11 +16,9 @@ module("Integration | Component | dropzone", function (hooks) {
     assert.dom(this.element).hasText("");
 
     // Template block usage:
-    await render(hbs`
-      <Dropzone>
-        template block text
-      </Dropzone>
-    `);
+    await render(hbs`<Dropzone>
+  template block text
+</Dropzone>`);
 
     assert.dom(this.element).hasText("template block text");
   });

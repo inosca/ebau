@@ -25,12 +25,10 @@ module(
         assert.step("toggle");
       };
 
-      await render(hbs`
-        <LinkAttachments::Attachment
-          @attachment={{this.attachment}}
-          @onToggle={{this.toggle}}
-        />
-      `);
+      await render(hbs`<LinkAttachments::Attachment
+  @attachment={{this.attachment}}
+  @onToggle={{this.toggle}}
+/>`);
 
       assert
         .dom(".link-attachments__preview")
