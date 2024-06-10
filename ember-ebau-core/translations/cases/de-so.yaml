@@ -1,6 +1,5 @@
 cases:
   tableHeaders:
-    applicants: Bauherr/in
     parcel: Grundstück
     instancesOnSamePlot: "Dossiers auf gleichem Grundstück"
 

@@ -181,29 +181,13 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     alle_gesuchsteller_name_address = fields.MasterDataPersonField(
         source="applicants",
         fields="__all__",
-        aliases=[
-            {
-                "default": _("ALL_APPLICANTS_NAME_ADDRESS"),
-                "so": _("ALL_BUILDERS_NAME_ADDRESS"),
-            }
-        ],
-        description={
-            "default": _("Names and addresses of all applicants"),
-            "so": _("Names and addresses of all builders"),
-        },
+        aliases=[_("ALL_APPLICANTS_NAME_ADDRESS")],
+        description=_("Names and addresses of all applicants"),
     )
     alle_gesuchsteller = fields.MasterDataPersonField(
         source="applicants",
-        aliases=[
-            {
-                "default": _("ALL_APPLICANTS"),
-                "so": _("ALL_BUILDERS"),
-            }
-        ],
-        description={
-            "default": _("Names of all applicants"),
-            "so": _("Names of all builders"),
-        },
+        aliases=[_("ALL_APPLICANTS")],
+        description=_("Names of all applicants"),
     )
     alle_grundeigentuemer_name_address = fields.MasterDataPersonField(
         source="landowners",
@@ -304,60 +288,28 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         source="applicants",
         only_first=True,
         fields=["address_1"],
-        aliases=[
-            {
-                "default": _("APPLICANT_ADDRESS_1"),
-                "so": _("BUILDER_ADDRESS_1"),
-            }
-        ],
-        description={
-            "default": _("Address line 1 of the first applicant"),
-            "so": _("Address line 1 of the first builder"),
-        },
+        aliases=[_("APPLICANT_ADDRESS_1")],
+        description=_("Address line 1 of the first applicant"),
     )
     gesuchsteller_address_2 = fields.MasterDataPersonField(
         source="applicants",
         only_first=True,
         fields=["address_2"],
-        aliases=[
-            {
-                "default": _("APPLICANT_ADDRESS_2"),
-                "so": _("BUILDER_ADDRESS_2"),
-            }
-        ],
-        description={
-            "default": _("Address line 2 of the first applicant"),
-            "so": _("Address line 2 of the first builder"),
-        },
+        aliases=[_("APPLICANT_ADDRESS_2")],
+        description=_("Address line 2 of the first applicant"),
     )
     gesuchsteller_name_address = fields.MasterDataPersonField(
         source="applicants",
         only_first=True,
         fields="__all__",
-        aliases=[
-            {
-                "default": _("APPLICANT_NAME_ADDRESS"),
-                "so": _("BUILDER_NAME_ADDRESS"),
-            }
-        ],
-        description={
-            "default": _("Name and address of the applicant"),
-            "so": _("Name and address of the first builder"),
-        },
+        aliases=[_("APPLICANT_NAME_ADDRESS")],
+        description=_("Name and address of the applicant"),
     )
     gesuchsteller = fields.MasterDataPersonField(
         source="applicants",
         only_first=True,
-        aliases=[
-            {
-                "default": _("APPLICANT"),
-                "so": _("BUILDER"),
-            }
-        ],
-        description={
-            "default": _("Name of the applicant"),
-            "so": _("Name of the first builder"),
-        },
+        aliases=[_("APPLICANT")],
+        description=_("Name of the applicant"),
     )
     grundeigentuemer_address_1 = fields.MasterDataPersonField(
         source="landowners",
@@ -391,10 +343,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         only_first=True,
         fields=["juristic_name"],
         aliases=[_("JURISTIC_NAME")],
-        description={
-            "default": _("Juristic name of the applicant"),
-            "so": _("Juristic name of the builder"),
-        },
+        description=_("Juristic name of the applicant"),
     )
     koordinaten = fields.AliasedMethodField(
         aliases=[_("COORDINATES")],
@@ -548,19 +497,13 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         ],
         separator=", ",
         aliases=[_("MUNICIPALITY_ADDRESS")],
-        description={
-            "default": _("Address of the municipality selected by the applicant"),
-            "so": _("Address of the municipality selected by the builder"),
-        },
+        description=_("Address of the municipality selected by the applicant"),
     )
     municipality = fields.MunicipalityField(
         source="get_name",
         remove_name_prefix=True,
         aliases=[_("MUNICIPALITY")],
-        description={
-            "default": _("Name of the municipality selected by the applicant"),
-            "so": _("Name of the municipality selected by the builder"),
-        },
+        description=_("Name of the municipality selected by the applicant"),
     )
     name = fields.DeprecatedField()
     nebenbestimmungen_mapped = fields.InquiriesField(
@@ -589,7 +532,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         ],
         description={
             "default": _("Parcel selected by the applicant"),
-            "so": _("Property selected by the builder"),
+            "so": _("Property selected by the applicant"),
         },
     )
     projektverfasser_address_1 = fields.MasterDataPersonField(
@@ -1597,56 +1540,56 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("LOGGED_IN_NAME")],
         description=_("Name of the currently logged in user"),
     )
-    alle_bauherren_vertreter = fields.MasterDataPersonField(
+    alle_gesuchsteller_vertreter = fields.MasterDataPersonField(
         source="applicants",
         use_representative=True,
-        aliases=[_("ALL_BUILDER_REPRESENTATIVES")],
-        description=_("Names of all builder representatives"),
+        aliases=[_("ALL_APPLICANT_REPRESENTATIVES")],
+        description=_("Names of all applicant representatives"),
     )
-    alle_bauherren_vertreter_name_adresse = fields.MasterDataPersonField(
+    alle_gesuchsteller_vertreter_name_adresse = fields.MasterDataPersonField(
         source="applicants",
         use_representative=True,
         fields="__all__",
-        aliases=[_("ALL_BUILDER_REPRESENTATIVES_NAME_ADDRESS")],
-        description=_("Names and addresses of all builder representatives"),
+        aliases=[_("ALL_APPLICANT_REPRESENTATIVES_NAME_ADDRESS")],
+        description=_("Names and addresses of all applicant representatives"),
     )
-    bauherr_anrede = fields.MasterDataPersonField(
+    gesuchsteller_anrede = fields.MasterDataPersonField(
         source="applicants",
         only_first=True,
         fields=["salutation"],
-        aliases=[_("BUILDER_SALUTATION")],
-        description=_("Salutation of the first builder"),
+        aliases=[_("APPLICANT_SALUTATION")],
+        description=_("Salutation of the first applicant"),
     )
-    bauherr_vertreter = fields.MasterDataPersonField(
+    gesuchsteller_vertreter = fields.MasterDataPersonField(
         source="applicants",
         only_first=True,
         use_representative=True,
-        aliases=[_("BUILDER_REPRESENTATIVE")],
-        description=_("Name of the representative of the first builder"),
+        aliases=[_("APPLICANT_REPRESENTATIVE")],
+        description=_("Name of the representative of the first applicant"),
     )
-    bauherr_vertreter_adresse_1 = fields.MasterDataPersonField(
+    gesuchsteller_vertreter_adresse_1 = fields.MasterDataPersonField(
         source="applicants",
         only_first=True,
         use_representative=True,
         fields=["address_1"],
-        aliases=[_("BUILDER_REPRESENTATIVE_ADDRESS_1")],
-        description=_("Address line 1 of the representative of the first builder"),
+        aliases=[_("APPLICANT_REPRESENTATIVE_ADDRESS_1")],
+        description=_("Address line 1 of the representative of the first applicant"),
     )
-    bauherr_vertreter_adresse_2 = fields.MasterDataPersonField(
+    gesuchsteller_vertreter_adresse_2 = fields.MasterDataPersonField(
         source="applicants",
         only_first=True,
         use_representative=True,
         fields=["address_2"],
-        aliases=[_("BUILDER_REPRESENTATIVE_ADDRESS_2")],
-        description=_("Address line 2 of the representative of the first builder"),
+        aliases=[_("APPLICANT_REPRESENTATIVE_ADDRESS_2")],
+        description=_("Address line 2 of the representative of the first applicant"),
     )
-    bauherr_vertreter_name_adresse = fields.MasterDataPersonField(
+    gesuchsteller_vertreter_name_adresse = fields.MasterDataPersonField(
         source="applicants",
         only_first=True,
         use_representative=True,
         fields="__all__",
-        aliases=[_("BUILDER_REPRESENTATIVE_NAME_ADDRESS")],
-        description=_("Name and address of the representative of the first builder"),
+        aliases=[_("APPLICANT_REPRESENTATIVE_NAME_ADDRESS")],
+        description=_("Name and address of the representative of the first applicant"),
     )
     municipality_logo = fields.MunicipalityField(
         source="logo",
