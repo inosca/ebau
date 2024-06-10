@@ -1,22 +1,30 @@
-
 <LoadingOrNotfound
   @loading={{this.publicInstance.isRunning}}
   @hasPermission={{this.publicInstance.value}}
 >
   {{#if (has-feature "publication.form")}}
     <UkTab as |Tab|>
-      <Tab.item @href={{concat "/public-instances/" @model "/form"}} as |active|>
+      <Tab.item
+        @href={{concat "/public-instances/" @model "/form"}}
+        as |active|
+      >
         <AriaHeading @enabled={{active}}>
           {{t "publicInstancesDetail.form"}}
         </AriaHeading>
       </Tab.item>
-      <Tab.item @href={{concat "/public-instances/" @model "/documents"}} as |active|>
+      <Tab.item
+        @href={{concat "/public-instances/" @model "/documents"}}
+        as |active|
+      >
         <AriaHeading @enabled={{active}}>
           {{t "publicInstancesDetail.documents"}}
         </AriaHeading>
       </Tab.item>
       {{#if (has-feature "publication.related")}}
-        <RelatedPublications @dossierNr={{this.publicInstance.value.dossierNr}} @instanceId={{this.publicInstance.value.instanceId}} />
+        <RelatedPublications
+          @dossierNr={{this.publicInstance.value.dossierNr}}
+          @instanceId={{this.publicInstance.value.instanceId}}
+        />
       {{/if}}
     </UkTab>
   {{/if}}

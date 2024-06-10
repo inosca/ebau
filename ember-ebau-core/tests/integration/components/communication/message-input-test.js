@@ -32,8 +32,9 @@ module(
     test("it renders with a send button", async function (assert) {
       this.sendMessage = () => {};
 
-      await render(hbs`
-      <Communication::MessageInput @sendMessage={{this.sendMessage}} />`);
+      await render(
+        hbs`<Communication::MessageInput @sendMessage={{this.sendMessage}} />`,
+      );
 
       assert.dom(".communications-message-input").exists();
       assert.dom("textarea").exists();
@@ -58,12 +59,11 @@ module(
         assert.step("send");
       };
 
-      await render(hbs`
-      <Communication::MessageInput
-        @message={{this.message}}
-        @updateMessage={{this.updateMessage}}
-        @sendMessage={{this.sendMessage}}
-      />`);
+      await render(hbs`<Communication::MessageInput
+  @message={{this.message}}
+  @updateMessage={{this.updateMessage}}
+  @sendMessage={{this.sendMessage}}
+/>`);
 
       await fillIn("textarea", testInput);
       await click("[data-test-send]");
@@ -76,13 +76,12 @@ module(
       this.set("loading", false);
       this.message = { body: "test" };
 
-      await render(hbs`
-      <Communication::MessageInput
-        @message={{this.message}}
-        @disabled={{this.disabled}}
-        @loading={{this.loading}}
-        @sendMessage={{this.sendMessage}}
-      />`);
+      await render(hbs`<Communication::MessageInput
+  @message={{this.message}}
+  @disabled={{this.disabled}}
+  @loading={{this.loading}}
+  @sendMessage={{this.sendMessage}}
+/>`);
 
       assert.dom("[data-test-select-files]").exists();
       assert.dom("[data-test-send]").isNotDisabled();
@@ -106,12 +105,11 @@ module(
       this.sendMessage = () => {};
       this.set("loading", false);
 
-      await render(hbs`
-      <Communication::MessageInput
-        @disabled={{this.disabled}}
-        @loading={{this.loading}}
-        @sendMessage={{this.sendMessage}}
-      />`);
+      await render(hbs`<Communication::MessageInput
+  @disabled={{this.disabled}}
+  @loading={{this.loading}}
+  @sendMessage={{this.sendMessage}}
+/>`);
 
       assert.dom("[data-test-loading]").doesNotExist();
       this.set("loading", true);
@@ -119,12 +117,11 @@ module(
     });
 
     skip("it selects files", async function () {
-      await render(hbs`
-      <Communication::MessageInput
-        @message={{this.message.value}}
-        @updateMessage={{this.updateMessage}}
-        @updateFiles={{this.updateFiles}}
-      />`);
+      await render(hbs`<Communication::MessageInput
+  @message={{this.message.value}}
+  @updateMessage={{this.updateMessage}}
+  @updateFiles={{this.updateFiles}}
+/>`);
     });
   },
 );

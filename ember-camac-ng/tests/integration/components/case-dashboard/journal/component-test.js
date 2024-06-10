@@ -16,11 +16,9 @@ module("Integration | Component | case-dashboard/journal", function (hooks) {
     assert.equal(this.element.textContent.trim(), "");
 
     // Template block usage:
-    await render(hbs`
-      <CaseDashboard::Journal>
-        template block text
-      </CaseDashboard::Journal>
-    `);
+    await render(hbs`<CaseDashboard::Journal>
+  template block text
+</CaseDashboard::Journal>`);
 
     assert.equal(this.element.textContent.trim(), "template block text");
   });

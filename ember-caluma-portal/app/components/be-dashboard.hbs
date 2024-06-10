@@ -1,12 +1,24 @@
 {{#if (and (not this.data.isRunning) (or this.content (can "edit dashboard")))}}
   <div class="uk-position-relative dashboard" ...attributes>
     {{#if this.edit}}
-      <Textarea @value={{this.content}} rows="10" class="uk-textarea" aria-label={{t "dashboard.content"}} />
+      <Textarea
+        @value={{this.content}}
+        rows="10"
+        class="uk-textarea"
+        aria-label={{t "dashboard.content"}}
+      />
       <div class="uk-text-right uk-margin">
-        <UkButton data-test-dashboard-cancel @onClick={{this.cancelEdit}}>{{t "global.cancel"}}</UkButton>
-        <UkButton data-test-dashboard-save @color="primary" @loading={{this.save.isRunning}} @onClick={{perform this.save}}>{{t "global.save"}}</UkButton>
+        <UkButton data-test-dashboard-cancel @onClick={{this.cancelEdit}}>{{t
+            "global.cancel"
+          }}</UkButton>
+        <UkButton
+          data-test-dashboard-save
+          @color="primary"
+          @loading={{this.save.isRunning}}
+          @onClick={{perform this.save}}
+        >{{t "global.save"}}</UkButton>
       </div>
-      <hr>
+      <hr />
     {{else if (can "edit dashboard")}}
       <UkButton
         data-test-dashboard-edit

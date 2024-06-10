@@ -18,39 +18,25 @@ module("Integration | Component | icon-button", function (hooks) {
   });
 
   test("it renders a loading state", async function (assert) {
-    await render(hbs`
-      <IconButton
-        @icon="plus"
-        @loading={{true}}
-        @onClick={{this.noop}}
-        title="foo"
-      />
-    `);
+    await render(
+      hbs`<IconButton @icon="plus" @loading={{true}} @onClick={{this.noop}} title="foo" />`,
+    );
 
     assert.dom("button.uk-icon-button div[uk-spinner]").exists();
     assert.dom("button.uk-icon-button").hasAttribute("title", "foo");
   });
 
   test("it renders a disabled state", async function (assert) {
-    await render(hbs`
-      <IconButton
-        @icon="plus"
-        @disabled={{true}}
-        @onClick={{this.noop}}
-      />
-    `);
+    await render(
+      hbs`<IconButton @icon="plus" @disabled={{true}} @onClick={{this.noop}} />`,
+    );
 
     assert.dom("button.uk-icon-button.uk-disabled").exists();
     assert.dom("button.uk-icon-button").hasAttribute("disabled");
   });
 
   test("it trigers the onClick action on click", async function (assert) {
-    await render(hbs`
-      <IconButton
-        @icon="plus"
-        @onClick={{this.noop}}
-      />
-    `);
+    await render(hbs`<IconButton @icon="plus" @onClick={{this.noop}} />`);
 
     await click("button");
 

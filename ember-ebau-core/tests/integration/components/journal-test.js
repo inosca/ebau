@@ -11,7 +11,7 @@ module("Integration | Component | journal", function (hooks) {
   setupMirage(hooks);
 
   test("it renders", async function (assert) {
-    await render(hbs`<Journal @instanceId={{2}}/>`);
+    await render(hbs`<Journal @instanceId={{2}} />`);
 
     assert
       .dom(this.element)

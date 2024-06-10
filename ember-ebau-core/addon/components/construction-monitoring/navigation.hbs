@@ -1,10 +1,14 @@
-<UkTab class="uk-margin-remove-bottom uk-width-auto" @left={{true}} as |sectionTab|>
+<UkTab
+  class="uk-margin-remove-bottom uk-width-auto"
+  @left={{true}}
+  as |sectionTab|
+>
   <ConstructionMonitoring::Navigation::Controls>
     {{#each @constructionStages as |constructionStage|}}
-        <ConstructionMonitoring::Navigation::Section
-          @constructionStage={{constructionStage}}
-          @sectionTab={{sectionTab}}
-        />
+      <ConstructionMonitoring::Navigation::Section
+        @constructionStage={{constructionStage}}
+        @sectionTab={{sectionTab}}
+      />
     {{/each}}
   </ConstructionMonitoring::Navigation::Controls>
 </UkTab>

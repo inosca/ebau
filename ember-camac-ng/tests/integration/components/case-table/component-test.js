@@ -23,7 +23,7 @@ module("Integration | Component | case-table", function (hooks) {
     // Handle any actions with this.set('myAction', function(val) { ... });
 
     this.set("filter", {});
-    await render(hbs`<CaseTable @filter={{this.filter}}/>`);
+    await render(hbs`<CaseTable @filter={{this.filter}} />`);
 
     assert.ok(this.element.textContent.trim());
   });

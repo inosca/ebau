@@ -1,13 +1,17 @@
 <div class="subnav-header">
   <span class="uk-text-bold">{{@case.dossierNumber}}</span>
-  <br/>
+  <br />
   {{this.name}}
   <div>
     {{#if @case.instanceState}}
-      <span class="uk-label subnav-header__label subnav-header__label--primary">{{@case.instanceState}}</span>
+      <span
+        class="uk-label subnav-header__label subnav-header__label--primary"
+      >{{@case.instanceState}}</span>
     {{/if}}
     {{#if @case.decision}}
-      <span class="uk-label subnav-header__label subnav-header__label--secondary">{{@case.decision}}</span>
+      <span
+        class="uk-label subnav-header__label subnav-header__label--secondary"
+      >{{@case.decision}}</span>
     {{/if}}
     {{#if @case.instance.isPaper}}
       <span class="uk-label subnav-header__label">{{t "nav.paper"}}</span>
@@ -16,7 +20,9 @@
       <span class="uk-label subnav-header__label">{{t "nav.bab"}}</span>
     {{/if}}
     {{#if @case.instance.isModification}}
-      <span class="uk-label subnav-header__label">{{t "nav.modification"}}</span>
+      <span class="uk-label subnav-header__label">{{t
+          "nav.modification"
+        }}</span>
     {{/if}}
     {{#if @case.meta.is-appeal}}
       <span class="uk-label subnav-header__label">{{t "nav.appeal"}}</span>

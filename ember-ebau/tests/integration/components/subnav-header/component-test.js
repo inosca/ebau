@@ -16,11 +16,9 @@ module("Integration | Component | subnav-header", function (hooks) {
     assert.dom(this.element).hasText("");
 
     // Template block usage:
-    await render(hbs`
-      <SubnavHeader>
-        template block text
-      </SubnavHeader>
-    `);
+    await render(hbs`<SubnavHeader>
+  template block text
+</SubnavHeader>`);
 
     assert.dom(this.element).hasText("template block text");
   });

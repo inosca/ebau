@@ -62,7 +62,8 @@
           {{~this.editController.instance.rejectionFeedback~}}
         </p>
       </div>
-      <div uk-alert
+      <div
+        uk-alert
         class="uk-margin-remove-top border-highlight uk-width-1-1 uk-padding-small"
       >
         {{t "instances.rejectionInfoText" htmlSafe=true}}
@@ -92,19 +93,33 @@
   </div>
 {{/if}}
 
-{{#if (or
-  (can "create copy of instance" this.editController.instance)
-  (can "create modification of instance" this.editController.instance)
-  (can "write form of instance" this.editController.instance form=(hash slug="main"))
-  (can "write form of instance" this.editController.instance form=(hash slug="sb1"))
-  (can "write form of instance" this.editController.instance form=(hash slug="sb2"))
-  (can "extend validity of instance" this.editController.instance)
-  (can "delete instance" this.editController.instance)
-  (can "withdraw instance" this.editController.instance)
-  (can "convert to building permit instance" this.editController.instance)
-  (can "download receipt of instance" this.editController.instance)
-  this.showSubmitTechnischeBewilligung
-)}}
+{{#if
+  (or
+    (can "create copy of instance" this.editController.instance)
+    (can "create modification of instance" this.editController.instance)
+    (can
+      "write form of instance"
+      this.editController.instance
+      form=(hash slug="main")
+    )
+    (can
+      "write form of instance"
+      this.editController.instance
+      form=(hash slug="sb1")
+    )
+    (can
+      "write form of instance"
+      this.editController.instance
+      form=(hash slug="sb2")
+    )
+    (can "extend validity of instance" this.editController.instance)
+    (can "delete instance" this.editController.instance)
+    (can "withdraw instance" this.editController.instance)
+    (can "convert to building permit instance" this.editController.instance)
+    (can "download receipt of instance" this.editController.instance)
+    this.showSubmitTechnischeBewilligung
+  )
+}}
   <hr />
   <div class="uk-grid-collapse" uk-grid>
     <div class="uk-width-1-4 uk-width-1-3@m">
@@ -115,7 +130,9 @@
 
     <div class="uk-width-3-4 uk-width-2-3@m">
       {{#if (can "create copy of instance" this.editController.instance)}}
-        <div class="border-highlight uk-padding-small uk-padding-remove-right uk-padding-remove-vertical">
+        <div
+          class="border-highlight uk-padding-small uk-padding-remove-right uk-padding-remove-vertical"
+        >
           <h3 class="instance-overview__action-title">
             {{t "instances.rejectionTitle"}}
             {{t "instances.rejectionTitleSuffix"}}
@@ -134,11 +151,15 @@
         </div>
       {{/if}}
 
-      {{#if (can "create modification of instance" this.editController.instance)}}
+      {{#if
+        (can "create modification of instance" this.editController.instance)
+      }}
         <h3 class="instance-overview__action-title">
           {{t "instances.modificationTitle"}}
         </h3>
-        {{#if (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))}}
+        {{#if
+          (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))
+        }}
           <p>
             {{t "instances.modificationText"}}
           </p>
@@ -153,12 +174,18 @@
       {{/if}}
 
       {{#if
-        (can "write form of instance" this.editController.instance form=(hash slug="main"))
+        (can
+          "write form of instance"
+          this.editController.instance
+          form=(hash slug="main")
+        )
       }}
         <h3 class="instance-overview__action-title">
           {{t "instances.furtherProcessingOfForm"}}
         </h3>
-        {{#if (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))}}
+        {{#if
+          (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))
+        }}
           <p>
             {{t "instances.furtherProcessingOfFormText"}}
           </p>
@@ -173,7 +200,11 @@
       {{/if}}
 
       {{#if
-        (can "write form of instance" this.editController.instance form=(hash slug="sb1"))
+        (can
+          "write form of instance"
+          this.editController.instance
+          form=(hash slug="sb1")
+        )
       }}
         <h3 class="instance-overview__action-title">
           {{t "instances.processingOfFormSb1"}}
@@ -191,7 +222,11 @@
       {{/if}}
 
       {{#if
-        (can "write form of instance" this.editController.instance form=(hash slug="sb2"))
+        (can
+          "write form of instance"
+          this.editController.instance
+          form=(hash slug="sb2")
+        )
       }}
         <h3 class="instance-overview__action-title">
           {{t "instances.processingOfFormSb2"}}
@@ -225,7 +260,9 @@
         <h3 class="instance-overview__action-title">
           {{t "instances.activateFurtherPersons"}}
         </h3>
-        {{#if (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))}}
+        {{#if
+          (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))
+        }}
           <p>
             {{t "instances.activateFurtherPersonsText"}}
           </p>
@@ -242,7 +279,9 @@
         <h3 class="instance-overview__action-title">
           {{t "instances.downloadReceipt"}}
         </h3>
-        {{#if (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))}}
+        {{#if
+          (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))
+        }}
           <p>
             {{t "instances.downloadReceiptText"}}
           </p>
@@ -259,7 +298,9 @@
         <h3 class="instance-overview__action-title">
           {{t "instances.deleteInstance"}}
         </h3>
-        {{#if (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))}}
+        {{#if
+          (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))
+        }}
           <p>
             {{t "instances.deleteInstanceText"}}
           </p>
@@ -286,7 +327,9 @@
         </UkButton>
       {{/if}}
 
-      {{#if (can "convert to building permit instance" this.editController.instance)}}
+      {{#if
+        (can "convert to building permit instance" this.editController.instance)
+      }}
         <h3 class="instance-overview__action-title">
           {{t "instances.createBuildingPermitTitle"}}
         </h3>
@@ -342,7 +385,9 @@
         {{#if (eq (get-main-config "documentBackend") "camac")}}
           <BeAttachmentList @attachments={{this.editController.feedback}} />
         {{else}}
-          <AlexandriaAttachmentList @attachments={{this.editController.feedback}} />
+          <AlexandriaAttachmentList
+            @attachments={{this.editController.feedback}}
+          />
         {{/if}}
       {{else}}
         <p>
@@ -370,7 +415,9 @@
       {{#if (eq (get-main-config "documentBackend") "camac")}}
         <BeAttachmentList @attachments={{this.editController.decision}} />
       {{else}}
-        <AlexandriaAttachmentList @attachments={{this.editController.decision}} />
+        <AlexandriaAttachmentList
+          @attachments={{this.editController.decision}}
+        />
       {{/if}}
     </div>
   </div>
@@ -390,7 +437,9 @@
       </h2>
     </div>
     <div class="uk-width-3-4 uk-width-2-3@m">
-      <AlexandriaAttachmentList @attachments={{this.editController.objection}} />
+      <AlexandriaAttachmentList
+        @attachments={{this.editController.objection}}
+      />
     </div>
   </div>
 {{/if}}

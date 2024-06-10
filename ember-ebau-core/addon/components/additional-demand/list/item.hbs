@@ -1,4 +1,4 @@
-<li class="uk-width-1 {{if this.isActive "uk-active"}}">
+<li class="uk-width-1 {{if this.isActive 'uk-active'}}">
   <LinkTo
     @route={{module-route "additional-demand" "detail"}}
     @models={{this.models}}
@@ -16,6 +16,9 @@
       </span>
     {{/let}}
 
-    <UkIcon @icon={{this.status.icon}} {{uk-tooltip this.status.title pos="top"}} />
+    <UkIcon
+      @icon={{this.status.icon}}
+      {{uk-tooltip this.status.title pos="top"}}
+    />
   </LinkTo>
 </li>

@@ -10,7 +10,7 @@
         checked={{or (not-eq @entry.dateCharged null) @selected}}
         data-test-toggle
         {{on "change" this.toggle}}
-      >
+      />
     </td>
   {{/if}}
   <td data-test-entry-text>
@@ -31,18 +31,25 @@
   </td>
   <td data-test-entry-added>{{format-date @entry.dateAdded format="date"}}</td>
   {{#if (has-feature "billing.charge")}}
-    <td data-test-entry-charged>{{format-date @entry.dateCharged format="date"}}</td>
+    <td data-test-entry-charged>{{format-date
+        @entry.dateCharged
+        format="date"
+      }}</td>
   {{/if}}
   {{#if (has-feature "billing.organization")}}
-    <td data-test-entry-organization>{{if @entry.organization (t (concat "billing.organizations." @entry.organization))}}</td>
+    <td data-test-entry-organization>{{if
+        @entry.organization
+        (t (concat "billing.organizations." @entry.organization))
+      }}</td>
   {{/if}}
   {{#if (has-feature "billing.billingType")}}
     <td data-test-entry-billing-type>
       {{#if @entry.billingType}}
         {{t (concat "billing.billing-types." @entry.billingType)}}
         {{#if (and (has-feature "billing.costCenter") @entry.costCenter)}}
-          <br>
-          <span class="uk-text-italic">({{t "billing.cost-center-short"}} {{@entry.costCenter}})</span>
+          <br />
+          <span class="uk-text-italic">({{t "billing.cost-center-short"}}
+            {{@entry.costCenter}})</span>
         {{/if}}
       {{/if}}
     </td>

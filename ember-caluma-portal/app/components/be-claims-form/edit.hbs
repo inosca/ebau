@@ -3,9 +3,11 @@
 {{else}}
   <BeClaimsForm::list::item @claim={{@claim}} @onCancel={{@onCancel}} />
 
-  <hr>
+  <hr />
 
-  <label class="uk-form-label uk-text-bold">{{t "additional-demands.documents"}}</label>
+  <label class="uk-form-label uk-text-bold">{{t
+      "additional-demands.documents"
+    }}</label>
   <div
     uk-grid="masonry: next"
     class="uk-grid-small uk-child-width-1-1 uk-child-width-1-2@m"
@@ -26,12 +28,24 @@
   </div>
 
   <div class="uk-margin">
-    <label class="uk-form-label uk-text-bold" for="comment">{{t "claims.comment"}}</label>
+    <label class="uk-form-label uk-text-bold" for="comment">{{t
+        "claims.comment"
+      }}</label>
     {{#if @claim.isAnswered}}
-      <CfFieldValue @field={{@claim.comment}} @tagName="p" class="uk-text-italic uk-margin-remove-vertical" />
+      <CfFieldValue
+        @field={{@claim.comment}}
+        @tagName="p"
+        class="uk-text-italic uk-margin-remove-vertical"
+      />
     {{else}}
       <div class="uk-form-controls">
-        <Textarea @value={{@claim.comment.answer.value}} id="comment" class="uk-textarea" name="comment" rows="6" />
+        <Textarea
+          @value={{@claim.comment.answer.value}}
+          id="comment"
+          class="uk-textarea"
+          name="comment"
+          rows="6"
+        />
       </div>
     {{/if}}
   </div>

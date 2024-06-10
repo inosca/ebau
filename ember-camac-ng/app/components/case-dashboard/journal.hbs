@@ -3,9 +3,7 @@
 </th>
 <td colspan="3">
   {{#each @journalEntries as |journalEntry|}}
-    <div
-      class="uk-card uk-card-default uk-margin-small-bottom"
-    >
+    <div class="uk-card uk-card-default uk-margin-small-bottom">
       <div class="uk-card-header uk-padding-small uk-flex uk-flex-between">
         <span class="uk-text-bolder">{{journalEntry.user.username}}</span>
         <span>
@@ -22,7 +20,13 @@
     </span>
   {{/each}}
   {{#if (gt @journalEntries.meta.pagination.count 1)}}
-    <a href={{ t "journal.linkToJournal" instanceId=@instanceId instanceResourceId=@instanceResourceId}}>
+    <a
+      href={{t
+        "journal.linkToJournal"
+        instanceId=@instanceId
+        instanceResourceId=@instanceResourceId
+      }}
+    >
       {{t "journal.showMore" total=(sub @totalJournalEntries 1)}}
     </a>
   {{/if}}

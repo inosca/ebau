@@ -1,40 +1,44 @@
 <div class="linked-instances-grid uk-margin-bottom">
   {{#each @currentInstance.linkedInstances as |linkedInstance|}}
-    {{#if this.ebauModules.isCamac }}
-      <a href="/index/redirect-to-instance-resource/instance-id/{{linkedInstance.id}}">
+    {{#if this.ebauModules.isCamac}}
+      <a
+        href="/index/redirect-to-instance-resource/instance-id/{{linkedInstance.id}}"
+      >
         {{linkedInstance.name}}
         ({{linkedInstance.dossierNumber}})
       </a>
     {{else}}
-      <LinkTo @route="cases.detail.linked-instances" @model={{linkedInstance.id}}>
+      <LinkTo
+        @route="cases.detail.linked-instances"
+        @model={{linkedInstance.id}}
+      >
         {{linkedInstance.name}}
         ({{linkedInstance.dossierNumber}})
       </LinkTo>
     {{/if}}
-    {{#if
-      (can
-        "link dossiers to instance"
-        @currentInstance
-      )
-    }}
+    {{#if (can "link dossiers to instance" @currentInstance)}}
       <button
         class="uk-button-link uk-flex"
         ratio="0.8"
         uk-icon="trash"
         type="button"
         title={{t "cases.miscellaneous.unLinkInstance"}}
-        {{on
-          "click"
-          (perform this.unLinkDossier linkedInstance)
-        }}
+        {{on "click" (perform this.unLinkDossier linkedInstance)}}
       >
       </button>
     {{/if}}
   {{else}}
-    <span class="uk-text-meta">{{t "cases.miscellaneous.noLinkedInstances"}}</span>
+    <span class="uk-text-meta">{{t
+        "cases.miscellaneous.noLinkedInstances"
+      }}</span>
   {{/each}}
 </div>
-{{#if (and (not @currentInstance.isRunning) (can "link dossiers to instance" @currentInstance))}}
+{{#if
+  (and
+    (not @currentInstance.isRunning)
+    (can "link dossiers to instance" @currentInstance)
+  )
+}}
   <div>
     <Input
       @type="text"

@@ -3,11 +3,24 @@
   ratio="0.7"
   uk-icon=""
   type="button"
-  title={{if (eq @type "link") (t "cases.miscellaneous.linkInstance") (t "cases.miscellaneous.unLinkInstance") }}
-  {{on "click" this.toggle}}>
-    <img
-      class="link-icon"
-      src="{{if (eq @type "link") "/ember-ebau-core/assets/images/link-instance.svg" "/ember-ebau-core/assets/images/unlink-instance.svg"}}"
-      alt={{if (eq @type "link") (t "cases.miscellaneous.linkInstance") (t "cases.miscellaneous.unLinkInstance") }}
-    />
+  title={{if
+    (eq @type "link")
+    (t "cases.miscellaneous.linkInstance")
+    (t "cases.miscellaneous.unLinkInstance")
+  }}
+  {{on "click" this.toggle}}
+>
+  <img
+    class="link-icon"
+    src="{{if
+      (eq @type 'link')
+      '/ember-ebau-core/assets/images/link-instance.svg'
+      '/ember-ebau-core/assets/images/unlink-instance.svg'
+    }}"
+    alt={{if
+      (eq @type "link")
+      (t "cases.miscellaneous.linkInstance")
+      (t "cases.miscellaneous.unLinkInstance")
+    }}
+  />
 </button>

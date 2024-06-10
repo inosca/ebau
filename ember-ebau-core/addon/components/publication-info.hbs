@@ -12,14 +12,23 @@
       </a>
     </div>
   {{else if (not @isPublished)}}
-    <div class="uk-background-muted uk-padding-small {{if (eq @type "public") "uk-margin"}}">
+    <div
+      class="uk-background-muted uk-padding-small
+        {{if (eq @type 'public') 'uk-margin'}}"
+    >
       <span class="uk-text-bold">{{t "publication.info.note"}}</span>
       {{t (concat "publication.info.canceled." @type)}}
     </div>
   {{/if}}
 {{else}}
   <div class="uk-background-muted uk-padding-small uk-margin">
-    <p class={{if (macroCondition (macroGetOwnConfig "isBE")) "" "uk-margin-remove-bottom"}}>
+    <p
+      class={{if
+        (macroCondition (macroGetOwnConfig "isBE"))
+        ""
+        "uk-margin-remove-bottom"
+      }}
+    >
       <span class="uk-text-bold">{{t "publication.info.attention"}}</span>
       {{t (concat "publication.info.unpublished." @type)}}
     </p>

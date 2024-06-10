@@ -78,7 +78,10 @@
           </div>
         {{else}}
           <label for="import-file">
-            <div class="uk-flex-none uk-button uk-button-link" uk-icon="icon: plus"></div>
+            <div
+              class="uk-flex-none uk-button uk-button-link"
+              uk-icon="icon: plus"
+            ></div>
           </label>
         {{/if}}
         <div
@@ -95,7 +98,12 @@
               {{t "dossierImport.new.uploadSelect"}}
             </span>
           </label>
-          <input id="import-file" hidden type="file" {{on "change" (perform this.upload)}} />
+          <input
+            id="import-file"
+            hidden
+            type="file"
+            {{on "change" (perform this.upload)}}
+          />
         </div>
       </div>
     </div>

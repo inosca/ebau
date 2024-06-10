@@ -1,4 +1,9 @@
-{{#if (and this.auditController.fetchAudit.isRunning (not this.auditController.fetchAudit.lastSuccessful))}}
+{{#if
+  (and
+    this.auditController.fetchAudit.isRunning
+    (not this.auditController.fetchAudit.lastSuccessful)
+  )
+}}
   <div class="uk-text-center">
     <UkSpinner @ratio={{2}} />
   </div>
@@ -12,15 +17,26 @@
         @onToggle={{this.toggleShowSameEbauNumber}}
         class="x-small"
       />
-      <label class="uk-text-meta uk-margin-small-left" for="show-same-ebau-number">
+      <label
+        class="uk-text-meta uk-margin-small-left"
+        for="show-same-ebau-number"
+      >
         {{t "audit.showSameEbauNumber"}}
       </label>
     </div>
 
     {{#if (can "edit work item of audit" this.auditController.auditWorkItem)}}
       <div>
-        <button class="uk-button uk-button-default" type="button" {{on "click" (perform this.skipAudit)}}>{{t "audit.skip"}}</button>
-        <button class="uk-button uk-button-primary" type="button" {{on "click" (perform this.completeAudit)}}>{{t "audit.complete"}}</button>
+        <button
+          class="uk-button uk-button-default"
+          type="button"
+          {{on "click" (perform this.skipAudit)}}
+        >{{t "audit.skip"}}</button>
+        <button
+          class="uk-button uk-button-primary"
+          type="button"
+          {{on "click" (perform this.completeAudit)}}
+        >{{t "audit.complete"}}</button>
       </div>
     {{/if}}
   </div>
@@ -36,7 +52,7 @@
     {{#each this.auditController.auditsWithSameEbauNumber as |auditGroup|}}
       <div class="uk-margin-top">
         <strong>{{auditGroup.instanceId}} - {{auditGroup.form}}</strong>
-        <hr>
+        <hr />
         <AuditTable
           @audits={{auditGroup.audits}}
           @documentData={{this.auditController.documentData}}

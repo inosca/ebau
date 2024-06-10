@@ -1,8 +1,13 @@
 {{#if (or (this.hasFilter "types") (this.hasFilter "status"))}}
-  <div uk-grid class="uk-grid-small uk-margin uk-child-width-1-1 uk-child-width-1-2@m">
+  <div
+    uk-grid
+    class="uk-grid-small uk-margin uk-child-width-1-1 uk-child-width-1-2@m"
+  >
     {{#if (this.hasFilter "types")}}
       <div>
-        <label class="uk-form-label" for="types">{{t "legal-submission.type"}}</label>
+        <label class="uk-form-label" for="types">{{t
+            "legal-submission.type"
+          }}</label>
         <div class="uk-form-controls">
           <PowerSelectMultiple
             @triggerId="types"
@@ -12,7 +17,8 @@
             @onChange={{this.updateTypes}}
             @renderInPlace={{true}}
             class="uk-select"
-          as |type|>
+            as |type|
+          >
             {{type.label}}
           </PowerSelectMultiple>
         </div>
@@ -20,7 +26,9 @@
     {{/if}}
     {{#if (this.hasFilter "status")}}
       <div>
-        <label class="uk-form-label" for="status">{{t "legal-submission.status"}}</label>
+        <label class="uk-form-label" for="status">{{t
+            "legal-submission.status"
+          }}</label>
         <div class="uk-form-controls">
           <PowerSelect
             @triggerId="status"
@@ -31,7 +39,8 @@
             @allowClear={{true}}
             @renderInPlace={{true}}
             class="uk-select"
-          as |status|>
+            as |status|
+          >
             {{status.label}}
           </PowerSelect>
         </div>
@@ -78,7 +87,9 @@
         />
       {{else}}
         <tr>
-          <td colspan={{this.colspan}} class="uk-text-center">{{t "global.empty"}}</td>
+          <td colspan={{this.colspan}} class="uk-text-center">{{t
+              "global.empty"
+            }}</td>
         </tr>
       {{/each}}
     </tbody>

@@ -16,11 +16,9 @@ module("Integration | Component | be-document-bucket", function (hooks) {
     assert.equal(this.element.textContent.trim(), "");
 
     // Template block usage:
-    await render(hbs`
-      <BeDocumentBucket>
-        template block text
-      </BeDocumentBucket>
-    `);
+    await render(hbs`<BeDocumentBucket>
+  template block text
+</BeDocumentBucket>`);
 
     assert.equal(this.element.textContent.trim(), "template block text");
   });
