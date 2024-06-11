@@ -15514,6 +15514,21 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "bemerkungen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorhaben.beschreibung-voranfrage",
+    "fields": {
+      "created_at": "2024-06-06T14:53:38.930Z",
+      "modified_at": "2024-06-06T14:53:38.930Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorhaben",
+      "question": "beschreibung-voranfrage",
       "sort": 1
     }
   },
@@ -15529,7 +15544,7 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "umschreibung-bauprojekt",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -15544,7 +15559,7 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "vorhaben-titel",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -29795,7 +29810,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"## Plangenehmigung/Planbegutachtung des Arbeitsinspektorates f\\u00fcr Bauten und Einrichtungen von Betrieben <u>mit</u> Arbeitnehmenden\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"## Plangenehmigung / Planbegutachtung des Arbeitsinspektorates f\\u00fcr Bauten und Einrichtungen von Betrieben <u>mit</u> Arbeitnehmenden\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -31803,7 +31818,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"##Angaben zum Gesamt-Bauprojekt\\nF\\u00fcr jedes Bauprojekt ist unter anderem die Art der Bauwerke (Tiefbau / Hochbau) und deren Nutzungszweck zu erfassen. \\n\\nIn der Rubrik \\\"Hochbau\\\" ist die Art der Arbeiten f\\u00fcr jedes Geb\\u00e4ude zu erfassen (Tabelle Geb\\u00e4ude und Anlagen). Dies deshalb, weil ein Bauprojekt z.B. gleichzeitig den Abbruch eines Geb\\u00e4udes, den Neubau und evtl. einen Umbau eines Geb\\u00e4udes beinhalten kann. In der gleichen Tabelle wird zudem pro Geb\\u00e4ude zus\\u00e4tzlich der Typ des Bauwerks erfasst.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"##Angaben zum Bauprojekt\\nF\\u00fcr jedes Bauprojekt ist unter anderem die Art der Bauwerke (Tiefbau / Hochbau) und deren Nutzungszweck zu erfassen. \\n\\nIn der Rubrik \\\"Hochbau\\\" ist die Art der Arbeiten f\\u00fcr jedes Geb\\u00e4ude zu erfassen (Tabelle Geb\\u00e4ude und Anlagen). Dies deshalb, weil ein Bauprojekt z.B. gleichzeitig den Abbruch eines Geb\\u00e4udes, den Neubau und evtl. einen Umbau eines Geb\\u00e4udes beinhalten kann. In der gleichen Tabelle wird zudem pro Geb\\u00e4ude zus\\u00e4tzlich der Typ des Bauwerks erfasst.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -32644,7 +32659,7 @@
       "label": "{\"de\": \"Allgemeine Bemerkungen zum Bauprojekt\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "info.root.form == \"voranfrage\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -33381,6 +33396,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "beschreibung-voranfrage",
+    "fields": {
+      "created_at": "2024-06-06T14:53:38.703Z",
+      "modified_at": "2024-06-06T14:53:38.703Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreiben Sie m\\u00f6glichst pr\\u00e4zise Ihre Frage(n) zu Ihrem geplanten Bauvorhaben.\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "info.root.form != \"voranfrage\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "beschreibung-wasserhaltungsanlage",
     "fields": {
       "created_at": "2024-02-22T07:53:09.622Z",
@@ -33652,7 +33701,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Bestehende Einleitung\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Bestehende Einleitung?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "!(\"niederschlagsabwasser-einleitung-in-oberflaechengewaesser\" in \"niederschlagsabwasser\"|answer)",
@@ -36069,7 +36118,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Einleitung in eine Drainageleitung\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Einleitung in eine Drainageleitung?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "!(\"niederschlagsabwasser-einleitung-in-oberflaechengewaesser\" in \"niederschlagsabwasser\"|answer)",
@@ -36487,7 +36536,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Energetische Massnahmen\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Energienachweis\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
       "is_hidden": "!(\"art-der-bauwerke-hochbaute\" in \"art-der-bauwerke\"|answer)",
@@ -39435,7 +39484,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"## Feststellungen Naturgefahren\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"## Naturgefahren\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -51066,7 +51115,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Neue Einleitung in eine \\u00f6ffentliche Sauberwasserleitung\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Neue Einleitung in eine \\u00f6ffentliche Sauberwasserleitung?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "!(\"niederschlagsabwasser-einleitung-in-oberflaechengewaesser\" in \"niederschlagsabwasser\"|answer)",
@@ -55755,7 +55804,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"## Einreichung\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"## Einreichen\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
