@@ -332,7 +332,12 @@ def test_complete_construction_step_work_item(
     service,
     utils,
     notification_template,
+    mocker,
 ):
+    ech_signal_mock = mocker.patch(
+        "camac.ech0211.signals.construction_monitoring_started.send"
+    )
+
     plan_stage = construction_monitoring_initialized_case_sz.work_items.first()
     utils.add_answer(plan_stage.document, "construction-stage-name", "Test")
     utils.add_answer(
@@ -377,3 +382,4 @@ def test_complete_construction_step_work_item(
     )
     assert len(mail.outbox) == 1
     assert sz_instance.group.service.email in mail.outbox[0].recipients()
+    ech_signal_mock.assert_called_once()

@@ -81,7 +81,7 @@ MODULE_CONFIG_FIXTURES = {
     "placeholders": ["kt_bern", "kt_so"],
     "master_data": ["kt_bern", "kt_schwyz", "kt_uri", "kt_gr", "kt_so"],
     "dump": ALL_APPS,
-    "ech0211": ["kt_schwyz", "kt_bern", "kt_gr"],
+    "ech0211": ["kt_schwyz", "kt_bern", "kt_gr", "kt_so"],
     "dossier_import": ["kt_schwyz", "kt_bern", "kt_so"],
     "bab": ["kt_so"],
     "project_modification": [],
