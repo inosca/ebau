@@ -266,6 +266,10 @@ ECH0211 = {
                 "type": ECH_STATUS_NOTIFICATION_IN_KOORDINATION,
             },
             {
+                "new_state": "decided",
+                "type": ECH_STATUS_NOTIFICATION_ENTSCHIEDEN,
+            },
+            {
                 "new_state": "withdrawn",
                 "type": ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION,
             },
