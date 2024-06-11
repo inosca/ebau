@@ -40,6 +40,7 @@ from .signals import (
     change_responsibility as change_responsibility_signal,
     circulation_ended,
     circulation_started,
+    construction_monitoring_started,
     exam_completed,
     file_subsequently,
     finished,
@@ -370,6 +371,7 @@ def submit_callback(sender, instance, user_pk, group_pk, **kwargs):
 @receiver(finished)
 @receiver(rejected)
 @receiver(rejection_reverted)
+@receiver(construction_monitoring_started)
 @if_ech_enabled(api_level="full")
 def send_status_notification(sender, instance, user_pk, group_pk, **kwargs):
     handler = StatusNotificationEventHandler(

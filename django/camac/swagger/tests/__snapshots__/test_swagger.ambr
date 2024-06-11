@@ -52,6 +52,17 @@
 # ---
 # name: test_swagger_paths[kt_so]
   list([
+    '/api/v1/groups',
+    '/api/v1/groups/{group_id}',
+    '/api/v1/me',
+    '/api/v1/public-services',
+    '/api/v1/public-services/{service_id}',
+    '/ech/v1/application/{instance_id}/',
+    '/ech/v1/applications',
+    '/ech/v1/files',
+    '/ech/v1/files/{id}',
+    '/ech/v1/message/',
+    '/ech/v1/send/',
   ])
 # ---
 # name: test_swagger_paths[kt_uri]

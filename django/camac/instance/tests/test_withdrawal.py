@@ -121,6 +121,7 @@ def test_withdraw_instance(
     mailoutbox,
     has_publications,
     request,
+    so_ech0211_settings,
 ):
     so_instance.involved_applicants.all().delete()
     applicant_factory(instance=so_instance, invitee=admin_user)
