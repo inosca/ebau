@@ -1718,13 +1718,16 @@ APPLICATIONS = {
                 "material-exam": {
                     "next_instance_state": "init-distribution",
                     "history_text": _("Material exam performed"),
+                    "ech_event": "camac.ech0211.signals.exam_completed",
                 },
                 "init-distribution": {
                     "next_instance_state": "distribution",
                     "history_text": _("Circulation started"),
+                    "ech_event": "camac.ech0211.signals.circulation_started",
                 },
                 "complete-distribution": {
                     "next_instance_state": "decision",
+                    "ech_event": "camac.ech0211.signals.circulation_ended",
                 },
                 "send-additional-demand": {
                     "notification": {
@@ -1737,10 +1740,12 @@ APPLICATIONS = {
                         "template_slug": "nachforderung-beantwortet",
                         "recipient_types": ["work_item_controlling"],
                     },
+                    "ech_event": "camac.ech0211.signals.file_subsequently",
                 },
                 "complete-instance": {
                     "next_instance_state": "finished",
                     "history_text": _("Procedure completed"),
+                    "ech_event": "camac.ech0211.signals.finished",
                 },
             },
             "PRE_COMPLETE": {

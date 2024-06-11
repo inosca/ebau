@@ -16,6 +16,10 @@ from rest_framework import status
             lazy_fixture("set_application_sz"),
             lazy_fixture("sz_ech0211_settings"),
         ),
+        (
+            lazy_fixture("set_application_so"),
+            lazy_fixture("so_ech0211_settings"),
+        ),
         # for coverage of the actual url config we need to run a test that
         # does not override the actual url settings:
         ("kt_bern", lazy_fixture("ech0211_settings")),

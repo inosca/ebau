@@ -16,6 +16,7 @@ from django.utils.translation import gettext as _
 
 from camac.caluma.utils import filter_by_task_base, filter_by_workflow_base
 from camac.core.utils import create_history_entry
+from camac.ech0211.signals import construction_monitoring_started
 from camac.notification.utils import send_mail_without_request
 from camac.user.models import User
 
@@ -173,6 +174,15 @@ def post_complete_construction_step_work_item(
             settings.CONSTRUCTION_MONITORING["CONSTRUCTION_MONITORING_INSTANCE_STATE"],
             camac_user,
         )
+
+        if settings.ECH0211.get("API_LEVEL") == "full":
+            construction_monitoring_started.send(
+                sender="post_complete_construction_step_work_item",
+                instance=instance,
+                user_pk=camac_user.pk,
+                group_pk=user.camac_group,
+                inquiry=work_item,
+            )
 
     notifications = settings.CONSTRUCTION_MONITORING["NOTIFICATIONS"].get(
         work_item.task.pk, []
