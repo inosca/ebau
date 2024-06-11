@@ -116,6 +116,15 @@ billing:
       </li>
     </ul>
 
+  billing-type-info-nocharge:
+    title: |-
+      Bitte beachten:
+    body1: |-
+      Politische Gemeinden, Kirchgemeinden, kantonale Amtsstellen, Kooperationsbürgergemeinden sowie die beiden Korporationen Uri und Ursern sind gemäss Gebührenverordnung in der Regel von Gebühren befreit.
+    body2: |-
+      Bei Spezialverfahren (z.B. Interne Mitberichtsverfahren oder PGVs) bei denen eine kantonale Behörde oder eine Bundesstelle Leitbehörde ist, werden ebenfalls keine Gebühren erhoben
+
+
   billing-types:
     by_authority: Weiter zu verrechnen
     forwarded: Rechnung zu eröffnen
@@ -128,7 +137,23 @@ billing:
     createdBefore: Erstellung bis
     service: Organisation
 
-  templates:
-    info: Eine Vorlage anwenden
-    select: Vorlage auswählen
-    apply: Vorlage anwenden
+  billing-account:
+    Gebührenart
+  billing-account-laufend:
+    Gebühren laufendes Verfahren
+  billing-account-nachtraeglich:
+    Nachträgliche Gebühren
+
+  charge-merge-save:
+    Verrechnen und Rechnung ablegen
+
+
+  basics:
+    title: Grundgebühr
+    .5: halbe Grundgebühr (CHF 55.- inkl. MWSt)
+    1: ganze Grundgebühr (CHF 110.- inkl. MWSt)
+    2: doppelte Grundgebühr (CHF 220.- inkl. MWSt)
+
+  amount-inkl-mwst: Betrag (CHF inkl. MWSt)
+  hourly-rate-inkl-mwst: Ansatz (CHF inkl. MWSt)
+  cost-center-billing-account: Konto

@@ -153,6 +153,132 @@
     }
   },
   {
+    "model": "instance.instancestate",
+    "pk": 21,
+    "fields": {
+      "name": "Bearbeitung Leitbehörde (en)",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 22,
+    "fields": {
+      "name": "Bearbeitung Koordinationsstelle (en)",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 23,
+    "fields": {
+      "name": "In Zirkulation (en)",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 24,
+    "fields": {
+      "name": "Zirkulation beendet (en)",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 25,
+    "fields": {
+      "name": "Zurück bei Gemeinde (en)",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 26,
+    "fields": {
+      "name": "Archiviert (en)",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 27,
+    "fields": {
+      "name": "Gelöscht (en)",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 28,
+    "fields": {
+      "name": "Neu Erstellt (en)",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 29,
+    "fields": {
+      "name": "Nachforderung Dokumente (en)",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 30,
+    "fields": {
+      "name": "Eingereicht bei Gemeinde (en)",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 31,
+    "fields": {
+      "name": "Abgelehnt (en)",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 32,
+    "fields": {
+      "name": "Dossier bleibt bei Gemeindebaubehörde (en)",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 33,
+    "fields": {
+      "name": "Archivdossier (en)",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 34,
+    "fields": {
+      "name": "Bau- und Einspracheentscheid zugestellt (en)",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
     "model": "instance.instancestatet",
     "pk": 1,
     "fields": {
@@ -289,6 +415,146 @@
       "instance_state": 14,
       "language": "de",
       "name": "Entschieden",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 21,
+    "fields": {
+      "instance_state": 21,
+      "language": "de",
+      "name": "Bearbeitung Leitbehörde",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 22,
+    "fields": {
+      "instance_state": 22,
+      "language": "de",
+      "name": "Bearbeitung Koordinationsstelle",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 23,
+    "fields": {
+      "instance_state": 23,
+      "language": "de",
+      "name": "In Zirkulation",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 24,
+    "fields": {
+      "instance_state": 24,
+      "language": "de",
+      "name": "Zirkulation beendet",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 25,
+    "fields": {
+      "instance_state": 25,
+      "language": "de",
+      "name": "Zurück bei Gemeinde",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 26,
+    "fields": {
+      "instance_state": 26,
+      "language": "de",
+      "name": "Archiviert",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 27,
+    "fields": {
+      "instance_state": 27,
+      "language": "de",
+      "name": "Gelöscht",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 28,
+    "fields": {
+      "instance_state": 28,
+      "language": "de",
+      "name": "Neu Erstellt",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 29,
+    "fields": {
+      "instance_state": 29,
+      "language": "de",
+      "name": "Nachforderung Dokumente",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 30,
+    "fields": {
+      "instance_state": 30,
+      "language": "de",
+      "name": "Eingereicht bei Gemeinde",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 31,
+    "fields": {
+      "instance_state": 31,
+      "language": "de",
+      "name": "Abgelehnt",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 32,
+    "fields": {
+      "instance_state": 32,
+      "language": "de",
+      "name": "Dossier bleibt bei Gemeindebaubehörde",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 33,
+    "fields": {
+      "instance_state": 33,
+      "language": "de",
+      "name": "Archivdossier",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 34,
+    "fields": {
+      "instance_state": 34,
+      "language": "de",
+      "name": "Bau- und Einspracheentscheid zugestellt",
       "description": null
     }
   }

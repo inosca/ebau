@@ -471,3 +471,79 @@ module("Acceptance | billing", function (hooks) {
     });
   });
 });
+
+module("Acceptance | billing account selection", function (hooks) {
+  setupApplicationTest(hooks);
+  setupMirage(hooks);
+  setupFeatures(hooks);
+
+  hooks.beforeEach(function () {
+    const service = this.server.create("service");
+    const publicService = this.server.create("public-service", {
+      id: service.id,
+    });
+
+    this.serviceGroup = publicService.serviceGroup;
+
+    this.billingV2Accounts = [
+      this.server.create("billing-v2-account", {
+        name: "BEW Account A",
+        account_type: "BEW",
+        serviceGroup: this.serviceGroup,
+        department: "DeptA",
+      }),
+      this.server.create("billing-v2-account", {
+        name: "BGL Account B",
+        account_type: "BGL",
+        serviceGroup: this.serviceGroup,
+        department: "DeptA",
+      }),
+    ];
+  });
+
+  test("only billing accounts matching serviceGroup and instanceState are selectable", async function (assert) {
+    this.features.enable("billing.billingAccount");
+    this.features.set("billing.instanceStatesBaubegleitung", [2]);
+
+    const baubewilligungState = this.server.create("instance-state", {
+      id: 1,
+      name: "Status Baubewilligung",
+    });
+    this.instance = this.server.create("instance", {
+      activeService: this.serviceGroup,
+      instanceState: baubewilligungState,
+    });
+    this.owner.lookup("service:ebau-modules").instanceId = this.instance.id;
+
+    await visit("/billing/new");
+
+    // Only BEW Account A should be visible in the select
+    await click("select#billing_v2_account");
+    assert.dom("select#billing_v2_account option").exists({ count: 2 }); // one empty, one valid
+    assert
+      .dom("select#billing_v2_account option:nth-child(2)")
+      .hasTextContaining("BEW");
+    assert
+      .dom("select#billing_v2_account option")
+      .doesNotHaveTextContaining("BGL");
+
+    // Now switch instanceState to 'BGL' (simulate by updating the instance record)
+    const baubegleitungState = this.server.create("instance-state", {
+      id: 2,
+      name: "Status Baubegleitung",
+    });
+    this.instance.update({ instanceState: baubegleitungState });
+    this.owner.lookup("service:ebau-modules").instanceId = this.instance.id;
+
+    await visit("/billing/new");
+    // Only BGL Account A should be visible now
+    await click("select#billing_v2_account");
+    assert.dom("select#billing_v2_account option").exists({ count: 2 });
+    assert
+      .dom("select#billing_v2_account option:nth-child(2)")
+      .hasTextContaining("BGL");
+    assert
+      .dom("select#billing_v2_account option")
+      .doesNotHaveTextContaining("BEW");
+  });
+});

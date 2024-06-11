@@ -106,6 +106,8 @@ PLACEHOLDERS = {
             "ART",
             "VERRECHNUNG",
             "ORGANISATION",
+            "DEPARTMENT",
+            "KONTO",
         ],
     },
     "kt_bern": {"ENABLED": True},

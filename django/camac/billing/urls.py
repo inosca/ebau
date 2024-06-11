@@ -27,4 +27,6 @@ r.register(
     "billing-v2-entry-template",
 )
 
+r.register(r"billing-v2-accounts", views.BillingV2AccountViewset, "billing-v2-account")
+
 urlpatterns.extend(r.urls)

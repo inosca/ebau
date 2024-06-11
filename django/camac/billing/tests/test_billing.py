@@ -885,3 +885,75 @@ def test_product_numbers_empty(
 
     assert response.status_code == status.HTTP_200_OK
     assert response.json()["data"] == []
+
+
+@pytest.mark.parametrize("expected", [2])
+def test_billing_account_list(
+    db, billing_v2_account_factory, admin_client, service_factory, service, expected
+):
+    billing_v2_account_factory.create_batch(1, service_group=service.service_group)
+
+    dummy_service = service_factory(service_group__name="service")
+    billing_v2_account_factory.create_batch(
+        1, service_group=dummy_service.service_group
+    )
+
+    url = reverse("billing-v2-account-list")
+    response = admin_client.get(url)
+
+    assert response.status_code == status.HTTP_200_OK
+    assert len(response.json()["data"]) == expected
+
+
+@pytest.mark.parametrize("expected", [1])
+def test_billing_account_list_user_service(
+    db,
+    set_application_so,
+    billing_v2_account_factory,
+    service_factory,
+    service,
+    admin_client,
+    expected,
+):
+    billing_v2_account_factory.create_batch(1, service_group=service.service_group)
+
+    dummy_service = service_factory(service_group__name="service")
+    billing_v2_account_factory.create_batch(
+        1, service_group=dummy_service.service_group
+    )
+
+    url = reverse("billing-v2-account-list")
+    response = admin_client.get(url)
+
+    assert response.status_code == status.HTTP_200_OK
+    assert len(response.json()["data"]) == expected
+
+
+@pytest.mark.parametrize("expected", [3])
+def test_billing_account_list_koor_service(
+    db,
+    set_application_so,
+    billing_v2_account_factory,
+    service_factory,
+    service,
+    admin_client,
+    expected,
+    mocker,
+):
+    billing_v2_account_factory.create_batch(1, service_group=service.service_group)
+
+    dummy_service = service_factory(service_group__name="service")
+    billing_v2_account_factory.create_batch(
+        2, service_group=dummy_service.service_group
+    )
+
+    mocker.patch(
+        "camac.billing.views.uri_constants.KOOR_SERVICE_IDS",
+        [service.service_group.service_group_id],
+    )
+
+    url = reverse("billing-v2-account-list")
+    response = admin_client.get(url)
+
+    assert response.status_code == status.HTTP_200_OK
+    assert len(response.json()["data"]) == expected

@@ -49,22 +49,81 @@
   class="uk-form-horizontal"
   {{on "submit" (perform this.save)}}
 >
-  <div class="uk-margin">
-    <label class="uk-form-label uk-text-bold" for="text">
-      {{t "billing.position"}}
-      <span class="mandatory-asterisk">*</span>
-    </label>
-    <div class="uk-form-controls">
-      <Input
-        @type="text"
-        @value={{this.newEntry.text}}
-        id="text"
-        name="text"
-        class="uk-input"
-        required
-      />
+  {{#if (has-feature "billing.billingAccount")}}
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="account">
+        {{#if (this.isBaubegleitung this.instance.record.instanceState.id)}}
+          {{t "billing.billing-account-nachtraeglich"}}
+        {{else}}
+          {{t "billing.billing-account-laufend"}}
+        {{/if}}
+        <span class="mandatory-asterisk">*</span>
+      </label>
+      <div class="uk-form-controls">
+
+        <select
+          class="uk-select"
+          name="billing_v2_account"
+          id="billing_v2_account"
+          required
+          {{on "change" this.update}}
+        >
+          <option></option>
+          {{#each this.billingV2Accounts.records as |account|}}
+
+            {{#if
+              (and
+                (eq account.account_type "BGL")
+                (this.isBaubegleitung this.instance.record.instanceState.id)
+              )
+            }}
+              <option value={{account.id}}>
+                {{account.department}}
+                /
+                {{account.account_type}}
+                /
+                {{account.name}}
+              </option>
+            {{else if
+              (and
+                (eq account.account_type "BEW")
+                (not
+                  (this.isBaubegleitung this.instance.record.instanceState.id)
+                )
+              )
+            }}
+              <option value={{account.id}}>
+                {{account.department}}
+                /
+                {{account.account_type}}
+                /
+                {{account.name}}
+              </option>
+            {{/if}}
+
+          {{/each}}
+        </select>
+
+      </div>
     </div>
-  </div>
+  {{else}}
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="text">
+        {{t "billing.position"}}
+        <span class="uk-text-danger">*</span>
+      </label>
+      <div class="uk-form-controls">
+        <Input
+          @type="text"
+          @value={{this.newEntry.text}}
+          id="text"
+          name="text"
+          class="uk-input"
+          required
+        />
+      </div>
+    </div>
+  {{/if}}
 
   {{#if (has-feature "billing.remark")}}
     <div class="uk-margin">
@@ -90,6 +149,30 @@
     </div>
   {{/if}}
 
+  {{#if (has-feature "billing.billingAccount")}}
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="legal-basis">
+        {{t "billing.basics.title"}}
+      </label>
+
+      <div class="uk-form-controls">
+        <select
+          class="uk-select"
+          name="basic"
+          id="basic"
+          {{on "change" this.update}}
+        >
+          <option></option>
+          {{#each this.basics as |basic|}}
+            <option value={{basic}}>
+              {{t (concat "billing.basics." basic)}}
+            </option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+  {{/if}}
+
   {{#if (has-feature "billing.legalBasis")}}
     <div class="uk-margin">
       <label class="uk-form-label uk-text-bold" for="legal-basis">
@@ -110,12 +193,17 @@
   {{#if (has-feature "billing.costCenter")}}
     <div class="uk-margin">
       <label class="uk-form-label uk-text-bold" for="cost-center">
-        {{t "billing.cost-center"}}
+        {{#if (has-feature "billing.billingAccount")}}
+          {{t "billing.cost-center-billing-account"}}
+        {{else}}
+          {{t "billing.cost-center"}}
+        {{/if}}
       </label>
       <div class="uk-form-controls">
         <Input
           @type="text"
           @value={{this.newEntry.costCenter}}
+          disabled={{if (has-feature "billing.billingAccount") "disabled"}}
           id="cost-center"
           name="cost-center"
           class="uk-input"
@@ -152,31 +240,34 @@
     </div>
   {{/if}}
 
-  <div class="uk-margin">
-    <label class="uk-form-label uk-text-bold" for="calculation">
-      {{t "billing.calculation"}}
-      <span class="mandatory-asterisk">*</span>
-    </label>
-    <div class="uk-form-controls">
-      <select
-        class="uk-select"
-        name="calculation"
-        id="calculation"
-        required
-        {{on "change" this.update}}
-      >
-        {{#each this.calculations as |calculation|}}
-          <option
-            value={{calculation}}
-            selected={{eq this.newEntry.calculation calculation}}
-          >
-            {{t (concat "billing.calculations.titles." calculation)}}
-          </option>
-        {{/each}}
-      </select>
+  {{#if
+    (includes this.newEntry.calculation (array "flat" "hourly" "percentage"))
+  }}
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="calculation">
+        {{t "billing.calculation"}}
+        <span class="mandatory-asterisk">*</span>
+      </label>
+      <div class="uk-form-controls">
+        <select
+          class="uk-select"
+          name="calculation"
+          id="calculation"
+          required
+          {{on "change" this.update}}
+        >
+          {{#each this.calculations as |calculation|}}
+            <option
+              value={{calculation}}
+              selected={{eq this.newEntry.calculation calculation}}
+            >
+              {{t (concat "billing.calculations.titles." calculation)}}
+            </option>
+          {{/each}}
+        </select>
+      </div>
     </div>
-  </div>
-
+  {{/if}}
   {{#if (eq this.newEntry.calculation "hourly")}}
     <div class="uk-margin">
       <label class="uk-form-label uk-text-bold" for="hours">
@@ -198,7 +289,11 @@
 
     <div class="uk-margin">
       <label class="uk-form-label uk-text-bold" for="hourly-rate">
-        {{t "billing.hourly-rate"}}
+        {{#if (has-feature "billing.billingAccount")}}
+          {{t "billing.hourly-rate-inkl-mwst"}}
+        {{else}}
+          {{t "billing.hourly-rate"}}
+        {{/if}}
         <span class="mandatory-asterisk">*</span>
       </label>
       <div class="uk-form-controls">
@@ -241,7 +336,11 @@
     <div class="uk-margin">
       <label class="uk-form-label uk-text-bold" for="total-cost">
         {{#if (eq this.newEntry.calculation "flat")}}
-          {{t "billing.amount"}}
+          {{#if (has-feature "billing.billingAccount")}}
+            {{t "billing.amount-inkl-mwst"}}
+          {{else}}
+            {{t "billing.amount"}}
+          {{/if}}
         {{else if (eq this.newEntry.calculation "percentage")}}
           {{t "billing.of-amount"}}
         {{/if}}
@@ -278,34 +377,36 @@
     </div>
   {{/if}}
 
-  <div class="uk-margin">
-    <label class="uk-form-label uk-text-bold" for="tax-mode">
-      {{t "billing.tax-mode"}}
-      <span class="mandatory-asterisk">*</span>
-    </label>
-    <div class="uk-form-controls uk-flex">
-      <select
-        class="uk-select"
-        name="tax-mode"
-        id="tax-mode"
-        required
-        {{on "change" this.update}}
-      >
-        {{#each this.taxModeOptions as |taxMode|}}
-          <option
-            value={{taxMode.value}}
-            selected={{eq
-              (concat this.newEntry.taxMode ":" this.newEntry.taxRate)
-              taxMode.value
-            }}
-          >{{taxMode.label}}</option>
-        {{/each}}
-      </select>
-      {{#if (has-feature "billing.billingType")}}
-        <CfField::Info @text={{t "billing.tax-mode-billing-type-info"}} />
-      {{/if}}
+  {{#unless (has-feature "billing.billingAccount")}}
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="tax-mode">
+        {{t "billing.tax-mode"}}
+        <span class="mandatory-asterisk">*</span>
+      </label>
+      <div class="uk-form-controls uk-flex">
+        <select
+          class="uk-select"
+          name="tax-mode"
+          id="tax-mode"
+          required
+          {{on "change" this.update}}
+        >
+          {{#each this.taxModeOptions as |taxMode|}}
+            <option
+              value={{taxMode.value}}
+              selected={{eq
+                (concat this.newEntry.taxMode ":" this.newEntry.taxRate)
+                taxMode.value
+              }}
+            >{{taxMode.label}}</option>
+          {{/each}}
+        </select>
+        {{#if (has-feature "billing.billingType")}}
+          <CfField::Info @text={{t "billing.tax-mode-billing-type-info"}} />
+        {{/if}}
+      </div>
     </div>
-  </div>
+  {{/unless}}
 
   {{#if (has-feature "billing.organization")}}
     <div class="uk-margin">
@@ -336,7 +437,12 @@
     </div>
   {{/if}}
 
-  {{#if (has-feature "billing.billingType")}}
+  {{#if
+    (and
+      (has-feature "billing.billingType")
+      (not (has-feature "billing.billingAccount"))
+    )
+  }}
     <div class="uk-margin">
       <label class="uk-form-label uk-text-bold" for="organization">
         {{t "billing.billing-type"}}

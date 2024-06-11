@@ -1,3 +1,4 @@
+import { setupMirage } from "ember-cli-mirage/test-support";
 import { module, test } from "qunit";
 
 import { setupTest } from "dummy/tests/helpers";
@@ -7,6 +8,7 @@ import { setupFeatures } from "ember-ebau-core/test-support";
 module("Unit | Controller | billing/new", function (hooks) {
   setupTest(hooks);
   setupFeatures(hooks);
+  setupMirage(hooks);
 
   hooks.beforeEach(function () {
     this.owner.register("controller:billing/new", BillingNewController);

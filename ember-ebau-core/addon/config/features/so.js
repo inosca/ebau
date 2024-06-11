@@ -16,6 +16,9 @@ export default {
     billingType: true,
     legalBasis: true,
     costCenter: true,
+    billingAccount: false,
+    instanceStatesBaubegleitung: [25, 26, 34, 9, 2],
+    basicCharge: 110,
   },
   rejection: {
     revert: false,

@@ -1281,6 +1281,68 @@ def test_dms_placeholders_empty(
     snapshot.assert_match(response.json())
 
 
+@pytest.mark.freeze_time("2021-08-30")
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db(
+    transaction=True, reset_sequences=True
+)  # always reset instance id
+def test_dms_placeholders_billing_account_invoice(
+    db,
+    admin_client,
+    billing_v2_entry_factory,
+    billing_v2_account_factory,
+    group_factory,
+    group,
+    application_settings,
+    so_dms_config,
+    so_instance,
+    service_factory,
+    snapshot,
+):
+    # Billing Account
+    municipality = service_factory(service_group__name="municipality")
+    billing_v2_accounts = billing_v2_account_factory.create_batch(
+        1,
+        name="Testgebühr",
+        department="Dept.",
+        service_group=municipality.service_group,
+        account_number=2222,
+        account_type="BEW",
+    )
+
+    # Billing Entry
+    billing_v2_entry_factory.create_batch(
+        2,
+        group=group_factory(),
+        instance=so_instance,
+        legal_basis=None,
+        cost_center=None,
+        billing_v2_account=billing_v2_accounts[0],
+    )
+
+    # Documents
+    FileFactory(
+        document=AlexandriaDocumentFactory(
+            title="Ausnahmebewilligung",
+            category=CategoryFactory(
+                slug="beilagen-zum-gesuch",
+                metainfo={"access": {"Municipality": {"visibility": "all"}}},
+            ),
+            metainfo={"camac-instance-id": str(so_instance.pk)},
+            created_by_user=admin_client.user.pk,
+            modified_by_user=admin_client.user.pk,
+        ),
+        variant="original",
+    )
+
+    response = admin_client.get(
+        reverse("instance-dms-placeholders", args=[so_instance.pk])
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+    snapshot.assert_match(response.json())
+
+
 @pytest.mark.freeze_time("2023-01-24")
 @pytest.mark.parametrize(
     ("language", "expected"),

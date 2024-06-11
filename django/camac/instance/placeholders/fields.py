@@ -436,6 +436,8 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
             "VERRECHNET_AM": [_("BILLING_ENTRY_CHARGED_AT")],
             "BEMERKUNG": [_("BILLING_ENTRY_REMARK")],
             "ORGANISATION": [_("BILLING_ENTRY_ORGANISATION")],
+            "KONTO": [_("BILLING_ACCOUNT")],
+            "DEPARTMENT": [_("BILLING_DEPARTMENT")],
         }
 
         return {
@@ -534,6 +536,12 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
                     if entry.group.service
                     else entry.group.get_name()
                 )
+            case "DEPARTMENT":
+                if entry.billing_v2_account:
+                    return entry.billing_v2_account.department
+            case "KONTO":
+                if entry.billing_v2_account:
+                    return entry.billing_v2_account.account_number
             case _:  # pragma: no cover
                 return None
 

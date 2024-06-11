@@ -16,8 +16,13 @@ from rest_framework.views import APIView
 from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
 
 from camac.billing.filters import BillingV2EntryFilterSet
-from camac.billing.models import BillingV2Entry, BillingV2EntryTemplate
+from camac.billing.models import (
+    BillingV2Account,
+    BillingV2Entry,
+    BillingV2EntryTemplate,
+)
 from camac.billing.serializers import (
+    BillingV2AccountSerializer,
     BillingV2BulkEntryIdsSerializer,
     BillingV2EntrySerializer,
     BillingV2EntryTemplateSerializer,
@@ -26,6 +31,7 @@ from camac.billing.utils import (
     validate_product_number,
 )
 from camac.billing.wilken.domain_logic import generate_invoices
+from camac.constants import kt_uri as uri_constants
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.permissions.api import PermissionManager
 from camac.permissions.switcher import (
@@ -59,6 +65,24 @@ class BillingV2EntryTemplateViewset(ReadOnlyModelViewSet):
 
     def get_queryset_for_applicant(self):
         return self.queryset.none()
+
+
+class BillingV2AccountViewset(ModelViewSet):
+    serializer_class = BillingV2AccountSerializer
+
+    def get_queryset(self):
+        queryset = BillingV2Account.objects.all()
+        if settings.APPLICATION_NAME == "kt_so":
+            if (
+                self.request.group.service.service_group.service_group_id
+                in uri_constants.KOOR_SERVICE_IDS
+            ):
+                return queryset
+            else:
+                return queryset.filter(
+                    service_group__service_group_id=self.request.group.service.service_group.service_group_id
+                )
+        return queryset
 
 
 class BillingV2EntryViewset(InstanceQuerysetMixin, ModelViewSet):
@@ -146,6 +170,8 @@ class BillingV2EntryViewset(InstanceQuerysetMixin, ModelViewSet):
                 instance.responsible_service(filter_type="municipality")
                 == self.request.group.service
             )
+
+        # has_permission = True
 
         if not has_permission:
             raise PermissionDenied

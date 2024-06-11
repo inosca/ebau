@@ -5,6 +5,7 @@ from factory import Faker, LazyAttribute, Maybe, SubFactory, fuzzy
 from factory.django import DjangoModelFactory
 
 from camac.billing.models import (
+    BillingV2Account,
     BillingV2Entry,
     BillingV2EntryTemplate,
     Invoice,
@@ -111,6 +112,16 @@ class BillingV2EntryTemplateFactory(BillingV2CommonEntryFactory):
 
     class Meta:
         model = BillingV2EntryTemplate
+
+
+class BillingV2AccountFactory(DjangoModelFactory):
+    name = Faker("word")
+    account_number = Faker("word")
+    department = Faker("word")
+    account_type = str(Faker("word"))[:2]
+
+    class Meta:
+        model = BillingV2Account
 
 
 class InvoiceFactory(DjangoModelFactory):

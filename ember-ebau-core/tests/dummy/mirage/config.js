@@ -145,6 +145,8 @@ export default function makeServer(config) {
         ],
       });
 
+      this.resource("billing-v2-accounts");
+
       this.resource("communications-topics");
       this.resource("communications-messages");
       this.resource("communications-attachments");

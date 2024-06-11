@@ -197,6 +197,14 @@ class BillingV2Entry(BillingV2CommonEntry):
     group = models.ForeignKey("user.Group", models.DO_NOTHING, related_name="+")
     user = models.ForeignKey("user.User", models.DO_NOTHING, related_name="+")
 
+    text = models.TextField()
+    billing_v2_account = models.ForeignKey(
+        "BillingV2Account",
+        related_name="billing_v2_entries",
+        null=True,
+        on_delete=models.SET_NULL,
+    )
+
     # Structural: Which instance is the item billed to?
     instance = models.ForeignKey(
         "instance.Instance", models.CASCADE, related_name="billing_v2_entries"
@@ -270,3 +278,26 @@ class LineItem(models.Model):
     billing_v2_entry = models.ForeignKey(
         "billing.BillingV2Entry", models.SET_NULL, related_name="+", null=True
     )
+
+
+class BillingV2Account(models.Model):
+    name = models.CharField(max_length=500)
+    account_number = models.CharField(max_length=50, blank=True, null=True)
+    department = models.CharField(max_length=255, blank=True, null=True)
+    service_group = models.ForeignKey(
+        "user.ServiceGroup",
+        models.CASCADE,
+        related_name="+",
+    )
+    BEW = "BEW"
+    BGL = "BGL"
+    ACCOUNT_TYPE_CHOICES = (
+        (BEW, "Baubewilligung"),
+        (BGL, "Baubegleitung"),
+    )
+    account_type = models.CharField(max_length=3, choices=ACCOUNT_TYPE_CHOICES)
+
+    class Meta:
+        ordering = ["name"]
+        verbose_name = "Gebührenart"
+        verbose_name_plural = "Gebührenarten"

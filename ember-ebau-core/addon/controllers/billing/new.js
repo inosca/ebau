@@ -4,7 +4,7 @@ import { service } from "@ember/service";
 import { camelize } from "@ember/string";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
-import { findAll } from "ember-data-resources";
+import { findAll, findRecord } from "ember-data-resources";
 
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import { isApplication } from "ember-ebau-core/helpers/is-application";
@@ -25,11 +25,21 @@ export default class BillingNewController extends Controller {
   @service router;
   @service ebauModules;
   @service notification;
+  @service session;
 
   @tracked newEntry = null;
   @tracked entryTemplates = findAll(this, "billing-v2-entry-template");
   @tracked productNumbers;
   @tracked selectedTemplate = null;
+
+  billingV2Accounts = findAll(this, "billing-v2-account");
+
+  instance = findRecord(this, "instance", () => [
+    this.ebauModules.instanceId,
+    {
+      include: "instance_state",
+    },
+  ]);
 
   taxRates = hasFeature("billing.reducedTaxRate") ? [8.1, 2.6] : [8.1];
 
@@ -49,6 +59,9 @@ export default class BillingNewController extends Controller {
 
   get calculations() {
     const calculations = ["flat", "hourly", "percentage"];
+    if (hasFeature("billing.billingAccount")) {
+      calculations.unshift("percentage");
+    }
 
     if (isApplication("ag") && this.ebauModules.serviceSlug === "afb") {
       calculations.push("ag_processing_fee");
@@ -105,6 +118,10 @@ export default class BillingNewController extends Controller {
       billingType: hasFeature("billing.billingType") ? "by_authority" : null,
     });
 
+    if (hasFeature("billing.billingAccount")) {
+      this.newEntry.hourlyRate = 110;
+    }
+
     this.productNumbers = await this.#fetchProductNumbers();
     if (this.productNumbers.length) {
       this.update({
@@ -121,12 +138,38 @@ export default class BillingNewController extends Controller {
   }
 
   @action
+  isBaubegleitung(instanceStateId) {
+    const instanceStatesBaubegleitungArr = hasFeature(
+      "billing.instanceStatesBaubegleitung",
+    );
+    if (Array.isArray(instanceStatesBaubegleitungArr)) {
+      return instanceStatesBaubegleitungArr.includes(Number(instanceStateId));
+    }
+    return false;
+  }
+
+  @action
   update({ target: { value, name } }) {
     if (name === "tax-mode") {
       this.newEntry.taxMode = getMode(value);
       this.newEntry.taxRate = getRate(value);
+    } else if (name === "billing_v2_account") {
+      const accountId = value;
+      if (value !== "") {
+        const account = this.store.peekRecord("billing-v2-account", accountId);
+        this.newEntry.billingV2Account = account;
+        this.newEntry.text = account.name;
+        this.newEntry.costCenter = account.account_number;
+      }
+    } else if (name === "basic") {
+      if (value !== "") {
+        this.newEntry.basic = value;
+        this.newEntry.calculation = "basic";
+      } else {
+        this.newEntry.calculation = "flat";
+      }
     } else {
-      this.newEntry[camelize(name)] = value ?? null;
+      this.newEntry[camelize(name)] = value ? value : null;
     }
   }
 
@@ -176,6 +219,11 @@ export default class BillingNewController extends Controller {
     if (this.newEntry.calculation !== "hourly") {
       this.newEntry.hours = null;
       this.newEntry.hourlyRate = null;
+    }
+    if (hasFeature("billing.basicCharge") && this.newEntry.basic) {
+      this.newEntry.totalCost =
+        this.newEntry.basic * hasFeature("billing.basicCharge");
+      this.newEntry.calculation = "flat";
     }
 
     try {

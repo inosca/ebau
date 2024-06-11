@@ -5,7 +5,11 @@ from django.conf import settings
 from django.utils.translation import gettext as _
 from rest_framework_json_api import serializers
 
-from camac.billing.models import BillingV2Entry, BillingV2EntryTemplate
+from camac.billing.models import (
+    BillingV2Account,
+    BillingV2Entry,
+    BillingV2EntryTemplate,
+)
 from camac.billing.utils import (
     add_taxes_to_final_rate,
     calculate_final_rate,
@@ -18,7 +22,7 @@ from camac.user.relations import (
     CurrentUserResourceRelatedField,
     GroupResourceRelatedField,
 )
-from camac.user.serializers import CurrentGroupDefault
+from camac.user.serializers import CurrentGroupDefault, PublicServiceGroupSerializer
 
 if TYPE_CHECKING:
     from camac.settings.modules.billing_schema import ProductNumberConfig
@@ -280,3 +284,18 @@ class BillingV2BulkEntryIdsSerializer(serializers.Serializer):
         allow_empty=False,
         help_text="List of entry IDs to charge",
     )
+
+
+class BillingV2AccountSerializer(serializers.ModelSerializer):
+    included_serializers = {"service_group": PublicServiceGroupSerializer}
+
+    class Meta:
+        model = BillingV2Account
+        fields = (
+            "name",
+            "account_number",
+            "department",
+            "account_type",
+            "billing_v2_entries",
+            "service_group",
+        )
