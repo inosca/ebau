@@ -1,0 +1,5 @@
+billing:
+  info: |-
+    Die hier erfassten Gebühren werden nicht automatisch an ein Debitoren-System
+    weitergeleitet. Die Rechnungsstellung muss über eine Dokumentenvorlage
+    erfolgen.
