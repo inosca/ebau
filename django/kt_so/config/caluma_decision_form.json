@@ -525,7 +525,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\"><strong>Achtung:</strong> Der Entscheid kann in eBau erst best\\u00e4tigt werden, wenn das Rechtsverfahren <u>definitiv abgeschlossen</u> ist.</div>\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\"><strong>Achtung:</strong> Der Entscheid darf in eBau erst best\\u00e4tigt werden, wenn das Verfahren <u>rechtskr\\u00e4ftig</u> abgeschlossen ist.</div>\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
