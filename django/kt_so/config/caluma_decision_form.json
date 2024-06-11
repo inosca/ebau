@@ -554,7 +554,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Haben Sie den Entscheid im Men\\u00fc \\\"Dokumente\\\" hochgeladen und m\\u00f6chten Sie den Entscheid jetzt verf\\u00fcgen? Dieser Schritt kann nicht r\\u00fcckg\\u00e4ngig gemacht werden.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Erstellen Sie den Entscheid und legen ihn im Men\\u00fc Dokumente unter \\\"Beteiligte Beh\\u00f6rden\\\" gekennzeichnet als \\\"Entscheid Dokument\\\" sichtbar im eBau Portal ab.\\n\\nDieser Schritt kann nicht r\\u00fcckg\\u00e4ngig gemacht werden.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
