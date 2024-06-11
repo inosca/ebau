@@ -33,6 +33,7 @@ export default {
         "decision",
         "paper",
         "modification",
+        "appeal",
       ],
       service: [
         "form",

@@ -331,6 +331,16 @@ export default class CaseTableComponent extends Component {
                         },
                       ],
                     },
+                    appeal: {
+                      metaValue: [
+                        {
+                          key: "is-appeal",
+                          lookup: "EXACT",
+                          value: true,
+                        },
+                      ],
+                      invert: filter.appeal !== "1",
+                    },
                   }
                 : {}),
     };

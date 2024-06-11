@@ -267,6 +267,13 @@ export default class CaseFilterComponent extends Component {
     ];
   }
 
+  get appealOptions() {
+    return [
+      { value: "1", label: this.intl.t("cases.appeal.only") },
+      { value: "0", label: this.intl.t("cases.appeal.none") },
+    ];
+  }
+
   legalStateOerebOptions = trackedFunction(this, async () => {
     const response = await this.apollo.query(
       { query: oerebLegalStateAnswersQuery },

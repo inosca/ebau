@@ -43,6 +43,8 @@ cases:
   filters:
     address-placeholder: ""
     address: "Adresse"
+    appeal-placeholder: ""
+    appeal: "Beschwerdeverfahren"
     applicant-placeholder: ""
     applicant: "Gesuchsteller"
     builder-placeholder: ""
@@ -175,3 +177,7 @@ cases:
   presets:
     pending: "Pendenzen"
     paper: "Alle Papierdossiers"
+
+  appeal:
+    only: "Nur Beschwerdeverfahren"
+    none: "Keine Beschwerdeverfahren"
