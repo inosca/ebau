@@ -1937,9 +1937,17 @@ STATICFILES_FINDERS = (
     #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-DEFAULT_FILE_STORAGE = env.str(
-    "DJANGO_DEFAULT_FILE_STORAGE", default="django.core.files.storage.FileSystemStorage"
-)
+STORAGES = {
+    "default": {
+        "BACKEND": env.str(
+            "DJANGO_DEFAULT_FILE_STORAGE",
+            default="django.core.files.storage.FileSystemStorage",
+        )
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
+}
 FILE_UPLOAD_PERMISSIONS = env.int("FILE_UPLOAD_PERMISSIONS", default=0o644)
 
 THUMBNAIL_ENGINE = "sorl.thumbnail.engines.convert_engine.Engine"
@@ -2003,7 +2011,7 @@ CACHES = {
     "default": {
         "BACKEND": env.str(
             "DJANGO_CACHE_BACKEND",
-            default="django.core.cache.backends.memcached.MemcachedCache",
+            default="django.core.cache.backends.memcached.PyMemcacheCache",
         ),
         "LOCATION": env.str("DJANGO_CACHE_LOCATION", default="127.0.0.1:11211"),
     }
@@ -2041,7 +2049,6 @@ LANGUAGES = [
 ]
 TIME_ZONE = "Europe/Zurich"
 USE_I18N = True
-USE_L10N = True
 USE_TZ = True
 LOCALE_PATHS = (
     os.path.join(ROOT_DIR, "camac", "instance", "placeholders", "locale"),
@@ -2493,7 +2500,7 @@ GENERIC_PERMISSIONS_VALIDATION_CLASSES = [
 ]
 
 
-is_s3_storage = DEFAULT_FILE_STORAGE == "storages.backends.s3.S3Storage"
+is_s3_storage = STORAGES["default"]["BACKEND"] == "storages.backends.s3.S3Storage"
 
 AWS_S3_ACCESS_KEY_ID = env.str(
     "AWS_S3_ACCESS_KEY_ID",

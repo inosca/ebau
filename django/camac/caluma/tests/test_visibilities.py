@@ -1027,7 +1027,7 @@ def test_visibility_performance_heuristic_workitems(
         # The "id" does not trigger the heuristic, as we currently
         # do not check for the root node type where we look for the
         # filters.
-        ("{id: $case}", "case", "$case:ID!"),
+        ("{ids: [$case]}", "case", "$case:ID!"),
     ],
 )
 def test_visibility_performance_heuristic_cases(

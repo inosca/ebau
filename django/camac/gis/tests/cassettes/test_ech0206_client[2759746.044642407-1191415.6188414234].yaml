@@ -18,10 +18,10 @@ interactions:
         xmlns:ows=\"http://www.opengis.net/ows/1.1\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.opengis.net/wps/1.0.0
         ../wpsExecute_response.xsd\" service=\"WPS\" version=\"1.0.0\" xml:lang=\"de-CH\"
-        serviceInstance=\"http://wps.geo.gr.ch/?request=GetCapabilities&amp;amp;service=WPS\"
+        serviceInstance=\"https://wps.geo.gr.ch/?request=GetCapabilities&amp;amp;service=WPS\"
         statusLocation=\"\">\n    <wps:Process wps:processVersion=\"1.0.0\">\n        <ows:Identifier>get_info_ebbv</ows:Identifier>\n
         \       <ows:Title>Diverse Layer-Informationen fuer eBBV anhand Geometrie</ows:Title>\n
-        \       <ows:Abstract></ows:Abstract>\n\t</wps:Process>\n    <wps:Status creationTime=\"2023-11-21T13:28:57Z\">\n
+        \       <ows:Abstract></ows:Abstract>\n\t</wps:Process>\n    <wps:Status creationTime=\"2024-06-12T13:59:08Z\">\n
         \       <wps:ProcessSucceeded>PyWPS Process Diverse Layer-Informationen fuer
         eBBV anhand Geometrie finished</wps:ProcessSucceeded>\n\t</wps:Status>\n\t<wps:ProcessOutputs>\n\t\t<wps:Output>\n
         \           <ows:Identifier>folgeplanung_bau_niveaulinienplaene</ows:Identifier>\n
@@ -379,14 +379,20 @@ interactions:
         type=&#34;int&#34;&gt;0&lt;/gwr_edid&gt;&lt;gebaeudestatus type=&#34;null&#34;&gt;&lt;/gebaeudestatus&gt;&lt;gebaeudenummer
         type=&#34;null&#34;&gt;&lt;/gebaeudenummer&gt;&lt;text_ type=&#34;str&#34;&gt;Rosenweg&lt;/text_&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t</wps:ProcessOutputs>\n</wps:ExecuteResponse>"
     headers:
+      Access-Control-Allow-Headers:
+      - Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
       Connection:
       - keep-alive
       Content-Length:
-      - '35619'
+      - '35620'
       Content-Type:
       - text/xml; charset=utf-8
       Date:
-      - Tue, 21 Nov 2023 12:28:57 GMT
+      - Wed, 12 Jun 2024 11:59:08 GMT
     status:
       code: 200
       message: OK
@@ -398,7 +404,7 @@ interactions:
       \     <eCH-0206:businessReferenceId>BFS/OFS/UST</eCH-0206:businessReferenceId>\n
       \     <eCH-0206:requestingApplication>\n         <eCH-0058:manufacturer>Adfinis</eCH-0058:manufacturer>\n
       \        <eCH-0058:product>eBau Kt. GR</eCH-0058:product>\n         <eCH-0058:productVersion>1.0.0</eCH-0058:productVersion>\n
-      \     </eCH-0206:requestingApplication>\n      <eCH-0206:requestDate>2023-11-21T12:28:58.016003</eCH-0206:requestDate>\n
+      \     </eCH-0206:requestingApplication>\n      <eCH-0206:requestDate>2024-06-12T11:59:08.136957+00:00</eCH-0206:requestDate>\n
       \ </eCH-0206:requestHeader>\n  <eCH-0206:requestContext>building</eCH-0206:requestContext>\n
       \ <eCH-0206:requestQuery>\n    <eCH-0206:condition>\n         <eCH-0206:attributePath>/eCH-0206:maddResponse/eCH-0206:buildingList/eCH-0206:buildingItem/eCH-0206:EGID</eCH-0206:attributePath>\n
       \        <eCH-0206:operator>in</eCH-0206:operator><eCH-0206:attributeValue>9001212</eCH-0206:attributeValue>\n
@@ -411,7 +417,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '1277'
+      - '1283'
       Content-Type:
       - text/xml
       User-Agent:
@@ -420,46 +426,24 @@ interactions:
     uri: https://madd.bfs.admin.ch/eCH-0206
   response:
     body:
-      string: !!binary |
-        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
-        zTjV/Sdv85nO3gAAAP//AwAucKlyixUAAA==
+      string: '<?xml version="1.0" encoding="utf-8"?>
+
+        <maddResponse xmlns="http://www.ech.ch/xmlns/eCH-0206/2" xmlns:eCH-0058="http://www.ech.ch/xmlns/eCH-0058/5"
+        xmlns:eCH-0129="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:eCH-0007="http://www.ech.ch/xmlns/eCH-0007/6"><status><code>100</code><message>OK</message></status><responseHeader><messageId>2c977360-28b3-11ef-9547-0242ac140003</messageId><requestMessageId>myMessageId</requestMessageId><businessReferenceId>BFS/OFS/UST</businessReferenceId><respondingApplication><eCH-0058:manufacturer>SFSO</eCH-0058:manufacturer><eCH-0058:product>MADD</eCH-0058:product><eCH-0058:productVersion>0.1</eCH-0058:productVersion></respondingApplication><comment>no
+        comment</comment><responseDate>2024-06-12T11:59:08</responseDate></responseHeader><originalRequest
+        xmlns:eCH-0058="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:eCH-0206="http://www.ech.ch/xmlns/eCH-0206/2"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ech.ch/xmlns/eCH-0206/2
+        eCH-0206-2-0-draft.xsd"><eCH-0206:requestHeader><eCH-0206:messageId>myMessageId</eCH-0206:messageId><eCH-0206:businessReferenceId>BFS/OFS/UST</eCH-0206:businessReferenceId><eCH-0206:requestingApplication><eCH-0058:manufacturer>Adfinis</eCH-0058:manufacturer><eCH-0058:product>eBau
+        Kt. GR</eCH-0058:product><eCH-0058:productVersion>1.0.0</eCH-0058:productVersion></eCH-0206:requestingApplication><eCH-0206:requestDate>2024-06-12T11:59:08.136957+00:00</eCH-0206:requestDate></eCH-0206:requestHeader><eCH-0206:requestContext>building</eCH-0206:requestContext><eCH-0206:requestQuery><eCH-0206:condition><eCH-0206:attributePath>/eCH-0206:maddResponse/eCH-0206:buildingList/eCH-0206:buildingItem/eCH-0206:EGID</eCH-0206:attributePath><eCH-0206:operator>in</eCH-0206:operator><eCH-0206:attributeValue>9001212</eCH-0206:attributeValue></eCH-0206:condition></eCH-0206:requestQuery></originalRequest><maddAuthorization><maddId>anonymous</maddId><maddDataSet>3</maddDataSet></maddAuthorization><buildingList><buildingItem><EGID>9001212</EGID><building><officialBuildingNo>4-50</officialBuildingNo><nameOfBuilding>Kant.
+        Finanzdepartement</nameOfBuilding><coordinates><east>2759749.82</east><north>1191413.778</north><originOfCoordinates>901</originOfCoordinates></coordinates><buildingStatus>1004</buildingStatus><buildingCategory>1060</buildingCategory><buildingClass>1220</buildingClass><dateOfConstruction><dateOfConstruction>1965</dateOfConstruction><periodOfConstruction>8014</periodOfConstruction></dateOfConstruction><surfaceAreaOfBuilding>577</surfaceAreaOfBuilding><numberOfFloors>5</numberOfFloors><thermotechnicalDeviceForHeating1><heatGeneratorHeating>7430</heatGeneratorHeating><energySourceHeating>7520</energySourceHeating><informationSourceHeating>859</informationSourceHeating><revisionDate>2018-10-15</revisionDate></thermotechnicalDeviceForHeating1><thermotechnicalDeviceForWarmWater1><heatGeneratorHotWater>7630</heatGeneratorHotWater><energySourceHeating>7530</energySourceHeating><informationSourceHeating>859</informationSourceHeating><revisionDate>2018-10-15</revisionDate></thermotechnicalDeviceForWarmWater1><recordModification><createDate>2001-11-29</createDate><updateDate>2022-01-13</updateDate></recordModification></building><buildingEntranceList><buildingEntranceItem><EDID>0</EDID><buildingEntrance><EGAID>101215392</EGAID><buildingEntranceNo>4</buildingEntranceNo><coordinates><east>2759741.946</east><north>1191422.368</north></coordinates><isOfficialAddress>0</isOfficialAddress><recordModification><createDate>2016-12-14</createDate><updateDate>2024-04-21</updateDate></recordModification><street><ESID>10047302</ESID><isOfficialDescription>1</isOfficialDescription><streetNameList><streetNameItem><language>9901</language><descriptionLong>Rosenweg</descriptionLong><descriptionShort>Rosenweg</descriptionShort><descriptionIndex>Ros</descriptionIndex></streetNameItem></streetNameList></street><locality><swissZipCode>7000</swissZipCode><swissZipCodeAddOn>0</swissZipCodeAddOn><placeName>Chur</placeName></locality></buildingEntrance></buildingEntranceItem></buildingEntranceList><municipality><municipalityId>3901</municipalityId><municipalityName>Chur</municipalityName><cantonAbbreviation>GR</cantonAbbreviation></municipality><realestateIdentificationList><realestateIdentificationItem><EGRID>CH159786776840</EGRID><number>3309</number><subDistrict>0</subDistrict></realestateIdentificationItem></realestateIdentificationList></buildingItem></buildingList><responseMetadata><statisticsList><statisticsItem><objectType>municipality_xml</objectType><objectCount>1</objectCount></statisticsItem><statisticsItem><objectType>building_xml</objectType><objectCount>1</objectCount></statisticsItem><statisticsItem><objectType>entrance_xml</objectType><objectCount>1</objectCount></statisticsItem><statisticsItem><objectType>dwelling_xml</objectType><objectCount>0</objectCount></statisticsItem><statisticsItem><objectType>street_xml</objectType><objectCount>1</objectCount></statisticsItem><statisticsItem><objectType>locality_xml</objectType><objectCount>1</objectCount></statisticsItem><statisticsItem><objectType>streetname_xml</objectType><objectCount>1</objectCount></statisticsItem><statisticsItem><objectType>constructionWork_xml</objectType><objectCount>0</objectCount></statisticsItem></statisticsList><lastUpdateDate>2024-06-12T01:14:18</lastUpdateDate><exportDate>2024-06-12T01:43:38</exportDate><remarkList><remarkItem>no
+        remark</remarkItem></remarkList></responseMetadata></maddResponse>'
     headers:
       Connection:
       - keep-alive
       Content-Type:
       - application/xml; charset=UTF-8
       Date:
-      - Tue, 21 Nov 2023 12:28:58 GMT
+      - Wed, 12 Jun 2024 11:59:08 GMT
       Transfer-Encoding:
       - chunked
       cache-control:
@@ -469,15 +453,15 @@ interactions:
       content-encoding:
       - gzip
       expires:
-      - Tue, 21 Nov 2023 12:28:58 GMT
+      - Wed, 12 Jun 2024 11:59:08 GMT
       last-modified:
-      - Tue, 21 Nov 2023 12:28:58 GMT
+      - Wed, 12 Jun 2024 11:59:08 GMT
       pragma:
       - no-cache
       server:
-      - gunicorn/20.0.4
+      - gunicorn
       server-timing:
-      - route;desc=ech_0206, route;dur=27
+      - route;desc=ech_0206, route;due=16
       vary:
       - Cookie
       - Accept-Encoding

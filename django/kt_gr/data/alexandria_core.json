@@ -39,6 +39,8 @@
       "checksum": null,
       "encryption_status": null,
       "content": "98e43114-01dc-4d4d-8cbf-b5e91f34d7cb_4-baugesuch.pdf",
+      "content_vector": null,
+      "language": null,
       "mime_type": "application/pdf",
       "size": 0
     }

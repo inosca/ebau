@@ -2,7 +2,6 @@ import hashlib
 
 from django.conf import settings
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
-from django.contrib.postgres.fields import CIEmailField
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -44,8 +43,9 @@ class User(AbstractBaseUser):
     surname = models.CharField(
         db_column="SURNAME", max_length=100, verbose_name=_("Last name")
     )
-    email = CIEmailField(
+    email = models.EmailField(
         db_column="EMAIL",
+        db_collation="case_insensitive",
         max_length=100,
         blank=True,
         null=True,

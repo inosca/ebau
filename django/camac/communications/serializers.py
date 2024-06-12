@@ -385,7 +385,8 @@ class CommunicationsAttachmentSerializer(serializers.ModelSerializer):
     def get_download_url(self, attachment):
         if (
             attachment.file_attachment
-            and settings.DEFAULT_FILE_STORAGE == "storages.backends.s3.S3Storage"
+            and settings.STORAGES["default"]["BACKEND"]
+            == "storages.backends.s3.S3Storage"
         ):
             return attachment.file_attachment.url
         elif attachment.alexandria_file:
