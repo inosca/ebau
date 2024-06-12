@@ -35,12 +35,15 @@
                   @color="default"
                   @onClick={{perform this.toggleActionable}}
                   @loading={{this.toggleActionable.isRunning}}
-                  @label={{if
-                    this.isActionable
-                    "Bearbeitung beenden"
-                    "Bearbeitung übernehmen"
+                  @label={{t
+                    (concat
+                      "construction-monitoring.construction-step.work-item."
+                      (if
+                        this.isActionable "finish-editing" "take-over-editing"
+                      )
+                    )
                   }}
-                  class="uk-margin-small-right"
+                  class="uk-margin-small-right uk-text-nowrap"
                 />
               {{/if}}
               {{#if this.isActionable}}
@@ -63,7 +66,9 @@
               {{/if}}
             </div>
             {{#if this.showActionable}}
-              <div class="uk-text-bolder">
+              <div
+                class={{if (is-legacy-app) "uk-text-bolder" "uk-text-small"}}
+              >
                 {{t
                   "construction-monitoring.construction-step.work-item.addressed-to-applicant"
                 }}
