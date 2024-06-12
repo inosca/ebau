@@ -6134,6 +6134,46 @@
   },
   {
     "model": "core.rroleacl",
+    "pk": 14000003,
+    "fields": {
+      "resource": 14000008,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 14000004,
+    "fields": {
+      "resource": 14000008,
+      "role": 4
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 14000005,
+    "fields": {
+      "resource": 14000008,
+      "role": 20000
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 14000006,
+    "fields": {
+      "resource": 14000008,
+      "role": 20001
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 14000007,
+    "fields": {
+      "resource": 14000008,
+      "role": 10000
+    }
+  },
+  {
+    "model": "core.rroleacl",
     "pk": 15000000,
     "fields": {
       "resource": 14000001,
@@ -6298,6 +6338,19 @@
     }
   },
   {
+    "model": "core.resource",
+    "pk": 14000008,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/alexandria-search.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 13
+    }
+  },
+  {
     "model": "core.resourcet",
     "pk": 20006,
     "fields": {
@@ -6404,6 +6457,16 @@
       "resource": 14000006,
       "language": "de",
       "name": "GWR",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 21000001,
+    "fields": {
+      "resource": 14000008,
+      "language": "de",
+      "name": "Dokumentensuche",
       "description": null
     }
   }

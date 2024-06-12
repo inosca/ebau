@@ -15,6 +15,8 @@ services:
       - cache
       - keycloak
       - mailhog
+      - minio
+      - tika
     environment:
       - DATABASE_HOST=db
       - DATABASE_NAME=${APPLICATION}
@@ -96,6 +98,9 @@ services:
       - CONCURRENT_DATABASE_RELOAD=false
       - DEFINITIONS_UPDATE_FREQUENCY=1440
       - DEFINITIONS_UPDATE_BEGIN=0300
+
+  tika:
+    image: apache/tika:2.9.2.1-full
 
 volumes:
   pgdata:

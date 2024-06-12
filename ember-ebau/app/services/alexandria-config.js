@@ -1,3 +1,4 @@
+import { action, get } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import AlexandriaConfigService from "ember-alexandria/services/alexandria-config";
@@ -13,6 +14,7 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
   @service store;
   @service session;
   @service intl;
+  @service router;
 
   @tracked instanceId;
 
@@ -43,25 +45,31 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
     return this.session.data.authenticated.access_token;
   }
 
+  @action
   resolveUser(id) {
     if (!id) return "-";
 
     return this.store.peekRecord("user", id)?.fullName ?? "-";
   }
 
+  @action
   resolveGroup(id) {
     if (!id) return "-";
 
     return this.store.peekRecord("service", id)?.name ?? "-";
   }
 
-  extractCreatedBy(documents, key) {
-    return [...new Set(documents.map((d) => d[key]).filter((id) => id))];
+  extractDocumentProperties(documents, key) {
+    return [...new Set(documents.map((d) => get(d, key)))].filter((id) => id);
   }
 
   async documentsPostProcess(documents) {
-    const users = this.extractCreatedBy(documents, "createdByUser");
-    const groups = this.extractCreatedBy(documents, "createdByGroup");
+    const users = this.extractDocumentProperties(documents, "createdByUser");
+    const groups = this.extractDocumentProperties(documents, "createdByGroup");
+    const instances = this.extractDocumentProperties(
+      documents,
+      "metainfo.camac-instance-id",
+    );
 
     const requests = [];
     if (users.length) {
@@ -76,10 +84,34 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
         }),
       );
     }
+    if (instances.length) {
+      requests.push(
+        await this.store.query("instance", {
+          filter: { instance_id: instances.join(",") },
+        }),
+      );
+    }
 
     await Promise.all(requests);
 
     return documents;
+  }
+
+  @action
+  documentListLinkTo(document) {
+    const instance = this.store.peekRecord(
+      "instance",
+      document.metainfo["camac-instance-id"],
+    );
+
+    return {
+      url: this.router.urlFor("cases.detail.alexandria", instance, {
+        queryParams: {
+          document: document.id,
+        },
+      }),
+      label: instance.dossierNumber,
+    };
   }
 
   namespace = "/alexandria/api/v1";
