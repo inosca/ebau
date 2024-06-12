@@ -1512,6 +1512,21 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             existing_instance = models.Instance.objects.get(pk=existing_instance_id)
             link_instances(instance, existing_instance)
 
+    def _ur_link_konzession_with_bohrbewilligung(self, instance):
+        if settings.APPLICATION_NAME != "kt_uri":
+            return
+
+        if instance.case.document.form.slug != "konzession-waermeentnahme":
+            return
+
+        existing_instance_id = CalumaApi().get_answer_value(
+            "dossier-id-der-bohrbewilligung", instance
+        )
+
+        if existing_instance_id:
+            existing_instance = models.Instance.objects.get(pk=existing_instance_id)
+            link_instances(instance, existing_instance)
+
     def _ur_get_responsible_service(self, instance):
         form_slug = instance.case.document.form.slug
 
@@ -1721,6 +1736,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             instance.save()
 
             self._ur_link_technische_bewilligung(instance)
+            self._ur_link_konzession_with_bohrbewilligung(instance)
             self._set_authority(instance)
             self._set_submit_date(case, instance)
             self._generate_and_store_pdf(instance)
