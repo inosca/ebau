@@ -838,16 +838,16 @@
   'MeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreet 3a'
 # ---
 # name: test_record_loading_sz[dossier_row_patch4-submit_date-kt_schwyz-sz_instance-False]
-  datetime.datetime(2021, 12, 12, 11, 0, tzinfo=<UTC>)
+  datetime.datetime(2021, 12, 12, 11, 0, tzinfo=datetime.timezone.utc)
 # ---
 # name: test_record_loading_sz[dossier_row_patch4-submit_date-kt_schwyz-sz_instance-True]
-  datetime.datetime(2021, 12, 12, 11, 0, tzinfo=<UTC>)
+  datetime.datetime(2021, 12, 12, 11, 0, tzinfo=datetime.timezone.utc)
 # ---
 # name: test_record_loading_sz[dossier_row_patch5-publication_date-kt_schwyz-sz_instance-False]
-  datetime.datetime(2021, 12, 12, 11, 0, tzinfo=<UTC>)
+  datetime.datetime(2021, 12, 12, 11, 0, tzinfo=datetime.timezone.utc)
 # ---
 # name: test_record_loading_sz[dossier_row_patch5-publication_date-kt_schwyz-sz_instance-True]
-  datetime.datetime(2021, 12, 12, 11, 0, tzinfo=<UTC>)
+  datetime.datetime(2021, 12, 12, 11, 0, tzinfo=datetime.timezone.utc)
 # ---
 # name: test_record_loading_sz[dossier_row_patch6-construction_start_date-kt_schwyz-sz_instance-False]
   datetime.date(2021, 12, 12)

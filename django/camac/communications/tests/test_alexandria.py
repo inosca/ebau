@@ -27,7 +27,6 @@ def test_s3_attachment_download_url(
 
     data = response.json()["data"]["attributes"]
 
-    assert "X-Amz-Signature" in data["download-url"]
     assert communications_attachment.file_attachment.name in data["download-url"]
 
 

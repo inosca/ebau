@@ -1,10 +1,8 @@
-import operator
 import re
-from functools import reduce
 
 from django.conf import settings
 from django.contrib.admin import AdminSite
-from django.contrib.admin.utils import lookup_needs_distinct
+from django.contrib.admin.utils import lookup_spawns_duplicates
 from django.core.exceptions import FieldDoesNotExist
 from django.db.models import Q
 from django.db.models.constants import LOOKUP_SEP
@@ -81,9 +79,10 @@ class MultilingualAdminMixin:
 
     def get_search_results(self, request, queryset, search_term):  # noqa: C901
         # WARNING: This whole method is copy pasted from
-        # https://github.com/django/django/blob/3.2.15/django/contrib/admin/options.py
+        # https://github.com/django/django/blob/4.2.13/django/contrib/admin/options.py#L1104
         # except the line that is marked as changed. If the upstream code
         # changes, we need to update the content of this method as well!
+
         # Apply keyword searches.
         def construct_search(field_name):
             if field_name.startswith("^"):
@@ -108,9 +107,9 @@ class MultilingualAdminMixin:
                         return field_name
                 else:
                     prev_field = field
-                    if hasattr(field, "get_path_info"):
+                    if hasattr(field, "path_infos"):
                         # Update opts to follow the relation.
-                        opts = field.get_path_info()[-1].to_opts
+                        opts = field.path_infos[-1].to_opts
             # Otherwise, use the field with icontains.
             return "%s__icontains" % field_name
 
@@ -120,17 +119,22 @@ class MultilingualAdminMixin:
             orm_lookups = [
                 construct_search(str(search_field)) for search_field in search_fields
             ]
+            term_queries = []
             for bit in smart_split(search_term):
                 if bit.startswith(('"', "'")) and bit[0] == bit[-1]:
                     bit = unescape_string_literal(bit)
-                or_queries = [
-                    # This is the only line that changed
-                    self.generate_query(orm_lookup, bit)
-                    for orm_lookup in orm_lookups
-                ]
-                queryset = queryset.filter(reduce(operator.or_, or_queries))
+                or_queries = Q.create(
+                    # ATTENTION: LINE DIFFERENT TO UPSTREAM
+                    [
+                        self.generate_query(orm_lookup, bit)
+                        for orm_lookup in orm_lookups
+                    ],
+                    connector=Q.OR,
+                )
+                term_queries.append(or_queries)
+            queryset = queryset.filter(Q.create(term_queries))
             may_have_duplicates |= any(
-                lookup_needs_distinct(self.opts, search_spec)
+                lookup_spawns_duplicates(self.opts, search_spec)
                 for search_spec in orm_lookups
             )
         return queryset, may_have_duplicates

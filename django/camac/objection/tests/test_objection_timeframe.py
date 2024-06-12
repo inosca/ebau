@@ -1,10 +1,9 @@
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 
 import pytest
 from django.core.exceptions import ObjectDoesNotExist
+from django.db.backends.postgresql.psycopg_any import DateTimeTZRange
 from django.urls import reverse
-from django.utils import timezone
-from psycopg2.extras import DateTimeTZRange
 from rest_framework import status
 
 
@@ -34,7 +33,7 @@ def test_objection_timeframe_list(admin_client, objection_timeframe, size):
 def test_objection_timeframe_create(admin_client, group, instance, status_code):
     url = reverse("objectiontimeframe-list")
 
-    start_date = timezone.now()
+    start_date = datetime.now(timezone.utc)
     data = {
         "data": {
             "type": "objection-timeframes",
@@ -42,7 +41,7 @@ def test_objection_timeframe_create(admin_client, group, instance, status_code):
             "attributes": {
                 "timeframe": {
                     "lower": start_date,
-                    "upper": timezone.now() + timedelta(days=3),
+                    "upper": datetime.now(timezone.utc) + timedelta(days=3),
                 }
             },
             "relationships": {
@@ -69,13 +68,14 @@ def test_objection_timeframe_create(admin_client, group, instance, status_code):
     ],
 )
 @pytest.mark.parametrize(
-    "objection_timeframe__timeframe", (DateTimeTZRange(timezone.now(), None),)
+    "objection_timeframe__timeframe",
+    (DateTimeTZRange(datetime.now(timezone.utc), None),),
 )
 def test_objection_timeframe_update(admin_client, objection_timeframe, status_code):
     url = reverse("objectiontimeframe-detail", args=[objection_timeframe.pk])
 
-    start_date = timezone.now() - timedelta(days=5)
-    end_date = timezone.now() + timedelta(days=3)
+    start_date = datetime.now(timezone.utc) - timedelta(days=5)
+    end_date = datetime.now(timezone.utc) + timedelta(days=3)
     data = {
         "data": {
             "type": "objection-timeframes",
@@ -113,7 +113,12 @@ def test_objection_timeframe_destroy(admin_client, objection_timeframe, status_c
 
 @pytest.mark.parametrize(
     "role__name,objection_timeframe__timeframe",
-    [("Municipality", DateTimeTZRange(None, (timezone.now() - timedelta(days=30))))],
+    [
+        (
+            "Municipality",
+            DateTimeTZRange(None, (datetime.now(timezone.utc) - timedelta(days=30))),
+        )
+    ],
 )
 def test_objection_timeframe_restriction(admin_client, objection_timeframe):
     url = reverse("objection-list")

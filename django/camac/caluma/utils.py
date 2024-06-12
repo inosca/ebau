@@ -14,7 +14,7 @@ from django.db.models import (
     Case,
     Exists,
     Expression,
-    Func,
+    F,
     IntegerField,
     OuterRef,
     Q,
@@ -26,6 +26,7 @@ from django.utils.translation import get_language
 from jwt import decode as jwt_decode
 from rest_framework.authentication import get_authorization_header
 
+from camac.lookups import Any
 from camac.user.models import Group, Service, User
 from camac.user.utils import get_group
 
@@ -148,17 +149,12 @@ def sync_inquiry_deadline(
 def work_item_by_addressed_service_condition(service_condition):
     return Exists(
         Service.objects.filter(
-            Q(
-                # Use element = ANY(array) operator to check if
-                # element is present in ArrayField, which requires
-                # lhs and rhs of expression to be of same type
-                pk=Func(
-                    Cast(
-                        OuterRef("addressed_groups"),
-                        output_field=ArrayField(IntegerField()),
-                    ),
-                    function="ANY",
-                )
+            Any(
+                F("pk"),
+                Cast(
+                    OuterRef("addressed_groups"),
+                    output_field=ArrayField(IntegerField()),
+                ),
             )
             & Q(service_condition)
         )

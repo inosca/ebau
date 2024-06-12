@@ -24,7 +24,7 @@ test: ## Test the project
 	@touch .env
 	@ruff check .
 	@ruff format --check .
-	@pytest -vv --cov --cov-report term --cov-report xml:artifacts/cobertura.xml --vcr-record=none -n 8 --dist worksteal --junitxml=artifacts/junit.xml
+	@pytest -vv --cov --cov-report term --cov-report xml:artifacts/cobertura.xml --record-mode=none -n 8 --dist worksteal --junitxml=artifacts/junit.xml
 	@python tools/whichtest.py  --check-locality --verbose
 
 .PHONY: sqlsequencereset

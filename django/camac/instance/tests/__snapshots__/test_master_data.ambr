@@ -847,9 +847,9 @@
     ]),
     'city': 'Musterdorf',
     'construction_costs': 129000,
-    'construction_end_date': datetime.datetime(2021, 7, 30, 8, 0, 6, tzinfo=<UTC>),
-    'construction_start_date': datetime.datetime(2021, 7, 25, 8, 0, 6, tzinfo=<UTC>),
-    'decision_date': datetime.datetime(2021, 7, 20, 8, 0, 6, tzinfo=<UTC>),
+    'construction_end_date': datetime.datetime(2021, 7, 30, 8, 0, 6, tzinfo=datetime.timezone.utc),
+    'construction_start_date': datetime.datetime(2021, 7, 25, 8, 0, 6, tzinfo=datetime.timezone.utc),
+    'decision_date': datetime.datetime(2021, 7, 20, 8, 0, 6, tzinfo=datetime.timezone.utc),
     'dossier_number': '1201-21-003',
     'dwellings': list([
       dict({
@@ -917,7 +917,7 @@
     'proposal': 'Grosses Haus',
     'street': 'Musterstrasse',
     'street_number': 4,
-    'submit_date': datetime.datetime(2021, 7, 16, 8, 0, 6, tzinfo=<UTC>),
+    'submit_date': datetime.datetime(2021, 7, 16, 8, 0, 6, tzinfo=datetime.timezone.utc),
     'type_of_applicant': '6141',
     'type_of_construction': list([
       dict({

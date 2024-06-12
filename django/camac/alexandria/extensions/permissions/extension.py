@@ -163,13 +163,23 @@ class CustomPermission:
             category = document.category
             request.parsed_data = request.data
         elif request.method == "POST":
-            # On creation we don't have any data in the database yet. Therefore
-            # we need to get the needed data from the request.
-            data = json.loads(request.data["data"].read().decode("utf-8"))
-            instance = Instance.objects.get(pk=data["metainfo"]["camac-instance-id"])
-            category = Category.objects.get(pk=data["category"])
-            request.parsed_data = data
-            request.data["data"].seek(0)
+            if "data" in request.data:
+                # On creation we don't have any data in the database yet. Therefore
+                # we need to get the needed data from the request.
+                data = json.loads(request.data["data"].read().decode("utf-8"))
+                instance = Instance.objects.get(
+                    pk=data["metainfo"]["camac-instance-id"]
+                )
+                category = Category.objects.get(pk=data["category"])
+                request.parsed_data = data
+                request.data["data"].seek(0)
+            else:
+                document = Document.objects.get(
+                    pk=request.parser_context["kwargs"]["pk"]
+                )
+                instance = document.instance_document.instance
+                category = document.category
+                request.parsed_data = request.data
         else:
             # If there is no document, we called `permission_for` which can be
             # ignored for update and delete requests as `object_permission_for`
