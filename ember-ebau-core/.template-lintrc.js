@@ -6,7 +6,12 @@ module.exports = {
   rules: {
     "no-bare-strings": true,
     "no-curly-component-invocation": {
-      allow: ["application-name", "is-application", "is-embedded"],
+      allow: [
+        "application-name",
+        "is-application",
+        "is-embedded",
+        "is-legacy-app",
+      ],
     },
   },
   overrides: [

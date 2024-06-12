@@ -28,7 +28,7 @@
         (can "edit work item of construction-step" @workItem)
       )
     }}
-      {{#if (eq this.ebauModules.applicationName "camac-ng")}}
+      {{#if (is-legacy-app)}}
         <a class="uk-link-text uk-text-danger" href={{this.workItemLink}}>
           {{t
             "construction-monitoring.construction-step.work-item.edit-deadline"

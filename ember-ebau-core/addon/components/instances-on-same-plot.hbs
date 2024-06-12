@@ -1,7 +1,7 @@
 <div class="linked-instances-grid uk-margin-bottom">
   {{#each this.instancesOnSamePlot.value as |instanceOnSamePlot index|}}
     {{#if (lt index 5)}}
-      {{#if this.ebauModules.isCamac}}
+      {{#if (is-legacy-app)}}
         <a
           href="/index/redirect-to-instance-resource/instance-id/{{instanceOnSamePlot.id}}"
         >

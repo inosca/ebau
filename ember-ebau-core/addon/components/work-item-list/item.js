@@ -1,4 +1,3 @@
-import { getOwner } from "@ember/application";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { dropTask } from "ember-concurrency";
@@ -6,6 +5,7 @@ import { performHelper } from "ember-concurrency/helpers/perform";
 import { DateTime } from "luxon";
 
 export default class WorkItemListItemComponent extends Component {
+  @service ebauModules;
   @service router;
   @service intl;
   @service can;
@@ -109,10 +109,7 @@ export default class WorkItemListItemComponent extends Component {
       );
     }
 
-    const applicationName =
-      getOwner(this).resolveRegistration("config:environment")?.modulePrefix;
-
-    if (applicationName === "camac-ng") {
+    if (this.ebauModules.isLegacyApp) {
       if (this.args.workItem.editLink) {
         return location.replace(this.args.workItem.editLink);
       }

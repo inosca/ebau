@@ -34,7 +34,7 @@
                 (not-eq this.instanceIdAsInt case.instanceId)
               )
             }}
-              {{#if this.ebauModules.isCamac}}
+              {{#if (is-legacy-app)}}
                 <a
                   href="/index/redirect-to-instance-resource/instance-id/{{case.instanceId}}"
                 >

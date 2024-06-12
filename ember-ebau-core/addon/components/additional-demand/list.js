@@ -17,7 +17,7 @@ export default class AdditionalDemandListComponent extends Component {
       "detail",
     );
 
-    if (this.ebauModules.isCamac) {
+    if (this.ebauModules.isLegacyApp) {
       this.router.transitionTo(
         route,
         decodeId(this.additionalDemand.demands.at(-1).raw.childCase.id),
