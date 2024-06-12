@@ -889,6 +889,7 @@ class InstanceView(
                 service=Service.objects.get(pk=municipality["slug"]),
                 access_level="municipality-before-submission",
                 event_name="manual-creation",
+                ends_at=timezone.now() + timedelta(hours=8),
             )
         elif request.method == "DELETE":
             for acl in InstanceACL.currently_active().filter(
