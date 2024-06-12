@@ -65,7 +65,7 @@ export default class AdditionalDemandItemComponent extends Component {
       "detail",
     );
 
-    return this.ebauModules.applicationName === "camac-ng"
+    return this.ebauModules.isLegacyApp
       ? this.router.isActive(route, decodeId(this.args.demand.raw.childCase.id))
       : this.router.isActive(
           route,
@@ -75,7 +75,7 @@ export default class AdditionalDemandItemComponent extends Component {
   }
 
   get models() {
-    return this.ebauModules.applicationName === "camac-ng"
+    return this.ebauModules.isLegacyApp
       ? [decodeId(this.args.demand.raw.childCase.id)]
       : [
           this.ebauModules.instanceId,

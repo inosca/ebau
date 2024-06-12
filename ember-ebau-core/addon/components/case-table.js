@@ -550,7 +550,7 @@ export default class CaseTableComponent extends Component {
       const group = this.ebauModules.groupId;
       const language = this.ebauModules.language;
       url = `${portalURL}/instances/${instanceId}?group=${group}&language=${language}&referrer=internal`;
-    } else if (this.ebauModules.applicationName === "ebau") {
+    } else if (!this.ebauModules.isLegacyApp) {
       return this.router.transitionTo("cases.detail", instanceId);
     }
 

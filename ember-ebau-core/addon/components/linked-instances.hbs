@@ -1,6 +1,6 @@
 <div class="linked-instances-grid uk-margin-bottom">
   {{#each @currentInstance.linkedInstances as |linkedInstance|}}
-    {{#if this.ebauModules.isCamac}}
+    {{#if (is-legacy-app)}}
       <a
         href="/index/redirect-to-instance-resource/instance-id/{{linkedInstance.id}}"
       >

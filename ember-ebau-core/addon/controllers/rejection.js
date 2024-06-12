@@ -124,7 +124,7 @@ export default class RejectionController extends Controller {
   });
 
   refresh() {
-    if (this.ebauModules.applicationName === "camac-ng") {
+    if (this.ebauModules.isLegacyApp) {
       location.reload();
     }
   }
