@@ -5,11 +5,12 @@
     }}"
 >
   <div class="uk-flex uk-flex-between uk-flex-middle">
-    <div class="uk-text-lead uk-text-bolder">
+    <div class="uk-text-lead {{if (is-legacy-app) 'uk-text-bolder'}}">
       {{@workItem.task.name}}
     </div>
     <div
-      class="uk-badge uk-text-bolder uk-text-muted uk-flex-none uk-margin-large-left"
+      class="uk-badge uk-text-muted uk-flex-none uk-margin-large-left
+        {{if (is-legacy-app) 'uk-text-bolder'}}"
     >
       {{t
         "construction-monitoring.construction-step.work-item.index-count"

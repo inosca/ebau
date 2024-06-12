@@ -5,7 +5,8 @@
     <FaIcon @icon="house-circle-check" />
   </div>
   <div
-    class="uk-text-large uk-text-bolder uk-text-center uk-margin-small-bottom"
+    class="uk-text-large uk-text-center uk-margin-small-bottom
+      {{if (is-legacy-app) 'uk-text-bolder'}}"
   >
     {{t "construction-monitoring.title"}}
   </div>
