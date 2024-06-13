@@ -384,3 +384,22 @@ class CustomDynamicTasks(BaseDynamicTasks):
                 }
             ).values_list("pk", flat=True)
         )
+
+    # After "Baubeginn melden" and "Schlussabnahme" (construction-monitoring) in Kt. UR
+    @register_dynamic_task("after-baubeginn-melden")
+    @register_dynamic_task("after-schlussabnahme")
+    def resolve_after_baubeginn_melden_ur(self, case, user, prev_work_item, context):
+        work_item = case.work_items.filter(
+            task_id="construction-step-plan-construction-stage"
+        ).first()
+        answers = (
+            work_item.document.answers.filter(question_id="construction-steps")
+            .values_list("value", flat=True)
+            .first()
+        )
+
+        if "construction-step-gwr-status-nachfuehren" in answers:
+            return [
+                settings.CONSTRUCTION_MONITORING["CONSTRUCTION_MONITORING_GWR_TASK"]
+            ]
+        return []
