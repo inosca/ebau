@@ -719,3 +719,45 @@ def test_dynamic_task_after_construction_step(
     )
 
     assert tasks == expected_tasks
+
+
+@pytest.mark.parametrize(
+    "answer,expected_tasks",
+    [
+        (
+            "construction-step-gwr-status-nachfuehren",
+            ["construction-monitoring-update-gwr-state"],
+        ),
+        ("construction-step-baufreigabe", []),
+    ],
+)
+def test_dynamic_task_update_gwr_state(
+    db,
+    ur_instance,
+    caluma_admin_user,
+    ur_construction_monitoring_settings,
+    work_item_factory,
+    document_factory,
+    answer_factory,
+    question_factory,
+    answer,
+    expected_tasks,
+):
+    work_item = work_item_factory(
+        case=ur_instance.case,
+        task_id="construction-step-plan-construction-stage",
+    )
+    work_item.document = document_factory()
+    work_item.save()
+
+    answer_factory(
+        document=work_item.document,
+        question=Question.objects.get(slug="construction-steps"),
+        value=answer,
+    )
+
+    result = CustomDynamicTasks().resolve_after_baubeginn_melden_ur(
+        ur_instance.case, caluma_admin_user, work_item, None
+    )
+
+    assert result == expected_tasks

@@ -27,19 +27,6 @@
   },
   {
     "model": "caluma_workflow.flow",
-    "pk": "2cb83e5d-715c-4478-bb2d-04548b01c955",
-    "fields": {
-      "created_at": "2023-10-27T15:32:44.791Z",
-      "modified_at": "2023-10-27T15:32:44.791Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "next": "['after-construction-step']|tasks"
-    }
-  },
-  {
-    "model": "caluma_workflow.flow",
     "pk": "307632fb-219e-4be0-aa49-d65c197fd111",
     "fields": {
       "created_at": "2023-10-27T15:32:46.348Z",
@@ -49,6 +36,19 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "next": "['construction-step-kanalisation-kontrollieren']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "3d4bf94c-95e7-4c4f-98cd-c7cd0f525b74",
+    "fields": {
+      "created_at": "2024-06-17T07:05:43.122Z",
+      "modified_at": "2024-06-17T07:05:43.122Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['after-construction-step', 'after-baubeginn-melden']|tasks"
     }
   },
   {
@@ -314,6 +314,40 @@
       "is_archived": false,
       "form": "complete-instance",
       "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-monitoring-update-gwr-state",
+    "fields": {
+      "created_at": "2024-06-14T09:36:44.828Z",
+      "modified_at": "2024-06-14T09:36:44.828Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "name": "{\"de\": \"GWR Status nachf\\u00fchren\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "construction-step": {
+          "next": [
+            "construction-step-kanalisationsabnahme",
+            "construction-step-schnurgeruestabnahme"
+          ],
+          "index": 0,
+          "total": 1
+        },
+        "construction-step-id": "construction-step-baubeginn",
+        "is-actionable-for-control": false
+      },
+      "address_groups": "['municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-monitoring-update-gwr-state",
+      "lead_time": 432000,
       "is_multiple_instance": false,
       "continue_async": false
     }
@@ -988,6 +1022,22 @@
   },
   {
     "model": "caluma_workflow.taskflow",
+    "pk": "3acf64a1-c01c-4e48-853f-592d9f875b21",
+    "fields": {
+      "created_at": "2024-06-17T07:05:43.132Z",
+      "modified_at": "2024-06-17T07:05:43.132Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-baubeginn-melden",
+      "flow": "3d4bf94c-95e7-4c4f-98cd-c7cd0f525b74",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
     "pk": "3c892fff-b04a-4c55-837d-35bc127e44ee",
     "fields": {
       "created_at": "2023-10-27T15:32:47.965Z",
@@ -1031,22 +1081,6 @@
       "workflow": "construction-stage",
       "task": "construction-step-schnurgeruestabnahme-planen",
       "flow": "fa640fc4-a025-4ed3-aae7-b3ac45dfaebf",
-      "redoable": null
-    }
-  },
-  {
-    "model": "caluma_workflow.taskflow",
-    "pk": "5ceee467-7ada-4490-8510-dd861df45218",
-    "fields": {
-      "created_at": "2023-10-27T15:32:44.793Z",
-      "modified_at": "2023-10-27T15:32:44.793Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "workflow": "construction-stage",
-      "task": "construction-step-baubeginn-melden",
-      "flow": "2cb83e5d-715c-4478-bb2d-04548b01c955",
       "redoable": null
     }
   },
