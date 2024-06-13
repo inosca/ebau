@@ -164,5 +164,8 @@ const config = {
 };
 
 config.intentSlugs = [config.answerSlugs.description];
+config.submittedStates = Object.entries(config.instanceStates)
+  .filter(([name]) => name !== "new")
+  .map(([, id]) => id);
 
 export default config;

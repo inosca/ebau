@@ -1650,6 +1650,7 @@ APPLICATIONS = {
         "LOG_NOTIFICATIONS": True,
         "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
         "ENABLE_PUBLIC_CALUMA": True,
+        "LINK_INSTANCES_ON_COPY": True,
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
             "applicant": "applicant",
