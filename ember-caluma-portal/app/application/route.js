@@ -16,6 +16,7 @@ import InquiryDeadlineInputComponent from "ember-ebau-core/components/inquiry-de
 import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
 import PublicationDateKantonsamtsblattComponent from "ember-ebau-core/components/publication-date-kantonsamtsblatt";
 import PublicationStartDateComponent from "ember-ebau-core/components/publication-start-date";
+import ServiceContentComponent from "ember-ebau-core/components/service-content";
 import SoGisComponent from "ember-ebau-core/components/so-gis";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
 
@@ -209,6 +210,12 @@ export default class ApplicationRoute extends Route {
       label: "Koordinaten Platzhalter",
       component: "coordinates-placeholder",
       componentClass: CoordinatesPlaceholderComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Gemeindespezifischer Inhalt",
+      component: "service-content",
+      componentClass: ServiceContentComponent,
+      type: "StaticQuestion",
     });
   }
 }

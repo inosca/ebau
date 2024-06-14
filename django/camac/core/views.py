@@ -482,3 +482,30 @@ class StaticContentView(ModelViewSet):
 
     def has_destroy_permission_for_support(self):
         return True
+
+
+class ServiceContentViewSet(ModelViewSet):
+    filterset_class = filters.ServiceContentFilterSet
+    queryset = models.ServiceContent.objects.all()
+    serializer_class = serializers.ServiceContentSerializer
+
+    @permission_aware
+    def has_create_permission(self):
+        return False
+
+    def has_create_permission_for_support(self):
+        return True
+
+    @permission_aware
+    def has_update_permission(self):
+        return False
+
+    def has_update_permission_for_support(self):
+        return True
+
+    @permission_aware
+    def has_destroy_permission(self):
+        return False
+
+    def has_destroy_permission_for_support(self):
+        return True
