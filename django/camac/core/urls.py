@@ -10,5 +10,6 @@ r.register(r"workflow-entries", views.WorkflowEntryView, "workflow-entry")
 r.register(r"resources", views.ResourceView, "resource")
 r.register(r"instance-resources", views.InstanceResourceView, "instance-resource")
 r.register(r"static-contents", views.StaticContentView, "static-content")
+r.register(r"service-contents", views.ServiceContentViewSet, "service-content")
 
 urlpatterns = r.urls

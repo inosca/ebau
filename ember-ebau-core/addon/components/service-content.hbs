@@ -1,0 +1,11 @@
+<div>
+  {{#if this.content.isRunning}}
+    <UkSpinner />
+  {{else}}
+    <MarkdownToHtml
+      class="markdown-content"
+      @markdown={{this.content.value}}
+      @openLinksInNewWindow={{true}}
+    />
+  {{/if}}
+</div>

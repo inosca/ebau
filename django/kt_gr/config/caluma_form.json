@@ -7402,7 +7402,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "einleitung-des-verfahrens",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -7418,6 +7418,21 @@
       "form": "einreichen",
       "question": "einreichen-button",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "einreichen.gemeindespezifischer-inhalt",
+    "fields": {
+      "created_at": "2024-06-14T08:44:54.883Z",
+      "modified_at": "2024-06-14T08:44:54.883Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "einreichen",
+      "question": "gemeindespezifischer-inhalt",
+      "sort": 3
     }
   },
   {
@@ -55450,6 +55465,40 @@
       "meta": {},
       "data_source": null,
       "row_form": "gefaehrdete-umliegende-objekte-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gemeindespezifischer-inhalt",
+    "fields": {
+      "created_at": "2024-06-14T08:44:54.835Z",
+      "modified_at": "2024-06-14T08:44:54.835Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gemeindespezifischer Inhalt\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "service-content"
+      },
+      "data_source": null,
+      "row_form": null,
       "sub_form": null,
       "source": null,
       "format_validators": "[]",

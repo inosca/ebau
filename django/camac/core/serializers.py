@@ -6,6 +6,7 @@ from django.db import transaction
 from rest_framework_json_api import relations, serializers
 
 from camac.instance.models import Instance
+from camac.user.models import Service
 
 from . import models
 
@@ -233,3 +234,12 @@ class StaticContentSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.StaticContent
         fields = ("content", "slug")
+
+
+class ServiceContentSerializer(serializers.ModelSerializer):
+    service = relations.ResourceRelatedField(queryset=Service.objects)
+    content = serializers.CharField()
+
+    class Meta:
+        model = models.ServiceContent
+        fields = ("id", "content", "service")
