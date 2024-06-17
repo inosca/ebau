@@ -74,3 +74,19 @@ class MigratedInstance(Condition):
             and self.instance.case.document.form_id
             == settings.DOSSIER_IMPORT["CALUMA_FORM"]
         ) == self.value
+
+
+class BaBInstance(Condition):
+    def evaluate(self) -> bool:
+        return (
+            settings.BAB and self.instance.case.meta.get("is-bab", False)
+        ) == self.value
+
+
+class BaBService(Condition):
+    def evaluate(self) -> bool:
+        return (
+            settings.BAB
+            and self.request.group.service.service_group.name
+            == settings.BAB["SERVICE_GROUP"]
+        ) == self.value

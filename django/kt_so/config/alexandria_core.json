@@ -380,6 +380,16 @@
                 "scope": "All",
                 "fields": ["tags"],
                 "permission": "update"
+              },
+              {
+                "marks": ["decision"],
+                "scope": "All",
+                "fields": ["marks"],
+                "condition": {
+                  "BaBService": true,
+                  "BaBInstance": true
+                },
+                "permission": "update"
               }
             ]
           },
@@ -405,6 +415,16 @@
               {
                 "scope": "All",
                 "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "marks": ["decision"],
+                "scope": "All",
+                "fields": ["marks"],
+                "condition": {
+                  "BaBService": true,
+                  "BaBInstance": true
+                },
                 "permission": "update"
               }
             ]
