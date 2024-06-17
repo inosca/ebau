@@ -2,7 +2,7 @@ import datetime
 import json
 from typing import Union
 
-from alexandria.core.models import BaseModel, Category, Document, File, Tag
+from alexandria.core.models import BaseModel, Category, Document, File, Mark, Tag
 from django.conf import settings
 from django.core.validators import EMPTY_VALUES
 from generic_permissions.permissions import object_permission_for, permission_for
@@ -76,6 +76,16 @@ class CustomPermission:
             if old_value != new_value:
                 used_permissions.add(f"{MODE_UPDATE}-{key}")
 
+                if key == "marks":
+                    added_marks = new_value - old_value
+                    removed_marks = old_value - new_value
+                    used_permissions.update(
+                        {
+                            f"{MODE_UPDATE}-{key}-{slug}"
+                            for slug in added_marks.union(removed_marks)
+                        }
+                    )
+
         return used_permissions
 
     def get_available_permissions(
@@ -126,6 +136,16 @@ class CustomPermission:
                 available_permissions.add(permission["permission"])
                 for field in fields:
                     available_permissions.add(f"{permission['permission']}-{field}")
+
+                    if field == "marks":
+                        available_permissions.update(
+                            {
+                                f"{permission['permission']}-{field}-{slug}"
+                                for slug in permission.get(
+                                    "marks", Mark.objects.values_list("pk", flat=True)
+                                )
+                            }
+                        )
 
         return available_permissions
 
