@@ -331,18 +331,7 @@
       "name": "{\"de\": \"GWR Status nachf\\u00fchren\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
-      "meta": {
-        "construction-step": {
-          "next": [
-            "construction-step-kanalisationsabnahme",
-            "construction-step-schnurgeruestabnahme"
-          ],
-          "index": 0,
-          "total": 1
-        },
-        "construction-step-id": "construction-step-baubeginn",
-        "is-actionable-for-control": false
-      },
+      "meta": {},
       "address_groups": "['municipality']|groups",
       "control_groups": "['municipality']|groups",
       "is_archived": false,

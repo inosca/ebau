@@ -722,13 +722,26 @@ def test_dynamic_task_after_construction_step(
 
 
 @pytest.mark.parametrize(
-    "answer,expected_tasks",
+    "answer,building_approval,final_approval,expected_tasks",
     [
         (
             "construction-step-gwr-status-nachfuehren",
+            True,
+            False,
             ["construction-monitoring-update-gwr-state"],
         ),
-        ("construction-step-baufreigabe", []),
+        (
+            "construction-step-gwr-status-nachfuehren",
+            False,
+            True,
+            ["construction-monitoring-update-gwr-state"],
+        ),
+        (
+            "construction-step-baufreigabe",
+            False,
+            False,
+            None,
+        ),
     ],
 )
 def test_dynamic_task_update_gwr_state(
@@ -736,19 +749,49 @@ def test_dynamic_task_update_gwr_state(
     ur_instance,
     caluma_admin_user,
     ur_construction_monitoring_settings,
+    building_approval,
+    final_approval,
     work_item_factory,
     document_factory,
     answer_factory,
-    question_factory,
     answer,
     expected_tasks,
 ):
     work_item = work_item_factory(
         case=ur_instance.case,
         task_id="construction-step-plan-construction-stage",
+        document=document_factory(),
     )
-    work_item.document = document_factory()
-    work_item.save()
+
+    if building_approval:
+        baufreigabe_work_item = work_item_factory(
+            case=ur_instance.case,
+            task_id="construction-step-baufreigabe",
+        )
+        baufreigabe_work_item.document = document_factory()
+        baufreigabe_work_item.save()
+
+        answer_factory(
+            document=baufreigabe_work_item.document,
+            question=Question.objects.get(
+                slug="construction-step-baufreigabe-is-approved"
+            ),
+            value="construction-step-baufreigabe-is-approved-yes",
+        )
+    if final_approval:
+        schlussabnahme_work_item = work_item_factory(
+            case=ur_instance.case,
+            task_id="construction-step-schlussabnahme-projekt",
+        )
+        schlussabnahme_work_item.document = document_factory()
+        schlussabnahme_work_item.save()
+        answer_factory(
+            document=schlussabnahme_work_item.document,
+            question=Question.objects.get(
+                slug="construction-step-schlussabnahme-projekt-is-approved"
+            ),
+            value="construction-step-schlussabnahme-projekt-is-approved-yes",
+        )
 
     answer_factory(
         document=work_item.document,
@@ -757,7 +800,14 @@ def test_dynamic_task_update_gwr_state(
     )
 
     result = CustomDynamicTasks().resolve_after_baubeginn_melden_ur(
-        ur_instance.case, caluma_admin_user, work_item, None
+        ur_instance.case,
+        caluma_admin_user,
+        baufreigabe_work_item
+        if building_approval
+        else schlussabnahme_work_item
+        if final_approval
+        else None,
+        None,
     )
 
     assert result == expected_tasks
