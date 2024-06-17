@@ -44,13 +44,15 @@
   <div class="${properties.kcLoginClass!}">
     <div class="footer">
       <a class="copyright" href="https://www.andreabadrutt.ch/" target="_blank" rel="noopener noreferrer">© Andrea Badrutt</a>
-      <div class="footer-content">
-        <div class="uk-container uk-container-small uk-flex uk-flex-right">
-          <a class="uk-margin-right" href="https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/ebau/Datenschutzerklärung_eBau_GR_DE.pdf">Datenschutzerklärung</a>
-          <a class="uk-margin-right" href="https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/ebau/Disclaimer_eBau_GR_IT.pdf">Disclaimer</a>
-          <a href="https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/projekte/Seiten/Elektronisches-Baubewilligungsverfahren-(eBBV).aspx">Informationen zu eBau</a>
+      <#if client.clientId != "eeba">
+        <div class="footer-content">
+          <div class="uk-container uk-container-small uk-flex uk-flex-right">
+            <a class="uk-margin-right" href="https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/ebau/Datenschutzerklärung_eBau_GR_DE.pdf">Datenschutzerklärung</a>
+            <a class="uk-margin-right" href="https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/ebau/Disclaimer_eBau_GR_IT.pdf">Disclaimer</a>
+            <a href="https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/projekte/Seiten/Elektronisches-Baubewilligungsverfahren-(eBBV).aspx">Informationen zu eBau</a>
+          </div>
         </div>
-      </div>
+      </#if>
     </div>
     <div id="kc-header" class="${properties.kcHeaderClass!}">
       <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">
