@@ -389,6 +389,16 @@ class CustomDynamicTasks(BaseDynamicTasks):
     @register_dynamic_task("after-baubeginn-melden")
     @register_dynamic_task("after-schlussabnahme")
     def resolve_after_baubeginn_melden_ur(self, case, user, prev_work_item, context):
+        breakpoint()
+        # TODO: The GWR status task should only be created if the answer for the "Baufreigabe entscheiden" is positive:
+        # task: "construction-step-baufreigabe"
+        # document: not sure..
+        # Question: "construction-step-baufreigabe-is-approved"
+        # Answer: "construction-step-baufreigabe-is-approved-yes"
+        # The same is also true for the "construction-step-schlussabnahme-projekt" task
+        # Form: "construction-step-schlussabnahme-projekt"
+        # question: "construction-step-schlussabnahme-projekt"
+        # positive answer: "construction-step-schlussabnahme-projekt-is-approved"
         work_item = case.work_items.filter(
             task_id="construction-step-plan-construction-stage"
         ).first()
@@ -402,4 +412,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
             return [
                 settings.CONSTRUCTION_MONITORING["CONSTRUCTION_MONITORING_GWR_TASK"]
             ]
+            # return Task.objects.filter(slug__in=[
+            #         settings.CONSTRUCTION_MONITORING["CONSTRUCTION_MONITORING_GWR_TASK"]
+            #     ])
         return []
