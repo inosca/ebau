@@ -16,16 +16,21 @@
                     <#-- "pseudo"-IdP: local login -->
                     <#if realm.password>
                         <div class="kc-form-card is-login-form uk-form-horizontal uk-width-xlarge uk-margin-small-right">
-                            <h2 class="uk-margin-top">
-                                ${msg("welcomeHeader")}
-                            </h2>
-                            <p>
+                            <#if client.clientId == "eeba">
+                                <h2 class="uk-margin-top">
+                                    ${msg("welcomeHeaderEeba")}
+                                </h2>
+                                ${msg("welcomeTextEeba")?no_esc}
+                            <#else>
+                                <h2 class="uk-margin-top">
+                                    ${msg("welcomeHeader")}
+                                </h2>
                                 ${msg("welcomeText")?no_esc}
-                            </p>
-                            <p>
-                                <strong>${msg("infoHeader")?no_esc}</strong>
-                                ${msg("infoText")?no_esc}
-                            </p>
+                                <p>
+                                    <strong>${msg("infoHeader")?no_esc}</strong>
+                                    ${msg("infoText")?no_esc}
+                                </p>
+                            </#if>
                         </div>
                         <form id="kc-form-login" class="kc-form-card is-login-form uk-form-horizontal uk-width-xlarge uk-margin-auto" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                             <h2 class="uk-margin-top">Anmeldung</h2>
@@ -75,7 +80,11 @@
                                 </div>
                             </div>
                             <span>${msg("noAccount")} <a tabindex="6" href="${url.registrationUrl}">${msg("doRegister")}</a></span>
-                            <span>${msg("needHelp")?no_esc}</span>
+                            <#if client.clientId == "eeba">
+                              <span>${msg("needHelpEeba")?no_esc}</span>
+                            <#else>
+                              <span>${msg("needHelp")?no_esc}</span>
+                            </#if>
                         </form>
                     </#if>
                     <#if social.providers??>
