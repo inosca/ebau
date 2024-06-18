@@ -1,4 +1,4 @@
-from django.contrib.admin import ModelAdmin, display, register
+from django.contrib.admin import ModelAdmin, action, display, register
 from django.db import transaction
 from django.utils.translation import gettext_lazy as _
 
@@ -79,6 +79,7 @@ class GroupAdmin(EbauAdminMixin, MultilingualAdminMixin, ModelAdmin):
     search_fields = ["name", "pk"]
     search_fields_ml = ["trans__name"]
     select_related = ["service"]
+    actions = ["disable", "enable"]
 
     @display(description=_("Name"))
     def get_name(self, obj):
@@ -98,6 +99,14 @@ class GroupAdmin(EbauAdminMixin, MultilingualAdminMixin, ModelAdmin):
             return save_user_group_formset(request, formset)
 
         super().save_formset(request, form, formset, change)
+
+    @action(description=_("Disable selected groups"))
+    def disable(self, request, queryset):
+        queryset.update(disabled=1)
+
+    @action(description=_("Enable selected groups"))
+    def enable(self, request, queryset):
+        queryset.update(disabled=0)
 
 
 @register(Service)
@@ -122,6 +131,7 @@ class ServiceAdmin(EbauAdminMixin, MultilingualAdminMixin, ModelAdmin):
     search_fields = ["name", "email", "pk"]
     search_fields_ml = ["trans__name", "email"]
     select_related = ["service_group"]
+    actions = ["disable", "enable"]
 
     @display(description=_("Name"))
     def get_name(self, obj):
@@ -134,6 +144,18 @@ class ServiceAdmin(EbauAdminMixin, MultilingualAdminMixin, ModelAdmin):
     @display(description=_("Disabled?"), boolean=True, ordering="disabled")
     def get_disabled(self, obj):
         return obj.disabled == 1
+
+    @action(description=_("Disable selected services"))
+    @transaction.atomic
+    def disable(self, request, queryset):
+        queryset.update(disabled=1)
+        Group.objects.filter(service__in=queryset).update(disabled=1)
+
+    @action(description=_("Enable selected services"))
+    @transaction.atomic
+    def enable(self, request, queryset):
+        queryset.update(disabled=0)
+        Group.objects.filter(service__in=queryset).update(disabled=0)
 
 
 @register(Role)
