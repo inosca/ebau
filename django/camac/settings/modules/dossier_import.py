@@ -83,7 +83,7 @@ DOSSIER_IMPORT = {
         },
         "CALUMA_FORM": "migriertes-dossier",
         "FORM_ID": 1,
-        "ALEXANDRIA_CATEGORY": "beteiligte-behoerden",
+        "ALEXANDRIA_CATEGORY": "migrierte-dokumente",
         "PROD_URL": env.str(
             "DJANGO_DOSSIER_IMPORT_PROD_URL",
             "https://ebau.so.ch/",

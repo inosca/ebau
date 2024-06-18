@@ -1804,3 +1804,66 @@ def test_gr_document_read_permission(
     response = admin_client.patch(url, data)
 
     assert response.status_code == HTTP_403_FORBIDDEN
+
+
+@pytest.mark.parametrize("role__name", ["service"])
+@pytest.mark.parametrize(
+    "is_migrated,status_code",
+    [
+        (True, HTTP_200_OK),
+        (False, HTTP_403_FORBIDDEN),
+    ],
+)
+def test_condition_migrated_instance(
+    db,
+    admin_client,
+    is_migrated,
+    mocker,
+    service,
+    so_dossier_import_settings,
+    so_instance,
+    status_code,
+):
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
+        return_value=[so_instance.pk],
+    )
+
+    if is_migrated:
+        so_dossier_import_settings["CALUMA_FORM"] = so_instance.case.document.form_id
+
+    document = DocumentFactory(
+        title="Foo",
+        metainfo={"camac-instance-id": so_instance.pk},
+        category__metainfo={
+            "access": {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "condition": {
+                                "MigratedInstance": True,
+                            },
+                            "scope": "All",
+                        },
+                    ],
+                },
+            },
+        },
+    )
+
+    response = admin_client.patch(
+        reverse("document-detail", args=[document.pk]),
+        {
+            "data": {
+                "id": document.pk,
+                "type": "documents",
+                "attributes": {
+                    "title": {"de": "Important"},
+                },
+            },
+        },
+    )
+
+    assert response.status_code == status_code

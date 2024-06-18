@@ -1,4 +1,5 @@
 from caluma.caluma_workflow.models import WorkItem
+from django.conf import settings
 
 from camac.caluma.api import CalumaApi
 
@@ -63,4 +64,13 @@ class InstanceState(Condition):
 
 class PaperInstance(Condition):
     def evaluate(self) -> bool:
-        return CalumaApi().is_paper(self.instance)
+        return CalumaApi().is_paper(self.instance) == self.value
+
+
+class MigratedInstance(Condition):
+    def evaluate(self) -> bool:
+        return (
+            settings.DOSSIER_IMPORT
+            and self.instance.case.document.form_id
+            == settings.DOSSIER_IMPORT["CALUMA_FORM"]
+        ) == self.value
