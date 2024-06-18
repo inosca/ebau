@@ -32,6 +32,13 @@ $badge-in-tab-ratio: 0.85;
   white-space: pre-line;
 }
 
-.active-service-logo {
-  height: calc($base-h2-font-size-m + $base-margin-vertical);
+.active-municipality-logo {
+  width: 300px;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: contain;
 }
