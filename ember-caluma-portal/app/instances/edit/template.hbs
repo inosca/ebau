@@ -3,7 +3,7 @@
   @hasPermission={{can "read instance" this.instance}}
 >
   {{#if (not (is-embedded))}}
-    <div class="uk-flex uk-flex-between">
+    <div class="uk-position-relative">
       <h2>
         {{or this.case.type this.case.document.form.name}}
         {{this.instance.typeDetail}}
