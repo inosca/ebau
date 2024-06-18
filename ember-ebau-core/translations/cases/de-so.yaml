@@ -2,6 +2,7 @@ cases:
   tableHeaders:
     applicants: Bauherr/in
     parcel: Grundstück
+    instancesOnSamePlot: "Dossiers auf gleichem Grundstück"
 
   filters:
     submitDateAfter: "Eingereicht (von)"
@@ -11,3 +12,7 @@ cases:
 
   formCategories:
     preliminary-clarification: "Voranfrage"
+
+  miscellaneous:
+    modalTitle: "Alle Dossiers auf Grundstück"
+    noInstancesOnSamePlot: "Es wurden keine Dossiers auf diesem Grundstück gefunden."
