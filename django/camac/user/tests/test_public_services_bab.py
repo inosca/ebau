@@ -61,8 +61,8 @@ def test_public_services_available_in_distribution_for_instance(
         )
         utils.add_answer(
             work_item.document,
-            "publikation-amtsblatt",
-            date.today() - timedelta(days=8),
+            "publikation-organ",
+            ["publikation-organ-amtsblatt", "publikation-organ-azeiger"],
         )
 
     response = admin_client.get(
