@@ -256,12 +256,12 @@
               {{case.instance.typeDetail}}</td>
             <td>{{case.municipality}}</td>
             <td
-              class="uk-text-truncate"
+              class="uk-text-break"
               title={{case.address}}
             >{{case.address}}</td>
             {{#if (is-application "be")}}
               <td
-                class="uk-text-truncate"
+                class="uk-text-break"
                 title={{case.applicant}}
               >{{case.applicant}}</td>
             {{/if}}
@@ -271,7 +271,7 @@
               }}</td>
             <td>{{case.status}}</td>
             <td
-              class="uk-text-truncate"
+              class="uk-text-break"
               title={{case.description}}
             >{{case.description}}</td>
           </tr>
