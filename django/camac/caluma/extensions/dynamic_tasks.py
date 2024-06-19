@@ -1,4 +1,5 @@
 from itertools import chain
+from typing import List
 
 from caluma.caluma_form.models import Document
 from caluma.caluma_workflow.dynamic_tasks import BaseDynamicTasks, register_dynamic_task
@@ -303,18 +304,22 @@ class CustomDynamicTasks(BaseDynamicTasks):
         ]
 
     @register_dynamic_task("after-construction-step")
-    def resolve_after_construction_step(self, case, user, prev_work_item, context):
+    def resolve_after_construction_step(
+        self, case: object, user: object, prev_work_item: object, context: dict
+    ) -> List[str]:
         previous_step = prev_work_item.meta["construction-step-id"]
 
         # Return first task of current construction step if the step
         # hasn't been approved
         if not construction_step_can_continue(prev_work_item):
-            return Task.objects.filter(
-                **{
-                    "meta__construction-step-id": previous_step,
-                    "meta__construction-step__index": 0,
-                }
-            ).values_list("pk", flat=True)
+            return list(
+                Task.objects.filter(
+                    **{
+                        "meta__construction-step-id": previous_step,
+                        "meta__construction-step__index": 0,
+                    }
+                ).values_list("pk", flat=True)
+            )
 
         # Create history entry for completed construction-step
         instance = get_instance(prev_work_item)
@@ -344,7 +349,9 @@ class CustomDynamicTasks(BaseDynamicTasks):
         # Find next steps (with initial tasks) to perform, which were selected
         # in construction stage planning step. Certain construction steps may
         # have multiple succeeding construction steps.
-        def find_next_steps(construction_step, selected_construction_steps):
+        def find_next_steps(
+            construction_step: str, selected_construction_steps: List[str]
+        ) -> List[str]:
             if (
                 previous_step != construction_step
                 and construction_step in selected_construction_steps
@@ -369,9 +376,11 @@ class CustomDynamicTasks(BaseDynamicTasks):
             selected_construction_steps,
         )
 
-        return Task.objects.filter(
-            **{
-                "meta__construction-step-id__in": next_steps,
-                "meta__construction-step__index": 0,
-            }
-        ).values_list("pk", flat=True)
+        return list(
+            Task.objects.filter(
+                **{
+                    "meta__construction-step-id__in": next_steps,
+                    "meta__construction-step__index": 0,
+                }
+            ).values_list("pk", flat=True)
+        )
