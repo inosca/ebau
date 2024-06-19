@@ -18,8 +18,15 @@ def getwithdefault(value, default=""):
     return value
 
 
+class Environment(SandboxedEnvironment):
+    def is_safe_attribute(self, obj, attr: str, value) -> bool:
+        if attr == "__len__":
+            return True
+        return super().is_safe_attribute(obj, attr, value)
+
+
 def get_jinja_env():
-    jinja_env = SandboxedEnvironment()
+    jinja_env = Environment()
     jinja_env.filters["date"] = dateformat
     jinja_env.filters["getwithdefault"] = getwithdefault
     return jinja_env
