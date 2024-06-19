@@ -34,7 +34,7 @@ services:
         APPLICATION: ${APPLICATION}
         KEYCLOAK_HOST: $$KEYCLOAK_HOST
         KEYCLOAK_REALM: $$KEYCLOAK_REALM
-        INTERNAL_URL: $$INTERNAL_HOST
+        INTERNAL_URL: $$INTERNAL_URL
         REPLACE_ENV: \$${KEYCLOAK_HOST},\$${KEYCLOAK_REALM},\$${INTERNAL_URL}
         WORKSPACE: ember-caluma-portal
       target: prod-env
