@@ -1,4 +1,5 @@
 import { inject as service } from "@ember/service";
+import { htmlSafe } from "@ember/template";
 import { macroCondition, isTesting } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
@@ -49,4 +50,10 @@ export default class ActiveMunicipalityLogoComponent extends Component {
       (await this.store.findRecord("public-service", this.serviceId))
     );
   });
+
+  get style() {
+    if (!this.service.value) return "";
+
+    return htmlSafe(`background-image: url(${this.service.value.logo});`);
+  }
 }
