@@ -28,6 +28,7 @@ from django.db.models import (
 from django.db.models.functions import Cast
 from django.utils import timezone, translation
 from django.utils.text import slugify
+from jinja2.sandbox import SandboxedEnvironment
 from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
@@ -965,7 +966,7 @@ class NotificationTemplateMergeSerializer(
     def _get_used_placeholders(self, subject, body):
         try:
             content = subject + body
-            env = jinja2.Environment()
+            env = SandboxedEnvironment()
             ast = env.parse(content)
 
             return [
