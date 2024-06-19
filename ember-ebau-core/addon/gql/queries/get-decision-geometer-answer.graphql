@@ -1,0 +1,35 @@
+query GetDecisionGeometer($instanceId: GenericScalar!, $question: ID!) {
+  allWorkItems(
+    filter: [
+      { caseMetaValue: [{ key: "camac-instance-id", value: $instanceId }] }
+      { status: COMPLETED }
+      { task: "decision" }
+      {
+        documentHasAnswer: [
+          {
+            question: "decision-workflow",
+            value: "building-permit",
+          }
+        ]
+      }
+    ]
+  ) {
+    edges {
+      node {
+        id
+        status
+        document {
+          answers(filter: [{ question: $question }], first: 1) {
+            edges {
+              node {
+                ... on StringAnswer {
+                  value
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
