@@ -1867,3 +1867,192 @@ def test_condition_migrated_instance(
     )
 
     assert response.status_code == status_code
+
+
+@pytest.mark.parametrize("role__name", ["service"])
+@pytest.mark.parametrize(
+    "is_bab,status_code",
+    [
+        (True, HTTP_200_OK),
+        (False, HTTP_403_FORBIDDEN),
+    ],
+)
+def test_condition_bab_instance(
+    db,
+    admin_client,
+    is_bab,
+    mocker,
+    so_bab_settings,
+    so_instance,
+    status_code,
+):
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
+        return_value=[so_instance.pk],
+    )
+
+    if is_bab:
+        so_instance.case.meta["is-bab"] = True
+        so_instance.case.save()
+
+    document = DocumentFactory(
+        title="Foo",
+        metainfo={"camac-instance-id": so_instance.pk},
+        category__metainfo={
+            "access": {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "condition": {
+                                "BaBInstance": True,
+                            },
+                            "scope": "All",
+                        },
+                    ],
+                },
+            },
+        },
+    )
+
+    response = admin_client.patch(
+        reverse("document-detail", args=[document.pk]),
+        {
+            "data": {
+                "id": document.pk,
+                "type": "documents",
+                "attributes": {
+                    "title": {"de": "Important"},
+                },
+            },
+        },
+    )
+
+    assert response.status_code == status_code
+
+
+@pytest.mark.parametrize("role__name", ["service"])
+@pytest.mark.parametrize(
+    "is_bab_service,status_code",
+    [
+        (True, HTTP_200_OK),
+        (False, HTTP_403_FORBIDDEN),
+    ],
+)
+def test_condition_bab_service(
+    db,
+    admin_client,
+    is_bab_service,
+    mocker,
+    service,
+    so_bab_settings,
+    so_instance,
+    status_code,
+):
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
+        return_value=[so_instance.pk],
+    )
+
+    if is_bab_service:
+        so_bab_settings["SERVICE_GROUP"] = service.service_group.name
+
+    document = DocumentFactory(
+        title="Foo",
+        metainfo={"camac-instance-id": so_instance.pk},
+        category__metainfo={
+            "access": {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "condition": {
+                                "BaBService": True,
+                            },
+                            "scope": "All",
+                        },
+                    ],
+                },
+            },
+        },
+    )
+
+    response = admin_client.patch(
+        reverse("document-detail", args=[document.pk]),
+        {
+            "data": {
+                "id": document.pk,
+                "type": "documents",
+                "attributes": {
+                    "title": {"de": "Important"},
+                },
+            },
+        },
+    )
+
+    assert response.status_code == status_code
+
+
+@pytest.mark.parametrize("role__name", ["service"])
+@pytest.mark.parametrize(
+    "marks,status_code",
+    [
+        ([], HTTP_403_FORBIDDEN),
+        (["existing", "not-allowed"], HTTP_403_FORBIDDEN),
+        (["existing", "allowed"], HTTP_200_OK),
+    ],
+)
+def test_specific_mark_permissions(
+    db, admin_client, mocker, so_instance, status_code, marks
+):
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
+        return_value=[so_instance.pk],
+    )
+
+    document = DocumentFactory(
+        title="Foo",
+        metainfo={"camac-instance-id": so_instance.pk},
+        marks=["existing"],
+        category__metainfo={
+            "access": {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "marks": ["allowed"],
+                            "scope": "All",
+                        },
+                    ],
+                },
+            },
+        },
+    )
+
+    document.marks.add(MarkFactory(slug="existing"))
+
+    MarkFactory(slug="allowed")
+    MarkFactory(slug="not-allowed")
+
+    response = admin_client.patch(
+        reverse("document-detail", args=[document.pk]),
+        {
+            "data": {
+                "id": document.pk,
+                "type": "documents",
+                "attributes": {
+                    "title": {"de": "Important"},
+                },
+                "relationships": {
+                    "marks": {
+                        "data": [{"id": slug, "type": "marks"} for slug in marks],
+                    }
+                },
+            },
+        },
+    )
+
+    assert response.status_code == status_code

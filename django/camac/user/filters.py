@@ -146,8 +146,8 @@ class PublicServiceFilterSet(FilterSet):
                     Exists(
                         Answer.objects.filter(
                             document_id=OuterRef("document_id"),
-                            question_id="publikation-amtsblatt",
-                            date__isnull=False,
+                            question_id="publikation-organ",
+                            value__contains="publikation-organ-amtsblatt",
                         )
                     )
                 )
