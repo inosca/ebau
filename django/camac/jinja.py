@@ -1,7 +1,7 @@
 from babel.dates import format_date
 from dateutil.parser import parse
 from django.conf import settings
-from jinja2 import Environment
+from jinja2.sandbox import SandboxedEnvironment
 
 
 def dateformat(value, format="medium"):
@@ -19,7 +19,7 @@ def getwithdefault(value, default=""):
 
 
 def get_jinja_env():
-    jinja_env = Environment()
+    jinja_env = SandboxedEnvironment()
     jinja_env.filters["date"] = dateformat
     jinja_env.filters["getwithdefault"] = getwithdefault
     return jinja_env
