@@ -376,7 +376,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Hinweise an die Bauherrschaft\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Hinweise an die Gesuchsteller/in\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
       "is_hidden": "false",

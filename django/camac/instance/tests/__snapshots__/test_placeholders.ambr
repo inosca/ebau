@@ -2104,7 +2104,7 @@
         }),
       ]),
       'description': dict({
-        'de': 'Name des/r Gesuchsteller/in',
+        'de': 'Name des/r ersten Gesuchsteller/in',
         'fr': 'Nom requérant/e',
       }),
       'nested_aliases': dict({
@@ -2146,7 +2146,7 @@
         }),
       ]),
       'description': dict({
-        'de': 'Name und Adresse des/r Gesuchsteller/in',
+        'de': 'Name und Adresse des/r ersten Gesuchsteller/in',
         'fr': 'Nom et adresse requérant/e',
       }),
       'nested_aliases': dict({
@@ -2370,7 +2370,7 @@
         }),
       ]),
       'description': dict({
-        'de': 'Juristischer Name des/r Gesuchsteller/in',
+        'de': 'Juristischer Name des/r ersten Gesuchsteller/in',
         'fr': 'Nom légal requérant/e',
       }),
       'nested_aliases': dict({
@@ -4280,7 +4280,7 @@
         }),
       ]),
       'description': dict({
-        'de': 'Name des/r Gesuchsteller/in',
+        'de': 'Name des/r ersten Gesuchsteller/in',
       }),
       'nested_aliases': dict({
       }),
@@ -4316,7 +4316,7 @@
         }),
       ]),
       'description': dict({
-        'de': 'Name und Adresse des/r Gesuchsteller/in',
+        'de': 'Name und Adresse des/r ersten Gesuchsteller/in',
       }),
       'nested_aliases': dict({
       }),
@@ -4388,7 +4388,7 @@
         }),
       ]),
       'description': dict({
-        'de': 'Juristischer Name des/r Gesuchsteller/in',
+        'de': 'Juristischer Name des/r ersten Gesuchsteller/in',
       }),
       'nested_aliases': dict({
       }),
@@ -4946,38 +4946,14 @@
       'nested_aliases': dict({
       }),
     }),
-    'ALLE_BAUHERREN_VERTRETER': dict({
-      'aliases': list([
-        dict({
-          'de': 'ALLE_BAUHERREN_VERTRETER',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Namen aller Vertreter/innen der Bauherr/innen',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
-    'ALLE_BAUHERREN_VERTRETER_NAME_ADRESSE': dict({
-      'aliases': list([
-        dict({
-          'de': 'ALLE_BAUHERREN_VERTRETER_NAME_ADRESSE',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Namen und Adressen aller Vertreter/innen der Bauherr/innen',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
     'ALLE_GESUCHSTELLER': dict({
       'aliases': list([
         dict({
-          'de': 'ALLE_BAUHERREN',
+          'de': 'ALLE_GESUCHSTELLER',
         }),
       ]),
       'description': dict({
-        'de': 'Namen aller Bauherr/innen',
+        'de': 'Namen aller Gesuchsteller/innen',
       }),
       'nested_aliases': dict({
       }),
@@ -4985,11 +4961,35 @@
     'ALLE_GESUCHSTELLER_NAME_ADDRESS': dict({
       'aliases': list([
         dict({
-          'de': 'ALLE_BAUHERREN_NAME_ADRESSE',
+          'de': 'ALLE_GESUCHSTELLER_NAME_ADRESSE',
         }),
       ]),
       'description': dict({
-        'de': 'Namen und Adressen aller Bauherr/innen',
+        'de': 'Namen und Adressen aller Gesuchsteller/innen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_GESUCHSTELLER_VERTRETER': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_GESUCHSTELLER_VERTRETER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Namen aller Vertreter/innen der Gesuchsteller/innen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_GESUCHSTELLER_VERTRETER_NAME_ADRESSE': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_GESUCHSTELLER_VERTRETER_NAME_ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Namen und Adressen aller Vertreter/innen der Gesuchsteller/innen',
       }),
       'nested_aliases': dict({
       }),
@@ -5122,66 +5122,6 @@
       ]),
       'description': dict({
         'de': 'Datum des Bauentscheids',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
-    'BAUHERR_ANREDE': dict({
-      'aliases': list([
-        dict({
-          'de': 'BAUHERR_ANREDE',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Anrede des/r ersten Bauherr/in',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
-    'BAUHERR_VERTRETER': dict({
-      'aliases': list([
-        dict({
-          'de': 'BAUHERR_VERTRETER',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Name des/r Vertreter/in des/r ersten Bauherr/in',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
-    'BAUHERR_VERTRETER_ADRESSE_1': dict({
-      'aliases': list([
-        dict({
-          'de': 'BAUHERR_VERTRETER_ADRESSE_1',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Adresslinie 1 des/r Vertreter/in des/r ersten Bauherr/in',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
-    'BAUHERR_VERTRETER_ADRESSE_2': dict({
-      'aliases': list([
-        dict({
-          'de': 'BAUHERR_VERTRETER_ADRESSE_2',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Adresslinie 2 des/r Vertreter/in des/r ersten Bauherr/in',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
-    'BAUHERR_VERTRETER_NAME_ADRESSE': dict({
-      'aliases': list([
-        dict({
-          'de': 'BAUHERR_VERTRETER_NAME_ADRESSE',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Name und Adresse des/r Vertreter/in des/r ersten Bauherr/in',
       }),
       'nested_aliases': dict({
       }),
@@ -5646,11 +5586,11 @@
     'GESUCHSTELLER': dict({
       'aliases': list([
         dict({
-          'de': 'BAUHERR',
+          'de': 'GESUCHSTELLER',
         }),
       ]),
       'description': dict({
-        'de': 'Name des/r ersten Bauherr/in',
+        'de': 'Name des/r ersten Gesuchsteller/in',
       }),
       'nested_aliases': dict({
       }),
@@ -5658,11 +5598,11 @@
     'GESUCHSTELLER_ADDRESS_1': dict({
       'aliases': list([
         dict({
-          'de': 'BAUHERR_ADRESSE_1',
+          'de': 'GESUCHSTELLER_ADRESSE_1',
         }),
       ]),
       'description': dict({
-        'de': 'Adresslinie 1 des/r ersten Bauherr/in',
+        'de': 'Adresslinie 1 des/r ersten Gesuchsteller/in',
       }),
       'nested_aliases': dict({
       }),
@@ -5670,11 +5610,23 @@
     'GESUCHSTELLER_ADDRESS_2': dict({
       'aliases': list([
         dict({
-          'de': 'BAUHERR_ADRESSE_2',
+          'de': 'GESUCHSTELLER_ADRESSE_2',
         }),
       ]),
       'description': dict({
-        'de': 'Adresslinie 2 des/r ersten Bauherr/in',
+        'de': 'Adresslinie 2 des/r ersten Gesuchsteller/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GESUCHSTELLER_ANREDE': dict({
+      'aliases': list([
+        dict({
+          'de': 'GESUCHSTELLER_ANREDE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Anrede des/r ersten Gesuchsteller/in',
       }),
       'nested_aliases': dict({
       }),
@@ -5682,11 +5634,59 @@
     'GESUCHSTELLER_NAME_ADDRESS': dict({
       'aliases': list([
         dict({
-          'de': 'BAUHERR_NAME_ADRESSE',
+          'de': 'GESUCHSTELLER_NAME_ADRESSE',
         }),
       ]),
       'description': dict({
-        'de': 'Name und Adresse des/r ersten Bauherr/in',
+        'de': 'Name und Adresse des/r ersten Gesuchsteller/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GESUCHSTELLER_VERTRETER': dict({
+      'aliases': list([
+        dict({
+          'de': 'GESUCHSTELLER_VERTRETER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name des/r Vertreter/in des/r ersten Gesuchsteller/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GESUCHSTELLER_VERTRETER_ADRESSE_1': dict({
+      'aliases': list([
+        dict({
+          'de': 'GESUCHSTELLER_VERTRETER_ADRESSE_1',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Adresslinie 1 des/r Vertreter/in des/r ersten Gesuchsteller/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GESUCHSTELLER_VERTRETER_ADRESSE_2': dict({
+      'aliases': list([
+        dict({
+          'de': 'GESUCHSTELLER_VERTRETER_ADRESSE_2',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Adresslinie 2 des/r Vertreter/in des/r ersten Gesuchsteller/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GESUCHSTELLER_VERTRETER_NAME_ADRESSE': dict({
+      'aliases': list([
+        dict({
+          'de': 'GESUCHSTELLER_VERTRETER_NAME_ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name und Adresse des/r Vertreter/in des/r ersten Gesuchsteller/in',
       }),
       'nested_aliases': dict({
       }),
@@ -5746,7 +5746,7 @@
         }),
       ]),
       'description': dict({
-        'de': 'Juristischer Name des/r Bauherr/in\t',
+        'de': 'Juristischer Name des/r ersten Gesuchsteller/in',
       }),
       'nested_aliases': dict({
       }),
@@ -5986,7 +5986,7 @@
         }),
       ]),
       'description': dict({
-        'de': 'Die ausgewählte Gemeinde des/der Bauherr/in',
+        'de': 'Die ausgewählte Gemeinde des/der Gesuchsteller/in',
       }),
       'nested_aliases': dict({
       }),
@@ -5998,7 +5998,7 @@
         }),
       ]),
       'description': dict({
-        'de': 'Die Adresse der ausgewählten Gemeinde des/der Bauherr/in',
+        'de': 'Die Adresse der ausgewählten Gemeinde des/der Gesuchsteller/in',
       }),
       'nested_aliases': dict({
       }),
@@ -6061,7 +6061,7 @@
         }),
       ]),
       'description': dict({
-        'de': 'Das ausgewählte Grundstück des/der Bauherr/in',
+        'de': 'Das ausgewählte Grundstück des/der Gesuchsteller/in',
       }),
       'nested_aliases': dict({
       }),
@@ -7457,12 +7457,11 @@
   list([
     'ADDRESS',
     'ADRESSE',
-    'ALLE_BAUHERREN',
-    'ALLE_BAUHERREN_NAME_ADRESSE',
-    'ALLE_BAUHERREN_VERTRETER',
-    'ALLE_BAUHERREN_VERTRETER_NAME_ADRESSE',
     'ALLE_GESUCHSTELLER',
     'ALLE_GESUCHSTELLER_NAME_ADDRESS',
+    'ALLE_GESUCHSTELLER_NAME_ADRESSE',
+    'ALLE_GESUCHSTELLER_VERTRETER',
+    'ALLE_GESUCHSTELLER_VERTRETER_NAME_ADRESSE',
     'ALLE_GRUNDEIGENTUEMER',
     'ALLE_GRUNDEIGENTUEMER_NAME_ADDRESS',
     'ALLE_GRUNDEIGENTUEMER_NAME_ADRESSE',
@@ -7476,15 +7475,6 @@
     'BASE_URL',
     'BAUEINGABE_DATUM',
     'BAUENTSCHEID_DATUM',
-    'BAUHERR',
-    'BAUHERR_ADRESSE_1',
-    'BAUHERR_ADRESSE_2',
-    'BAUHERR_ANREDE',
-    'BAUHERR_NAME_ADRESSE',
-    'BAUHERR_VERTRETER',
-    'BAUHERR_VERTRETER_ADRESSE_1',
-    'BAUHERR_VERTRETER_ADRESSE_2',
-    'BAUHERR_VERTRETER_NAME_ADRESSE',
     'BESCHREIBUNG_BAUVORHABEN',
     'DOSSIER_NUMBER',
     'DOSSIER_NUMMER',
@@ -7593,7 +7583,15 @@
     'GESUCHSTELLER',
     'GESUCHSTELLER_ADDRESS_1',
     'GESUCHSTELLER_ADDRESS_2',
+    'GESUCHSTELLER_ADRESSE_1',
+    'GESUCHSTELLER_ADRESSE_2',
+    'GESUCHSTELLER_ANREDE',
     'GESUCHSTELLER_NAME_ADDRESS',
+    'GESUCHSTELLER_NAME_ADRESSE',
+    'GESUCHSTELLER_VERTRETER',
+    'GESUCHSTELLER_VERTRETER_ADRESSE_1',
+    'GESUCHSTELLER_VERTRETER_ADRESSE_2',
+    'GESUCHSTELLER_VERTRETER_NAME_ADRESSE',
     'GRUNDEIGENTUEMER',
     'GRUNDEIGENTUEMER_ADDRESS_1',
     'GRUNDEIGENTUEMER_ADDRESS_2',
@@ -8434,18 +8432,11 @@
 # ---
 # name: test_dms_placeholders_so[Municipality]
   dict({
-    'ALLE_BAUHERREN_VERTRETER': 'Mark Russo, Patrick Dougherty',
-    'ALLE_BAUHERREN_VERTRETER_NAME_ADRESSE': 'Mark Russo, Martinez Pines 20675, 4308 Darrenfurt, Patrick Dougherty, Andrew Field 9877, 1884 Lisaburgh',
     'ALLE_RECHNUNGSEMPFAENGER': 'Gina Young, Harmon, Ray and Johnson, Donna Ruiz',
     'ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Gina Young, Jessica Station 7762, 1520 Stephensburgh, Harmon, Ray and Johnson, Donna Ruiz, Clark Road 9402, 5057 Richmondton',
     'ANGEMELDET_EMAIL': 'admin@example.com',
     'ANGEMELDET_NAME': 'Admin User',
     'BAUENTSCHEID_DATUM': '18. April 2024',
-    'BAUHERR_ANREDE': 'Herr',
-    'BAUHERR_VERTRETER': 'Mark Russo',
-    'BAUHERR_VERTRETER_ADRESSE_1': 'Martinez Pines 20675',
-    'BAUHERR_VERTRETER_ADRESSE_2': '4308 Darrenfurt',
-    'BAUHERR_VERTRETER_NAME_ADRESSE': 'Mark Russo, Martinez Pines 20675, 4308 Darrenfurt',
     'EIGENE_GEBUEHREN': list([
       dict({
         'BETRAG': '553.25',
