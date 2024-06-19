@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-29 15:01+0200\n"
+"POT-Creation-Date: 2024-06-18 10:27+0200\n"
 "PO-Revision-Date: 2023-12-13 14:32+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -63,11 +63,11 @@ msgstr "nicht aktiviert"
 msgid "Others"
 msgstr "Andere"
 
-#: camac/caluma/extensions/data_sources.py:337
+#: camac/caluma/extensions/data_sources.py:341
 msgid "Local building authority"
 msgstr "Örtliche Baubehörde"
 
-#: camac/caluma/extensions/dynamic_tasks.py:318
+#: camac/caluma/extensions/dynamic_tasks.py:323
 msgid "Construction step completed"
 msgstr "abgeschlossen"
 
@@ -79,51 +79,51 @@ msgstr "Dossierprüfung übersprungen"
 msgid "Exam completed"
 msgstr "Dossierprüfung abgeschlossen"
 
-#: camac/caluma/extensions/events/construction_monitoring.py:82
+#: camac/caluma/extensions/events/construction_monitoring.py:83
 msgid "Baubegleitung planen"
 msgstr "Baubegleitung planen"
 
-#: camac/caluma/extensions/events/construction_monitoring.py:83
+#: camac/caluma/extensions/events/construction_monitoring.py:84
 msgid "Baufreigabe"
 msgstr "Baufreigabe"
 
-#: camac/caluma/extensions/events/construction_monitoring.py:84
+#: camac/caluma/extensions/events/construction_monitoring.py:85
 msgid "Baubeginn"
 msgstr "Baubeginn"
 
-#: camac/caluma/extensions/events/construction_monitoring.py:85
+#: camac/caluma/extensions/events/construction_monitoring.py:86
 msgid "Schnurgeruestabnahme"
 msgstr "Schnurgerüstabnahme"
 
-#: camac/caluma/extensions/events/construction_monitoring.py:86
+#: camac/caluma/extensions/events/construction_monitoring.py:87
 msgid "Kanalisationsabnahme"
 msgstr "Kanalisationsabnahme"
 
-#: camac/caluma/extensions/events/construction_monitoring.py:87
+#: camac/caluma/extensions/events/construction_monitoring.py:88
 msgid "Rohbauabnahme"
 msgstr "Rohbauabnahme"
 
-#: camac/caluma/extensions/events/construction_monitoring.py:88
+#: camac/caluma/extensions/events/construction_monitoring.py:89
 msgid "Zwischenkontrolle"
 msgstr "Zwischenkontrolle"
 
-#: camac/caluma/extensions/events/construction_monitoring.py:89
+#: camac/caluma/extensions/events/construction_monitoring.py:90
 msgid "Schlussabnahme Gebaeude"
 msgstr "Schlussabnahme Gebäude"
 
-#: camac/caluma/extensions/events/construction_monitoring.py:90
+#: camac/caluma/extensions/events/construction_monitoring.py:91
 msgid "Schlussabnahme Projekt"
 msgstr "Schlussabnahme Projekt"
 
-#: camac/caluma/extensions/events/construction_monitoring.py:103
+#: camac/caluma/extensions/events/construction_monitoring.py:104
 msgid "Construction monitoring skipped"
 msgstr "Baubegleitung übersprungen"
 
-#: camac/caluma/extensions/events/construction_monitoring.py:169
+#: camac/caluma/extensions/events/construction_monitoring.py:170
 msgid "Construction monitoring started"
 msgstr "Baubegleitung gestartet"
 
-#: camac/caluma/extensions/events/construction_monitoring.py:205
+#: camac/caluma/extensions/events/construction_monitoring.py:215
 msgid "Construction monitoring completed"
 msgstr "Baubegleitung abgeschlossen"
 
@@ -234,8 +234,8 @@ msgid "ACL Roles"
 msgstr "Rollen"
 
 #: camac/core/admin/views.py:36 camac/core/admin/views.py:81
-#: camac/user/admin/views.py:83 camac/user/admin/views.py:126
-#: camac/user/admin/views.py:150 camac/user/admin/views.py:167
+#: camac/user/admin/views.py:84 camac/user/admin/views.py:136
+#: camac/user/admin/views.py:172 camac/user/admin/views.py:189
 #: camac/user/models.py:206 camac/user/models.py:265 camac/user/models.py:430
 #: camac/user/models.py:455 camac/user/models.py:480 camac/user/models.py:499
 #: camac/user/models.py:576 camac/user/models.py:669
@@ -434,7 +434,7 @@ msgstr ""
 "Der Importvorgang dauerte mehr als %(timeout)i Sekunden, um abzuschliessen "
 "und wurde darum abgebrochen."
 
-#: camac/dossier_import/serializers.py:57 camac/instance/serializers.py:2144
+#: camac/dossier_import/serializers.py:57 camac/instance/serializers.py:2153
 msgid "No location assigned."
 msgstr "Kein Standort gesetzt."
 
@@ -843,12 +843,12 @@ msgstr "Verfahren"
 msgid "Not allowed to add data to instance %(instance)s"
 msgstr "Keine Berechtigung um Daten zum Dossier %(instance)s hinzuzufügen"
 
-#: camac/instance/serializers.py:448 camac/instance/serializers.py:1837
+#: camac/instance/serializers.py:448 camac/instance/serializers.py:1846
 #, python-format
 msgid "'%(form)s' is not a valid form type"
 msgstr "'%(form)s' ist ein ungültiger Dossiertyp"
 
-#: camac/instance/serializers.py:458 camac/instance/serializers.py:1831
+#: camac/instance/serializers.py:458 camac/instance/serializers.py:1840
 #, python-format
 msgid "The current form '%(form)s' can't be changed"
 msgstr "Der momentane Dossiertyp '%(form)s' kann nicht geändert werden"
@@ -897,87 +897,87 @@ msgstr "Quellinstanz nicht gefunden"
 msgid "The form '%(form)s' can only be used by an internal role"
 msgstr "Das Formular '%(form)s' kann nur von internen Rollen genutzt werden"
 
-#: camac/instance/serializers.py:1110
+#: camac/instance/serializers.py:1109
 msgid "Project modification is not allowed"
 msgstr "Projektänderung nicht erlaubt"
 
-#: camac/instance/serializers.py:1718
+#: camac/instance/serializers.py:1727
 msgid "Dossier submitted"
 msgstr "Dossier eingereicht"
 
-#: camac/instance/serializers.py:1764 camac/settings/modules/ech0211.py:73
+#: camac/instance/serializers.py:1773 camac/settings/modules/ech0211.py:314
 msgid "SB1 submitted"
 msgstr "SB1 eingereicht"
 
-#: camac/instance/serializers.py:1803
+#: camac/instance/serializers.py:1812
 msgid "Archived"
 msgstr "Archiviert"
 
-#: camac/instance/serializers.py:1853
+#: camac/instance/serializers.py:1862
 msgid "Changed form type"
 msgstr "Dossiertyp geändert"
 
-#: camac/instance/serializers.py:1883
+#: camac/instance/serializers.py:1892
 msgid "Invalid format"
 msgstr "Ungültiges Format"
 
-#: camac/instance/serializers.py:1890
+#: camac/instance/serializers.py:1899
 msgid "This eBau number doesn't exist"
 msgstr "Diese eBau-Nummer existiert nicht"
 
-#: camac/instance/serializers.py:1894
+#: camac/instance/serializers.py:1903
 msgid "This eBau number is already in use by a different municipality"
 msgstr "Diese eBau-Nummer wurde durch eine andere Leitbehörde bereits vergeben"
 
-#: camac/instance/serializers.py:1946
+#: camac/instance/serializers.py:1955
 #, python-format
 msgid "%(value)s is not a valid service type - valid types are: %(expected)s"
 msgstr ""
 "%(value)s ist kein korrekter Servicetyp - korrekte Typen sind: %(expected)s"
 
-#: camac/instance/serializers.py:1960
+#: camac/instance/serializers.py:1969
 msgid "Invalid audit"
 msgstr "Ungültige Prüfung"
 
-#: camac/instance/serializers.py:2000
+#: camac/instance/serializers.py:2009
 #, python-format
 msgid "Changed responsible service to: %(service)s"
 msgstr "Neue Leitbehörde: %(service)s"
 
-#: camac/instance/serializers.py:2022
+#: camac/instance/serializers.py:2031
 #, python-format
 msgid "Responsible service did not change for instance %(instance_id)s"
 msgstr "Wechsel der Leitbehörde für Dossier %(instance_id)s ist fehlgeschlagen"
 
-#: camac/instance/serializers.py:2090 camac/settings/modules/ech0211.py:78
+#: camac/instance/serializers.py:2099 camac/settings/modules/ech0211.py:319
 msgid "SB2 submitted"
 msgstr "SB2 eingereicht"
 
-#: camac/instance/serializers.py:2118
+#: camac/instance/serializers.py:2127
 #, python-format
 msgid "User %(user)s does not belong to service %(service)s."
 msgstr "Der Benutzer %(user)s gehört nicht zum Service %(service)s."
 
-#: camac/instance/serializers.py:2163
+#: camac/instance/serializers.py:2172
 #, python-format
 msgid "No group found for location %(name)s."
 msgstr "Keine Gruppe für den Standort %(name)s gefunden."
 
-#: camac/instance/serializers.py:2231
+#: camac/instance/serializers.py:2240
 #, python-format
 msgid "invalid question %(question)s."
 msgstr "Ungültige Frage %(question)s."
 
-#: camac/instance/serializers.py:2238
+#: camac/instance/serializers.py:2247
 #, python-format
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr "%(permission)s darf die Frage %(question)s nicht bearbeiten."
 
-#: camac/instance/serializers.py:2641
+#: camac/instance/serializers.py:2650
 msgid "Appeal received"
 msgstr "Beschwerde eingegangen"
 
-#: camac/instance/serializers.py:2666
+#: camac/instance/serializers.py:2675
 msgid "The Dossier can't be correct because there are running inquiries."
 msgstr ""
 "Das Dossier kann nicht korrigiert werden, da bereits Stellungahmen "
@@ -1148,48 +1148,48 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr "Einsprache %(objection) hat bereits einen Vertreter"
 
-#: camac/settings/django.py:869 camac/settings/django.py:1562
-#: camac/settings/django.py:1751
+#: camac/settings/django.py:869 camac/settings/django.py:1535
+#: camac/settings/django.py:1726
 msgid "Circulation started"
 msgstr "Zirkulation gestartet"
 
-#: camac/settings/django.py:886 camac/settings/django.py:1770
+#: camac/settings/django.py:886 camac/settings/django.py:1748
 msgid "Procedure completed"
 msgstr "Baugesuchsverfahren abgeschlossen"
 
-#: camac/settings/django.py:1557
+#: camac/settings/django.py:1530
 msgid "Preliminary exam performed"
 msgstr "Vorläufige Prüfung durchgeführt"
 
-#: camac/settings/django.py:1568
+#: camac/settings/django.py:1541
 msgid "Additional demand sent"
 msgstr "Nachforderung begonnen"
 
-#: camac/settings/django.py:1575
+#: camac/settings/django.py:1548
 msgid "Additional demand was answered"
 msgstr "Nachforderung wurde beantwortet"
 
-#: camac/settings/django.py:1583
+#: camac/settings/django.py:1556
 msgid "Construction monitoring performed"
 msgstr "Baubegleitung durchgeführt"
 
-#: camac/settings/django.py:1743
+#: camac/settings/django.py:1717
 msgid "Formal exam performed"
 msgstr "Formelle Prüfung durchgeführt"
 
-#: camac/settings/django.py:1747
+#: camac/settings/django.py:1721
 msgid "Material exam performed"
 msgstr "Materielle Prüfung durchgeführt"
 
-#: camac/settings/django.py:2079
+#: camac/settings/django.py:2061
 msgid "German"
 msgstr "Deutsch"
 
-#: camac/settings/django.py:2080
+#: camac/settings/django.py:2062
 msgid "French"
 msgstr "Französisch"
 
-#: camac/settings/django.py:2081
+#: camac/settings/django.py:2063
 msgid "Italian"
 msgstr "Italienisch"
 
@@ -1208,25 +1208,26 @@ msgstr "Dossier korrigiert"
 #: camac/settings/modules/distribution.py:68
 #: camac/settings/modules/distribution.py:573
 #: camac/settings/modules/distribution.py:618
-#: camac/settings/modules/distribution.py:696
+#: camac/settings/modules/distribution.py:701
 msgid "Circulation completed"
 msgstr "Zirkulation abgeschlossen"
 
 #: camac/settings/modules/distribution.py:69
 #: camac/settings/modules/distribution.py:574
 #: camac/settings/modules/distribution.py:619
-#: camac/settings/modules/distribution.py:697
+#: camac/settings/modules/distribution.py:702
 msgid "Circulation skipped"
 msgstr "Zirkulation übersprungen"
 
 #: camac/settings/modules/distribution.py:70
 #: camac/settings/modules/distribution.py:575
 #: camac/settings/modules/distribution.py:620
-#: camac/settings/modules/distribution.py:698
+#: camac/settings/modules/distribution.py:703
 msgid "Circulation reopened"
 msgstr "Zirkulation wiedereröffnet"
 
-#: camac/settings/modules/ech0211.py:68 camac/settings/modules/ech0211.py:138
+#: camac/settings/modules/ech0211.py:309 camac/settings/modules/ech0211.py:386
+#: camac/settings/modules/ech0211.py:532
 msgid "Inquiry sent"
 msgstr "Anforderung einer Stellungnahme"
 
@@ -1299,7 +1300,7 @@ msgstr "Keine Unterfachstellen"
 
 #: camac/user/admin/forms.py:27 camac/user/admin/forms.py:43
 #: camac/user/admin/forms.py:52 camac/user/admin/views.py:55
-#: camac/user/admin/views.py:91 camac/user/admin/views.py:134
+#: camac/user/admin/views.py:92 camac/user/admin/views.py:144
 #: camac/user/models.py:62 camac/user/models.py:203 camac/user/models.py:627
 msgid "Disabled?"
 msgstr "Deaktiviert?"
@@ -1323,7 +1324,7 @@ msgstr "Gruppen"
 msgid "Location"
 msgstr "Standort"
 
-#: camac/user/admin/inlines.py:48 camac/user/admin/views.py:87
+#: camac/user/admin/inlines.py:48 camac/user/admin/views.py:88
 #: camac/user/models.py:243
 msgid "Locations"
 msgstr "Standorte"
@@ -1345,10 +1346,26 @@ msgstr "Organisationsbeziehung"
 msgid "Service relationships"
 msgstr "Organisationsbeziehungen"
 
-#: camac/user/admin/views.py:130 camac/user/models.py:487
+#: camac/user/admin/views.py:103
+msgid "Disable selected groups"
+msgstr "Ausgewählte Gruppen deaktivieren"
+
+#: camac/user/admin/views.py:107
+msgid "Enable selected groups"
+msgstr "Ausgewählte Gruppen aktivieren"
+
+#: camac/user/admin/views.py:140 camac/user/models.py:487
 #: camac/user/models.py:564
 msgid "Service group"
 msgstr "Organisationstyp"
+
+#: camac/user/admin/views.py:148
+msgid "Disable selected services"
+msgstr "Ausgewählte Organisationen deaktivieren"
+
+#: camac/user/admin/views.py:154
+msgid "Enable selected services"
+msgstr "Ausgewählte Organisationen aktivieren"
 
 #: camac/user/apps.py:7
 msgid "User management"
