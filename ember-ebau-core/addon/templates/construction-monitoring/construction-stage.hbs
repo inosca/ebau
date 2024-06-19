@@ -1,9 +1,10 @@
 <div class="uk-flex uk-flex-inline uk-flex-middle uk-width-1-1">
-  <h3
-    class="uk-text-muted uk-text-uppercase uk-text-bold uk-width-expand uk-text-truncate uk-margin-small-bottom"
+  <p
+    class="uk-text-muted uk-text-small uk-text-uppercase uk-text-bold uk-width-expand uk-text-truncate
+      {{if (is-legacy-app) 'uk-margin-small-bottom' 'uk-margin-remove'}}"
   >
     {{this.constructionStage.displayName}}
-  </h3>
+  </p>
 </div>
 
 {{outlet}}

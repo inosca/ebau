@@ -17,7 +17,7 @@ construction-monitoring:
 
   controls:
     start-info: Klicken Sie "+" um eine Bauetappe zu starten. Falls kein Baubegleitungsprozess benötigt wird, können Sie diesen Schritt auch überspringen.
-    
+
     skip: "Baubegleitungsprozess überspringen"
     skip-confirm: "Bitte bestätigen Sie, dass der Baubegleitungsprozess übersprungen werden soll. Dieser Schritt kann nicht rückgängig gemacht werden."
     skip-error: "Beim Überspringen des Baubegleitungsprozesses ist ein Fehler aufgetreten."
@@ -70,6 +70,8 @@ construction-monitoring:
       divider-info-ready: Der nächste Prozesschritt befindet sich bei der Gemeinde in Bearbeitung.
       divider-info-skipped: Der Prozesschritt wurde frühzeitig abgebrochen.
 
+      take-over-editing: Bearbeitung übernehmen
+      finish-editing: Bearbeitung beenden
       addressed-to-applicant: Standardmässig durch die Gesuchstellenden auszufüllen
 
     update-construction-stage-name-error: "Beim Speichern des Namens der Bauetappe ist ein Fehler aufgetreten."
