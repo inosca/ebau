@@ -84,7 +84,7 @@ export default class CommunicationTopicListComponent extends Component {
       "detail",
     );
 
-    if (this.ebauModules.applicationName === "camac-ng") {
+    if (this.ebauModules.isLegacyApp) {
       if (
         this.router.currentRouteName ===
         this.ebauModules.resolveModuleRoute(

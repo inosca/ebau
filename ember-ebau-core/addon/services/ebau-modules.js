@@ -18,7 +18,7 @@ export default class EbauModulesService extends Service {
     return getOwner(this).application.modulePrefix;
   }
 
-  get isCamac() {
+  get isLegacyApp() {
     return this.applicationName === "camac-ng";
   }
 

@@ -1,12 +1,15 @@
 <div class="uk-flex uk-flex-middle uk-flex-between">
-  <div class="uk-text-lead uk-text-bold">{{this.constructionStepName}}</div>
+  <div class="uk-text-lead {{if (is-legacy-app) 'uk-text-bold'}}">
+    {{this.constructionStepName}}
+  </div>
   <div
-    class="uk-label uk-text-bold uk-label-{{this.status.color}}
+    class="uk-label uk-label-{{this.status.color}}
       uk-margin-left
       {{if
         (eq this.status.color 'muted')
         'construction-stage__header-label--muted'
-      }}"
+      }}
+      {{if (is-legacy-app) 'uk-text-bold'}}"
   >
     {{this.status.label}}
   </div>
