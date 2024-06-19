@@ -2894,6 +2894,7 @@
       ],
       "client": {
         "camac-admin": [],
+        "eeba": [],
         "camac": [],
         "realm-management": [
           {
@@ -4337,6 +4338,53 @@
         ]
       },
       {
+        "id": "258bd48a-2cc2-4718-87a1-1042b58965be",
+        "clientId": "eeba",
+        "name": "",
+        "description": "",
+        "rootUrl": "",
+        "adminUrl": "",
+        "baseUrl": "",
+        "surrogateAuthRequired": false,
+        "enabled": true,
+        "alwaysDisplayInConsole": false,
+        "clientAuthenticatorType": "client-secret",
+        "redirectUris": ["http://localhost:4400/*"],
+        "webOrigins": ["http://localhost:4400"],
+        "notBefore": 0,
+        "bearerOnly": false,
+        "consentRequired": false,
+        "standardFlowEnabled": true,
+        "implicitFlowEnabled": false,
+        "directAccessGrantsEnabled": true,
+        "serviceAccountsEnabled": false,
+        "publicClient": true,
+        "frontchannelLogout": true,
+        "protocol": "openid-connect",
+        "attributes": {
+          "oidc.ciba.grant.enabled": "false",
+          "oauth2.device.authorization.grant.enabled": "false",
+          "backchannel.logout.session.required": "true",
+          "backchannel.logout.revoke.offline.tokens": "false"
+        },
+        "authenticationFlowBindingOverrides": {},
+        "fullScopeAllowed": true,
+        "nodeReRegistrationTimeout": -1,
+        "defaultClientScopes": [
+          "web-origins",
+          "acr",
+          "roles",
+          "profile",
+          "email"
+        ],
+        "optionalClientScopes": [
+          "address",
+          "phone",
+          "offline_access",
+          "microprofile-jwt"
+        ]
+      },
+      {
         "id": "e1610afe-fdf2-43b5-bdb3-09f0ee5d9f1b",
         "clientId": "portal",
         "name": "",
@@ -5760,7 +5808,7 @@
       ]
     },
     "internationalizationEnabled": true,
-    "supportedLocales": ["de"],
+    "supportedLocales": ["de", "it"],
     "defaultLocale": "de",
     "authenticationFlows": [
       {
