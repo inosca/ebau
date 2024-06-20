@@ -4,12 +4,14 @@ import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { query, findRecord } from "ember-data-resources";
+import constructionMonitoringConfig from "ember-ebau-core/config/construction-monitoring";
 import mainConfig from "ember-ebau-core/config/main";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import apolloQuery from "ember-ebau-core/resources/apollo";
 
 import config from "caluma-portal/config/environment";
 import additionalDemandsCountQuery from "caluma-portal/gql/queries/get-additional-demands-count.graphql";
+import constructionMonitoringCountQuery from "caluma-portal/gql/queries/get-construction-monitoring-count.graphql";
 
 export default class InstancesEditController extends Controller {
   @service store;
@@ -26,6 +28,22 @@ export default class InstancesEditController extends Controller {
     null,
     (data) => {
       return { any: data.any.totalCount, ready: data.ready.totalCount };
+    },
+  );
+
+  constructionMonitoringCount = apolloQuery(
+    this,
+    () => ({
+      query: constructionMonitoringCountQuery,
+      fetchPolicy: "network-only",
+      variables: {
+        instanceId: this.model,
+        tasks: constructionMonitoringConfig.constructionSteps,
+      },
+    }),
+    null,
+    (data) => {
+      return data.ready.totalCount;
     },
   );
 
