@@ -50,6 +50,8 @@ services:
       - db
       - document-merge-service
       - mailhog
+      - minio
+      - tika
     build:
       args:
         REQUIREMENTS: requirements-dev.txt
@@ -102,6 +104,9 @@ services:
       ALEXANDRIA_ENABLE_PDF_CONVERSION: true
       ALEXANDRIA_USE_MANABI: true
       ALEXANDRIA_DMS_URL: http://document-merge-service:8000/document-merge-service/api/v1
+      ALEXANDRIA_ENABLE_CONTENT_SEARCH: true
+      TIKA_CLIENT_ONLY: true
+      TIKA_SERVER_ENDPOINT: "http://tika:9998"
     networks:
       - ebau.local
     command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0:80 --pythonpath /app/$APPLICATION"
@@ -253,6 +258,12 @@ services:
       - djangotmpmedia:/data/djangotmpmedia
       - minio_data:/data/minio_data
     command: /bin/sh -c "chown ${UID} -R /data;"
+
+  tika:
+    image: apache/tika:2.9.2.1-full
+    user: ${UID}
+    networks:
+      - ebau.local
 
 networks:
   ebau.local:

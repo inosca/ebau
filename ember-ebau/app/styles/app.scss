@@ -42,7 +42,7 @@ $main-navigation-background: $global-primary-background !default;
 }
 
 .full-screen-content {
-  margin-left: $sidebar-width;
+  margin-left: $sidebar-width + 1px;
   margin-top: $main-nav-height;
 
   & > div {
@@ -59,5 +59,30 @@ $main-navigation-background: $global-primary-background !default;
 @media (min-width: $breakpoint-medium) {
   .nav-sidebar + .main-content {
     padding-left: $sidebar-width + $container-padding-horizontal-m;
+  }
+}
+
+.alexandria-container {
+  border: none;
+}
+
+.main-content > .alexandria-container > div > div {
+  > div {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  > div:first-child {
+    padding-top: 0;
+
+    > div {
+      padding: 0;
+      border: none;
+    }
+  }
+
+  > div:last-child {
+    padding-bottom: 0;
+    border-top: none;
   }
 }
