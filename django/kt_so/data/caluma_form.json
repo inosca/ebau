@@ -1148,6 +1148,23 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "1502b870-ba16-4726-bcfa-cf2f34322736",
+    "fields": {
+      "created_at": "2024-06-19T15:53:25.802Z",
+      "modified_at": "2024-06-19T15:53:25.802Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "objektschutzmassnahmen-geplant",
+      "value": "objektschutzmassnahmen-geplant-nein",
+      "meta": {},
+      "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "15379b5d-6b7d-44cc-8f46-ab704c6f1943",
     "fields": {
       "created_at": "2024-05-31T10:29:37.461Z",
@@ -2390,6 +2407,23 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "468eaed9-a73e-406e-8b23-54e1e1eae79d",
+    "fields": {
+      "created_at": "2024-06-19T15:53:48.677Z",
+      "modified_at": "2024-06-19T15:53:48.677Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "objektschutzmassnahmen-geplant",
+      "value": "objektschutzmassnahmen-geplant-nein",
+      "meta": {},
+      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "477eb809-a888-4469-9fe7-c45b3e6f0cb2",
     "fields": {
       "created_at": "2023-10-05T08:56:58.865Z",
@@ -2952,6 +2986,23 @@
       "value": ["brandschutzplaene-ja"],
       "meta": {},
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "5c1894f9-8dc5-4204-8983-04e9a6299695",
+    "fields": {
+      "created_at": "2024-06-19T15:53:26.022Z",
+      "modified_at": "2024-06-19T15:53:26.023Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "objektschutzmassnahmen-beratung",
+      "value": "objektschutzmassnahmen-beratung-nein",
+      "meta": {},
+      "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
       "date": null
     }
   },
@@ -5250,6 +5301,23 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "b4229e36-2ccd-4b56-bff4-b3b543502b39",
+    "fields": {
+      "created_at": "2024-06-19T15:54:14.941Z",
+      "modified_at": "2024-06-19T15:54:14.941Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "objektschutzmassnahmen-geplant",
+      "value": "objektschutzmassnahmen-geplant-nein",
+      "meta": {},
+      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "b4f01221-d9bb-497d-b78c-3acc8a8ff233",
     "fields": {
       "created_at": "2023-07-07T07:33:58.710Z",
@@ -5315,6 +5383,23 @@
       "value": "strasse-ist-betroffen-nein",
       "meta": {},
       "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "b7bed7d9-1fd3-45be-be61-0d4ae452b329",
+    "fields": {
+      "created_at": "2024-06-19T15:53:49.022Z",
+      "modified_at": "2024-06-19T15:53:49.022Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "objektschutzmassnahmen-beratung",
+      "value": "objektschutzmassnahmen-beratung-nein",
+      "meta": {},
+      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
       "date": null
     }
   },
@@ -5470,6 +5555,23 @@
       "value": "maschinen-maschinelle-einrichtungen-und-apparate-relevant-nein",
       "meta": {},
       "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "bd2bb2ee-cc73-417a-8b55-6df793b12f90",
+    "fields": {
+      "created_at": "2024-06-19T15:54:15.666Z",
+      "modified_at": "2024-06-19T15:54:15.666Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "objektschutzmassnahmen-beratung",
+      "value": "objektschutzmassnahmen-beratung-nein",
+      "meta": {},
+      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
       "date": null
     }
   },
@@ -6084,7 +6186,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "question": "bemerkungen",
+      "question": "beschreibung-voranfrage",
       "value": "Ist es möglich in unserem Garten einen Teich zu bauen?",
       "meta": {},
       "document": "88fb4b7d-10c7-4f36-9be6-dd068e0cc2e2",
