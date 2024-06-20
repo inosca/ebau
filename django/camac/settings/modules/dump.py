@@ -465,6 +465,7 @@ DUMP = {
                     regex=r"^gebaeudeschaetzung$"
                 ),
                 "caluma_geometer_forms": generate_form_dump_config(regex=r"^geometer$"),
+                "caluma_bab_form": generate_form_dump_config(regex=r"^bab"),
                 "caluma_instance_management_form": generate_form_dump_config(
                     regex=r"^instance-management$"
                 ),
