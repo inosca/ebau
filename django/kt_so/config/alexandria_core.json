@@ -1040,24 +1040,24 @@
             "permissions": [
               {
                 "scope": "All",
-                "permission": "create",
                 "condition": {
                   "MigratedInstance": true
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "All",
-                "permission": "update",
                 "condition": {
                   "MigratedInstance": true
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
-                "permission": "delete",
                 "condition": {
                   "MigratedInstance": true
-                }
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -1069,24 +1069,24 @@
             "permissions": [
               {
                 "scope": "All",
-                "permission": "create",
                 "condition": {
                   "MigratedInstance": true
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "All",
-                "permission": "update",
                 "condition": {
                   "MigratedInstance": true
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
-                "permission": "delete",
                 "condition": {
                   "MigratedInstance": true
-                }
+                },
+                "permission": "delete"
               }
             ]
           }
