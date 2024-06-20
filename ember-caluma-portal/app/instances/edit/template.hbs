@@ -146,6 +146,12 @@
         >
           <AriaHeading @enabled={{active}}>
             {{t "nav.construction-monitoring"}}
+            {{#if this.constructionMonitoringCount.value}}
+              <UkBadge
+                @label={{this.constructionMonitoringCount.value}}
+                class="uk-margin-small-left"
+              />
+            {{/if}}
           </AriaHeading>
         </Tab.item>
       {{/if}}
