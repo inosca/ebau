@@ -189,7 +189,7 @@ def test_summary_claims(
     [
         ("Support", 7 * 60 * 60 * 24, round(2 / 3 * 100, 2), 2),
         ("Service", 9 * 60 * 60 * 24, 50.0, 2),
-        ("Applicant", None, None, 1),
+        ("Applicant", None, None, 2),
     ],
 )
 def test_inquiries_summary(

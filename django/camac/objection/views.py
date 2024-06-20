@@ -1,4 +1,5 @@
-from django.utils import timezone
+from datetime import datetime, timezone
+
 from rest_framework_json_api.views import ModelViewSet
 
 from camac.instance.mixins import InstanceQuerysetMixin
@@ -75,7 +76,7 @@ class ObjectionView(InstanceQuerysetMixin, ModelViewSet):
         if not objection_timeframe:
             return True
 
-        return objection_timeframe.timeframe.upper > timezone.now()
+        return objection_timeframe.timeframe.upper > datetime.now(timezone.utc)
 
     def has_create_permission_for_service(self):
         return self.has_create_permission_for_municipality()

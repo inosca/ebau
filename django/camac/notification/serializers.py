@@ -17,7 +17,6 @@ from django.db.models import (
     CharField,
     Exists,
     F,
-    Func,
     IntegerField,
     OuterRef,
     Q,
@@ -49,6 +48,7 @@ from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.instance.placeholders import fields
 from camac.instance.validators import transform_coordinates
+from camac.lookups import Any
 from camac.permissions.models import InstanceACL
 from camac.user.models import Group, Role, Service, User
 from camac.user.utils import unpack_service_emails
@@ -295,9 +295,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     def format_date(self, date):
         current_tz = timezone.get_current_timezone()
-        return current_tz.normalize(date.astimezone(current_tz)).strftime(
-            settings.MERGE_DATE_FORMAT
-        )
+        return date.astimezone(current_tz).strftime(settings.MERGE_DATE_FORMAT)
 
     def get_vorhaben(self, instance):
         description_slugs = [
@@ -647,15 +645,12 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             return caluma_workflow_models.WorkItem.objects.none()
 
         service_subquery = Service.objects.filter(
-            # Use element = ANY(array) operator to check if
-            # element is present in ArrayField, which requires
-            # lhs and rhs of expression to be of same type
-            pk=Func(
+            Any(
+                F("pk"),
                 Cast(
                     OuterRef("addressed_groups"),
                     output_field=ArrayField(IntegerField()),
                 ),
-                function="ANY",
             )
         )
 

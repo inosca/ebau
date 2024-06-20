@@ -18,10 +18,10 @@ interactions:
         xmlns:ows=\"http://www.opengis.net/ows/1.1\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.opengis.net/wps/1.0.0
         ../wpsExecute_response.xsd\" service=\"WPS\" version=\"1.0.0\" xml:lang=\"de-CH\"
-        serviceInstance=\"http://wps.geo.gr.ch/?request=GetCapabilities&amp;amp;service=WPS\"
+        serviceInstance=\"https://wps.geo.gr.ch/?request=GetCapabilities&amp;amp;service=WPS\"
         statusLocation=\"\">\n    <wps:Process wps:processVersion=\"1.0.0\">\n        <ows:Identifier>get_info_ebbv</ows:Identifier>\n
         \       <ows:Title>Diverse Layer-Informationen fuer eBBV anhand Geometrie</ows:Title>\n
-        \       <ows:Abstract></ows:Abstract>\n\t</wps:Process>\n    <wps:Status creationTime=\"2023-11-21T13:28:55Z\">\n
+        \       <ows:Abstract></ows:Abstract>\n\t</wps:Process>\n    <wps:Status creationTime=\"2024-06-12T13:59:06Z\">\n
         \       <wps:ProcessSucceeded>PyWPS Process Diverse Layer-Informationen fuer
         eBBV anhand Geometrie finished</wps:ProcessSucceeded>\n\t</wps:Status>\n\t<wps:ProcessOutputs>\n\t\t<wps:Output>\n
         \           <ows:Identifier>folgeplanung_bau_niveaulinienplaene</ows:Identifier>\n
@@ -436,14 +436,20 @@ interactions:
         type=&#34;int&#34;&gt;0&lt;/gwr_edid&gt;&lt;gebaeudestatus type=&#34;null&#34;&gt;&lt;/gebaeudestatus&gt;&lt;gebaeudenummer
         type=&#34;null&#34;&gt;&lt;/gebaeudenummer&gt;&lt;text_ type=&#34;str&#34;&gt;Hartbertstrasse&lt;/text_&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t</wps:ProcessOutputs>\n</wps:ExecuteResponse>"
     headers:
+      Access-Control-Allow-Headers:
+      - Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
       Connection:
       - keep-alive
       Content-Length:
-      - '41564'
+      - '41565'
       Content-Type:
       - text/xml; charset=utf-8
       Date:
-      - Tue, 21 Nov 2023 12:28:55 GMT
+      - Wed, 12 Jun 2024 11:59:06 GMT
     status:
       code: 200
       message: OK

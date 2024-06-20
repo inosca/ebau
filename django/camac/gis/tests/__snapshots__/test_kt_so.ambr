@@ -747,7 +747,7 @@
       'nutzungsplanung-weitere-festlegungen': dict({
         'hidden': False,
         'label': 'Rainer van der Dussen',
-        'value': None,
+        'value': 'Fläche: Perimeter kantonaler Nutzungsplan',
       }),
       'ort': dict({
         'hidden': False,
@@ -803,7 +803,7 @@
       'richtplan-weiteres': dict({
         'hidden': False,
         'label': 'Tülay Rose',
-        'value': 'Waldnähe (aus Richtplan): Nein, Fläche: kantonales_Naturreservat, Fläche: kantonale_Uferschutzzone, Fläche: Witischutzzone',
+        'value': 'Waldnähe (aus Richtplan): Nein, Fläche: kantonale_Uferschutzzone, Fläche: kantonales_Naturreservat, Fläche: Witischutzzone',
       }),
       'strasse-flurname': dict({
         'hidden': False,
