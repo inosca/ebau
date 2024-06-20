@@ -38533,6 +38533,15 @@
     }
   },
   {
+    "model": "core.broleacl",
+    "pk": 12000002,
+    "fields": {
+      "button": 20046,
+      "role": 3,
+      "instance_state": 120002
+    }
+  },
+  {
     "model": "core.button",
     "pk": 20013,
     "fields": {
