@@ -274,3 +274,28 @@ def test_dynamic_group_service_bab(db, service_factory, so_bab_settings, so_inst
     assert CustomDynamicGroups().resolve("service-bab")(
         None, so_instance.case, None, None, None
     ) == [str(service.pk)]
+
+
+@pytest.mark.parametrize(
+    "location_id,bab_name",
+    [
+        (1, "ARE BaB Kreis 2"),
+        (2, "ARE BaB Kreis 1"),
+        (3, "ARE BaB Kreis 3"),
+    ],
+)
+def test_dynamic_group_service_bab_ur(
+    db, service_factory, ur_instance, location_id, bab_name, location_factory
+):
+    ur_instance.location_id = location_id
+    ur_instance.save()
+
+    location_factory(pk=location_id)
+
+    bab_service = service_factory(
+        name=bab_name, service_group__name="Fachstellen Justizdirektion"
+    )
+
+    assert CustomDynamicGroups().resolve("service-bab-ur")(
+        None, ur_instance.case, None, None, None
+    ) == [str(bab_service.pk)]
