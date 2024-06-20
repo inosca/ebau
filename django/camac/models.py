@@ -2,7 +2,7 @@ from functools import wraps
 
 from django.db import transaction
 from django.db.utils import ProgrammingError
-from psycopg2.errors import UndefinedTable
+from psycopg.errors import UndefinedTable
 
 
 def dynamic_default_value(default_value=None):

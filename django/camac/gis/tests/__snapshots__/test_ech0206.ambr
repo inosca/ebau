@@ -238,6 +238,10 @@
               'label': 'energie-waermequelle-warmwasser',
               'value': 'energie-waermequelle-warmwasser-7530',
             }),
+            'energiebezugsflaeche': dict({
+              'label': None,
+              'value': '644',
+            }),
             'ist-ein-warmwasseranschluss-geplant': dict({
               'label': None,
               'value': 'ja',

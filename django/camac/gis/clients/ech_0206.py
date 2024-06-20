@@ -1,5 +1,5 @@
 import itertools
-from datetime import datetime
+from datetime import datetime, timezone
 
 import requests
 from django.conf import settings
@@ -171,7 +171,7 @@ class Ech0206(GISBaseClient):
     def get_request_body_data(self, egid_numbers):
         """Create the body data for the request to ech0206."""
         attribute_values = ""
-        date = datetime.utcnow().isoformat()
+        date = datetime.now(timezone.utc).isoformat()
 
         for egid in egid_numbers:
             attribute_values += (

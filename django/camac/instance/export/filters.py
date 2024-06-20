@@ -23,6 +23,7 @@ from rest_framework.filters import BaseFilterBackend
 
 from camac.core.models import InstanceService, WorkflowEntry
 from camac.instance.models import FormField, InstanceStateT
+from camac.lookups import Any
 from camac.responsible.models import ResponsibleService
 from camac.user.models import Service, ServiceT
 
@@ -105,26 +106,22 @@ class InstanceExportFilterBackend(BaseFilterBackend):
             .values("label")[:1]
         )
 
-        def service_name(pk_query):
+        def service_name():
+            cast = Cast(
+                OuterRef("addressed_groups"),
+                output_field=ArrayField(IntegerField()),
+            )
             if settings.APPLICATION.get("IS_MULTILINGUAL"):
                 return ServiceT.objects.filter(
-                    service_id=pk_query, language=language
+                    Any(F("service_id"), cast), language=language
                 )  # pragma: no cover
 
-            return Service.objects.filter(pk=pk_query)
+            return Service.objects.filter(Any(F("pk"), cast))
 
         involved_services = StringAggSubquery(
-            inquiries.annotate(
-                service_name=service_name(
-                    Func(
-                        Cast(
-                            OuterRef("addressed_groups"),
-                            output_field=ArrayField(IntegerField()),
-                        ),
-                        function="ANY",
-                    )
-                ).values("name")[:1]
-            ).values("service_name"),
+            inquiries.annotate(service_name=service_name().values("name")[:1]).values(
+                "service_name"
+            ),
             column_name="service_name",
             delimiter=", ",
         )
@@ -307,6 +304,7 @@ class InstanceExportFilterBackendBE(InstanceExportFilterBackend):
             ordering=Trim("tags__name"),
             distinct=True,
             delimiter=", ",
+            default="",
         )
 
         instance_state_name = InstanceStateT.objects.filter(

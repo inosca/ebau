@@ -1838,7 +1838,9 @@ def _default_file_storage_backend(settings):
     # This is needed that alexandria file factories don't try to upload
     # something to a possibly non-existent minio container in tests. Also, we
     # explicitly disable encryption.
-    settings.DEFAULT_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
+    settings.STORAGES["default"]["BACKEND"] = (
+        "django.core.files.storage.FileSystemStorage"
+    )
     settings.ALEXANDRIA_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
     settings.ALEXANDRIA_ENABLE_AT_REST_ENCRYPTION = False
 
@@ -1966,3 +1968,15 @@ def reload_urlconf(urlconf=None):
 def reload_ech0211_urls():
     reload_urlconf("camac.urls")
     reload_urlconf("camac.ech0211.urls")
+
+
+@pytest.fixture(autouse=True)
+def mock_tika(mocker):
+    mocker.patch("tika.parser.from_buffer", return_value={"content": "Important text"})
+    mocker.patch("tika.language.from_buffer", return_value="en")
+
+
+@pytest.fixture
+def vcr_cassette_dir(request):
+    module = request.node.fspath
+    return os.path.join(module.dirname, "cassettes")

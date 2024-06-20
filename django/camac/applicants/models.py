@@ -1,4 +1,3 @@
-from django.contrib.postgres.fields import CIEmailField
 from django.db import models
 
 
@@ -23,7 +22,7 @@ class Applicant(models.Model):
         null=True,
     )
     created = models.DateTimeField(db_column="CREATED", auto_now=True)
-    email = CIEmailField()
+    email = models.EmailField(db_collation="case_insensitive")
 
     class Meta:
         managed = True

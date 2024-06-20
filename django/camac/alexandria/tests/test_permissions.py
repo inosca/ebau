@@ -327,7 +327,7 @@ def test_document_permission(
         (
             "applicant",
             "patch",
-            HTTP_405_METHOD_NOT_ALLOWED,
+            HTTP_403_FORBIDDEN,
             {
                 "applicant": {
                     "visibility": "all",
@@ -514,7 +514,7 @@ def test_tag_permission(
     "role__name,method,result",
     [
         ("support", "patch", HTTP_405_METHOD_NOT_ALLOWED),
-        ("support", "delete", HTTP_404_NOT_FOUND),
+        ("support", "delete", HTTP_405_METHOD_NOT_ALLOWED),
     ],
 )
 def test_category_permission(
@@ -1745,6 +1745,65 @@ def test_document_convert(
     )
 
     response = admin_client.post(url)
+
+    assert response.status_code == status_code
+
+
+@pytest.mark.parametrize(
+    "role__name,status_code,access",
+    [
+        (
+            "municipality",
+            HTTP_200_OK,
+            {
+                "municipality": {
+                    "visibility": "all",
+                    "permissions": [
+                        {"permission": "create", "scope": "All"},
+                    ],
+                },
+            },
+        ),
+        (
+            "municipality",
+            HTTP_403_FORBIDDEN,
+            {
+                "municipality": {
+                    "visibility": "all",
+                },
+            },
+        ),
+    ],
+)
+def test_document_webdav_url(
+    db,
+    role,
+    applicant_factory,
+    admin_client,
+    caluma_admin_user,
+    settings,
+    instance,
+    status_code,
+    access,
+):
+    settings.ALEXANDRIA_USE_MANABI = True
+    applicant_factory(invitee=admin_client.user, instance=instance)
+    alexandria_category = CategoryFactory(metainfo={"access": access})
+
+    doc = DocumentFactory(
+        title="Foo",
+        category=alexandria_category,
+        metainfo={"camac-instance-id": instance.pk},
+        created_by_group=caluma_admin_user.group,
+    )
+    FileFactory(
+        name="File",
+        document=doc,
+        mime_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    )
+    url = reverse("alexandria-webdav-detail", args=[doc.pk])
+
+    response = admin_client.get(url)
 
     assert response.status_code == status_code
 

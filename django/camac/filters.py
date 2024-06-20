@@ -3,12 +3,11 @@ import re
 from functools import reduce
 
 from django.conf import settings
-from django.db.models import Q
+from django.db.models import Exists, OuterRef, Q
 from django.db.models.constants import LOOKUP_SEP
 from django.utils.translation import get_language
 from django_filters.constants import EMPTY_VALUES
 from django_filters.rest_framework import BaseInFilter, CharFilter, NumberFilter
-from rest_framework.compat import distinct
 from rest_framework.filters import SearchFilter
 
 
@@ -86,7 +85,7 @@ class MultilingualSearchFilter(SearchFilter):
 
     def filter_queryset(self, request, queryset, view):
         # WARNING: This whole method is copy pasted from
-        # https://github.com/encode/django-rest-framework/blob/master/rest_framework/filters.py
+        # https://github.com/encode/django-rest-framework/blob/3.15.1/rest_framework/filters.py
         # except the line that is marked as changed. If the upstream code
         # changes, we need to update the content of this method as well!
         search_fields = self.get_search_fields(view, request)
@@ -96,24 +95,27 @@ class MultilingualSearchFilter(SearchFilter):
             return queryset
 
         orm_lookups = [
-            self.construct_search(str(search_field)) for search_field in search_fields
+            self.construct_search(str(search_field), queryset)
+            for search_field in search_fields
         ]
 
         base = queryset
-        conditions = []
-        for search_term in search_terms:
-            queries = [
-                # This is the only line that changed
-                self.generate_query(orm_lookup, search_term)
-                for orm_lookup in orm_lookups
-            ]
-            conditions.append(reduce(operator.or_, queries))
+        # generator which for each term builds the corresponding search
+        conditions = (
+            reduce(
+                operator.or_,
+                # ATTENTION: LINE DIFFERENT TO UPSTREAM
+                (self.generate_query(orm_lookup, term) for orm_lookup in orm_lookups),
+            )
+            for term in search_terms
+        )
         queryset = queryset.filter(reduce(operator.and_, conditions))
 
+        # Remove duplicates from results, if necessary
         if self.must_call_distinct(queryset, search_fields):
-            # Filtering against a many-to-many field requires us to
-            # call queryset.distinct() in order to avoid duplicate items
-            # in the resulting queryset.
-            # We try to avoid this if possible, for performance reasons.
-            queryset = distinct(queryset, base)
+            # inspired by django.contrib.admin
+            # this is more accurate than .distinct form M2M relationship
+            # also is cross-database
+            queryset = queryset.filter(pk=OuterRef("pk"))
+            queryset = base.filter(Exists(queryset))
         return queryset

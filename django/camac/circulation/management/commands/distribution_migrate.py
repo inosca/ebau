@@ -15,7 +15,6 @@ from django.db.models import (
     Case as DjangoCase,
     Exists,
     F,
-    Func,
     IntegerField,
     OuterRef,
     Q,
@@ -29,6 +28,7 @@ from tqdm import tqdm
 
 from camac.core import models as core_models
 from camac.instance.models import HistoryEntry
+from camac.lookups import Any
 from camac.responsible.models import ResponsibleService
 from camac.user.models import Service, User
 
@@ -674,12 +674,12 @@ class Command(BaseCommand):
                     task_id__in=[self.config.CHECK_INQUIRIES_TASK.pk],
                     then=Subquery(
                         answered_activations.filter(
-                            service_parent=Func(
+                            Any(
+                                F("service_parent"),
                                 Cast(
                                     OuterRef("addressed_groups"),
                                     output_field=ArrayField(IntegerField()),
                                 ),
-                                function="ANY",
                             ),
                         )
                         .order_by("end_date")

@@ -18,10 +18,10 @@ interactions:
         xmlns:ows=\"http://www.opengis.net/ows/1.1\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"
         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.opengis.net/wps/1.0.0
         ../wpsExecute_response.xsd\" service=\"WPS\" version=\"1.0.0\" xml:lang=\"de-CH\"
-        serviceInstance=\"http://wps.geo.gr.ch/?request=GetCapabilities&amp;amp;service=WPS\"
+        serviceInstance=\"https://wps.geo.gr.ch/?request=GetCapabilities&amp;amp;service=WPS\"
         statusLocation=\"\">\n    <wps:Process wps:processVersion=\"1.0.0\">\n        <ows:Identifier>get_info_ebbv</ows:Identifier>\n
         \       <ows:Title>Diverse Layer-Informationen fuer eBBV anhand Geometrie</ows:Title>\n
-        \       <ows:Abstract></ows:Abstract>\n\t</wps:Process>\n    <wps:Status creationTime=\"2023-11-21T13:28:53Z\">\n
+        \       <ows:Abstract></ows:Abstract>\n\t</wps:Process>\n    <wps:Status creationTime=\"2024-06-12T13:59:03Z\">\n
         \       <wps:ProcessSucceeded>PyWPS Process Diverse Layer-Informationen fuer
         eBBV anhand Geometrie finished</wps:ProcessSucceeded>\n\t</wps:Status>\n\t<wps:ProcessOutputs>\n\t\t<wps:Output>\n
         \           <ows:Identifier>folgeplanung_bau_niveaulinienplaene</ows:Identifier>\n
@@ -358,14 +358,6 @@ interactions:
         type=&#34;int&#34;&gt;1&lt;/status&gt;&lt;geb_inaenderung2 type=&#34;int&#34;&gt;1&lt;/geb_inaenderung2&gt;&lt;geb_attributeprovisorisch2
         type=&#34;int&#34;&gt;1&lt;/geb_attributeprovisorisch2&gt;&lt;geb_istoffiziellebezeichnung2
         type=&#34;int&#34;&gt;0&lt;/geb_istoffiziellebezeichnung2&gt;&lt;hoehenlage
-        type=&#34;null&#34;&gt;&lt;/hoehenlage&gt;&lt;hausnummer type=&#34;str&#34;&gt;42&lt;/hausnummer&gt;&lt;im_gebaeude
-        type=&#34;int&#34;&gt;0&lt;/im_gebaeude&gt;&lt;gwr_egid type=&#34;int&#34;&gt;1738793&lt;/gwr_egid&gt;&lt;gwr_edid
-        type=&#34;int&#34;&gt;0&lt;/gwr_edid&gt;&lt;gebaeudestatus type=&#34;null&#34;&gt;&lt;/gebaeudestatus&gt;&lt;gebaeudenummer
-        type=&#34;null&#34;&gt;&lt;/gebaeudenummer&gt;&lt;text_ type=&#34;str&#34;&gt;Alexanderstrasse&lt;/text_&gt;&lt;/item&gt;&lt;item&gt;&lt;bfsnr
-        type=&#34;int&#34;&gt;3901&lt;/bfsnr&gt;&lt;status type=&#34;int&#34;&gt;1&lt;/status&gt;&lt;geb_inaenderung2
-        type=&#34;int&#34;&gt;1&lt;/geb_inaenderung2&gt;&lt;geb_attributeprovisorisch2
-        type=&#34;int&#34;&gt;1&lt;/geb_attributeprovisorisch2&gt;&lt;geb_istoffiziellebezeichnung2
-        type=&#34;int&#34;&gt;0&lt;/geb_istoffiziellebezeichnung2&gt;&lt;hoehenlage
         type=&#34;null&#34;&gt;&lt;/hoehenlage&gt;&lt;hausnummer type=&#34;str&#34;&gt;3&lt;/hausnummer&gt;&lt;im_gebaeude
         type=&#34;int&#34;&gt;0&lt;/im_gebaeude&gt;&lt;gwr_egid type=&#34;int&#34;&gt;1738776&lt;/gwr_egid&gt;&lt;gwr_edid
         type=&#34;int&#34;&gt;0&lt;/gwr_edid&gt;&lt;gebaeudestatus type=&#34;null&#34;&gt;&lt;/gebaeudestatus&gt;&lt;gebaeudenummer
@@ -377,16 +369,30 @@ interactions:
         type=&#34;null&#34;&gt;&lt;/hoehenlage&gt;&lt;hausnummer type=&#34;str&#34;&gt;5&lt;/hausnummer&gt;&lt;im_gebaeude
         type=&#34;int&#34;&gt;0&lt;/im_gebaeude&gt;&lt;gwr_egid type=&#34;int&#34;&gt;1738778&lt;/gwr_egid&gt;&lt;gwr_edid
         type=&#34;int&#34;&gt;0&lt;/gwr_edid&gt;&lt;gebaeudestatus type=&#34;null&#34;&gt;&lt;/gebaeudestatus&gt;&lt;gebaeudenummer
-        type=&#34;null&#34;&gt;&lt;/gebaeudenummer&gt;&lt;text_ type=&#34;str&#34;&gt;Rigastrasse&lt;/text_&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t</wps:ProcessOutputs>\n</wps:ExecuteResponse>"
+        type=&#34;null&#34;&gt;&lt;/gebaeudenummer&gt;&lt;text_ type=&#34;str&#34;&gt;Rigastrasse&lt;/text_&gt;&lt;/item&gt;&lt;item&gt;&lt;bfsnr
+        type=&#34;int&#34;&gt;3901&lt;/bfsnr&gt;&lt;status type=&#34;int&#34;&gt;1&lt;/status&gt;&lt;geb_inaenderung2
+        type=&#34;int&#34;&gt;1&lt;/geb_inaenderung2&gt;&lt;geb_attributeprovisorisch2
+        type=&#34;int&#34;&gt;1&lt;/geb_attributeprovisorisch2&gt;&lt;geb_istoffiziellebezeichnung2
+        type=&#34;int&#34;&gt;0&lt;/geb_istoffiziellebezeichnung2&gt;&lt;hoehenlage
+        type=&#34;null&#34;&gt;&lt;/hoehenlage&gt;&lt;hausnummer type=&#34;str&#34;&gt;42&lt;/hausnummer&gt;&lt;im_gebaeude
+        type=&#34;int&#34;&gt;0&lt;/im_gebaeude&gt;&lt;gwr_egid type=&#34;int&#34;&gt;1738793&lt;/gwr_egid&gt;&lt;gwr_edid
+        type=&#34;int&#34;&gt;0&lt;/gwr_edid&gt;&lt;gebaeudestatus type=&#34;null&#34;&gt;&lt;/gebaeudestatus&gt;&lt;gebaeudenummer
+        type=&#34;null&#34;&gt;&lt;/gebaeudenummer&gt;&lt;text_ type=&#34;str&#34;&gt;Alexanderstrasse&lt;/text_&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t</wps:ProcessOutputs>\n</wps:ExecuteResponse>"
     headers:
+      Access-Control-Allow-Headers:
+      - Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
       Connection:
       - keep-alive
       Content-Length:
-      - '35651'
+      - '35652'
       Content-Type:
       - text/xml; charset=utf-8
       Date:
-      - Tue, 21 Nov 2023 12:28:53 GMT
+      - Wed, 12 Jun 2024 11:59:03 GMT
     status:
       code: 200
       message: OK
@@ -398,7 +404,7 @@ interactions:
       \     <eCH-0206:businessReferenceId>BFS/OFS/UST</eCH-0206:businessReferenceId>\n
       \     <eCH-0206:requestingApplication>\n         <eCH-0058:manufacturer>Adfinis</eCH-0058:manufacturer>\n
       \        <eCH-0058:product>eBau Kt. GR</eCH-0058:product>\n         <eCH-0058:productVersion>1.0.0</eCH-0058:productVersion>\n
-      \     </eCH-0206:requestingApplication>\n      <eCH-0206:requestDate>2023-11-21T12:28:53.921058</eCH-0206:requestDate>\n
+      \     </eCH-0206:requestingApplication>\n      <eCH-0206:requestDate>2024-06-12T11:59:03.545584+00:00</eCH-0206:requestDate>\n
       \ </eCH-0206:requestHeader>\n  <eCH-0206:requestContext>building</eCH-0206:requestContext>\n
       \ <eCH-0206:requestQuery>\n    <eCH-0206:condition>\n         <eCH-0206:attributePath>/eCH-0206:maddResponse/eCH-0206:buildingList/eCH-0206:buildingItem/eCH-0206:EGID</eCH-0206:attributePath>\n
       \        <eCH-0206:operator>in</eCH-0206:operator><eCH-0206:attributeValue>1738776</eCH-0206:attributeValue><eCH-0206:attributeValue>1738778</eCH-0206:attributeValue><eCH-0206:attributeValue>1738793</eCH-0206:attributeValue>\n
@@ -411,7 +417,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '1393'
+      - '1399'
       Content-Type:
       - text/xml
       User-Agent:
@@ -420,62 +426,23 @@ interactions:
     uri: https://madd.bfs.admin.ch/eCH-0206
   response:
     body:
-      string: !!binary |
-        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
-        PWXnu/sPAAAA//8DAByOJ0q5OgAA
+      string: '<?xml version="1.0" encoding="utf-8"?>
+
+        <maddResponse xmlns="http://www.ech.ch/xmlns/eCH-0206/2" xmlns:eCH-0058="http://www.ech.ch/xmlns/eCH-0058/5"
+        xmlns:eCH-0129="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:eCH-0007="http://www.ech.ch/xmlns/eCH-0007/6"><status><code>100</code><message>OK</message></status><responseHeader><messageId>29d90648-28b3-11ef-9f2a-0242ac140003</messageId><requestMessageId>myMessageId</requestMessageId><businessReferenceId>BFS/OFS/UST</businessReferenceId><respondingApplication><eCH-0058:manufacturer>SFSO</eCH-0058:manufacturer><eCH-0058:product>MADD</eCH-0058:product><eCH-0058:productVersion>0.1</eCH-0058:productVersion></respondingApplication><comment>no
+        comment</comment><responseDate>2024-06-12T11:59:03</responseDate></responseHeader><originalRequest
+        xmlns:eCH-0058="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:eCH-0206="http://www.ech.ch/xmlns/eCH-0206/2"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ech.ch/xmlns/eCH-0206/2
+        eCH-0206-2-0-draft.xsd"><eCH-0206:requestHeader><eCH-0206:messageId>myMessageId</eCH-0206:messageId><eCH-0206:businessReferenceId>BFS/OFS/UST</eCH-0206:businessReferenceId><eCH-0206:requestingApplication><eCH-0058:manufacturer>Adfinis</eCH-0058:manufacturer><eCH-0058:product>eBau
+        Kt. GR</eCH-0058:product><eCH-0058:productVersion>1.0.0</eCH-0058:productVersion></eCH-0206:requestingApplication><eCH-0206:requestDate>2024-06-12T11:59:03.545584+00:00</eCH-0206:requestDate></eCH-0206:requestHeader><eCH-0206:requestContext>building</eCH-0206:requestContext><eCH-0206:requestQuery><eCH-0206:condition><eCH-0206:attributePath>/eCH-0206:maddResponse/eCH-0206:buildingList/eCH-0206:buildingItem/eCH-0206:EGID</eCH-0206:attributePath><eCH-0206:operator>in</eCH-0206:operator><eCH-0206:attributeValue>1738776</eCH-0206:attributeValue><eCH-0206:attributeValue>1738778</eCH-0206:attributeValue><eCH-0206:attributeValue>1738793</eCH-0206:attributeValue></eCH-0206:condition></eCH-0206:requestQuery></originalRequest><maddAuthorization><maddId>anonymous</maddId><maddDataSet>3</maddDataSet></maddAuthorization><buildingList><buildingItem><EGID>1738776</EGID><building><officialBuildingNo>4-116</officialBuildingNo><coordinates><east>2759648.006</east><north>1191522.805</north><originOfCoordinates>904</originOfCoordinates></coordinates><buildingStatus>1004</buildingStatus><buildingCategory>1020</buildingCategory><buildingClass>1121</buildingClass><dateOfConstruction><dateOfConstruction>1901-01</dateOfConstruction><periodOfConstruction>8011</periodOfConstruction></dateOfConstruction><surfaceAreaOfBuilding>82</surfaceAreaOfBuilding><numberOfFloors>3</numberOfFloors><civilDefenseShelter>0</civilDefenseShelter><energyRelevantSurface>226</energyRelevantSurface><thermotechnicalDeviceForHeating1><heatGeneratorHeating>7410</heatGeneratorHeating><energySourceHeating>7501</energySourceHeating><informationSourceHeating>869</informationSourceHeating><revisionDate>2023-03-15</revisionDate></thermotechnicalDeviceForHeating1><thermotechnicalDeviceForHeating2><heatGeneratorHeating>7400</heatGeneratorHeating><energySourceHeating>7500</energySourceHeating><informationSourceHeating>852</informationSourceHeating><revisionDate>2023-03-15</revisionDate></thermotechnicalDeviceForHeating2><thermotechnicalDeviceForWarmWater1><heatGeneratorHotWater>7610</heatGeneratorHotWater><energySourceHeating>7501</energySourceHeating><informationSourceHeating>869</informationSourceHeating><revisionDate>2023-03-15</revisionDate></thermotechnicalDeviceForWarmWater1><thermotechnicalDeviceForWarmWater2><heatGeneratorHotWater>7600</heatGeneratorHotWater><energySourceHeating>7500</energySourceHeating><informationSourceHeating>852</informationSourceHeating><revisionDate>2023-03-15</revisionDate></thermotechnicalDeviceForWarmWater2><recordModification><createDate>2001-11-29</createDate><updateDate>2023-03-22</updateDate></recordModification></building><buildingEntranceList><buildingEntranceItem><EDID>0</EDID><buildingEntrance><EGAID>100938770</EGAID><buildingEntranceNo>3</buildingEntranceNo><coordinates><east>2759647.42</east><north>1191526.796</north></coordinates><isOfficialAddress>0</isOfficialAddress><recordModification><createDate>2016-12-14</createDate><updateDate>2024-04-21</updateDate></recordModification><street><ESID>10136418</ESID><isOfficialDescription>1</isOfficialDescription><streetNameList><streetNameItem><language>9901</language><descriptionLong>Rigastrasse</descriptionLong><descriptionShort>Rigastr.</descriptionShort><descriptionIndex>Rig</descriptionIndex></streetNameItem></streetNameList></street><locality><swissZipCode>7000</swissZipCode><swissZipCodeAddOn>0</swissZipCodeAddOn><placeName>Chur</placeName></locality></buildingEntrance><dwellingList><dwellingItem><EWID>1</EWID><dwelling><administrativeDwellingNo>1</administrativeDwellingNo><yearOfConstruction>1999</yearOfConstruction><noOfHabitableRooms>2</noOfHabitableRooms><floor>3100</floor><multipleFloor>0</multipleFloor><kitchen>1</kitchen><surfaceAreaOfDwelling>60</surfaceAreaOfDwelling><dwellingStatus>3004</dwellingStatus><recordModification><createDate>2003-05-03</createDate><updateDate>2023-03-22</updateDate></recordModification></dwelling></dwellingItem><dwellingItem><EWID>2</EWID><dwelling><administrativeDwellingNo>101</administrativeDwellingNo><yearOfConstruction>1999</yearOfConstruction><noOfHabitableRooms>5</noOfHabitableRooms><floor>3101</floor><multipleFloor>1</multipleFloor><kitchen>1</kitchen><surfaceAreaOfDwelling>126</surfaceAreaOfDwelling><dwellingStatus>3004</dwellingStatus><recordModification><createDate>2003-05-03</createDate><updateDate>2023-11-21</updateDate></recordModification></dwelling></dwellingItem></dwellingList></buildingEntranceItem></buildingEntranceList><municipality><municipalityId>3901</municipalityId><municipalityName>Chur</municipalityName><cantonAbbreviation>GR</cantonAbbreviation></municipality><realestateIdentificationList><realestateIdentificationItem><EGRID>CH287786687730</EGRID><number>54</number><subDistrict>0</subDistrict></realestateIdentificationItem></realestateIdentificationList></buildingItem><buildingItem><EGID>1738778</EGID><building><officialBuildingNo>4-117</officialBuildingNo><coordinates><east>2759655.881</east><north>1191523.935</north><originOfCoordinates>901</originOfCoordinates></coordinates><buildingStatus>1004</buildingStatus><buildingCategory>1020</buildingCategory><buildingClass>1110</buildingClass><dateOfConstruction><dateOfConstruction>1901</dateOfConstruction><periodOfConstruction>8011</periodOfConstruction></dateOfConstruction><surfaceAreaOfBuilding>82</surfaceAreaOfBuilding><numberOfFloors>3</numberOfFloors><thermotechnicalDeviceForHeating1><heatGeneratorHeating>7430</heatGeneratorHeating><energySourceHeating>7530</energySourceHeating><informationSourceHeating>860</informationSourceHeating><revisionDate>2001-11-29</revisionDate></thermotechnicalDeviceForHeating1><thermotechnicalDeviceForWarmWater1><heatGeneratorHotWater>7630</heatGeneratorHotWater><energySourceHeating>7530</energySourceHeating><informationSourceHeating>860</informationSourceHeating><revisionDate>2001-11-29</revisionDate></thermotechnicalDeviceForWarmWater1><thermotechnicalDeviceForWarmWater2><heatGeneratorHotWater>7600</heatGeneratorHotWater><energySourceHeating>7500</energySourceHeating><informationSourceHeating>860</informationSourceHeating><revisionDate>2001-11-29</revisionDate></thermotechnicalDeviceForWarmWater2><recordModification><createDate>2001-11-29</createDate><updateDate>2023-03-14</updateDate></recordModification></building><buildingEntranceList><buildingEntranceItem><EDID>0</EDID><buildingEntrance><EGAID>102011203</EGAID><buildingEntranceNo>5</buildingEntranceNo><coordinates><east>2759655.091</east><north>1191528.059</north></coordinates><recordModification><createDate>2016-12-14</createDate><updateDate>2024-04-21</updateDate></recordModification><street><ESID>10136418</ESID><isOfficialDescription>1</isOfficialDescription><streetNameList><streetNameItem><language>9901</language><descriptionLong>Rigastrasse</descriptionLong><descriptionShort>Rigastr.</descriptionShort><descriptionIndex>Rig</descriptionIndex></streetNameItem></streetNameList></street><locality><swissZipCode>7000</swissZipCode><swissZipCodeAddOn>0</swissZipCodeAddOn><placeName>Chur</placeName></locality></buildingEntrance><dwellingList><dwellingItem><EWID>1</EWID><dwelling><administrativeDwellingNo>1</administrativeDwellingNo><yearOfConstruction>1999</yearOfConstruction><noOfHabitableRooms>7</noOfHabitableRooms><floor>3100</floor><multipleFloor>1</multipleFloor><kitchen>1</kitchen><surfaceAreaOfDwelling>139</surfaceAreaOfDwelling><dwellingStatus>3004</dwellingStatus><recordModification><createDate>2003-05-03</createDate><updateDate>2023-11-21</updateDate></recordModification></dwelling></dwellingItem></dwellingList></buildingEntranceItem></buildingEntranceList><municipality><municipalityId>3901</municipalityId><municipalityName>Chur</municipalityName><cantonAbbreviation>GR</cantonAbbreviation></municipality><realestateIdentificationList><realestateIdentificationItem><EGRID>CH298677776860</EGRID><number>55</number><subDistrict>0</subDistrict></realestateIdentificationItem></realestateIdentificationList></buildingItem><buildingItem><EGID>1738793</EGID><building><officialBuildingNo>4-115B</officialBuildingNo><coordinates><east>2759633.228</east><north>1191519.834</north><originOfCoordinates>901</originOfCoordinates></coordinates><buildingStatus>1004</buildingStatus><buildingCategory>1020</buildingCategory><buildingClass>1122</buildingClass><dateOfConstruction><dateOfConstruction>1909</dateOfConstruction><periodOfConstruction>8011</periodOfConstruction></dateOfConstruction><surfaceAreaOfBuilding>159</surfaceAreaOfBuilding><numberOfFloors>5</numberOfFloors><energyRelevantSurface>644</energyRelevantSurface><thermotechnicalDeviceForHeating1><heatGeneratorHeating>7430</heatGeneratorHeating><energySourceHeating>7530</energySourceHeating><informationSourceHeating>858</informationSourceHeating><revisionDate>2023-05-09</revisionDate></thermotechnicalDeviceForHeating1><thermotechnicalDeviceForWarmWater1><heatGeneratorHotWater>7630</heatGeneratorHotWater><energySourceHeating>7530</energySourceHeating><informationSourceHeating>858</informationSourceHeating><revisionDate>2023-05-09</revisionDate></thermotechnicalDeviceForWarmWater1><thermotechnicalDeviceForWarmWater2><heatGeneratorHotWater>7600</heatGeneratorHotWater><energySourceHeating>7500</energySourceHeating><informationSourceHeating>860</informationSourceHeating><revisionDate>2001-11-29</revisionDate></thermotechnicalDeviceForWarmWater2><recordModification><createDate>2001-11-29</createDate><updateDate>2022-01-17</updateDate></recordModification></building><buildingEntranceList><buildingEntranceItem><EDID>0</EDID><buildingEntrance><EGAID>101999460</EGAID><buildingEntranceNo>42</buildingEntranceNo><coordinates><east>2759633.704</east><north>1191525.17</north></coordinates><recordModification><createDate>2016-12-14</createDate><updateDate>2024-04-21</updateDate></recordModification><street><ESID>10039425</ESID><isOfficialDescription>1</isOfficialDescription><streetNameList><streetNameItem><language>9901</language><descriptionLong>Alexanderstrasse</descriptionLong><descriptionShort>Alexanderstr.</descriptionShort><descriptionIndex>Ale</descriptionIndex></streetNameItem></streetNameList></street><locality><swissZipCode>7000</swissZipCode><swissZipCodeAddOn>0</swissZipCodeAddOn><placeName>Chur</placeName></locality></buildingEntrance><dwellingList><dwellingItem><EWID>1</EWID><dwelling><administrativeDwellingNo>101</administrativeDwellingNo><yearOfConstruction>1999</yearOfConstruction><noOfHabitableRooms>4</noOfHabitableRooms><floor>3101</floor><multipleFloor>0</multipleFloor><kitchen>1</kitchen><surfaceAreaOfDwelling>76</surfaceAreaOfDwelling><dwellingStatus>3004</dwellingStatus><recordModification><createDate>2003-05-03</createDate><updateDate>2023-11-21</updateDate></recordModification></dwelling></dwellingItem><dwellingItem><EWID>2</EWID><dwelling><administrativeDwellingNo>201</administrativeDwellingNo><yearOfConstruction>1999</yearOfConstruction><noOfHabitableRooms>4</noOfHabitableRooms><floor>3102</floor><multipleFloor>0</multipleFloor><kitchen>1</kitchen><surfaceAreaOfDwelling>76</surfaceAreaOfDwelling><dwellingStatus>3004</dwellingStatus><recordModification><createDate>2003-05-03</createDate><updateDate>2023-11-21</updateDate></recordModification></dwelling></dwellingItem><dwellingItem><EWID>3</EWID><dwelling><administrativeDwellingNo>301</administrativeDwellingNo><yearOfConstruction>1999</yearOfConstruction><noOfHabitableRooms>3</noOfHabitableRooms><floor>3103</floor><multipleFloor>0</multipleFloor><locationOfDwellingOnFloor>Links</locationOfDwellingOnFloor><kitchen>1</kitchen><surfaceAreaOfDwelling>65</surfaceAreaOfDwelling><dwellingStatus>3004</dwellingStatus><recordModification><createDate>2003-05-03</createDate><updateDate>2023-11-21</updateDate></recordModification></dwelling></dwellingItem><dwellingItem><EWID>4</EWID><dwelling><administrativeDwellingNo>302</administrativeDwellingNo><yearOfConstruction>1999</yearOfConstruction><noOfHabitableRooms>5</noOfHabitableRooms><floor>3103</floor><multipleFloor>0</multipleFloor><locationOfDwellingOnFloor>Rechts</locationOfDwellingOnFloor><kitchen>1</kitchen><surfaceAreaOfDwelling>106</surfaceAreaOfDwelling><dwellingStatus>3004</dwellingStatus><recordModification><createDate>2003-05-03</createDate><updateDate>2023-11-21</updateDate></recordModification></dwelling></dwellingItem></dwellingList></buildingEntranceItem></buildingEntranceList><municipality><municipalityId>3901</municipalityId><municipalityName>Chur</municipalityName><cantonAbbreviation>GR</cantonAbbreviation></municipality><realestateIdentificationList><realestateIdentificationItem><EGRID>CH276877778611</EGRID><number>53</number><subDistrict>0</subDistrict></realestateIdentificationItem></realestateIdentificationList></buildingItem></buildingList><responseMetadata><statisticsList><statisticsItem><objectType>municipality_xml</objectType><objectCount>3</objectCount></statisticsItem><statisticsItem><objectType>building_xml</objectType><objectCount>3</objectCount></statisticsItem><statisticsItem><objectType>entrance_xml</objectType><objectCount>3</objectCount></statisticsItem><statisticsItem><objectType>dwelling_xml</objectType><objectCount>7</objectCount></statisticsItem><statisticsItem><objectType>street_xml</objectType><objectCount>3</objectCount></statisticsItem><statisticsItem><objectType>locality_xml</objectType><objectCount>3</objectCount></statisticsItem><statisticsItem><objectType>streetname_xml</objectType><objectCount>3</objectCount></statisticsItem><statisticsItem><objectType>constructionWork_xml</objectType><objectCount>0</objectCount></statisticsItem></statisticsList><lastUpdateDate>2024-06-12T01:14:18</lastUpdateDate><exportDate>2024-06-12T01:43:38</exportDate><remarkList><remarkItem>no
+        remark</remarkItem></remarkList></responseMetadata></maddResponse>'
     headers:
       Connection:
       - keep-alive
       Content-Type:
       - application/xml; charset=UTF-8
       Date:
-      - Tue, 21 Nov 2023 12:28:54 GMT
+      - Wed, 12 Jun 2024 11:59:03 GMT
       Transfer-Encoding:
       - chunked
       cache-control:
@@ -485,15 +452,15 @@ interactions:
       content-encoding:
       - gzip
       expires:
-      - Tue, 21 Nov 2023 12:28:54 GMT
+      - Wed, 12 Jun 2024 11:59:03 GMT
       last-modified:
-      - Tue, 21 Nov 2023 12:28:54 GMT
+      - Wed, 12 Jun 2024 11:59:03 GMT
       pragma:
       - no-cache
       server:
-      - gunicorn/20.0.4
+      - gunicorn
       server-timing:
-      - route;desc=ech_0206, route;dur=46
+      - route;desc=ech_0206, route;due=22
       vary:
       - Cookie
       - Accept-Encoding

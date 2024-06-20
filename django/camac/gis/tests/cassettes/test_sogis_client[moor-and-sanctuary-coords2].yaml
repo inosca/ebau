@@ -11,172 +11,6 @@ interactions:
       User-Agent:
       - python-requests/2.31.0
     method: GET
-    uri: https://api3.geo.admin.ch/rest/services/api/MapServer/identify?returnGeometry=False&sr=2056&mapExtent=0,0,0,0&tolerance=0&imageDisplay=0,0,0&layers=all:ch.bafu.bundesinventare-amphibien,ch.bafu.bundesinventare-amphibien_wanderobjekte,ch.bafu.bundesinventare-vogelreservate,ch.bafu.bundesinventare-auen,ch.bafu.bundesinventare-auen_anhang2,ch.bafu.bundesinventare-auen_vegetation_alpin,ch.bafu.bundesinventare-flachmoore,ch.bafu.bundesinventare-hochmoore,ch.bafu.bundesinventare-moorlandschaften,ch.bafu.bundesinventare-jagdbanngebiete,ch.bafu.bundesinventare-trockenwiesen_trockenweiden,ch.bafu.bundesinventare-trockenwiesen_trockenweiden_anhang2&geometryType=esriGeometryEnvelope&geometry=2595908.1098607033,1223872.4541323201,2595908.1098607033,1223872.4541323201
-  response:
-    body:
-      string: !!binary |
-        H4sIAAAAAAAAA6xVTW/jNhD9KwNfsgWysiTHsb05JW13kR6SQw4LtFsEI2kkcUORKj8cNIH/+w4p
-        K7YTb7/Qm8gh37wZvjd6nhiyXjo7+QC/PU8k/knmSlfXFa8nZZsUWPuk8KoiK9SalEND77HrW1EI
-        UpNTGK7cYEfhxuUYgVvjbE3WEdwWX+nBUThbEzpvKKKf5bMFb4m9b3TOiMI7CmyeJ7r4qnzXkQnI
-        d7fZYhEw1DbVJ0OqbBUZ+CycCBFDNV8pJLoQb53r7YfptEKHSUM6waoTKinb6d+WNWUYKp1tiZyd
-        5mm2MLQWVmg1tZppJH1Vh4S2xZ7u+SpywizLz1dpcjZP0/NlCAo3tGSyXdxXcX1FhkTZwiW8qziX
-        g4pL+KiN62uJ6smrJu7sOvnFM4MZoJQEn+jxi09TOrOWzzySLFsCy3C80uFarx1jCpLyGC7Dkfrh
-        hVA9dJZLJW8CIQZ1EBOkIBEM9UZXvnRcOcNZKNAZLBnFjqyc9hYkh3pOYqE6IfTAMGtUf4EEHSoR
-        o0tDQHXNFMSaQPu9AmhHVLiBqHOazzPRmsshqBCk142GnksNWUTM8sRJOEiNFICq5i6+sPXOCRBQ
-        atMLqOLuCss/PEKlOf9rjIEiYFlyY1hHoMetSPNJ4JalxILkEVVuNqfwT1211g1JdmNo3mCXA2t9
-        xvDm74Fvwa++eXv6wFyrF2ut3hprtFCgCO+ufj69u41V7BsuS3PecSRkQyzD+ADX19fxScrWu6cH
-        TttoI0Zd/4JNBWsyRejMBdyVrajrGltWlGKBOiDBb8Z3zaBg9eAuWMH8vPykVzwpRNeFV1XQUDeK
-        fDs8gqfdsdSDgn9sQ29AKMaqGPAUerRBZtwfLjyqjhWqfVSJwrVoMOxdAHrHZ9gYttestHjOkhzk
-        XrIWBsGehIFwlMCgzJ/EmlukGQdKFovAC1BkrVe4pTDIiS08po8bnF9y/jF92BOcvtSq0lsCo5al
-        PNFNEwywY0EF23nb/ZtYEMrX0aFB34sO7G8iG5by4RD9j1P0UJivR2k+exmlyrDGjo5S/h3Ms/ks
-        SZf5LFvGacow942wPMqIh91wJpnvO+9AzP/Gd4xZtp3myfLGcx8PQvsGy87m+XL02Lj4js0upXuM
-        5n3tsdn5cvY//Ld2BbzpdrbX7ZDteLvT1XKZLOaLdJHn+y3dEd9sft98AwAA//8DAG0xlysrCAAA
-    headers:
-      Access-Control-Allow-Headers:
-      - x-requested-with, Content-Type, origin, authorization, accept, client-security-token
-      Access-Control-Allow-Methods:
-      - POST, GET, OPTIONS
-      Access-Control-Allow-Origin:
-      - '*'
-      Cache-Control:
-      - max-age=1800, public
-      Connection:
-      - keep-alive
-      Content-Encoding:
-      - gzip
-      Content-Type:
-      - application/json
-      Date:
-      - Tue, 29 Aug 2023 12:41:46 GMT
-      Server:
-      - Apache/2.4.38 (Debian)
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
-      Via:
-      - 1.1 a9717fb92179a05f5da85fabc586e750.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - ztVWp60oK1qFGSp_ppCGtOMarlHGWUHvuARM_wUYvHJkbXUxXmLMOQ==
-      X-Amz-Cf-Pop:
-      - ZRH55-P1
-      X-Cache:
-      - Miss from cloudfront
-      X-Ua-Compatible:
-      - IE=Edge
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Connection:
-      - keep-alive
-      User-Agent:
-      - python-requests/2.31.0
-    method: GET
-    uri: https://api3.geo.admin.ch/rest/services/api/MapServer/identify?returnGeometry=False&sr=2056&mapExtent=0,0,0,0&tolerance=0&imageDisplay=0,0,0&layers=all:ch.bafu.bundesinventare-bln&geometryType=esriGeometryEnvelope&geometry=2595858.1098607033,1223822.4541323201,2595958.1098607033,1223922.4541323201
-  response:
-    body:
-      string: '{"results": []}'
-    headers:
-      Access-Control-Allow-Headers:
-      - x-requested-with, Content-Type, origin, authorization, accept, client-security-token
-      Access-Control-Allow-Methods:
-      - POST, GET, OPTIONS
-      Access-Control-Allow-Origin:
-      - '*'
-      Cache-Control:
-      - max-age=1800, public
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '15'
-      Content-Type:
-      - application/json
-      Date:
-      - Tue, 29 Aug 2023 12:41:47 GMT
-      Server:
-      - Apache/2.4.38 (Debian)
-      Via:
-      - 1.1 a9717fb92179a05f5da85fabc586e750.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - hbV1kDQw6MPYBUQ0RiIpw21OYQFvUQGI6slFsj4BkeBKONOSFmoAdg==
-      X-Amz-Cf-Pop:
-      - ZRH55-P1
-      X-Cache:
-      - Miss from cloudfront
-      X-Ua-Compatible:
-      - IE=Edge
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Connection:
-      - keep-alive
-      User-Agent:
-      - python-requests/2.31.0
-    method: GET
-    uri: https://api3.geo.admin.ch/rest/services/api/MapServer/identify?returnGeometry=False&sr=2056&mapExtent=0,0,0,0&tolerance=0&imageDisplay=0,0,0&layers=all:ch.astra.ivs-nat,ch.astra.ivs-reg_loc&geometryType=esriGeometryEnvelope&geometry=2595883.1098607033,1223847.4541323201,2595933.1098607033,1223897.4541323201
-  response:
-    body:
-      string: '{"results": []}'
-    headers:
-      Access-Control-Allow-Headers:
-      - x-requested-with, Content-Type, origin, authorization, accept, client-security-token
-      Access-Control-Allow-Methods:
-      - POST, GET, OPTIONS
-      Access-Control-Allow-Origin:
-      - '*'
-      Age:
-      - '57'
-      Cache-Control:
-      - max-age=1800, public
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '15'
-      Content-Type:
-      - application/json
-      Date:
-      - Tue, 29 Aug 2023 12:40:50 GMT
-      Server:
-      - Apache/2.4.38 (Debian)
-      Via:
-      - 1.1 a9717fb92179a05f5da85fabc586e750.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - Mjiu6eRkwm_qT4SzNn84o2X4FXlYaDztU94M8beo8FQzDSkJ3OcQOA==
-      X-Amz-Cf-Pop:
-      - ZRH55-P1
-      X-Cache:
-      - Hit from cloudfront
-      X-Ua-Compatible:
-      - IE=Edge
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Connection:
-      - keep-alive
-      User-Agent:
-      - python-requests/2.31.0
-    method: GET
     uri: https://geo-i.so.ch/api/data/v1/ch.so.afu.gewaesserschutz.zonen_areale.data_v2/?bbox=2595908.1098607033,1223872.4541323201,2595908.1098607033,1223872.4541323201
   response:
     body:
@@ -188,18 +22,16 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Tue, 29 Aug 2023 12:41:47 GMT
+      - Wed, 12 Jun 2024 12:03:22 GMT
       Keep-Alive:
       - timeout=10, max=300
       Server:
       - Kanton Solothurn
       Set-Cookie:
-      - SCDID_S=eKdt73S97Et_HSK1Tp9Z6flTXi-XnZzCGoZD180yoSL2BhlfdueiNQ$$; path=/;
+      - SCDID_S=ifN0B4L9mjzpIo6YZrFuSJbtBVi8l1XtRj0wFp7VMa5ofF1Maoe8jg$$; path=/;
         Secure; HttpOnly
       access-control-allow-origin:
       - '*'
-      cache-control:
-      - private
       content-length:
       - '125'
       content-type:
@@ -216,8 +48,6 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      Cookie:
-      - SCDID_S=eKdt73S97Et_HSK1Tp9Z6flTXi-XnZzCGoZD180yoSL2BhlfdueiNQ$$
       User-Agent:
       - python-requests/2.31.0
     method: GET
@@ -232,11 +62,14 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Tue, 29 Aug 2023 12:41:47 GMT
+      - Wed, 12 Jun 2024 12:03:22 GMT
       Keep-Alive:
-      - timeout=10, max=299
+      - timeout=10, max=300
       Server:
       - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=cW_witRYBTliQoAlWqJp8KWM5wnlo6mcQugWd5U9zmvCuM5nziwNMA$$; path=/;
+        Secure; HttpOnly
       access-control-allow-origin:
       - '*'
       content-length:
@@ -255,8 +88,6 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      Cookie:
-      - SCDID_S=eKdt73S97Et_HSK1Tp9Z6flTXi-XnZzCGoZD180yoSL2BhlfdueiNQ$$
       User-Agent:
       - python-requests/2.31.0
     method: GET
@@ -264,7 +95,7 @@ interactions:
   response:
     body:
       string: '{"type": "FeatureCollection", "features": [{"type": "Feature", "id":
-        489603, "geometry": {"type": "Polygon", "coordinates": [[[2596210.426, 1223875.598],
+        794528, "geometry": {"type": "Polygon", "coordinates": [[[2596210.426, 1223875.598],
         [2596247.562, 1223871.544], [2596223.088, 1223747.022], [2596188.433, 1223760.115],
         [2596144.083, 1223776.942], [2596081.045, 1223800.778], [2596041.168, 1223804.743],
         [2596024.361, 1223806.413], [2595996.06, 1223802.232], [2595980.175, 1223799.886],
@@ -395,11 +226,14 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Tue, 29 Aug 2023 12:41:47 GMT
+      - Wed, 12 Jun 2024 12:03:22 GMT
       Keep-Alive:
-      - timeout=10, max=298
+      - timeout=10, max=300
       Server:
       - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=NZnuT_54RgnYImLczglTCNblvMw3QtCGVsNkgYSgy3FLAwFRAOTCuw$$; path=/;
+        Secure; HttpOnly
       access-control-allow-origin:
       - '*'
       content-length:
@@ -418,8 +252,82 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      Cookie:
-      - SCDID_S=eKdt73S97Et_HSK1Tp9Z6flTXi-XnZzCGoZD180yoSL2BhlfdueiNQ$$
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://api3.geo.admin.ch/rest/services/api/MapServer/identify?returnGeometry=False&sr=2056&mapExtent=0,0,0,0&tolerance=0&imageDisplay=0,0,0&layers=all:ch.bafu.bundesinventare-amphibien,ch.bafu.bundesinventare-amphibien_wanderobjekte,ch.bafu.bundesinventare-vogelreservate,ch.bafu.bundesinventare-auen,ch.bafu.bundesinventare-auen_anhang2,ch.bafu.bundesinventare-auen_vegetation_alpin,ch.bafu.bundesinventare-flachmoore,ch.bafu.bundesinventare-hochmoore,ch.bafu.bundesinventare-moorlandschaften,ch.bafu.bundesinventare-jagdbanngebiete,ch.bafu.bundesinventare-trockenwiesen_trockenweiden,ch.bafu.bundesinventare-trockenwiesen_trockenweiden_anhang2&geometryType=esriGeometryEnvelope&geometry=2595908.1098607033,1223872.4541323201,2595908.1098607033,1223872.4541323201
+  response:
+    body:
+      string: '{"results": [{"layerBodId": "ch.bafu.bundesinventare-amphibien", "layerName":
+        "Amphibien Ortsfeste Objekte", "featureId": 4237, "id": 4237, "attributes":
+        {"objnummer": "SO177", "name": "Grenchner Witi", "refobjblat": "https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/so177.pdf",
+        "shape_area": 112690.450068, "site": "A", "site_de": "Bereich A (dient der
+        Fortpflanzung der Amphibien \u2013 alle Gew\u00e4sser welche sicher oder potentiell
+        der Fortpflanzung dienen)", "site_fr": "Secteur A (sert \u00e0 la reproduction
+        des batraciens \u2013 tous les plans d''eau servant \u00e0 la reproduction
+        de mani\u00e8re effective ou potentielle)", "site_it": "Settore A (funge da
+        luogo per la riproduzione degli anfibi \u2013 tutti i corpi d\u2019acqua dove
+        la riproduzione \u00e8 accertata o \u00e8 potenziale)", "label": "Grenchner
+        Witi"}}, {"layerBodId": "ch.bafu.bundesinventare-vogelreservate", "layerName":
+        "Wasser- und Zugvogelreservate", "featureId": 49, "id": 49, "attributes":
+        {"name": "Witi (BE,SO)", "objnummer": 102, "teilgebiet": "III", "schutzkategorie_de":
+        "Jagd verboten; Schifffahrt nicht eingeschr\u00e4nkt; weitere Bestimmungen
+        gem\u00e4ss Objektblatt", "schutzkategorie_fr": "Chasse interdite, pas de
+        restrictions pour la navigation; autres dispositions selon description d''objet",
+        "schutzkategorie_it": "Divieto di caccia; nessuna restrizione alla navigazione;
+        altre disposizioni secondo descrizione dell''oggetto", "schutzebene_de": "National",
+        "schutzebene_fr": "National", "schutzebene_it": "Nazionale", "refobjblatt":
+        "https://data.geo.admin.ch/ch.bafu.bundesinventare-vogelreservate/objectsheets/2023revision/nr102.pdf",
+        "shape_area": 4235153.08231868, "obj_gisflaeche": 423.5, "label": "Witi (BE,SO)"}},
+        {"layerBodId": "ch.bafu.bundesinventare-flachmoore", "layerName": "Flachmoore",
+        "featureId": 14528, "id": 14528, "attributes": {"name": "Altwasser", "objnummer":
+        3683, "refobjblat": "https://data.geo.admin.ch/ch.bafu.bundesinventare-flachmoore/objectsheets/2021revision/nr3683.pdf",
+        "shape_area": 40988.7570722, "label": "Altwasser"}}]}'
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, HEAD, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - max-age=1800, public
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 12 Jun 2024 12:03:22 GMT
+      Server:
+      - Apache/2.4.38 (Debian)
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 9f25aa45df27e50f380232059fde4c1a.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - DHlFWFavIp2EJvJjqiuSVDPbpdLsChT4azb9WqPIoIeGjkYhZXsFCg==
+      X-Amz-Cf-Pop:
+      - ZRH55-P1
+      X-Cache:
+      - Miss from cloudfront
+      X-Ua-Compatible:
+      - IE=Edge
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
       User-Agent:
       - python-requests/2.31.0
     method: GET
@@ -434,11 +342,14 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Tue, 29 Aug 2023 12:41:47 GMT
+      - Wed, 12 Jun 2024 12:03:22 GMT
       Keep-Alive:
-      - timeout=10, max=297
+      - timeout=10, max=300
       Server:
       - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=IVLXJ7gLoe94m4fdtnjv0W-WUqwlHJMco8og73hAUGtq_zu9xqJ-Xw$$; path=/;
+        Secure; HttpOnly
       access-control-allow-origin:
       - '*'
       content-length:
@@ -457,8 +368,6 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      Cookie:
-      - SCDID_S=eKdt73S97Et_HSK1Tp9Z6flTXi-XnZzCGoZD180yoSL2BhlfdueiNQ$$
       User-Agent:
       - python-requests/2.31.0
     method: GET
@@ -473,11 +382,14 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Tue, 29 Aug 2023 12:41:47 GMT
+      - Wed, 12 Jun 2024 12:03:23 GMT
       Keep-Alive:
-      - timeout=10, max=296
+      - timeout=10, max=300
       Server:
       - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=BOqU82Yn3xGwOdD_q2qhy4CMDKWFVS1CzhxishRVz8rdd8DPTmKhVA$$; path=/;
+        Secure; HttpOnly
       access-control-allow-origin:
       - '*'
       content-length:
@@ -496,8 +408,6 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      Cookie:
-      - SCDID_S=eKdt73S97Et_HSK1Tp9Z6flTXi-XnZzCGoZD180yoSL2BhlfdueiNQ$$
       User-Agent:
       - python-requests/2.31.0
     method: GET
@@ -512,11 +422,14 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Tue, 29 Aug 2023 12:41:47 GMT
+      - Wed, 12 Jun 2024 12:03:23 GMT
       Keep-Alive:
-      - timeout=10, max=295
+      - timeout=10, max=300
       Server:
       - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=8S3I-H25txuVjnX1mQqu-xSIUFkxRfzx5PErs_Xg1C-xlJIAl0hoOg$$; path=/;
+        Secure; HttpOnly
       access-control-allow-origin:
       - '*'
       content-length:
@@ -535,8 +448,6 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      Cookie:
-      - SCDID_S=eKdt73S97Et_HSK1Tp9Z6flTXi-XnZzCGoZD180yoSL2BhlfdueiNQ$$
       User-Agent:
       - python-requests/2.31.0
     method: GET
@@ -551,11 +462,14 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Tue, 29 Aug 2023 12:41:47 GMT
+      - Wed, 12 Jun 2024 12:03:23 GMT
       Keep-Alive:
-      - timeout=10, max=294
+      - timeout=10, max=300
       Server:
       - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=fDoqhU5q8QwmhwFsGeaqhgLzTdlvM3W0CzvtoDXbOaJYPxXQzej8ew$$; path=/;
+        Secure; HttpOnly
       access-control-allow-origin:
       - '*'
       content-length:
@@ -574,8 +488,54 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      Cookie:
-      - SCDID_S=eKdt73S97Et_HSK1Tp9Z6flTXi-XnZzCGoZD180yoSL2BhlfdueiNQ$$
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://api3.geo.admin.ch/rest/services/api/MapServer/identify?returnGeometry=False&sr=2056&mapExtent=0,0,0,0&tolerance=0&imageDisplay=0,0,0&layers=all:ch.bafu.bundesinventare-bln&geometryType=esriGeometryEnvelope&geometry=2595858.1098607033,1223822.4541323201,2595958.1098607033,1223922.4541323201
+  response:
+    body:
+      string: '{"results": []}'
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, HEAD, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - max-age=1800, public
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '15'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 12 Jun 2024 12:03:23 GMT
+      Server:
+      - Apache/2.4.38 (Debian)
+      Via:
+      - 1.1 9defe0d67603d45217a1199d0f877384.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - qs3BKXX-JWfXhQ4y8_50PmB1JGvkdA4vcwY4tTgO8j-UoUWZoGMtIQ==
+      X-Amz-Cf-Pop:
+      - ZRH55-P1
+      X-Cache:
+      - Miss from cloudfront
+      X-Ua-Compatible:
+      - IE=Edge
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
       User-Agent:
       - python-requests/2.31.0
     method: GET
@@ -583,7 +543,7 @@ interactions:
   response:
     body:
       string: '{"type": "FeatureCollection", "features": [{"type": "Feature", "id":
-        900, "geometry": {"type": "MultiPolygon", "coordinates": [[[[2592560.719,
+        1474, "geometry": {"type": "MultiPolygon", "coordinates": [[[[2592560.719,
         1229631.553], [2592772.041, 1229671.222], [2592911.166, 1229749.036], [2593009.212,
         1229807.819], [2593091.628, 1229812.502], [2593116.126, 1229813.895], [2593215.251,
         1229837.98], [2593286.465, 1229865.926], [2593398.999, 1229903.411], [2593538.424,
@@ -827,15 +787,18 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Tue, 29 Aug 2023 12:41:47 GMT
+      - Wed, 12 Jun 2024 12:03:23 GMT
       Keep-Alive:
-      - timeout=10, max=293
+      - timeout=10, max=300
       Server:
       - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=pqpmX5-vtO_6ahgrmptmVMb8b_rG93FeEYXzyoOlmes23Q93pb0JUw$$; path=/;
+        Secure; HttpOnly
       access-control-allow-origin:
       - '*'
       content-length:
-      - '19827'
+      - '19828'
       content-type:
       - application/json
     status:
@@ -850,8 +813,6 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      Cookie:
-      - SCDID_S=eKdt73S97Et_HSK1Tp9Z6flTXi-XnZzCGoZD180yoSL2BhlfdueiNQ$$
       User-Agent:
       - python-requests/2.31.0
     method: GET
@@ -866,11 +827,14 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Tue, 29 Aug 2023 12:41:47 GMT
+      - Wed, 12 Jun 2024 12:03:23 GMT
       Keep-Alive:
-      - timeout=10, max=292
+      - timeout=10, max=300
       Server:
       - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=3U3v52Imd8Fth2KvG0xOLSIb-Kzo_AkMEss_gzULNghVvPYHfkMjbA$$; path=/;
+        Secure; HttpOnly
       access-control-allow-origin:
       - '*'
       content-length:
@@ -889,8 +853,6 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      Cookie:
-      - SCDID_S=eKdt73S97Et_HSK1Tp9Z6flTXi-XnZzCGoZD180yoSL2BhlfdueiNQ$$
       User-Agent:
       - python-requests/2.31.0
     method: GET
@@ -905,11 +867,14 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Tue, 29 Aug 2023 12:41:47 GMT
+      - Wed, 12 Jun 2024 12:03:23 GMT
       Keep-Alive:
-      - timeout=10, max=291
+      - timeout=10, max=300
       Server:
       - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=yKJVVRIaFP17SVVWJgRXUvyonrJup3Dx4ujutTaPDVHveTwnK2Pjvg$$; path=/;
+        Secure; HttpOnly
       access-control-allow-origin:
       - '*'
       content-length:
@@ -928,8 +893,6 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      Cookie:
-      - SCDID_S=eKdt73S97Et_HSK1Tp9Z6flTXi-XnZzCGoZD180yoSL2BhlfdueiNQ$$
       User-Agent:
       - python-requests/2.31.0
     method: GET
@@ -944,11 +907,14 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Tue, 29 Aug 2023 12:41:47 GMT
+      - Wed, 12 Jun 2024 12:03:24 GMT
       Keep-Alive:
-      - timeout=10, max=290
+      - timeout=10, max=300
       Server:
       - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=_hHLUhyZOZ-ubhGRS3t3ClsN-AmSuc5dYDWadWrS4QFPXRsjO-jAfg$$; path=/;
+        Secure; HttpOnly
       access-control-allow-origin:
       - '*'
       content-length:
@@ -967,8 +933,6 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      Cookie:
-      - SCDID_S=eKdt73S97Et_HSK1Tp9Z6flTXi-XnZzCGoZD180yoSL2BhlfdueiNQ$$
       User-Agent:
       - python-requests/2.31.0
     method: GET
@@ -983,11 +947,14 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Tue, 29 Aug 2023 12:41:47 GMT
+      - Wed, 12 Jun 2024 12:03:24 GMT
       Keep-Alive:
-      - timeout=10, max=289
+      - timeout=10, max=300
       Server:
       - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=QOO0jTbA5y5AzNURwSDHy_aX2I6l-wlcBB42BvwpcYvaxxjRpqPmlA$$; path=/;
+        Secure; HttpOnly
       access-control-allow-origin:
       - '*'
       content-length:
@@ -1006,8 +973,6 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      Cookie:
-      - SCDID_S=eKdt73S97Et_HSK1Tp9Z6flTXi-XnZzCGoZD180yoSL2BhlfdueiNQ$$
       User-Agent:
       - python-requests/2.31.0
     method: GET
@@ -1015,295 +980,148 @@ interactions:
   response:
     body:
       string: '{"type": "FeatureCollection", "features": [{"type": "Feature", "id":
-        15799, "geometry": {"type": "Polygon", "coordinates": [[[2598983.049, 1224794.797],
-        [2598984.272, 1224795.364], [2598984.371, 1224795.409], [2598984.471, 1224795.452],
-        [2598984.572, 1224795.493], [2598984.674, 1224795.533], [2598984.776, 1224795.571],
-        [2598984.879, 1224795.606], [2598984.982, 1224795.64], [2598985.086, 1224795.672],
-        [2598985.191, 1224795.702], [2598985.296, 1224795.731], [2598985.402, 1224795.757],
-        [2598985.508, 1224795.781], [2598985.615, 1224795.804], [2598985.722, 1224795.824],
-        [2598985.829, 1224795.843], [2598985.937, 1224795.859], [2598986.045, 1224795.874],
-        [2598986.153, 1224795.887], [2598986.261, 1224795.897], [2598986.37, 1224795.906],
-        [2598986.479, 1224795.913], [2598986.588, 1224795.918], [2598986.696, 1224795.921],
-        [2598986.805, 1224795.921], [2598986.914, 1224795.92], [2598987.023, 1224795.917],
-        [2598987.132, 1224795.912], [2598987.241, 1224795.905], [2598987.349, 1224795.896],
-        [2598987.458, 1224795.885], [2598987.566, 1224795.872], [2598987.674, 1224795.857],
-        [2598987.889, 1224795.821], [2598987.996, 1224795.801], [2598988.102, 1224795.778],
-        [2598988.208, 1224795.753], [2598988.314, 1224795.727], [2598988.419, 1224795.698],
-        [2598988.524, 1224795.668], [2598988.628, 1224795.635], [2598988.731, 1224795.601],
-        [2598988.834, 1224795.565], [2598988.936, 1224795.527], [2598989.038, 1224795.488],
-        [2598989.138, 1224795.446], [2598989.238, 1224795.403], [2598989.337, 1224795.357],
-        [2598989.436, 1224795.31], [2598989.533, 1224795.261], [2598989.63, 1224795.211],
-        [2598989.725, 1224795.159], [2598989.82, 1224795.105], [2598989.913, 1224795.049],
-        [2598990.006, 1224794.992], [2598990.097, 1224794.932], [2598990.188, 1224794.872],
-        [2598990.277, 1224794.809], [2598990.365, 1224794.745], [2598990.452, 1224794.68],
-        [2598990.538, 1224794.613], [2598990.623, 1224794.544], [2598990.706, 1224794.474],
-        [2598990.788, 1224794.402], [2598992.297, 1224793.058], [2598992.377, 1224793.005],
-        [2599012.773, 1224774.843], [2599013.612, 1224773.926], [2599013.749, 1224773.776],
-        [2599013.515, 1224772.988], [2599011.881, 1224767.469], [2599012.068, 1224760.889],
-        [2599010.89, 1224760.289], [2598986.72, 1224750.739], [2598935.229, 1224730.389],
-        [2598932.898, 1224724.223], [2598930.994, 1224719.19], [2598930.795, 1224719.089],
-        [2598954.615, 1224728.548], [2598955.934, 1224729.03], [2598962.111, 1224731.089],
-        [2599007.85, 1224746.338], [2599070.667, 1224771.041], [2599071.923, 1224771.497],
-        [2599116.959, 1224786.481], [2599125.52, 1224791.337], [2599196.153, 1224831.392],
-        [2599223.967, 1224853.04], [2599283.81, 1224899.615], [2599314.633, 1224930.949],
-        [2599333.734, 1224950.367], [2599368.861, 1225008.979], [2599367.891, 1225016.38],
-        [2599366.345, 1225028.175], [2599365.856, 1225045.415], [2599340.575, 1225043.992],
-        [2599215.395, 1225032.622], [2599082.186, 1225015.643], [2598914.71, 1224986.834],
-        [2598671.372, 1224932.665], [2597860.392, 1224702.218], [2597859.889, 1224702.158],
-        [2597859.425, 1224701.954], [2597833.558, 1224798.488], [2596291.019, 1224378.215],
-        [2596290.81, 1224378.137], [2596291.113, 1224377.89], [2596325.68, 1224284.405],
-        [2596325.663, 1224284.398], [2596298.704, 1224357.305], [2596303.036, 1224345.56],
-        [2596304.42, 1224341.807], [2596309.737, 1224327.391], [2596315.84, 1224310.84],
-        [2596329.477, 1224273.869], [2596349.16, 1224220.361], [2596368.94, 1224166.87],
-        [2596398.36, 1224087.109], [2596413.66, 1224045.629], [2596428.9, 1224004.169],
-        [2596443.404, 1223964.921], [2596458.15, 1223925.017], [2596444.304, 1223923.623],
-        [2596379.96, 1223917.148], [2596376.198, 1223916.938], [2596377.071, 1223912.804],
-        [2596377.701, 1223909.821], [2596380.172, 1223898.116], [2596377.781, 1223865.164],
-        [2596376.479, 1223847.214], [2596376.225, 1223847.267], [2596370.88, 1223848.377],
-        [2596267.209, 1223869.399], [2596247.562, 1223871.544], [2596210.426, 1223875.598],
-        [2596179.369, 1223878.99], [2596156.152, 1223879.942], [2596105.2, 1223882.031],
-        [2596088.618, 1223882.711], [2596029.419, 1223890.488], [2595973.085, 1223897.888],
-        [2595909.108, 1223906.293], [2595907.433, 1223905.328], [2595880.459, 1223889.785],
-        [2595824.177, 1223857.354], [2595764.103, 1223822.635], [2595739.947, 1223808.674],
-        [2595726.313, 1223800.799], [2595721.642, 1223798.101], [2595721.478, 1223798.006],
-        [2595719.854, 1223797.069], [2595722.386, 1223780.956], [2595724.864, 1223767.347],
-        [2595726.338, 1223759.254], [2595725.215, 1223751.203], [2595723.731, 1223740.569],
-        [2595723.554, 1223739.295], [2595723.434, 1223738.985], [2595720.476, 1223731.303],
-        [2595716.311, 1223720.488], [2595702.401, 1223687.895], [2595695.158, 1223669.089],
-        [2595691.301, 1223654.577], [2595689.199, 1223632.153], [2595690.244, 1223615.925],
-        [2595692.882, 1223598.1], [2595694.969, 1223578.15], [2595700.805, 1223558.84],
-        [2595704.569, 1223539.176], [2595706.036, 1223521.071], [2595710.289, 1223503.707],
-        [2595718.811, 1223482.179], [2595724.001, 1223462.834], [2595732.356, 1223434.002],
-        [2595739.558, 1223410.051], [2595745.891, 1223391.075], [2595752.223, 1223372.099],
-        [2595759.316, 1223353.369], [2595770.162, 1223335.32], [2595779.056, 1223319.281],
-        [2595788.924, 1223307.947], [2595802.186, 1223292.866], [2595816.75, 1223279.169],
-        [2595824.315, 1223273.176], [2595832.478, 1223266.709], [2595848.401, 1223258.005],
-        [2595856.345, 1223253.662], [2595856.573, 1223253.52], [2595865.918, 1223247.693],
-        [2595876.321, 1223241.828], [2595895.219, 1223234.895], [2595905.274, 1223231.795],
-        [2595921.325, 1223227.937], [2595929.982, 1223229.613], [2595939.095, 1223233.135],
-        [2595948.82, 1223234.959], [2595970.988, 1223227.686], [2595980.904, 1223224.649],
-        [2595984.659, 1223223.499], [2595997.632, 1223211.735], [2596010.289, 1223200.512],
-        [2596010.701, 1223200.147], [2596023.453, 1223194.296], [2596040.486, 1223187.955],
-        [2596051.235, 1223184.348], [2596057.803, 1223182.143], [2596068.285, 1223177.448],
-        [2596071.531, 1223175.994], [2596080.114, 1223174.165], [2596092.214, 1223181.379],
-        [2596104.113, 1223190.225], [2596105.006, 1223196.717], [2596096.135, 1223205.771],
-        [2596096.133, 1223205.787], [2596096.095, 1223205.826], [2596094.887, 1223214.229],
-        [2596100.776, 1223231.344], [2596109.293, 1223240.931], [2596125.647, 1223245.596],
-        [2596144.507, 1223248.398], [2596160.405, 1223250.691], [2596198.533, 1223257.265],
-        [2596205.352, 1223260.313], [2596233.079, 1223272.708], [2596280.587, 1223297.376],
-        [2596283.703, 1223299.776], [2596335.826, 1223319.082], [2596363.832, 1223325.17],
-        [2596395.645, 1223325.776], [2596415.534, 1223332.958], [2596448.374, 1223346.12],
-        [2596462.483, 1223348.759], [2596470.636, 1223350.284], [2596493.154, 1223343.533],
-        [2596494.387, 1223343.156], [2596508.74, 1223338.772], [2596508.77, 1223338.721],
-        [2596508.78, 1223338.718], [2596509.761, 1223337.015], [2596508.91, 1223338.835],
-        [2596508.88, 1223338.945], [2596508.418, 1223340.628], [2596508.245, 1223342.832],
-        [2596508.615, 1223342.985], [2596510.468, 1223343.753], [2596512.858, 1223344.461],
-        [2596523.615, 1223347.648], [2596531.729, 1223351.302], [2596538.671, 1223354.428],
-        [2596549.881, 1223361.897], [2596555.267, 1223365.486], [2596567.003, 1223374.617],
-        [2596568.178, 1223375.457], [2596568.665, 1223375.805], [2596613.21, 1223404.956],
-        [2596616.804, 1223406.908], [2596634.836, 1223414.863], [2596635.925, 1223415.265],
-        [2596637.736, 1223415.933], [2596661.45, 1223423.051], [2596662.013, 1223423.201],
-        [2596663.009, 1223423.465], [2596696.571, 1223431.221], [2596720.505, 1223444.453],
-        [2596777.033, 1223477.714], [2596778.678, 1223478.689], [2596779.906, 1223479.418],
-        [2596800.236, 1223491.464], [2596829.511, 1223508.809], [2596830.825, 1223509.536],
-        [2596864.925, 1223527.064], [2596865.55, 1223527.365], [2596866.153, 1223527.654],
-        [2596941.784, 1223561.454], [2596943.36, 1223562.095], [2596984.084, 1223577.062],
-        [2596985.293, 1223577.471], [2597007.177, 1223584.268], [2597026.19, 1223590.172],
-        [2597027.463, 1223590.531], [2597070.639, 1223601.473], [2597072.466, 1223601.864],
-        [2597108.586, 1223608.19], [2597114.96, 1223609.307], [2597115.367, 1223609.357],
-        [2597117.4, 1223609.611], [2597154.382, 1223612.388], [2597155.257, 1223612.409],
-        [2597156.952, 1223612.448], [2597209.956, 1223610.966], [2597219.85, 1223610.69],
-        [2597247.331, 1223609.922], [2597249.689, 1223609.745], [2597305.167, 1223602.909],
-        [2597308.226, 1223602.337], [2597308.227, 1223602.337], [2597308.266, 1223602.283],
-        [2597343.391, 1223593.46], [2597371.745, 1223586.339], [2597372.573, 1223586.131],
-        [2597373.432, 1223585.915], [2597373.943, 1223585.787], [2597388.882, 1223583.438],
-        [2597417.881, 1223578.579], [2597436.125, 1223574.502], [2597464.275, 1223574.312],
-        [2597468.822, 1223573.516], [2597488.555, 1223570.062], [2597528.772, 1223558.346],
-        [2597533.934, 1223557.34], [2597546.126, 1223555.171], [2597566.736, 1223554.591],
-        [2597593.824, 1223551.373], [2597596.796, 1223551.02], [2597599.6, 1223549.973],
-        [2597627.331, 1223539.658], [2597627.564, 1223539.571], [2597659.839, 1223534.925],
-        [2597689.451, 1223530.662], [2597729.206, 1223526.105], [2597732.468, 1223525.843],
-        [2597760.736, 1223523.569], [2597763.382, 1223523.587], [2597767.215, 1223523.615],
-        [2597812.09, 1223523.935], [2597860.916, 1223533.018], [2597873.123, 1223535.288],
-        [2597876.062, 1223536.161], [2597933.371, 1223553.177], [2597967.211, 1223568.084],
-        [2597983.847, 1223577.862], [2598013.423, 1223595.245], [2598052.882, 1223626.046],
-        [2598091.373, 1223663.398], [2598096.67, 1223669.923], [2598120.528, 1223699.321],
-        [2598139.163, 1223726.048], [2598143.324, 1223732.017], [2598143.546, 1223732.329],
-        [2598160.336, 1223755.641], [2598173.591, 1223774.045], [2598202.935, 1223824.763],
-        [2598209.608, 1223838.614], [2598223.696, 1223867.857], [2598225.103, 1223870.775],
-        [2598230.025, 1223880.99], [2598239.175, 1223908.934], [2598243.852, 1223923.221],
-        [2598255.599, 1223975.269], [2598256.052, 1223983.615], [2598256.475, 1223991.434],
-        [2598256.575, 1223992.487], [2598256.669, 1223993.466], [2598257.735, 1224001.266],
-        [2598259.705, 1224015.687], [2598259.406, 1224020.931], [2598259.239, 1224023.874],
-        [2598259.413, 1224028.562], [2598261.12, 1224041.483], [2598261.145, 1224041.657],
-        [2598261.192, 1224041.989], [2598275.109, 1224132.98], [2598281.444, 1224187.316],
-        [2598283.592, 1224205.735], [2598283.841, 1224207.39], [2598284.897, 1224213.091],
-        [2598291.439, 1224248.425], [2598291.555, 1224248.935], [2598291.895, 1224250.425],
-        [2598307.203, 1224306.785], [2598307.27, 1224307.011], [2598307.546, 1224307.939],
-        [2598319.731, 1224345.54], [2598320.749, 1224350.851], [2598321.497, 1224353.303],
-        [2598327.946, 1224358.042], [2598333.437, 1224369.61], [2598333.692, 1224370.148],
-        [2598412.147, 1224498.842], [2598416.283, 1224503.958], [2598429.105, 1224516.102],
-        [2598448.046, 1224534.042], [2598453.638, 1224539.812], [2598458.456, 1224544.784],
-        [2598459.044, 1224545.356], [2598459.474, 1224545.776], [2598489.042, 1224573.005],
-        [2598492.648, 1224576.325], [2598493.818, 1224577.225], [2598496.158, 1224579.023],
-        [2598496.44, 1224579.199], [2598498.088, 1224580.209], [2598498.128, 1224580.233],
-        [2598498.441, 1224580.421], [2598499.62, 1224581.117], [2598500.114, 1224581.409],
-        [2598500.453, 1224581.605], [2598501.156, 1224582.006], [2598502.141, 1224582.567],
-        [2598502.5, 1224582.767], [2598503.272, 1224583.19], [2598504.199, 1224583.698],
-        [2598504.556, 1224583.89], [2598505.736, 1224584.512], [2598506.273, 1224584.795],
-        [2598506.629, 1224584.979], [2598508.36, 1224585.856], [2598508.727, 1224586.038],
-        [2598510.468, 1224586.885], [2598510.629, 1224586.962], [2598510.834, 1224587.059],
-        [2598511.19, 1224587.226], [2598512.589, 1224587.878], [2598512.731, 1224587.943],
-        [2598512.963, 1224588.049], [2598513.733, 1224588.393], [2598514.735, 1224588.84],
-        [2598515.099, 1224588.999], [2598516.886, 1224589.763], [2598517.152, 1224589.875],
-        [2598517.26, 1224589.92], [2598519.055, 1224590.653], [2598519.433, 1224590.804],
-        [2598520.788, 1224591.332], [2598521.24, 1224591.508], [2598521.616, 1224591.651],
-        [2598522.15, 1224591.849], [2598523.432, 1224592.326], [2598523.746, 1224592.439],
-        [2598523.819, 1224592.466], [2598524.607, 1224592.743], [2598525.648, 1224593.111],
-        [2598525.83, 1224593.173], [2598526.027, 1224593.241], [2598526.884, 1224593.527],
-        [2598527.868, 1224593.857], [2598528.253, 1224593.982], [2598530.102, 1224594.568],
-        [2598530.489, 1224594.687], [2598531.722, 1224595.056], [2598532.347, 1224595.243],
-        [2598532.739, 1224595.357], [2598534.603, 1224595.881], [2598534.819, 1224595.94],
-        [2598534.997, 1224595.989], [2598536.875, 1224596.484], [2598537.112, 1224596.545],
-        [2598537.258, 1224596.582], [2598539.145, 1224597.048], [2598539.4, 1224597.109],
-        [2598539.54, 1224597.142], [2598541.424, 1224597.575], [2598541.618, 1224597.618],
-        [2598541.831, 1224597.665], [2598542.756, 1224597.861], [2598543.73, 1224598.068],
-        [2598544.029, 1224598.129], [2598544.113, 1224598.146], [2598544.644, 1224598.251],
-        [2598546.02, 1224598.52], [2598546.425, 1224598.596], [2598548.328, 1224598.937],
-        [2598548.729, 1224599.005], [2598548.733, 1224599.006], [2598548.749, 1224599.008],
-        [2598550.646, 1224599.316], [2598550.983, 1224599.368], [2598551.043, 1224599.377],
-        [2598551.361, 1224599.423], [2598552.969, 1224599.657], [2598553.178, 1224599.686],
-        [2598553.362, 1224599.711], [2598554.472, 1224599.855], [2598555.282, 1224599.96],
-        [2598555.698, 1224600.011], [2598557.082, 1224600.166], [2598557.623, 1224600.227],
-        [2598557.929, 1224600.259], [2598558.017, 1224600.268], [2598558.34, 1224600.299],
-        [2598559.952, 1224600.455], [2598560.15, 1224600.472], [2598560.357, 1224600.49],
-        [2598562.181, 1224600.636], [2598562.288, 1224600.645], [2598562.3, 1224600.646],
-        [2598562.694, 1224600.674], [2598564.831, 1224600.81], [2598578.805, 1224602.655],
-        [2598580.342, 1224598.103], [2598617.667, 1224610.032], [2598617.825, 1224610.029],
-        [2598617.859, 1224610.029], [2598619.354, 1224610.534], [2598621.393, 1224611.223],
-        [2598636.169, 1224615.945], [2598637.279, 1224616.8], [2598641.919, 1224620.374],
-        [2598644.145, 1224621.463], [2598644.235, 1224621.497], [2598644.608, 1224621.635],
-        [2598644.818, 1224621.706], [2598645.087, 1224621.796], [2598643.297, 1224621.235],
-        [2598643, 1224621.175], [2598641.779, 1224620.93], [2598635.224, 1224630.374],
-        [2598626.492, 1224624.454], [2598619.087, 1224619.53], [2598617.664, 1224617.74],
-        [2598618.975, 1224616.615], [2598613.534, 1224615.279], [2598613.246, 1224615.387],
-        [2598612.111, 1224614.971], [2598589.858, 1224609.126], [2598587.955, 1224608.756],
-        [2598562.695, 1224605.52], [2598529.498, 1224599.527], [2598523.858, 1224598.519],
-        [2598507.55, 1224589.5], [2598506.705, 1224589.109], [2598502.932, 1224586.697],
-        [2598501.062, 1224585.68], [2598497.821, 1224584.207], [2598490.008, 1224579.305],
-        [2598488.428, 1224578.12], [2598487.249, 1224577.236], [2598486.629, 1224576.794],
-        [2598484.186, 1224575.149], [2598483.995, 1224575.02], [2598482.68, 1224574.253],
-        [2598479.392, 1224573.171], [2598477.013, 1224571.826], [2598475.939, 1224571.363],
-        [2598475.575, 1224571.206], [2598475.274, 1224571.213], [2598469.292, 1224574.961],
-        [2598459.862, 1224566.316], [2598458.158, 1224565.039], [2598456.755, 1224564.684],
-        [2598455.126, 1224564.44], [2598454.068, 1224564.389], [2598453.928, 1224564.383],
-        [2598454.23, 1224564.822], [2598454.608, 1224565.371], [2598457.074, 1224568.275],
-        [2598478.992, 1224598.526], [2598491.729, 1224616.105], [2598492.459, 1224616.992],
-        [2598492.9, 1224617.528], [2598502.301, 1224627.617], [2598503.747, 1224629.169],
-        [2598505.116, 1224630.319], [2598506.722, 1224631.106], [2598510.919, 1224632.56],
-        [2598513.61, 1224633.493], [2598513.997, 1224633.612], [2598514.569, 1224633.789],
-        [2598517.638, 1224634.628], [2598519.214, 1224635.058], [2598520.484, 1224635.346],
-        [2598551.744, 1224641.027], [2598565.37, 1224643.503], [2598613.603, 1224668.726],
-        [2598590.966, 1224698.397], [2598584.216, 1224707.243], [2598573.426, 1224719.38],
-        [2598569.617, 1224723.664], [2598569.597, 1224723.692], [2598568.827, 1224724.749],
-        [2598569.525, 1224725.516], [2598570.31, 1224726.106], [2598571.617, 1224725.998],
-        [2598571.672, 1224725.989], [2598571.742, 1224725.976], [2598572.114, 1224725.916],
-        [2598572.791, 1224725.752], [2598573.239, 1224725.644], [2598573.684, 1224725.459],
-        [2598574.308, 1224725.2], [2598574.747, 1224724.977], [2598576.803, 1224723.71],
-        [2598578.007, 1224722.827], [2598578.791, 1224722.211], [2598581.111, 1224720.26],
-        [2598581.998, 1224719.451], [2598582.665, 1224718.792], [2598583.702, 1224717.748],
-        [2598584.479, 1224716.966], [2598584.582, 1224716.858], [2598584.861, 1224716.566],
-        [2598586.387, 1224714.91], [2598587.27, 1224713.951], [2598587.322, 1224713.894],
-        [2598587.42, 1224713.786], [2598587.847, 1224713.309], [2598588.097, 1224713.029],
-        [2598588.629, 1224712.464], [2598589.103, 1224711.961], [2598589.76, 1224711.26],
-        [2598590.835, 1224710.112], [2598596.872, 1224704.002], [2598598.102, 1224702.758],
-        [2598602.489, 1224698.658], [2598610.865, 1224690.83], [2598614.59, 1224687.313],
-        [2598646.335, 1224659.782], [2598672.289, 1224678.481], [2598680.331, 1224684.554],
-        [2598727.812, 1224720.468], [2598733.46, 1224724.673], [2598751.212, 1224737.885],
-        [2598751.848, 1224738.361], [2598752.384, 1224738.76], [2598756.394, 1224741.755],
-        [2598804.331, 1224777.949], [2598829.188, 1224796.716], [2598829.922, 1224797.178],
-        [2598830.263, 1224797.393], [2598830.741, 1224797.589], [2598831.438, 1224797.875],
-        [2598831.625, 1224797.934], [2598831.782, 1224797.983], [2598832.549, 1224798.131],
-        [2598833.411, 1224798.297], [2598835.011, 1224797.859], [2598835.284, 1224797.75],
-        [2598835.344, 1224797.726], [2598835.606, 1224797.594], [2598836.48, 1224797.154],
-        [2598837.501, 1224796.396], [2598864.042, 1224772.934], [2598888.737, 1224751.104],
-        [2598888.792, 1224751.056], [2598976.18, 1224791.609], [2598982.022, 1224794.32],
-        [2598983.049, 1224794.797]], [[2597577.406, 1224121.56], [2597569.162, 1224117.338],
-        [2597583.589, 1224084.859], [2597614.879, 1224014.316], [2597593.452, 1224013.744],
-        [2597569.055, 1224010.662], [2597580.52, 1223984.968], [2597584.806, 1223975.253],
-        [2597592.006, 1223958.93], [2597605.788, 1223927.846], [2597606.116, 1223927.106],
-        [2597622.027, 1223890.961], [2597566.392, 1223849.543], [2597588.226, 1223819.397],
-        [2597602.125, 1223800.344], [2597596.785, 1223773.801], [2597568.894, 1223755.736],
-        [2597561.208, 1223750.734], [2597540.946, 1223737.547], [2597513.688, 1223755.403],
-        [2597465.717, 1223729.7], [2597450.012, 1223721.325], [2597418.84, 1223708.496],
-        [2597377.063, 1223692.65], [2597380.157, 1223685.289], [2597357.239, 1223673.768],
-        [2597364.311, 1223658.833], [2597368.893, 1223649.094], [2597341.571, 1223637.608],
-        [2597332.187, 1223633.664], [2597329.123, 1223635.927], [2597342.134, 1223606.069],
-        [2597341.649, 1223599.954], [2597387.305, 1223592.443], [2597415.365, 1223588.063],
-        [2597465.695, 1223580.662], [2597489.355, 1223574.322], [2597524.916, 1223566.161],
-        [2597528.866, 1223566.461], [2597539.516, 1223566.371], [2597592.371, 1223558.675],
-        [2597632.84, 1223544.61], [2597632.875, 1223544.639], [2597636.02, 1223547.314],
-        [2597636.328, 1223547.631], [2597637.089, 1223548.417], [2597638.25, 1223549.275],
-        [2597661.86, 1223570.708], [2597666.854, 1223575.245], [2597678.686, 1223585.994],
-        [2597697.864, 1223603.059], [2597698.451, 1223603.581], [2597698.532, 1223603.656],
-        [2597698.855, 1223603.954], [2597705.996, 1223610.794], [2597724.152, 1223627.286],
-        [2597724.657, 1223627.841], [2597724.926, 1223628.136], [2597725.247, 1223628.19],
-        [2597738.333, 1223639.304], [2597738.385, 1223639.63], [2597739.317, 1223640.352],
-        [2597747.127, 1223647.929], [2597771.061, 1223671.188], [2597726.682, 1223726.672],
-        [2597721.437, 1223733.452], [2597721.433, 1223733.502], [2597680.518, 1223786.343],
-        [2597679.787, 1223791.962], [2597684.297, 1223834.242], [2597684.197, 1223853.252],
-        [2597681.689, 1223872.383], [2597678.999, 1223887.063], [2597679.87, 1223896.561],
-        [2597722.392, 1223964.739], [2597717.807, 1223966.978], [2597717.559, 1223966.972],
-        [2597717.608, 1223967.072], [2597717.609, 1223967.093], [2597717.609, 1223967.098],
-        [2597672.409, 1223990.44], [2597699.65, 1224043.223], [2597709.22, 1224036.989],
-        [2597741.758, 1224012.685], [2597752.643, 1224007.915], [2597755.282, 1224009.737],
-        [2597783.388, 1223973.498], [2597802.472, 1223986.803], [2597776.201, 1224024.487],
-        [2597797.022, 1224039.166], [2597793.828, 1224043.464], [2597793.379, 1224044.254],
-        [2597793.161, 1224044.636], [2597763.515, 1224086.555], [2597763.461, 1224086.617],
-        [2597762.632, 1224087.574], [2597762.308, 1224087.39], [2597761.46, 1224086.908],
-        [2597737.297, 1224069.84], [2597726.259, 1224062.044], [2597721.571, 1224068.675],
-        [2597706.112, 1224090.542], [2597698.701, 1224101.036], [2597698.276, 1224101.638],
-        [2597697.395, 1224102.657], [2597696.929, 1224102.393], [2597696.223, 1224101.993],
-        [2597679.181, 1224089.987], [2597658.137, 1224075.162], [2597653.927, 1224077.921],
-        [2597648.451, 1224081.386], [2597582.191, 1224117.16], [2597577.406, 1224121.56]],
-        [[2597322.175, 1224083.996], [2597315.693, 1224074.673], [2597263.761, 1224071.765],
-        [2597265.501, 1224054.264], [2597312.946, 1224047.369], [2597311.485, 1224002.931],
-        [2597343.447, 1223999.304], [2597351.74, 1224049.05], [2597367.729, 1224073],
-        [2597355.551, 1224084.698], [2597322.175, 1224083.996]], [[2597614.034, 1224450.392],
-        [2597615.481, 1224446.258], [2597618.697, 1224439.144], [2597619.389, 1224437.938],
-        [2597619.802, 1224437.219], [2597621.921, 1224437.883], [2597640.946, 1224445.944],
-        [2597657.954, 1224453.15], [2597659.433, 1224453.835], [2597683.848, 1224466.113],
-        [2597700.09, 1224473.918], [2597713.38, 1224480.303], [2597719.813, 1224483.014],
-        [2597736.849, 1224490.195], [2597738.77, 1224491.228], [2597738.236, 1224493.344],
-        [2597738.026, 1224493.936], [2597737.772, 1224494.65], [2597737.27, 1224495.694],
-        [2597736.655, 1224496.975], [2597734.68, 1224498.633], [2597732.377, 1224500.183],
-        [2597731.015, 1224501.101], [2597729.564, 1224501.896], [2597729.095, 1224502.153],
-        [2597728.664, 1224502.054], [2597726.961, 1224501.66], [2597721.168, 1224499.751],
-        [2597711.406, 1224496.535], [2597679.392, 1224485.822], [2597673.547, 1224483.866],
-        [2597657.65, 1224479.225], [2597635.508, 1224472.761], [2597633.789, 1224472.169],
-        [2597633.26, 1224471.987], [2597613.211, 1224463.997], [2597612.044, 1224463.386],
-        [2597611.108, 1224462.897], [2597611.269, 1224461.804], [2597611.453, 1224460.549],
-        [2597613.301, 1224453.277], [2597614.034, 1224450.392]], [[2597173.833, 1224053.088],
-        [2597219.591, 1224049.152], [2597218.765, 1224069.121], [2597182.949, 1224070.028],
-        [2597147.261, 1224071.997], [2597123.574, 1224073.341], [2597138.014, 1224061.636],
-        [2597173.833, 1224053.088]]]}, "properties": {"grundnutzungsart": "Landwirtschaftsgebiet"}}],
+        118512, "geometry": {"type": "Polygon", "coordinates": [[[2596210.426, 1223875.598],
+        [2596247.562, 1223871.544], [2596223.088, 1223747.022], [2596188.433, 1223760.115],
+        [2596144.083, 1223776.942], [2596081.045, 1223800.778], [2596041.168, 1223804.743],
+        [2596024.361, 1223806.413], [2595996.06, 1223802.232], [2595980.175, 1223799.886],
+        [2595949.228, 1223787.583], [2595921.323, 1223776.517], [2595874.329, 1223732.403],
+        [2595872.303, 1223725.833], [2595859.857, 1223686.347], [2595860.308, 1223612.23],
+        [2595875.866, 1223552.215], [2595882.326, 1223536.609], [2595896.943, 1223501.295],
+        [2595954.478, 1223404.289], [2595963.948, 1223394.798], [2595995.966, 1223377.282],
+        [2596059.161, 1223342.66], [2596114.566, 1223312.22], [2596132.803, 1223302.249],
+        [2596191.759, 1223270.014], [2596200.217, 1223269.984], [2596271.307, 1223307.816],
+        [2596276.817, 1223303.825], [2596277.965, 1223302.056], [2596278.705, 1223300.363],
+        [2596278.903, 1223299.791], [2596244.804, 1223284.755], [2596222.546, 1223273.47],
+        [2596201.367, 1223261.242], [2596176.547, 1223255.486], [2596129.641, 1223250.81],
+        [2596128.98, 1223250.751], [2596128.319, 1223250.684], [2596127.66, 1223250.61],
+        [2596127.001, 1223250.528], [2596126.343, 1223250.439], [2596125.687, 1223250.341],
+        [2596125.031, 1223250.237], [2596124.377, 1223250.124], [2596123.724, 1223250.004],
+        [2596123.073, 1223249.877], [2596122.423, 1223249.742], [2596121.775, 1223249.599],
+        [2596121.128, 1223249.449], [2596120.484, 1223249.291], [2596119.841, 1223249.126],
+        [2596119.2, 1223248.954], [2596118.561, 1223248.774], [2596117.924, 1223248.587],
+        [2596117.289, 1223248.392], [2596116.657, 1223248.19], [2596116.027, 1223247.981],
+        [2596115.4, 1223247.764], [2596114.775, 1223247.54], [2596114.153, 1223247.309],
+        [2596113.533, 1223247.071], [2596112.917, 1223246.825], [2596112.303, 1223246.572],
+        [2596111.692, 1223246.313], [2596111.084, 1223246.046], [2596110.48, 1223245.772],
+        [2596109.878, 1223245.491], [2596109.28, 1223245.204], [2596108.685, 1223244.909],
+        [2596108.094, 1223244.607], [2596107.506, 1223244.299], [2596106.922, 1223243.984],
+        [2596106.342, 1223243.662], [2596105.765, 1223243.333], [2596105.192, 1223242.998],
+        [2596104.624, 1223242.656], [2596104.059, 1223242.307], [2596103.498, 1223241.952],
+        [2596102.941, 1223241.591], [2596102.389, 1223241.223], [2596101.841, 1223240.849],
+        [2596101.297, 1223240.468], [2596100.939, 1223240.095], [2596100.586, 1223239.716],
+        [2596100.239, 1223239.333], [2596099.898, 1223238.944], [2596099.562, 1223238.55],
+        [2596099.233, 1223238.151], [2596098.909, 1223237.747], [2596098.592, 1223237.339],
+        [2596098.28, 1223236.926], [2596097.975, 1223236.508], [2596097.676, 1223236.086],
+        [2596097.383, 1223235.66], [2596097.097, 1223235.229], [2596096.817, 1223234.794],
+        [2596096.543, 1223234.354], [2596096.276, 1223233.911], [2596096.016, 1223233.464],
+        [2596095.763, 1223233.013], [2596095.516, 1223232.558], [2596095.276, 1223232.1],
+        [2596095.043, 1223231.638], [2596094.816, 1223231.173], [2596094.597, 1223230.704],
+        [2596094.385, 1223230.233], [2596094.179, 1223229.758], [2596093.981, 1223229.28],
+        [2596093.79, 1223228.799], [2596093.606, 1223228.316], [2596093.429, 1223227.83],
+        [2596093.26, 1223227.341], [2596093.097, 1223226.85], [2596092.943, 1223226.356],
+        [2596092.795, 1223225.86], [2596092.655, 1223225.362], [2596092.522, 1223224.862],
+        [2596092.397, 1223224.36], [2596092.279, 1223223.856], [2596092.169, 1223223.351],
+        [2596092.066, 1223222.844], [2596091.971, 1223222.336], [2596091.883, 1223221.826],
+        [2596091.803, 1223221.315], [2596091.731, 1223220.802], [2596091.666, 1223220.289],
+        [2596091.609, 1223219.775], [2596091.559, 1223219.26], [2596091.517, 1223218.744],
+        [2596091.483, 1223218.228], [2596091.456, 1223217.712], [2596091.438, 1223217.195],
+        [2596091.426, 1223216.677], [2596091.423, 1223216.16], [2596097.008, 1223189.319],
+        [2596084.027, 1223178.066], [2596026.766, 1223203.146], [2596020.049, 1223206.6],
+        [2596006.347, 1223215.026], [2595983.848, 1223227.45], [2595950.947, 1223236.058],
+        [2595935.902, 1223234.204], [2595921.277, 1223231.382], [2595919.994, 1223231.644],
+        [2595918.712, 1223231.914], [2595917.432, 1223232.191], [2595916.153, 1223232.476],
+        [2595914.876, 1223232.769], [2595913.601, 1223233.069], [2595912.328, 1223233.376],
+        [2595911.057, 1223233.691], [2595909.787, 1223234.014], [2595908.519, 1223234.344],
+        [2595907.254, 1223234.682], [2595905.99, 1223235.027], [2595904.729, 1223235.379],
+        [2595903.469, 1223235.739], [2595902.212, 1223236.106], [2595900.957, 1223236.481],
+        [2595899.704, 1223236.863], [2595898.453, 1223237.253], [2595897.205, 1223237.65],
+        [2595895.959, 1223238.054], [2595894.715, 1223238.466], [2595893.474, 1223238.885],
+        [2595892.236, 1223239.312], [2595891, 1223239.745], [2595889.766, 1223240.186],
+        [2595888.536, 1223240.635], [2595887.307, 1223241.09], [2595886.082, 1223241.553],
+        [2595884.859, 1223242.023], [2595883.64, 1223242.5], [2595882.423, 1223242.985],
+        [2595881.208, 1223243.476], [2595879.997, 1223243.975], [2595878.789, 1223244.481],
+        [2595877.584, 1223244.994], [2595876.382, 1223245.514], [2595875.183, 1223246.042],
+        [2595873.987, 1223246.576], [2595872.794, 1223247.117], [2595871.604, 1223247.666],
+        [2595870.418, 1223248.221], [2595869.235, 1223248.784], [2595868.055, 1223249.353],
+        [2595866.879, 1223249.93], [2595865.706, 1223250.513], [2595864.537, 1223251.103],
+        [2595863.371, 1223251.7], [2595862.209, 1223252.304], [2595861.05, 1223252.915],
+        [2595859.895, 1223253.533], [2595858.744, 1223254.158], [2595857.596, 1223254.789],
+        [2595856.452, 1223255.427], [2595855.312, 1223256.072], [2595854.176, 1223256.724],
+        [2595853.043, 1223257.382], [2595851.915, 1223258.047], [2595850.79, 1223258.719],
+        [2595849.669, 1223259.397], [2595848.553, 1223260.082], [2595847.44, 1223260.773],
+        [2595846.332, 1223261.471], [2595845.228, 1223262.176], [2595844.128, 1223262.887],
+        [2595843.032, 1223263.605], [2595841.94, 1223264.329], [2595840.853, 1223265.059],
+        [2595839.77, 1223265.796], [2595838.661, 1223266.539], [2595837.556, 1223267.289],
+        [2595836.456, 1223268.045], [2595835.36, 1223268.807], [2595834.268, 1223269.576],
+        [2595833.181, 1223270.35], [2595832.098, 1223271.131], [2595831.02, 1223271.918],
+        [2595829.946, 1223272.712], [2595828.876, 1223273.511], [2595827.812, 1223274.316],
+        [2595826.752, 1223275.128], [2595825.696, 1223275.945], [2595824.646, 1223276.769],
+        [2595823.599, 1223277.599], [2595822.558, 1223278.434], [2595821.522, 1223279.276],
+        [2595820.49, 1223280.123], [2595819.463, 1223280.976], [2595818.441, 1223281.835],
+        [2595817.425, 1223282.7], [2595816.413, 1223283.571], [2595815.406, 1223284.448],
+        [2595814.404, 1223285.33], [2595813.407, 1223286.218], [2595812.415, 1223287.112],
+        [2595811.428, 1223288.011], [2595810.447, 1223288.916], [2595809.47, 1223289.827],
+        [2595808.499, 1223290.743], [2595807.533, 1223291.664], [2595806.573, 1223292.591],
+        [2595805.617, 1223293.524], [2595804.667, 1223294.462], [2595803.723, 1223295.406],
+        [2595802.784, 1223296.354], [2595801.85, 1223297.309], [2595800.922, 1223298.268],
+        [2595799.999, 1223299.233], [2595799.082, 1223300.203], [2595798.17, 1223301.178],
+        [2595797.264, 1223302.159], [2595796.364, 1223303.145], [2595795.469, 1223304.135],
+        [2595794.58, 1223305.131], [2595793.696, 1223306.132], [2595792.819, 1223307.138],
+        [2595791.947, 1223308.149], [2595791.081, 1223309.165], [2595790.22, 1223310.186],
+        [2595789.366, 1223311.212], [2595788.517, 1223312.243], [2595787.675, 1223313.278],
+        [2595786.838, 1223314.318], [2595786.007, 1223315.363], [2595785.182, 1223316.413],
+        [2595784.364, 1223317.468], [2595783.551, 1223318.527], [2595782.744, 1223319.591],
+        [2595781.944, 1223320.659], [2595781.149, 1223321.732], [2595780.361, 1223322.809],
+        [2595779.579, 1223323.891], [2595778.803, 1223324.978], [2595778.033, 1223326.069],
+        [2595777.27, 1223327.164], [2595776.512, 1223328.263], [2595775.762, 1223329.367],
+        [2595775.017, 1223330.475], [2595774.279, 1223331.588], [2595773.547, 1223332.704],
+        [2595772.821, 1223333.825], [2595772.102, 1223334.95], [2595771.39, 1223336.079],
+        [2595770.684, 1223337.212], [2595769.984, 1223338.349], [2595769.291, 1223339.49],
+        [2595768.604, 1223340.635], [2595767.924, 1223341.784], [2595767.251, 1223342.936],
+        [2595766.584, 1223344.093], [2595765.924, 1223345.253], [2595765.27, 1223346.417],
+        [2595764.623, 1223347.585], [2595743.158, 1223405.665], [2595728.814, 1223455.924],
+        [2595715.606, 1223498.058], [2595707.371, 1223541.957], [2595695.222, 1223606.542],
+        [2595692.414, 1223624.15], [2595691.223, 1223645.237], [2595704.415, 1223684.901],
+        [2595715.802, 1223716.658], [2595728.459, 1223751.89], [2595727.138, 1223778.209],
+        [2595723.815, 1223799.356], [2595723.861, 1223799.383], [2595724.15, 1223799.55],
+        [2595726.313, 1223800.799], [2595727.441, 1223801.45], [2595739.947, 1223808.674],
+        [2595764.103, 1223822.635], [2595824.177, 1223857.354], [2595880.459, 1223889.785],
+        [2595909.108, 1223906.293], [2595918.987, 1223904.995], [2595930.956, 1223903.423],
+        [2595970.908, 1223898.174], [2595973.085, 1223897.888], [2596029.419, 1223890.488],
+        [2596041.568, 1223888.891], [2596088.618, 1223882.711], [2596105.2, 1223882.031],
+        [2596135.72, 1223880.779], [2596156.152, 1223879.942], [2596179.369, 1223878.99],
+        [2596210.426, 1223875.598]], [[2596058.038, 1223828.322], [2596060.661, 1223827.138],
+        [2596062.692, 1223827.391], [2596064.215, 1223830.607], [2596066.922, 1223840.083],
+        [2596071.068, 1223848.037], [2596074.368, 1223852.606], [2596080.291, 1223859.544],
+        [2596085.706, 1223863.436], [2596087.483, 1223868.174], [2596047.377, 1223872.913],
+        [2596045.685, 1223867.836], [2596047.631, 1223863.69], [2596051.269, 1223849.644],
+        [2596056.177, 1223831.537], [2596058.038, 1223828.322]], [[2595809.623, 1223777.848],
+        [2595740.161, 1223734.386], [2595727.835, 1223703.109], [2595824.535, 1223764.36],
+        [2595809.623, 1223777.848]], [[2595740.897, 1223750.134], [2595747.227, 1223746.733],
+        [2595755.277, 1223748.953], [2595790.027, 1223770.313], [2595800.517, 1223779.853],
+        [2595799.867, 1223786.883], [2595775.637, 1223808.284], [2595770.317, 1223808.264],
+        [2595735.247, 1223796.984], [2595732.067, 1223793.184], [2595736.357, 1223759.914],
+        [2595740.897, 1223750.134]]]}, "properties": {"grundnutzungsart": "Landwirtschaftsgebiet"}}],
         "crs": {"type": "name", "properties": {"name": "urn:ogc:def:crs:EPSG::2056"}},
-        "bbox": [2595689.199, 1223174.165, 2599368.861, 1225045.415]}
+        "bbox": [2595691.223, 1223178.066, 2596278.903, 1223906.293]}
 
         '
     headers:
       Connection:
       - Keep-Alive
       Date:
-      - Tue, 29 Aug 2023 12:41:47 GMT
+      - Wed, 12 Jun 2024 12:03:24 GMT
       Keep-Alive:
-      - timeout=10, max=288
+      - timeout=10, max=300
       Server:
       - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=8sXdkU6DHbwgfD_flYdbIHeFlfEQoErSDYt_dgsIVRYhw6Y3dN8EAg$$; path=/;
+        Secure; HttpOnly
       access-control-allow-origin:
       - '*'
       content-length:
-      - '22889'
+      - '10395'
       content-type:
       - application/json
     status:
@@ -1318,8 +1136,6 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      Cookie:
-      - SCDID_S=eKdt73S97Et_HSK1Tp9Z6flTXi-XnZzCGoZD180yoSL2BhlfdueiNQ$$
       User-Agent:
       - python-requests/2.31.0
     method: GET
@@ -1334,11 +1150,14 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Tue, 29 Aug 2023 12:41:47 GMT
+      - Wed, 12 Jun 2024 12:03:24 GMT
       Keep-Alive:
-      - timeout=10, max=287
+      - timeout=10, max=300
       Server:
       - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=uweuPu_r3zxuCmDLgtn3aS0wvwFzqry8mRhYPcZ-dn74Z44mXvioGQ$$; path=/;
+        Secure; HttpOnly
       access-control-allow-origin:
       - '*'
       content-length:
@@ -1357,31 +1176,324 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      Cookie:
-      - SCDID_S=eKdt73S97Et_HSK1Tp9Z6flTXi-XnZzCGoZD180yoSL2BhlfdueiNQ$$
       User-Agent:
       - python-requests/2.31.0
     method: GET
     uri: https://geo-i.so.ch/api/data/v1/ch.so.arp.nutzungsplanung.ueberlagernd_flaeche.data/?bbox=2595908.1098607033,1223872.4541323201,2595908.1098607033,1223872.4541323201
   response:
     body:
-      string: '{"type": "FeatureCollection", "features": [], "crs": {"type": "name",
-        "properties": {"name": "urn:ogc:def:crs:EPSG::2056"}}}
+      string: '{"type": "FeatureCollection", "features": [{"type": "Feature", "id":
+        1396342, "geometry": {"type": "Polygon", "coordinates": [[[2600227.182, 1227356.019],
+        [2600242.468, 1227328.973], [2600264.811, 1227304.278], [2600293.033, 1227293.695],
+        [2600331.838, 1227273.704], [2600363.588, 1227250.185], [2600376.523, 1227225.491],
+        [2600482.355, 1227065.565], [2600510.577, 1227023.231], [2600531.743, 1226982.074],
+        [2600542.72, 1226968.139], [2600580.819, 1226929.569], [2600578.938, 1226921.102],
+        [2600473.104, 1226884.885], [2600432.965, 1226865.659], [2600443.548, 1226831.557],
+        [2600526.255, 1226700.03], [2600741.846, 1226325.679], [2600804.078, 1226165.732],
+        [2600842.32, 1226022.418], [2600857.319, 1225892.419], [2600829.319, 1225770.42],
+        [2600790.358, 1225700.803], [2600768.318, 1225661.422], [2600684.844, 1225573.095],
+        [2600682.318, 1225570.423], [2600529.921, 1225457.357], [2600527.318, 1225455.426],
+        [2600459.084, 1225421.117], [2600350.319, 1225366.429], [2600242.319, 1225364.43],
+        [2600152.32, 1225426.43], [2600098.321, 1225520.43], [2600006.838, 1225867.068],
+        [2599989.324, 1225933.427], [2599909.325, 1226009.427], [2599894.181, 1226013.571],
+        [2599803.326, 1226038.428], [2599694.327, 1226024.429], [2599595.327, 1225975.431],
+        [2599475.327, 1225848.433], [2599415.326, 1225722.435], [2599414.825, 1225581.936],
+        [2599416.321, 1225575.856], [2599462.865, 1225386.71], [2599482.323, 1225307.638],
+        [2599466.321, 1225010.951], [2599358.965, 1224857.661], [2599351.82, 1224847.46],
+        [2599200.14, 1224733.951], [2599196.82, 1224731.467], [2599147.803, 1224711.044],
+        [2599093.8, 1224688.429], [2599068.474, 1224779.556], [2599031.356, 1224766.825],
+        [2599031.174, 1224766.774], [2599030.991, 1224766.73], [2599030.806, 1224766.693],
+        [2599030.619, 1224766.663], [2599030.432, 1224766.64], [2599030.243, 1224766.624],
+        [2599030.055, 1224766.615], [2599029.866, 1224766.613], [2599029.677, 1224766.618],
+        [2599029.489, 1224766.631], [2599029.301, 1224766.651], [2599029.114, 1224766.677],
+        [2599028.928, 1224766.711], [2599028.744, 1224766.752], [2599028.561, 1224766.799],
+        [2599028.38, 1224766.854], [2599028.201, 1224766.915], [2599028.025, 1224766.983],
+        [2599027.852, 1224767.058], [2599027.681, 1224767.139], [2599027.514, 1224767.227],
+        [2599027.35, 1224767.32], [2599027.189, 1224767.42], [2599027.033, 1224767.526],
+        [2598993.151, 1224797.633], [2598992.913, 1224797.82], [2598992.669, 1224798],
+        [2598992.421, 1224798.175], [2598992.169, 1224798.343], [2598991.913, 1224798.505],
+        [2598991.653, 1224798.661], [2598991.388, 1224798.809], [2598991.121, 1224798.951],
+        [2598990.849, 1224799.087], [2598990.575, 1224799.215], [2598990.297, 1224799.336],
+        [2598990.016, 1224799.451], [2598989.732, 1224799.558], [2598989.446, 1224799.658],
+        [2598989.158, 1224799.75], [2598988.867, 1224799.836], [2598988.574, 1224799.914],
+        [2598988.279, 1224799.984], [2598987.982, 1224800.047], [2598987.684, 1224800.103],
+        [2598987.385, 1224800.151], [2598987.085, 1224800.191], [2598986.783, 1224800.224],
+        [2598986.481, 1224800.25], [2598986.179, 1224800.267], [2598985.876, 1224800.277],
+        [2598985.573, 1224800.279], [2598985.269, 1224800.274], [2598984.967, 1224800.261],
+        [2598984.664, 1224800.24], [2598984.362, 1224800.212], [2598984.061, 1224800.176],
+        [2598983.761, 1224800.132], [2598983.463, 1224800.081], [2598983.165, 1224800.023],
+        [2598982.869, 1224799.957], [2598982.575, 1224799.883], [2598982.283, 1224799.802],
+        [2598981.993, 1224799.714], [2598981.706, 1224799.618], [2598981.421, 1224799.515],
+        [2598981.138, 1224799.405], [2598892.011, 1224758.064], [2598891.848, 1224757.993],
+        [2598891.681, 1224757.929], [2598891.513, 1224757.872], [2598891.341, 1224757.823],
+        [2598891.168, 1224757.782], [2598890.993, 1224757.749], [2598890.817, 1224757.723],
+        [2598890.639, 1224757.705], [2598890.462, 1224757.695], [2598890.283, 1224757.693],
+        [2598890.105, 1224757.699], [2598889.928, 1224757.713], [2598889.751, 1224757.735],
+        [2598889.575, 1224757.765], [2598889.401, 1224757.802], [2598889.229, 1224757.847],
+        [2598889.059, 1224757.9], [2598888.891, 1224757.96], [2598888.726, 1224758.028],
+        [2598888.565, 1224758.103], [2598888.406, 1224758.185], [2598888.252, 1224758.274],
+        [2598888.102, 1224758.37], [2598887.956, 1224758.472], [2598887.815, 1224758.581],
+        [2598887.679, 1224758.696], [2598833.772, 1224806.347], [2598671.967, 1224684.427],
+        [2598652.167, 1224669.239], [2598652, 1224669.129], [2598651.83, 1224669.025],
+        [2598651.657, 1224668.927], [2598651.48, 1224668.834], [2598651.3, 1224668.748],
+        [2598651.118, 1224668.668], [2598650.932, 1224668.594], [2598650.745, 1224668.526],
+        [2598650.555, 1224668.465], [2598650.363, 1224668.41], [2598650.17, 1224668.362],
+        [2598649.975, 1224668.32], [2598649.779, 1224668.285], [2598649.581, 1224668.257],
+        [2598649.383, 1224668.235], [2598649.184, 1224668.221], [2598648.985, 1224668.213],
+        [2598648.786, 1224668.211], [2598648.573, 1224668.217], [2598648.361, 1224668.23],
+        [2598648.149, 1224668.251], [2598647.938, 1224668.28], [2598647.728, 1224668.317],
+        [2598647.519, 1224668.361], [2598647.313, 1224668.412], [2598647.108, 1224668.471],
+        [2598646.906, 1224668.537], [2598646.706, 1224668.611], [2598646.509, 1224668.692],
+        [2598646.315, 1224668.779], [2598646.124, 1224668.874], [2598645.937, 1224668.976],
+        [2598645.753, 1224669.084], [2598645.574, 1224669.199], [2598599.699, 1224708.94],
+        [2598577.874, 1224733.016], [2598576.683, 1224731.939], [2598576.435, 1224732.113],
+        [2598576.182, 1224732.281], [2598575.925, 1224732.442], [2598575.664, 1224732.596],
+        [2598575.399, 1224732.744], [2598575.13, 1224732.885], [2598574.858, 1224733.018],
+        [2598574.582, 1224733.145], [2598574.304, 1224733.265], [2598574.022, 1224733.377],
+        [2598573.737, 1224733.482], [2598573.45, 1224733.579], [2598573.161, 1224733.67],
+        [2598572.869, 1224733.752], [2598572.575, 1224733.827], [2598572.279, 1224733.895],
+        [2598571.982, 1224733.955], [2598571.683, 1224734.007], [2598571.383, 1224734.051],
+        [2598571.082, 1224734.088], [2598570.78, 1224734.116], [2598570.477, 1224734.137],
+        [2598570.174, 1224734.151], [2598569.871, 1224734.156], [2598569.568, 1224734.154],
+        [2598569.265, 1224734.143], [2598568.962, 1224734.125], [2598568.66, 1224734.099],
+        [2598568.358, 1224734.065], [2598568.058, 1224734.024], [2598567.758, 1224733.975],
+        [2598567.46, 1224733.918], [2598567.164, 1224733.853], [2598566.87, 1224733.781],
+        [2598566.577, 1224733.701], [2598566.286, 1224733.614], [2598565.998, 1224733.519],
+        [2598565.713, 1224733.417], [2598565.43, 1224733.307], [2598565.15, 1224733.19],
+        [2598564.873, 1224733.066], [2598564.6, 1224732.935], [2598564.33, 1224732.797],
+        [2598564.063, 1224732.652], [2598563.801, 1224732.5], [2598563.542, 1224732.341],
+        [2598563.288, 1224732.176], [2598563.038, 1224732.004], [2598562.733, 1224731.787],
+        [2598562.424, 1224731.576], [2598562.11, 1224731.372], [2598561.792, 1224731.174],
+        [2598561.47, 1224730.983], [2598561.144, 1224730.799], [2598560.815, 1224730.622],
+        [2598560.481, 1224730.452], [2598560.145, 1224730.288], [2598559.804, 1224730.132],
+        [2598559.461, 1224729.983], [2598559.115, 1224729.841], [2598558.765, 1224729.707],
+        [2598558.413, 1224729.58], [2598558.059, 1224729.46], [2598557.702, 1224729.348],
+        [2598557.342, 1224729.243], [2598556.981, 1224729.146], [2598556.617, 1224729.056],
+        [2598556.252, 1224728.974], [2598555.885, 1224728.9], [2598555.517, 1224728.833],
+        [2598565.543, 1224721.324], [2598565.677, 1224721.586], [2598565.817, 1224721.845],
+        [2598565.964, 1224722.099], [2598566.118, 1224722.35], [2598566.278, 1224722.597],
+        [2598566.445, 1224722.839], [2598566.618, 1224723.077], [2598566.797, 1224723.31],
+        [2598567.059, 1224723.581], [2598567.213, 1224723.719], [2598567.362, 1224723.849],
+        [2598567.517, 1224723.979], [2598567.809, 1224724.195], [2598568.148, 1224724.416],
+        [2598568.683, 1224724.705], [2598584.256, 1224707.189], [2598617.642, 1224663.431],
+        [2598590.057, 1224650.304], [2598586.475, 1224652.797], [2598582.151, 1224652.203],
+        [2598570.691, 1224645.812], [2598565.41, 1224643.448], [2598559.797, 1224642.041],
+        [2598521.678, 1224635.982], [2598514.125, 1224633.603], [2598511.74, 1224632.852],
+        [2598505.034, 1224630.452], [2598492.311, 1224616.798], [2598457.247, 1224568.465],
+        [2598444.274, 1224553.379], [2598401.634, 1224516.52], [2598368.58, 1224470.443],
+        [2598328.962, 1224388.254], [2598319.561, 1224373.372], [2598308.294, 1224358.598],
+        [2598372.727, 1224326.458], [2598367.256, 1224312.666], [2598336.327, 1224234.448],
+        [2598323.326, 1224034.947], [2598313.399, 1223985.777], [2598280.826, 1223824.445],
+        [2598090.327, 1223579.438], [2597987.993, 1223510.133], [2597967.028, 1223495.936],
+        [2597933.984, 1223487.655], [2597845.327, 1223465.437], [2597818.229, 1223464.131],
+        [2597720.827, 1223459.438], [2597631.186, 1223476.957], [2597638.966, 1223544.61],
+        [2597637.166, 1223548.2], [2597661.896, 1223570.65], [2597678.726, 1223585.94],
+        [2597698.697, 1223603.71], [2597706.037, 1223610.74], [2597725.247, 1223628.19],
+        [2597738.163, 1223639.14], [2597770.513, 1223670.497], [2597679.766, 1223792.523],
+        [2597684.469, 1223833.093], [2597683.881, 1223855.436], [2597678.59, 1223886.598],
+        [2597680.354, 1223897.77], [2597742.678, 1223998.312], [2597755.026, 1224009.483],
+        [2597782.416, 1223974.411], [2597800.887, 1223989.492], [2597776.78, 1224024.182],
+        [2597797.359, 1224038.881], [2597762.577, 1224087.814], [2597726.803, 1224062.401],
+        [2597697.405, 1224102.383], [2597659.187, 1224075.925], [2597582.163, 1224117.083],
+        [2597576.872, 1224121.199], [2597572.978, 1224131.54], [2597575.073, 1224139.499],
+        [2597608.165, 1224161.7], [2597489.2, 1224439.847], [2597466.489, 1224426.761],
+        [2597447.674, 1224413.59], [2597390.288, 1224400.42], [2597583.927, 1223893.655],
+        [2597518.075, 1223891.304], [2597566.288, 1223818.395], [2597286.037, 1223665.734],
+        [2597340.468, 1223533.615], [2597300.324, 1223541.444], [2597142.324, 1223543.746],
+        [2597074.416, 1223526.501], [2596990.323, 1223505.147], [2596935.798, 1223479.906],
+        [2596847.322, 1223438.948], [2596785.578, 1223403.215], [2596550.121, 1223266.95],
+        [2596508.78, 1223338.718], [2596493.194, 1223343.478], [2596470.676, 1223350.23],
+        [2596448.414, 1223346.066], [2596415.574, 1223332.904], [2596395.685, 1223325.722],
+        [2596363.873, 1223325.115], [2596335.866, 1223319.028], [2596283.743, 1223299.721],
+        [2596280.627, 1223297.321], [2596233.119, 1223272.654], [2596205.392, 1223260.259],
+        [2596198.574, 1223257.211], [2596160.446, 1223250.636], [2596144.547, 1223248.343],
+        [2596125.687, 1223245.541], [2596109.333, 1223240.877], [2596100.816, 1223231.29],
+        [2596094.927, 1223214.175], [2596096.135, 1223205.771], [2596105.048, 1223196.674],
+        [2596104.153, 1223190.17], [2596099.086, 1223186.403], [2596092.254, 1223181.324],
+        [2596080.154, 1223174.11], [2596071.571, 1223175.939], [2596057.843, 1223182.089],
+        [2596040.526, 1223187.901], [2596023.493, 1223194.241], [2596010.741, 1223200.092],
+        [2595997.673, 1223211.681], [2595984.7, 1223223.445], [2595971.029, 1223227.632],
+        [2595948.86, 1223234.904], [2595939.135, 1223233.081], [2595930.022, 1223229.559],
+        [2595921.365, 1223227.883], [2595905.314, 1223231.741], [2595895.259, 1223234.841],
+        [2595876.361, 1223241.773], [2595865.958, 1223247.638], [2595856.385, 1223253.608],
+        [2595841.63, 1223261.674], [2595832.518, 1223266.655], [2595816.79, 1223279.114],
+        [2595802.227, 1223292.812], [2595788.965, 1223307.893], [2595779.069, 1223319.258],
+        [2595772.874, 1223330.429], [2595770.162, 1223335.32], [2595759.316, 1223353.369],
+        [2595752.223, 1223372.099], [2595750.125, 1223378.386], [2595745.891, 1223391.075],
+        [2595739.558, 1223410.051], [2595732.356, 1223434.002], [2595724.001, 1223462.834],
+        [2595718.811, 1223482.179], [2595710.289, 1223503.707], [2595706.036, 1223521.071],
+        [2595704.569, 1223539.176], [2595700.805, 1223558.84], [2595694.969, 1223578.15],
+        [2595692.882, 1223598.1], [2595690.244, 1223615.925], [2595689.199, 1223632.153],
+        [2595691.301, 1223654.577], [2595695.158, 1223669.089], [2595702.401, 1223687.895],
+        [2595716.311, 1223720.488], [2595723.554, 1223739.295], [2595726.338, 1223759.254],
+        [2595722.386, 1223780.956], [2595720.839, 1223790.797], [2595719.854, 1223797.069],
+        [2595721.478, 1223798.006], [2595726.313, 1223800.799], [2595739.947, 1223808.674],
+        [2595764.103, 1223822.635], [2595824.177, 1223857.354], [2595880.459, 1223889.785],
+        [2595909.108, 1223906.293], [2595973.085, 1223897.888], [2596029.419, 1223890.488],
+        [2596088.618, 1223882.711], [2596105.2, 1223882.031], [2596156.152, 1223879.942],
+        [2596179.369, 1223878.99], [2596210.426, 1223875.598], [2596247.562, 1223871.544],
+        [2596267.209, 1223869.399], [2596370.88, 1223848.377], [2596376.479, 1223847.214],
+        [2596380.172, 1223898.116], [2596377.071, 1223912.804], [2596376.198, 1223916.938],
+        [2596379.96, 1223917.148], [2596458.15, 1223925.017], [2596428.9, 1224004.169],
+        [2596413.66, 1224045.629], [2596398.36, 1224087.109], [2596368.94, 1224166.87],
+        [2596349.16, 1224220.361], [2596329.477, 1224273.869], [2596315.84, 1224310.84],
+        [2596309.737, 1224327.391], [2596304.42, 1224341.807], [2596303.036, 1224345.56],
+        [2596291.113, 1224377.89], [2596289.992, 1224381.788], [2596255.58, 1224461.912],
+        [2596249.305, 1224476.522], [2596154.483, 1224697.299], [2596148.248, 1224711.817],
+        [2596056.699, 1224924.976], [2596047.439, 1224946.18], [2595998.211, 1225053.883],
+        [2595923.322, 1225217.733], [2595918.106, 1225226.271], [2596201.968, 1225424.021],
+        [2596235.102, 1225326.763], [2596245.532, 1225304.355], [2596176.692, 1225250.267],
+        [2596218.643, 1225173.241], [2596272.474, 1225200.05], [2596337.802, 1225234.147],
+        [2596259.32, 1225471.236], [2596505.011, 1225633.765], [2596663.284, 1225699.789],
+        [2596716.578, 1225722.029], [2596824.978, 1225786.573], [2596830.934, 1225785.546],
+        [2596989.226, 1225589.078], [2596999.558, 1225576.254], [2597014.164, 1225558.124],
+        [2597021.081, 1225556.772], [2597022.165, 1225561.477], [2597221.306, 1225646.224],
+        [2597231.823, 1225650.207], [2597237.548, 1225647.669], [2597239.984, 1225641.782],
+        [2597244.165, 1225632.153], [2597244.222, 1225632.028], [2597246.554, 1225627.136],
+        [2597249.056, 1225622.329], [2597251.724, 1225617.611], [2597254.555, 1225612.99],
+        [2597257.545, 1225608.47], [2597260.692, 1225604.058], [2597262.602, 1225601.53],
+        [2597277.926, 1225584.459], [2597280.483, 1225582.075], [2597284.538, 1225578.479],
+        [2597288.717, 1225575.027], [2597293.014, 1225571.722], [2597297.423, 1225568.57],
+        [2597301.94, 1225565.573], [2597306.559, 1225562.736], [2597311.273, 1225560.061],
+        [2597316.079, 1225557.553], [2597320.969, 1225555.214], [2597325.937, 1225553.047],
+        [2597330.978, 1225551.055], [2597336.086, 1225549.24], [2597341.253, 1225547.604],
+        [2597346.475, 1225546.15], [2597351.745, 1225544.879], [2597357.055, 1225543.793],
+        [2597362.4, 1225542.892], [2597364.103, 1225542.645], [2597370.58, 1225541.954],
+        [2597377.077, 1225541.49], [2597383.586, 1225541.253], [2597390.099, 1225541.242],
+        [2597390.612, 1225541.251], [2597401.416, 1225541.512], [2597409.911, 1225542.014],
+        [2597412.204, 1225542.149], [2597416.971, 1225542.552], [2597453.859, 1225546.166],
+        [2597467.271, 1225547.431], [2597486.673, 1225548.683], [2597506.106, 1225549.258],
+        [2597507.738, 1225549.258], [2597509.37, 1225549.251], [2597511.002, 1225549.236],
+        [2597512.634, 1225549.214], [2597514.266, 1225549.183], [2597515.897, 1225549.145],
+        [2597517.529, 1225549.099], [2597519.16, 1225549.046], [2597520.791, 1225548.984],
+        [2597522.422, 1225548.915], [2597524.052, 1225548.839], [2597525.682, 1225548.754],
+        [2597527.311, 1225548.662], [2597528.94, 1225548.562], [2597530.569, 1225548.455],
+        [2597532.313, 1225548.331], [2597533.824, 1225548.217], [2597535.451, 1225548.086],
+        [2597537.077, 1225547.948], [2597538.703, 1225547.802], [2597540.327, 1225547.648],
+        [2597541.951, 1225547.487], [2597543.575, 1225547.317], [2597545.197, 1225547.141],
+        [2597546.819, 1225546.956], [2597548.44, 1225546.764], [2597550.059, 1225546.564],
+        [2597551.678, 1225546.357], [2597553.296, 1225546.142], [2597554.913, 1225545.919],
+        [2597556.528, 1225545.689], [2597558.143, 1225545.451], [2597559.757, 1225545.205],
+        [2597561.369, 1225544.952], [2597562.98, 1225544.691], [2597564.59, 1225544.423],
+        [2597566.198, 1225544.146], [2597568.141, 1225543.803], [2597569.411, 1225543.571],
+        [2597571.016, 1225543.272], [2597572.619, 1225542.966], [2597574.22, 1225542.652],
+        [2597575.82, 1225542.33], [2597577.419, 1225542.001], [2597579.016, 1225541.664],
+        [2597580.611, 1225541.32], [2597582.205, 1225540.968], [2597583.797, 1225540.609],
+        [2597585.387, 1225540.242], [2597586.976, 1225539.867], [2597588.562, 1225539.485],
+        [2597590.147, 1225539.096], [2597591.679, 1225538.712], [2597593.312, 1225538.294],
+        [2597594.891, 1225537.882], [2597596.468, 1225537.463], [2597598.043, 1225537.036],
+        [2597599.616, 1225536.602], [2597601.188, 1225536.16], [2597602.757, 1225535.711],
+        [2597604.324, 1225535.254], [2597605.888, 1225534.79], [2597607.451, 1225534.319],
+        [2597609.011, 1225533.84], [2597610.569, 1225533.354], [2597612.125, 1225532.861],
+        [2597613.678, 1225532.36], [2597615.229, 1225531.852], [2597616.777, 1225531.336],
+        [2597618.324, 1225530.813], [2597619.867, 1225530.283], [2597621.408, 1225529.746],
+        [2597622.947, 1225529.201], [2597624.482, 1225528.649], [2597626.016, 1225528.09],
+        [2597627.546, 1225527.523], [2597629.074, 1225526.949], [2597630.599, 1225526.368],
+        [2597632.122, 1225525.78], [2597633.641, 1225525.185], [2597635.158, 1225524.582],
+        [2597636.672, 1225523.973], [2597638.183, 1225523.356], [2597639.691, 1225522.732],
+        [2597641.196, 1225522.1], [2597642.698, 1225521.462], [2597644.197, 1225520.817],
+        [2597645.693, 1225520.164], [2597647.186, 1225519.505], [2597648.472, 1225518.931],
+        [2597650.162, 1225518.165], [2597651.646, 1225517.484], [2597653.126, 1225516.796],
+        [2597654.603, 1225516.102], [2597656.076, 1225515.4], [2597657.547, 1225514.692],
+        [2597659.013, 1225513.976], [2597660.477, 1225513.254], [2597661.937, 1225512.524],
+        [2597663.394, 1225511.788], [2597664.847, 1225511.045], [2597666.296, 1225510.295],
+        [2597667.742, 1225509.538], [2597669.184, 1225508.774], [2597670.623, 1225508.004],
+        [2597672.058, 1225507.227], [2597673.49, 1225506.442], [2597674.917, 1225505.652],
+        [2597676.341, 1225504.854], [2597677.761, 1225504.05], [2597679.178, 1225503.239],
+        [2597680.59, 1225502.421], [2597682.538, 1225501.257], [2597684.482, 1225500.087],
+        [2597686.422, 1225498.91], [2597688.359, 1225497.727], [2597690.291, 1225496.538],
+        [2597692.22, 1225495.342], [2597694.144, 1225494.14], [2597696.065, 1225492.932],
+        [2597697.982, 1225491.717], [2597699.895, 1225490.496], [2597701.804, 1225489.269],
+        [2597703.709, 1225488.036], [2597705.609, 1225486.796], [2597707.506, 1225485.55],
+        [2597709.399, 1225484.298], [2597711.287, 1225483.04], [2597713.172, 1225481.776],
+        [2597715.052, 1225480.505], [2597717.162, 1225479.108], [2597719.276, 1225477.717],
+        [2597721.393, 1225476.331], [2597723.513, 1225474.95], [2597725.637, 1225473.575],
+        [2597727.765, 1225472.205], [2597729.896, 1225470.84], [2597732.03, 1225469.481],
+        [2597734.168, 1225468.127], [2597736.309, 1225466.779], [2597738.454, 1225465.436],
+        [2597740.602, 1225464.098], [2597742.753, 1225462.766], [2597744.908, 1225461.439],
+        [2597746.677, 1225460.339], [2597748.626, 1225459.099], [2597750.466, 1225457.898],
+        [2597751.986, 1225456.884], [2597753.201, 1225456.059], [2597754.106, 1225455.436],
+        [2597755.007, 1225454.808], [2597755.905, 1225454.175], [2597756.799, 1225453.537],
+        [2597757.69, 1225452.894], [2597760.529, 1225450.794], [2597761.08, 1225450.378],
+        [2597761.919, 1225449.738], [2597762.755, 1225449.094], [2597763.587, 1225448.445],
+        [2597764.416, 1225447.791], [2597765.242, 1225447.134], [2597766.064, 1225446.472],
+        [2597766.286, 1225446.288], [2597766.503, 1225446.098], [2597766.715, 1225445.903],
+        [2597766.923, 1225445.702], [2597767.125, 1225445.497], [2597767.322, 1225445.286],
+        [2597767.514, 1225445.071], [2597767.7, 1225444.851], [2597767.881, 1225444.626],
+        [2597768.056, 1225444.397], [2597768.225, 1225444.163], [2597768.388, 1225443.926],
+        [2597768.545, 1225443.684], [2597768.696, 1225443.438], [2597768.883, 1225443.113],
+        [2597768.98, 1225442.936], [2597769.112, 1225442.68], [2597769.238, 1225442.42],
+        [2597769.357, 1225442.158], [2597769.47, 1225441.892], [2597769.576, 1225441.624],
+        [2597769.675, 1225441.353], [2597769.767, 1225441.08], [2597769.853, 1225440.805],
+        [2597769.934, 1225440.515], [2597770.003, 1225440.248], [2597770.067, 1225439.967],
+        [2597770.125, 1225439.684], [2597770.175, 1225439.4], [2597770.218, 1225439.115],
+        [2597770.254, 1225438.829], [2597770.283, 1225438.542], [2597770.31, 1225438.239],
+        [2597770.343, 1225437.937], [2597770.381, 1225437.635], [2597770.424, 1225437.334],
+        [2597770.473, 1225437.034], [2597770.528, 1225436.735], [2597770.588, 1225436.437],
+        [2597770.654, 1225436.14], [2597770.725, 1225435.844], [2597770.801, 1225435.55],
+        [2597770.883, 1225435.257], [2597770.97, 1225434.966], [2597771.08, 1225434.625],
+        [2597771.197, 1225434.287], [2597771.321, 1225433.952], [2597771.452, 1225433.619],
+        [2597771.591, 1225433.289], [2597771.737, 1225432.963], [2597771.89, 1225432.639],
+        [2597772.05, 1225432.319], [2597772.216, 1225432.003], [2597772.39, 1225431.69],
+        [2597772.57, 1225431.381], [2597772.757, 1225431.076], [2597772.951, 1225430.775],
+        [2597773.151, 1225430.478], [2597773.357, 1225430.186], [2597773.57, 1225429.898],
+        [2597773.789, 1225429.615], [2597774.014, 1225429.337], [2597774.245, 1225429.064],
+        [2597774.481, 1225428.796], [2597774.724, 1225428.533], [2597774.972, 1225428.275],
+        [2597775.226, 1225428.023], [2597775.485, 1225427.776], [2597775.749, 1225427.535],
+        [2597776.019, 1225427.3], [2597776.294, 1225427.071], [2597776.573, 1225426.847],
+        [2597776.857, 1225426.63], [2597777.146, 1225426.419], [2597777.44, 1225426.214],
+        [2597777.737, 1225426.016], [2597778.039, 1225425.824], [2597778.345, 1225425.639],
+        [2597778.655, 1225425.461], [2597778.969, 1225425.289], [2597779.287, 1225425.124],
+        [2597779.608, 1225424.966], [2597779.932, 1225424.815], [2597780.319, 1225424.647],
+        [2597780.59, 1225424.535], [2597780.924, 1225424.405], [2597781.26, 1225424.283],
+        [2597781.723, 1225424.128], [2597782.283, 1225423.96], [2597782.976, 1225423.782],
+        [2597783.25, 1225423.714], [2597783.523, 1225423.64], [2597783.794, 1225423.559],
+        [2597784.025, 1225423.484], [2597784.403, 1225423.349], [2597784.776, 1225423.202],
+        [2597785.144, 1225423.041], [2597785.506, 1225422.868], [2597785.862, 1225422.682],
+        [2597786.211, 1225422.484], [2597786.553, 1225422.274], [2597786.887, 1225422.052],
+        [2597787.214, 1225421.818], [2597787.532, 1225421.573], [2597787.841, 1225421.317],
+        [2597788.141, 1225421.051], [2597788.432, 1225420.774], [2597788.713, 1225420.488],
+        [2597788.984, 1225420.191], [2597789.244, 1225419.886], [2597789.493, 1225419.571],
+        [2597791.879, 1225416.513], [2597796.331, 1225411.118], [2597800.968, 1225405.881],
+        [2597805.785, 1225400.809], [2597810.776, 1225395.908], [2597815.696, 1225391.396],
+        [2597820.683, 1225386.973], [2597835.42, 1225373.902], [2597848.585, 1225379.268],
+        [2598703.307, 1225766.546], [2598682.158, 1225814.612], [2598561.672, 1225756.934],
+        [2598555.904, 1225757.361], [2598552.486, 1225761.42], [2598531.977, 1225806.923],
+        [2598523.86, 1225825.509], [2598504.206, 1225869.516], [2598481.135, 1225921.001],
+        [2598426.039, 1226044.874], [2598428.323, 1226049.633], [2598556.05, 1226088.227],
+        [2598567.438, 1226091.644], [2598704.787, 1226133.325], [2598674.038, 1226200.518],
+        [2598653.311, 1226305.75], [2598630.078, 1226424.877], [2598608.236, 1226498.072],
+        [2598773.189, 1226547.65], [2598782.596, 1226550.472], [2598737.445, 1226667.892],
+        [2598741.253, 1226673.223], [2598884.93, 1226727.544], [2599086.23, 1226803.187],
+        [2599182.184, 1226838.978], [2599667.616, 1227024.853], [2599590.332, 1227201.948],
+        [2600213.383, 1227386.744], [2600227.182, 1227356.019]], [[2598063.704, 1224819.336],
+        [2598227.472, 1224918.645], [2598286.124, 1224954.289], [2598252.562, 1224989.668],
+        [2598249.041, 1224994.865], [2598247.556, 1224997.058], [2598188.337, 1225054.562],
+        [2598188.275, 1225055.509], [2598142.477, 1225097.676], [2598126.423, 1225097.272],
+        [2598033.266, 1225040.736], [2598032.238, 1225042.428], [2598020.649, 1225035.409],
+        [2597960.802, 1224999.139], [2597955.943, 1224996.19], [2598063.414, 1224819.274],
+        [2598063.704, 1224819.336]]]}, "properties": {"typ_kt": "N610_Perimeter_kantonaler_Nutzungsplan",
+        "typ_bezeichnung": "Perimeter kantonaler Nutzungsplan"}}], "crs": {"type":
+        "name", "properties": {"name": "urn:ogc:def:crs:EPSG::2056"}}, "bbox": [2595689.199,
+        1223174.11, 2600857.319, 1227386.744]}
 
         '
     headers:
       Connection:
       - Keep-Alive
       Date:
-      - Tue, 29 Aug 2023 12:41:47 GMT
+      - Wed, 12 Jun 2024 12:03:24 GMT
       Keep-Alive:
-      - timeout=10, max=286
+      - timeout=10, max=300
       Server:
       - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=Qqvg9XDpKXBCfvySckQkvCcoBRGHIuXS-fh2LQJv_CAB7PfeCBsf7Q$$; path=/;
+        Secure; HttpOnly
       access-control-allow-origin:
       - '*'
       content-length:
-      - '125'
+      - '24433'
       content-type:
       - application/json
     status:
@@ -1396,8 +1508,6 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      Cookie:
-      - SCDID_S=eKdt73S97Et_HSK1Tp9Z6flTXi-XnZzCGoZD180yoSL2BhlfdueiNQ$$
       User-Agent:
       - python-requests/2.31.0
     method: GET
@@ -1405,7 +1515,7 @@ interactions:
   response:
     body:
       string: '{"type": "FeatureCollection", "features": [{"type": "Feature", "id":
-        37308, "geometry": {"type": "MultiPolygon", "coordinates": [[[[2599466.321,
+        180985, "geometry": {"type": "MultiPolygon", "coordinates": [[[[2599466.321,
         1225010.951], [2599351.82, 1224847.46], [2599196.82, 1224731.467], [2599046.821,
         1224668.969], [2598929.68, 1224641.741], [2598725.324, 1224593.86], [2598466.326,
         1224466.653], [2598388.326, 1224365.95], [2598367.256, 1224312.666], [2598336.326,
@@ -1649,15 +1759,18 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Tue, 29 Aug 2023 12:41:47 GMT
+      - Wed, 12 Jun 2024 12:03:24 GMT
       Keep-Alive:
-      - timeout=10, max=285
+      - timeout=10, max=300
       Server:
       - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=9jt4lbWL8JPIE3KCcYMTuUhB3KH_LCHWG-0AGd6wbi_9--2Pm0HW3g$$; path=/;
+        Secure; HttpOnly
       access-control-allow-origin:
       - '*'
       content-length:
-      - '19805'
+      - '19806'
       content-type:
       - application/json
     status:
@@ -1672,8 +1785,6 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      Cookie:
-      - SCDID_S=eKdt73S97Et_HSK1Tp9Z6flTXi-XnZzCGoZD180yoSL2BhlfdueiNQ$$
       User-Agent:
       - python-requests/2.31.0
     method: GET
@@ -1688,11 +1799,14 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Tue, 29 Aug 2023 12:41:47 GMT
+      - Wed, 12 Jun 2024 12:03:25 GMT
       Keep-Alive:
-      - timeout=10, max=284
+      - timeout=10, max=300
       Server:
       - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=smeOrn3_gbZGoNWMd2eDG6vAi6uuhbVt-284fSJLqMxs_jD768Dwjw$$; path=/;
+        Secure; HttpOnly
       access-control-allow-origin:
       - '*'
       content-length:
@@ -1711,8 +1825,6 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      Cookie:
-      - SCDID_S=eKdt73S97Et_HSK1Tp9Z6flTXi-XnZzCGoZD180yoSL2BhlfdueiNQ$$
       User-Agent:
       - python-requests/2.31.0
     method: GET
@@ -1720,238 +1832,323 @@ interactions:
   response:
     body:
       string: '{"type": "FeatureCollection", "features": [{"type": "Feature", "id":
-        18397, "geometry": {"type": "MultiPolygon", "coordinates": [[[[2595973.085,
-        1223897.888], [2596029.419, 1223890.488], [2596041.168, 1223804.743], [2596024.361,
-        1223806.413], [2595996.06, 1223802.232], [2595980.175, 1223799.886], [2595949.228,
-        1223787.583], [2595921.323, 1223776.517], [2595874.329, 1223732.403], [2595872.303,
-        1223725.833], [2595853.411, 1223742.734], [2595764.103, 1223822.635], [2595880.459,
-        1223889.785], [2595909.108, 1223906.293], [2595973.085, 1223897.888]]], [[[2596247.562,
-        1223871.544], [2596267.209, 1223869.399], [2596376.479, 1223847.214], [2596380.41,
-        1223845.44], [2596380.393, 1223845.102], [2596387.14, 1223842.1], [2596334.339,
-        1223705.389], [2596273.245, 1223728.362], [2596230.112, 1223744.401], [2596223.088,
-        1223747.022], [2596188.433, 1223760.115], [2596210.426, 1223875.598], [2596247.562,
-        1223871.544]]]]}, "properties": {"objekttyp": "kantonales_Naturreservat"}},
-        {"type": "Feature", "id": 16283, "geometry": {"type": "MultiPolygon", "coordinates":
-        [[[[2597342.021, 1223606.852], [2597341.649, 1223599.954], [2597340.909, 1223594.084],
-        [2597306.755, 1223602.664], [2597248.554, 1223609.835], [2597209.997, 1223610.911],
-        [2597155.706, 1223612.43], [2597116.213, 1223609.464], [2597071.585, 1223601.648],
-        [2597026.862, 1223590.314], [2597026.23, 1223590.118], [2596984.724, 1223577.228],
-        [2596942.602, 1223561.747], [2596865.591, 1223527.31], [2596830.197, 1223509.138],
-        [2596779.946, 1223479.363], [2596777.073, 1223477.659], [2596720.545, 1223444.399],
-        [2596696.611, 1223431.167], [2596662.263, 1223423.229], [2596636.293, 1223415.433],
-        [2596614.967, 1223406.025], [2596567.85, 1223375.191], [2596555.308, 1223365.432],
-        [2596538.712, 1223354.374], [2596523.655, 1223347.594], [2596507.996, 1223342.954],
-        [2596508.78, 1223338.718], [2596493.154, 1223343.533], [2596470.68, 1223350.232],
-        [2596448.41, 1223346.062], [2596442.35, 1223343.632], [2596415.57, 1223332.902],
-        [2596395.69, 1223325.722], [2596363.87, 1223325.112], [2596335.869, 1223319.033],
-        [2596284.435, 1223299.977], [2596283.669, 1223299.693], [2596280.587, 1223297.376],
-        [2596279.89, 1223296.939], [2596233.119, 1223272.654], [2596205.392, 1223260.259],
-        [2596198.579, 1223257.214], [2596160.405, 1223250.691], [2596144.548, 1223248.344],
-        [2596138.878, 1223247.504], [2596125.647, 1223245.596], [2596109.293, 1223240.931],
-        [2596100.818, 1223231.295], [2596094.887, 1223214.229], [2596096.095, 1223205.826],
-        [2596105.006, 1223196.717], [2596104.113, 1223190.225], [2596092.258, 1223181.324],
-        [2596080.114, 1223174.165], [2596071.531, 1223175.994], [2596057.803, 1223182.143],
-        [2596040.486, 1223187.955], [2596023.453, 1223194.296], [2596010.738, 1223200.095],
-        [2595997.632, 1223211.735], [2595984.698, 1223223.446], [2595970.988, 1223227.686],
-        [2595948.82, 1223234.959], [2595939.095, 1223233.135], [2595929.982, 1223229.613],
-        [2595921.325, 1223227.937], [2595914.17, 1223229.545], [2595910.907, 1223230.367],
-        [2595905.317, 1223231.737], [2595895.257, 1223234.837], [2595876.357, 1223241.777],
-        [2595865.957, 1223247.637], [2595856.345, 1223253.662], [2595832.478, 1223266.709],
-        [2595816.75, 1223279.169], [2595802.186, 1223292.866], [2595788.967, 1223307.889],
-        [2595779.028, 1223319.313], [2595770.121, 1223335.375], [2595759.317, 1223353.37],
-        [2595752.182, 1223372.153], [2595745.85, 1223391.13], [2595739.558, 1223410.051],
-        [2595732.356, 1223434.002], [2595723.961, 1223462.888], [2595718.771, 1223482.234],
-        [2595710.289, 1223503.707], [2595706.036, 1223521.071], [2595704.569, 1223539.176],
-        [2595700.805, 1223558.84], [2595694.969, 1223578.15], [2595692.882, 1223598.1],
-        [2595690.204, 1223615.979], [2595689.199, 1223632.153], [2595691.261, 1223654.632],
-        [2595695.158, 1223669.089], [2595702.401, 1223687.895], [2595716.27, 1223720.542],
-        [2595723.434, 1223738.985], [2595726.338, 1223759.254], [2595722.386, 1223780.956],
-        [2595719.813, 1223797.124], [2595721.478, 1223798.006], [2595723.861, 1223799.383],
-        [2595724.15, 1223799.55], [2595726.313, 1223800.799], [2595727.441, 1223801.45],
-        [2595739.906, 1223808.728], [2595764.103, 1223822.635], [2595824.177, 1223857.354],
-        [2595880.459, 1223889.785], [2595909.108, 1223906.293], [2595918.987, 1223904.995],
-        [2595930.956, 1223903.423], [2595970.908, 1223898.174], [2595973.085, 1223897.888],
-        [2596029.419, 1223890.488], [2596041.568, 1223888.891], [2596088.618, 1223882.711],
-        [2596105.2, 1223882.031], [2596135.72, 1223880.779], [2596156.152, 1223879.942],
-        [2596179.329, 1223879.044], [2596210.386, 1223875.653], [2596247.562, 1223871.544],
-        [2596267.209, 1223869.399], [2596376.479, 1223847.214], [2596380.132, 1223898.17],
-        [2596377.071, 1223912.804], [2596376.158, 1223916.992], [2596379.92, 1223917.202],
-        [2596381.953, 1223917.349], [2596458.11, 1223925.071], [2596460.921, 1223917.515],
-        [2596483.46, 1223856.492], [2596506.191, 1223794.955], [2596511.407, 1223788.428],
-        [2596562.699, 1223749.49], [2596597.757, 1223724.531], [2596600.366, 1223722.523],
-        [2596647.704, 1223658.167], [2596690.963, 1223599.367], [2596717.186, 1223565.123],
-        [2596859.51, 1223646.481], [2596947.573, 1223680.387], [2597038.636, 1223708.292],
-        [2597095.261, 1223718.01], [2597165.824, 1223720.775], [2597229.012, 1223714.993],
-        [2597279.137, 1223706.164], [2597316.7, 1223697.898], [2597348.575, 1223693.632],
-        [2597353.597, 1223681.947], [2597368.934, 1223649.04], [2597331.005, 1223632.948],
-        [2597342.021, 1223606.852]]]]}, "properties": {"objekttyp": "kantonale_Uferschutzzone"}},
-        {"type": "Feature", "id": 16319, "geometry": {"type": "MultiPolygon", "coordinates":
-        [[[[2600227.182, 1227356.019], [2600242.468, 1227328.973], [2600264.811, 1227304.278],
-        [2600293.033, 1227293.695], [2600331.838, 1227273.704], [2600363.588, 1227250.185],
-        [2600376.523, 1227225.491], [2600482.355, 1227065.565], [2600510.577, 1227023.231],
-        [2600531.743, 1226982.074], [2600542.72, 1226968.139], [2600580.819, 1226929.569],
-        [2600578.938, 1226921.102], [2600473.104, 1226884.885], [2600432.965, 1226865.659],
-        [2600443.548, 1226831.557], [2600526.255, 1226700.03], [2600741.846, 1226325.679],
-        [2600804.078, 1226165.732], [2600842.32, 1226022.418], [2600857.319, 1225892.419],
-        [2600829.319, 1225770.42], [2600790.358, 1225700.803], [2600768.318, 1225661.422],
-        [2600684.844, 1225573.095], [2600682.318, 1225570.423], [2600529.921, 1225457.357],
-        [2600527.318, 1225455.426], [2600459.084, 1225421.117], [2600350.319, 1225366.429],
-        [2600242.319, 1225364.43], [2600152.32, 1225426.43], [2600098.321, 1225520.43],
-        [2600006.838, 1225867.068], [2599989.324, 1225933.427], [2599909.325, 1226009.427],
-        [2599894.181, 1226013.571], [2599803.326, 1226038.428], [2599694.327, 1226024.429],
-        [2599595.327, 1225975.431], [2599475.327, 1225848.433], [2599415.326, 1225722.435],
-        [2599414.825, 1225581.936], [2599416.321, 1225575.856], [2599462.865, 1225386.71],
-        [2599482.323, 1225307.638], [2599466.321, 1225010.951], [2599358.965, 1224857.661],
-        [2599351.82, 1224847.46], [2599200.14, 1224733.951], [2599196.82, 1224731.467],
-        [2599147.803, 1224711.044], [2599093.8, 1224688.429], [2598981.618, 1224797.786],
-        [2598882.84, 1224756.158], [2598834.873, 1224798.427], [2598652.764, 1224663.836],
-        [2598587.083, 1224653.481], [2598555.004, 1224642.02], [2598523.413, 1224636.551],
-        [2598504.598, 1224630.436], [2598482.625, 1224603.702], [2598448.973, 1224557.43],
-        [2598400.6, 1224516.065], [2598369.052, 1224471.196], [2598319.977, 1224373.044],
-        [2598308.455, 1224359.025], [2598372.727, 1224326.458], [2598367.256, 1224312.666],
-        [2598336.327, 1224234.448], [2598323.326, 1224034.947], [2598313.399, 1223985.777],
-        [2598280.826, 1223824.445], [2598090.327, 1223579.438], [2597987.993, 1223510.133],
-        [2597967.028, 1223495.936], [2597933.984, 1223487.655], [2597845.327, 1223465.437],
-        [2597818.229, 1223464.131], [2597720.827, 1223459.438], [2597631.186, 1223476.957],
-        [2597638.966, 1223544.61], [2597637.166, 1223548.2], [2597661.896, 1223570.65],
-        [2597678.726, 1223585.94], [2597698.697, 1223603.71], [2597706.037, 1223610.74],
-        [2597725.247, 1223628.19], [2597738.163, 1223639.14], [2597770.513, 1223670.497],
-        [2597679.766, 1223792.523], [2597684.469, 1223833.093], [2597683.881, 1223855.436],
-        [2597678.59, 1223886.598], [2597680.354, 1223897.77], [2597742.678, 1223998.312],
-        [2597755.026, 1224009.483], [2597782.416, 1223974.411], [2597800.887, 1223989.492],
-        [2597776.78, 1224024.182], [2597797.359, 1224038.881], [2597762.577, 1224087.814],
-        [2597726.803, 1224062.401], [2597697.405, 1224102.383], [2597659.187, 1224075.925],
-        [2597582.163, 1224117.083], [2597576.872, 1224121.199], [2597572.978, 1224131.54],
-        [2597575.073, 1224139.499], [2597608.165, 1224161.7], [2597489.2, 1224439.847],
-        [2597466.489, 1224426.761], [2597447.674, 1224413.59], [2597390.288, 1224400.42],
-        [2597583.927, 1223893.655], [2597518.075, 1223891.304], [2597566.288, 1223818.395],
-        [2597286.037, 1223665.734], [2597340.468, 1223533.615], [2597300.324, 1223541.444],
-        [2597142.324, 1223543.746], [2597074.416, 1223526.501], [2596990.323, 1223505.147],
-        [2596935.798, 1223479.906], [2596847.322, 1223438.948], [2596785.578, 1223403.215],
-        [2596550.121, 1223266.95], [2596508.78, 1223338.718], [2596493.194, 1223343.478],
-        [2596470.676, 1223350.23], [2596448.414, 1223346.066], [2596415.574, 1223332.904],
-        [2596395.685, 1223325.722], [2596363.873, 1223325.115], [2596335.866, 1223319.028],
-        [2596283.743, 1223299.721], [2596280.627, 1223297.321], [2596233.119, 1223272.654],
-        [2596205.392, 1223260.259], [2596198.574, 1223257.211], [2596160.446, 1223250.636],
-        [2596144.547, 1223248.343], [2596125.687, 1223245.541], [2596109.333, 1223240.877],
-        [2596100.816, 1223231.29], [2596094.927, 1223214.175], [2596096.135, 1223205.771],
-        [2596105.048, 1223196.674], [2596104.153, 1223190.17], [2596099.086, 1223186.403],
-        [2596092.254, 1223181.324], [2596080.154, 1223174.11], [2596071.571, 1223175.939],
-        [2596057.843, 1223182.089], [2596040.526, 1223187.901], [2596023.493, 1223194.241],
-        [2596010.741, 1223200.092], [2595997.673, 1223211.681], [2595984.7, 1223223.445],
-        [2595971.029, 1223227.632], [2595948.86, 1223234.904], [2595939.135, 1223233.081],
-        [2595930.022, 1223229.559], [2595921.365, 1223227.883], [2595905.314, 1223231.741],
-        [2595895.259, 1223234.841], [2595876.361, 1223241.773], [2595865.958, 1223247.638],
-        [2595856.385, 1223253.608], [2595841.63, 1223261.674], [2595832.518, 1223266.655],
-        [2595816.79, 1223279.114], [2595802.227, 1223292.812], [2595788.965, 1223307.893],
-        [2595779.069, 1223319.258], [2595772.874, 1223330.429], [2595770.162, 1223335.32],
-        [2595759.316, 1223353.369], [2595752.223, 1223372.099], [2595750.125, 1223378.386],
-        [2595745.891, 1223391.075], [2595739.558, 1223410.051], [2595732.356, 1223434.002],
-        [2595724.001, 1223462.834], [2595718.811, 1223482.179], [2595710.289, 1223503.707],
-        [2595706.036, 1223521.071], [2595704.569, 1223539.176], [2595700.805, 1223558.84],
-        [2595694.969, 1223578.15], [2595692.882, 1223598.1], [2595690.244, 1223615.925],
-        [2595689.199, 1223632.153], [2595691.301, 1223654.577], [2595695.158, 1223669.089],
-        [2595702.401, 1223687.895], [2595716.311, 1223720.488], [2595723.554, 1223739.295],
-        [2595726.338, 1223759.254], [2595722.386, 1223780.956], [2595720.839, 1223790.797],
-        [2595719.854, 1223797.069], [2595721.478, 1223798.006], [2595726.313, 1223800.799],
-        [2595739.947, 1223808.674], [2595764.103, 1223822.635], [2595824.177, 1223857.354],
-        [2595880.459, 1223889.785], [2595909.108, 1223906.293], [2595973.085, 1223897.888],
-        [2596029.419, 1223890.488], [2596088.618, 1223882.711], [2596105.2, 1223882.031],
-        [2596156.152, 1223879.942], [2596179.369, 1223878.99], [2596210.426, 1223875.598],
-        [2596247.562, 1223871.544], [2596267.209, 1223869.399], [2596370.88, 1223848.377],
-        [2596376.479, 1223847.214], [2596380.172, 1223898.116], [2596377.071, 1223912.804],
-        [2596376.198, 1223916.938], [2596379.96, 1223917.148], [2596458.15, 1223925.017],
-        [2596428.9, 1224004.169], [2596413.66, 1224045.629], [2596398.36, 1224087.109],
-        [2596368.94, 1224166.87], [2596349.16, 1224220.361], [2596329.477, 1224273.869],
-        [2596315.84, 1224310.84], [2596309.737, 1224327.391], [2596304.42, 1224341.807],
-        [2596303.036, 1224345.56], [2596291.113, 1224377.89], [2596289.992, 1224381.788],
-        [2596255.58, 1224461.912], [2596249.305, 1224476.522], [2596154.483, 1224697.299],
-        [2596148.248, 1224711.817], [2596056.699, 1224924.976], [2596047.439, 1224946.18],
-        [2595998.211, 1225053.883], [2595923.322, 1225217.733], [2595918.106, 1225226.271],
-        [2596202.155, 1225433.235], [2596241.908, 1225306.4], [2596167.646, 1225262.463],
-        [2596196.885, 1225208.574], [2596213.73, 1225177.281], [2596271.132, 1225203.806],
-        [2596303.588, 1225220.682], [2596353.434, 1225249.822], [2596259.32, 1225471.236],
-        [2596505.011, 1225633.765], [2596663.284, 1225699.789], [2596716.578, 1225722.029],
-        [2596824.978, 1225786.573], [2596830.934, 1225785.546], [2596989.226, 1225589.078],
-        [2596999.558, 1225576.254], [2597014.164, 1225558.124], [2597021.081, 1225556.772],
-        [2597022.165, 1225561.477], [2597221.306, 1225646.224], [2597231.823, 1225650.207],
-        [2597237.548, 1225647.669], [2597239.984, 1225641.782], [2597244.165, 1225632.153],
-        [2597244.222, 1225632.028], [2597246.554, 1225627.136], [2597249.056, 1225622.329],
-        [2597251.724, 1225617.611], [2597254.555, 1225612.99], [2597257.545, 1225608.47],
-        [2597260.692, 1225604.058], [2597262.602, 1225601.53], [2597277.926, 1225584.459],
-        [2597280.483, 1225582.075], [2597284.538, 1225578.479], [2597288.717, 1225575.027],
-        [2597293.014, 1225571.722], [2597297.423, 1225568.57], [2597301.94, 1225565.573],
-        [2597306.559, 1225562.736], [2597311.273, 1225560.061], [2597316.079, 1225557.553],
-        [2597320.969, 1225555.214], [2597325.937, 1225553.047], [2597330.978, 1225551.055],
-        [2597336.086, 1225549.24], [2597341.253, 1225547.604], [2597346.475, 1225546.15],
-        [2597351.745, 1225544.879], [2597357.055, 1225543.793], [2597362.4, 1225542.892],
-        [2597364.103, 1225542.645], [2597370.58, 1225541.954], [2597377.077, 1225541.49],
-        [2597383.586, 1225541.253], [2597390.099, 1225541.242], [2597390.612, 1225541.251],
-        [2597401.416, 1225541.512], [2597409.911, 1225542.014], [2597412.204, 1225542.149],
-        [2597416.971, 1225542.552], [2597453.859, 1225546.166], [2597467.271, 1225547.431],
-        [2597486.673, 1225548.683], [2597506.106, 1225549.258], [2597508.249, 1225549.257],
-        [2597512.749, 1225549.163], [2597520.289, 1225549.004], [2597532.313, 1225548.331],
-        [2597544.306, 1225547.239], [2597556.254, 1225545.729], [2597560.525, 1225545.037],
-        [2597568.141, 1225543.803], [2597579.954, 1225541.463], [2597591.679, 1225538.712],
-        [2597603.3, 1225535.554], [2597614.803, 1225531.992], [2597626.176, 1225528.031],
-        [2597637.403, 1225523.676], [2597648.472, 1225518.931], [2597659.368, 1225513.803],
-        [2597670.078, 1225508.297], [2597680.59, 1225502.421], [2597694.785, 1225493.738],
-        [2597715.052, 1225480.505], [2597744.543, 1225461.663], [2597744.908, 1225461.439],
-        [2597746.147, 1225460.672], [2597751.986, 1225456.884], [2597757.69, 1225452.894],
-        [2597760.529, 1225450.794], [2597766.064, 1225446.472], [2597766.369, 1225446.216],
-        [2597766.668, 1225445.947], [2597768.883, 1225443.113], [2597769.934, 1225440.515],
-        [2597770.185, 1225439.338], [2597770.241, 1225438.941], [2597770.283, 1225438.542],
-        [2597770.339, 1225437.966], [2597770.918, 1225435.136], [2597770.97, 1225434.966],
-        [2597771.15, 1225434.419], [2597771.349, 1225433.878], [2597772.33, 1225431.795],
-        [2597772.62, 1225431.297], [2597772.927, 1225430.81], [2597773.251, 1225430.334],
-        [2597773.591, 1225429.869], [2597773.948, 1225429.417], [2597774.32, 1225428.977],
-        [2597774.707, 1225428.55], [2597775.109, 1225428.137], [2597775.524, 1225427.739],
-        [2597775.954, 1225427.355], [2597776.397, 1225426.986], [2597776.852, 1225426.634],
-        [2597777.319, 1225426.297], [2597779.297, 1225425.119], [2597779.816, 1225424.868],
-        [2597780.343, 1225424.636], [2597780.878, 1225424.422], [2597783.256, 1225423.713],
-        [2597783.642, 1225423.605], [2597784.025, 1225423.484], [2597784.403, 1225423.349],
-        [2597784.776, 1225423.202], [2597785.144, 1225423.041], [2597785.506, 1225422.868],
-        [2597785.862, 1225422.682], [2597786.211, 1225422.484], [2597786.553, 1225422.274],
-        [2597786.887, 1225422.052], [2597787.214, 1225421.818], [2597787.532, 1225421.573],
-        [2597787.841, 1225421.317], [2597788.141, 1225421.051], [2597788.432, 1225420.774],
-        [2597788.713, 1225420.488], [2597788.984, 1225420.191], [2597789.244, 1225419.886],
-        [2597789.493, 1225419.571], [2597791.879, 1225416.513], [2597796.331, 1225411.118],
-        [2597800.968, 1225405.881], [2597805.785, 1225400.809], [2597810.776, 1225395.908],
-        [2597815.696, 1225391.396], [2597820.683, 1225386.973], [2597835.42, 1225373.902],
-        [2597848.585, 1225379.268], [2598703.307, 1225766.546], [2598682.158, 1225814.612],
-        [2598561.672, 1225756.934], [2598555.904, 1225757.361], [2598552.486, 1225761.42],
-        [2598531.977, 1225806.923], [2598523.86, 1225825.509], [2598504.206, 1225869.516],
-        [2598481.135, 1225921.001], [2598426.039, 1226044.874], [2598428.323, 1226049.633],
-        [2598556.05, 1226088.227], [2598567.438, 1226091.644], [2598704.787, 1226133.325],
-        [2598674.038, 1226200.518], [2598653.311, 1226305.75], [2598630.078, 1226424.877],
-        [2598608.236, 1226498.072], [2598773.189, 1226547.65], [2598782.596, 1226550.472],
-        [2598737.445, 1226667.892], [2598741.253, 1226673.223], [2598884.93, 1226727.544],
-        [2599086.23, 1226803.187], [2599182.184, 1226838.978], [2599680.836, 1226994.14],
-        [2599590.332, 1227201.948], [2600213.383, 1227386.744], [2600227.182, 1227356.019]],
-        [[2598063.704, 1224819.336], [2598227.472, 1224918.645], [2598286.124, 1224954.289],
-        [2598252.562, 1224989.668], [2598249.041, 1224994.865], [2598247.556, 1224997.058],
-        [2598188.337, 1225054.562], [2598188.275, 1225055.509], [2598142.477, 1225097.676],
-        [2598126.423, 1225097.272], [2598033.266, 1225040.736], [2598032.238, 1225042.428],
-        [2598020.649, 1225035.409], [2597960.802, 1224999.139], [2597955.943, 1224996.19],
-        [2598063.414, 1224819.274], [2598063.704, 1224819.336]]]]}, "properties":
-        {"objekttyp": "Witischutzzone"}}], "crs": {"type": "name", "properties": {"name":
-        "urn:ogc:def:crs:EPSG::2056"}}, "bbox": [2595689.199, 1223174.11, 2600857.319,
-        1227386.744]}
+        164264, "geometry": {"type": "MultiPolygon", "coordinates": [[[[2597342.021,
+        1223606.852], [2597341.649, 1223599.954], [2597340.909, 1223594.084], [2597306.755,
+        1223602.664], [2597248.554, 1223609.835], [2597228.531, 1223609.929], [2597210.942,
+        1223607.394], [2597198.576, 1223610.314], [2597164.398, 1223611.312], [2597116.624,
+        1223605.475], [2597076.837, 1223599.408], [2597037.359, 1223590.499], [2596986.59,
+        1223577.212], [2596908.707, 1223543.264], [2596877.523, 1223530.207], [2596842.96,
+        1223512.696], [2596807.629, 1223492.649], [2596789.733, 1223482.127], [2596772.298,
+        1223470.145], [2596751.714, 1223462.311], [2596720.545, 1223444.399], [2596696.611,
+        1223431.167], [2596675.598, 1223421.681], [2596660.006, 1223418.839], [2596642.955,
+        1223414.845], [2596628.746, 1223410.16], [2596606.856, 1223398.485], [2596567.85,
+        1223375.191], [2596555.308, 1223365.432], [2596538.712, 1223354.374], [2596523.655,
+        1223347.594], [2596508.78, 1223338.718], [2596493.154, 1223343.533], [2596470.68,
+        1223350.232], [2596448.41, 1223346.062], [2596442.35, 1223343.632], [2596415.57,
+        1223332.902], [2596395.69, 1223325.722], [2596363.87, 1223325.112], [2596335.869,
+        1223319.033], [2596284.435, 1223299.977], [2596283.669, 1223299.693], [2596280.587,
+        1223297.376], [2596279.89, 1223296.939], [2596233.119, 1223272.654], [2596205.392,
+        1223260.259], [2596198.579, 1223257.214], [2596160.405, 1223250.691], [2596144.548,
+        1223248.344], [2596138.878, 1223247.504], [2596125.647, 1223245.596], [2596109.293,
+        1223240.931], [2596100.818, 1223231.295], [2596094.887, 1223214.229], [2596096.095,
+        1223205.826], [2596105.006, 1223196.717], [2596104.113, 1223190.225], [2596092.258,
+        1223181.324], [2596080.114, 1223174.165], [2596071.531, 1223175.994], [2596057.803,
+        1223182.143], [2596040.486, 1223187.955], [2596023.453, 1223194.296], [2596010.738,
+        1223200.095], [2595997.632, 1223211.735], [2595984.698, 1223223.446], [2595970.988,
+        1223227.686], [2595948.82, 1223234.959], [2595939.095, 1223233.135], [2595929.982,
+        1223229.613], [2595921.325, 1223227.937], [2595914.17, 1223229.545], [2595910.907,
+        1223230.367], [2595905.317, 1223231.737], [2595895.257, 1223234.837], [2595876.357,
+        1223241.777], [2595865.957, 1223247.637], [2595856.345, 1223253.662], [2595832.478,
+        1223266.709], [2595816.75, 1223279.169], [2595802.186, 1223292.866], [2595788.967,
+        1223307.889], [2595779.028, 1223319.313], [2595770.121, 1223335.375], [2595759.317,
+        1223353.37], [2595752.182, 1223372.153], [2595745.85, 1223391.13], [2595739.558,
+        1223410.051], [2595732.356, 1223434.002], [2595723.961, 1223462.888], [2595718.771,
+        1223482.234], [2595710.289, 1223503.707], [2595706.036, 1223521.071], [2595704.569,
+        1223539.176], [2595700.805, 1223558.84], [2595694.969, 1223578.15], [2595692.882,
+        1223598.1], [2595690.204, 1223615.979], [2595689.199, 1223632.153], [2595691.261,
+        1223654.632], [2595695.158, 1223669.089], [2595702.401, 1223687.895], [2595716.27,
+        1223720.542], [2595723.434, 1223738.985], [2595726.338, 1223759.254], [2595722.386,
+        1223780.956], [2595719.813, 1223797.124], [2595721.478, 1223798.006], [2595723.861,
+        1223799.383], [2595724.15, 1223799.55], [2595726.313, 1223800.799], [2595727.441,
+        1223801.45], [2595739.906, 1223808.728], [2595764.103, 1223822.635], [2595824.177,
+        1223857.354], [2595880.459, 1223889.785], [2595909.108, 1223906.293], [2595918.987,
+        1223904.995], [2595930.956, 1223903.423], [2595970.908, 1223898.174], [2595973.085,
+        1223897.888], [2596029.419, 1223890.488], [2596041.568, 1223888.891], [2596088.618,
+        1223882.711], [2596105.2, 1223882.031], [2596135.72, 1223880.779], [2596156.152,
+        1223879.942], [2596179.329, 1223879.044], [2596210.386, 1223875.653], [2596247.562,
+        1223871.544], [2596267.209, 1223869.399], [2596376.479, 1223847.214], [2596380.132,
+        1223898.17], [2596377.071, 1223912.804], [2596376.158, 1223916.992], [2596379.92,
+        1223917.202], [2596381.953, 1223917.349], [2596458.11, 1223925.071], [2596460.921,
+        1223917.515], [2596483.46, 1223856.492], [2596506.191, 1223794.955], [2596511.407,
+        1223788.428], [2596554.175, 1223761.08], [2596597.757, 1223724.531], [2596600.366,
+        1223722.523], [2596647.704, 1223658.167], [2596690.963, 1223599.367], [2596717.186,
+        1223565.123], [2596859.51, 1223646.481], [2596947.573, 1223680.387], [2597038.636,
+        1223708.292], [2597095.261, 1223718.01], [2597165.824, 1223720.775], [2597229.012,
+        1223714.993], [2597279.137, 1223706.164], [2597316.7, 1223697.898], [2597344.765,
+        1223700.395], [2597357.239, 1223673.768], [2597368.476, 1223649.781], [2597329.123,
+        1223635.927], [2597342.021, 1223606.852]]]]}, "properties": {"objekttyp":
+        "kantonale_Uferschutzzone"}}, {"type": "Feature", "id": 163996, "geometry":
+        {"type": "MultiPolygon", "coordinates": [[[[2596029.419, 1223890.488], [2596041.168,
+        1223804.743], [2596024.361, 1223806.413], [2595996.06, 1223802.232], [2595980.175,
+        1223799.886], [2595949.228, 1223787.583], [2595921.323, 1223776.517], [2595874.329,
+        1223732.403], [2595872.303, 1223725.833], [2595853.411, 1223742.734], [2595764.103,
+        1223822.635], [2595880.459, 1223889.785], [2595909.108, 1223906.293], [2595973.085,
+        1223897.888], [2596029.419, 1223890.488]]], [[[2596267.209, 1223869.399],
+        [2596376.479, 1223847.214], [2596380.41, 1223845.44], [2596380.393, 1223845.102],
+        [2596387.14, 1223842.1], [2596334.339, 1223705.389], [2596273.245, 1223728.362],
+        [2596230.112, 1223744.401], [2596223.088, 1223747.022], [2596188.433, 1223760.115],
+        [2596210.426, 1223875.598], [2596247.562, 1223871.544], [2596267.209, 1223869.399]]]]},
+        "properties": {"objekttyp": "kantonales_Naturreservat"}}, {"type": "Feature",
+        "id": 164488, "geometry": {"type": "MultiPolygon", "coordinates": [[[[2599086.23,
+        1226803.187], [2599182.184, 1226838.978], [2599667.482, 1227024.802], [2599590.332,
+        1227201.948], [2600213.383, 1227386.744], [2600227.182, 1227356.019], [2600242.468,
+        1227328.973], [2600264.811, 1227304.278], [2600293.033, 1227293.695], [2600331.838,
+        1227273.704], [2600363.588, 1227250.185], [2600376.523, 1227225.491], [2600482.355,
+        1227065.565], [2600510.577, 1227023.231], [2600531.743, 1226982.074], [2600542.72,
+        1226968.139], [2600580.819, 1226929.569], [2600578.938, 1226921.102], [2600473.104,
+        1226884.885], [2600432.965, 1226865.659], [2600443.548, 1226831.557], [2600526.255,
+        1226700.03], [2600741.846, 1226325.679], [2600804.078, 1226165.732], [2600842.32,
+        1226022.418], [2600857.319, 1225892.419], [2600829.319, 1225770.42], [2600790.358,
+        1225700.803], [2600768.318, 1225661.422], [2600684.844, 1225573.095], [2600682.318,
+        1225570.423], [2600529.921, 1225457.357], [2600527.318, 1225455.426], [2600459.084,
+        1225421.117], [2600350.319, 1225366.429], [2600242.319, 1225364.43], [2600152.32,
+        1225426.43], [2600098.321, 1225520.43], [2600006.838, 1225867.068], [2599989.324,
+        1225933.427], [2599909.325, 1226009.427], [2599894.181, 1226013.571], [2599803.326,
+        1226038.428], [2599694.327, 1226024.429], [2599595.327, 1225975.431], [2599475.327,
+        1225848.433], [2599415.326, 1225722.435], [2599414.825, 1225581.936], [2599416.321,
+        1225575.856], [2599462.865, 1225386.71], [2599482.323, 1225307.638], [2599466.321,
+        1225010.951], [2599358.965, 1224857.661], [2599351.82, 1224847.46], [2599200.14,
+        1224733.951], [2599196.82, 1224731.467], [2599147.803, 1224711.044], [2599093.8,
+        1224688.429], [2599093.718, 1224688.509], [2599068.578, 1224779.354], [2599031.487,
+        1224766.867], [2599031.356, 1224766.825], [2599031.174, 1224766.774], [2599030.991,
+        1224766.73], [2599030.806, 1224766.693], [2599030.619, 1224766.663], [2599030.432,
+        1224766.64], [2599030.243, 1224766.624], [2599030.055, 1224766.615], [2599029.866,
+        1224766.613], [2599029.677, 1224766.618], [2599029.489, 1224766.631], [2599029.301,
+        1224766.651], [2599029.114, 1224766.677], [2599028.928, 1224766.711], [2599028.744,
+        1224766.752], [2599028.561, 1224766.799], [2599028.38, 1224766.854], [2599028.201,
+        1224766.915], [2599028.025, 1224766.983], [2599027.852, 1224767.058], [2599027.681,
+        1224767.139], [2599027.514, 1224767.227], [2599027.35, 1224767.32], [2599027.221,
+        1224767.4], [2599027.033, 1224767.526], [2598993.151, 1224797.633], [2598992.913,
+        1224797.82], [2598992.669, 1224798], [2598992.421, 1224798.175], [2598992.169,
+        1224798.343], [2598991.913, 1224798.505], [2598991.653, 1224798.661], [2598991.388,
+        1224798.809], [2598991.121, 1224798.951], [2598990.849, 1224799.087], [2598990.575,
+        1224799.215], [2598990.297, 1224799.336], [2598990.016, 1224799.451], [2598989.732,
+        1224799.558], [2598989.446, 1224799.658], [2598989.158, 1224799.75], [2598988.867,
+        1224799.836], [2598988.574, 1224799.914], [2598988.279, 1224799.984], [2598987.982,
+        1224800.047], [2598987.684, 1224800.103], [2598987.385, 1224800.151], [2598987.085,
+        1224800.191], [2598986.783, 1224800.224], [2598986.481, 1224800.25], [2598986.179,
+        1224800.267], [2598985.876, 1224800.277], [2598985.573, 1224800.279], [2598985.269,
+        1224800.274], [2598984.967, 1224800.261], [2598984.664, 1224800.24], [2598984.362,
+        1224800.212], [2598984.061, 1224800.176], [2598983.761, 1224800.132], [2598983.463,
+        1224800.081], [2598983.165, 1224800.023], [2598982.869, 1224799.957], [2598982.575,
+        1224799.883], [2598982.283, 1224799.802], [2598981.993, 1224799.714], [2598981.706,
+        1224799.618], [2598981.421, 1224799.515], [2598981.138, 1224799.405], [2598938.197,
+        1224779.487], [2598892.011, 1224758.064], [2598891.848, 1224757.993], [2598891.681,
+        1224757.929], [2598891.513, 1224757.872], [2598891.341, 1224757.823], [2598891.168,
+        1224757.782], [2598890.993, 1224757.749], [2598890.817, 1224757.723], [2598890.639,
+        1224757.705], [2598890.462, 1224757.695], [2598890.283, 1224757.693], [2598890.105,
+        1224757.699], [2598889.928, 1224757.713], [2598889.751, 1224757.735], [2598889.575,
+        1224757.765], [2598889.401, 1224757.802], [2598889.229, 1224757.847], [2598889.059,
+        1224757.9], [2598888.891, 1224757.96], [2598888.726, 1224758.028], [2598888.565,
+        1224758.103], [2598888.406, 1224758.185], [2598888.252, 1224758.274], [2598888.102,
+        1224758.37], [2598888.097, 1224758.373], [2598887.956, 1224758.472], [2598887.815,
+        1224758.581], [2598887.679, 1224758.696], [2598833.772, 1224806.347], [2598671.967,
+        1224684.427], [2598652.167, 1224669.239], [2598652, 1224669.129], [2598651.83,
+        1224669.025], [2598651.657, 1224668.927], [2598651.48, 1224668.834], [2598651.3,
+        1224668.748], [2598651.118, 1224668.668], [2598650.932, 1224668.594], [2598650.745,
+        1224668.526], [2598650.555, 1224668.465], [2598650.363, 1224668.41], [2598650.17,
+        1224668.362], [2598649.975, 1224668.32], [2598649.779, 1224668.285], [2598649.581,
+        1224668.257], [2598649.383, 1224668.235], [2598649.184, 1224668.221], [2598648.985,
+        1224668.213], [2598648.786, 1224668.211], [2598648.573, 1224668.217], [2598648.361,
+        1224668.23], [2598648.149, 1224668.251], [2598647.938, 1224668.28], [2598647.728,
+        1224668.317], [2598647.519, 1224668.361], [2598647.313, 1224668.412], [2598647.108,
+        1224668.471], [2598646.906, 1224668.537], [2598646.706, 1224668.611], [2598646.509,
+        1224668.692], [2598646.315, 1224668.779], [2598646.124, 1224668.874], [2598645.937,
+        1224668.976], [2598645.753, 1224669.084], [2598645.574, 1224669.199], [2598599.699,
+        1224708.94], [2598577.874, 1224733.016], [2598576.683, 1224731.939], [2598576.435,
+        1224732.113], [2598576.182, 1224732.281], [2598575.925, 1224732.442], [2598575.664,
+        1224732.596], [2598575.399, 1224732.744], [2598575.13, 1224732.885], [2598574.858,
+        1224733.018], [2598574.582, 1224733.145], [2598574.304, 1224733.265], [2598574.022,
+        1224733.377], [2598573.737, 1224733.482], [2598573.45, 1224733.579], [2598573.161,
+        1224733.67], [2598572.869, 1224733.752], [2598572.575, 1224733.827], [2598572.279,
+        1224733.895], [2598571.982, 1224733.955], [2598571.683, 1224734.007], [2598571.383,
+        1224734.051], [2598571.082, 1224734.088], [2598570.78, 1224734.116], [2598570.477,
+        1224734.137], [2598570.174, 1224734.151], [2598569.871, 1224734.156], [2598569.568,
+        1224734.154], [2598569.265, 1224734.143], [2598568.962, 1224734.125], [2598568.66,
+        1224734.099], [2598568.358, 1224734.065], [2598568.058, 1224734.024], [2598567.758,
+        1224733.975], [2598567.46, 1224733.918], [2598567.164, 1224733.853], [2598566.87,
+        1224733.781], [2598566.577, 1224733.701], [2598566.286, 1224733.614], [2598565.998,
+        1224733.519], [2598565.713, 1224733.417], [2598565.43, 1224733.307], [2598565.15,
+        1224733.19], [2598564.873, 1224733.066], [2598564.6, 1224732.935], [2598564.33,
+        1224732.797], [2598564.063, 1224732.652], [2598563.801, 1224732.5], [2598563.542,
+        1224732.341], [2598563.288, 1224732.176], [2598563.038, 1224732.004], [2598562.733,
+        1224731.787], [2598562.424, 1224731.576], [2598562.11, 1224731.372], [2598561.792,
+        1224731.174], [2598561.47, 1224730.983], [2598561.144, 1224730.799], [2598560.815,
+        1224730.622], [2598560.481, 1224730.452], [2598560.145, 1224730.288], [2598559.804,
+        1224730.132], [2598559.461, 1224729.983], [2598559.115, 1224729.841], [2598558.765,
+        1224729.707], [2598558.413, 1224729.58], [2598558.059, 1224729.46], [2598557.702,
+        1224729.348], [2598557.342, 1224729.243], [2598556.981, 1224729.146], [2598556.617,
+        1224729.056], [2598556.252, 1224728.974], [2598555.885, 1224728.9], [2598555.517,
+        1224728.833], [2598565.543, 1224721.324], [2598565.677, 1224721.586], [2598565.817,
+        1224721.845], [2598565.964, 1224722.099], [2598566.118, 1224722.35], [2598566.278,
+        1224722.597], [2598566.445, 1224722.839], [2598566.618, 1224723.077], [2598566.797,
+        1224723.31], [2598567.059, 1224723.581], [2598567.213, 1224723.719], [2598567.362,
+        1224723.849], [2598567.517, 1224723.979], [2598567.809, 1224724.195], [2598568.148,
+        1224724.416], [2598568.683, 1224724.705], [2598584.256, 1224707.189], [2598617.642,
+        1224663.431], [2598601.514, 1224655.756], [2598590.057, 1224650.304], [2598586.475,
+        1224652.797], [2598584.352, 1224652.505], [2598582.151, 1224652.203], [2598579.736,
+        1224650.856], [2598570.691, 1224645.812], [2598565.41, 1224643.448], [2598559.797,
+        1224642.041], [2598521.678, 1224635.982], [2598521.168, 1224635.821], [2598514.125,
+        1224633.603], [2598511.74, 1224632.852], [2598508.857, 1224631.82], [2598505.034,
+        1224630.452], [2598501.449, 1224626.605], [2598492.311, 1224616.798], [2598484.204,
+        1224605.623], [2598457.247, 1224568.465], [2598455.635, 1224566.591], [2598444.38,
+        1224553.503], [2598444.274, 1224553.379], [2598401.634, 1224516.52], [2598368.895,
+        1224470.882], [2598328.962, 1224388.254], [2598319.561, 1224373.372], [2598308.294,
+        1224358.598], [2598372.727, 1224326.458], [2598367.256, 1224312.666], [2598336.327,
+        1224234.448], [2598323.326, 1224034.947], [2598313.399, 1223985.777], [2598280.826,
+        1223824.445], [2598090.327, 1223579.438], [2597987.993, 1223510.133], [2597967.028,
+        1223495.936], [2597933.984, 1223487.655], [2597845.327, 1223465.437], [2597818.229,
+        1223464.131], [2597720.827, 1223459.438], [2597631.186, 1223476.957], [2597638.966,
+        1223544.61], [2597637.166, 1223548.2], [2597661.896, 1223570.65], [2597678.726,
+        1223585.94], [2597698.697, 1223603.71], [2597706.037, 1223610.74], [2597725.247,
+        1223628.19], [2597738.163, 1223639.14], [2597770.513, 1223670.497], [2597679.766,
+        1223792.523], [2597684.469, 1223833.093], [2597683.881, 1223855.436], [2597678.59,
+        1223886.598], [2597680.354, 1223897.77], [2597742.678, 1223998.312], [2597755.026,
+        1224009.483], [2597782.416, 1223974.411], [2597800.887, 1223989.492], [2597776.78,
+        1224024.182], [2597797.359, 1224038.881], [2597762.577, 1224087.814], [2597726.803,
+        1224062.401], [2597697.405, 1224102.383], [2597659.187, 1224075.925], [2597582.163,
+        1224117.083], [2597576.872, 1224121.199], [2597572.978, 1224131.54], [2597575.073,
+        1224139.499], [2597608.165, 1224161.7], [2597489.2, 1224439.847], [2597466.489,
+        1224426.761], [2597447.674, 1224413.59], [2597390.288, 1224400.42], [2597583.927,
+        1223893.655], [2597518.075, 1223891.304], [2597566.288, 1223818.395], [2597286.037,
+        1223665.734], [2597340.468, 1223533.615], [2597300.324, 1223541.444], [2597142.324,
+        1223543.746], [2597074.416, 1223526.501], [2596990.323, 1223505.147], [2596935.798,
+        1223479.906], [2596847.322, 1223438.948], [2596785.578, 1223403.215], [2596550.121,
+        1223266.95], [2596508.78, 1223338.718], [2596493.194, 1223343.478], [2596470.676,
+        1223350.23], [2596448.414, 1223346.066], [2596415.574, 1223332.904], [2596395.685,
+        1223325.722], [2596363.873, 1223325.115], [2596335.866, 1223319.028], [2596283.743,
+        1223299.721], [2596280.627, 1223297.321], [2596233.119, 1223272.654], [2596205.392,
+        1223260.259], [2596198.574, 1223257.211], [2596160.446, 1223250.636], [2596144.547,
+        1223248.343], [2596125.687, 1223245.541], [2596109.333, 1223240.877], [2596100.816,
+        1223231.29], [2596094.927, 1223214.175], [2596096.135, 1223205.771], [2596105.048,
+        1223196.674], [2596104.153, 1223190.17], [2596099.086, 1223186.403], [2596092.254,
+        1223181.324], [2596080.154, 1223174.11], [2596071.571, 1223175.939], [2596057.843,
+        1223182.089], [2596040.526, 1223187.901], [2596023.493, 1223194.241], [2596010.741,
+        1223200.092], [2595997.673, 1223211.681], [2595984.7, 1223223.445], [2595971.029,
+        1223227.632], [2595948.86, 1223234.904], [2595939.135, 1223233.081], [2595930.022,
+        1223229.559], [2595921.365, 1223227.883], [2595905.314, 1223231.741], [2595895.259,
+        1223234.841], [2595876.361, 1223241.773], [2595865.958, 1223247.638], [2595856.385,
+        1223253.608], [2595841.63, 1223261.674], [2595832.518, 1223266.655], [2595816.79,
+        1223279.114], [2595802.227, 1223292.812], [2595788.965, 1223307.893], [2595779.069,
+        1223319.258], [2595772.874, 1223330.429], [2595770.162, 1223335.32], [2595759.316,
+        1223353.369], [2595752.223, 1223372.099], [2595750.125, 1223378.386], [2595745.891,
+        1223391.075], [2595739.558, 1223410.051], [2595732.356, 1223434.002], [2595724.001,
+        1223462.834], [2595718.811, 1223482.179], [2595710.289, 1223503.707], [2595706.036,
+        1223521.071], [2595704.569, 1223539.176], [2595700.805, 1223558.84], [2595694.969,
+        1223578.15], [2595692.882, 1223598.1], [2595690.244, 1223615.925], [2595689.199,
+        1223632.153], [2595691.301, 1223654.577], [2595695.158, 1223669.089], [2595702.401,
+        1223687.895], [2595716.311, 1223720.488], [2595723.554, 1223739.295], [2595726.338,
+        1223759.254], [2595722.386, 1223780.956], [2595720.839, 1223790.797], [2595719.854,
+        1223797.069], [2595721.478, 1223798.006], [2595726.313, 1223800.799], [2595739.947,
+        1223808.674], [2595764.103, 1223822.635], [2595824.177, 1223857.354], [2595880.459,
+        1223889.785], [2595909.108, 1223906.293], [2595973.085, 1223897.888], [2596029.419,
+        1223890.488], [2596088.618, 1223882.711], [2596105.2, 1223882.031], [2596156.152,
+        1223879.942], [2596179.369, 1223878.99], [2596210.426, 1223875.598], [2596247.562,
+        1223871.544], [2596267.209, 1223869.399], [2596370.88, 1223848.377], [2596376.479,
+        1223847.214], [2596380.172, 1223898.116], [2596377.071, 1223912.804], [2596376.198,
+        1223916.938], [2596379.96, 1223917.148], [2596458.15, 1223925.017], [2596428.9,
+        1224004.169], [2596413.66, 1224045.629], [2596398.36, 1224087.109], [2596368.94,
+        1224166.87], [2596349.16, 1224220.361], [2596329.477, 1224273.869], [2596315.84,
+        1224310.84], [2596309.737, 1224327.391], [2596304.42, 1224341.807], [2596303.036,
+        1224345.56], [2596291.113, 1224377.89], [2596289.992, 1224381.788], [2596255.58,
+        1224461.912], [2596249.305, 1224476.522], [2596154.483, 1224697.299], [2596148.248,
+        1224711.817], [2596056.699, 1224924.976], [2596047.439, 1224946.18], [2595998.211,
+        1225053.883], [2595923.322, 1225217.733], [2595918.106, 1225226.271], [2596201.968,
+        1225424.021], [2596235.102, 1225326.763], [2596236.399, 1225323.976], [2596245.532,
+        1225304.355], [2596176.692, 1225250.267], [2596215.897, 1225178.282], [2596218.643,
+        1225173.241], [2596272.474, 1225200.05], [2596337.802, 1225234.147], [2596335.989,
+        1225239.624], [2596259.32, 1225471.236], [2596505.011, 1225633.765], [2596663.284,
+        1225699.789], [2596716.578, 1225722.029], [2596824.978, 1225786.573], [2596830.934,
+        1225785.546], [2596989.226, 1225589.078], [2596999.558, 1225576.254], [2597014.164,
+        1225558.124], [2597021.081, 1225556.772], [2597022.165, 1225561.477], [2597221.306,
+        1225646.224], [2597231.823, 1225650.207], [2597237.548, 1225647.669], [2597239.984,
+        1225641.782], [2597244.165, 1225632.153], [2597244.222, 1225632.028], [2597246.554,
+        1225627.136], [2597249.056, 1225622.329], [2597251.724, 1225617.611], [2597254.555,
+        1225612.99], [2597257.545, 1225608.47], [2597260.692, 1225604.058], [2597262.602,
+        1225601.53], [2597277.926, 1225584.459], [2597280.483, 1225582.075], [2597284.538,
+        1225578.479], [2597288.717, 1225575.027], [2597293.014, 1225571.722], [2597297.423,
+        1225568.57], [2597301.94, 1225565.573], [2597306.559, 1225562.736], [2597311.273,
+        1225560.061], [2597316.079, 1225557.553], [2597320.969, 1225555.214], [2597325.937,
+        1225553.047], [2597330.978, 1225551.055], [2597336.086, 1225549.24], [2597341.253,
+        1225547.604], [2597346.475, 1225546.15], [2597351.745, 1225544.879], [2597357.055,
+        1225543.793], [2597362.4, 1225542.892], [2597364.103, 1225542.645], [2597370.58,
+        1225541.954], [2597377.077, 1225541.49], [2597383.586, 1225541.253], [2597390.099,
+        1225541.242], [2597390.612, 1225541.251], [2597401.416, 1225541.512], [2597409.911,
+        1225542.014], [2597412.204, 1225542.149], [2597416.971, 1225542.552], [2597453.859,
+        1225546.166], [2597467.271, 1225547.431], [2597486.673, 1225548.683], [2597506.106,
+        1225549.258], [2597508.249, 1225549.257], [2597512.749, 1225549.163], [2597520.289,
+        1225549.004], [2597532.313, 1225548.331], [2597544.306, 1225547.239], [2597556.254,
+        1225545.729], [2597560.525, 1225545.037], [2597568.141, 1225543.803], [2597579.954,
+        1225541.463], [2597591.679, 1225538.712], [2597603.3, 1225535.554], [2597614.803,
+        1225531.992], [2597626.176, 1225528.031], [2597637.403, 1225523.676], [2597648.472,
+        1225518.931], [2597659.368, 1225513.803], [2597670.078, 1225508.297], [2597680.59,
+        1225502.421], [2597694.785, 1225493.738], [2597715.052, 1225480.505], [2597744.543,
+        1225461.663], [2597744.908, 1225461.439], [2597746.147, 1225460.672], [2597751.986,
+        1225456.884], [2597757.69, 1225452.894], [2597760.529, 1225450.794], [2597766.064,
+        1225446.472], [2597766.369, 1225446.216], [2597766.668, 1225445.947], [2597768.883,
+        1225443.113], [2597769.934, 1225440.515], [2597770.185, 1225439.338], [2597770.241,
+        1225438.941], [2597770.283, 1225438.542], [2597770.339, 1225437.966], [2597770.918,
+        1225435.136], [2597770.97, 1225434.966], [2597771.15, 1225434.419], [2597771.349,
+        1225433.878], [2597772.33, 1225431.795], [2597772.62, 1225431.297], [2597772.927,
+        1225430.81], [2597773.251, 1225430.334], [2597773.591, 1225429.869], [2597773.948,
+        1225429.417], [2597774.32, 1225428.977], [2597774.707, 1225428.55], [2597775.109,
+        1225428.137], [2597775.524, 1225427.739], [2597775.954, 1225427.355], [2597776.397,
+        1225426.986], [2597776.852, 1225426.634], [2597777.319, 1225426.297], [2597779.297,
+        1225425.119], [2597779.816, 1225424.868], [2597780.343, 1225424.636], [2597780.878,
+        1225424.422], [2597783.256, 1225423.713], [2597783.642, 1225423.605], [2597784.025,
+        1225423.484], [2597784.403, 1225423.349], [2597784.776, 1225423.202], [2597785.144,
+        1225423.041], [2597785.506, 1225422.868], [2597785.862, 1225422.682], [2597786.211,
+        1225422.484], [2597786.553, 1225422.274], [2597786.887, 1225422.052], [2597787.214,
+        1225421.818], [2597787.532, 1225421.573], [2597787.841, 1225421.317], [2597788.141,
+        1225421.051], [2597788.432, 1225420.774], [2597788.713, 1225420.488], [2597788.984,
+        1225420.191], [2597789.244, 1225419.886], [2597789.493, 1225419.571], [2597791.879,
+        1225416.513], [2597796.331, 1225411.118], [2597800.968, 1225405.881], [2597805.785,
+        1225400.809], [2597810.776, 1225395.908], [2597815.696, 1225391.396], [2597820.683,
+        1225386.973], [2597835.42, 1225373.902], [2597848.585, 1225379.268], [2598703.307,
+        1225766.546], [2598682.158, 1225814.612], [2598561.672, 1225756.934], [2598555.904,
+        1225757.361], [2598552.486, 1225761.42], [2598531.977, 1225806.923], [2598523.86,
+        1225825.509], [2598504.206, 1225869.516], [2598481.135, 1225921.001], [2598426.039,
+        1226044.874], [2598428.323, 1226049.633], [2598556.05, 1226088.227], [2598567.438,
+        1226091.644], [2598704.787, 1226133.325], [2598674.038, 1226200.518], [2598653.311,
+        1226305.75], [2598630.078, 1226424.877], [2598608.236, 1226498.072], [2598773.189,
+        1226547.65], [2598782.596, 1226550.472], [2598737.445, 1226667.892], [2598741.253,
+        1226673.223], [2598884.93, 1226727.544], [2599086.23, 1226803.187]], [[2598063.704,
+        1224819.336], [2598227.472, 1224918.645], [2598286.124, 1224954.289], [2598252.562,
+        1224989.668], [2598249.041, 1224994.865], [2598247.556, 1224997.058], [2598188.337,
+        1225054.562], [2598188.275, 1225055.509], [2598142.477, 1225097.676], [2598126.423,
+        1225097.272], [2598033.266, 1225040.736], [2598032.238, 1225042.428], [2598020.649,
+        1225035.409], [2597960.802, 1224999.139], [2597955.943, 1224996.19], [2598063.414,
+        1224819.274], [2598063.704, 1224819.336]]]]}, "properties": {"objekttyp":
+        "Witischutzzone"}}], "crs": {"type": "name", "properties": {"name": "urn:ogc:def:crs:EPSG::2056"}},
+        "bbox": [2595689.199, 1223174.11, 2600857.319, 1227386.744]}
 
         '
     headers:
       Connection:
       - Keep-Alive
       Date:
-      - Tue, 29 Aug 2023 12:41:47 GMT
+      - Wed, 12 Jun 2024 12:03:25 GMT
       Keep-Alive:
-      - timeout=10, max=283
+      - timeout=10, max=300
       Server:
       - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=1MHFg1H1Ou48CipzGC8KY7e-74WcI2dbZEjdd3XRYGhJyzUPs_KE3w$$; path=/;
+        Secure; HttpOnly
       access-control-allow-origin:
       - '*'
       content-length:
-      - '18058'
+      - '24924'
       content-type:
       - application/json
     status:
@@ -1966,8 +2163,6 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      Cookie:
-      - SCDID_S=eKdt73S97Et_HSK1Tp9Z6flTXi-XnZzCGoZD180yoSL2BhlfdueiNQ$$
       User-Agent:
       - python-requests/2.31.0
     method: GET
@@ -1982,11 +2177,14 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Tue, 29 Aug 2023 12:41:47 GMT
+      - Wed, 12 Jun 2024 12:03:25 GMT
       Keep-Alive:
-      - timeout=10, max=282
+      - timeout=10, max=300
       Server:
       - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=CNnzKoQf4UkSgixXA1xhUJ8l-8zClXQdUNAStzrwFsz8kmNj2WvwFw$$; path=/;
+        Secure; HttpOnly
       access-control-allow-origin:
       - '*'
       content-length:
@@ -2005,8 +2203,6 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      Cookie:
-      - SCDID_S=eKdt73S97Et_HSK1Tp9Z6flTXi-XnZzCGoZD180yoSL2BhlfdueiNQ$$
       User-Agent:
       - python-requests/2.31.0
     method: GET
@@ -2014,7 +2210,7 @@ interactions:
   response:
     body:
       string: '{"type": "FeatureCollection", "features": [{"type": "Feature", "id":
-        14992855, "geometry": {"type": "Polygon", "coordinates": [[[2595880.459, 1223889.785],
+        16498633, "geometry": {"type": "Polygon", "coordinates": [[[2595880.459, 1223889.785],
         [2595909.108, 1223906.293], [2595918.987, 1223904.995], [2595930.956, 1223903.423],
         [2595970.908, 1223898.174], [2595973.085, 1223897.888], [2595996.06, 1223802.232],
         [2595980.175, 1223799.886], [2595949.228, 1223787.583], [2595880.459, 1223889.785]]]},
@@ -2028,17 +2224,68 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Tue, 29 Aug 2023 12:41:47 GMT
+      - Wed, 12 Jun 2024 12:03:25 GMT
       Keep-Alive:
-      - timeout=10, max=281
+      - timeout=10, max=300
       Server:
       - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=v-hufCjdvUBBnWGG0PwC8m7RMK0_CmI6dtXvpxAIK2b_LRpJS-LvYQ$$; path=/;
+        Secure; HttpOnly
       access-control-allow-origin:
       - '*'
       content-length:
       - '664'
       content-type:
       - application/json
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://api3.geo.admin.ch/rest/services/api/MapServer/identify?returnGeometry=False&sr=2056&mapExtent=0,0,0,0&tolerance=0&imageDisplay=0,0,0&layers=all:ch.astra.ivs-nat,ch.astra.ivs-reg_loc&geometryType=esriGeometryEnvelope&geometry=2595883.1098607033,1223847.4541323201,2595933.1098607033,1223897.4541323201
+  response:
+    body:
+      string: '{"results": []}'
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, HEAD, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - max-age=1800, public
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '15'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 12 Jun 2024 12:03:25 GMT
+      Server:
+      - Apache/2.4.38 (Debian)
+      Via:
+      - 1.1 3c2af29a416fc74eb3d104df3f808fdc.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - 0EoKwhkQ6mC46xgKRIzsusoZMlO29g8BXUixfGVm9FOGfWwTRLwXcg==
+      X-Amz-Cf-Pop:
+      - ZRH55-P1
+      X-Cache:
+      - Miss from cloudfront
+      X-Ua-Compatible:
+      - IE=Edge
     status:
       code: 200
       message: OK
