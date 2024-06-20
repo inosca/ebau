@@ -9314,6 +9314,62 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 29,
+    "fields": {
+      "resource": 9,
+      "role": 5
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 30,
+    "fields": {
+      "resource": 9,
+      "role": 6
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 31,
+    "fields": {
+      "resource": 9,
+      "role": 7
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 32,
+    "fields": {
+      "resource": 9,
+      "role": 10
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 33,
+    "fields": {
+      "resource": 9,
+      "role": 11
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 34,
+    "fields": {
+      "resource": 9,
+      "role": 12
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 35,
+    "fields": {
+      "resource": 9,
+      "role": 8
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 1,
     "fields": {
@@ -9418,6 +9474,19 @@
     }
   },
   {
+    "model": "core.resource",
+    "pk": 9,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/alexandria-search.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 8
+    }
+  },
+  {
     "model": "core.resourcet",
     "pk": 1,
     "fields": {
@@ -9494,6 +9563,16 @@
       "resource": 8,
       "language": "de",
       "name": "Dossierimport",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 9,
+    "fields": {
+      "resource": 9,
+      "language": "de",
+      "name": "Dokumentensuche",
       "description": null
     }
   }
