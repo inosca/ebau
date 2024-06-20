@@ -29,7 +29,7 @@ mutation CreateFlow2 {
     input: {
       workflow: "building-permit"
       tasks: ["complete-check"]
-      next: "['distribution', 'after-complete-check-ur']|tasks"
+      next: "['distribution', 'after-complete-check-ur', 'bab']|tasks"
     }
   ) {
     clientMutationId

@@ -151,3 +151,16 @@ class CustomDynamicGroups(BaseDynamicGroups):
             if settings.BAB
             else []
         )
+
+    @register_dynamic_group("service-bab-ur")
+    def resolve_service_bab_ur(
+        self, task, case, user, prev_work_item, context, **kwargs
+    ):
+        return [
+            str(service.pk)
+            for service in Service.objects.filter(
+                name=settings.APPLICATION["CALUMA"]["BAB_MUNICIPALITY_MAPPING"][
+                    case.instance.location_id
+                ]
+            )
+        ]

@@ -14665,6 +14665,22 @@
   },
   {
     "model": "core.instanceresource",
+    "pk": 12000001,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 12000003,
+      "name": "BaB Datenerfassung",
+      "description": "BaB Datenerfassung (Caluma)",
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 17,
+      "form_group": 161,
+      "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
     "pk": 14000009,
     "fields": {
       "available_instance_resource": "dashboard",
@@ -14930,7 +14946,7 @@
       "template": "/ember-camac-ng/dms-generate.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 17,
+      "sort": 18,
       "form_group": 161,
       "require_permission": null
     }
@@ -14946,7 +14962,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 18,
+      "sort": 19,
       "form_group": 161,
       "require_permission": null
     }
@@ -14962,7 +14978,7 @@
       "template": "/ember-camac-ng/additional-demand.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 19,
+      "sort": 20,
       "form_group": 161,
       "require_permission": null
     }
@@ -14978,7 +14994,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 20,
+      "sort": 21,
       "form_group": 161,
       "require_permission": null
     }
@@ -14994,7 +15010,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 21,
+      "sort": 22,
       "form_group": 161,
       "require_permission": null
     }
@@ -15010,7 +15026,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 22,
+      "sort": 23,
       "form_group": 161,
       "require_permission": null
     }
@@ -31481,6 +31497,94 @@
       "instance_resource": 14000025,
       "role": 4,
       "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12001869,
+    "fields": {
+      "instance_resource": 12000001,
+      "role": 4,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12001870,
+    "fields": {
+      "instance_resource": 12000001,
+      "role": 3,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12001871,
+    "fields": {
+      "instance_resource": 12000001,
+      "role": 3,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12001872,
+    "fields": {
+      "instance_resource": 12000001,
+      "role": 3,
+      "instance_state": 32
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12001873,
+    "fields": {
+      "instance_resource": 12000001,
+      "role": 3,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12001874,
+    "fields": {
+      "instance_resource": 12000001,
+      "role": 3,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12001875,
+    "fields": {
+      "instance_resource": 12000001,
+      "role": 3,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12001876,
+    "fields": {
+      "instance_resource": 12000001,
+      "role": 3,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12001877,
+    "fields": {
+      "instance_resource": 12000001,
+      "role": 3,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 12000001,
+    "fields": {
+      "task": "bab"
     }
   },
   {
