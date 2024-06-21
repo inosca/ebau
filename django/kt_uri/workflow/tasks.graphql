@@ -211,3 +211,17 @@ mutation RedoInquiryFlow {
     clientMutationId
   }
 }
+
+mutation CreateBabTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "bab"
+      name: "BaB Datenerfassung"
+      addressGroups: "['service-bab-ur']|groups"
+      controlGroups: "['service-bab-ur']|groups"
+      form: "bab"
+    }
+  ) {
+    clientMutationId
+  }
+}
