@@ -1,0 +1,3813 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "bab",
+    "fields": {
+      "created_at": "2024-06-20T09:24:58.660Z",
+      "modified_at": "2024-06-21T09:42:04.750Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "name": "{\"de\": \"BaB Datenerfassung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "bab-lage-flaechenbedarf-form",
+    "fields": {
+      "created_at": "2024-06-21T07:14:11.497Z",
+      "modified_at": "2024-06-21T07:14:11.497Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Lage / Fl\\u00e4chenbedarf\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.bab-art-der-massnahme",
+    "fields": {
+      "created_at": "2024-06-20T16:26:29.811Z",
+      "modified_at": "2024-06-20T16:26:29.811Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bab-art-der-massnahme",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.bab-art-grundlage-verfahren-titel",
+    "fields": {
+      "created_at": "2024-06-20T09:26:11.655Z",
+      "modified_at": "2024-06-20T09:26:11.655Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bab-art-grundlage-verfahren-titel",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.bab-bewilligungsgrund",
+    "fields": {
+      "created_at": "2024-06-21T06:52:23.717Z",
+      "modified_at": "2024-06-21T06:52:23.717Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bab-bewilligungsgrund",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.bab-entscheid",
+    "fields": {
+      "created_at": "2024-06-21T07:00:16.366Z",
+      "modified_at": "2024-06-21T07:00:16.366Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bab-entscheid",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.bab-flaechenbedarf-fruchtfolgeflaechen",
+    "fields": {
+      "created_at": "2024-06-21T07:19:30.276Z",
+      "modified_at": "2024-06-21T07:19:30.276Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bab-flaechenbedarf-fruchtfolgeflaechen",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.bab-gebaeude-abbruch",
+    "fields": {
+      "created_at": "2024-06-21T07:32:30.663Z",
+      "modified_at": "2024-06-21T07:32:30.663Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bab-gebaeude-abbruch",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.bab-kompensation-fruchtfolgeflaechen",
+    "fields": {
+      "created_at": "2024-06-21T07:20:10.898Z",
+      "modified_at": "2024-06-21T07:20:10.898Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bab-kompensation-fruchtfolgeflaechen",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.bab-lage-flaechenbedarf-tabelle",
+    "fields": {
+      "created_at": "2024-06-21T07:17:47.421Z",
+      "modified_at": "2024-06-21T07:17:47.421Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bab-lage-flaechenbedarf-tabelle",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.bab-lage-flaechenbedarf-titel",
+    "fields": {
+      "created_at": "2024-06-20T16:23:05.634Z",
+      "modified_at": "2024-06-20T16:23:05.634Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bab-lage-flaechenbedarf-titel",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.bab-neue-gebaeude",
+    "fields": {
+      "created_at": "2024-06-21T07:31:44.253Z",
+      "modified_at": "2024-06-21T07:31:44.253Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bab-neue-gebaeude",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.bab-nutzung-nach-rpg",
+    "fields": {
+      "created_at": "2024-06-20T18:53:48.916Z",
+      "modified_at": "2024-06-20T18:53:48.916Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bab-nutzung-nach-rpg",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.bab-objektart",
+    "fields": {
+      "created_at": "2024-06-20T18:51:53.167Z",
+      "modified_at": "2024-06-20T18:51:53.167Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bab-objektart",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.bab-stabilisierung-gebaeude-titel",
+    "fields": {
+      "created_at": "2024-06-21T07:29:54.970Z",
+      "modified_at": "2024-06-21T07:29:54.970Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bab-stabilisierung-gebaeude-titel",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.bab-stabilisierungsziel",
+    "fields": {
+      "created_at": "2024-06-21T07:36:44.529Z",
+      "modified_at": "2024-06-21T07:36:44.529Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bab-stabilisierungsziel",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.bab-typ-der-auftraggeber",
+    "fields": {
+      "created_at": "2024-06-21T07:09:41.195Z",
+      "modified_at": "2024-06-21T07:09:41.195Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bab-typ-der-auftraggeber",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.bab-versiegelte-flaechen-rueckbau",
+    "fields": {
+      "created_at": "2024-06-21T07:35:20.635Z",
+      "modified_at": "2024-06-21T07:35:20.635Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bab-versiegelte-flaechen-rueckbau",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.bab-zusaetzlich-versiegelte-flaeche",
+    "fields": {
+      "created_at": "2024-06-21T07:34:23.014Z",
+      "modified_at": "2024-06-21T07:34:23.014Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bab-zusaetzlich-versiegelte-flaeche",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab-lage-flaechenbedarf-form.bab-flaechenbedarf-grundnutzung",
+    "fields": {
+      "created_at": "2024-06-21T07:16:49.009Z",
+      "modified_at": "2024-06-21T07:16:49.009Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab-lage-flaechenbedarf-form",
+      "question": "bab-flaechenbedarf-grundnutzung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab-lage-flaechenbedarf-form.bab-grundnutzung",
+    "fields": {
+      "created_at": "2024-06-21T07:16:07.376Z",
+      "modified_at": "2024-06-21T07:16:07.376Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab-lage-flaechenbedarf-form",
+      "question": "bab-grundnutzung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-art-der-massnahme-abbruch",
+    "fields": {
+      "created_at": "2024-06-20T16:26:29.181Z",
+      "modified_at": "2024-06-20T16:26:29.181Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abbruch\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-art-der-massnahme-abparzellierung",
+    "fields": {
+      "created_at": "2024-06-20T16:26:29.313Z",
+      "modified_at": "2024-06-20T16:26:29.313Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abparzellierung Ver\\u00e4usserung Betriebs\\u00fcbergabe\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-art-der-massnahme-andere",
+    "fields": {
+      "created_at": "2024-06-20T16:26:29.320Z",
+      "modified_at": "2024-06-20T16:26:29.320Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-art-der-massnahme-ersatzneubau",
+    "fields": {
+      "created_at": "2024-06-20T16:26:29.394Z",
+      "modified_at": "2024-06-20T16:26:29.394Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ersatzneubau\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-art-der-massnahme-neubau",
+    "fields": {
+      "created_at": "2024-06-20T16:26:29.075Z",
+      "modified_at": "2024-06-20T16:26:29.076Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neubau\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-art-der-massnahme-sanierung",
+    "fields": {
+      "created_at": "2024-06-20T16:26:29.271Z",
+      "modified_at": "2024-06-20T16:26:29.271Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sanierung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-art-der-massnahme-umbau-anbau",
+    "fields": {
+      "created_at": "2024-06-20T16:26:29.165Z",
+      "modified_at": "2024-06-20T16:26:29.165Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Umbau / Anbau\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-art-der-massnahme-zweckaenderung",
+    "fields": {
+      "created_at": "2024-06-20T16:26:29.226Z",
+      "modified_at": "2024-06-20T16:26:29.227Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zweck\\u00e4nderung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-abparzellierung",
+    "fields": {
+      "created_at": "2024-06-21T06:52:23.056Z",
+      "modified_at": "2024-06-21T06:52:23.056Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"BGBB 4a VBB Abparzellierung von Bauten und Anlagen, Feststellungsverf\\u00fcgung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-allgemein-zonenkonform",
+    "fields": {
+      "created_at": "2024-06-21T06:52:22.034Z",
+      "modified_at": "2024-06-21T06:52:22.034Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 22 allgemein zonenkonform\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-andere-dossiers",
+    "fields": {
+      "created_at": "2024-06-21T06:52:23.114Z",
+      "modified_at": "2024-06-21T06:52:23.114Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere Dossiers\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-biomasse",
+    "fields": {
+      "created_at": "2024-06-21T06:52:21.572Z",
+      "modified_at": "2024-06-21T06:52:21.572Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 16a 1 RPV 34a Gewinnung von Energie aus Biomasse\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-erhaltungszonen",
+    "fields": {
+      "created_at": "2024-06-21T06:52:21.804Z",
+      "modified_at": "2024-06-21T06:52:21.804Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 18 RPV 33 Zonenkonforme Bauten und Anlagen in Weiler- oder Erhaltungszonen u.\\u00e4.\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-existenzsicherung",
+    "fields": {
+      "created_at": "2024-06-21T06:52:22.320Z",
+      "modified_at": "2024-06-21T06:52:22.320Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 24b 1 Nichtlandwirtschaftliche Nebenbetriebe zur Existenzsicherung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-geschuetzte-bauten",
+    "fields": {
+      "created_at": "2024-06-21T06:52:22.858Z",
+      "modified_at": "2024-06-21T06:52:22.858Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 24d 2 Vollst\\u00e4ndige Zweck\\u00e4nderung gesch\\u00fctzter Bauten\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-gewaechshaeuser",
+    "fields": {
+      "created_at": "2024-06-21T06:52:21.509Z",
+      "modified_at": "2024-06-21T06:52:21.509Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 16a 2 RPV 37 Innere Aufstockung Gem\\u00fcse- und Pflanzenbau (Gew\\u00e4chsh\\u00e4user)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-hobby-tierhaltung-aussenanlagen",
+    "fields": {
+      "created_at": "2024-06-21T06:52:22.878Z",
+      "modified_at": "2024-06-21T06:52:22.878Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 24e 2-4 Aussenanlagen zur hobbym\\u00e4ssigen Tierhaltung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-hobby-tierhaltung-bauzone",
+    "fields": {
+      "created_at": "2024-06-21T06:52:22.895Z",
+      "modified_at": "2024-06-21T06:52:22.895Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 24e 1 Hobbym\\u00e4ssige Tierhaltung in nahe bei der Bauzone gelegenen Geb\\u00e4uden\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-innerhalb-bauzone",
+    "fields": {
+      "created_at": "2024-06-21T06:52:21.191Z",
+      "modified_at": "2024-06-21T06:52:21.191Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Innerhalb Bauzone\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-landschaftspraegende-bauten",
+    "fields": {
+      "created_at": "2024-06-21T06:52:22.257Z",
+      "modified_at": "2024-06-21T06:52:22.257Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 24 RPV 39 2 Vollst\\u00e4ndige Zweck\\u00e4nderung landschaftspr\\u00e4gender Bauten\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-landwirtschaftliche-bauten",
+    "fields": {
+      "created_at": "2024-06-21T06:52:21.345Z",
+      "modified_at": "2024-06-21T06:52:21.345Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 16a 1 RPV 34 2 Landwirtschaftliche Bauten: Aufbereitung Lagerung und Verkauf\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-landwirtschaftliche-wohnbauten",
+    "fields": {
+      "created_at": "2024-06-21T06:52:22.705Z",
+      "modified_at": "2024-06-21T06:52:22.705Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 24d 1 RPV 42a \\u00c4nderungen an ehemals landwirtschaftlich genutzten Wohnbauten\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-nebenbetriebe",
+    "fields": {
+      "created_at": "2024-06-21T06:52:22.510Z",
+      "modified_at": "2024-06-21T06:52:22.510Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 24b 1 bis Nichtlandw. Nebenbetriebe mit engem Bezug zu landw. Gewerbe\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-oekonomiebauten",
+    "fields": {
+      "created_at": "2024-06-21T06:52:21.194Z",
+      "modified_at": "2024-06-21T06:52:21.194Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 16a RPV 34 1 \\u00d6konomiebauten f\\u00fcr die bodenabh\\u00e4ngige Landwirtschaft\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-ohne-bauliche-massnahmen",
+    "fields": {
+      "created_at": "2024-06-21T06:52:22.353Z",
+      "modified_at": "2024-06-21T06:52:22.353Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 24a Zweck\\u00e4nderung ohne bauliche Massnahmen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-solaranlagen",
+    "fields": {
+      "created_at": "2024-06-21T06:52:21.874Z",
+      "modified_at": "2024-06-21T06:52:21.874Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 18a Solaranlagen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-solaranlagen-ausserhalb-bauzone",
+    "fields": {
+      "created_at": "2024-06-21T06:52:22.908Z",
+      "modified_at": "2024-06-21T06:52:22.908Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPV 32c Standortgebundene Solaranlagen ausserhalb der Bauzonen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-speziallandwirtschaftszonen",
+    "fields": {
+      "created_at": "2024-06-21T06:52:21.547Z",
+      "modified_at": "2024-06-21T06:52:21.547Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 16a 3 RPV 38 Bauten und Anlagen in Speziallandwirtschaftszonen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-spezialzonen",
+    "fields": {
+      "created_at": "2024-06-21T06:52:21.791Z",
+      "modified_at": "2024-06-21T06:52:21.792Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 18 allgemein, Zonenkonforme Bauten und Anlagen in Spezialzonen (Deponie, Sport, u.\\u00e4. ohne Weiler, Erhaltungszonen)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-stallbauten",
+    "fields": {
+      "created_at": "2024-06-21T06:52:21.142Z",
+      "modified_at": "2024-06-21T06:52:21.142Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 16a RPV 35 Gemeinschaftliche Stallbauten\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-standortgebunden",
+    "fields": {
+      "created_at": "2024-06-21T06:52:21.986Z",
+      "modified_at": "2024-06-21T06:52:21.986Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 24 Standortgebundene Bauten und Anlagen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-streusiedlungsgebiet",
+    "fields": {
+      "created_at": "2024-06-21T06:52:22.075Z",
+      "modified_at": "2024-06-21T06:52:22.075Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 24 RPV 39 1 Vollst\\u00e4ndige Zweck\\u00e4nderung von Bauten in Streusiedlungsgebieten\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-temp-betriebszentren",
+    "fields": {
+      "created_at": "2024-06-21T06:52:22.431Z",
+      "modified_at": "2024-06-21T06:52:22.431Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 24b 1 ter Nichtlandw. Nebenbetriebe in tempor\\u00e4ren Betriebszentren\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-tierhaltung",
+    "fields": {
+      "created_at": "2024-06-21T06:52:21.258Z",
+      "modified_at": "2024-06-21T06:52:21.258Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 16a 2 RPV 36 Innere Aufstockung Tierhaltung (Schweinest\\u00e4lle, Gefl\\u00fcgelhallen)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-wohnbauten",
+    "fields": {
+      "created_at": "2024-06-21T06:52:21.254Z",
+      "modified_at": "2024-06-21T06:52:21.254Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 16a 1 RPV 34 3 Wohnbauten f\\u00fcr landwirtschaftliche Gewerbe\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-zonenkonform",
+    "fields": {
+      "created_at": "2024-06-21T06:52:21.598Z",
+      "modified_at": "2024-06-21T06:52:21.598Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 17 allgemein, Zonenkonforme Bauten und Anlagen in Schutzzonen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-zonenwidrig",
+    "fields": {
+      "created_at": "2024-06-21T06:52:22.609Z",
+      "modified_at": "2024-06-21T06:52:22.609Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 24c RPV 42 \\u00c4nderung zonenwidrig gewordener Bauten und Anlagen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-bewilligungsgrund-zonenwidrige-gewerbliche-bauten",
+    "fields": {
+      "created_at": "2024-06-21T06:52:23.040Z",
+      "modified_at": "2024-06-21T06:52:23.040Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RPG 37a RPV 43 \\u00c4nderung zonenwidrig gewordener gewerblicher Bauten\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-grundnutzung-andere",
+    "fields": {
+      "created_at": "2024-06-21T07:16:06.862Z",
+      "modified_at": "2024-06-21T07:16:06.862Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-grundnutzung-freihaltezone",
+    "fields": {
+      "created_at": "2024-06-21T07:16:06.770Z",
+      "modified_at": "2024-06-21T07:16:06.770Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Freihaltezone\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-grundnutzung-landwirtschaftszone",
+    "fields": {
+      "created_at": "2024-06-21T07:16:06.758Z",
+      "modified_at": "2024-06-21T07:16:06.758Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Landwirtschaftszone\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-grundnutzung-reservezone",
+    "fields": {
+      "created_at": "2024-06-21T07:16:06.755Z",
+      "modified_at": "2024-06-21T07:16:06.755Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Reservezone\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-grundnutzung-verkehrsflaechen-abz",
+    "fields": {
+      "created_at": "2024-06-21T07:16:06.922Z",
+      "modified_at": "2024-06-21T07:16:06.922Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verkehrsfl\\u00e4chen aBZ\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-grundnutzung-wald",
+    "fields": {
+      "created_at": "2024-06-21T07:16:06.791Z",
+      "modified_at": "2024-06-21T07:16:06.791Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wald\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-grundnutzung-weilerzone",
+    "fields": {
+      "created_at": "2024-06-21T07:16:06.692Z",
+      "modified_at": "2024-06-21T07:16:06.692Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Weilerzone\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-nutzung-nach-rpg-andere",
+    "fields": {
+      "created_at": "2024-06-20T18:53:48.476Z",
+      "modified_at": "2024-06-20T18:53:48.476Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-nutzung-nach-rpg-ausnahmebewilligung",
+    "fields": {
+      "created_at": "2024-06-20T18:53:48.533Z",
+      "modified_at": "2024-06-20T18:53:48.533Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ausnahmebewilligung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-nutzung-nach-rpg-zonenkonform",
+    "fields": {
+      "created_at": "2024-06-20T18:53:48.465Z",
+      "modified_at": "2024-06-20T18:53:48.465Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zonenkonform\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-objektart-andere",
+    "fields": {
+      "created_at": "2024-06-20T18:51:52.471Z",
+      "modified_at": "2024-06-20T18:51:52.471Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-objektart-betrieb-gewerbe-liegenschaften",
+    "fields": {
+      "created_at": "2024-06-20T18:51:52.637Z",
+      "modified_at": "2024-06-20T18:51:52.637Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Betrieb Gewerbe Liegenschaften\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-objektart-bewirtschaftungsweg",
+    "fields": {
+      "created_at": "2024-06-20T18:51:52.440Z",
+      "modified_at": "2024-06-20T18:51:52.440Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bewirtschaftungsweg\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-objektart-fahrnisbauten",
+    "fields": {
+      "created_at": "2024-06-20T18:51:52.567Z",
+      "modified_at": "2024-06-20T18:51:52.567Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fahrnisbauten\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-objektart-gewerbebaute-mit-arbeitsplaetzen",
+    "fields": {
+      "created_at": "2024-06-20T18:51:51.986Z",
+      "modified_at": "2024-06-20T18:51:51.986Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gewerbebaute mit Arbeitspl\\u00e4tzen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-objektart-gewerbebaute-ohne-arbeitsplaetzen",
+    "fields": {
+      "created_at": "2024-06-20T18:51:51.861Z",
+      "modified_at": "2024-06-20T18:51:51.861Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gewerbebaute ohne Arbeitspl\\u00e4tzen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-objektart-hof-guetererschliessung",
+    "fields": {
+      "created_at": "2024-06-20T18:51:52.473Z",
+      "modified_at": "2024-06-20T18:51:52.473Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hof- / G\\u00fctererschliessung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-objektart-oekonomiebaute-mit-tierhaltung",
+    "fields": {
+      "created_at": "2024-06-20T18:51:51.963Z",
+      "modified_at": "2024-06-20T18:51:51.964Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00d6konomiebaute mit Tierhaltung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-objektart-oekonomiebaute-ohne-tierhaltung",
+    "fields": {
+      "created_at": "2024-06-20T18:51:52.052Z",
+      "modified_at": "2024-06-20T18:51:52.052Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00d6konomiebaute ohne Tierhaltung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-objektart-terrainveraenderung",
+    "fields": {
+      "created_at": "2024-06-20T18:51:52.202Z",
+      "modified_at": "2024-06-20T18:51:52.202Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Terrainver\\u00e4nderung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-objektart-viehtriebweg",
+    "fields": {
+      "created_at": "2024-06-20T18:51:52.255Z",
+      "modified_at": "2024-06-20T18:51:52.255Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Viehtriebweg\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-objektart-wanderweg",
+    "fields": {
+      "created_at": "2024-06-20T18:51:52.606Z",
+      "modified_at": "2024-06-20T18:51:52.606Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wanderweg\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-objektart-wohnbaute",
+    "fields": {
+      "created_at": "2024-06-20T18:51:51.896Z",
+      "modified_at": "2024-06-20T18:51:51.896Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wohnbaute\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-objektart-wohn-oekonomiebaute",
+    "fields": {
+      "created_at": "2024-06-20T18:51:52.010Z",
+      "modified_at": "2024-06-20T18:51:52.010Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wohn- / \\u00d6konomiebaute\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-stabilisierungsziel-nicht-relevant",
+    "fields": {
+      "created_at": "2024-06-21T07:36:44.057Z",
+      "modified_at": "2024-06-21T07:36:44.057Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht relevant (Tourismus und Landwirtschaft)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-stabilisierungsziel-relevant",
+    "fields": {
+      "created_at": "2024-06-21T07:36:44.090Z",
+      "modified_at": "2024-06-21T07:36:44.090Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Relevant\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-andere-private-auftraggeber",
+    "fields": {
+      "created_at": "2024-06-21T07:09:40.284Z",
+      "modified_at": "2024-06-21T07:09:40.284Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere private Auftraggeber (z.B. SAC Sektionen, Kirchgemeinden, Stiftungen, Vereine)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-astra",
+    "fields": {
+      "created_at": "2024-06-21T07:09:39.003Z",
+      "modified_at": "2024-06-21T07:09:39.003Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"ASTRA (Bundesamt f\\u00fcr Strassen)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-banken",
+    "fields": {
+      "created_at": "2024-06-21T07:09:39.894Z",
+      "modified_at": "2024-06-21T07:09:39.894Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Banken\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-bbl",
+    "fields": {
+      "created_at": "2024-06-21T07:09:39.041Z",
+      "modified_at": "2024-06-21T07:09:39.041Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"BBL (Bundesamt f\\u00fcr Bauten und Logistik)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-bundesamt-fuer-umweltschutz",
+    "fields": {
+      "created_at": "2024-06-21T07:09:40.660Z",
+      "modified_at": "2024-06-21T07:09:40.660Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bundesamt f\\u00fcr Umweltschutz\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-einzelfirmen",
+    "fields": {
+      "created_at": "2024-06-21T07:09:40.417Z",
+      "modified_at": "2024-06-21T07:09:40.417Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einzelfirmen oder Personengesellschaften\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-elektrizitaetswerke",
+    "fields": {
+      "created_at": "2024-06-21T07:09:39.860Z",
+      "modified_at": "2024-06-21T07:09:39.860Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Elektrizit\\u00e4tswerke (ausgenommen gemeindeeigene Werke)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-gaswerke",
+    "fields": {
+      "created_at": "2024-06-21T07:09:39.940Z",
+      "modified_at": "2024-06-21T07:09:39.940Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gaswerke\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-gemeinde-inkl-kooperationen",
+    "fields": {
+      "created_at": "2024-06-21T07:09:39.347Z",
+      "modified_at": "2024-06-21T07:09:39.347Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gemeinden (inkl. Korporationen B\\u00fcrgergemeinden und Alpgenossenschaften)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-gemeinden-oeffentlich",
+    "fields": {
+      "created_at": "2024-06-21T07:09:39.438Z",
+      "modified_at": "2024-06-21T07:09:39.438Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gemeinden (\\u00f6ffentliche Unternehmen Gemeinde, z.B. Wasserwerke, Elektrizit\\u00e4stwerke)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-immobilienbranche",
+    "fields": {
+      "created_at": "2024-06-21T07:09:40.051Z",
+      "modified_at": "2024-06-21T07:09:40.051Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Immobilienbranche (AG, GmbH, Genossenschaft)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-immobilienbranche-einzelpersonen",
+    "fields": {
+      "created_at": "2024-06-21T07:09:40.549Z",
+      "modified_at": "2024-06-21T07:09:40.549Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Immobilienbranche (Einzelpersonen oder Personengesellschaften)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-immobilienbranche-wohnbaugenossenschaften",
+    "fields": {
+      "created_at": "2024-06-21T07:09:40.652Z",
+      "modified_at": "2024-06-21T07:09:40.652Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Immobilienbranche (Wohnbaugenossenschaften)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-internationale-organisationen",
+    "fields": {
+      "created_at": "2024-06-21T07:09:40.488Z",
+      "modified_at": "2024-06-21T07:09:40.488Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Internationale Organisationen, Botschaften\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-kanton-nicht-oeffentlich",
+    "fields": {
+      "created_at": "2024-06-21T07:09:39.322Z",
+      "modified_at": "2024-06-21T07:09:39.322Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kanton (z.B. ARE BD, ohne \\u00f6ffentliche Unternehmen)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-kanton-oeffentlich",
+    "fields": {
+      "created_at": "2024-06-21T07:09:39.304Z",
+      "modified_at": "2024-06-21T07:09:39.304Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kanton (\\u00f6ffentliche Unternehmen des Kantons, z.B. Spital)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-krankenkassen",
+    "fields": {
+      "created_at": "2024-06-21T07:09:39.736Z",
+      "modified_at": "2024-06-21T07:09:39.736Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Krankenkassen, SUVA\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-personalfuersorgestiftungen",
+    "fields": {
+      "created_at": "2024-06-21T07:09:39.552Z",
+      "modified_at": "2024-06-21T07:09:39.552Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Personalf\\u00fcrsorgestiftungen (Pensionskassen)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-post",
+    "fields": {
+      "created_at": "2024-06-21T07:09:38.868Z",
+      "modified_at": "2024-06-21T07:09:38.868Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Post\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-privatbahnen",
+    "fields": {
+      "created_at": "2024-06-21T07:09:40.096Z",
+      "modified_at": "2024-06-21T07:09:40.096Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Privatbahnen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-privatpersonen",
+    "fields": {
+      "created_at": "2024-06-21T07:09:40.380Z",
+      "modified_at": "2024-06-21T07:09:40.380Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Privatpersonen (inkl. Erbengemeinschaften)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-sbb",
+    "fields": {
+      "created_at": "2024-06-21T07:09:38.952Z",
+      "modified_at": "2024-06-21T07:09:38.952Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"SBB (Schweizerische Bundesbahnen)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-swisscom",
+    "fields": {
+      "created_at": "2024-06-21T07:09:38.973Z",
+      "modified_at": "2024-06-21T07:09:38.973Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Swisscom\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-vbs",
+    "fields": {
+      "created_at": "2024-06-21T07:09:39.078Z",
+      "modified_at": "2024-06-21T07:09:39.078Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"VBS (Eidg. Departement f\\u00fcr Verteidigung, Bev\\u00f6lkerungsschutz und Sport)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-typ-der-auftraggeber-versicherungsgesellschaften",
+    "fields": {
+      "created_at": "2024-06-21T07:09:39.555Z",
+      "modified_at": "2024-06-21T07:09:39.555Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Versicherungsgesellschaften\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-andere",
+    "fields": {
+      "created_at": "2024-06-21T07:00:15.941Z",
+      "modified_at": "2024-06-21T07:00:15.941Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-negativ",
+    "fields": {
+      "created_at": "2024-06-21T07:00:15.900Z",
+      "modified_at": "2024-06-21T07:00:15.900Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Negativ\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-positiv",
+    "fields": {
+      "created_at": "2024-06-21T07:00:15.898Z",
+      "modified_at": "2024-06-21T07:00:15.898Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Positiv\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-art-der-massnahme",
+    "fields": {
+      "created_at": "2024-06-20T16:26:29.576Z",
+      "modified_at": "2024-06-21T09:55:49.644Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art der Massnahme\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-art-grundlage-verfahren-titel",
+    "fields": {
+      "created_at": "2024-06-20T09:26:11.428Z",
+      "modified_at": "2024-06-20T09:26:11.428Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art / Grundlage / Verfahren Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Art / Grundlage / Verfahren\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-bewilligungsgrund",
+    "fields": {
+      "created_at": "2024-06-21T06:52:23.414Z",
+      "modified_at": "2024-06-21T09:43:35.533Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bewilligungsgrund - Rechtliche Grundlage\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-entscheid",
+    "fields": {
+      "created_at": "2024-06-21T07:00:16.106Z",
+      "modified_at": "2024-06-21T09:56:41.799Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheid\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-flaechenbedarf-fruchtfolgeflaechen",
+    "fields": {
+      "created_at": "2024-06-21T07:19:30.049Z",
+      "modified_at": "2024-06-21T09:57:12.577Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fl\\u00e4chenbedarf Fruchtfolgefl\\u00e4chen (m\\u00b2)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-flaechenbedarf-grundnutzung",
+    "fields": {
+      "created_at": "2024-06-21T07:16:48.792Z",
+      "modified_at": "2024-06-21T09:57:55.597Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fl\\u00e4chenbedarf nach Grundnutzung (m\\u00b2)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-gebaeude-abbruch",
+    "fields": {
+      "created_at": "2024-06-21T07:32:30.459Z",
+      "modified_at": "2024-06-21T07:32:30.459Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Geb\\u00e4ude die abgebrochen werden\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-grundnutzung",
+    "fields": {
+      "created_at": "2024-06-21T07:16:07.115Z",
+      "modified_at": "2024-06-21T07:16:07.115Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grundnutzung\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-kompensation-fruchtfolgeflaechen",
+    "fields": {
+      "created_at": "2024-06-21T07:20:10.644Z",
+      "modified_at": "2024-06-21T09:57:31.790Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kompensation Fruchtfolgefl\\u00e4chen (m\\u00b2)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-lage-flaechenbedarf-tabelle",
+    "fields": {
+      "created_at": "2024-06-21T07:17:47.216Z",
+      "modified_at": "2024-06-21T07:17:47.216Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Lage / Fl\\u00e4chenbedarf\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": "bab-lage-flaechenbedarf-form",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-lage-flaechenbedarf-titel",
+    "fields": {
+      "created_at": "2024-06-20T16:23:05.359Z",
+      "modified_at": "2024-06-20T16:23:05.360Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Lage / Fl\\u00e4chenbedarf Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Lage / Fl\\u00e4chenbedarf\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-neue-gebaeude",
+    "fields": {
+      "created_at": "2024-06-21T07:31:44.059Z",
+      "modified_at": "2024-06-21T09:43:20.498Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl neue Geb\\u00e4ude\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-nutzung-nach-rpg",
+    "fields": {
+      "created_at": "2024-06-20T18:53:48.723Z",
+      "modified_at": "2024-06-21T09:56:25.971Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nutzung nach RPG\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-objektart",
+    "fields": {
+      "created_at": "2024-06-20T18:51:52.914Z",
+      "modified_at": "2024-06-21T09:56:02.216Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Objektart\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-stabilisierung-gebaeude-titel",
+    "fields": {
+      "created_at": "2024-06-21T07:29:54.754Z",
+      "modified_at": "2024-06-21T07:29:54.754Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Stabilisierung, Geb\\u00e4ude / versiegelte Fl\\u00e4chen Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Stabilisierung, Geb\\u00e4ude / versiegelte Fl\\u00e4chen\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-stabilisierungsziel",
+    "fields": {
+      "created_at": "2024-06-21T07:36:44.300Z",
+      "modified_at": "2024-06-21T07:36:44.300Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Stabilisierungsziel\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-typ-der-auftraggeber",
+    "fields": {
+      "created_at": "2024-06-21T07:09:40.878Z",
+      "modified_at": "2024-06-21T09:56:57.016Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Typ der Auftraggeber - Gesuchsteller\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-versiegelte-flaechen-rueckbau",
+    "fields": {
+      "created_at": "2024-06-21T07:35:20.427Z",
+      "modified_at": "2024-06-21T09:58:31.389Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Versiegelte Fl\\u00e4chen die zur\\u00fcckgebaut werden (m\\u00b2)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-zusaetzlich-versiegelte-flaeche",
+    "fields": {
+      "created_at": "2024-06-21T07:34:22.813Z",
+      "modified_at": "2024-06-21T09:58:19.451Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zus\\u00e4tzlich versiegelte Fl\\u00e4che (m\\u00b2)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-art-der-massnahme.bab-art-der-massnahme-abbruch",
+    "fields": {
+      "created_at": "2024-06-21T09:55:49.667Z",
+      "modified_at": "2024-06-21T09:55:49.667Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-art-der-massnahme",
+      "option": "bab-art-der-massnahme-abbruch",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-art-der-massnahme.bab-art-der-massnahme-abparzellierung",
+    "fields": {
+      "created_at": "2024-06-21T09:55:49.658Z",
+      "modified_at": "2024-06-21T09:55:49.658Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-art-der-massnahme",
+      "option": "bab-art-der-massnahme-abparzellierung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-art-der-massnahme.bab-art-der-massnahme-andere",
+    "fields": {
+      "created_at": "2024-06-21T09:55:49.662Z",
+      "modified_at": "2024-06-21T09:55:49.662Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-art-der-massnahme",
+      "option": "bab-art-der-massnahme-andere",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-art-der-massnahme.bab-art-der-massnahme-ersatzneubau",
+    "fields": {
+      "created_at": "2024-06-21T09:55:49.653Z",
+      "modified_at": "2024-06-21T09:55:49.653Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-art-der-massnahme",
+      "option": "bab-art-der-massnahme-ersatzneubau",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-art-der-massnahme.bab-art-der-massnahme-neubau",
+    "fields": {
+      "created_at": "2024-06-21T09:55:49.686Z",
+      "modified_at": "2024-06-21T09:55:49.686Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-art-der-massnahme",
+      "option": "bab-art-der-massnahme-neubau",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-art-der-massnahme.bab-art-der-massnahme-sanierung",
+    "fields": {
+      "created_at": "2024-06-21T09:55:49.677Z",
+      "modified_at": "2024-06-21T09:55:49.677Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-art-der-massnahme",
+      "option": "bab-art-der-massnahme-sanierung",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-art-der-massnahme.bab-art-der-massnahme-umbau-anbau",
+    "fields": {
+      "created_at": "2024-06-21T09:55:49.681Z",
+      "modified_at": "2024-06-21T09:55:49.681Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-art-der-massnahme",
+      "option": "bab-art-der-massnahme-umbau-anbau",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-art-der-massnahme.bab-art-der-massnahme-zweckaenderung",
+    "fields": {
+      "created_at": "2024-06-21T09:55:49.672Z",
+      "modified_at": "2024-06-21T09:55:49.672Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-art-der-massnahme",
+      "option": "bab-art-der-massnahme-zweckaenderung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-abparzellierung",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.551Z",
+      "modified_at": "2024-06-21T09:43:35.552Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-abparzellierung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-allgemein-zonenkonform",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.632Z",
+      "modified_at": "2024-06-21T09:43:35.632Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-allgemein-zonenkonform",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-andere-dossiers",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.545Z",
+      "modified_at": "2024-06-21T09:43:35.546Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-andere-dossiers",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-biomasse",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.659Z",
+      "modified_at": "2024-06-21T09:43:35.659Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-biomasse",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-erhaltungszonen",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.643Z",
+      "modified_at": "2024-06-21T09:43:35.643Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-erhaltungszonen",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-existenzsicherung",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.605Z",
+      "modified_at": "2024-06-21T09:43:35.605Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-existenzsicherung",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-geschuetzte-bauten",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.568Z",
+      "modified_at": "2024-06-21T09:43:35.568Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-geschuetzte-bauten",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-gewaechshaeuser",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.669Z",
+      "modified_at": "2024-06-21T09:43:35.669Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-gewaechshaeuser",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-hobby-tierhaltung-aussenanlagen",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.573Z",
+      "modified_at": "2024-06-21T09:43:35.573Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-hobby-tierhaltung-aussenanlagen",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-hobby-tierhaltung-bauzone",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.579Z",
+      "modified_at": "2024-06-21T09:43:35.579Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-hobby-tierhaltung-bauzone",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-innerhalb-bauzone",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.701Z",
+      "modified_at": "2024-06-21T09:43:35.701Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-innerhalb-bauzone",
+      "sort": 30
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-landschaftspraegende-bauten",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.615Z",
+      "modified_at": "2024-06-21T09:43:35.615Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-landschaftspraegende-bauten",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-landwirtschaftliche-bauten",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.689Z",
+      "modified_at": "2024-06-21T09:43:35.689Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-landwirtschaftliche-bauten",
+      "sort": 28
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-landwirtschaftliche-wohnbauten",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.584Z",
+      "modified_at": "2024-06-21T09:43:35.584Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-landwirtschaftliche-wohnbauten",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-nebenbetriebe",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.600Z",
+      "modified_at": "2024-06-21T09:43:35.600Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-nebenbetriebe",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-oekonomiebauten",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.695Z",
+      "modified_at": "2024-06-21T09:43:35.695Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-oekonomiebauten",
+      "sort": 29
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-ohne-bauliche-massnahmen",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.610Z",
+      "modified_at": "2024-06-21T09:43:35.610Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-ohne-bauliche-massnahmen",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-solaranlagen",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.638Z",
+      "modified_at": "2024-06-21T09:43:35.638Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-solaranlagen",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-solaranlagen-ausserhalb-bauzone",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.562Z",
+      "modified_at": "2024-06-21T09:43:35.562Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-solaranlagen-ausserhalb-bauzone",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-speziallandwirtschaftszonen",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.663Z",
+      "modified_at": "2024-06-21T09:43:35.663Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-speziallandwirtschaftszonen",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-spezialzonen",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.648Z",
+      "modified_at": "2024-06-21T09:43:35.648Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-spezialzonen",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-stallbauten",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.679Z",
+      "modified_at": "2024-06-21T09:43:35.679Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-stallbauten",
+      "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-standortgebunden",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.626Z",
+      "modified_at": "2024-06-21T09:43:35.626Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-standortgebunden",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-streusiedlungsgebiet",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.621Z",
+      "modified_at": "2024-06-21T09:43:35.621Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-streusiedlungsgebiet",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-temp-betriebszentren",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.594Z",
+      "modified_at": "2024-06-21T09:43:35.594Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-temp-betriebszentren",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-tierhaltung",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.674Z",
+      "modified_at": "2024-06-21T09:43:35.674Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-tierhaltung",
+      "sort": 25
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-wohnbauten",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.684Z",
+      "modified_at": "2024-06-21T09:43:35.684Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-wohnbauten",
+      "sort": 27
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-zonenkonform",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.653Z",
+      "modified_at": "2024-06-21T09:43:35.653Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-zonenkonform",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-zonenwidrig",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.590Z",
+      "modified_at": "2024-06-21T09:43:35.590Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-zonenwidrig",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-bewilligungsgrund.bab-bewilligungsgrund-zonenwidrige-gewerbliche-bauten",
+    "fields": {
+      "created_at": "2024-06-21T09:43:35.557Z",
+      "modified_at": "2024-06-21T09:43:35.557Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-bewilligungsgrund",
+      "option": "bab-bewilligungsgrund-zonenwidrige-gewerbliche-bauten",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-entscheid.entscheid-andere",
+    "fields": {
+      "created_at": "2024-06-21T09:56:41.812Z",
+      "modified_at": "2024-06-21T09:56:41.812Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-entscheid",
+      "option": "entscheid-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-entscheid.entscheid-negativ",
+    "fields": {
+      "created_at": "2024-06-21T09:56:41.819Z",
+      "modified_at": "2024-06-21T09:56:41.819Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-entscheid",
+      "option": "entscheid-negativ",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-entscheid.entscheid-positiv",
+    "fields": {
+      "created_at": "2024-06-21T09:56:41.826Z",
+      "modified_at": "2024-06-21T09:56:41.826Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-entscheid",
+      "option": "entscheid-positiv",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-grundnutzung.bab-grundnutzung-andere",
+    "fields": {
+      "created_at": "2024-06-21T07:16:07.126Z",
+      "modified_at": "2024-06-21T07:16:07.126Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-grundnutzung",
+      "option": "bab-grundnutzung-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-grundnutzung.bab-grundnutzung-freihaltezone",
+    "fields": {
+      "created_at": "2024-06-21T07:16:07.139Z",
+      "modified_at": "2024-06-21T07:16:07.139Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-grundnutzung",
+      "option": "bab-grundnutzung-freihaltezone",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-grundnutzung.bab-grundnutzung-landwirtschaftszone",
+    "fields": {
+      "created_at": "2024-06-21T07:16:07.161Z",
+      "modified_at": "2024-06-21T07:16:07.161Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-grundnutzung",
+      "option": "bab-grundnutzung-landwirtschaftszone",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-grundnutzung.bab-grundnutzung-reservezone",
+    "fields": {
+      "created_at": "2024-06-21T07:16:07.155Z",
+      "modified_at": "2024-06-21T07:16:07.155Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-grundnutzung",
+      "option": "bab-grundnutzung-reservezone",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-grundnutzung.bab-grundnutzung-verkehrsflaechen-abz",
+    "fields": {
+      "created_at": "2024-06-21T07:16:07.133Z",
+      "modified_at": "2024-06-21T07:16:07.133Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-grundnutzung",
+      "option": "bab-grundnutzung-verkehrsflaechen-abz",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-grundnutzung.bab-grundnutzung-wald",
+    "fields": {
+      "created_at": "2024-06-21T07:16:07.150Z",
+      "modified_at": "2024-06-21T07:16:07.150Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-grundnutzung",
+      "option": "bab-grundnutzung-wald",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-grundnutzung.bab-grundnutzung-weilerzone",
+    "fields": {
+      "created_at": "2024-06-21T07:16:07.145Z",
+      "modified_at": "2024-06-21T07:16:07.145Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-grundnutzung",
+      "option": "bab-grundnutzung-weilerzone",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-nutzung-nach-rpg.bab-nutzung-nach-rpg-andere",
+    "fields": {
+      "created_at": "2024-06-21T09:56:25.980Z",
+      "modified_at": "2024-06-21T09:56:25.980Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-nutzung-nach-rpg",
+      "option": "bab-nutzung-nach-rpg-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-nutzung-nach-rpg.bab-nutzung-nach-rpg-ausnahmebewilligung",
+    "fields": {
+      "created_at": "2024-06-21T09:56:25.986Z",
+      "modified_at": "2024-06-21T09:56:25.986Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-nutzung-nach-rpg",
+      "option": "bab-nutzung-nach-rpg-ausnahmebewilligung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-nutzung-nach-rpg.bab-nutzung-nach-rpg-zonenkonform",
+    "fields": {
+      "created_at": "2024-06-21T09:56:25.991Z",
+      "modified_at": "2024-06-21T09:56:25.991Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-nutzung-nach-rpg",
+      "option": "bab-nutzung-nach-rpg-zonenkonform",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-objektart.bab-objektart-andere",
+    "fields": {
+      "created_at": "2024-06-21T09:56:02.242Z",
+      "modified_at": "2024-06-21T09:56:02.242Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-objektart",
+      "option": "bab-objektart-andere",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-objektart.bab-objektart-betrieb-gewerbe-liegenschaften",
+    "fields": {
+      "created_at": "2024-06-21T09:56:02.226Z",
+      "modified_at": "2024-06-21T09:56:02.226Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-objektart",
+      "option": "bab-objektart-betrieb-gewerbe-liegenschaften",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-objektart.bab-objektart-bewirtschaftungsweg",
+    "fields": {
+      "created_at": "2024-06-21T09:56:02.252Z",
+      "modified_at": "2024-06-21T09:56:02.252Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-objektart",
+      "option": "bab-objektart-bewirtschaftungsweg",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-objektart.bab-objektart-fahrnisbauten",
+    "fields": {
+      "created_at": "2024-06-21T09:56:02.236Z",
+      "modified_at": "2024-06-21T09:56:02.236Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-objektart",
+      "option": "bab-objektart-fahrnisbauten",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-objektart.bab-objektart-gewerbebaute-mit-arbeitsplaetzen",
+    "fields": {
+      "created_at": "2024-06-21T09:56:02.289Z",
+      "modified_at": "2024-06-21T09:56:02.289Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-objektart",
+      "option": "bab-objektart-gewerbebaute-mit-arbeitsplaetzen",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-objektart.bab-objektart-gewerbebaute-ohne-arbeitsplaetzen",
+    "fields": {
+      "created_at": "2024-06-21T09:56:02.283Z",
+      "modified_at": "2024-06-21T09:56:02.283Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-objektart",
+      "option": "bab-objektart-gewerbebaute-ohne-arbeitsplaetzen",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-objektart.bab-objektart-hof-guetererschliessung",
+    "fields": {
+      "created_at": "2024-06-21T09:56:02.247Z",
+      "modified_at": "2024-06-21T09:56:02.247Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-objektart",
+      "option": "bab-objektart-hof-guetererschliessung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-objektart.bab-objektart-oekonomiebaute-mit-tierhaltung",
+    "fields": {
+      "created_at": "2024-06-21T09:56:02.277Z",
+      "modified_at": "2024-06-21T09:56:02.277Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-objektart",
+      "option": "bab-objektart-oekonomiebaute-mit-tierhaltung",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-objektart.bab-objektart-oekonomiebaute-ohne-tierhaltung",
+    "fields": {
+      "created_at": "2024-06-21T09:56:02.270Z",
+      "modified_at": "2024-06-21T09:56:02.270Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-objektart",
+      "option": "bab-objektart-oekonomiebaute-ohne-tierhaltung",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-objektart.bab-objektart-terrainveraenderung",
+    "fields": {
+      "created_at": "2024-06-21T09:56:02.264Z",
+      "modified_at": "2024-06-21T09:56:02.264Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-objektart",
+      "option": "bab-objektart-terrainveraenderung",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-objektart.bab-objektart-viehtriebweg",
+    "fields": {
+      "created_at": "2024-06-21T09:56:02.258Z",
+      "modified_at": "2024-06-21T09:56:02.258Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-objektart",
+      "option": "bab-objektart-viehtriebweg",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-objektart.bab-objektart-wanderweg",
+    "fields": {
+      "created_at": "2024-06-21T09:56:02.231Z",
+      "modified_at": "2024-06-21T09:56:02.231Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-objektart",
+      "option": "bab-objektart-wanderweg",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-objektart.bab-objektart-wohnbaute",
+    "fields": {
+      "created_at": "2024-06-21T09:56:02.300Z",
+      "modified_at": "2024-06-21T09:56:02.300Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-objektart",
+      "option": "bab-objektart-wohnbaute",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-objektart.bab-objektart-wohn-oekonomiebaute",
+    "fields": {
+      "created_at": "2024-06-21T09:56:02.295Z",
+      "modified_at": "2024-06-21T09:56:02.295Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-objektart",
+      "option": "bab-objektart-wohn-oekonomiebaute",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-stabilisierungsziel.bab-stabilisierungsziel-nicht-relevant",
+    "fields": {
+      "created_at": "2024-06-21T07:36:44.318Z",
+      "modified_at": "2024-06-21T07:36:44.318Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-stabilisierungsziel",
+      "option": "bab-stabilisierungsziel-nicht-relevant",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-stabilisierungsziel.bab-stabilisierungsziel-relevant",
+    "fields": {
+      "created_at": "2024-06-21T07:36:44.311Z",
+      "modified_at": "2024-06-21T07:36:44.311Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-stabilisierungsziel",
+      "option": "bab-stabilisierungsziel-relevant",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-andere-private-auftraggeber",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.049Z",
+      "modified_at": "2024-06-21T09:56:57.049Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-andere-private-auftraggeber",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-astra",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.141Z",
+      "modified_at": "2024-06-21T09:56:57.141Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-astra",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-banken",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.087Z",
+      "modified_at": "2024-06-21T09:56:57.087Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-banken",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-bbl",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.147Z",
+      "modified_at": "2024-06-21T09:56:57.147Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-bbl",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-bundesamt-fuer-umweltschutz",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.026Z",
+      "modified_at": "2024-06-21T09:56:57.026Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-bundesamt-fuer-umweltschutz",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-einzelfirmen",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.054Z",
+      "modified_at": "2024-06-21T09:56:57.054Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-einzelfirmen",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-elektrizitaetswerke",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.081Z",
+      "modified_at": "2024-06-21T09:56:57.081Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-elektrizitaetswerke",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-gaswerke",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.075Z",
+      "modified_at": "2024-06-21T09:56:57.075Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-gaswerke",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-gemeinde-inkl-kooperationen",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.114Z",
+      "modified_at": "2024-06-21T09:56:57.114Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-gemeinde-inkl-kooperationen",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-gemeinden-oeffentlich",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.109Z",
+      "modified_at": "2024-06-21T09:56:57.109Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-gemeinden-oeffentlich",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-immobilienbranche",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.064Z",
+      "modified_at": "2024-06-21T09:56:57.064Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-immobilienbranche",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-immobilienbranche-einzelpersonen",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.037Z",
+      "modified_at": "2024-06-21T09:56:57.038Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-immobilienbranche-einzelpersonen",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-immobilienbranche-wohnbaugenossenschaften",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.032Z",
+      "modified_at": "2024-06-21T09:56:57.032Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-immobilienbranche-wohnbaugenossenschaften",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-internationale-organisationen",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.044Z",
+      "modified_at": "2024-06-21T09:56:57.044Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-internationale-organisationen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-kanton-nicht-oeffentlich",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.125Z",
+      "modified_at": "2024-06-21T09:56:57.125Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-kanton-nicht-oeffentlich",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-kanton-oeffentlich",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.119Z",
+      "modified_at": "2024-06-21T09:56:57.119Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-kanton-oeffentlich",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-krankenkassen",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.092Z",
+      "modified_at": "2024-06-21T09:56:57.092Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-krankenkassen",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-personalfuersorgestiftungen",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.097Z",
+      "modified_at": "2024-06-21T09:56:57.097Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-personalfuersorgestiftungen",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-post",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.130Z",
+      "modified_at": "2024-06-21T09:56:57.130Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-post",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-privatbahnen",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.070Z",
+      "modified_at": "2024-06-21T09:56:57.070Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-privatbahnen",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-privatpersonen",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.059Z",
+      "modified_at": "2024-06-21T09:56:57.059Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-privatpersonen",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-sbb",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.158Z",
+      "modified_at": "2024-06-21T09:56:57.158Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-sbb",
+      "sort": 25
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-swisscom",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.136Z",
+      "modified_at": "2024-06-21T09:56:57.136Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-swisscom",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-vbs",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.152Z",
+      "modified_at": "2024-06-21T09:56:57.152Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-vbs",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-typ-der-auftraggeber.bab-typ-der-auftraggeber-versicherungsgesellschaften",
+    "fields": {
+      "created_at": "2024-06-21T09:56:57.102Z",
+      "modified_at": "2024-06-21T09:56:57.102Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-typ-der-auftraggeber",
+      "option": "bab-typ-der-auftraggeber-versicherungsgesellschaften",
+      "sort": 15
+    }
+  }
+]
