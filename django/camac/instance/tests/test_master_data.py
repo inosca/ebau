@@ -460,6 +460,7 @@ def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock, uti
         [
             {
                 "amtliche-gebaeudenummer": "4-116",
+                "egid-nr": "CH334687150542",
                 # heating 1
                 "waermeerzeuger-heizung": "waermeerzeuger-heizung-7430",
                 "energie-waermequelle-heizung": "energie-waermequelle-heizung-7540",
