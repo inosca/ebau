@@ -338,12 +338,12 @@
     "pk": "brandschutz-haustechnik",
     "fields": {
       "created_at": "2023-04-24T06:19:56.203Z",
-      "modified_at": "2023-05-23T13:14:34.597Z",
+      "modified_at": "2024-06-21T14:06:54.701Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "name": "{\"de\": \"Brandschutz - Haustechnik\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Brandschutz - w\\u00e4rmetechnische Anlagen\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
@@ -1722,6 +1722,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "abgasanlagen-tabelle.anderes-beschreibung-abgasanlage",
+    "fields": {
+      "created_at": "2024-06-24T06:19:50.623Z",
+      "modified_at": "2024-06-24T06:19:50.623Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abgasanlagen-tabelle",
+      "question": "anderes-beschreibung-abgasanlage",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "abgasanlagen-tabelle.beschreibung-abgasanlage",
     "fields": {
       "created_at": "2023-07-07T09:12:23.030Z",
@@ -1762,7 +1777,7 @@
       "modified_by_group": null,
       "form": "abgasanlagen-tabelle",
       "question": "lage-abgasanlage",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -4252,7 +4267,7 @@
       "modified_by_group": null,
       "form": "brandschutz-bauliche-angaben",
       "question": "abstaende-zu-nachbargebaeude",
-      "sort": 49
+      "sort": 52
     }
   },
   {
@@ -4282,7 +4297,7 @@
       "modified_by_group": null,
       "form": "brandschutz-bauliche-angaben",
       "question": "angaben-zum-gebaeude-titel",
-      "sort": 56
+      "sort": 59
     }
   },
   {
@@ -4417,7 +4432,7 @@
       "modified_by_group": null,
       "form": "brandschutz-bauliche-angaben",
       "question": "bauart",
-      "sort": 50
+      "sort": 53
     }
   },
   {
@@ -4447,7 +4462,7 @@
       "modified_by_group": null,
       "form": "brandschutz-bauliche-angaben",
       "question": "bauliche-angaben-titel",
-      "sort": 58
+      "sort": 61
     }
   },
   {
@@ -4553,6 +4568,21 @@
       "form": "brandschutz-bauliche-angaben",
       "question": "beschreibung-zwischendecken",
       "sort": 41
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben.bestaetigung-fks-richtlinie",
+    "fields": {
+      "created_at": "2024-06-21T13:51:52.724Z",
+      "modified_at": "2024-06-21T13:51:52.724Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben",
+      "question": "bestaetigung-fks-richtlinie",
+      "sort": 48
     }
   },
   {
@@ -4692,6 +4722,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben.feuerwehrzugaenglichkeit-titel",
+    "fields": {
+      "created_at": "2024-06-21T13:47:00.198Z",
+      "modified_at": "2024-06-21T13:47:00.198Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben",
+      "question": "feuerwehrzugaenglichkeit-titel",
+      "sort": 50
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "brandschutz-bauliche-angaben.flachdach",
     "fields": {
       "created_at": "2023-05-25T07:28:30.348Z",
@@ -4717,7 +4762,7 @@
       "modified_by_group": null,
       "form": "brandschutz-bauliche-angaben",
       "question": "gebaeudehoehe",
-      "sort": 51
+      "sort": 54
     }
   },
   {
@@ -4762,7 +4807,7 @@
       "modified_by_group": null,
       "form": "brandschutz-bauliche-angaben",
       "question": "geschosszahl-ueber-terrain",
-      "sort": 52
+      "sort": 55
     }
   },
   {
@@ -4777,7 +4822,7 @@
       "modified_by_group": null,
       "form": "brandschutz-bauliche-angaben",
       "question": "geschosszahl-unter-terrain",
-      "sort": 53
+      "sort": 56
     }
   },
   {
@@ -4827,6 +4872,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben.hinweis-feuerwehrzugaenglichkeit",
+    "fields": {
+      "created_at": "2024-06-21T13:49:05.569Z",
+      "modified_at": "2024-06-21T13:49:05.569Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben",
+      "question": "hinweis-feuerwehrzugaenglichkeit",
+      "sort": 49
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "brandschutz-bauliche-angaben.hinweis-zustaendigkeit-gvg",
     "fields": {
       "created_at": "2023-10-19T13:18:07.569Z",
@@ -4837,7 +4897,7 @@
       "modified_by_group": null,
       "form": "brandschutz-bauliche-angaben",
       "question": "hinweis-zustaendigkeit-gvg",
-      "sort": 57
+      "sort": 60
     }
   },
   {
@@ -4927,7 +4987,7 @@
       "modified_by_group": null,
       "form": "brandschutz-bauliche-angaben",
       "question": "qualitaetssicherungsstufe-qss",
-      "sort": 55
+      "sort": 58
     }
   },
   {
@@ -5002,7 +5062,7 @@
       "modified_by_group": null,
       "form": "brandschutz-bauliche-angaben",
       "question": "verantwortliche-person-qss",
-      "sort": 54
+      "sort": 57
     }
   },
   {
@@ -5017,7 +5077,7 @@
       "modified_by_group": null,
       "form": "brandschutz-bauliche-angaben",
       "question": "voraussichtliche-bauvollendung-text",
-      "sort": 48
+      "sort": 51
     }
   },
   {
@@ -5122,7 +5182,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "abgasanlagen",
-      "sort": 40
+      "sort": 43
     }
   },
   {
@@ -5137,22 +5197,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "ableitung-der-abgase-titel",
-      "sort": 43
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "brandschutz-haustechnik.alter-der-feuerungsanlage",
-    "fields": {
-      "created_at": "2023-04-24T06:30:01.786Z",
-      "modified_at": "2023-04-24T06:30:01.786Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "brandschutz-haustechnik",
-      "question": "alter-der-feuerungsanlage",
-      "sort": 77
+      "sort": 46
     }
   },
   {
@@ -5167,7 +5212,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "anzahl-behaelter",
-      "sort": 29
+      "sort": 30
     }
   },
   {
@@ -5182,7 +5227,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "art-der-anlage-behaelter",
-      "sort": 31
+      "sort": 32
     }
   },
   {
@@ -5197,7 +5242,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "art-der-festen-brennstoffe",
-      "sort": 33
+      "sort": 35
     }
   },
   {
@@ -5257,7 +5302,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "art-der-solaranlage",
-      "sort": 64
+      "sort": 67
     }
   },
   {
@@ -5272,7 +5317,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "aufstellung-im-freien",
-      "sort": 67
+      "sort": 70
     }
   },
   {
@@ -5287,7 +5332,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "aufstellungsraum-der-feuerungsanlage-titel",
-      "sort": 62
+      "sort": 65
     }
   },
   {
@@ -5302,7 +5347,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "bauliche-veraenderungen-abgasanlage",
-      "sort": 42
+      "sort": 45
     }
   },
   {
@@ -5317,7 +5362,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "bauliche-veraenderungen-aufstellungsraum",
-      "sort": 61
+      "sort": 64
     }
   },
   {
@@ -5332,7 +5377,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "bauliche-veraenderungen-brennstofflagerung",
-      "sort": 37
+      "sort": 40
     }
   },
   {
@@ -5382,6 +5427,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "brandschutz-haustechnik.beschreibung-art-der-festen-brennstoffe-andere",
+    "fields": {
+      "created_at": "2024-06-24T06:46:56.442Z",
+      "modified_at": "2024-06-24T06:46:56.442Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-haustechnik",
+      "question": "beschreibung-art-der-festen-brennstoffe-andere",
+      "sort": 34
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "brandschutz-haustechnik.beschreibung-brennstoff",
     "fields": {
       "created_at": "2023-05-24T15:33:04.481Z",
@@ -5392,7 +5452,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "beschreibung-brennstoff",
-      "sort": 75
+      "sort": 78
     }
   },
   {
@@ -5407,7 +5467,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "beschreibung-details-alternativenergien",
-      "sort": 63
+      "sort": 66
     }
   },
   {
@@ -5422,7 +5482,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "beschreibung-einzelfeuerung",
-      "sort": 74
+      "sort": 77
     }
   },
   {
@@ -5437,7 +5497,37 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "beschreibung-gebaeudeart",
-      "sort": 59
+      "sort": 62
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-haustechnik.beschreibung-lagergut-andere",
+    "fields": {
+      "created_at": "2024-06-24T06:40:41.596Z",
+      "modified_at": "2024-06-24T06:40:41.596Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-haustechnik",
+      "question": "beschreibung-lagergut-andere",
+      "sort": 36
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-haustechnik.beschreibung-verwendungszeck-des-gases-andere",
+    "fields": {
+      "created_at": "2024-06-24T06:51:01.226Z",
+      "modified_at": "2024-06-24T06:51:01.226Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-haustechnik",
+      "question": "beschreibung-verwendungszeck-des-gases-andere",
+      "sort": 18
     }
   },
   {
@@ -5452,7 +5542,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "brennstoff",
-      "sort": 76
+      "sort": 79
     }
   },
   {
@@ -5467,7 +5557,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "brennstofflager-titel",
-      "sort": 39
+      "sort": 42
     }
   },
   {
@@ -5482,7 +5572,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "details-alternativenergien",
-      "sort": 66
+      "sort": 69
     }
   },
   {
@@ -5497,7 +5587,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "details-zentralheizung",
-      "sort": 73
+      "sort": 76
     }
   },
   {
@@ -5512,7 +5602,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "einbauart",
-      "sort": 32
+      "sort": 33
     }
   },
   {
@@ -5527,7 +5617,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "errichter-haustechnik",
-      "sort": 79
+      "sort": 82
     }
   },
   {
@@ -5542,7 +5632,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "fabrikat-gasmeldeanlage",
-      "sort": 46
+      "sort": 49
     }
   },
   {
@@ -5572,7 +5662,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "fabrikat-waermepumpe",
-      "sort": 70
+      "sort": 73
     }
   },
   {
@@ -5587,7 +5677,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "findet-brennstofflagerung-statt",
-      "sort": 38
+      "sort": 41
     }
   },
   {
@@ -5602,7 +5692,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "fluessiggasbehaelter-unter-20-tonnen",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -5632,7 +5722,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "gas-absperrarmatur-ausserhalb-aufstellungsraumes",
-      "sort": 44
+      "sort": 47
     }
   },
   {
@@ -5647,7 +5737,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "gasmeldeanlage-erforderlich",
-      "sort": 47
+      "sort": 50
     }
   },
   {
@@ -5662,7 +5752,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "gebaeudeart-aufstellungsraum",
-      "sort": 60
+      "sort": 63
     }
   },
   {
@@ -5692,7 +5782,22 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "heizraumzugang-direkt-vom-freien",
-      "sort": 45
+      "sort": 48
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-haustechnik.hinweis-einzelfeuerung",
+    "fields": {
+      "created_at": "2024-06-24T05:47:06.659Z",
+      "modified_at": "2024-06-24T05:47:06.659Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-haustechnik",
+      "question": "hinweis-einzelfeuerung",
+      "sort": 80
     }
   },
   {
@@ -5707,7 +5812,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "hinweis-kesselauswechslungen",
-      "sort": 52
+      "sort": 55
     }
   },
   {
@@ -5722,7 +5827,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "hinweis-zustaendigkeit-gvg",
-      "sort": 80
+      "sort": 83
     }
   },
   {
@@ -5737,7 +5842,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "inhalt-lagermenge",
-      "sort": 30
+      "sort": 31
     }
   },
   {
@@ -5752,7 +5857,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "kaeltemittel-waermepumpe",
-      "sort": 71
+      "sort": 74
     }
   },
   {
@@ -5782,7 +5887,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "lagergut-ableitung-der-abgase",
-      "sort": 34
+      "sort": 37
     }
   },
   {
@@ -5797,7 +5902,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "luftwechselrate",
-      "sort": 48
+      "sort": 51
     }
   },
   {
@@ -5872,7 +5977,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "material-aussenwaende",
-      "sort": 58
+      "sort": 61
     }
   },
   {
@@ -5887,7 +5992,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "material-aussenwaende-ableitung-der-abgase",
-      "sort": 27
+      "sort": 28
     }
   },
   {
@@ -5902,7 +6007,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "material-boden",
-      "sort": 55
+      "sort": 58
     }
   },
   {
@@ -5917,7 +6022,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "material-boden-ableitung-der-abgase",
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -5932,7 +6037,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "material-decke",
-      "sort": 56
+      "sort": 59
     }
   },
   {
@@ -5947,7 +6052,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "material-decke-ableitung-der-abgase",
-      "sort": 25
+      "sort": 26
     }
   },
   {
@@ -5962,7 +6067,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "material-innenwaende",
-      "sort": 57
+      "sort": 60
     }
   },
   {
@@ -5977,7 +6082,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "material-innenwaende-ableitung-der-abgase",
-      "sort": 26
+      "sort": 27
     }
   },
   {
@@ -5992,7 +6097,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "model-typ",
-      "sort": 69
+      "sort": 72
     }
   },
   {
@@ -6007,7 +6112,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "nennwaermeleistung-waermepumpe",
-      "sort": 68
+      "sort": 71
     }
   },
   {
@@ -6022,7 +6127,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "neue-oder-bestehende-anlage",
-      "sort": 41
+      "sort": 44
     }
   },
   {
@@ -6037,7 +6142,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "neue-oder-bestehende-lagerung",
-      "sort": 36
+      "sort": 39
     }
   },
   {
@@ -6052,7 +6157,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "ortsfeste-fluessiggasbehaelter-titel",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -6067,7 +6172,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "quadrat-cm-oben",
-      "sort": 50
+      "sort": 53
     }
   },
   {
@@ -6082,7 +6187,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "quadrat-cm-unten",
-      "sort": 49
+      "sort": 52
     }
   },
   {
@@ -6097,7 +6202,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "raumlueftung",
-      "sort": 51
+      "sort": 54
     }
   },
   {
@@ -6112,7 +6217,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "raumlueftung-ableitung-der-abgase",
-      "sort": 28
+      "sort": 29
     }
   },
   {
@@ -6127,7 +6232,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "schnitzel-und-spaenelager-entleerungsoeffnung",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -6142,7 +6247,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "sind-folgende-anlagen-betroffen",
-      "sort": 78
+      "sort": 81
     }
   },
   {
@@ -6157,7 +6262,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "solaranlage-leistung",
-      "sort": 65
+      "sort": 68
     }
   },
   {
@@ -6172,7 +6277,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "spezifikation",
-      "sort": 35
+      "sort": 38
     }
   },
   {
@@ -6187,7 +6292,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "tuere",
-      "sort": 54
+      "sort": 57
     }
   },
   {
@@ -6202,7 +6307,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "tuere-ableitung-der-abgase",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -6217,7 +6322,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "tuere-vkf-nr",
-      "sort": 53
+      "sort": 56
     }
   },
   {
@@ -6232,7 +6337,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "typ-der-waermepumpe",
-      "sort": 72
+      "sort": 75
     }
   },
   {
@@ -6262,7 +6367,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "verwendungszweck-des-gases",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -6277,7 +6382,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "vkf-nr-tuere-ableitung-der-abgase",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -6292,7 +6397,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "brandschutz-haustechnik-titel",
-      "sort": 81
+      "sort": 84
     }
   },
   {
@@ -6702,6 +6807,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "dokumente.brandschutzplaene-brandschutzkonzept",
+    "fields": {
+      "created_at": "2024-07-04T07:03:53.210Z",
+      "modified_at": "2024-07-04T07:03:53.210Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "brandschutzplaene-brandschutzkonzept",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "dokumente.dispositionsplan-heizungsraum",
     "fields": {
       "created_at": "2023-07-03T07:56:06.008Z",
@@ -6757,7 +6877,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "gesuch-feuerpolizeiliche-bewilligung",
-      "sort": 22
+      "sort": 20
     }
   },
   {
@@ -6772,7 +6892,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "hinweistext-dokumente",
-      "sort": 23
+      "sort": 21
     }
   },
   {
@@ -6787,7 +6907,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "messbericht",
-      "sort": 21
+      "sort": 19
     }
   },
   {
@@ -6817,7 +6937,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "resultate-der-geforderten-bodenuntersuchung",
-      "sort": 19
+      "sort": 18
     }
   },
   {
@@ -8712,21 +8832,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "feuerungsanlagen.hinweis-zustaendigkeit-gvg",
-    "fields": {
-      "created_at": "2023-10-19T13:22:24.869Z",
-      "modified_at": "2023-10-19T13:22:24.869Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "feuerungsanlagen",
-      "question": "hinweis-zustaendigkeit-gvg",
-      "sort": 41
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "feuerungsanlagen.holzabfaelle-altholz",
     "fields": {
       "created_at": "2023-07-13T11:04:21.915Z",
@@ -8993,6 +9098,21 @@
       "form": "feuerungsanlagen",
       "question": "wassergehalt",
       "sort": 33
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "feuerungsanlagen.zustaendigkeit-anu",
+    "fields": {
+      "created_at": "2024-06-24T07:15:38.381Z",
+      "modified_at": "2024-06-24T07:15:38.381Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "feuerungsanlagen",
+      "question": "zustaendigkeit-anu",
+      "sort": 41
     }
   },
   {
@@ -17244,38 +17364,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "alter-der-feuerungsanlage-alt",
-    "fields": {
-      "created_at": "2023-04-24T06:31:05.842Z",
-      "modified_at": "2023-04-24T06:31:05.842Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Alt / bestehend\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "alter-der-feuerungsanlage-neu",
-    "fields": {
-      "created_at": "2023-04-24T06:31:05.850Z",
-      "modified_at": "2023-04-24T06:31:05.850Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Neu\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "angaben-zur-anlage-anderer",
     "fields": {
       "created_at": "2023-04-24T12:21:30.279Z",
@@ -18540,15 +18628,31 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "art-der-festen-brennstoffe-pelletsfeuerung",
+    "pk": "art-der-festen-brennstoffe-andere",
     "fields": {
-      "created_at": "2023-04-24T10:00:59.378Z",
-      "modified_at": "2023-04-24T10:00:59.378Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2024-06-24T06:45:39.984Z",
+      "modified_at": "2024-06-24T06:45:39.984Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Pelletsfeuerung\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-festen-brennstoffe-pelletsfeuerung",
+    "fields": {
+      "created_at": "2023-04-24T10:00:59.378Z",
+      "modified_at": "2024-06-24T06:45:39.992Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Pellets\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18559,12 +18663,28 @@
     "pk": "art-der-festen-brennstoffe-schnitzelfeuerung",
     "fields": {
       "created_at": "2023-04-24T10:00:59.391Z",
-      "modified_at": "2023-04-24T10:00:59.391Z",
+      "modified_at": "2024-06-24T06:45:39.883Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schnitzel\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-festen-brennstoffe-spaene",
+    "fields": {
+      "created_at": "2024-06-24T06:45:40.001Z",
+      "modified_at": "2024-06-24T06:45:40.001Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Schnitzelfeuerung\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Sp\\u00e4ne\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -19519,12 +19639,12 @@
     "pk": "art-des-gebaeude-gebaeude-geringer-abmessungen",
     "fields": {
       "created_at": "2023-05-25T08:38:35.007Z",
-      "modified_at": "2023-05-25T08:38:35.007Z",
+      "modified_at": "2024-06-21T13:54:54.663Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Geb\\u00e4ude geringer Abmessungen\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Geb\\u00e4ude geringer Abmessungen (gem. VKF-Brandschutznorm Art. 13 Abs. 3d)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -22572,6 +22692,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "brandschutzplaene-inkl-grundrisse-schnitte-fassaden-und-gegebenenfalls-brandschutzkonzept-ja",
+    "fields": {
+      "created_at": "2024-07-04T07:03:52.749Z",
+      "modified_at": "2024-07-04T07:03:52.749Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Brandschutzpl\\u00e4ne inkl. Grundrisse, Schnitte, Fassaden und gegebenenfalls Brandschutzkonzept\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "brandschutzplaene-ja",
     "fields": {
       "created_at": "2023-07-03T07:19:09.447Z",
@@ -22591,13 +22727,13 @@
     "pk": "brennstoff-andere",
     "fields": {
       "created_at": "2023-05-24T15:30:18.360Z",
-      "modified_at": "2023-05-24T15:30:18.360Z",
+      "modified_at": "2024-06-24T05:57:24.445Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -22623,13 +22759,13 @@
     "pk": "brennstoff-gas",
     "fields": {
       "created_at": "2023-05-24T15:30:18.348Z",
-      "modified_at": "2023-05-24T15:30:18.348Z",
+      "modified_at": "2024-06-24T05:57:24.421Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Gas\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -27420,6 +27556,54 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "lage-abgasanlage-anderes",
+    "fields": {
+      "created_at": "2024-06-24T06:17:42.294Z",
+      "modified_at": "2024-06-24T06:17:42.294Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anderes\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lage-abgasanlage-fassade",
+    "fields": {
+      "created_at": "2024-06-24T06:17:42.288Z",
+      "modified_at": "2024-06-24T06:17:42.288Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abgasanlage an der Fassade\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lage-abgasanlage-im-gebaeude",
+    "fields": {
+      "created_at": "2024-06-24T06:17:42.269Z",
+      "modified_at": "2024-06-24T06:17:42.269Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abgasanlage im Geb\\u00e4ude\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "lage-des-vorhabens-korrekt-ja",
     "fields": {
       "created_at": "2023-06-19T08:31:29.740Z",
@@ -27573,6 +27757,22 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Sm\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lagergut-ableitung-der-abgase-andere",
+    "fields": {
+      "created_at": "2024-06-24T06:39:12.011Z",
+      "modified_at": "2024-06-24T06:39:12.011Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -28847,12 +29047,12 @@
     "pk": "neue-oder-bestehende-anlage-alt-bestehend",
     "fields": {
       "created_at": "2023-07-07T08:36:27.281Z",
-      "modified_at": "2023-07-07T08:36:27.281Z",
+      "modified_at": "2024-06-24T06:11:50.831Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Alt bestehend\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Alt bestehend (Sanierung)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -28879,12 +29079,12 @@
     "pk": "neue-oder-bestehende-lagerung-alt-bestehend",
     "fields": {
       "created_at": "2023-07-07T10:24:00.670Z",
-      "modified_at": "2023-07-07T10:24:00.670Z",
+      "modified_at": "2024-06-24T06:37:38.751Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Alt bestehend\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Alt bestehend (bauliche Ver\\u00e4nderung oder ge\\u00e4nderte Lagermenge)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -30975,12 +31175,12 @@
     "pk": "sind-folgende-anlagen-betroffen-zentralheizung",
     "fields": {
       "created_at": "2023-04-27T13:30:28.127Z",
-      "modified_at": "2023-04-27T13:30:28.127Z",
+      "modified_at": "2024-06-24T05:44:03.139Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Zentralheizung\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Zentralheizung (fl\\u00fcssige, feste oder gasf\\u00f6rmige Brennstoffe)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -32383,12 +32583,12 @@
     "pk": "triage-brandschutz-anlage",
     "fields": {
       "created_at": "2023-05-23T13:08:30.111Z",
-      "modified_at": "2023-05-23T13:08:30.111Z",
+      "modified_at": "2024-06-21T13:22:47.172Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Neubau / Ausbau / Umbau von haustechnischen (w\\u00e4rmetechnischen) Anlagen\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Neubau oder Ersatz von w\\u00e4rmetechnischen Anlagen\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -32399,12 +32599,28 @@
     "pk": "triage-brandschutz-gebaeude",
     "fields": {
       "created_at": "2023-05-23T13:08:30.110Z",
-      "modified_at": "2023-05-23T13:08:30.110Z",
+      "modified_at": "2024-06-21T13:22:47.183Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neubau / Anbau / Umbau / Ausbau / Umnutzung von Geb\\u00e4ude oder Geb\\u00e4udeteilen (inkl. Lufttechnische Anlagen, Bef\\u00f6rderungsanlagen, technische Brandschutzeinrichtungen)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "triage-brandschutz-keine-zusatzbewilligung",
+    "fields": {
+      "created_at": "2024-06-21T13:22:47.200Z",
+      "modified_at": "2024-06-21T13:22:47.200Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Neubau / Anbau / Umbau / Ausbau / Umnutzung von Geb\\u00e4ude oder Geb\\u00e4udeteilen\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Gem\\u00e4ss Brandschutzgesetz Art. 7 ist keine feuerpolizeiliche Zusatzbewilligung n\\u00f6tig\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -33621,6 +33837,22 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Station\\u00e4re Verbrennungsmotoren\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "verwendungszweck-des-gases-anderes",
+    "fields": {
+      "created_at": "2024-06-24T06:49:43.099Z",
+      "modified_at": "2024-06-24T06:49:43.099Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anderes\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -38576,7 +38808,7 @@
     "pk": "abgasanlagen",
     "fields": {
       "created_at": "2023-07-07T09:14:11.748Z",
-      "modified_at": "2023-10-27T14:14:07.144Z",
+      "modified_at": "2024-06-24T06:12:23.188Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -38584,7 +38816,7 @@
       "label": "{\"de\": \"Abgasanlagen\", \"fr\": null, \"it\": null}",
       "type": "table",
       "is_required": "false",
-      "is_hidden": "\"neue-oder-bestehende-anlage-neue-anlage\" != \"neue-oder-bestehende-anlage\"|answer",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -39947,6 +40179,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "anderes-beschreibung-abgasanlage",
+    "fields": {
+      "created_at": "2024-06-24T06:19:50.472Z",
+      "modified_at": "2024-06-24T06:19:50.472Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "\"lage-abgasanlage-anderes\" != \"lage-abgasanlage\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "angaben-zum-feuerungsbetrieb",
     "fields": {
       "created_at": "2023-07-13T10:49:21.203Z",
@@ -40667,7 +40933,7 @@
     "pk": "anzahl-behaelter",
     "fields": {
       "created_at": "2023-04-24T10:03:54.508Z",
-      "modified_at": "2024-05-03T06:50:03.970Z",
+      "modified_at": "2024-06-24T06:35:07.222Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -40675,7 +40941,7 @@
       "label": "{\"de\": \"Anzahl Beh\\u00e4lter\", \"fr\": null, \"it\": null}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "\"findet-brennstofflagerung-statt-ja\" != \"findet-brennstofflagerung-statt\"|answer",
+      "is_hidden": "\"bauliche-veraenderungen-brennstofflagerung-ja\" != \"bauliche-veraenderungen-brennstofflagerung\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -40991,14 +41257,14 @@
     "pk": "anzahl-personen",
     "fields": {
       "created_at": "2023-05-25T08:41:17.100Z",
-      "modified_at": "2024-05-03T06:50:04.008Z",
+      "modified_at": "2024-06-21T13:57:14.441Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Beherbergungsbetriebe: Anzahl beherbergte Personen\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\"art-des-gebaeude-beherbergungsbetriebe\" in \"art-des-gebaeude\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -41475,14 +41741,14 @@
     "pk": "anzahl-wohnungen",
     "fields": {
       "created_at": "2023-05-25T08:46:07.729Z",
-      "modified_at": "2024-05-03T06:50:04.063Z",
+      "modified_at": "2024-06-21T13:58:18.483Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Mehrfamilienhaus: Anzahl Wohnungen\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\"art-des-gebaeude-mehrfamilienhaus\" in \"art-des-gebaeude\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -41641,7 +41907,7 @@
     "pk": "art-der-anlage-behaelter",
     "fields": {
       "created_at": "2023-04-24T08:47:41.686Z",
-      "modified_at": "2023-10-27T14:14:06.972Z",
+      "modified_at": "2024-06-24T06:34:41.600Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -41649,7 +41915,7 @@
       "label": "{\"de\": \"Art der Anlage / Beh\\u00e4lter\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "false",
-      "is_hidden": "\"findet-brennstofflagerung-statt-ja\" != \"findet-brennstofflagerung-statt\"|answer",
+      "is_hidden": "\"bauliche-veraenderungen-brennstofflagerung-ja\" != \"bauliche-veraenderungen-brennstofflagerung\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -41734,7 +42000,7 @@
     "pk": "art-der-einzelfeuerung",
     "fields": {
       "created_at": "2023-07-03T08:26:10.605Z",
-      "modified_at": "2023-10-25T08:57:57.342Z",
+      "modified_at": "2024-07-04T07:16:17.954Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -41830,7 +42096,7 @@
     "pk": "art-der-festen-brennstoffe",
     "fields": {
       "created_at": "2023-04-24T10:00:59.570Z",
-      "modified_at": "2023-10-27T14:14:06.974Z",
+      "modified_at": "2024-06-24T06:45:40.169Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -41838,7 +42104,7 @@
       "label": "{\"de\": \"Art der festen Brennstoffe\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "false",
-      "is_hidden": "!(\"lagergut-ableitung-der-abgase-feste-brennstoffe\" in \"lagergut-ableitung-der-abgase\"|answer)",
+      "is_hidden": "\"bauliche-veraenderungen-brennstofflagerung-ja\" != \"bauliche-veraenderungen-brennstofflagerung\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -42081,14 +42347,14 @@
     "pk": "art-der-solaranlage",
     "fields": {
       "created_at": "2023-04-24T07:40:09.972Z",
-      "modified_at": "2023-10-27T14:14:06.984Z",
+      "modified_at": "2024-06-24T06:08:48.464Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Art der Solaranlage\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\"details-alternativenergien-solaranlage\" in \"details-alternativenergien\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -42363,18 +42629,18 @@
     "pk": "art-des-gebaeude",
     "fields": {
       "created_at": "2023-05-25T08:38:35.272Z",
-      "modified_at": "2023-10-27T14:14:06.836Z",
+      "modified_at": "2024-06-27T07:38:03.108Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Art des Geb\\u00e4udes\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"F\\u00fcr weitere Informationen siehe Schweizerische Brandschutzvorschriften\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -42456,14 +42722,14 @@
     "pk": "art-des-parkings",
     "fields": {
       "created_at": "2023-05-25T08:43:59.072Z",
-      "modified_at": "2023-10-27T14:14:06.839Z",
+      "modified_at": "2024-06-21T13:57:46.444Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Art des Parkings\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\"art-des-gebaeude-parkings\" in \"art-des-gebaeude\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -42834,14 +43100,14 @@
     "pk": "aufstellung-im-freien",
     "fields": {
       "created_at": "2023-07-03T15:58:53.976Z",
-      "modified_at": "2023-10-27T14:14:06.987Z",
+      "modified_at": "2024-06-24T06:07:33.146Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Aufstellung im Freien\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\"sind-folgende-anlagen-betroffen-waermepumpe\" in \"sind-folgende-anlagen-betroffen\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -42865,7 +43131,7 @@
     "pk": "aufstellungsraum-der-feuerungsanlage-titel",
     "fields": {
       "created_at": "2023-04-24T08:36:18.213Z",
-      "modified_at": "2023-10-19T12:45:10.866Z",
+      "modified_at": "2024-06-24T06:10:00.793Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -42876,7 +43142,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"[W\\u00e4rmetechnische Anlagen](https://www.bsvonline.ch/de/vorschriften/#a-ioth)\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"[W\\u00e4rmetechnische Anlagen](https://www.bsvonline.ch/de/brandschutzvorschriften/vorschriften-2015#c-richtlinien)\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"---\\n#### Aufstellungsraum der Feuerungsanlage\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -45666,14 +45932,14 @@
     "pk": "beschreibung-abgasanlage",
     "fields": {
       "created_at": "2023-07-07T09:12:22.868Z",
-      "modified_at": "2023-10-25T09:05:59.094Z",
+      "modified_at": "2024-06-24T06:25:47.439Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_required": "false",
       "is_hidden": "\"weitere-anschluesse-abgasanlage-ja\" != \"weitere-anschluesse-abgasanlage\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -45713,6 +45979,40 @@
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-art-der-festen-brennstoffe-andere",
+    "fields": {
+      "created_at": "2024-06-24T06:46:56.299Z",
+      "modified_at": "2024-06-24T06:46:56.300Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\n\t\"art-der-festen-brennstoffe-andere\" in \"art-der-festen-brennstoffe\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -45802,14 +46102,14 @@
     "pk": "beschreibung-art-des-gebaeude",
     "fields": {
       "created_at": "2023-05-25T08:50:26.796Z",
-      "modified_at": "2023-10-27T14:14:06.852Z",
+      "modified_at": "2024-06-21T13:58:54.395Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
       "type": "textarea",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\"art-des-gebaeude-andere\" in \"art-des-gebaeude\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -46470,18 +46770,18 @@
     "pk": "beschreibung-einzelfeuerung",
     "fields": {
       "created_at": "2023-07-03T08:37:06.876Z",
-      "modified_at": "2023-10-27T14:14:07.147Z",
+      "modified_at": "2024-07-04T07:17:10.376Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Beschreibung Einzelfeuerung\", \"fr\": null, \"it\": null}",
       "type": "table",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\"sind-folgende-anlagen-betroffen-einzelfeuerung-fuer-fluessig-oder-erdgas\" in \"sind-folgende-anlagen-betroffen\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Berechtigung zur Ausf\\u00fchrung von Arbeiten an Fl\\u00fcssiggasanlagen: Es d\\u00fcrfen nur solche Berufs- oder Fachleute Fl\\u00fcssiggasanlagen erstellen, \\u00e4ndern oder instand halten, die \\u00fcber gepr\\u00fcftes Fachwissen im Bereich Fl\\u00fcssiggas uns Installationstechnik verf\\u00fcgen. Diese Person ist verantwortlich f\\u00fcr die sachgem\\u00e4sse und sicherheitsgerechte Ausf\\u00fchrung nach den Regeln der Technik. Als Installateur Fl\\u00fcssiggasanlagen gelten Personen, welche die Anforderungen gem\\u00e4ss Pr\\u00fcfungsreglement des Vereins Arbeitskreis LPG [58a] erf\\u00fcllen.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -46870,6 +47170,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "beschreibung-lagergut-andere",
+    "fields": {
+      "created_at": "2024-06-24T06:40:41.451Z",
+      "modified_at": "2024-06-24T06:40:41.451Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\n\t\"lagergut-ableitung-der-abgase-andere\" in \"lagergut-ableitung-der-abgase\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "beschreibung-metall-maschinenindustrie",
     "fields": {
       "created_at": "2023-06-02T15:05:37.410Z",
@@ -47090,6 +47424,40 @@
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-verwendungszeck-des-gases-andere",
+    "fields": {
+      "created_at": "2024-06-24T06:51:01.072Z",
+      "modified_at": "2024-06-24T06:51:01.072Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\n\t\"verwendungszweck-des-gases-anderes\" in \"verwendungszweck-des-gases\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -47484,6 +47852,39 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Alle g\\u00fcltigen Formulare, Gesetze und Protokolle sind unter [energienachweis.gr.ch](http://www.energienachweis.gr.ch/) zu finden.\\n\\nIm Rahmen der \\u00abPrivaten Kontrolle\\u00bb pr\\u00fcfen akkreditierte Fachleute f\\u00fcr die Fachbereiche W\\u00e4rmed\\u00e4mmung, Heizungsanlagen sowie Klima- und Bel\\u00fcftungsanlagen, ob ein Bauvorhaben den gesetzlichen Bestimmungen entspricht und nach den bewilligten Pl\\u00e4nen ausgef\\u00fchrt wurde. Die Formulare \\u00abEnergienachweise\\u00bb und \\u00abAusf\\u00fchrungskontrolle\\u00bb m\\u00fcssen beim Bauamt eingereicht werden.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bestaetigung-fks-richtlinie",
+    "fields": {
+      "created_at": "2024-06-21T13:51:52.528Z",
+      "modified_at": "2024-06-21T13:51:52.528Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Best\\u00e4tigung Anforderung gem\\u00e4ss FKS-Richtlinie\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"[FKS-Richtlinie f\\u00fcr Feuerwehrzufahrten, Bewegungs- und Stellfl\\u00e4chen](https://www.feukos.ch/de/unterlagen)\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -49300,12 +49701,12 @@
     "pk": "brandschutz-haustechnik",
     "fields": {
       "created_at": "2023-05-23T13:12:21.454Z",
-      "modified_at": "2023-05-23T13:12:37.971Z",
+      "modified_at": "2024-06-21T14:09:11.758Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Brandschutz - Haustechnik\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Brandschutz - w\\u00e4rmetechnische Anlagen\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
       "is_hidden": "!(\"triage-brandschutz-anlage\" in \"triage-brandschutz\"|answer)",
@@ -49362,12 +49763,12 @@
     "pk": "brandschutz-haustechnik-titel",
     "fields": {
       "created_at": "2023-04-24T06:20:37.261Z",
-      "modified_at": "2023-10-19T12:43:51.326Z",
+      "modified_at": "2024-06-21T14:07:40.176Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Brandschutz Haustechnik Titel\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Brandschutz - w\\u00e4rmetechnische Anlagen Titel\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
       "is_hidden": "false",
@@ -49375,7 +49776,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"[VKF Brandschutzvorschriften](https://www.bsvonline.ch/de/vorschriften/#c-richtlinien)\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"### Brandschutz - Haustechnik\\n\\n#### Angaben zur Feuerungsanlage\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"### Brandschutz - w\\u00e4rmetechnische Anlagen\\n\\n#### Angaben zur Feuerungsanlage\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -49393,7 +49794,7 @@
     "pk": "brandschutzkonzept",
     "fields": {
       "created_at": "2023-07-03T07:18:13.031Z",
-      "modified_at": "2023-07-03T07:36:40.828Z",
+      "modified_at": "2024-07-04T07:05:33.889Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -49401,7 +49802,7 @@
       "label": "{\"de\": \"Brandschutzkonzept\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
-      "is_hidden": "!(\"qualitaetssicherungsstufe-qss\"|answer in [\n\t\"qualitaetssicherungsstufe-qss-qss-2\", \n\t\"qualitaetssicherungsstufe-qss-qss-3\", \n\t\"qualitaetssicherungsstufe-qss-qss-4\"\n])",
+      "is_hidden": "!(\n\t\"qualitaetssicherungsstufe-qss-qss-4\" in \"qualitaetssicherungsstufe-qss\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -49427,7 +49828,7 @@
     "pk": "brandschutzplaene",
     "fields": {
       "created_at": "2023-07-03T07:19:09.615Z",
-      "modified_at": "2023-07-03T07:52:10.154Z",
+      "modified_at": "2024-07-04T07:05:45.930Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -49435,11 +49836,45 @@
       "label": "{\"de\": \"Brandschutzpl\\u00e4ne inkl. Grundrisse, Schnitte, Fassaden\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
-      "is_hidden": "!(\"qualitaetssicherungsstufe-qss\"|answer in [\n\t\"qualitaetssicherungsstufe-qss-qss-2\", \n\t\"qualitaetssicherungsstufe-qss-qss-3\", \n\t\"qualitaetssicherungsstufe-qss-qss-4\"\n])",
+      "is_hidden": "!(\n\t\"qualitaetssicherungsstufe-qss-qss-4\" in \"qualitaetssicherungsstufe-qss\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "documentCategory": "brandschutzdokumente"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "brandschutzplaene-brandschutzkonzept",
+    "fields": {
+      "created_at": "2024-07-04T07:03:53.023Z",
+      "modified_at": "2024-07-04T07:03:53.023Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Brandschutzpl\\u00e4ne inkl. Grundrisse, Schnitte, Fassaden und gegebenenfalls Brandschutzkonzept\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\"qualitaetssicherungsstufe-qss\"|answer in [\n\t\"qualitaetssicherungsstufe-qss-qss-2\", \n\t\"qualitaetssicherungsstufe-qss-qss-3\"\n])",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -49565,7 +50000,7 @@
     "pk": "brennstoff",
     "fields": {
       "created_at": "2023-05-24T15:30:18.498Z",
-      "modified_at": "2023-10-27T14:14:07.012Z",
+      "modified_at": "2024-06-24T05:57:24.743Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -50269,14 +50704,14 @@
     "pk": "details-zentralheizung",
     "fields": {
       "created_at": "2023-07-03T15:48:20.303Z",
-      "modified_at": "2023-10-27T14:14:07.150Z",
+      "modified_at": "2024-06-24T06:01:27.755Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Details Zentralheizung\", \"fr\": null, \"it\": null}",
       "type": "table",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\"sind-folgende-anlagen-betroffen-zentralheizung\" in \"sind-folgende-anlagen-betroffen\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -50504,7 +50939,7 @@
     "pk": "dispositionsplan-heizungsraum",
     "fields": {
       "created_at": "2023-07-03T07:56:05.857Z",
-      "modified_at": "2023-07-03T08:10:12.932Z",
+      "modified_at": "2024-06-24T07:26:26.055Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -50512,7 +50947,7 @@
       "label": "{\"de\": \"Dispositionsplan Heizungsraum\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
-      "is_hidden": "!(\"sind-folgende-anlagen-betroffen-zentralheizung\" in \"sind-folgende-anlagen-betroffen\"|answer)",
+      "is_hidden": "!(\n\t\"sind-folgende-anlagen-betroffen\"|answer in [\n\t\t\"sind-folgende-anlagen-betroffen-waermepumpe\",\n\t\t\"sind-folgende-anlagen-betroffen-zentralheizung\"\n\t]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -51031,7 +51466,7 @@
     "pk": "einbauart",
     "fields": {
       "created_at": "2023-04-24T08:46:35.820Z",
-      "modified_at": "2023-10-27T14:14:07.017Z",
+      "modified_at": "2024-06-24T06:34:19.991Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -51039,7 +51474,7 @@
       "label": "{\"de\": \"Einbauart\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "false",
-      "is_hidden": "\"findet-brennstofflagerung-statt-ja\" != \"findet-brennstofflagerung-statt\"|answer",
+      "is_hidden": "\"bauliche-veraenderungen-brennstofflagerung-ja\" != \"bauliche-veraenderungen-brennstofflagerung\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -51382,14 +51817,14 @@
     "pk": "einliegerwohnung-max-25-zimmer",
     "fields": {
       "created_at": "2023-05-25T08:47:21.892Z",
-      "modified_at": "2023-10-27T14:14:06.875Z",
+      "modified_at": "2024-06-21T13:58:35.437Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Einfamilienhaus: Einliegerwohnung (max 2.5 Zimmer)\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\"art-des-gebaeude-einfamilienhaus\" in \"art-des-gebaeude\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -53146,14 +53581,14 @@
     "pk": "fabrikat-abgasanlage",
     "fields": {
       "created_at": "2023-07-07T08:41:39.353Z",
-      "modified_at": "2023-10-25T09:05:16.482Z",
+      "modified_at": "2024-06-24T06:24:20.880Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Fabrikat\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -54446,17 +54881,48 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "feuerwehrzugaenglichkeit-titel",
+    "fields": {
+      "created_at": "2024-06-21T13:47:00.033Z",
+      "modified_at": "2024-06-21T13:47:00.033Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Feuerwehrzug\\u00e4nglichkeit Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\\n### Feuerwehrzug\\u00e4nglichkeit\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "findet-brennstofflagerung-statt",
     "fields": {
       "created_at": "2023-07-07T10:20:31.849Z",
-      "modified_at": "2023-10-27T14:14:07.027Z",
+      "modified_at": "2024-06-24T06:28:24.336Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Findet eine Treib- bzw. Brennstofflagerung statt?\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -55138,14 +55604,14 @@
     "pk": "gebaeudehoehe",
     "fields": {
       "created_at": "2023-05-25T07:00:09.864Z",
-      "modified_at": "2023-10-27T14:14:06.886Z",
+      "modified_at": "2024-06-21T13:42:36.694Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Geb\\u00e4udeh\\u00f6he gem\\u00e4ss VKF-Brandschutzrichtlinie 10-15 \\\"Begriffe und Definitionen\\\",  Gesamth\\u00f6he\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -55334,14 +55800,14 @@
     "pk": "gebaeudevolumen",
     "fields": {
       "created_at": "2023-05-25T08:49:24.589Z",
-      "modified_at": "2023-10-27T14:14:06.888Z",
+      "modified_at": "2024-06-21T13:55:42.167Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Landwirtschaftliche Bauten: Geb\\u00e4udevolumen (m\\u00b3)\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\"art-des-gebaeude-landwirtschaftliche-bauten\" in \"art-des-gebaeude\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -55662,14 +56128,14 @@
     "pk": "gesamte-verkaufsflaeche-m",
     "fields": {
       "created_at": "2023-05-25T08:40:37.527Z",
-      "modified_at": "2024-05-03T06:50:04.664Z",
+      "modified_at": "2024-06-21T13:56:50.916Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Verkaufsgesch\\u00e4fte: Gesamte Verkaufsfl\\u00e4che (m\\u00b2)\", \"fr\": null, \"it\": null}",
       "type": "float",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\"art-des-gebaeude-verkaufsgeschaefte\" in \"art-des-gebaeude\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -56439,14 +56905,14 @@
     "pk": "grundflaeche-m",
     "fields": {
       "created_at": "2023-05-25T08:44:22.161Z",
-      "modified_at": "2024-05-03T06:50:04.738Z",
+      "modified_at": "2024-06-21T13:57:59.166Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Parking: Brandabschnittsfl\\u00e4che (m\\u00b2)\", \"fr\": null, \"it\": null}",
       "type": "float",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\"art-des-gebaeude-parkings\" in \"art-des-gebaeude\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -57205,12 +57671,12 @@
     "pk": "haustechnische-anlagen-brandschutz",
     "fields": {
       "created_at": "2023-04-12T08:12:57.951Z",
-      "modified_at": "2023-10-25T07:06:17.860Z",
+      "modified_at": "2024-06-21T11:52:30.280Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Ist das Bauvorhaben feuerpolizeilich bewilligungspflichtig?\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Betrifft das Bauvorhaben ein Geb\\u00e4ude oder eine w\\u00e4rmetechnische Anlage (Feuerpolizeiliche Bewilligungspflicht)?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "false",
@@ -57940,6 +58406,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hinweis-einzelfeuerung",
+    "fields": {
+      "created_at": "2024-06-24T05:47:06.504Z",
+      "modified_at": "2024-06-24T05:47:06.504Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Einzelfeuerung\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n\t\"sind-folgende-anlagen-betroffen-einzelfeuerungen\" in \"sind-folgende-anlagen-betroffen\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"F\\u00fcr die Erstellung einer Einzelfeuerung f\\u00fcr feste Brennstoffe oder \\u00d6l muss das Formular [Gesuch f\\u00fcr eine Bewilligung sowie eine Einzelfeuerung f\\u00fcr feste Brennstoffe oder \\u00d6l](https://gvg.gr.ch/gvg-download-bereich#Brandschutz+Formulare_und_Gesuche) der Geb\\u00e4udeversicherung Graub\\u00fcnden, Brandschutz, vom Errichter der Anlage unterzeichnet, eingereicht werden.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hinweis-erfassung-solaranlage",
     "fields": {
       "created_at": "2023-05-19T10:15:30.285Z",
@@ -57990,6 +58490,39 @@
       "static_content": "{\"de\": \"Bei Erweiterungen/Umbauten bestehender Bauten bitte Skizze mit dem Standort des bestehenden G\\u00fcllelagers beilegen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-feuerwehrzugaenglichkeit",
+    "fields": {
+      "created_at": "2024-06-21T13:49:05.411Z",
+      "modified_at": "2024-06-21T13:49:25.502Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Feuerwehrzug\\u00e4nglichkeit\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Bei Neubauten sowie bei wesentlichen baulichen Ver\\u00e4nderungen an Geb\\u00e4uden oder der Umgebung, k\\u00f6nnen Auflagen bez\\u00fcglich der \\u00e4usseren Zug\\u00e4nglichkeit f\\u00fcr die Feuerwehr entstehen.\\nBauten und Anlagen m\\u00fcssen f\\u00fcr den raschen und zweckm\\u00e4ssigen Einsatz der Feuerwehr jederzeit zug\\u00e4nglich sein.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -58470,10 +59003,10 @@
     "pk": "hinweis-zustaendigkeit-anu",
     "fields": {
       "created_at": "2023-10-19T13:09:50.314Z",
-      "modified_at": "2023-10-19T13:09:50.314Z",
+      "modified_at": "2024-06-24T07:13:01.533Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Hinweis Zust\\u00e4ndigkeit ANU\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -58481,7 +59014,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"F\\u00fcr dieses Fachthema ist das Amt f\\u00fcr Natur und Umwelt (ANU) zust\\u00e4ndig.<br>\\nEmail: info@anu.gr.ch Telefon: 081 257 29 46\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -58563,7 +59096,7 @@
     "pk": "hinweis-zustaendigkeit-gvg",
     "fields": {
       "created_at": "2023-10-19T13:18:07.393Z",
-      "modified_at": "2024-05-27T06:19:07.464Z",
+      "modified_at": "2024-06-21T14:12:23.911Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -58576,7 +59109,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"F\\u00fcr dieses Fachthema ist das Amt f\\u00fcr Natur und Umwelt (ANU) zust\\u00e4ndig.<br>\\nEmail: info@anu.gr.ch Telefon: 081 257 29 46\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"F\\u00fcr dieses Fachthema ist die Geb\\u00e4udeversicherung Graub\\u00fcnden (GVG) zust\\u00e4ndig.<br>\\nEmail: brandschutz@gvg.gr.ch Telefon: 081 258 90 50\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -59075,15 +59608,15 @@
     "pk": "inhalt-lagermenge",
     "fields": {
       "created_at": "2023-04-24T10:02:47.934Z",
-      "modified_at": "2023-10-27T14:14:07.047Z",
+      "modified_at": "2024-06-24T06:48:41.352Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Inhalt / Lagermenge (l, m\\u00b3, oder kg)\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "false",
-      "is_hidden": "\"findet-brennstofflagerung-statt-ja\" != \"findet-brennstofflagerung-statt\"|answer",
+      "is_required": "true",
+      "is_hidden": "\"bauliche-veraenderungen-brennstofflagerung-ja\" != \"bauliche-veraenderungen-brennstofflagerung\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -59764,14 +60297,14 @@
     "pk": "kaeltemittel-waermepumpe",
     "fields": {
       "created_at": "2023-07-03T15:56:42.692Z",
-      "modified_at": "2023-10-27T14:14:07.049Z",
+      "modified_at": "2024-06-24T06:07:17.255Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"K\\u00e4ltemittel\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\"sind-folgende-anlagen-betroffen-waermepumpe\" in \"sind-folgende-anlagen-betroffen\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"z.B. R407C, R410A\", \"fr\": null, \"it\": null}",
@@ -60834,13 +61367,13 @@
     "pk": "lage-abgasanlage",
     "fields": {
       "created_at": "2023-07-07T08:40:37.310Z",
-      "modified_at": "2023-10-25T09:05:06.791Z",
+      "modified_at": "2024-06-24T06:17:42.466Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Lage\", \"fr\": null, \"it\": null}",
-      "type": "text",
+      "type": "choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "false",
       "is_archived": false,
@@ -61126,7 +61659,7 @@
     "pk": "lagergut-ableitung-der-abgase",
     "fields": {
       "created_at": "2023-04-24T08:45:26.403Z",
-      "modified_at": "2023-10-27T14:14:07.055Z",
+      "modified_at": "2024-06-24T06:39:12.204Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -61134,7 +61667,7 @@
       "label": "{\"de\": \"Lagergut\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "false",
-      "is_hidden": "\"findet-brennstofflagerung-statt-ja\" != \"findet-brennstofflagerung-statt\"|answer",
+      "is_hidden": "\"bauliche-veraenderungen-brennstofflagerung-ja\" != \"bauliche-veraenderungen-brennstofflagerung\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -62277,7 +62810,7 @@
     "pk": "material-aussenwaende-ableitung-der-abgase",
     "fields": {
       "created_at": "2023-04-24T10:06:41.674Z",
-      "modified_at": "2023-10-27T14:14:07.072Z",
+      "modified_at": "2024-06-24T06:35:26.512Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62285,7 +62818,7 @@
       "label": "{\"de\": \"Material Aussenw\\u00e4nde\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "\"findet-brennstofflagerung-statt-ja\" != \"findet-brennstofflagerung-statt\"|answer",
+      "is_hidden": "\"bauliche-veraenderungen-brennstofflagerung-ja\" != \"bauliche-veraenderungen-brennstofflagerung\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -62345,7 +62878,7 @@
     "pk": "material-boden-ableitung-der-abgase",
     "fields": {
       "created_at": "2023-04-24T10:07:29.497Z",
-      "modified_at": "2023-10-27T14:14:07.077Z",
+      "modified_at": "2024-06-24T06:36:04.860Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62353,7 +62886,7 @@
       "label": "{\"de\": \"Material Boden\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "\"findet-brennstofflagerung-statt-ja\" != \"findet-brennstofflagerung-statt\"|answer",
+      "is_hidden": "\"bauliche-veraenderungen-brennstofflagerung-ja\" != \"bauliche-veraenderungen-brennstofflagerung\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -62413,7 +62946,7 @@
     "pk": "material-decke-ableitung-der-abgase",
     "fields": {
       "created_at": "2023-04-24T10:07:12.541Z",
-      "modified_at": "2023-10-27T14:14:07.083Z",
+      "modified_at": "2024-06-24T06:35:54.213Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62421,7 +62954,7 @@
       "label": "{\"de\": \"Material Decke\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "\"findet-brennstofflagerung-statt-ja\" != \"findet-brennstofflagerung-statt\"|answer",
+      "is_hidden": "\"bauliche-veraenderungen-brennstofflagerung-ja\" != \"bauliche-veraenderungen-brennstofflagerung\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -62574,7 +63107,7 @@
     "pk": "material-innenwaende-ableitung-der-abgase",
     "fields": {
       "created_at": "2023-04-24T10:06:56.998Z",
-      "modified_at": "2023-10-27T14:14:07.088Z",
+      "modified_at": "2024-06-24T06:35:44.039Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62582,7 +63115,7 @@
       "label": "{\"de\": \"Material Innenw\\u00e4nde\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "\"findet-brennstofflagerung-statt-ja\" != \"findet-brennstofflagerung-statt\"|answer",
+      "is_hidden": "\"bauliche-veraenderungen-brennstofflagerung-ja\" != \"bauliche-veraenderungen-brennstofflagerung\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -62892,14 +63425,14 @@
     "pk": "max-personenbelegung-im-groessten-raum",
     "fields": {
       "created_at": "2023-05-25T08:42:42.349Z",
-      "modified_at": "2024-05-03T06:50:05.020Z",
+      "modified_at": "2024-06-21T13:57:35.739Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Bauten und Anlagen mit R\\u00e4umen mit grosser Personenbelegung: Max. Personenbelegung im gr\\u00f6ssten Raum\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\"art-des-gebaeude-bauten-und-anlagen-mit-raeumen-mit-grosser-personenbelegung\" in \"art-des-gebaeude\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -63789,14 +64322,14 @@
     "pk": "model-typ-abgasanlage",
     "fields": {
       "created_at": "2023-07-07T08:42:01.773Z",
-      "modified_at": "2023-10-25T09:05:22.200Z",
+      "modified_at": "2024-06-24T06:24:32.790Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Model / Typ\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -64184,14 +64717,14 @@
     "pk": "nennwaermeleistung",
     "fields": {
       "created_at": "2023-07-03T15:44:47.523Z",
-      "modified_at": "2024-05-03T06:50:05.068Z",
+      "modified_at": "2024-06-24T06:03:19.870Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Nennw\\u00e4rmeleistung (kw)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -64323,7 +64856,7 @@
     "pk": "neue-oder-bestehende-anlage",
     "fields": {
       "created_at": "2023-07-07T08:36:27.493Z",
-      "modified_at": "2023-10-27T14:14:07.095Z",
+      "modified_at": "2024-06-24T06:11:51.158Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -64354,7 +64887,7 @@
     "pk": "neue-oder-bestehende-lagerung",
     "fields": {
       "created_at": "2023-07-07T10:24:00.870Z",
-      "modified_at": "2023-10-27T14:14:07.098Z",
+      "modified_at": "2024-06-24T06:37:38.913Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -66213,14 +66746,14 @@
     "pk": "querschnitt-abgasanlage",
     "fields": {
       "created_at": "2023-07-07T08:49:26.462Z",
-      "modified_at": "2024-05-03T06:50:05.128Z",
+      "modified_at": "2024-06-24T06:24:55.084Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Querschnitt (mm)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -66388,7 +66921,7 @@
     "pk": "raumlueftung-ableitung-der-abgase",
     "fields": {
       "created_at": "2023-04-24T10:05:54.950Z",
-      "modified_at": "2024-05-03T06:50:05.147Z",
+      "modified_at": "2024-06-24T06:35:15.824Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -66396,7 +66929,7 @@
       "label": "{\"de\": \"Rauml\\u00fcftung (cm\\u00b2)\", \"fr\": null, \"it\": null}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "\"findet-brennstofflagerung-statt-ja\" != \"findet-brennstofflagerung-statt\"|answer",
+      "is_hidden": "\"bauliche-veraenderungen-brennstofflagerung-ja\" != \"bauliche-veraenderungen-brennstofflagerung\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -67050,14 +67583,14 @@
     "pk": "russbrandbestaendig-abgasanlage",
     "fields": {
       "created_at": "2023-07-07T08:50:13.783Z",
-      "modified_at": "2023-10-25T09:05:43.545Z",
+      "modified_at": "2024-06-24T06:25:17.348Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Russbrandbest\\u00e4ndig\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -67174,14 +67707,14 @@
     "pk": "russsack-abgasanlage",
     "fields": {
       "created_at": "2023-07-07T08:49:46.160Z",
-      "modified_at": "2023-10-25T09:05:38.392Z",
+      "modified_at": "2024-06-24T06:25:05.198Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Russsack\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -67329,7 +67862,7 @@
     "pk": "schnitzel-und-spaenelager-entleerungsoeffnung",
     "fields": {
       "created_at": "2023-10-19T10:59:53.152Z",
-      "modified_at": "2023-10-27T14:14:07.110Z",
+      "modified_at": "2024-06-24T06:36:36.128Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -67337,7 +67870,7 @@
       "label": "{\"de\": \"F\\u00fcr Schnitzel- und Sp\\u00e4nelager Entleerungs\\u00f6ffnung ins Freie: Abmessung\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "\"bauliche-veraenderungen-brennstofflagerung-ja\" != \"bauliche-veraenderungen-brennstofflagerung\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -67652,14 +68185,14 @@
     "pk": "sind-folgende-anlagen-betroffen",
     "fields": {
       "created_at": "2023-04-27T13:30:28.401Z",
-      "modified_at": "2023-10-27T14:14:07.113Z",
+      "modified_at": "2024-06-27T07:30:57.732Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Was ist geplant?\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -68109,7 +68642,7 @@
     "pk": "spezifikation",
     "fields": {
       "created_at": "2023-04-24T08:44:15.259Z",
-      "modified_at": "2023-10-27T14:14:07.118Z",
+      "modified_at": "2024-06-24T06:32:03.080Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -68117,7 +68650,7 @@
       "label": "{\"de\": \"Spezifikation\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "false",
-      "is_hidden": "\"findet-brennstofflagerung-statt-ja\" != \"findet-brennstofflagerung-statt\"|answer",
+      "is_hidden": "\"bauliche-veraenderungen-brennstofflagerung-ja\" != \"bauliche-veraenderungen-brennstofflagerung\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -68927,14 +69460,14 @@
     "pk": "svgw-nr-ce-erklaerung",
     "fields": {
       "created_at": "2023-07-03T15:43:51.879Z",
-      "modified_at": "2024-05-03T06:50:05.267Z",
+      "modified_at": "2024-06-24T06:03:11.331Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"SVGW-Nr. / CE-Erkl\\u00e4rung\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_required": "false",
       "is_hidden": "!(\"art-der-zentralheizung-fluessiggas\" in \"art-der-zentralheizung\"|answer || \"art-der-zentralheizung-erdgas\" in \"art-der-zentralheizung\"|answer || \"art-der-zentralheizung-andere\" in \"art-der-zentralheizung\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -69533,14 +70066,14 @@
     "pk": "temperaturklasse-abgasanlage",
     "fields": {
       "created_at": "2023-07-07T08:49:02.762Z",
-      "modified_at": "2023-10-25T09:05:27.741Z",
+      "modified_at": "2024-06-24T06:24:43.462Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Temperaturklasse\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"z.B. T400\", \"fr\": null, \"it\": null}",
@@ -69820,12 +70353,12 @@
     "pk": "triage-brandschutz",
     "fields": {
       "created_at": "2023-05-23T13:08:30.349Z",
-      "modified_at": "2023-10-25T07:06:25.209Z",
+      "modified_at": "2024-06-21T13:22:47.369Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Bauvorhaben betrifft\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Feuerpolizeiliche Bewilligungspflicht - Bauvorhaben betrifft\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "!(\"haustechnische-anlagen-brandschutz-ja\" == \"haustechnische-anlagen-brandschutz\"|answer)",
@@ -69913,7 +70446,7 @@
     "pk": "tuere-ableitung-der-abgase",
     "fields": {
       "created_at": "2023-04-24T10:10:39.905Z",
-      "modified_at": "2023-10-27T14:14:07.123Z",
+      "modified_at": "2024-06-24T06:36:17.237Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -69921,7 +70454,7 @@
       "label": "{\"de\": \"T\\u00fcre\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "false",
-      "is_hidden": "\"findet-brennstofflagerung-statt-ja\" != \"findet-brennstofflagerung-statt\"|answer",
+      "is_hidden": "\"bauliche-veraenderungen-brennstofflagerung-ja\" != \"bauliche-veraenderungen-brennstofflagerung\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -70107,14 +70640,14 @@
     "pk": "typ-der-waermepumpe",
     "fields": {
       "created_at": "2023-07-03T15:34:00.529Z",
-      "modified_at": "2023-10-27T14:14:07.128Z",
+      "modified_at": "2024-06-24T06:07:06.660Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Brennbarkeit des K\\u00e4ltemittels\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\"sind-folgende-anlagen-betroffen-waermepumpe\" in \"sind-folgende-anlagen-betroffen\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -71298,7 +71831,7 @@
     "pk": "verwendungszweck-des-gases",
     "fields": {
       "created_at": "2023-04-24T10:15:01.600Z",
-      "modified_at": "2023-10-27T14:14:07.133Z",
+      "modified_at": "2024-06-24T06:49:43.339Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -71433,14 +71966,14 @@
     "pk": "vkf-nr",
     "fields": {
       "created_at": "2023-07-03T15:42:52.988Z",
-      "modified_at": "2024-05-03T06:50:05.386Z",
+      "modified_at": "2024-06-24T06:05:40.012Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"VKF Nr.\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"VKF Nr. / CE-Erkl\\u00e4rung (je nach System)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_required": "false",
       "is_hidden": "!(\"art-der-zentralheizung-oelfeuerung\" in \"art-der-zentralheizung\"|answer || \"art-der-zentralheizung-feste-brennstoffe\" in \"art-der-zentralheizung\"|answer || \"art-der-zentralheizung-andere\" in \"art-der-zentralheizung\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -71539,14 +72072,14 @@
     "pk": "vkf-nr-brandschutzelement-agbasanlage",
     "fields": {
       "created_at": "2023-07-07T08:51:25.318Z",
-      "modified_at": "2024-05-03T06:50:05.400Z",
+      "modified_at": "2024-06-24T06:25:26.749Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"VKF-Nr. Brandschutzelement (z.B. Ummauerung/Schacht)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -71575,7 +72108,7 @@
     "pk": "vkf-nr-tuere-ableitung-der-abgase",
     "fields": {
       "created_at": "2023-04-24T10:11:54.065Z",
-      "modified_at": "2024-05-03T06:50:05.407Z",
+      "modified_at": "2024-06-24T06:36:28.041Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -71583,7 +72116,7 @@
       "label": "{\"de\": \"VKF-Nr.\", \"fr\": null, \"it\": null}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "\"findet-brennstofflagerung-statt-ja\" != \"findet-brennstofflagerung-statt\"|answer",
+      "is_hidden": "\"bauliche-veraenderungen-brennstofflagerung-ja\" != \"bauliche-veraenderungen-brennstofflagerung\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -72038,19 +72571,19 @@
     "pk": "voraussichtliche-bauvollendung-text",
     "fields": {
       "created_at": "2023-06-29T13:32:46.312Z",
-      "modified_at": "2023-10-27T14:14:06.927Z",
+      "modified_at": "2024-06-21T13:42:56.387Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Voraussichtliche Bauvollendung\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -73267,14 +73800,14 @@
     "pk": "weitere-anschluesse-abgasanlage",
     "fields": {
       "created_at": "2023-07-07T09:09:24.869Z",
-      "modified_at": "2023-10-25T09:05:54.216Z",
+      "modified_at": "2024-06-24T06:25:37.783Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Weitere Anschl\\u00fcsse\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -74705,6 +75238,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "zustaendigkeit-anu",
+    "fields": {
+      "created_at": "2024-06-24T07:15:38.211Z",
+      "modified_at": "2024-06-24T07:15:38.211Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zust\\u00e4ndigkeit ANU\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"F\\u00fcr dieses Fachthema ist das Amt f\\u00fcr Natur und Umwelt (ANU) zust\\u00e4ndig.<br>\\nEmail: info@anu.gr.ch Telefon: 081 257 29 46\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "zustand",
     "fields": {
       "created_at": "2023-04-12T11:32:48.127Z",
@@ -75421,36 +75987,6 @@
       "modified_by_group": null,
       "question": "aenderungen-zur-vorherigen-bewilligung",
       "option": "aenderungen-zur-vorherigen-bewilligung-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "alter-der-feuerungsanlage.alter-der-feuerungsanlage-alt",
-    "fields": {
-      "created_at": "2023-10-25T08:56:51.310Z",
-      "modified_at": "2023-10-25T08:56:51.310Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "alter-der-feuerungsanlage",
-      "option": "alter-der-feuerungsanlage-alt",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "alter-der-feuerungsanlage.alter-der-feuerungsanlage-neu",
-    "fields": {
-      "created_at": "2023-10-25T08:56:51.301Z",
-      "modified_at": "2023-10-25T08:56:51.301Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "alter-der-feuerungsanlage",
-      "option": "alter-der-feuerungsanlage-neu",
       "sort": 1
     }
   },
@@ -76388,8 +76924,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-anlage-behaelter.art-der-anlage-behaelter-kleingebinde",
     "fields": {
-      "created_at": "2023-10-25T09:07:17.268Z",
-      "modified_at": "2023-10-25T09:07:17.268Z",
+      "created_at": "2024-06-24T06:34:41.627Z",
+      "modified_at": "2024-06-24T06:34:41.627Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -76403,8 +76939,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-anlage-behaelter.art-der-anlage-behaelter-kunstsoff-kleintank",
     "fields": {
-      "created_at": "2023-10-25T09:07:17.281Z",
-      "modified_at": "2023-10-25T09:07:17.281Z",
+      "created_at": "2024-06-24T06:34:41.645Z",
+      "modified_at": "2024-06-24T06:34:41.645Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -76418,8 +76954,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-anlage-behaelter.art-der-anlage-behaelter-kunststoff-gfk",
     "fields": {
-      "created_at": "2023-10-25T09:07:17.287Z",
-      "modified_at": "2023-10-25T09:07:17.287Z",
+      "created_at": "2024-06-24T06:34:41.654Z",
+      "modified_at": "2024-06-24T06:34:41.654Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -76433,8 +76969,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-anlage-behaelter.art-der-anlage-behaelter-stahltank",
     "fields": {
-      "created_at": "2023-10-25T09:07:17.274Z",
-      "modified_at": "2023-10-25T09:07:17.274Z",
+      "created_at": "2024-06-24T06:34:41.636Z",
+      "modified_at": "2024-06-24T06:34:41.636Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -76448,8 +76984,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-anlage-behaelter.art-der-anlage-behaelter-transportflaschen",
     "fields": {
-      "created_at": "2023-10-25T09:07:17.261Z",
-      "modified_at": "2023-10-25T09:07:17.261Z",
+      "created_at": "2024-06-24T06:34:41.617Z",
+      "modified_at": "2024-06-24T06:34:41.617Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -76523,8 +77059,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-einzelfeuerung.art-der-einzelfeuerung-anderes",
     "fields": {
-      "created_at": "2023-10-25T08:57:57.357Z",
-      "modified_at": "2023-10-25T08:57:57.357Z",
+      "created_at": "2024-07-04T07:16:17.968Z",
+      "modified_at": "2024-07-04T07:16:17.968Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -76538,8 +77074,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-einzelfeuerung.art-der-einzelfeuerung-durchlauferhitzer",
     "fields": {
-      "created_at": "2023-10-25T08:57:57.370Z",
-      "modified_at": "2023-10-25T08:57:57.370Z",
+      "created_at": "2024-07-04T07:16:17.985Z",
+      "modified_at": "2024-07-04T07:16:17.985Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -76553,8 +77089,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-einzelfeuerung.art-der-einzelfeuerung-gascheminee",
     "fields": {
-      "created_at": "2023-10-25T08:57:57.383Z",
-      "modified_at": "2023-10-25T08:57:57.383Z",
+      "created_at": "2024-07-04T07:16:17.999Z",
+      "modified_at": "2024-07-04T07:16:17.999Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -76568,8 +77104,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-einzelfeuerung.art-der-einzelfeuerung-heizstrahler",
     "fields": {
-      "created_at": "2023-10-25T08:57:57.377Z",
-      "modified_at": "2023-10-25T08:57:57.377Z",
+      "created_at": "2024-07-04T07:16:17.992Z",
+      "modified_at": "2024-07-04T07:16:17.992Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -76583,8 +77119,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-einzelfeuerung.art-der-einzelfeuerung-kochherd",
     "fields": {
-      "created_at": "2023-10-25T08:57:57.363Z",
-      "modified_at": "2023-10-25T08:57:57.364Z",
+      "created_at": "2024-07-04T07:16:17.976Z",
+      "modified_at": "2024-07-04T07:16:17.976Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -76671,47 +77207,77 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "art-der-festen-brennstoffe.art-der-festen-brennstoffe-andere",
+    "fields": {
+      "created_at": "2024-06-24T06:45:40.180Z",
+      "modified_at": "2024-06-24T06:45:40.180Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-festen-brennstoffe",
+      "option": "art-der-festen-brennstoffe-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "art-der-festen-brennstoffe.art-der-festen-brennstoffe-pelletsfeuerung",
     "fields": {
-      "created_at": "2023-10-25T09:07:01.374Z",
-      "modified_at": "2023-10-25T09:07:01.374Z",
+      "created_at": "2024-06-24T06:45:40.198Z",
+      "modified_at": "2024-06-24T06:45:40.198Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-der-festen-brennstoffe",
       "option": "art-der-festen-brennstoffe-pelletsfeuerung",
-      "sort": 2
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-festen-brennstoffe.art-der-festen-brennstoffe-schnitzelfeuerung",
     "fields": {
-      "created_at": "2023-10-25T09:07:01.380Z",
-      "modified_at": "2023-10-25T09:07:01.380Z",
+      "created_at": "2024-06-24T06:45:40.204Z",
+      "modified_at": "2024-06-24T06:45:40.204Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-der-festen-brennstoffe",
       "option": "art-der-festen-brennstoffe-schnitzelfeuerung",
-      "sort": 3
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-festen-brennstoffe.art-der-festen-brennstoffe-spaene",
+    "fields": {
+      "created_at": "2024-06-24T06:45:40.186Z",
+      "modified_at": "2024-06-24T06:45:40.186Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-festen-brennstoffe",
+      "option": "art-der-festen-brennstoffe-spaene",
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-festen-brennstoffe.art-der-festen-brennstoffe-stueckholz",
     "fields": {
-      "created_at": "2023-10-25T09:07:01.368Z",
-      "modified_at": "2023-10-25T09:07:01.368Z",
+      "created_at": "2024-06-24T06:45:40.191Z",
+      "modified_at": "2024-06-24T06:45:40.191Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-der-festen-brennstoffe",
       "option": "art-der-festen-brennstoffe-stueckholz",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -77033,8 +77599,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-solaranlage.art-der-solaranlage-gemischt",
     "fields": {
-      "created_at": "2023-10-25T09:02:33.129Z",
-      "modified_at": "2023-10-25T09:02:33.129Z",
+      "created_at": "2024-06-24T06:08:48.479Z",
+      "modified_at": "2024-06-24T06:08:48.479Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -77048,8 +77614,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-solaranlage.art-der-solaranlage-photovoltaikanlage",
     "fields": {
-      "created_at": "2023-10-25T09:02:33.134Z",
-      "modified_at": "2023-10-25T09:02:33.134Z",
+      "created_at": "2024-06-24T06:08:48.487Z",
+      "modified_at": "2024-06-24T06:08:48.487Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -77063,8 +77629,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-solaranlage.art-der-solaranlage-thermische-anlage",
     "fields": {
-      "created_at": "2023-10-25T09:02:33.142Z",
-      "modified_at": "2023-10-25T09:02:33.142Z",
+      "created_at": "2024-06-24T06:08:48.495Z",
+      "modified_at": "2024-06-24T06:08:48.495Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -77528,8 +78094,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-des-gebaeude.art-des-gebaeude-andere",
     "fields": {
-      "created_at": "2023-10-25T08:54:20.211Z",
-      "modified_at": "2023-10-25T08:54:20.211Z",
+      "created_at": "2024-06-27T07:38:03.125Z",
+      "modified_at": "2024-06-27T07:38:03.125Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -77543,8 +78109,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-des-gebaeude.art-des-gebaeude-bauten-und-anlagen-mit-raeumen-mit-grosser-personenbelegung",
     "fields": {
-      "created_at": "2023-10-25T08:54:20.240Z",
-      "modified_at": "2023-10-25T08:54:20.240Z",
+      "created_at": "2024-06-27T07:38:03.168Z",
+      "modified_at": "2024-06-27T07:38:03.168Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -77558,8 +78124,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-des-gebaeude.art-des-gebaeude-beherbergungsbetriebe",
     "fields": {
-      "created_at": "2023-10-25T08:54:20.249Z",
-      "modified_at": "2023-10-25T08:54:20.249Z",
+      "created_at": "2024-06-27T07:38:03.184Z",
+      "modified_at": "2024-06-27T07:38:03.185Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -77573,8 +78139,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-des-gebaeude.art-des-gebaeude-einfamilienhaus",
     "fields": {
-      "created_at": "2023-10-25T08:54:20.226Z",
-      "modified_at": "2023-10-25T08:54:20.226Z",
+      "created_at": "2024-06-27T07:38:03.146Z",
+      "modified_at": "2024-06-27T07:38:03.146Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -77588,8 +78154,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-des-gebaeude.art-des-gebaeude-gebaeude-geringer-abmessungen",
     "fields": {
-      "created_at": "2023-10-25T08:54:20.221Z",
-      "modified_at": "2023-10-25T08:54:20.221Z",
+      "created_at": "2024-06-27T07:38:03.139Z",
+      "modified_at": "2024-06-27T07:38:03.139Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -77603,8 +78169,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-des-gebaeude.art-des-gebaeude-landwirtschaftliche-bauten",
     "fields": {
-      "created_at": "2023-10-25T08:54:20.217Z",
-      "modified_at": "2023-10-25T08:54:20.217Z",
+      "created_at": "2024-06-27T07:38:03.132Z",
+      "modified_at": "2024-06-27T07:38:03.132Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -77618,8 +78184,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-des-gebaeude.art-des-gebaeude-mehrfamilienhaus",
     "fields": {
-      "created_at": "2023-10-25T08:54:20.231Z",
-      "modified_at": "2023-10-25T08:54:20.231Z",
+      "created_at": "2024-06-27T07:38:03.153Z",
+      "modified_at": "2024-06-27T07:38:03.153Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -77633,8 +78199,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-des-gebaeude.art-des-gebaeude-parkings",
     "fields": {
-      "created_at": "2023-10-25T08:54:20.235Z",
-      "modified_at": "2023-10-25T08:54:20.235Z",
+      "created_at": "2024-06-27T07:38:03.160Z",
+      "modified_at": "2024-06-27T07:38:03.160Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -77648,8 +78214,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-des-gebaeude.art-des-gebaeude-verkaufsgeschaefte",
     "fields": {
-      "created_at": "2023-10-25T08:54:20.244Z",
-      "modified_at": "2023-10-25T08:54:20.244Z",
+      "created_at": "2024-06-27T07:38:03.177Z",
+      "modified_at": "2024-06-27T07:38:03.177Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -77753,8 +78319,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-des-parkings.art-des-parkings-nicht-oeffentlich",
     "fields": {
-      "created_at": "2023-10-25T08:54:53.520Z",
-      "modified_at": "2023-10-25T08:54:53.520Z",
+      "created_at": "2024-06-21T13:57:46.457Z",
+      "modified_at": "2024-06-21T13:57:46.457Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -77768,8 +78334,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-des-parkings.art-des-parkings-oeffentlich",
     "fields": {
-      "created_at": "2023-10-25T08:54:53.524Z",
-      "modified_at": "2023-10-25T08:54:53.524Z",
+      "created_at": "2024-06-21T13:57:46.466Z",
+      "modified_at": "2024-06-21T13:57:46.466Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -78053,8 +78619,8 @@
     "model": "caluma_form.questionoption",
     "pk": "aufstellung-im-freien.aufstellung-im-freien-ja",
     "fields": {
-      "created_at": "2023-10-25T09:02:14.848Z",
-      "modified_at": "2023-10-25T09:02:14.849Z",
+      "created_at": "2024-06-24T06:07:33.181Z",
+      "modified_at": "2024-06-24T06:07:33.181Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -78068,8 +78634,8 @@
     "model": "caluma_form.questionoption",
     "pk": "aufstellung-im-freien.aufstellung-im-freien-nein",
     "fields": {
-      "created_at": "2023-10-25T09:02:14.841Z",
-      "modified_at": "2023-10-25T09:02:14.841Z",
+      "created_at": "2024-06-24T06:07:33.169Z",
+      "modified_at": "2024-06-24T06:07:33.169Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -79596,6 +80162,21 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "bestaetigung-fks-richtlinie.ja",
+    "fields": {
+      "created_at": "2024-06-21T13:51:52.543Z",
+      "modified_at": "2024-06-21T13:51:52.543Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bestaetigung-fks-richtlinie",
+      "option": "ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "bestaetigung-radon.bestaetigung-radon-ja",
     "fields": {
       "created_at": "2023-11-06T13:52:39.438Z",
@@ -80438,8 +81019,8 @@
     "model": "caluma_form.questionoption",
     "pk": "brandschutzkonzept.brandschutzkonzept-ja",
     "fields": {
-      "created_at": "2023-07-03T07:36:40.837Z",
-      "modified_at": "2023-07-03T07:36:40.837Z",
+      "created_at": "2024-07-04T07:05:33.901Z",
+      "modified_at": "2024-07-04T07:05:33.901Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -80451,10 +81032,25 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "brandschutzplaene-brandschutzkonzept.brandschutzplaene-inkl-grundrisse-schnitte-fassaden-und-gegebenenfalls-brandschutzkonzept-ja",
+    "fields": {
+      "created_at": "2024-07-04T07:03:53.036Z",
+      "modified_at": "2024-07-04T07:03:53.036Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "brandschutzplaene-brandschutzkonzept",
+      "option": "brandschutzplaene-inkl-grundrisse-schnitte-fassaden-und-gegebenenfalls-brandschutzkonzept-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "brandschutzplaene.brandschutzplaene-ja",
     "fields": {
-      "created_at": "2023-07-03T07:52:10.167Z",
-      "modified_at": "2023-07-03T07:52:10.167Z",
+      "created_at": "2024-07-04T07:05:45.945Z",
+      "modified_at": "2024-07-04T07:05:45.945Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -80468,8 +81064,8 @@
     "model": "caluma_form.questionoption",
     "pk": "brennstoff.brennstoff-andere",
     "fields": {
-      "created_at": "2023-10-25T08:56:57.193Z",
-      "modified_at": "2023-10-25T08:56:57.193Z",
+      "created_at": "2024-06-24T05:57:24.763Z",
+      "modified_at": "2024-06-24T05:57:24.763Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -80483,8 +81079,8 @@
     "model": "caluma_form.questionoption",
     "pk": "brennstoff.brennstoff-feste-brennstoffe",
     "fields": {
-      "created_at": "2023-10-25T08:56:57.215Z",
-      "modified_at": "2023-10-25T08:56:57.215Z",
+      "created_at": "2024-06-24T05:57:24.793Z",
+      "modified_at": "2024-06-24T05:57:24.793Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -80498,8 +81094,8 @@
     "model": "caluma_form.questionoption",
     "pk": "brennstoff.brennstoff-gas",
     "fields": {
-      "created_at": "2023-10-25T08:56:57.201Z",
-      "modified_at": "2023-10-25T08:56:57.201Z",
+      "created_at": "2024-06-24T05:57:24.773Z",
+      "modified_at": "2024-06-24T05:57:24.773Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -80513,8 +81109,8 @@
     "model": "caluma_form.questionoption",
     "pk": "brennstoff.brennstoff-oel",
     "fields": {
-      "created_at": "2023-10-25T08:56:57.207Z",
-      "modified_at": "2023-10-25T08:56:57.207Z",
+      "created_at": "2024-06-24T05:57:24.783Z",
+      "modified_at": "2024-06-24T05:57:24.783Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -81038,8 +81634,8 @@
     "model": "caluma_form.questionoption",
     "pk": "dispositionsplan-heizungsraum.dispositionsplan-heizungsraum-ja",
     "fields": {
-      "created_at": "2023-07-03T08:10:12.942Z",
-      "modified_at": "2023-07-03T08:10:12.942Z",
+      "created_at": "2024-06-24T07:26:26.067Z",
+      "modified_at": "2024-06-24T07:26:26.067Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -81053,8 +81649,8 @@
     "model": "caluma_form.questionoption",
     "pk": "einbauart.einbauart-erdverlegt",
     "fields": {
-      "created_at": "2023-10-25T09:07:08.665Z",
-      "modified_at": "2023-10-25T09:07:08.665Z",
+      "created_at": "2024-06-24T06:34:20.003Z",
+      "modified_at": "2024-06-24T06:34:20.003Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -81068,8 +81664,8 @@
     "model": "caluma_form.questionoption",
     "pk": "einbauart.einbauart-im-freien",
     "fields": {
-      "created_at": "2023-10-25T09:07:08.674Z",
-      "modified_at": "2023-10-25T09:07:08.674Z",
+      "created_at": "2024-06-24T06:34:20.011Z",
+      "modified_at": "2024-06-24T06:34:20.011Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -81083,8 +81679,8 @@
     "model": "caluma_form.questionoption",
     "pk": "einbauart.einbauart-im-gebaeude",
     "fields": {
-      "created_at": "2023-10-25T09:07:08.681Z",
-      "modified_at": "2023-10-25T09:07:08.681Z",
+      "created_at": "2024-06-24T06:34:20.017Z",
+      "modified_at": "2024-06-24T06:34:20.018Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -81098,8 +81694,8 @@
     "model": "caluma_form.questionoption",
     "pk": "einbauart.einbauart-metallkasten",
     "fields": {
-      "created_at": "2023-10-25T09:07:08.688Z",
-      "modified_at": "2023-10-25T09:07:08.688Z",
+      "created_at": "2024-06-24T06:34:20.026Z",
+      "modified_at": "2024-06-24T06:34:20.026Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -81233,8 +81829,8 @@
     "model": "caluma_form.questionoption",
     "pk": "einliegerwohnung-max-25-zimmer.einliegerwohnung-max-25-zimmer-mit",
     "fields": {
-      "created_at": "2023-10-25T08:55:17.528Z",
-      "modified_at": "2023-10-25T08:55:17.528Z",
+      "created_at": "2024-06-21T13:58:35.458Z",
+      "modified_at": "2024-06-21T13:58:35.458Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -81248,8 +81844,8 @@
     "model": "caluma_form.questionoption",
     "pk": "einliegerwohnung-max-25-zimmer.einliegerwohnung-max-25-zimmer-ohne",
     "fields": {
-      "created_at": "2023-10-25T08:55:17.522Z",
-      "modified_at": "2023-10-25T08:55:17.522Z",
+      "created_at": "2024-06-21T13:58:35.452Z",
+      "modified_at": "2024-06-21T13:58:35.452Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82628,8 +83224,8 @@
     "model": "caluma_form.questionoption",
     "pk": "findet-brennstofflagerung-statt.findet-brennstofflagerung-statt-ja",
     "fields": {
-      "created_at": "2023-10-25T09:06:21.639Z",
-      "modified_at": "2023-10-25T09:06:21.639Z",
+      "created_at": "2024-06-24T06:28:24.364Z",
+      "modified_at": "2024-06-24T06:28:24.364Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82643,8 +83239,8 @@
     "model": "caluma_form.questionoption",
     "pk": "findet-brennstofflagerung-statt.findet-brennstofflagerung-statt-nein",
     "fields": {
-      "created_at": "2023-10-25T09:06:21.634Z",
-      "modified_at": "2023-10-25T09:06:21.634Z",
+      "created_at": "2024-06-24T06:28:24.354Z",
+      "modified_at": "2024-06-24T06:28:24.354Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -83033,8 +83629,8 @@
     "model": "caluma_form.questionoption",
     "pk": "gebaeudehoehe.gebaeudehoehe-geringe-hoehe",
     "fields": {
-      "created_at": "2023-10-25T08:49:48.436Z",
-      "modified_at": "2023-10-25T08:49:48.436Z",
+      "created_at": "2024-06-21T13:42:36.723Z",
+      "modified_at": "2024-06-21T13:42:36.723Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -83048,8 +83644,8 @@
     "model": "caluma_form.questionoption",
     "pk": "gebaeudehoehe.gebaeudehoehe-hochhaus",
     "fields": {
-      "created_at": "2023-10-25T08:49:48.421Z",
-      "modified_at": "2023-10-25T08:49:48.421Z",
+      "created_at": "2024-06-21T13:42:36.708Z",
+      "modified_at": "2024-06-21T13:42:36.708Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -83063,8 +83659,8 @@
     "model": "caluma_form.questionoption",
     "pk": "gebaeudehoehe.gebaeudehoehe-mittlere-hoehe",
     "fields": {
-      "created_at": "2023-10-25T08:49:48.428Z",
-      "modified_at": "2023-10-25T08:49:48.428Z",
+      "created_at": "2024-06-21T13:42:36.716Z",
+      "modified_at": "2024-06-21T13:42:36.716Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -83168,8 +83764,8 @@
     "model": "caluma_form.questionoption",
     "pk": "gebaeudevolumen.gebaeudevolumen-greater-3000",
     "fields": {
-      "created_at": "2023-10-25T08:55:24.336Z",
-      "modified_at": "2023-10-25T08:55:24.336Z",
+      "created_at": "2024-06-21T13:55:42.190Z",
+      "modified_at": "2024-06-21T13:55:42.190Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -83183,8 +83779,8 @@
     "model": "caluma_form.questionoption",
     "pk": "gebaeudevolumen.gebaeudevolumen-less-3000",
     "fields": {
-      "created_at": "2023-10-25T08:55:24.330Z",
-      "modified_at": "2023-10-25T08:55:24.330Z",
+      "created_at": "2024-06-21T13:55:42.182Z",
+      "modified_at": "2024-06-21T13:55:42.182Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -83633,8 +84229,8 @@
     "model": "caluma_form.questionoption",
     "pk": "haustechnische-anlagen-brandschutz.haustechnische-anlagen-brandschutz-ja",
     "fields": {
-      "created_at": "2023-10-25T07:06:17.875Z",
-      "modified_at": "2023-10-25T07:06:17.875Z",
+      "created_at": "2024-06-21T11:52:30.302Z",
+      "modified_at": "2024-06-21T11:52:30.302Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -83648,8 +84244,8 @@
     "model": "caluma_form.questionoption",
     "pk": "haustechnische-anlagen-brandschutz.haustechnische-anlagen-brandschutz-nein",
     "fields": {
-      "created_at": "2023-10-25T07:06:17.869Z",
-      "modified_at": "2023-10-25T07:06:17.870Z",
+      "created_at": "2024-06-21T11:52:30.295Z",
+      "modified_at": "2024-06-21T11:52:30.295Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -84456,6 +85052,51 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "lage-abgasanlage.lage-abgasanlage-anderes",
+    "fields": {
+      "created_at": "2024-06-24T06:17:42.479Z",
+      "modified_at": "2024-06-24T06:17:42.479Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lage-abgasanlage",
+      "option": "lage-abgasanlage-anderes",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lage-abgasanlage.lage-abgasanlage-fassade",
+    "fields": {
+      "created_at": "2024-06-24T06:17:42.493Z",
+      "modified_at": "2024-06-24T06:17:42.493Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lage-abgasanlage",
+      "option": "lage-abgasanlage-fassade",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lage-abgasanlage.lage-abgasanlage-im-gebaeude",
+    "fields": {
+      "created_at": "2024-06-24T06:17:42.487Z",
+      "modified_at": "2024-06-24T06:17:42.487Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lage-abgasanlage",
+      "option": "lage-abgasanlage-im-gebaeude",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "lage-des-vorhabens-korrekt.lage-des-vorhabens-korrekt-ja",
     "fields": {
       "created_at": "2023-06-19T08:31:29.893Z",
@@ -84606,92 +85247,107 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "lagergut-ableitung-der-abgase.lagergut-ableitung-der-abgase-andere",
+    "fields": {
+      "created_at": "2024-06-24T06:39:12.215Z",
+      "modified_at": "2024-06-24T06:39:12.215Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lagergut-ableitung-der-abgase",
+      "option": "lagergut-ableitung-der-abgase-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "lagergut-ableitung-der-abgase.lagergut-ableitung-der-abgase-benzin",
     "fields": {
-      "created_at": "2023-10-25T09:06:52.082Z",
-      "modified_at": "2023-10-25T09:06:52.082Z",
+      "created_at": "2024-06-24T06:39:12.231Z",
+      "modified_at": "2024-06-24T06:39:12.231Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "lagergut-ableitung-der-abgase",
       "option": "lagergut-ableitung-der-abgase-benzin",
-      "sort": 3
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "lagergut-ableitung-der-abgase.lagergut-ableitung-der-abgase-biogas",
     "fields": {
-      "created_at": "2023-10-25T09:06:52.074Z",
-      "modified_at": "2023-10-25T09:06:52.074Z",
+      "created_at": "2024-06-24T06:39:12.226Z",
+      "modified_at": "2024-06-24T06:39:12.226Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "lagergut-ableitung-der-abgase",
       "option": "lagergut-ableitung-der-abgase-biogas",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "lagergut-ableitung-der-abgase.lagergut-ableitung-der-abgase-dieseloel",
     "fields": {
-      "created_at": "2023-10-25T09:06:52.101Z",
-      "modified_at": "2023-10-25T09:06:52.101Z",
+      "created_at": "2024-06-24T06:39:12.247Z",
+      "modified_at": "2024-06-24T06:39:12.247Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "lagergut-ableitung-der-abgase",
       "option": "lagergut-ableitung-der-abgase-dieseloel",
-      "sort": 6
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "lagergut-ableitung-der-abgase.lagergut-ableitung-der-abgase-feste-brennstoffe",
     "fields": {
-      "created_at": "2023-10-25T09:06:52.065Z",
-      "modified_at": "2023-10-25T09:06:52.065Z",
+      "created_at": "2024-06-24T06:39:12.220Z",
+      "modified_at": "2024-06-24T06:39:12.220Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "lagergut-ableitung-der-abgase",
       "option": "lagergut-ableitung-der-abgase-feste-brennstoffe",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "lagergut-ableitung-der-abgase.lagergut-ableitung-der-abgase-fluessiggas",
     "fields": {
-      "created_at": "2023-10-25T09:06:52.089Z",
-      "modified_at": "2023-10-25T09:06:52.089Z",
+      "created_at": "2024-06-24T06:39:12.237Z",
+      "modified_at": "2024-06-24T06:39:12.237Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "lagergut-ableitung-der-abgase",
       "option": "lagergut-ableitung-der-abgase-fluessiggas",
-      "sort": 4
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "lagergut-ableitung-der-abgase.lagergut-ableitung-der-abgase-heizoel",
     "fields": {
-      "created_at": "2023-10-25T09:06:52.095Z",
-      "modified_at": "2023-10-25T09:06:52.095Z",
+      "created_at": "2024-06-24T06:39:12.242Z",
+      "modified_at": "2024-06-24T06:39:12.242Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "lagergut-ableitung-der-abgase",
       "option": "lagergut-ableitung-der-abgase-heizoel",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -85763,8 +86419,8 @@
     "model": "caluma_form.questionoption",
     "pk": "neue-oder-bestehende-anlage.neue-oder-bestehende-anlage-alt-bestehend",
     "fields": {
-      "created_at": "2023-10-25T09:04:53.377Z",
-      "modified_at": "2023-10-25T09:04:53.377Z",
+      "created_at": "2024-06-24T06:11:51.184Z",
+      "modified_at": "2024-06-24T06:11:51.184Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85778,8 +86434,8 @@
     "model": "caluma_form.questionoption",
     "pk": "neue-oder-bestehende-anlage.neue-oder-bestehende-anlage-neue-anlage",
     "fields": {
-      "created_at": "2023-10-25T09:04:53.373Z",
-      "modified_at": "2023-10-25T09:04:53.373Z",
+      "created_at": "2024-06-24T06:11:51.175Z",
+      "modified_at": "2024-06-24T06:11:51.175Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85793,8 +86449,8 @@
     "model": "caluma_form.questionoption",
     "pk": "neue-oder-bestehende-lagerung.neue-oder-bestehende-lagerung-alt-bestehend",
     "fields": {
-      "created_at": "2023-10-25T09:06:35.526Z",
-      "modified_at": "2023-10-25T09:06:35.526Z",
+      "created_at": "2024-06-24T06:37:38.930Z",
+      "modified_at": "2024-06-24T06:37:38.930Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85808,8 +86464,8 @@
     "model": "caluma_form.questionoption",
     "pk": "neue-oder-bestehende-lagerung.neue-oder-bestehende-lagerung-neue-lagerung",
     "fields": {
-      "created_at": "2023-10-25T09:06:35.520Z",
-      "modified_at": "2023-10-25T09:06:35.520Z",
+      "created_at": "2024-06-24T06:37:38.924Z",
+      "modified_at": "2024-06-24T06:37:38.924Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87383,8 +88039,8 @@
     "model": "caluma_form.questionoption",
     "pk": "russbrandbestaendig-abgasanlage.russbrandbestaendig-abgasanlage-ja",
     "fields": {
-      "created_at": "2023-10-25T09:05:43.564Z",
-      "modified_at": "2023-10-25T09:05:43.564Z",
+      "created_at": "2024-06-24T06:25:17.380Z",
+      "modified_at": "2024-06-24T06:25:17.380Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87398,8 +88054,8 @@
     "model": "caluma_form.questionoption",
     "pk": "russbrandbestaendig-abgasanlage.russbrandbestaendig-abgasanlage-nein",
     "fields": {
-      "created_at": "2023-10-25T09:05:43.556Z",
-      "modified_at": "2023-10-25T09:05:43.556Z",
+      "created_at": "2024-06-24T06:25:17.362Z",
+      "modified_at": "2024-06-24T06:25:17.363Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87473,8 +88129,8 @@
     "model": "caluma_form.questionoption",
     "pk": "russsack-abgasanlage.russsack-abgasanlage-ja",
     "fields": {
-      "created_at": "2023-10-25T09:05:38.411Z",
-      "modified_at": "2023-10-25T09:05:38.411Z",
+      "created_at": "2024-06-24T06:25:05.221Z",
+      "modified_at": "2024-06-24T06:25:05.221Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87488,8 +88144,8 @@
     "model": "caluma_form.questionoption",
     "pk": "russsack-abgasanlage.russsack-abgasanlage-nein",
     "fields": {
-      "created_at": "2023-10-25T09:05:38.404Z",
-      "modified_at": "2023-10-25T09:05:38.404Z",
+      "created_at": "2024-06-24T06:25:05.213Z",
+      "modified_at": "2024-06-24T06:25:05.213Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87683,8 +88339,8 @@
     "model": "caluma_form.questionoption",
     "pk": "sind-folgende-anlagen-betroffen.sind-folgende-anlagen-betroffen-alternativenergien",
     "fields": {
-      "created_at": "2023-10-25T08:56:45.341Z",
-      "modified_at": "2023-10-25T08:56:45.341Z",
+      "created_at": "2024-06-27T07:30:57.790Z",
+      "modified_at": "2024-06-27T07:30:57.790Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87698,8 +88354,8 @@
     "model": "caluma_form.questionoption",
     "pk": "sind-folgende-anlagen-betroffen.sind-folgende-anlagen-betroffen-brennstofflager",
     "fields": {
-      "created_at": "2023-10-25T08:56:45.334Z",
-      "modified_at": "2023-10-25T08:56:45.334Z",
+      "created_at": "2024-06-27T07:30:57.780Z",
+      "modified_at": "2024-06-27T07:30:57.781Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87713,8 +88369,8 @@
     "model": "caluma_form.questionoption",
     "pk": "sind-folgende-anlagen-betroffen.sind-folgende-anlagen-betroffen-einzelfeuerungen",
     "fields": {
-      "created_at": "2023-10-25T08:56:45.370Z",
-      "modified_at": "2023-10-25T08:56:45.370Z",
+      "created_at": "2024-06-27T07:30:57.836Z",
+      "modified_at": "2024-06-27T07:30:57.836Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87728,8 +88384,8 @@
     "model": "caluma_form.questionoption",
     "pk": "sind-folgende-anlagen-betroffen.sind-folgende-anlagen-betroffen-einzelfeuerung-fuer-fluessig-oder-erdgas",
     "fields": {
-      "created_at": "2023-10-25T08:56:45.364Z",
-      "modified_at": "2023-10-25T08:56:45.364Z",
+      "created_at": "2024-06-27T07:30:57.824Z",
+      "modified_at": "2024-06-27T07:30:57.824Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87743,8 +88399,8 @@
     "model": "caluma_form.questionoption",
     "pk": "sind-folgende-anlagen-betroffen.sind-folgende-anlagen-betroffen-ortsfeste-fluessiggasbehaelter",
     "fields": {
-      "created_at": "2023-10-25T08:56:45.320Z",
-      "modified_at": "2023-10-25T08:56:45.320Z",
+      "created_at": "2024-06-27T07:30:57.754Z",
+      "modified_at": "2024-06-27T07:30:57.754Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87758,8 +88414,8 @@
     "model": "caluma_form.questionoption",
     "pk": "sind-folgende-anlagen-betroffen.sind-folgende-anlagen-betroffen-tankstellen",
     "fields": {
-      "created_at": "2023-10-25T08:56:45.327Z",
-      "modified_at": "2023-10-25T08:56:45.327Z",
+      "created_at": "2024-06-27T07:30:57.767Z",
+      "modified_at": "2024-06-27T07:30:57.767Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87773,8 +88429,8 @@
     "model": "caluma_form.questionoption",
     "pk": "sind-folgende-anlagen-betroffen.sind-folgende-anlagen-betroffen-waermepumpe",
     "fields": {
-      "created_at": "2023-10-25T08:56:45.350Z",
-      "modified_at": "2023-10-25T08:56:45.350Z",
+      "created_at": "2024-06-27T07:30:57.802Z",
+      "modified_at": "2024-06-27T07:30:57.802Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87788,8 +88444,8 @@
     "model": "caluma_form.questionoption",
     "pk": "sind-folgende-anlagen-betroffen.sind-folgende-anlagen-betroffen-zentralheizung",
     "fields": {
-      "created_at": "2023-10-25T08:56:45.358Z",
-      "modified_at": "2023-10-25T08:56:45.358Z",
+      "created_at": "2024-06-27T07:30:57.813Z",
+      "modified_at": "2024-06-27T07:30:57.813Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87863,8 +88519,8 @@
     "model": "caluma_form.questionoption",
     "pk": "spezifikation.spezifikation-altbau",
     "fields": {
-      "created_at": "2023-10-25T09:06:43.231Z",
-      "modified_at": "2023-10-25T09:06:43.231Z",
+      "created_at": "2024-06-24T06:32:03.103Z",
+      "modified_at": "2024-06-24T06:32:03.103Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87878,8 +88534,8 @@
     "model": "caluma_form.questionoption",
     "pk": "spezifikation.spezifikation-erweiterung",
     "fields": {
-      "created_at": "2023-10-25T09:06:43.224Z",
-      "modified_at": "2023-10-25T09:06:43.224Z",
+      "created_at": "2024-06-24T06:32:03.094Z",
+      "modified_at": "2024-06-24T06:32:03.094Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87893,8 +88549,8 @@
     "model": "caluma_form.questionoption",
     "pk": "spezifikation.spezifikation-neubau",
     "fields": {
-      "created_at": "2023-10-25T09:06:43.237Z",
-      "modified_at": "2023-10-25T09:06:43.237Z",
+      "created_at": "2024-06-24T06:32:03.111Z",
+      "modified_at": "2024-06-24T06:32:03.111Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -89108,38 +89764,53 @@
     "model": "caluma_form.questionoption",
     "pk": "triage-brandschutz.triage-brandschutz-anlage",
     "fields": {
-      "created_at": "2023-10-25T07:06:25.219Z",
-      "modified_at": "2023-10-25T07:06:25.219Z",
+      "created_at": "2024-06-21T13:22:47.394Z",
+      "modified_at": "2024-06-21T13:22:47.394Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "triage-brandschutz",
       "option": "triage-brandschutz-anlage",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "triage-brandschutz.triage-brandschutz-gebaeude",
     "fields": {
-      "created_at": "2023-10-25T07:06:25.224Z",
-      "modified_at": "2023-10-25T07:06:25.224Z",
+      "created_at": "2024-06-21T13:22:47.401Z",
+      "modified_at": "2024-06-21T13:22:47.402Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "triage-brandschutz",
       "option": "triage-brandschutz-gebaeude",
-      "sort": 2
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "triage-brandschutz.triage-brandschutz-keine-zusatzbewilligung",
+    "fields": {
+      "created_at": "2024-06-21T13:22:47.384Z",
+      "modified_at": "2024-06-21T13:22:47.384Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "triage-brandschutz",
+      "option": "triage-brandschutz-keine-zusatzbewilligung",
+      "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "tuere-ableitung-der-abgase.tuere-ableitung-der-abgase-bestehend",
     "fields": {
-      "created_at": "2023-10-25T09:08:27.985Z",
-      "modified_at": "2023-10-25T09:08:27.985Z",
+      "created_at": "2024-06-24T06:36:17.261Z",
+      "modified_at": "2024-06-24T06:36:17.261Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -89153,8 +89824,8 @@
     "model": "caluma_form.questionoption",
     "pk": "tuere-ableitung-der-abgase.tuere-ableitung-der-abgase-ei-30",
     "fields": {
-      "created_at": "2023-10-25T09:08:27.977Z",
-      "modified_at": "2023-10-25T09:08:27.977Z",
+      "created_at": "2024-06-24T06:36:17.252Z",
+      "modified_at": "2024-06-24T06:36:17.252Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -89168,8 +89839,8 @@
     "model": "caluma_form.questionoption",
     "pk": "tuere-ableitung-der-abgase.tuere-ableitung-der-abgase-neu",
     "fields": {
-      "created_at": "2023-10-25T09:08:27.991Z",
-      "modified_at": "2023-10-25T09:08:27.991Z",
+      "created_at": "2024-06-24T06:36:17.272Z",
+      "modified_at": "2024-06-24T06:36:17.272Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -89363,8 +90034,8 @@
     "model": "caluma_form.questionoption",
     "pk": "typ-der-waermepumpe.typ-der-waermepumpe-mit-brennbarem-kaeltemittel",
     "fields": {
-      "created_at": "2023-10-25T09:01:44.403Z",
-      "modified_at": "2023-10-25T09:01:44.403Z",
+      "created_at": "2024-06-24T06:07:06.681Z",
+      "modified_at": "2024-06-24T06:07:06.681Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -89378,8 +90049,8 @@
     "model": "caluma_form.questionoption",
     "pk": "typ-der-waermepumpe.typ-der-waermepumpe-ohne-brennbarem-kaeltemittel",
     "fields": {
-      "created_at": "2023-10-25T09:01:44.399Z",
-      "modified_at": "2023-10-25T09:01:44.399Z",
+      "created_at": "2024-06-24T06:07:06.674Z",
+      "modified_at": "2024-06-24T06:07:06.674Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -90276,62 +90947,77 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "verwendungszweck-des-gases.verwendungszweck-des-gases-anderes",
+    "fields": {
+      "created_at": "2024-06-24T06:49:43.351Z",
+      "modified_at": "2024-06-24T06:49:43.351Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "verwendungszweck-des-gases",
+      "option": "verwendungszweck-des-gases-anderes",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "verwendungszweck-des-gases.verwendungszweck-des-gases-blockheizkraftwerk",
     "fields": {
-      "created_at": "2023-10-25T09:09:11.091Z",
-      "modified_at": "2023-10-25T09:09:11.091Z",
+      "created_at": "2024-06-24T06:49:43.357Z",
+      "modified_at": "2024-06-24T06:49:43.357Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "verwendungszweck-des-gases",
       "option": "verwendungszweck-des-gases-blockheizkraftwerk",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "verwendungszweck-des-gases.verwendungszweck-des-gases-heizen",
     "fields": {
-      "created_at": "2023-10-25T09:09:11.108Z",
-      "modified_at": "2023-10-25T09:09:11.109Z",
+      "created_at": "2024-06-24T06:49:43.377Z",
+      "modified_at": "2024-06-24T06:49:43.377Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "verwendungszweck-des-gases",
       "option": "verwendungszweck-des-gases-heizen",
-      "sort": 4
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "verwendungszweck-des-gases.verwendungszweck-des-gases-kochen",
     "fields": {
-      "created_at": "2023-10-25T09:09:11.097Z",
-      "modified_at": "2023-10-25T09:09:11.097Z",
+      "created_at": "2024-06-24T06:49:43.363Z",
+      "modified_at": "2024-06-24T06:49:43.363Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "verwendungszweck-des-gases",
       "option": "verwendungszweck-des-gases-kochen",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "verwendungszweck-des-gases.verwendungszweck-des-gases-warmwasser",
     "fields": {
-      "created_at": "2023-10-25T09:09:11.103Z",
-      "modified_at": "2023-10-25T09:09:11.103Z",
+      "created_at": "2024-06-24T06:49:43.370Z",
+      "modified_at": "2024-06-24T06:49:43.370Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "verwendungszweck-des-gases",
       "option": "verwendungszweck-des-gases-warmwasser",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -91778,8 +92464,8 @@
     "model": "caluma_form.questionoption",
     "pk": "weitere-anschluesse-abgasanlage.weitere-anschluesse-abgasanlage-ja",
     "fields": {
-      "created_at": "2023-10-25T09:05:54.238Z",
-      "modified_at": "2023-10-25T09:05:54.238Z",
+      "created_at": "2024-06-24T06:25:37.811Z",
+      "modified_at": "2024-06-24T06:25:37.811Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -91793,8 +92479,8 @@
     "model": "caluma_form.questionoption",
     "pk": "weitere-anschluesse-abgasanlage.weitere-anschluesse-abgasanlage-nein",
     "fields": {
-      "created_at": "2023-10-25T09:05:54.229Z",
-      "modified_at": "2023-10-25T09:05:54.229Z",
+      "created_at": "2024-06-24T06:25:37.801Z",
+      "modified_at": "2024-06-24T06:25:37.801Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
