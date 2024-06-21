@@ -118,7 +118,12 @@ services:
     image: acr.run/camac-ng/camac-ng/ember-camac-ng:master
     build:
       args:
-        APP_ENV: development
+        # reset those args that should fall back to defaults
+        # to avoid reduncancy and clerical footshots
+        - APP_ENV=development
+        - KEYCLOAK_HOST
+        - KEYLCOAK_REALM
+        - PORTAL_URL
     networks:
       - ebau.local
 
@@ -126,7 +131,13 @@ services:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
     build:
       args:
-        BE_GIS_URL: https://map2-test.apps.be.ch
+        # reset those args that should fall back to defaults
+        # to avoid reduncancy and clerical footshots
+        - KEYCLOAK_HOST
+        - KEYCLOAK_REALM
+        - INTERNAL_URL
+        # BE_GIS_URL defaults to the prod instance
+        - BE_GIS_URL=https://map2-test.apps.be.ch
     networks:
       - ebau.local
 
