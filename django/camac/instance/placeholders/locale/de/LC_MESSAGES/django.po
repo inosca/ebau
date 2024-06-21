@@ -1810,3 +1810,15 @@ msgstr "RECHNUNGSEMPFAENGER_NAME_ADRESSE"
 #: camac/instance/placeholders/serializers.py:1635
 msgid "Name and address of the first invoice recipient"
 msgstr "Name und Adresse des/r ersten Rechnungsempfänger/in"
+
+msgid "EGID"
+msgstr "EGID"
+
+msgid "EGID number"
+msgstr "Eidgenössische Gebäudeidentifikator (EGID)"
+
+msgid "EGRID"
+msgstr "EGRID"
+
+msgid "EGRID number"
+msgstr "Eidgenössische Grundstücksidentifikation (E-GRID)"
