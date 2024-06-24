@@ -1,6 +1,7 @@
 import Application from "@ember/application";
 import loadInitializers from "ember-load-initializers";
 import Resolver from "ember-resolver";
+import "./deprecation-workflow";
 
 import config from "camac-ng/config/environment";
 

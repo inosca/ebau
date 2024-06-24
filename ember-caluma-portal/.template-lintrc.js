@@ -8,6 +8,8 @@ module.exports = {
     "no-curly-component-invocation": {
       allow: ["application-name", "is-application", "is-embedded"],
     },
+    "no-builtin-form-components": false,
+    "no-at-ember-render-modifiers": "warn",
   },
   overrides: [
     {

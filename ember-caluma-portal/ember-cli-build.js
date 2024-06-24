@@ -51,6 +51,13 @@ module.exports = function (defaults) {
         require.resolve("ember-concurrency/async-arrow-task-transform"),
       ],
     },
+    // Disable striping of test selectors in production builds as babel would
+    // fail. If we downgrade to v6 of ember-test-selectors it wouldn't work as
+    // well as it doesn't support our babel version. TODO: Remove this when
+    // https://github.com/mainmatter/ember-test-selectors/issues/1259 is fixed.
+    "ember-test-selectors": {
+      strip: false,
+    },
   });
 
   app.trees.styles = stew.rm(

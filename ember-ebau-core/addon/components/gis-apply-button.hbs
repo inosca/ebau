@@ -96,7 +96,7 @@
       @color="primary"
       @label={{t "global.save"}}
       @onClick={{perform this.applyData}}
-      @disabled={{(or this.applyData.isRunning @confirmFieldUnchecked)}}
+      @disabled={{or this.applyData.isRunning @confirmFieldUnchecked}}
       @loading={{this.applyData.isRunning}}
       data-test-confirm
     />

@@ -13,10 +13,10 @@
 
   <CfContent
     @documentId={{decode-id @documentId}}
-    @disabled={{(or
+    @disabled={{or
       (not this.isActionable)
       (cannot "edit work item of construction-step" @workItem)
-    )}}
+    }}
     @context={{hash instanceId=this.ebauModules.instanceId}}
   >
     <:default as |content|>

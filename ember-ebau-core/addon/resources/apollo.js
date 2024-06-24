@@ -26,7 +26,7 @@ export class ApolloQuery extends Resource {
     return await this.fetchData.perform(
       ...(positional.length
         ? positional
-        : this.fetchData.lastSuccessful?.args ?? []),
+        : (this.fetchData.lastSuccessful?.args ?? [])),
     );
   }
 

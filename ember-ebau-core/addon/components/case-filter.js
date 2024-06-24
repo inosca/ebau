@@ -329,9 +329,9 @@ export default class CaseFilterComponent extends Component {
 
     const activeFilters = Array.isArray(activeFiltersConfig)
       ? activeFiltersConfig
-      : activeFiltersConfig[this.ebauModules.baseRole] ??
+      : (activeFiltersConfig[this.ebauModules.baseRole] ??
         activeFiltersConfig.default ??
-        [];
+        []);
 
     return Object.entries(caseFilters)
       .sort((a, b) => activeFilters.indexOf(a[0]) - activeFilters.indexOf(b[0]))

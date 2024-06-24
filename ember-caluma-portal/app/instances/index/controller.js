@@ -198,7 +198,7 @@ export default class InstancesIndexController extends Controller {
         category: edge.node.meta.category || "others",
         order: edge.node.meta.order,
         isEqual(other) {
-          return this.value.join(",") === other.value.join(",");
+          return this.value.join(",") === (other.value?.join(",") ?? "");
         },
       }));
   }
