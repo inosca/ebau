@@ -12,7 +12,7 @@ services:
       - ember-camac-ng
       - django
       - keycloak
-      - mailhog
+      - mailpit
       - document-merge-service
     volumes:
       - ../proxy/kt_bern.conf:/etc/nginx/conf.d/default.conf:ro
@@ -53,7 +53,7 @@ services:
       - cache
       - db
       - document-merge-service
-      - mailhog
+      - mailpit
     build:
       args:
         REQUIREMENTS: requirements-dev.txt
@@ -74,7 +74,7 @@ services:
       DATABASE_USER: camac
       DJANGO_CACHE_LOCATION: cache:11211
       DJANGO_CLAMD_ENABLED: "false"
-      DJANGO_EMAIL_HOST: mailhog
+      DJANGO_EMAIL_HOST: mailpit
       DJANGO_EMAIL_PORT: 1025
       DJANGO_MEDIA_ROOT: /var/lib/camac/media
       DJANGO_TEMPFILE_DOWNLOAD_URL: /tmp
@@ -170,12 +170,12 @@ services:
         "--spi-theme-cache-templates=false",
       ]
 
-  mailhog:
-    image: mailhog/mailhog
+  mailpit:
+    image: axllent/mailpit
     networks:
       - ebau.local
     environment:
-      MH_UI_WEB_PATH: mailhog
+      MP_WEBROOT: mailpit
 
   document-merge-service:
     image: acr.run/camac-ng/camac-ng/document-merge-service:master
