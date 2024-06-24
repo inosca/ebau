@@ -1,4 +1,3 @@
-version: "3.4"
 services:
   cache:
     image: memcached:1.6-alpine
@@ -15,7 +14,6 @@ services:
       - cache
       - keycloak
       - mailhog
-      - minio
       - tika
     environment:
       - DATABASE_HOST=db
@@ -93,7 +91,7 @@ services:
       - AWS_S3_SIGNATURE_VERSION=s3v4
 
   clamav:
-    image: tiredofit/clamav:2.6.11
+    image: tiredofit/clamav:2.6.17
     environment:
       - CONCURRENT_DATABASE_RELOAD=false
       - DEFINITIONS_UPDATE_FREQUENCY=1440
