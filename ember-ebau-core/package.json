@@ -41,7 +41,7 @@
     "@projectcaluma/ember-core": "12.15.2",
     "@projectcaluma/ember-form": "12.15.2",
     "@projectcaluma/ember-workflow": "12.15.2",
-    "ember-alexandria": "8.2.0",
+    "ember-alexandria": "8.2.1",
     "ember-apollo-client": "4.1.1",
     "ember-auto-import": "2.7.3",
     "ember-can": "4.2.0",
