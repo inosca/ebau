@@ -1674,6 +1674,7 @@ APPLICATIONS = {
         "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
         "ENABLE_PUBLIC_CALUMA": True,
         "LINK_INSTANCES_ON_COPY": True,
+        "INCLUDE_STATIC_FILES": [("xml", "kt_bern/static/ech0211/xml")],
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
             "applicant": "applicant",
@@ -2341,7 +2342,9 @@ SWAGGER_SETTINGS = {
             "type": "oauth2",
             "tokenUrl": KEYCLOAK_OIDC_TOKEN_URL,
             "flow": "application",
-            "scopes": {},
+            "scopes": {
+                "openid": "Bitte anwählen, dies ist nötig damit die Schnittstelle funktioniert"
+            },
         }
     },
     "DEFAULT_PAGINATOR_INSPECTORS": [
