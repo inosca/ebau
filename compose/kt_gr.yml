@@ -13,7 +13,7 @@ services:
     depends_on:
       - cache
       - keycloak
-      - mailhog
+      - mailpit
       - tika
     environment:
       - DATABASE_HOST=db
@@ -66,10 +66,10 @@ services:
         - WORKSPACE=ember-ebau
       target: prod
 
-  mailhog:
-    image: mailhog/mailhog
+  mailpit:
+    image: axllent/mailpit
     environment:
-      - MH_UI_WEB_PATH=mailhog
+      - MP_WEBROOT=mailpit
 
   keycloak:
     build:
