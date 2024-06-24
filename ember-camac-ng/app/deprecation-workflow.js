@@ -1,8 +1,6 @@
-/* global self */
+import setupDeprecationWorkflow from "ember-cli-deprecation-workflow";
 
-self.deprecationWorkflow = self.deprecationWorkflow || {};
-
-self.deprecationWorkflow.config = {
+setupDeprecationWorkflow({
   throwOnUnhandled: true,
   workflow: [
     { handler: "silence", matchId: "remove-owner-inject" },
@@ -10,12 +8,7 @@ self.deprecationWorkflow.config = {
     { handler: "silence", matchId: "ember-modifier.no-element-property" }, // Used in ember-autoresize-modifier
     { handler: "silence", matchId: "ember-modifier.use-modify" }, // Used in ember-gesture-modifiers via ember-toggle via ember-uikit
     { handler: "silence", matchId: "ember-modifier.no-args-property" }, // Used in ember-gesture-modifiers via ember-toggle via ember-uikit
-    { handler: "silence", matchId: "ember-data:deprecate-array-like" }, // Used in ember-composable-helpers
-    { handler: "silence", matchId: "ember-data:no-a-with-array-like" }, // Used in ember-composable-helpers
-    {
-      handler: "silence",
-      matchId: "ember-data:deprecate-promise-many-array-behaviors",
-    }, // used in ember-alexandria
+    { handler: "silence", matchId: "ember-data:deprecate-early-static" }, // Used in ember-cli-mirage
     { handler: "silence", matchId: "ember-data:deprecate-promise-proxies" }, // Used in ember-power-select
   ],
-};
+});

@@ -5,6 +5,8 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
   @tracked instanceId;
   @tracked documentId;
 
+  namespace = "alexandria/api/v1";
+
   get defaultModelMeta() {
     return {
       document: {

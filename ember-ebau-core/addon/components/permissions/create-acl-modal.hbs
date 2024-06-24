@@ -9,7 +9,7 @@
     <h2 class="uk-modal-title uk-margin-right">{{t "permissions.new"}}</h2>
   </modal.header>
   <ValidatedForm
-    @model={{(changeset (hash service=null accessLevel=null) this.validations)}}
+    @model={{changeset (hash service=null accessLevel=null) this.validations}}
     @on-submit={{perform this.createAcl}}
     class="uk-form-stacked"
     as |f|
@@ -20,7 +20,7 @@
           @name="service"
           @label={{t "permissions.details.organisation"}}
           @required={{true}}
-          @errorComponent={{(component "input-error")}}
+          @errorComponent={{component "input-error"}}
           as |fi|
         >
           <PowerSelect
@@ -45,7 +45,7 @@
         <f.input
           @name="accessLevel"
           @label={{t "permissions.details.accessLevel"}}
-          @errorComponent={{(component "input-error")}}
+          @errorComponent={{component "input-error"}}
           @required={{true}}
           as |fi|
         >
@@ -67,7 +67,7 @@
         <f.input
           @label={{t "permissions.details.startTime"}}
           @name="startTime"
-          @errorComponent={{(component "input-error")}}
+          @errorComponent={{component "input-error"}}
           as |fi|
         >
           <div data-test-acl-start-time-input>
@@ -82,13 +82,13 @@
         <f.input
           @label={{t "permissions.details.endTime"}}
           @name="endTime"
-          @errorComponent={{(component "input-error")}}
+          @errorComponent={{component "input-error"}}
           as |fi|
         >
           <div data-test-acl-end-time-input>
             <Datepicker
               @value={{fi.value}}
-              @minDate={{(or f.model.startTime this.today)}}
+              @minDate={{or f.model.startTime this.today}}
               @onChange={{fi.update}}
             />
           </div>

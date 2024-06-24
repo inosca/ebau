@@ -3,6 +3,7 @@ import loadInitializers from "ember-load-initializers";
 import Resolver from "ember-resolver";
 
 import config from "caluma-portal/config/environment";
+import "./deprecation-workflow";
 
 /* eslint-disable ember/avoid-leaking-state-in-ember-objects */
 export default class App extends Application {

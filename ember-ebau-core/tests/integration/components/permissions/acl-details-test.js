@@ -1,6 +1,7 @@
 import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
+import { t } from "ember-intl/test-support";
 import { module, test } from "qunit";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
@@ -34,6 +35,8 @@ module("Integration | Component | permissions/acl-details", function (hooks) {
       hbs`<Permissions::AclDetails @instanceAcl={{this.acl}} @onHide={{this.onHide}} />`,
     );
 
+    const intl = this.owner.lookup("service:intl");
+
     assert
       .dom("[data-test-instance-acl-modal-entity-name]")
       .containsText(this.acl.entityName);
@@ -43,21 +46,21 @@ module("Integration | Component | permissions/acl-details", function (hooks) {
     assert
       .dom("[data-test-instance-acl-modal-status]")
       .containsText(
-        `${this.intl.t("permissions.details.status")} ${this.intl.t(
+        `${t("permissions.details.status")} ${t(
           `permissions.status.${this.acl.status}`,
         )}`,
       );
     assert
       .dom("[data-test-instance-acl-modal-access-level]")
       .containsText(
-        `${this.intl.t("permissions.details.accessLevel")} ${this.acl.get(
+        `${t("permissions.details.accessLevel")} ${this.acl.get(
           "accessLevel.name",
         )}`,
       );
     assert
       .dom("[data-test-instance-acl-modal-created-at]")
       .containsText(
-        `${this.intl.t("permissions.details.createdAt")} ${this.intl.formatDate(
+        `${t("permissions.details.createdAt")} ${intl.formatDate(
           this.acl.createdAt,
           { format: "date" },
         )}`,
@@ -65,7 +68,7 @@ module("Integration | Component | permissions/acl-details", function (hooks) {
     assert
       .dom("[data-test-instance-acl-modal-start-time]")
       .containsText(
-        `${this.intl.t("permissions.details.startTime")} ${this.intl.formatDate(
+        `${t("permissions.details.startTime")} ${intl.formatDate(
           this.acl.startTime,
           { format: "date" },
         )}`,
@@ -73,16 +76,16 @@ module("Integration | Component | permissions/acl-details", function (hooks) {
     assert
       .dom("[data-test-instance-acl-modal-end-time]")
       .containsText(
-        `${this.intl.t("permissions.details.endTime")} ${
+        `${t("permissions.details.endTime")} ${
           this.acl.endTime
-            ? this.intl.formatDate(this.acl.endTime, { format: "date" })
+            ? intl.formatDate(this.acl.endTime, { format: "date" })
             : "-"
         }`,
       );
     assert
       .dom("[data-test-instance-acl-modal-revoked-by]")
       .containsText(
-        `${this.intl.t("permissions.details.revokedBy")} ${
+        `${t("permissions.details.revokedBy")} ${
           this.acl.get("revokedByUser.id")
             ? this.acl.get("revokedByUser.fullName")
             : ""

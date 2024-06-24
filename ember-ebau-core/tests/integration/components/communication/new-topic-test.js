@@ -2,6 +2,7 @@ import { getOwner } from "@ember/application";
 import { render, fillIn, click, waitUntil } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
+import { t } from "ember-intl/test-support";
 import { selectChoose } from "ember-power-select/test-support";
 import { module, test } from "qunit";
 import { fake, replace } from "sinon";
@@ -114,7 +115,7 @@ module("Integration | Component | communication/new-topic", function (hooks) {
       // Check applicant is not selectable
       await selectChoose(
         "[data-test-involved-entities]",
-        this.intl.t("communications.new.applicant"),
+        t("communications.new.applicant"),
       );
     } catch (error) {
       assert.ok(error);
@@ -197,7 +198,7 @@ module("Integration | Component | communication/new-topic", function (hooks) {
 
     assert.dom("[data-test-allow-answers]").exists();
 
-    const applicant = this.intl.t("communications.new.applicant");
+    const applicant = t("communications.new.applicant");
     await selectChoose("[data-test-involved-entities]", applicant);
 
     assert.dom("[data-test-involved-entities]").hasText(`× ${applicant}`);
