@@ -92,7 +92,7 @@ class AttachmentDownloadFilterSet(FilterSet):
 
 
 class TemplateFilterSet(FilterSet):
-    global_template = NumberFilter(field_name="group", lookup_expr="isnull")
+    global_template = BooleanFilter(field_name="group", lookup_expr="isnull")
 
     class Meta:
         model = models.Template
