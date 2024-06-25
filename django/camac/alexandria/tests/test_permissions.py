@@ -1553,11 +1553,15 @@ def test_condition_paper_instance(
         (False, "source-category-1", "target-category-3", HTTP_200_OK),
         (True, "source-category-1", "target-category-1", HTTP_403_FORBIDDEN),
         (True, "source-category-1", "target-category-3", HTTP_200_OK),
+        (False, "source-category-1", "target-category-4", HTTP_403_FORBIDDEN),
+        (False, "target-category-4", "source-category-1", HTTP_200_OK),
     ],
 )
 def test_move_document(
     db,
     admin_client,
+    service_factory,
+    caluma_admin_user,
     has_marks,
     instance,
     mocker,
@@ -1578,6 +1582,7 @@ def test_move_document(
                 "municipality": {
                     "visibility": "all",
                     "permissions": [
+                        {"permission": "create"},
                         {
                             "permission": "update",
                             "scope": "All",
@@ -1589,7 +1594,7 @@ def test_move_document(
         },
     )
 
-    # source-category-1: only allowed to update tags
+    # source-category-2: only allowed to update tags
     CategoryFactory(
         slug="source-category-2",
         metainfo={
@@ -1612,7 +1617,7 @@ def test_move_document(
                 "municipality": {
                     "visibility": "all",
                     "permissions": [
-                        {"permission": "create", "scope": "All"},
+                        {"permission": "create"},
                     ],
                 },
             }
@@ -1640,7 +1645,7 @@ def test_move_document(
                 "municipality": {
                     "visibility": "all",
                     "permissions": [
-                        {"permission": "create", "scope": "All"},
+                        {"permission": "create"},
                         {"permission": "update", "scope": "All", "fields": ["marks"]},
                     ],
                 },
@@ -1648,9 +1653,30 @@ def test_move_document(
         },
     )
 
+    # target-category-4: allowed to create, but not visible
+    CategoryFactory(
+        slug="target-category-4",
+        metainfo={
+            "access": {
+                "municipality": {
+                    "visibility": "service",
+                    "permissions": [
+                        {"permission": "create"},
+                        {"permission": "update", "scope": "All"},
+                    ],
+                },
+            }
+        },
+    )
+
+    created_by_group = caluma_admin_user.group
+    if target_category == "target-category-4":
+        created_by_group = service_factory().pk
+
     document = DocumentFactory(
         category_id=source_category,
         metainfo={"camac-instance-id": instance.pk},
+        created_by_group=created_by_group,
     )
 
     if has_marks:
