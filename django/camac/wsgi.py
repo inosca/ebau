@@ -17,6 +17,8 @@ locale.setlocale(locale.LC_ALL, f"{settings.DEFAULT_LOCALE_CODE}.UTF-8")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "camac.settings")
 
 if settings.MANABI_ENABLE:
+    wsgi_django = get_wsgi_application()
+
     backend = settings.APPLICATION["DOCUMENT_BACKEND"]
     if backend == "alexandria":
         from alexandria.dav import get_dav
@@ -24,7 +26,6 @@ if settings.MANABI_ENABLE:
         from camac.dav import get_dav
 
     wsgi_dav = get_dav()
-    wsgi_django = get_wsgi_application()
 
     def dispatch(environ, start_response):
         path = environ["PATH_INFO"] or "/"
