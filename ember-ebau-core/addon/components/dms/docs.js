@@ -1,3 +1,4 @@
+import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
@@ -89,6 +90,7 @@ function parseNested(item, aliases, locale) {
 export default class DmsDocsComponent extends Component {
   @service intl;
   @service fetch;
+  @service notification;
 
   @tracked expand = false;
   @tracked search = "";
@@ -149,5 +151,13 @@ export default class DmsDocsComponent extends Component {
       isLink,
       isImage,
     };
+  }
+
+  @action
+  copyToClipboard(placeholder) {
+    navigator.clipboard.writeText(`{{ ${placeholder.placeholder} }}`);
+    this.notification.success(
+      this.intl.t("dms.docs.copy-to-clipboard-success"),
+    );
   }
 }

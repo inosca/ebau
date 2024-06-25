@@ -39,6 +39,9 @@ dms:
     title-admin: "Documentation"
     title-generate: "Informations techniques sur les espaces réservés"
     title-placeholders: "Espaces réservés"
+    complex-info: "Exemples d'utilisation de espaces réservés"
+    copy-to-clipboard: "Copier dans le presse-papiers"
+    copy-to-clipboard-success: "Espaces réservés copié"
 
     placeholder-and-description: "Espace réservé et description"
     search: "Recherche d'un espace réservé..."
