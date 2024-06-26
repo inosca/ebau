@@ -10,6 +10,7 @@ DOSSIER_IMPORT = {
     "default": {
         "WRITER_CLASS": "camac.dossier_import.writers.DossierWriter",
         "USER": "service-account-camac-admin",
+        "RESOURCE_ID_PATH": "/dossier-import",
     },
     "kt_schwyz": {
         "ENABLED": True,
