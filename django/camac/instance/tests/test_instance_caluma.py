@@ -868,6 +868,8 @@ def test_instance_submit_heat_extraction_ur(
     location_factory,
     group_factory,
     role_factory,
+    instance_factory,
+    question_factory,
     instance_state_factory,
     service_factory,
     authority_location_factory,
@@ -910,6 +912,18 @@ def test_instance_submit_heat_extraction_ur(
         value=str(location.communal_federal_number), question_id="municipality"
     )
 
+    if form_slug == "konzession-waermeentnahme":
+        source_instance = instance_factory()
+
+        instance_id_question = question_factory(
+            slug="dossier-id-der-bohrbewilligung",
+            type=caluma_form_models.Question.TYPE_INTEGER,
+        )
+
+        ur_instance.case.document.answers.create(
+            value=source_instance.pk, question=instance_id_question
+        )
+
     authority_location_factory(location=location)
 
     instance_state_factory(name="ext")
@@ -927,6 +941,12 @@ def test_instance_submit_heat_extraction_ur(
     assert ur_instance.instance_state.name == "ext"
     assert ur_instance.location_id == location.pk
     assert ur_instance.group == koor_group
+
+    if form_slug == "konzession-waermeentnahme":
+        source_instance.refresh_from_db()
+        assert (
+            ur_instance.instance_group == source_instance.instance_group
+        ), 'for "konzessionsgesuche" the "konzessionsdossier" should be linked with the "bohrbewilligungsdossier"'
 
 
 @pytest.mark.parametrize("service_group__name", ["applicant"])
