@@ -4094,6 +4094,30 @@
       'nested_aliases': dict({
       }),
     }),
+    'EGID': dict({
+      'aliases': list([
+        dict({
+          'de': 'EGID',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Eidgenössische Gebäudeidentifikator (EGID)',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'EGRID': dict({
+      'aliases': list([
+        dict({
+          'de': 'EGRID',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Eidgenössische Grundstücksidentifikation (E-GRID)',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'ENDE_PUBLIKATIONSORGAN_GEMEINDE': dict({
       'aliases': list([
         dict({
@@ -7335,6 +7359,8 @@
     'DOSSIER_NUMMER',
     'DOSSIER_TYP',
     'EBAU_URL',
+    'EGID',
+    'EGRID',
     'EIGENE_NEBENBESTIMMUNGEN',
     'EIGENE_STELLUNGNAHMEN',
     'ENDE_PUBLIKATIONSORGAN_GEMEINDE',
@@ -8226,6 +8252,8 @@
     'DOSSIER_NUMMER': '2023-1',
     'DOSSIER_TYP': 'Baugesuch',
     'EBAU_URL': 'http://ember-ebau.local',
+    'EGID': 'CH334687150542',
+    'EGRID': 'CH334687150542, CH913545967614',
     'EIGENE_NEBENBESTIMMUNGEN': '',
     'EIGENE_STELLUNGNAHMEN': '',
     'ENDE_PUBLIKATIONSORGAN_GEMEINDE': '21. August 2021',

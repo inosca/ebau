@@ -772,6 +772,14 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("DOCUMENTS")],
         description=_("Documents with metadata"),
     )
+    egid = fields.AliasedMethodField(
+        aliases=[_("EGID")],
+        description=_("EGID number"),
+    )
+    egrid = fields.AliasedMethodField(
+        aliases=[_("EGRID")],
+        description=_("EGRID number"),
+    )
 
     def get_zonenplan(self, instance):
         answer = Answer.objects.filter(
@@ -816,14 +824,27 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             x = f"{round(coordinate['x']):_}".replace("_", "’")
             y = f"{round(coordinate['y']):_}".replace("_", "’")
             data.append(f"{x} / {y}")
-        return "; ".join(data)
+        return clean_join(*data, separator="; ")
 
     def get_gebaeudeversicherungsnummer(self, instance):
         values = Answer.objects.filter(
             document__family_id=instance.case.document.pk,
             question_id="amtliche-gebaeudenummer",
         ).values_list("value", flat=True)
-        return ", ".join([str(v) for v in values])
+        return clean_join(*values, separator=", ")
+
+    def get_egid(self, instance):
+        values = Answer.objects.filter(
+            document__family_id=instance.case.document.pk,
+            question_id="egid-nr",
+        ).values_list("value", flat=True)
+        return clean_join(*values, separator=", ")
+
+    def get_egrid(self, instance):
+        return clean_join(
+            *[plot.get("egrid_number") for plot in instance._master_data.plot_data],
+            separator=", ",
+        )
 
     class Meta:
         exclude = [
