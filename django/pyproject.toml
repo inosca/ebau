@@ -2,17 +2,17 @@
 
 exclude = [
     ".git",
-   ".hg",
-   ".mypy_cache",
-   ".tox",
-   ".venv",
-   "_build",
-   "buck-out",
-   "build",
-   "dist",
-   "camac/*/migrations",
-   "camac/ech0211/schema",
-   ".*/snapshots",
+    ".hg",
+    ".mypy_cache",
+    ".tox",
+    ".venv",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "camac/*/migrations",
+    "camac/ech0211/schema",
+    ".*/snapshots",
 ]
 
 lint.ignore = [
@@ -219,6 +219,7 @@ omit = [
     "camac/alexandria/management/commands/fix_alexandria_created_by.py",
     "camac/core/management/commands/create_unique_dossier_identifier_index.py",
     "camac/core/management/commands/fix_missing_default_group.py",
+    "camac/core/management/commands/migrate_bab_form_ur.py",
     # Audit migration"
     "camac/core/management/commands/config/",
     "camac/core/management/commands/migrate_audit.py",
