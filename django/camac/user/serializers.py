@@ -1,3 +1,5 @@
+from caluma.caluma_form.api import save_answer
+from caluma.caluma_form.models import Document, Question
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AnonymousUser
@@ -6,6 +8,7 @@ from django.db import transaction
 from django.utils.translation import get_language, gettext as _
 from rest_framework.exceptions import PermissionDenied, ValidationError
 from rest_framework.fields import BooleanField
+from rest_framework.serializers import Serializer as RestSerializer
 from rest_framework_json_api import relations, serializers
 
 from camac.core.serializers import MultilingualField, MultilingualSerializer
@@ -14,6 +17,7 @@ from camac.instance.utils import get_lead_authority
 from camac.user.relations import CurrentUserResourceRelatedField
 
 from . import models
+from .authentication import JSONWebTokenKeycloakAuthentication
 
 
 class CurrentGroupDefault(object):
@@ -512,3 +516,47 @@ class UserGroupSerializer(serializers.ModelSerializer):
             "created_at",
             "created_by",
         )
+
+
+class KeycloakApplySerializer(RestSerializer):
+    document = serializers.PrimaryKeyRelatedField(queryset=Document.objects)
+
+    def _write_answer(self, document, question_slug, value):
+        try:
+            question = Question.objects.get(pk=question_slug)
+        except Question.DoesNotExist:  # pragma: no cover
+            return False
+
+        save_answer(
+            question=question,
+            document=document,
+            user=self.context["request"].caluma_info.context.user,
+            value=int(value) if question.type == "integer" else value,
+        )
+
+        return True
+
+    def create(self, validated_data):
+        document = validated_data["document"]
+        written_questions = set()
+
+        jwt_auth = JSONWebTokenKeycloakAuthentication()
+        jwt_token = jwt_auth.get_jwt_value(self.context["request"])
+        userinfo = jwt_auth.keycloak.userinfo(jwt_token.decode())
+
+        for question_slug, attribute in settings.USER[
+            "QUESTION_OIDC_ATTRIBUTES_MAPPING"
+        ].items():
+            success = self._write_answer(
+                document, question_slug, userinfo.get(attribute)
+            )
+
+            if success:
+                written_questions.add(question_slug)
+
+        return {"document": document, "questions": written_questions}
+
+    def to_representation(self, instance):
+        rep = super().to_representation(instance)
+        rep["questions"] = instance["questions"]
+        return rep

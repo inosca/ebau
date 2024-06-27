@@ -2524,6 +2524,7 @@ ECH0211 = load_module_settings("ech0211")
 DOSSIER_IMPORT = load_module_settings("dossier_import")
 BAB = load_module_settings("bab")
 PROJECT_MODIFICATION = load_module_settings("project_modification")
+USER = load_module_settings("user")
 
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")

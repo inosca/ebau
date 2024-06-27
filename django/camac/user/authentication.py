@@ -29,6 +29,14 @@ request_logger = logging.getLogger("django.request")
 
 
 class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
+    def __init__(self):
+        self.keycloak = KeycloakOpenID(
+            server_url=settings.KEYCLOAK_URL,
+            client_id=settings.KEYCLOAK_CLIENT,
+            realm_name=settings.KEYCLOAK_REALM,
+            verify=settings.OIDC_VERIFY_SSL,
+        )
+
     def get_jwt_value(self, request):
         auth = get_authorization_header(request).split()
         header_prefix = "Bearer"
@@ -66,17 +74,10 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         )
 
     def _verify_token(self, jwt_value, accept_language_header):  # noqa: C901
-        keycloak = KeycloakOpenID(
-            server_url=settings.KEYCLOAK_URL,
-            client_id=settings.KEYCLOAK_CLIENT,
-            realm_name=settings.KEYCLOAK_REALM,
-            verify=settings.OIDC_VERIFY_SSL,
-        )
-
         options = {"exp": True, "verify_aud": False, "verify_signature": True}
         try:
-            jwt_decoded = keycloak.decode_token(
-                jwt_value, keycloak.certs(), options=options
+            jwt_decoded = self.keycloak.decode_token(
+                jwt_value, self.keycloak.certs(), options=options
             )
         except ExpiredSignatureError:
             raise AuthenticationFailed(_("Signature has expired."))
@@ -84,7 +85,7 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
             raise AuthenticationFailed(_("Invalid token."))
 
         try:
-            resp = keycloak.userinfo(jwt_value.decode())
+            resp = self.keycloak.userinfo(jwt_value.decode())
         except KeycloakAuthenticationError:  # pragma: no cover
             raise AuthenticationFailed(
                 _("User session not found or doesn't have client attached on it")
