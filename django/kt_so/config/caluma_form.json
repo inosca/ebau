@@ -38956,7 +38956,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"####INFO\\n\\nEWID ist die eigen\\u00f6ssische Wohnungsidentifikationsnummer im Geb\\u00e4ude - und Wohnungsregister des Bundesamtes f\\u00fcr Statistik (BfS).\\n\\nDiese Nummer wird im Rahmen der Nachf\\u00fchrung des GWR automatisch ausgef\\u00fcllt.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"####INFO\\n\\nEWID ist die eidgen\\u00f6ssische Wohnungsidentifikationsnummer im Geb\\u00e4ude - und Wohnungsregister des Bundesamtes f\\u00fcr Statistik (BfS).\\n\\nDiese Nummer wird im Rahmen der Nachf\\u00fchrung des GWR automatisch ausgef\\u00fcllt.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
