@@ -38,6 +38,21 @@ SO_PERSONAL_DATA_MAPPING = {
             )
         },
     ),
+    "representative_is_juristic_person": (
+        "vertretung-juristische-person",
+        {
+            "value_parser": (
+                "value_mapping",
+                {
+                    "mapping": {
+                        "vertretung-juristische-person-ja": True,
+                        "vertretung-juristische-person-nein": False,
+                    }
+                },
+            )
+        },
+    ),
+    "representative_juristic_name": "vertretung-juristische-person-name",
     "representative_salutation": (
         "vertretung-anrede",
         {"value_parser": "option", "prop": "label"},

@@ -12859,7 +12859,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "e-mail",
-      "sort": 15
+      "sort": 18
     }
   },
   {
@@ -12874,7 +12874,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "anrede",
-      "sort": 26
+      "sort": 29
     }
   },
   {
@@ -12904,7 +12904,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "juristische-person",
-      "sort": 29
+      "sort": 32
     }
   },
   {
@@ -12919,7 +12919,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "juristische-person-kontaktperson-titel",
-      "sort": 27
+      "sort": 30
     }
   },
   {
@@ -12934,7 +12934,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "juristische-person-name",
-      "sort": 28
+      "sort": 31
     }
   },
   {
@@ -12949,7 +12949,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "land",
-      "sort": 17
+      "sort": 20
     }
   },
   {
@@ -12964,7 +12964,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "nachname",
-      "sort": 23
+      "sort": 26
     }
   },
   {
@@ -12979,7 +12979,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "ort",
-      "sort": 18
+      "sort": 21
     }
   },
   {
@@ -12994,7 +12994,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "plz",
-      "sort": 19
+      "sort": 22
     }
   },
   {
@@ -13009,7 +13009,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "postfach",
-      "sort": 20
+      "sort": 23
     }
   },
   {
@@ -13024,7 +13024,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "strasse",
-      "sort": 22
+      "sort": 25
     }
   },
   {
@@ -13039,7 +13039,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "strasse-nummer",
-      "sort": 21
+      "sort": 24
     }
   },
   {
@@ -13054,7 +13054,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "telefon",
-      "sort": 16
+      "sort": 19
     }
   },
   {
@@ -13069,7 +13069,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "titel",
-      "sort": 25
+      "sort": 28
     }
   },
   {
@@ -13084,7 +13084,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "vertretung",
-      "sort": 14
+      "sort": 17
     }
   },
   {
@@ -13115,6 +13115,51 @@
       "form": "personalien-tabelle",
       "question": "vertretung-e-mail",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.vertretung-juristische-person",
+    "fields": {
+      "created_at": "2024-06-27T07:26:35.527Z",
+      "modified_at": "2024-06-27T07:26:35.527Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "vertretung-juristische-person",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.vertretung-juristische-person-kontaktperson-titel",
+    "fields": {
+      "created_at": "2024-06-27T07:27:36.841Z",
+      "modified_at": "2024-06-27T07:27:36.841Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "vertretung-juristische-person-kontaktperson-titel",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.vertretung-juristische-person-name",
+    "fields": {
+      "created_at": "2024-06-27T07:27:05.454Z",
+      "modified_at": "2024-06-27T07:27:05.454Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "vertretung-juristische-person-name",
+      "sort": 15
     }
   },
   {
@@ -13279,7 +13324,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "vorname",
-      "sort": 24
+      "sort": 27
     }
   },
   {
@@ -27146,6 +27191,38 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vertretung-juristische-person-ja",
+    "fields": {
+      "created_at": "2024-06-27T07:26:35.423Z",
+      "modified_at": "2024-06-27T07:26:35.423Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vertretung-juristische-person-nein",
+    "fields": {
+      "created_at": "2024-06-27T07:26:35.425Z",
+      "modified_at": "2024-06-27T07:26:35.425Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -56859,6 +56936,102 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "vertretung-juristische-person",
+    "fields": {
+      "created_at": "2024-06-27T07:26:35.474Z",
+      "modified_at": "2024-06-27T07:28:21.130Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Handelt es sich um eine juristische Person?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "\"vertretung\"|answer != \"vertretung-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vertretung-juristische-person-kontaktperson-titel",
+    "fields": {
+      "created_at": "2024-06-27T07:27:36.786Z",
+      "modified_at": "2024-06-27T07:28:06.169Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kontaktperson\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"vertretung-juristische-person\"|answer != \"vertretung-juristische-person-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\\n\\n**Kontaktperson**\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vertretung-juristische-person-name",
+    "fields": {
+      "created_at": "2024-06-27T07:27:05.410Z",
+      "modified_at": "2024-06-27T07:28:12.212Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Name juristische Person\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "\"vertretung-juristische-person\"|answer != \"vertretung-juristische-person-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "vertretung-land",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -69350,6 +69523,36 @@
       "modified_by_group": null,
       "question": "vertretung-anrede",
       "option": "vertretung-anrede-herr",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vertretung-juristische-person.vertretung-juristische-person-ja",
+    "fields": {
+      "created_at": "2024-06-27T07:28:21.135Z",
+      "modified_at": "2024-06-27T07:28:21.135Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vertretung-juristische-person",
+      "option": "vertretung-juristische-person-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vertretung-juristische-person.vertretung-juristische-person-nein",
+    "fields": {
+      "created_at": "2024-06-27T07:28:21.133Z",
+      "modified_at": "2024-06-27T07:28:21.133Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vertretung-juristische-person",
+      "option": "vertretung-juristische-person-nein",
       "sort": 1
     }
   },
