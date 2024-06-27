@@ -6048,7 +6048,7 @@
       "starttls": "false",
       "auth": "",
       "port": "1025",
-      "host": "mailhog",
+      "host": "mailpit",
       "replyTo": "",
       "from": "donotreply@example.com",
       "fromDisplayName": "",

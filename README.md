@@ -144,7 +144,7 @@ After, you should be able to use to the following services:
 - [ebau-portal.local](http://ebau-portal.local) - public-facing portal (Caluma-based, default choice for new projects, used in Kt. BE, UR)
 - [ebau.local/django/admin/](http://ebau.local/django/admin/) - Django admin interface
 - [ebau-keycloak.local/auth](http://ebau-keycloak.local/auth/) - IAM solution
-- [ember-ebau.local/mailhog/](http://ember-ebau.local/mailhog/) - Mailhog UI
+- [ember-ebau.local/mailpit/](http://ember-ebau.local/mailpit/) - Mailpit UI
 - [ember-ebau.local/minio/ui/](http://ember-ebau.local/minio/ui/) - MinIO Admin UI
 
 ### Predefined credentials
@@ -282,10 +282,10 @@ For different feature flags and permissions, see `APPLICATIONS` in settings.py.
 ### Sending email
 
 In development mode, the application is configured to send all email to a
-Mailhog instance, so unless you specify something else, no email will be
+Mailpit instance, so unless you specify something else, no email will be
 sent out from the development environment.
 
-You can access the Mailhog via <http://ebau.local/mailhog/> . Any email sent out
+You can access the Mailpit via <http://ebau.local/mailpit/> . Any email sent out
 will be instantly visible there.
 
 ## Module and canton specifics

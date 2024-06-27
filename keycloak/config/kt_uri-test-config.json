@@ -4057,7 +4057,7 @@
       "starttls": "",
       "auth": "",
       "port": "1025",
-      "host": "mailhog",
+      "host": "mailpit",
       "from": "camac@ur.ch",
       "ssl": ""
     },

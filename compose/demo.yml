@@ -9,7 +9,7 @@ services:
       - ember-caluma-portal
       - django
       - keycloak
-      - mailhog
+      - mailpit
       - document-merge-service
       - ember-ebau
     volumes:
@@ -36,7 +36,7 @@ services:
       - db
       - cache
       - keycloak
-      - mailhog
+      - mailpit
     environment:
       - DATABASE_HOST=db
       - DATABASE_NAME=${APPLICATION}
@@ -83,8 +83,8 @@ services:
         - WORKSPACE=ember-ebau
       target: prod
 
-  mailhog:
-    image: mailhog/mailhog
+  mailpit:
+    image: axllent/mailpit
 
   keycloak:
     depends_on:

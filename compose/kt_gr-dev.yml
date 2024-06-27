@@ -14,7 +14,7 @@ services:
       - ember-caluma-portal
       - django
       - keycloak
-      - mailhog
+      - mailpit
       - document-merge-service
       - ember-ebau
       - minio
@@ -72,7 +72,7 @@ services:
       - KEYCLOAK_URL=http://ebau-keycloak.local/auth/
       - DATABASE_PASSWORD=camac
       - DATABASE_USER=camac
-      - DJANGO_EMAIL_HOST=mailhog
+      - DJANGO_EMAIL_HOST=mailpit
       - DJANGO_EMAIL_PORT=1025
       - OAUTHLIB_INSECURE_TRANSPORT=1
       - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
@@ -131,11 +131,11 @@ services:
         "--spi-theme-cache-templates=false",
       ]
 
-  mailhog:
+  mailpit:
     networks:
       - ebau.local
     environment:
-      - MH_UI_WEB_PATH=mailhog
+      - MP_WEBROOT=mailpit
 
   document-merge-service:
     image: acr.run/camac-ng/camac-ng/document-merge-service:master
