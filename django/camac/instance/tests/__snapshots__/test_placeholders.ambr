@@ -8460,8 +8460,10 @@
 # ---
 # name: test_dms_placeholders_so[Municipality]
   dict({
-    'ALLE_RECHNUNGSEMPFAENGER': 'Gina Young, Harmon, Ray and Johnson, Donna Ruiz',
-    'ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Gina Young, Jessica Station 7762, 1520 Stephensburgh, Harmon, Ray and Johnson, Donna Ruiz, Clark Road 9402, 5057 Richmondton',
+    'ALLE_GESUCHSTELLER_VERTRETER': 'Mark Russo, Brown, Coleman and Aguirre, Patrick Dougherty',
+    'ALLE_GESUCHSTELLER_VERTRETER_NAME_ADRESSE': 'Mark Russo, Martinez Pines 20675, 4308 Darrenfurt, Brown, Coleman and Aguirre, Patrick Dougherty, Andrew Field 9877, 1884 Lisaburgh',
+    'ALLE_RECHNUNGSEMPFAENGER': 'Richard Garcia, Clay, Bennett and Martin, Deanna Smith',
+    'ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Richard Garcia, Day Pine 984, 6907 Patriciachester, Clay, Bennett and Martin, Deanna Smith, Padilla Radial 0236, 9208 South Drewstad',
     'ANGEMELDET_EMAIL': 'admin@example.com',
     'ANGEMELDET_NAME': 'Admin User',
     'BAUENTSCHEID_DATUM': '18. April 2024',
@@ -8566,33 +8568,33 @@
       dict({
         'ALLE_EINSPRECHENDEN': list([
           dict({
-            'ADRESSE': 'Rhonda Street 672, 4339 Loriborough',
-            'ANREDE': 'Frau',
-            'NAME': 'Sharon Hall',
+            'ADRESSE': 'Nicole Groves 0538, 2640 North Richard',
+            'ANREDE': 'Herr',
+            'NAME': 'Michael Conway',
           }),
           dict({
-            'ADRESSE': 'James Oval 250, 8477 North Hunter',
-            'ANREDE': 'Frau',
-            'NAME': 'Denise Smith',
+            'ADRESSE': 'Stuart Viaduct 1360, 7898 Jacksonstad',
+            'ANREDE': 'Herr',
+            'NAME': 'Tyler Jordan',
           }),
         ]),
         'DATUM_POSTSTEMPEL': '12.12.2023',
-        'EINSPRECHER_ADRESSE': 'Rhonda Street 672, 4339 Loriborough',
-        'EINSPRECHER_ANREDE': 'Frau',
-        'EINSPRECHER_NAME': 'Sharon Hall',
+        'EINSPRECHER_ADRESSE': 'Nicole Groves 0538, 2640 North Richard',
+        'EINSPRECHER_ANREDE': 'Herr',
+        'EINSPRECHER_NAME': 'Michael Conway',
       }),
       dict({
         'ALLE_EINSPRECHENDEN': list([
           dict({
-            'ADRESSE': 'Nguyen Street 856, 5865 West Ashley',
+            'ADRESSE': 'Li Village 7475, 9499 Markside',
             'ANREDE': 'Frau',
-            'NAME': 'Coleman LLC, Ellen Edwards',
+            'NAME': 'Anderson-Thomas, Maria Macias',
           }),
         ]),
         'DATUM_POSTSTEMPEL': '22.12.2023',
-        'EINSPRECHER_ADRESSE': 'Nguyen Street 856, 5865 West Ashley',
+        'EINSPRECHER_ADRESSE': 'Li Village 7475, 9499 Markside',
         'EINSPRECHER_ANREDE': 'Frau',
-        'EINSPRECHER_NAME': 'Coleman LLC, Ellen Edwards',
+        'EINSPRECHER_NAME': 'Anderson-Thomas, Maria Macias',
       }),
     ]),
     'ENTSCHEIDDOKUMENTE': list([
@@ -8651,6 +8653,11 @@
     ]),
     'GEBUEHREN_TOTAL': '2’820.38',
     'GEMEINDE_WEBSEITE': 'https://gemeinde.ch',
+    'GESUCHSTELLER_ANREDE': 'Herr',
+    'GESUCHSTELLER_VERTRETER': 'Mark Russo',
+    'GESUCHSTELLER_VERTRETER_ADRESSE_1': 'Martinez Pines 20675',
+    'GESUCHSTELLER_VERTRETER_ADRESSE_2': '4308 Darrenfurt',
+    'GESUCHSTELLER_VERTRETER_NAME_ADRESSE': 'Mark Russo, Martinez Pines 20675, 4308 Darrenfurt',
     'LEITBEHOERDE_NAME_ADRESSE': 'Test Leitbehörde, Teststrasse 13, 3000 Musterhausen',
     'LEITBEHOERDE_WEBSEITE': 'https://leitbehoerde.ch',
     'MEINE_ORGANISATION_WEBSEITE': 'https://meine-organisation.ch',
@@ -8661,10 +8668,10 @@
     'PUBLIKATION_ORGAN': list([
     ]),
     'PUBLIKATION_START': '1. Dezember 2023',
-    'RECHNUNGSEMPFAENGER': 'Gina Young',
-    'RECHNUNGSEMPFAENGER_ADRESSE_1': 'Jessica Station 7762',
-    'RECHNUNGSEMPFAENGER_ADRESSE_2': '1520 Stephensburgh',
-    'RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Gina Young, Jessica Station 7762, 1520 Stephensburgh',
+    'RECHNUNGSEMPFAENGER': 'Richard Garcia',
+    'RECHNUNGSEMPFAENGER_ADRESSE_1': 'Day Pine 984',
+    'RECHNUNGSEMPFAENGER_ADRESSE_2': '6907 Patriciachester',
+    'RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Richard Garcia, Day Pine 984, 6907 Patriciachester',
   })
 # ---
 # name: test_dms_placeholders_ur[Municipality]
