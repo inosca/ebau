@@ -74,7 +74,7 @@ def prepare_file():
 
 def count_versions(attachment):
     version_filter = models.AttachmentVersion.objects.filter(attachment=attachment)
-    return version_filter.order_by("-version").count()
+    return version_filter.count()
 
 
 @pytest.mark.parametrize(
@@ -91,7 +91,9 @@ def test_callback(
     freezer,
 ):
     freezer.move_to("2000-10-10")
-    delta = timedelta(minutes=(settings.MANABI_VERSION_CREATION_THRESHOLD / 2) + 1)
+    delta = timedelta(
+        seconds=(settings.MANABI_VERSION_CREATION_THRESHOLD_SECONDS / 2) + 1
+    )
     tick = partial(freezer.tick, delta)
     prepare_file()
     orig_encode = base36.encode
