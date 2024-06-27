@@ -7,20 +7,22 @@ from rest_framework import status
 
 
 @pytest.mark.parametrize(
-    "is_bab,is_bab_service,has_publication,expected_count",
+    "is_bab,is_bab_service,has_completed_publication,has_running_publication,expected_services",
     [
-        (False, False, False, 11),
-        (True, False, False, 7),
-        (True, False, True, 8),
-        (True, True, False, 10),
+        (False, False, False, False, {"excluded", "not-excluded", "bab-service"}),
+        (True, False, False, False, {"not-excluded"}),
+        (True, False, True, False, {"not-excluded", "bab-service"}),
+        (True, False, True, True, {"not-excluded"}),
+        (True, True, False, False, {"not-excluded", "excluded"}),
     ],
 )
 def test_public_services_available_in_distribution_for_instance(
     admin_client,
-    expected_count,
+    expected_services,
     is_bab_service,
     service,
-    has_publication,
+    has_running_publication,
+    has_completed_publication,
     service_factory,
     so_instance,
     bab_settings,
@@ -36,18 +38,14 @@ def test_public_services_available_in_distribution_for_instance(
     if is_bab_service:
         bab_service = service
     else:
-        bab_service = service_factory()
+        bab_service = service_factory(name="bab-service")
 
     bab_settings["SERVICE_GROUP"] = bab_service.service_group.name
 
-    # 7 not excluded
-    service_factory.create_batch(7)
-    # 3 excluded
-    bab_settings["EXCLUDED_IN_DISTRIBUTION"] = [
-        s.pk for s in service_factory.create_batch(3)
-    ]
+    service_factory(name="not-excluded")
+    bab_settings["EXCLUDED_IN_DISTRIBUTION"] = [service_factory(name="excluded").pk]
 
-    if has_publication:
+    if has_completed_publication:
         work_item = work_item_factory(
             task_id=so_publication_settings["FILL_TASKS"][0],
             status=WorkItem.STATUS_COMPLETED,
@@ -59,10 +57,23 @@ def test_public_services_available_in_distribution_for_instance(
             "publikation-ende",
             date.today() - timedelta(days=1),
         )
+
+    if has_running_publication:
+        work_item = work_item_factory(
+            task_id=so_publication_settings["FILL_TASKS"][0],
+            status=WorkItem.STATUS_COMPLETED,
+            case=so_instance.case,
+            meta={"is-published": True},
+        )
         utils.add_answer(
             work_item.document,
-            "publikation-organ",
-            ["publikation-organ-amtsblatt", "publikation-organ-azeiger"],
+            "publikation-ende",
+            date.today() + timedelta(days=1),
+        )
+        utils.add_answer(
+            work_item.document,
+            "publikation-start",
+            date.today() - timedelta(days=1),
         )
 
     response = admin_client.get(
@@ -74,4 +85,7 @@ def test_public_services_available_in_distribution_for_instance(
     )
 
     assert response.status_code == status.HTTP_200_OK
-    assert len(response.json()["data"]) == expected_count
+    assert (
+        set([i["attributes"]["name"] for i in response.json()["data"]])
+        == expected_services
+    )
