@@ -18,46 +18,2620 @@
     }
   },
   {
-    "model": "caluma_form.formquestion",
-    "pk": "materielle-pruefung-bab.materielle-pruefung-bab-bemerkungen",
+    "model": "caluma_form.form",
+    "pk": "materielle-pruefung-bab-entscheid",
     "fields": {
-      "created_at": "2024-06-05T07:42:45.754Z",
-      "modified_at": "2024-06-05T07:42:45.754Z",
+      "created_at": "2024-06-27T08:58:10.601Z",
+      "modified_at": "2024-06-27T08:58:10.601Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "materielle-pruefung-bab",
-      "question": "materielle-pruefung-bab-bemerkungen",
+      "name": "{\"de\": \"Materielle Pr\\u00fcfung BaB Entscheid\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "materielle-pruefung-bab-interne-auftragserledigung",
+    "fields": {
+      "created_at": "2024-06-27T08:57:33.425Z",
+      "modified_at": "2024-06-27T08:57:33.425Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Materielle Pr\\u00fcfung BaB Interne Auftragserledigung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "materielle-pruefung-bab-journal",
+    "fields": {
+      "created_at": "2024-06-27T08:57:50.452Z",
+      "modified_at": "2024-06-27T08:57:50.452Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Materielle Pr\\u00fcfung BaB Journal\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "materielle-pruefung-bab-journal-tabelle",
+    "fields": {
+      "created_at": "2024-06-27T09:18:07.946Z",
+      "modified_at": "2024-06-27T09:18:07.946Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Materielle Pr\\u00fcfung BaB Journal Tabelle\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "materielle-pruefung-bab-lage-objekt",
+    "fields": {
+      "created_at": "2024-06-27T09:02:53.380Z",
+      "modified_at": "2024-06-27T09:02:53.380Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Materielle Pr\\u00fcfung BaB Lage / Objekt\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "materielle-pruefung-bab-verfahren-vorhaben",
+    "fields": {
+      "created_at": "2024-06-27T08:57:19.313Z",
+      "modified_at": "2024-06-27T08:57:19.313Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Materielle Pr\\u00fcfung BaB Verfahren / Vorhaben\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "materielle-pruefung-bab-vollstreckungsverfahren",
+    "fields": {
+      "created_at": "2024-06-27T08:58:28.119Z",
+      "modified_at": "2024-06-27T08:58:28.119Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Materielle Pr\\u00fcfung BaB Vollstreckungsverfahren\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "mp-bab-grund-der-sistierung-tabelle",
+    "fields": {
+      "created_at": "2024-06-27T09:09:31.057Z",
+      "modified_at": "2024-06-27T09:09:31.057Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Grund der Sistierung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-entscheid.mp-bab-datum-der-koordinierten-eroeffnung-bewilligungsbehoerde",
+    "fields": {
+      "created_at": "2024-06-27T09:30:00.055Z",
+      "modified_at": "2024-06-27T09:30:00.055Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-entscheid",
+      "question": "mp-bab-datum-der-koordinierten-eroeffnung-bewilligungsbehoerde",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "materielle-pruefung-bab.materielle-pruefung-bab-platzhalter",
+    "pk": "materielle-pruefung-bab-entscheid.mp-bab-datum-des-entscheides-bewilligungsbehoerde",
     "fields": {
-      "created_at": "2024-06-05T07:42:17.701Z",
-      "modified_at": "2024-06-05T07:42:17.701Z",
+      "created_at": "2024-06-27T09:29:33.705Z",
+      "modified_at": "2024-06-27T09:29:33.705Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-entscheid",
+      "question": "mp-bab-datum-des-entscheides-bewilligungsbehoerde",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-entscheid.mp-bab-datum-des-entscheides-kanton",
+    "fields": {
+      "created_at": "2024-06-27T09:26:43.620Z",
+      "modified_at": "2024-06-27T09:26:43.620Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-entscheid",
+      "question": "mp-bab-datum-des-entscheides-kanton",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-entscheid.mp-bab-entscheid-bewilligungsbehoerde",
+    "fields": {
+      "created_at": "2024-06-27T09:28:44.511Z",
+      "modified_at": "2024-06-27T09:28:44.511Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-entscheid",
+      "question": "mp-bab-entscheid-bewilligungsbehoerde",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-entscheid.mp-bab-entscheid-kanton",
+    "fields": {
+      "created_at": "2024-06-27T09:26:04.472Z",
+      "modified_at": "2024-06-27T09:26:04.472Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-entscheid",
+      "question": "mp-bab-entscheid-kanton",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-entscheid.mp-bab-eroeffnungsart-des-entscheides-kanton",
+    "fields": {
+      "created_at": "2024-06-27T09:27:28.738Z",
+      "modified_at": "2024-06-27T09:27:28.738Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-entscheid",
+      "question": "mp-bab-eroeffnungsart-des-entscheides-kanton",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-entscheid.mp-bab-rueckmeldeformular",
+    "fields": {
+      "created_at": "2024-06-27T09:28:04.723Z",
+      "modified_at": "2024-06-27T09:28:04.723Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-entscheid",
+      "question": "mp-bab-rueckmeldeformular",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-interne-auftragserledigung.mp-bab-bearbeitungsstatus",
+    "fields": {
+      "created_at": "2024-06-27T09:07:58.909Z",
+      "modified_at": "2024-06-27T09:07:58.909Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-interne-auftragserledigung",
+      "question": "mp-bab-bearbeitungsstatus",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-interne-auftragserledigung.mp-bab-bewilligungsbehoerde",
+    "fields": {
+      "created_at": "2024-06-27T09:12:52.892Z",
+      "modified_at": "2024-06-27T09:12:52.892Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-interne-auftragserledigung",
+      "question": "mp-bab-bewilligungsbehoerde",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-interne-auftragserledigung.mp-bab-datum-eingang-arp",
+    "fields": {
+      "created_at": "2024-06-27T09:05:34.511Z",
+      "modified_at": "2024-06-27T09:05:34.511Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-interne-auftragserledigung",
+      "question": "mp-bab-datum-eingang-arp",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-interne-auftragserledigung.mp-bab-grund-der-sistierung",
+    "fields": {
+      "created_at": "2024-06-27T09:12:03.889Z",
+      "modified_at": "2024-06-27T09:12:03.889Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-interne-auftragserledigung",
+      "question": "mp-bab-grund-der-sistierung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-interne-auftragserledigung.mp-bab-interesse-am-vorhaben",
+    "fields": {
+      "created_at": "2024-06-27T09:13:22.577Z",
+      "modified_at": "2024-06-27T09:13:22.577Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-interne-auftragserledigung",
+      "question": "mp-bab-interesse-am-vorhaben",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-interne-auftragserledigung.mp-bab-massgebliche-terminvorgabe",
+    "fields": {
+      "created_at": "2024-06-27T09:06:32.562Z",
+      "modified_at": "2024-06-27T09:06:32.563Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-interne-auftragserledigung",
+      "question": "mp-bab-massgebliche-terminvorgabe",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-interne-auftragserledigung.mp-bab-terminvorgabe-bei-erfassung",
+    "fields": {
+      "created_at": "2024-06-27T09:05:59.045Z",
+      "modified_at": "2024-06-27T09:05:59.045Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-interne-auftragserledigung",
+      "question": "mp-bab-terminvorgabe-bei-erfassung",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-interne-auftragserledigung.mp-bab-verfahrensstand",
+    "fields": {
+      "created_at": "2024-06-27T09:07:26.602Z",
+      "modified_at": "2024-06-27T09:07:26.602Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-interne-auftragserledigung",
+      "question": "mp-bab-verfahrensstand",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-journal.mp-bab-journal-tabelle",
+    "fields": {
+      "created_at": "2024-06-27T09:18:49.385Z",
+      "modified_at": "2024-06-27T09:18:49.385Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-journal",
+      "question": "mp-bab-journal-tabelle",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-journal-tabelle.mp-bab-art-des-eintrages",
+    "fields": {
+      "created_at": "2024-06-27T09:19:50.030Z",
+      "modified_at": "2024-06-27T09:19:50.030Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-journal-tabelle",
+      "question": "mp-bab-art-des-eintrages",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-journal-tabelle.mp-bab-beteiligte-anwesende",
+    "fields": {
+      "created_at": "2024-06-27T09:20:09.652Z",
+      "modified_at": "2024-06-27T09:20:09.652Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-journal-tabelle",
+      "question": "mp-bab-beteiligte-anwesende",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-journal-tabelle.mp-bab-datum-eintrag",
+    "fields": {
+      "created_at": "2024-06-27T09:19:12.633Z",
+      "modified_at": "2024-06-27T09:19:12.633Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-journal-tabelle",
+      "question": "mp-bab-datum-eintrag",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-journal-tabelle.mp-bab-sachverhalt",
+    "fields": {
+      "created_at": "2024-06-27T09:20:22.440Z",
+      "modified_at": "2024-06-27T09:20:22.440Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-journal-tabelle",
+      "question": "mp-bab-sachverhalt",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-lage-objekt.mp-bab-zweck-des-bauvorhabens",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.596Z",
+      "modified_at": "2024-06-27T09:23:23.596Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-lage-objekt",
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab.materielle-pruefung-bab-entscheid",
+    "fields": {
+      "created_at": "2024-06-27T09:02:00.026Z",
+      "modified_at": "2024-06-27T09:02:00.026Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "materielle-pruefung-bab",
-      "question": "materielle-pruefung-bab-platzhalter",
+      "question": "materielle-pruefung-bab-entscheid",
       "sort": 2
     }
   },
   {
-    "model": "caluma_form.question",
-    "pk": "materielle-pruefung-bab-bemerkungen",
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab.materielle-pruefung-bab-interne-auftragserledigung",
     "fields": {
-      "created_at": "2024-06-05T07:42:45.502Z",
-      "modified_at": "2024-06-05T07:42:45.502Z",
+      "created_at": "2024-06-27T09:00:55.298Z",
+      "modified_at": "2024-06-27T09:00:55.298Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "form": "materielle-pruefung-bab",
+      "question": "materielle-pruefung-bab-interne-auftragserledigung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab.materielle-pruefung-bab-journal",
+    "fields": {
+      "created_at": "2024-06-27T09:41:37.870Z",
+      "modified_at": "2024-06-27T09:41:37.870Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab",
+      "question": "materielle-pruefung-bab-journal",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab.materielle-pruefung-bab-lage-objekt",
+    "fields": {
+      "created_at": "2024-06-27T09:03:13.867Z",
+      "modified_at": "2024-06-27T09:03:13.867Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab",
+      "question": "materielle-pruefung-bab-lage-objekt",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab.materielle-pruefung-bab-verfahren-vorhaben",
+    "fields": {
+      "created_at": "2024-06-27T09:00:31.932Z",
+      "modified_at": "2024-06-27T09:00:31.932Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab",
+      "question": "materielle-pruefung-bab-verfahren-vorhaben",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab.materielle-pruefung-bab-vollstreckungsverfahren",
+    "fields": {
+      "created_at": "2024-06-27T09:02:24.930Z",
+      "modified_at": "2024-06-27T09:02:24.930Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab",
+      "question": "materielle-pruefung-bab-vollstreckungsverfahren",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-verfahren-vorhaben.mp-bab-referenz-vorakten",
+    "fields": {
+      "created_at": "2024-06-27T09:04:46.788Z",
+      "modified_at": "2024-06-27T09:04:46.788Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-verfahren-vorhaben",
+      "question": "mp-bab-referenz-vorakten",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-vollstreckungsverfahren.mp-bab-aktennummer-oberamt",
+    "fields": {
+      "created_at": "2024-06-27T09:33:02.666Z",
+      "modified_at": "2024-06-27T09:33:02.666Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-vollstreckungsverfahren",
+      "question": "mp-bab-aktennummer-oberamt",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-vollstreckungsverfahren.mp-bab-rechtskraftbescheinigung-des-entscheids",
+    "fields": {
+      "created_at": "2024-06-27T09:31:41.898Z",
+      "modified_at": "2024-06-27T09:31:41.898Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-vollstreckungsverfahren",
+      "question": "mp-bab-rechtskraftbescheinigung-des-entscheids",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-vollstreckungsverfahren.mp-bab-zustaendiges-oberamt",
+    "fields": {
+      "created_at": "2024-06-27T09:32:37.235Z",
+      "modified_at": "2024-06-27T09:32:37.235Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-vollstreckungsverfahren",
+      "question": "mp-bab-zustaendiges-oberamt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "mp-bab-grund-der-sistierung-tabelle.mp-bab-sistiert-bis",
+    "fields": {
+      "created_at": "2024-06-27T09:11:39.279Z",
+      "modified_at": "2024-06-27T09:11:39.279Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "mp-bab-grund-der-sistierung-tabelle",
+      "question": "mp-bab-sistiert-bis",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "mp-bab-grund-der-sistierung-tabelle.mp-bab-sistiert-von",
+    "fields": {
+      "created_at": "2024-06-27T09:11:22.975Z",
+      "modified_at": "2024-06-27T09:11:22.975Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "mp-bab-grund-der-sistierung-tabelle",
+      "question": "mp-bab-sistiert-von",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "mp-bab-grund-der-sistierung-tabelle.mp-bab-sistierungsgrund",
+    "fields": {
+      "created_at": "2024-06-27T09:10:49.686Z",
+      "modified_at": "2024-06-27T09:10:49.686Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "mp-bab-grund-der-sistierung-tabelle",
+      "question": "mp-bab-sistierungsgrund",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-art-des-eintrages-augenschein",
+    "fields": {
+      "created_at": "2024-06-27T09:19:49.917Z",
+      "modified_at": "2024-06-27T09:19:49.917Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Augenschein\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-art-des-eintrages-besprechung",
+    "fields": {
+      "created_at": "2024-06-27T09:19:49.911Z",
+      "modified_at": "2024-06-27T09:19:49.911Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Besprechung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-art-des-eintrages-info",
+    "fields": {
+      "created_at": "2024-06-27T09:19:49.924Z",
+      "modified_at": "2024-06-27T09:19:49.924Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Info\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-art-des-eintrages-telefongespraech",
+    "fields": {
+      "created_at": "2024-06-27T09:19:49.912Z",
+      "modified_at": "2024-06-27T09:19:49.912Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Telefongespr\\u00e4ch\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-art-des-eintrages-versand",
+    "fields": {
+      "created_at": "2024-06-27T09:19:49.902Z",
+      "modified_at": "2024-06-27T09:19:49.902Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Versand\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-bearbeitungsstatus-abgeschlossen",
+    "fields": {
+      "created_at": "2024-06-27T09:07:58.790Z",
+      "modified_at": "2024-06-27T09:07:58.790Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"abgeschlossen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-bearbeitungsstatus-in-bearbeitung",
+    "fields": {
+      "created_at": "2024-06-27T09:07:58.787Z",
+      "modified_at": "2024-06-27T09:07:58.787Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"in Bearbeitung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-bearbeitungsstatus-sistiert",
+    "fields": {
+      "created_at": "2024-06-27T09:07:58.783Z",
+      "modified_at": "2024-06-27T09:07:58.783Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"sistiert\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-bewilligungsbehoerde-bjd-leitbehoerde",
+    "fields": {
+      "created_at": "2024-06-27T09:12:52.751Z",
+      "modified_at": "2024-06-27T09:12:52.751Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"BJD (Leitbeh\\u00f6rde)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-bewilligungsbehoerde-fd-leitbehoerde",
+    "fields": {
+      "created_at": "2024-06-27T09:12:52.761Z",
+      "modified_at": "2024-06-27T09:12:52.761Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"FD (Leitbeh\\u00f6rde)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-bewilligungsbehoerde-oertliche-baubehoerde",
+    "fields": {
+      "created_at": "2024-06-27T09:12:52.755Z",
+      "modified_at": "2024-06-27T09:12:52.755Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00f6rtliche Baubeh\\u00f6rde\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-entscheid-bewilligungsbehoerde-ablehnung",
+    "fields": {
+      "created_at": "2024-06-27T09:28:44.396Z",
+      "modified_at": "2024-06-27T09:28:44.396Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ablehnung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-entscheid-bewilligungsbehoerde-ausstehend",
+    "fields": {
+      "created_at": "2024-06-27T09:28:44.407Z",
+      "modified_at": "2024-06-27T09:28:44.407Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"ausstehend\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-entscheid-bewilligungsbehoerde-rueckweisung",
+    "fields": {
+      "created_at": "2024-06-27T09:28:44.385Z",
+      "modified_at": "2024-06-27T09:28:44.385Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"R\\u00fcckweisung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-entscheid-bewilligungsbehoerde-rueckzug",
+    "fields": {
+      "created_at": "2024-06-27T09:28:44.374Z",
+      "modified_at": "2024-06-27T09:28:44.374Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"R\\u00fcckzug\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-entscheid-bewilligungsbehoerde-teilzustimmung",
+    "fields": {
+      "created_at": "2024-06-27T09:28:44.380Z",
+      "modified_at": "2024-06-27T09:28:44.380Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Teilzustimmung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-entscheid-bewilligungsbehoerde-zustimmung",
+    "fields": {
+      "created_at": "2024-06-27T09:28:44.387Z",
+      "modified_at": "2024-06-27T09:28:44.387Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zustimmung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-entscheid-kanton-ablehnung",
+    "fields": {
+      "created_at": "2024-06-27T09:26:04.359Z",
+      "modified_at": "2024-06-27T09:26:04.359Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ablehnung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-entscheid-kanton-rueckweisung",
+    "fields": {
+      "created_at": "2024-06-27T09:26:04.354Z",
+      "modified_at": "2024-06-27T09:26:04.354Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"R\\u00fcckweisung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-entscheid-kanton-rueckzug",
+    "fields": {
+      "created_at": "2024-06-27T09:26:04.373Z",
+      "modified_at": "2024-06-27T09:26:04.373Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"R\\u00fcckzug\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-entscheid-kanton-teilzustimmung",
+    "fields": {
+      "created_at": "2024-06-27T09:26:04.368Z",
+      "modified_at": "2024-06-27T09:26:04.368Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Teilzustimmung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-entscheid-kanton-zustimmung",
+    "fields": {
+      "created_at": "2024-06-27T09:26:04.355Z",
+      "modified_at": "2024-06-27T09:26:04.355Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zustimmung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-eroeffnungsart-des-entscheides-kanton-augenschein-besprechung",
+    "fields": {
+      "created_at": "2024-06-27T09:27:28.631Z",
+      "modified_at": "2024-06-27T09:27:28.631Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Augenschein / Besprechung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-eroeffnungsart-des-entscheides-kanton-baubewilligung",
+    "fields": {
+      "created_at": "2024-06-27T09:27:28.623Z",
+      "modified_at": "2024-06-27T09:27:28.623Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baubewilligung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-eroeffnungsart-des-entscheides-kanton-e-mail",
+    "fields": {
+      "created_at": "2024-06-27T09:27:28.624Z",
+      "modified_at": "2024-06-27T09:27:28.624Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"E-Mail\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-eroeffnungsart-des-entscheides-kanton-stellungnahme",
+    "fields": {
+      "created_at": "2024-06-27T09:27:28.633Z",
+      "modified_at": "2024-06-27T09:27:28.633Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Stellungnahme\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-eroeffnungsart-des-entscheides-kanton-verfuegung",
+    "fields": {
+      "created_at": "2024-06-27T09:27:28.630Z",
+      "modified_at": "2024-06-27T09:27:28.630Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verf\\u00fcgung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-interesse-am-vorhaben-forstwirtschaftlich",
+    "fields": {
+      "created_at": "2024-06-27T09:13:22.476Z",
+      "modified_at": "2024-06-27T09:13:22.476Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"forstwirtschaftlich\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-interesse-am-vorhaben-landwirtschaftlich",
+    "fields": {
+      "created_at": "2024-06-27T09:13:22.476Z",
+      "modified_at": "2024-06-27T09:13:22.476Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"landwirtschaftlich\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-interesse-am-vorhaben-oeffentlich",
+    "fields": {
+      "created_at": "2024-06-27T09:13:22.487Z",
+      "modified_at": "2024-06-27T09:13:22.487Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00f6ffentlich\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-interesse-am-vorhaben-privat",
+    "fields": {
+      "created_at": "2024-06-27T09:13:22.472Z",
+      "modified_at": "2024-06-27T09:13:22.472Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"privat\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-rechtskraftbescheinigung-des-entscheids-ausstehend",
+    "fields": {
+      "created_at": "2024-06-27T09:31:41.814Z",
+      "modified_at": "2024-06-27T09:31:41.814Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"ausstehend\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-rechtskraftbescheinigung-des-entscheids-bestellt",
+    "fields": {
+      "created_at": "2024-06-27T09:31:41.812Z",
+      "modified_at": "2024-06-27T09:31:41.812Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"bestellt\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-rechtskraftbescheinigung-des-entscheids-eingetroffen",
+    "fields": {
+      "created_at": "2024-06-27T09:31:41.813Z",
+      "modified_at": "2024-06-27T09:31:41.813Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"eingetroffen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-rueckmeldeformular-ausstehend",
+    "fields": {
+      "created_at": "2024-06-27T09:28:04.629Z",
+      "modified_at": "2024-06-27T09:28:04.629Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"ausstehend\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-rueckmeldeformular-eingetroffen",
+    "fields": {
+      "created_at": "2024-06-27T09:28:04.632Z",
+      "modified_at": "2024-06-27T09:28:04.632Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"eingetroffen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-sistierungsgrund-andere-siehe-journal",
+    "fields": {
+      "created_at": "2024-06-27T09:10:49.549Z",
+      "modified_at": "2024-06-27T09:10:49.549Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere (siehe Journal)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-sistierungsgrund-archivakten-bei-oertlicher-baubehoerde-verlangt",
+    "fields": {
+      "created_at": "2024-06-27T09:10:49.572Z",
+      "modified_at": "2024-06-27T09:10:49.572Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Archivakten bei \\u00f6rtlicher Baubeh\\u00f6rde verlangt\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-sistierungsgrund-augenschein-abwarten",
+    "fields": {
+      "created_at": "2024-06-27T09:10:49.432Z",
+      "modified_at": "2024-06-27T09:10:49.432Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Augenschein abwarten\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-sistierungsgrund-einsprachen-mitteilung-gemeinde-ausstehend",
+    "fields": {
+      "created_at": "2024-06-27T09:10:49.442Z",
+      "modified_at": "2024-06-27T09:10:49.442Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einsprachen? Mitteilung Gemeinde ausstehend\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-sistierungsgrund-entscheid-oertliche-baubehoerde-haengig",
+    "fields": {
+      "created_at": "2024-06-27T09:10:49.431Z",
+      "modified_at": "2024-06-27T09:10:49.431Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheid \\u00f6rtliche Baubeh\\u00f6rde h\\u00e4ngig\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-sistierungsgrund-oeffentliche-auflage-nicht-beendet",
+    "fields": {
+      "created_at": "2024-06-27T09:10:49.423Z",
+      "modified_at": "2024-06-27T09:10:49.423Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00d6ffentliche Auflage nicht beendet\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-sistierungsgrund-rechtliches-gehoer",
+    "fields": {
+      "created_at": "2024-06-27T09:10:49.447Z",
+      "modified_at": "2024-06-27T09:10:49.447Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"rechtliches Geh\\u00f6r\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-sistierungsgrund-stellungnahme-bund-ausstehend",
+    "fields": {
+      "created_at": "2024-06-27T09:10:49.444Z",
+      "modified_at": "2024-06-27T09:10:49.444Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Stellungnahme: Bund ausstehend\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-sistierungsgrund-stellungnahme-procap-ausstehend",
+    "fields": {
+      "created_at": "2024-06-27T09:10:49.525Z",
+      "modified_at": "2024-06-27T09:10:49.525Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Stellungnahme: procap ausstehend\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-sistierungsgrund-unterlagen-abklaerungen-durch-bauherrschaft",
+    "fields": {
+      "created_at": "2024-06-27T09:10:49.507Z",
+      "modified_at": "2024-06-27T09:10:49.507Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Unterlagen: Abkl\\u00e4rungen durch Bauherrschaft\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-sistierungsgrund-unterlagen-ergaenzung-durch-bauherrschaft",
+    "fields": {
+      "created_at": "2024-06-27T09:10:49.524Z",
+      "modified_at": "2024-06-27T09:10:49.524Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Unterlagen: Erg\\u00e4nzung durch Bauherrschaft\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-sistierungsgrund-unterlagen-ueberarbeitung-durch-bauherrschaft",
+    "fields": {
+      "created_at": "2024-06-27T09:10:49.546Z",
+      "modified_at": "2024-06-27T09:10:49.546Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Unterlagen: \\u00dcberarbeitung durch Bauherrschaft\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-sistierungsgrund-verhandlung-durch-fachstelle-mit-bauherrschaft",
+    "fields": {
+      "created_at": "2024-06-27T09:10:49.533Z",
+      "modified_at": "2024-06-27T09:10:49.533Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verhandlung durch Fachstelle mit Bauherrschaft\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-verfahrensstand-baukontrolle",
+    "fields": {
+      "created_at": "2024-06-27T09:07:26.481Z",
+      "modified_at": "2024-06-27T09:07:26.481Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baukontrolle\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-verfahrensstand-beschwerdeverfahren",
+    "fields": {
+      "created_at": "2024-06-27T09:07:26.483Z",
+      "modified_at": "2024-06-27T09:07:26.483Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschwerdeverfahren\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-verfahrensstand-entscheid",
+    "fields": {
+      "created_at": "2024-06-27T09:07:26.470Z",
+      "modified_at": "2024-06-27T09:07:26.470Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheid\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-verfahrensstand-ordentliche-pruefung",
+    "fields": {
+      "created_at": "2024-06-27T09:07:26.488Z",
+      "modified_at": "2024-06-27T09:07:26.488Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"ordentliche Pr\\u00fcfung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-verfahrensstand-vollstreckungsverfahren",
+    "fields": {
+      "created_at": "2024-06-27T09:07:26.475Z",
+      "modified_at": "2024-06-27T09:07:26.475Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vollstreckungsverfahren\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zustaendiges-oberamt-oberamt-dorneck-thierstein",
+    "fields": {
+      "created_at": "2024-06-27T09:32:37.129Z",
+      "modified_at": "2024-06-27T09:32:37.129Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Oberamt Dorneck-Thierstein, Passwangstrasse 29, 4626 Breitenbach\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zustaendiges-oberamt-oberamt-olten-goesgen",
+    "fields": {
+      "created_at": "2024-06-27T09:32:37.132Z",
+      "modified_at": "2024-06-27T09:32:37.132Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Oberamt Olten-G\\u00f6sgen, Amthausquai 23, 4600 Olten\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zustaendiges-oberamt-oberamt-region-solothurn",
+    "fields": {
+      "created_at": "2024-06-27T09:32:37.126Z",
+      "modified_at": "2024-06-27T09:32:37.126Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Oberamt Region Solothurn, R\\u00f6tistrasse 4, 4502 Solothurn\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zustaendiges-oberamt-oberamt-thal-gaeu",
+    "fields": {
+      "created_at": "2024-06-27T09:32:37.127Z",
+      "modified_at": "2024-06-27T09:32:37.127Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Oberamt Thal-G\\u00e4u, Wenigmattstrasse 2, 4710 Balsthal\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-abbaugebiete",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.131Z",
+      "modified_at": "2024-06-27T09:23:23.131Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abbaugebiete\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-abwasserentsorgung",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.137Z",
+      "modified_at": "2024-06-27T09:23:23.137Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abwasserentsorgung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-agrotourismus",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.191Z",
+      "modified_at": "2024-06-27T09:24:39.191Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Agrotourismus\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-antenne",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.143Z",
+      "modified_at": "2024-06-27T09:23:23.143Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Antenne\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-bauten-und-anlagen-zur-erholung-themenwege",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.126Z",
+      "modified_at": "2024-06-27T09:23:23.126Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauten und Anlagen zur Erholung (Themenwege)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-bootsanlegestelle",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.155Z",
+      "modified_at": "2024-06-27T09:23:23.156Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bootsanlegestelle\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-clubhaus",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.129Z",
+      "modified_at": "2024-06-27T09:23:23.129Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Clubhaus\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-deponien",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.216Z",
+      "modified_at": "2024-06-27T09:23:23.216Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Deponien\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-einfriedungen",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.237Z",
+      "modified_at": "2024-06-27T09:23:23.237Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einfriedungen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-eisenbahnrechtliche-bauten-und-anlagen",
+    "fields": {
+      "created_at": "2024-06-27T09:24:38.911Z",
+      "modified_at": "2024-06-27T09:24:38.911Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Eisenbahnrechtliche Bauten und Anlagen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-energieversorgung-strom-gas-etc",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.228Z",
+      "modified_at": "2024-06-27T09:23:23.228Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Energieversorgung (Strom, Gas etc.)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-erschliessungsanlage-strasse-bruecke",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.240Z",
+      "modified_at": "2024-06-27T09:23:23.240Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erschliessungsanlage (Strasse / Br\\u00fccke)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-gaertnereigebaeude",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.229Z",
+      "modified_at": "2024-06-27T09:23:23.229Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"G\\u00e4rtnereigeb\\u00e4ude\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-gastgewerbe",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.258Z",
+      "modified_at": "2024-06-27T09:23:23.258Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gastgewerbe\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-gewaechshaus",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.298Z",
+      "modified_at": "2024-06-27T09:23:23.298Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gew\\u00e4chshaus\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-gewerbebau",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.345Z",
+      "modified_at": "2024-06-27T09:23:23.345Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gewerbebau\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-heime",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.326Z",
+      "modified_at": "2024-06-27T09:23:23.326Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Heime\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-heizung",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.333Z",
+      "modified_at": "2024-06-27T09:23:23.333Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Heizung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-landw-kleinbaute-und-anlage",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.343Z",
+      "modified_at": "2024-06-27T09:23:23.343Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Landw. Kleinbaute und -anlage\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-landw-oekonomiegebaeude",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.399Z",
+      "modified_at": "2024-06-27T09:23:23.399Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Landw. \\u00d6konomiegeb\\u00e4ude\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-landw-wohngebaeude",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.402Z",
+      "modified_at": "2024-06-27T09:23:23.402Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Landw. Wohngeb\\u00e4ude\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-militaerische-bauten-und-anlagen",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.429Z",
+      "modified_at": "2024-06-27T09:23:23.429Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Milit\\u00e4rische Bauten und Anlagen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-nationalstrassenareal",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.417Z",
+      "modified_at": "2024-06-27T09:23:23.417Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nationalstrassenareal\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-recyclinganlagen",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.415Z",
+      "modified_at": "2024-06-27T09:23:23.416Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Recyclinganlagen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-reklamen",
+    "fields": {
+      "created_at": "2024-06-27T09:24:38.904Z",
+      "modified_at": "2024-06-27T09:24:38.904Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Reklamen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-schiessanlage",
+    "fields": {
+      "created_at": "2024-06-27T09:24:38.922Z",
+      "modified_at": "2024-06-27T09:24:38.922Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schiessanlage\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-seilbahn",
+    "fields": {
+      "created_at": "2024-06-27T09:24:38.906Z",
+      "modified_at": "2024-06-27T09:24:38.906Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Seilbahn\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-solaranlage-photovoltaikanlage",
+    "fields": {
+      "created_at": "2024-06-27T09:24:38.915Z",
+      "modified_at": "2024-06-27T09:24:38.915Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Solaranlage (Photovoltaikanlage)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-spital",
+    "fields": {
+      "created_at": "2024-06-27T09:24:38.905Z",
+      "modified_at": "2024-06-27T09:24:38.905Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Spital\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-sportanlage",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.008Z",
+      "modified_at": "2024-06-27T09:24:39.008Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sportanlage\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-tankanlage-inkl-loeschwassertank",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.007Z",
+      "modified_at": "2024-06-27T09:24:39.007Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Tankanlage (inkl. L\\u00f6schwassertank)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-telekommunikationsleitung-inkl-tv-glasfaser-etc",
+    "fields": {
+      "created_at": "2024-06-27T09:24:38.988Z",
+      "modified_at": "2024-06-27T09:24:38.988Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Telekommunikationsleitung (inkl. TV, Glasfaser etc.)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-terrainveraenderung",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.030Z",
+      "modified_at": "2024-06-27T09:24:39.030Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Terrainver\\u00e4nderung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-tierpark-tieranlagen",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.016Z",
+      "modified_at": "2024-06-27T09:24:39.016Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Tierpark / Tieranlagen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-umweltbildung",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.187Z",
+      "modified_at": "2024-06-27T09:24:39.187Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Umweltbildung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-wald-nachteilige-nutzung",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.097Z",
+      "modified_at": "2024-06-27T09:24:39.097Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wald, nachteilige Nutzung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-wald-rodungsbewilligung",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.125Z",
+      "modified_at": "2024-06-27T09:24:39.125Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wald, Rodungsbewilligung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-waldwege",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.022Z",
+      "modified_at": "2024-06-27T09:24:39.022Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Waldwege\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-wald-wege-alle-typen",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.102Z",
+      "modified_at": "2024-06-27T09:24:39.102Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wald, Wege (alle Typen)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-wald-zonenkonform",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.083Z",
+      "modified_at": "2024-06-27T09:24:39.083Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wald, zonenkonform\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-wanderwege",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.111Z",
+      "modified_at": "2024-06-27T09:24:39.111Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wanderwege\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-wasserversorgung",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.117Z",
+      "modified_at": "2024-06-27T09:24:39.117Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wasserversorgung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-weiher",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.153Z",
+      "modified_at": "2024-06-27T09:24:39.153Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Weiher\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-wochenendhaus-ferienhaus",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.163Z",
+      "modified_at": "2024-06-27T09:24:39.163Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wochenendhaus / Ferienhaus\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-wohngebaeude",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.184Z",
+      "modified_at": "2024-06-27T09:24:39.184Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wohngeb\\u00e4ude\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-zweck-des-bauvorhabens-wohngebaeude-kleinbauten-und-anlagen-dazu-wohngebaeude",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.332Z",
+      "modified_at": "2024-06-27T09:23:23.332Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wohngeb\\u00e4ude, Kleinbauten und -anlagen dazu Wohngeb\\u00e4ude\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-bab-entscheid",
+    "fields": {
+      "created_at": "2024-06-27T09:01:59.984Z",
+      "modified_at": "2024-06-27T09:02:03.624Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheid\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "materielle-pruefung-bab-entscheid",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-bab-interne-auftragserledigung",
+    "fields": {
+      "created_at": "2024-06-27T09:00:55.251Z",
+      "modified_at": "2024-06-27T09:00:59.938Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Interne Auftragserledigung\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "materielle-pruefung-bab-interne-auftragserledigung",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-bab-journal",
+    "fields": {
+      "created_at": "2024-06-27T09:01:18.811Z",
+      "modified_at": "2024-06-27T09:01:22.440Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Journal\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "materielle-pruefung-bab-journal",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-bab-lage-objekt",
+    "fields": {
+      "created_at": "2024-06-27T09:03:13.825Z",
+      "modified_at": "2024-06-27T09:24:54.958Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Lage / Objekt\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "materielle-pruefung-bab-lage-objekt",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-bab-verfahren-vorhaben",
+    "fields": {
+      "created_at": "2024-06-27T09:00:31.879Z",
+      "modified_at": "2024-06-27T09:00:35.628Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verfahren / Vorhaben\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "materielle-pruefung-bab-verfahren-vorhaben",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-bab-vollstreckungsverfahren",
+    "fields": {
+      "created_at": "2024-06-27T09:02:24.883Z",
+      "modified_at": "2024-06-27T09:02:28.509Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vollstreckungsverfahren\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "materielle-pruefung-bab-vollstreckungsverfahren",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-aktennummer-oberamt",
+    "fields": {
+      "created_at": "2024-06-27T09:33:02.612Z",
+      "modified_at": "2024-06-27T09:33:02.612Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Aktennummer Oberamt\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-art-des-eintrages",
+    "fields": {
+      "created_at": "2024-06-27T09:19:49.969Z",
+      "modified_at": "2024-06-27T09:19:49.969Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art des Eintrages\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-bearbeitungsstatus",
+    "fields": {
+      "created_at": "2024-06-27T09:07:58.838Z",
+      "modified_at": "2024-06-27T09:17:09.167Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bearbeitungsstatus\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-beteiligte-anwesende",
+    "fields": {
+      "created_at": "2024-06-27T09:20:09.613Z",
+      "modified_at": "2024-06-27T09:20:09.613Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beteiligte / Anwesende\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
       "is_hidden": "false",
@@ -83,23 +2657,56 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "materielle-pruefung-bab-platzhalter",
+    "pk": "mp-bab-bewilligungsbehoerde",
     "fields": {
-      "created_at": "2024-06-05T07:42:17.369Z",
-      "modified_at": "2024-06-05T08:09:12.848Z",
+      "created_at": "2024-06-27T09:12:52.827Z",
+      "modified_at": "2024-06-27T09:17:14.912Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Materielle Pr\\u00fcfung BaB Platzhalter\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
+      "label": "{\"de\": \"Bewilligungsbeh\\u00f6rde\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-datum-der-koordinierten-eroeffnung-bewilligungsbehoerde",
+    "fields": {
+      "created_at": "2024-06-27T09:30:00.012Z",
+      "modified_at": "2024-06-27T09:30:00.012Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Datum der koordinierten Er\\u00f6ffnung (Bewilligungsbeh\\u00f6rde)\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Nur bei Baugesuchen BaB auszuf\\u00fcllen.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"## Materielle Pr\\u00fcfung BaB\\n\\n*Das Formular f\\u00fcr die materielle Pr\\u00fcfung BaB wurde noch nicht endg\\u00fcltig spezifiziert. Dies wird in einem kommenden Release erg\\u00e4nzt. Dieses Formular dient nur als Beispiel und hat keinerlei fachliche Relevanz.*\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -110,6 +2717,2274 @@
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-datum-des-entscheides-bewilligungsbehoerde",
+    "fields": {
+      "created_at": "2024-06-27T09:29:33.657Z",
+      "modified_at": "2024-06-27T09:29:33.657Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Datum des Entscheides (Bewilligungsbeh\\u00f6rde)\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Nur bei Baugesuchen BaB auszuf\\u00fcllen.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-datum-des-entscheides-kanton",
+    "fields": {
+      "created_at": "2024-06-27T09:26:43.581Z",
+      "modified_at": "2024-06-27T09:26:43.581Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Datum des Entscheides (Kanton)\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-datum-eingang-arp",
+    "fields": {
+      "created_at": "2024-06-27T09:05:34.469Z",
+      "modified_at": "2024-06-27T09:05:34.469Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Datum Eingang ARP\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-datum-eintrag",
+    "fields": {
+      "created_at": "2024-06-27T09:19:12.581Z",
+      "modified_at": "2024-06-27T09:19:12.581Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Datum Eintrag\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-entscheid-bewilligungsbehoerde",
+    "fields": {
+      "created_at": "2024-06-27T09:28:44.454Z",
+      "modified_at": "2024-06-27T09:29:40.906Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheid Bewilligungsbeh\\u00f6rde\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Nur bei Baugesuchen BaB auszuf\\u00fcllen.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-entscheid-kanton",
+    "fields": {
+      "created_at": "2024-06-27T09:26:04.420Z",
+      "modified_at": "2024-06-27T09:26:22.563Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheid (Kanton)\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-eroeffnungsart-des-entscheides-kanton",
+    "fields": {
+      "created_at": "2024-06-27T09:27:28.686Z",
+      "modified_at": "2024-06-27T09:27:28.686Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Er\\u00f6ffnungsart des Entscheides (Kanton)\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-grund-der-sistierung",
+    "fields": {
+      "created_at": "2024-06-27T09:12:03.837Z",
+      "modified_at": "2024-06-27T09:12:13.662Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grund der Sistierung\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": "mp-bab-grund-der-sistierung-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-interesse-am-vorhaben",
+    "fields": {
+      "created_at": "2024-06-27T09:13:22.530Z",
+      "modified_at": "2024-06-27T09:17:27.055Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Interesse am Vorhaben\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-journal-tabelle",
+    "fields": {
+      "created_at": "2024-06-27T09:18:49.334Z",
+      "modified_at": "2024-06-27T09:18:49.334Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Journal\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": "materielle-pruefung-bab-journal-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-massgebliche-terminvorgabe",
+    "fields": {
+      "created_at": "2024-06-27T09:06:32.527Z",
+      "modified_at": "2024-06-27T09:06:32.527Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"massgebliche Terminvorgabe (z.B. nach Sistierungen oder bei verschiedenene Vorpr\\u00fcfungen)\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Die Terminvorgabe gilt f\\u00fcr das ganze Gesch\\u00e4ft / Dossier oder den massgeblichen Verfahrensschritt. Dies im Unterschied zur Aufgabenfrist, welche sich auf eine konkrete Aufgabe innerhalb eines Gesch\\u00e4ftes bezieht.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-rechtskraftbescheinigung-des-entscheids",
+    "fields": {
+      "created_at": "2024-06-27T09:31:41.856Z",
+      "modified_at": "2024-06-27T09:31:41.856Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Rechtskraftbescheinigung des Entscheids\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-referenz-vorakten",
+    "fields": {
+      "created_at": "2024-06-27T09:04:46.746Z",
+      "modified_at": "2024-06-27T09:04:46.746Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Referenz Vorakten (Voranfragen, Baugesuche, Projekt\\u00e4nderungen)\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Einen ersten Hinweis, ob Vorakten bestehen, gibt der WebGIS-Layer \\\"SOBAU\\\". Dieser geht aber nur bis ca. ins Jahr 2002 zur\\u00fcck, weshalb f\\u00fcr die MA der Abt. BG im Rahmen der Gesuchserfassung immer ein Gang ins ARP-Archiv notwendig ist.\\n\\nDie Vorakten m\\u00fcssen vollst\\u00e4ndig aufgef\\u00fchrt werden (Nummern absteigend). Falls gem\\u00e4ss WebGIS-Layer Vorakten vorhanden sind, jedoch keine Archivakten vorhanden sind resp. einzelne fehlen, ist dies entsprechend zu vermerken (z.B. 101'431, 38'248, 37'926 (nicht im ARP-Archiv vorhanden), 36'520). Ebenfalls ist zu vermerken, falls im ARP-Archiv keine Vorakten gefunden werden konnten.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-rueckmeldeformular",
+    "fields": {
+      "created_at": "2024-06-27T09:28:04.677Z",
+      "modified_at": "2024-06-27T09:29:44.467Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"R\\u00fcckmeldeformular\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Nur bei Baugesuchen BaB auszuf\\u00fcllen.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-sachverhalt",
+    "fields": {
+      "created_at": "2024-06-27T09:20:22.387Z",
+      "modified_at": "2024-06-27T09:20:22.387Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sachverhalt\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-sistiert-bis",
+    "fields": {
+      "created_at": "2024-06-27T09:11:39.236Z",
+      "modified_at": "2024-06-27T09:11:39.236Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"sistiert bis\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-sistiert-von",
+    "fields": {
+      "created_at": "2024-06-27T09:11:22.928Z",
+      "modified_at": "2024-06-27T09:11:22.928Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"sistiert von\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-sistierungsgrund",
+    "fields": {
+      "created_at": "2024-06-27T09:10:49.618Z",
+      "modified_at": "2024-06-27T09:21:08.773Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sistierungsgrund\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-terminvorgabe-bei-erfassung",
+    "fields": {
+      "created_at": "2024-06-27T09:05:59.002Z",
+      "modified_at": "2024-06-27T09:05:59.002Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Terminvorgabe bei Erfassung\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Hier wird die Terminvorgabe zum Erfassungszeitpunkt notiert. Das Feld darf anschliessend nicht mehr angepasst werden, z.B. aufgrund von Sistierungen. Daf\\u00fcr ist das Feld \\\"massgebliche Terminvorgabe\\\" zu verwenden. Bei Er\\u00f6ffnung des Gesch\\u00e4ftes ist der Erfassungstermin ebenfalls auch im Feld \\\"massgebliche Terminvorgabe\\\" zu erfassen.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-verfahrensstand",
+    "fields": {
+      "created_at": "2024-06-27T09:07:26.541Z",
+      "modified_at": "2024-06-27T09:17:03.644Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verfahrensstand\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-zustaendiges-oberamt",
+    "fields": {
+      "created_at": "2024-06-27T09:32:37.184Z",
+      "modified_at": "2024-06-27T09:32:37.184Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"zust\\u00e4ndiges Oberamt\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-zweck-des-bauvorhabens",
+    "fields": {
+      "created_at": "2024-06-27T09:23:23.492Z",
+      "modified_at": "2024-06-27T09:24:39.276Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zweck des Bauvorhabens\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-art-des-eintrages.mp-bab-art-des-eintrages-augenschein",
+    "fields": {
+      "created_at": "2024-06-27T09:19:49.979Z",
+      "modified_at": "2024-06-27T09:19:49.979Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-art-des-eintrages",
+      "option": "mp-bab-art-des-eintrages-augenschein",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-art-des-eintrages.mp-bab-art-des-eintrages-besprechung",
+    "fields": {
+      "created_at": "2024-06-27T09:19:49.981Z",
+      "modified_at": "2024-06-27T09:19:49.981Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-art-des-eintrages",
+      "option": "mp-bab-art-des-eintrages-besprechung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-art-des-eintrages.mp-bab-art-des-eintrages-info",
+    "fields": {
+      "created_at": "2024-06-27T09:19:49.976Z",
+      "modified_at": "2024-06-27T09:19:49.976Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-art-des-eintrages",
+      "option": "mp-bab-art-des-eintrages-info",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-art-des-eintrages.mp-bab-art-des-eintrages-telefongespraech",
+    "fields": {
+      "created_at": "2024-06-27T09:19:49.982Z",
+      "modified_at": "2024-06-27T09:19:49.982Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-art-des-eintrages",
+      "option": "mp-bab-art-des-eintrages-telefongespraech",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-art-des-eintrages.mp-bab-art-des-eintrages-versand",
+    "fields": {
+      "created_at": "2024-06-27T09:19:49.973Z",
+      "modified_at": "2024-06-27T09:19:49.973Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-art-des-eintrages",
+      "option": "mp-bab-art-des-eintrages-versand",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-bearbeitungsstatus.mp-bab-bearbeitungsstatus-abgeschlossen",
+    "fields": {
+      "created_at": "2024-06-27T09:17:09.171Z",
+      "modified_at": "2024-06-27T09:17:09.171Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-bearbeitungsstatus",
+      "option": "mp-bab-bearbeitungsstatus-abgeschlossen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-bearbeitungsstatus.mp-bab-bearbeitungsstatus-in-bearbeitung",
+    "fields": {
+      "created_at": "2024-06-27T09:17:09.174Z",
+      "modified_at": "2024-06-27T09:17:09.174Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-bearbeitungsstatus",
+      "option": "mp-bab-bearbeitungsstatus-in-bearbeitung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-bearbeitungsstatus.mp-bab-bearbeitungsstatus-sistiert",
+    "fields": {
+      "created_at": "2024-06-27T09:17:09.173Z",
+      "modified_at": "2024-06-27T09:17:09.173Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-bearbeitungsstatus",
+      "option": "mp-bab-bearbeitungsstatus-sistiert",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-bewilligungsbehoerde.mp-bab-bewilligungsbehoerde-bjd-leitbehoerde",
+    "fields": {
+      "created_at": "2024-06-27T09:17:14.918Z",
+      "modified_at": "2024-06-27T09:17:14.918Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-bewilligungsbehoerde",
+      "option": "mp-bab-bewilligungsbehoerde-bjd-leitbehoerde",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-bewilligungsbehoerde.mp-bab-bewilligungsbehoerde-fd-leitbehoerde",
+    "fields": {
+      "created_at": "2024-06-27T09:17:14.915Z",
+      "modified_at": "2024-06-27T09:17:14.915Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-bewilligungsbehoerde",
+      "option": "mp-bab-bewilligungsbehoerde-fd-leitbehoerde",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-bewilligungsbehoerde.mp-bab-bewilligungsbehoerde-oertliche-baubehoerde",
+    "fields": {
+      "created_at": "2024-06-27T09:17:14.919Z",
+      "modified_at": "2024-06-27T09:17:14.919Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-bewilligungsbehoerde",
+      "option": "mp-bab-bewilligungsbehoerde-oertliche-baubehoerde",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-entscheid-bewilligungsbehoerde.mp-bab-entscheid-bewilligungsbehoerde-ablehnung",
+    "fields": {
+      "created_at": "2024-06-27T09:29:40.915Z",
+      "modified_at": "2024-06-27T09:29:40.915Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-entscheid-bewilligungsbehoerde",
+      "option": "mp-bab-entscheid-bewilligungsbehoerde-ablehnung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-entscheid-bewilligungsbehoerde.mp-bab-entscheid-bewilligungsbehoerde-ausstehend",
+    "fields": {
+      "created_at": "2024-06-27T09:29:40.916Z",
+      "modified_at": "2024-06-27T09:29:40.916Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-entscheid-bewilligungsbehoerde",
+      "option": "mp-bab-entscheid-bewilligungsbehoerde-ausstehend",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-entscheid-bewilligungsbehoerde.mp-bab-entscheid-bewilligungsbehoerde-rueckweisung",
+    "fields": {
+      "created_at": "2024-06-27T09:29:40.913Z",
+      "modified_at": "2024-06-27T09:29:40.913Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-entscheid-bewilligungsbehoerde",
+      "option": "mp-bab-entscheid-bewilligungsbehoerde-rueckweisung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-entscheid-bewilligungsbehoerde.mp-bab-entscheid-bewilligungsbehoerde-rueckzug",
+    "fields": {
+      "created_at": "2024-06-27T09:29:40.911Z",
+      "modified_at": "2024-06-27T09:29:40.911Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-entscheid-bewilligungsbehoerde",
+      "option": "mp-bab-entscheid-bewilligungsbehoerde-rueckzug",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-entscheid-bewilligungsbehoerde.mp-bab-entscheid-bewilligungsbehoerde-teilzustimmung",
+    "fields": {
+      "created_at": "2024-06-27T09:29:40.910Z",
+      "modified_at": "2024-06-27T09:29:40.910Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-entscheid-bewilligungsbehoerde",
+      "option": "mp-bab-entscheid-bewilligungsbehoerde-teilzustimmung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-entscheid-bewilligungsbehoerde.mp-bab-entscheid-bewilligungsbehoerde-zustimmung",
+    "fields": {
+      "created_at": "2024-06-27T09:29:40.908Z",
+      "modified_at": "2024-06-27T09:29:40.908Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-entscheid-bewilligungsbehoerde",
+      "option": "mp-bab-entscheid-bewilligungsbehoerde-zustimmung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-entscheid-kanton.mp-bab-entscheid-kanton-ablehnung",
+    "fields": {
+      "created_at": "2024-06-27T09:26:22.575Z",
+      "modified_at": "2024-06-27T09:26:22.575Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-entscheid-kanton",
+      "option": "mp-bab-entscheid-kanton-ablehnung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-entscheid-kanton.mp-bab-entscheid-kanton-rueckweisung",
+    "fields": {
+      "created_at": "2024-06-27T09:26:22.573Z",
+      "modified_at": "2024-06-27T09:26:22.573Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-entscheid-kanton",
+      "option": "mp-bab-entscheid-kanton-rueckweisung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-entscheid-kanton.mp-bab-entscheid-kanton-rueckzug",
+    "fields": {
+      "created_at": "2024-06-27T09:26:22.571Z",
+      "modified_at": "2024-06-27T09:26:22.571Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-entscheid-kanton",
+      "option": "mp-bab-entscheid-kanton-rueckzug",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-entscheid-kanton.mp-bab-entscheid-kanton-teilzustimmung",
+    "fields": {
+      "created_at": "2024-06-27T09:26:22.570Z",
+      "modified_at": "2024-06-27T09:26:22.570Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-entscheid-kanton",
+      "option": "mp-bab-entscheid-kanton-teilzustimmung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-entscheid-kanton.mp-bab-entscheid-kanton-zustimmung",
+    "fields": {
+      "created_at": "2024-06-27T09:26:22.567Z",
+      "modified_at": "2024-06-27T09:26:22.567Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-entscheid-kanton",
+      "option": "mp-bab-entscheid-kanton-zustimmung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-eroeffnungsart-des-entscheides-kanton.mp-bab-eroeffnungsart-des-entscheides-kanton-augenschein-besprechung",
+    "fields": {
+      "created_at": "2024-06-27T09:27:28.694Z",
+      "modified_at": "2024-06-27T09:27:28.694Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-eroeffnungsart-des-entscheides-kanton",
+      "option": "mp-bab-eroeffnungsart-des-entscheides-kanton-augenschein-besprechung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-eroeffnungsart-des-entscheides-kanton.mp-bab-eroeffnungsart-des-entscheides-kanton-baubewilligung",
+    "fields": {
+      "created_at": "2024-06-27T09:27:28.691Z",
+      "modified_at": "2024-06-27T09:27:28.691Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-eroeffnungsart-des-entscheides-kanton",
+      "option": "mp-bab-eroeffnungsart-des-entscheides-kanton-baubewilligung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-eroeffnungsart-des-entscheides-kanton.mp-bab-eroeffnungsart-des-entscheides-kanton-e-mail",
+    "fields": {
+      "created_at": "2024-06-27T09:27:28.689Z",
+      "modified_at": "2024-06-27T09:27:28.689Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-eroeffnungsart-des-entscheides-kanton",
+      "option": "mp-bab-eroeffnungsart-des-entscheides-kanton-e-mail",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-eroeffnungsart-des-entscheides-kanton.mp-bab-eroeffnungsart-des-entscheides-kanton-stellungnahme",
+    "fields": {
+      "created_at": "2024-06-27T09:27:28.694Z",
+      "modified_at": "2024-06-27T09:27:28.694Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-eroeffnungsart-des-entscheides-kanton",
+      "option": "mp-bab-eroeffnungsart-des-entscheides-kanton-stellungnahme",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-eroeffnungsart-des-entscheides-kanton.mp-bab-eroeffnungsart-des-entscheides-kanton-verfuegung",
+    "fields": {
+      "created_at": "2024-06-27T09:27:28.692Z",
+      "modified_at": "2024-06-27T09:27:28.692Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-eroeffnungsart-des-entscheides-kanton",
+      "option": "mp-bab-eroeffnungsart-des-entscheides-kanton-verfuegung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-interesse-am-vorhaben.mp-bab-interesse-am-vorhaben-forstwirtschaftlich",
+    "fields": {
+      "created_at": "2024-06-27T09:17:27.059Z",
+      "modified_at": "2024-06-27T09:17:27.059Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-interesse-am-vorhaben",
+      "option": "mp-bab-interesse-am-vorhaben-forstwirtschaftlich",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-interesse-am-vorhaben.mp-bab-interesse-am-vorhaben-landwirtschaftlich",
+    "fields": {
+      "created_at": "2024-06-27T09:17:27.061Z",
+      "modified_at": "2024-06-27T09:17:27.061Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-interesse-am-vorhaben",
+      "option": "mp-bab-interesse-am-vorhaben-landwirtschaftlich",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-interesse-am-vorhaben.mp-bab-interesse-am-vorhaben-oeffentlich",
+    "fields": {
+      "created_at": "2024-06-27T09:17:27.060Z",
+      "modified_at": "2024-06-27T09:17:27.060Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-interesse-am-vorhaben",
+      "option": "mp-bab-interesse-am-vorhaben-oeffentlich",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-interesse-am-vorhaben.mp-bab-interesse-am-vorhaben-privat",
+    "fields": {
+      "created_at": "2024-06-27T09:17:27.058Z",
+      "modified_at": "2024-06-27T09:17:27.058Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-interesse-am-vorhaben",
+      "option": "mp-bab-interesse-am-vorhaben-privat",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-rechtskraftbescheinigung-des-entscheids.mp-bab-rechtskraftbescheinigung-des-entscheids-ausstehend",
+    "fields": {
+      "created_at": "2024-06-27T09:31:41.863Z",
+      "modified_at": "2024-06-27T09:31:41.863Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-rechtskraftbescheinigung-des-entscheids",
+      "option": "mp-bab-rechtskraftbescheinigung-des-entscheids-ausstehend",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-rechtskraftbescheinigung-des-entscheids.mp-bab-rechtskraftbescheinigung-des-entscheids-bestellt",
+    "fields": {
+      "created_at": "2024-06-27T09:31:41.862Z",
+      "modified_at": "2024-06-27T09:31:41.862Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-rechtskraftbescheinigung-des-entscheids",
+      "option": "mp-bab-rechtskraftbescheinigung-des-entscheids-bestellt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-rechtskraftbescheinigung-des-entscheids.mp-bab-rechtskraftbescheinigung-des-entscheids-eingetroffen",
+    "fields": {
+      "created_at": "2024-06-27T09:31:41.860Z",
+      "modified_at": "2024-06-27T09:31:41.860Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-rechtskraftbescheinigung-des-entscheids",
+      "option": "mp-bab-rechtskraftbescheinigung-des-entscheids-eingetroffen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-rueckmeldeformular.mp-bab-rueckmeldeformular-ausstehend",
+    "fields": {
+      "created_at": "2024-06-27T09:29:44.472Z",
+      "modified_at": "2024-06-27T09:29:44.472Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-rueckmeldeformular",
+      "option": "mp-bab-rueckmeldeformular-ausstehend",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-rueckmeldeformular.mp-bab-rueckmeldeformular-eingetroffen",
+    "fields": {
+      "created_at": "2024-06-27T09:29:44.470Z",
+      "modified_at": "2024-06-27T09:29:44.470Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-rueckmeldeformular",
+      "option": "mp-bab-rueckmeldeformular-eingetroffen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-sistierungsgrund.mp-bab-sistierungsgrund-andere-siehe-journal",
+    "fields": {
+      "created_at": "2024-06-27T09:21:08.777Z",
+      "modified_at": "2024-06-27T09:21:08.777Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-sistierungsgrund",
+      "option": "mp-bab-sistierungsgrund-andere-siehe-journal",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-sistierungsgrund.mp-bab-sistierungsgrund-archivakten-bei-oertlicher-baubehoerde-verlangt",
+    "fields": {
+      "created_at": "2024-06-27T09:21:08.776Z",
+      "modified_at": "2024-06-27T09:21:08.776Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-sistierungsgrund",
+      "option": "mp-bab-sistierungsgrund-archivakten-bei-oertlicher-baubehoerde-verlangt",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-sistierungsgrund.mp-bab-sistierungsgrund-augenschein-abwarten",
+    "fields": {
+      "created_at": "2024-06-27T09:21:08.791Z",
+      "modified_at": "2024-06-27T09:21:08.791Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-sistierungsgrund",
+      "option": "mp-bab-sistierungsgrund-augenschein-abwarten",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-sistierungsgrund.mp-bab-sistierungsgrund-einsprachen-mitteilung-gemeinde-ausstehend",
+    "fields": {
+      "created_at": "2024-06-27T09:21:08.790Z",
+      "modified_at": "2024-06-27T09:21:08.790Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-sistierungsgrund",
+      "option": "mp-bab-sistierungsgrund-einsprachen-mitteilung-gemeinde-ausstehend",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-sistierungsgrund.mp-bab-sistierungsgrund-entscheid-oertliche-baubehoerde-haengig",
+    "fields": {
+      "created_at": "2024-06-27T09:21:08.789Z",
+      "modified_at": "2024-06-27T09:21:08.789Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-sistierungsgrund",
+      "option": "mp-bab-sistierungsgrund-entscheid-oertliche-baubehoerde-haengig",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-sistierungsgrund.mp-bab-sistierungsgrund-oeffentliche-auflage-nicht-beendet",
+    "fields": {
+      "created_at": "2024-06-27T09:21:08.788Z",
+      "modified_at": "2024-06-27T09:21:08.788Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-sistierungsgrund",
+      "option": "mp-bab-sistierungsgrund-oeffentliche-auflage-nicht-beendet",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-sistierungsgrund.mp-bab-sistierungsgrund-rechtliches-gehoer",
+    "fields": {
+      "created_at": "2024-06-27T09:21:08.787Z",
+      "modified_at": "2024-06-27T09:21:08.787Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-sistierungsgrund",
+      "option": "mp-bab-sistierungsgrund-rechtliches-gehoer",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-sistierungsgrund.mp-bab-sistierungsgrund-stellungnahme-bund-ausstehend",
+    "fields": {
+      "created_at": "2024-06-27T09:21:08.786Z",
+      "modified_at": "2024-06-27T09:21:08.786Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-sistierungsgrund",
+      "option": "mp-bab-sistierungsgrund-stellungnahme-bund-ausstehend",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-sistierungsgrund.mp-bab-sistierungsgrund-stellungnahme-procap-ausstehend",
+    "fields": {
+      "created_at": "2024-06-27T09:21:08.784Z",
+      "modified_at": "2024-06-27T09:21:08.784Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-sistierungsgrund",
+      "option": "mp-bab-sistierungsgrund-stellungnahme-procap-ausstehend",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-sistierungsgrund.mp-bab-sistierungsgrund-unterlagen-abklaerungen-durch-bauherrschaft",
+    "fields": {
+      "created_at": "2024-06-27T09:21:08.782Z",
+      "modified_at": "2024-06-27T09:21:08.782Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-sistierungsgrund",
+      "option": "mp-bab-sistierungsgrund-unterlagen-abklaerungen-durch-bauherrschaft",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-sistierungsgrund.mp-bab-sistierungsgrund-unterlagen-ergaenzung-durch-bauherrschaft",
+    "fields": {
+      "created_at": "2024-06-27T09:21:08.781Z",
+      "modified_at": "2024-06-27T09:21:08.781Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-sistierungsgrund",
+      "option": "mp-bab-sistierungsgrund-unterlagen-ergaenzung-durch-bauherrschaft",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-sistierungsgrund.mp-bab-sistierungsgrund-unterlagen-ueberarbeitung-durch-bauherrschaft",
+    "fields": {
+      "created_at": "2024-06-27T09:21:08.779Z",
+      "modified_at": "2024-06-27T09:21:08.779Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-sistierungsgrund",
+      "option": "mp-bab-sistierungsgrund-unterlagen-ueberarbeitung-durch-bauherrschaft",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-sistierungsgrund.mp-bab-sistierungsgrund-verhandlung-durch-fachstelle-mit-bauherrschaft",
+    "fields": {
+      "created_at": "2024-06-27T09:21:08.778Z",
+      "modified_at": "2024-06-27T09:21:08.778Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-sistierungsgrund",
+      "option": "mp-bab-sistierungsgrund-verhandlung-durch-fachstelle-mit-bauherrschaft",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-verfahrensstand.mp-bab-verfahrensstand-baukontrolle",
+    "fields": {
+      "created_at": "2024-06-27T09:17:03.652Z",
+      "modified_at": "2024-06-27T09:17:03.652Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-verfahrensstand",
+      "option": "mp-bab-verfahrensstand-baukontrolle",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-verfahrensstand.mp-bab-verfahrensstand-beschwerdeverfahren",
+    "fields": {
+      "created_at": "2024-06-27T09:17:03.654Z",
+      "modified_at": "2024-06-27T09:17:03.654Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-verfahrensstand",
+      "option": "mp-bab-verfahrensstand-beschwerdeverfahren",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-verfahrensstand.mp-bab-verfahrensstand-entscheid",
+    "fields": {
+      "created_at": "2024-06-27T09:17:03.655Z",
+      "modified_at": "2024-06-27T09:17:03.655Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-verfahrensstand",
+      "option": "mp-bab-verfahrensstand-entscheid",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-verfahrensstand.mp-bab-verfahrensstand-ordentliche-pruefung",
+    "fields": {
+      "created_at": "2024-06-27T09:17:03.657Z",
+      "modified_at": "2024-06-27T09:17:03.657Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-verfahrensstand",
+      "option": "mp-bab-verfahrensstand-ordentliche-pruefung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-verfahrensstand.mp-bab-verfahrensstand-vollstreckungsverfahren",
+    "fields": {
+      "created_at": "2024-06-27T09:17:03.649Z",
+      "modified_at": "2024-06-27T09:17:03.649Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-verfahrensstand",
+      "option": "mp-bab-verfahrensstand-vollstreckungsverfahren",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zustaendiges-oberamt.mp-bab-zustaendiges-oberamt-oberamt-dorneck-thierstein",
+    "fields": {
+      "created_at": "2024-06-27T09:32:37.189Z",
+      "modified_at": "2024-06-27T09:32:37.189Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zustaendiges-oberamt",
+      "option": "mp-bab-zustaendiges-oberamt-oberamt-dorneck-thierstein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zustaendiges-oberamt.mp-bab-zustaendiges-oberamt-oberamt-olten-goesgen",
+    "fields": {
+      "created_at": "2024-06-27T09:32:37.193Z",
+      "modified_at": "2024-06-27T09:32:37.193Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zustaendiges-oberamt",
+      "option": "mp-bab-zustaendiges-oberamt-oberamt-olten-goesgen",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zustaendiges-oberamt.mp-bab-zustaendiges-oberamt-oberamt-region-solothurn",
+    "fields": {
+      "created_at": "2024-06-27T09:32:37.194Z",
+      "modified_at": "2024-06-27T09:32:37.194Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zustaendiges-oberamt",
+      "option": "mp-bab-zustaendiges-oberamt-oberamt-region-solothurn",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zustaendiges-oberamt.mp-bab-zustaendiges-oberamt-oberamt-thal-gaeu",
+    "fields": {
+      "created_at": "2024-06-27T09:32:37.191Z",
+      "modified_at": "2024-06-27T09:32:37.191Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zustaendiges-oberamt",
+      "option": "mp-bab-zustaendiges-oberamt-oberamt-thal-gaeu",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-abbaugebiete",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.329Z",
+      "modified_at": "2024-06-27T09:24:39.329Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-abbaugebiete",
+      "sort": 46
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-abwasserentsorgung",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.328Z",
+      "modified_at": "2024-06-27T09:24:39.328Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-abwasserentsorgung",
+      "sort": 45
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-agrotourismus",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.281Z",
+      "modified_at": "2024-06-27T09:24:39.281Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-agrotourismus",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-antenne",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.327Z",
+      "modified_at": "2024-06-27T09:24:39.327Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-antenne",
+      "sort": 44
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-bauten-und-anlagen-zur-erholung-themenwege",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.325Z",
+      "modified_at": "2024-06-27T09:24:39.326Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-bauten-und-anlagen-zur-erholung-themenwege",
+      "sort": 43
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-bootsanlegestelle",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.325Z",
+      "modified_at": "2024-06-27T09:24:39.325Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-bootsanlegestelle",
+      "sort": 42
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-clubhaus",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.324Z",
+      "modified_at": "2024-06-27T09:24:39.324Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-clubhaus",
+      "sort": 41
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-deponien",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.322Z",
+      "modified_at": "2024-06-27T09:24:39.322Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-deponien",
+      "sort": 40
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-einfriedungen",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.322Z",
+      "modified_at": "2024-06-27T09:24:39.322Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-einfriedungen",
+      "sort": 39
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-eisenbahnrechtliche-bauten-und-anlagen",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.303Z",
+      "modified_at": "2024-06-27T09:24:39.303Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-eisenbahnrechtliche-bauten-und-anlagen",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-energieversorgung-strom-gas-etc",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.321Z",
+      "modified_at": "2024-06-27T09:24:39.321Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-energieversorgung-strom-gas-etc",
+      "sort": 38
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-erschliessungsanlage-strasse-bruecke",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.320Z",
+      "modified_at": "2024-06-27T09:24:39.320Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-erschliessungsanlage-strasse-bruecke",
+      "sort": 37
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-gaertnereigebaeude",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.319Z",
+      "modified_at": "2024-06-27T09:24:39.319Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-gaertnereigebaeude",
+      "sort": 36
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-gastgewerbe",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.318Z",
+      "modified_at": "2024-06-27T09:24:39.318Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-gastgewerbe",
+      "sort": 35
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-gewaechshaus",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.317Z",
+      "modified_at": "2024-06-27T09:24:39.317Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-gewaechshaus",
+      "sort": 34
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-gewerbebau",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.316Z",
+      "modified_at": "2024-06-27T09:24:39.316Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-gewerbebau",
+      "sort": 33
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-heime",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.314Z",
+      "modified_at": "2024-06-27T09:24:39.314Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-heime",
+      "sort": 32
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-heizung",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.313Z",
+      "modified_at": "2024-06-27T09:24:39.313Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-heizung",
+      "sort": 31
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-landw-kleinbaute-und-anlage",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.311Z",
+      "modified_at": "2024-06-27T09:24:39.311Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-landw-kleinbaute-und-anlage",
+      "sort": 29
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-landw-oekonomiegebaeude",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.310Z",
+      "modified_at": "2024-06-27T09:24:39.310Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-landw-oekonomiegebaeude",
+      "sort": 28
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-landw-wohngebaeude",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.309Z",
+      "modified_at": "2024-06-27T09:24:39.309Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-landw-wohngebaeude",
+      "sort": 27
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-militaerische-bauten-und-anlagen",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.308Z",
+      "modified_at": "2024-06-27T09:24:39.308Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-militaerische-bauten-und-anlagen",
+      "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-nationalstrassenareal",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.307Z",
+      "modified_at": "2024-06-27T09:24:39.307Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-nationalstrassenareal",
+      "sort": 25
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-recyclinganlagen",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.305Z",
+      "modified_at": "2024-06-27T09:24:39.305Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-recyclinganlagen",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-reklamen",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.304Z",
+      "modified_at": "2024-06-27T09:24:39.304Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-reklamen",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-schiessanlage",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.302Z",
+      "modified_at": "2024-06-27T09:24:39.302Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-schiessanlage",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-seilbahn",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.301Z",
+      "modified_at": "2024-06-27T09:24:39.301Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-seilbahn",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-solaranlage-photovoltaikanlage",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.300Z",
+      "modified_at": "2024-06-27T09:24:39.300Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-solaranlage-photovoltaikanlage",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-spital",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.298Z",
+      "modified_at": "2024-06-27T09:24:39.298Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-spital",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-sportanlage",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.297Z",
+      "modified_at": "2024-06-27T09:24:39.297Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-sportanlage",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-tankanlage-inkl-loeschwassertank",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.296Z",
+      "modified_at": "2024-06-27T09:24:39.296Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-tankanlage-inkl-loeschwassertank",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-telekommunikationsleitung-inkl-tv-glasfaser-etc",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.294Z",
+      "modified_at": "2024-06-27T09:24:39.294Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-telekommunikationsleitung-inkl-tv-glasfaser-etc",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-terrainveraenderung",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.293Z",
+      "modified_at": "2024-06-27T09:24:39.293Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-terrainveraenderung",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-tierpark-tieranlagen",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.291Z",
+      "modified_at": "2024-06-27T09:24:39.291Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-tierpark-tieranlagen",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-umweltbildung",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.279Z",
+      "modified_at": "2024-06-27T09:24:39.279Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-umweltbildung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-wald-nachteilige-nutzung",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.287Z",
+      "modified_at": "2024-06-27T09:24:39.287Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-wald-nachteilige-nutzung",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-wald-rodungsbewilligung",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.286Z",
+      "modified_at": "2024-06-27T09:24:39.286Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-wald-rodungsbewilligung",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-waldwege",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.290Z",
+      "modified_at": "2024-06-27T09:24:39.290Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-waldwege",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-wald-wege-alle-typen",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.288Z",
+      "modified_at": "2024-06-27T09:24:39.288Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-wald-wege-alle-typen",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-wald-zonenkonform",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.289Z",
+      "modified_at": "2024-06-27T09:24:39.289Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-wald-zonenkonform",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-wanderwege",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.285Z",
+      "modified_at": "2024-06-27T09:24:39.285Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-wanderwege",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-wasserversorgung",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.285Z",
+      "modified_at": "2024-06-27T09:24:39.285Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-wasserversorgung",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-weiher",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.284Z",
+      "modified_at": "2024-06-27T09:24:39.284Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-weiher",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-wochenendhaus-ferienhaus",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.283Z",
+      "modified_at": "2024-06-27T09:24:39.283Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-wochenendhaus-ferienhaus",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-wohngebaeude",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.282Z",
+      "modified_at": "2024-06-27T09:24:39.282Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-wohngebaeude",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-zweck-des-bauvorhabens.mp-bab-zweck-des-bauvorhabens-wohngebaeude-kleinbauten-und-anlagen-dazu-wohngebaeude",
+    "fields": {
+      "created_at": "2024-06-27T09:24:39.312Z",
+      "modified_at": "2024-06-27T09:24:39.312Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-zweck-des-bauvorhabens",
+      "option": "mp-bab-zweck-des-bauvorhabens-wohngebaeude-kleinbauten-und-anlagen-dazu-wohngebaeude",
+      "sort": 30
     }
   }
 ]
