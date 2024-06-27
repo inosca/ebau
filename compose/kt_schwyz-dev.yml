@@ -7,7 +7,7 @@ services:
 
   proxy:
     depends_on:
-      - mailhog
+      - mailpit
     volumes:
       - ../proxy/kt_schwyz.conf:/etc/nginx/conf.d/default.conf:ro
     ports:
@@ -63,7 +63,7 @@ services:
       - /app/staticfiles # prevent staticfiles from leaking to the host system
     depends_on:
       - db
-      - mailhog
+      - mailpit
     environment:
       - ENV=development
       - APPLICATION_ENV=development
@@ -73,7 +73,7 @@ services:
       - DATABASE_NAME=${APPLICATION}
       - DATABASE_PASSWORD=camac
       - DATABASE_USER=camac
-      - DJANGO_EMAIL_HOST=mailhog
+      - DJANGO_EMAIL_HOST=mailpit
       - DJANGO_EMAIL_PORT=1025
       - OAUTHLIB_INSECURE_TRANSPORT=1
       - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
@@ -142,12 +142,12 @@ services:
         "--spi-theme-cache-templates=false",
       ]
 
-  mailhog:
-    image: mailhog/mailhog
+  mailpit:
+    image: axllent/mailpit
     networks:
       - ebau.local
     environment:
-      - MH_UI_WEB_PATH=mailhog
+      - MP_WEBROOT=mailpit
 
   metabase:
     depends_on:

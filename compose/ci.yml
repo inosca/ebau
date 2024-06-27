@@ -11,7 +11,7 @@ services:
       - ember
       - django
       - keycloak
-      - mailhog
+      - mailpit
       - document-merge-service
     volumes:
       - djangomedia:/var/lib/camac/media:ro
@@ -45,7 +45,7 @@ services:
       - db
       - cache
       - keycloak
-      - mailhog
+      - mailpit
       - unoconv
     environment:
       - KEYCLOAK_URL=http://keycloak:8080/auth/
@@ -152,8 +152,8 @@ services:
       - ENV=docker
 
 
-  mailhog:
-    image: mailhog/mailhog
+  mailpit:
+    image: axllent/mailpit
     networks:
       - ebau.local
 
