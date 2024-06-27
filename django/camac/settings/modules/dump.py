@@ -569,7 +569,7 @@ DUMP = {
                     ),
                 },
                 "caluma_bab_exam_form": generate_form_dump_config(
-                    regex=r"^materielle-pruefung-bab"
+                    regex=r"^(materielle-pruefung-bab|mp-bab)"
                 ),
                 "caluma_formal_exam_form": generate_form_dump_config(
                     regex=r"^formelle-pruefung"
