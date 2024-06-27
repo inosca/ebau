@@ -95,7 +95,7 @@ def pre_write_callback(token):
     attachment = Attachment.objects.get(attachment_id=attachment)
     version_filter = AttachmentVersion.objects.filter(attachment=attachment)
     version_obj = version_filter.order_by("-version").first()
-    threshold = timedelta(minutes=settings.MANABI_VERSION_CREATION_THRESHOLD)
+    threshold = timedelta(seconds=settings.MANABI_VERSION_CREATION_THRESHOLD_SECONDS)
     delta = threshold * 2
     if version_obj:
         delta = timezone.now() - version_obj.created_at
