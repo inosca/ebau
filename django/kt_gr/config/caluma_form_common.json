@@ -570,6 +570,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.profil-uebernehmen",
+    "fields": {
+      "created_at": "2024-07-02T12:57:49.981Z",
+      "modified_at": "2024-07-02T12:57:49.981Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "profil-uebernehmen",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "personalien-tabelle.strasse-gesuchstellerin",
     "fields": {
       "created_at": "2019-09-25T10:19:37.120Z",
@@ -1771,6 +1786,39 @@
         "min_value": null
       },
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "profil-uebernehmen",
+    "fields": {
+      "created_at": "2024-07-02T12:57:49.934Z",
+      "modified_at": "2024-07-02T12:57:49.934Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Profil \\u00fcbernehmen\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Sie haben die M\\u00f6glichkeit, automatisch die Informationen aus ihrem [Benutzerprofil](/auth/realms/ebau/account?referrer=portal#/personal-info) ins Formular zu \\u00fcbernehmen.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"-\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "keycloak-profile-apply-button"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,

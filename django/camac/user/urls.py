@@ -15,6 +15,11 @@ r.register(r"users", views.UserView)
 r.register(r"public-users", views.PublicUserView, basename="publicuser")
 r.register(r"user-groups", views.UserGroupView, basename="usergroup")
 
-urlpatterns = [re_path(r"^me", views.MeView.as_view({"get": "retrieve"}), name="me")]
+urlpatterns = [
+    re_path(r"^me", views.MeView.as_view({"get": "retrieve"}), name="me"),
+    re_path(
+        r"^keycloak-apply$", views.KeycloakApplyView.as_view(), name="keycloak-apply"
+    ),
+]
 
 urlpatterns.extend(r.urls)
