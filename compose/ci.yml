@@ -27,7 +27,6 @@ services:
       POSTGRES_DATABASE: ${APPLICATION}
     volumes:
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
-      - ../db/create-collation.sh:/docker-entrypoint-initdb.d/create-collation.sh:ro
       - pg15data:/var/lib/postgresql/data
     networks:
       - ebau.local
