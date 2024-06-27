@@ -123,42 +123,50 @@ class PublicServiceFilterSet(FilterSet):
         # distribution of the BaB service
         queryset = queryset.exclude(pk__in=settings.BAB["EXCLUDED_IN_DISTRIBUTION"])
 
-        has_completed_publication = (
-            WorkItem.objects.filter(
-                **{
-                    "case": case,
-                    "task_id__in": settings.PUBLICATION["FILL_TASKS"],
-                    "meta__is-published": True,
-                    "status": WorkItem.STATUS_COMPLETED,
-                }
-            )
-            .filter(
-                Q(
-                    Exists(
-                        Answer.objects.filter(
-                            document_id=OuterRef("document_id"),
-                            question_id="publikation-ende",
-                            date__lte=timezone.now(),
-                        )
-                    )
-                )
-                & Q(
-                    Exists(
-                        Answer.objects.filter(
-                            document_id=OuterRef("document_id"),
-                            question_id="publikation-organ",
-                            value__contains="publikation-organ-amtsblatt",
-                        )
-                    )
-                )
-            )
-            .exists()
+        publication_work_items = WorkItem.objects.filter(
+            **{
+                "case": case,
+                "task_id__in": settings.PUBLICATION["FILL_TASKS"],
+                "meta__is-published": True,
+                "status": WorkItem.STATUS_COMPLETED,
+            }
         )
 
+        has_completed_publication = publication_work_items.filter(
+            Exists(
+                Answer.objects.filter(
+                    document_id=OuterRef("document_id"),
+                    question_id="publikation-ende",
+                    date__lte=timezone.now(),
+                )
+            )
+        ).exists()
+
+        has_running_publication = publication_work_items.filter(
+            Q(
+                Exists(
+                    Answer.objects.filter(
+                        document_id=OuterRef("document_id"),
+                        question_id="publikation-ende",
+                        date__gte=timezone.now(),
+                    )
+                )
+            )
+            & Q(
+                Exists(
+                    Answer.objects.filter(
+                        document_id=OuterRef("document_id"),
+                        question_id="publikation-start",
+                        date__lte=timezone.now(),
+                    )
+                )
+            )
+        ).exists()
+
         # If the instance is BaB, the BaB service can only be included in the
-        # distribution as soon as a publication in the official gazette
-        # (Amtsblatt) is already done and finished.
-        if not has_completed_publication:
+        # distribution soon as a publication is already done and there is no
+        # other currently running publication.
+        if not has_completed_publication or has_running_publication:
             queryset = queryset.exclude(
                 service_group__name=settings.BAB["SERVICE_GROUP"]
             )
