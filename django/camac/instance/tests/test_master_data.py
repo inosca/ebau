@@ -553,7 +553,9 @@ def so_master_data_case(
     utils.add_table_answer(document, "bauherrin", [so_personal_row_factory(True, True)])
 
     # Landowner
-    utils.add_table_answer(document, "grundeigentuemer", [so_personal_row_factory()])
+    utils.add_table_answer(
+        document, "grundeigentuemerin", [so_personal_row_factory(False, True, True)]
+    )
 
     # Project author
     utils.add_table_answer(document, "projektverfasserin", [so_personal_row_factory()])
