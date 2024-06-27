@@ -4,6 +4,7 @@ from faker import Faker
 def so_personal_row_factory(
     is_juristic: bool = False,
     has_representation: bool = False,
+    is_juristic_representation: bool = False,
 ) -> dict:
     fake = Faker()
     is_male = fake.pybool()
@@ -43,6 +44,7 @@ def so_personal_row_factory(
         data.update(
             {
                 "vertretung": "vertretung-ja",
+                "vertretung-juristische-person": "vertretung-juristische-person-nein",
                 "vertretung-anrede": {
                     "value": "vertretung-anrede-herr"
                     if is_male
@@ -67,5 +69,13 @@ def so_personal_row_factory(
                 "vertretung-telefon": fake.phone_number(),
             }
         )
+
+        if is_juristic_representation:
+            data.update(
+                {
+                    "vertretung-juristische-person": "vertretung-juristische-person-ja",
+                    "vertretung-juristische-person-name": fake.company(),
+                }
+            )
 
     return data

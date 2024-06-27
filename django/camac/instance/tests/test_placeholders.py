@@ -355,7 +355,7 @@ def test_dms_placeholders_so(
         [
             so_personal_row_factory(False, True),
             so_personal_row_factory(True),
-            so_personal_row_factory(False, True),
+            so_personal_row_factory(False, True, True),
         ],
         row_form_id="personalien-tabelle",
     )
@@ -364,7 +364,7 @@ def test_dms_placeholders_so(
     utils.add_table_answer(
         so_instance.case.document,
         "rechnungsempfaengerin",
-        [so_personal_row_factory(False, True), so_personal_row_factory(True)],
+        [so_personal_row_factory(), so_personal_row_factory(True)],
         row_form_id="personalien-tabelle",
     )
 
@@ -500,18 +500,13 @@ def test_dms_placeholders_so(
     assert response.status_code == status.HTTP_200_OK
 
     checked_keys = [
-        "ALLE_BAUHERREN_VERTRETER_NAME_ADRESSE",
-        "ALLE_BAUHERREN_VERTRETER",
+        "ALLE_GESUCHSTELLER_VERTRETER_NAME_ADRESSE",
+        "ALLE_GESUCHSTELLER_VERTRETER",
         "ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE",
         "ALLE_RECHNUNGSEMPFAENGER",
         "ANGEMELDET_EMAIL",
         "ANGEMELDET_NAME",
         "BAUENTSCHEID_DATUM",
-        "BAUHERR_ANREDE",
-        "BAUHERR_VERTRETER_ADRESSE_1",
-        "BAUHERR_VERTRETER_ADRESSE_2",
-        "BAUHERR_VERTRETER_NAME_ADRESSE",
-        "BAUHERR_VERTRETER",
         "EIGENE_GEBUEHREN_TOTAL",
         "EIGENE_GEBUEHREN",
         "EINGEREICHTE_PLAENE",
@@ -521,6 +516,11 @@ def test_dms_placeholders_so(
         "GEBUEHREN_TOTAL",
         "GEBUEHREN",
         "GEMEINDE_WEBSEITE",
+        "GESUCHSTELLER_ANREDE",
+        "GESUCHSTELLER_VERTRETER_ADRESSE_1",
+        "GESUCHSTELLER_VERTRETER_ADRESSE_2",
+        "GESUCHSTELLER_VERTRETER_NAME_ADRESSE",
+        "GESUCHSTELLER_VERTRETER",
         "LEITBEHOERDE_NAME_ADRESSE",
         "LEITBEHOERDE_WEBSEITE",
         "MEINE_ORGANISATION_WEBSEITE",
