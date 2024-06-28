@@ -1244,6 +1244,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                     "metainfo": {
                         "camac-instance-id": str(instance.pk),
                         "system-generated": True,
+                        "is-sensitive": True,
                     },
                 },
             )

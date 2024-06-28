@@ -88,7 +88,7 @@ class CustomPermission:
 
         return used_permissions
 
-    def get_available_permissions(
+    def get_available_permissions(  # noqa: C901
         self,
         request,
         instance: Instance,
@@ -138,12 +138,16 @@ class CustomPermission:
                     available_permissions.add(f"{permission['permission']}-{field}")
 
                     if field == "marks":
+                        all_marks = Mark.objects.values_list("pk", flat=True)
+                        if document.metainfo.get("is-sensitive"):
+                            all_marks = set(all_marks) - set(
+                                settings.ALEXANDRIA["MARK_VISIBILITY"]["PUBLIC"]
+                            )
+
                         available_permissions.update(
                             {
                                 f"{permission['permission']}-{field}-{slug}"
-                                for slug in permission.get(
-                                    "marks", Mark.objects.values_list("pk", flat=True)
-                                )
+                                for slug in permission.get("marks", all_marks)
                             }
                         )
 

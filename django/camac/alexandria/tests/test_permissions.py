@@ -2115,3 +2115,67 @@ def test_specific_mark_permissions(
     )
 
     assert response.status_code == status_code
+
+
+@pytest.mark.parametrize("role__name", ["service"])
+@pytest.mark.parametrize(
+    "is_sensitive,expected_status", [(True, HTTP_403_FORBIDDEN), (False, HTTP_200_OK)]
+)
+def test_mark_sensitive(
+    db,
+    admin_client,
+    mocker,
+    gr_instance,
+    alexandria_settings,
+    is_sensitive,
+    expected_status,
+):
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
+        return_value=[gr_instance.pk],
+    )
+
+    document = DocumentFactory(
+        title="Foo",
+        metainfo={"camac-instance-id": gr_instance.pk, "is-sensitive": is_sensitive},
+        category__metainfo={
+            "access": {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "scope": "All",
+                        },
+                    ],
+                },
+            },
+        },
+    )
+
+    sensitive_mark = MarkFactory(
+        slug=alexandria_settings["MARK_VISIBILITY"]["PUBLIC"][0]
+    )
+    """
+    document.marks.add(sensitive_mark)
+    """
+
+    response = admin_client.patch(
+        reverse("document-detail", args=[document.pk]),
+        {
+            "data": {
+                "id": document.pk,
+                "type": "documents",
+                "attributes": {
+                    "title": {"de": "Important"},
+                },
+                "relationships": {
+                    "marks": {
+                        "data": [{"id": sensitive_mark.pk, "type": "marks"}],
+                    }
+                },
+            },
+        },
+    )
+
+    assert response.status_code == expected_status
