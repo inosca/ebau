@@ -1,5 +1,8 @@
 from django.contrib.admin import ModelAdmin, action, display, register
 from django.db import transaction
+from django.db.models import QuerySet
+from django.db.models.functions import Collate
+from django.http import HttpRequest
 from django.utils.translation import gettext_lazy as _
 
 from camac.admin import EbauAdminMixin, MultilingualAdminMixin
@@ -43,7 +46,19 @@ class UserAdmin(EbauAdminMixin, MultilingualAdminMixin, ModelAdmin):
     list_per_page = 20
     ordering = ["pk"]
     readonly_fields = ["last_login"]
-    search_fields = ["username", "name", "surname", "email"]
+    search_fields = ["username", "name", "surname", "email_deterministic"]
+
+    def get_queryset(self, request: HttpRequest) -> QuerySet[User]:
+        # PostgreSQL does not allow LIKE queries with nondeterministic collations
+        # therefore annotate a deterministic collation for this query
+        # und-x-icu: general purpose, language-agnostic Unicode collation
+        return (
+            super()
+            .get_queryset(request)
+            .annotate(
+                email_deterministic=Collate("email", "und-x-icu"),
+            )
+        )
 
     @transaction.atomic
     def save_formset(self, request, form, formset, change):
