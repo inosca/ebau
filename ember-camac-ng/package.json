@@ -25,7 +25,7 @@
   "devDependencies": {
     "@adfinis/eslint-config": "2.1.1",
     "@babel/core": "7.24.7",
-    "@babel/eslint-parser": "7.24.6",
+    "@babel/eslint-parser": "7.24.7",
     "@ember-data/store": "4.12.8",
     "@ember/optional-features": "2.1.0",
     "@ember/render-modifiers": "2.1.0",
@@ -108,7 +108,7 @@
     "loader.js": "4.7.0",
     "miragejs": "0.1.48",
     "npm-run-all": "4.1.5",
-    "prettier": "3.2.5",
+    "prettier": "3.3.2",
     "proj4": "2.10.0",
     "proj4leaflet": "1.0.2",
     "qrcode": "1.5.3",
