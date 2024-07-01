@@ -9,6 +9,7 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
     publication: "bullhorn",
     void: "ban",
     objection: "hand-point-up",
+    sensitive: "triangle-exclamation",
   };
 
   @service store;

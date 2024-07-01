@@ -3,7 +3,7 @@ from datetime import date, datetime
 from pathlib import Path
 
 import pytest
-from alexandria.core.factories import CategoryFactory
+from alexandria.core.factories import CategoryFactory, MarkFactory
 from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
@@ -1769,6 +1769,7 @@ def test_generate_and_store_pdf_in_alexandria(
     group,
     mocker,
 ):
+    MarkFactory(pk="sensitive")
     alexandria_category = CategoryFactory()
     application_settings["STORE_PDF"] = {
         "SECTION": {
