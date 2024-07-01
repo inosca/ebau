@@ -5,7 +5,7 @@
 Command to distribute RSTA template files
 
 ```bash
-TOKEN="Bearer xy" yarn upload-rsta-templates
+TOKEN="Bearer xy" pnpm upload-rsta-templates
 ```
 
 | Argument      | Description                                                                                    | Default                                                        |
