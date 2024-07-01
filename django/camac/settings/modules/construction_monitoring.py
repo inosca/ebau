@@ -81,6 +81,7 @@ CONSTRUCTION_MONITORING = {
         "CONSTRUCTION_MONITORING_INSTANCE_STATE": "control",
         "NOTIFICATIONS": {},
         "NOTIFICATION_RECIPIENTS": {},
+        "CONSTRUCTION_MONITORING_GWR_TASK": "construction-monitoring-update-gwr-state",
     },
     "kt_so": {
         "ENABLED": True,

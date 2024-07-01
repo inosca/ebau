@@ -14681,6 +14681,22 @@
   },
   {
     "model": "core.instanceresource",
+    "pk": 12000002,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 12000003,
+      "name": "GWR Status nachführen",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 24,
+      "form_group": 161,
+      "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
     "pk": 14000009,
     "fields": {
       "available_instance_resource": "dashboard",
@@ -15042,7 +15058,7 @@
       "template": "/ember-camac-ng/construction-monitoring.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 24,
+      "sort": 23,
       "form_group": 161,
       "require_permission": null
     }
@@ -31494,9 +31510,9 @@
     "model": "core.irroleacl",
     "pk": 12001868,
     "fields": {
-      "instance_resource": 14000025,
-      "role": 4,
-      "instance_state": 21
+      "instance_resource": 12000002,
+      "role": 6,
+      "instance_state": 34
     }
   },
   {
@@ -31585,6 +31601,13 @@
     "pk": 12000001,
     "fields": {
       "task": "bab"
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 12000002,
+    "fields": {
+      "task": "construction-monitoring-update-gwr-state"
     }
   },
   {

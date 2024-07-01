@@ -19,6 +19,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "construction-monitoring-update-gwr-state",
+    "fields": {
+      "created_at": "2024-06-13T13:02:17.311Z",
+      "modified_at": "2024-06-13T13:02:17.311Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"GWR Status nachtragen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "construction-step-baubeginn-melden",
     "fields": {
       "created_at": "2023-10-27T12:54:22.468Z",
@@ -399,6 +417,21 @@
       "form": "complete-instance",
       "question": "verfahren-abschliessen",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-monitoring-update-gwr-state.construction-monitoring-update-gwr-state-complete",
+    "fields": {
+      "created_at": "2024-06-13T13:10:17.203Z",
+      "modified_at": "2024-06-13T13:10:17.203Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-monitoring-update-gwr-state",
+      "question": "construction-monitoring-update-gwr-state-complete",
+      "sort": 1
     }
   },
   {
@@ -1099,6 +1132,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "construction-step-gwr-status-nachfuehren",
+    "fields": {
+      "created_at": "2024-06-17T07:18:18.875Z",
+      "modified_at": "2024-06-17T07:18:18.875Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"GWR Status nachf\\u00fchren\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "construction-step-kanalisationsabnahme",
     "fields": {
       "created_at": "2023-10-27T12:43:46.684Z",
@@ -1597,6 +1646,42 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"<div class=\\\"uk-text-lead uk-text-bold\\\">Verfahren abschliessen</div>\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-monitoring-update-gwr-state-complete",
+    "fields": {
+      "created_at": "2024-06-13T13:03:17.522Z",
+      "modified_at": "2024-06-13T13:03:17.522Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -2141,10 +2226,10 @@
     "pk": "construction-steps",
     "fields": {
       "created_at": "2023-10-27T12:43:46.762Z",
-      "modified_at": "2024-01-29T16:59:49.215Z",
+      "modified_at": "2024-06-17T07:18:36.823Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Folgende Prozessschritte sind im Baubegleitungsprozess n\\u00f6tig:\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
@@ -3323,41 +3408,56 @@
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-baubeginn",
     "fields": {
-      "created_at": "2024-01-29T16:59:49.223Z",
-      "modified_at": "2024-01-29T16:59:49.223Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2024-06-17T07:18:36.863Z",
+      "modified_at": "2024-06-17T07:18:36.863Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-baubeginn",
-      "sort": 7
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-baufreigabe",
     "fields": {
-      "created_at": "2024-01-29T16:59:49.224Z",
-      "modified_at": "2024-01-29T16:59:49.224Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2024-06-17T07:18:36.868Z",
+      "modified_at": "2024-06-17T07:18:36.868Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-baufreigabe",
-      "sort": 8
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-steps.construction-step-gwr-status-nachfuehren",
+    "fields": {
+      "created_at": "2024-06-17T07:18:36.859Z",
+      "modified_at": "2024-06-17T07:18:36.859Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "construction-steps",
+      "option": "construction-step-gwr-status-nachfuehren",
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-kanalisationsabnahme",
     "fields": {
-      "created_at": "2024-01-29T16:59:49.221Z",
-      "modified_at": "2024-01-29T16:59:49.221Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2024-06-17T07:18:36.850Z",
+      "modified_at": "2024-06-17T07:18:36.850Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-kanalisationsabnahme",
@@ -3368,11 +3468,11 @@
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-rohbauabnahme",
     "fields": {
-      "created_at": "2024-01-29T16:59:49.220Z",
-      "modified_at": "2024-01-29T16:59:49.220Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2024-06-17T07:18:36.846Z",
+      "modified_at": "2024-06-17T07:18:36.846Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-rohbauabnahme",
@@ -3383,11 +3483,11 @@
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-schlussabnahme-gebaeude",
     "fields": {
-      "created_at": "2024-01-29T16:59:49.218Z",
-      "modified_at": "2024-01-29T16:59:49.218Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2024-06-17T07:18:36.836Z",
+      "modified_at": "2024-06-17T07:18:36.836Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-schlussabnahme-gebaeude",
@@ -3398,11 +3498,11 @@
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-schlussabnahme-projekt",
     "fields": {
-      "created_at": "2024-01-29T16:59:49.217Z",
-      "modified_at": "2024-01-29T16:59:49.217Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2024-06-17T07:18:36.832Z",
+      "modified_at": "2024-06-17T07:18:36.832Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-schlussabnahme-projekt",
@@ -3413,11 +3513,11 @@
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-schnurgeruestabnahme",
     "fields": {
-      "created_at": "2024-01-29T16:59:49.222Z",
-      "modified_at": "2024-01-29T16:59:49.222Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2024-06-17T07:18:36.854Z",
+      "modified_at": "2024-06-17T07:18:36.854Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-schnurgeruestabnahme",
@@ -3428,11 +3528,11 @@
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-zwischenkontrolle",
     "fields": {
-      "created_at": "2024-01-29T16:59:49.220Z",
-      "modified_at": "2024-01-29T16:59:49.220Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2024-06-17T07:18:36.841Z",
+      "modified_at": "2024-06-17T07:18:36.841Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-zwischenkontrolle",
