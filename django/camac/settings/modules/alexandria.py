@@ -5,6 +5,7 @@ ALEXANDRIA = {
         "MARK_VISIBILITY": {
             "APPLICANT": ["decision"],
             "PUBLIC": ["publication"],
+            "SENSITIVE": ["sensitive"],
         },
         "PUBLIC_MARKS": ["publication", "void"],
         "RESTRICTED_FIELDS": {

@@ -14,7 +14,7 @@ from rest_framework import status
         (["exclusive", "mark-1"], status.HTTP_400_BAD_REQUEST),
     ],
 )
-def test_mark_validation(
+def test_mark_exclusive_validation(
     admin_client,
     marks,
     expected_status,
@@ -62,6 +62,82 @@ def test_mark_validation(
                     },
                 },
             }
+        },
+    )
+
+    assert response.status_code == expected_status
+
+
+@pytest.mark.parametrize("role__name", ["service"])
+@pytest.mark.parametrize(
+    "existing_marks,new_marks,expected_status",
+    [
+        ([], ["publication"], status.HTTP_200_OK),
+        ([], ["sensitive"], status.HTTP_200_OK),
+        (["sensitive"], ["publication"], status.HTTP_400_BAD_REQUEST),
+        (["publication"], ["sensitive"], status.HTTP_400_BAD_REQUEST),
+    ],
+)
+def test_mark_sensitive_validation(
+    db,
+    admin_client,
+    mocker,
+    gr_instance,
+    alexandria_settings,
+    existing_marks,
+    new_marks,
+    expected_status,
+):
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
+        return_value=[gr_instance.pk],
+    )
+    alexandria_settings["MARK_VISIBILITY"] = {
+        "PUBLIC": ["publication"],
+        "SENSITIVE": ["sensitive"],
+    }
+
+    document = DocumentFactory(
+        title="Foo",
+        metainfo={"camac-instance-id": gr_instance.pk},
+        category__metainfo={
+            "access": {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "scope": "All",
+                        },
+                    ],
+                },
+            },
+        },
+    )
+
+    for slug in set(existing_marks + new_marks):
+        MarkFactory(slug=slug)
+    for slug in existing_marks:
+        document.marks.add(Mark.objects.get(slug=slug))
+
+    response = admin_client.patch(
+        reverse("document-detail", args=[document.pk]),
+        {
+            "data": {
+                "id": document.pk,
+                "type": "documents",
+                "attributes": {
+                    "title": {"de": "Important"},
+                },
+                "relationships": {
+                    "marks": {
+                        "data": [
+                            {"id": slug, "type": "marks"}
+                            for slug in existing_marks + new_marks
+                        ],
+                    }
+                },
+            },
         },
     )
 
