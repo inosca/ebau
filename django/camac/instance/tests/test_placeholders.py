@@ -409,7 +409,7 @@ def test_dms_placeholders_so(
         case=so_instance.case,
         task_id="fill-publication",
         status=WorkItem.STATUS_COMPLETED,
-        addressed_groups=[str(group.service_id)],
+        addressed_groups=[str(service_factory().pk)],
         meta={"is-published": True},
     )
 
@@ -425,12 +425,14 @@ def test_dms_placeholders_so(
     utils.add_answer(
         publication_work_item.document, "publikation-amtsblatt", date(2023, 11, 29)
     )
-    # TODO check this
     utils.add_answer(
         publication_work_item.document,
         "publikation-organ",
         ["publikation-organ-amtsblatt", "publikation-organ-azeiger"],
-        label=["Amtsblatt", "Azeiger"],
+        options=[
+            ("publikation-organ-amtsblatt", "Amtsblatt"),
+            ("publikation-organ-azeiger", "Azeiger"),
+        ],
     )
     Option.objects.filter(pk="publikation-organ-amtsblatt").update(
         meta={"email": "amtsblatt@example.com"}
