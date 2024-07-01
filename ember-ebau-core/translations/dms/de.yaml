@@ -43,6 +43,9 @@ dms:
     title-admin: "Dokumentation"
     title-generate: "Technische Informationen zu den Platzhaltern"
     title-placeholders: "Platzhalter"
+    complex-info: "Beispiele für Platzhalter gebrauch"
+    copy-to-clipboard: "Platzhalter in Zwischenablage kopieren"
+    copy-to-clipboard-success: "Platzhalter kopiert"
 
     placeholder-and-description: "Platzhalter und Beschreibung"
     search: "Nach Platzhalter suchen..."
