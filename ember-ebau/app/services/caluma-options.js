@@ -111,6 +111,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
 
   get distributionServiceGroupsGR() {
     return {
+      suggestions: { disabled: true },
       "authority-bab": {
         label: "distribution.authority-bab",
       },
@@ -166,6 +167,10 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
   @cantonAware
   get distributionDefaultServiceGroups() {
     return ["suggestions"];
+  }
+
+  get distributionDefaultServiceGroupsGR() {
+    return [];
   }
 
   get distributionDefaultServiceGroupsSO() {
