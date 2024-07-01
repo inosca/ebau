@@ -36,6 +36,24 @@
     }
   },
   {
+    "model": "caluma_form.form",
+    "pk": "bab-versiegelte-entsiegelte-flaechen-form",
+    "fields": {
+      "created_at": "2024-06-26T08:06:19.066Z",
+      "modified_at": "2024-06-26T08:06:19.067Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Versiegelte / entsiegelte Fl\\u00e4chen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
     "model": "caluma_form.formquestion",
     "pk": "bab.bab-art-der-massnahme",
     "fields": {
@@ -47,7 +65,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-art-der-massnahme",
-      "sort": 16
+      "sort": 15
     }
   },
   {
@@ -62,7 +80,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-art-grundlage-verfahren-titel",
-      "sort": 17
+      "sort": 16
     }
   },
   {
@@ -77,7 +95,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-bewilligungsgrund",
-      "sort": 13
+      "sort": 12
     }
   },
   {
@@ -92,7 +110,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-entscheid",
-      "sort": 12
+      "sort": 11
     }
   },
   {
@@ -107,7 +125,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-flaechenbedarf-fruchtfolgeflaechen",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -122,7 +140,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-gebaeude-abbruch",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -137,7 +155,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-kompensation-fruchtfolgeflaechen",
-      "sort": 7
+      "sort": 6
     }
   },
   {
@@ -152,7 +170,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-lage-flaechenbedarf-tabelle",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -167,7 +185,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-lage-flaechenbedarf-titel",
-      "sort": 10
+      "sort": 9
     }
   },
   {
@@ -182,7 +200,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-neue-gebaeude",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -197,7 +215,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-nutzung-nach-rpg",
-      "sort": 14
+      "sort": 13
     }
   },
   {
@@ -212,7 +230,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-objektart",
-      "sort": 15
+      "sort": 14
     }
   },
   {
@@ -227,7 +245,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-stabilisierung-gebaeude-titel",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -257,37 +275,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-typ-der-auftraggeber",
-      "sort": 11
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bab.bab-versiegelte-flaechen-rueckbau",
-    "fields": {
-      "created_at": "2024-06-21T07:35:20.635Z",
-      "modified_at": "2024-06-21T07:35:20.635Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "bab",
-      "question": "bab-versiegelte-flaechen-rueckbau",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bab.bab-zusaetzlich-versiegelte-flaeche",
-    "fields": {
-      "created_at": "2024-06-21T07:34:23.014Z",
-      "modified_at": "2024-06-21T07:34:23.014Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "bab",
-      "question": "bab-zusaetzlich-versiegelte-flaeche",
-      "sort": 3
+      "sort": 10
     }
   },
   {
@@ -318,6 +306,81 @@
       "form": "bab-lage-flaechenbedarf-form",
       "question": "bab-grundnutzung",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.versiegelte-entsiegelte-flaechen",
+    "fields": {
+      "created_at": "2024-06-26T08:20:04.706Z",
+      "modified_at": "2024-06-26T08:20:04.706Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "versiegelte-entsiegelte-flaechen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab-versiegelte-entsiegelte-flaechen-form.bab-art-versiegelung",
+    "fields": {
+      "created_at": "2024-06-26T08:09:51.529Z",
+      "modified_at": "2024-06-26T08:09:51.529Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab-versiegelte-entsiegelte-flaechen-form",
+      "question": "bab-art-versiegelung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab-versiegelte-entsiegelte-flaechen-form.bab-beschreibung-nutzung-versiegelte-flaeche-andere",
+    "fields": {
+      "created_at": "2024-06-26T08:27:17.428Z",
+      "modified_at": "2024-06-26T08:27:17.428Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab-versiegelte-entsiegelte-flaechen-form",
+      "question": "bab-beschreibung-nutzung-versiegelte-flaeche-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab-versiegelte-entsiegelte-flaechen-form.bab-nutzung-versiegelte-flaeche",
+    "fields": {
+      "created_at": "2024-06-26T08:18:20.964Z",
+      "modified_at": "2024-06-26T08:18:20.964Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab-versiegelte-entsiegelte-flaechen-form",
+      "question": "bab-nutzung-versiegelte-flaeche",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab-versiegelte-entsiegelte-flaechen-form.bab-versiegelung-flaeche",
+    "fields": {
+      "created_at": "2024-06-26T08:10:49.499Z",
+      "modified_at": "2024-06-26T08:10:49.500Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab-versiegelte-entsiegelte-flaechen-form",
+      "question": "bab-versiegelung-flaeche",
+      "sort": 3
     }
   },
   {
@@ -443,6 +506,102 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Zweck\\u00e4nderung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-art-versiegelung-entsiegelt-erschliessung",
+    "fields": {
+      "created_at": "2024-06-26T08:09:49.697Z",
+      "modified_at": "2024-06-26T08:09:49.697Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsiegelte / renaturierte Fl\\u00e4chen (Erschliessung)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-art-versiegelung-entsiegelt-gebaeude",
+    "fields": {
+      "created_at": "2024-06-26T08:09:49.987Z",
+      "modified_at": "2024-06-26T08:09:49.987Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsiegelte / renaturierte Fl\\u00e4chen (Geb\\u00e4ude)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-art-versiegelung-entsiegelt-umgebung",
+    "fields": {
+      "created_at": "2024-06-26T08:09:50.019Z",
+      "modified_at": "2024-06-26T08:09:50.019Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsiegelte / renaturierte Fl\\u00e4chen (Umgebung)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-art-versiegelung-neu-versiegelt-erschliessung",
+    "fields": {
+      "created_at": "2024-06-26T08:09:49.873Z",
+      "modified_at": "2024-06-26T08:09:49.873Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neue versiegelte Fl\\u00e4chen (Erschliessung)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-art-versiegelung-neu-versiegelt-gebaeude",
+    "fields": {
+      "created_at": "2024-06-26T08:09:49.682Z",
+      "modified_at": "2024-06-26T08:09:49.682Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neue versiegelte Fl\\u00e4chen (Geb\\u00e4ude)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-art-versiegelung-neu-versiegelt-umgebung",
+    "fields": {
+      "created_at": "2024-06-26T08:09:49.750Z",
+      "modified_at": "2024-06-26T08:09:49.750Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neue versiegelte Fl\\u00e4chen (Umgebung)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1083,6 +1242,102 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Zonenkonform\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-nutzung-versiegelte-flaeche-andere",
+    "fields": {
+      "created_at": "2024-06-26T08:18:19.582Z",
+      "modified_at": "2024-06-26T08:18:19.582Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-nutzung-versiegelte-flaeche-energie",
+    "fields": {
+      "created_at": "2024-06-26T08:18:19.407Z",
+      "modified_at": "2024-06-26T08:18:19.407Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Energie\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-nutzung-versiegelte-flaeche-landwirtschaft",
+    "fields": {
+      "created_at": "2024-06-26T08:18:19.391Z",
+      "modified_at": "2024-06-26T08:18:19.391Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Landwirtschaft\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-nutzung-versiegelte-flaeche-tourismus",
+    "fields": {
+      "created_at": "2024-06-26T08:18:19.175Z",
+      "modified_at": "2024-06-26T08:18:19.176Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Tourismus\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-nutzung-versiegelte-flaeche-verkehr",
+    "fields": {
+      "created_at": "2024-06-26T08:18:19.514Z",
+      "modified_at": "2024-06-26T08:18:19.514Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verkehr (kantonale und nationale Projekte)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-nutzung-versiegelte-flaeche-wald",
+    "fields": {
+      "created_at": "2024-06-26T08:18:19.224Z",
+      "modified_at": "2024-06-26T08:18:19.224Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wald (Projekte f\\u00fcr die Waldbewirtschaftung)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1860,6 +2115,71 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bab-art-versiegelung",
+    "fields": {
+      "created_at": "2024-06-26T08:09:50.715Z",
+      "modified_at": "2024-06-26T08:09:50.715Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art der Ver- bzw. Entsiegelung\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-beschreibung-nutzung-versiegelte-flaeche-andere",
+    "fields": {
+      "created_at": "2024-06-26T08:27:16.714Z",
+      "modified_at": "2024-06-26T08:27:16.714Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "\"bab-nutzung-versiegelte-flaeche-andere\" != \"bab-nutzung-versiegelte-flaeche\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "bab-bewilligungsgrund",
     "fields": {
       "created_at": "2024-06-21T06:52:23.414Z",
@@ -2230,6 +2550,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bab-nutzung-versiegelte-flaeche",
+    "fields": {
+      "created_at": "2024-06-26T08:18:20.194Z",
+      "modified_at": "2024-06-26T08:24:39.778Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nutzung der versiegelten Fl\\u00e4chen\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "!(\n\t\"bab-art-versiegelung\"|answer in [\n\t\t\"bab-art-versiegelung-neu-versiegelt-gebaeude\",\n\t\t\"bab-art-versiegelung-neu-versiegelt-umgebung\",\n\t\t\"bab-art-versiegelung-neu-versiegelt-erschliessung\"\n\t]\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "bab-objektart",
     "fields": {
       "created_at": "2024-06-20T18:51:52.914Z",
@@ -2360,30 +2711,28 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "bab-versiegelte-flaechen-rueckbau",
+    "pk": "bab-versiegelung-flaeche",
     "fields": {
-      "created_at": "2024-06-21T07:35:20.427Z",
-      "modified_at": "2024-06-21T09:58:31.389Z",
+      "created_at": "2024-06-26T08:10:48.875Z",
+      "modified_at": "2024-06-26T08:10:48.875Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Versiegelte Fl\\u00e4chen die zur\\u00fcckgebaut werden (m\\u00b2)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Fl\\u00e4che (m\\u00b2)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
         "min_value": null
       },
-      "meta": {
-        "widgetOverride": "cf-field/input/number-separator"
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -2396,32 +2745,33 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "bab-zusaetzlich-versiegelte-flaeche",
+    "pk": "versiegelte-entsiegelte-flaechen",
     "fields": {
-      "created_at": "2024-06-21T07:34:22.813Z",
-      "modified_at": "2024-06-21T09:58:19.451Z",
+      "created_at": "2024-06-26T08:20:04.019Z",
+      "modified_at": "2024-06-26T08:33:18.616Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"Zus\\u00e4tzlich versiegelte Fl\\u00e4che (m\\u00b2)\", \"fr\": null, \"it\": null}",
-      "type": "integer",
+      "label": "{\"de\": \"Versiegelte / entsiegelte Fl\\u00e4chen\", \"fr\": null, \"it\": null}",
+      "type": "table",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"**Definition versiegelte / entsiegelte Fl\\u00e4chen**\\n\\nAls versigelte Fl\\u00e4chen gelten alle Oberfl\\u00e4chen die mittels eines Belages z.B. Asphalt, Schottertr\\u00e4nkung, Beton oder andere, wasserundurchl\\u00e4ssige Materialien befestigt sind.\\n\\nAls entsiegelte Fl\\u00e4chen gelten alle Oberfl\\u00e4chen, deren Belag entfernt und mit einem anderen Material, z.B. sickerf\\u00e4hige Verbundsteine, Gartenplatten, Rasenraster oder \\u00e4hnliches, ersetzt, oder vollst\\u00e4ndig renaturiert wird.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
+      "configuration": {},
       "meta": {
-        "widgetOverride": "cf-field/input/number-separator"
+        "columnsToDisplay": [
+          "bab-art-versiegelung",
+          "bab-versiegelung-flaeche",
+          "bab-nutzung-versiegelte-flaeche"
+        ]
       },
       "data_source": null,
-      "row_form": null,
+      "row_form": "bab-versiegelte-entsiegelte-flaechen-form",
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -2547,6 +2897,96 @@
       "modified_by_group": null,
       "question": "bab-art-der-massnahme",
       "option": "bab-art-der-massnahme-zweckaenderung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-art-versiegelung.bab-art-versiegelung-entsiegelt-erschliessung",
+    "fields": {
+      "created_at": "2024-06-26T08:09:50.770Z",
+      "modified_at": "2024-06-26T08:09:50.770Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-art-versiegelung",
+      "option": "bab-art-versiegelung-entsiegelt-erschliessung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-art-versiegelung.bab-art-versiegelung-entsiegelt-gebaeude",
+    "fields": {
+      "created_at": "2024-06-26T08:09:50.828Z",
+      "modified_at": "2024-06-26T08:09:50.828Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-art-versiegelung",
+      "option": "bab-art-versiegelung-entsiegelt-gebaeude",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-art-versiegelung.bab-art-versiegelung-entsiegelt-umgebung",
+    "fields": {
+      "created_at": "2024-06-26T08:09:50.800Z",
+      "modified_at": "2024-06-26T08:09:50.800Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-art-versiegelung",
+      "option": "bab-art-versiegelung-entsiegelt-umgebung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-art-versiegelung.bab-art-versiegelung-neu-versiegelt-erschliessung",
+    "fields": {
+      "created_at": "2024-06-26T08:09:50.864Z",
+      "modified_at": "2024-06-26T08:09:50.864Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-art-versiegelung",
+      "option": "bab-art-versiegelung-neu-versiegelt-erschliessung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-art-versiegelung.bab-art-versiegelung-neu-versiegelt-gebaeude",
+    "fields": {
+      "created_at": "2024-06-26T08:09:50.917Z",
+      "modified_at": "2024-06-26T08:09:50.917Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-art-versiegelung",
+      "option": "bab-art-versiegelung-neu-versiegelt-gebaeude",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-art-versiegelung.bab-art-versiegelung-neu-versiegelt-umgebung",
+    "fields": {
+      "created_at": "2024-06-26T08:09:50.893Z",
+      "modified_at": "2024-06-26T08:09:50.894Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-art-versiegelung",
+      "option": "bab-art-versiegelung-neu-versiegelt-umgebung",
       "sort": 5
     }
   },
@@ -3193,6 +3633,96 @@
       "question": "bab-nutzung-nach-rpg",
       "option": "bab-nutzung-nach-rpg-zonenkonform",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-nutzung-versiegelte-flaeche.bab-nutzung-versiegelte-flaeche-andere",
+    "fields": {
+      "created_at": "2024-06-26T08:24:39.855Z",
+      "modified_at": "2024-06-26T08:24:39.855Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-nutzung-versiegelte-flaeche",
+      "option": "bab-nutzung-versiegelte-flaeche-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-nutzung-versiegelte-flaeche.bab-nutzung-versiegelte-flaeche-energie",
+    "fields": {
+      "created_at": "2024-06-26T08:24:39.954Z",
+      "modified_at": "2024-06-26T08:24:39.954Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-nutzung-versiegelte-flaeche",
+      "option": "bab-nutzung-versiegelte-flaeche-energie",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-nutzung-versiegelte-flaeche.bab-nutzung-versiegelte-flaeche-landwirtschaft",
+    "fields": {
+      "created_at": "2024-06-26T08:24:40.010Z",
+      "modified_at": "2024-06-26T08:24:40.010Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-nutzung-versiegelte-flaeche",
+      "option": "bab-nutzung-versiegelte-flaeche-landwirtschaft",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-nutzung-versiegelte-flaeche.bab-nutzung-versiegelte-flaeche-tourismus",
+    "fields": {
+      "created_at": "2024-06-26T08:24:39.982Z",
+      "modified_at": "2024-06-26T08:24:39.982Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-nutzung-versiegelte-flaeche",
+      "option": "bab-nutzung-versiegelte-flaeche-tourismus",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-nutzung-versiegelte-flaeche.bab-nutzung-versiegelte-flaeche-verkehr",
+    "fields": {
+      "created_at": "2024-06-26T08:24:39.927Z",
+      "modified_at": "2024-06-26T08:24:39.927Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-nutzung-versiegelte-flaeche",
+      "option": "bab-nutzung-versiegelte-flaeche-verkehr",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-nutzung-versiegelte-flaeche.bab-nutzung-versiegelte-flaeche-wald",
+    "fields": {
+      "created_at": "2024-06-26T08:24:39.897Z",
+      "modified_at": "2024-06-26T08:24:39.898Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-nutzung-versiegelte-flaeche",
+      "option": "bab-nutzung-versiegelte-flaeche-wald",
+      "sort": 2
     }
   },
   {
