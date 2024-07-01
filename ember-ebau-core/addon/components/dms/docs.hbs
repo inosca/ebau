@@ -44,15 +44,27 @@
           {{#each this.placeholders as |placeholder|}}
             <tr>
               <td>
-                <div class="uk-text-nowrap uk-text-bold uk-margin-small-bottom">
+                <div
+                  class="uk-text-nowrap uk-text-bold uk-margin-small-bottom uk-flex"
+                >
                   {{placeholder.placeholder}}
                   {{#if placeholder.isComplex}}
                     <button
                       type="button"
                       class="uk-button uk-button-link uk-text-danger uk-margin-small-left"
+                      uk-tooltip={{t "dms.docs.complex-info"}}
                       {{on "click" (fn (mut this.showComplexInfo) true)}}
                     >
-                      <UkIcon @icon="info" />
+                      <UkIcon @icon="info" @ratio="0.8" />
+                    </button>
+                  {{else}}
+                    <button
+                      type="button"
+                      class="uk-button uk-button-link uk-margin-small-left"
+                      uk-tooltip={{t "dms.docs.copy-to-clipboard"}}
+                      {{on "click" (fn this.copyToClipboard placeholder)}}
+                    >
+                      <UkIcon @icon="copy" @ratio="0.8" />
                     </button>
                   {{/if}}
                 </div>
