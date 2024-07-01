@@ -287,6 +287,10 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
                 icon: "future",
                 color: "warning",
               },
+              "inquiry-answer-status-awaiting-municipality": {
+                icon: "clock",
+                color: "warning",
+              },
             },
             details: (inquiry) => {
               const releasedForReviewWorkItem =

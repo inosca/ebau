@@ -187,6 +187,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "inquiry-answer-status-awaiting-municipality",
+    "fields": {
+      "created_at": "2024-07-01T12:07:52.920Z",
+      "modified_at": "2024-07-01T12:07:52.920Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"BGZ: abwarten Gemeinde\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "inquiry-answer-status-claim",
     "fields": {
       "created_at": "2022-04-25T08:54:28.315Z",
@@ -607,6 +623,21 @@
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "inquiry-answer-status.inquiry-answer-status-awaiting-municipality",
+    "fields": {
+      "created_at": "2024-07-01T12:10:51.240Z",
+      "modified_at": "2024-07-01T12:10:51.240Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "inquiry-answer-status",
+      "option": "inquiry-answer-status-awaiting-municipality",
+      "sort": 0
     }
   },
   {
