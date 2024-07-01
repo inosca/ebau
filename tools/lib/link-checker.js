@@ -1,24 +1,13 @@
 import MarkdownIt from "markdown-it";
 import fetch from "node-fetch";
 import { readFileSync } from "fs";
+import { globSync } from "glob";
 
-const md = MarkdownIt();
-
-const paths = [
-  "../django/kt_bern/config/caluma_form_common.json",
-  "../django/kt_bern/config/caluma_dossier_import_form.json",
-  "../django/kt_bern/config/caluma_form.json",
-  "../django/kt_bern/config/caluma_form_v2.json",
-  "../django/kt_bern/config/caluma_form_v3.json",
-  "../django/kt_bern/config/caluma_audit_form.json",
-  "../django/kt_bern/config/caluma_publication_form.json",
-  "../django/kt_bern/config/caluma_solar_plants_form.json",
-  "../django/kt_bern/config/caluma_heat_generator_form.json",
-];
+const paths = globSync("../django/kt_bern/config/caluma_*form*.json");
 
 export const config = paths.reduce(
   (all, path) => [...all, ...JSON.parse(readFileSync(path))],
-  []
+  [],
 );
 
 export function extract() {
@@ -52,7 +41,7 @@ export async function checkLink(url) {
 }
 
 export function getLinksFromMarkdown(text) {
-  const ast = md.parse(text, {});
+  const ast = MarkdownIt().parse(text, {});
 
   return ast.reduce((res, token) => {
     return [...res, ...extractLinks(token)];

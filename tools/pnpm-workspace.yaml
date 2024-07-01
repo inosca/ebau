@@ -1,0 +1,2 @@
+# This file needs to be existing but empty in order to allow a PNPM package in
+# a subfolder which is not included in the workspaces of the project.
