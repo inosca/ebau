@@ -18,29 +18,19 @@ asdjsklf
 ### subheading
 
 [another link](http://foo.bar)`),
-    ["www.google.com", "http://foo.bar"]
+    ["www.google.com", "http://foo.bar"],
   );
   t.end();
 });
 
 t.test("extraction test", (t) => {
   const links = extract();
-  t.equal(links.length, 118);
+  t.equal(links.length, 126);
   t.end();
 });
 
 t.test("checks links", async (t) => {
-  t.equal(
-    await checkLink(
-      "https://www.bvd.be.ch/content/dam/bvd/dokumente/de/awa/wasser/gew%C3%A4sserschutz/grundwasserschutz/merkblatt-bauten-im-grundwasser-und-grundwasserabsenkungen-de.pdf"
-    ),
-    true
-  );
-  t.equal(
-    await checkLink(
-      "https://www.bve.be.ch/bve/de/index/direktion/organisation/awa/formulare_bewilligungen/Grundwasser.assetref/dam/documents/BVE/nope.pdf"
-    ),
-    false
-  );
+  t.equal(await checkLink("https://www.google.com/"), true);
+  t.equal(await checkLink("https://www.google.com/404"), false);
   t.end();
 });

@@ -1,6 +1,6 @@
 import { createReadStream } from "fs";
 import fetch from "node-fetch";
-import glob from "glob";
+import { globSync } from "glob";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import { v4 } from "uuid";
@@ -49,7 +49,7 @@ async function run() {
   const groups = String(groupIds)
     .split(",")
     .map((s) => parseInt(s.trim()));
-  const files = glob.sync(globPattern);
+  const files = globSync(globPattern);
 
   for (let group of groups) {
     console.log(
