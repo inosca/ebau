@@ -1,3 +1,5 @@
+from copy import deepcopy
+
 import inflection
 import pytest
 from rest_framework import exceptions
@@ -369,7 +371,10 @@ def test_form_data_validator_validation(
     instance_state_name,
     raises_validation_error,
 ):
-    form_config = DEFAULT_FORM_CONFIG
+    # deepcopy() so we can reuse the config over multiple
+    # test parametrizations and not leak changes from one run to
+    # the other
+    form_config = deepcopy(DEFAULT_FORM_CONFIG)
     form_config["modules"]["module-a"]["questions"].extend(questions.keys())
     form_config["questions"] = questions
 
