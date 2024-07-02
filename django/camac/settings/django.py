@@ -713,6 +713,7 @@ APPLICATIONS = {
         "CIRCULATION_ANSWER_UNINVOLVED": "not_concerned",
         "COPY_RESPONSIBLE_PERSON_ON_SUBMIT": True,
         "THUMBNAIL_SIZE": "x300",
+        "MANABI_VERSION_CREATION_THRESHOLD_ENABLED": True,
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {
