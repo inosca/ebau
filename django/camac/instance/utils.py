@@ -12,6 +12,7 @@ from django.utils.translation import gettext as _
 
 from camac.caluma.api import CalumaApi
 from camac.instance.models import Instance
+from camac.permissions.events import Trigger
 from camac.user.models import Group, Service, ServiceRelation, User
 
 
@@ -248,6 +249,8 @@ def copy_instance(
             new_instance.case.save()
 
         new_instance.set_instance_state("subm", user)
+
+    Trigger.instance_copied(None, new_instance, instance)
 
     return new_instance
 

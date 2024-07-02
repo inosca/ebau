@@ -273,6 +273,7 @@ BE_PERMISSIONS_SETTINGS = {
         "MUNICIPALITY_INVOLVED": "involved-authority",
         "DISTRIBUTION_INVITEE": "distribution-service",
         "CONSTRUCTION_CONTROL": "construction-control",
+        "CONSTRUCTION_CONTROL_INVOLVED": "involved-construction-control",
         # TODO refactor somehow to something more explicit
     },
     "MIGRATION_FILTERS": {
@@ -282,6 +283,7 @@ BE_PERMISSIONS_SETTINGS = {
             Q(service__service_group__name="municipality")
             | Q(service__service_group__name="district")
         ),
+        "construction_control": Q(service__service_group__name="consruction-control"),
     },
     "ENABLE_CACHE": True,
 }

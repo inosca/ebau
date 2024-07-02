@@ -12,6 +12,7 @@ from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.db import transaction
+from django.db.models import Q
 from django.utils import timezone
 
 from camac.applicants import models as applicants_models
@@ -259,49 +260,62 @@ class Command(BaseCommand):
         if support_level := conf.get("SUPPORT"):
             permissions.update(self._build_support_permissions(support_level))
         if construction_control := conf.get("CONSTRUCTION_CONTROL"):
+            involved_construction_control = conf.get("CONSTRUCTION_CONTROL_INVOLVED")
             permissions.update(
-                self._build_construction_control_permissions(construction_control)
+                self._build_construction_control_permissions(
+                    construction_control, involved_construction_control
+                )
             )
 
         return permissions
 
-    def _build_construction_control_permissions(self, construction_control):
-        qs = Instance.objects.all()
+    def _build_construction_control_permissions(
+        self, construction_control, involved_construction_control
+    ):
+        if settings.APPLICATION.get("USE_INSTANCE_SERVICE"):
+            log.info("  Checking for construction-control access rules")
 
-        # TODO this is stolen from the attachment (document) module, but
-        # serves the same purpose
-        after_decision_states = settings.APPLICATION.get(
-            "ATTACHMENT_AFTER_DECISION_STATES", None
-        )
-
-        if after_decision_states:
-            qs = qs.filter(instance_state__name__in=after_decision_states)
-
-        inst_iter = self._iter_qs(qs, instance_prefix=None)
-        log.info(f"    Checking {inst_iter.total} instances for construction control")
-        for instance in inst_iter:
-            municipality_svc = get_municipality(instance)
-            try:
-                construction_control = get_construction_control(municipality_svc)
-            except Exception:
-                # TODO log?
-                pass
-                continue
-
-            yield ACL(
-                access_level="construction-control",
-                state=STATE_ACTIVE,
-                service_id=construction_control.pk,
-                instance_id=instance.pk,
-                type=permission_models.GRANT_CHOICES.SERVICE.value,
-                start_time=timezone.now(),
+            filters = settings.PERMISSIONS.get("MIGRATION_FILTERS", {}).get(
+                "construction_control", Q()
             )
+            self._build_permissions_from_instance_service(
+                construction_control, involved_construction_control, filters
+            )
+        else:  # not settings.APPLICATION.get("USE_INSTANCE_SERVICE")
+            qs = Instance.objects.all()
 
-    def _build_municipality_permissions(self, level_active, level_inactive):
-        # Note: This is roughly derived from
-        # InstanceQuerysetMixin.get_queryset_for_municipality()
-        log.info("  Checking for municipality access rules")
+            # TODO this is stolen from the attachment (document) module, but
+            # serves the same purpose
+            after_decision_states = settings.APPLICATION.get(
+                "ATTACHMENT_AFTER_DECISION_STATES", None
+            )
+            if after_decision_states:
+                qs = qs.filter(instance_state__name__in=after_decision_states)
+            inst_iter = self._iter_qs(qs, instance_prefix=None)
+            log.info(
+                f"    Checking {inst_iter.total} instances for construction control"
+            )
+            for instance in inst_iter:
+                municipality_svc = get_municipality(instance)
+                try:
+                    construction_control = get_construction_control(municipality_svc)
+                except Exception:
+                    # TODO log?
+                    pass
+                    continue
 
+                yield ACL(
+                    access_level="construction-control",
+                    state=STATE_ACTIVE,
+                    service_id=construction_control.pk,
+                    instance_id=instance.pk,
+                    type=permission_models.GRANT_CHOICES.SERVICE.value,
+                    start_time=timezone.now(),
+                )
+
+    def _build_permissions_from_instance_service(
+        self, level_active, level_inactive, is_filter
+    ):
         make_lead_acl = partial(ACL, access_level=level_active, state=STATE_ACTIVE)
         make_involved_acl = partial(
             ACL, access_level=level_inactive, state=STATE_ACTIVE
@@ -309,9 +323,10 @@ class Command(BaseCommand):
 
         # Instance Services map quite nicely. TODO: Only responsible services,
         # or only of a certain service group?
-        is_iter = self._iter_qs(InstanceService.objects.filter(), "instance")
-        log.info(f"    Checking {is_iter.total} instance services")
+        instance_services = InstanceService.objects.filter(is_filter)
 
+        is_iter = self._iter_qs(instance_services, "instance")
+        log.info(f"    Checking {is_iter.total} instance services")
         for instance_service in is_iter:
             build_fn = make_lead_acl if instance_service.active else make_involved_acl
             yield build_fn(
@@ -322,6 +337,19 @@ class Command(BaseCommand):
                 start_time=instance_service.activation_date or timezone.now(),
                 metainfo={"instance-service-id": instance_service.pk},
             )
+
+    def _build_municipality_permissions(self, level_active, level_inactive):
+        # Note: This is roughly derived from
+        # InstanceQuerysetMixin.get_queryset_for_municipality()
+        log.info("  Checking for municipality access rules")
+
+        filters = settings.PERMISSIONS.get("MIGRATION_FILTERS", {}).get(
+            "municipality", Q()
+        )
+        self._build_permissions_from_instance_service(
+            level_active, level_inactive, filters
+        )
+        make_lead_acl = partial(ACL, access_level=level_active, state=STATE_ACTIVE)
 
         if not settings.APPLICATION.get("USE_INSTANCE_SERVICE"):
             inst_iter = self._iter_qs(Instance.objects.all(), "")

@@ -81,16 +81,31 @@ class ChangeResponsibleServiceHandlerMixin:
     def changed_responsible_service(
         self, instance: Instance, from_service: Service, to_service: Service
     ):
+        involved_accesslevel = {
+            "lead-authority": "involved-authority",
+            "construction-control": "involved-construction-control",
+            "municipality": "involved-authority",
+        }
+        new_accesslevel_from_servicegroup = {
+            "municipality": "lead-authority",
+            "lead-authority": "lead-authority",
+            "construction-control": "construction-control",
+        }
+
+        new_involved = involved_accesslevel[from_service.service_group.name]
+        new_active = new_accesslevel_from_servicegroup[from_service.service_group.name]
+
         # First: Degrade old lead authority to involved authority
         old_acl = (
             InstanceACL.currently_active()
             .filter(
                 service=from_service,
-                access_level="lead-authority",
+                access_level__in=["lead-authority", "construction-control"],
                 instance=instance,
             )
             .first()
         )
+
         if old_acl:
             self.manager.revoke(old_acl)
         else:  # pragma: no cover
@@ -102,7 +117,7 @@ class ChangeResponsibleServiceHandlerMixin:
         self.manager.grant(
             instance,
             grant_type="SERVICE",
-            access_level="involved-authority",
+            access_level=new_involved,
             service=from_service,
         )
 
@@ -110,7 +125,7 @@ class ChangeResponsibleServiceHandlerMixin:
         self.manager.grant(
             instance,
             grant_type="SERVICE",
-            access_level="lead-authority",
+            access_level=new_active,
             service=to_service,
         )
 
