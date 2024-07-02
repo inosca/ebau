@@ -9,7 +9,8 @@ from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from camac.constants import kt_gr as gr_constants
-from camac.instance.models import Instance
+from camac.instance.models import Instance, InstanceState
+from camac.instance.utils import copy_instance
 from camac.permissions import events, exceptions
 from camac.permissions.models import InstanceACL
 from camac.permissions.switcher import PERMISSION_MODE
@@ -414,6 +415,9 @@ def test_change_responsible_service(
     new_responsible = service_factory()
 
     old_responsible = be_instance.instance_services.get(active=1).service
+    old_responsible.service_group.name = "lead-authority"
+    old_responsible.service_group.save()
+
     instance_acl_factory(
         instance=be_instance, access_level_id="lead-authority", service=old_responsible
     )
@@ -561,3 +565,75 @@ def test_submitted_so(so_access_levels, so_instance, instance_acl_factory):
 
     should_be_active = so_instance.instance_state.name == "somethingelse"
     assert the_acl.is_active() == should_be_active
+
+
+@pytest.mark.parametrize("permission_mode", [PERMISSION_MODE.FULL, PERMISSION_MODE.OFF])
+@pytest.mark.parametrize("new_meta_flag", ["is-appeal", "is-rejected-appeal", None])
+@pytest.mark.parametrize("role__name", ["municipality-lead"])
+@pytest.mark.parametrize("instance_state__name", ["subm", "new"])
+def test_copy_be(
+    be_access_levels,
+    be_instance,
+    instance_acl_factory,
+    instance_state_factory,
+    admin_user,
+    permission_mode,
+    caluma_admin_user,
+    role_factory,
+    new_meta_flag,
+    be_permissions_settings,
+):
+    be_permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
+
+    # support role will get access to the new instance
+    role_factory(name="Support")
+
+    instance_acl_factory(
+        instance=be_instance,
+        access_level_id="lead-authority",
+        service=admin_user.groups.first().service,
+        grant_type="SERVICE",
+    )
+
+    # We expect these ones to be only copied conditionally
+    instance_acl_factory(
+        instance=be_instance,
+        access_level_id="geometer",
+    )
+    instance_acl_factory(
+        instance=be_instance,
+        access_level_id="construction-control",
+    )
+
+    InstanceState.objects.get_or_create(name="new")
+    InstanceState.objects.get_or_create(name="subm")
+
+    new_instance = copy_instance(
+        be_instance,
+        group=admin_user.groups.first(),
+        user=admin_user,
+        caluma_user=caluma_admin_user,
+        new_meta={"ebau-number": "2024-999", new_meta_flag: True},
+        old_meta={"ebau-number": "2024-999"},
+    )
+
+    expected_acl_copies = InstanceACL.currently_active().filter(instance=be_instance)
+    if new_meta_flag in ["is-appeal", "is-rejected-appeal"]:
+        expected_acl_copies = expected_acl_copies.filter(
+            access_level__in=["lead-authority", "applicant"]
+        )
+    else:
+        # commandline copy - no restriction
+        pass
+
+    # regular copy - needs all active acls to be copied over
+    new_active = InstanceACL.currently_active().filter(instance=new_instance)
+    for old_acl in expected_acl_copies:
+        assert new_active.filter(
+            user=old_acl.user,
+            access_level=old_acl.access_level,
+            service=old_acl.service,
+            role=old_acl.role,
+            token=old_acl.token,
+            grant_type=old_acl.grant_type,
+        ).exists(), f"Missing expected copy of {old_acl}"
