@@ -25,9 +25,4 @@ PROJECT_MODIFICATION = {
         "ALLOW_FORMS": ["baugesuch"],
         "DISALLOW_STATES": ["new"],
     },
-    "kt_so": {
-        "ENABLED": True,
-        "ALLOW_FORMS": ["baugesuch"],
-        "DISALLOW_STATES": ["new", "finished"],
-    },
 }
