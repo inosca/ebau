@@ -244,6 +244,7 @@ clean: ## Remove temporary files / build artefacts etc
 
 .PHONY: next-version
 next-version: ## Determine next version number
+	@pnpm -C tools -s install
 	@node tools/bin/next-version.js
 
 .PHONY: release
@@ -347,4 +348,5 @@ prettier-fix: # Fix formatting of yml and config files with prettier
 
 .PHONY: compare-dump
 compare-dump: # Compares two given .json dump files
+	@pnpm -C tools -s install
 	@node tools/bin/compare-dumps.js $(PWD)/$(word 1,$^) $(PWD)/$(word 2,$^)
