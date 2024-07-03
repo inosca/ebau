@@ -868,7 +868,6 @@ def caluma_forms_ur(settings):
         "instance-management",
         "construction-monitoring",
         "bab",
-        "construction-monitoring-update-gwr-state",
     ]:
         caluma_form_models.Form.objects.create(slug=form, name=form)
 
@@ -1508,17 +1507,6 @@ def sz_construction_monitoring_settings(settings, construction_monitoring_settin
     construction_monitoring_dict = copy.deepcopy(
         always_merger.merge(
             construction_monitoring_settings, CONSTRUCTION_MONITORING["kt_schwyz"]
-        )
-    )
-    settings.CONSTRUCTION_MONITORING = construction_monitoring_dict
-    return construction_monitoring_dict
-
-
-@pytest.fixture
-def ur_construction_monitoring_settings(settings, construction_monitoring_settings):
-    construction_monitoring_dict = copy.deepcopy(
-        always_merger.merge(
-            construction_monitoring_settings, CONSTRUCTION_MONITORING["kt_uri"]
         )
     )
     settings.CONSTRUCTION_MONITORING = construction_monitoring_dict
