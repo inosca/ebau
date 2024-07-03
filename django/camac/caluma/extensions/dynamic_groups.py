@@ -164,3 +164,7 @@ class CustomDynamicGroups(BaseDynamicGroups):
                 ]
             )
         ]
+
+    @register_dynamic_group("abwasser-uri")
+    def resolve_abwasser_uri(self, task, case, user, prev_work_item, context, **kwargs):
+        return [str(Service.objects.get(pk=uri_constants.ABWASSER_URI_SERVICE_ID).pk)]

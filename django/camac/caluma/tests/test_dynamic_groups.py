@@ -299,3 +299,15 @@ def test_dynamic_group_service_bab_ur(
     assert CustomDynamicGroups().resolve("service-bab-ur")(
         None, ur_instance.case, None, None, None
     ) == [str(bab_service.pk)]
+
+
+def test_dynamic_group_abwasser_uri(
+    db,
+    service_factory,
+    ur_instance,
+):
+    service_factory(pk=uri_constants.ABWASSER_URI_SERVICE_ID)
+
+    assert CustomDynamicGroups().resolve("abwasser-uri")(
+        None, ur_instance.case, None, None, None
+    ) == [str(uri_constants.ABWASSER_URI_SERVICE_ID)]
