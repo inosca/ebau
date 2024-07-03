@@ -6,6 +6,7 @@ publicInstances:
   emptyText: "Dès que la commune a autorisé la publication d'un dossier, celui-ci apparaît ici dans la liste."
   publishedWithoutObligation: ""
   publishedWithObligation: ""
+  info: ""
 
 publicInstancesDetail:
   documents: "Documents"
