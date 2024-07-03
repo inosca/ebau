@@ -234,26 +234,36 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
 
 
 class PublicationField(AliasedMixin, serializers.ReadOnlyField):
-    def __init__(self, value_key="value", parser=lambda value: value, **kwargs):
+    def __init__(
+        self,
+        value_key="value",
+        parser=lambda value: value,
+        only_own=True,
+        **kwargs,
+    ):
         super().__init__(**kwargs)
 
         self.value_key = value_key
         self.parser = parser
+        self.only_own = only_own
 
     def to_representation(self, value):
         return self.parser(super().to_representation(value))
 
     def get_attribute(self, instance):
-        work_item = (
-            instance.case.work_items.filter(
-                task_id="fill-publication",
-                status=WorkItem.STATUS_COMPLETED,
-                addressed_groups=[str(self.context["request"].group.service_id)],
-                **{"meta__is-published": True},
-            )
-            .order_by("-created_at")
-            .first()
+        work_items = instance.case.work_items.filter(
+            task_id="fill-publication",
+            status=WorkItem.STATUS_COMPLETED,
+            **{"meta__is-published": True},
         )
+
+        if self.only_own:
+            work_items = work_items.filter(
+                addressed_groups=[str(self.context["request"].group.service_id)]
+            )
+
+        work_item = work_items.order_by("-created_at").first()
+
         answer = (
             work_item.document.answers.filter(question_id=self.source).first()
             if work_item
