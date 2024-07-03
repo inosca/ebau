@@ -29905,7 +29905,7 @@
     "pk": "arbeitssicherheit-und-gesundheitsschutz",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-12-11T13:56:33.387Z",
+      "modified_at": "2024-07-03T07:58:38.387Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -29913,7 +29913,7 @@
       "label": "{\"de\": \"Arbeitssicherheit / Gesundheitsschutz\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!(\n\t[\n\t\t\"nutzungszwecke-industrie\",\n\t\t\"nutzungszwecke-gewerbe\",\n\t\t\"nutzungszwecke-dienstleistung\",\n\t\t\"nutzungszwecke-verkauf\",\n\t\t\"nutzungszwecke-lager\",\n\t\t\"nutzungszwecke-forstwirtschaft\",\n\t\t\"nutzungszwecke-gastgewerbe\",\n\t\t\"nutzungszwecke-oeffentlich-zugaenglich\",\n\t\t\"nutzungszwecke-andere\"\n\t] intersects \"nutzungszwecke\"|answer\n)",
+      "is_hidden": "!(\n\t[\n\t\t\"nutzungszwecke-industrie\",\n\t\t\"nutzungszwecke-gewerbe\",\n\t\t\"nutzungszwecke-dienstleistung\",\n\t\t\"nutzungszwecke-verkauf\",\n\t\t\"nutzungszwecke-lager\",\n\t\t\"nutzungszwecke-forstwirtschaft\",\n\t\t\"nutzungszwecke-gastgewerbe\",\n\t\t\"nutzungszwecke-oeffentlich-zugaenglich\"\n\t] intersects \"nutzungszwecke\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
