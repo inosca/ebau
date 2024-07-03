@@ -1135,7 +1135,7 @@
     }
   },
   "24": {
-    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Materielle Prüfung BaB",
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Beurteilung BaB",
     "acls": {
       "service-clerk": [
         "construction-monitoring",
