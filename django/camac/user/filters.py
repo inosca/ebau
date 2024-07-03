@@ -104,7 +104,28 @@ class PublicServiceFilterSet(FilterSet):
             else:
                 filters.append(Q(service_group__pk=config["id"]))
 
-        return queryset.filter(reduce(lambda a, b: a | b, filters)).distinct()
+        queryset = (
+            queryset.filter(reduce(lambda a, b: a | b, filters)).distinct()
+            if len(filters) > 0
+            else queryset
+        )
+
+        if (
+            settings.APPLICATION_NAME == "kt_uri"
+            and self.request.group.role.name != "Coordination"
+        ):
+            # If we are querying for a Koordinationsstelle, we need to filter out all KOORs
+            # except KOOR BG and KOOR NP
+            queryset = queryset.filter(
+                Q(name__in=["ARE KOOR BG", "ARE KOOR NP"])
+                | ~Q(service_group__name="Koordinationsstellen")
+            )
+
+        return queryset
+
+    def _available_in_distribution_for_coordination(self, queryset, name, value):
+        # Required because the base method returns an empty queryset
+        return self._available_in_distribution_for_municipality(queryset, name, value)
 
     def filter_available_in_distribution_for_instance(self, queryset, name, value):
         if not settings.BAB:  # pragma: no cover

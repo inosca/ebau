@@ -501,6 +501,10 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
           ].join(","),
         };
       }
+      if (!this.shoebox.isCoordinationRole) {
+        config.new.types.suggestions.disabled = true;
+        config.new.defaultTypes = ["subservice"];
+      }
 
       return config;
     }
