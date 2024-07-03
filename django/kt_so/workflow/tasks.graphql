@@ -146,7 +146,7 @@ mutation CreateMaterialExamBaBTask {
     input: {
       slug: "material-exam-bab"
       form: "materielle-pruefung-bab"
-      name: "Materielle Prüfung BaB"
+      name: "Beurteilung BaB"
       addressGroups: "[\"service-bab\"]|groups"
       controlGroups: "[\"service-bab\"]|groups"
       meta: "{\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]}}"
