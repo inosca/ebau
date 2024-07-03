@@ -1,3 +1,17 @@
+publicInstances:
+  info: |-
+      <strong>
+        Bitte beachten Sie, dass die digitale öffentliche Planauflage zunächst nur für die folgenden Gemeinden möglich ist:
+      </strong>
+      <ul>
+        <li>Breitenbach</li>
+        <li>Derendingen</li>
+        <li>Messen</li>
+        <li>Olten</li>
+        <li>Selzach</li>
+        <li>Solothurn</li>
+      </ul>
+
 publicInstancesDetail:
   copyrightText: "Die hier aufgelegten Dokumente können urheberrechtlich
   geschützt sein. Das Weiterverwenden der Dokumente oder Teile davon ist nur

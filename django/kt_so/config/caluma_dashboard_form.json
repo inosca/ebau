@@ -1,5 +1,22 @@
 [
   {
+    "model": "caluma_form.answer",
+    "pk": "3ba5d772-4abd-4de6-a5d7-282c9fce64ac",
+    "fields": {
+      "created_at": "2024-07-03T12:42:29.285Z",
+      "modified_at": "2024-07-03T12:42:29.285Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "portal-inhalt-de",
+      "value": "<div class=\"uk-text-large\">\n  <strong>\n    Bitte beachten Sie, dass das digitale Baugesuchsverfahren zunächst nur für die folgenden Gemeinden möglich ist:\n  </strong>\n  <ul>\n    <li>Breitenbach</li>\n    <li>Derendingen</li>\n    <li>Messen</li>\n    <li>Olten</li>\n    <li>Selzach</li>\n    <li>Solothurn</li>\n  </ul>\n</div>",
+      "meta": {},
+      "document": "9c39c759-52af-4b66-9a13-61a6b27ded28",
+      "date": null
+    }
+  },
+  {
     "model": "caluma_form.document",
     "pk": "9c39c759-52af-4b66-9a13-61a6b27ded28",
     "fields": {

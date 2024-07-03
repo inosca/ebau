@@ -6,6 +6,7 @@ publicInstances:
   emptyText: "Sobald die Gemeinde ein Dossier zur Publikation freigegeben hat, wird das Dossier hier in der Liste auftauchen."
   publishedWithoutObligation: "Unverbindliches Planauflagedokument. Gegen Inhalte in diesem Dokument kann keine Einsprache eingereicht werden."
   publishedWithObligation: "Verbindliches Planauflagedokument"
+  info: ""
 
 publicInstancesDetail:
   documents: "Dokumente"
