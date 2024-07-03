@@ -384,33 +384,3 @@ class CustomDynamicTasks(BaseDynamicTasks):
                 }
             ).values_list("pk", flat=True)
         )
-
-    # After "Baubeginn melden" and "Schlussabnahme" (construction-monitoring) in Kt. UR
-    @register_dynamic_task("after-baubeginn-melden")
-    @register_dynamic_task("after-schlussabnahme")
-    def resolve_after_baubeginn_melden_ur(self, case, user, prev_work_item, context):
-        config = {
-            "construction-step-baufreigabe": {
-                "question_slug": "construction-step-baufreigabe-is-approved",
-                "positive_answer": "construction-step-baufreigabe-is-approved-yes",
-            },
-            "construction-step-schlussabnahme-projekt": {
-                "question_slug": "construction-step-schlussabnahme-projekt-is-approved",
-                "positive_answer": "construction-step-schlussabnahme-projekt-is-approved-yes",
-            },
-        }
-
-        if (
-            "construction-step-gwr-status-nachfuehren"
-            in case.work_items.get(task_id="construction-step-plan-construction-stage")
-            .document.answers.get(question_id="construction-steps")
-            .value
-        ):
-            answer = prev_work_item.document.answers.get(
-                question_id=config[prev_work_item.task_id]["question_slug"]
-            ).value
-
-            if answer == config[prev_work_item.task_id]["positive_answer"]:
-                return [
-                    settings.CONSTRUCTION_MONITORING["CONSTRUCTION_MONITORING_GWR_TASK"]
-                ]
