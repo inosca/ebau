@@ -208,32 +208,25 @@ class KtBernDossierWriter(DossierWriter):
         applicant is answered with yes. This method checks if there is any data
         in the personal table and answers the triage question accordingly.
         """
-
-        pass  # TODO: do something similar to kt_so e. g. below
-        # for table_question in [
-        #     "personalien-grundeigentuemerin",
-        #     "personalien-projektverfasserin",
-        #     # As the invoice recipient can not be passed to the import, the
-        #     # table will always be empty and the triage question will always be
-        #     # answered with "no". However, we still use the same logic as for
-        #     # the others in order to avoid more code.
-        #     "personalien-rechnungsempfaengerin",
-        # ]:
-        # table_answer = instance.case.document.answers.filter(
-        #     question_id=table_question
-        # ).first()
-        # has_rows = table_answer.documents.exists() if table_answer else False
-
-        # suffix = "ja" if has_rows else "nein"
-        # triage_question = f"{table_question}-abweichend"
-        # value = f"{triage_question}-{suffix}"
-
-        # form_api.save_answer(
-        #     document=instance.case.document,
-        #     question=Question.objects.get(pk=triage_question),
-        #     value=value,
-        #     user=self._caluma_user,
-        # )
+        answers = []
+        triage_question = "weitere-personen"
+        for table_question in [
+            "grundeigentumerin",
+            "projektverfasserin",
+        ]:
+            if (
+                table_answer := instance.case.document.answers.filter(
+                    question_id=f"personalien-{table_question}"
+                ).first()
+            ) and table_answer.documents.exists():
+                value = f"{triage_question}-{table_question}"
+                answers.append(value)
+        form_api.save_answer(
+            document=instance.case.document,
+            question=Question.objects.get(pk=triage_question),
+            value=answers,
+            user=self._caluma_user,
+        )
 
     def existing_dossier(self, dossier_id):
         return (
