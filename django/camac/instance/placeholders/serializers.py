@@ -1485,6 +1485,7 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         source="publikation-start",
         value_key="date",
         parser=human_readable_date,
+        only_own=False,
         aliases=[_("PUBLICATION_START")],
         description=_("Start date of the publication of the instance"),
     )
@@ -1492,6 +1493,7 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         source="publikation-ende",
         value_key="date",
         parser=human_readable_date,
+        only_own=False,
         aliases=[_("PUBLICATION_END")],
         description=_("End date of the publication of the instance"),
     )
@@ -1499,6 +1501,7 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         source="publikation-anzeiger",
         value_key="date",
         parser=human_readable_date,
+        only_own=False,
         aliases=[_("PUBLICATION_DATE_GAZETTE")],
         description=_("Date of the publication in the gazette"),
     )
@@ -1506,6 +1509,7 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         source="publikation-amtsblatt",
         value_key="date",
         parser=human_readable_date,
+        only_own=False,
         aliases=[_("PUBLICATION_DATE_OFFICIAL_GAZETTE")],
         description=_("Date of the publication in the official gazette"),
     )
@@ -1544,6 +1548,7 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             }
             for option in options
         ],
+        only_own=False,
         aliases=[_("PUBLICATION_ORGAN")],
         nested_aliases={
             "NAME": [_("NAME")],
