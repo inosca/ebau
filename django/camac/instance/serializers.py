@@ -173,6 +173,9 @@ class InstanceSerializer(
     def get_access_type_for_service(self, obj):
         return "service"
 
+    def get_access_type_for_support(self, obj):
+        return "support"
+
     def get_linked_instances(self, obj):
         queryset = self.context["view"].get_queryset()
         if not obj.instance_group or queryset.model is not models.Instance:
