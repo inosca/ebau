@@ -48637,7 +48637,7 @@
     "pk": "lokalisierung-titel",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2024-05-22T09:07:16.379Z",
+      "modified_at": "2024-07-03T12:40:59.269Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -48650,7 +48650,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"## Lokalisierung\\n\\n- **Schritt 1:** Erfassen Sie die Adresse oder das Grundst\\u00fcck Ihres Bauvorhabens im Suchfeld, w\\u00e4hlen Sie das gew\\u00fcnschte Suchresultat aus und klicken Sie auf \\\"Ausw\\u00e4hlen\\\". Falls Sie die Adresse oder Grundst\\u00fccksnummer nicht kennen, k\\u00f6nnen Sie den Standort auch durch Verschieben und Scrollen der Karte bestimmen.\\n- **Schritt 2:** Klicken Sie anschliessend auf **Daten \\u00fcbernehmen**.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"## Lokalisierung\\n\\n- **Schritt 1:** Erfassen Sie die Adresse oder das Grundst\\u00fcck Ihres Bauvorhabens im Suchfeld, w\\u00e4hlen Sie das gew\\u00fcnschte Suchresultat aus und klicken Sie auf \\\"Ausw\\u00e4hlen\\\". Falls Sie die Adresse oder Grundst\\u00fccksnummer nicht kennen, k\\u00f6nnen Sie den Standort auch durch Verschieben und Scrollen der Karte bestimmen.\\n- **Schritt 2:** Klicken Sie anschliessend auf **Daten \\u00fcbernehmen**.\\n\\n<p class=\\\"uk-text-bold uk-margin-remove-bottom\\\">Bitte beachten Sie, dass das digitale Baugesuchsverfahren zun\\u00e4chst nur f\\u00fcr die folgenden Gemeinden m\\u00f6glich ist: Breitenbach, Derendingen, Messen, Olten, Selzach, Solothurn</p>\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,

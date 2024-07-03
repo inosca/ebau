@@ -148,7 +148,7 @@ const config = {
     modalContainer: "body",
   },
   communication: {
-    rolesWithApplicantContact: ["activeOrInolvedLeadAuthority"],
+    rolesWithApplicantContact: ["activeOrInolvedLeadAuthority", "service"],
   },
   dossierImport: {
     municipalityAdminRole: 4, // Administration Gemeinde
