@@ -72,3 +72,56 @@ def test_public_services_for_distribution_list(
 
     data = response.json()["data"]
     assert len(data) == count
+
+
+@pytest.mark.parametrize(
+    "role__name",
+    [
+        ("Municipality"),
+        ("Coordination"),
+    ],
+)
+def test_ur_municipality_coordination_suggestions(
+    admin_client,
+    role,
+    service_factory,
+    settings,
+):
+    # In Kt. Uri only the ARE KOOR BG and ARE KOOR NP services should be visible
+    # for municipalities. For coordinations all others KOORs should be visible.
+    settings.APPLICATION_NAME = "kt_uri"
+    service_factory(name="ARE KOOR BG", service_group__name="Koordinationsstellen")
+    service_factory(name="ARE KOOR NP", service_group__name="Koordinationsstellen")
+    service_factory(name="ARE KOOR BD", service_group__name="Koordinationsstellen")
+
+    response = admin_client.get(
+        reverse("publicservice-list"),
+        {
+            "available_in_distribution": True,
+            "service_group_name": ["Koordinationsstellen"],
+        },
+    )
+
+    data = response.json()["data"]
+
+    if role.name == "Municipality":
+        assert any(
+            item["attributes"]["name"] == "ARE KOOR BG" for item in data
+        ), "ARE KOOR BG should be visible for municipalities"
+        assert any(
+            item["attributes"]["name"] == "ARE KOOR NP" for item in data
+        ), "ARE KOOR NP should be visible for municipalities"
+        assert not any(
+            item["attributes"]["name"] == "ARE KOOR BD" for item in data
+        ), "ARE KOOR BD should not be visible for municipalities"
+
+    if role.name == "Coordination":
+        assert any(
+            item["attributes"]["name"] == "ARE KOOR BG" for item in data
+        ), "ARE KOOR BG should always be visible for KOORS"
+        assert any(
+            item["attributes"]["name"] == "ARE KOOR NP" for item in data
+        ), "ARE KOOR NP should always be visible for KOORS"
+        assert any(
+            item["attributes"]["name"] == "ARE KOOR BD" for item in data
+        ), "ARE KOOR BD should always be visible for KOORS"
