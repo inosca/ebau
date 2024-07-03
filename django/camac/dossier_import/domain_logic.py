@@ -174,10 +174,12 @@ def undo_import(dossier_import):
         ).delete()
         Case.objects.filter(**{"meta__import-id": str(dossier_import.pk)}).delete()
         dossier_import.delete()
+        return DossierImport.IMPORT_STATUS_UNDONE
     except Exception as e:  # pragma: no cover # noqa: B902
         log.exception(e)
         dossier_import.status = DossierImport.IMPORT_STATUS_UNDO_FAILED
         dossier_import.save()
+        return dossier_import.status
 
 
 def clean_import(dossier_import):
@@ -217,6 +219,7 @@ def set_status_callback(task):  # pragma: no cover
     except ObjectDoesNotExist:
         # the undo task deletes the instance on success:
         return
-
+    if task.result and task.result == dossier_import.IMPORT_STATUS_UNDONE:
+        return
     dossier_import.status = task.result or dossier_import.set_progressing_to_failed()
     dossier_import.save()
