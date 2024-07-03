@@ -181,7 +181,8 @@ class Command(BaseCommand):
         sid = transaction.savepoint()
 
         instances = Instance.objects.filter(
-            answers__question_id__in=list(ANSWER_MAP.keys())
+            case__work_items__task_id="complete-check",
+            case__work_items__status=WorkItem.STATUS_COMPLETED,
         ).distinct()
 
         count = 0
