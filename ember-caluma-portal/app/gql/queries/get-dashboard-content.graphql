@@ -1,11 +1,20 @@
 query GetDashboardContent($page: ID!) {
-  allDocuments(filter: [{ form: "dashboard" }], first: 1) {
+  allDocuments(
+    filter: [{ form: "dashboard" }]
+    order: [{ attribute: CREATED_AT, direction: ASC }]
+    first: 1
+  ) {
     edges {
       node {
         id
-        answers(filter: [{ question: $page }], first: 1) {
+        answers(
+          filter: [{ question: $page }]
+          order: [{ attribute: CREATED_AT, direction: ASC }]
+          first: 1
+        ) {
           edges {
             node {
+              id
               ... on StringAnswer {
                 value
               }
