@@ -1,4 +1,5 @@
 import io
+import logging
 import mimetypes
 import os
 import zipfile
@@ -36,6 +37,9 @@ from camac.user.permissions import (
 from camac.utils import DocxRenderer
 
 from . import filters, models, permissions, serializers
+
+request_logger = logging.getLogger("django.request")
+log = logging.getLogger()
 
 
 class FileUploadSwaggerAutoSchema(SwaggerAutoSchema):
@@ -234,11 +238,34 @@ class AttachmentView(
         auto_schema=FileUploadSwaggerAutoSchema,
     )
     def create(self, request, *args, **kwargs):
-        return super().create(request, *args, **kwargs)
+        response = super().create(request, *args, **kwargs)
+        if settings.LOG_FILE_WRITE_SIZES:
+            request_logger.info(
+                "method=%s status=%s user=%s group=%s attachment_name=%s attachment_size=%s",
+                request.method,
+                response.status_code,
+                request.user.username,
+                request.group.pk,
+                response.data.get("name"),
+                response.data.get("size"),
+            )
+        return response
 
     @swagger_auto_schema(auto_schema=None)
     def partial_update(self, request, *args, **kwargs):
-        return super().partial_update(request, *args, **kwargs)
+        response = super().partial_update(request, *args, **kwargs)
+        if settings.LOG_FILE_WRITE_SIZES:
+            request_logger.info(
+                "method=%s status=%s user=%s group=%s attachment_id=%s attachment_name=%s attachment_size=%s",
+                request.method,
+                response.status_code,
+                request.user.username,
+                request.group.pk,
+                kwargs.get("pk"),
+                response.data.get("name"),
+                response.data.get("size"),
+            )
+        return response
 
     @swagger_auto_schema(
         tags=["File delete service"],
@@ -262,7 +289,16 @@ class AttachmentView(
                     "referenced in the communications module"
                 )
             )
-        return super().destroy(request, *args, **kwargs)
+        response = super().destroy(request, *args, **kwargs)
+        if settings.LOG_FILE_WRITE_SIZES:
+            request_logger.info(
+                "method=%s status=%s user=%s attachment_id=%s",
+                request.method,
+                response.status_code,
+                request.user.username,
+                kwargs.get("pk"),
+            )
+        return response
 
     @action(methods=["get"], detail=True)
     @swagger_auto_schema(auto_schema=None)

@@ -1,5 +1,6 @@
 import os
 from datetime import timedelta
+from logging import getLogger
 from pathlib import Path
 from shutil import copy2
 
@@ -8,13 +9,40 @@ from django.db import transaction
 from django.utils import timezone
 from manabi import ManabiDAVApp
 from manabi.auth import ManabiAuthenticator
-from manabi.filesystem import CallbackHookConfig, ManabiProvider
+from manabi.filesystem import CallbackHookConfig, ManabiFileResource, ManabiProvider
 from manabi.lock import ManabiDbLockStorage
 from manabi.log import HeaderLogger, verbose_logging
 from wsgidav.dir_browser import WsgiDavDirBrowser
 from wsgidav.error_printer import ErrorPrinter
 from wsgidav.mw.debug_filter import WsgiDavDebugFilter
 from wsgidav.request_resolver import RequestResolver
+
+log = getLogger(__name__)
+
+
+class LoggedManabiFileResource(ManabiFileResource):
+    def begin_write(self, *, content_type=None):
+        if settings.LOG_FILE_WRITE_SIZES:
+            _, attachment_id = self._token.payload
+            log.info(
+                f"-------------------- START DAV WRITE ATTACHMENT_ID {attachment_id} --------------------"
+            )
+            log.info(
+                f"begin_write -- ATTACHMENT_ID {attachment_id}"
+                f"\n\tcontent_length={self.environ['CONTENT_LENGTH']} (file size from the request)"
+            )
+        return super().begin_write(content_type=content_type)
+
+
+class LoggedManabiProvider(ManabiProvider):
+    def get_file_resource(self, path, environ, fp):
+        if Path(fp).exists():
+            return LoggedManabiFileResource(
+                path,
+                environ,
+                fp,
+                cb_hook_config=self._cb_hook_config,
+            )
 
 
 def get_dav():
@@ -40,7 +68,7 @@ def get_dav():
             "mount_path": "/dav",
             "lock_storage": ManabiDbLockStorage(refresh, postgres_dsn),
             "provider_mapping": {
-                "/dav": ManabiProvider(
+                "/dav": LoggedManabiProvider(
                     settings.MEDIA_ROOT, cb_hook_config=cb_hook_config
                 ),
             },
@@ -73,11 +101,23 @@ def post_write_callback(token):
     user = User.objects.get(id=user)
     attachment = Attachment.objects.get(attachment_id=attachment)
     path = Path(attachment.path.path)
+
     if path.exists():
         attachment.size = os.path.getsize(path)
         attachment.date = timezone.now()
         attachment.user = user
         attachment.save()
+        if settings.LOG_FILE_WRITE_SIZES:
+            log.info(
+                f"post_write_callback -- ATTACHMENT_ID {attachment.pk}"
+                f"\n\tattachment_name={attachment.name}"
+                f"\n\tattachment_path={attachment.path}"
+                f"\n\tattachment_size={attachment.size} (after writing)"
+                f"\n\tuser={user.username}"
+            )
+            log.info(
+                f"--------------------- END DAV WRITE ATTACHMENT_ID {attachment.pk} ---------------------"
+            )
 
 
 @transaction.atomic
@@ -136,4 +176,20 @@ def pre_write_callback(token):
         version_path.parent.mkdir(parents=True, exist_ok=True)
         copy2(path, version_path)
         new.save()
+        if settings.LOG_FILE_WRITE_SIZES:
+            log.info(
+                f"pre_write_callback with new version -- ATTACHMENT_ID {attachment.pk}"
+                f"\n\tversion={new.version}"
+                f"\n\tversion_name={new.name}"
+                f"\n\tversion_path={new.path}"
+                f"\n\tversion_size={new.size} (before writing)"
+                f"\n\tuser={user.username}"
+            )
+    elif settings.LOG_FILE_WRITE_SIZES:
+        log.info(
+            f"pre_write_callback without new version -- ATTACHMENT_ID {attachment.pk}"
+            f"\n\tattachment_size={attachment.size} (before writing)"
+            f"\n\tuser={user.username}"
+        )
+
     return True

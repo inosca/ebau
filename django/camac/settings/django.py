@@ -2403,6 +2403,9 @@ URI_MIGRATE_PORTAL_USER = env.bool("URI_MIGRATE_PORTAL_USER", default=False)
 
 MANABI_ENABLE = env.bool("MANABI_ENABLE", default=default(True, False))
 
+# For logging file write actions (only legacy WebDAV & Attachments).
+LOG_FILE_WRITE_SIZES = env.bool("LOG_FILE_WRITE_SIZES", default=default(True, False))
+
 # These are security relevant: provide a default that cannot be abused
 MANABI_SHARED_KEY = env.str(
     "MANABI_SHARED_KEY",
