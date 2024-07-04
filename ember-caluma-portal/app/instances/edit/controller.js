@@ -38,12 +38,15 @@ export default class InstancesEditController extends Controller {
       fetchPolicy: "network-only",
       variables: {
         instanceId: this.model,
-        tasks: constructionMonitoringConfig.constructionSteps,
+        tasks: [
+          ...constructionMonitoringConfig.constructionSteps,
+          ...constructionMonitoringConfig.reportingSteps,
+        ],
       },
     }),
-    null,
+    "allWorkItems",
     (data) => {
-      return data.ready.totalCount;
+      return data.totalCount;
     },
   );
 

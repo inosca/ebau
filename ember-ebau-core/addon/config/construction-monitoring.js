@@ -50,6 +50,16 @@ const sharedConfig = {
     "construction-step-schlussabnahme-gebaeude",
     "construction-step-schlussabnahme-projekt",
   ],
+  reportingSteps: [
+    "construction-step-baufreigabe-beantragen",
+    "construction-step-baubeginn-melden",
+    "construction-step-kanalisationsabnahme-melden",
+    "construction-step-schnurgeruestabnahme-melden",
+    "construction-step-rohbauabnahme-melden",
+    "construction-step-zwischenkontrolle-melden",
+    "construction-step-schlussabnahme-gebaeude-melden",
+    "construction-step-schlussabnahme-projekt-melden",
+  ],
   controls: {
     initTask: "init-construction-monitoring",
     completeTask: "complete-construction-monitoring",
