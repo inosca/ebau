@@ -1006,18 +1006,21 @@ APPLICATIONS = {
         ],
         "PORTAL_GROUP": 6,
         "ADMIN_GROUP": 1,
-        "DEMO_MODE_GROUPS": [
-            23395,
-            23396,
-            23399,
-            23400,
-            23403,
-            23404,
-            23407,
-            23408,
-            23412,
-            23415,
-        ],
+        "DEMO_MODE_GROUPS": env.list(
+            "DEMO_MODE_GROUPS",
+            default=[
+                23395,
+                23396,
+                23399,
+                23400,
+                23403,
+                23404,
+                23407,
+                23408,
+                23412,
+                23415,
+            ],
+        ),
         "USE_INSTANCE_SERVICE": True,
         "ACTIVE_SERVICES": {
             "MUNICIPALITY": {
@@ -1690,15 +1693,18 @@ APPLICATIONS = {
             "subservice": "service",
             "support": "support",
         },
-        "DEMO_MODE_GROUPS": [
-            5,  # Leitung Gemeinde Solothurn
-            7,  # Baubegleitung Gemeinde Solothurn
-            8,  # Einsichtsberechtigte Gemeinde Solothurn
-            539,  # Leitung Amt für Umwelt (AfU)
-            551,  # Leitung Amt für Wald, Jagd und Fischerei
-            560,  # Leitung Solothurnische Gebäudeversicherung (SGV)
-            542,  # Leitung Amt für Raumplanung (ARP)
-        ],
+        "DEMO_MODE_GROUPS": env.list(
+            "DEMO_MODE_GROUPS",
+            default=[
+                5,  # Leitung Gemeinde Solothurn
+                7,  # Baubegleitung Gemeinde Solothurn
+                8,  # Einsichtsberechtigte Gemeinde Solothurn
+                539,  # Leitung Amt für Umwelt (AfU)
+                551,  # Leitung Amt für Wald, Jagd und Fischerei
+                560,  # Leitung Solothurnische Gebäudeversicherung (SGV)
+                542,  # Leitung Amt für Raumplanung (ARP)
+            ],
+        ),
         "ADMIN_GROUP": 1,
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
