@@ -58,10 +58,6 @@
         {{/if}}
       </ul>
     </header>
-    <CfFieldValue
-      @field={{@claim.description}}
-      @tagName="p"
-      class="white-space-pre-line"
-    />
+    <p class="white-space-pre-line">{{~@claim.description.value~}}</p>
   </div>
 </div>
