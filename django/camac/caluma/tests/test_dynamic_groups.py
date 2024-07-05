@@ -1,4 +1,5 @@
 import pytest
+from caluma.caluma_form.models import Answer, Question
 from caluma.caluma_workflow.models import WorkItem
 
 from camac.caluma.extensions.dynamic_groups import CustomDynamicGroups
@@ -311,3 +312,36 @@ def test_dynamic_group_abwasser_uri(
     assert CustomDynamicGroups().resolve("abwasser-uri")(
         None, ur_instance.case, None, None, None
     ) == [str(uri_constants.ABWASSER_URI_SERVICE_ID)]
+
+
+def test_dynamic_group_schnurgeruestabnahme_uri(
+    db, service_factory, ur_instance, answer_factory, mocker
+):
+    service = service_factory()
+    ur_instance.responsible_service = mocker.PropertyMock(return_value=service)
+
+    question = Question.objects.get(pk="schnurgeruestabnahme-durch")
+
+    answer_factory(
+        document=ur_instance.case.document,
+        question=question,
+        value="schnurgeruestabnahme-durch-gemeinde",
+    )
+
+    assert CustomDynamicGroups().resolve("schnurgeruestabnahme-uri")(
+        None, ur_instance.case, None, None, None
+    ) == [str(service.pk)]
+
+    Answer.objects.all().delete()
+
+    geometer_service = service_factory(pk=uri_constants.GEOMETER_SERVICE_ID)
+
+    answer_factory(
+        document=ur_instance.case.document,
+        question=question,
+        value="schnurgeruestabnahme-durch-geometer",
+    )
+
+    assert CustomDynamicGroups().resolve("schnurgeruestabnahme-uri")(
+        None, ur_instance.case, None, None, None
+    ) == [str(geometer_service.pk)]
