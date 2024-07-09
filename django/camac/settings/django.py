@@ -2134,8 +2134,10 @@ JSON_API_PLURALIZE_TYPES = True
 
 # Clamav service
 
-CLAMD_USE_TCP = True
+CLAMD_USE_TCP = env.bool("DJANGO_CLAMD_USE_TCP", default=True)
 CLAMD_TCP_ADDR = env.str("DJANGO_CLAMD_TCP_ADDR", default="localhost")
+CLAMD_SOCKET = env.str("DJANGO_CLAMD_SOCKET", default="/var/run/clamav/clamd.ctl")
+CLAMD_FAIL_BY_DEFAULT = env.bool("DJANGO_CLAMD_FAIL_BY_DEFAULT", default=False)
 CLAMD_ENABLED = env.bool("DJANGO_CLAMD_ENABLED", default=True)
 
 
