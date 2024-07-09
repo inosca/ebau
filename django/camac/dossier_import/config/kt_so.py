@@ -327,6 +327,3 @@ class KtSolothurnDossierWriter(DossierWriter):
                 ],
                 user=self._caluma_user,
             )
-
-    def _handle_document(self, *args, **kwargs):
-        return self._handle_alexandria_document(*args, **kwargs)

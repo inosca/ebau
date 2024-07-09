@@ -230,6 +230,11 @@ def setup_dossier_writer(
         elif config == "kt_schwyz":
             application_settings["SHORT_DOSSIER_NUMBER"] = True
 
+        if config == "kt_so":
+            application_settings["DOCUMENT_BACKEND"] = "alexandria"
+        else:
+            application_settings["DOCUMENT_BACKEND"] = "camac-ng"
+
         dossier_import_settings["FORM_ID"] = form.pk
         dossier_import_settings["ATTACHMENT_SECTION_ID"] = attachment_section.pk
 

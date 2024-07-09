@@ -738,7 +738,19 @@ class DossierWriter:
         Other options:
          - _handle_alexandria_document
         """
-        return self._handle_legacy_document(content, filename, mime_type, instance)
+
+        document_backends = {
+            "camac-ng": self._handle_legacy_document,
+            "alexandria": self._handle_alexandria_document,
+        }
+        try:
+            return document_backends[settings.APPLICATION["DOCUMENT_BACKEND"]](
+                content, filename, mime_type, instance
+            )
+        except KeyError:  # pragma: no cover
+            raise DossierWriter.ConfigurationError(
+                f"Set DOCUMENT_BACKEND APPLICATION setting to a valid document backend {document_backends.keys()}"
+            )
 
     def _handle_alexandria_document(
         self, content: File, filename: str, mime_type: str, instance: Instance
