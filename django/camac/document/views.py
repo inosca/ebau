@@ -241,13 +241,16 @@ class AttachmentView(
         response = super().create(request, *args, **kwargs)
         if settings.LOG_FILE_WRITE_SIZES:
             request_logger.info(
-                "method=%s status=%s user=%s group=%s attachment_name=%s attachment_size=%s",
+                "method=%s status=%s user=%s group=%s attachment_name=%s attachment_size=%s "
+                "instance_id=%s path=%s",
                 request.method,
                 response.status_code,
                 request.user.username,
                 request.group.pk,
                 response.data.get("name"),
                 response.data.get("size"),
+                response.data.get("instance", {}).get("id"),
+                response.data.get("path"),
             )
         return response
 
@@ -256,7 +259,8 @@ class AttachmentView(
         response = super().partial_update(request, *args, **kwargs)
         if settings.LOG_FILE_WRITE_SIZES:
             request_logger.info(
-                "method=%s status=%s user=%s group=%s attachment_id=%s attachment_name=%s attachment_size=%s",
+                "method=%s status=%s user=%s group=%s attachment_id=%s attachment_name=%s attachment_size=%s "
+                "instance_id=%s path=%s",
                 request.method,
                 response.status_code,
                 request.user.username,
@@ -264,6 +268,8 @@ class AttachmentView(
                 kwargs.get("pk"),
                 response.data.get("name"),
                 response.data.get("size"),
+                response.data.get("instance", {}).get("id"),
+                response.data.get("path"),
             )
         return response
 
@@ -276,8 +282,11 @@ class AttachmentView(
     def destroy(self, request, *args, **kwargs):
         # If the document is linked to the communications module, we cannot
         # delete it.
+
+        attachment_object = self.get_object()
+
         if CommunicationsAttachment.objects.filter(
-            document_attachment=self.get_object()
+            document_attachment=attachment_object
         ).exists():
             # Prevent deletion: The delete wouldn't work either way, but
             # due to ordering of events, the file would be deleted on-disk
@@ -292,11 +301,17 @@ class AttachmentView(
         response = super().destroy(request, *args, **kwargs)
         if settings.LOG_FILE_WRITE_SIZES:
             request_logger.info(
-                "method=%s status=%s user=%s attachment_id=%s",
+                "method=%s status=%s user=%s group=%s attachment_id=%s attachment_name=%s attachment_size=%s "
+                "instance_id=%s path=%s",
                 request.method,
                 response.status_code,
                 request.user.username,
+                request.group.pk,
                 kwargs.get("pk"),
+                attachment_object.name,
+                attachment_object.size,
+                attachment_object.instance.pk,
+                attachment_object.path,
             )
         return response
 
