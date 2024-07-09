@@ -89,6 +89,8 @@ services:
       - GWR_HOUSING_STAT_BASE_URI=https://www-r.housing-stat.ch/regbl/api/ech0216/2
     networks:
       - ebau.local
+    tty: true
+    stdin_open: true
     command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0:80 --pythonpath /app/$APPLICATION"
 
   ember-caluma-portal:
