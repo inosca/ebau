@@ -53,9 +53,13 @@ def file_setup(category_setup, instance_factory, instance):
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 def test_download_disabled(
-    admin_client, ech0211_settings, file_setup, settings, reload_ech0211_urls
+    admin_client,
+    ech0211_settings,
+    file_setup,
+    application_settings,
+    reload_ech0211_urls,
 ):
-    settings.APPLICATION["DOCUMENT_BACKEND"] = "camac-ng"
+    application_settings["DOCUMENT_BACKEND"] = "camac-ng"
 
     visible_file, _, __ = file_setup
 
@@ -66,9 +70,13 @@ def test_download_disabled(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 def test_download(
-    admin_client, file_setup, gr_ech0211_settings, settings, reload_ech0211_urls
+    admin_client,
+    file_setup,
+    gr_ech0211_settings,
+    application_settings,
+    reload_ech0211_urls,
 ):
-    settings.APPLICATION["DOCUMENT_BACKEND"] = "alexandria"
+    application_settings["DOCUMENT_BACKEND"] = "alexandria"
 
     visible_file, invisible_file_category, invisible_file_instance = file_setup
 
@@ -94,11 +102,11 @@ def test_upload_disabled_document_backend(
     admin_client,
     category_setup,
     gr_ech0211_settings,
-    settings,
+    application_settings,
     instance,
     reload_ech0211_urls,
 ):
-    settings.APPLICATION["DOCUMENT_BACKEND"] = "camac-ng"
+    application_settings["DOCUMENT_BACKEND"] = "camac-ng"
 
     _, uploadable_category, __ = category_setup
 
@@ -122,11 +130,11 @@ def test_upload_disabled_api_level(
     admin_client,
     category_setup,
     gr_ech0211_settings,
-    settings,
+    application_settings,
     instance,
     reload_ech0211_urls,
 ):
-    settings.APPLICATION["DOCUMENT_BACKEND"] = "alexandria"
+    application_settings["DOCUMENT_BACKEND"] = "alexandria"
     gr_ech0211_settings["API_LEVEL"] = "basic"
 
     _, uploadable_category, __ = category_setup
@@ -153,14 +161,14 @@ def test_upload(
     gr_ech0211_settings,
     instance,
     mocker,
-    settings,
+    application_settings,
     reload_ech0211_urls,
 ):
     clamav = mocker.patch(
         "camac.ech0211.serializers.validate_file_infection", return_value=None
     )
 
-    settings.APPLICATION["DOCUMENT_BACKEND"] = "alexandria"
+    application_settings["DOCUMENT_BACKEND"] = "alexandria"
 
     visible_category, uploadable_category, _ = category_setup
 
