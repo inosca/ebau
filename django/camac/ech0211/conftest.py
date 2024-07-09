@@ -46,7 +46,6 @@ def ech_instance_sz(
     ech_instance.identifier = CreateInstanceLogic.generate_identifier(
         ech_instance, prefix="TEST"
     )
-    instance_with_case(instance_factory(identifier=ech_instance.identifier))
     ech_instance.form = form_factory(name="application_type")
     attachment_factory(instance=ech_instance)
     call_command("loaddata", "/app/kt_schwyz/config/buildingauthority.json")
@@ -63,6 +62,11 @@ def ech_instance_sz(
         "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
         datetime.now(),
     )
+    # create a linked instance identified by relation to the same instance_group
+    instance = instance_with_case(instance_factory(identifier=ech_instance.identifier))
+    instance.instance_group = ech_instance.instance_group
+    instance.save()
+
     ech_instance.location = location
     ech_instance.save()
     return ech_instance
