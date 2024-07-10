@@ -273,7 +273,7 @@
         }
       },
       "name": "{\"de\": \"Alle Beteiligten\", \"fr\": \"\", \"it\": \"Tutti coinvolti\"}",
-      "description": "{\"de\": \"Hier werden von der Leitbeh\\u00f6rde Dokumente hochgeladen, welche f\\u00fcr alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Verfahrensprogramm, Bauentscheid). Gesuchstellenden werden diese Dokumente im eBau-Portal unter *R\\u00fcckmeldungen* angezeigt.\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Hier werden von der Gemeinde Dokumente hochgeladen, welche f\\u00fcr alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Verfahrensprogramm, Bauentscheid). Gesuchstellenden werden diese Dokumente im eBau-Portal unter *R\\u00fcckmeldungen* angezeigt.\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#CB68C1",
       "parent": null
@@ -519,7 +519,7 @@
         }
       },
       "name": "{\"de\": \"Bauabnahme\", \"fr\": \"\", \"it\": \"\"}",
-      "description": "{\"de\": \"Hier werden von der Leitbeh\\u00f6rde Dokumente zur Bauabnahme hochgeladen, welche f\\u00fcr alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Bauabnahmeprotokoll). Gesuchstellenden werden diese Dokumente im eBau-Portal unter R\\u00fcckmeldungen angezeigt.\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Hier werden von der Gemeinde Dokumente zur Bauabnahme hochgeladen, welche f\\u00fcr alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Bauabnahmeprotokoll). Gesuchstellenden werden diese Dokumente im eBau-Portal unter R\\u00fcckmeldungen angezeigt.\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#CB68C1",
       "parent": null

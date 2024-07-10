@@ -34,13 +34,19 @@ class Command(BaseCommand):
                 Value(after),
             )
         )
-        ServiceT.objects.update(description=F("name"))
+        service_updates = ServiceT.objects.update(description=F("name"))
 
         # Update group names
-        GroupT.objects.filter(name__contains=before).update(
+        group_updates = GroupT.objects.filter(name__contains=before).update(
             name=Replace(
                 "name",
                 Value(before),
                 Value(after),
+            )
+        )
+
+        self.stdout.write(
+            self.style.SUCCESS(
+                f"Updated {service_updates} services, {group_updates} groups."
             )
         )
