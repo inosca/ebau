@@ -1,4 +1,5 @@
 import json
+import uuid
 
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
@@ -4274,4 +4275,10 @@ class IrTaskform(models.Model):
 
 class StaticContent(models.Model):
     slug = models.SlugField(primary_key=True)
+    content = LocalizedTextField()
+
+
+class ServiceContent(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    service = models.ForeignKey("user.Service", models.DO_NOTHING, related_name="+")
     content = LocalizedTextField()
