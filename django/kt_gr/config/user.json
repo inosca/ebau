@@ -115,7 +115,7 @@
     "fields": {
       "role": 3,
       "language": "de",
-      "name": "Sachbearbeitung Leitbehörde",
+      "name": "Sachbearbeitung Gemeinde",
       "group_prefix": "Sachbearbeitung"
     }
   },
@@ -135,7 +135,7 @@
     "fields": {
       "role": 5,
       "language": "de",
-      "name": "Administration Leitbehörde",
+      "name": "Administration Gemeinde",
       "group_prefix": "Administration"
     }
   },
@@ -246,7 +246,7 @@
     "fields": {
       "service_group": 2,
       "language": "de",
-      "name": "Leitbehörde Gemeinde"
+      "name": "Gemeinde"
     }
   },
   {
