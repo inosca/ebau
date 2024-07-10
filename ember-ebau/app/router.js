@@ -89,9 +89,11 @@ Router.map(function () {
     registerCommunicationsGlobal(this, { resetNamespace });
     registerStaticContent(this, { resetNamespace });
     registerDossierImport(this, { resetNamespace });
-    this.mount("ember-alexandria", {
-      as: "alexandria",
-      path: "/documents",
+    this.route("documents", { resetNamespace }, function () {
+      this.mount("ember-alexandria", {
+        as: "alexandria",
+        path: "/",
+      });
     });
   });
 });
