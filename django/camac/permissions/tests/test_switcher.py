@@ -109,11 +109,13 @@ def test_permission_mismatch(
         ("production", PERMISSION_MODE.AUTO_OFF, PERMISSION_MODE.OFF),
     ],
 )
-def test_get_permission_mode(settings, env, mode, as_string, expected_out):
+def test_get_permission_mode(
+    settings, permissions_settings, env, mode, as_string, expected_out
+):
     if as_string:
         mode = mode.value
 
-    settings.PERMISSIONS["PERMISSION_MODE"] = mode
+    permissions_settings["PERMISSION_MODE"] = mode
     settings.ENV = env
 
     output = switcher.get_permission_mode()
