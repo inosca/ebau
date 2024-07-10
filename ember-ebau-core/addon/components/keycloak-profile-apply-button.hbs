@@ -1,0 +1,7 @@
+<UkButton
+  @label={{t "keycloak-profile-apply-button.apply"}}
+  @onClick={{perform this.applyData}}
+  @disabled={{this.applyData.isRunning}}
+  @loading={{this.applyData.isRunning}}
+  data-test-confirm
+/>

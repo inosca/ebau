@@ -85,6 +85,7 @@ MODULE_CONFIG_FIXTURES = {
     "dossier_import": ["kt_schwyz", "kt_bern", "kt_so"],
     "bab": ["kt_so"],
     "project_modification": [],
+    "user": ["kt_gr"],
 }
 
 for modulename, cantons in MODULE_CONFIG_FIXTURES.items():

@@ -1,3 +1,4 @@
+from caluma.caluma_form.models import Document
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import transaction
@@ -5,8 +6,12 @@ from django.db.models import Q
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import response, status
 from rest_framework.decorators import action
+from rest_framework.exceptions import PermissionDenied
+from rest_framework.generics import CreateAPIView
 from rest_framework.mixins import RetrieveModelMixin
+from rest_framework.parsers import JSONParser
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.renderers import JSONRenderer
 from rest_framework.viewsets import GenericViewSet
 from rest_framework_json_api.views import (
     AutoPrefetchMixin,
@@ -15,6 +20,7 @@ from rest_framework_json_api.views import (
     ReadOnlyModelViewSet,
 )
 
+from camac.caluma.extensions.permissions import CustomPermission
 from camac.core.views import MultilangMixin
 from camac.swagger.utils import get_operation_description, group_param
 from camac.user.permissions import permission_aware
@@ -274,3 +280,17 @@ class UserGroupView(ModelViewSet):
         return queryset.filter(
             Q(group__service=service) | Q(group__service__service_parent=service)
         )
+
+
+class KeycloakApplyView(CreateAPIView):
+    serializer_class = serializers.KeycloakApplySerializer
+    renderer_classes = [JSONRenderer]
+    parser_classes = [JSONParser]
+
+    def check_permissions(self, request):
+        super().check_permissions(request)
+
+        if not CustomPermission().has_camac_edit_permission(
+            Document.objects.get(pk=request.data["document"]), request.caluma_info
+        ):
+            raise PermissionDenied()

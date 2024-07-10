@@ -1,0 +1,3 @@
+keycloak-profile-apply-button:
+  apply: "Daten aus meinem Profil übernehmen"
+  success: "Daten wurden übernommen"

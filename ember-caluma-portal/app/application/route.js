@@ -14,6 +14,7 @@ import DynamicMaxDateInputComponent from "ember-ebau-core/components/dynamic-max
 import GrGisComponent from "ember-ebau-core/components/gr-gis";
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
 import InquiryDeadlineInputComponent from "ember-ebau-core/components/inquiry-deadline-input";
+import KeycloakProfileApplyButtonComponent from "ember-ebau-core/components/keycloak-profile-apply-button";
 import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
 import PublicationDateKantonsamtsblattComponent from "ember-ebau-core/components/publication-date-kantonsamtsblatt";
 import PublicationStartDateComponent from "ember-ebau-core/components/publication-start-date";
@@ -216,6 +217,11 @@ export default class ApplicationRoute extends Route {
       label: "Koordinaten Platzhalter",
       component: "coordinates-placeholder",
       componentClass: CoordinatesPlaceholderComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Keycloak Profil anwenden",
+      component: "keycloak-profile-apply-button",
+      componentClass: KeycloakProfileApplyButtonComponent,
     });
     this.calumaOptions.registerComponentOverride({
       label: "Gemeindespezifischer Inhalt",
