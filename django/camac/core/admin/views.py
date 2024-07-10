@@ -1,16 +1,21 @@
 from adminsortable2.admin import SortableAdminMixin
 from django.contrib.admin import ModelAdmin, display, register
 from django.utils.translation import gettext_lazy as _
+from localized_fields.admin import LocalizedFieldsAdminMixin
 
 from camac.admin import EbauAdminMixin, MultilingualAdminMixin
-from camac.core.admin.forms import InstanceResourceForm, ResourceForm
+from camac.core.admin.forms import (
+    InstanceResourceForm,
+    ResourceForm,
+    ServiceContentForm,
+)
 from camac.core.admin.inlines import (
     InstanceResourceTInline,
     IrRoleAclInline,
     ResourceTInline,
     RRoleAclInline,
 )
-from camac.core.models import InstanceResource, Resource
+from camac.core.models import InstanceResource, Resource, ServiceContent
 
 
 @register(Resource)
@@ -89,3 +94,15 @@ class InstanceResourceAdmin(
     @display(description=_("Available Instance Resource"))
     def get_available_instance_resource(self, obj):
         return obj.available_instance_resource.module_name
+
+
+@register(ServiceContent)
+class ServiceContentAdmin(LocalizedFieldsAdminMixin, EbauAdminMixin, ModelAdmin):
+    form = ServiceContentForm
+    ordering = ["service"]
+    list_display = ["id", "service", "content"]
+    list_per_page = 20
+    search_fields = ["content"]
+    search_fields_ml = ["trans__content"]
+    select_related = ["service"]
+    list_filter = ["service"]

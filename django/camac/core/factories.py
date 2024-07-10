@@ -340,3 +340,11 @@ class StaticContentFactory(DjangoModelFactory):
 
     class Meta:
         model = models.StaticContent
+
+
+class ServiceContentFactory(DjangoModelFactory):
+    content = Faker("text")
+    service = SubFactory(ServiceFactory)
+
+    class Meta:
+        model = models.ServiceContent

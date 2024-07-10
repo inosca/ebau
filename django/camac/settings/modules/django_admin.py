@@ -22,6 +22,7 @@ DJANGO_ADMIN = {
             "alexandria_core.Category",
             "core.InstanceResource",
             "core.Resource",
+            "core.ServiceContent",
             "gis.GISDataSource",
             "notification.NotificationTemplate",
         ],

@@ -104,3 +104,11 @@ class StaticContentFilterSet(FilterSet):
     class Meta:
         model = models.StaticContent
         fields = ("slug",)
+
+
+class ServiceContentFilterSet(FilterSet):
+    service = NumberMultiValueFilter()
+
+    class Meta:
+        model = models.ServiceContent
+        fields = ("id", "service")

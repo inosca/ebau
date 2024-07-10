@@ -1,7 +1,13 @@
 from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
 
-from camac.core.models import InstanceResource, InstanceResourceT, Resource, ResourceT
+from camac.core.models import (
+    InstanceResource,
+    InstanceResourceT,
+    Resource,
+    ResourceT,
+    ServiceContent,
+)
 from camac.user.admin.fields import CamacBooleanField, CamacLanguageField
 
 
@@ -34,4 +40,13 @@ class InstanceResourceForm(ModelForm):
 
     class Meta:
         model = InstanceResource
+        exclude = []
+
+
+class ServiceContentForm(ModelForm):
+    class Meta:
+        model = ServiceContent
+        help_texts = {
+            "content": "Inhalt",
+        }
         exclude = []
