@@ -45282,7 +45282,7 @@
     "pk": "formulardownload-pdf",
     "fields": {
       "created_at": "2020-11-02T15:50:37.421Z",
-      "modified_at": "2021-04-16T06:29:46.106Z",
+      "modified_at": "2024-07-10T09:12:28.304Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -45293,7 +45293,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Bitte erstellen Sie das pdf Formular, drucken Sie es aus und schicken Sie es unterzeichnet im Doppel an die zust\\u00e4ndige Gemeinde. Qualifiziert digital signierte Formulare k\\u00f6nnen Sie bei den Dokumenten hochladen. Diese m\\u00fcssen nicht physisch eingereicht werrden. Alle weiteren Unterlagen m\\u00fcssen nur nach Bedarf physisch eingereicht werden. Bitte nehmen Sie umgehend mit der Gemeindebaubeh\\u00f6rde Kontakt auf und kl\\u00e4ren Sie, ob und wieviele physische Dossiers eingereicht werden m\\u00fcssen.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Bitte erstellen Sie das pdf Formular, drucken Sie es aus und schicken Sie es unterzeichnet im Doppel an die zust\\u00e4ndige Gemeinde. Qualifiziert digital signierte Formulare k\\u00f6nnen Sie bei den Dokumenten hochladen. Diese m\\u00fcssen nicht physisch eingereicht werden. Alle weiteren Unterlagen m\\u00fcssen nur nach Bedarf physisch eingereicht werden. Bitte nehmen Sie umgehend mit der Gemeindebaubeh\\u00f6rde Kontakt auf und kl\\u00e4ren Sie, ob und wieviele physische Dossiers eingereicht werden m\\u00fcssen.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"Bitte erstellen Sie das pdf Formular, drucken Sie es aus und schicken Sie es unterzeichnet der zust\\u00e4ndigen Gemeinde. Alle weiteren Unterlagen m\\u00fcssen nur nach Bedarf physisch eingerecht werden. Die gemeinde wird Ihnen falls notwendig eine entsprechende Meldung schikcen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
