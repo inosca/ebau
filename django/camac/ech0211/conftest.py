@@ -25,12 +25,14 @@ def ech_instance_sz(
     form_factory,
     instance_factory,
     instance_with_case,
+    instance_group,
     caluma_config_sz,
     work_item_factory,
     location,
     utils,
 ):
     ech_instance = instance_with_case(ech_instance)
+    ech_instance.instance_group = instance_group
 
     for role in [
         "bauherrschaft",
@@ -62,13 +64,12 @@ def ech_instance_sz(
         "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
         datetime.now(),
     )
-    # create a linked instance identified by relation to the same instance_group
-    instance = instance_with_case(instance_factory(identifier=ech_instance.identifier))
-    instance.instance_group = ech_instance.instance_group
-    instance.save()
-
     ech_instance.location = location
     ech_instance.save()
+    # create a linked instance identified by relation to the same instance_group
+    instance = instance_with_case(instance_factory())
+    instance.instance_group = ech_instance.instance_group
+    instance.save()
     return ech_instance
 
 
