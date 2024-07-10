@@ -21,8 +21,9 @@ def setup_rsta(
     group_factory,
     role_t_factory,
     settings,
+    application_settings,
 ):
-    settings.APPLICATION["IS_MULTILINGUAL"] = True
+    application_settings["IS_MULTILINGUAL"] = True
     call_command("loaddata", settings.ROOT_DIR("kt_bern/config/user.json"))
     call_command("loaddata", settings.ROOT_DIR("kt_bern/data/user.json"))
     call_command("loaddata", settings.ROOT_DIR("kt_bern/config/document.json"))
