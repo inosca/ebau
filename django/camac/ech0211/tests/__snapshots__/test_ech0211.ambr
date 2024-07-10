@@ -475,6 +475,17 @@
   					</ns6:files>
   					<ns6:documentKind/>
   				</ns1:document>
+  				<ns1:referencedPlanningPermissionApplication>
+  					<ns1:localID>
+  						<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  						<ns3:Id>unknown</ns3:Id>
+  					</ns1:localID>
+  					<ns1:otherID>
+  						<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  						<ns3:Id>unknown</ns3:Id>
+  					</ns1:otherID>
+  					<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
+  				</ns1:referencedPlanningPermissionApplication>
   			</ns1:planningPermissionApplication>
   			<ns1:relationshipToPerson>
   				<ns1:role>applicant</ns1:role>
