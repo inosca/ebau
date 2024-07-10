@@ -1,4 +1,7 @@
-<LoadingOrNotfound @hasPermission={{can "create instance"}}>
+<LoadingOrNotfound
+  @loading={{this.session.fetchGroups.isLoading}}
+  @hasPermission={{can "create instance"}}
+>
   {{#let (can "create paper instance") as |isPaper|}}
     <h1 class="uk-text-center">
       {{#if isPaper}}
