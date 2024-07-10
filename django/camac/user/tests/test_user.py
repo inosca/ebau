@@ -1,6 +1,13 @@
+import json
+
 import pytest
+from caluma.caluma_form import (
+    models as caluma_form_models,
+)
 from django.urls import reverse
 from rest_framework import status
+
+from camac.utils import build_url
 
 
 def test_check_password(admin_user):
@@ -130,3 +137,80 @@ def test_user_responsible_in_service_filter(
 
     assert response.status_code == status.HTTP_200_OK
     assert len(response.json()["data"]) == expected_count
+
+
+@pytest.mark.parametrize(
+    "has_permission,expected_status",
+    [
+        (True, status.HTTP_201_CREATED),
+        (False, status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_user_keycloak_apply(
+    set_application_gr,
+    gr_user_settings,
+    admin_client,
+    admin_user,
+    mocker,
+    gr_instance,
+    settings,
+    requests_mock,
+    has_permission,
+    expected_status,
+):
+    caluma_form_models.Question.objects.create(
+        slug="e-mail-gesuchstellerin", type=caluma_form_models.Question.TYPE_TEXT
+    )
+    requests_mock.get(
+        build_url(
+            settings.API_HOST, reverse("instance-detail", args=(gr_instance.pk,))
+        ),
+        json={
+            "data": {
+                "id": gr_instance.pk,
+                "type": "instances",
+                "meta": {"permissions": {"main": ["write"] if has_permission else []}},
+            }
+        },
+    )
+    mocker.patch(
+        "camac.user.authentication.JSONWebTokenKeycloakAuthentication.get_jwt_value",
+        lambda self, token: type("token", (bytes,), {"decode": lambda: None}),
+    )
+    token_value = {
+        "sub": admin_user.username,
+        "email": admin_user.email,
+        "family_name": admin_user.surname,
+        "given_name": admin_user.name,
+    }
+    userinfo = mocker.patch("keycloak.KeycloakOpenID.userinfo")
+    userinfo.return_value = token_value
+
+    response = admin_client.post(
+        reverse("keycloak-apply"),
+        data=json.dumps({"document": str(gr_instance.case.document.pk)}),
+        content_type="application/json",
+    )
+
+    assert response.status_code == expected_status
+    if response.status_code == status.HTTP_201_CREATED:
+        assert set(response.json()["questions"]) == {
+            "e-mail-gesuchstellerin",
+            "vorname-gesuchstellerin",
+            "name-gesuchstellerin",
+        }
+
+        answers = gr_instance.case.document.answers.all()
+
+        assert (
+            answers.get(question_id="e-mail-gesuchstellerin").value
+            == token_value["email"]
+        )
+        assert (
+            answers.get(question_id="vorname-gesuchstellerin").value
+            == token_value["given_name"]
+        )
+        assert (
+            answers.get(question_id="name-gesuchstellerin").value
+            == token_value["family_name"]
+        )
