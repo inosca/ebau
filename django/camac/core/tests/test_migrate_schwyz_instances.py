@@ -20,10 +20,11 @@ def test_migrate_schwyz_instances(
     instance_responsibility_factory,
     system_operation_group,
     publication_entry_factory,
+    application_settings,
 ):
     settings.APPLICATION_DIR = settings.ROOT_DIR.path("kt_schwyz")
     settings.APPLICATION_NAME = "kt_schwyz"
-    settings.APPLICATION["CALUMA"] = {
+    application_settings["CALUMA"] = {
         "CIRCULATION_WORKFLOW": "circulation",
         "CIRCULATION_TASK": "circulation",
         "CIRCULATION_FORM": "circulation",

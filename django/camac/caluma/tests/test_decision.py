@@ -62,13 +62,14 @@ def test_complete_decision(
     expected_instance_state,
     expected_text,
     settings,
+    application_settings,
     gr_decision_settings,
     gr_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_gr"
     instance_state_factory(name=expected_instance_state)
 
-    settings.APPLICATION["NOTIFICATIONS"] = {}
+    application_settings["NOTIFICATIONS"] = {}
 
     gr_instance.case.workflow = Workflow.objects.get(pk="building-permit")
     gr_instance.case.save()

@@ -43,10 +43,11 @@ def test_gwr_data(
     canton_name,
     master_data_case,
     settings,
+    application_settings,
     snapshot,
 ):
     settings.APPLICATION_NAME = canton_name
-    settings.APPLICATION["SHORT_NAME"] = settings.APPLICATIONS[canton_name][
+    application_settings["SHORT_NAME"] = settings.APPLICATIONS[canton_name][
         "SHORT_NAME"
     ]
 

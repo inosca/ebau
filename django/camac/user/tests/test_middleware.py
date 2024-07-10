@@ -1,9 +1,9 @@
 from camac.user import middleware
 
 
-def test_get_group_default(rf, settings, admin_user, group, group_factory):
+def test_get_group_default(rf, application_settings, admin_user, group, group_factory):
     portal_group = group_factory(name="Portal")
-    settings.APPLICATION["PORTAL_GROUP"] = portal_group.pk
+    application_settings["PORTAL_GROUP"] = portal_group.pk
     request = rf.request()
     request.user = admin_user
     request.auth = {"aud": "unknown"}
@@ -12,9 +12,9 @@ def test_get_group_default(rf, settings, admin_user, group, group_factory):
     assert request_group == group
 
 
-def test_get_group_portal(rf, settings, admin_user, group, group_factory):
+def test_get_group_portal(rf, application_settings, admin_user, group, group_factory):
     portal_group = group_factory(name="Portal")
-    settings.APPLICATION["PORTAL_GROUP"] = portal_group.pk
+    application_settings["PORTAL_GROUP"] = portal_group.pk
     request = rf.request()
     request.user = admin_user
     request.auth = {"aud": "portal"}
@@ -23,9 +23,11 @@ def test_get_group_portal(rf, settings, admin_user, group, group_factory):
     assert request_group == portal_group
 
 
-def test_get_group_portal_list(rf, settings, admin_user, group, group_factory):
+def test_get_group_portal_list(
+    rf, application_settings, admin_user, group, group_factory
+):
     portal_group = group_factory(name="Portal")
-    settings.APPLICATION["PORTAL_GROUP"] = portal_group.pk
+    application_settings["PORTAL_GROUP"] = portal_group.pk
     request = rf.request()
     request.user = admin_user
     request.auth = {"aud": ["something", "portal", "else"]}

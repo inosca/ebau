@@ -336,6 +336,7 @@ def test_submit_create_acl_be(
     instance_acl_factory,
     service_factory,
     settings,
+    application_settings,
     be_access_levels,
     disable_ech0211_settings,
     permissions_settings,
@@ -350,11 +351,11 @@ def test_submit_create_acl_be(
 
     # BE uses instance service, but the code is common, so we test
     # not only BE, but SZ as well by using group services
-    settings.APPLICATION["USE_INSTANCE_SERVICE"] = use_instance_service
+    application_settings["USE_INSTANCE_SERVICE"] = use_instance_service
 
     # Not testing notification here
-    settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"] = []
-    settings.APPLICATION["NOTIFICATIONS"]["PERMISSION_ACL_GRANTED"] = []
+    application_settings["NOTIFICATIONS"]["SUBMIT"] = []
+    application_settings["NOTIFICATIONS"]["PERMISSION_ACL_GRANTED"] = []
 
     # Don't wanna do *that*
     mocker.patch(
