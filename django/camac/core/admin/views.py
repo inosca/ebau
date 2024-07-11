@@ -34,7 +34,7 @@ class ResourceAdmin(
         "get_available_resource",
     ]
     list_per_page = 20
-    ordering = ["pk"]
+    ordering = ["sort"]
     search_fields = ["name", "description"]
     search_fields_ml = ["trans__name"]
 
@@ -72,6 +72,7 @@ class InstanceResourceAdmin(
         "get_hidden",
         "get_available_instance_resource",
     ]
+    ordering = ["sort"]
     search_fields = ["name", "description"]
     search_fields_ml = ["trans__name"]
 

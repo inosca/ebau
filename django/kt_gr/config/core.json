@@ -6256,7 +6256,7 @@
       "template": "/ember-camac-ng/dms-admin.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -6269,7 +6269,7 @@
       "template": "/ember-camac-ng/service-permissions.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 7
+      "sort": 6
     }
   },
   {
@@ -6282,7 +6282,7 @@
       "template": "/dashboard/news.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -6295,7 +6295,7 @@
       "template": "/dashboard/help.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -6308,7 +6308,7 @@
       "template": "/dashboard/faq.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 10
+      "sort": 9
     }
   },
   {
@@ -6321,7 +6321,7 @@
       "template": "/ember-camac-ng/gwr-global.phtml",
       "class_field": "page",
       "hidden": 0,
-      "sort": 11
+      "sort": 4
     }
   },
   {
@@ -6334,7 +6334,7 @@
       "template": "/ember-camac-ng/communications-global.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 12
+      "sort": 2
     }
   },
   {
@@ -6347,7 +6347,7 @@
       "template": "/ember-camac-ng/alexandria-search.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 13
+      "sort": 3
     }
   },
   {
@@ -6356,7 +6356,7 @@
     "fields": {
       "resource": 20006,
       "language": "de",
-      "name": "Meine Dossiers",
+      "name": "Dossiers",
       "description": "Dossier list (Caluma)"
     }
   },
@@ -6366,7 +6366,7 @@
     "fields": {
       "resource": 20006,
       "language": "fr",
-      "name": "Mes dossiers",
+      "name": "Dossiers",
       "description": null
     }
   },
@@ -6466,7 +6466,7 @@
     "fields": {
       "resource": 14000008,
       "language": "de",
-      "name": "Dokumentensuche",
+      "name": "Dokumente",
       "description": null
     }
   }
