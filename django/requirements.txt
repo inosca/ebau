@@ -1,14 +1,13 @@
 Babel==2.15.0
 caluma==10.2.0
-caluma-alexandria==5.0.1
+caluma-alexandria==5.0.2
 cryptography==42.0.8
 dataclasses-json==0.6.6
 deepmerge==1.1.1
 # check camac/admin.py MultilingualAdminMixin.get_search_result before updating
 Django==4.2.13
 django-admin-sortable2==2.2.1
-# pin commit as fixes are not released on pypi
-django-clamd @ git+https://github.com/vstoykov/django-clamd@989141f56b23925dd9d3c5620ec5bb14b3614289
+django-clamd==1.0.0
 django-environ==0.11.2
 django-excel==0.0.10
 drf-extra-fields==3.7.0
