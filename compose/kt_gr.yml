@@ -22,7 +22,7 @@ services:
       - DJANGO_MEDIA_ROOT=/var/lib/camac/media
       - DJANGO_CLAMD_ENABLED=false
       - DJANGO_CLAMD_TCP_ADDR=clamav
-      - DJANGO_DEFAULT_FILE_STORAGE=alexandria.storages.backends.s3.S3Storage
+      - DJANGO_DEFAULT_FILE_STORAGE=storages.backends.s3.S3Storage
       - APPLICATION=${APPLICATION}
       - CACHE_BACKEND=django.core.cache.backends.memcached.PyMemcacheCache
       - CACHE_LOCATION=cache:11211
@@ -86,7 +86,7 @@ services:
         APPLICATION: ${APPLICATION}
     environment:
       - CACHE_LOCATION=cache:11211
-      - FILE_STORAGE=storages.backends.s3boto3.S3Boto3Storage
+      - FILE_STORAGE=storages.backends.s3.S3Storage
       - AWS_STORAGE_BUCKET_NAME=dms-media
       - AWS_S3_SIGNATURE_VERSION=s3v4
 

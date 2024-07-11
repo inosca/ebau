@@ -1979,6 +1979,38 @@ STORAGES = {
         "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
     },
 }
+
+ENABLE_AT_REST_ENCRYPTION = env.bool("ENABLE_AT_REST_ENCRYPTION", default=False)
+if (
+    is_s3_storage := STORAGES["default"]["BACKEND"] == "storages.backends.s3.S3Storage"
+):  # pragma: no cover
+    storage_options = {
+        "access_key": env.str(
+            "AWS_S3_ACCESS_KEY_ID",
+            default=default("minio", require_if(is_s3_storage)),
+        ),
+        "secret_key": env.str(
+            "AWS_S3_SECRET_ACCESS_KEY",
+            default=default("minio123", require_if(is_s3_storage)),
+        ),
+        "endpoint_url": env.str(
+            "AWS_S3_ENDPOINT_URL",
+            default=default("http://minio:9000", require_if(is_s3_storage)),
+        ),
+        "bucket_name": env.str("AWS_STORAGE_BUCKET_NAME", default="ebau-media"),
+    }
+
+    if ENABLE_AT_REST_ENCRYPTION:
+        storage_options["object_parameters"] = {
+            "SSECustomerKey": env.str(
+                "S3_STORAGE_SSEC_SECRET",
+                default=default("x" * 32, require_if(ENABLE_AT_REST_ENCRYPTION)),
+            ),
+            "SSECustomerAlgorithm": "AES256",
+        }
+
+    STORAGES["default"]["OPTIONS"] = storage_options
+
 FILE_UPLOAD_PERMISSIONS = env.int("FILE_UPLOAD_PERMISSIONS", default=0o644)
 
 THUMBNAIL_ENGINE = "sorl.thumbnail.engines.convert_engine.Engine"
@@ -2541,21 +2573,3 @@ GENERIC_PERMISSIONS_PERMISSION_CLASSES = [
 GENERIC_PERMISSIONS_VALIDATION_CLASSES = [
     "camac.alexandria.extensions.validations.CustomValidation"
 ]
-
-
-is_s3_storage = STORAGES["default"]["BACKEND"] == "storages.backends.s3.S3Storage"
-
-AWS_S3_ACCESS_KEY_ID = env.str(
-    "AWS_S3_ACCESS_KEY_ID",
-    default=default("minio", require_if(is_s3_storage)),
-)
-AWS_S3_SECRET_ACCESS_KEY = env.str(
-    "AWS_S3_SECRET_ACCESS_KEY",
-    default=default("minio123", require_if(is_s3_storage)),
-)
-AWS_S3_ENDPOINT_URL = env.str(
-    "AWS_S3_ENDPOINT_URL",
-    default=default("http://ember-ebau.local", require_if(is_s3_storage)),
-)
-AWS_S3_SIGNATURE_VERSION = "s3v4"
-AWS_STORAGE_BUCKET_NAME = env.str("AWS_STORAGE_BUCKET_NAME", default="ebau-media")
