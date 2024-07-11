@@ -1234,7 +1234,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         target_lookup = self._get_pdf_section(instance, form_slug)
         if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
-            create_alexandria_document_file(
+            document, file = create_alexandria_document_file(
                 user=request.user.pk,
                 group=request.group.service_id,
                 category=alexandria_models.Category.objects.get(pk=target_lookup),
@@ -1250,6 +1250,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                     },
                 },
             )
+            document.marks.add(settings.ALEXANDRIA["MARK_VISIBILITY"]["SENSITIVE"][0])
         else:
             attachment_section = AttachmentSection.objects.get(pk=target_lookup)
             attachment_section.attachments.create(
