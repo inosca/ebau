@@ -84,5 +84,6 @@ $main-navigation-background: $global-primary-background !default;
   > div:last-child {
     padding-bottom: 0;
     border-top: none;
+    min-height: 70dvh;
   }
 }
