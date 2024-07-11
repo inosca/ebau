@@ -1543,3 +1543,12 @@ msgstr "Der Benutzer ist bereits in dieser Gruppe"
 
 #~ msgid "Form may not be changed."
 #~ msgstr "Formular darf nicht geändert werden."
+
+msgid "Service content"
+msgstr "Gemeindespezifischer Formularinhalt"
+
+msgid "Service contents"
+msgstr "Gemeindespezifische Formularinhalte"
+
+msgid "Content"
+msgstr "Inhalt"
