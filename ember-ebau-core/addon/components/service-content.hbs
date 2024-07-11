@@ -1,9 +1,10 @@
 <div>
   {{#if this.content.isRunning}}
     <UkSpinner />
-  {{else}}
+  {{else if this.content.value}}
+    <p>{{t "service-content.notice"}}</p>
     <MarkdownToHtml
-      class="markdown-content"
+      class="markdown-content service-content uk-background-muted uk-padding-small"
       @markdown={{this.content.value}}
       @openLinksInNewWindow={{true}}
     />
