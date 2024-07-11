@@ -15,7 +15,7 @@ class CustomValidation(AlexandriaValidator):
         for mark in marks:
             if mark.pk in settings.ALEXANDRIA["EXCLUSIVE_MARKS"] and len(marks) > 1:
                 raise ValidationError(
-                    _('Mark "%(mark)s" can not be combined with other marks')
+                    _('Mark "%(mark)s" can not be combined with other marks.')
                     % {"mark": mark.name.translate()}
                 )
 
