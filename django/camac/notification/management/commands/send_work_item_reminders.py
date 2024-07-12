@@ -188,8 +188,23 @@ class Command(BaseCommand):
         print(f"sending {len(emails)} reminders")
 
         if emails:
+            # We could also invoke connection.send_messages() with all emails at
+            # once, but exceptions would cause the sending to be aborted halfway
+            # through, so we do the looping (and exception handling) here
+            # instead.
             connection = mail.get_connection()
-            connection.send_messages(emails)
+            connection.open()
+            nsent = 0
+            nfailed = 0
+            for email in emails:
+                try:
+                    connection.send_messages([email])
+                    nsent += 1
+                except Exception as e:  # pragma: no cover
+                    print(e)
+                    nfailed += 1
+            print(f"ok: {nsent}, failed: {nfailed}")
+            connection.close()
 
     def _get_addressed_and_controlling_services(self, work_items):
         all_service_ids = set()
