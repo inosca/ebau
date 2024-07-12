@@ -833,6 +833,9 @@ def caluma_forms_be(settings):
     question = caluma_form_models.Question.objects.create(
         slug="name-gesuchstellerin", type=caluma_form_models.Question.TYPE_TEXT
     )
+    caluma_form_models.Question.objects.create(
+        slug="e-mail-gesuchstellerin", type=caluma_form_models.Question.TYPE_TEXT
+    )
 
     # migrated
     geschaeftstyp = caluma_form_models.Question.objects.create(

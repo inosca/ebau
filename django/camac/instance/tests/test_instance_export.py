@@ -57,6 +57,11 @@ def test_caluma_export_be(
         row_doc,
         value="Muster",
     )
+    form_api.save_answer(
+        caluma_form_models.Question.objects.get(pk="e-mail-gesuchstellerin"),
+        row_doc,
+        value="foo@bar.ch",
+    )
 
     form_api.save_answer(
         caluma_form_models.Question.objects.get(pk="personalien-gesuchstellerin"),

@@ -763,6 +763,10 @@ msgstr "Date de réception"
 msgid "Status"
 msgstr "État"
 
+#: camac/instance/export/serializers.py:97
+msgid "Applicants emails"
+msgstr ""
+
 #: camac/instance/export/serializers.py:98
 msgid "Administrative District"
 msgstr "Arrondissement administratif"
