@@ -64,8 +64,8 @@ dumpdata: ## Dump the current camac and caluma data
 
 .PHONY: loadconfig-camac
 loadconfig-camac: ## Load the camac configuration
-	@echo "\e[31m⚠️  Loading CAMAC config. This can take a moment, especially if migrations are running.\e[0m"
-	@echo "\e[31m   While this is in progress, do not use the web-interface yet!\e[0m"
+	@printf '\033[31m⚠️  Loading CAMAC config. This can take a moment, especially if migrations are running.\033[0m\n'
+	@printf '\033[31m   While this is in progress, do not use the web-interface yet!\033[0m\n'
 	@docker compose exec django ./wait-for-it.sh -t 300 127.0.0.1:80 -- python manage.py camac_load --user $(GIT_USER)
 
 .PHONY: loadconfig-dms
@@ -85,7 +85,7 @@ dumpconfig-dms: ## Dump the DMS configuration
 .PHONY: loadconfig-keycloak
 loadconfig-keycloak: ## Load the keycloak configuration
 	@if [ ${APPLICATION_ENV} = "development" ]; then \
-		echo -n "loading keycloak config... "; \
+		printf 'loading keycloak config... '; \
 		docker compose exec keycloak /opt/keycloak/bin/kc.sh import --override true --file /opt/keycloak/data/import/test-config.json >/dev/null 2>&1 || true; \
 		echo "done."; \
 	fi
@@ -97,7 +97,7 @@ dumpconfig-keycloak: ## Dump the keycloak configuration
 
 .PHONY: loadconfig
 loadconfig: loadconfig-camac loadconfig-dms loadconfig-keycloak ## Load all configuration
-	@echo "\e[32mConfiguration has been loaded successfully. Go ahead and login.🚀\e[0m"
+	@printf '\033[32mConfiguration has been loaded successfully. Go ahead and login.🚀\033[0m\n'
 
 .PHONY: dbshell
 dbshell: ## Start an interactive psql shell
@@ -255,8 +255,8 @@ release: ## Draft a new release
 release-folder: ## Add a template for a release folder
 	@if [ -z $(version) ]; then echo "Please pass a version: make release-folder version=x.x.x"; exit 1; fi
 	@mkdir -p "releases/$(version)"
-	@echo "# Neu\n-\n# Korrekturen\n-" >> "releases/$(version)/CHANGELOG.md"
-	@echo "# Änderungen\n## Ansible (Rolle / Variablen)\n-\n## DB\n-\n## Apache\n-" >> "releases/$(version)/MANUAL.md"
+	@printf '# Neu\n-\n# Korrekturen\n-\n' >> "releases/$(version)/CHANGELOG.md"
+	@printf '# Änderungen\n## Ansible (Rolle / Variablen)\n-\n## DB\n-\n## Apache\n-\n' >> "releases/$(version)/MANUAL.md"
 
 .PHONY: django-shell
 django-shell:
@@ -279,7 +279,7 @@ load-be-dump:
 		echo "Enter credentials for https://cloud.adfinis.com:"; \
 		read -p "Username: " user; \
 		read -p "Password: " -s pass; \
-		echo "\n"; \
+		echo; \
 		curl -s -u $$user:$$pass --output latest.dmp https://cloud.adfinis.com/remote.php/webdav/partner/KantonBE/db_dumps/ebau.apps.be.ch/latest.dmp > /dev/null; \
 	fi
 	@docker cp latest.dmp $(DB_CONTAINER):/tmp
