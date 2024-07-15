@@ -1,6 +1,9 @@
 import json
 import logging
+from hashlib import md5
 
+from django.core.cache import cache
+from django.utils import timezone
 from jwcrypto.common import JWException
 from requests import HTTPError, JSONDecodeError
 from rest_framework import exceptions, response, status
@@ -26,6 +29,12 @@ class TokenExchangeView(APIView):
         if not jwt_token:
             raise exceptions.AuthenticationFailed("JWT token must be passed")
 
+        token_hash = md5(jwt_token.encode("utf-8")).hexdigest()
+        cache_key = f"token_exchange_{token_hash}"
+
+        if cache.get(cache_key):
+            raise exceptions.AuthenticationFailed("JWT token can't be used twice")
+
         try:
             jwt_data = extract_jwt_data(jwt_token)
             username = build_username(jwt_data)
@@ -34,6 +43,8 @@ class TokenExchangeView(APIView):
             keycloak_client.update_or_create_user(username, jwt_data)
 
             token = keycloak_client.token_exchange(username)
+
+            cache.set(cache_key, True, jwt_data["exp"] - timezone.now().timestamp())
         except HTTPError as e:
             try:
                 result = e.response.json()
