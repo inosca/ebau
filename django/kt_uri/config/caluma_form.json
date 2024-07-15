@@ -10179,21 +10179,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "ordentliches-bewilligungsverfahren.medlungen-bauentscheid",
-    "fields": {
-      "created_at": "2021-12-02T09:46:36.286Z",
-      "modified_at": "2021-12-02T09:46:36.286Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "ordentliches-bewilligungsverfahren",
-      "question": "medlungen-bauentscheid",
-      "sort": 10
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "ordentliches-bewilligungsverfahren.meldung-bauentscheid-an-geometer",
     "fields": {
       "created_at": "2021-12-02T09:51:12.062Z",
@@ -41967,6 +41952,42 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "construction-monitoring-update-gwr-state-complete",
+    "fields": {
+      "created_at": "2024-06-13T13:03:17.522Z",
+      "modified_at": "2024-07-04T11:13:31.567Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Status Baubeginn nachgetragen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "coordinates-east",
     "fields": {
       "created_at": "2020-09-01T15:03:44.135Z",
@@ -51834,37 +51855,6 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "medlungen-bauentscheid",
-    "fields": {
-      "created_at": "2021-12-02T09:46:36.228Z",
-      "modified_at": "2021-12-02T15:21:40.584Z",
-      "created_by_user": "paul.walker@ur.ch",
-      "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Medlungen Bauentscheid an Dritte\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Die Meldung \\u00fcber einen Bauentscheid an Dritte sollte erst ausgel\\u00f6st werden, wenn der Entscheid rechtskr\\u00e4ftig ist (bitte Abschnitt Rechtsmittelverfahren beachten).\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"###Meldung \\\"Bauentscheid\\\" an Dritte\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,

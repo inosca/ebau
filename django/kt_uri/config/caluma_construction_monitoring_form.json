@@ -19,25 +19,7 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "construction-monitoring-update-gwr-state-construction-finished",
-    "fields": {
-      "created_at": "2024-07-03T13:02:17.311Z",
-      "modified_at": "2024-07-03T13:02:17.311Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"GWR Status nachf\\u00fchren (Bau beendet)\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "meta": {},
-      "is_published": true,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
-    "pk": "construction-monitoring-update-gwr-state-start-of-construction",
+    "pk": "construction-monitoring-update-gwr-state",
     "fields": {
       "created_at": "2024-06-13T13:02:17.311Z",
       "modified_at": "2024-06-13T13:02:17.311Z",
@@ -45,7 +27,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"GWR Status nachf\\u00fchren (Baubeginn melden)\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"GWR Status nachf\\u00fchren\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": true,
@@ -439,32 +421,62 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "construction-monitoring-update-gwr-state-construction-finished.construction-monitoring-update-gwr-state-construction-finished-complete",
+    "pk": "construction-monitoring-update-gwr-state.gwr-dossier-verknuepft",
     "fields": {
-      "created_at": "2024-07-03T13:10:17.203Z",
-      "modified_at": "2024-07-03T13:10:17.203Z",
+      "created_at": "2024-07-05T09:01:04.925Z",
+      "modified_at": "2024-07-05T09:01:04.925Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "construction-monitoring-update-gwr-state-construction-finished",
-      "question": "construction-monitoring-update-gwr-state-construction-finished-complete",
+      "form": "construction-monitoring-update-gwr-state",
+      "question": "gwr-dossier-verknuepft",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-monitoring-update-gwr-state.gwr-status-nachfuehren",
+    "fields": {
+      "created_at": "2024-07-05T09:02:03.223Z",
+      "modified_at": "2024-07-05T09:02:03.223Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-monitoring-update-gwr-state",
+      "question": "gwr-status-nachfuehren",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "construction-monitoring-update-gwr-state-start-of-construction.construction-monitoring-update-gwr-state-start-of-construction-complete",
+    "pk": "construction-monitoring-update-gwr-state.gwr-status-nachfuehren-titel",
     "fields": {
-      "created_at": "2024-06-13T13:10:17.203Z",
-      "modified_at": "2024-06-13T13:10:17.203Z",
+      "created_at": "2024-07-04T11:10:31.464Z",
+      "modified_at": "2024-07-04T11:10:31.464Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "construction-monitoring-update-gwr-state-start-of-construction",
-      "question": "construction-monitoring-update-gwr-state-start-of-construction-complete",
-      "sort": 1
+      "form": "construction-monitoring-update-gwr-state",
+      "question": "gwr-status-nachfuehren-titel",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-monitoring-update-gwr-state.hinweis-gwr-status-nachfuehren",
+    "fields": {
+      "created_at": "2024-07-04T11:11:38.930Z",
+      "modified_at": "2024-07-04T11:11:38.930Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-monitoring-update-gwr-state",
+      "question": "hinweis-gwr-status-nachfuehren",
+      "sort": 3
     }
   },
   {
@@ -960,6 +972,21 @@
       "form": "construction-step-schnurgeruestabnahme-planen",
       "question": "construction-step-schnurgeruestabnahme-planen-datum-der-abnahme",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-schnurgeruestabnahme-planen.schnurgeruestabnahme-durch",
+    "fields": {
+      "created_at": "2024-07-05T11:03:11.512Z",
+      "modified_at": "2024-07-05T11:03:11.512Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-schnurgeruestabnahme-planen",
+      "question": "schnurgeruestabnahme-durch",
+      "sort": 3
     }
   },
   {
@@ -1644,6 +1671,86 @@
     }
   },
   {
+    "model": "caluma_form.option",
+    "pk": "gwr-dossier-verknuepft-ja",
+    "fields": {
+      "created_at": "2024-07-05T09:01:04.561Z",
+      "modified_at": "2024-07-05T09:01:04.562Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dossier wurde mit GWR verkn\\u00fcpft\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gwr-status-nachfuehren-baubeginn",
+    "fields": {
+      "created_at": "2024-07-05T09:02:02.900Z",
+      "modified_at": "2024-07-05T09:02:02.901Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baubeginn wurde im GWR nachgef\\u00fchrt\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gwr-status-nachfuehren-bauende",
+    "fields": {
+      "created_at": "2024-07-05T09:02:02.914Z",
+      "modified_at": "2024-07-05T09:02:02.914Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauende wurde im GWR nachgef\\u00fchrt\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wer-fuehrt-die-schnurgeruestabnahme-durch-gemeinde",
+    "fields": {
+      "created_at": "2024-07-05T11:03:11.146Z",
+      "modified_at": "2024-07-05T11:03:11.147Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gemeinde\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wer-fuehrt-die-schnurgeruestabnahme-durch-geometer",
+    "fields": {
+      "created_at": "2024-07-05T11:03:11.151Z",
+      "modified_at": "2024-07-05T11:03:11.151Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Geometer\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
     "model": "caluma_form.question",
     "pk": "complete-instance-title",
     "fields": {
@@ -1663,78 +1770,6 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"<div class=\\\"uk-text-lead uk-text-bold\\\">Verfahren abschliessen</div>\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "construction-monitoring-update-gwr-state-construction-finished-complete",
-    "fields": {
-      "created_at": "2024-07-03T13:03:17.522Z",
-      "modified_at": "2024-07-03T13:03:17.522Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Abschliessen\", \"fr\": null, \"it\": null}",
-      "type": "action_button",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "color": "primary",
-        "action": "complete",
-        "show_validation": false,
-        "validate_on_enter": false
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "construction-monitoring-update-gwr-state-start-of-construction-complete",
-    "fields": {
-      "created_at": "2024-06-13T13:03:17.522Z",
-      "modified_at": "2024-06-13T13:03:17.522Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Abschliessen\", \"fr\": null, \"it\": null}",
-      "type": "action_button",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "color": "primary",
-        "action": "complete",
-        "show_validation": false,
-        "validate_on_enter": false
-      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -3123,6 +3158,161 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "gwr-dossier-verknuepft",
+    "fields": {
+      "created_at": "2024-07-05T09:01:04.746Z",
+      "modified_at": "2024-07-05T09:01:04.746Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"GWR Dossier verkn\\u00fcpft\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Falls Sie das URec Dossier noch nicht mit dem GWR verkn\\u00fcpft haben, sollten Sie dies jetzt tun.\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gwr-status-nachfuehren",
+    "fields": {
+      "created_at": "2024-07-05T09:02:03.069Z",
+      "modified_at": "2024-07-05T09:02:03.069Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"GWR Status nachf\\u00fchren\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gwr-status-nachfuehren-titel",
+    "fields": {
+      "created_at": "2024-07-04T11:10:31.298Z",
+      "modified_at": "2024-07-04T11:15:42.432Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"GWR Status nachf\\u00fchren Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"## GWR Status nachf\\u00fchren\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-gwr-status-nachfuehren",
+    "fields": {
+      "created_at": "2024-07-04T11:11:38.734Z",
+      "modified_at": "2024-07-04T11:27:09.228Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis GWR Status nachf\\u00fchren\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-width-1-2\\\">\\n\\tBitte wechseln Sie zum Menu <b>Verkn\\u00fcpfte GWR-Bauprojekte</b> und aktualisieren Sie im GWR den Status des Projekts von <b>bewilligt</b> in <b>baubegonnen</b> (falls Sie das URec Dossier noch nicht mit dem GWR verkn\\u00fcpft haben, bitten wir Sie, das jetzt zu tun.\\n\\t<br><br>\\n\\tDer GWR Status muss anschliessend von <b>beantragt</b> auf <b>bewilligt</b> und dann auf <b>baubegonnen</b> gesetzt werden).\\n\\n</div>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "schnurgeruestabnahme-durch",
+    "fields": {
+      "created_at": "2024-07-05T11:03:11.325Z",
+      "modified_at": "2024-07-05T11:03:11.325Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wer f\\u00fchrt die Schnurger\\u00fcstabnahme durch?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "verfahren-abschliessen",
     "fields": {
       "created_at": "2023-11-10T08:46:06.499Z",
@@ -3694,6 +3884,81 @@
       "modified_by_group": null,
       "question": "grundbucheintrag-zwg",
       "option": "grundbucheintrag-zwg-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gwr-dossier-verknuepft.gwr-dossier-verknuepft-ja",
+    "fields": {
+      "created_at": "2024-07-05T09:01:04.766Z",
+      "modified_at": "2024-07-05T09:01:04.766Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "gwr-dossier-verknuepft",
+      "option": "gwr-dossier-verknuepft-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gwr-status-nachfuehren.gwr-status-nachfuehren-baubeginn",
+    "fields": {
+      "created_at": "2024-07-05T09:02:03.091Z",
+      "modified_at": "2024-07-05T09:02:03.091Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "gwr-status-nachfuehren",
+      "option": "gwr-status-nachfuehren-baubeginn",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gwr-status-nachfuehren.gwr-status-nachfuehren-bauende",
+    "fields": {
+      "created_at": "2024-07-05T09:02:03.083Z",
+      "modified_at": "2024-07-05T09:02:03.083Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "gwr-status-nachfuehren",
+      "option": "gwr-status-nachfuehren-bauende",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "schnurgeruestabnahme-durch.wer-fuehrt-die-schnurgeruestabnahme-durch-gemeinde",
+    "fields": {
+      "created_at": "2024-07-05T11:03:11.352Z",
+      "modified_at": "2024-07-05T11:03:11.352Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "schnurgeruestabnahme-durch",
+      "option": "wer-fuehrt-die-schnurgeruestabnahme-durch-gemeinde",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "schnurgeruestabnahme-durch.wer-fuehrt-die-schnurgeruestabnahme-durch-geometer",
+    "fields": {
+      "created_at": "2024-07-05T11:03:11.344Z",
+      "modified_at": "2024-07-05T11:03:11.344Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "schnurgeruestabnahme-durch",
+      "option": "wer-fuehrt-die-schnurgeruestabnahme-durch-geometer",
       "sort": 1
     }
   }

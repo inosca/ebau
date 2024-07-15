@@ -8,12 +8,15 @@ from caluma.caluma_workflow.dynamic_groups import (
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 
+from camac.caluma.api import CalumaApi
 from camac.constants import kt_uri as uri_constants
 from camac.instance import utils as instance_utils
 from camac.instance.models import Instance
 from camac.user.models import Service, ServiceRelation
 
 log = logging.getLogger()
+
+caluma_api = CalumaApi()
 
 
 class CustomDynamicGroups(BaseDynamicGroups):
@@ -168,3 +171,18 @@ class CustomDynamicGroups(BaseDynamicGroups):
     @register_dynamic_group("abwasser-uri")
     def resolve_abwasser_uri(self, task, case, user, prev_work_item, context, **kwargs):
         return [str(Service.objects.get(pk=uri_constants.ABWASSER_URI_SERVICE_ID).pk)]
+
+    @register_dynamic_group("schnurgeruestabnahme-uri")
+    def resolve_schnurgeruestabnahme_uri(
+        self, task, case, user, prev_work_item, context, **kwargs
+    ):
+        answer = CalumaApi().get_answer_value(
+            "schnurgeruestabnahme-durch", case.instance
+        )
+        if answer == "schnurgeruestabnahme-durch-gemeinde":
+            return self.resolve_municipality(
+                task, case, user, prev_work_item, context, **kwargs
+            )
+        return self.resolve_geometer_ur(
+            task, case, user, prev_work_item, context, **kwargs
+        )

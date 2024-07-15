@@ -1,5 +1,5 @@
 query GetConstructionMonitoringCount($instanceId: GenericScalar!, $tasks: [String] ) {
-  ready: allWorkItems(
+  allWorkItems(
     filter: [
       { tasks: $tasks}
       { rootCaseMetaValue: { key: "camac-instance-id", value: $instanceId } }

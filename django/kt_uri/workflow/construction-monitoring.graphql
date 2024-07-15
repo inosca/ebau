@@ -118,24 +118,9 @@ mutation ConstructionStepBaubeginnMeldenTask {
 mutation UpdateGWRStateTaskStartOfConstruction {
   saveCompleteTaskFormTask(
     input: {
-      slug: "construction-monitoring-update-gwr-state-start-of-construction"
-      name: "GWR Status nachführen (Baubeginn melden)"
-      form: "construction-monitoring-update-gwr-state-start-of-construction"
-      addressGroups: "['municipality', 'applicant']|groups"
-      controlGroups: "['municipality']|groups"
-      leadTime: 432000 # 5 days
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation UpdateGWRStateTaskConstructionFinished {
-  saveCompleteTaskFormTask(
-    input: {
-      slug: "construction-monitoring-update-gwr-state-construction-finished"
-      name: "GWR Status nachführen (Bau beendet)"
-      form: "construction-monitoring-update-gwr-state-construction-finished"
+      slug: "construction-monitoring-update-gwr-state"
+      name: "GWR Status nachführen"
+      form: "construction-monitoring-update-gwr-state"
       addressGroups: "['municipality', 'applicant']|groups"
       controlGroups: "['municipality']|groups"
       leadTime: 432000 # 5 days
@@ -462,7 +447,7 @@ mutation ConstructionStepBaubeginnMeldenFlow {
     input: {
       workflow: "construction-stage"
       tasks: ["construction-step-baubeginn-melden"]
-      next: "['after-construction-step', 'construction-monitoring-update-gwr-state-start-of-construction']|tasks"
+      next: "['after-construction-step', 'construction-monitoring-update-gwr-state']|tasks"
     }
   ) {
     clientMutationId
@@ -630,7 +615,7 @@ mutation ConstructionStepSchlussabnahmeProjektFlow {
     input: {
       workflow: "construction-stage"
       tasks: ["construction-step-schlussabnahme-projekt"]
-      next: "['after-construction-step', 'construction-monitoring-update-gwr-state-construction-finished']|tasks"
+      next: "['after-construction-step', 'construction-monitoring-update-gwr-state']|tasks"
     }
   ) {
     clientMutationId
