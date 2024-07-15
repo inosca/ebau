@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Poedit-Basepath: ../../..\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -363,7 +363,7 @@ msgstr ""
 msgid "Specifying an \"attachments\" filter is mandatory!"
 msgstr "Der \"attachments\" Filter ist obligatorisch!"
 
-#: camac/dossier_import/loaders.py:234
+#: camac/dossier_import/loaders.py:277
 #, python-format
 msgid ""
 "The given coordinates (E: %(e)i and N: %(n)i) are not in Switzerland or are "
@@ -372,14 +372,14 @@ msgstr ""
 "Die angegebenen Koordinaten (O: %(e)i und N: %(n)i) befinden sich nicht in "
 "der Schweiz oder nutzen nicht das Schweizer Koordinatensystem (epsg:2056)."
 
-#: camac/dossier_import/loaders.py:252
+#: camac/dossier_import/loaders.py:295
 #, python-format
 msgid "Failed to load and transform coordinates from E: %(e)i and N: %(n)i"
 msgstr ""
 "Laden und transformieren der Koordinaten E: %(e)i und N: %(n)i ist "
 "fehlgeschlagen"
 
-#: camac/dossier_import/loaders.py:300
+#: camac/dossier_import/loaders.py:352
 #, python-format
 msgid ""
 "Failed to load plot with numbers `%(plot_numbers)s` and egrid values "
@@ -388,15 +388,15 @@ msgstr ""
 "Parzellendaten konnten nicht geladen werden. Nummer(n): `%(plot_numbers)s`. "
 "Egrid: `%(egrids)s`"
 
-#: camac/dossier_import/loaders.py:313 camac/dossier_import/validation.py:125
+#: camac/dossier_import/loaders.py:365 camac/dossier_import/validation.py:304
 msgid "Meta data file in archive is corrupt or not a valid .xlsx file."
 msgstr "Die Metadatendatei `dossiers.xlsx` ist kein gültiges Xlsx-Format."
 
-#: camac/dossier_import/messages.py:165
+#: camac/dossier_import/messages.py:184
 msgid "have the same ID"
 msgstr "haben die selbe ID"
 
-#: camac/dossier_import/messages.py:167
+#: camac/dossier_import/messages.py:186
 msgid ""
 "have an invalid value in date field. Please use the format \"DD.MM.YYYY\" (e."
 "g. \"13.04.2021\")"
@@ -404,31 +404,43 @@ msgstr ""
 "haben ein ungültiges Datum. Datumsangaben bitte im Format \"DD.MM.YYYY\" (e."
 "g. \"13.04.2021\") machen"
 
-#: camac/dossier_import/messages.py:169
+#: camac/dossier_import/messages.py:188
 msgid "have an invalid status"
 msgstr "haben einen ungültigen Status"
 
-#: camac/dossier_import/messages.py:171
+#: camac/dossier_import/messages.py:189
+msgid "will be updated"
+msgstr "gefunden und werden bei Re-Import aktualisiert"
+
+#: camac/dossier_import/messages.py:190
+msgid "cleared values"
+msgstr "haben Werte nach Re-Import gelöscht"
+
+#: camac/dossier_import/messages.py:191
+msgid "updated attachments"
+msgstr "Dokumente bei Re-Import überschrieben"
+
+#: camac/dossier_import/messages.py:193
 msgid "miss a value in a required field"
 msgstr "fehlt ein Wert in einem zwingenden Feld"
 
-#: camac/dossier_import/messages.py:173
+#: camac/dossier_import/messages.py:195
 msgid "don't have a unique ID"
 msgstr "haben keine eindeutige ID"
 
-#: camac/dossier_import/messages.py:174
+#: camac/dossier_import/messages.py:196
 msgid "have an invalid value"
 msgstr "haben einen ungültigen Wert"
 
-#: camac/dossier_import/messages.py:176
+#: camac/dossier_import/messages.py:198
 msgid "have at least one document with an unknown file type"
 msgstr "weisen ein Dokument mit unbekanntem Dateityp auf"
 
-#: camac/dossier_import/messages.py:179
+#: camac/dossier_import/messages.py:201
 msgid "have an inconsistent workflow state"
 msgstr "befinden sich in einem ungültigen Workflow-Zustand"
 
-#: camac/dossier_import/messages.py:209
+#: camac/dossier_import/messages.py:231
 #, python-format
 msgid "%(count)i dossiers %(message)s. Affected dossiers:%(entries)s"
 msgstr "%(count)i Dossiers %(message)s. Betroffene Dossiers:%(entries)s"
@@ -445,23 +457,23 @@ msgstr ""
 msgid "No location assigned."
 msgstr "Kein Standort gesetzt."
 
-#: camac/dossier_import/validation.py:46
+#: camac/dossier_import/validation.py:48
 msgid "To start an import please upload a file."
 msgstr "Bitte eine Datei mitreichen, um einen Import zu starten."
 
-#: camac/dossier_import/validation.py:51
+#: camac/dossier_import/validation.py:53
 msgid "Uploaded file is not a valid .zip file"
 msgstr "Die hochgeladene Datei ist kein gültiges Zip-Format"
 
-#: camac/dossier_import/validation.py:56
+#: camac/dossier_import/validation.py:58
 msgid "No metadata file 'dossiers.xlsx' found in uploaded archive."
 msgstr "Metadatendatei `dossiers.xlsx` fehlt im hochgeladenen Archiv."
 
-#: camac/dossier_import/validation.py:62
+#: camac/dossier_import/validation.py:64
 msgid "Metadata file `dossiers.xlsx` is not a valid .xlsx file."
 msgstr "Die Metadatendatei `dossiers.xlsx` ist kein gültiges Xlsx-Format."
 
-#: camac/dossier_import/validation.py:78
+#: camac/dossier_import/validation.py:80
 #, python-format
 msgid ""
 "%(count)i document folders were not found in the metadata file and will not "
@@ -472,28 +484,32 @@ msgstr ""
 "und werden nicht importiert:\n"
 "%(entries)s"
 
-#: camac/dossier_import/validation.py:85
+#: camac/dossier_import/validation.py:87
 #, python-format
 msgid "%(count)i dossiers have no document folder."
 msgstr "%(count)i Dossiers ohne Dokumentenverzeichnis."
 
-#: camac/dossier_import/validation.py:136
+#: camac/dossier_import/validation.py:210
+msgid "STATUS will be ignored when updating the dossier"
+msgstr ""
+
+#: camac/dossier_import/validation.py:274
 #, python-format
 msgid ""
-"Meta data file in archive is missing required columns %(missing)s. Found "
-"%(found)s"
+"Meta data file in archive is missing required columns %(missing)s. Required "
+"columns %(required)s"
 msgstr ""
-"Spalte %(missing)s fehlt in der Metadatendatei des Archivs. Folgende Spalten "
-"wurden gefunden: %(found)s"
+"Spalte %(missing)s fehlt in der Metadatendatei des Archivs. Erforderliche "
+"Spalten: %(required)s"
 
-#: camac/dossier_import/validation.py:144
+#: camac/dossier_import/validation.py:312
 #, python-format
 msgid ""
 "Found unknown columns: %(extra)s. Those columns will be ignored while "
 "importing."
 msgstr ""
 "Die folgenden Spalten wurden nicht erkannt und werden beim Import ignoriert: "
-"%(extra)s"
+"%(extra)s."
 
 #: camac/dossier_import/views.py:69
 msgid ""
@@ -517,7 +533,16 @@ msgstr ""
 "Die genehmigten Dossiers können hier eingesehen werden:\n"
 "%(import_url)s"
 
-#: camac/dossier_import/writers.py:221
+#: camac/dossier_import/writers.py:246
+#, python-format
+msgid ""
+"Deleting %(target)s has no effect because work item %(task)s does not exist. "
+"Skipping."
+msgstr ""
+"%(target)s löschen ist nicht möglich, weil die Aufgabe %(task)s fehlt. Wird "
+"übersprungen."
+
+#: camac/dossier_import/writers.py:299
 #, python-format
 msgid "Value \"%(value)s\" in field %(target)s is too long (max: %(max)s)"
 msgstr ""

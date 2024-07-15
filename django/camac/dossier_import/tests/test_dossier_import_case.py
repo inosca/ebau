@@ -1,3 +1,4 @@
+import weakref
 from pathlib import Path
 
 import pytest
@@ -11,7 +12,11 @@ from camac.core.models import InstanceLocation
 from camac.document.tests.data import django_file
 from camac.dossier_import.dossier_classes import Attachment, Dossier
 from camac.dossier_import.loaders import InvalidImportDataError, XlsxFileDossierLoader
-from camac.dossier_import.messages import MessageCodes, Severity, update_summary
+from camac.dossier_import.messages import (
+    MessageCodes,
+    Severity,
+    update_summary,
+)
 from camac.dossier_import.validation import validate_zip_archive_structure
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
@@ -69,14 +74,16 @@ def test_create_instance_dossier_import_case(
     camac_instance,
     admin_user,
     group,
+    settings,
 ):
-    # The test import file features faulty lines for cov
-    # - 3 lines with good data (1 without documents directory)
+    # The test import file features faulty lines
+    # 7 lines total. duplicate IDs are ignored
+    # - 3 lines with good data (2 without documents directory)
     # - 1 line with missing data
     # - 1 line with duplicate data (gemeinde-id)
     writer = setup_dossier_writer(config)
     dossier_import = dossier_import_factory(
-        source_file=archive_file(TEST_IMPORT_FILE_NAME),
+        source_file=archive_file("import-example-no-errors.zip"),
     )
     loader = XlsxFileDossierLoader()
 
@@ -84,9 +91,9 @@ def test_create_instance_dossier_import_case(
         message = writer.import_dossier(dossier, str(dossier_import.pk))
         dossier_import.messages["import"]["details"].append(message.to_dict())
     update_summary(dossier_import)
-    assert dossier_import.messages["import"]["summary"]["stats"]["dossiers"] == 4
-    assert len(dossier_import.messages["import"]["summary"]["warning"]) == 1
-    assert len(dossier_import.messages["import"]["summary"]["error"]) == 1
+    assert dossier_import.messages["import"]["summary"]["stats"]["dossiers"] == 2
+    assert len(dossier_import.messages["import"]["summary"]["warning"]) == 0
+    assert len(dossier_import.messages["import"]["summary"]["error"]) == 0
 
     instances = Instance.objects.filter(
         **{"case__meta__import-id": str(dossier_import.pk)}
@@ -108,13 +115,13 @@ def test_create_instance_dossier_import_case(
             "import-id": str(dossier_import.pk),
             "camac-instance-id": first_instance.pk,
             "submit-date": "2017-04-12T00:00:00",
-            "dossier-number": "2601-2017-1",
-            "dossier-number-sort": 26012017000001,
+            "dossier-number": "4628-2017-1",
+            "dossier-number-sort": 46282017000001,
         }
     deletion = Instance.objects.filter(
         **{"case__meta__import-id": str(dossier_import.pk)}
     ).delete()
-    assert deletion[1]["instance.Instance"] == 4
+    assert deletion[1]["instance.Instance"] == 2
 
 
 # TODO: Check instance state skipping for dossier-import
@@ -615,6 +622,88 @@ def test_record_loading_all_empty(
 
 
 @pytest.mark.parametrize(
+    "config,camac_instance,import_rows",
+    [
+        ("kt_schwyz", lazy_fixture("sz_instance"), IMPORT_ROWS_SZ),
+        ("kt_bern", lazy_fixture("be_instance"), IMPORT_ROWS_BE),
+        ("kt_so", lazy_fixture("so_instance"), IMPORT_ROWS_SO),
+    ],
+)
+def test_reimport_delete_values(
+    db,
+    setup_dossier_writer,
+    work_item_factory,
+    camac_instance,
+    dossier_row_full,
+    dossier_row_sparse,
+    master_data_is_visible_mock,
+    config,
+    snapshot,
+    import_rows,
+):
+    """Setup dossier and reimport field with empty value."""
+    writer = setup_dossier_writer(config)
+    loader = XlsxFileDossierLoader()
+    excluded = ["ID", "STATUS", "PROPOSAL", "SUBMIT-DATE"]
+    dossier = loader._load_dossier(dossier_row_full)
+    writer.write_fields(camac_instance, dossier)
+    deletable_fields = {key: "<LÖSCHEN>" for key in dossier_row_full.keys()}
+    orig_values = {}
+    dossier_row_sparse.update(deletable_fields)
+    work_item_factory(task_id="building-authority", case=camac_instance.case)
+    md = MasterData(camac_instance.case)
+    targets = set(
+        [
+            target
+            for row_names, target in import_rows
+            if set(row_names.keys()).intersection(set(excluded)) == set()
+        ]
+    )
+    orig_values = {}
+    for target in targets:
+        orig_values[target] = getattr(md, target)
+    dossier = loader._load_dossier(deletable_fields)
+    writer.write_fields(camac_instance, dossier)
+    for target in targets:
+        # verify that non-deletable or generated values are untouched
+        if target in ["submit-date", "proposal", "dossier_number", "application_type"]:
+            assert getattr(md, target) == orig_values[target]
+            continue
+        if orig_values[target]:
+            assert getattr(md, target) in [[], None]
+
+
+def test_delete_case_meta_field(
+    db,
+    be_instance,
+    user,
+    group,
+    location,
+    dossier_import_settings,
+):
+    # using be_instance here. TODO: create (or use) an instance-fixture with a
+    # generic case.
+
+    # global import fails because of the modular settings that are unset at
+    # time if no config is selected..
+    from camac.dossier_import.writers import CaseMetaWriter, DossierWriter
+
+    target = "case-meta-field"
+
+    class Writer(DossierWriter):
+        case_meta_field = CaseMetaWriter(target=target)
+
+    writer = Writer(user_id=user.pk, group_id=group.pk)
+    writer.case_meta_field.owner = weakref.proxy(writer)
+    writer.case_meta_field.write(be_instance, "the-meta")
+    be_instance.refresh_from_db()
+    assert be_instance.case.meta.get(target) is not None
+    writer.case_meta_field.write(be_instance, writer.delete_keyword)
+    be_instance.refresh_from_db()
+    assert be_instance.case.meta.get(target) is None
+
+
+@pytest.mark.parametrize(
     "config,camac_instance",
     [
         ("kt_schwyz", lazy_fixture("sz_instance")),
@@ -644,7 +733,9 @@ def test_reimport_ignores_empty(
     dossier_row_sparse.update(empty_rows)
     work_item_factory(task_id="building-authority", case=camac_instance.case)
     md = MasterData(camac_instance.case)
-    targets = set([target for _, target in IMPORT_ROWS_BE + IMPORT_ROWS_SZ])
+    targets = set(
+        [target for _, target in IMPORT_ROWS_BE + IMPORT_ROWS_SZ + IMPORT_ROWS_SO]
+    )
     orig_values = {}
     for target in targets:
         try:
@@ -703,14 +794,21 @@ def test_record_loading_exceptions(
 
 @pytest.mark.parametrize("dossier_exists", [False, lazy_fixture("instance")])
 @pytest.mark.parametrize(
-    "loader,input_file,expected_exception",
+    "loader,input_file,expected_exception,expected_existing",
     [
-        ("zip-archive-xlsx", "no-zip.zap", InvalidImportDataError),
+        (
+            "zip-archive-xlsx",
+            "no-zip.zap",
+            InvalidImportDataError,
+            InvalidImportDataError,
+        ),
         (
             "zip-archive-xlsx",
             "import-missing-status-column.zip",
             InvalidImportDataError,
+            None,
         ),
+        ("zip-archive-xlsx", "import-example-validation-errors.zip", None, None),
     ],
 )
 def test_validation(
@@ -720,19 +818,37 @@ def test_validation(
     loader,
     input_file,
     expected_exception,
+    expected_existing,
     mocker,
     dossier_exists,
     settings,
     dossier_import_settings,
+    snapshot,
 ):
     mocker.patch(
         f"{dossier_import_settings['WRITER_CLASS']}.existing_dossier",
-        lambda: dossier_exists,
+        lambda self, dossier_id: dossier_exists,
     )
     dossier_import.source_file = archive_file(input_file)
     dossier_import.save()
-    with pytest.raises(expected_exception):
-        validate_zip_archive_structure(str(dossier_import.pk))
+
+    # test validations that don't raise an exception
+    if not any([expected_exception, expected_existing]):
+        dossier_import = validate_zip_archive_structure(str(dossier_import.pk))
+        snapshot.assert_match(
+            sorted(
+                dossier_import.messages["validation"]["details"],
+                key=lambda i: str(i["dossier_id"]),
+            )
+        )
+        return
+    if dossier_exists and expected_existing:
+        with pytest.raises(expected_existing):
+            validate_zip_archive_structure(str(dossier_import.pk))
+        return
+    if not dossier_exists:
+        with pytest.raises(expected_exception):
+            validate_zip_archive_structure(str(dossier_import.pk))
 
 
 @pytest.mark.parametrize(

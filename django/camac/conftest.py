@@ -706,6 +706,7 @@ def caluma_workflow_config_sz(db, caluma_config_sz):
             "kt_schwyz/config/caluma_construction_monitoring_workflow.json"
         ),
         settings.ROOT_DIR("kt_schwyz/config/caluma_construction_monitoring_form.json"),
+        settings.ROOT_DIR("kt_schwyz/config/buildingauthority.json"),
     )
 
     yield caluma_workflow_models.Workflow.objects.all()

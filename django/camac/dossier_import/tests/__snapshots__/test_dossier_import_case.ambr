@@ -6,7 +6,7 @@
   None
 # ---
 # name: test_record_loading_be[dossier_row_patch1-dossier_number-kt_bern-be_instance-False]
-  '2017-1'
+  '2020-1'
 # ---
 # name: test_record_loading_be[dossier_row_patch1-dossier_number-kt_bern-be_instance-True]
   '2017-1'
@@ -138,7 +138,7 @@
   ])
 # ---
 # name: test_record_loading_be[dossier_row_patch2-dossier_number-kt_bern-be_instance-False]
-  '2017-1'
+  '2020-1'
 # ---
 # name: test_record_loading_be[dossier_row_patch2-dossier_number-kt_bern-be_instance-True]
   '2017-1'
@@ -168,7 +168,7 @@
   '2020-1'
 # ---
 # name: test_record_loading_be[dossier_row_patch4-dossier_number-kt_bern-be_instance-False]
-  '2017-1'
+  '2020-1'
 # ---
 # name: test_record_loading_be[dossier_row_patch4-dossier_number-kt_bern-be_instance-True]
   '2017-1'
@@ -886,4 +886,210 @@
 # ---
 # name: test_record_loading_sz[dossier_row_patch9-final_approval_date-kt_schwyz-sz_instance-True]
   datetime.date(2021, 12, 12)
+# ---
+# name: test_validation[zip-archive-xlsx-import-example-validation-errors.zip-None-None-False]
+  list([
+    dict({
+      'details': list([
+        dict({
+          'code': 'date-field-validation-error',
+          'detail': 'not-a-date',
+          'field': 'submit-date',
+          'level': 3,
+        }),
+        dict({
+          'code': 'date-field-validation-error',
+          'detail': 'not-a-date',
+          'field': 'publication-date',
+          'level': 3,
+        }),
+        dict({
+          'code': 'date-field-validation-error',
+          'detail': 'not-a-date',
+          'field': 'decision-date',
+          'level': 3,
+        }),
+        dict({
+          'code': 'date-field-validation-error',
+          'detail': 'not-a-date',
+          'field': 'construction-start-date',
+          'level': 3,
+        }),
+        dict({
+          'code': 'date-field-validation-error',
+          'detail': 'not-a-date',
+          'field': 'profile-approval-date',
+          'level': 3,
+        }),
+        dict({
+          'code': 'date-field-validation-error',
+          'detail': 'not-a-date',
+          'field': 'final-approval-date',
+          'level': 3,
+        }),
+        dict({
+          'code': 'date-field-validation-error',
+          'detail': 'not-a-date',
+          'field': 'completion-date',
+          'level': 3,
+        }),
+      ]),
+      'dossier_id': '2017-84',
+      'status': 'success',
+    }),
+    dict({
+      'details': list([
+        dict({
+          'code': 'status-choice-validation-error',
+          'detail': 'DONKED',
+          'field': 'status',
+          'level': 3,
+        }),
+      ]),
+      'dossier_id': '2017-86',
+      'status': 'success',
+    }),
+    dict({
+      'details': list([
+        dict({
+          'code': 'missing-required-field-error',
+          'detail': None,
+          'field': 'submit-date',
+          'level': 3,
+        }),
+      ]),
+      'dossier_id': 9,
+      'status': 'success',
+    }),
+  ])
+# ---
+# name: test_validation[zip-archive-xlsx-import-example-validation-errors.zip-None-None-instance]
+  list([
+    dict({
+      'details': list([
+        dict({
+          'code': 'update-dossier',
+          'detail': '2017-84',
+          'field': 'ID',
+          'level': 2,
+        }),
+        dict({
+          'code': 'update-dossier',
+          'detail': 'STATUS will be ignored when updating the dossier',
+          'field': 'STATUS',
+          'level': 1,
+        }),
+        dict({
+          'code': 'date-field-validation-error',
+          'detail': 'not-a-date',
+          'field': 'submit-date',
+          'level': 3,
+        }),
+        dict({
+          'code': 'date-field-validation-error',
+          'detail': 'not-a-date',
+          'field': 'publication-date',
+          'level': 3,
+        }),
+        dict({
+          'code': 'date-field-validation-error',
+          'detail': 'not-a-date',
+          'field': 'decision-date',
+          'level': 3,
+        }),
+        dict({
+          'code': 'date-field-validation-error',
+          'detail': 'not-a-date',
+          'field': 'construction-start-date',
+          'level': 3,
+        }),
+        dict({
+          'code': 'date-field-validation-error',
+          'detail': 'not-a-date',
+          'field': 'profile-approval-date',
+          'level': 3,
+        }),
+        dict({
+          'code': 'date-field-validation-error',
+          'detail': 'not-a-date',
+          'field': 'final-approval-date',
+          'level': 3,
+        }),
+        dict({
+          'code': 'date-field-validation-error',
+          'detail': 'not-a-date',
+          'field': 'completion-date',
+          'level': 3,
+        }),
+      ]),
+      'dossier_id': '2017-84',
+      'status': 'success',
+    }),
+    dict({
+      'details': list([
+        dict({
+          'code': 'update-dossier',
+          'detail': '2017-86',
+          'field': 'ID',
+          'level': 2,
+        }),
+        dict({
+          'code': 'update-dossier',
+          'detail': 'STATUS will be ignored when updating the dossier',
+          'field': 'STATUS',
+          'level': 1,
+        }),
+      ]),
+      'dossier_id': '2017-86',
+      'status': 'success',
+    }),
+    dict({
+      'details': list([
+        dict({
+          'code': 'update-dossier',
+          'detail': '2017-87',
+          'field': 'ID',
+          'level': 2,
+        }),
+      ]),
+      'dossier_id': '2017-87',
+      'status': 'success',
+    }),
+    dict({
+      'details': list([
+        dict({
+          'code': 'update-dossier',
+          'detail': '2017-88',
+          'field': 'ID',
+          'level': 2,
+        }),
+        dict({
+          'code': 'update-dossier',
+          'detail': 'STATUS will be ignored when updating the dossier',
+          'field': 'STATUS',
+          'level': 1,
+        }),
+      ]),
+      'dossier_id': '2017-88',
+      'status': 'success',
+    }),
+    dict({
+      'details': list([
+        dict({
+          'code': 'update-dossier',
+          'detail': 9,
+          'field': 'ID',
+          'level': 2,
+        }),
+        dict({
+          'code': 'update-dossier',
+          'detail': 'STATUS will be ignored when updating the dossier',
+          'field': 'STATUS',
+          'level': 1,
+        }),
+      ]),
+      'dossier_id': 9,
+      'status': 'success',
+    }),
+  ])
 # ---

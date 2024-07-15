@@ -1,3 +1,4 @@
+import weakref
 from copy import deepcopy
 from typing import List
 
@@ -6,7 +7,6 @@ from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import cancel_work_item, skip_work_item
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
-from django.db import transaction
 
 from camac.caluma.extensions.events.construction_monitoring import (
     can_perform_construction_monitoring,
@@ -14,14 +14,9 @@ from camac.caluma.extensions.events.construction_monitoring import (
 from camac.caluma.extensions.events.general import get_caluma_setting
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.messages import (
-    DOSSIER_IMPORT_STATUS_ERROR,
-    DOSSIER_IMPORT_STATUS_SUCCESS,
-    DOSSIER_IMPORT_STATUS_WARNING,
-    DossierSummary,
     Message,
     MessageCodes,
     Severity,
-    get_message_max_level,
 )
 from camac.dossier_import.writers import (
     BuildingAuthorityRowWriter,
@@ -68,8 +63,8 @@ class KtSchwyzDossierWriter(DossierWriter):
       containing the documents to be attached to the dossier.
     """
 
-    id: str = CamacNgAnswerWriter(target="kommunale-gesuchsnummer")
-    proposal = CamacNgAnswerWriter(target="bezeichnung")
+    id = CamacNgAnswerWriter(target="kommunale-gesuchsnummer", protected=True)
+    proposal = CamacNgAnswerWriter(target="bezeichnung", protected=True)
     cantonal_id = CamacNgAnswerWriter(target="kantonale-gesuchsnummer")
     plot_data = CamacNgListAnswerWriter(
         target="parzellen", column_mapping=PARCEL_MAPPING
@@ -79,7 +74,9 @@ class KtSchwyzDossierWriter(DossierWriter):
     )
     usage = CamacNgAnswerWriter(target="betroffene-nutzungszonen")
     application_type = CamacNgAnswerWriter(target="verfahrensart-migriertes-dossier")
-    submit_date = WorkflowEntryDateWriter(target=10, name="einreichedatum")
+    submit_date = WorkflowEntryDateWriter(
+        target=10, name="einreichedatum", protected=True
+    )
     publication_date = WorkflowEntryDateWriter(name="publikationsdatum", target=15)
 
     construction_start_date = BuildingAuthorityRowWriter(
@@ -180,98 +177,8 @@ class KtSchwyzDossierWriter(DossierWriter):
         method is still implemented to make it explicit and allow
         for better testing.
         """
+        self.cantonal_id.owner = weakref.proxy(self)
         self.cantonal_id.write(instance, dossier_id)
-
-    @transaction.atomic
-    def import_dossier(
-        self, dossier: Dossier, import_session_id: str, allow_updates: bool = False
-    ) -> DossierSummary:
-        dossier_summary = DossierSummary(
-            dossier_id=dossier.id, status=DOSSIER_IMPORT_STATUS_SUCCESS, details=[]
-        )
-        # copy messages from loader to summary
-        dossier_summary.details += dossier._meta.errors
-
-        if dossier._meta.missing:
-            dossier_summary.details.append(
-                Message(
-                    level=Severity.ERROR.value,
-                    code=MessageCodes.MISSING_REQUIRED_VALUE_ERROR.value,
-                    detail=dossier._meta.missing,
-                )
-            )
-            dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
-            return dossier_summary
-        if not settings.DOSSIER_IMPORT["INSTANCE_STATE_MAPPING"].get(
-            dossier._meta.target_state
-        ):  # pragma: no cover
-            dossier_summary.details.append(
-                Message(
-                    level=Severity.ERROR.value,
-                    code=MessageCodes.STATUS_CHOICE_VALIDATION_ERROR.value,
-                    detail=dossier._meta.target_state,
-                )
-            )
-
-        created = False
-        if instance := self.existing_dossier(dossier.id):
-            dossier_summary.instance_id = instance.pk
-            if not allow_updates:
-                dossier_summary.details.append(
-                    Message(
-                        level=Severity.WARNING.value,
-                        code=MessageCodes.DUPLICATE_DOSSIER.value,
-                        detail=None,
-                    )
-                )
-                dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
-                return dossier_summary
-        else:
-            instance = self.create_instance(dossier)
-            created = True
-            self.set_dossier_id(instance, dossier.id)
-            dossier_summary.details.append(
-                Message(
-                    level=Severity.DEBUG.value,
-                    code=MessageCodes.INSTANCE_CREATED.value,
-                    detail=f"Instance created with ID:  {instance.pk}",
-                )
-            )
-        dossier_summary.instance_id = instance.pk
-
-        if created:
-            instance.case.meta["import-id"] = import_session_id
-            instance.case.save()
-            workflow_message = self._set_workflow_state(instance, dossier)
-            dossier_summary.details.append(
-                Message(
-                    level=get_message_max_level(workflow_message),
-                    code=MessageCodes.SET_WORKFLOW_STATE.value,
-                    detail=workflow_message,
-                )
-            )
-
-        self.write_fields(instance, dossier)
-
-        dossier_summary.details.append(
-            Message(
-                level=Severity.DEBUG.value,
-                code=MessageCodes.FORM_DATA_WRITTEN.value,
-                detail="Form data written.",
-            )
-        )
-        dossier_summary.details += self._create_dossier_attachments(dossier, instance)
-        instance.history.all().delete()
-        if (
-            get_message_max_level(dossier_summary.details) == Severity.ERROR.value
-        ):  # pragma: no cover
-            dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
-        if (
-            get_message_max_level(dossier_summary.details) == Severity.WARNING.value
-        ):  # pragma: no cover
-            dossier_summary.status = DOSSIER_IMPORT_STATUS_WARNING
-
-        return dossier_summary
 
     def _set_workflow_state(
         self, instance: Instance, dossier: Dossier
