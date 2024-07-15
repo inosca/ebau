@@ -187,19 +187,26 @@ class Command(BaseCommand):
 
         count = 0
         for instance in instances:
-            addressed_groups = [
-                str(service.pk)
-                for service in Service.objects.filter(
-                    name=settings.APPLICATION["CALUMA"]["BAB_MUNICIPALITY_MAPPING"][
-                        instance.location_id
-                    ]
+            try:
+                addressed_groups = [
+                    str(service.pk)
+                    for service in Service.objects.filter(
+                        name=settings.APPLICATION["CALUMA"]["BAB_MUNICIPALITY_MAPPING"][
+                            instance.location_id
+                        ]
+                    )
+                ]
+            except KeyError:
+                addressed_groups = []
+                self.stdout.write(
+                    f"Location id {instance.location_id} could not be mapped on a bab service"
                 )
-            ]
+
             previous_work_item = instance.case.work_items.filter(
                 task_id="complete-check"
             )
 
-            work_item, _ = instance.case.work_items.get_or_create(
+            work_item, created = instance.case.work_items.get_or_create(
                 task_id="bab",
                 status=WorkItem.STATUS_READY,
                 name="BaB Datenerfassung",
@@ -210,10 +217,14 @@ class Command(BaseCommand):
                 document=Document.objects.create(form_id="bab"),
             )
 
-            self._migrate_answers(instance, work_item)
-            self._migrate_php_table_answer(instance, work_item)
-            count += 1
-            self.stdout.write(f"BaB answers of instance {instance.pk} were migrated")
+            if created:
+                self._migrate_answers(instance, work_item)
+                self._migrate_php_table_answer(instance, work_item)
+                count += 1
+                self.stdout.write(
+                    f"BaB answers of instance {instance.pk} were migrated"
+                )
+
         self.stdout.write(f"The answers of {count} instances were migrated")
 
         if options["dry"]:
