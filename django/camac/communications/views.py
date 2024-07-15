@@ -112,7 +112,9 @@ class MessageView(
         my_read = models.CommunicationsReadMarker.objects.all().filter(entity=my_entity)
 
         qs = qs.annotate(
-            read_at=my_read.filter(message=OuterRef("pk")).values("read_at")
+            read_at=my_read.filter(message=OuterRef("pk"))
+            .order_by("-read_at")[:1]
+            .values("read_at")
         )
         return qs
 
