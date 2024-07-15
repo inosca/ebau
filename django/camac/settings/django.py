@@ -1979,32 +1979,35 @@ STORAGES = {
         "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
     },
 }
-
-ENABLE_AT_REST_ENCRYPTION = env.bool("ENABLE_AT_REST_ENCRYPTION", default=False)
+# enables at rest encryption with SSEC for s3 storage
+EBAU_ENABLE_AT_REST_ENCRYPTION = env.bool(
+    "EBAU_ENABLE_AT_REST_ENCRYPTION", default=False
+)
 if (
     is_s3_storage := STORAGES["default"]["BACKEND"] == "storages.backends.s3.S3Storage"
 ):  # pragma: no cover
     storage_options = {
         "access_key": env.str(
-            "AWS_S3_ACCESS_KEY_ID",
+            "EBAU_S3_ACCESS_KEY_ID",
             default=default("minio", require_if(is_s3_storage)),
         ),
         "secret_key": env.str(
-            "AWS_S3_SECRET_ACCESS_KEY",
+            "EBAU_S3_SECRET_ACCESS_KEY",
             default=default("minio123", require_if(is_s3_storage)),
         ),
         "endpoint_url": env.str(
-            "AWS_S3_ENDPOINT_URL",
+            "EBAU_S3_ENDPOINT_URL",
             default=default("http://minio:9000", require_if(is_s3_storage)),
         ),
-        "bucket_name": env.str("AWS_STORAGE_BUCKET_NAME", default="ebau-media"),
+        "bucket_name": env.str("EBAU_STORAGE_BUCKET_NAME", default="ebau-media"),
     }
 
-    if ENABLE_AT_REST_ENCRYPTION:
+    if EBAU_ENABLE_AT_REST_ENCRYPTION:
         storage_options["object_parameters"] = {
+            # key needs to be 32 bytes long
             "SSECustomerKey": env.str(
-                "S3_STORAGE_SSEC_SECRET",
-                default=default("x" * 32, require_if(ENABLE_AT_REST_ENCRYPTION)),
+                "EBAU_S3_STORAGE_SSEC_SECRET",
+                default=default("x" * 32, require_if(EBAU_ENABLE_AT_REST_ENCRYPTION)),
             ),
             "SSECustomerAlgorithm": "AES256",
         }

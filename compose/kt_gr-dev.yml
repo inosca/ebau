@@ -160,9 +160,9 @@ services:
       - DATABASE_PASSWORD=camac
       - URL_PREFIX=document-merge-service/
       - EXTENSIONS_ARGUMENTS=DJANGO_API=http://django
-      - AWS_S3_ACCESS_KEY_ID=minio
-      - AWS_S3_SECRET_ACCESS_KEY=minio123
-      - AWS_S3_ENDPOINT_URL=http://minio:9000
+      - EBAU_S3_ACCESS_KEY_ID=minio
+      - EBAU_S3_SECRET_ACCESS_KEY=minio123
+      - EBAU_S3_ENDPOINT_URL=http://minio:9000
     user: "${UID:?Set UID env variable to your user id}"
     volumes:
       - ../document-merge-service/extensions:/app/document_merge_service/extensions

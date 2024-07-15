@@ -196,11 +196,11 @@ services:
     security_opt:
       - apparmor:unconfined
     environment:
-      AWS_S3_ACCESS_KEY_ID: minio
-      AWS_S3_ENDPOINT_URL: http://minio:9000
-      AWS_S3_SECRET_ACCESS_KEY: minio123
-      AWS_S3_SIGNATURE_VERSION: s3v4
-      AWS_STORAGE_BUCKET_NAME: dms-media
+      EBAU_S3_ACCESS_KEY_ID: minio
+      EBAU_S3_ENDPOINT_URL: http://minio:9000
+      EBAU_S3_SECRET_ACCESS_KEY: minio123
+      EBAU_S3_SIGNATURE_VERSION: s3v4
+      EBAU_STORAGE_BUCKET_NAME: dms-media
       CACHE_LOCATION: cache:11211
       DATABASE_HOST: db
       DATABASE_NAME: ${APPLICATION}
