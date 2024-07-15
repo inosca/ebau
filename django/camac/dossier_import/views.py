@@ -72,7 +72,15 @@ class DossierImportView(ModelViewSet):
         return super().destroy(request, *args, **kwargs)
 
     def retrieve(self, request, *args, **kwargs):
-        self.get_object().update_async_status()
+        obj = self.get_object()
+        if obj.status not in [
+            obj.IMPORT_STATUS_NEW,
+            obj.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            obj.IMPORT_STATUS_UNDO_IN_PROGRESS,
+        ]:
+            return super().retrieve(request, *args, **kwargs)
+        # update the import's status only if a change is expected from a queued task
+        obj.update_async_status()
         return super().retrieve(request, *args, **kwargs)
 
     @action(methods=["POST"], url_path="start", detail=True)
@@ -90,9 +98,8 @@ class DossierImportView(ModelViewSet):
             perform_import,
             dossier_import,
             hook=set_status_callback,
-            # sync=settings.Q_CLUSTER.get("sync", True),  # TODO: running tasks sync does not work at
-            #  the moment: django-q task loses db connection. maybe related to testing fixtures
         )
+
         dossier_import.task_id = task_id
         dossier_import.save()
         return Response({"task_id": task_id})
@@ -147,15 +154,12 @@ class DossierImportView(ModelViewSet):
             raise ValidationError(
                 "Transmitting an import is only possible after it has been confirmed.",
             )
-
+        dossier_import.status = DossierImport.IMPORT_STATUS_TRANSMITTING
         task_id = async_task(
             transmit_import,
             dossier_import,
-            # sync=settings.Q_CLUSTER.get("sync", False),  # TODO: running tasks sync does not work at
-            #  the moment: django-q task loses db connection. maybe related to testing fixtures
         )
         dossier_import.task_id = task_id
-        dossier_import.status = DossierImport.IMPORT_STATUS_TRANSMITTING
         dossier_import.save()
 
         return Response({"task_id": task_id})

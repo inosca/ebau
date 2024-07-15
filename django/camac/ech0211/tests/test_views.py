@@ -19,10 +19,8 @@ from camac.constants.kt_bern import (
 from camac.document.tests.data import django_file
 from camac.ech0211.schema.ech_0211_2_0 import CreateFromDocument
 from camac.instance.document_merge_service import DMSHandler
+from camac.instance.factories import FormFieldFactory
 
-from ...dossier_import.config.kt_schwyz import COORDINATES_MAPPING, PARCEL_MAPPING
-from ...dossier_import.dossier_classes import Coordinates, PlotData
-from ...dossier_import.writers import CamacNgListAnswerWriter
 from ..constants import (
     ECH_JUDGEMENT_APPROVED_WITH_RESERVATION,
     ECH_JUDGEMENT_DECLINED,
@@ -580,11 +578,13 @@ def test_send_unknown_instance(
         (None, None, None, None),
         (
             [
-                PlotData(
-                    egrid="CH123-4-567", number=1234567, municipality="Hintertupfigen"
-                )
+                {
+                    "egrid": "CH123-4-567",
+                    "number": 1234567,
+                    "municipality": "Hintertupfigen",
+                }
             ],
-            [Coordinates(n=8.5592041911, e=47.0636626694)],
+            [{"lng": 8.5592041911, "lat": 47.0636626694}],
             {
                 "date": datetime.datetime(2021, 1, 11),
                 "decicion": "accepted",
@@ -626,13 +626,9 @@ def test_application_retrieve_full_sz(
             defaults={"value": site_address["street"]},
         )
     if plot_data:
-        CamacNgListAnswerWriter(
-            target="parzellen", column_mapping=PARCEL_MAPPING
-        ).write(ech_instance_sz, plot_data)
+        ech_instance_sz.fields.add(FormFieldFactory(name="parzellen", value=plot_data))
     if coordinates:
-        CamacNgListAnswerWriter(
-            target="punkte", column_mapping=COORDINATES_MAPPING
-        ).write(ech_instance_sz, coordinates)
+        ech_instance_sz.fields.add(FormFieldFactory(name="punkte", value=coordinates))
 
     if decision and decision.get("date"):
         # determinining decision date in SZ requires a value from
