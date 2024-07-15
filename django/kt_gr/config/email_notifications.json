@@ -252,6 +252,18 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 22,
+    "fields": {
+      "slug": "zustaedigkeit-wechsel",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -501,6 +513,18 @@
       "purpose": "Bauabnahme (Gesuchsteller)",
       "subject": "Information über Bauabnahme (Dossier-Nr. {{DOSSIER_NR}})",
       "body": "Guten Tag\r\n\r\nDie Bauabnahme zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen.\r\n\r\nDie Dokumente finden Sie unter folgendem Link:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 22,
+    "fields": {
+      "template": 22,
+      "template_slug": "zustaedigkeit-wechsel",
+      "language": "de",
+      "purpose": "Dossier-Zuständigkeit",
+      "subject": "Neue Zuständigkeit bei eBau-Dossier",
+      "body": "Guten Tag\r\n\r\nVon ihrer Organisation wurde Ihnen die Zuständigkeit für das Dossier-Nr. {{ DOSSIER_NR }} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) zugewiesen.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
     }
   }
 ]

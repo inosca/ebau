@@ -51,8 +51,8 @@ from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.utils import copy_instance, fill_ebau_number
 from camac.notification.utils import send_mail, send_mail_without_request
 from camac.permissions import api as permissions_api, events as permissions_events
+from camac.responsible.domain_logic import ResponsibleServiceDomainLogic
 from camac.responsible.models import ResponsibleService
-from camac.responsible.serializers import reassign_work_items
 from camac.tags.models import Keyword
 from camac.user.models import Group, Location, Service
 from camac.user.permissions import permission_aware
@@ -1325,7 +1325,9 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                     service=target_active_service,
                     responsible_user=source_responsible_service.responsible_user,
                 )
-                reassign_work_items(target_responsible_service)
+                ResponsibleServiceDomainLogic.update_responsibility(
+                    target_responsible_service, self.context
+                )
 
     def _complete_submit_work_item(self, instance):
         work_item = instance.case.work_items.filter(
