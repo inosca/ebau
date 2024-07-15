@@ -1,7 +1,11 @@
 import { action, get } from "@ember/object";
 import { service } from "@ember/service";
+import { getConfig } from "@embroider/macros";
 import { tracked } from "@glimmer/tracking";
 import AlexandriaConfigService from "ember-alexandria/services/alexandria-config";
+
+const allowedWebDAVMimeTypes =
+  getConfig("ember-ebau-core").allowedWebDAVMimeTypes;
 
 export default class CustomAlexandriaConfigService extends AlexandriaConfigService {
   markIcons = {
@@ -119,4 +123,5 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
   zipDownloadNamespace = "/alexandria";
   enablePDFConversion = true;
   enableWebDAV = true;
+  allowedWebDAVMimeTypes = allowedWebDAVMimeTypes.split(",");
 }
