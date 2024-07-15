@@ -26,7 +26,10 @@ DJANGO_ADMIN = {
             "gis.GISDataSource",
             "notification.NotificationTemplate",
         ],
-        "CUSTOMER_MANAGED_MODELS": ["notification.NotificationTemplate"],
+        "CUSTOMER_MANAGED_MODELS": [
+            "notification.NotificationTemplate",
+            "core.ServiceContent",
+        ],
     },
     "kt_so": {
         "ENABLED": True,

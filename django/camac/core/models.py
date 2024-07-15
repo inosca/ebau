@@ -5,6 +5,7 @@ from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.utils import translation
+from django.utils.translation import gettext_lazy as _
 from localized_fields.fields import LocalizedTextField
 
 from camac.models import dynamic_default_value
@@ -4280,5 +4281,11 @@ class StaticContent(models.Model):
 
 class ServiceContent(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    service = models.ForeignKey("user.Service", models.DO_NOTHING, related_name="+")
-    content = LocalizedTextField()
+    service = models.ForeignKey(
+        "user.Service", models.DO_NOTHING, related_name="+", verbose_name=_("Service")
+    )
+    content = LocalizedTextField(verbose_name=_("Content"))
+
+    class Meta:
+        verbose_name = _("Service content")
+        verbose_name_plural = _("Service contents")
