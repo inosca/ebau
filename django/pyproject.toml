@@ -249,5 +249,7 @@ omit = [
     # SO dossier number migration
     "camac/user/management/commands/import_bfs_nr.py",
     "camac/instance/management/commands/migrate_dossier_numbers_so.py",
+    # Token exchange development command
+    "camac/token_exchange/management/commands/generate_dev_tokens.py",
 ]
 show_missing = true

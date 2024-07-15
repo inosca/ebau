@@ -425,3 +425,5 @@ dashboard:
 
 logo-gr:
   title: "Kanton Graubünden"
+
+token-exchange-login-error: "Das Login ist fehlgeschlagen. Bitte versuchen Sie es erneut."
