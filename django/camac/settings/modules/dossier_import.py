@@ -20,6 +20,7 @@ DOSSIER_IMPORT = {
             "SUBMITTED": 2,
             "APPROVED": 8,
             "DONE": 10,
+            "WRITTEN OFF": 13,
         },
         "FORM_ID": 29,  # "migriertes-dossier"
         "CALUMA_FORM": "baugesuch",  # "dummy"-Form

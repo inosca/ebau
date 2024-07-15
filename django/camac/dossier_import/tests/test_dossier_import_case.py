@@ -171,6 +171,18 @@ def test_create_instance_dossier_import_case(
             ],
             "completed",
         ),
+        (  # "Abgeschrieben"
+            "WRITTEN OFF",
+            [
+                ("submit", "skipped"),
+                ("create-manual-workitems", "ready"),
+                ("reject-form", "canceled"),
+                ("complete-check", "canceled"),
+                ("depreciate-case", "skipped"),
+                ("archive-instance", "ready"),
+            ],
+            "running",
+        ),
     ],
 )
 def test_set_workflow_state_sz(
