@@ -60,6 +60,11 @@ PUBLICATION = {
             "e-mail-gesuchstellerin",
             "telefon-oder-mobile-gesuchstellerin",
         ],
+        "AFTER_FORMAL_EXAM_PUBLICATION_TASKS": [
+            "fill-publication",
+            "publication",
+            "distribution",
+        ],
     },
     "kt_so": {
         "ENABLED": True,

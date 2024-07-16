@@ -453,6 +453,7 @@ def test_notification_template_construction_acceptance(
     notification_template_factory,
     set_application_gr,
     gr_decision_settings,
+    gr_distribution_settings,
     answer_factory,
     released_for_aib,
     service_factory,
