@@ -14,6 +14,8 @@ class WorkItemsField(serializers.ReadOnlyField):
         status=None,
         include_child_cases=True,
         filter=None,
+        order_by=None,
+        limit=None,
         **kwargs,
     ):
         super().__init__(**kwargs)
@@ -24,6 +26,8 @@ class WorkItemsField(serializers.ReadOnlyField):
         self.field = field
         self.status = status
         self.filter = filter
+        self.order_by = order_by
+        self.limit = limit
         self.include_child_cases = include_child_cases
 
     def get_attribute(self, instance):
@@ -40,6 +44,12 @@ class WorkItemsField(serializers.ReadOnlyField):
 
         if self.filter:
             work_items = work_items.filter(self.filter(instance))
+
+        if self.order_by:
+            work_items = work_items.order_by(self.order_by)
+
+        if self.limit:
+            work_items = work_items[: self.limit]
 
         return work_items.values_list(self.field, flat=True)
 

@@ -10,14 +10,61 @@
             'value': '2023-01-01T19:00:00Z',
           }),
           dict({
-            'label': 'is paper',
-            'slug': 'is-paper',
+            'label': 'Paper submission',
+            'slug': 'paper-submission',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'Paper submission',
-            'slug': 'paper-submission',
+            'label': 'Additional demand',
+            'slug': 'additional-demand',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Instance complete',
+            'slug': 'instance-complete',
+            'value': None,
+          }),
+          dict({
+            'label': 'Review building commission',
+            'slug': 'review-building-commission',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Start circulation',
+            'slug': 'start-circulation',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Distribution completed',
+            'slug': 'distribution-completed',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Decision made',
+            'slug': 'decision',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'notice to geometer',
+            'slug': 'notice-to-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'notice to gebaeudeschaetzung',
+            'slug': 'notice-to-gebaeudeschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'is paper',
+            'slug': 'is-paper',
             'value': list([
             ]),
           }),
@@ -34,12 +81,6 @@
             ]),
           }),
           dict({
-            'label': 'Start of municipal distribution',
-            'slug': 'start-municipal-distribution',
-            'value': list([
-            ]),
-          }),
-          dict({
             'label': 'Start of cantonal distribution',
             'slug': 'start-cantonal-distribution',
             'value': list([
@@ -49,12 +90,6 @@
           dict({
             'label': 'Returned to municipality',
             'slug': 'returned-to-municipality',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Distribution completed',
-            'slug': 'distribution-completed',
             'value': list([
             ]),
           }),
@@ -82,15 +117,62 @@
             ]),
           }),
           dict({
-            'label': 'is paper',
-            'slug': 'is-paper',
+            'label': 'Paper submission',
+            'slug': 'paper-submission',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Additional demand',
+            'slug': 'additional-demand',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'Paper submission',
-            'slug': 'paper-submission',
-            'value': '2023-01-01T19:00:00Z',
+            'label': 'Instance complete',
+            'slug': 'instance-complete',
+            'value': None,
+          }),
+          dict({
+            'label': 'Review building commission',
+            'slug': 'review-building-commission',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Start circulation',
+            'slug': 'start-circulation',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Distribution completed',
+            'slug': 'distribution-completed',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Decision made',
+            'slug': 'decision',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'notice to geometer',
+            'slug': 'notice-to-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'notice to gebaeudeschaetzung',
+            'slug': 'notice-to-gebaeudeschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'is paper',
+            'slug': 'is-paper',
+            'value': list([
+            ]),
           }),
           dict({
             'label': 'Check completed',
@@ -105,12 +187,6 @@
             ]),
           }),
           dict({
-            'label': 'Start of municipal distribution',
-            'slug': 'start-municipal-distribution',
-            'value': list([
-            ]),
-          }),
-          dict({
             'label': 'Start of cantonal distribution',
             'slug': 'start-cantonal-distribution',
             'value': list([
@@ -120,12 +196,6 @@
           dict({
             'label': 'Returned to municipality',
             'slug': 'returned-to-municipality',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Distribution completed',
-            'slug': 'distribution-completed',
             'value': list([
             ]),
           }),
