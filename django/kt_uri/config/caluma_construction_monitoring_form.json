@@ -19,6 +19,42 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "complete-instance-gemeinde",
+    "fields": {
+      "created_at": "2024-07-15T13:03:44.150Z",
+      "modified_at": "2024-07-15T13:03:44.150Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Verfahren abschliessen (Gemeinde)\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "complete-instance-kanton",
+    "fields": {
+      "created_at": "2024-07-15T13:05:06.985Z",
+      "modified_at": "2024-07-15T13:05:06.985Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Verfahren abschliessen (Kanton)\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "construction-monitoring-update-gwr-state",
     "fields": {
       "created_at": "2024-06-13T13:02:17.311Z",
