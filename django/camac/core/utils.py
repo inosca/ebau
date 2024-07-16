@@ -1,5 +1,7 @@
+from __future__ import annotations
+
 from functools import wraps
-from typing import Callable
+from typing import TYPE_CHECKING, Callable
 
 from caluma.caluma_workflow.models import Case
 from django.conf import settings
@@ -10,7 +12,10 @@ from django.utils import timezone
 
 from camac.core.models import HistoryActionConfig
 from camac.core.translations import get_translations
-from camac.user.models import User
+
+if TYPE_CHECKING:  # pragma: no cover
+    from camac.instance.models import Instance
+    from camac.user.models import User
 
 
 def generate_sort_key(special_id: str) -> int:
@@ -83,7 +88,7 @@ def assign_ebau_nr(instance, year=None) -> str:
 
 
 def create_history_entry(
-    instance,
+    instance: Instance,
     user: User,
     text: str,
     text_data: Callable[[str], dict] = lambda language: {},
