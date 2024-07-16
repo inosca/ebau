@@ -6757,7 +6757,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "bericht-zur-umweltvertraeglichkeitspruefung-uvp",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -6772,7 +6772,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "bodenkundliches-fachgutachten",
-      "sort": 16
+      "sort": 18
     }
   },
   {
@@ -6787,7 +6787,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "brandschutzkonzept",
-      "sort": 10
+      "sort": 12
     }
   },
   {
@@ -6802,7 +6802,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "brandschutzplaene",
-      "sort": 9
+      "sort": 11
     }
   },
   {
@@ -6817,7 +6817,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "brandschutzplaene-brandschutzkonzept",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -6832,7 +6832,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "dispositionsplan-heizungsraum",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -6847,7 +6847,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "einfache-brandschutzplaene",
-      "sort": 8
+      "sort": 10
     }
   },
   {
@@ -6862,7 +6862,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "feststellungsverfuegung",
-      "sort": 13
+      "sort": 15
     }
   },
   {
@@ -6877,7 +6877,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "gesuch-feuerpolizeiliche-bewilligung",
-      "sort": 20
+      "sort": 22
     }
   },
   {
@@ -6892,7 +6892,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "hinweistext-dokumente",
-      "sort": 21
+      "sort": 23
     }
   },
   {
@@ -6907,7 +6907,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "messbericht",
-      "sort": 19
+      "sort": 21
     }
   },
   {
@@ -6922,7 +6922,37 @@
       "modified_by_group": null,
       "form": "dokumente-ohne-pflichtdokumente",
       "question": "dokumente-platzhalter",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-ohne-pflichtdokumente.projektplaene",
+    "fields": {
+      "created_at": "2024-07-11T07:16:45.326Z",
+      "modified_at": "2024-07-11T07:16:45.326Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-ohne-pflichtdokumente",
+      "question": "projektplaene",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.projektplaene",
+    "fields": {
+      "created_at": "2024-07-11T07:15:22.755Z",
+      "modified_at": "2024-07-11T07:15:22.755Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "projektplaene",
+      "sort": 2
     }
   },
   {
@@ -6937,7 +6967,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "resultate-der-geforderten-bodenuntersuchung",
-      "sort": 18
+      "sort": 20
     }
   },
   {
@@ -6952,7 +6982,22 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "rodungsgesuchsformular",
-      "sort": 15
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.schutzraumplaene",
+    "fields": {
+      "created_at": "2024-07-16T09:57:26.476Z",
+      "modified_at": "2024-07-16T09:57:26.476Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "schutzraumplaene",
+      "sort": 1
     }
   },
   {
@@ -6967,7 +7012,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "sicherheitsdatenblatt",
-      "sort": 11
+      "sort": 13
     }
   },
   {
@@ -6982,7 +7027,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "tragbarkeitsberechnung",
-      "sort": 12
+      "sort": 14
     }
   },
   {
@@ -6997,7 +7042,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vereinbarkeit-zweitwohnungsgesetz",
-      "sort": 14
+      "sort": 16
     }
   },
   {
@@ -7012,7 +7057,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vkf-anerkennungenleistungserklaerung-dop",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -7027,7 +7072,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vorablaerungsbericht-tiefbauamt-leitungen",
-      "sort": 2
+      "sort": 4
     }
   },
   {
@@ -7042,7 +7087,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vorablaerungsbericht-tiefbauamt-naeherbauten",
-      "sort": 3
+      "sort": 5
     }
   },
   {
@@ -7057,7 +7102,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vorablaerungsbericht-tiefbauamt-strassenreklamen",
-      "sort": 4
+      "sort": 6
     }
   },
   {
@@ -7072,7 +7117,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "zusatzbewilligung-naturgefahren",
-      "sort": 17
+      "sort": 19
     }
   },
   {
@@ -12412,7 +12457,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "anzahl-schutzplaetze-spital",
-      "sort": 1
+      "sort": 10
     }
   },
   {
@@ -12427,7 +12472,82 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "anzahl-schutzplaetze-wohnhaus",
-      "sort": 4
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze.bemerkungen-schutzplaetze",
+    "fields": {
+      "created_at": "2024-07-10T15:32:09.225Z",
+      "modified_at": "2024-07-10T15:32:09.225Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze",
+      "question": "bemerkungen-schutzplaetze",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze.beschreibung-andere-gebaeudeart",
+    "fields": {
+      "created_at": "2024-07-10T12:02:42.612Z",
+      "modified_at": "2024-07-10T12:02:42.612Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze",
+      "question": "beschreibung-andere-gebaeudeart",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze.ersatzbeitrag-spital",
+    "fields": {
+      "created_at": "2024-07-10T14:44:40.152Z",
+      "modified_at": "2024-07-10T14:44:40.152Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze",
+      "question": "ersatzbeitrag-spital",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze.ersatzbeitrag-wohnhaus",
+    "fields": {
+      "created_at": "2024-07-10T13:41:50.152Z",
+      "modified_at": "2024-07-10T13:41:50.153Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze",
+      "question": "ersatzbeitrag-wohnhaus",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze.flaeche-projektierte-schutzraeume",
+    "fields": {
+      "created_at": "2024-07-10T15:01:21.898Z",
+      "modified_at": "2024-07-10T15:01:21.898Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze",
+      "question": "flaeche-projektierte-schutzraeume",
+      "sort": 6
     }
   },
   {
@@ -12442,7 +12562,37 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "gebaeudeart",
-      "sort": 7
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze.hinweis-ausfuehrungsplaene",
+    "fields": {
+      "created_at": "2024-07-10T15:06:37.102Z",
+      "modified_at": "2024-07-10T15:06:37.102Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze",
+      "question": "hinweis-ausfuehrungsplaene",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze.hinweis-gebuehrenpflicht",
+    "fields": {
+      "created_at": "2024-07-10T15:07:47.961Z",
+      "modified_at": "2024-07-10T15:07:47.961Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze",
+      "question": "hinweis-gebuehrenpflicht",
+      "sort": 3
     }
   },
   {
@@ -12457,7 +12607,37 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "hinweis-zustaendigkeit-amz",
-      "sort": 9
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze.projektierte-schutzraeume-infotext",
+    "fields": {
+      "created_at": "2024-07-16T06:53:35.502Z",
+      "modified_at": "2024-07-16T06:53:35.502Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze",
+      "question": "projektierte-schutzraeume-infotext",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze.projektierte-schutzraeume-titel",
+    "fields": {
+      "created_at": "2024-07-10T14:59:24.407Z",
+      "modified_at": "2024-07-10T14:59:24.407Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze",
+      "question": "projektierte-schutzraeume-titel",
+      "sort": 8
     }
   },
   {
@@ -12472,7 +12652,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "schutzplaetze-titel",
-      "sort": 10
+      "sort": 21
     }
   },
   {
@@ -12487,7 +12667,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "spital-anzahl-betten",
-      "sort": 2
+      "sort": 11
     }
   },
   {
@@ -12502,7 +12682,37 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "spital-oder-heim-titel",
-      "sort": 3
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze.trennlinie",
+    "fields": {
+      "created_at": "2024-07-10T15:34:00.968Z",
+      "modified_at": "2024-07-10T15:34:00.968Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze",
+      "question": "trennlinie",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze.volumen-projektierte-schutzraeume",
+    "fields": {
+      "created_at": "2024-07-10T15:03:02.674Z",
+      "modified_at": "2024-07-10T15:03:02.674Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze",
+      "question": "volumen-projektierte-schutzraeume",
+      "sort": 5
     }
   },
   {
@@ -12517,7 +12727,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "werden-schutzplaetze-erstellt",
-      "sort": 8
+      "sort": 19
     }
   },
   {
@@ -12532,7 +12742,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "wohnhaus-anzahl-zimmer",
-      "sort": 5
+      "sort": 15
     }
   },
   {
@@ -12547,7 +12757,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "wohn-oder-ferienhaus-titel",
-      "sort": 6
+      "sort": 16
     }
   },
   {
@@ -25971,6 +26181,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "gebaeudeart-andere",
+    "fields": {
+      "created_at": "2024-07-10T12:01:23.470Z",
+      "modified_at": "2024-07-10T12:01:23.470Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "gebaeudeart-aufstellungsraum-andere",
     "fields": {
       "created_at": "2023-07-06T12:18:37.242Z",
@@ -29971,6 +30197,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "projektplaene-ja",
+    "fields": {
+      "created_at": "2024-07-11T07:15:22.327Z",
+      "modified_at": "2024-07-11T07:15:22.327Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Projektpl\\u00e4ne (Situationsplan, Grundriss, Ansichten, Schnitt etc.)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "proposal-abbruch",
     "fields": {
       "created_at": "2023-05-19T10:12:29.545Z",
@@ -31004,6 +31246,22 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "schutzraumplaene-ja",
+    "fields": {
+      "created_at": "2024-07-16T09:57:26.390Z",
+      "modified_at": "2024-07-16T09:57:26.390Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schutzraumpl\\u00e4ne (Massstab 1:50, mit Grundgriss und Schnitt)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -41380,13 +41638,13 @@
     "pk": "anzahl-schutzplaetze-spital",
     "fields": {
       "created_at": "2023-04-19T12:16:21.128Z",
-      "modified_at": "2024-05-03T06:50:04.017Z",
+      "modified_at": "2024-07-15T12:54:23.162Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Anzahl Schutzpl\\u00e4tze Spital oder Heim\", \"fr\": null, \"it\": null}",
-      "type": "integer",
+      "label": "{\"de\": \"Anzahl Schutzpl\\u00e4tze\", \"fr\": null, \"it\": null}",
+      "type": "calculated_float",
       "is_required": "false",
       "is_hidden": "!(\"gebaeudeart-spital-oder-heim\" in \"gebaeudeart\"|answer)",
       "is_archived": false,
@@ -41407,8 +41665,8 @@
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
+      "calc_expression": "\"spital-anzahl-betten\"|answer",
+      "calc_dependents": "[\"ersatzbeitrag-spital\"]"
     }
   },
   {
@@ -41416,15 +41674,15 @@
     "pk": "anzahl-schutzplaetze-wohnhaus",
     "fields": {
       "created_at": "2023-04-19T12:15:51.809Z",
-      "modified_at": "2024-05-03T06:50:04.023Z",
+      "modified_at": "2024-07-15T13:12:20.645Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Anzahl Schutzpl\\u00e4tze Wohn- oder Ferienhaus\", \"fr\": null, \"it\": null}",
-      "type": "integer",
+      "label": "{\"de\": \"Anzahl Schutzpl\\u00e4tze\", \"fr\": null, \"it\": null}",
+      "type": "calculated_float",
       "is_required": "false",
-      "is_hidden": "!(\"gebaeudeart-wohn-oder-ferienhaus\" in \"gebaeudeart\"|answer)",
+      "is_hidden": "!(\n\t[\n\t\t\"gebaeudeart-wohn-oder-ferienhaus\",\n\t\t\"gebaeudeart-andere\"\n\t] intersects \"gebaeudeart\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -41443,8 +41701,8 @@
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
+      "calc_expression": "(\"wohnhaus-anzahl-zimmer\"|answer * 2 / 3)|floor",
+      "calc_dependents": "[\"ersatzbeitrag-wohnhaus\"]"
     }
   },
   {
@@ -43954,14 +44212,14 @@
     "pk": "baugespann",
     "fields": {
       "created_at": "2023-04-12T07:53:03.844Z",
-      "modified_at": "2024-03-22T14:34:06.835Z",
+      "modified_at": "2024-07-16T09:49:58.693Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Baugespann\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "!(\"vorlaeufige-beurteilung\" in form || \"is-paper-yes\" in \"is-paper\"|answer)",
+      "is_required": "!(\"vorlaeufige-beurteilung\" in form || \"is-paper-yes\" == \"is-paper\"|answer)",
       "is_hidden": "!(\"baugesuch\" in form)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -45651,6 +45909,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bemerkungen-schutzplaetze",
+    "fields": {
+      "created_at": "2024-07-10T15:32:09.037Z",
+      "modified_at": "2024-07-10T15:32:09.037Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "bemerkungen-weitere-materielle-pruefung",
     "fields": {
       "created_at": "2023-06-19T09:45:29.712Z",
@@ -45960,6 +46252,40 @@
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-andere-gebaeudeart",
+    "fields": {
+      "created_at": "2024-07-10T12:02:42.459Z",
+      "modified_at": "2024-07-10T12:02:42.459Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\n\t\"gebaeudeart-andere\" in \"gebaeudeart\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -53288,6 +53614,105 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "ersatzbeitrag",
+    "fields": {
+      "created_at": "2024-07-10T13:41:49.963Z",
+      "modified_at": "2024-07-10T13:41:49.963Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ersatzbeitrag (CHF)\", \"fr\": null, \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "\"werden-schutzplaetze-erstellt-nein\" != \"werden-schutzplaetze-erstellt\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "1000",
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ersatzbeitrag-spital",
+    "fields": {
+      "created_at": "2024-07-10T14:44:39.994Z",
+      "modified_at": "2024-07-15T12:54:23.191Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ersatzbeitrag (CHF)\", \"fr\": null, \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "!(\n\t\"gebaeudeart-spital-oder-heim\" in \"gebaeudeart\"|answer &&\n\t\"werden-schutzplaetze-erstellt-nein\" == \"werden-schutzplaetze-erstellt\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "\"anzahl-schutzplaetze-spital\"|answer <= 10 ?\n\t800 * \"anzahl-schutzplaetze-spital\"|answer : \n\t\t\"anzahl-schutzplaetze-spital\"|answer <= 20 ?\n\t\t\t(\"anzahl-schutzplaetze-spital\"|answer - 10) * 700 + 8000 :\n\t\t\t\t\"anzahl-schutzplaetze-spital\"|answer <= 30 ?\n\t\t\t\t\t(\"anzahl-schutzplaetze-spital\"|answer - 20) * 650 + 15000 :\n\t\t\t\t\t\t\"anzahl-schutzplaetze-spital\"|answer <= 40 ?\n\t\t\t\t\t\t\t(\"anzahl-schutzplaetze-spital\"|answer - 30) * 600 + 21500 :\n\t\t\t\t\t\t\t\t\"anzahl-schutzplaetze-spital\"|answer <= 50 ?\n\t\t\t\t\t\t\t\t\t(\"anzahl-schutzplaetze-spital\"|answer - 40) * 550 + 27500 :\n\t\t\t\t\t\t\t\t\t\t\"anzahl-schutzplaetze-spital\"|answer <= 60 ?\n\t\t\t\t\t\t\t\t\t\t\t(\"anzahl-schutzplaetze-spital\"|answer - 50) * 500 + 33000 :\n\t\t\t\t\t\t\t\t\t\t\t\t\"anzahl-schutzplaetze-spital\"|answer > 60 ?\n\t\t\t\t\t\t\t\t\t\t\t\t\t(\"anzahl-schutzplaetze-spital\"|answer - 60) * 450 + 38000 : 0",
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ersatzbeitrag-wohnhaus",
+    "fields": {
+      "created_at": "2024-07-10T13:41:49.963Z",
+      "modified_at": "2024-07-15T12:49:08.081Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ersatzbeitrag (CHF)\", \"fr\": null, \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "!(\n\t[\n\t\t\"gebaeudeart-wohn-oder-ferienhaus\",\n\t\t\"gebaeudeart-andere\"\n\t] intersects \"gebaeudeart\"|answer &&\n\t\"werden-schutzplaetze-erstellt-nein\" == \"werden-schutzplaetze-erstellt\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "\"anzahl-schutzplaetze-wohnhaus\"|answer <= 10 ?\n\t800 * \"anzahl-schutzplaetze-wohnhaus\"|answer : \n\t\t\"anzahl-schutzplaetze-wohnhaus\"|answer <= 20 ?\n\t\t\t(\"anzahl-schutzplaetze-wohnhaus\"|answer - 10) * 700 + 8000 :\n\t\t\t\t\"anzahl-schutzplaetze-wohnhaus\"|answer <= 30 ?\n\t\t\t\t\t(\"anzahl-schutzplaetze-wohnhaus\"|answer - 20) * 650 + 15000 :\n\t\t\t\t\t\t\"anzahl-schutzplaetze-wohnhaus\"|answer <= 40 ?\n\t\t\t\t\t\t\t(\"anzahl-schutzplaetze-wohnhaus\"|answer - 30) * 600 + 21500 :\n\t\t\t\t\t\t\t\t\"anzahl-schutzplaetze-wohnhaus\"|answer <= 50 ?\n\t\t\t\t\t\t\t\t\t(\"anzahl-schutzplaetze-wohnhaus\"|answer - 40) * 550 + 27500 :\n\t\t\t\t\t\t\t\t\t\t\"anzahl-schutzplaetze-wohnhaus\"|answer <= 60 ?\n\t\t\t\t\t\t\t\t\t\t\t(\"anzahl-schutzplaetze-wohnhaus\"|answer - 50) * 500 + 33000 :\n\t\t\t\t\t\t\t\t\t\t\t\t\"anzahl-schutzplaetze-wohnhaus\"|answer > 60 ?\n\t\t\t\t\t\t\t\t\t\t\t\t\t(\"anzahl-schutzplaetze-wohnhaus\"|answer - 60) * 450 + 38000 : 0",
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "ersatz-hecke",
     "fields": {
       "created_at": "2023-04-24T14:22:10.798Z",
@@ -55133,6 +55558,42 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "flaeche-projektierte-schutzraeume",
+    "fields": {
+      "created_at": "2024-07-10T15:01:21.744Z",
+      "modified_at": "2024-07-10T15:01:35.067Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fl\\u00e4che (m\\u00b2)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "\"werden-schutzplaetze-erstellt-ja\" != \"werden-schutzplaetze-erstellt\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "fluessiggasbehaelter-unter-20-tonnen",
     "fields": {
       "created_at": "2023-07-07T11:07:45.670Z",
@@ -55557,14 +56018,14 @@
     "pk": "gebaeudeart",
     "fields": {
       "created_at": "2023-04-18T19:01:03.084Z",
-      "modified_at": "2023-10-27T14:14:07.737Z",
+      "modified_at": "2024-07-10T12:01:23.654Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Geb\\u00e4udeart\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -58176,6 +58637,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hinweis-ausfuehrungsplaene",
+    "fields": {
+      "created_at": "2024-07-10T15:06:36.920Z",
+      "modified_at": "2024-07-10T15:31:02.421Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Ausf\\u00fchrungspl\\u00e4ne\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"werden-schutzplaetze-erstellt-ja\" != \"werden-schutzplaetze-erstellt\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Die Ausf\\u00fchrungspl\\u00e4ne k\\u00f6nnen nach der Projektgenehmigung direkt, sp\\u00e4testens vier Wochen vor Baubeginn, dem Amt f\\u00fcr Milit\\u00e4r und Zivilschutz eingereicht werden.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": false
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hinweis-bafu-richtlinie",
     "fields": {
       "created_at": "2023-04-24T13:52:36.669Z",
@@ -58572,6 +59066,37 @@
       "meta": {
         "hideLabel": true
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-gebuehrenpflicht",
+    "fields": {
+      "created_at": "2024-07-10T15:07:47.783Z",
+      "modified_at": "2024-07-10T15:33:37.371Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Geb\\u00fchrenpflicht\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"werden-schutzplaetze-erstellt-ja\" != \"werden-schutzplaetze-erstellt\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Der Bauherr wird gem\\u00e4ss Art. 15, Anhang 2 zur Verordnung zum Zivilschutzgesetz (BR 640.110-A2) f\\u00fcr die Pr\\u00fcfung des Schutzraumbauprojektes geb\\u00fchrenpflichtig.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -66343,6 +66868,101 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "projektierte-schutzraeume-infotext",
+    "fields": {
+      "created_at": "2024-07-16T06:53:35.464Z",
+      "modified_at": "2024-07-16T06:54:37.377Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Projektierte Schutzr\\u00e4ume Infotext\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Das Bundesamt f\\u00fcr Bev\\u00f6lkerungsschutz regelt die Rahmenbedingungen f\\u00fcr den Schutzraumbau. Die technischen Weisungen sind auf [babs.admin.ch](https://www.babs.admin.ch/de/unterlagen-schutzbauten) einsehbar.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "projektierte-schutzraeume-titel",
+    "fields": {
+      "created_at": "2024-07-10T14:59:24.229Z",
+      "modified_at": "2024-07-10T14:59:40.463Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fl\\u00e4che und Volumen der projektierten Schutzr\\u00e4ume Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"werden-schutzplaetze-erstellt-ja\" != \"werden-schutzplaetze-erstellt\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\\n#### Fl\\u00e4che und Volumen der projektierten Schutzr\\u00e4ume\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "projektplaene",
+    "fields": {
+      "created_at": "2024-07-11T07:15:22.585Z",
+      "modified_at": "2024-07-11T07:15:22.585Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Projektpl\\u00e4ne\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "proposal",
     "fields": {
       "created_at": "2023-05-19T10:12:29.751Z",
@@ -68136,6 +68756,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "schutzraumplaene",
+    "fields": {
+      "created_at": "2024-07-16T09:57:26.435Z",
+      "modified_at": "2024-07-16T09:58:26.219Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schutzraumpl\\u00e4ne\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "!(\"werden-schutzplaetze-erstellt\"|answer == \"werden-schutzplaetze-erstellt-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "selbstdeklaration-titel",
     "fields": {
       "created_at": "2023-04-20T11:17:33.110Z",
@@ -68753,14 +69406,14 @@
     "pk": "spital-anzahl-betten",
     "fields": {
       "created_at": "2023-04-18T19:03:25.921Z",
-      "modified_at": "2024-05-03T06:50:05.209Z",
+      "modified_at": "2024-07-15T12:54:23.180Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Spital oder Heim: Anzahl Patientenbetten\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Anzahl Patientenbetten\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\"gebaeudeart-spital-oder-heim\" in \"gebaeudeart\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -70323,6 +70976,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "trennlinie",
+    "fields": {
+      "created_at": "2024-07-10T15:34:00.796Z",
+      "modified_at": "2024-07-10T15:34:00.796Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Trennlinie\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -72293,6 +72977,42 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "volumen-projektierte-schutzraeume",
+    "fields": {
+      "created_at": "2024-07-10T15:03:02.510Z",
+      "modified_at": "2024-07-10T15:03:18.455Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Volumen (m\\u00b3)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "\"werden-schutzplaetze-erstellt-ja\" != \"werden-schutzplaetze-erstellt\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "volumen-rc-produkt",
     "fields": {
       "created_at": "2023-04-24T13:58:14.622Z",
@@ -74204,14 +74924,14 @@
     "pk": "werden-schutzplaetze-erstellt",
     "fields": {
       "created_at": "2023-04-18T18:56:31.814Z",
-      "modified_at": "2023-10-27T14:14:07.742Z",
+      "modified_at": "2024-07-10T11:59:09.062Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Werden Schutzpl\\u00e4tze erstellt?\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -74684,15 +75404,15 @@
     "pk": "wohnhaus-anzahl-zimmer",
     "fields": {
       "created_at": "2023-04-18T19:01:55.491Z",
-      "modified_at": "2024-05-03T06:50:05.472Z",
+      "modified_at": "2024-07-15T12:49:08.072Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Anzahl Zimmer\", \"fr\": null, \"it\": null}",
       "type": "float",
-      "is_required": "false",
-      "is_hidden": "!(\"gebaeudeart-wohn-oder-ferienhaus\" in \"gebaeudeart\"|answer)",
+      "is_required": "true",
+      "is_hidden": "!(\n\t[\n\t\t\"gebaeudeart-wohn-oder-ferienhaus\",\n\t\t\"gebaeudeart-andere\"\n\t] intersects \"gebaeudeart\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Bei der Berechnung werden halbe Zimmer nicht mitgez\\u00e4hlt. K\\u00fcche und Wohnzimmer z\\u00e4hlen zusammen als 1 Zimmer.\", \"fr\": null, \"it\": null}",
@@ -74813,20 +75533,20 @@
     "pk": "wohn-oder-ferienhaus-titel",
     "fields": {
       "created_at": "2023-04-19T12:14:45.023Z",
-      "modified_at": "2023-04-19T12:15:24.391Z",
+      "modified_at": "2024-07-10T13:47:35.613Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Wohn- oder Ferienhaus Titel\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\"gebaeudeart-wohn-oder-ferienhaus\" in \"gebaeudeart\"|answer)",
+      "is_hidden": "!(\n\t[\n\t\t\"gebaeudeart-wohn-oder-ferienhaus\",\n\t\t\"gebaeudeart-andere\"\n\t] intersects \"gebaeudeart\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n#### Wohn- oder Ferienhaus\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n#### Wohnhaus, Ferienhaus oder anderes Geb\\u00e4ude\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -83646,32 +84366,47 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "gebaeudeart.gebaeudeart-andere",
+    "fields": {
+      "created_at": "2024-07-10T12:01:23.666Z",
+      "modified_at": "2024-07-10T12:01:23.666Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gebaeudeart",
+      "option": "gebaeudeart-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "gebaeudeart.gebaeudeart-spital-oder-heim",
     "fields": {
-      "created_at": "2023-10-25T07:33:33.450Z",
-      "modified_at": "2023-10-25T07:33:33.450Z",
+      "created_at": "2024-07-10T12:01:23.673Z",
+      "modified_at": "2024-07-10T12:01:23.673Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "gebaeudeart",
       "option": "gebaeudeart-spital-oder-heim",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "gebaeudeart.gebaeudeart-wohn-oder-ferienhaus",
     "fields": {
-      "created_at": "2023-10-25T07:33:33.456Z",
-      "modified_at": "2023-10-25T07:33:33.456Z",
+      "created_at": "2024-07-10T12:01:23.680Z",
+      "modified_at": "2024-07-10T12:01:23.680Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "gebaeudeart",
       "option": "gebaeudeart-wohn-oder-ferienhaus",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -87321,6 +88056,21 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "projektplaene.projektplaene-ja",
+    "fields": {
+      "created_at": "2024-07-11T07:15:22.612Z",
+      "modified_at": "2024-07-11T07:15:22.612Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "projektplaene",
+      "option": "projektplaene-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "proposal.proposal-abbruch",
     "fields": {
       "created_at": "2023-05-19T10:12:29.759Z",
@@ -88321,6 +89071,21 @@
       "modified_by_group": null,
       "question": "schraegdach-tragwerksnormen",
       "option": "schraegdach-tragwerksnormen-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "schutzraumplaene.schutzraumplaene-ja",
+    "fields": {
+      "created_at": "2024-07-16T09:58:26.223Z",
+      "modified_at": "2024-07-16T09:58:26.223Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "schutzraumplaene",
+      "option": "schutzraumplaene-ja",
       "sort": 1
     }
   },
@@ -93773,8 +94538,8 @@
     "model": "caluma_form.questionoption",
     "pk": "werden-schutzplaetze-erstellt.werden-schutzplaetze-erstellt-ja",
     "fields": {
-      "created_at": "2023-10-25T07:33:26.363Z",
-      "modified_at": "2023-10-25T07:33:26.363Z",
+      "created_at": "2024-07-10T11:59:09.089Z",
+      "modified_at": "2024-07-10T11:59:09.089Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -93788,8 +94553,8 @@
     "model": "caluma_form.questionoption",
     "pk": "werden-schutzplaetze-erstellt.werden-schutzplaetze-erstellt-nein",
     "fields": {
-      "created_at": "2023-10-25T07:33:26.358Z",
-      "modified_at": "2023-10-25T07:33:26.358Z",
+      "created_at": "2024-07-10T11:59:09.082Z",
+      "modified_at": "2024-07-10T11:59:09.082Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",

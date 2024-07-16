@@ -3924,6 +3924,42 @@
       'nested_aliases': dict({
       }),
     }),
+    'ANZAHL_SCHUTZPLAETZE': dict({
+      'aliases': list([
+        dict({
+          'de': 'AMZ_ANZAHL_SCHUTZPLAETZE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Anzahl Schutzplätze Wohn- oder Ferienhaus',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ANZAHL_SPITALBETTEN': dict({
+      'aliases': list([
+        dict({
+          'de': 'AMZ_ANZAHL_SPITALBETTEN',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Anzahl Spitalbetten',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ANZAHL_ZIMMER': dict({
+      'aliases': list([
+        dict({
+          'de': 'AMZ_ANZAHL_RAEUME',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Anzahl Räume',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'BASE_URL': dict({
       'aliases': list([
         dict({
@@ -3980,6 +4016,18 @@
       ]),
       'description': dict({
         'de': 'Startdatum der Publikation im Kantonsamtsblatt',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'BEMERKUNGEN_SCHUTZPLAETZE': dict({
+      'aliases': list([
+        dict({
+          'de': 'AMZ_SCHUTZPLATZ_BEMERKUNGEN',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Bemerkungen zu den Schutzplätzen',
       }),
       'nested_aliases': dict({
       }),
@@ -4189,6 +4237,18 @@
         ]),
       }),
     }),
+    'FLAECHE_SCHUTZPLAETZE': dict({
+      'aliases': list([
+        dict({
+          'de': 'AMZ_SCHUTZPLATZ_FLAECHE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Fläche des Schutzplatzes',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'FOLGEPLANUNG': dict({
       'aliases': list([
         dict({
@@ -4209,6 +4269,18 @@
       ]),
       'description': dict({
         'de': 'Typ des Dossiers',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GEBAEUDEART': dict({
+      'aliases': list([
+        dict({
+          'de': 'AMZ_GEBAEUDEART',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Gebäudeart des Schutzplatz Gebäudes',
       }),
       'nested_aliases': dict({
       }),
@@ -4830,6 +4902,18 @@
       ]),
       'description': dict({
         'de': 'Das heutige Datum',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'VOLUMEN_SCHUTZPLAETZE': dict({
+      'aliases': list([
+        dict({
+          'de': 'AMZ_SCHUTZPLATZ_VOLUMEN',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Volumen des Schutzplatzes',
       }),
       'nested_aliases': dict({
       }),
@@ -7305,12 +7389,23 @@
     'ALLE_PROJEKTVERFASSER',
     'ALLE_PROJEKTVERFASSER_NAME_ADDRESS',
     'ALLE_PROJEKTVERFASSER_NAME_ADRESSE',
+    'AMZ_ANZAHL_RAEUME',
+    'AMZ_ANZAHL_SCHUTZPLAETZE',
+    'AMZ_ANZAHL_SPITALBETTEN',
+    'AMZ_GEBAEUDEART',
+    'AMZ_SCHUTZPLATZ_BEMERKUNGEN',
+    'AMZ_SCHUTZPLATZ_FLAECHE',
+    'AMZ_SCHUTZPLATZ_VOLUMEN',
+    'ANZAHL_SCHUTZPLAETZE',
+    'ANZAHL_SPITALBETTEN',
+    'ANZAHL_ZIMMER',
     'BASE_URL',
     'BAUEINGABE_DATUM',
     'BAUENTSCHEID',
     'BAUENTSCHEID_DATUM',
     'BEGINN_PUBLIKATIONSORGAN_GEMEINDE',
     'BEGINN_PUBLIKATION_KANTONSAMTSBLATT',
+    'BEMERKUNGEN_SCHUTZPLAETZE',
     'BESCHREIBUNG_BAUVORHABEN',
     'BESCHREIBUNG_PROJEKTAENDERUNG',
     'DECISION_DATE',
@@ -7374,8 +7469,10 @@
     'FACHSTELLEN_KANTONAL[].ERSTELLT',
     'FACHSTELLEN_KANTONAL[].FRIST',
     'FACHSTELLEN_KANTONAL[].NAME',
+    'FLAECHE_SCHUTZPLAETZE',
     'FOLGEPLANUNG',
     'FORM_NAME',
+    'GEBAEUDEART',
     'GEBAEUDEVERSICHERUNGSNUMMER',
     'GEMEINDE',
     'GEMEINDE_ADRESSE',
@@ -7451,6 +7548,7 @@
     'STELLUNGNAHME',
     'STRASSE',
     'TODAY',
+    'VOLUMEN_SCHUTZPLAETZE',
     'ZIRKULATION_ALLE',
     'ZIRKULATION_ALLE[]',
     'ZIRKULATION_ALLE[].BEANTWORTET',
@@ -8178,12 +8276,23 @@
     'ALLE_PROJEKTVERFASSER': 'Hans Muster',
     'ALLE_PROJEKTVERFASSER_NAME_ADDRESS': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
     'ALLE_PROJEKTVERFASSER_NAME_ADRESSE': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
+    'AMZ_ANZAHL_RAEUME': 100,
+    'AMZ_ANZAHL_SCHUTZPLAETZE': 50,
+    'AMZ_ANZAHL_SPITALBETTEN': 10,
+    'AMZ_GEBAEUDEART': 'Wohn- oder Ferienhaus, Spital oder Heim, Andere',
+    'AMZ_SCHUTZPLATZ_BEMERKUNGEN': 'Foo bar baz',
+    'AMZ_SCHUTZPLATZ_FLAECHE': 20,
+    'AMZ_SCHUTZPLATZ_VOLUMEN': 30,
+    'ANZAHL_SCHUTZPLAETZE': 50,
+    'ANZAHL_SPITALBETTEN': 10,
+    'ANZAHL_ZIMMER': 100,
     'BASE_URL': 'http://ember-ebau.local',
     'BAUEINGABE_DATUM': '31. März 2021',
     'BAUENTSCHEID': 'Bewilligt',
     'BAUENTSCHEID_DATUM': '30. August 2021',
     'BEGINN_PUBLIKATIONSORGAN_GEMEINDE': '20. August 2021',
     'BEGINN_PUBLIKATION_KANTONSAMTSBLATT': '22. August 2021',
+    'BEMERKUNGEN_SCHUTZPLAETZE': 'Foo bar baz',
     'BESCHREIBUNG_BAUVORHABEN': 'Einfamilienhaus',
     'BESCHREIBUNG_PROJEKTAENDERUNG': 'Projektänderung',
     'DECISION_DATE': '30. August 2021',
@@ -8265,47 +8374,49 @@
       dict({
         'BEANTWORTET': '',
         'ERSTELLT': '30.08.2021',
-        'FRIST': '10.10.1998',
-        'NAME': 'Susan Weber',
+        'FRIST': '18.06.1975',
+        'NAME': 'Patrick Baker',
       }),
       dict({
         'BEANTWORTET': '',
         'ERSTELLT': '30.08.2021',
-        'FRIST': '23.06.1972',
-        'NAME': 'Ashley Wilson',
+        'FRIST': '10.04.2007',
+        'NAME': 'Vanessa Nguyen',
       }),
       dict({
         'BEANTWORTET': '',
         'ERSTELLT': '30.08.2021',
-        'FRIST': '22.05.2016',
-        'NAME': 'Matthew Becker',
+        'FRIST': '27.01.2010',
+        'NAME': 'Charlene Allen',
       }),
       dict({
         'BEANTWORTET': '',
         'ERSTELLT': '30.08.2021',
-        'FRIST': '14.08.2020',
-        'NAME': 'Sarah Stevens',
+        'FRIST': '22.05.1981',
+        'NAME': 'Christopher Smith',
       }),
       dict({
-        'BEANTWORTET': '07.06.2007',
+        'BEANTWORTET': '02.01.2007',
         'ERSTELLT': '30.08.2021',
-        'FRIST': '18.02.1971',
-        'NAME': 'Brittney Whitney',
+        'FRIST': '29.11.1980',
+        'NAME': 'Juan Morales',
       }),
       dict({
-        'BEANTWORTET': '25.12.1994',
+        'BEANTWORTET': '27.02.1976',
         'ERSTELLT': '30.08.2021',
-        'FRIST': '04.07.1988',
-        'NAME': 'Robert Rogers',
+        'FRIST': '13.11.1972',
+        'NAME': 'Jennifer Thornton',
       }),
     ]),
+    'FLAECHE_SCHUTZPLAETZE': 20,
     'FOLGEPLANUNG': 'Baulinie allgemein',
     'FORM_NAME': 'Baugesuch',
+    'GEBAEUDEART': 'Wohn- oder Ferienhaus, Spital oder Heim, Andere',
     'GEBAEUDEVERSICHERUNGSNUMMER': '4-116',
-    'GEMEINDE': 'Joseph Andrews',
+    'GEMEINDE': 'Patricia Shelton',
     'GEMEINDE_ADRESSE': '',
-    'GEMEINDE_EMAIL': 'matthew55@example.com',
-    'GEMEINDE_NAME_ADRESSE': 'Gemeinde Joseph Andrews',
+    'GEMEINDE_EMAIL': 'jameslong@example.net',
+    'GEMEINDE_NAME_ADRESSE': 'Gemeinde Patricia Shelton',
     'GEMEINDE_ORT': '',
     'GEMEINDE_TELEFON': '',
     'GENERELLER_ERSCHLIESSUNGSPLAN': 'Fuss- / Spazierweg, Parkierung Gebiete D',
@@ -8350,7 +8461,7 @@
     'MEINE_ORGANISATION_NAME_KURZ': 'Alex Smith',
     'MEINE_ORGANISATION_ORT': 'Testdorf',
     'MEINE_ORGANISATION_TELEFON': '032163546546',
-    'MUNICIPALITY': 'Joseph Andrews',
+    'MUNICIPALITY': 'Patricia Shelton',
     'MUNICIPALITY_ADDRESS': '',
     'NAME': '',
     'NEBENBESTIMMUNGEN': '',
@@ -8374,70 +8485,71 @@
     'STELLUNGNAHME': '',
     'STRASSE': 'Teststrasse 12',
     'TODAY': '30. August 2021',
+    'VOLUMEN_SCHUTZPLAETZE': 30,
     'ZIRKULATION_ALLE': list([
       dict({
         'BEANTWORTET': '',
         'ERSTELLT': '30.08.2021',
-        'FRIST': '10.10.1998',
-        'NAME': 'Susan Weber',
+        'FRIST': '18.06.1975',
+        'NAME': 'Patrick Baker',
       }),
       dict({
         'BEANTWORTET': '',
         'ERSTELLT': '30.08.2021',
-        'FRIST': '23.06.1972',
-        'NAME': 'Ashley Wilson',
+        'FRIST': '10.04.2007',
+        'NAME': 'Vanessa Nguyen',
       }),
       dict({
         'BEANTWORTET': '',
         'ERSTELLT': '30.08.2021',
-        'FRIST': '22.05.2016',
-        'NAME': 'Matthew Becker',
+        'FRIST': '27.01.2010',
+        'NAME': 'Charlene Allen',
       }),
       dict({
         'BEANTWORTET': '',
         'ERSTELLT': '30.08.2021',
-        'FRIST': '14.08.2020',
-        'NAME': 'Sarah Stevens',
+        'FRIST': '22.05.1981',
+        'NAME': 'Christopher Smith',
       }),
       dict({
-        'BEANTWORTET': '07.06.2007',
+        'BEANTWORTET': '02.01.2007',
         'ERSTELLT': '30.08.2021',
-        'FRIST': '18.02.1971',
-        'NAME': 'Brittney Whitney',
+        'FRIST': '29.11.1980',
+        'NAME': 'Juan Morales',
       }),
       dict({
-        'BEANTWORTET': '25.12.1994',
+        'BEANTWORTET': '27.02.1976',
         'ERSTELLT': '30.08.2021',
-        'FRIST': '04.07.1988',
-        'NAME': 'Robert Rogers',
+        'FRIST': '13.11.1972',
+        'NAME': 'Jennifer Thornton',
       }),
     ]),
     'ZIRKULATION_FACHSTELLEN': list([
       dict({
-        'BEANTWORTET': '07.06.2007',
+        'BEANTWORTET': '02.01.2007',
         'ERSTELLT': '30.08.2021',
-        'FRIST': '18.02.1971',
-        'NAME': 'Brittney Whitney',
+        'FRIST': '29.11.1980',
+        'NAME': 'Juan Morales',
       }),
       dict({
-        'BEANTWORTET': '25.12.1994',
+        'BEANTWORTET': '27.02.1976',
         'ERSTELLT': '30.08.2021',
-        'FRIST': '04.07.1988',
-        'NAME': 'Robert Rogers',
+        'FRIST': '13.11.1972',
+        'NAME': 'Jennifer Thornton',
       }),
     ]),
     'ZIRKULATION_GEMEINDEN': list([
       dict({
         'BEANTWORTET': '',
         'ERSTELLT': '30.08.2021',
-        'FRIST': '22.05.2016',
-        'NAME': 'Matthew Becker',
+        'FRIST': '27.01.2010',
+        'NAME': 'Charlene Allen',
       }),
       dict({
         'BEANTWORTET': '',
         'ERSTELLT': '30.08.2021',
-        'FRIST': '14.08.2020',
-        'NAME': 'Sarah Stevens',
+        'FRIST': '22.05.1981',
+        'NAME': 'Christopher Smith',
       }),
     ]),
     'ZIRKULATION_RUECKMELDUNGEN': list([
@@ -8445,13 +8557,13 @@
         'ANTWORT': '',
         'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 5',
         'STELLUNGNAHME': 'Stellungnahme 5',
-        'VON': 'Brittney Whitney',
+        'VON': 'Juan Morales',
       }),
       dict({
         'ANTWORT': '',
         'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 6',
         'STELLUNGNAHME': 'Stellungnahme 6',
-        'VON': 'Robert Rogers',
+        'VON': 'Jennifer Thornton',
       }),
     ]),
     'ZONENPLAN': 'Rebwirtschaftszone',
