@@ -1,11 +1,10 @@
-from caluma.caluma_workflow.models import WorkItem
 from rest_framework_json_api import serializers
 
 from camac.instance.mixins import InstanceEditableMixin
+from camac.responsible import models
+from camac.responsible.domain_logic import ResponsibleServiceDomainLogic
 from camac.user.relations import ServiceResourceRelatedField
 from camac.user.serializers import CurrentServiceDefault
-
-from . import models
 
 
 class ResponsibleServiceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
@@ -25,22 +24,18 @@ class ResponsibleServiceSerializer(InstanceEditableMixin, serializers.ModelSeria
 
     def create(self, validated_data):
         responsible_service = super().create(validated_data)
-        reassign_work_items(responsible_service)
+
+        ResponsibleServiceDomainLogic.update_responsibility(
+            responsible_service, self.context
+        )
 
         return responsible_service
 
     def update(self, responsible_service, validated_data):
-        super().update(responsible_service, validated_data)
-        reassign_work_items(responsible_service)
+        responsible_service = super().update(responsible_service, validated_data)
+
+        ResponsibleServiceDomainLogic.update_responsibility(
+            responsible_service, self.context
+        )
 
         return responsible_service
-
-
-def reassign_work_items(responsible_service):
-    # reassign all tasks of this instance for this service to the
-    # responsible user
-    WorkItem.objects.filter(
-        case__family__instance__pk=responsible_service.instance_id,
-        addressed_groups=[responsible_service.service.pk],
-        status=WorkItem.STATUS_READY,
-    ).update(assigned_users=[responsible_service.responsible_user.username])

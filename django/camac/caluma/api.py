@@ -2,6 +2,7 @@ from logging import getLogger
 
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_form.validators import AnswerValidator, DocumentValidator
+from caluma.caluma_user.models import OIDCUser
 from caluma.caluma_workflow import (
     api as caluma_workflow_api,
     models as caluma_workflow_models,
@@ -9,6 +10,7 @@ from caluma.caluma_workflow import (
 from django.conf import settings
 from django.db.models import Q
 
+from camac.instance.models import Instance
 from camac.user.models import Service
 
 log = getLogger(__name__)
@@ -246,7 +248,9 @@ class CalumaApi:
             )
         )
 
-    def reassign_work_items(self, instance, from_group_id, to_group_id, user):
+    def reassign_work_items(
+        self, instance: Instance, from_group_id: str, to_group_id: str, user: OIDCUser
+    ):
         from_group_id = str(from_group_id)
         to_group_id = str(to_group_id)
 

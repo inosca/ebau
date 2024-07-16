@@ -36,8 +36,8 @@ def send_mail_without_request(slug, username=None, group_id=None, **kwargs):
 
 
 def send_mail(
-    slug,
-    context,
+    slug: str,
+    context: dict,
     serializer=NotificationTemplateSendmailSerializer,
     **kwargs,
 ):

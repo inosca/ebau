@@ -1665,6 +1665,7 @@ APPLICATIONS = {
                     "recipient_types": ["applicant"],
                 },
             ],
+            "CHANGE_RESPONSIBLE_USER": {"template_slug": "zustaedigkeit-wechsel"},
         },
         "SUBSERVICE_ROLES": ["subservice"],
         "DOCUMENT_BACKEND": "alexandria",

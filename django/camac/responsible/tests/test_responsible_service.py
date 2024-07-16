@@ -27,6 +27,9 @@ def test_responsible_service_list(admin_client, responsible_service):
 )
 def test_responsible_service_create(
     admin_client,
+    mailoutbox,
+    application_settings,
+    notification_template,
     instance,
     service,
     admin_user,
@@ -35,6 +38,10 @@ def test_responsible_service_create(
     work_item_factory,
     case_factory,
 ):
+    application_settings["NOTIFICATIONS"]["CHANGE_RESPONSIBLE_USER"] = {
+        "template_slug": notification_template.slug,
+    }
+
     case = case_factory()
     instance.case = case
     instance.save()
@@ -66,6 +73,8 @@ def test_responsible_service_create(
         )
         work_item.refresh_from_db()
         assert work_item.assigned_users[0] == instance.user.username
+        assert len(mailoutbox) == 1
+        assert mailoutbox[0].to[0] == instance.user.email
 
 
 @pytest.mark.parametrize(
@@ -80,6 +89,9 @@ def test_responsible_service_create(
 )
 def test_responsible_service_update(
     admin_client,
+    application_settings,
+    mailoutbox,
+    notification_template,
     responsible_service,
     status_code,
     activation,
@@ -89,6 +101,10 @@ def test_responsible_service_update(
     case_factory,
     admin_user,
 ):
+    application_settings["NOTIFICATIONS"]["CHANGE_RESPONSIBLE_USER"] = {
+        "template_slug": notification_template.slug,
+    }
+
     case = case_factory()
     responsible_service.instance.case = case
     responsible_service.instance.save()
@@ -131,3 +147,5 @@ def test_responsible_service_update(
             work_item.assigned_users[0] == responsible_service.responsible_user.username
         )
         assert other_work_item.assigned_users == []
+        assert len(mailoutbox) == 1
+        assert mailoutbox[0].to[0] == responsible_service.responsible_user.email
