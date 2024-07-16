@@ -780,6 +780,34 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("EGRID")],
         description=_("EGRID number"),
     )
+    gebaeudeart = fields.AliasedMethodField(
+        aliases=[_("BUILDING_TYPE")],
+        description=_("Building type"),
+    )
+    anzahl_zimmer = fields.AliasedMethodField(
+        aliases=[_("NUMBER_OF_ROOMS")],
+        description=_("Number of rooms"),
+    )
+    anzahl_schutzplaetze = fields.AliasedMethodField(
+        aliases=[_("NUMBER_OF_SHELTERS")],
+        description=_("Number of sheltered housing and vacation home"),
+    )
+    anzahl_spitalbetten = fields.AliasedMethodField(
+        aliases=[_("NUMBER_OF_HOSPITAL_BEDS")],
+        description=_("Number of hospital beds"),
+    )
+    flaeche_schutzplaetze = fields.AliasedMethodField(
+        aliases=[_("SHELTER_SURFACE_AREA")],
+        description=_("Surface area of shelter"),
+    )
+    volumen_schutzplaetze = fields.AliasedMethodField(
+        aliases=[_("SHELTER_VOLUME")],
+        description=_("Volume of shelter"),
+    )
+    bemerkungen_schutzplaetze = fields.AliasedMethodField(
+        aliases=[_("SHELTER_REMARKS")],
+        description=_("Remarks on the shelters"),
+    )
 
     def get_zonenplan(self, instance):
         answer = Answer.objects.filter(
@@ -845,6 +873,54 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             *[plot.get("egrid_number") for plot in instance._master_data.plot_data],
             separator=", ",
         )
+
+    def get_gebaeudeart(self, instance):
+        answers = Answer.objects.filter(
+            question_id="gebaeudeart", document_id=instance.case.document.pk
+        ).first()
+        return clean_join(
+            *[option.label for option in answers.selected_options], separator=", "
+        )
+
+    def get_anzahl_zimmer(self, instance):
+        answer = Answer.objects.filter(
+            question_id="wohnhaus-anzahl-zimmer", document_id=instance.case.document.pk
+        ).first()
+        return answer.value if answer else ""
+
+    def get_anzahl_schutzplaetze(self, instance):
+        answer = Answer.objects.filter(
+            question_id="anzahl-schutzplaetze-wohnhaus",
+            document_id=instance.case.document.pk,
+        ).first()
+        return answer.value if answer else ""
+
+    def get_anzahl_spitalbetten(self, instance):
+        answer = Answer.objects.filter(
+            question_id="spital-anzahl-betten", document_id=instance.case.document.pk
+        ).first()
+        return answer.value if answer else ""
+
+    def get_flaeche_schutzplaetze(self, instance):
+        answer = Answer.objects.filter(
+            question_id="flaeche-projektierte-schutzraeume",
+            document_id=instance.case.document.pk,
+        ).first()
+        return answer.value if answer else ""
+
+    def get_volumen_schutzplaetze(self, instance):
+        answer = Answer.objects.filter(
+            question_id="volumen-projektierte-schutzraeume",
+            document_id=instance.case.document.pk,
+        ).first()
+        return answer.value if answer else ""
+
+    def get_bemerkungen_schutzplaetze(self, instance):
+        answer = Answer.objects.filter(
+            question_id="bemerkungen-schutzplaetze",
+            document_id=instance.case.document.pk,
+        ).first()
+        return answer.value if answer else ""
 
     class Meta:
         exclude = [
