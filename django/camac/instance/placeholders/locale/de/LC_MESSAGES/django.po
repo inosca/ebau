@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-11 15:15+0200\n"
-"PO-Revision-Date: 2024-05-02 14:31+0200\n"
+"PO-Revision-Date: 2024-07-11 09:40+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -931,6 +931,62 @@ msgstr "DOKUMENTE"
 #: camac/instance/placeholders/serializers.py:773
 msgid "Documents with metadata"
 msgstr "Dokumente mit Metadaten"
+
+#: camac/instance/placeholders/serializers.py:784
+msgid "BUILDING_TYPE"
+msgstr "AMZ_GEBAEUDEART"
+
+#: camac/instance/placeholders/serializers.py:785
+msgid "Building type"
+msgstr "Gebäudeart des Schutzplatz Gebäudes"
+
+#: camac/instance/placeholders/serializers.py:788
+msgid "NUMBER_OF_ROOMS"
+msgstr "AMZ_ANZAHL_RAEUME"
+
+#: camac/instance/placeholders/serializers.py:789
+msgid "Number of rooms"
+msgstr "Anzahl Räume"
+
+#: camac/instance/placeholders/serializers.py:792
+msgid "NUMBER_OF_SHELTERS"
+msgstr "AMZ_ANZAHL_SCHUTZPLAETZE"
+
+#: camac/instance/placeholders/serializers.py:793
+msgid "Number of sheltered housing and vacation home"
+msgstr "Anzahl Schutzplätze Wohn- oder Ferienhaus"
+
+#: camac/instance/placeholders/serializers.py:796
+msgid "NUMBER_OF_HOSPITAL_BEDS"
+msgstr "AMZ_ANZAHL_SPITALBETTEN"
+
+#: camac/instance/placeholders/serializers.py:797
+msgid "Number of hospital beds"
+msgstr "Anzahl Spitalbetten"
+
+#: camac/instance/placeholders/serializers.py:800
+msgid "SHELTER_SURFACE_AREA"
+msgstr "AMZ_SCHUTZPLATZ_FLAECHE"
+
+#: camac/instance/placeholders/serializers.py:801
+msgid "Surface area of shelter"
+msgstr "Fläche des Schutzplatzes"
+
+#: camac/instance/placeholders/serializers.py:804
+msgid "SHELTER_VOLUME"
+msgstr "AMZ_SCHUTZPLATZ_VOLUMEN"
+
+#: camac/instance/placeholders/serializers.py:805
+msgid "Volume of shelter"
+msgstr "Volumen des Schutzplatzes"
+
+#: camac/instance/placeholders/serializers.py:808
+msgid "SHELTER_REMARKS"
+msgstr "AMZ_SCHUTZPLATZ_BEMERKUNGEN"
+
+#: camac/instance/placeholders/serializers.py:809
+msgid "Remarks on the shelters"
+msgstr "Bemerkungen zu den Schutzplätzen"
 
 #: camac/instance/placeholders/serializers.py:852
 msgid "PROJECT"

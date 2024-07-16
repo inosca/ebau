@@ -180,6 +180,30 @@ def test_dms_placeholders_gr(
         meta={"is-published": True},
     )
 
+    # shelter form
+    utils.add_answer(
+        gr_instance.case.document,
+        "gebaeudeart",
+        [
+            "gebaeudeart-wohn-oder-ferienhaus",
+            "gebaeudeart-spital-oder-heim",
+            "gebaeudeart-andere",
+        ],
+        options=[
+            ("gebaeudeart-wohn-oder-ferienhaus", "Wohn- oder Ferienhaus"),
+            ("gebaeudeart-spital-oder-heim", "Spital oder Heim"),
+            ("gebaeudeart-andere", "Andere"),
+        ],
+    )
+    utils.add_answer(gr_instance.case.document, "wohnhaus-anzahl-zimmer", 100)
+    utils.add_answer(gr_instance.case.document, "anzahl-schutzplaetze-wohnhaus", 50)
+    utils.add_answer(gr_instance.case.document, "spital-anzahl-betten", 10)
+    utils.add_answer(gr_instance.case.document, "flaeche-projektierte-schutzraeume", 20)
+    utils.add_answer(gr_instance.case.document, "volumen-projektierte-schutzraeume", 30)
+    utils.add_answer(
+        gr_instance.case.document, "bemerkungen-schutzplaetze", "Foo bar baz"
+    )
+
     # zones
     utils.add_answer(gr_instance.case.document, "zonenplan", "Rebwirtschaftszone")
     utils.add_answer(
