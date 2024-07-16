@@ -719,3 +719,39 @@ def test_dynamic_task_after_construction_step(
     )
 
     assert tasks == expected_tasks
+
+
+@pytest.mark.parametrize(
+    "form_slug,expected_tasks",
+    [
+        ("bauanzeige", ["distribution"]),
+        ("vorlaeufige-beurteilung", ["distribution"]),
+        ("baugesuch", ["distribution", "fill-publication", "publication"]),
+    ],
+)
+def test_dynamic_task_after_formal_exam(
+    db,
+    work_item_factory,
+    gr_instance,
+    gr_publication_settings,
+    gr_distribution_settings,
+    caluma_admin_user,
+    form_slug,
+    expected_tasks,
+):
+    gr_instance.case.document.form.slug = form_slug
+    gr_instance.case.document.form.save()
+
+    work_item = work_item_factory(
+        case=gr_instance.case,
+        task_id="formal-exam",
+    )
+
+    result = CustomDynamicTasks().resolve_after_formal_exam(
+        gr_instance.case, caluma_admin_user, work_item, None
+    )
+
+    if len(result) > 1:
+        result.sort()
+
+    assert result == expected_tasks

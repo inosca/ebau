@@ -3,6 +3,8 @@ import { inject as service } from "@ember/service";
 import { dropTask } from "ember-concurrency";
 import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
 
+const VORLAEUFIGE_BEURTEILUNG_FORM = "vorlaeufige-beurteilung";
+
 export default class GrSubmitInstanceComponent extends DocumentValidityButtonComponent {
   @service intl;
   @service notification;
@@ -41,7 +43,10 @@ export default class GrSubmitInstanceComponent extends DocumentValidityButtonCom
       }
       const instance = yield this.store.peekRecord("instance", instanceId);
 
-      if (!instance.isPaper) {
+      if (
+        !instance.isPaper &&
+        instance.calumaForm !== VORLAEUFIGE_BEURTEILUNG_FORM
+      ) {
         yield this.export.perform();
       }
 

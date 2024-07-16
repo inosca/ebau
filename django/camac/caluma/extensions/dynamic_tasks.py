@@ -384,3 +384,11 @@ class CustomDynamicTasks(BaseDynamicTasks):
                 }
             ).values_list("pk", flat=True)
         )
+
+    @register_dynamic_task("after-formal-exam")
+    def resolve_after_formal_exam(self, case, user, prev_work_item, context):
+        if settings.PUBLICATION.get(
+            "AFTER_FORMAL_EXAM_PUBLICATION_TASKS", []
+        ) and case.document.form.slug not in ["bauanzeige", "vorlaeufige-beurteilung"]:
+            return settings.PUBLICATION["AFTER_FORMAL_EXAM_PUBLICATION_TASKS"]
+        return [settings.DISTRIBUTION["DISTRIBUTION_TASK"]]
