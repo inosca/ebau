@@ -108,17 +108,16 @@ class CustomDynamicTasks(BaseDynamicTasks):
     def resolve_after_complete_check_ur(self, case, user, prev_work_item, context):
         complete_check_document = case.work_items.get(task="complete-check").document
 
-        is_incomplete = (
-            complete_check_document.answers.get(
-                question_id="complete-check-vollstaendigkeitspruefung"
-            ).value
-            == "complete-check-vollstaendigkeitspruefung-incomplete"
-        )
+        answer = complete_check_document.answers.get(
+            question_id="complete-check-vollstaendigkeitspruefung"
+        ).value
 
-        if is_incomplete:
-            return ["init-additional-demand"]
-
-        return []
+        if answer == "complete-check-vollstaendigkeitspruefung-complete":
+            return ["distribution"]
+        elif answer == "complete-check-vollstaendigkeitspruefung-incomplete":
+            return ["additional-demand", "distribution"]
+        elif answer == "complete-check-vollstaendigkeitspruefung-incomplete-wait":
+            return ["additional-demand"]
 
     @register_dynamic_task("after-inquiries-completed")
     def resolve_after_inquiries_completed(self, case, user, prev_work_item, context):
@@ -203,6 +202,25 @@ class CustomDynamicTasks(BaseDynamicTasks):
             value=settings.ADDITIONAL_DEMAND["ANSWERS"]["DECISION"]["REJECTED"],
         ).exists():
             return [settings.ADDITIONAL_DEMAND["FILL_TASK"]]
+
+        positive_answer = prev_work_item.document.answers.filter(
+            question_id=settings.ADDITIONAL_DEMAND["QUESTIONS"]["DECISION"],
+            value=settings.ADDITIONAL_DEMAND["ANSWERS"]["DECISION"]["ACCEPTED"],
+        )
+        open_additional_demands = case.work_items.filter(
+            status=WorkItem.STATUS_READY, task_id=settings.ADDITIONAL_DEMAND["TASK"]
+        )
+        distribution_work_item = case.work_items.filter(
+            status=WorkItem.STATUS_READY,
+            task_id=settings.DISTRIBUTION["DISTRIBUTION_TASK"],
+        )
+
+        if (
+            positive_answer
+            and not open_additional_demands
+            and not distribution_work_item
+        ):
+            return ["distribution"]
 
         return []
 
