@@ -18,121 +18,217 @@
     }
   },
   {
-    "model": "caluma_form.formquestion",
-    "pk": "complete-check.complete-check-abschliessen",
+    "model": "caluma_form.form",
+    "pk": "complete-check-canton",
     "fields": {
-      "created_at": "2023-12-05T12:43:26.980Z",
-      "modified_at": "2023-12-05T12:43:26.981Z",
+      "created_at": "2024-07-17T06:23:32.877Z",
+      "modified_at": "2024-07-17T06:23:32.877Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "complete-check",
+      "name": "{\"de\": \"Vollst\\u00e4ndigkeitspr\\u00fcfung (Kanton)\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "complete-check-municipality",
+    "fields": {
+      "created_at": "2024-07-15T12:23:34.280Z",
+      "modified_at": "2024-07-15T12:23:34.280Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Vollst\\u00e4ndigkeitspr\\u00fcfung (Gemeinde)\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-check-canton.complete-check-abschliessen",
+    "fields": {
+      "created_at": "2024-07-17T06:29:08.376Z",
+      "modified_at": "2024-07-17T06:29:08.376Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-check-canton",
       "question": "complete-check-abschliessen",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "complete-check.complete-check-baubewilligungspflichtig",
+    "pk": "complete-check-canton.erforderlichen-unterlagen",
     "fields": {
-      "created_at": "2023-12-08T13:05:33.120Z",
-      "modified_at": "2023-12-08T13:05:33.120Z",
+      "created_at": "2024-07-17T06:28:51.158Z",
+      "modified_at": "2024-07-17T06:28:51.158Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-check-canton",
+      "question": "erforderlichen-unterlagen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-check.complete-check-canton",
+    "fields": {
+      "created_at": "2024-07-17T06:08:29.777Z",
+      "modified_at": "2024-07-17T06:08:29.777Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "complete-check",
+      "question": "complete-check-canton",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-check.complete-check-municipality",
+    "fields": {
+      "created_at": "2024-07-17T06:05:09.274Z",
+      "modified_at": "2024-07-17T06:05:09.274Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-check",
+      "question": "complete-check-municipality",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-check-municipality.complete-check-abschliessen",
+    "fields": {
+      "created_at": "2024-07-17T06:02:27.188Z",
+      "modified_at": "2024-07-17T06:02:27.188Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-check-municipality",
+      "question": "complete-check-abschliessen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-check-municipality.complete-check-baubewilligungspflichtig",
+    "fields": {
+      "created_at": "2024-07-17T06:01:50.825Z",
+      "modified_at": "2024-07-17T06:01:50.825Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-check-municipality",
       "question": "complete-check-baubewilligungspflichtig",
       "sort": 8
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "complete-check.complete-check-begruendung",
+    "pk": "complete-check-municipality.complete-check-begruendung",
     "fields": {
-      "created_at": "2023-12-05T12:42:45.232Z",
-      "modified_at": "2023-12-05T12:42:45.232Z",
+      "created_at": "2024-07-17T06:02:20.526Z",
+      "modified_at": "2024-07-17T06:02:20.526Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "complete-check",
+      "form": "complete-check-municipality",
       "question": "complete-check-begruendung",
       "sort": 2
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "complete-check.complete-check-vollstaendigkeitspruefung",
+    "pk": "complete-check-municipality.complete-check-vollstaendigkeitspruefung",
     "fields": {
-      "created_at": "2023-12-08T13:05:10.329Z",
-      "modified_at": "2023-12-08T13:05:10.329Z",
+      "created_at": "2024-07-17T06:02:12.875Z",
+      "modified_at": "2024-07-17T06:02:12.875Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "complete-check",
+      "form": "complete-check-municipality",
       "question": "complete-check-vollstaendigkeitspruefung",
       "sort": 3
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "complete-check.erforderlichen-unterlagen",
+    "pk": "complete-check-municipality.erforderlichen-unterlagen",
     "fields": {
-      "created_at": "2024-04-29T05:52:22.642Z",
-      "modified_at": "2024-04-29T05:52:22.642Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-07-17T06:02:08.790Z",
+      "modified_at": "2024-07-17T06:02:08.790Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "complete-check",
+      "form": "complete-check-municipality",
       "question": "erforderlichen-unterlagen",
       "sort": 4
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "complete-check.profilierung",
+    "pk": "complete-check-municipality.profilierung",
     "fields": {
-      "created_at": "2024-04-29T05:40:29.346Z",
-      "modified_at": "2024-04-29T05:40:29.346Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-07-17T06:01:55.572Z",
+      "modified_at": "2024-07-17T06:01:55.572Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "complete-check",
+      "form": "complete-check-municipality",
       "question": "profilierung",
       "sort": 7
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "complete-check.unterschriften",
+    "pk": "complete-check-municipality.unterschriften",
     "fields": {
-      "created_at": "2024-04-29T05:41:40.224Z",
-      "modified_at": "2024-04-29T05:41:40.224Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-07-17T06:02:00.026Z",
+      "modified_at": "2024-07-17T06:02:00.026Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "complete-check",
+      "form": "complete-check-municipality",
       "question": "unterschriften",
       "sort": 6
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "complete-check.unterschriftenblatt-eingereicht",
+    "pk": "complete-check-municipality.unterschriftenblatt-eingereicht",
     "fields": {
-      "created_at": "2024-04-29T05:44:15.911Z",
-      "modified_at": "2024-04-29T05:44:15.911Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-07-17T06:02:04.323Z",
+      "modified_at": "2024-07-17T06:02:04.323Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "complete-check",
+      "form": "complete-check-municipality",
       "question": "unterschriftenblatt-eingereicht",
       "sort": 5
     }
@@ -487,6 +583,68 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "complete-check-canton",
+    "fields": {
+      "created_at": "2024-07-17T06:08:29.575Z",
+      "modified_at": "2024-07-17T06:26:22.901Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vollst\\u00e4ndigkeitspr\\u00fcfung (Kanton)\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "true",
+      "is_hidden": "!(info.case.form in [\"cantonal-territory-usage\", \"konzession-waermeentnahme\", \"bohrbewilligung-waermeentnahme\", \"pgv-gemeindestrasse\", \"bgbb\", \"oereb\", \"verfahren-gemeinde\"])",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "complete-check-canton",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "complete-check-municipality",
+    "fields": {
+      "created_at": "2024-07-17T06:05:09.158Z",
+      "modified_at": "2024-07-17T06:09:17.334Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vollst\\u00e4ndigkeitspr\\u00fcfung (Gemeinde)\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "true",
+      "is_hidden": "info.case.form in [\"cantonal-territory-usage\", \"konzession-waermeentnahme\", \"bohrbewilligung-waermeentnahme\", \"pgv-gemeindestrasse\", \"bgbb\", \"oereb\", \"verfahren-gemeinde\"]",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "complete-check-municipality",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
