@@ -22,11 +22,11 @@ def _is_controlled_by_a_coordination_service():
     )
 
 
-def _is_controlled_by_the_responsible_service(instance):
+def _is_addressed_to_the_responsible_service(instance):
     responsible_service = instance.responsible_service()
 
     return (
-        Q(controlling_groups__contains=[responsible_service.pk])
+        Q(addressed_groups__contains=[responsible_service.pk])
         if instance.responsible_service()
         else Q()
     )
@@ -78,14 +78,72 @@ class UrMilestonesSerializer(MilestonesSerializer):
                     fields.MethodField(
                         slug="instance-submitted", label=_("instance submitted")
                     ),
+                    fields.MethodField(
+                        slug="paper-submission", label=_("Paper submission")
+                    ),
+                    fields.WorkItemsField(
+                        slug="additional-demand",
+                        label=_("Additional demand"),
+                        task="additional-demand",
+                        status=WorkItem.STATUS_COMPLETED,
+                        field="created_at",
+                    ),
+                    fields.MethodField(
+                        slug="instance-complete", label=_("Instance complete")
+                    ),
+                    fields.WorkItemsField(
+                        slug="review-building-commission",
+                        label=_("Review building commission"),
+                        task="review-building-commission",
+                        status=WorkItem.STATUS_COMPLETED,
+                        field="closed_at",
+                        order_by="-closed_at",
+                        limit=1,
+                    ),
+                    fields.WorkItemsField(
+                        slug="start-circulation",
+                        label=_("Start circulation"),
+                        task="init-distribution",
+                        filter=lambda instance: _is_addressed_to_the_responsible_service(
+                            instance
+                        ),
+                        status=WorkItem.STATUS_COMPLETED,
+                        field="closed_at",
+                    ),
+                    fields.WorkItemsField(
+                        slug="distribution-completed",
+                        label=_("Distribution completed"),
+                        task="distribution",
+                        field="closed_at",
+                        status=WorkItem.STATUS_COMPLETED,
+                        filter=lambda instance: Q(
+                            _is_addressed_to_the_responsible_service(instance)
+                        ),
+                    ),
+                    fields.WorkItemsField(
+                        slug="decision",
+                        label=_("Decision made"),
+                        task="distribution",
+                        field="closed_at",
+                        status=WorkItem.STATUS_COMPLETED,
+                    ),
+                    fields.WorkItemsField(
+                        slug="notice-to-geometer",
+                        label=_("notice to geometer"),
+                        task="geometer",
+                        field="created_at",
+                    ),
+                    fields.WorkItemsField(
+                        slug="notice-to-gebaeudeschaetzung",
+                        label=_("notice to gebaeudeschaetzung"),
+                        task="gebaeudeschaetzung",
+                        field="created_at",
+                    ),
                     # I added this to get test code coverage.
                     # I will replace this with a more meaningful field once Uri
                     # uses the new workflow and actually has meaningful date questions
                     fields.AnswerField(
                         slug="is-paper", label=_("is paper"), document="building-permit"
-                    ),
-                    fields.MethodField(
-                        slug="paper-submission", label=_("Paper submission")
                     ),
                     fields.WorkItemsField(
                         slug="check-completed",
@@ -98,14 +156,6 @@ class UrMilestonesSerializer(MilestonesSerializer):
                         label=_("Forwarded to coordination service"),
                         task="fill-inquiry",
                         filter=lambda instance: _is_controlled_by_a_coordination_service(),
-                    ),
-                    fields.WorkItemsField(
-                        slug="start-municipal-distribution",
-                        label=_("Start of municipal distribution"),
-                        task="init-distribution",
-                        filter=lambda instance: _is_controlled_by_the_responsible_service(
-                            instance
-                        ),
                     ),
                     fields.WorkItemsField(
                         slug="start-cantonal-distribution",
@@ -121,17 +171,6 @@ class UrMilestonesSerializer(MilestonesSerializer):
                         status=WorkItem.STATUS_COMPLETED,
                         filter=lambda instance: _is_controlled_by_a_coordination_service(),
                     ),
-                    fields.WorkItemsField(
-                        slug="distribution-completed",
-                        label=_("Distribution completed"),
-                        task="check-inquiries",
-                        field="closed_at",
-                        status=WorkItem.STATUS_COMPLETED,
-                        filter=lambda instance: Q(
-                            _is_controlled_by_a_coordination_service()
-                            | _is_controlled_by_the_responsible_service(instance)
-                        ),
-                    ),
                     fields.MethodField(
                         slug="building-permit-valid-until",
                         label=_("Building permit valid until"),
@@ -140,3 +179,18 @@ class UrMilestonesSerializer(MilestonesSerializer):
             ),
         ],
     )
+
+    def get_instance_complete(self, instance):
+        # todo: fix this once the additional-demand setup is working with the nested child cases etc.
+        return None
+        # In Uri "Dossier vollständig" means that all required information is available
+        # to continue with the instance.
+        # if complete_check_work_item := instance.case.work_items.filter(task_id="complete-check", status=WorkItem.STATUS_COMPLETED):
+        #     complete_check_answer = complete_check_work_item.document.answers.get("complete-check-vollstaendigkeitspruefung").value
+        #     if complete_check_answer == "complete-check-vollstaendigkeitspruefung-complete":
+        #         # Dossier is "vollständig"
+        #         return complete_check_work_item.closed_at
+
+        #     if complete_check_answer in ["complete-check-vollstaendigkeitspruefung-incomplete", "complete-check-vollstaendigkeitspruefung-incomplete-wait"]:
+        #         # Dossier was incomplete during the check and additional-demands were required
+        #         return None
