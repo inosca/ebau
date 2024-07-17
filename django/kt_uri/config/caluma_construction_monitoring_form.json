@@ -19,15 +19,15 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "complete-instance-gemeinde",
+    "pk": "complete-instance-canton",
     "fields": {
-      "created_at": "2024-07-15T13:03:44.150Z",
-      "modified_at": "2024-07-15T13:03:44.150Z",
+      "created_at": "2024-07-17T06:47:17.842Z",
+      "modified_at": "2024-07-17T06:47:17.842Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Verfahren abschliessen (Gemeinde)\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"complete-instance-canton\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
@@ -37,15 +37,15 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "complete-instance-kanton",
+    "pk": "complete-instance-municipality",
     "fields": {
-      "created_at": "2024-07-15T13:05:06.985Z",
-      "modified_at": "2024-07-15T13:05:06.985Z",
+      "created_at": "2024-07-17T06:47:07.809Z",
+      "modified_at": "2024-07-17T06:47:07.809Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Verfahren abschliessen (Kanton)\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"complete-instance-municipality\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
@@ -397,61 +397,136 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "complete-instance.complete-instance-title",
+    "pk": "complete-instance-canton.complete-instance-ac",
     "fields": {
-      "created_at": "2023-11-10T09:08:35.979Z",
-      "modified_at": "2023-11-10T09:08:35.979Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2024-07-17T06:52:17.136Z",
+      "modified_at": "2024-07-17T06:52:17.136Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "complete-instance",
-      "question": "complete-instance-title",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "complete-instance.dossier-mit-ac",
-    "fields": {
-      "created_at": "2024-05-15T14:39:26.315Z",
-      "modified_at": "2024-05-15T14:39:26.315Z",
-      "created_by_user": "paul.walker@ur.ch",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "complete-instance",
-      "question": "dossier-mit-ac",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "complete-instance.grundbucheintrag-zwg",
-    "fields": {
-      "created_at": "2024-04-29T12:35:40.497Z",
-      "modified_at": "2024-04-29T12:35:40.497Z",
-      "created_by_user": "paul.walker@ur.ch",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "complete-instance",
-      "question": "grundbucheintrag-zwg",
+      "form": "complete-instance-canton",
+      "question": "complete-instance-ac",
       "sort": 2
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "complete-instance.verfahren-abschliessen",
+    "pk": "complete-instance-canton.complete-instance-complete",
     "fields": {
-      "created_at": "2023-11-10T09:04:43.682Z",
-      "modified_at": "2023-11-10T09:04:43.682Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2024-07-17T06:51:11.872Z",
+      "modified_at": "2024-07-17T06:51:11.872Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-instance-canton",
+      "question": "complete-instance-complete",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-instance-canton.complete-instance-title",
+    "fields": {
+      "created_at": "2024-07-17T06:48:56.078Z",
+      "modified_at": "2024-07-17T06:48:56.078Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-instance-canton",
+      "question": "complete-instance-title",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-instance.complete-instance-canton",
+    "fields": {
+      "created_at": "2024-07-17T06:53:25.348Z",
+      "modified_at": "2024-07-17T06:53:25.348Z",
+      "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "complete-instance",
-      "question": "verfahren-abschliessen",
+      "question": "complete-instance-canton",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-instance.complete-instance-municipality",
+    "fields": {
+      "created_at": "2024-07-17T06:53:07.591Z",
+      "modified_at": "2024-07-17T06:53:07.591Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-instance",
+      "question": "complete-instance-municipality",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-instance-municipality.complete-instance-complete",
+    "fields": {
+      "created_at": "2024-07-17T06:48:35.211Z",
+      "modified_at": "2024-07-17T06:48:35.211Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-instance-municipality",
+      "question": "complete-instance-complete",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-instance-municipality.complete-instance-title",
+    "fields": {
+      "created_at": "2024-07-17T06:47:48.771Z",
+      "modified_at": "2024-07-17T06:47:48.771Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-instance-municipality",
+      "question": "complete-instance-title",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-instance-municipality.dossier-mit-ac",
+    "fields": {
+      "created_at": "2024-07-17T06:48:01.949Z",
+      "modified_at": "2024-07-17T06:48:01.949Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-instance-municipality",
+      "question": "dossier-mit-ac",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-instance-municipality.grundbucheintrag-zwg",
+    "fields": {
+      "created_at": "2024-07-17T06:47:57.470Z",
+      "modified_at": "2024-07-17T06:47:57.470Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-instance-municipality",
+      "question": "grundbucheintrag-zwg",
       "sort": 3
     }
   },
@@ -1132,6 +1207,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "complete-instance-ac-verfahren-abgeschlossen-auflagenkontrolle-notwendig",
+    "fields": {
+      "created_at": "2024-07-17T06:52:16.885Z",
+      "modified_at": "2024-07-17T06:52:16.885Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verfahren abgeschlossen, Auflagenkontrolle notwendig\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "complete-instance-ac-verfahren-abgeschlossen-dossier-wird-archiviert",
+    "fields": {
+      "created_at": "2024-07-17T06:52:16.887Z",
+      "modified_at": "2024-07-17T06:52:16.887Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verfahren abgeschlossen, Dossier wird archiviert\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "construction-step-baubeginn",
     "fields": {
       "created_at": "2023-10-27T12:43:46.678Z",
@@ -1784,6 +1891,135 @@
       "is_archived": false,
       "meta": {},
       "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "complete-instance-ac",
+    "fields": {
+      "created_at": "2024-07-17T06:52:17.012Z",
+      "modified_at": "2024-07-17T06:52:17.012Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"complete-instance-ac\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "complete-instance-canton",
+    "fields": {
+      "created_at": "2024-07-17T06:53:25.253Z",
+      "modified_at": "2024-07-17T06:55:03.556Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verfahren abschliessen (Kanton)\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "true",
+      "is_hidden": "!(info.case.form in [\"cantonal-territory-usage\", \"konzession-waermeentnahme\", \"bohrbewilligung-waermeentnahme\", \"pgv-gemeindestrasse\", \"bgbb\", \"oereb\", \"verfahren-gemeinde\"])",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "complete-instance-canton",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "complete-instance-complete",
+    "fields": {
+      "created_at": "2024-07-17T06:48:35.004Z",
+      "modified_at": "2024-07-17T06:48:35.004Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"complete-instance-complete\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "complete-instance-municipality",
+    "fields": {
+      "created_at": "2024-07-17T06:53:07.387Z",
+      "modified_at": "2024-07-17T06:55:42.691Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verfahren abschliessen (Gemeinde)\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "true",
+      "is_hidden": "info.case.form in [\"cantonal-territory-usage\", \"konzession-waermeentnahme\", \"bohrbewilligung-waermeentnahme\", \"pgv-gemeindestrasse\", \"bgbb\", \"oereb\", \"verfahren-gemeinde\"]",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "complete-instance-municipality",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
     }
   },
   {
@@ -3348,39 +3584,33 @@
     }
   },
   {
-    "model": "caluma_form.question",
-    "pk": "verfahren-abschliessen",
+    "model": "caluma_form.questionoption",
+    "pk": "complete-instance-ac.complete-instance-ac-verfahren-abgeschlossen-auflagenkontrolle-notwendig",
     "fields": {
-      "created_at": "2023-11-10T08:46:06.499Z",
-      "modified_at": "2023-11-10T09:09:54.988Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2024-07-17T06:52:17.019Z",
+      "modified_at": "2024-07-17T06:52:17.019Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"Verfahren abschliessen\", \"fr\": null, \"it\": null}",
-      "type": "action_button",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Sind Sie sicher, dass Sie das Verfahren abschliessen m\\u00f6chten?\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "color": "primary",
-        "action": "complete",
-        "show_validation": false,
-        "validate_on_enter": false
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
+      "question": "complete-instance-ac",
+      "option": "complete-instance-ac-verfahren-abgeschlossen-auflagenkontrolle-notwendig",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "complete-instance-ac.complete-instance-ac-verfahren-abgeschlossen-dossier-wird-archiviert",
+    "fields": {
+      "created_at": "2024-07-17T06:52:17.030Z",
+      "modified_at": "2024-07-17T06:52:17.030Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "complete-instance-ac",
+      "option": "complete-instance-ac-verfahren-abgeschlossen-dossier-wird-archiviert",
+      "sort": 2
     }
   },
   {

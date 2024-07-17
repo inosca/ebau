@@ -74,9 +74,7 @@ ADDITIONAL_DEMAND_DUMP_CONFIG = {
     }
 }
 
-CONSTRUCTION_MONITORING_REGEX = (
-    r"(construction-monitoring|construction-stage|construction-step|complete-instance)"
-)
+CONSTRUCTION_MONITORING_REGEX = r"(construction-monitoring|construction-stage|construction-step|complete-instance(-municipality|-canton)*)"
 
 CONSTRUCTION_MONITORING_DUMP_CONFIG = {
     "caluma_construction_monitoring_form": {
@@ -458,9 +456,11 @@ DUMP = {
                     "caluma_form.Document": Q(form="dashboard"),
                 },
                 "caluma_complete_check_form": generate_form_dump_config(
-                    regex=r"^complete-check$"
+                    regex=r"^complete-check(-municipality|-canton)*$"
                 ),
-                "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
+                "caluma_decision_form": generate_form_dump_config(
+                    regex=r"^decision(-municipality|-canton)*$"
+                ),
                 "caluma_gebaeudeschaetzung_forms": generate_form_dump_config(
                     regex=r"^gebaeudeschaetzung$"
                 ),
