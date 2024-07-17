@@ -1149,22 +1149,15 @@ msgstr "%(pending)d de %(total)d prises de position sont toujours en attente."
 msgid "All %(total)d inquries were received."
 msgstr "Tous les %(total)d prises de position ont été reçues."
 
-#: camac/notification/serializers.py:1491
-msgid "Unknown recipient type"
-msgstr "Type de récepteur inconnu"
-
 #: camac/notification/serializers.py:1601
 #, python-format
-msgid ""
-"Notification sent to %(receiver_emails)s (%(receiver_type)s) (%(subject)s)"
-msgstr ""
-"Notification envoyée à %(receiver_emails)s (%(receiver_type)s) (%(subject)s)"
+msgid "Notification sent to %(receiver_emails)s%(receiver_type)s (%(subject)s)"
+msgstr "Notification envoyée à %(receiver_emails)s%(receiver_type)s (%(subject)s)"
 
 #: camac/notification/serializers.py:1605
 #, python-format
-msgid "Notification sent to %(receiver_type)s (no receivers) (%(subject)s)"
-msgstr ""
-"Notification envoyée à %(receiver_type)s (aucun destinataire) (%(subject)s)"
+msgid "Notification sent to no receivers%(receiver_type)s (%(subject)s)"
+msgstr "Notification envoyée à aucun destinataire%(receiver_type)s (%(subject)s)"
 
 #: camac/notification/views.py:138
 msgid "update_purposes has not been provided with the required parameters"
