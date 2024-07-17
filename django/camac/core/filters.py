@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.db.models import Q
 from django_filters.rest_framework import FilterSet
 
@@ -53,8 +52,6 @@ class InstanceResourceFilterSet(FilterSet):
             # any old IR acls and only return the IRs with new permissions
             return qs.filter(permission_module_filter)
 
-        qs = self._apply_ir_class_field_filters(qs, instance)
-
         return qs.filter(
             Q(
                 role_acls__instance_state=instance.instance_state,
@@ -62,35 +59,6 @@ class InstanceResourceFilterSet(FilterSet):
             )
             | permission_module_filter
         )
-
-    def _apply_ir_class_field_filters(self, qs, instance):
-        if settings.APPLICATION_NAME != "kt_so":
-            return qs
-
-        # TODO: this needs to be removed in favor of the permission module
-        # as soon as the municipality permissions are migrated.
-        if instance.case.meta.get("is-appeal"):
-            qs = qs.exclude(class_field__contains="appeal-exclude")
-        else:
-            qs = qs.exclude(class_field__contains="appeal-include")
-
-        if instance.case.document.form_id == "voranfrage":
-            qs = qs.exclude(class_field__contains="preliminary-clarification-exclude")
-
-        if instance.case.document.form_id == "meldung":
-            qs = qs.exclude(class_field__contains="construction-notification-exclude")
-
-        if not instance.case.meta.get("is-bab"):
-            qs = qs.exclude(class_field__contains="bab-include")
-
-        if (
-            settings.BAB
-            and self.request.group.service.service_group.name
-            != settings.BAB["SERVICE_GROUP"]
-        ):
-            qs = qs.exclude(class_field__contains="service-bab-only")
-
-        return qs
 
     class Meta:
         model = models.InstanceResource

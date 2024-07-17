@@ -19,11 +19,10 @@ from rest_framework.status import (
     HTTP_201_CREATED,
     HTTP_204_NO_CONTENT,
     HTTP_403_FORBIDDEN,
-    HTTP_404_NOT_FOUND,
     HTTP_405_METHOD_NOT_ALLOWED,
 )
 
-from camac.permissions import api
+from camac.permissions import api as permissions_api
 
 
 def document_post_data(category_id, instance_id, metainfo={}):
@@ -1834,63 +1833,6 @@ def test_document_webdav_url(
     assert response.status_code == status_code
 
 
-@pytest.mark.parametrize("role__name", ["service-lead"])
-def test_gr_document_read_permission(
-    db,
-    role,
-    service,
-    gr_permissions_settings,
-    set_application_gr,
-    admin_client,
-    access_level_factory,
-    gr_instance,
-):
-    access_level = access_level_factory(slug="read")
-    alexandria_category = CategoryFactory(
-        metainfo={
-            "access": {
-                "service-lead": {
-                    "visibility": "all",
-                    "permissions": [
-                        {"permission": "update", "scope": "All"},
-                    ],
-                }
-            }
-        }
-    )
-
-    doc = DocumentFactory(
-        title="Foo",
-        category=alexandria_category,
-        metainfo={"camac-instance-id": gr_instance.pk},
-    )
-    url = reverse("document-detail", args=[doc.pk])
-    data = {
-        "data": {
-            "id": doc.pk,
-            "type": "documents",
-            "attributes": {
-                "title": {"de": "Change not allowed"},
-            },
-        },
-    }
-
-    response = admin_client.patch(url, data)
-
-    assert response.status_code == HTTP_404_NOT_FOUND
-
-    api.grant(
-        gr_instance,
-        grant_type=api.GRANT_CHOICES.SERVICE.value,
-        access_level=access_level,
-        service=service,
-    )
-
-    response = admin_client.patch(url, data)
-
-    assert response.status_code == HTTP_403_FORBIDDEN
-
-
 @pytest.mark.parametrize("role__name", ["service"])
 @pytest.mark.parametrize(
     "is_migrated,status_code",
@@ -2141,3 +2083,74 @@ def test_specific_mark_permissions(
     )
 
     assert response.status_code == status_code
+
+
+@pytest.mark.parametrize("instance_state__name", ["subm"])
+@pytest.mark.parametrize(
+    "role__name,canton,expected_status",
+    [
+        ("service-lead", "gr", HTTP_403_FORBIDDEN),  # Mode OFF, read only permission
+        ("service-lead", "so", HTTP_403_FORBIDDEN),  # Mode FULL, read only permission
+        ("municipality-lead", "so", HTTP_200_OK),  # Mode FULL, write permissions
+    ],
+)
+def test_base_permission(
+    db,
+    access_level_factory,
+    admin_client,
+    canton,
+    expected_status,
+    instance_state,
+    request,
+    role,
+    service,
+):
+    request.getfixturevalue(f"set_application_{canton}")
+    request.getfixturevalue(f"{canton}_permissions_settings")
+    instance = request.getfixturevalue(f"{canton}_instance")
+
+    read_access = access_level_factory(slug="read")
+    authority_access = access_level_factory(slug="lead-authority")
+
+    alexandria_category = CategoryFactory(
+        metainfo={
+            "access": {
+                "service-lead": {
+                    "visibility": "all",
+                    "permissions": [
+                        {"permission": "update", "scope": "All"},
+                    ],
+                },
+                "municipality-lead": {
+                    "visibility": "all",
+                    "permissions": [
+                        {"permission": "update", "scope": "All"},
+                    ],
+                },
+            }
+        }
+    )
+
+    permissions_api.grant(
+        instance,
+        grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+        access_level=(
+            authority_access if role.name == "municipality-lead" else read_access
+        ),
+        service=service,
+    )
+
+    document = DocumentFactory(
+        category=alexandria_category, metainfo={"camac-instance-id": instance.pk}
+    )
+
+    data = {
+        "data": {
+            "id": document.pk,
+            "type": "documents",
+            "attributes": {"title": {"de": "Change not allowed"}},
+        },
+    }
+
+    response = admin_client.patch(reverse("document-detail", args=[document.pk]), data)
+    assert response.status_code == expected_status

@@ -203,3 +203,6 @@ class AccessLevelViewset(ReadOnlyModelViewSet):
 
     def get_queryset_for_municipality(self):
         return super().get_queryset()
+
+    def get_queryset_for_support(self):
+        return super().get_queryset()

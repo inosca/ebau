@@ -12,6 +12,7 @@ from camac.alexandria.extensions.common import get_role
 from camac.alexandria.extensions.permissions import conditions, scopes
 from camac.instance.models import Instance
 from camac.permissions.api import PermissionManager
+from camac.permissions.switcher import permission_switching_method
 from camac.utils import get_dict_item
 
 
@@ -28,6 +29,27 @@ MODE_DELETE = "delete"
 
 
 class CustomPermission:
+    @permission_switching_method
+    def has_base_permission(self, request, instance):
+        manager = PermissionManager.from_request(request)
+
+        # This is a very simple permission check as we do specific permission
+        # check without the permissions module. As soon as GR fully integrates
+        # the permissions module, we should find a way to combine the two
+        # permission mechanisms or even drop the current one.
+        return manager.has_any(instance, ["documents-write"])
+
+    @has_base_permission.register_old
+    def _has_base_permission(self, request, instance):
+        manager = PermissionManager.from_request(request)
+
+        # In GR the permission module is not fully activated but only used for
+        # read only permissions. As this permission assigns a "documents-read"
+        # permission but all the other "old" permissions don't have any
+        # permissions, we need to check whether the "documents-read" is assigned
+        # and then explicitly prohibit any writing actions in alexandria.
+        return not manager.has_any(instance, ["documents-read"])
+
     def get_needed_permissions(self, request, document=None) -> set:
         if request.method == "POST":
             used_permissions = {MODE_CREATE}
@@ -103,9 +125,7 @@ class CustomPermission:
 
         available_permissions = set()
 
-        # FIXME: workaround until full permission module integration
-        manager = PermissionManager.from_request(request)
-        if manager.has_any(instance, ["documents-read"]):
+        if not self.has_base_permission(request, instance):
             return set()
 
         for permission in category_permissions["permissions"]:
