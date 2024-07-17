@@ -469,6 +469,9 @@ DUMP = {
                 "caluma_instance_management_form": generate_form_dump_config(
                     regex=r"^instance-management$"
                 ),
+                "caluma_bauverwalter_form": generate_form_dump_config(
+                    regex=r"^ordentliches-bewilligungsverfahren"
+                ),
                 **DISTRIBUTION_DUMP_CONFIG,
                 **ADDITIONAL_DEMAND_DUMP_CONFIG,
                 **CONSTRUCTION_MONITORING_DUMP_CONFIG,
