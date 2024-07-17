@@ -14,6 +14,7 @@ from django.urls import reverse
 from django.utils import timezone
 from rest_framework import status
 
+from camac.core.models import PublicationEntry
 from camac.document import permissions
 
 
@@ -57,7 +58,7 @@ def test_public_caluma_instance_disabled(settings, admin_client):
     settings.APPLICATION_NAME = "demo"
 
     response = admin_client.get(
-        reverse("public-caluma-instance"), HTTP_X_CAMAC_PUBLIC_ACCESS=True
+        reverse("public-caluma-instance-list"), HTTP_X_CAMAC_PUBLIC_ACCESS=True
     )
 
     assert response.status_code == status.HTTP_403_FORBIDDEN
@@ -86,7 +87,7 @@ def test_public_caluma_instance_enabled_empty_qs(
     used_client = admin_client if is_authenticated else client
     headers = {"HTTP_X_CAMAC_PUBLIC_ACCESS": True} if has_public_header else {}
 
-    resp = used_client.get(reverse("public-caluma-instance"), **headers)
+    resp = used_client.get(reverse("public-caluma-instance-list"), **headers)
 
     assert resp.status_code == expected_status
 
@@ -176,7 +177,7 @@ def test_public_caluma_instance_ur(
         question_id="municipality",
     )
 
-    url = reverse("public-caluma-instance")
+    url = reverse("public-caluma-instance-list")
 
     with django_assert_num_queries(num_queries):
         response = admin_client.get(url, {"instance": ur_instance.pk}, **headers)
@@ -265,7 +266,7 @@ def test_public_caluma_instance_oereb_ur(
         value="typ-des-verfahrens-meldung",
     )
 
-    url = reverse("public-caluma-instance")
+    url = reverse("public-caluma-instance-list")
 
     with django_assert_num_queries(num_queries):
         response = admin_client.get(
@@ -380,7 +381,7 @@ def test_public_caluma_instance_sz(
         instance=sz_instance, name="bezeichnung", value="This is a SZ test intent"
     )
 
-    url = reverse("public-caluma-instance")
+    url = reverse("public-caluma-instance-list")
 
     with django_assert_num_queries(4):
         response = admin_client.get(
@@ -500,7 +501,7 @@ def test_public_caluma_instance_be(
         question_id="gemeinde",
     )
 
-    url = reverse("public-caluma-instance")
+    url = reverse("public-caluma-instance-list")
 
     with django_assert_num_queries(9):
         response = admin_client.get(
@@ -547,7 +548,7 @@ def test_public_caluma_instance_municipality_filter(
             question_id="gemeinde", value="2", document=instance.case.document
         )
 
-    url = reverse("public-caluma-instance")
+    url = reverse("public-caluma-instance-list")
 
     response = admin_client.get(
         url,
@@ -595,7 +596,7 @@ def test_public_caluma_instance_form_type_filter(
             document=instance.case.document,
         )
 
-    url = reverse("public-caluma-instance")
+    url = reverse("public-caluma-instance-list")
 
     response = admin_client.get(
         url,
@@ -651,7 +652,7 @@ def test_information_of_neighbors_instance_be(
         meta={"is-published": True},
     )
 
-    url = reverse("public-caluma-instance")
+    url = reverse("public-caluma-instance-list")
 
     response = client.get(
         url,
@@ -780,7 +781,7 @@ def test_public_caluma_instance_gr(
         meta={"is-published": True},
     )
 
-    url = reverse("public-caluma-instance")
+    url = reverse("public-caluma-instance-list")
 
     response = client.get(
         url, {"instance": gr_instance.pk}, HTTP_X_CAMAC_PUBLIC_ACCESS=True
@@ -817,7 +818,7 @@ def test_disabled_publication(
     )
 
     response = admin_client.get(
-        reverse("public-caluma-instance"),
+        reverse("public-caluma-instance-list"),
         HTTP_X_CAMAC_PUBLIC_ACCESS=True,
     )
 
@@ -851,9 +852,48 @@ def test_publication_order_by_dossier_number_sort(
     )
 
     response = admin_client.get(
-        reverse("public-caluma-instance"),
+        reverse("public-caluma-instance-list"),
         HTTP_X_CAMAC_PUBLIC_ACCESS=True,
     )
 
     assert response.json()["data"][0]["id"] == str(instance2.case.pk)
     assert response.json()["data"][1]["id"] == str(instance1.case.pk)
+
+
+def test_increment_publication_views(
+    db,
+    application_settings,
+    publication_settings,
+    admin_client,
+    sz_instance,
+    django_assert_num_queries,
+    publication_entry_factory,
+    form_field_factory,
+    master_data_is_visible_mock,
+):
+    settings.APPLICATION_NAME = "kt_schwyz"
+    publication_settings["BACKEND"] = "camac-ng"
+
+    publication_entry_factory(
+        publication_date=timezone.now() - timedelta(days=1),
+        publication_end_date=timezone.now() + timedelta(days=30),
+        instance=sz_instance,
+        is_published=True,
+    )
+
+    url = reverse("public-caluma-instance-viewed", args=[sz_instance.case.id])
+
+    current_number_of_publication_views = (
+        PublicationEntry.objects.filter(instance=sz_instance, is_published=1)
+        .first()
+        .publication_views
+    )
+    response = admin_client.post(url, HTTP_X_CAMAC_PUBLIC_ACCESS=True)
+    new_number_of_publication_views = (
+        PublicationEntry.objects.filter(instance=sz_instance, is_published=1)
+        .first()
+        .publication_views
+    )
+
+    assert new_number_of_publication_views == current_number_of_publication_views + 1
+    assert response.status_code == 204
