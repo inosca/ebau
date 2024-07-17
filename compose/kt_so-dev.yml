@@ -196,11 +196,11 @@ services:
     security_opt:
       - apparmor:unconfined
     environment:
-      AWS_S3_ACCESS_KEY_ID: minio
-      AWS_S3_ENDPOINT_URL: http://minio:9000
-      AWS_S3_SECRET_ACCESS_KEY: minio123
-      AWS_S3_SIGNATURE_VERSION: s3v4
-      AWS_STORAGE_BUCKET_NAME: dms-media
+      EBAU_S3_ACCESS_KEY_ID: minio
+      EBAU_S3_ENDPOINT_URL: http://minio:9000
+      EBAU_S3_SECRET_ACCESS_KEY: minio123
+      EBAU_S3_SIGNATURE_VERSION: s3v4
+      EBAU_STORAGE_BUCKET_NAME: dms-media
       CACHE_LOCATION: cache:11211
       DATABASE_HOST: db
       DATABASE_NAME: ${APPLICATION}
@@ -208,7 +208,7 @@ services:
       DATABASE_USER: camac
       ENV: dev
       EXTENSIONS_ARGUMENTS: DJANGO_API=http://django
-      FILE_STORAGE: storages.backends.s3boto3.S3Boto3Storage
+      FILE_STORAGE: storages.backends.s3.S3Storage
       ISOLATE_UNOCONV: true
       OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
       URL_PREFIX: document-merge-service/
