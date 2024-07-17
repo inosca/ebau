@@ -69,8 +69,9 @@ class InstanceResourceAdmin(
         "get_resource_description",
         "template",
         "class_field",
-        "get_hidden",
+        "require_permission",
         "get_available_instance_resource",
+        "get_hidden",
     ]
     ordering = ["sort"]
     search_fields = ["name", "description"]
