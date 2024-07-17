@@ -79,7 +79,7 @@ class UnaryCheck(Check):
 
     def __repr__(self):
         opname = self._op.__name__.strip("_")
-        return f"UnaryCheck({opname}{self._inner!r})"
+        return f"UnaryCheck({opname}, {self._inner!r})"
 
     @property
     def allow_caching(self):  # pragma: no cover
@@ -112,13 +112,14 @@ class HasRole(Check):
         )
 
     def __repr__(self):
-        return f"HasRole:{sorted(self.required_roles)}"
+        return f"HasRole({', '.join(sorted(self.required_roles))})"
 
 
 @dataclass
 class Callback(Check):
     check_function: Callable
     allow_caching: bool = field(default=False)
+    name: str = ""  # only used for logging
 
     def apply(self, userinfo, instance):
         return call_with_accepted_kwargs(
@@ -129,6 +130,9 @@ class Callback(Check):
         return (
             isinstance(other, Callback) and other.check_function == self.check_function
         )
+
+    def __repr__(self):  # pragma: no cover
+        return f"Callback({self.name})"
 
 
 @dataclass
@@ -152,7 +156,7 @@ class RequireInstanceState(Check):
         ) == set(self.require_states)
 
     def __repr__(self):  # pragma: no cover
-        return f"RequireInstanceState({sorted(self.require_states)})"
+        return f"RequireInstanceState({', '.join(sorted(self.require_states))})"
 
 
 class HasInquiry(Check):
@@ -168,6 +172,9 @@ class HasInquiry(Check):
     def __eq__(self, other):  # pragma: no cover
         return isinstance(other, HasInquiry)
 
+    def __repr__(self):  # pragma: no cover
+        return "HasInquiry()"
+
 
 class IsAppeal(Check):
     """Permission check: Instance (case) has an appeal."""
@@ -181,6 +188,9 @@ class IsAppeal(Check):
 
     def __eq__(self, other):  # pragma: no cover
         return isinstance(other, IsAppeal)
+
+    def __repr__(self):  # pragma: no cover
+        return "IsAppeal()"
 
 
 class Always(Check):
@@ -197,7 +207,7 @@ class Always(Check):
         return isinstance(other, Always)
 
     def __repr__(self):  # pragma: no cover
-        return "PermissionCondition:Always"
+        return "Always()"
 
 
 class Never(Check):
@@ -214,4 +224,24 @@ class Never(Check):
         return isinstance(other, Never)
 
     def __repr__(self):  # pragma: no cover
-        return "PermissionCondition:Never"
+        return "Never()"
+
+
+@dataclass
+class IsForm(Check):
+    """Permission check for requiring any form of a given list."""
+
+    forms: List[str]
+
+    def apply(self, userinfo, instance):
+        return any(instance.case.document.form_id == form for form in self.forms)
+
+    @property
+    def allow_caching(self):  # pragma: no cover
+        return True
+
+    def __eq__(self, other):  # pragma: no cover
+        return isinstance(other, IsForm) and set(other.forms) == set(self.forms)
+
+    def __repr__(self):
+        return f"IsForm({', '.join(sorted(self.forms))})"

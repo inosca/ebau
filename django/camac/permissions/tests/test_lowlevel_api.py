@@ -381,6 +381,8 @@ def test_condition_objects(
             ),
             ("not-bar", ~conditions.HasRole(["role-bar"])),
             ("with-inquiry", conditions.HasInquiry()),
+            ("main-form", conditions.IsForm(["main-form"])),
+            ("not-main-form", ~conditions.IsForm(["main-form"])),
         ]
     }
 
@@ -401,7 +403,7 @@ def test_condition_objects(
     )
 
     result = resp.json()["data"]["attributes"]["permissions"]
-    assert sorted(result) == sorted(["foo", "bar", "never-or-always"])
+    assert sorted(result) == sorted(["foo", "bar", "never-or-always", "main-form"])
 
 
 @pytest.mark.parametrize(

@@ -172,12 +172,8 @@ def load_fixtures_be(
     document_factory,
     dynamic_option_factory,
     be_permissions_settings,
-    role_factory,
     application_settings,
 ):
-    # Needed for permissions module `instance_created`` trigger
-    role_factory(name="Support")
-
     # Needed in order to make instance.responsible_service() work properly
     application_settings["ACTIVE_SERVICES"] = deepcopy(
         settings.APPLICATIONS["kt_bern"]["ACTIVE_SERVICES"]
@@ -209,8 +205,12 @@ def setup_dossier_writer(
     location,
     attachment_section,
     application_settings,
+    role_factory,
 ):
     def wrapper(config):
+        # Needed for permissions module `instance_created` trigger
+        role_factory(name="Support")
+
         common_fixtures_paths = [
             # list of fixtures common to all configs. e. g.:
             settings.ROOT_DIR(f"{config}/config/instance.json")

@@ -404,7 +404,7 @@
       "hidden": 0,
       "sort": 0,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "work-items-read"
     }
   },
   {
@@ -448,11 +448,11 @@
       "name": null,
       "description": null,
       "template": null,
-      "class_field": "menu-category-process appeal-exclude preliminary-clarification-exclude construction-notification-exclude",
+      "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 7,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "formal-exam-read"
     }
   },
   {
@@ -464,11 +464,11 @@
       "name": null,
       "description": null,
       "template": null,
-      "class_field": "menu-category-process appeal-exclude preliminary-clarification-exclude construction-notification-exclude",
+      "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 8,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "material-exam-read"
     }
   },
   {
@@ -480,11 +480,11 @@
       "name": null,
       "description": null,
       "template": "/ember-camac-ng/publication.phtml",
-      "class_field": "menu-category-process appeal-exclude preliminary-clarification-exclude construction-notification-exclude",
+      "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 11,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "publication-read"
     }
   },
   {
@@ -500,7 +500,7 @@
       "hidden": 0,
       "sort": 21,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "history-read"
     }
   },
   {
@@ -516,7 +516,7 @@
       "hidden": 0,
       "sort": 22,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "journal-read"
     }
   },
   {
@@ -532,7 +532,7 @@
       "hidden": 0,
       "sort": 6,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "responsible-read"
     }
   },
   {
@@ -544,11 +544,11 @@
       "name": null,
       "description": null,
       "template": "/ember-camac-ng/distribution.phtml",
-      "class_field": "menu-category-process appeal-exclude construction-notification-exclude",
+      "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 10,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "distribution-read"
     }
   },
   {
@@ -560,11 +560,11 @@
       "name": null,
       "description": null,
       "template": "/ember-camac-ng/additional-demand.phtml",
-      "class_field": "menu-category-extraordinary appeal-exclude construction-notification-exclude",
+      "class_field": "menu-category-extraordinary",
       "hidden": 0,
       "sort": 17,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "additional-demands-read"
     }
   },
   {
@@ -580,7 +580,7 @@
       "hidden": 0,
       "sort": 23,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "corrections-read"
     }
   },
   {
@@ -596,7 +596,7 @@
       "hidden": 0,
       "sort": 12,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "decision-read"
     }
   },
   {
@@ -612,7 +612,7 @@
       "hidden": 0,
       "sort": 5,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "dms-generate-read"
     }
   },
   {
@@ -628,7 +628,7 @@
       "hidden": 0,
       "sort": 20,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "billing-read"
     }
   },
   {
@@ -644,7 +644,7 @@
       "hidden": 0,
       "sort": 16,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "rejection-read"
     }
   },
   {
@@ -656,11 +656,11 @@
       "name": null,
       "description": null,
       "template": "/ember-camac-ng/legal-submission.phtml",
-      "class_field": "menu-category-extraordinary appeal-exclude preliminary-clarification-exclude construction-notification-exclude",
+      "class_field": "menu-category-extraordinary",
       "hidden": 0,
       "sort": 18,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "legal-submissions-read"
     }
   },
   {
@@ -688,11 +688,11 @@
       "name": null,
       "description": null,
       "template": "/ember-camac-ng/gwr.phtml",
-      "class_field": "menu-category-process appeal-exclude preliminary-clarification-exclude construction-notification-exclude",
+      "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 13,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "related-gwr-projects-read"
     }
   },
   {
@@ -704,11 +704,11 @@
       "name": null,
       "description": null,
       "template": null,
-      "class_field": "menu-category-extraordinary appeal-include",
+      "class_field": "menu-category-extraordinary",
       "hidden": 0,
       "sort": 19,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "appeal-read"
     }
   },
   {
@@ -724,7 +724,7 @@
       "hidden": 0,
       "sort": 24,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "permissions-read"
     }
   },
   {
@@ -736,11 +736,11 @@
       "name": null,
       "description": null,
       "template": "/ember-camac-ng/construction-monitoring.phtml",
-      "class_field": "menu-category-process appeal-exclude preliminary-clarification-exclude construction-notification-exclude",
+      "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 14,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "construction-monitoring-read"
     }
   },
   {
@@ -752,11 +752,11 @@
       "name": null,
       "description": null,
       "template": null,
-      "class_field": "menu-category-process appeal-exclude preliminary-clarification-exclude construction-notification-exclude",
+      "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 15,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "complete-instance-read"
     }
   },
   {
@@ -768,11 +768,11 @@
       "name": null,
       "description": null,
       "template": null,
-      "class_field": "menu-category-process bab-include service-bab-only",
+      "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 9,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "material-exam-bab-read"
     }
   },
   {
@@ -788,7 +788,7 @@
       "hidden": 0,
       "sort": 2,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "linked-instances-read"
     }
   },
   {
@@ -9131,14 +9131,6 @@
   },
   {
     "model": "core.rroleacl",
-    "pk": 6,
-    "fields": {
-      "resource": 2,
-      "role": 3
-    }
-  },
-  {
-    "model": "core.rroleacl",
     "pk": 7,
     "fields": {
       "resource": 3,
@@ -9370,6 +9362,14 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 36,
+    "fields": {
+      "resource": 3,
+      "role": 3
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 1,
     "fields": {
@@ -9380,19 +9380,6 @@
       "class_field": null,
       "hidden": 0,
       "sort": 0
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 2,
-    "fields": {
-      "available_resource": "emberlist",
-      "name": null,
-      "description": null,
-      "template": null,
-      "class_field": "displaySearch",
-      "hidden": 0,
-      "sort": 1
     }
   },
   {
@@ -9494,16 +9481,6 @@
       "language": "de",
       "name": "Aufgaben",
       "description": "Aufgabenliste für alle Rollen"
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 2,
-    "fields": {
-      "resource": 2,
-      "language": "de",
-      "name": "Alle Dossiers",
-      "description": "Dossierliste für Support"
     }
   },
   {
