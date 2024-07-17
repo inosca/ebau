@@ -878,8 +878,12 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         answers = Answer.objects.filter(
             question_id="gebaeudeart", document_id=instance.case.document.pk
         ).first()
-        return clean_join(
-            *[option.label for option in answers.selected_options], separator=", "
+        return (
+            clean_join(
+                *[option.label for option in answers.selected_options], separator=", "
+            )
+            if answers
+            else ""
         )
 
     def get_anzahl_zimmer(self, instance):
