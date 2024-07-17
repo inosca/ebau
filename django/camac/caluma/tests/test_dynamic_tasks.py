@@ -349,30 +349,43 @@ def test_dynamic_task_after_submit(
 
 
 @pytest.mark.parametrize(
-    "decision,expected_tasks",
+    "decision,in_distribution,expected_tasks",
     [
-        ("ACCEPTED", set()),
-        ("REJECTED", {"fill-additional-demand"}),
+        ("ACCEPTED", False, {"distribution"}),
+        ("ACCEPTED", True, set()),
+        ("REJECTED", False, {"fill-additional-demand"}),
     ],
 )
 def test_dynamic_task_after_check_additional_demand(
     db,
-    additional_demand_settings,
+    ur_additional_demand_settings,
+    ur_distribution_settings,
+    ur_instance,
     answer_factory,
     decision,
     expected_tasks,
     work_item_factory,
+    in_distribution,
 ):
     answer = answer_factory(
-        question__slug=additional_demand_settings["QUESTIONS"]["DECISION"],
-        value=additional_demand_settings["ANSWERS"]["DECISION"][decision],
+        question=Question.objects.get(
+            pk=ur_additional_demand_settings["QUESTIONS"]["DECISION"]
+        ),
+        value=ur_additional_demand_settings["ANSWERS"]["DECISION"][decision],
     )
+
+    if in_distribution:
+        work_item_factory(
+            task_id="distribution",
+            case=ur_instance.case,
+            status=WorkItem.STATUS_READY,
+        )
 
     work_item = work_item_factory(document=answer.document)
 
     tasks = set(
         CustomDynamicTasks().resolve_after_check_additional_demand(
-            None, None, work_item, None
+            ur_instance.case, None, work_item, None
         )
     )
 
@@ -577,9 +590,13 @@ def test_dynamic_task_after_decision_ur(
     [
         (
             "complete-check-vollstaendigkeitspruefung-incomplete",
-            ["init-additional-demand"],
+            ["additional-demand", "distribution"],
         ),
-        ("complete-check-vollstaendigkeitspruefung-complete", []),
+        ("complete-check-vollstaendigkeitspruefung-complete", ["distribution"]),
+        (
+            "complete-check-vollstaendigkeitspruefung-incomplete-wait",
+            ["additional-demand"],
+        ),
     ],
 )
 def test_dynamic_task_after_complete_check_ur(

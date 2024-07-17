@@ -35,7 +35,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['complete-check', 'create-manual-workitems', 'instance-management']|tasks"
+      "next": "['complete-check', 'create-manual-workitems', 'instance-management', 'init-additional-demand']|tasks"
     }
   },
   {
