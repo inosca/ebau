@@ -3187,29 +3187,6 @@
   },
   {
     "model": "caluma_form.historicalanswer",
-    "pk": "31798b8e-78e1-4d32-94cc-3d2a114a4d13",
-    "fields": {
-      "created_at": "2023-07-06T07:34:52.917Z",
-      "modified_at": "2023-07-06T07:34:52.917Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "history_question_type": "multiple_choice",
-      "id": "66eb6763-82e5-4d4b-a049-dd064fb7d588",
-      "value": ["vkf-anerkennungenleistungserklaerung-dop-ja"],
-      "meta": {},
-      "date": null,
-      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "question": "vkf-anerkennungenleistungserklaerung-dop",
-      "document": "11b0b3fc-a5a7-4dd5-9166-9d12739da88f",
-      "history_date": "2023-07-06T07:34:52.919Z",
-      "history_change_reason": null,
-      "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
     "pk": "31ffa81d-b1b7-44ea-8b14-d275b8aff876",
     "fields": {
       "created_at": "2023-10-27T08:55:59.937Z",
@@ -8396,29 +8373,6 @@
       "question": "baukosten",
       "document": "2da7f8fc-1f73-40bc-8647-049ad41ecaac",
       "history_date": "2023-10-27T08:52:39.962Z",
-      "history_change_reason": null,
-      "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
-    "pk": "ac16ece2-a4f8-45a2-ae57-0a561d874d3f",
-    "fields": {
-      "created_at": "2023-09-21T09:28:17.457Z",
-      "modified_at": "2023-09-21T09:28:17.457Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "history_question_type": "multiple_choice",
-      "id": "77a8842e-a63e-4afc-a42d-a39908e776a1",
-      "value": ["vkf-anerkennungenleistungserklaerung-dop-ja"],
-      "meta": {},
-      "date": null,
-      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "question": "vkf-anerkennungenleistungserklaerung-dop",
-      "document": "033433c2-3733-43a4-8d7b-3b57e82379c1",
-      "history_date": "2023-09-21T09:28:17.458Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -13900,23 +13854,6 @@
   },
   {
     "model": "caluma_form.answer",
-    "pk": "66eb6763-82e5-4d4b-a049-dd064fb7d588",
-    "fields": {
-      "created_at": "2023-07-06T07:34:52.917Z",
-      "modified_at": "2023-07-06T07:34:52.917Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "vkf-anerkennungenleistungserklaerung-dop",
-      "value": ["vkf-anerkennungenleistungserklaerung-dop-ja"],
-      "meta": {},
-      "document": "11b0b3fc-a5a7-4dd5-9166-9d12739da88f",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
     "pk": "68684550-c3cc-4b40-9b3b-8c07b9f666b9",
     "fields": {
       "created_at": "2023-09-21T09:26:43.388Z",
@@ -14252,23 +14189,6 @@
       "value": ["feststellungsverfuegung-ja"],
       "meta": {},
       "document": "11b0b3fc-a5a7-4dd5-9166-9d12739da88f",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
-    "pk": "77a8842e-a63e-4afc-a42d-a39908e776a1",
-    "fields": {
-      "created_at": "2023-09-21T09:28:17.457Z",
-      "modified_at": "2023-09-21T09:28:17.457Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "vkf-anerkennungenleistungserklaerung-dop",
-      "value": ["vkf-anerkennungenleistungserklaerung-dop-ja"],
-      "meta": {},
-      "document": "033433c2-3733-43a4-8d7b-3b57e82379c1",
       "date": null
     }
   },
