@@ -1,4 +1,5 @@
 from caluma.caluma_core.events import on
+from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import complete_work_item, start_case
 from caluma.caluma_workflow.events import (
     post_complete_case,
@@ -106,6 +107,7 @@ def post_complete_check_additional_demand(
     )
 
     instance = get_instance(work_item)
+    has_pending_checks = _has_pending_checks(work_item)
 
     for config in settings.ADDITIONAL_DEMAND["NOTIFICATIONS"].get(decision_key, []):
         send_mail_without_request(
@@ -124,11 +126,28 @@ def post_complete_check_additional_demand(
             gettext_noop(history_entry),
         )
 
-    if settings.ADDITIONAL_DEMAND.get("STATES") and not _has_pending_checks(work_item):
-        instance = get_instance(work_item)
+    if settings.ADDITIONAL_DEMAND.get("STATES") and not has_pending_checks:
         camac_user = User.objects.get(username=user.username)
 
         instance.set_instance_state(
-            instance.previous_instance_state.name,
+            settings.ADDITIONAL_DEMAND["STATES"]["AFTER_ADDITIONAL_DEMANDS"],
             camac_user,
         )
+
+    if settings.APPLICATION_NAME == "kt_uri":
+        # if the "init-distribution" work item has been suspended
+        # because of the "Vollständigkeitsprüfung" we need to resume it
+        if (
+            decision == settings.ADDITIONAL_DEMAND["ANSWERS"]["DECISION"]["ACCEPTED"]
+            and not has_pending_checks
+        ):
+            if (
+                suspended_init_distribution_work_item
+                := work_item.case.parent_work_item.case.work_items.filter(
+                    task_id=settings.DISTRIBUTION["DISTRIBUTION_TASK"],
+                    status=WorkItem.STATUS_SUSPENDED,
+                ).first()
+            ):
+                workflow_api.resume_work_item(
+                    work_item=suspended_init_distribution_work_item, user=user
+                )
