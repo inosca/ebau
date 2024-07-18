@@ -28,6 +28,7 @@ from camac.dossier_import.writers import (
 from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.domain_logic.decision import DecisionLogic
 from camac.instance.models import Form, Instance, InstanceState
+from camac.permissions import events as permissions_events
 from camac.tags.models import Keyword
 
 PERSON_VALUE_MAPPING = {
@@ -145,7 +146,7 @@ class KtSolothurnDossierWriter(DossierWriter):
             }
         )
         instance.case.save()
-
+        permissions_events.Trigger.instance_submitted(None, instance)
         return instance
 
     def existing_dossier(self, dossier_id):
@@ -267,6 +268,8 @@ class KtSolothurnDossierWriter(DossierWriter):
                     DecisionLogic.post_complete_decision_building_permit(
                         instance, work_item, self._caluma_user, self._user
                     )
+
+                permissions_events.Trigger.decision_decreed(None, instance)
 
             if config := get_caluma_setting("PRE_COMPLETE") and get_caluma_setting(
                 "PRE_COMPLETE"
