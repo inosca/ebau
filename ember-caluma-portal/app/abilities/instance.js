@@ -8,6 +8,7 @@ import config from "caluma-portal/config/environment";
 
 export default class InstanceAbility extends Ability {
   @service session;
+  @service permissions;
 
   get formName() {
     const meta = this.form?.meta ?? this.form?.raw?.meta ?? {};
@@ -28,16 +29,6 @@ export default class InstanceAbility extends Ability {
   }
 
   get canReadForm() {
-    if (
-      hasFeature("permissions.municipalityBeforeSubmission") &&
-      this.session.isInternal &&
-      this.formName === "main" &&
-      hasInstanceState(this.model, "new") &&
-      !this.model.isPaper
-    ) {
-      return this.permissions?.includes("form-read");
-    }
-
     return this.formPermissions.includes("read");
   }
 
@@ -60,7 +51,14 @@ export default class InstanceAbility extends Ability {
     );
   }
 
-  get canManageApplicants() {
+  async canManageApplicants() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(this.model?.id, [
+        "applicant-add",
+        "applicant-remove",
+      ]);
+    }
+
     const applicants = this.model?.get("involvedApplicants") || [];
     const userId = parseInt(this.session.user?.id);
 
@@ -78,7 +76,11 @@ export default class InstanceAbility extends Ability {
     );
   }
 
-  get canReadApplicants() {
+  async canReadApplicants() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(this.model?.id, "applicant-read");
+    }
+
     return (
       this.canManageApplicants ||
       parseInt(this.model?.activeService?.get("id")) ===
@@ -134,7 +136,11 @@ export default class InstanceAbility extends Ability {
     );
   }
 
-  get canDelete() {
+  async canDelete() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(this.model?.id, "instance-delete");
+    }
+
     return (
       this.instanceStateId === config.APPLICATION.instanceStates.new &&
       (!this.session.isInternal || this.session.isSupport || this.model.isPaper)
@@ -148,27 +154,40 @@ export default class InstanceAbility extends Ability {
     ].includes(this.instanceStateId);
   }
 
-  get canReadCommunication() {
+  async canReadCommunication() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(
+        this.model?.id,
+        "communications-read",
+      );
+    }
+
     return (
+      hasFeature("communications") &&
       !this.session.isInternal &&
       this.instanceStateId !== config.APPLICATION.instanceStates.new
     );
   }
 
-  get canWithdraw() {
-    return (
-      hasInstanceState(
-        this.model,
-        mainConfig.withdrawal?.allowedInstanceStates ?? [],
-      ) && !this.session.isInternal
+  async canWithdraw() {
+    return await this.permissions.hasAll(this.model?.id, "instance-withdraw");
+  }
+
+  async canManageMunicipalityAccessBeforeSubmission() {
+    return await this.permissions.hasAll(
+      this.model?.id,
+      "grant-municipality-before-submission",
     );
   }
 
-  get canManageMunicipalityAccessBeforeSubmission() {
-    return hasInstanceState(this.model, "new") && this.canManageApplicants;
-  }
+  async canReadConstructionMonitoring() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(
+        this.model?.id,
+        "construction-monitoring-read",
+      );
+    }
 
-  get canReadConstructionMonitoring() {
     return (
       hasFeature("constructionMonitoring") &&
       hasInstanceState(
@@ -176,6 +195,21 @@ export default class InstanceAbility extends Ability {
         mainConfig.constructionMonitoring?.instanceStates ?? [],
       ) &&
       (!this.session.isInternal || this.model.isPaper)
+    );
+  }
+
+  async canReadAdditionalDemands() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(
+        this.model?.id,
+        "additional-demands-read",
+      );
+    }
+
+    return (
+      hasFeature("additionalDemands") &&
+      !this.model?.isPaper &&
+      this.additionalDemandsCount?.any > 0
     );
   }
 }

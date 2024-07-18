@@ -137,7 +137,7 @@ module("Unit | Ability | instance", function (hooks) {
       },
     });
 
-    assert.ok(ability.canDelete);
+    assert.ok(await ability.canDelete());
 
     ability.set("model", {
       get(path) {
@@ -148,6 +148,6 @@ module("Unit | Ability | instance", function (hooks) {
       },
     });
 
-    assert.notOk(ability.canDelete);
+    assert.notOk(await ability.canDelete());
   });
 });

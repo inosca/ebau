@@ -36,6 +36,42 @@
     }
   },
   {
+    "model": "user.user",
+    "pk": 3,
+    "fields": {
+      "username": "a6643bd6-e883-4187-bc91-cf3a4b56adc9",
+      "password": null,
+      "name": "Applicant",
+      "surname": "Editor",
+      "email": "editor@example.com",
+      "phone": null,
+      "disabled": 0,
+      "language": "de",
+      "last_login": null,
+      "address": null,
+      "city": null,
+      "zip": null
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 4,
+    "fields": {
+      "username": "75b5c1f9-329c-4b34-a145-84482b6e4cb5",
+      "password": null,
+      "name": "Applicant",
+      "surname": "Readonly",
+      "email": "readonly@example.com",
+      "phone": null,
+      "disabled": 0,
+      "language": "de",
+      "last_login": null,
+      "address": null,
+      "city": null,
+      "zip": null
+    }
+  },
+  {
     "model": "user.group",
     "pk": 4,
     "fields": {

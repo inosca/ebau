@@ -1,6 +1,7 @@
 {{#if
   (or
-    (can "create construction-stage") (can "initialize construction-monitoring")
+    (await (can "create construction-stage"))
+    (await (can "initialize construction-monitoring"))
   )
 }}
   <div class="uk-margin uk-text-center">
@@ -27,7 +28,7 @@
 
 {{yield}}
 
-{{#if (can "complete construction-monitoring")}}
+{{#if (await (can "complete construction-monitoring"))}}
   <div
     class="uk-margin uk-margin-large-top uk-text-center uk-margin-small-right"
   >
@@ -38,7 +39,7 @@
       @onClick={{perform this.completeConstructionMonitoring}}
     />
   </div>
-{{else if (can "initialize construction-monitoring")}}
+{{else if (await (can "initialize construction-monitoring"))}}
   <div
     class="uk-margin uk-margin-large-top uk-text-center uk-margin-small-right"
   >

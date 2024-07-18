@@ -1781,7 +1781,7 @@ APPLICATIONS = {
         "CALUMA": {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "SUBMIT_TASKS": ["submit"],
-            "FORM_PERMISSIONS": ["main", "inquiry", "inquiry-answer"],
+            "FORM_PERMISSIONS": ["main"],
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,
             "GENERATE_IDENTIFIER": True,

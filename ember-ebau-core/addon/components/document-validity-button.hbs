@@ -39,6 +39,13 @@
       (not isValid)
       this.validate.isRunning
       this.session.isSupport
+      (if
+        this.requiredPermissions
+        (has-all-permissions
+          @context.instanceId this.requiredPermissions invert=true
+        )
+        false
+      )
     }}
     @label={{@field.question.raw.label}}
     @loading={{this.validate.isRunning}}

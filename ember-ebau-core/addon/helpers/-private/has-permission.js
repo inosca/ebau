@@ -39,11 +39,16 @@ export default class HasPermissionHelper extends Helper {
     ]),
   );
 
-  compute([instanceId, ...requiredPermissions], { reload = false } = {}) {
+  compute(
+    [instanceId, ...requiredPermissions],
+    { reload = false, invert = false } = {},
+  ) {
     this.reload = reload;
     this.instanceId = instanceId;
     this.requiredPermissions = requiredPermissions.flat().join(","); // needed in order for dedupeTracked to work
 
-    return this.condition.current;
+    const result = this.condition.current;
+
+    return invert ? !result : result;
   }
 }

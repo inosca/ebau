@@ -30,7 +30,9 @@
         {{/if}}
         <CfContent
           @documentId={{demand.document.id}}
-          @disabled={{cannot "fill additional-demand" demand}}
+          @disabled={{await
+            (cannot "fill additional-demand" demand instanceId=this.instanceId)
+          }}
           @context={{hash
             actionButtonOnSuccess=this.onSuccessComplete
             instanceId=this.instanceId

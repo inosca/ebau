@@ -51,6 +51,7 @@ from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.utils import copy_instance, fill_ebau_number
 from camac.notification.utils import send_mail, send_mail_without_request
 from camac.permissions import api as permissions_api, events as permissions_events
+from camac.permissions.switcher import permission_switching_method
 from camac.responsible.domain_logic import ResponsibleServiceDomainLogic
 from camac.responsible.models import ResponsibleService
 from camac.tags.models import Keyword
@@ -982,7 +983,40 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         # TODO: Are the form permissions too lenient?
         return set(["read", "write"])
 
+    @permission_switching_method
+    @permission_aware
     def get_permissions(self, instance):
+        manager = permissions_api.PermissionManager.from_request(
+            self.context["request"]
+        )
+        permissions = manager.get_permissions(instance)
+
+        def permission_prefix(form):
+            # This will map a form slug to its respective permission prefix. For
+            # the main form, the actual form slug will be omitted.
+            # E.g. main => form- and some-form => form-some-form-
+            return "form-" if form == "main" else f"form-{form}-"
+
+        form_permissions = {
+            form: set(
+                [
+                    permission.replace(permission_prefix(form), "")
+                    for permission in permissions
+                    if permission.startswith(permission_prefix(form))
+                ]
+            )
+            for form in settings.APPLICATION.get("CALUMA", {}).get(
+                "FORM_PERMISSIONS", []
+            )
+        }
+
+        return {
+            "case-meta": self._get_case_meta_permissions(instance),
+            **form_permissions,
+        }
+
+    @get_permissions.register_old
+    def _get_permissions(self, instance):
         return {
             "case-meta": self._get_case_meta_permissions(instance),
             **{

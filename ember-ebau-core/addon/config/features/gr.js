@@ -21,4 +21,5 @@ export default {
   },
   watermark: isDevelopingApp() || getOwnConfig().enableWatermark,
   communications: true,
+  additionalDemands: true,
 };

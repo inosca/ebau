@@ -15,7 +15,7 @@
     @documentId={{decode-id @documentId}}
     @disabled={{or
       (not this.isActionable)
-      (cannot "edit work item of construction-step" @workItem)
+      (await (cannot "edit work item of construction-step" @workItem))
     }}
     @context={{hash instanceId=this.ebauModules.instanceId}}
   >
@@ -23,7 +23,7 @@
 
       <content.form />
 
-      {{#if (can "edit work item of construction-step" @workItem)}}
+      {{#if (await (can "edit work item of construction-step" @workItem))}}
         <DocumentValidity @document={{content.document}} as |isValid validate|>
 
           <div

@@ -29,4 +29,12 @@ module("Integration | Helper | has-any-permission", function (hooks) {
     );
     assert.dom(this.element).hasText("true");
   });
+
+  test("it works inverted", async function (assert) {
+    this.permissions.grant(1, ["form-read"]);
+    await render(
+      hbs`{{has-any-permission 1 "form-read" "form-write" reload=true invert=true}}`,
+    );
+    assert.dom(this.element).hasText("false");
+  });
 });

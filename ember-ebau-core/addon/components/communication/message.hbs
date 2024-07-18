@@ -56,17 +56,19 @@
                 <li>{{entity.name}}</li>
               {{/each}}
             </ul>
-            <button
-              type="button"
-              class="uk-button uk-button-primary uk-button-small uk-width-1"
-              {{on "click" (perform this.markAsUnread)}}
-              data-test-mark-unread
-            >
-              {{t "communications.detail.markAsUnread"}}
-            </button>
+            {{#if (await (can "mark as read or unread on message" @message))}}
+              <button
+                type="button"
+                class="uk-button uk-button-primary uk-button-small uk-width-1"
+                {{on "click" (perform this.markAsUnread)}}
+                data-test-mark-unread
+              >
+                {{t "communications.detail.markAsUnread"}}
+              </button>
+            {{/if}}
           </div>
         </div>
-      {{else}}
+      {{else if (await (can "mark as read or unread on message" @message))}}
         <IconButton
           @icon="eye"
           @onClick={{perform this.markAsRead}}
