@@ -21,13 +21,6 @@ export default class CamacAdditionalDemandFilesComponent extends Component {
     return additionalDemandsConfig.buckets;
   }
 
-  get isCheck() {
-    return (
-      this.args.field.document.raw.form.slug ===
-      additionalDemandsConfig.formSlugs.check
-    );
-  }
-
   get useConfidential() {
     return mainConfig.useConfidential;
   }
