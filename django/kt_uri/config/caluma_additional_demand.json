@@ -633,7 +633,7 @@
           "models": ["INSTANCE_ID"]
         }
       },
-      "address_groups": "['municipality']",
+      "address_groups": "['create_init_additional_demand']|groups",
       "control_groups": null,
       "is_archived": false,
       "form": null,
