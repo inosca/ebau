@@ -72,6 +72,7 @@ class ACLUserInfo:
             "service": self.service,
             "token": self.token,
             "area": area,
+            "role": self.role,
         }
 
     def to_cache_key(self, instance: Union[Instance, str, int]):

@@ -10,11 +10,15 @@ from camac.permissions.conditions import Always
 from camac.permissions.switcher import PERMISSION_MODE
 
 
-@pytest.mark.parametrize("grant_type", ["user", "service", "token"])
-def test_grant_permission(db, grant_type, user, service, token, instance, access_level):
+@pytest.mark.parametrize("grant_type", ["user", "service", "token", "role"])
+def test_grant_permission(
+    db, grant_type, user, service, token, instance, access_level, role
+):
     """Test whether visibility of the ACLs themselves works correctly."""
     # Fetch before grant - should be no access
-    visible_acls = models.InstanceACL.for_current_user(user=user, service=service)
+    visible_acls = models.InstanceACL.for_current_user(
+        user=user, service=service, token=token, role=role
+    )
     assert visible_acls.count() == 0
 
     # Grant permission to our user
@@ -25,7 +29,7 @@ def test_grant_permission(db, grant_type, user, service, token, instance, access
     api.grant(**grant_kwargs, instance=instance, access_level=access_level)
 
     visible_acls = models.InstanceACL.for_current_user(
-        user=user, service=service, token=token
+        user=user, service=service, token=token, role=role
     )
     assert visible_acls.count() == 1
 

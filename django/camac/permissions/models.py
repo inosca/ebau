@@ -137,7 +137,9 @@ class InstanceACL(models.Model):
     metainfo = models.JSONField(null=True, default=None)
 
     @classmethod
-    def for_current_user(cls, user=None, service=None, token=None, area=None):
+    def for_current_user(
+        cls, user=None, service=None, token=None, area=None, role=None
+    ):
         """Return a QS with all the ACLs of the given user."""
         filter = cls.filter_for_current_user(
             user=user,
@@ -145,12 +147,13 @@ class InstanceACL(models.Model):
             token=token,
             acl_prefix="",
             area=area,
+            role=role,
         )
         return cls.objects.filter(filter)
 
     @classmethod
     def filter_for_current_user(
-        cls, user=None, service=None, token=None, acl_prefix="", area=None
+        cls, user=None, service=None, token=None, acl_prefix="", area=None, role=None
     ):
         """Generate a filter for the current user.
 
@@ -186,8 +189,9 @@ class InstanceACL(models.Model):
 
             if area is None:
                 area = APPLICABLE_AREAS.INTERNAL.value
-
-        elif area is None:  # pragma: no cover
+        if role:
+            user_filter_parts.append(models.Q(**{f"{prefix}role": role}))
+        elif area is None and not service and not role:  # pragma: no cover
             # No service, and is_portal_user was not explicitly passed.
             # Assume public mode.
             # TODO: this should never happen, but I'm hesitant to raise
