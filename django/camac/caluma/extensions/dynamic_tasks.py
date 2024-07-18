@@ -112,11 +112,10 @@ class CustomDynamicTasks(BaseDynamicTasks):
             question_id="complete-check-vollstaendigkeitspruefung"
         ).value
 
-        if answer == "complete-check-vollstaendigkeitspruefung-complete":
-            return ["distribution"]
-        elif answer == "complete-check-vollstaendigkeitspruefung-incomplete":
-            return ["additional-demand", "distribution"]
-        elif answer == "complete-check-vollstaendigkeitspruefung-incomplete-wait":
+        if answer in [
+            "complete-check-vollstaendigkeitspruefung-incomplete",
+            "complete-check-vollstaendigkeitspruefung-incomplete-wait",
+        ]:
             return ["additional-demand"]
 
     @register_dynamic_task("after-inquiries-completed")
@@ -203,24 +202,24 @@ class CustomDynamicTasks(BaseDynamicTasks):
         ).exists():
             return [settings.ADDITIONAL_DEMAND["FILL_TASK"]]
 
-        positive_answer = prev_work_item.document.answers.filter(
-            question_id=settings.ADDITIONAL_DEMAND["QUESTIONS"]["DECISION"],
-            value=settings.ADDITIONAL_DEMAND["ANSWERS"]["DECISION"]["ACCEPTED"],
-        )
-        open_additional_demands = case.work_items.filter(
-            status=WorkItem.STATUS_READY, task_id=settings.ADDITIONAL_DEMAND["TASK"]
-        )
-        distribution_work_item = case.work_items.filter(
-            status=WorkItem.STATUS_READY,
-            task_id=settings.DISTRIBUTION["DISTRIBUTION_TASK"],
-        )
+        # positive_answer = prev_work_item.document.answers.filter(
+        #     question_id=settings.ADDITIONAL_DEMAND["QUESTIONS"]["DECISION"],
+        #     value=settings.ADDITIONAL_DEMAND["ANSWERS"]["DECISION"]["ACCEPTED"],
+        # )
+        # open_additional_demands = case.work_items.filter(
+        #     status=WorkItem.STATUS_READY, task_id=settings.ADDITIONAL_DEMAND["TASK"]
+        # )
+        # distribution_work_item = case.work_items.filter(
+        #     status=WorkItem.STATUS_READY,
+        #     task_id=settings.DISTRIBUTION["DISTRIBUTION_TASK"],
+        # )
 
-        if (
-            positive_answer
-            and not open_additional_demands
-            and not distribution_work_item
-        ):
-            return ["distribution"]
+        # if (
+        #     positive_answer
+        #     and not open_additional_demands
+        #     and not distribution_work_item
+        # ):
+        #     return ["distribution"]
 
         return []
 
