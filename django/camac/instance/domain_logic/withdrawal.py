@@ -9,12 +9,10 @@ from django.db.models import Exists, OuterRef, Q
 from django.db.models.query import QuerySet
 from django.utils import timezone
 
-from camac.caluma.api import CalumaApi
 from camac.core.utils import create_history_entry
 from camac.instance.models import Instance
 from camac.notification.utils import send_mail_without_request
 from camac.user.models import Group, User
-from camac.user.permissions import get_role_name
 
 
 def get_active_and_future_publications(instance: Instance) -> QuerySet[WorkItem]:
@@ -49,30 +47,6 @@ def get_active_and_future_publications(instance: Instance) -> QuerySet[WorkItem]
 
 
 class WithdrawalLogic:
-    @classmethod
-    def has_permission(
-        cls,
-        instance: Instance,
-        camac_user: User,
-        camac_group: Group,
-    ) -> bool:
-        if not settings.WITHDRAWAL:
-            return False
-
-        return instance.instance_state.name in settings.WITHDRAWAL[
-            "ALLOWED_INSTANCE_STATES"
-        ] and (
-            (
-                get_role_name(camac_group) == "applicant"
-                and instance.involved_applicants.filter(invitee=camac_user).exists()
-            )
-            or (
-                get_role_name(camac_group) == "municipality"
-                and camac_group.service == instance.responsible_service()
-                and CalumaApi().is_paper(instance)
-            )
-        )
-
     @classmethod
     @transaction.atomic
     def withdraw_instance(

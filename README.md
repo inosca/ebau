@@ -152,19 +152,20 @@ After, you should be able to use to the following services:
 The following administrator accounts are present in Keycloak or the DB,
 respectively:
 
-| _Application_ | _Role_      | _Username_        | _Password_ | _Notes_ |
-| ------------- | ----------- | ----------------- | ---------- | ------- |
-| demo          | Admin       | user              | user       |         |
-| kt_schwyz     | Admin       | admin             | admin      |         |
-|               | Publikation | adsy              | adsy       |         |
-| kt_uri        | Admin       | admin             | admin      |         |
-|               | PortalUser  | portal            | portal     |         |
-| kt_bern       | Admin       | user              | user       |         |
-| kt_gr         | Admin       | admin@example.com | admin      |         |
-| kt_so         | Admin       | admin             | admin      |         |
+| _Application_ | _Role_      | _Username_        | _Password_ | _Notes_                 |
+| ------------- | ----------- | ----------------- | ---------- | ----------------------- |
+| demo          | Admin       | user              | user       |                         |
+| kt_schwyz     | Admin       | admin             | admin      |                         |
+|               | Publikation | adsy              | adsy       |                         |
+| kt_uri        | Admin       | admin             | admin      |                         |
+|               | PortalUser  | portal            | portal     |                         |
+| kt_bern       | Admin       | user              | user       |                         |
+| kt_gr         | Admin       | admin@example.com | admin      |                         |
+| kt_so         | Admin       | admin             | admin      |                         |
+|               | Applicant   | editor            | editor     | Applicant editor role   |
+|               | Applicant   | readonly          | readonly   | Applicant readonly role |
 
 ### Debugging
-
 
 #### Variant 1: Start the development server inside the container
 
@@ -189,21 +190,18 @@ a. send signals to the container
 
 b. drop to a pdb shell when the application runs into a `breakpoint`
 
-
-Since the dev config runs the django development-server that reloads on file changes, inserting those 
+Since the dev config runs the django development-server that reloads on file changes, inserting those
 breakpoints is effective immediately after saving the file.
 
 ##### Detach
 
 press `CTRL-p + CTRL-q`
 
-
 NOTE: since by default the `attach` process will forward signals to the container you'll have to exit pressing
 said sequence (which is the default setting for `--detach-keys` and can be overridden). Pressing `CTRL-c` however
 will not only kill the TTY but also send the SIGINT to the container and stop it.
 
 DOCS: https://docs.docker.com/reference/cli/docker/container/attach/
-
 
 ### Working locally with ember
 

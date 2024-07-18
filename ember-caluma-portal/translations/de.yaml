@@ -356,6 +356,12 @@ instances:
     deleteSuccess: "Der Benutzer wurde erfolgreich gelöscht"
     deleteError: "Beim Löschen des Benutzers ist etwas schief gelaufen"
 
+    role: "Rolle"
+    roles:
+      admin: "Administrator/in"
+      editor: "Mitbearbeiter/in"
+      read-only: "Einsichtsberechtigt"
+
 be-submit-instance:
   success: "Das Gesuch wurde erfolgreich eingereicht."
   failed-camac: "Fehler beim Schreiben auf Schnittstelle."

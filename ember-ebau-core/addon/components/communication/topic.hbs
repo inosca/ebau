@@ -62,7 +62,7 @@
       data-test-message-list
     />
 
-    {{#if (can "send message" topic=this.topic)}}
+    {{#if (await (can "send message" topic=this.topic))}}
       <Communication::MessageInput
         @message={{this.newMessage}}
         @loading={{this.sendMessage.isRunning}}

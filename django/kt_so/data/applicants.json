@@ -7,7 +7,8 @@
       "user": 1,
       "invitee": 1,
       "created": "2023-07-07T07:31:31.547Z",
-      "email": "admin@example.com"
+      "email": "admin@example.com",
+      "role": "ADMIN"
     }
   },
   {
@@ -18,7 +19,8 @@
       "user": 1,
       "invitee": 1,
       "created": "2023-10-05T08:55:20.619Z",
-      "email": "admin@example.com"
+      "email": "admin@example.com",
+      "role": "ADMIN"
     }
   },
   {
@@ -29,7 +31,8 @@
       "user": 1,
       "invitee": 1,
       "created": "2023-11-27T09:20:09.650Z",
-      "email": "admin@example.com"
+      "email": "admin@example.com",
+      "role": "ADMIN"
     }
   },
   {
@@ -40,7 +43,8 @@
       "user": 1,
       "invitee": 1,
       "created": "2024-05-31T10:25:34.596Z",
-      "email": "admin@example.com"
+      "email": "admin@example.com",
+      "role": "ADMIN"
     }
   },
   {
@@ -51,7 +55,128 @@
       "user": 1,
       "invitee": 1,
       "created": "2024-05-31T10:26:28.697Z",
-      "email": "admin@example.com"
+      "email": "admin@example.com",
+      "role": "ADMIN"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 6,
+    "fields": {
+      "instance": 5,
+      "user": 1,
+      "invitee": 3,
+      "created": "2024-08-07T15:00:02.586Z",
+      "email": "editor@example.com",
+      "role": "EDITOR"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 7,
+    "fields": {
+      "instance": 5,
+      "user": 1,
+      "invitee": 4,
+      "created": "2024-08-07T15:00:09.675Z",
+      "email": "readonly@example.com",
+      "role": "READ_ONLY"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 8,
+    "fields": {
+      "instance": 4,
+      "user": 1,
+      "invitee": 3,
+      "created": "2024-08-07T15:01:06.981Z",
+      "email": "editor@example.com",
+      "role": "EDITOR"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 9,
+    "fields": {
+      "instance": 3,
+      "user": 1,
+      "invitee": 3,
+      "created": "2024-08-07T15:01:15.177Z",
+      "email": "editor@example.com",
+      "role": "EDITOR"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 10,
+    "fields": {
+      "instance": 2,
+      "user": 1,
+      "invitee": 3,
+      "created": "2024-08-07T15:01:22.220Z",
+      "email": "editor@example.com",
+      "role": "EDITOR"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 11,
+    "fields": {
+      "instance": 1,
+      "user": 1,
+      "invitee": 3,
+      "created": "2024-08-07T15:01:28.896Z",
+      "email": "editor@example.com",
+      "role": "EDITOR"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 12,
+    "fields": {
+      "instance": 1,
+      "user": 1,
+      "invitee": 4,
+      "created": "2024-08-07T15:01:36.046Z",
+      "email": "readonly@example.com",
+      "role": "READ_ONLY"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 13,
+    "fields": {
+      "instance": 2,
+      "user": 1,
+      "invitee": 4,
+      "created": "2024-08-07T15:01:41.283Z",
+      "email": "readonly@example.com",
+      "role": "ADMIN"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 14,
+    "fields": {
+      "instance": 3,
+      "user": 1,
+      "invitee": 4,
+      "created": "2024-08-07T15:01:48.076Z",
+      "email": "readonly@example.com",
+      "role": "READ_ONLY"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 15,
+    "fields": {
+      "instance": 4,
+      "user": 1,
+      "invitee": 4,
+      "created": "2024-08-07T15:01:56.650Z",
+      "email": "readonly@example.com",
+      "role": "READ_ONLY"
     }
   }
 ]

@@ -6,6 +6,7 @@ export default class CasesDetailRoute extends Route {
   @service ebauModules;
   @service store;
   @service router;
+  @service permissions;
 
   async model({ instance_id }) {
     this.alexandriaConfig.instanceId = parseInt(instance_id);
@@ -20,6 +21,12 @@ export default class CasesDetailRoute extends Route {
     } catch (error) {
       console.error(error);
       this.router.transitionTo("cases.not-found");
+    }
+  }
+
+  async afterModel() {
+    if (this.permissions.fullyEnabled) {
+      await this.permissions.populateCacheFor(this.ebauModules.instanceId);
     }
   }
 }

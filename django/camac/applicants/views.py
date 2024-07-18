@@ -44,7 +44,7 @@ class ApplicantsView(InstanceQuerysetMixin, ModelViewSet):
         # we don't particularly care if we can even see the instance here.
         # Just check if the user has the permissions on it
         manager = PermissionManager.from_request(self.request)
-        return manager.has_any(
+        return manager.has_all(
             self.request.data["instance"]["id"], applicant_permissions.APPLICANT_ADD
         )
 

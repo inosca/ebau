@@ -97,28 +97,36 @@
 
 {{#if
   (or
-    (can "create copy of instance" this.editController.instance)
-    (can "create modification of instance" this.editController.instance)
-    (can
-      "write form of instance"
-      this.editController.instance
-      form=(hash slug="main")
+    (await (can "create copy of instance" this.editController.instance))
+    (await (can "create modification of instance" this.editController.instance))
+    (await
+      (can
+        "write form of instance"
+        this.editController.instance
+        form=(hash slug="main")
+      )
     )
-    (can
-      "write form of instance"
-      this.editController.instance
-      form=(hash slug="sb1")
+    (await
+      (can
+        "write form of instance"
+        this.editController.instance
+        form=(hash slug="sb1")
+      )
     )
-    (can
-      "write form of instance"
-      this.editController.instance
-      form=(hash slug="sb2")
+    (await
+      (can
+        "write form of instance"
+        this.editController.instance
+        form=(hash slug="sb2")
+      )
     )
-    (can "extend validity of instance" this.editController.instance)
-    (can "delete instance" this.editController.instance)
-    (can "withdraw instance" this.editController.instance)
-    (can "convert to building permit instance" this.editController.instance)
-    (can "download receipt of instance" this.editController.instance)
+    (await (can "extend validity of instance" this.editController.instance))
+    (await (can "delete instance" this.editController.instance))
+    (await (can "withdraw instance" this.editController.instance))
+    (await
+      (can "convert to building permit instance" this.editController.instance)
+    )
+    (await (can "download receipt of instance" this.editController.instance))
     this.showSubmitTechnischeBewilligung
   )
 }}
@@ -131,7 +139,9 @@
     </div>
 
     <div class="uk-width-3-4 uk-width-2-3@m">
-      {{#if (can "create copy of instance" this.editController.instance)}}
+      {{#if
+        (await (can "create copy of instance" this.editController.instance))
+      }}
         <div
           class="border-highlight uk-padding-small uk-padding-remove-right uk-padding-remove-vertical"
         >
@@ -154,7 +164,9 @@
       {{/if}}
 
       {{#if
-        (can "create modification of instance" this.editController.instance)
+        (await
+          (can "create modification of instance" this.editController.instance)
+        )
       }}
         <h3 class="instance-overview__action-title">
           {{t "instances.modificationTitle"}}
@@ -176,10 +188,12 @@
       {{/if}}
 
       {{#if
-        (can
-          "write form of instance"
-          this.editController.instance
-          form=(hash slug="main")
+        (await
+          (can
+            "write form of instance"
+            this.editController.instance
+            form=(hash slug="main")
+          )
         )
       }}
         <h3 class="instance-overview__action-title">
@@ -202,10 +216,12 @@
       {{/if}}
 
       {{#if
-        (can
-          "write form of instance"
-          this.editController.instance
-          form=(hash slug="sb1")
+        (await
+          (can
+            "write form of instance"
+            this.editController.instance
+            form=(hash slug="sb1")
+          )
         )
       }}
         <h3 class="instance-overview__action-title">
@@ -224,10 +240,12 @@
       {{/if}}
 
       {{#if
-        (can
-          "write form of instance"
-          this.editController.instance
-          form=(hash slug="sb2")
+        (await
+          (can
+            "write form of instance"
+            this.editController.instance
+            form=(hash slug="sb2")
+          )
         )
       }}
         <h3 class="instance-overview__action-title">
@@ -245,7 +263,9 @@
         </LinkTo>
       {{/if}}
 
-      {{#if (can "extend validity of instance" this.editController.instance)}}
+      {{#if
+        (await (can "extend validity of instance" this.editController.instance))
+      }}
         <h3 class="instance-overview__action-title">
           {{t "instances.extensionPeriodOfValidityTitle"}}
         </h3>
@@ -258,7 +278,11 @@
         />
       {{/if}}
 
-      {{#if (can "manage applicants of instance" this.editController.instance)}}
+      {{#if
+        (await
+          (can "manage applicants of instance" this.editController.instance)
+        )
+      }}
         <h3 class="instance-overview__action-title">
           {{t "instances.activateFurtherPersons"}}
         </h3>
@@ -277,7 +301,11 @@
         </LinkTo>
       {{/if}}
 
-      {{#if (can "download receipt of instance" this.editController.instance)}}
+      {{#if
+        (await
+          (can "download receipt of instance" this.editController.instance)
+        )
+      }}
         <h3 class="instance-overview__action-title">
           {{t "instances.downloadReceipt"}}
         </h3>
@@ -296,7 +324,7 @@
         />
       {{/if}}
 
-      {{#if (can "delete instance" this.editController.instance)}}
+      {{#if (await (can "delete instance" this.editController.instance))}}
         <h3 class="instance-overview__action-title">
           {{t "instances.deleteInstance"}}
         </h3>
@@ -316,7 +344,7 @@
         </UkButton>
       {{/if}}
 
-      {{#if (can "withdraw instance" this.editController.instance)}}
+      {{#if (await (can "withdraw instance" this.editController.instance))}}
         <h3 class="instance-overview__action-title">
           {{t "instances.withdrawInstance"}}
         </h3>
@@ -330,7 +358,11 @@
       {{/if}}
 
       {{#if
-        (can "convert to building permit instance" this.editController.instance)
+        (await
+          (can
+            "convert to building permit instance" this.editController.instance
+          )
+        )
       }}
         <h3 class="instance-overview__action-title">
           {{t "instances.createBuildingPermitTitle"}}

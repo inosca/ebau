@@ -1,20 +1,24 @@
 <LoadingOrNotfound
   @loading={{this.editController.isLoading}}
-  @hasPermission={{can
-    "read applicants of instance"
-    this.editController.instance
+  @hasPermission={{await
+    (can "read applicants of instance" this.editController.instance)
   }}
 >
   <table class="uk-table uk-table-striped">
     <thead>
       <tr>
         <th>{{t "instances.applicants.invitee"}}</th>
+        {{#if (has-feature "permissions.applicantRoles")}}
+          <th>{{t "instances.applicants.role"}}</th>
+        {{/if}}
         <th>{{t "instances.applicants.created"}}</th>
         <th>{{t "instances.applicants.user"}}</th>
         {{#if
           (and
             (gt this.applicants.length 1)
-            (can "manage applicants of instance" this.editController.instance)
+            (await
+              (can "manage applicants of instance" this.editController.instance)
+            )
           )
         }}
           <td></td>
@@ -35,12 +39,19 @@
                 }})</span>
             {{/if}}
           </td>
+          {{#if (has-feature "permissions.applicantRoles")}}
+            <td>{{applicant.roleName}}</td>
+          {{/if}}
           <td>{{format-date applicant.created format="datetime"}}</td>
           <td>{{applicant.user.fullName}}</td>
           {{#if
             (and
               (gt this.applicants.length 1)
-              (can "manage applicants of instance" this.editController.instance)
+              (await
+                (can
+                  "manage applicants of instance" this.editController.instance
+                )
+              )
             )
           }}
             <td class="uk-text-right">
@@ -56,7 +67,10 @@
         </tr>
       {{else}}
         <tr>
-          <td class="uk-text-center" colspan="3">
+          <td
+            class="uk-text-center"
+            colspan={{if (has-feature "permissions.applicantRoles") 4 3}}
+          >
             {{t "instances.applicants.noApplicants"}}
           </td>
         </tr>
@@ -64,7 +78,9 @@
     </tbody>
   </table>
 
-  {{#if (can "manage applicants of instance" this.editController.instance)}}
+  {{#if
+    (await (can "manage applicants of instance" this.editController.instance))
+  }}
     <form uk-grid class="uk-grid-small" onsubmit={{perform this.add}}>
       <div class="uk-width-expand">
         <div class="uk-inline uk-width-1-1">
@@ -86,6 +102,25 @@
           </PersonalSuggestions>
         </div>
       </div>
+      {{#if (has-feature "permissions.applicantRoles")}}
+        <div class="uk-width-auto">
+          <select
+            class="uk-select"
+            aria-label={{t "instances.applicants.role"}}
+            {{on "change" this.setRole}}
+          >
+            <option value="ADMIN">
+              {{t "instances.applicants.roles.admin"}}
+            </option>
+            <option value="EDITOR">
+              {{t "instances.applicants.roles.editor"}}
+            </option>
+            <option value="READ_ONLY">
+              {{t "instances.applicants.roles.read-only"}}
+            </option>
+          </select>
+        </div>
+      {{/if}}
       <div class="uk-width-auto">
         <UkButton
           @type="submit"
@@ -130,9 +165,11 @@
     {{/if}}
 
     {{#if
-      (can
-        "manage municipality access before submission of instance"
-        this.editController.instance
+      (await
+        (can
+          "manage municipality access before submission of instance"
+          this.editController.instance
+        )
       )
     }}
       {{#if

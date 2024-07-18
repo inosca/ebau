@@ -1,7 +1,7 @@
 import operator
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
-from typing import Callable, List
+from typing import Callable, List, Optional
 
 from camac.utils import call_with_accepted_kwargs
 
@@ -245,3 +245,79 @@ class IsForm(Check):
 
     def __repr__(self):
         return f"IsForm({', '.join(sorted(self.forms))})"
+
+
+@dataclass
+class HasApplicantRole(Check):
+    """Permission check for requiring any applicant role of a given list."""
+
+    roles: List[str]
+
+    def apply(self, userinfo, instance):
+        applicant = instance.involved_applicants.filter(invitee=userinfo.user).first()
+
+        if not applicant:
+            return False
+
+        return any(applicant.role == role for role in self.roles)
+
+    @property
+    def allow_caching(self):  # pragma: no cover
+        return True
+
+    def __eq__(self, other):  # pragma: no cover
+        return isinstance(other, HasApplicantRole) and set(other.roles) == set(
+            self.roles
+        )
+
+    def __repr__(self):
+        return f"HasApplicantRole({', '.join(sorted(self.roles))})"
+
+
+class IsPaper(Check):
+    """Permission check: Instance (case) is a paper instance."""
+
+    def apply(self, userinfo, instance):
+        from camac.caluma.api import CalumaApi
+
+        return CalumaApi().is_paper(instance)
+
+    @property
+    def allow_caching(self):  # pragma: no cover
+        return True
+
+    def __eq__(self, other):  # pragma: no cover
+        return isinstance(other, IsPaper)
+
+    def __repr__(self):  # pragma: no cover
+        return "IsPaper()"
+
+
+@dataclass
+class RequireWorkItem(Check):
+    """Require instance to have a work item of a given task."""
+
+    task_id: str
+    status: Optional[str] = None
+
+    def apply(self, userinfo, instance):
+        from caluma.caluma_workflow.models import WorkItem
+
+        work_items = WorkItem.objects.filter(
+            case__family=instance.case, task_id=self.task_id
+        )
+
+        if self.status:
+            work_items = work_items.filter(status=self.status)
+
+        return work_items.exists()
+
+    @property
+    def allow_caching(self):  # pragma: no cover
+        return False
+
+    def __eq__(self, other):  # pragma: no cover
+        return isinstance(other, RequireInstanceState) and other.task_id == self.task_id
+
+    def __repr__(self):  # pragma: no cover
+        return f"RequireWorkItem({self.task_id})"

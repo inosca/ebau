@@ -28,6 +28,7 @@ export default {
   },
   permissions: {
     municipalityBeforeSubmission: true,
+    applicantRoles: true,
   },
   caluma: {
     useNumberSeparatorWidgetAsDefault: true,
@@ -48,4 +49,5 @@ export default {
   municipalityLogo: true,
   communications: true,
   constructionMonitoring: true,
+  additionalDemands: true,
 };

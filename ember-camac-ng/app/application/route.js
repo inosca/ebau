@@ -28,13 +28,16 @@ export default class ApplicationRoute extends Route {
   @service session;
   @service shoebox;
   @service calumaOptions;
+  @service permissions;
 
   async beforeModel(transition) {
     await this.session.setup();
-
-    this.session.requireAuthentication(transition, () => {
+    await this.session.requireAuthentication(transition, () => {
       this.session.authenticate("authenticator:camac");
     });
+    if (this.session.isAuthenticated) {
+      await this.permissions.setup();
+    }
 
     const language = this.shoebox.content.language;
 

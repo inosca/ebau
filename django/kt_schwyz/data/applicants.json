@@ -7,7 +7,8 @@
       "user": 1,
       "invitee": 1,
       "created": "2020-11-23T13:23:00.617Z",
-      "email": "admin-camac@example.net"
+      "email": "admin-camac@example.net",
+      "role": "ADMIN"
     }
   },
   {
@@ -18,7 +19,8 @@
       "user": 1,
       "invitee": null,
       "created": "2020-11-23T13:34:42.028Z",
-      "email": "test@test.test"
+      "email": "test@test.test",
+      "role": "ADMIN"
     }
   },
   {
@@ -29,7 +31,8 @@
       "user": 1,
       "invitee": 1,
       "created": "2020-11-23T13:36:44.444Z",
-      "email": "admin-camac@example.net"
+      "email": "admin-camac@example.net",
+      "role": "ADMIN"
     }
   },
   {
@@ -40,7 +43,8 @@
       "user": 1,
       "invitee": 1,
       "created": "2020-11-23T13:42:08.441Z",
-      "email": "admin-camac@example.net"
+      "email": "admin-camac@example.net",
+      "role": "ADMIN"
     }
   },
   {
@@ -51,7 +55,8 @@
       "user": 1,
       "invitee": 1,
       "created": "2020-11-23T13:56:48.520Z",
-      "email": "admin-camac@example.net"
+      "email": "admin-camac@example.net",
+      "role": "ADMIN"
     }
   },
   {
@@ -62,7 +67,8 @@
       "user": 1,
       "invitee": 1,
       "created": "2020-11-23T14:04:12.835Z",
-      "email": "admin-camac@example.net"
+      "email": "admin-camac@example.net",
+      "role": "ADMIN"
     }
   }
 ]

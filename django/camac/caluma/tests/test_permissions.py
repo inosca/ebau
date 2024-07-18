@@ -713,3 +713,23 @@ def test_has_caluma_form_edit_permission_for_municipality():
     ) as mock_function:
         permission.has_caluma_form_edit_permission_for_trusted_service(None, None)
         mock_function.assert_called_once()
+
+
+def test_simpe_form_permission_with_child_case_document(
+    db, work_item_factory, service, mocker
+):
+    mocker.patch(
+        "camac.caluma.extensions.permissions.get_current_service_id",
+        return_value=service.pk,
+    )
+
+    permission = CustomPermission()
+
+    work_item = work_item_factory(
+        status=WorkItem.STATUS_READY,
+        addressed_groups=[str(service.pk)],
+    )
+
+    document = work_item.child_case.document
+
+    assert permission.has_caluma_form_edit_permission_for_municipality(document, None)

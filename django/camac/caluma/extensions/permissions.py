@@ -519,9 +519,21 @@ class CustomPermission(BasePermission):
                 f"NG API returned unexpected data structure (no data key) {jsondata}"
             )
 
+    def _get_work_item(self, document):
+        document = document.family
+
+        if hasattr(document, "work_item"):
+            return document.work_item
+        elif hasattr(document, "case") and hasattr(document.case, "parent_work_item"):
+            return document.case.parent_work_item
+
+        raise RuntimeError(
+            f"No work item found for document {document.id}"
+        )  # pragma: no cover
+
     @permission_aware
     def has_caluma_form_edit_permission(self, document, info):
-        work_item = document.family.work_item
+        work_item = self._get_work_item(document)
 
         return (
             is_addressed_to_applicant(work_item)
@@ -529,7 +541,7 @@ class CustomPermission(BasePermission):
         )
 
     def has_caluma_form_edit_permission_for_municipality(self, document, info):
-        work_item = document.family.work_item
+        work_item = self._get_work_item(document)
 
         return (
             is_addressed_to_service(work_item, get_current_service_id(info))
