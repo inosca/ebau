@@ -31,6 +31,7 @@ from camac.dossier_import.writers import (
 )
 from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.models import Form, Instance, InstanceState
+from camac.permissions import events as permissions_events
 from camac.user.models import Location
 
 PERSON_MAPPING = {
@@ -162,6 +163,7 @@ class KtSchwyzDossierWriter(DossierWriter):
             instance, prefix="IM", seq_zero_padding=4, year=dossier.submit_date.year
         )
         instance.save()
+        permissions_events.Trigger.instance_submitted(None, instance)
         return instance
 
     def existing_dossier(self, dossier_id):
@@ -260,6 +262,7 @@ class KtSchwyzDossierWriter(DossierWriter):
                 config.pop("depreciate-case", None)
             if config.get("make-decision"):
                 config["make-decision"]["cancel"] = ["publication"]
+                permissions_events.Trigger.decision_decreed(None, instance)
             config = config and config.get(work_item.task_id)
             if config:
                 for action_name, tasks in config.items():

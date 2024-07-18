@@ -29,6 +29,7 @@ from camac.dossier_import.writers import (
 from camac.instance.domain_logic import SUBMIT_DATE_FORMAT, CreateInstanceLogic
 from camac.instance.models import Form, Instance, InstanceState
 from camac.instance.utils import get_construction_control, set_construction_control
+from camac.permissions import events as permissions_events
 from camac.tags.models import Tags
 
 APPLICANT_MAPPING = {
@@ -194,7 +195,7 @@ class KtBernDossierWriter(DossierWriter):
 
         instance.case.meta.update(meta)
         instance.case.save()
-
+        permissions_events.Trigger.instance_submitted(None, instance)
         return instance
 
     def _post_write_fields(self, instance, dossier):
@@ -332,6 +333,7 @@ class KtBernDossierWriter(DossierWriter):
             skip_work_item(work_item, user=self._caluma_user, context=default_context)
             if task_id == "decision":
                 set_construction_control(instance)
+                permissions_events.Trigger.decision_decreed(None, instance)
             if target_state == "SUBMITTED":
                 if instance.case.meta.get("ebau-number"):
                     work_item = instance.case.work_items.get(task_id="ebau-number")
