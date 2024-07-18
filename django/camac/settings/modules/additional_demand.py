@@ -70,25 +70,9 @@ ADDITIONAL_DEMAND = {
     "kt_uri": {
         "ENABLED": True,
         "ALLOW_SUBSERVICES": True,
-        # Can be used to control instance state in caluma events
         "STATES": {
             "PENDING_ADDITIONAL_DEMANDS": "nfd",
-            # "ALL_ADDITIONAL_DEMANDS_FILLED": "control"
+            "AFTER_ADDITIONAL_DEMANDS": "comm",
         },
-        # TODO: enable these once a decision was made by Kt. Uri
-        # "NOTIFICATIONS": {
-        #     "ACCEPTED": [
-        #         {
-        #             "recipient_types": ["applicant", "leitbehoerde"],
-        #             "template_slug": "additional-demand-decision-accept",
-        #         }
-        #     ],
-        #     "REJECTED": [
-        #         {
-        #             "recipient_types": ["applicant"],
-        #             "template_slug": "additional-demand-decision-reject",
-        #         }
-        #     ],
-        # },
     },
 }
