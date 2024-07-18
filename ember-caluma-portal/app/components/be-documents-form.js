@@ -18,23 +18,29 @@ export default class BeDocumentsFormComponent extends Component {
 
   get buckets() {
     return (
-      this.args.fieldset.field.question.raw.meta.buckets ??
+      this.args.fieldset?.field.question.raw.meta.buckets ??
+      this.args.field?.question.raw.meta.buckets ??
       attachmentsConfig.buckets
     );
   }
 
   get showHint() {
-    return /^baugesuch/.test(this.args.fieldset.document.rootForm.slug);
+    return /^baugesuch/.test(this.args.fieldset?.document.rootForm.slug);
   }
 
   get showReducedConfirmText() {
-    return /^heat-generator/.test(this.args.fieldset.document.rootForm.slug);
+    return /^heat-generator/.test(this.args.fieldset?.document.rootForm.slug);
   }
 
   get section() {
-    return this.args.document.jexl.evalSync(
-      this.args.fieldset.field.question.raw.meta["attachment-section"],
-      this.args.document.jexlContext,
+    const document = this.args.document ?? this.args.field.fieldset.document;
+    const attachmentSectionSource = (
+      this.args.fieldset?.field ?? this.args.field
+    ).question.raw.meta["attachment-section"];
+
+    return document.jexl.evalSync(
+      attachmentSectionSource,
+      document.jexlContext,
     );
   }
 
@@ -52,7 +58,7 @@ export default class BeDocumentsFormComponent extends Component {
   }
 
   get allRequiredTags() {
-    return this.args.fieldset.fields.filter(
+    return this.args.fieldset?.fields.filter(
       (field) =>
         !field.hidden &&
         !field.optional &&
@@ -61,7 +67,7 @@ export default class BeDocumentsFormComponent extends Component {
   }
 
   get allOtherFields() {
-    return this.args.fieldset.fields.filter(
+    return this.args.fieldset?.fields.filter(
       (field) =>
         field.questionType !== "MultipleChoiceQuestion" &&
         !config.APPLICATION.documents.excludeFromDocuments.includes(

@@ -1,14 +1,3 @@
 documents:
-  claims: "Dokumente"
-  # downloadSuccess: "Die Datei wurde erfolgreich heruntergeladen"
-  # downloadError: "Beim Herunterladen der Datei ist etwas schief gelaufen"
-  # confidential: "(vertraulich)"
-  # setConfidential: "Als vertraulich markieren"
-  # setNonConfidential: "Vertraulich Markierung entfernen"
-  # confirm: "Hiermit bestätige ich, dass ich {count, plural, =1 {den folgenden Pflichtinhalt} other {die folgenden # Pflichtinhalte}} hochgeladen habe. Bitte beachten Sie, dass die Liste der angegebenen Pflichtdokumente nicht abschliessend ist. Bitte konsultieren Sie das kommunale Baugesetz."
-  # confirm-reduced: "Hiermit bestätige ich, dass ich die benötigten Pflichtinhalte hochgeladen habe:"
   buckets:
-    # dokument-grundstucksangaben: "Grundstücksangaben und Projektbeschrieb"
-    # dokument-gutachten-nachweise-begrundungen: "Gutachten, Nachweise, Begründungen, Ausnahmebegehren"
-    # dokument-projektplane-projektbeschrieb: "Projektpläne"
     dokument-weitere-gesuchsunterlagen: "Weitere Gesuchsunterlagen"

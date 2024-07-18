@@ -65,10 +65,9 @@ def post_create_additional_demand(sender, work_item, user, context=None, **kwarg
     )
 
     instance = get_instance(work_item)
+    states = settings.ADDITIONAL_DEMAND.get("STATES")
 
-    if settings.ADDITIONAL_DEMAND.get(
-        "STATES"
-    ) and instance.instance_state.name != settings.ADDITIONAL_DEMAND["STATES"].get(
+    if states and instance.instance_state.name != states.get(
         "PENDING_ADDITIONAL_DEMANDS"
     ):
         camac_user = User.objects.get(username=user.username)
@@ -125,9 +124,8 @@ def post_complete_check_additional_demand(
             gettext_noop(history_entry),
         )
 
-    instance = get_instance(work_item)
-
     if settings.ADDITIONAL_DEMAND.get("STATES") and not _has_pending_checks(work_item):
+        instance = get_instance(work_item)
         camac_user = User.objects.get(username=user.username)
 
         instance.set_instance_state(
