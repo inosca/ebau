@@ -54,6 +54,9 @@ def test_when_checking_all_additional_demands_the_instance_state_gets_reverted(
     instance_state_factory(
         name=ur_additional_demand_settings["STATES"]["PENDING_ADDITIONAL_DEMANDS"]
     )
+    instance_state_factory(
+        name=ur_additional_demand_settings["STATES"]["AFTER_ADDITIONAL_DEMANDS"]
+    )
     ur_instance.set_instance_state(
         instance_state_factory().name,
         admin_user,
@@ -62,7 +65,9 @@ def test_when_checking_all_additional_demands_the_instance_state_gets_reverted(
         sender=None, work_item=work_item, user=caluma_admin_user
     )
 
-    previous_instance_state = ur_instance.previous_instance_state.name
     ur_instance.refresh_from_db()
 
-    assert ur_instance.instance_state.name == previous_instance_state
+    assert (
+        ur_instance.instance_state.name
+        == ur_additional_demand_settings["STATES"]["AFTER_ADDITIONAL_DEMANDS"]
+    )
