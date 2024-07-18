@@ -87,6 +87,8 @@ export default class InstanceAclModel extends Model {
         return this.intl.t("permissions.entities.public-anonymous");
       case "TOKEN":
         return this.intl.t("permissions.entities.token");
+      case "ROLE":
+        return this.intl.t("permissions.entities.role");
       default:
         return placeholder;
     }
@@ -109,6 +111,10 @@ export default class InstanceAclModel extends Model {
       this.createdByEvent === EVENT_TYPES.MANUAL_CREATION &&
       this.status !== "expired"
     );
+  }
+
+  get isFlatRate() {
+    return !["USER", "SERVICE"].includes(this.grantType);
   }
 
   async revoke() {
