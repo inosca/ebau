@@ -240,7 +240,7 @@
     "pk": "additional-demand-buckets",
     "fields": {
       "created_at": "2024-07-18T08:08:34.810Z",
-      "modified_at": "2024-07-18T08:38:52.222Z",
+      "modified_at": "2024-07-18T13:45:02.608Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -256,8 +256,8 @@
       "static_content": "{\"de\": \"joooooo\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
-        "widgetOverride": "be-documents-form",
-        "attachment-section": "12000009"
+        "widgetOverride": "camac-additional-demand-files",
+        "attachment-section": "12000000"
       },
       "data_source": null,
       "row_form": null,
