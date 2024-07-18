@@ -1840,9 +1840,9 @@ def _default_file_storage_backend(settings):
     # This is needed that alexandria file factories don't try to upload
     # something to a possibly non-existent minio container in tests. Also, we
     # explicitly disable encryption.
-    settings.STORAGES["default"]["BACKEND"] = (
-        "django.core.files.storage.FileSystemStorage"
-    )
+    settings.STORAGES["default"] = {
+        "BACKEND": "django.core.files.storage.FileSystemStorage"
+    }
     settings.ALEXANDRIA_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
     settings.ALEXANDRIA_ENABLE_AT_REST_ENCRYPTION = False
 
