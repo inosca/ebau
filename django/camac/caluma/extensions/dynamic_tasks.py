@@ -118,6 +118,8 @@ class CustomDynamicTasks(BaseDynamicTasks):
         ]:
             return ["additional-demand"]
 
+        return []
+
     @register_dynamic_task("after-inquiries-completed")
     def resolve_after_inquiries_completed(self, case, user, prev_work_item, context):
         # Further work-items should only be created if there are no
