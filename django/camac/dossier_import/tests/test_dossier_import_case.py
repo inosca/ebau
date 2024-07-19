@@ -116,8 +116,8 @@ def test_create_instance_dossier_import_case(
             "import-id": str(dossier_import.pk),
             "camac-instance-id": first_instance.pk,
             "submit-date": "2017-04-12T00:00:00",
-            "dossier-number": "4628-2017-1",
-            "dossier-number-sort": 46282017000001,
+            "dossier-number": "4022-2017-1",
+            "dossier-number-sort": 40222017000001,
         }
 
     # Check lead authority permission

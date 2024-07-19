@@ -153,8 +153,13 @@ class PermissionManager:
                 )
 
                 if isinstance(condition, Check):
-                    if condition.apply(userinfo=self.userinfo, instance=instance):
-                        granted_permissions.add(perm)
+                    try:
+                        if condition.apply(userinfo=self.userinfo, instance=instance):
+                            granted_permissions.add(perm)
+                    except Exception as e:  # pragma: no cover
+                        raise ImproperlyConfigured(
+                            f"Failed to evaluate permission condition: {condition}"
+                        ) from e
 
                 else:  # pragma: no cover
                     raise ImproperlyConfigured(
