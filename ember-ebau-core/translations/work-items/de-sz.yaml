@@ -7,3 +7,4 @@ workItems:
       fill-inquiry: "Stellungnahme verfassen ({count})"
       check-inquiry: "Stellungnahme prüfen ({count})"
       alter-inquiry: "Stellungnahme anpassen ({count})"
+      inquiry: "Stellungnahme zustellen ({count})"

@@ -3,7 +3,7 @@ export default {
   availableTasks: {
     roles: {
       municipality: ["complete-check", "init-distribution", "make-decision"],
-      service: ["fill-inquiry", "check-inquiry", "alter-inquiry"],
+      service: ["fill-inquiry", "inquiry", "check-inquiry", "alter-inquiry"],
     },
     services: {},
     default: [],
