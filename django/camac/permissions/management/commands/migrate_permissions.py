@@ -39,6 +39,7 @@ class ACL:
 
     user_id: Optional[int] = field(default=None)
     service_id: Optional[int] = field(default=None)
+    role_id: Optional[int] = field(default=None)
 
     # Non-identifying optional attributes: These are used
     # to pass in additional data to be used during *creation*,
@@ -316,9 +317,17 @@ class Command(BaseCommand):
     def _build_permissions_from_instance_service(
         self, level_active, level_inactive, is_filter
     ):
-        make_lead_acl = partial(ACL, access_level=level_active, state=STATE_ACTIVE)
+        make_lead_acl = partial(
+            ACL,
+            access_level=level_active,
+            state=STATE_ACTIVE,
+            type=permission_models.GRANT_CHOICES.SERVICE.value,
+        )
         make_involved_acl = partial(
-            ACL, access_level=level_inactive, state=STATE_ACTIVE
+            ACL,
+            access_level=level_inactive,
+            state=STATE_ACTIVE,
+            type=permission_models.GRANT_CHOICES.SERVICE.value,
         )
 
         # Instance Services map quite nicely. TODO: Only responsible services,
@@ -331,7 +340,6 @@ class Command(BaseCommand):
             build_fn = make_lead_acl if instance_service.active else make_involved_acl
             yield build_fn(
                 instance_id=instance_service.instance_id,
-                type=permission_models.GRANT_CHOICES.SERVICE.value,
                 service_id=instance_service.service_id,
                 #
                 start_time=instance_service.activation_date or timezone.now(),
@@ -346,12 +354,17 @@ class Command(BaseCommand):
         filters = settings.PERMISSIONS.get("MIGRATION_FILTERS", {}).get(
             "municipality", Q()
         )
-        self._build_permissions_from_instance_service(
+        yield from self._build_permissions_from_instance_service(
             level_active, level_inactive, filters
         )
-        make_lead_acl = partial(ACL, access_level=level_active, state=STATE_ACTIVE)
 
         if not settings.APPLICATION.get("USE_INSTANCE_SERVICE"):
+            make_lead_acl = partial(
+                ACL,
+                access_level=level_active,
+                state=STATE_ACTIVE,
+                type=permission_models.GRANT_CHOICES.SERVICE.value,
+            )
             inst_iter = self._iter_qs(Instance.objects.all(), "")
             log.info(f"    Checking {inst_iter.total} instance's groups")
 
@@ -361,7 +374,6 @@ class Command(BaseCommand):
                 submit_date = inst.case.meta.get("submit-date") if inst.case else None
                 yield make_lead_acl(
                     instance_id=inst.pk,
-                    type=permission_models.GRANT_CHOICES.SERVICE.value,
                     service_id=inst.group.service_id,
                     #
                     start_time=submit_date or timezone.now(),
@@ -369,18 +381,28 @@ class Command(BaseCommand):
                 )
 
     def _build_support_permissions(self, support_level):
-        support_acl = partial(ACL, access_level=support_level, state=STATE_ACTIVE)
-
         support_role = get_support_role()
+        support_acl = partial(
+            ACL,
+            access_level=support_level,
+            state=STATE_ACTIVE,
+            role_id=support_role.pk,
+            type=permission_models.GRANT_CHOICES.ROLE.value,
+        )
 
         inst_iter = self._iter_qs(Instance.objects.all(), "")
         log.info(f"    Adding support to {inst_iter.total} instances")
 
         for inst in inst_iter:
-            yield support_acl(role=support_role, instance=inst)
+            yield support_acl(instance_id=inst.pk, start_time=inst.creation_date)
 
     def _build_distribution_permissions(self, access_level):
-        make_acl = partial(ACL, access_level=access_level, state=STATE_ACTIVE)
+        make_acl = partial(
+            ACL,
+            access_level=access_level,
+            state=STATE_ACTIVE,
+            type=permission_models.GRANT_CHOICES.SERVICE.value,
+        )
 
         if not settings.DISTRIBUTION:
             log.warning(
@@ -408,7 +430,6 @@ class Command(BaseCommand):
             for service_id in workitem.addressed_groups:
                 yield make_acl(
                     instance_id=workitem.case.family.instance.pk,
-                    type=permission_models.GRANT_CHOICES.SERVICE.value,
                     service_id=service_id,
                     #
                     start_time=workitem.created_at or timezone.now(),
@@ -484,6 +505,7 @@ class Command(BaseCommand):
                 instance_id=acl.instance_id,
                 user_id=acl.user_id,
                 service_id=acl.service_id,
+                role_id=acl.role_id,
                 created_by_event=acl.created_by_event,
                 grant_type=acl.type,
                 access_level_id=acl.access_level,
