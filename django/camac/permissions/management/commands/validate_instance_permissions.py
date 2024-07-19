@@ -24,12 +24,14 @@ class Command(BaseCommand):
     )
 
     ROLE_TO_ACCESSLEVEL = {
-        "Einsichtsberechtigte Leitbehörde": "lead-authority-read",
-        "construction-control-lead": "construction-control",
-        "municipality-lead": "lead-authority",
-        "service-lead": "distribution-service",
-        "subservice": "distribution-service",
-        "support": "support",
+        "kt_bern": {
+            "Einsichtsberechtigte Leitbehörde": "lead-authority-read",
+            "construction-control-lead": "construction-control",
+            "municipality-lead": "lead-authority",
+            "service-lead": "distribution-service",
+            "subservice": "distribution-service",
+            "support": "support",
+        },
     }
 
     def __init__(self, *args, **kwargs):
@@ -54,7 +56,9 @@ class Command(BaseCommand):
 
         for role_acl in ir.role_acls.all():
             role_name = role_acl.role.name
-            access_level = self.ROLE_TO_ACCESSLEVEL.get(role_name)
+            access_level = self.ROLE_TO_ACCESSLEVEL.get(settings.APPLICATION_NAME).get(
+                role_name
+            )
             if not access_level:
                 self.log_once(
                     log.info, f"Role {role_name} not mapped to access level - skippping"
@@ -69,7 +73,9 @@ class Command(BaseCommand):
             mapped_permissions[role_name].append(role_acl.instance_state.name)
 
         for role_name, instance_states in mapped_permissions.items():
-            access_level = self.ROLE_TO_ACCESSLEVEL.get(role_name)
+            access_level = self.ROLE_TO_ACCESSLEVEL.get(settings.APPLICATION_NAME).get(
+                role_name
+            )
             permissions = settings.PERMISSIONS["ACCESS_LEVELS"][access_level]
             try:
                 permission_cond = next(
