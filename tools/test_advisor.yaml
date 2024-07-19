@@ -1,0 +1,101 @@
+modules:
+  - name: Aufgabenmodul
+    files:
+      - django/camac/circulation.*
+      - php/library/Camac/InstanceResource/Editcirculation.*
+      - php/application/views/scripts/circulation.*
+      - php/application/modules/admin/views/scripts/circulation.*
+      - php/kt_uri/views/scripts/circulation.*
+    affects_modules:
+    affected_cantons: ["Bern", "Uri", "Schwyz", "Graubünden", "Solothurn"]
+
+  - name: Dossierliste
+    affected_cantons: ["Bern", "Uri", "Schwyz", "Graubünden", "Solothurn"]
+    files:
+        - django/camac/core/views.py
+        - django/camac/instance/.*
+
+  - name: Hilfe
+    files:
+      - php/kt_bern/template/scripts/dashboard/help.phtml
+    affected_cantons: ["Graubünden"]
+
+  - name: Kommunikationsmodul
+    affected_cantons: ["Bern", "Uri", "Schwyz", "Graubünden", "Solothurn"]
+    files:
+        - django/camac/communications/.*
+        - ember-ebau-core/tests/dummy/app/routes/communications.*
+        - ember-ebau-core/app/models/communications.*
+        - ember-ebau-core/app/services/communications.*
+        - ember-ebau-core/app/styles/_communications.*
+
+  - name: Formular
+
+  - name: "Dossier Korrigieren"
+
+  - name: Dokumentenmodul
+    files:
+      - django/camac/document/.*
+
+  - name: FAQ
+    affected_cantons: ["Graubünden"]
+
+  - name: News
+    affected_cantons: ["Graubünden"]
+
+  - name: Berechtigung
+    affected_cantons: ["Bern", "Solothurn"]
+    affects_modules:
+      - Aufgabenmodul
+      - Dossierliste
+      - Formular
+      - Dokumentenmodul
+    files:
+      - django/camac/permissions/.*
+
+report_template: |
+    # Test Advisor report
+
+    Analyzing code changes between {{from_rev}} and {{to_rev}}
+
+    {% for module in affected_modules %}
+    ## {{module}}
+
+    This module needs to be tested because
+    {% for reason in affected_modules[module].test_reason %}
+    * {{ reason }}
+    {%- endfor %}
+
+    {% if affected_modules[module].affected_cantons %}
+    You need to test in the following cantons:
+    {% for canton in affected_modules[module].affected_cantons -%}
+    - [ ] {{canton}}
+    {% endfor %}
+    {% endif %}
+    {% if affected_modules[module].commits %}
+    <details>
+    <summary> Relevant commits </summary>
+
+
+    {% for commit in affected_modules[module].commits -%}
+    * [{{commit.header}}]({{config.report.commit_url}}/{{commit.commit}}) by {{commit.author}}
+    {% endfor %}
+    </details>
+    {% endif %}
+
+
+    {% if affected_modules[module].matched_files %}
+    <details>
+    <summary> Relevant files</summary>
+
+    {% for file in affected_modules[module].matched_files -%}
+    * `{{file}}`
+    {% endfor %}
+    </details>
+    {% endif %}
+
+    {% endfor %}
+
+
+report:
+    commit_url: https://git.adfinis.com/camac-ng/camac-ng/-/commit/
