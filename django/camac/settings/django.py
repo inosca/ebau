@@ -1128,6 +1128,18 @@ APPLICATIONS = {
                 "complete-check": {
                     "next_instance_state": "comm",
                 },
+                "send-additional-demand": {
+                    "notification": {
+                        "template_slug": "send-additional-demand",
+                        "recipient_types": ["applicant"],
+                    },
+                },
+                "fill-additional-demand": {
+                    "notification": {
+                        "template_slug": "fill-additional-demand",
+                        "recipient_types": ["work_item_controlling"],
+                    },
+                },
                 "complete-distribution": {
                     "next_instance_state": "done",
                 },
