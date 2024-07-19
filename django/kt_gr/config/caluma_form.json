@@ -5302,7 +5302,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "art-der-solaranlage",
-      "sort": 67
+      "sort": 68
     }
   },
   {
@@ -5317,7 +5317,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "aufstellung-im-freien",
-      "sort": 70
+      "sort": 71
     }
   },
   {
@@ -5452,7 +5452,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "beschreibung-brennstoff",
-      "sort": 78
+      "sort": 79
     }
   },
   {
@@ -5482,7 +5482,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "beschreibung-einzelfeuerung",
-      "sort": 77
+      "sort": 78
     }
   },
   {
@@ -5542,7 +5542,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "brennstoff",
-      "sort": 79
+      "sort": 80
     }
   },
   {
@@ -5572,7 +5572,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "details-alternativenergien",
-      "sort": 69
+      "sort": 70
     }
   },
   {
@@ -5587,7 +5587,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "details-zentralheizung",
-      "sort": 76
+      "sort": 77
     }
   },
   {
@@ -5617,7 +5617,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "errichter-haustechnik",
-      "sort": 82
+      "sort": 83
     }
   },
   {
@@ -5662,7 +5662,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "fabrikat-waermepumpe",
-      "sort": 73
+      "sort": 74
     }
   },
   {
@@ -5797,7 +5797,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "hinweis-einzelfeuerung",
-      "sort": 80
+      "sort": 81
     }
   },
   {
@@ -5827,7 +5827,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "hinweis-zustaendigkeit-gvg",
-      "sort": 83
+      "sort": 84
     }
   },
   {
@@ -5857,7 +5857,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "kaeltemittel-waermepumpe",
-      "sort": 74
+      "sort": 75
     }
   },
   {
@@ -5873,6 +5873,21 @@
       "form": "brandschutz-haustechnik",
       "question": "korrosionsschutz",
       "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-haustechnik.lage-der-solaranlage",
+    "fields": {
+      "created_at": "2024-07-18T09:54:37.092Z",
+      "modified_at": "2024-07-18T09:54:37.092Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-haustechnik",
+      "question": "lage-der-solaranlage",
+      "sort": 67
     }
   },
   {
@@ -6097,7 +6112,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "model-typ",
-      "sort": 72
+      "sort": 73
     }
   },
   {
@@ -6112,7 +6127,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "nennwaermeleistung-waermepumpe",
-      "sort": 71
+      "sort": 72
     }
   },
   {
@@ -6247,7 +6262,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "sind-folgende-anlagen-betroffen",
-      "sort": 81
+      "sort": 82
     }
   },
   {
@@ -6262,7 +6277,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "solaranlage-leistung",
-      "sort": 68
+      "sort": 69
     }
   },
   {
@@ -6337,7 +6352,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "typ-der-waermepumpe",
-      "sort": 75
+      "sort": 76
     }
   },
   {
@@ -6397,7 +6412,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "brandschutz-haustechnik-titel",
-      "sort": 84
+      "sort": 85
     }
   },
   {
@@ -6757,7 +6772,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "bericht-zur-umweltvertraeglichkeitspruefung-uvp",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -6817,7 +6832,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "brandschutzplaene-brandschutzkonzept",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -6952,7 +6967,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "projektplaene",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -6997,7 +7012,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "schutzraumplaene",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -7032,6 +7047,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "dokumente.uebereinstimmungserklaerung-fuer-pv-anlagen",
+    "fields": {
+      "created_at": "2024-07-18T10:54:50.587Z",
+      "modified_at": "2024-07-18T10:54:50.587Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "uebereinstimmungserklaerung-fuer-pv-anlagen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "dokumente.vereinbarkeit-zweitwohnungsgesetz",
     "fields": {
       "created_at": "2023-05-17T14:27:47.267Z",
@@ -7047,21 +7077,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "dokumente.vkf-anerkennungenleistungserklaerung-dop",
-    "fields": {
-      "created_at": "2023-07-03T08:01:53.099Z",
-      "modified_at": "2023-07-03T08:01:53.099Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente",
-      "question": "vkf-anerkennungenleistungserklaerung-dop",
-      "sort": 8
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "dokumente.vorablaerungsbericht-tiefbauamt-leitungen",
     "fields": {
       "created_at": "2023-09-18T11:09:33.720Z",
@@ -7072,7 +7087,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vorablaerungsbericht-tiefbauamt-leitungen",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -7087,7 +7102,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vorablaerungsbericht-tiefbauamt-naeherbauten",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -7102,7 +7117,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vorablaerungsbericht-tiefbauamt-strassenreklamen",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -27860,6 +27875,54 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "lage-der-solaranlage-dach",
+    "fields": {
+      "created_at": "2024-07-18T09:54:36.701Z",
+      "modified_at": "2024-07-18T09:54:36.701Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Auf dem Dach\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lage-der-solaranlage-dach-und-fassade",
+    "fields": {
+      "created_at": "2024-07-18T09:54:36.694Z",
+      "modified_at": "2024-07-18T09:54:36.694Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Auf dem Dach und an der Fassade\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lage-der-solaranlage-fassade",
+    "fields": {
+      "created_at": "2024-07-18T09:54:36.683Z",
+      "modified_at": "2024-07-18T09:54:36.683Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"An der Fassade\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "lage-des-vorhabens-korrekt-ja",
     "fields": {
       "created_at": "2023-06-19T08:31:29.740Z",
@@ -33684,6 +33747,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "uebereinstimmungserklaerung-fuer-pv-anlagen-ja",
+    "fields": {
+      "created_at": "2024-07-18T10:54:50.137Z",
+      "modified_at": "2024-07-18T10:54:50.137Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00dcbereinstimmungserkl\\u00e4rung f\\u00fcr PV-Anlagen (Systemkategorie 0 oder 1 mit vereinfachtem Brandschutznachweis)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "ueberragt-dachflaeche-ja",
     "fields": {
       "created_at": "2023-04-20T09:40:41.146Z",
@@ -34205,22 +34284,6 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Warmwasser\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "vkf-anerkennungenleistungserklaerung-dop-ja",
-    "fields": {
-      "created_at": "2023-07-03T08:01:52.779Z",
-      "modified_at": "2023-07-03T08:01:52.779Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"VKF-Anerkennungen/Leistungserkl\\u00e4rung (DoP)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -39096,14 +39159,14 @@
     "pk": "abgasanlagen",
     "fields": {
       "created_at": "2023-07-07T09:14:11.748Z",
-      "modified_at": "2024-06-24T06:12:23.188Z",
+      "modified_at": "2024-07-18T07:04:12.505Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Abgasanlagen\", \"fr\": null, \"it\": null}",
       "type": "table",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -44701,12 +44764,12 @@
     "pk": "bauliche-veraenderungen-aufstellungsraum",
     "fields": {
       "created_at": "2023-07-06T10:25:07.745Z",
-      "modified_at": "2023-10-27T14:14:06.992Z",
+      "modified_at": "2024-07-18T07:03:50.662Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Finden im Aufstellungsraum an der Feuerungsanlage und/oder an den W\\u00e4nden/Decken/T\\u00fcren bauliche Ver\\u00e4nderungen statt?\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Finden im Aufstellungsraum der Feuerungsanlage und/oder an den W\\u00e4nden/Decken/T\\u00fcren bauliche Ver\\u00e4nderungen statt?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "false",
@@ -50218,19 +50281,19 @@
     "pk": "brandschutzplaene-brandschutzkonzept",
     "fields": {
       "created_at": "2024-07-04T07:03:53.023Z",
-      "modified_at": "2024-07-04T07:03:53.023Z",
+      "modified_at": "2024-07-18T10:55:46.337Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Brandschutzpl\\u00e4ne inkl. Grundrisse, Schnitte, Fassaden und gegebenenfalls Brandschutzkonzept\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
-      "is_required": "true",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "!(\"qualitaetssicherungsstufe-qss\"|answer in [\n\t\"qualitaetssicherungsstufe-qss-qss-2\", \n\t\"qualitaetssicherungsstufe-qss-qss-3\"\n])",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -51295,15 +51358,15 @@
     "pk": "dispositionsplan-heizungsraum",
     "fields": {
       "created_at": "2023-07-03T07:56:05.857Z",
-      "modified_at": "2024-06-24T07:26:26.055Z",
+      "modified_at": "2024-07-18T07:10:14.497Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Dispositionsplan Heizungsraum\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Dispositionsplan Heizungsraum / Technikraum\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
-      "is_hidden": "!(\n\t\"sind-folgende-anlagen-betroffen\"|answer in [\n\t\t\"sind-folgende-anlagen-betroffen-waermepumpe\",\n\t\t\"sind-folgende-anlagen-betroffen-zentralheizung\"\n\t]\n)",
+      "is_hidden": "!(\n\t\"sind-folgende-anlagen-betroffen\"|answer intersects [\n\t\t\"sind-folgende-anlagen-betroffen-waermepumpe\",\n\t\t\"sind-folgende-anlagen-betroffen-zentralheizung\"\n\t]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -53567,14 +53630,14 @@
     "pk": "errichter-haustechnik",
     "fields": {
       "created_at": "2023-05-23T13:43:50.760Z",
-      "modified_at": "2023-10-30T12:10:06.430Z",
+      "modified_at": "2024-07-18T07:02:00.927Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Errichter der Anlage\", \"fr\": null, \"it\": null}",
       "type": "table",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -56095,12 +56158,12 @@
     "pk": "gebaeudehoehe",
     "fields": {
       "created_at": "2023-05-25T07:00:09.864Z",
-      "modified_at": "2024-06-21T13:42:36.694Z",
+      "modified_at": "2024-07-18T06:57:25.734Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Geb\\u00e4udeh\\u00f6he gem\\u00e4ss VKF-Brandschutzrichtlinie 10-15 \\\"Begriffe und Definitionen\\\",  Gesamth\\u00f6he\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Geb\\u00e4udeh\\u00f6he gem\\u00e4ss VKF-Brandschutzrichtlinie 10-15 \\\"Begriffe und Definitionen\\\",  Gesamth\\u00f6he (Seite 23 und 43)\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
@@ -62005,6 +62068,37 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "lage-der-solaranlage",
+    "fields": {
+      "created_at": "2024-07-18T09:54:36.894Z",
+      "modified_at": "2024-07-18T09:56:38.356Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Lage der Solaranlage\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "!(\"details-alternativenergien-solaranlage\" in \"details-alternativenergien\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"[Weiterf\\u00fchrende Informationen zu Brandschutz bei Photovoltaikanlagen](https://gvg.gr.ch/node/121)\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -71751,6 +71845,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "uebereinstimmungserklaerung-fuer-pv-anlagen",
+    "fields": {
+      "created_at": "2024-07-18T10:54:50.380Z",
+      "modified_at": "2024-07-18T10:57:38.356Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00dcbereinstimmungserkl\\u00e4rung f\\u00fcr PV-Anlagen\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "!(\n\t\"lage-der-solaranlage\"|answer in [\n\t\t\"lage-der-solaranlage-fassade\",\n\t\t\"lage-der-solaranlage-dach-und-fassade\"\n\t]\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "ueberprueft-durch",
     "fields": {
       "created_at": "2023-04-21T08:00:11.941Z",
@@ -79944,8 +80071,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bauliche-veraenderungen-aufstellungsraum.bauliche-veraenderungen-aufstellungsraum-ja",
     "fields": {
-      "created_at": "2023-10-25T09:02:46.442Z",
-      "modified_at": "2023-10-25T09:02:46.442Z",
+      "created_at": "2024-07-18T07:03:50.685Z",
+      "modified_at": "2024-07-18T07:03:50.685Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -79959,8 +80086,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bauliche-veraenderungen-aufstellungsraum.bauliche-veraenderungen-aufstellungsraum-nein",
     "fields": {
-      "created_at": "2023-10-25T09:02:46.437Z",
-      "modified_at": "2023-10-25T09:02:46.437Z",
+      "created_at": "2024-07-18T07:03:50.677Z",
+      "modified_at": "2024-07-18T07:03:50.677Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -81849,8 +81976,8 @@
     "model": "caluma_form.questionoption",
     "pk": "brandschutzplaene-brandschutzkonzept.brandschutzplaene-inkl-grundrisse-schnitte-fassaden-und-gegebenenfalls-brandschutzkonzept-ja",
     "fields": {
-      "created_at": "2024-07-04T07:03:53.036Z",
-      "modified_at": "2024-07-04T07:03:53.036Z",
+      "created_at": "2024-07-18T10:55:46.350Z",
+      "modified_at": "2024-07-18T10:55:46.350Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82449,8 +82576,8 @@
     "model": "caluma_form.questionoption",
     "pk": "dispositionsplan-heizungsraum.dispositionsplan-heizungsraum-ja",
     "fields": {
-      "created_at": "2024-06-24T07:26:26.067Z",
-      "modified_at": "2024-06-24T07:26:26.067Z",
+      "created_at": "2024-07-18T07:10:14.508Z",
+      "modified_at": "2024-07-18T07:10:14.508Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -84459,8 +84586,8 @@
     "model": "caluma_form.questionoption",
     "pk": "gebaeudehoehe.gebaeudehoehe-geringe-hoehe",
     "fields": {
-      "created_at": "2024-06-21T13:42:36.723Z",
-      "modified_at": "2024-06-21T13:42:36.723Z",
+      "created_at": "2024-07-18T06:57:25.776Z",
+      "modified_at": "2024-07-18T06:57:25.776Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -84474,8 +84601,8 @@
     "model": "caluma_form.questionoption",
     "pk": "gebaeudehoehe.gebaeudehoehe-hochhaus",
     "fields": {
-      "created_at": "2024-06-21T13:42:36.708Z",
-      "modified_at": "2024-06-21T13:42:36.708Z",
+      "created_at": "2024-07-18T06:57:25.763Z",
+      "modified_at": "2024-07-18T06:57:25.763Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -84489,8 +84616,8 @@
     "model": "caluma_form.questionoption",
     "pk": "gebaeudehoehe.gebaeudehoehe-mittlere-hoehe",
     "fields": {
-      "created_at": "2024-06-21T13:42:36.716Z",
-      "modified_at": "2024-06-21T13:42:36.716Z",
+      "created_at": "2024-07-18T06:57:25.770Z",
+      "modified_at": "2024-07-18T06:57:25.770Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85922,6 +86049,51 @@
       "modified_by_group": null,
       "question": "lage-abgasanlage",
       "option": "lage-abgasanlage-im-gebaeude",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lage-der-solaranlage.lage-der-solaranlage-dach",
+    "fields": {
+      "created_at": "2024-07-18T09:56:38.390Z",
+      "modified_at": "2024-07-18T09:56:38.390Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lage-der-solaranlage",
+      "option": "lage-der-solaranlage-dach",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lage-der-solaranlage.lage-der-solaranlage-dach-und-fassade",
+    "fields": {
+      "created_at": "2024-07-18T09:56:38.374Z",
+      "modified_at": "2024-07-18T09:56:38.374Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lage-der-solaranlage",
+      "option": "lage-der-solaranlage-dach-und-fassade",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lage-der-solaranlage.lage-der-solaranlage-fassade",
+    "fields": {
+      "created_at": "2024-07-18T09:56:38.382Z",
+      "modified_at": "2024-07-18T09:56:38.382Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lage-der-solaranlage",
+      "option": "lage-der-solaranlage-fassade",
       "sort": 2
     }
   },
@@ -91387,6 +91559,21 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "uebereinstimmungserklaerung-fuer-pv-anlagen.uebereinstimmungserklaerung-fuer-pv-anlagen-ja",
+    "fields": {
+      "created_at": "2024-07-18T10:57:38.368Z",
+      "modified_at": "2024-07-18T10:57:38.368Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "uebereinstimmungserklaerung-fuer-pv-anlagen",
+      "option": "uebereinstimmungserklaerung-fuer-pv-anlagen-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "ueberragt-dachflaeche.ueberragt-dachflaeche-ja",
     "fields": {
       "created_at": "2023-04-20T09:40:41.348Z",
@@ -91878,21 +92065,6 @@
       "question": "verwendungszweck-des-gases",
       "option": "verwendungszweck-des-gases-warmwasser",
       "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "vkf-anerkennungenleistungserklaerung-dop.vkf-anerkennungenleistungserklaerung-dop-ja",
-    "fields": {
-      "created_at": "2023-07-03T08:10:24.960Z",
-      "modified_at": "2023-07-03T08:10:24.960Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "vkf-anerkennungenleistungserklaerung-dop",
-      "option": "vkf-anerkennungenleistungserklaerung-dop-ja",
-      "sort": 1
     }
   },
   {
