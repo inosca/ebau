@@ -143,7 +143,7 @@ def post_complete_check_additional_demand(
         ):
             if (
                 suspended_init_distribution_work_item
-                := work_item.case.parent_work_item.case.work_items.filter(
+                := instance.case.work_items.filter(
                     task_id=settings.DISTRIBUTION["DISTRIBUTION_TASK"],
                     status=WorkItem.STATUS_SUSPENDED,
                 ).first()

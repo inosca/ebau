@@ -40,11 +40,18 @@ def test_when_checking_all_additional_demands_the_instance_state_gets_reverted(
     instance_state_factory,
     admin_user,
     answer_factory,
+    set_application_ur,
+    ur_distribution_settings,
 ):
     work_item = work_item_factory(
         case=ur_instance.case,
         task_id=ur_additional_demand_settings["CHECK_TASK"],
         status=WorkItem.STATUS_COMPLETED,
+    )
+    work_item_factory(
+        case=ur_instance.case,
+        task_id=ur_distribution_settings["DISTRIBUTION_TASK"],
+        status=WorkItem.STATUS_SUSPENDED,
     )
     answer_factory(
         document=work_item.document,
