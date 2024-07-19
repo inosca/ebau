@@ -43,6 +43,7 @@ def test_when_checking_all_additional_demands_the_instance_state_gets_reverted(
     set_application_ur,
     ur_distribution_settings,
 ):
+    ur_additional_demand_settings["NOTIFICATIONS"] = {}
     work_item = work_item_factory(
         case=ur_instance.case,
         task_id=ur_additional_demand_settings["CHECK_TASK"],
