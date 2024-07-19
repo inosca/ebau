@@ -8,7 +8,9 @@
   </p>
 
   {{#each-in this.requiredTags as |title fields|}}
-    <p class="uk-margin">{{t (concat "documents.tags." title)}}</p>
+    {{#if (gt this.amountOfCategories 1)}}
+      <p class="uk-margin">{{t (concat "documents.tags." title)}}</p>
+    {{/if}}
     <div class="uk-margin-left">
       {{#each fields as |field|}}
         <CfField input @field={{field}} @disabled={{@disabled}} />
