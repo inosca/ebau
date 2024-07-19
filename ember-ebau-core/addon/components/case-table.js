@@ -424,6 +424,12 @@ export default class CaseTableComponent extends Component {
               ? {
                   keywords: this.args.filter.keywords,
                   decision: this.args.filter.decision,
+                  inquiry_created_before: this.args.filter.inquiryCreatedBefore,
+                  inquiry_created_after: this.args.filter.inquiryCreatedAfter,
+                  inquiry_completed_before:
+                    this.args.filter.inquiryCompletedBefore,
+                  inquiry_completed_after:
+                    this.args.filter.inquiryCompletedAfter,
                   is_paper: this.args.filter.paper,
                   inquiry_state: this.args.filter.inquiryState,
                   inquiry_answer: this.args.filter.inquiryAnswer,
