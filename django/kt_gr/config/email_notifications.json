@@ -264,6 +264,30 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 23,
+    "fields": {
+      "slug": "decision-completed-baubewilligung-solaranlage",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 24,
+    "fields": {
+      "slug": "decision-completed-bauanzeige-vorlaeufige-beurteilung",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -531,6 +555,18 @@
     "model": "notification.notificationtemplatet",
     "pk": 23,
     "fields": {
+      "template": 23,
+      "template_slug": "decision-completed-baubewilligung-solaranlage",
+      "language": "de",
+      "purpose": "Entscheid verfügt Baubewilligung und Solaranlage",
+      "subject": "Information über Entscheid (Dossier-Nr. {{DOSSIER_NR}})",
+      "body": "Guten Tag\r\n\r\nDer Bauentscheid ({{DECISION_DE}}) zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde gefällt.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 24,
+    "fields": {
       "template": 1,
       "template_slug": "empfang-anfragebaugesuch-gesuchsteller",
       "language": "it",
@@ -541,7 +577,7 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 24,
+    "pk": 25,
     "fields": {
       "template": 2,
       "template_slug": "empfang-anfragebaugesuch-behorden",
@@ -553,7 +589,7 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 25,
+    "pk": 26,
     "fields": {
       "template": 3,
       "template_slug": "gesuchsbearbeitungs-einladung-bestehend",
@@ -565,7 +601,7 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 26,
+    "pk": 27,
     "fields": {
       "template": 4,
       "template_slug": "gesuchsbearbeitungs-einladung-neu",
@@ -577,7 +613,7 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 27,
+    "pk": 28,
     "fields": {
       "template": 5,
       "template_slug": "verfahrensablauf-fachstelle",
@@ -589,7 +625,7 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 28,
+    "pk": 29,
     "fields": {
       "template": 6,
       "template_slug": "bericht-erstellt",
@@ -601,7 +637,7 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 29,
+    "pk": 30,
     "fields": {
       "template": 7,
       "template_slug": "entscheid-gesuchsteller",
@@ -613,7 +649,7 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 30,
+    "pk": 31,
     "fields": {
       "template": 8,
       "template_slug": "entscheid-behoerden",
@@ -625,7 +661,7 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 31,
+    "pk": 32,
     "fields": {
       "template": 9,
       "template_slug": "send-additional-demand",
@@ -637,7 +673,7 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 32,
+    "pk": 33,
     "fields": {
       "template": 10,
       "template_slug": "fill-additional-demand",
@@ -649,7 +685,7 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 33,
+    "pk": 34,
     "fields": {
       "template": 11,
       "template_slug": "additional-demand-decision-accept",
@@ -661,7 +697,7 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 34,
+    "pk": 35,
     "fields": {
       "template": 12,
       "template_slug": "additional-demand-decision-reject",
@@ -673,7 +709,7 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 35,
+    "pk": 36,
     "fields": {
       "template": 13,
       "template_slug": "beurteilung-gesuchsteller",
@@ -685,7 +721,7 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 36,
+    "pk": 37,
     "fields": {
       "template": 14,
       "template_slug": "beurteilung-behoerden",
@@ -697,7 +733,7 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 37,
+    "pk": 38,
     "fields": {
       "template": 15,
       "template_slug": "bauabnahme",
@@ -709,7 +745,7 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 38,
+    "pk": 39,
     "fields": {
       "template": 16,
       "template_slug": "rueckweisung",
@@ -721,7 +757,7 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 39,
+    "pk": 40,
     "fields": {
       "template": 17,
       "template_slug": "verfahrensablauf-uso",
@@ -733,7 +769,7 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 40,
+    "pk": 41,
     "fields": {
       "template": 18,
       "template_slug": "communications-new-message",
@@ -745,7 +781,7 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 41,
+    "pk": 42,
     "fields": {
       "template": 19,
       "template_slug": "communications-new-message-internal",
@@ -757,7 +793,7 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 42,
+    "pk": 43,
     "fields": {
       "template": 20,
       "template_slug": "inquiry-reminder",
@@ -769,7 +805,7 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 43,
+    "pk": 44,
     "fields": {
       "template": 21,
       "template_slug": "bauabnahme-gesuchsteller",
@@ -777,6 +813,18 @@
       "purpose": "Collaudo (persona richiedente)",
       "subject": "Informazione relativa al collaudo (dossier n. {{DOSSIER_NR}})",
       "body": "Buongiorno,\n\nil collaudo relativo al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) è stato concluso.\n\nTrova i documenti al link seguente:\n\n{{INTERNAL_DOSSIER_LINK}}\n\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\n\nCordiali saluti\n{{LEITBEHOERDE_NAME_DE}}"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 45,
+    "fields": {
+      "template": 24,
+      "template_slug": "decision-completed-bauanzeige-vorlaeufige-beurteilung",
+      "language": "de",
+      "purpose": "Entscheid verfügt Bauanzeige und vorläufige Beurteilung",
+      "subject": "Information über Entscheid (Dossier-Nr. {{DOSSIER_NR}})",
+      "body": "Guten Tag\r\n\r\nDie Beurteilung ({{DECISION_DE}}) zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen. Sie finden die Dokumente unter folgendem Link:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}"
     }
   }
 ]
