@@ -18,8 +18,10 @@ from camac.dossier_import.messages import (
     update_summary,
 )
 from camac.dossier_import.validation import validate_zip_archive_structure
+from camac.instance.domain_logic.decision import DecisionLogic
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
+from camac.instance.utils import get_construction_control
 
 TEST_IMPORT_FILE_PATH = str(
     Path(settings.ROOT_DIR) / "camac/dossier_import/tests/data/"
@@ -98,10 +100,11 @@ def test_create_instance_dossier_import_case(
     instances = Instance.objects.filter(
         **{"case__meta__import-id": str(dossier_import.pk)}
     ).order_by("pk")
+    first_instance = instances.first()
 
     if config == "kt_schwyz":
         assert (
-            instances.first().identifier == "IM-12-17-0001"
+            first_instance.identifier == "IM-12-17-0001"
         )  # 12 is the last digits of the communal_cantonal_number if SHORT_DOSSIER_NUMBER is set
         assert set(
             InstanceLocation.objects.filter(instance__in=instances).values_list(
@@ -109,8 +112,6 @@ def test_create_instance_dossier_import_case(
             )
         ) == set(instances.values_list("pk", flat=True))
     if config == "kt_so":
-        first_instance = instances.first()
-
         assert first_instance.case.meta == {
             "import-id": str(dossier_import.pk),
             "camac-instance-id": first_instance.pk,
@@ -118,6 +119,22 @@ def test_create_instance_dossier_import_case(
             "dossier-number": "4628-2017-1",
             "dossier-number-sort": 46282017000001,
         }
+
+    # Check lead authority permission
+    assert (
+        first_instance.responsible_service(filter_type="municipality")
+        == writer._group.service
+    )
+
+    # Check permissions module ACLs
+    available_access_levels = settings.PERMISSIONS.get("ACCESS_LEVELS", {})
+    assert first_instance.acls.filter(
+        access_level_id="lead-authority", service=writer._group.service
+    ).exists() == ("lead-authority" in available_access_levels)
+    assert first_instance.acls.filter(access_level_id="support").exists() == (
+        "support" in available_access_levels
+    )
+
     deletion = Instance.objects.filter(
         **{"case__meta__import-id": str(dossier_import.pk)}
     ).delete()
@@ -1020,10 +1037,23 @@ def test_set_workflow_state_be(
             is True
         ), f"Work item for task '{task_id}' is not in status '{expected_status}'"
     if target_state in ["APPROVED", "DONE"]:
-        assert (
-            be_instance.responsible_service(filter_type="construction_control")
-            is not None
+        expect_construction_control = DecisionLogic.should_continue_after_decision(
+            be_instance, be_instance.case.work_items.get(task_id="decision")
         )
+
+        if expect_construction_control:
+            expected_construction_control = get_construction_control(
+                writer._group.service
+            )
+            assert (
+                be_instance.responsible_service(filter_type="construction_control")
+                == expected_construction_control
+            )
+            assert be_instance.acls.filter(
+                access_level_id="construction-control",
+                service=expected_construction_control,
+            ).exists()
+
     assert be_instance.case.status == expected_case_status
     ebau_number_answers = (
         be_instance.case.work_items.filter(task_id="ebau-number")
