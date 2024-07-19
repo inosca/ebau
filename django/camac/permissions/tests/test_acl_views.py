@@ -357,6 +357,7 @@ def test_deny_delete_acl(
         ("Service", False),
         ("Municipality", True),
         ("Applicant", False),
+        ("Support", True),
     ],
 )
 def test_get_access_levels(
