@@ -1067,19 +1067,14 @@ msgstr ""
 msgid "All %(total)d inquries were received."
 msgstr ""
 
-#: camac/notification/serializers.py:1491
-msgid "Unknown recipient type"
-msgstr ""
-
 #: camac/notification/serializers.py:1601
 #, python-format
-msgid ""
-"Notification sent to %(receiver_emails)s (%(receiver_type)s) (%(subject)s)"
+msgid "Notification sent to %(receiver_emails)s%(receiver_type)s (%(subject)s)"
 msgstr ""
 
 #: camac/notification/serializers.py:1605
 #, python-format
-msgid "Notification sent to %(receiver_type)s (no receivers) (%(subject)s)"
+msgid "Notification sent to no receivers%(receiver_type)s (%(subject)s)"
 msgstr ""
 
 #: camac/notification/views.py:138

@@ -1477,14 +1477,14 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             ]
         )
 
-    def _receiver_type(self, recipient_type, language):
+    def _receiver_type(self, recipient_type: str, language: str) -> str:
         receiver_type = RECIPIENT_TYPE_NAMES.get(recipient_type)
 
         if receiver_type:
             with translation.override(language):
-                return translation.gettext(receiver_type)
+                return f" ({translation.gettext(receiver_type)})"
 
-        return translation.gettext("Unknown recipient type")
+        return ""
 
     def _post_send_unnotified_service(self, instance):
         Activation.objects.filter(
@@ -1594,11 +1594,11 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             if settings.APPLICATION.get("IS_MULTILINGUAL", False):
                 if receiver_emails:
                     title = translation.gettext_noop(
-                        "Notification sent to %(receiver_emails)s (%(receiver_type)s) (%(subject)s)"
+                        "Notification sent to %(receiver_emails)s%(receiver_type)s (%(subject)s)"
                     )
                 else:
                     title = translation.gettext_noop(
-                        "Notification sent to %(receiver_type)s (no receivers) (%(subject)s)"
+                        "Notification sent to no receivers%(receiver_type)s (%(subject)s)"
                     )
 
             create_history_entry(
