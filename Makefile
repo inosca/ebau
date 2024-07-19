@@ -183,10 +183,10 @@ sequencenamespace:  ## Set the Sequence namespace for a given user. GIT_USER is 
 
 .PHONY: db_snapshot
 db_snapshot: ## Snapshot the current database (DB-internal snapshot)
-	@docker compose exec django ./manage.py snapdb --create
+	@docker-compose exec django ./manage.py snapdb --create
 .PHONY: db_restore
 db_restore: ## Restore the current database from latest DB-internal snapshot
-	@docker compose exec django ./manage.py snapdb --restore --latest
+	@docker-compose exec django ./manage.py snapdb --restore --latest
 
 
 .PHONY: test
