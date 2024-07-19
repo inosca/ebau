@@ -80,6 +80,10 @@ export default class AlexandriaDocumentsFormComponent extends Component {
     );
   }
 
+  get amountOfCategories() {
+    return Object.keys(this.requiredTags).length;
+  }
+
   get requiredTags() {
     return this.allRequiredTags.reduce((tree, tag) => {
       const category =

@@ -1,4 +1,5 @@
 documents:
+  confirm: "Bitte laden Sie {count, plural, =1 {den folgenden Pflichtinhalt} other { die folgenden # Pflichtinhalte}} hoch. Beachten Sie dabei, dass die Liste der angegebenen Pflichtdokumente nicht abschliessend ist (konsultieren Sie das kommunale Baugesetz). Ein unvollständiges Gesuch wird zurückgewiesen."
   buckets:
     descriptions:
       prefix: "## Zusätzliche Informationen\n
