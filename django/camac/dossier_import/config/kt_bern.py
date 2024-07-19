@@ -27,6 +27,7 @@ from camac.dossier_import.writers import (
     EbauNumberWriter,
 )
 from camac.instance.domain_logic import SUBMIT_DATE_FORMAT, CreateInstanceLogic
+from camac.instance.domain_logic.decision import DecisionLogic
 from camac.instance.models import Form, Instance, InstanceState
 from camac.instance.utils import get_construction_control, set_construction_control
 from camac.permissions import events as permissions_events
@@ -332,7 +333,9 @@ class KtBernDossierWriter(DossierWriter):
                         action(item, self._caluma_user)
             skip_work_item(work_item, user=self._caluma_user, context=default_context)
             if task_id == "decision":
-                set_construction_control(instance)
+                if DecisionLogic.should_continue_after_decision(instance, work_item):
+                    set_construction_control(instance)
+
                 permissions_events.Trigger.decision_decreed(None, instance)
             if target_state == "SUBMITTED":
                 if instance.case.meta.get("ebau-number"):
