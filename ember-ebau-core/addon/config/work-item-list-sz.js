@@ -5,7 +5,10 @@ export default {
       municipality: ["complete-check", "init-distribution", "make-decision"],
       service: ["fill-inquiry", "inquiry", "check-inquiry", "alter-inquiry"],
     },
-    services: {},
+    services: {
+      /* Baugesuchszentrale (Fachstelle) */
+      7: ["check-inquiries"],
+    },
     default: [],
   },
 };
