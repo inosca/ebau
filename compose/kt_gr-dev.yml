@@ -87,6 +87,8 @@ services:
       # GWR
       - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
       - GWR_HOUSING_STAT_BASE_URI=https://www-r.housing-stat.ch/regbl/api/ech0216/2
+      # GIS
+      - GR_GIS_BASE_URL=https://wps-test.geo.gr.ch
     networks:
       - ebau.local
     tty: true
