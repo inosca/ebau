@@ -1,6 +1,7 @@
 import datetime
 import shutil
 from collections import OrderedDict
+from copy import deepcopy
 from pathlib import Path
 
 import pytest
@@ -120,8 +121,10 @@ def load_fixtures_so(
     service_factory,
     so_decision_settings,
     so_construction_monitoring_settings,
+    so_permissions_settings,
 ):
     extra_fixtures = [
+        settings.ROOT_DIR("kt_so/config/permissions.json"),
         settings.ROOT_DIR("kt_so/config/caluma_form.json"),
         settings.ROOT_DIR("kt_so/config/caluma_decision_form.json"),
         settings.ROOT_DIR("kt_so/config/caluma_construction_monitoring_form.json"),
@@ -168,8 +171,20 @@ def load_fixtures_be(
     construction_control_for,
     document_factory,
     dynamic_option_factory,
+    be_permissions_settings,
+    role_factory,
+    application_settings,
 ):
+    # Needed for permissions module `instance_created`` trigger
+    role_factory(name="Support")
+
+    # Needed in order to make instance.responsible_service() work properly
+    application_settings["ACTIVE_SERVICES"] = deepcopy(
+        settings.APPLICATIONS["kt_bern"]["ACTIVE_SERVICES"]
+    )
+
     django_fixture_paths = [
+        settings.ROOT_DIR("kt_bern/config/permissions.json"),
         settings.ROOT_DIR("kt_bern/config/caluma_form_common.json"),
         settings.ROOT_DIR("kt_bern/config/caluma_dossier_import_form.json"),
         settings.ROOT_DIR("kt_bern/config/caluma_ebau_number_form.json"),

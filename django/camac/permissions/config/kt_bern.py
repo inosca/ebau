@@ -28,7 +28,7 @@ class PermissionEventHandlerBE(
     def decision_decreed(self, instance: Instance):
         decision = instance.case.work_items.filter(
             task_id="decision",
-            status=WorkItem.STATUS_COMPLETED,
+            status__in=[WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED],
         ).first()
 
         # TODO: Do we only grant an ACL to the geometer if the process continues?
