@@ -1,5 +1,5 @@
 -r requirements.txt
-debugpy==1.8.1
+debugpy==1.8.2
 django-extensions==3.2.3
 django-silk==5.1.0
 Faker==22.7.0
@@ -19,7 +19,7 @@ pytest-freezer==0.4.8
 pytest-lazy-fixture==0.6.3
 pytest-mock==3.14.0
 pytest-randomly==3.15.0
-pytest-recording==0.13.1
+pytest-recording==0.13.2
 pytest-xdist==3.6.1
 remote-pdb==2.1.0
 requests-mock==1.12.1
