@@ -1,0 +1,40 @@
+body {
+  --pf-v5-global--FontFamily--text: "Source Sans Pro", -apple-system,
+    BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --pf-v5-global--FontFamily--heading: "Source Sans Pro", -apple-system,
+    BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --pf-v5-global--FontWeight--normal: 300;
+  --pf-v5-global--FontWeight--semi-bold: 300;
+  --pf-v5-global--FontWeight--overpass--semi-bold: 400;
+  --pf-v5-global--FontWeight--bold: 400;
+  --pf-v5-global--FontWeight--overpass-bold: 400;
+
+  --pf-v5-global--FontSize--2xl: 2.625rem;
+  --pf-v5-global--FontSize--xl: 2rem;
+  --pf-v5-global--FontSize--md: 18px;
+  --pf-v5-global--FontSize--sm: 18px;
+
+  --pf-v5-global--BackgroundColor--dark-100: #f6f4f3;
+  --pf-v5-global--BackgroundColor--dark-200: #ebebeb;
+  --pf-v5-global--BackgroundColor--dark-300: #ebebeb;
+  --pf-v5-global--BackgroundColor--dark-300: #f6f4f3;
+  --pf-v5-global--BackgroundColor--dark-400: #e0e0e0;
+  --pf-v5-global--Color--light-100: black;
+  --pf-v5-global--Color--light-200: black;
+  --pf-v5-global--active-color--400: #e10a16;
+  --pf-v5-global--primary-color--100: #e10a16;
+  --pf-v5-global--primary-color--dark-100: #b00811;
+  --pf-v5-global--primary-color--200: #c90914;
+  --pf-v5-global--link--Color--light: #b00811;
+  --pf-v5-global--link--Color: #b00811;
+  --pf-v5-global--link--Color--hover: #7f060c;
+  --pf-v5-global--active-color--100: #b00811;
+
+  --pf-v5-c-page__header--BackgroundColor: #f6f4f3;
+  --pf-v5-c-page__sidebar--BackgroundColor: #f6f4f3;
+}
+
+.pf-v5-c-button.pf-m-primary {
+  color: white;
+  text-transform: uppercase;
+}
