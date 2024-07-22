@@ -1,4 +1,4 @@
-ARG VERSION=24.0
+ARG VERSION=25.0
 
 # stage 1: build keycloak themes using maven
 # based on https://docs.docker.com/language/java/build-images/
