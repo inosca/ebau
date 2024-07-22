@@ -368,3 +368,36 @@ class Buildings(BaseDataSource):
             if buildings
             else None
         )
+
+
+class ServicesForFinalReport(BaseDataSource):
+    info = "Services which asked to be invited to the 'Schlussabnahme' (final report) during the distribution phase"
+
+    def get_data(self, user, question, context):
+        if not context:  # pragma: no cover
+            return []
+
+        root_case = Document.objects.get(
+            pk=context.get("documentId")
+        ).work_item.case.family
+        distribution_case = root_case.work_items.get(task_id="distribution").child_case
+
+        pks_of_services_to_be_invited = []
+
+        for inquiry in distribution_case.work_items.filter(task_id="inquiry"):
+            if invite_answer := inquiry.child_case.document.answers.filter(
+                question_id="inquiry-answer-invite-service"
+            ).first():
+                if invite_answer.value == "inquiry-answer-invite-service-yes":
+                    pks_of_services_to_be_invited.append(*inquiry.addressed_groups)
+
+        return (
+            [
+                (service.pk, service.name)
+                for service in Service.objects.filter(
+                    pk__in=pks_of_services_to_be_invited
+                )
+            ]
+            if len(pks_of_services_to_be_invited) > 0
+            else None
+        )
