@@ -17,6 +17,7 @@ from ..extensions.data_sources import (
     Municipalities,
     PreliminaryClarificationTargets,
     Services,
+    ServicesForFinalReport,
 )
 
 
@@ -295,3 +296,45 @@ def test_buildings(db, caluma_admin_user, question_factory, so_instance, utils):
 
     assert len(data) == 3
     assert names == {"MFH 1", "MFH 2", "EFH 1"}
+
+
+def test_services_for_final_report(
+    db,
+    caluma_admin_user,
+    question_factory,
+    utils,
+    ur_instance,
+    work_item_factory,
+    service_factory,
+):
+    services_that_wants_to_be_invited = service_factory()
+
+    distribution = work_item_factory(
+        task_id="distribution",
+        case=ur_instance.case,
+    )
+
+    construction_monitoring_dummy_item = work_item_factory(case=ur_instance.case)
+
+    inquiry_1 = work_item_factory(
+        task_id="inquiry",
+        case=distribution.child_case,
+        addressed_groups=[str(services_that_wants_to_be_invited.pk)],
+    )
+
+    utils.add_answer(
+        inquiry_1.child_case.document,
+        "inquiry-answer-invite-service",
+        "inquiry-answer-invite-service-yes",
+    )
+
+    data = ServicesForFinalReport().get_data(
+        caluma_admin_user,
+        question_factory(),
+        {"documentId": construction_monitoring_dummy_item.document.pk},
+    )
+
+    service_names = set([service[1] for service in data])
+
+    assert len(data) == 1
+    assert service_names == {services_that_wants_to_be_invited.name}
