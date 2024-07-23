@@ -314,8 +314,6 @@ def test_services_for_final_report(
         case=ur_instance.case,
     )
 
-    construction_monitoring_dummy_item = work_item_factory(case=ur_instance.case)
-
     inquiry_1 = work_item_factory(
         task_id="inquiry",
         case=distribution.child_case,
@@ -331,7 +329,7 @@ def test_services_for_final_report(
     data = ServicesForFinalReport().get_data(
         caluma_admin_user,
         question_factory(),
-        {"documentId": construction_monitoring_dummy_item.document.pk},
+        {"instanceId": ur_instance.pk},
     )
 
     service_names = set([service[1] for service in data])

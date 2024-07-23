@@ -17,7 +17,7 @@
       (not this.isActionable)
       (cannot "edit work item of construction-step" @workItem)
     )}}
-    @context={{hash documentId=(decode-id @documentId)}}
+    @context={{hash instanceId=this.ebauModules.instanceId}}
   >
     <:default as |content|>
 
