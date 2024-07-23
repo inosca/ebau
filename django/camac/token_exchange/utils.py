@@ -1,23 +1,27 @@
 from django.conf import settings
-from jose import jwe, jwt
-from jose.constants import ALGORITHMS
+from jwcrypto.common import json_decode
+from jwcrypto.jwk import JWK
+from jwcrypto.jwt import JWT
 
 
 def extract_jwt_data(encrypted_token: str) -> dict:
-    signed_token = jwe.decrypt(encrypted_token, settings.TOKEN_EXCHANGE_JWE_SECRET)
+    signed_token = JWT(
+        jwt=encrypted_token,
+        key=JWK.from_password(settings.TOKEN_EXCHANGE_JWE_SECRET),
+        expected_type="JWE",
+    )
 
-    return jwt.decode(
-        signed_token,
-        settings.TOKEN_EXCHANGE_JWT_SECRET,
-        algorithms=[ALGORITHMS.HS256],
-        issuer=settings.TOKEN_EXCHANGE_JWT_ISSUER,
-        options={
-            "verify_exp": True,
-            "verify_iss": True,
-            "require_exp": True,
-            "require_iss": True,
+    token = JWT(
+        jwt=signed_token.claims,
+        key=JWK.from_password(settings.TOKEN_EXCHANGE_JWT_SECRET),
+        expected_type="JWS",
+        check_claims={
+            "exp": None,
+            "iss": settings.TOKEN_EXCHANGE_JWT_ISSUER,
         },
     )
+
+    return json_decode(token.claims)
 
 
 def extract_sync_data(jwt_data: dict) -> dict:

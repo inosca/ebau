@@ -1,6 +1,7 @@
 import json
+import logging
 
-from jose.exceptions import JOSEError
+from jwcrypto.common import JWException
 from requests import HTTPError, JSONDecodeError
 from rest_framework import exceptions, response, status
 from rest_framework.parsers import JSONParser
@@ -9,6 +10,8 @@ from rest_framework.views import APIView
 
 from camac.token_exchange.keycloak import KeycloakClient
 from camac.token_exchange.utils import build_username, extract_jwt_data
+
+logger = logging.getLogger(__name__)
 
 
 class TokenExchangeView(APIView):
@@ -37,9 +40,11 @@ class TokenExchangeView(APIView):
                 message = result.get("errorMessage", json.dumps(result))
             except JSONDecodeError:  # pragma: no cover
                 message = e.response.text
-            raise exceptions.AuthenticationFailed(message) from e
-        except JOSEError as e:
-            raise exceptions.AuthenticationFailed(str(e)) from e
+            logger.error(message)
+            raise exceptions.AuthenticationFailed("Token could not be exchanged")
+        except JWException as e:
+            logger.error(e)
+            raise exceptions.AuthenticationFailed("Invalid token")
 
         return response.Response(
             token,
