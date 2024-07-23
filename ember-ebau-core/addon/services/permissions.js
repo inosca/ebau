@@ -1,0 +1,73 @@
+import Service, { service } from "@ember/service";
+
+export default class PermissionsService extends Service {
+  @service store;
+
+  #cache = new Map();
+
+  async #triggerCache(instanceId, reload) {
+    if (!instanceId) return;
+
+    let grantedPermissions = [];
+
+    try {
+      let model = this.store.peekRecord("instance-permission", instanceId);
+
+      if (!model || reload) {
+        model = await this.store.findRecord("instance-permission", instanceId, {
+          reload: true,
+        });
+      }
+
+      grantedPermissions = model.permissions;
+    } catch (error) {
+      // That's ok, if no permissions could be fetched we assume that we don't
+      // have any.
+    }
+
+    this.#cache.set(parseInt(instanceId), grantedPermissions);
+  }
+
+  #checkPermissions(instanceId, requiredPermissions, requireAll) {
+    if (!instanceId || !requiredPermissions?.length) {
+      return false;
+    }
+
+    requiredPermissions = Array.isArray(requiredPermissions)
+      ? requiredPermissions.flat()
+      : [requiredPermissions];
+
+    const grantedPermissions = this.#cache.get(parseInt(instanceId)) ?? [];
+    const has = (permission) => grantedPermissions.includes(permission);
+
+    return requireAll
+      ? requiredPermissions.every(has)
+      : requiredPermissions.some(has);
+  }
+
+  /**
+   * Check if user has at least one of the required permissions.
+   *
+   * @param {Number} instanceId - The ID of the instance to check the permissions for
+   * @param {Array<String>} requiredPermissions - An array of required permissions
+   * @param {Boolean} reload - Force a request to the API
+   * @returns {Promise<Boolean>}
+   */
+  async hasAny(instanceId, requiredPermissions, reload = false) {
+    await this.#triggerCache(instanceId, reload);
+    return this.#checkPermissions(instanceId, requiredPermissions, false);
+  }
+
+  /**
+   * Check if user has all of the required permissions.
+   *
+   * @param {Number} instanceId - The ID of the instance to check the permissions for
+   * @param {Array<String>} requiredPermissions - An array of required permissions
+   * @param {Boolean} reload - Force a request to the API
+   * @returns {Promise<Boolean>}
+   */
+  async hasAll(instanceId, requiredPermissions, reload = false) {
+    await this.#triggerCache(instanceId, reload);
+    return this.#checkPermissions(instanceId, requiredPermissions, true);
+  }
+}
