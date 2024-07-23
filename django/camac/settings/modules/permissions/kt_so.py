@@ -125,6 +125,7 @@ SO_PERMISSIONS_SETTINGS = {
             ("applicant-read", Always()),
             ("applicant-remove", Always()),
             ("documents-write", Always()),
+            ("permissions-read-municipality-before-submission", Always()),
         ],
         "distribution-service": [
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
