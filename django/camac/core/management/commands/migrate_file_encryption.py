@@ -20,7 +20,7 @@ class Command(BaseCommand):
 
         failed_files = []
         # flip between default and encrypted storage to have the correct parameters in the requests
-        query = CommunicationsAttachment.objects.all()
+        query = CommunicationsAttachment.objects.filter(file_attachment__isnull=False)
         encrypted_storage = storages.create_storage(settings.STORAGES["default"])
 
         unencrypted_storage_setting = settings.STORAGES["default"]
