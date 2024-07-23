@@ -27,6 +27,6 @@ documents:
   deleteError: "Beim Löschen der Datei ist etwas schief gelaufen"
 
   mark:
-    decision: "Entscheiddokumemt"
+    decision: "Entscheiddokument"
     publication: "Publikationsdokument"
     void: "Ungültig"
