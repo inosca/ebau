@@ -384,8 +384,8 @@ claims:
     answered: "Beantwortet"
 
 notfound:
-  title: "404"
-  subtitle: "Die Seite wurde nicht gefunden"
+  title: "Sie haben keine Berechtigung auf dieses Dossier zuzugreifen."
+  subtitle: 'Bitte überprüfen Sie, dass die Dossier-Nr. stimmt und dass Ihnen Zugriff auf das Dossier erteilt wurde unter "Berechtigungen".'
   link: "Zurück zur"
   home: "Startseite"
 
