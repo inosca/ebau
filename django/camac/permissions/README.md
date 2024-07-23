@@ -123,6 +123,11 @@ Further discussion regarding those APIs can be found in [the API document](./doc
 Some further implementation details are discussed in [the details document](./docs/details.md)
 
 
+### Integration and testing
+
+The integration of the permisison module into a canton's production requires a few steps
+that are documented in the [integration documentation](./docs/integration.md).
+
 ### Testing
 
 It is vital for the new subsystem to perform exactly as before: The same rules need to
@@ -142,13 +147,13 @@ Some thoughts about this are found [in the testing document](/django/camac/permi
 * Could the *Checking REST API* benefit from cache/expiry information as well, such
   that the frontend will know for how long a certain entry may be cached (even by using
   the corresponding HTTP headers, so frontend wouldn't even need to know)
-* Could/should we extend the roles such that they also gain the ability to grant the
+* ~Could/should we extend the roles such that they also gain the ability to grant the
   same permissions as our "normal" permissions? That way, we could get rid of the
   "checking for permission / role" duality. This could be configured in the settings.py
-  similar to how the "access levels" are configured.
-* Configuration: It may make sense to combine permissions and dossier states such
+  similar to how the "access levels" are configured.~
+* ~Configuration: It may make sense to combine permissions and dossier states such
   that we have a more compact configuration than a list of 1:1 pairings. Not sure
-  which grouping would be most efficient at the moment though
+  which grouping would be most efficient at the moment though~
 * Testing: We need a way to verify that the migration, as well as the
   new permissions code corresponds to the old permissions code. We do
   not want to drop (or worse, create) any permissions or abilities that
