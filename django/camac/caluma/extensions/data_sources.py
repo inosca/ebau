@@ -1,12 +1,14 @@
 from caluma.caluma_data_source.data_sources import BaseDataSource
 from caluma.caluma_data_source.utils import data_source_cache
 from caluma.caluma_form.models import Document
+from django.conf import settings
 from django.core.cache import cache
 from django.utils.translation import gettext as _, gettext_noop, override
 
 from camac.caluma.utils import find_answer
 from camac.core.models import Authority
 from camac.document.models import Attachment
+from camac.instance.models import Instance
 from camac.user.models import Location, Service
 
 from .countries import COUNTRIES
@@ -378,14 +380,16 @@ class ServicesForFinalReport(BaseDataSource):
         if not context:  # pragma: no cover
             return []
 
-        root_case = Document.objects.get(
-            pk=context.get("documentId")
-        ).work_item.case.family
-        distribution_case = root_case.work_items.get(task_id="distribution").child_case
+        instance = Instance.objects.get(pk=context.get("instanceId"))
+        distribution_case = instance.case.work_items.get(
+            task_id=settings.DISTRIBUTION["DISTRIBUTION_TASK"]
+        ).child_case
 
         pks_of_services_to_be_invited = []
 
-        for inquiry in distribution_case.work_items.filter(task_id="inquiry"):
+        for inquiry in distribution_case.work_items.filter(
+            task_id=settings.DISTRIBUTION["INQUIRY_TASK"]
+        ):
             if invite_answer := inquiry.child_case.document.answers.filter(
                 question_id="inquiry-answer-invite-service"
             ).first():
