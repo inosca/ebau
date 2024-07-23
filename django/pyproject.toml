@@ -102,6 +102,8 @@ filterwarnings = [
     "ignore:.*_after_postgeneration will stop saving the instance.*:DeprecationWarning",
     # the (unmaintened) django-excel package is using distutils which will get removed in python 3.12
     "ignore:distutils Version classes are deprecated.*:DeprecationWarning",
+    # TODO: replace python-jose with jwcrypto
+    "ignore:CSR support in pyOpenSSL is deprecated. You should use the APIs in cryptography.:DeprecationWarning"
 ]
 
 [tool.coverage.run]
