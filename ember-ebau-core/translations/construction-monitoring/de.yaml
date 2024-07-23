@@ -24,7 +24,7 @@ construction-monitoring:
 
     complete: "Baubegleitungsprozess abschliessen"
     complete-confirm: "Bitte bestätigen Sie, dass der Baubegleitungsprozess abgeschlossen werden soll. Dieser Schritt kann nicht rückgängig gemacht werden."
-    complete-error: "Beim Abschliessen des Baubegleitunsprozesses ist ein Fehler aufgetreten."
+    complete-error: "Beim Abschliessen des Baubegleitungsprozesses ist ein Fehler aufgetreten."
 
   construction-stage:
     title: "Bauetappe"
@@ -67,8 +67,8 @@ construction-monitoring:
       info-completed: "Beantwortet am {closedAt} durch {closedByUser}{closedByService}"
       info-canceled: "Der Prozessschritt wurde frühzeitig abgebrochen."
 
-      divider-info-ready: Der nächste Prozesschritt befindet sich bei der Gemeinde in Bearbeitung.
-      divider-info-skipped: Der Prozesschritt wurde frühzeitig abgebrochen.
+      divider-info-ready: Der nächste Prozessschritt befindet sich bei der Gemeinde in Bearbeitung.
+      divider-info-skipped: Der Prozessschritt wurde frühzeitig abgebrochen.
 
       take-over-editing: Bearbeitung übernehmen
       finish-editing: Bearbeitung beenden

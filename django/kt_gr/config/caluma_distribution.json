@@ -644,7 +644,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Stellungnahme in Dokumentanablage\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Stellungnahme in Dokumentenablage\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "false",
       "is_hidden": "false",
