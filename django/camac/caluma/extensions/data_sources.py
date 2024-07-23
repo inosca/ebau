@@ -373,6 +373,7 @@ class Buildings(BaseDataSource):
 class ServicesForFinalReport(BaseDataSource):
     info = "Services which asked to be invited to the 'Schlussabnahme' (final report) during the distribution phase"
 
+    @data_source_cache(timeout=3600)
     def get_data(self, user, question, context):
         if not context:  # pragma: no cover
             return []
