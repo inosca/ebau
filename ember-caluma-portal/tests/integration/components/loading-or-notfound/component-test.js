@@ -17,9 +17,11 @@ module("Integration | Component | loading-or-notfound", function (hooks) {
   test("it displays a 404 page if not permitted", async function (assert) {
     await render(hbs`<LoadingOrNotfound @hasPermission={{false}} />`);
 
-    assert.dom("h1").hasText(t("notfound.title"));
-    assert.dom("h3").hasText(t("notfound.subtitle"));
-    assert.dom("p").hasText(`${t("notfound.link")} ${t("notfound.home")}`);
+    assert.dom("h2").hasText(t("notfound.title"));
+    assert.dom("p").hasText(t("notfound.subtitle"));
+    assert
+      .dom("p:last-child")
+      .hasText(`${t("notfound.link")} ${t("notfound.home")}`);
     assert.dom("p > a").exists();
   });
 
