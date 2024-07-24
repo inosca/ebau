@@ -18,7 +18,7 @@ from django.utils.translation import gettext as _
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 from generic_permissions.visibilities import VisibilityViewMixin
-from rest_framework import response, status
+from rest_framework import response, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.exceptions import NotFound, ValidationError
 from rest_framework.generics import ListAPIView, RetrieveAPIView
@@ -49,6 +49,7 @@ from camac.user.permissions import (
     DefaultPermission,
     IsApplication,
     PublicationPermission,
+    ViewedPublicationCountPermissions,
     permission_aware,
 )
 from camac.utils import DocxRenderer
@@ -1368,7 +1369,9 @@ class IssueTemplateSetView(views.ModelViewSet):
         return response.Response([], 204)
 
 
-class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
+class PublicCalumaInstanceView(
+    mixins.InstanceQuerysetMixin, ListAPIView, viewsets.GenericViewSet
+):
     """Public view for published instances."""
 
     permission_classes = [
@@ -1391,7 +1394,7 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
         operation_description="Public view for published instances",
         manual_parameters=[group_param],
     )
-    def get(self, request, *args, **kwargs):
+    def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
 
     @permission_aware
@@ -1477,3 +1480,19 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
                 ).values("publication_date")[:1]
             ),
         ).order_by("-publication_date", "dossier_nr")
+
+    @swagger_auto_schema(auto_schema=None)
+    @action(
+        methods=["post"],
+        detail=True,
+        permission_classes=[ViewedPublicationCountPermissions],
+    )
+    def viewed(self, request, pk=None):
+        PublicationEntry.objects.select_related("instance__case").filter(
+            instance__case=pk,
+            is_published=1,
+            publication_date__lte=timezone.now(),
+            publication_end_date__gte=timezone.now(),
+        ).update(publication_views=F("publication_views") + 1)
+
+        return response.Response([], 204)
