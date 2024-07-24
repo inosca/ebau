@@ -306,6 +306,7 @@ def test_services_for_final_report(
     ur_instance,
     work_item_factory,
     service_factory,
+    ur_distribution_settings,
 ):
     services_that_wants_to_be_invited = service_factory()
 
