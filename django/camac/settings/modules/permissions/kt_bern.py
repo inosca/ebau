@@ -190,7 +190,7 @@ BE_INVOLVED_LEAD_AUTHORITY_PERMISSIONS = [
         RequireInstanceState(["subm", "in_progress_internal"]),
     ),
     ("distribution-read", BE_MUNICIPALITY_STATES_EXCEPT_MIGRATED),
-    ("workitems-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
+    ("work-items-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
     ("appeal-read", IsAppeal()),
 ]
 
@@ -214,7 +214,7 @@ BE_PERMISSIONS_SETTINGS = {
             ("form-read", Always()),
             ("documents-read", Always()),
             ("document", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
-            ("workitems-read", GEOMETER_RW),
+            ("work-items-read", GEOMETER_RW),
             ("communications-read", GEOMETER_RW),
             ("dms-generate-read", GEOMETER_RW),
             ("geometer-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
