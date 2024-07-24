@@ -1,12 +1,14 @@
 from caluma.caluma_data_source.data_sources import BaseDataSource
 from caluma.caluma_data_source.utils import data_source_cache
 from caluma.caluma_form.models import Document
+from django.conf import settings
 from django.core.cache import cache
 from django.utils.translation import gettext as _, gettext_noop, override
 
 from camac.caluma.utils import find_answer
 from camac.core.models import Authority
 from camac.document.models import Attachment
+from camac.instance.models import Instance
 from camac.user.models import Location, Service
 
 from .countries import COUNTRIES
@@ -366,5 +368,41 @@ class Buildings(BaseDataSource):
                 for building in buildings
             ]
             if buildings
+            else None
+        )
+
+
+class ServicesForFinalReport(BaseDataSource):
+    info = "Services which asked to be invited to the 'Schlussabnahme' (final report) during the distribution phase"
+
+    @data_source_cache(timeout=3600)
+    def get_data(self, user, question, context):
+        if not context:  # pragma: no cover
+            return []
+
+        instance = Instance.objects.get(pk=context.get("instanceId"))
+        distribution_case = instance.case.work_items.get(
+            task_id=settings.DISTRIBUTION["DISTRIBUTION_TASK"]
+        ).child_case
+
+        pks_of_services_to_be_invited = []
+
+        for inquiry in distribution_case.work_items.filter(
+            task_id=settings.DISTRIBUTION["INQUIRY_TASK"]
+        ):
+            if invite_answer := inquiry.child_case.document.answers.filter(
+                question_id="inquiry-answer-invite-service"
+            ).first():
+                if invite_answer.value == "inquiry-answer-invite-service-yes":
+                    pks_of_services_to_be_invited.append(*inquiry.addressed_groups)
+
+        return (
+            [
+                (service.pk, service.name)
+                for service in Service.objects.filter(
+                    pk__in=pks_of_services_to_be_invited
+                )
+            ]
+            if len(pks_of_services_to_be_invited) > 0
             else None
         )
