@@ -17,7 +17,11 @@ mutation CreateFlow1 {
     input: {
       workflow: "building-permit"
       tasks: ["submit"]
-      next: "['complete-check', 'create-manual-workitems', 'instance-management']|tasks"
+      next: "[
+        'complete-check',
+        'create-manual-workitems',
+        'instance-management'
+      ]|tasks"
     }
   ) {
     clientMutationId
@@ -29,7 +33,7 @@ mutation CreateFlow2 {
     input: {
       workflow: "building-permit"
       tasks: ["complete-check"]
-      next: "['distribution', 'after-complete-check-ur', 'bab']|tasks"
+      next: "['distribution', 'after-complete-check-ur', 'bab','release-for-bk']|tasks"
     }
   ) {
     clientMutationId

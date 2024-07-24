@@ -220,7 +220,7 @@ class Instance(models.Model):
         # FIXME: instance groups should be extracted into a
         # proper relationship.
         if not self.instance_group:  # pragma: no cover
-            return []
+            return Instance.objects.none()
 
         return (
             InstanceGroup.objects.prefetch_related("instances")
@@ -342,6 +342,16 @@ class Instance(models.Model):
             if md.municipality
             else None
         )
+
+    @cached_property
+    def responsible_building_commission(self) -> Service | None:
+        if not self.municipality:  # pragma: no cover
+            return None
+
+        return Service.objects.filter(
+            service_group__name="Mitglieder Baukommissionen",
+            groups__locations__in=self.municipality.groups.first().locations.all(),
+        ).first()
 
     class Meta:
         managed = True

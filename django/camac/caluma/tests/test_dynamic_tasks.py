@@ -595,7 +595,7 @@ def test_dynamic_task_after_complete_check_ur(
 ):
     work_item = work_item_factory(
         case=ur_instance.case,
-        task_id="decision",
+        task_id="complete-check",
     )
     work_item.document = document_factory()
     work_item.save()

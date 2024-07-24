@@ -19,13 +19,17 @@ log = logging.getLogger()
 caluma_api = CalumaApi()
 
 
+def get_instance(case, context) -> Instance:
+    return (
+        case.family.instance
+        if hasattr(case.family, "instance")
+        else Instance.objects.get(pk=context.get("instance"))
+    )
+
+
 class CustomDynamicGroups(BaseDynamicGroups):
     def _get_responsible_service(self, case, filter_type, context):
-        instance = (
-            case.family.instance
-            if hasattr(case.family, "instance")
-            else Instance.objects.get(pk=context.get("instance"))
-        )
+        instance = get_instance(case, context)
         service = instance.responsible_service(filter_type=filter_type)
 
         if not service:  # pragma: no cover
@@ -167,6 +171,17 @@ class CustomDynamicGroups(BaseDynamicGroups):
                 ]
             )
         ]
+
+    @register_dynamic_group("building-commission")
+    def resolve_building_commission(
+        self, task, case, user, prev_work_item, context, **kwargs
+    ) -> list[str]:
+        instance = get_instance(case, context)
+        return (
+            [str(instance.responsible_building_commission.pk)]
+            if instance.responsible_building_commission
+            else []
+        )
 
     @register_dynamic_group("abwasser-uri")
     def resolve_abwasser_uri(self, task, case, user, prev_work_item, context, **kwargs):

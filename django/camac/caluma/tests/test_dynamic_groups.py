@@ -345,3 +345,36 @@ def test_dynamic_group_schnurgeruestabnahme_uri(
     assert CustomDynamicGroups().resolve("schnurgeruestabnahme-uri")(
         None, ur_instance.case, None, None, None
     ) == [str(geometer_service.pk)]
+
+
+def test_dynamic_group_building_commission(
+    db, ur_instance, service_factory, group_factory, location_factory, mocker
+):
+    municipality_service = service_factory(
+        service_group__name="Sekretariate Gemeindebaubehörden"
+    )
+    group1 = group_factory()
+    group2 = group_factory()
+    location = location_factory()
+
+    group1.locations.add(location)
+    group2.locations.add(location)
+    group1.save()
+    group2.save()
+
+    building_commission = service_factory(
+        service_group__name="Mitglieder Baukommissionen"
+    )
+    municipality_service.groups.add(group1)
+    building_commission.groups.add(group2)
+    municipality_service.save()
+    building_commission.save()
+
+    # Mock the implementation details of the municipality property on the instance
+    type(ur_instance).municipality = mocker.PropertyMock(
+        return_value=municipality_service
+    )
+
+    assert CustomDynamicGroups().resolve("building-commission")(
+        None, ur_instance.case, None, None, None
+    ) == [str(building_commission.pk)]

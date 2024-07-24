@@ -1487,6 +1487,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "release-for-bk",
+    "fields": {
+      "created_at": "2024-06-12T14:15:58.533Z",
+      "modified_at": "2024-06-12T14:15:58.533Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"release-for-bk\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "solaranlage",
     "fields": {
       "created_at": "2020-10-21T12:11:12.212Z",
@@ -12791,6 +12809,21 @@
       "form": "reklame-tabelle",
       "question": "montageart",
       "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "release-for-bk.release-for-bk-complete",
+    "fields": {
+      "created_at": "2024-06-12T14:16:21.312Z",
+      "modified_at": "2024-06-12T14:16:21.312Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "release-for-bk",
+      "question": "release-for-bk-complete",
+      "sort": 1
     }
   },
   {
@@ -54744,6 +54777,42 @@
       },
       "data_source": null,
       "row_form": "reklame-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "release-for-bk-complete",
+    "fields": {
+      "created_at": "2024-06-12T14:16:21.176Z",
+      "modified_at": "2024-06-12T14:16:21.176Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"release-for-bk-complete\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
