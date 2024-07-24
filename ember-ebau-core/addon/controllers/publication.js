@@ -1,5 +1,5 @@
 import Controller from "@ember/controller";
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import { DateTime, Interval } from "luxon";

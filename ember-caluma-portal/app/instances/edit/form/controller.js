@@ -1,5 +1,5 @@
 import Controller, { inject as controller } from "@ember/controller";
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import apolloQuery from "ember-ebau-core/resources/apollo";

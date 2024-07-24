@@ -1,4 +1,4 @@
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { Ability } from "ember-can";
 
 export default class ConstructionMonitoringAbility extends Ability {

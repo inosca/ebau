@@ -1,7 +1,7 @@
 // copied from ember-caluma-portal, but adapted
 
 import { getOwner } from "@ember/application";
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { query } from "ember-data-resources";
 import mainConfig from "ember-ebau-core/config/main";

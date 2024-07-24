@@ -1,4 +1,4 @@
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
 import { tracked } from "@glimmer/tracking";
 

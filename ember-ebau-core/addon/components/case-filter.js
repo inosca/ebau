@@ -1,6 +1,6 @@
 import { action } from "@ember/object";
 import { next } from "@ember/runloop";
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { isTesting, macroCondition } from "@embroider/macros";
 import { ensureSafeComponent } from "@embroider/util";
 import Component from "@glimmer/component";

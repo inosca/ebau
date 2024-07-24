@@ -1,5 +1,5 @@
 import { assert } from "@ember/debug";
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { getOwnConfig } from "@embroider/macros";
 import { dropTask } from "ember-concurrency";
 import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";

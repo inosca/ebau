@@ -1,4 +1,4 @@
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { dasherize } from "@ember/string";
 import RESTAdapter from "@ember-data/adapter/rest";
 import { singularize } from "ember-inflector";

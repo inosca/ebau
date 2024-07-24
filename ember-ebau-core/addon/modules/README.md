@@ -70,7 +70,7 @@ This register function can now be used in the consuming app like this:
 // my-app/router.js
 
 import EmberRouter from "@ember/routing/router";
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import registerMyModule from "ember-ebau-core/modules/my-module";
 
 export default class Router extends EmberRouter {
