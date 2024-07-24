@@ -74,7 +74,7 @@ def post_create_additional_demand(sender, work_item, user, context=None, **kwarg
         camac_user = User.objects.get(username=user.username)
 
         instance.set_instance_state(
-            settings.ADDITIONAL_DEMAND["STATES"]["PENDING_ADDITIONAL_DEMANDS"],
+            states["PENDING_ADDITIONAL_DEMANDS"],
             camac_user,
         )
 
