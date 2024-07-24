@@ -46755,7 +46755,7 @@
       "hidden": 0,
       "sort": 14,
       "form_group": 40000,
-      "require_permission": "legal-submission-read"
+      "require_permission": "legal-submissions-read"
     }
   },
   {
@@ -46883,7 +46883,7 @@
       "hidden": 0,
       "sort": 11,
       "form_group": 40000,
-      "require_permission": "legal-submission-read"
+      "require_permission": "legal-submissions-read"
     }
   },
   {
