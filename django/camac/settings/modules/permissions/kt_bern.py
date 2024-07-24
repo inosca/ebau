@@ -173,7 +173,7 @@ BE_INVOLVED_LEAD_AUTHORITY_PERMISSIONS = [
         | RequireInstanceState(["corrected", "correction"]),
     ),
     (
-        "legal-submission-read",
+        "legal-submissions-read",
         BE_MUNICIPALITY_ACCESSIBLE_STATES & ~RequireInstanceState(["subm"]),
     ),
     (
@@ -255,7 +255,7 @@ BE_PERMISSIONS_SETTINGS = {
                 ),
             ),
             ("billing-read", BE_SERVICE_STATES_DEFAULT),
-            ("legal-submission-read", BE_SERVICE_STATES_DEFAULT),
+            ("legal-submissions-read", BE_SERVICE_STATES_DEFAULT),
             ("journal-read", BE_SERVICE_STATES_DEFAULT),
             ("changelog-read", BE_SERVICE_STATES_DEFAULT),
             ("history-read", BE_SERVICE_STATES_DEFAULT),
