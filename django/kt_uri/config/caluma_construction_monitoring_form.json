@@ -1022,6 +1022,21 @@
       "modified_by_group": null,
       "form": "construction-step-schlussabnahme-projekt-planen",
       "question": "construction-step-schlussabnahme-projekt-planen-datum-der-abnahme",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-schlussabnahme-projekt-planen.construction-step-schlussabnahme-projekt-planen-fachstellen",
+    "fields": {
+      "created_at": "2024-07-22T06:35:03.746Z",
+      "modified_at": "2024-07-22T06:35:03.746Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-schlussabnahme-projekt-planen",
+      "question": "construction-step-schlussabnahme-projekt-planen-fachstellen",
       "sort": 2
     }
   },
@@ -2997,6 +3012,37 @@
       "configuration": {},
       "meta": {},
       "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-schlussabnahme-projekt-planen-fachstellen",
+    "fields": {
+      "created_at": "2024-07-22T06:35:03.589Z",
+      "modified_at": "2024-07-22T11:36:28.385Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Aufgebotene Fachstellen\", \"fr\": null, \"it\": null}",
+      "type": "dynamic_multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Bitte w\\u00e4hlen Sie die Fachstellen aus, welche in der Zirkulation in ihrer Stellungnahme angemerkt haben, dass diese zur Schlussabnahme aufgeboten werden m\\u00f6chten.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Bitte w\\u00e4hlen Sie die Fachstellen aus, welche in der Zirkulation in ihrer Stellungnahme angemerkt haben, dass diese zur Schlussabnahme aufgeboten werden m\\u00f6chten.\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": "ServicesForFinalReport",
       "row_form": null,
       "sub_form": null,
       "source": null,
