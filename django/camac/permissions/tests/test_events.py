@@ -5,7 +5,6 @@ from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
 from django.utils import timezone
-from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from camac.constants import kt_gr as gr_constants
@@ -324,7 +323,7 @@ def test_construction_acceptance_event_handler_gr(
 
 @pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize("role__name", ["Applicant"])
-@pytest.mark.parametrize("use_instance_service", [True, False])
+@pytest.mark.parametrize("is_paper", [False, True])
 def test_submit_create_acl_be(
     db,
     set_application_be,
@@ -342,7 +341,8 @@ def test_submit_create_acl_be(
     be_access_levels,
     disable_ech0211_settings,
     permissions_settings,
-    use_instance_service,
+    is_paper,
+    utils,
 ):
     # ensure we can submit
     be_instance.instance_state.name = "new"
@@ -350,10 +350,6 @@ def test_submit_create_acl_be(
 
     # next state must exist
     instance_state_factory(name="subm")
-
-    # BE uses instance service, but the code is common, so we test
-    # not only BE, but SZ as well by using group services
-    application_settings["USE_INSTANCE_SERVICE"] = use_instance_service
 
     # Not testing notification here
     application_settings["NOTIFICATIONS"]["SUBMIT"] = []
@@ -366,9 +362,9 @@ def test_submit_create_acl_be(
 
     # Set municipality in Caluma form
     municipality_svc = service_factory(service_group__name="municipality")
-    be_instance.case.document.answers.create(
-        question_id="gemeinde", value=str(municipality_svc.pk)
-    )
+    utils.add_answer(be_instance.case.document, "gemeinde", str(municipality_svc.pk))
+    if is_paper:
+        utils.add_answer(be_instance.case.document, "is-paper", "is-paper-yes")
 
     # Event handler so we actually get the ACL
     permissions_settings["EVENT_HANDLER"] = (
@@ -391,13 +387,17 @@ def test_submit_create_acl_be(
     url = reverse("instance-submit", args=[be_instance.pk])
 
     # Before submission, there is no municipality access
-    assert not be_instance.acls.filter(access_level="lead-authority").exists()
+    acl = be_instance.acls.filter(access_level="lead-authority")
+    assert not acl.exists()
 
     resp = admin_client.post(url)
     assert resp.status_code == status.HTTP_200_OK
 
-    # After submission, there must be municipality access
-    assert be_instance.acls.filter(access_level="lead-authority").get().is_active()
+    # After submission, there must be municipality access unless it's a paper instance
+    if is_paper:
+        assert not acl.exists()
+    else:
+        assert acl.get().is_active()
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
@@ -467,10 +467,8 @@ def test_change_responsible_service(
     assert involved.filter(service=old_responsible).exists()
 
 
-@pytest.mark.parametrize(
-    "instance_state__name,instance__location",
-    [("new", None), ("new", LazyFixture("location"))],
-)
+@pytest.mark.parametrize("instance_state__name", ["new"])
+@pytest.mark.parametrize("is_paper", [False, True])
 def test_create_instance_event_be(
     admin_client,
     admin_user,
@@ -483,7 +481,19 @@ def test_create_instance_event_be(
     caluma_forms_be,
     caluma_workflow_config_be,
     be_permissions_settings,
+    is_paper,
+    role,
+    service_group,
 ):
+    if is_paper:
+        service_group.name = "municipality"
+        service_group.save()
+
+        set_application_be["PAPER"] = {
+            "ALLOWED_ROLES": {"DEFAULT": [role.pk]},
+            "ALLOWED_SERVICE_GROUPS": {"DEFAULT": [service_group.pk]},
+        }
+
     url = reverse("instance-list")
 
     support_role = role_factory(name="support")
@@ -510,6 +520,12 @@ def test_create_instance_event_be(
 
     assert support_acl.is_active()
     assert support_acl.role == support_role
+
+    lead_authority_acl = inst.acls.filter(access_level_id="lead-authority")
+    if is_paper:
+        assert lead_authority_acl.get().is_active()
+    else:
+        assert not lead_authority_acl.exists()
 
 
 @pytest.mark.parametrize("instance_state__name", ["circulation"])

@@ -512,9 +512,6 @@ class CreateInstanceLogic:
         skip_exported_form_attachment,
     ):
         if is_paper:
-            # remove the previously created applicants
-            instance.involved_applicants.all().delete()
-
             # create instance service for permissions
             InstanceService.objects.create(
                 instance=instance,
@@ -582,15 +579,16 @@ class CreateInstanceLogic:
 
         instance = Instance.objects.create(**data)
 
-        new_applicant = instance.involved_applicants.create(
-            user=camac_user,
-            invitee=camac_user,
-            created=timezone.now(),
-            email=camac_user.email,
-        )
-        Trigger.applicant_added(
-            request=None, instance=instance, applicant=new_applicant
-        )
+        if not is_paper:
+            new_applicant = instance.involved_applicants.create(
+                user=camac_user,
+                invitee=camac_user,
+                created=timezone.now(),
+                email=camac_user.email,
+            )
+            Trigger.applicant_added(
+                request=None, instance=instance, applicant=new_applicant
+            )
 
         if settings.APPLICATION["CALUMA"].get("USE_LOCATION"):  # pragma: no cover
             CreateInstanceLogic.update_instance_location(instance)

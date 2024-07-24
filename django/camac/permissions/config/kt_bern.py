@@ -11,7 +11,7 @@ from .common import (
     ApplicantsEventHandlerMixin,
     ChangeResponsibleServiceHandlerMixin,
     DistributionHandlerMixin,
-    GrantSupportOnCreationHandlerMixin,
+    InstanceCreationHandlerMixin,
     InstanceSubmissionHandlerMixin,
 )
 
@@ -21,7 +21,7 @@ class PermissionEventHandlerBE(
     InstanceSubmissionHandlerMixin,
     ChangeResponsibleServiceHandlerMixin,
     DistributionHandlerMixin,
-    GrantSupportOnCreationHandlerMixin,
+    InstanceCreationHandlerMixin,
     # EmptyEventHandler needs to be last!
     EmptyEventHandler,
 ):
