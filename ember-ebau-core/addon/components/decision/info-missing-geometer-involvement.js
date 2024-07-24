@@ -1,4 +1,4 @@
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
 import Component from "@glimmer/component";
 import { queryManager } from "ember-apollo-client";

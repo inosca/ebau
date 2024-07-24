@@ -1,4 +1,4 @@
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
 import Field from "@projectcaluma/ember-form/lib/field";
 import { dropTask } from "ember-concurrency";

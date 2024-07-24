@@ -1,4 +1,4 @@
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { macroCondition, getOwnConfig } from "@embroider/macros";
 import { Ability } from "ember-can";
 

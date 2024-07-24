@@ -1,5 +1,5 @@
 import Controller from "@ember/controller";
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager, getObservable } from "ember-apollo-client";
 import { dropTask, restartableTask } from "ember-concurrency";

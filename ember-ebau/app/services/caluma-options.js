@@ -1,4 +1,4 @@
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import CalumaOptionsService from "@projectcaluma/ember-core/services/caluma-options";
 import { INQUIRY_STATUS } from "@projectcaluma/ember-distribution/config";
 import { cantonAware } from "ember-ebau-core/decorators";

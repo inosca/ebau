@@ -1,4 +1,4 @@
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import CategoryModel from "ember-alexandria/models/category";
 
 export default class CustomCategoryModel extends CategoryModel {

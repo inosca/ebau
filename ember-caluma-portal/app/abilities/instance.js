@@ -1,4 +1,4 @@
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { Ability } from "ember-can";
 import { hasInstanceState } from "ember-ebau-core/abilities/instance";
 import mainConfig from "ember-ebau-core/config/main";

@@ -1,4 +1,4 @@
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 
 import CustomCaseBaseModel from "ember-ebau-core/caluma-query/models/-case";
 import mainConfig from "ember-ebau-core/config/main";

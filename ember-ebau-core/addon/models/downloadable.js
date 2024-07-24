@@ -1,4 +1,4 @@
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import Model from "@ember-data/model";
 import { dropTask } from "ember-concurrency";
 import { saveAs } from "file-saver";
