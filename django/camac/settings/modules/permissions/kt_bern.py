@@ -213,7 +213,6 @@ BE_PERMISSIONS_SETTINGS = {
         "geometer": [
             ("form-read", Always()),
             ("documents-read", Always()),
-            ("document", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
             ("work-items-read", GEOMETER_RW),
             ("communications-read", GEOMETER_RW),
             ("dms-generate-read", GEOMETER_RW),
