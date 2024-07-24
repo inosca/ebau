@@ -157,6 +157,7 @@ omit = [
     # Permission module temporary commands. These are used during the transition
     # phase and will be removed again later on.
     "camac/permissions/management/commands/migrate_permissions.py",
+    "camac/permissions/management/commands/list_permissions.py",
     "camac/permissions/management/commands/validate_instance_permissions.py",
     # Temporary exlusions, remove when publication permission endpoint is reenabled"
     # revert !2353 to remove"

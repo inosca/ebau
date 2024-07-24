@@ -76,6 +76,18 @@ Matching constants, or "constant functions" for these permissions are defined in
 * `[GRANT|REVOKE|LIST]_ANY`
 * `[GRANT|REVEOKE|LIST]_SPECIFIC(accesslevel_name)`
 
+There is a management command that you can use to list all currently-defined
+permissions, and the context (access levels) where they are used:
+
+```
+./manage.py list_permissions [--all-cantons]
+PERMISSION                         ACCESS LEVEL
+additional-demands-read          - distribution-service(so), involved-authority(bern), lead-authority(bern,so)
+appeal-read                      - involved-authority(bern), lead-authority(bern,so)
+applicant-add                    - applicant(bern,so)
+...
+```
+
 ### Permission conditions
 
 Each permission within an access level may be decorated with a composable set of
