@@ -19,7 +19,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
   @service router;
   @service intl;
   @service notification;
-  @service can;
+  @service abilities;
 
   @tracked meta = this.raw.meta;
   @tracked notViewed = this.raw.meta["not-viewed"];
@@ -227,13 +227,13 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get directLink() {
-    if (this.can.cannot("edit work-item", this)) return null;
+    if (this.abilities.cannot("edit work-item", this)) return null;
 
     return this._getDirectLinkFor(this.raw.task.slug) || this.editLink;
   }
 
   get editLink() {
-    if (!this.can.can("edit work-item", this)) {
+    if (!this.abilities.can("edit work-item", this)) {
       return false;
     }
 

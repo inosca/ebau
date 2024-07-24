@@ -8,7 +8,7 @@ export default class WorkItemListItemComponent extends Component {
   @service ebauModules;
   @service router;
   @service intl;
-  @service can;
+  @service abilities;
 
   get actions() {
     return [
@@ -20,7 +20,7 @@ export default class WorkItemListItemComponent extends Component {
   }
 
   get editAction() {
-    if (this.can.cannot("edit work-item", this.args.workItem)) {
+    if (this.abilities.cannot("edit work-item", this.args.workItem)) {
       return null;
     }
 
@@ -32,8 +32,8 @@ export default class WorkItemListItemComponent extends Component {
 
   get readAction() {
     if (
-      this.can.cannot("read work-item", this.args.workItem) ||
-      this.can.can("edit work-item", this.args.workItem)
+      this.abilities.cannot("read work-item", this.args.workItem) ||
+      this.abilities.can("edit work-item", this.args.workItem)
     ) {
       return null;
     }
@@ -45,7 +45,7 @@ export default class WorkItemListItemComponent extends Component {
   }
 
   get toggleReadAction() {
-    if (this.can.cannot("toggle read work-item", this.args.workItem)) {
+    if (this.abilities.cannot("toggle read work-item", this.args.workItem)) {
       return null;
     }
 
@@ -60,7 +60,7 @@ export default class WorkItemListItemComponent extends Component {
   }
 
   get assignToMeAction() {
-    if (this.can.cannot("assign to me work-item", this.args.workItem)) {
+    if (this.abilities.cannot("assign to me work-item", this.args.workItem)) {
       return null;
     }
 
