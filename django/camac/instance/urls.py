@@ -21,11 +21,6 @@ urlpatterns = [
         views.FormConfigDownloadView.as_view(),
         name="form-config-download",
     ),
-    re_path(
-        r"public-caluma-instances",
-        views.PublicCalumaInstanceView.as_view(),
-        name="public-caluma-instance",
-    ),
 ]
 
 r = SimpleRouter(trailing_slash=False)
@@ -43,6 +38,9 @@ r.register(r"history-entries", views.HistoryEntryView, "history-entry")
 r.register(r"issues", views.IssueView)
 r.register(r"issue-templates", views.IssueTemplateView, "issue-template")
 r.register(r"issue-template-sets", views.IssueTemplateSetView, "issue-template-set")
+r.register(
+    r"public-caluma-instances", views.PublicCalumaInstanceView, "public-caluma-instance"
+)
 
 
 urlpatterns.extend(r.urls)

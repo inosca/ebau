@@ -226,3 +226,8 @@ PublicationPermission = IsPublicAccess & (
         & (PublicationSZ | PublicationTest)
     )
 )
+
+ViewedPublicationCountPermissions = IsPublicAccess & (
+    IsView("PublicCalumaInstanceView")
+    & (IsApplication("kt_schwyz") & permissions.IsAuthenticated)
+)
