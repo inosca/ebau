@@ -4,6 +4,7 @@ from camac.permissions.switcher import PERMISSION_MODE
 from .common import REQUIRE_NEW_STATE
 from .kt_bern import BE_PERMISSIONS_SETTINGS
 from .kt_gr import GR_PERMISSIONS_SETTINGS
+from .kt_schwyz import SZ_PERMISSIONS_SETTINGS
 from .kt_so import SO_PERMISSIONS_SETTINGS
 from .typing import PermissionsConfig
 
@@ -48,4 +49,5 @@ PERMISSIONS: PermissionsConfig = {
     "kt_bern": BE_PERMISSIONS_SETTINGS,
     "kt_gr": GR_PERMISSIONS_SETTINGS,
     "kt_so": SO_PERMISSIONS_SETTINGS,
+    "kt_schwyz": SZ_PERMISSIONS_SETTINGS,
 }
