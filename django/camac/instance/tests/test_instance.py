@@ -2165,6 +2165,21 @@ def test_instance_list_commission(db, admin_client, has_assignment, request, ins
         assert len(json["data"]) == 0
 
 
+@pytest.mark.parametrize("role__name", ["building_commission"])
+def test_instance_list_building_commission(
+    db, admin_client, request, ur_instance, work_item_factory
+):
+    work_item_factory(
+        addressed_groups=[str(admin_client.user.groups.first().service.pk)],
+        case=ur_instance.case,
+    )
+    url = reverse("instance-list")
+    response = admin_client.get(url)
+    json = response.json()
+    assert len(json["data"]) == 1
+    assert json["data"][0]["id"] == str(ur_instance.pk)
+
+
 @pytest.mark.parametrize("role__name", ["OrganizationReadonly"])
 def test_instance_list_organization_readonly(
     db, admin_client, request, instance_factory, location_factory, form_factory, mocker
@@ -2358,7 +2373,7 @@ def test_linked_instances_ur(db, ur_instance, instance_factory, set_application_
     instance_group = InstanceGroup.objects.create()
     other_instance = instance_factory(instance_group=instance_group)
 
-    assert ur_instance.get_linked_instances() == []
+    assert len(ur_instance.get_linked_instances()) == 0
 
     ur_instance.instance_group = instance_group
     ur_instance.save()
@@ -2484,3 +2499,25 @@ def test_inquiry_state_filter(
     response = admin_client.get(url, data={"inquiry_state": inquiry_state})
     assert response.status_code == status.HTTP_200_OK
     assert len(response.json()["data"]) == expected
+
+
+@pytest.mark.django_db()
+def test_responsible_building_commission(
+    mocker, ur_instance, group_factory, location_factory, service_factory
+):
+    location = location_factory()
+
+    municipality = service_factory()
+    building_commission = service_factory(
+        service_group__name="Mitglieder Baukommissionen"
+    )
+
+    for service in [municipality, building_commission]:
+        group = group_factory()
+        group.locations.add(location)
+        group.save()
+        service.groups.add(group)
+
+    mocker.patch.object(ur_instance, "municipality", municipality)
+
+    assert ur_instance.responsible_building_commission == building_commission

@@ -121,6 +121,9 @@ class ServiceView(MultilangMixin, ModelViewSet):
     def get_queryset_for_geometer(self):
         return super().get_queryset()
 
+    def get_queryset_for_building_commission(self):
+        return super().get_queryset()
+
 
 class PublicServiceView(MultilangMixin, ReadOnlyModelViewSet):
     filterset_class = filters.PublicServiceFilterSet

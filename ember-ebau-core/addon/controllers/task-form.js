@@ -35,6 +35,7 @@ export default class TaskFormController extends Controller {
         "geometer",
         "complete-instance",
         "complete-check",
+        "release-for-bk",
       ].includes(this.model)
     ) {
       this.ebauModules.redirectToWorkItems();
