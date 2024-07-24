@@ -206,6 +206,7 @@ APPLICATIONS = {
             "subservice": "service",
             "Geometer": "geometer",
             "uso": "uso",
+            "building_commission": "building_commission",
         },
         "ADMIN_GROUP": 1,
         "ROLE_INHERITANCE": {"trusted_service": "service"},
@@ -1136,6 +1137,11 @@ APPLICATIONS = {
                     "next_instance_state": "arch",
                 },
             },
+            "PRE_COMPLETE": {
+                "decision": {
+                    "complete": ["review-building-commission"],
+                },
+            },
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "BAB_MUNICIPALITY_MAPPING": {
                 # location_id: "Service name"
@@ -1204,7 +1210,7 @@ APPLICATIONS = {
             "Koordinationsstelle Sicherheitsdirektion SD": "coordination",
             "Koordinationsstelle Umwelt AfU": "coordination",
             "Koordinationsstelle Amt für das Grundbuch AfG": "coordination",
-            "Mitglied der Gemeindebaubehörde": "municipality",  # TODO Maybe we should introduce a municipality_readonly role?
+            "Mitglied der Gemeindebaubehörde": "building_commission",
             "Mitglied einer Kommission oder Fachgruppe": "commission",
             "Organisation mit Leseberechtigung": "organization_readonly",
             "Sekretariat der Gemeindebaubehörde": "municipality",
@@ -1310,7 +1316,7 @@ APPLICATIONS = {
         "GENERALIZED_ROLE_MAPPING": {
             "Vernehmlassungsstelle mit Koordinationsaufgaben": "service-lead",
             "Sekretariat der Gemeindebaubehörde": "municipality-lead",
-            "Mitglied der Gemeindebaubehörde": "municipality-clerk",
+            "Mitglied der Gemeindebaubehörde": "building-commission",
             "Vernehmlassungsstelle ohne Koordinationsaufgaben": "service-lead",
             "Mitglied einer Kommission oder Fachgruppe": "service-clerk",
             "Gemeinde als Vernehmlassungsstelle": "service-lead",

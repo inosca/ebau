@@ -106,7 +106,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
     @register_dynamic_task("after-complete-check-ur")
     def resolve_after_complete_check_ur(self, case, user, prev_work_item, context):
-        complete_check_document = prev_work_item.document
+        complete_check_document = case.work_items.get(task="complete-check").document
 
         is_incomplete = (
             complete_check_document.answers.get(

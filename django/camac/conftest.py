@@ -559,7 +559,7 @@ def caluma_workflow_config_ur(
         ].items()
     }
 
-    for slug in [*CALUMA_FORM_TYPES_SLUGS, "gebaeudeschaetzung"]:
+    for slug in [*CALUMA_FORM_TYPES_SLUGS, "gebaeudeschaetzung", "release-for-bk"]:
         caluma_form_models.Form.objects.create(slug=slug)
 
     call_command(
