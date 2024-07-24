@@ -225,3 +225,43 @@ mutation CreateBabTask {
     clientMutationId
   }
 }
+
+# Release for BK
+mutation CreateReleaseForBKTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "release-for-bk"
+      name: "Freigeben für Baukomission"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 259200 # 3 days,
+      form: "release-for-bk"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation BuildingCommissionReviewTask {
+  saveSimpleTask(
+    input: {
+      slug: "review-building-commission"
+      name: "Dossier sichten"
+      addressGroups: "['building-commission']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateReleaseForBKFlow2 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["release-for-bk"]
+      next: "['review-building-commission']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}

@@ -288,6 +288,9 @@ class InstanceQuerysetMixin(object):
             | self.permissions_manager().get_q_object(self.instance_field)
         )
 
+    def get_queryset_for_building_commission(self, group=None):
+        return self.get_queryset_for_municipality(group)
+
     def get_queryset_for_public(self, group=None):
         queryset = self.get_base_queryset()
 

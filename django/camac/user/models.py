@@ -1,5 +1,7 @@
 import hashlib
+from functools import cached_property
 
+from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.db import models
@@ -649,6 +651,10 @@ class Service(core_models.MultilingualModel, models.Model):
         related_name="has_function_in",
         verbose_name=_("Services that perform a specific function"),
     )
+
+    @cached_property
+    def addressed_work_items(self):
+        return WorkItem.objects.filter(addressed_groups__contains=[self.pk])
 
     class Meta:
         managed = True
