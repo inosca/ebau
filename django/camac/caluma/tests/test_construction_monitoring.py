@@ -5,6 +5,7 @@ from caluma.caluma_workflow.api import complete_work_item
 from caluma.caluma_workflow.models import Case, WorkItem
 from django.core import mail
 
+from camac.caluma.extensions.visibilities import CustomVisibility
 from camac.instance.models import InstanceState
 
 
@@ -383,3 +384,17 @@ def test_complete_construction_step_work_item(
     assert len(mail.outbox) == 1
     assert sz_instance.group.service.email in mail.outbox[0].recipients()
     ech_signal_mock.assert_called_once()
+
+
+def test_construction_monitoring_work_item_visibility_coordination(mocker):
+    custom_visibility = CustomVisibility()
+    mocker.patch.object(
+        custom_visibility,
+        "visible_construction_step_work_items_expression_for_municipality",
+    )
+
+    custom_visibility.visible_construction_step_work_items_expression_for_coordination(
+        None
+    )
+
+    assert custom_visibility.visible_construction_step_work_items_expression_for_municipality.called
