@@ -57,7 +57,14 @@ INSTANCE_STATUS_MAPPING = {
         ("decision", WorkItem.STATUS_READY, {}),
     ],
     "arch": [  # "name": "arch", "description": "Archiviert"
-        *WORK_ITEMS_FOR_INSTANCE_IN_PROGRESS,
+        ("submit", WorkItem.STATUS_COMPLETED, {"applicant": True}),
+        ("create-manual-workitems", WorkItem.STATUS_COMPLETED, {}),
+        ("instance-management", WorkItem.STATUS_COMPLETED, {}),
+        (
+            "complete-check",
+            WorkItem.STATUS_COMPLETED,
+            {},
+        ),
         ("decision", WorkItem.STATUS_COMPLETED, {}),
         ("construction-supervision", WorkItem.STATUS_COMPLETED, {}),
         ("archive", WorkItem.STATUS_COMPLETED, {}),
@@ -124,6 +131,11 @@ class Command(BaseCommand):
             action="store_true",
             default=False,
         )
+
+        parser.add_argument("--reset", dest="reset", action="store_true", default=False)
+
+    def reset(self):
+        WorkItem.objects.filter(meta__migrated=True).delete()
 
     def create_work_item_from_task(  # noqa: C901
         self,
@@ -254,6 +266,9 @@ class Command(BaseCommand):
         self.verbose = not options["only_creation_log"]
 
         self.stdout.write("Starting Instance to Caluma Case and WorkItem migration")
+
+        if options.get("reset"):
+            self.reset()
 
         instances = Instance.objects.all()
 
