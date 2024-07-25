@@ -35,7 +35,7 @@ export default function makeServer(config) {
         function ({ billingV2Entries }) {
           return billingV2Entries.create({
             ...this.normalizedRequestAttrs(),
-            finalRate: faker.finance.amount(1, 1000),
+            finalRate: faker.finance.amount({ min: 1, max: 1000 }),
           });
         },
         201,
@@ -46,16 +46,16 @@ export default function makeServer(config) {
         json.meta = {
           totals: {
             cantonal: {
-              uncharged: faker.finance.amount(1, 1000),
-              total: faker.finance.amount(1, 1000),
+              uncharged: faker.finance.amount({ min: 1, max: 1000 }),
+              total: faker.finance.amount({ min: 1, max: 1000 }),
             },
             municipal: {
-              uncharged: faker.finance.amount(1, 1000),
-              total: faker.finance.amount(1, 1000),
+              uncharged: faker.finance.amount({ min: 1, max: 1000 }),
+              total: faker.finance.amount({ min: 1, max: 1000 }),
             },
             all: {
-              uncharged: faker.finance.amount(1, 1000),
-              total: faker.finance.amount(1, 1000),
+              uncharged: faker.finance.amount({ min: 1, max: 1000 }),
+              total: faker.finance.amount({ min: 1, max: 1000 }),
             },
           },
         };
