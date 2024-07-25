@@ -48,25 +48,29 @@ def test_applicant_update(admin_client, be_instance):
 
 @pytest.fixture
 def applicant_permissions_module(permissions_settings, access_level_factory):
-    lvl = access_level_factory(slug="applicant", applicable_area="APPLICANT")
-    muni = access_level_factory(slug="municipality", applicable_area="INTERNAL")
+    access_level_factory(slug="applicant", applicable_area="APPLICANT")
+    access_level_factory(slug="municipality", applicable_area="INTERNAL")
+    access_level_factory(slug="distribution-service", applicable_area="INTERNAL")
+    access_level_factory(slug="support", applicable_area="ANY")
 
     # Bern already does the "right" thing
     mod = "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
 
     permissions_settings["EVENT_HANDLER"] = mod
-    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.AUTO_ON
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.CHECKING
 
     permissions_settings.setdefault("ACCESS_LEVELS", {})
 
-    permissions_settings["ACCESS_LEVELS"][lvl.slug] = [
+    permissions_settings["ACCESS_LEVELS"]["applicant"] = [
         ("applicant-add", Always()),
         ("applicant-remove", Always()),
         ("applicant-read", Always()),
     ]
-    permissions_settings["ACCESS_LEVELS"][muni.slug] = [
+    permissions_settings["ACCESS_LEVELS"]["municipality"] = [
         ("applicant-read", Always()),
     ]
+    permissions_settings["ACCESS_LEVELS"]["support"] = []
+    permissions_settings["ACCESS_LEVELS"]["distribution-service"] = []
 
     # return value is just for parametrization id
     return "permissions_module_active"
@@ -110,11 +114,18 @@ def test_applicant_delete(
         # TODO can we lazyfixture this?
         request.getfixturevalue("applicant_permissions_module")
         _sync_applicants(be_instance)
-        if role.name == "Municipality":
+
+        role_mapping = {
+            "Municipality": "municipality",
+            "Support": "support",
+            "Service": "distribution-service",
+        }
+
+        if role.name in role_mapping:
             instance_acl_factory(
                 user=admin_client.user,
                 grant_type="USER",
-                access_level_id="municipality",
+                access_level_id=role_mapping[role.name],
                 instance=be_instance,
             )
 
