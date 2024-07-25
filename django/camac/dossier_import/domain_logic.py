@@ -16,6 +16,9 @@ from django.utils.module_loading import import_string
 from requests_toolbelt.multipart.encoder import MultipartEncoder
 
 from camac.core.utils import generate_ebau_nr
+from camac.dossier_import.dossier_classes import (
+    Dossier,
+)
 from camac.dossier_import.loaders import XlsxFileDossierLoader
 from camac.dossier_import.messages import (
     DOSSIER_IMPORT_STATUS_ERROR,
@@ -62,6 +65,7 @@ def perform_import(dossier_import):
         )
         dossier_import.messages["import"] = {"details": []}
         for dossier in loader.load_dossiers(dossier_import.get_archive()):
+            dossier: Dossier
             try:
                 message = writer.import_dossier(
                     dossier,
