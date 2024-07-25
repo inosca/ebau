@@ -1,0 +1,20 @@
+<label class="uk-form-label uk-text-bold">{{t
+    "additional-demand.documents"
+  }}</label>
+<div
+  {{did-insert (perform this.fetchAttachments)}}
+  {{will-destroy this.teardown}}
+>
+  {{#each this.buckets as |bucket|}}
+    <BeDocumentBucket
+      @slug={{bucket}}
+      @disabled={{@disabled}}
+      @deletable={{not @disabled}}
+      @loading={{this.fetchAttachments.isRunning}}
+      @attachments={{get this.attachments bucket}}
+      @useConfidential={{this.useConfidential}}
+      @onUpload={{perform this.add}}
+      @onDelete={{perform this.remove}}
+    />
+  {{/each}}
+</div>

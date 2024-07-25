@@ -69,5 +69,24 @@ ADDITIONAL_DEMAND = {
     },
     "kt_uri": {
         "ENABLED": True,
+        "ALLOW_SUBSERVICES": True,
+        "STATES": {
+            "PENDING_ADDITIONAL_DEMANDS": "nfd",
+            "AFTER_ADDITIONAL_DEMANDS": "comm",
+        },
+        "NOTIFICATIONS": {
+            "ACCEPTED": [
+                {
+                    "recipient_types": ["additional_demand_inviter"],
+                    "template_slug": "additional-demand-decision-accept",
+                }
+            ],
+            "REJECTED": [
+                {
+                    "recipient_types": ["applicant"],
+                    "template_slug": "additional-demand-decision-reject",
+                }
+            ],
+        },
     },
 }

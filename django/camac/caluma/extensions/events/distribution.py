@@ -4,6 +4,7 @@ from itertools import chain
 from caluma.caluma_core.events import on, send_event
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Form, Question
+from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import (
     cancel_work_item,
     complete_work_item,
@@ -583,3 +584,26 @@ def post_complete_inquiry_check(
             cancel_work_item(
                 work_item=init_additional_demand, user=user, context=context
             )
+
+
+@on(post_create_work_item, raise_exception=True)
+@filter_by_task("DISTRIBUTION_INIT_TASK")
+@transaction.atomic
+def post_create_distribution_init_task(sender, work_item, user, context=None, **kwargs):
+    if settings.APPLICATION_NAME == "kt_uri":
+        # If the complete-check showed that an additional-demand has to be answered before the distribution can start
+        # we need to suspend the distribution
+        complete_check_answer = (
+            work_item.case.family.work_items.get(
+                task_id=settings.APPLICATION["CALUMA"]["COMPLETE_CHECK_TASK"]
+            )
+            .document.answers.get(
+                question_id="complete-check-vollstaendigkeitspruefung"
+            )
+            .value
+        )
+        if complete_check_answer in [
+            "complete-check-vollstaendigkeitspruefung-incomplete-wait",
+            "complete-check-vollstaendigkeitspruefung-reject",
+        ]:
+            workflow_api.suspend_work_item(work_item=work_item, user=user)

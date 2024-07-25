@@ -1109,6 +1109,7 @@ APPLICATIONS = {
         ],
         "DOCUMENTS_SKIP_CONTEXT_VALIDATION": True,
         "CALUMA": {
+            "COMPLETE_CHECK_TASK": "complete-check",
             "FORM_PERMISSIONS": ["main", "inquiry", "inquiry-answer"],
             "FILL_PUBLICATION_TASK": None,
             "HAS_PROJECT_CHANGE": True,
@@ -1126,6 +1127,18 @@ APPLICATIONS = {
             "SIMPLE_WORKFLOW": {
                 "complete-check": {
                     "next_instance_state": "comm",
+                },
+                "send-additional-demand": {
+                    "notification": {
+                        "template_slug": "send-additional-demand",
+                        "recipient_types": ["applicant"],
+                    },
+                },
+                "fill-additional-demand": {
+                    "notification": {
+                        "template_slug": "fill-additional-demand",
+                        "recipient_types": ["work_item_controlling"],
+                    },
                 },
                 "complete-distribution": {
                     "next_instance_state": "done",

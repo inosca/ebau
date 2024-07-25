@@ -20,7 +20,8 @@ mutation CreateFlow1 {
       next: "[
         'complete-check',
         'create-manual-workitems',
-        'instance-management'
+        'instance-management',
+        'init-additional-demand'
       ]|tasks"
     }
   ) {
