@@ -18,6 +18,7 @@ CONSTRUCTION_MONITORING = {
             "baugesuch-reklamegesuch",
             "projektanderung",
             "technische-bewilligung",
+            "baumeldung-fur-geringfugiges-vorhaben",
         ],
         "NOTIFICATIONS": {
             # construction-step tasks/workflow: notification config

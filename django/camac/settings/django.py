@@ -507,7 +507,7 @@ APPLICATIONS = {
                 "reject-form": {"cancel": ["complete-check", "depreciate-case"]},
                 "formal-addition": {"cancel": ["archive-instance"]},
                 "make-decision": {
-                    "skip": [
+                    "cancel": [
                         "depreciate-case",
                     ],
                 },
