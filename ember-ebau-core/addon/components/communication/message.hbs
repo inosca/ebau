@@ -37,6 +37,7 @@
           <IconButton
             @icon="check"
             @loading={{this.markAsUnread.isRunning}}
+            @disabled={{this.markAsUnread.isRunning}}
             class={{if this.readByEveryone "uk-text-success"}}
             data-test-read-details-trigger
           />
@@ -73,6 +74,7 @@
           @icon="eye"
           @onClick={{perform this.markAsRead}}
           @loading={{this.markAsRead.isRunning}}
+          @disabled={{this.markAsRead.isRunning}}
           data-test-mark-read
           {{uk-tooltip (t "communications.detail.markAsRead")}}
         />

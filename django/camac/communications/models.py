@@ -39,6 +39,9 @@ class CommunicationsReadMarker(models.Model):
     )
     entity = models.CharField(max_length=50)
 
+    class Meta:
+        unique_together = (("message", "entity"),)
+
 
 class CommunicationsMessage(models.Model):
     topic = models.ForeignKey(
