@@ -81,6 +81,7 @@ class XlsxFileDossierLoader:
         "custom_1",
         "custom_2",
         "link",
+        "responsible",
     ]
     date_fields = [
         "submit_date",
@@ -149,6 +150,7 @@ class XlsxFileDossierLoader:
         projectauthor_town = "PROJECTAUTHOR-CITY"
         projectauthor_phone = "PROJECTAUTHOR-PHONE"
         projectauthor_email = "PROJECTAUTHOR-EMAIL"
+        responsible = "RESPONSIBLE"
 
     def load_person(self, dossier_row, prefix):
         """Construct a Person object for a type if any value is given.
@@ -350,7 +352,7 @@ class XlsxFileDossierLoader:
             )
         return out, messages
 
-    def load_dossiers(self, archive: zipfile.ZipFile) -> Generator:
+    def load_dossiers(self, archive: zipfile.ZipFile) -> Generator[Dossier, None, None]:
         data_file = archive.open("dossiers.xlsx")
         try:
             work_book = openpyxl.load_workbook(data_file, data_only=True)

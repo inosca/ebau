@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-04 12:00+0200\n"
-"PO-Revision-Date: 2024-06-04 12:06+0200\n"
+"POT-Creation-Date: 2024-08-05 17:18+0200\n"
+"PO-Revision-Date: 2024-08-05 17:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -533,12 +533,33 @@ msgstr ""
 "La suppression de %(target)s n'a aucun effet car l'élément de travail "
 "%(task)s n'existe pas. Sauter."
 
-#: camac/dossier_import/writers.py:299
+#: camac/dossier_import/writers.py:292
 #, python-format
 msgid "Value \"%(value)s\" in field %(target)s is too long (max: %(max)s)"
 msgstr ""
 "La valeur \"%(value)s\" dans le champ %(target)s est trop longue (%(max)s "
 "caractères maximum)"
+
+#: camac/dossier_import/writers.py:556
+msgid "No responsible service, cannot set responsible user"
+msgstr "Pas de service responsable, pas d'utilisateur responsable"
+
+#: camac/dossier_import/writers.py:569
+#, python-brace-format
+msgid "Multiple users in database with email {value}"
+msgstr "Plusieurs utilisateurs dans la base de données avec courriel {value}"
+
+#: camac/dossier_import/writers.py:573
+#, python-brace-format
+msgid "No user found in database with email {value}"
+msgstr ""
+"Aucun utilisateur n'a été trouvé dans la base de données avec courriel "
+"{value}"
+
+#: camac/dossier_import/writers.py:581
+#, python-brace-format
+msgid "Could not assign/update responsible: {detail}"
+msgstr "Impossible d'attribuer/mettre à jour le responsable: {detail}"
 
 #: camac/ech0211/send_handlers.py:737
 #, fuzzy

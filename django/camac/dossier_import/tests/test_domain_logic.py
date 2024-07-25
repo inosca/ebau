@@ -71,6 +71,13 @@ def test_perform_reimport(  # noqa: C901
     perform_import(first_import)
 
     imported_dossier = writer.existing_dossier(dossier_id)
+
+    if config == "kt_bern":
+        # Ensure responsible user is imported. Currently only defined in BERN
+        assert imported_dossier.responsible_services.filter(
+            responsible_user__email="admin@example.com"
+        ).exists()
+
     # The followup import should replace the file with the name Baugesuch.pdf
     # with something else.
     if config in ["kt_bern", "kt_schwyz"]:
@@ -100,6 +107,17 @@ def test_perform_reimport(  # noqa: C901
     updated_values = {
         key: getattr(md, key) for key in MASTER_DATA[config]["CONFIG"].keys()
     }
+
+    if config == "kt_bern" and reimport_file == "import-example-no-errors-reimport.zip":
+        # in the reimport file, the user should be removed
+        assert not imported_dossier.responsible_services.filter(
+            responsible_user__isnull=False
+        ).exists()
+    elif config == "kt_bern" and reimport_file == "import-example-no-errors.zip":
+        # Same value, should be kept
+        assert imported_dossier.responsible_services.filter(
+            responsible_user__email="admin@example.com"
+        ).exists()
 
     # get the imported values from the secondary archive that should have
     # been written to the dossier

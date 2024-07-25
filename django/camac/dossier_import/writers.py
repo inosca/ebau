@@ -534,6 +534,60 @@ class EbauNumberWriter(FieldWriter):
         instance.case.save()
 
 
+class ResponsibleUserWriter(FieldWriter):
+    def write(self, instance: Instance, value):
+        dossier = self.context.get("dossier")
+
+        existing_responsible_users = instance.responsible_services.filter(
+            responsible_user__isnull=False
+        )
+
+        if str(value).upper() == settings.DOSSIER_IMPORT["DELETE_KEYWORD"]:
+            # TODO: really only the ones that point to users?
+            existing_responsible_users.delete()
+        elif value:
+            # No further validation - User must exist, otherwise
+            # we can't write the responsible user
+            users = User.objects.filter(email=value)
+            responsible_service = instance.responsible_service()
+
+            users_count = users.count()
+            if not responsible_service:
+                detail = _("No responsible service, cannot set responsible user")
+
+            elif users_count == 1:
+                # One user found, expected case, simply assign and be happy
+                # Delete any old ones, so this becomes the new properly-set value
+                existing_responsible_users.delete()
+                instance.responsible_services.create(
+                    responsible_user=users.get(),
+                    service=responsible_service,
+                )
+                return
+
+            elif users_count > 1:
+                detail = _("Multiple users in database with email {value}").format(
+                    value=value
+                )
+            elif users_count == 0:
+                detail = _("No user found in database with email {value}").format(
+                    value=value
+                )
+
+            dossier._meta.errors.append(
+                Message(
+                    level=Severity.WARNING.value,
+                    code=MessageCodes.FIELD_VALIDATION_ERROR.value,
+                    detail=_("Could not assign/update responsible: {detail}").format(
+                        detail=detail
+                    ),
+                )
+            )
+        elif not value:
+            # No change: If anything's there,
+            pass
+
+
 class DossierWriter:
     delete_keyword = settings.DOSSIER_IMPORT["DELETE_KEYWORD"]
 
