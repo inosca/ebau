@@ -5,7 +5,7 @@ from camac.permissions.events import EmptyEventHandler
 from .common import (
     ApplicantsEventHandlerMixin,
     DistributionHandlerMixin,
-    GrantSupportOnCreationHandlerMixin,
+    InstanceCreationHandlerMixin,
     InstanceSubmissionHandlerMixin,
 )
 
@@ -13,7 +13,7 @@ from .common import (
 class PermissionEventHandlerSO(
     ApplicantsEventHandlerMixin,
     DistributionHandlerMixin,
-    GrantSupportOnCreationHandlerMixin,
+    InstanceCreationHandlerMixin,
     InstanceSubmissionHandlerMixin,
     EmptyEventHandler,
 ):
