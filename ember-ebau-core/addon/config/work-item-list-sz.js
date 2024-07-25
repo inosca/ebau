@@ -2,13 +2,22 @@ export default {
   showTaskFilter: true,
   availableTasks: {
     roles: {
-      municipality: ["complete-check", "init-distribution", "make-decision"],
-      service: ["fill-inquiry", "inquiry", "check-inquiry", "alter-inquiry"],
+      municipality: [
+        "complete-check",
+        "init-distribution",
+        "make-decision",
+        "init-construction-monitoring",
+        "complete-instance",
+      ],
+      service: [
+        "fill-inquiry",
+        "inquiry",
+        "check-inquiry",
+        "alter-inquiry",
+        "check-inquiries",
+      ],
     },
-    services: {
-      /* Baugesuchszentrale (Fachstelle) */
-      7: ["check-inquiries"],
-    },
+    services: {},
     default: [],
   },
 };
