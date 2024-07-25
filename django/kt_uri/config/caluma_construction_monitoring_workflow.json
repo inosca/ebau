@@ -851,7 +851,7 @@
         },
         "construction-step-id": "construction-step-schnurgeruestabnahme"
       },
-      "address_groups": "['municipality']|groups",
+      "address_groups": "['municipality', 'schnurgeruestabnahme-uri']|groups",
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "construction-step-schnurgeruest-kontrollieren",
