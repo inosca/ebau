@@ -97,3 +97,44 @@ def test_extract_filter_data():
 
     out = ast_utils.extract_filter_data(info)
     assert out == [{"one": "uno", "two": "dos"}]
+
+
+@pytest.mark.parametrize(
+    "filter_name, filter_value, expected_output",
+    [
+        ("task", "some-task", ["some-task"]),
+        ("tasks", ["some-task"], ["some-task"]),
+        ("tasks", ["some-task", "some-other-task"], ["some-task", "some-other-task"]),
+    ],
+)
+def test_extract_tasks_from_filters(filter_name, filter_value, expected_output):
+    info = FakeInfo(
+        variable_values={"foo": "bar"},
+        field_nodes=[
+            FieldNode(
+                arguments=[
+                    ArgumentNode(
+                        name=NameNode(
+                            value="filter",
+                        ),
+                        value=ListValueNode(
+                            values=[
+                                ObjectValueNode(
+                                    fields=[
+                                        ObjectFieldNode(
+                                            name=NameNode(value=filter_name),
+                                            value=StringValueNode(value=filter_value),
+                                        ),
+                                    ]
+                                )
+                            ]
+                        ),
+                    )
+                ]
+            )
+        ],
+    )
+
+    out = ast_utils.extract_tasks_from_filters(info)
+
+    assert out == expected_output

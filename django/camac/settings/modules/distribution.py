@@ -8,6 +8,9 @@ from camac.utils import (
     is_lead_role,
 )
 
+"""
+WARNING: Any key that is either "TASK or ends with "_TASK" will be picked up by the visibilty filter for work items (see django/camac/extensions/visibilities.py).
+"""
 DISTRIBUTION = {
     "default": {
         "DEFAULT_DEADLINE_LEAD_TIME": 30,  # 30 days, needs to be the same as configured in the frontend
