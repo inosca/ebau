@@ -462,6 +462,31 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
         ):
             cancel_work_item(work_item=work_item_to_cancel, user=user, context=context)
 
+    pending_inquiries_of_controlling_service = work_item.case.work_items.filter(
+        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+        status=WorkItem.STATUS_READY,
+        controlling_groups=work_item.controlling_groups,
+    )
+    # If the controlling service of the just completed inquiry has no more
+    # pending inquiries, we need to set a deadline on their check-inquiries work item
+    # in case they don't have a deadline yet.
+    if not pending_inquiries_of_controlling_service.exists():
+        check_inquiries_work_item_of_controlling_service_without_deadline = (
+            work_item.case.work_items.filter(
+                task_id=settings.DISTRIBUTION["INQUIRY_CHECK_TASK"],
+                status=WorkItem.STATUS_READY,
+                addressed_groups=work_item.controlling_groups,
+                deadline__isnull=True,
+            ).first()
+        )
+
+        if check_inquiries_work_item_of_controlling_service_without_deadline:
+            check_inquiries_work_item_of_controlling_service_without_deadline.deadline = (
+                now()
+                + timedelta(days=settings.DISTRIBUTION["DEFAULT_DEADLINE_LEAD_TIME"])
+            )
+            check_inquiries_work_item_of_controlling_service_without_deadline.save()
+
     if settings.ECH0211.get("API_LEVEL") == "full":
         camac_user = User.objects.get(username=user.username)
         accompanying_report_send.send(
