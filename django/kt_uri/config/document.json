@@ -108,6 +108,18 @@
     }
   },
   {
+    "model": "document.attachmentsection",
+    "pk": 12000009,
+    "fields": {
+      "name": "Nachforderung",
+      "description": "Nachgeforderte Dokumente",
+      "sort": 9,
+      "notification_template": null,
+      "recipient_types": null,
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"text/plain\", \"application/octet-stream\"]"
+    }
+  },
+  {
     "model": "document.attachmentsectiont",
     "pk": 1,
     "fields": {
@@ -195,6 +207,16 @@
       "language": "de",
       "name": "Dokumente AFJ",
       "description": "Dokumente der KOOR AFJ"
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 10,
+    "fields": {
+      "attachment_section": 12000009,
+      "language": "de",
+      "name": "Dokumente Nachforderung",
+      "description": "Nachgeforderte Dokumente"
     }
   }
 ]

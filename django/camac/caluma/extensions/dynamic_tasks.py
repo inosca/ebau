@@ -108,15 +108,15 @@ class CustomDynamicTasks(BaseDynamicTasks):
     def resolve_after_complete_check_ur(self, case, user, prev_work_item, context):
         complete_check_document = case.work_items.get(task="complete-check").document
 
-        is_incomplete = (
-            complete_check_document.answers.get(
-                question_id="complete-check-vollstaendigkeitspruefung"
-            ).value
-            == "complete-check-vollstaendigkeitspruefung-incomplete"
-        )
+        answer = complete_check_document.answers.get(
+            question_id="complete-check-vollstaendigkeitspruefung"
+        ).value
 
-        if is_incomplete:
-            return ["init-additional-demand"]
+        if answer in [
+            "complete-check-vollstaendigkeitspruefung-incomplete",
+            "complete-check-vollstaendigkeitspruefung-incomplete-wait",
+        ]:
+            return ["additional-demand"]
 
         return []
 

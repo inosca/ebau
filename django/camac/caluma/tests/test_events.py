@@ -955,3 +955,56 @@ def test_convert_solar_instance_to_construction_permit_ur(
     )
     ur_instance.refresh_from_db()
     assert ur_instance.form_id == uri_constants.FORM_BAUGESUCH
+
+
+@pytest.mark.parametrize(
+    "answer,expected_status",
+    [
+        (
+            "complete-check-vollstaendigkeitspruefung-complete",
+            caluma_workflow_models.WorkItem.STATUS_READY,
+        ),
+        (
+            "complete-check-vollstaendigkeitspruefung-incomplete-wait",
+            caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
+        ),
+        (
+            "complete-check-vollstaendigkeitspruefung-reject",
+            caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
+        ),
+    ],
+)
+def test_suspend_circulation_based_on_complete_check(
+    answer,
+    expected_status,
+    distribution_settings,
+    caluma_admin_user,
+    set_application_ur,
+    work_item_factory,
+    document_factory,
+    answer_factory,
+    question_factory,
+):
+    distribution_init_work_item = work_item_factory(
+        task__slug=distribution_settings["DISTRIBUTION_INIT_TASK"]
+    )
+    complete_check_work_item = work_item_factory(
+        task__slug=settings.APPLICATION["CALUMA"]["COMPLETE_CHECK_TASK"],
+        document=document_factory(),
+        case=distribution_init_work_item.case,
+    )
+    answer_factory(
+        document=complete_check_work_item.document,
+        question=question_factory(slug="complete-check-vollstaendigkeitspruefung"),
+        value=answer,
+    )
+
+    send_event(
+        post_create_work_item,
+        sender="post_create_work_item",
+        work_item=distribution_init_work_item,
+        user=caluma_admin_user,
+        context={},
+    )
+    distribution_init_work_item.refresh_from_db()
+    assert distribution_init_work_item.status == expected_status

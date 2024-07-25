@@ -577,7 +577,7 @@ def test_dynamic_task_after_decision_ur(
     [
         (
             "complete-check-vollstaendigkeitspruefung-incomplete",
-            ["init-additional-demand"],
+            ["additional-demand"],
         ),
         ("complete-check-vollstaendigkeitspruefung-complete", []),
     ],
