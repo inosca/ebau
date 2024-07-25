@@ -1,3 +1,5 @@
+"""WARNING: Any key that is either "TASK or ends with "_TASK" will be picked up by the visibilty filter for work items (see django/camac/extensions/visibilities.py)."""
+
 CONSTRUCTION_MONITORING = {
     "default": {
         "INIT_CONSTRUCTION_MONITORING_TASK": "init-construction-monitoring",

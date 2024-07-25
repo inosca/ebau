@@ -25,6 +25,18 @@ Particularly, there are two useful things here as of now:
 # should keep in mind to publish this to Caluma once it's mature enough
 
 
+def extract_tasks_from_filters(info):
+    filter_data = extract_filter_data(info)
+
+    for filter in filter_data:
+        if arg := filter.get("task"):
+            return [arg]
+        elif arg := filter.get("tasks"):
+            return arg
+
+    return None
+
+
 def extract_case_from_filters(info):
     """Return case info from GQL filters, if any.
 
