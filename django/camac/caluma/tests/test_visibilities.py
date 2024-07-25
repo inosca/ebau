@@ -1098,6 +1098,103 @@ def test_visibility_performance_heuristic_cases(
     assert len(result.data["allCases"]["edges"])
 
 
+@pytest.mark.parametrize("role__name", ["Sekretariat der Gemeindebaubehörde"])
+def test_single_instance_mode(
+    db,
+    application_settings,
+    set_application_ur,
+    mocker,
+    admin_user,
+    ur_instance,
+    caluma_admin_user,
+    caluma_admin_schema_executor,
+    role,
+):
+    mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [CustomVisibility])
+    ur_instance.case.meta["camac-instance-id"] = ur_instance.pk
+    ur_instance.case.save()
+
+    query = f"""
+        query {{
+            allCases(filter: [{{ metaValue: {{ key: "camac-instance-id", value: {ur_instance.pk} }}}}]) {{
+                edges {{
+                    node {{
+                        id
+                    }}
+                }}
+            }}
+        }}
+    """
+
+    result = caluma_admin_schema_executor(query)
+
+    assert not result.errors
+
+    # Note: We can't match exactly the number of cases returned, as the `metaValue`
+    # filter will apply on *any* case, and thus not return the child cases, as
+    # is with the root case filters
+    assert len(result.data["allCases"]["edges"])
+
+
+@pytest.mark.parametrize("role__name", ["Sekretariat der Gemeindebaubehörde"])
+@pytest.mark.parametrize(
+    "filter",
+    [
+        '[{task: "check-additional-demand"}]',
+        '[{tasks: ["check-additional-demand"]}]',
+        "[]",
+    ],
+)
+def test_work_item_filter_with_tasks(
+    db,
+    application_settings,
+    set_application_ur,
+    mocker,
+    admin_user,
+    ur_instance,
+    caluma_admin_user,
+    caluma_admin_schema_executor,
+    role,
+    filter,
+    ur_additional_demand_settings,
+    work_item_factory,
+):
+    mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [CustomVisibility])
+    mocker.patch.object(CustomVisibility, "PERFORMANCE_OPTIMISATION_ACTIVE", True)
+    ur_instance.case.meta["camac-instance-id"] = ur_instance.pk
+    ur_instance.case.save()
+
+    workflow_api.complete_work_item(
+        work_item=ur_instance.case.work_items.get(task_id="submit"),
+        user=caluma_admin_user,
+    )
+    work_item_factory(
+        task_id=ur_additional_demand_settings["CHECK_TASK"],
+        case=ur_instance.case,
+        addressed_groups=[str(admin_user.groups.first().service.pk)],
+    )
+
+    query = f"""
+        query {{
+            allWorkItems(filter: {filter}) {{
+                edges {{
+                    node {{
+                        task {{
+                            slug
+                        }}
+                    }}
+                }}
+            }}
+        }}
+    """
+
+    result = caluma_admin_schema_executor(query)
+    assert any(
+        item["node"]["task"]["slug"] == ur_additional_demand_settings["CHECK_TASK"]
+        for item in result.data["allWorkItems"]["edges"]
+    )
+
+
 def test_visible_construction_step_work_items_expression_for_trusted_service():
     custom_visibility = CustomVisibility()
 

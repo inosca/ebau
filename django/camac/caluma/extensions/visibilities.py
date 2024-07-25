@@ -21,6 +21,32 @@ from camac.utils import filters, order
 from .. import ast_utils
 
 
+def module_tasks(module_settings):
+    return [
+        task_id
+        for key, task_id in module_settings.items()
+        if key.endswith("_TASK") or key == "TASK"
+    ]
+
+
+def needs_visibility(module_settings, task_slugs):
+    """Return True if the module needs visibility filtering.
+
+    Visibility filtering needs to happen if the module is active and
+    user is interested in tasks defined in the module settings.
+
+    If user did not specify task slugs then we assume that user is interested in all tasks,
+    including the ones from this module.
+    """
+    if not module_settings:
+        return False
+
+    if task_slugs is None:
+        return True
+
+    return bool(set(task_slugs).intersection(set(module_tasks(module_settings))))
+
+
 class CustomVisibility(Authenticated, InstanceQuerysetMixin):
     """Custom visibility for Kanton Bern.
 
@@ -30,6 +56,18 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
     """
 
     instance_field = None
+
+    # TODO: remove once rolled out everywhere
+    PERFORMANCE_OPTIMISATION_ACTIVE_CONFIG = {
+        "kt_uri": True,
+        "kt_bern": False,
+        "kt_so": False,
+        "kt_gr": False,
+        "kt_schwyz": False,
+    }
+    PERFORMANCE_OPTIMISATION_ACTIVE = PERFORMANCE_OPTIMISATION_ACTIVE_CONFIG.get(
+        settings.APPLICATION_NAME, False
+    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -107,17 +145,34 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
     @filter_queryset_for(workflow_schema.WorkItem)
     def filter_queryset_for_work_items(self, node, queryset, info):
         filters = Q(case__family__instance__pk__in=self._all_visible_instances(info))
-        if settings.DISTRIBUTION:
+
+        # Limit visible work items based on the task slugs in the GQL query
+        # Consider only work items that user is interested in
+        task_slugs = ast_utils.extract_tasks_from_filters(info)
+
+        if (
+            self.PERFORMANCE_OPTIMISATION_ACTIVE
+            and needs_visibility(settings.DISTRIBUTION, task_slugs)
+        ) or (not self.PERFORMANCE_OPTIMISATION_ACTIVE and settings.DISTRIBUTION):
             # Provide additional filtering for inquiry work-items
             filters &= ~Q(task_id=settings.DISTRIBUTION["INQUIRY_TASK"]) | (
                 Q(task_id=settings.DISTRIBUTION["INQUIRY_TASK"])
                 & visible_inquiries_expression(self.request.group)
             )
 
-        if settings.ADDITIONAL_DEMAND:
+        if (
+            self.PERFORMANCE_OPTIMISATION_ACTIVE
+            and needs_visibility(settings.ADDITIONAL_DEMAND, task_slugs)
+        ) or (not self.PERFORMANCE_OPTIMISATION_ACTIVE and settings.ADDITIONAL_DEMAND):
             filters &= self.visible_additional_demands_expression(self.request.group)
 
-        if settings.CONSTRUCTION_MONITORING:
+        if (
+            self.PERFORMANCE_OPTIMISATION_ACTIVE
+            and needs_visibility(settings.CONSTRUCTION_MONITORING, task_slugs)
+        ) or (
+            not self.PERFORMANCE_OPTIMISATION_ACTIVE
+            and settings.CONSTRUCTION_MONITORING
+        ):
             queryset = queryset.annotate(
                 is_construction_stage=ExpressionWrapper(
                     Q(
@@ -183,6 +238,10 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
             )
         elif filter_type == "instance_id" and value:
             qs = qs.filter(pk=value)
+
+        if filter_type in ["case_id", "instance_id"] and value:
+            qs._single_instance_mode = True
+
         return qs
 
     def _all_visible_instances(self, info):
@@ -197,9 +256,19 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
         if result is not None:  # pragma: no cover
             return result
 
-        instance_ids = list(
-            self._visible_instances_qs(info).values_list("pk", flat=True)
-        )
+        instance_ids = self._visible_instances_qs(info)
+
+        # For performance reasons we return the instance_ids as a list
+        # if we are in single_instance_mode. Otherwise we return a queryset
+        # which will be evaluated later and result in a subquery during query execution
+        # Note: If the total amount of instances is less than a few thousand, this optimization
+        # is not helping much (in fact, it potentially slows down list queries a little bit).
+        # Currently this is only used for Kt. Uri.
+        if (
+            getattr(instance_ids, "_single_instance_mode", False)
+            or not self.PERFORMANCE_OPTIMISATION_ACTIVE
+        ):
+            instance_ids = list(instance_ids.values_list("pk", flat=True))
 
         setattr(info.context, "_visibility_instances_cache", instance_ids)
         return instance_ids

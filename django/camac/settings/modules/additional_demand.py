@@ -1,5 +1,8 @@
 from django.utils.translation import gettext_lazy as _
 
+"""
+WARNING: Any key that is either "TASK or ends with "_TASK" will be picked up by the visibilty filter for work items (see django/camac/extensions/visibilities.py).
+"""
 ADDITIONAL_DEMAND = {
     "default": {
         "ALLOW_SUBSERVICES": False,
