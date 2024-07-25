@@ -310,6 +310,11 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
     ):  # pragma: todo cover
         return Value(True)
 
+    def visible_construction_step_work_items_expression_for_coordination(self, group):
+        return self.visible_construction_step_work_items_expression_for_municipality(
+            group
+        )
+
 
 class CustomVisibilitySZ(CustomVisibility):
     """Custom visibility for Kanton Schwyz.
