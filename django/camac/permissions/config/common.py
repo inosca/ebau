@@ -1,7 +1,6 @@
 from logging import getLogger
 
-from django.conf import settings
-
+from camac.caluma.api import CalumaApi
 from camac.instance.models import Instance
 from camac.permissions import api as permissions_api
 from camac.permissions.models import AccessLevel, InstanceACL
@@ -58,23 +57,18 @@ class ApplicantsEventHandlerMixin:
 
 class InstanceSubmissionHandlerMixin:
     def instance_submitted(self, instance: Instance):
-        if settings.APPLICATION.get("USE_INSTANCE_SERVICE"):
-            self.manager.grant(
-                instance,
-                grant_type="SERVICE",
-                access_level="lead-authority",
-                service=instance.responsible_service(),
-                event_name="instance-submitted",
-            )
-        else:
-            group_service = instance.group.service
-            self.manager.grant(
-                instance,
-                grant_type="SERVICE",
-                access_level="lead-authority",
-                service=group_service,
-                event_name="instance-submitted",
-            )
+        if CalumaApi().is_paper(instance):
+            # Paper dossiers get the lead authority ACL upon creation, so no need to do it here.
+            # See InstanceCreationHandlerMixin.instance_created()
+            return
+
+        self.manager.grant(
+            instance,
+            grant_type="SERVICE",
+            access_level="lead-authority",
+            service=instance.responsible_service(),
+            event_name="instance-submitted",
+        )
 
 
 class ChangeResponsibleServiceHandlerMixin:
@@ -107,7 +101,7 @@ class ChangeResponsibleServiceHandlerMixin:
         )
 
         if old_acl:
-            self.manager.revoke(old_acl)
+            self.manager.revoke(old_acl, event_name="changed-responsible-service")
         else:  # pragma: no cover
             log.warning(
                 f"Old lead authority service {from_service.pk} on instance "
@@ -119,6 +113,7 @@ class ChangeResponsibleServiceHandlerMixin:
             grant_type="SERVICE",
             access_level=new_involved,
             service=from_service,
+            event_name="changed-responsible-service",
         )
 
         # Second: Grant new authority the lead
@@ -127,6 +122,7 @@ class ChangeResponsibleServiceHandlerMixin:
             grant_type="SERVICE",
             access_level=new_active,
             service=to_service,
+            event_name="changed-responsible-service",
         )
 
 
@@ -139,15 +135,28 @@ class DistributionHandlerMixin:
                 grant_type="SERVICE",
                 access_level="distribution-service",
                 service=addr_service,
+                event_name="inquiry-sent",
             )
 
 
-class GrantSupportOnCreationHandlerMixin:
+class InstanceCreationHandlerMixin:
     def instance_created(self, instance: Instance):
+        if CalumaApi().is_paper(instance):
+            # Paper dossiers are created by the municipality and need access immediately, so
+            # we're creating the required lead authority ACL right here
+            self.manager.grant(
+                instance,
+                grant_type="SERVICE",
+                access_level="lead-authority",
+                service=instance.responsible_service(),
+                event_name="instance-created",
+            )
+
         support_role = get_support_role()
         self.manager.grant(
             instance,
             grant_type="ROLE",
             access_level="support",
             role=support_role,
+            event_name="instance-created",
         )
