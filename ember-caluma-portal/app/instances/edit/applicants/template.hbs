@@ -114,10 +114,10 @@
             <tr>
               <td>{{permission.entityName}}</td>
               <td>
-                {{format-date permission.createdAt format="datetime"}}
+                {{format-date permission.startTime format="datetime"}}
                 -
-                {{#if permission.revokedAt}}
-                  {{format-date permission.revokedAt format="datetime"}}
+                {{#if permission.endTime}}
+                  {{format-date permission.endTime format="datetime"}}
                 {{else}}
                   {{t "instances.applicants.now"}}
                 {{/if}}
