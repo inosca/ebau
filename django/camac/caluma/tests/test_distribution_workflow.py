@@ -1154,3 +1154,48 @@ def test_sync_inquiry_deadline(
             .deadline.isoformat()
             == "2022-10-19T00:00:00+00:00"
         )
+
+
+def test_set_deadline_for_check_inquiries_work_item(
+    db,
+    caluma_admin_user,
+    distribution_child_case_be,
+    be_distribution_settings,
+    be_ech0211_settings,
+    inquiry_factory_be,
+    service,
+    work_item_factory,
+    service_factory,
+):
+    inquiry = inquiry_factory_be(
+        sent=True, from_service=service, to_service=service_factory()
+    )
+    for question, value in [
+        ("inquiry-answer-status", "inquiry-answer-status-positive"),
+        ("inquiry-answer-statement", "Stellungnahme Test"),
+        ("inquiry-answer-ancillary-clauses", "Nebenbestimmungen Test"),
+    ]:
+        save_answer(
+            question=Question.objects.get(pk=question),
+            document=inquiry.child_case.document,
+            value=value,
+            user=caluma_admin_user,
+        )
+
+    check_task_work_item = work_item_factory(
+        task_id=be_distribution_settings["INQUIRY_CHECK_TASK"],
+        case=inquiry.case,
+        status=WorkItem.STATUS_READY,
+        deadline=None,
+        addressed_groups=[str(service.pk)],
+    )
+
+    complete_work_item(
+        work_item=inquiry.child_case.work_items.first(), user=caluma_admin_user
+    )
+
+    check_task_work_item.refresh_from_db()
+
+    assert (
+        check_task_work_item.deadline is not None
+    ), "completing an inquiry should set a deadline on check items which do not have a deadline yet"

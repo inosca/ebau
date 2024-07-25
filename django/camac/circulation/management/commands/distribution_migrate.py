@@ -244,7 +244,13 @@ class Command(BaseCommand):
                 )
 
             if settings.APPLICATION_NAME == "kt_uri":
-                task_ids.extend([settings.DISTRIBUTION["DISTRIBUTION_CHECK_TASK"]])
+                task_ids.extend(
+                    [
+                        settings.DISTRIBUTION["DISTRIBUTION_CHECK_TASK"],
+                        "init-additional-demand",
+                        "additional-demand",
+                    ]
+                )
 
             cursor.execute(
                 "UPDATE caluma_workflow_workitem SET previous_work_item_id = NULL WHERE previous_work_item_id IN (SELECT id FROM caluma_workflow_workitem WHERE task_id = ANY(%s))",
@@ -1128,7 +1134,7 @@ class Command(BaseCommand):
         return activations.filter(circulation_state__name__in=["RUN", "REVIEW"])
 
     def activations_ready_ur(self, activations):
-        return activations.filter(circulation_state__name__in=["RUN"])
+        return activations.filter(circulation_state__name__in=["NFD", "RUN"])
 
     @canton_aware()
     def activations_answered(self, activations):
@@ -1171,7 +1177,7 @@ class Command(BaseCommand):
         )
 
     def activation_is_ready_ur(self, activation):
-        return activation.circulation_state.name in ["RUN", "IDLE"]
+        return activation.circulation_state.name in ["NFD", "RUN", "IDLE"]
 
     @canton_aware()
     def activation_is_completed(self, activation):
@@ -1392,6 +1398,23 @@ class Command(BaseCommand):
                 default=F("previous_work_item"),
             ),
         )
+
+    def post_migrate_ur(self, result_base_method=None):
+        # In Uri there are a lot of circulations where the instance has been archived
+        # but the circulation has not been completed correctly.
+        WorkItem.objects.filter(
+            task_id__in=[
+                self.config.REDO_INQUIRY_TASK.pk,
+                self.config.INQUIRY_TASK.pk,
+                self.config.FILL_INQUIRY_TASK.pk,
+                self.config.CHECK_INQUIRIES_TASK.pk,
+                self.config.CREATE_INQUIRY_TASK.pk,
+                self.config.DISTRIBUTION_INIT_TASK.pk,
+                self.config.DISTRIBUTION_COMPLETE_TASK.pk,
+            ],
+            status=WorkItem.STATUS_READY,
+            case__family__instance__instance_state__name="arch",
+        ).update(status=WorkItem.STATUS_SKIPPED)
 
     @canton_aware(include_base_method=True)
     def initialize_inquiry_answer(
