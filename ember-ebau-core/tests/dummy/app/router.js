@@ -1,5 +1,5 @@
 import EmberRouter from "@ember/routing/router";
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 
 import config from "dummy/config/environment";
 import registerBilling from "ember-ebau-core/modules/billing";

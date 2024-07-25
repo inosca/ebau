@@ -1,5 +1,5 @@
 import Route from "@ember/routing/route";
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import AlexandriaDocumentsFormComponent from "ember-ebau-core/components/alexandria-documents-form";
 import CalculatedPublicationDateComponent from "ember-ebau-core/components/calculated-publication-date";
 import CoordinatesPlaceholderComponent from "ember-ebau-core/components/coordinates-placeholder";

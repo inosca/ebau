@@ -1,5 +1,5 @@
 import { action } from "@ember/object";
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { isTesting, macroCondition } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { findAll } from "ember-data-resources";

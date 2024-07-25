@@ -1,4 +1,4 @@
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
 import { attr, belongsTo, hasMany } from "@ember-data/model";
 import { filesize } from "filesize";

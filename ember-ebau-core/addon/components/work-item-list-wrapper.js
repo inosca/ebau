@@ -1,4 +1,4 @@
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { camelize } from "@ember/string";
 import Component from "@glimmer/component";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";

@@ -1,4 +1,4 @@
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
 import { attr, belongsTo } from "@ember-data/model";
 import { dropTask, task } from "ember-concurrency";

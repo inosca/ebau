@@ -1,5 +1,5 @@
 import Controller from "@ember/controller";
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, restartableTask, timeout } from "ember-concurrency";
 import { findRecord } from "ember-data-resources";

@@ -1,4 +1,4 @@
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
 import { macroCondition, isTesting } from "@embroider/macros";
 import Component from "@glimmer/component";

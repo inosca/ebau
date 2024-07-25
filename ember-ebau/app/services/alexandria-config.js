@@ -1,5 +1,5 @@
 import { action, get } from "@ember/object";
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import AlexandriaConfigService from "ember-alexandria/services/alexandria-config";
 

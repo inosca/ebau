@@ -1,7 +1,7 @@
 import { getOwner, setOwner } from "@ember/application";
 import { A } from "@ember/array";
 import Controller from "@ember/controller";
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency";

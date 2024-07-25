@@ -1,4 +1,4 @@
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
 import { hasMany } from "@ember-data/model";
 import DocumentModel from "ember-alexandria/models/document";

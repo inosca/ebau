@@ -1,5 +1,5 @@
 import Controller, { inject as controller } from "@ember/controller";
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { dropTask } from "ember-concurrency";
 import mainConfig from "ember-ebau-core/config/main";
 import { trackedTask } from "reactiveweb/ember-concurrency";
