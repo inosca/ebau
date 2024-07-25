@@ -1,5 +1,5 @@
 import { assert } from "@ember/debug";
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import BaseAuthenticator from "ember-simple-auth/authenticators/base";
 import fetch from "fetch";
 

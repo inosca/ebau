@@ -1,6 +1,6 @@
 import { action } from "@ember/object";
 import { scheduleOnce } from "@ember/runloop";
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, task } from "ember-concurrency";

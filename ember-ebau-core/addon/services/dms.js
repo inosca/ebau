@@ -1,4 +1,4 @@
-import Service, { inject as service } from "@ember/service";
+import Service, { service } from "@ember/service";
 import { saveAs } from "file-saver";
 
 export default class DmsService extends Service {

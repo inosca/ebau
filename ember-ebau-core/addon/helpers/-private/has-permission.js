@@ -1,5 +1,5 @@
 import Helper from "@ember/component/helper";
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { cell, resource, use, resourceFactory } from "ember-resources";
 import { dedupeTracked } from "tracked-toolbox";
 

@@ -1,4 +1,4 @@
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { ensureSafeComponent } from "@embroider/util";
 import Component from "@glimmer/component";
 import CfInputLabelComponent from "@projectcaluma/ember-form/components/cf-field/label";

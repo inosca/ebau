@@ -1,4 +1,4 @@
-import Service, { inject as service } from "@ember/service";
+import Service, { service } from "@ember/service";
 
 export default class GwrDataImportService extends Service {
   @service fetch;

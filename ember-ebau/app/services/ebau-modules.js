@@ -1,4 +1,4 @@
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import EbauModulesService from "ember-ebau-core/services/ebau-modules";
 

@@ -1,6 +1,6 @@
 import Route from "@ember/routing/route";
 import { next } from "@ember/runloop";
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 
 import { isEmbedded } from "caluma-portal/helpers/is-embedded";
 

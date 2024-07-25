@@ -1,6 +1,6 @@
 import Controller from "@ember/controller";
 import { action } from "@ember/object";
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { dropTask, lastValue } from "ember-concurrency";
 
 import isProd from "ember-ebau-core/utils/is-prod";

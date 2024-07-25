@@ -1,5 +1,5 @@
 import { action } from "@ember/object";
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
 import { getOwnConfig, macroCondition } from "@embroider/macros";
 import Component from "@glimmer/component";

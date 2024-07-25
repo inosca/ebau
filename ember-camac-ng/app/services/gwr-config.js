@@ -1,5 +1,5 @@
 import { action } from "@ember/object";
-import Service, { inject as service } from "@ember/service";
+import Service, { service } from "@ember/service";
 import { getOwnConfig, macroCondition } from "@embroider/macros";
 import mainConfig from "ember-ebau-core/config/main";
 

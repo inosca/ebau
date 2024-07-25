@@ -1,5 +1,5 @@
 // copied from ember-caluma-portal
-import { inject as service } from "@ember/service";
+import { service } from "@ember/service";
 import CalumaApolloService from "@projectcaluma/ember-core/services/apollo";
 import { apolloMiddleware } from "ember-simple-auth-oidc";
 

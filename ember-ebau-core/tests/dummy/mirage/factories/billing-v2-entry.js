@@ -14,11 +14,11 @@ export default Factory.extend({
   taxMode: () =>
     faker.helpers.arrayElement(["exclusive", "inclusive", "exempt"]),
   taxRate: () => faker.helpers.arrayElement(["2.5", "2.6", "7.7", "8.1"]),
-  totalCost: () => faker.finance.amount(1, 1000),
-  percentage: () => faker.finance.amount(1, 100),
-  hours: () => faker.finance.amount(1, 10),
-  hourlyRate: () => faker.finance.amount(150, 300),
-  finalRate: () => faker.finance.amount(1, 1000),
+  totalCost: () => faker.finance.amount({ min: 1, max: 1000 }),
+  percentage: () => faker.finance.amount({ min: 1, max: 100 }),
+  hours: () => faker.finance.amount({ min: 1, max: 10 }),
+  hourlyRate: () => faker.finance.amount({ min: 150, max: 300 }),
+  finalRate: () => faker.finance.amount({ min: 1, max: 1000 }),
   dateAdded: () => DateTime.fromJSDate(faker.date.past()).toISODate(),
   dateCharged: null,
 
