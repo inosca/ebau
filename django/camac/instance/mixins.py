@@ -100,8 +100,23 @@ class InstanceQuerysetMixin(object):
 
         return queryset.distinct()
 
+    def get_base_queryset_acl(self):
+        queryset = self.get_base_queryset()
+        return self.permissions_manager().filter_queryset(queryset, self.instance_field)
+
     @permission_aware
     def get_queryset(self, group=None):
+        # We can't do any permission switching on the `get_queryset` method as
+        # @permission_aware wouldn't work anymore so we extracted the applicant
+        # queryset in a separate, switched method.
+        return self._get_queryset_for_applicant(group)
+
+    @permission_switching_method
+    def _get_queryset_for_applicant(self, group=None):
+        return self.get_base_queryset_acl()
+
+    @_get_queryset_for_applicant.register_old
+    def _get_queryset_for_applicant_rbac(self, group=None):
         queryset = self.get_base_queryset()
 
         # A user should see dossiers which he submitted or has been invited to.
@@ -130,8 +145,7 @@ class InstanceQuerysetMixin(object):
         return self.get_queryset_for_municipality()
 
     def get_queryset_for_geometer(self, group=None):
-        queryset = self.get_base_queryset()
-        return self.permissions_manager().filter_queryset(queryset, self.instance_field)
+        return self.get_base_queryset_acl()
 
     def get_queryset_for_coordination(self, group=None):
         group = self._get_group(group)
@@ -184,8 +198,7 @@ class InstanceQuerysetMixin(object):
 
     @permission_switching_method
     def get_queryset_for_municipality(self, group=None):
-        queryset = self.get_base_queryset()
-        return self.permissions_manager().filter_queryset(queryset, self.instance_field)
+        return self.get_base_queryset_acl()
 
     @get_queryset_for_municipality.register_old
     def get_queryset_for_municipality_rbac(self, group=None):
@@ -212,7 +225,12 @@ class InstanceQuerysetMixin(object):
             | self.permissions_manager().get_q_object(self.instance_field)
         )
 
+    @permission_switching_method
     def get_queryset_for_service(self, group=None):
+        return self.get_base_queryset_acl()
+
+    @get_queryset_for_service.register_old
+    def get_queryset_for_service_rbac(self, group=None):
         group = self._get_group(group)
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
@@ -251,7 +269,12 @@ class InstanceQuerysetMixin(object):
     def get_queryset_for_canton(self, group=None):
         return self.get_base_queryset()
 
+    @permission_switching_method
     def get_queryset_for_support(self, group=None):
+        return self.get_base_queryset_acl()
+
+    @get_queryset_for_support.register_old
+    def get_queryset_for_support_rbac(self, group=None):
         return self.get_base_queryset()
 
     def get_queryset_for_organization_readonly(self, group=None):
