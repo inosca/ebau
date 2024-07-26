@@ -2506,6 +2506,7 @@ Q_CLUSTER = {
     "retry": DJANGO_Q_TASK_TIMEOUT_HOURS * 60 * 60 * 2,
     "ack_failures": True,  # discards failed tasks after timeout
     "orm": "default",
+    "sync": env.bool("DJANGO_Q_ENABLE_SYNC", False),
 }
 
 DOSSIER_IMPORT_CLIENT_ID = env.str(
