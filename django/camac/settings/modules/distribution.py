@@ -712,6 +712,12 @@ DISTRIBUTION = {
             "STATEMENT": "inquiry-answer-statement",
             "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
         },
+        "NOTIFICATIONS": {
+            "INQUIRY_SENT": {
+                "template_slug": "gemeindezirkulation-gestartet",
+                "recipient_types": ["inquiry_addressed"],
+            },
+        },
         "DEFAULT_SUGGESTIONS": [1],  # KOOR BG
         "SUGGESTIONS": {
             "QUESTIONS": {
