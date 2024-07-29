@@ -112,8 +112,12 @@ source = ["."]
 
 dynamic_context = "test_function"
 
+
 [tool.coverage.report]
 fail_under = 100
+skip_empty = true
+skip_covered = true
+
 exclude_lines = [
     "pragma: no cover",
     "pragma: todo cover",

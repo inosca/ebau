@@ -53,7 +53,7 @@ def which_tests_for_code(file, line):
         return all_contexts
 
 
-def do_validate_test_locality(verbose):  # noqa: C901
+def do_validate_test_locality(verbose, report_100percent):  # noqa: C901
     # We want each code to be tested by module-local or global test.
     # Accidental test coverage should be avoided
     cov_data = get_coverage_data()
@@ -71,6 +71,7 @@ def do_validate_test_locality(verbose):  # noqa: C901
     total_lines = 0
     total_foreign_covered = 0
     total_locally_covered = 0
+    fully_covered = set()
 
     print("\nTest locality check report:\n")
     f_hdr = "File covered in test"
@@ -122,16 +123,25 @@ def do_validate_test_locality(verbose):  # noqa: C901
         if n_lines:
             if len(file) > 60:
                 file = f"...{file[-55:]}"
-            print(
-                f"{file:<62} "
-                f"{n_local_covered:>4.0f}  {n_complaints:>4.0f}  "
-                f"{n_local_covered/n_lines*100:>5.1f}%"
-                f" {verbose_info}"
-            )
+
+            coverage_percent = n_local_covered / n_lines * 100
+            if coverage_percent == 100:
+                fully_covered.add(file)
+            if coverage_percent < 100 or report_100percent:
+                print(
+                    f"{file:<62} "
+                    f"{n_local_covered:>4.0f}  {n_complaints:>4.0f}  "
+                    f"{coverage_percent:>5.1f}%"
+                    f" {verbose_info}"
+                )
         total_lines += n_lines
         total_foreign_covered += n_complaints
         total_locally_covered += n_local_covered
     print("-" * 88)
+
+    if not report_100percent:
+        nfiles = len(fully_covered)
+        print(f"\n{nfiles} files are fully tested locally and not shown\n")
 
     return total_locally_covered / total_lines
 
@@ -165,17 +175,18 @@ def _compress_ranges(all_nums, to_compress):
     return text_ranges
 
 
-def do_show_tests_for_code(filename):
-    file = filename
-    line = None
-    if ":" in file:
-        file, line = file.split(":")
+def do_show_tests_for_code(filenames):
+    for filename in filenames:
+        file = filename
+        line = None
+        if ":" in file:
+            file, line = file.split(":")
 
-    ind = "    "
-    tests = which_tests_for_code(file, line)
+        ind = "    "
+        tests = which_tests_for_code(file, line)
 
-    lines = f"\n{ind}".join(tests)
-    print(f"{filename} is covered by:\n{ind}{lines}")
+        lines = f"\n{ind}".join(tests)
+        print(f"{filename} is covered by:\n{ind}{lines}")
 
 
 HELP_TEXT = """
@@ -199,13 +210,16 @@ the line number as well, just for the given line.
 
 
 * python whichtest.py --check-locality
-* python whichtest.py --check-locality [-v|--verbose]
+* python whichtest.py --check-locality [-v|--verbose] [--no-report-100percent]
 
 Output the test locality score: The number of lines that are covered, across
 the code base, by a test within the same module / django app.
 
 If you enable verbose mode, it will output every line that's not covered by
 a "local" test.
+
+If the `--no-report-100percent` flag is given, then files that are 100% covered
+locally are not reported.
 
 Note that this is rather generic and certain cases are not caught correctly yet:
 For example urls.py files may be re-imported by some tests, but also at django
@@ -216,10 +230,13 @@ declarative/module-scope code only. This is a limitation of coverage.py.
 MIN_LOCALITY_SCORE = int(os.environ.get("MIN_LOCALITY_SCORE", 90))
 
 if __name__ == "__main__":
-    if "--help" in sys.argv or "-h" in sys.argv:
+    verbose = "--verbose" in sys.argv or "-v" in sys.argv
+    report_100percent = "--no-report-100percent" not in sys.argv
+
+    if "--help" in sys.argv or "-h" in sys.argv or len(sys.argv) == 1:
         print(HELP_TEXT)
-    elif sys.argv[1] == "--check-locality":
-        factor = do_validate_test_locality("--verbose" in sys.argv or "-v" in sys.argv)
+    elif "--check-locality" in sys.argv:
+        factor = do_validate_test_locality(verbose, report_100percent)
         percentage = factor * 100
         print(f"Test locality score: {percentage:.1f}%")
         if percentage < MIN_LOCALITY_SCORE:
@@ -231,4 +248,5 @@ if __name__ == "__main__":
             sys.exit(1)
 
     else:
-        do_show_tests_for_code(sys.argv[1])
+        non_flags = [arg for arg in sys.argv[1:] if not arg.startswith("-")]
+        do_show_tests_for_code(non_flags)
