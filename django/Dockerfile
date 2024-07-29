@@ -59,7 +59,8 @@ WORKDIR $APP_HOME
 
 ARG REQUIREMENTS=requirements.txt
 COPY requirements.txt requirements-dev.txt $APP_HOME/
-RUN pip install --no-cache-dir --upgrade -r $REQUIREMENTS --disable-pip-version-check
+# TODO: Remove --no-build-isolation as soon as https://github.com/pypa/setuptools/issues/4519 is fixed!
+RUN pip install --no-cache-dir --upgrade -r $REQUIREMENTS --no-build-isolation
 
 COPY . $APP_HOME
 
