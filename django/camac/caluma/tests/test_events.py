@@ -921,7 +921,9 @@ def test_convert_solar_instance_to_construction_permit_ur(
     mocker,
     set_application_ur,
     instance_state_factory,
+    notification_template_factory,
 ):
+    notification_template_factory(slug="dossier-angenommen")
     solar_form = form_factory()
     construction_form = form_factory()
     instance_state_factory(name="comm")

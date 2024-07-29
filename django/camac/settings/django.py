@@ -1127,6 +1127,10 @@ APPLICATIONS = {
             "SIMPLE_WORKFLOW": {
                 "complete-check": {
                     "next_instance_state": "comm",
+                    "notification": {
+                        "template_slug": "dossier-angenommen",
+                        "recipient_types": ["applicant"],
+                    },
                 },
                 "send-additional-demand": {
                     "notification": {
@@ -1140,8 +1144,24 @@ APPLICATIONS = {
                         "recipient_types": ["work_item_controlling"],
                     },
                 },
+                "init-distribution": {
+                    "notification": {
+                        "template_slug": "dossier-weitergeleitet-an-koordinationsstelle",
+                        "recipient_types": ["applicant"],
+                    },
+                },
                 "complete-distribution": {
                     "next_instance_state": "done",
+                    "notification": {
+                        "template_slug": "zirkulation-abgeschlossen",
+                        "recipient_types": ["applicant"],
+                    },
+                },
+                "decision": {
+                    "notification": {
+                        "template_slug": "eroeffnung-stellungnahme-vorentscheid",
+                        "recipient_types": ["applicant", "involved_in_distribution"],
+                    },
                 },
                 "construction-supervision": {
                     "next_instance_state": "control",
