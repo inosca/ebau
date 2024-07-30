@@ -38,6 +38,7 @@ from inflection import underscore
 
 from camac.caluma.utils import CamacRequest
 from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
+from camac.instance.serializers import CalumaInstanceSerializer
 from camac.user.permissions import permission_aware
 from camac.utils import build_url, headers
 
@@ -486,6 +487,14 @@ class CustomPermission(BasePermission):
 
         else:  # pragma: no cover
             return False
+
+        if settings.APPLICATION_NAME == "kt_uri":
+            serializer = CalumaInstanceSerializer(
+                case.family.instance, context={"request": self.request}
+            )
+            permissions = serializer.get_permissions(case.family.instance)
+
+            return required_permission in permissions.get(permission_key, [])
 
         resp = requests.get(
             build_url(
