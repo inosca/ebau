@@ -8,6 +8,7 @@ export default {
   instanceId: { type: "input" },
   instanceIdentifier: { type: "input" },
   intent: { type: "input" },
+  freetext: { type: "input" },
   landowner: { type: "input" },
   parcel: { type: "input" },
   keywordSearch: { type: "input" },
