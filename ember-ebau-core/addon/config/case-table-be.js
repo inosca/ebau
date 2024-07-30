@@ -65,6 +65,7 @@ export default {
         "keywords",
         "instanceState",
         "paper",
+        "freetext",
       ],
       "construction-control": [
         "form",
@@ -83,6 +84,7 @@ export default {
         "instanceState",
         "decision",
         "paper",
+        "freetext",
       ],
       municipality: [
         "form",
@@ -101,6 +103,7 @@ export default {
         "instanceState",
         "decision",
         "paper",
+        "freetext",
       ],
       geometer: [
         "form",
@@ -130,6 +133,7 @@ export default {
         "submitDateBefore",
         "modification",
         "instanceState",
+        "freetext",
       ],
     },
   },

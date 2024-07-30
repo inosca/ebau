@@ -83,6 +83,8 @@ cases:
     instanceState: "État"
     intent-placeholder: "Description du projet de construction"
     intent: "Projet de construction"
+    freetext: Champs de texte libre (dossiers migrés uniquement)
+    freetext-placeholder: ""
     landowner-placeholder: ""
     landowner: ""
     modification-placeholder: "Tous"
