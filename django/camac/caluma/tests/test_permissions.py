@@ -584,6 +584,48 @@ def test_specific_form_permissions(
     assert bool(result.errors) != success
 
 
+@pytest.mark.parametrize("instance_state__name,should_be_allowed", [("new", True)])
+def test_form_permissions_ur(
+    db,
+    caluma_admin_schema_executor,
+    form_question_factory,
+    mocker,
+    service,
+    work_item_factory,
+    instance_factory,
+    case_factory,
+    application_settings,
+    #
+    ur_instance,
+    set_application_ur,
+    should_be_allowed,
+):
+    mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [Any])
+    document = ur_instance.case.document
+
+    question = form_question_factory(
+        form=document.form, question__type=Question.TYPE_TEXT
+    ).question
+
+    query = """
+        mutation($question: ID!, $document: ID!) {
+            saveDocumentStringAnswer(input: {
+                question: $question
+                document: $document
+                value: "foo"
+            }) {
+                clientMutationId
+            }
+        }
+    """
+
+    variables = {"question": question.pk, "document": str(document.pk)}
+
+    result = caluma_admin_schema_executor(query, variables=variables)
+
+    assert bool(result.errors) != should_be_allowed
+
+
 @pytest.mark.parametrize("role__name", ["Municipality"])
 def test_coordination_services(
     caluma_admin_schema_executor,
