@@ -115,11 +115,17 @@ class PermissionManager:
         return cls(userinfo=userinfo)
 
     def get_permissions(self, instance: Union[Instance, str, int]) -> List[str]:
+        # We can globally disable the cache. By default, caching is enabled,
+        # but during development, it can be disabled so any stale permissions
+        # won't be kept around
+        enable_cache = settings.PERMISSIONS.get("ENABLE_CACHE", True)
+
         if not isinstance(instance, Instance):  # pragma: no cover
             instance = Instance.objects.get(pk=instance)
         cache_key = self.userinfo.to_cache_key(instance)
+
         cached_result = cache.get(cache_key)
-        if cached_result:
+        if enable_cache and cached_result:
             return cached_result
 
         acls = (
@@ -133,11 +139,6 @@ class PermissionManager:
         granted_permissions = set()
         # We try to cache rather long
         expiry = timezone.now() + timedelta(days=10)
-
-        # We can globally disable the cache. By default, caching is enabled,
-        # but during development, it can be disabled so any stale permissions
-        # won't be kept around
-        enable_cache = settings.PERMISSIONS.get("ENABLE_CACHE", True)
 
         for acl in acls:
             access_level = acl.access_level
