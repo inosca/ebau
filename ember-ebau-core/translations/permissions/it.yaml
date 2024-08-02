@@ -1,0 +1,42 @@
+permissions:
+  empty: Nessuna voce trovata.
+  new: Crea nuovo diritto
+  create: Crea
+  saveError: "Errore nel tentativo di salvare, riprova."
+  fetchError: Errore nel tentativo di caricare il diritto.
+  revokeError: Errore nel tentativo di revocare il diritto.
+  revoke: Revoca il diritto
+  confirmRevoke: Revocare davvero il diritto?
+
+  entities:
+    public-registered: Accesso pubblico (registrato)
+    public-anonymous: Accesso pubblico (non registrato)
+    token: Attraverso codice di accesso
+
+  placeholder:
+    name: "-"
+    email: "-"
+
+  details:
+    heading: Informazioni relative al diritto
+    entityName: Unità autorizzata
+    entityEmail: E-mail
+    organisation: Organizzazione
+    accessLevel: Livello di accesso
+    startTime: Valido dal
+    endTime: Valido fino al
+    status: Stato
+    createdAt: Data di creazione
+    createdBy: Creato da
+    revokedBy: Revocato da
+    managedBySystem: Amministrazione automatica del sistema
+
+  status:
+    active: Attivo
+    scheduled: Previsto
+    expired: Scaduto
+    all: Tutti
+
+  access-level:
+    all-levels: Tutti i livelli di accesso
+

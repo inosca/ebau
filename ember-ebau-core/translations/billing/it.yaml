@@ -1,0 +1,85 @@
+billing:
+  info: |-
+    Nel menu «Tasse» è possibile registrare le tasse che risultano in relazione al dossier. Le voci registrate non vengono però trasmesse automaticamente ai servizi di fatturazione dell'organizzazione. Come avvenuto finora ogni organizzazione coinvolta deve provvedere alla fatturazione.
+  position: Posizione
+  legal-basis: Base giuridica
+  cost-center: Centro di costo
+  cost-center-short: CdC
+  service: Organizzazione
+  group: Gruppo
+  user: Utente
+  amount: Importo (CHF)
+  total: Totale (CHF)
+  created-at: Registrato il
+  charged-at: Fatturato il
+  organization: Tipo
+  charge: Fatturare
+  hide-charged: Nascondi le tasse fatturate
+  calculation: Calcolo
+  hours: Ore
+  hourly-rate: Tariffa oraria (CHF)
+  tax-mode: Imposta sul valore aggiunto
+  percentage: Quota (%) ...
+  of-amount: ... dei costi globali (CHF)
+  add: Aggiungi tassa
+  toggle-all: Seleziona tutte le tasse
+  toggle-row: Seleziona tassa
+  confirm-delete: Cancella davvero la tassa?
+  confirm-charge: |-
+    Accertarsi che la fattura sia stata creata prima di impostare la tassa su «fatturata».
+  add-success: Tassa aggiunta con successo
+  add-error: Errore nel tentativo di aggiungere la tassa
+  delete-error: Errore nel tentativo di eliminare la tassa
+  charge-error: Errore nel tentativo di fatturare la tassa
+
+  organizations:
+    cantonal: Cantonale
+    municipal: Comunale
+
+  calculations:
+    flat: "{totalCost, number, ::.00} {taxMode}"
+    percentage: "{percentage, number, ::.00 % scale/0.01} su {totalCost, number, ::.00} {taxMode}"
+    hourly: "{hours, number, ::.00} h a {hourlyRate, number, ::.00} {taxMode}"
+
+    titles:
+      flat: forfait
+      percentage: percentuale
+      hourly: in base al dispendio
+
+  tax-modes:
+    exempt: non soggetto a IVA
+    inclusive: "IVA incl. {taxRate, number, ::.0 % scale/0.01}"
+    exclusive: "IVA escl. {taxRate, number, ::.0 % scale/0.01}"
+
+  totals:
+    cantonal:
+      uncharged: Subtotale Cantone (non fatturato)
+      total: Subtotale Cantone
+    municipal:
+      uncharged: Subtotale comune (non fatturato)
+      total: Subtotale comune
+    all:
+      uncharged: Totale (non fatturato)
+      total: Totale
+
+  billing-type: Fatturazione
+  billing-type-info: |-
+    <ul>
+      <li>
+        <strong>Da fatturare:</strong>
+        il servizio specialistico informa in merito alla tassa che il comune deve considerare.
+      </li>
+      <li>
+        <strong>Fattura da notificare:</strong>
+        il servizio specialistico prepara una fattura e la invia al comune
+        per l'ulteriore elaborazione. Incasso da parte del servizio.
+      </li>
+      <li>
+        <strong>Fatturazione diretta:</strong>
+        il servizio ha inviato la propria fattura direttamente alle persone richiedenti. Incasso da parte del servizio.
+      </li>
+    </ul>
+  billing-types:
+    by_authority: Da fatturare
+    forwarded: Fattura da notificare
+    direct: Fatturazione diretta

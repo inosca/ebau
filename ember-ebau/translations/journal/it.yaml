@@ -1,0 +1,12 @@
+journal:
+  title: "Registro"
+  create: "Crea voce"
+  edit: "Modifica"
+  textareaEdit: "Casella di testo per elaborare una voce"
+  noEntries: "Nessuna voce di registro disponibile"
+
+  visibility: "Visibilità della voce"
+  visibleForAuthorities: "Visibilità per le autorità coinvolte"
+  visibleForOwnOrganization: "Visibilità per la propria organizzazione"
+
+  duration: Durata del lavoro (HH:MM)

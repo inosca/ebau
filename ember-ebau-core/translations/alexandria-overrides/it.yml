@@ -1,0 +1,8 @@
+alexandria:
+  document-list:
+    created-by-group: Organizzazione
+
+  document-details:
+    created-by-group: Creato da organizzazione
+    version:
+      checksum: Indice di identificazione univoco

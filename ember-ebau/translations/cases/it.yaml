@@ -1,0 +1,8 @@
+cases:
+  header:
+    keywords: "Parole chiave"
+    printPreview: "Visualizzazione stampa"
+    form: "Modulo"
+    searchKeyword: "Cerca parola chiave"
+    addKeyword: 'Aggiungi "{term}"'
+    keywordSaveFailed: "Errore nel tentativo di salvare la parola chiave"

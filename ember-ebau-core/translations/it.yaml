@@ -1,0 +1,5 @@
+global:
+  delete: "Elimina"
+  yes: "sì"
+  no: "no"
+  loadingPrompt: "Sto caricando i risultati..."

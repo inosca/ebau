@@ -1,0 +1,25 @@
+additional-demand:
+  new: "Nuova richiesta di precisazioni"
+  cancel: "Annulla richiesta di precisazioni"
+  request: "Richiesta"
+  request-info: "La richiesta di precisazioni viene inviata direttamente alle persone richiedenti. Quando un servizio cantonale genera una richiesta di precisazioni in aggiunta viene informato anche il comune."
+  answer: "Risposta"
+  check: "Esame"
+  sent-message: "Inviata in data {date}"
+  empty: "Nessuna richiesta di precisazioni disponibile."
+  empty-create: 'Clicca su «+» per avviare una richiesta di precisazioni.'
+  no-create: 'Allo stato attuale non è possibile generare una richiesta di precisazioni.'
+  paper: "In caso di dossier cartacei le richieste di precisazioni devono avvenire per posta / via e-mail. Le risposte ricevute possono essere classificate nel menu «Documenti» e «Registro»."
+  documents: "Documenti"
+  status:
+    internal:
+      draft: "Bozza"
+      sent: "Inviata"
+      needs-interaction: "Azione necessaria"
+      completed: "Conclusa"
+      canceled: "Terminata prima del tempo"
+    portal:
+      sent: "Azione necessaria"
+      needs-interaction: "In elaborazione"
+      completed: "Conclusa"
+      canceled: "Terminata prima del tempo"

@@ -1,0 +1,29 @@
+decision:
+  info:
+    geometer: "Questo comune è assegnato alla/al geometra revisore <b>{geometer}</b>."
+
+  submit:
+    preliminary-clarification: "Concludi la valutazione"
+    appeal: "Conferma la decisione"
+
+  appeal:
+    confirmed: |-
+      Dopo aver registrato la decisione al presente dossier viene assegnato
+      lo stato della decisione precedente <b>({status})</b>.
+    changed: |-
+      Dopo la conferma della decisione al presente dossier viene assegnato
+      lo stato opposto rispetto a quello della decisione precedente <b>({status})</b>.
+    rejected: |-
+      Dopo aver registrato la decisione il presente dossier viene copiato
+      e viene impostato lo stato <b>({status})</b>. Il dossier attuale viene 
+      concluso.
+
+  appeal-confirm: |-
+    Avviare davvero una nuova procedura di ricorso? Al presente dossier viene
+    assegnato in modo irrevocabile lo stato <b>"concluso"</b>. Viene generato un
+    dossier di ricorso nel quale può essere documentata 
+    la procedura di ricorso.
+
+  send-notification-success: "Notifiche inviate con successo"
+  send-notification-error: "Errore nel tentativo di inviare le notifiche"
+  appeal-error: "Errore nel tentativo di avviare la procedura di ricorso"
