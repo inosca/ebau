@@ -195,7 +195,97 @@
     "fields": {
       "role": 20001,
       "language": "it",
-      "name": "Organizzazione per la protezione dell'ambiente",
+      "name": "Organizzazione ambientalista",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20033,
+    "fields": {
+      "role": 1,
+      "language": "it",
+      "name": null,
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20034,
+    "fields": {
+      "role": 2,
+      "language": "it",
+      "name": null,
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20035,
+    "fields": {
+      "role": 3,
+      "language": "it",
+      "name": "Servizi specializzati autorità direttiva",
+      "group_prefix": "Servizi specializzati"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20036,
+    "fields": {
+      "role": 4,
+      "language": "it",
+      "name": "Servizi specializzati servizio",
+      "group_prefix": "Servizi specializzati"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20037,
+    "fields": {
+      "role": 5,
+      "language": "it",
+      "name": "Amministrazione autorità direttiva",
+      "group_prefix": "Amministrazione"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20038,
+    "fields": {
+      "role": 6,
+      "language": "it",
+      "name": "Amministrazione servizio",
+      "group_prefix": "Amministrazione"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20039,
+    "fields": {
+      "role": 10000,
+      "language": "it",
+      "name": "Supporto",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20040,
+    "fields": {
+      "role": 10001,
+      "language": "it",
+      "name": "Richiedente",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20041,
+    "fields": {
+      "role": 20000,
+      "language": "it",
+      "name": "Servizio di rango inferiore",
       "group_prefix": null
     }
   },
@@ -265,6 +355,42 @@
       "service_group": 4,
       "language": "de",
       "name": "Umweltschutzorganisation"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20004,
+    "fields": {
+      "service_group": 1,
+      "language": "it",
+      "name": "Servizio"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20005,
+    "fields": {
+      "service_group": 2,
+      "language": "it",
+      "name": "Autorità direttrice comune"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20006,
+    "fields": {
+      "service_group": 3,
+      "language": "it",
+      "name": "Fuori dalla zona edificabile"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20007,
+    "fields": {
+      "service_group": 4,
+      "language": "it",
+      "name": "Organizzazione ambientalista"
     }
   }
 ]

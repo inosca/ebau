@@ -1,0 +1,11 @@
+﻿id,name,
+1,Admin,
+2,Guest,
+3,Sachbearbeitung Leitbehörde,Servizi specializzati autorità direttiva
+4,Sachbearbeitung Fachstelle,Servizi specializzati servizio
+5,Administration Leitbehörde,Amministrazione autorità direttiva
+6,Administration Fachstelle,Amministrazione servizio
+10000,Support,Supporto
+10001,Gesuchsteller,Richiedente
+20000,Unterfachstelle,Servizio di rango inferiore
+20001,Umweltschutzorganisation,Organizzazione ambientalista

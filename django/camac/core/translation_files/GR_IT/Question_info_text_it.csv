@@ -1,0 +1,402 @@
+﻿id,info_text,
+additional-demand-decision,"Sofern die Nachforderung vollständig beantwortet wurde, wird die aktuelle Nachforderungs-Anfrage abgeschlossen. Wenn noch zusätzliche oder weitere Unterlagen notwendig sind, kann die Nachforderung als unvollständig beantwortet und eine weitere Nachforderung an den Gesuchsteller formuliert werden.","Se sono state fornite integralmente le precisazioni richieste, l'attuale richiesta di precisazioni è conclusa. Se sono necessari documenti supplementari o ulteriore documentazione, la richiesta di precisazioni è considerata incompleta ed è possibile inviare una nuova richiesta di precisazioni alla persona richiedente."
+decision-submit,"Haben Sie den Entscheid im Menü ""Dokumente"" unter der Kategorie “alle Beteiligten” hochgeladen und möchten Sie den Entscheid jetzt verfügen? Dieser Schritt kann nicht rückgängig gemacht werden.
+<br><br>
+Ansonsten können Sie unter ""Vorlagen"" den Entscheid generieren. Nachdem der Entscheid unter ""Dokumente"" abgelegt wurde, kann dieser verfügt werden.","Ha caricato la decisione nel menu «Documenti» alla voce «Tutte le persone coinvolte» e ora vuole disporre la decisione? Questo passaggio non può essere annullato.
+<br><br>
+Altrimenti può generare la decisione alla voce «Modelli». Dopo che la decisione è stata salvata sotto «Documenti», è possibile disporre la decisione."
+abfallcode-text,"[Verordnung des UVEK über Listen zum Verkehr mit Abfällen (LVA), Anhang 1](https://www.fedlex.admin.ch/eli/cc/2005/714/de#annex_1)","[Ordinanza del DATEC sulle liste per il traffico di rifiuti (OLTRif), allegato 1](https://www.fedlex.admin.ch/eli/cc/2005/714/it#annex_1)"
+ableitung-der-abgase-titel,[Wärmetechnische Anlagen](https://www.bsvonline.ch/de/vorschriften/#c-richtlinien),[Impianti termotecnici](https://www.bsvonline.ch/it/prescrizione-della-protezione-antincendio/prescrizioni-2015#c-direttive)
+aufstellungsraum-der-feuerungsanlage-titel,[Wärmetechnische Anlagen](https://www.bsvonline.ch/de/vorschriften/#a-ioth),"[Impianti termotecnici, disponibili solo in tedesco e francese](https://www.bsvonline.ch/de/vorschriften/#a-ioth)"
+bab-begruendung,Der Bedarf des Vorhabens ist zu begründen bzw. zu erläutern.,Occorre motivare e spiegare per quale motivo il progetto è necessario.
+bauanzeige-haustechnische-anlagen-brandschutz,"### Feuerpolizeiliche Bewilligung
+
+Gemäss Brandschutzgesetz, Art. 7 Abs. 1 Feuerpolizeiliche Bewilligungspflicht: Bewilligungspflichtig sind: 
+
+
+1. Neu-, An-, Um- und Ausbauten sowie die Umnutzung von Gebäuden oder Gebäudeteilen;<br>
+1. Neu-, Aus- und Umbauten von haustechnischen Anlagen und technischen Brandschutzeinrichtungen;<br>
+1. Betriebe, Anlagen und Einrichtungen, die der Herstellung, Verarbeitung oder Lagerung feuer- oder explosionsgefährlicher Stoffe und Waren dienen;<br>
+1. Veranstaltungen mit besonderer Gefährdung von Personen, Tieren oder Sachen;<br>
+1. das Abbrennen von pyrotechnischen Gegenständen zu Vergnügungszwecken (Feuerwerkskörper) und zu gewerblichen Zwecken.<br>","### Permesso di polizia del fuoco
+
+Conformemente all'art. 7 cpv. 1 (obbligo del permesso di polizia del fuoco) della legge sulla protezione antincendio: Sono soggetti all'obbligo del permesso: 
+
+
+ nuove costruzioni, costruzioni annesse, trasformazioni, ampliamenti nonché la destinazione ad altro scopo di edifici o parti di essi;<br>
+ nuove costruzioni, ampliamenti e modifiche di installazioni tecniche e dispositivi tecnici di protezione antincendio;<br>
+ aziende, impianti e installazioni che servono alla produzione, alla lavorazione o al deposito di sostanze e merci a rischio di incendio o di esplosione;<br>
+ manifestazioni con particolare pericolo per persone, animali od oggetti;<br>
+1. l'accensione di pezzi pirotecnici per scopi di svago (fuochi d'artificio) e a scopo commerciale.<br>"
+baubegleitung-abschliessen,Haben Sie die Bauabnahmedokumente im Menü “Dokumente” unter der Kategorie “Bauabnahme” hochgeladen und möchten Sie die Bauabnahme jetzt abschliessen? Dieser Schritt kann nicht rückgängig gemacht werden.,Ha caricato i documenti del collaudo nel menu «Documenti» alla voce «Collaudo» e ora desidera concludere il collaudo? Questo passaggio non può essere annullato.
+baugespann,"Bei Bauvorhaben, die nach aussen in Erscheinung treten, ist ein Baugespann aufzustellen. 
+
+Es ist in jedem Falle während der Dauer der öffentlichen Auflage stehen zu lassen (vgl. Art. 43 der kantonalen Raumplanungsverordnung [KRVO]).","Per progetti di costruzione visibili dall'esterno devono essere posate modine. 
+
+In ogni caso esse devono essere lasciate sul posto per tutta la durata dell'esposizione pubblica (cfr. art. 43 dell'ordinanza cantonale sulla pianificazione territoriale [OPTC])."
+bauten-und-anlagen-ausserhalb-bauzone-titel,Eine Arbeitshilfe für die Erarbeitung und Beurteilung von Baugesuchen ausserhalb der Bauzone finden Sie [hier](https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/BAB/Bauten%20und%20Anlagen%20ausserhalb%20der%20Bauzonen_web_de.pdf).,Uno strumento di lavoro per l'elaborazione e la valutazione di domande di costruzione al di fuori della zona edificabile è disponibile [qui](https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/BAB/Bauten%20und%20Anlagen%20ausserhalb%20der%20Bauzonen_web_it.pdf).
+baute-oder-anlage,"Als Baute gelten im Allgemeinen ober- und unterirdische Gebäude oder gebäudeähnliche Objekte, welche in der Regel dreidimensional errichtet werden (z.B. Wohnhaus, Gewerbebaute, Holzschopf etc.). 
+
+Als Anlage werden eher Einrichtungen bezeichnet, welche das Gelände oder den umliegenden Raum verändern. Meistens handelt es um dem Tiefbau zuzordnenden zweidimensionalen Eingriff (z.B. Terrainveränderungen, Strassen, Leitungen, Kiesabbau, Beschneinungsanlagen etc.).","In generale una «costruzione» è un edificio o un oggetto simile a un edificio fuori terra o sotterraneo di regola tridimensionale (ad es. abitazione, edificio artigianale, legnaia, ecc.). 
+
+Per strutture che modificano il terreno o lo spazio circostante si usa piuttosto il concetto di «impianto». Si tratta perlopiù di interventi bidimensionali attribuibili al genio civile (ad es. modifiche del terreno, strade, condotte, estrazione di ghiaia, impianti di innevamento, ecc.)."
+beschreibung-bauvorhaben,"Wahl eines kurzen und prägnanten Titels des Vorhabens wie z.B. «Neubau Garage zu Wohnhaus», «Anbau eines Balkons» oder «Neuerstellung Wärmepumpe auf der Nordseite».","Scegliere un titolo del progetto breve e conciso, ad es. «Nuova costruzione autorimessa per casa d'abitazione», «Aggiunta di un balcone» o «Nuova installazione pompa di calore sul lato nord»."
+beschreibung-bauvorhaben-details,"Das Vorhaben ist möglichst genau zu umschreiben. Die wesentlichen baulichen Veränderungen sind aufzuführen und detailliert zu beschreiben (Materialisierung, Farbgebung etc.).","Il progetto deve essere descritto in modo il più possibile dettagliato. Le modifiche edilizie importanti (materiali, colori, ecc.) devono essere indicate e descritte in dettaglio."
+beschreibung-der-anlage-des-prozesses,"Feuerungsanlagen zur Erzeugung der (Raum)Wärme, sowie stationäre Verbrennungsmotoren für Notstrom und Blockheizkraftwerke (BHKW) hier nicht aufzuführen.",Impianti a combustione per il riscaldamento (dei locali) e motori a combustione stazionari per elettricità d'emergenza e centrali termoelettriche a blocco (CTEB) non devono essere indicati in questa sede.
+bestaetigung-energienachweise,"Alle gültigen Formulare, Gesetze und Protokolle sind unter [energienachweis.gr.ch](http://www.energienachweis.gr.ch/) zu finden.
+
+Im Rahmen der «Privaten Kontrolle» prüfen akkreditierte Fachleute für die Fachbereiche Wärmedämmung, Heizungsanlagen sowie Klima- und Belüftungsanlagen, ob ein Bauvorhaben den gesetzlichen Bestimmungen entspricht und nach den bewilligten Plänen ausgeführt wurde. Die Formulare «Energienachweise» und «Ausführungskontrolle» müssen beim Bauamt eingereicht werden.","Moduli, leggi e protocolli validi si possono trovare all'indirizzo [energienachweis.gr.ch](http://www.energienachweis.gr.ch/).
+
+Nel quadro del «Controllo privato» specialiste e specialisti accreditati dei settori isolamento termico, impianti di riscaldamento nonché impianti di climatizzazione e di ventilazione verificano se un progetto edilizio è conforme alle disposizioni di legge ed è stato realizzato secondo i piani autorizzati. I moduli «Certificati energetici» e «Controllo dell'esecuzione» devono essere trasmessi all'ufficio edile."
+bestaetigung-radon,"Seit dem 01. Januar 2018 ist die neue Strahlenschutzverordnung in Kraft, die darauf abzielt, die Bevölkerung besser vor den Auswirkungen von Radon zu schützen. In Wohn- und Aufenthaltsräumen ist der Referenzwert auf 300 Bq/m3 festgelegt worden (Art. 155 Abs. 2 StSV). Bei Neu- oder Umbauten solcher Räume sind dem Stand der Technik entsprechende präventive bauliche Massnahmen umzusetzen (Art. 163 Abs. 2 StSV). Der Stand der Technik wird in der Norm SIA 108:2014 (Wärmeschutz, Feuchteschutz und Raumklima in Gebäuden) beschrieben.
+
+Die Bauherrschaft ist verpflichtet, dem Stand der Technik entsprechende präventive bauliche Massnahmen zu treffen, um in Räumen, in denen sich Personen regelmässig, während mehrerer Stunden pro Tag aufhalten, den Radonreferenzwert von 300 Bq/m3 nicht zu überschreiten.
+
+Mit der Unterschrift auf dem Hauptformular bestätigt die Bauherrschaft die obengenannten Ausführungen zur Kenntnis genommen zu haben und bei der Umsetzung des Bauvorhabens die erforderlichen Massnahmen zur Minimierung der Radonkonzentration zu ergreifen.
+
+Fragen können an das Amt für Lebensmittelsicherheit und Tiergesundheit gerichtet werden.","Il 1° gennaio 2018 è entrata in vigore l'ordinanza sulla radioprotezione, che ha lo scopo di proteggere meglio la popolazione dagli effetti del radon. Il livello di riferimento nei locali abitativi e di soggiorno è stato stabilito a 300 Bq/m3 (art. 155 cpv. 2 ORaP). In caso di nuove costruzioni o ristrutturazioni di tali locali occorre adottare misure edili di prevenzione conformi allo stato della tecnica (art. 163 cpv. 2 ORaP). Lo stato della tecnica viene descritto nella norma SIA 108:2014 (Isolamento termico, protezione contro l'umidità e clima interno degli edifici).
+
+La committenza è tenuta ad attuare corrispondenti misure edili di prevenzione per evitare il superamento del livello di riferimento del radon pari a 300 Bq/m3 nei locali in cui le persone si trattengono regolarmente per diverse ore al giorno.
+
+Firmando il modulo principale la committenza conferma di aver preso atto delle spiegazioni di cui sopra e di adottare i provvedimenti necessari per ridurre al minimo la concentrazione di radon al momento dell'attuazione del progetto di costruzione.
+
+Per eventuali domande è a disposizione l'Ufficio per la sicurezza delle derrate alimentari e la salute degli animali."
+branche-gemaess-noga,Siehe [Webportal des Bundes für NOGA-Codes](https://www.kubb-tool.bfs.admin.ch/de),Vedi [sito web della Confederazione dei codici NOGA](https://www.kubb-tool.bfs.admin.ch/it)
+brandschutz-haustechnik-titel,[VKF Brandschutzvorschriften](https://www.bsvonline.ch/de/vorschriften/#c-richtlinien),[Prescrizioni della protezione antincendio AICAA](https://www.bsvonline.ch/it/prescrizione-della-protezione-antincendio/prescrizioni-2015#c-direttive)
+brennstofflager-titel,"[Wärmetechnische Anlagen](https://www.bsvonline.ch/de/vorschriften/#c-richtlinien)
+[Brandschutzerläuterungen](https://www.bsvonline.ch/de/vorschriften/#e-erlaeuterungen)","[Impianti termotecnici](https://www.bsvonline.ch/it/prescrizione-della-protezione-antincendio/prescrizioni-2015#c-direttive)
+[Note esplicative della protezione antincendio](https://www.bsvonline.ch/it/prescrizione-della-protezione-antincendio/prescrizioni-2015#e-note-esplicative)"
+egid,"####INFO
+
+EGID ist die eidgenössische Gebäudeidentifikationsnummer gemäss dem Gebäude- und Wohnungsregister des Bundesamtes für Statistik (BfS)
+
+Diese Nummer wird im Rahmen der Nachführung des GWR automatisch ausgefüllt.","####INFO
+
+EGID è l'identificatore federale dell'edificio in base al Registro federale edifici e delle abitazioni dell'Ufficio federale di statistica (UFS)
+
+Questo numero viene compilato automaticamente nel quadro dell'aggiornamento del REA."
+energie-waermequelle-heizung,"Mit «Energie-/Wärmequelle Heizung» ist die vom Wärmeerzeuger genutzte Hauptenergiequelle gemeint. Die Hilfsenergie, die für das Funktionieren der Installation genutzt wird (z.B. Elektrizität für Wärmepumpen), ist nicht zu nennen.",«Fonte di energia/calore riscaldamento» indica la fonte di energia principale utilizzata dal generatore di calore. L'energia ausiliaria utilizzata per il funzionamento dell'impianto (ad es. l'elettricità per le pompe di calore) non va menzionata.
+energie-waermequelle-warmwasser,"Mit «Energie-/Wärmequelle Warmwasser» ist die vom Wärmeerzeuger genutzte Hauptenergiequelle gemeint. Die Hilfsenergie, die für das Funktionieren der Installation genutzt wird (z.B. Elektrizität für Wärmepumpen), ist nicht zu nennen.",«Fonte di energia/calore acqua calda» indica la fonte di energia principale utilizzata dal generatore di calore. L'energia ausiliaria utilizzata per il funzionamento dell'impianto (ad es. l'elettricità per le pompe di calore) non va menzionata.
+entsorgungsverfahren-text,"[Verordnung des UVEK über Listen zum Verkehr mit Abfällen (LVA), Anhang 2](https://www.fedlex.admin.ch/eli/cc/2005/714/de#annex_2)","[Ordinanza del DATEC sulle liste per il traffico di rifiuti (OLTRif), allegato 2](https://www.fedlex.admin.ch/eli/cc/2005/714/it#annex_2)"
+ertragswert-in-chf,Der Ertragswert ist der amtlichen Bewertung (Schätzungseröffnung) zu entnehmen.,Il valore di reddito è riportato nella valutazione ufficiale (notifica di stima).
+ewid,"####INFO
+
+EWID ist die eidgenössische Wohnungsidentifikationsnummer im Gebäude - und Wohnungsregister des Bundesamtes für Statistik (BFS).
+
+Diese Nummer wird im Rahmen der Nachführung des GWR automatisch ausgefüllt.","####INFO
+
+EWID è l'identificatore federale delle abitazioni nel Registro federale degli edifici e delle abitazioni dell'Ufficio federale di statistica (UFS).
+
+Questo numero viene compilato automaticamente nel quadro dell'aggiornamento del REA."
+flaeche-in-m2,"####INFO
+
+Wohnungsfläche
+
+Als Wohnungsfläche ist die Summe der Flächen sämtlicher Zimmer, Küchen, Kochnischen, Badezimmer, Toiletten, Abstellräume, Gänge, Veranden usw. einer Wohnung erfasst.
+
+Zusätzliche separate Wohnräume (z.B. Mansarden), offene Balkone und Terrassen sowie nicht bewohnbare Keller-und Dachgeschossräume fallen bei der Berechnung der Wohnungsfläche ausser Betracht.
+
+Wo keine genauen Flächen ermittelt werden können, sind Schätzwerte (Länge x Breite der Wohnung) erfasst. Wo Bruttowohnflächen verfügbar sind, sind die Bruttowerte anzugeben.","####INFO
+
+Superficie dell'abitazione
+
+La superficie dell'abitazione registrata equivale alla somma delle superfici di tutti i locali, cucine, cucinotti, bagni, gabinetti, sgabuzzini, corridoi, verande, ecc.
+
+Non sono presi in considerazione nel calcolo della superficie dell'abitazione: i locali abitabili indipendenti (ad es. le mansarde), i balconi aperti e le terrazze, nonché i locali non abitabili situati in cantina o nei solai.
+
+La superficie è stimata (lunghezza per larghezza dell'abitazione) quando non può essere determinata in maniera precisa. Indicare la superficie abitabile lorda se questa informazione è disponibile."
+forstliche-baute,"Forstliche Kleinbauten und Kleinanlagen sind namentlich Begehungswege, kleine Einrichtungen für die Waldschulung und Waldökologie, Rückewege, Wildschutzzäune, Verbauungen aus Holz und Stein sowie Holzlagerplätze.","Piccole costruzioni e piccoli impianti forestali sono segnatamente sentieri, piccole strutture per la formazione forestale e per l'ecologia forestale, piste d'esbosco, recinzioni per la protezione dalla selvaggina, strutture di protezione in legno e pietra nonché depositi di legname."
+gebaeudehoehe,Für weitere Informationen siehe [Schweizerische Brandschutzvorschriften](https://www.bsvonline.ch/de/vorschriften/#c-richtlinien).,Per maggiori informazioni vedi [Prescrizioni svizzere della protezione antincendio](https://www.bsvonline.ch/it/prescrizione-della-protezione-antincendio/prescrizioni-2015#c-direttive).
+gefaehrdete-umliegende-objekte,[EKAS Richtlinie](https://www.ekas.admin.ch/download.php?id=7471),[Direttiva CFSL ](https://www.ekas.admin.ch/download.php?id=7472)
+gesetzliche-vorgaben,"Raumplanungsverordnung
+Art. 32a Bewilligungsfreie Solaranlagen
+
+1 Solaranlagen gelten als auf einem Dach genügend angepasst (Art. 18a Abs. 1 RPG), wenn sie:
+
+a. die Dachfläche im rechten Winkel um höchstens 20 cm überragen;
+b. von oben gesehen nicht über die Dachfläche hinausragen;
+c. nach dem Stand der Technik reflexionsarm ausgeführt werden; und
+d. kompakt angeordnet sind; technisch bedingte Auslassungen oder eine versetzte Anordnung aufgrund der verfügbaren Fläche sind zulässig.
+
+1bis Solaranlagen auf einem Flachdach gelten auch dann als genügend angepasst, wenn sie anstelle der Voraussetzungen nach Absatz 1:
+
+a. die Oberkante des Dachrandes um höchstens einen Meter überragen
+b. von der Dachkante so weit zurückversetzt sind, dass sie, von unten in einem Winkel von 45 Grad betrachtet, nicht sichtbar sind; und
+c. nach dem Stand der Technik reflexionsarm ausgeführt werden.
+
+2 Konkrete Gestaltungsvorschriften des kantonalen Rechts sind anwendbar, wenn sie zur Wahrung berechtigter Schutzanliegen verhältnismässig sind und die Nutzung der Sonnenenergie nicht stärker einschränken als Absatz 1.
+
+3 Bewilligungsfreie Vorhaben sind vor Baubeginn der Baubewilligungsbehörde oder einer anderen vom kantonalen Recht für zuständig erklärten Behörde zu melden. Das kantonale Recht legt die Frist sowie die Pläne und Unterlagen, die der Meldung beizulegen sind, fest.","Ordinanza sulla pianificazione del territorio
+Art. 32a Impianti solari non soggetti ad autorizzazione
+
+1 Un impianto solare è sufficientemente adattato a un tetto (art. 18a cpv. 1 LPT), se:
+
+a. sporge ortogonalmente di al massimo 20 cm dalla superficie del tetto;
+b. visto dall'alto non sporge dalla superficie del tetto;
+c. in base allo stato della tecnica, presenta un basso grado di riflessione; e
+d. le varie parti sono disposte in modo compatto; sono ammessi spazi lasciati vuoti per motivi tecnici o una disposizione sfalsata dovuta alla superficie disponibile.
+
+1bis Un impianto solare è sufficientemente adattato anche a un tetto piano, se anziché rispettare le condizioni di cui al capoverso 1:
+
+a. sporge dal bordo superiore del tetto al massimo di un metro
+b. è arretrato rispetto allo spigolo del tetto al punto da non essere visibile se guardato dal basso con un angolo di 45 gradi; e
+c. in base allo stato della tecnica, presenta un basso grado di riflessione.
+
+2 Concrete prescrizioni edilizie fondate sul diritto cantonale sono applicabili se sono proporzionali a giustificate esigenze di protezione e se non limitano lo sfruttamento dell'energia solare in misura superiore a quanto previsto al capoverso 1.
+
+3 I progetti esenti dall'obbligo di autorizzazione devono essere annunciati, prima che inizino i lavori, all'autorità preposta al rilascio dell'autorizzazione edilizia o a un'altra autorità competente secondo il diritto cantonale. Il diritto cantonale fissa il termine per l'annuncio nonché i piani e la documentazione da allegare."
+guellelager-titel,"Bezüglich Güllegruben sind folgende Angaben bekannt zu geben:
+- Wo befinden sich die bestehenden Güllelagerräume?
+- Wo wird ein neues Güllelager erstellt?
+
+Beim Einbau eines vorproduzierten Gülletanks muss dem Baugesuch eine detaillierte Produktespezifikation beigelegt werden. Daraus muss ersichtlich sein, dass der Tank für die Lagerung von Gülle geeignet ist (Garantie des Herstellers).","In merito alle fosse per il colaticcio devono essere fornite le indicazioni seguenti:
+- Dove si trovano i serbatoi per il colaticcio esistenti?
+- Dove viene realizzato un nuovo serbatoio per il colaticcio?
+
+Se viene installato un serbatoio per il colaticcio prefabbricato, alla domanda di costruzione occorre allegare una descrizione dettagliata del prodotto. Da essa deve risultare che il serbatoio è idoneo allo stoccaggio del colaticcio (garanzia del produttore)."
+haustechnische-anlagen-brandschutz,"### Feuerpolizeiliche Bewilligung
+
+Nach Art. 7 Abs. 1 des kantonalen Brandschutzgesetzes sind folgende Vorhaben bewilligungspflichtig:
+
+
+1. Neu-, An-, Um- und Ausbauten sowie die Umnutzung von Gebäuden oder Gebäudeteilen;<br>
+1. Neu-, Aus- und Umbauten von haustechnischen Anlagen und technischen Brandschutzeinrichtungen;<br>
+1. Betriebe, Anlagen und Einrichtungen, die der Herstellung, Verarbeitung oder Lagerung feuer- oder explosionsgefährlicher Stoffe und Waren dienen;<br>
+1. Veranstaltungen mit besonderer Gefährdung von Personen, Tieren oder Sachen;<br>
+1. das Abbrennen von pyrotechnischen Gegenständen zu Vergnügungszwecken (Feuerwerkskörper) und zu gewerblichen Zwecken.<br>","### Permesso di polizia del fuoco
+
+Secondo l'art. 7 cpv. 1 della legge cantonale sulla protezione antincendio sono soggetti all'obbligo del permesso i progetti seguenti:
+
+
+ nuove costruzioni, costruzioni annesse, trasformazioni, ampliamenti nonché la destinazione ad altro scopo di edifici o parti di essi;<br>
+1. nuove costruzioni, ampliamenti e modifiche di installazioni tecniche e dispositivi tecnici di protezione antincendio;<br>
+1. aziende, impianti e installazioni che servono alla produzione, alla lavorazione o al deposito di sostanze e merci a rischio di incendio o di esplosione;<br>
+1. manifestazioni con particolare pericolo per persone, animali od oggetti;<br>
+1. l'accensione di pezzi pirotecnici per scopi di svago (fuochi d'artificio) e a scopo commerciale.<br>"
+heizleistung-waermepumpe-verdampfer,"B0W35 bedeutet, dass eine Sole-Wasser-Wärmepumpe mit einer Soletemperatur von 0 °C und einer Vorlauftemperatur von 35 °C arbeitet.",B0W35 significa che una pompa di calore acqua glicolata-acqua lavora con una temperatura dell'acqua glicolata pari a 0 °C e una temperatura di mandata pari a 35 °C.
+hinweis-hindernisfreies-bauen,"Art. 80 KRG definiert den Geltungsbereich und die Anforderungen an das behindertengerechte Bauen. Die fachliche Beurteilung nach SIA 500 erfolgt durch die Pro Infirmis.
+
+Zur Beurteilung des Bauvorhabens werden folgende Unterlagen benötigt:
+
+- Umgebungsplan mit Gebäudezugang und Aussenparkplätzen (Mst. 1:200 / 500)
+- Grundrisse aller Geschosse / Schnitte / Fassaden (Mst. 1:100 / 200)
+- bei komplexen Baugesuchen ist ein Konzept (stufenlose Erschliessung / Toiletten / Parkplätze) zum hindernisfreien Bauen einzureichen
+
+Wird die Umsetzung von behindertengerechten Massnahmen von der Bauherrschaft als unverhältnismässig beurteilt (> 20 % der Bausumme), hat sie dies mit einem detaillierten Nachweis im Baubewilligungsverfahren zu belegen.","L'art. 80 LPTC definisce il campo d'applicazione e i requisiti per l'edificazione adatta ai disabili. La valutazione specialistica secondo SIA 500 viene svolta da Pro Infirmis.
+
+Per la valutazione del progetto di costruzione è necessaria la documentazione seguente:
+
+- Piano dei dintorni con accesso all'edificio e parcheggi esterni (scala 1:200 / 500)
+- Piante di tutti i piani / sezioni / facciate (scala 1:100 / 200)
+- In caso di domande di costruzione complesse occorre inoltrare una strategia inerente la costruzione priva di ostacoli (accesso senza scalini / toilette / parcheggi)
+
+Se la committenza ritiene che l'attuazione delle misure conformi alle esigenze dei disabili sia sproporzionata (> 20 % della somma per tutti i lavori di costruzione), questa situazione deve essere giustificata dettagliatamente nella procedura per il rilascio della licenza edilizia."
+isos,"#### INFO
+Die Installation einer Solaranlage welche Gebiete, Baugruppen oder Einzelelemente gemäss Bundesinventar der schützenswerten Ortsbilder von nationaler Bedeutung (ISOS) mit Erhaltungsziel A betrifft, sind nicht grundsätzlich ausgeschlossen. Entsprechende Projekte müssen jedoch zwingend im Rahmen eines ordentlichen Baubewilligungsverfahren durch die kantonale Denkmalpflege geprüft werden. Weitere Informationen zum [ISOS](https://gisos.bak.admin.ch/).","#### INFO
+L'installazione di un impianto solare che interessa zone, gruppi di edifici o elementi singoli conformemente all'Inventario degli insediamenti svizzeri da proteggere (ISOS) con obiettivo di salvaguardia A non è esclusa in generale. È tuttavia imperativo che i relativi progetti siano esaminati dal Servizio monumenti cantonale nel quadro di una procedura ordinaria per il rilascio della licenza edilizia. Maggiori informazioni relative all'[ISOS](https://gisos.bak.admin.ch/)."
+kocheinrichtung,"####INFO
+
+Kocheinrichtung
+
+Feste Installationen die für die Zubereitung von Mahlzeiten und das Spülen von Geschirr vorbereitet sind.
+
+Mit der Einführung des Bundesgesetzes über Zweitwohnungen werden Wohnungen als solche gezählt, sobald technische Installationen für eine Kocheinrichtung vorhanden sind, auch wenn die Kocheinrichtung nicht ausgebaut ist (Botschaft zum Bundesgesetz über Zweitwohnungen vom 19. Februar 2014).","####INFO
+
+Cucina
+
+Installazione fissa destinata alla preparazione dei pasti e al lavaggio delle stoviglie.
+
+Quando è stata varata la legge sulle abitazioni secondarie, il legislatore ha previsto di considerare come abitazioni quelle provviste delle installazioni tecniche, anche se la cucina non è stata installata (messaggio concernente la legge federale sulle abitazioni secondarie del 19 febbraio 2014)."
+komplexe-erdwaermesonden-anlage,"Komplexe Anlagen sind Anlagen mit mehr als 4 Erdwärmesonden, mit spezifischen Anforderungen an die Kühlung, bei Einbringen von Abwärme in die Erdwärmesonden oder mit einem speziellen Bedarfsprofil.","Sono considerati «complessi» gli impianti con più di quattro sonde geotermiche, con requisiti specifici per il raffreddamento, per l'apporto di calore residuo nelle sonde geotermiche o con un particolare profilo delle esigenze."
+kulturobjekt,"#### INFO
+Die Installation einer Solaranlage auf dem Dach eines Kulturobjekts ist nicht grundsätzlich ausgeschlossen. Ein entsprechendes Vorhaben muss jedoch zwingend im Rahmen eines ordentlichen Baubewilligungsverfahren durch die kantonale Denkmalpflege geprüft werden.
+
+Als Kulturobjekte gelten Kulturgüter von nationaler, regionaler oder lokaler Bedeutung gemäss Artikel 2 Buchstaben a–c der Kulturgüterschutzverordnung vom 17. Oktober 1984; (siehe www.kgs.admin.ch > KGS-Inventar A-Objekte [national] und B-Objekte [regional].
+
+Kulturgüter von nationaler oder regionaler Bedeutung, die in einem anderen Inventar verzeichnet sind, das der Bund gestützt auf das Bundesgesetz vom 1. Juli 1966 über den Natur- und Heimatschutz (NHG) beschlossen hat; (siehe Inventar der erhaltenswerten ehemaligen Kampf- und Führungsbauten ADAB, Inventar der militärischen Hochbauten HOBIM, das Inventar der historischen Bahnhöfe SBB und das Schweizer Seilbahninventar).
+
+Ebenfalls in diese Kategorie fallen Kulturgüter von nationaler oder regionaler Bedeutung, für die Bundesbeiträge im Sinne von Artikel 13 NHG zugesprochen wurden (siehe Grundbuchanmerkung) sowie Objekte, die im vom Bund genehmigten Richtplan als Kulturdenkmäler von kantonaler Bedeutung im Sinn von Artikel 18a Absatz 3 RPG bezeichnet werden (siehe kantonales Schutzinventar).
+
+Bei lokalen Kulturgütern überprüft die Baubehörde via Grundbuch, ob für die Erhaltung des Objekts Beiträge der öffentlichen Hand gesprochen wurden und damit eine Eigentumsbeschränkung vorliegt. Auf einem solchen Objekt sind Solaranlagen ebenfalls baubewilligungspflichtig.","#### INFO
+L'installazione di un impianto solare sul tetto di un oggetto culturale non è esclusa in generale. È tuttavia imperativo che un relativo progetto sia esaminato dal Servizio monumenti cantonale nel quadro di una procedura ordinaria per il rilascio della licenza edilizia.
+
+I beni culturali sono classificati nelle categorie beni culturali d'importanza nazionale, regionale o locale conformemente all'articolo 2 lettere a–c dell'ordinanza sulla protezione dei beni culturali del 17 ottobre 1984; (vedi https://www.babs.admin.ch/it/la-protezione-dei-beni-culturali-in-svizzera > Inventario PBC oggetti A [nazionali] e B [regionali].
+
+Beni culturali di importanza nazionale o regionale inseriti in un altro inventario che la Confederazione ha deciso in virtù della legge federale sulla protezione della natura e del paesaggio (LPN) del 1° luglio 1966; (vedi Inventario delle opere di combattimento e di condotta degne di essere conservate (ADAB), Inventario degli edifici militari (HOBIM), Inventario delle stazioni storiche delle FFS e Inventario svizzero degli impianti a fune).
+
+Rientrano in questa categoria anche i beni culturali di importanza nazionale o regionale per cui sono stati stanziati sussidi federali ai sensi dell'articolo 13 LPN (vedi menzione nel registro fondiario) nonché i beni indicati come beni culturali di importanza cantonale nel piano direttore approvato dalla Confederazione ai sensi dell'articolo 18a capoverso 3 LPT (vedi inventario cantonale di protezione).
+
+Per beni culturali locali è l'autorità edilizia a verificare nel registro fondiario se per la conservazione del bene sono stati stanziati contributi dell'ente pubblico e di conseguenza se si è in presenza di una restrizione del diritto di proprietà. Su un bene di questo tipo gli impianti solari necessitano di una licenza edilizia."
+lage,"####INFO
+Lage auf dem Stockwerk
+
+Die Lage auf dem Stockwerk dient dazu, einzelne Wohnungen eines Gebäudes, welche bezüglich der Stockwerkangabe und der Anzahl Zimmer identisch sind, voneinander zu unterscheiden.
+
+Es kann sich um Angaben wie «Links»/ «Mitte»/ «Rechts»oder andere eindeutige und beständige Charakteristiken wie «Nord»/ «Ost»/ «Süd»/ «West»handeln.
+
+Für Wohnungen in Gebäuden mit mehr als drei Wohnungen pro Stockwerk wird anstelle einer Lagebezeichnung die Erfassung einer physischen Wohnungsnummer empfohlen","####INFO
+Situazione sul piano
+
+La situazione sul piano permette di distinguere tra le abitazioni di un edificio per il quale l'indicazione del piano e il numero dei locali sono identici.
+
+Può trattarsi di indicazioni come «sinistra» / «centro» / «destra» o di altre caratteristiche uniche e permanenti, come «nord» / «est» / «sud» / «ovest».
+
+Per le abitazioni situate in edifici in cui si trovano più di tre abitazioni per piano si raccomanda di registrare il numero fisico dell'abitazione anziché la situazione sul piano."
+mehr-als-50-arbeitsplaetze,"Nach Art. 80 Abs. 1 des kantonalen Raumplanungsgesetzes (KRG) sind neue Bauten und Anlagen mit mehr als 50 Arbeitsplätzen nach den anerkannten Fachnormen so zu gestalten, dass sie auch für Menschen mit Behinderung zugänglich sind.","Secondo l'art. 80 cpv. 1 della legge sulla pianificazione territoriale del Cantone dei Grigioni (LPTC), edifici e impianti nuovi con più di 50 posti di lavoro devono essere configurati secondo le norme specialistiche riconosciute, in modo tale che siano accessibili anche ai disabili."
+mehr-als-vier-wohneinheiten,Art. 80 des kantonalen Raumplanungsgesetzes (KRG),Art. 80 della legge sulla pianificazione territoriale del Cantone dei Grigioni (LPTC)
+mehrgeschossige-wohnung,"####INFO
+
+Mehrgeschossige Wohnung
+
+Gibt an, dass die Wohnung über mehrere Stockwerke gebaut ist (Maisonette)","####INFO
+
+Abitazione su più piani
+
+Indica che l'abitazione è costruita su più piani (duplex)"
+mistlager-titel,"Es ist eine Skizze resp. ein Übersichtsplan des geplanten Bauvorhabens beizulegen. Genaue Bemassung, Darstellung der Entwässerung, Abschluss der offenen Mistlagerseite, Fliessrichtung der Gülle / des Mistwassers, Standort und Grösse der Güllegrube / Sammelgrube, etc. müssen ersichtlich sein.
+
+Bei Mistplatten sind folgende Angaben bekannt zu geben:
+- Auf welchen Seiten werden Umrandungen erstellt?
+- Wie hoch sind die Umrandungen?
+- Was für Bodenbeläge befinden sich in den verschiedenen Stall- und Auslaufbereichen?
+- Wo befindet sich ein Schacht, eine Rinne oder Spaltenboden?
+- Abschluss der Mistplatte (Bedienungsseite) detailliert einzeichnen.
+- In welche Richtung fliesst Mistwasser / Gülle? Bitte mit Pfeilen einzeichnen.
+- Foto des bestehenden Mistlagers beilegen.","Deve essere allegato uno schizzo o un piano corografico del progetto di costruzione previsto. Sullo schizzo o sul piano corografico devono essere visibili le dimensioni precise, l'illustrazione dello smaltimento delle acque, il bordo del lato aperto del letamaio, la direzione di scorrimento del colaticcio / del percolato, l'ubicazione e le dimensioni della fossa per il colaticcio / fossa collettrice, ecc.
+
+In merito alle piattaforme per il letame devono essere fornite le indicazioni seguenti:
+- Su quali lati vengono realizzati dei bordi?
+- Quanto sono alti?
+- Quale tipo di rivestimento del suolo viene usato nei diversi settori della stalla e dell'area di uscita?
+- In quali punti si trova un pozzo, un canale o un pavimento a griglia?
+- Disegnare dettagliatamente il bordo della piattaforma del letame (lato di accesso).
+- In quale direzione scorre il percolato / il colaticcio? Si prega di indicare con frecce.
+- Allegare fotografie del letamaio esistente."
+neben-kulturobjekt,"#### INFO
+Wenn die geplante Solaranlage auf dem Dach eines Gebäudes welches unmittelbar neben einem Kulturobjekt (Beschreibung Kulturobjekt siehe INFO Kulturobjekt) oder in direkter Nachbarschaft zu einem Kulturobjekt steht, realisiert wird, muss das Vorhaben zwingend durch die kantonale Denkmalpflege geprüft werden. Falls die technischen Anforderungen erfüllt sind und das Vorhaben auch mit den Anliegen der Denkmalpflege vereinbar ist, kann die zuständige Gemeindebaubehörde auf die Durchführung eines ordentlichen Baubewilligungsverfahren verzichten.","#### INFO
+Se l'impianto solare previsto viene realizzato sul tetto di un edificio che si trova proprio accanto a un bene culturale (per la descrizione di bene culturale vedi INFO bene culturale) o nelle immediate vicinanze di un bene culturale, il progetto deve essere necessariamente esaminato dal Servizio monumenti cantonale. Se i requisiti tecnici sono soddisfatti e il progetto è conciliabile anche con le esigenze del Servizio monumenti, la competente autorità edilizia comunale può rinunciare a svolgere una procedura ordinaria per il rilascio della licenza edilizia."
+nichtforstliche-kleinbaute,"Nichtforstliche Kleinbauten und Kleinanlagen sind insbesondere Anbauten, Masten, Feuerstellen, Sport- und Lehrpfade, erdverlegte Leitungen, Passhütten, Bienenhäuser, Niederhaltungen bei oberirdischen Leitungen sowie entlang von Strassen und Bahnen, Wildbachsperren und Geschiebesammler.","Sono considerate piccole costruzioni e impianti non forestali in particolare costruzioni annesse, tralicci, focolari, sentieri sportivi e didattici, condotte interrate, rifugi sui passi, alveari, dispositivi di fissaggio al suolo per le condotte in superficie, nonché lungo le strade e le linee ferroviarie, sbarramenti di torrenti e bacini di raccolta di materiale."
+qualitaetssicherungsstufe-qss,Für weitere Informationen siehe [Schweizerische Brandschutzvorschriften](https://www.bsvonline.ch/de/vorschriften/#c-richtlinien).,Per maggiori informazioni vedi [Prescrizioni svizzere della protezione antincendio](https://www.bsvonline.ch/it/prescrizione-della-protezione-antincendio/prescrizioni-2015#c-direttive).
+rodung,"Eine Rodung ist eine dauernde oder vorübergehende Zweckentfremdung von Waldareal für nichtforstliche Zwecke. Die gerodete Fläche ist nicht mehr Wald im Sinne des Waldgesetzes. Im Gegensatz zum Kahlschlag wird das Aufkommen der Waldbäume dauernd (definitiv) bzw. während einer gewissen Zeit (temporär) verhindert. Rodungen sind verboten, können aber, wenn wichtige Gründe vorliegen, ausnahmsweise bewilligt werden (vgl. Art. 5 des kantonalen Waldgesetzes (KWaG]).","Si considera dissodamento ogni cambiamento, durevole o temporaneo, delle finalità dell'area boschiva per scopi non forestali. La superficie dissodata non è più considerata bosco ai sensi della legge forestale. Contrariamente al taglio raso, il dissodamento impedisce la crescita degli alberi forestali in modo durevole o temporaneo. I dissodamenti sono vietati, vi è tuttavia la possibilità di concedere deroghe in presenza di gravi motivi (cfr. art. 5 della legge cantonale forestale (LCFo])."
+rodungsgesuchsformular,[Rodungen und Rodungsgesuch](https://www.bafu.admin.ch/bafu/de/home/themen/wald/fachinformationen/strategien-und-massnahmen-des-bundes/rodungen-und-rodungsgesuch.html),[Dissodamenti](https://www.bafu.admin.ch/bafu/it/home/temi/bosco/info-specialisti/strategie-e-misure-della-confederazione/dissodamenti.html)
+standort-kernzone,"#### INFO
+Die Installation einer Solaranlage auf dem Dach eines Gebäudes innerhalb einer Kernzone ist nicht grundsätzlich ausgeschlossen. Ein entsprechendes Vorhaben muss jedoch zwingend im Rahmen eines ordentlichen Baubewilligungsverfahren durch die kantonale Denkmalpflege geprüft werden.","#### INFO
+L'installazione di un impianto solare sul tetto di un edificio all'interno della zona nucleo non è esclusa in generale. È tuttavia imperativo che un relativo progetto sia esaminato dal Servizio monumenti cantonale nel quadro di una procedura ordinaria per il rilascio della licenza edilizia."
+urspruenglicher-zweck-der-baute,"Angabe für welchen Zweck die Baute damals erstellt wurde (z.B. Stall, landwirtschaftliche Temporärwohnbaute).","Indicazione del tipo di destinazione per cui è stata realizzata a suo tempo la costruzione (ad es. stalla, edificio abitativo agricolo a uso temporaneo)."
+uvp-pflicht,[Definition von Anlagen mit UVP-Pflicht](https://www.fedlex.admin.ch/eli/cc/1988/1931_1931_1931/de#lvl_u1/lvl_u1),[Definizione di impianti sottoposti all'obbligo di un EIA](https://www.fedlex.admin.ch/eli/cc/1988/1931_1931_1931/it#lvl_u1/lvl_u1)
+vereinbarkeit-zweitwohnungsgesetz,"Das Zweitwohnungsgesetz (ZWG) gelangt in verschiedenen Gemeinden des Kantons Graubünden zur Anwendung. In diesen Gemeinden ist der Neubau von Zweitwohnungen nicht zulässig. Bauwillige haben daher mit dem Baugesuch bekannt zu geben, ob bzw. welche Wohnungen touristisch bewirtschaftet werden und welche Wohnungen als Erstwohnung oder als einer Erstwohnung gleichgestellte Wohnung genutzt werden sollen.¹
+
+Diese Angaben sind in einem Plan zu verorten oder in einem Wohnungsspiegel zu bezeichnen.
+
+¹ <font size=""1"">unter Hinweis auf die <a href=""https://www.gr.ch/DE/institutionen/verwaltung/dvs/ds/Documents/Zweitwohnungen/Vollzugshilfe DVS V2a_de.pdf"">kantonale Vollzugshilfe: Bundesgesetz über Zweitwohnungen (ZWG; SR 702), Zweitwohnungsverordnung (ZWV; SR 702.1)</a></font>","La legge sulle abitazioni secondarie (LASec) viene applicata in diversi comuni del Cantone dei Grigioni nei quali non è ammessa la costruzione di nuove abitazioni secondarie. Con la domanda di costruzione chi intende costruire deve dunque comunicare se e quali abitazioni vengono gestite a scopi turistici e quali abitazioni vengono invece utilizzate come abitazioni primarie oppure come abitazioni equiparate alle abitazioni primarie.¹
+
+Queste indicazioni devono essere inserite in un piano o in una tabella delle abitazioni.
+
+¹ <font size=""1"">Rimando alla <a href=""https://www.gr.ch/DE/institutionen/verwaltung/dvs/ds/Documents/Zweitwohnungen/Vollzugshilfe DVS V2a_it.pdf"">Guida d'applicazione cantonale: legge federale sulle abitazioni secondarie (LASec; RS 702), ordinanza sulle abitazioni secondarie (OASec; RS 702.1)</a></font>"
+vorablaerungsbericht-tiefbauamt-leitungen,Bauvorhaben an Kantons- oder Nationalstrassen sind Vorabklärungspflichtig (Art. 52 Abs. 2 KRVO). Die Vorabklärung hat vor der Baueingabe zu erfolgen. Bitte informieren Sie sich auf der Homepage des Tiefbauamtes: [Leitungen (gr.ch)](https://www.gr.ch/DE/institutionen/verwaltung/diem/tba/Strassennetz/Bauen-in-Strassennaehe/Leitungen/Seiten/Leitungen.aspx),I progetti edilizi lungo strade cantonali e nazionali devono essere chiariti in via preliminare (art. 52 cpv.2 OPTC). L'esame preliminare deve essere effettuato prima di presentare la domanda di costruzione. Ulteriori informazioni sono disponibili sul sito web dell'Ufficio tecnico: [Condotte (gr.ch)](https://www.gr.ch/IT/istituzioni/amministrazione/diem/tba/Rete-stradale/Costruire-in-vicinanza-della-strada/Leitungen/Seiten/Leitungen.aspx)
+vorablaerungsbericht-tiefbauamt-naeherbauten,Bauvorhaben an Kantons- oder Nationalstrassen sind Vorabklärungspflichtig (Art. 52 Abs. 2 KRVO). Die Vorabklärung hat vor der Baueingabe zu erfolgen. Bitte informieren Sie sich auf der Homepage des Tiefbauamtes: [Näherbauten und Zufahrten (gr.ch)](https://www.gr.ch/DE/institutionen/verwaltung/diem/tba/Strassennetz/Bauen-in-Strassennaehe/Seiten/N%C3%A4herbauten-und-Zufahrten.aspx),I progetti edilizi lungo strade cantonali e nazionali devono essere chiariti in via preliminare (art. 52 cpv.2 OPTC). L'esame preliminare deve essere effettuato prima di presentare la domanda di costruzione. Ulteriori informazioni sono disponibili sul sito web dell'Ufficio tecnico: [Costruzioni a distanza ridotta e accessi carrabili (gr.ch)](https://www.gr.ch/IT/istituzioni/amministrazione/diem/tba/Rete-stradale/Costruire-in-vicinanza-della-strada/Seiten/N%C3%A4herbauten-und-Zufahrten.aspx)
+vorablaerungsbericht-tiefbauamt-strassenreklamen,Bauvorhaben an Kantons- oder Nationalstrassen sind Vorabklärungspflichtig (Art. 52 Abs. 2 KRVO). Die Vorabklärung hat vor der Baueingabe zu erfolgen. Bitte informieren Sie sich auf der Homepage des Tiefbauamtes: [Strassenreklamen - Bauen in Strassennähe (gr.ch)](https://www.gr.ch/DE/institutionen/verwaltung/diem/tba/Strassennetz/Bauen-in-Strassennaehe/Seiten/Strassenreklamen.aspx),I progetti edilizi lungo strade cantonali e nazionali devono essere chiariti in via preliminare (art. 52 cpv.2 OPTC). L'esame preliminare deve essere effettuato prima di presentare la domanda di costruzione. Ulteriori informazioni sono disponibili sul sito web dell'Ufficio tecnico: [Pubblicità stradale - Costruire in vicinanza della strada (gr.ch)](https://www.gr.ch/IT/istituzioni/amministrazione/diem/tba/Rete-stradale/Costruire-in-vicinanza-della-strada/Seiten/Strassenreklamen.aspx)
+vorhaben,"Der **Neubau** ist bei Neuerstellungen von Bauten und Anlagen zu wählen.
+
+Die **Erweiterung** ist bei der Vergrösserung der Gebäudefläche oder des Gebäudevolumens (z.B. Anbau oder Aufstockung) zu wählen.
+
+Der **Umbau** ist zu wählen, sofern es sich um bauliche Massnahmen im Innern des Gebäudes (ohne Vergrösserung der Gebäudefläche oder des Gebäudevolumens) handelt.
+
+Die **Erneuerung** umfasst bauliche Massnahmen, die über den Unterhalt hinausgehen und wertvermehrenden Charakter aufweisen. Das Bauwerk wird an die Erfordernisse der Zeit angeglichen (Modernisierung).
+
+Die **Zweckänderung** ist zu wählen, um Gebäude in ihrer Nutzung zu ändern (z.B. Gewerbe- zu Wohnnutzung).
+
+Der **Abbruch/Teilabbruch** ist zu wählen, um ein komplettes Bauwerk oder Teile davon rückzubauen. 
+
+Sofern das Baugesuch bereits bewilligt wurde und weitere Änderungen geplant sind, ist die **Projektänderung einer bewilligten Baute/Anlage** zu wählen.
+
+Lässt sich das Vorhaben keiner vorgegebenen Kategorie zuordnen, ist **andere baulich Massnahme** zu wählen. Das Vorhaben ist präszise zu beschreiben.","La voce **nuova costruzione** deve essere selezionata in caso di nuove realizzazioni di edifici e impianti.
+
+La voce **ampliamento** deve essere selezionato in caso di ingrandimento della superficie edificata o del volume dell'edificio (ad es. aggiunta o ampliamento).
+
+La voce **trasformazione** deve essere selezionata in caso di misure edilizie all'interno dell'edificio (senza ingrandimento della superficie edificata o del volume dell'edificio).
+
+La voce **rinnovo** comprende misure edilizie che esulano dalla mera manutenzione e possono aumentare il valore. L'opera viene adeguata alle esigenze del tempo (modernizzazione).
+
+La voce **cambiamento di destinazione** deve essere selezionato nel caso in cui cambia l'utilizzo dell'edificio (ad es. da scopo commerciale a scopo abitativo).
+
+La voce **demolizione/demolizione parziale** deve essere selezionata nel caso in cui venga smantellata un'opera completa o parti di esse. 
+
+Se la domanda di costruzione è già stata approvata e sono previste ulteriori modifiche occorre selezionare **Modifica del progetto di un edificio/impianto autorizzato**.
+
+Se non è possibile assegnare il progetto a una delle categorie indicate, selezionare **altra misura edilizia**. Il progetto deve essere descritto in modo dettagliato."
+waermeerzeuger-heizung,"Der Wärmeerzeuger entspricht der Art der technischen Installation, die im Gebäude für die Heizung der Räume genutzt wird.",Il generatore di calore corrisponde al tipo di installazione tecnica utilizzata nell'edificio per il riscaldamento dei locali.
+waermeerzeuger-warmwasser,"Der Wärmeerzeuger entspricht der Art der technischen Installation, die im Gebäude für das Aufbereiten von Brauchwarmwasser genutzt wird. Kleinboiler sind dezentrale Installationen, die in der Regel Warmwasser für einen einzigen Wasserhahn oder eine einzige Dusche aufbereiten. Zentrale Gasboiler werden als Heizkessel erfasst.",Il generatore di calore corrisponde al tipo di installazione tecnica utilizzata nell'edificio per la produzione d'acqua calda non potabile. I piccoli boiler sono degli impianti decentralizzati che forniscono di regola acqua calda solamente a un solo rubinetto o a una sola doccia. I boiler a gas centrali devono essere registrati come caldaie.
+wohnhaus-anzahl-zimmer,Bei der Berechnung werden halbe Zimmer nicht mitgezählt. Küche und Wohnzimmer zählen zusammen als 1 Zimmer.,Ai fini del calcolo i mezzi locali non vengono presi in considerazione. Cucina e soggiorno contano insieme come 1 locale.
+wohnhaus-bestandteil-landwirtschaftliches-gewerbe,"Sofern das Wohnhaus Bestandteil eines bäuerlichen Bodenrechts ist, ist dem Baugesuch eine Feststellungsverfügung vom Grundbuchinspektorat und Handelsregister (GIHA) beizulegen (vgl. Art. 7 des Bundesgesetzes über das bäuerliche Bodenrecht [BGBB]).","Se la casa d'abitazione è parte integrante di un diritto fondiario rurale, alla domanda di costruzione deve essere allegata una decisione di accertamento dell'Ispettorato del registro fondiario e registro di commercio (IRFRC) (cfr. art. 7 della legge federale sul diritto fondiario rurale [LDFR])."
+wohnungsgroesse,"####INFO
+
+Anzahl Zimmer
+
+Die Anzahl Zimmer umfasst alle bewohnbaren Räume der Wohnung wie Wohnzimmer, Schlafzimmer usw. Nicht gezählt werden Küche, Badezimmer, Duschen, Toiletten, Abstellräume, Korridore, halbe Zimmer, Veranden sowie zusätzliche separate Wohnräume ausserhalb der Wohnung.","####INFO
+
+Numero di locali
+
+Il numero di locali comprende tutti i locali dell'abitazione, quali il soggiorno, le camere da letto ecc. Non sono considerati come locali dell'abitazione: le cucine, i bagni, le docce, i gabinetti, gli sgabuzzini, i corridoi, i mezzi locali, le verande nonché tutti i locali abitabili separati supplementari che si trovano all'esterno dell'abitazione."
+e-grid-nr,Eidgenössische Grundstücksidentifikationsnummer,Identificatore federale dei fondi
+zweckaenderung-der-baute,"Angabe für welchen Zweck die Baute in Zukunft oder aktuell genutzt wird (z.B. Lagerraum, Ferien-/Wochenendhaus).","Indicare per quale destinazione la costruzione sarà usata in futuro o viene attualmente usata (ad es. magazzino, casa di vacanza/per il fine settimana)."
+zweitwohnungsgesetz,"Das eidg. Zweitwohnungsgesetz (ZWG) gelangt in verschiedenen Gemeinden zur Anwendung (vgl. [Karte](https://map.geo.admin.ch/?topic=ech&lang=de&bgLayer=ch.swisstopo.pixelkarte-farbe&layers=ch.swisstopo.zeitreihen,ch.bfs.gebaeude_wohnungs_register,ch.bav.haltestellen-oev,ch.swisstopo.swisstlm3d-wanderwege,ch.are.wohnungsinventar-zweitwohnungsanteil&layers_visibility=false,false,false,false,true&layers_timestamp=18641231,,,,&layers_opacity=1,1,1,1,0.75&E=2785394.25&N=1180381.63&zoom=2)). In diesen Gemeinden ist der Neubau von Zweitwohnungen nicht zulässig. Bauwillige haben daher mit dem Baugesuch bekannt zu geben, ob bzw. welche Wohnungen touristisch bewirtschaftet werden und welche Wohnungen als Erstwohnung oder als einer Erstwohnung gleichgestellten Wohnung genutzt werden sollen. 
+
+Diese Angaben sind in einem Plan zu verorten oder in einem Wohnungsspiegel zu bezeichnen.","La legge sulle abitazioni secondarie (LASec) viene applicata in diversi comuni (cfr. [cartina](https://map.geo.admin.ch/?topic=ech&lang=it&bgLayer=ch.swisstopo.pixelkarte-farbe&layers=ch.swisstopo.zeitreihen,ch.bfs.gebaeude_wohnungs_register,ch.bav.haltestellen-oev,ch.swisstopo.swisstlm3d-wanderwege,ch.are.wohnungsinventar-zweitwohnungsanteil&layers_visibility=false,false,false,false,true&layers_timestamp=18641231,,,,&layers_opacity=1,1,1,1,0.75&E=2785394.25&N=1180381.63&zoom=2). In questi comuni non è ammessa la nuova costruzione di abitazioni secondarie. Con la domanda di costruzione chi intende costruire deve dunque comunicare se e quali abitazioni vengono gestite a scopi turistici e quali abitazioni vengono invece utilizzate come abitazioni primarie oppure come abitazioni equiparate alle abitazioni primarie. 
+
+Queste indicazioni devono essere inserite in un piano o in una tabella delle abitazioni."
+zwg,"####INFO
+
+In den Gemeinden, in denen der Anteil von Zweitwohnungen gemäss ZWG mehr als 20% beträgt, müssen die Wohnungen entsprechend der Nutzung anhand dieser Auswahl mit oder ohne im Grundbuch eingetragene Nutzungsbeschränkung gemäss ZWG, klassiert werden.","####INFO
+
+Nei comuni in cui la quota di abitazioni secondarie conformemente alla LASec supera il 20%, le abitazioni devono essere classificate in base al loro utilizzo secondo la presente selezione con o senza limitazione d'uso iscritta a registro fondiario conformemente alla LASec."
+baurecht-nummer,"Informationsfenster
+Das Baurecht beinhaltet das Recht, Bauten auf fremdem Boden zu errichten und fortbestehen zu lassen. Das Baurecht durchbricht das sog. Akzessionsprinzip, wonach Bauten immer Bestandteil des Grundstückes bilden.","Finestra informativa
+Il diritto di superficie comprende il diritto di realizzare e mantenere delle costruzioni su terreni di terzi. Il diritto di superficie prevale sul cosiddetto diritto dell'accessione secondo cui le costruzioni sono sempre parte integrante del fondo."
+folgeplanung,"Im Zonenplan können Gebiete bezeichnet werden, in denen eine Folgeplanung (Arealplanung, Quartierplanung) durchgeführt wird. 
+
+Die Festlegung einer Folgeplanung hat für das betroffene Gebiet die Wirkung einer Planungszone.
+
+Diese Informationen werden direkt aus dem GIS abgefüllt.","Nel piano delle zone si possono indicare delle aree in cui avviene una pianificazione consecutiva (piano di area, piano di quartiere). 
+
+Per l'area interessata la determinazione di una pianificazione consecutiva ha gli effetti di una zona di pianificazione.
+
+Queste informazioni vengono inserire direttamente dal SIG."
+genereller-erschliessungsplan,"Der Generelle Erschliessungsplan legt in den Grundzügen die Verkehrs-, Versorgungs- und Entsorgungsanlagen zur Erschliessung der Bauzonen und anderer Nutzungszonen fest. Er enthält mindestens die Anlagen der Grund- und Groberschliessung und kann auch Anlagen der Feinerschliessung umfassen.
+
+Diese Informationen werden direkt aus dem GIS abgefüllt.","Il piano generale di urbanizzazione definisce nei tratti fondamentali gli impianti per il traffico, di approvvigionamento e di smaltimento per l'urbanizzazione delle zone edificabili e di altre zone di utilizzazione. Esso contiene almeno gli impianti dell'urbanizzazione di base e generale e può anche comprendere gli impianti dell'urbanizzazione particolare.
+
+Queste informazioni vengono inserire direttamente dal SIG."
+genereller-gestaltungsplan,"Der Generelle Gestaltungsplan ordnet in den Grundzügen die Gestaltung (Erhaltung, Erneuerung, Weiterentwicklung) der Siedlungen und der Landschaft.
+
+
+Diese Informationen werden direkt aus dem GIS abgefüllt.","Il piano generale delle strutture disciplina nei tratti fondamentali la strutturazione (conservazione, rinnovo, sviluppo ulteriore) degli insediamenti e del paesaggio.
+
+
+Queste informazioni vengono inserire direttamente dal SIG."
+gis-map,"Bitte tragen Sie die Adresse Ihres Bauvorhabens in die Zeile ein oder klicken Sie in die nachfolgende Karte um die Lage des Bauvorhabens in der Karte zu verorten. 
+
+Sie können ein Punkt, eine Linie oder eine Fläche in der Karte zeichnen.","Indicare l'indirizzo del progetto di costruzione nella riga o cliccare sulla cartina successiva per indicare la posizione esatta del progetto. 
+
+Sulla cartina è possibile disegnare un punto, una linea o una superficie."
+juristische-person-gesuchstellerin,"In der Schweiz ist eine juristische Person eine rechtliche Entität, wie eine Firma, eine Stiftung oder eine Vereinigung, die vom Gesetz anerkannt ist und eigenständig Rechte und Pflichten wahrnehmen kann, unabhängig von den Personen, die sie gründen oder kontrollieren.","In Svizzera una persona giuridica è un'entità giuridica come una ditta, una fondazione o un'associazione riconosciuta dalla legge e in grado di assumere autonomamente diritti e doveri, indipendentemente dalle persone che le costituiscono e le controllano."
+parzellennummer,Parzelle: Durch Vermessung festgelegtes Grundstück (bzw. Grundstücksteil).,Particella: fondo (o parte di un fondo) determinato con la misurazione.
+personalien-gesuchstellerin,"Nach Art. 89 Abs. 3 des kantonalen Raumplanungsgesetzes (KRG) ist das Baugesuch zwingend durch die Bauherrschaft zu unterzeichnen. 
+
+Ist die Bauherrschaft nicht Eigentümerin der Liegenschaft, ist das Baugesuch durch die Eigentümerin oder den Eigentümer mitzuunterzeichnen.
+
+Die Unterschriften werden am Schluss des Eingabeprozesses auf die Eingabequittung, die auszudrucken ist, gesetzt.","Secondo l'art. 89 cpv. 3 della legge sulla pianificazione territoriale cantonale (LPTC) la committenza deve necessariamente firmare la domanda di costruzione. 
+
+Se la committenza non è proprietaria dell'immobile, la domanda di costruzione deve essere controfirmata dalla proprietaria o dal proprietario.
+
+Le firme vengono poste al termine del processo di inserimento sulla ricevuta che deve essere stampata."
+weitere-personen,Mit der Vollmacht handeln Sie in Stellvertretung für Dritte. Hinweise über die Regelungen der Stellvertretung finden Sie in Art. 32-40 des eidg. Obligationenrecht (OR).,La procura permette di agire in rappresentanza di terzi. Indicazioni relative alle regolamentazioni della rappresentanza si possono trovare negli art. 32-40 del diritto federale delle obbligazioni (CO).
+zonenplan,"Der Zonenplan unterteilt das Gemeindegebiet in verschiedene Nutzungszonen (Bauzonen, Landwirtschaftszonen, Schutzzonen und weitere Zonen). 
+
+Die Zonen der Grundnutzung bestimmen allgemein die zulässige Nutzung des Bodens. Die Zonen überlagerter Nutzung enthalten ergänzende Nutzungsvorschriften.
+
+Diese Informationen werden direkt aus dem GIS abgefüllt.","Il piano delle zone suddivide il territorio comunale in diverse zone di utilizzazione (zone edificabili, zone agricole, zone di protezione e altre zone). 
+
+Le zone di utilizzazione di base determinano in modo generale l'utilizzazione ammissibile del territorio. Le zone di utilizzazione multipla contengono prescrizioni di utilizzazione complementari.
+
+Queste informazioni vengono inserire direttamente dal SIG."

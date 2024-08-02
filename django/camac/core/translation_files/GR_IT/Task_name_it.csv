@@ -1,0 +1,23 @@
+﻿id,name,
+additional-demand,Nachforderung,Richiesta di precisazioni
+check-additional-demand,Nachforderung prüfen,Verificare richiesta di precisazioni
+fill-additional-demand,Nachforderung ausfüllen,Compilare richiesta di precisazioni
+init-additional-demand,Neue Nachforderung,Nuova richiesta di precisazioni
+send-additional-demand,Nachforderung senden,Inviare richiesta di precisazioni
+check-distribution,Entscheid starten,Avviare decisione
+check-inquiries,Stellungnahmen prüfen,Esaminare prese di posizione
+complete-distribution,Zirkulation abschliessen,Concludere circolazione
+create-inquiry,Stellungnahme erstellen,Creare presa di posizione
+distribution,Zirkulation,Circolazione
+fill-inquiry,Stellungnahme ausfüllen,Compilare presa di posizione
+init-distribution,Zirkulation initialisieren,Avviare circolazione
+inquiry,Stellungnahme ausfüllen,Compilare presa di posizione
+redo-inquiry,Stellungnahme wiedereröffnen,Riaprire presa di posizione
+construction-acceptance,Bauabnahme,Collaudo
+create-manual-workitems,Manuelle Aufgaben erfassen,Registrare compiti manuali
+create-publication,Neue Publikation erfassen,Registrare nuova pubblicazione
+decision,Entscheid verfügen,Disporre la decisione
+fill-publication,Publikation,Pubblicazione
+formal-exam,Vorläufige Prüfung,Esame preliminare
+publication,Dossier publizieren,Pubblicare dossier
+submit,Gesuch einreichen,Presentare una domanda
