@@ -1,0 +1,7 @@
+responsible:
+  organisation: "Organizzazione"
+  responsiblePerson: "Persona responsabile"
+  responsible: "Responsabile"
+  noResponsibleChosen: "Non è stata selezionata nessuna persona responsabile"
+  saveError: "Errore nel tentativo di salvare la persona responsabile"
+  saveSuccess: "La persona responsabile è stata salvata"

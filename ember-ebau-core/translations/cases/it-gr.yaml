@@ -1,0 +1,4 @@
+cases:
+  filters:
+    submitDateAfter: "Inoltrato (dal)"
+    submitDateBefore: "Inoltrato (fino al)"

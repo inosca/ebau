@@ -1,0 +1,41 @@
+gis:
+  parcelNumber: "Numero della parcella"
+  buildingLeaseNumber: "Numero del diritto di superficie"
+  findParcel: "Trova particella"
+  submitParcel: "Riprendi dati"
+  noParcelNumber: "Non è stato trovato un numero di particella o del diritto di superficie corrispondente."
+  technicalError: "Si è verificato un errore tecnico"
+  loadingError: "Errore nel tentativo di caricare"
+  loadingHint: "Richiesta SIG in elaborazione. Questa operazione può richiedere alcuni minuti."
+  info-text-ur: "Per riprendere automaticamente l'indirizzo basta cliccare sul pallino rosso dell'edificio interessato."
+  reset: "Ripristina"
+  loading: "Sto caricando i risultati..."
+  noMatchesMessage: "Nessun risultato trovato"
+  searchPlaceholder: "Cerca indirizzo..."
+  centeredCoordinates: "Coordinate"
+  coordinatesLink: "https://geogr.mapplus.ch/viewer/geogr/?lang=it&basemap=av&blop=1&x={x}&y={y}&zl=13&hl=0&layers=zp_gefahren|zp_nls|zp_waldgrenze|bauzonen|gs_zonen"
+  openInGeoGR: "apri in GeoGR"
+  apply: Riprendi dati
+  apply-error: Non è possibile consultare i dati SIG della particella.
+  apply-answer-error: "Non è stato possibile riprendere i dati SIG relativi alla domanda \"{label}\"."
+  point-error: Non è stato possibile selezionare la particella.
+  select: Seleziona
+  search-error: La ricerca non è andata a buon fine
+  row-count: "(riga {count})"
+
+  groups:
+    addresses: "Indirizzi"
+    municipalities: "Comuni"
+    plots: "Fondi"
+
+  search:
+    placeholder: "Cerca indirizzo o particella..."
+    input-placeholder: "Cerca..."
+    loading: "Caricamento di indirizzi e particelle in corso..."
+    empty: "Indirizzi o particelle non trovati"
+
+  changes:
+    title: "Modifica rispetto a SIG"
+    detail: "Valore originale da SIG:"
+    row-added: "{count, plural, one {# Zeile} other {# Zeilen}} aggiunto"
+    row-removed: "{count, plural, one {# Zeile} other {# Zeilen}} rimosso"

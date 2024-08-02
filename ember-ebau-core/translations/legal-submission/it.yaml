@@ -1,0 +1,20 @@
+legal-submission:
+  new: "Nuova rivendicazione"
+  edit: "Elabora rivendicazione"
+
+  all-types: "Tutti i tipi"
+  all-status: "Tutti gli stati"
+
+  receipt-date: "Data di ricezione"
+  type: "Tipo"
+  title: "Titolo"
+  legal-claimants: "Parti"
+  status: "Stato"
+  withdrawn: "Ritirato?"
+
+  loading-error: "Errore nel tentativo di caricare la rivendicazione"
+  create-error: "Errore nel tentativo di creare la rivendicazione"
+
+  delete-confirm: "Cancellare davvero la rivendicazione?"
+  delete-success: "La rivendicazione è stata eliminata con successo."
+  delete-error: "Errore nel tentativo di eliminare la rivendicazione"

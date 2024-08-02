@@ -1,0 +1,25 @@
+publicInstances:
+  title: "Domande di costruzione esposte pubblicamente"
+  applicant: "Richiedente"
+  load-error: "Errore nel tentativo di caricare le domande di costruzione esposte pubblicamente"
+  empty-title: "Non sono state trovate domande di costruzione esposte pubblicamente!"
+  emptyText: "Non appena il comune ha approvato il dossier per la pubblicazione, questo figura nell'elenco."
+  publishedWithoutObligation: "Documento per l'esposizione dei piani non vincolante. Non è possibile presentare opposizione contro i contenuti di questo documento."
+  publishedWithObligation: "Documento per l'esposizione dei piani vincolante."
+  info: ""
+
+publicInstancesDetail:
+  documents: "Documenti"
+  form: "Modulo"
+  fileName: "Nome del file"
+  size: "Dimensione"
+  date: "Data"
+  download: "Scarica documento"
+  loadError: "Errore nel tentativo di caricare i documenti"
+  downloadError: "Errore nel tentativo di scaricare il documento"
+  copyrightText: "I documenti visualizzati corrispondono alla documentazione fisica dell'esposizione pubblica presso il comune. Rendiamo attenti al fatto che tutti i documenti salvati potrebbero essere protetti da copyright. L'ulteriore utilizzo dei documenti è consentito solo con il consenso esplicito della/del progettista o della persona che ne detiene la proprietà intellettuale."
+  privacyText: "Per motivi di protezione dei dati qui vengono pubblicati solo i documenti rilevanti per la procedura per il rilascio della licenza edilizia che la persona richiedente non ha classificato esplicitamente come confidenziali e non accessibili pubblicamente."
+  empty: "Non sono stati trovati documenti per l'esposizione."
+  related: "{count} {count, plural, =1 {dossier esposto} other {dossier esposti}} con lo stesso numero eBau"
+  documentPreview: Anteprima dei documenti
+  documentPreviewError: "Errore nel tentativo di caricare l'anteprima dei documenti"

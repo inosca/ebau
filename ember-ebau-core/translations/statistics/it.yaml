@@ -1,0 +1,22 @@
+statistics:
+  general: "In generale"
+  process-time: "Periodo di evasione"
+  from: "Da"
+  to: "A"
+  dossier-number: "N. dossier:"
+  procedure: "Tipo di procedura"
+  instance-count: "Numero di domande"
+  claim-count: "Numero di richieste di precisazioni"
+  avg-process-time: "Media del periodo di evasione"
+  deadline-quota: "Fristenquote"
+  cycle-time: "Tempo necessario"
+  net-cycle-time: "Tempo necessario senza richieste di precisazioni"
+  avg-cycle-time: "Ø tempo necessario"
+  avg-net-cycle-time: "Ø senza richieste di precisazioni"
+  year: "Anno"
+  days: "{count} {count, plural, one {giorno} other {giorni}}"
+  not-available: "Non disponibile"
+  empty: 'Non è stata trovata una statistica relativa al tipo di procedura "{type}"'
+  procedures:
+    all: "Tutti i tipi di procedura"
+    preliminary-clarification: "Esame preliminare"

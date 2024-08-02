@@ -1,0 +1,27 @@
+rejection:
+  info: |-
+    <p>Il riscontro deve essere formulato in modo inclusivo e contenere le seguenti informazioni precise relative alla persona richiedente:</p>
+    <ul class="uk-list uk-list-bullet">
+      <li>Adeguamenti necessari alla domanda di costruzione</li>
+      <li>Comunicazione su eventuali documenti approvati dall'autorità direttrice</li>
+      <li>Documenti firmati che devono essere nuovamente presentati (ad es. modulo per domande di costruzione)</li>
+      <li>Indicazione che la persona richiedente deve presentare di nuovo il dossier in forma elettronica</li>
+    </ul>
+
+  feedback: Riscontro
+
+  reject: Respingi il dossier
+  reject-confirm: |-
+    Respingere davvero il dossier?
+    <br>
+    <br>
+    <strong>Attenzione:</strong> questa operazione non può più essere annullata!
+  reject-success: Il dossier è stato respinto con successo
+  reject-error: Errore nel tentativo di respingere il dossier
+
+  revert: Annulla respingimento
+  revert-success: Il respingimento del dossier è stato annullato con successo.
+  revert-error: Errore nel tentativo di annullare il respingimento del dossier.
+
+  has-open-claims: Non è possibile respingere il dossier fino a quando vi sono richieste di precisazioni in corso.
+  has-active-distribution: Non è possibile respingere il dossier fino a quando è in corso la circolazione.

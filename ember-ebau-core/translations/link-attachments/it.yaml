@@ -1,0 +1,8 @@
+link-attachments:
+  title: 'Collega documenti da "{section}"'
+  empty: "Non sono ancora stati caricati documenti in questa cartella."
+  no-selected: "Non sono stati collegati dei documenti."
+  download: "Scarica documento"
+  upload-error: "Errore nel tentativo di caricare il documento"
+  link-error: "Errore nel tentativo di collegare il documento"
+  replaced: "(sostituito)"
