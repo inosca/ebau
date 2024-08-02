@@ -1,0 +1,35 @@
+service-permissions:
+  address: "Indirizzo"
+  city: "Luogo"
+  created-at: "Data di creazione"
+  created-by: "Creato da:"
+  email: "E-mail"
+  email-hint: "È possibile indicare più indirizzi e-mail (separati da virgole)."
+  group: "Gruppo"
+  name: "Nome"
+  name-hint: |-
+    <strong>Nota: </strong>per indicare nome e luogo del servizio di rango inferiore anche in un'altra lingua, 
+    cambiare la lingua, adeguare la designazione e cliccare di nuovo su «Salva».
+  phone: "Telefono"
+  website: "Sito web"
+  website-placeholder: "https://gr.ch"
+  website-hint: "Il sito web deve essere inserito nel formato seguente: https://gr.ch"
+  website-validation-error: Il formato del testo inserito nel campo «Sito web» non è valido.
+  zip: "NPA"
+  notification: "Ricevere notifiche"
+  responsibility-construction-control: "Assumere la competenza del controllo dei lavori"
+  disabled: "Disattivato"
+  select-group: "Seleziona gruppo"
+
+  organisation: "Dati di base"
+  organisation-save-success: "L'organizzazione è stata salvata."
+  organisation-save-error: "Non è stato possibile salvare l'organizzazione."
+
+  permissions: "Diritti"
+  permissions-add: "Aggiungere diritti"
+  permissions-save-success: "Il diritto è stato salvato."
+  permissions-save-error: "Non è stato possibile salvare il diritto."
+
+  sub-services: "Servizi di rango inferiore"
+  sub-services-add: "Aggiungi servizio di rango inferiore"
+  sub-services-add-warning: ""

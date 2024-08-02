@@ -1,0 +1,55 @@
+communications:
+  dossier: Dossier
+  topic: Tema
+  participants: Partecipanti
+  date: Data
+  empty: Nessun tema disponibile
+  unread: "{count} {count, plural, one {messaggio non letto} other {messaggi non letti}}"
+
+  list:
+    all: Tutti
+    unread: Non letti
+    read: Letti
+    newMessage: Crea nuovo messaggio
+    no-unread: Nessun messaggio non letto
+    has-unread: Messaggi non letti
+
+  detail:
+    sentDate: "il {date} alle {time}"
+    readByEveryone: Letto da tutti
+    readByYou: Letto da lei
+    readBy: Letto da
+    createdBy: "Creato da {entity} ({user})"
+    empty: Nessun messaggio presente.
+    markAsRead: Segna come letto
+    markAsReadError: Non è stato possibile segnare il messaggio come letto. Riprova
+    markAsUnread: Segna come da leggere
+    markAsUnreadError: Non è stato possibile segnare il messaggio come da leggere. Riprova
+    collapseMessage: Minimizza messaggio
+    readOnly: Lei non può scrivere dei messaggi in questa conversazione.
+    loadPreviousMessages: Carica i messaggi precedenti
+    uploadToDMS: Carica l'allegato nel modulo documenti
+    uploadedToDMS: Salvato nel modulo documenti
+    attachmentSections: Categorie
+    involvedEntities: "Partecipanti: {entities}"
+
+  new:
+    linkFile: È anche possibile collegare
+    linkFileAction: direttamente dei file dal modulo documenti
+    newTopic: Avvia nuova conversazione
+    involvedEntities: Parti coinvolte
+    involvedEntitiesPlaceholder: Parti coinvolte...
+    topicName: Tema
+    topicNamePlaceholder: Inserisci un tema...
+    message: Messaggio
+    allowAnswers: Permetti risposte
+    send: Invia
+    fetchError: Non è stato possibile caricare i dati. Riprova
+    saveError: Non è stato possibile inviare il messaggio. Riprova
+    applicant: Richiedente
+
+  message:
+    messageInputLabel: Messaggio
+    messageInputPlaceholder: Scrivi un messaggio...
+    files: File allegati
+    attachmentCount: "+{count} documenti"

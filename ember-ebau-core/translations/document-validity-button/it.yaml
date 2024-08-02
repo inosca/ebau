@@ -1,0 +1,4 @@
+document-validity-button:
+  error: "Le domande seguenti non sono ancora state compilate in modo corretto:"
+  success: "Tutte le domande sono state compilate in modo corretto!"
+  loading: "Il modulo viene verificato. Si prega di attendere un attimo."

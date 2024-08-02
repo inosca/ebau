@@ -1,0 +1,21 @@
+distribution:
+  districts: "RSTAs"
+  municipalities: "Comuni"
+  services: "Uffici/servizi"
+  subservices: "Servizi di rango inferiore"
+  external-services: "Servizi esterni"
+  municipal-services: "Servizi del comune"
+  cantonal-services: "Servizi del Cantone"
+  coordination-services: "Servizi di coordinamento"
+
+  send-answer: "Invia risposta"
+  release-for-review: "Rilascia per la verifica"
+  released-for-review: "Rilasciato per la verifica il"
+  released-for-review-by: "Rilasciato per la verifica da"
+  release-adjustment-for-review: "Rilascia l'adeguamento per la verifica"
+  confirm: "Conferma"
+  revise: "Rielabora"
+  closed-by: "Verificato da"
+
+# Override default text of @projectcaluma/ember-distribution
+"caluma.distribution.inquiry.sent-at": "Data di inizio"

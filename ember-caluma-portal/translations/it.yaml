@@ -1,6 +1,351 @@
+caluma:
+  form:
+    optional: "se necessario"
+
 global:
-  title: "ebau GR"
-  page-title: "ebau-GR"
+  title: "eBau Bern"
+  page-title: "Portal eBau-BE"
+  versionPrefix: "v"
+  continue: "Avanti"
+  delete: "Elimina"
+  cancel: "Annulla"
+  back: "Indietro"
+  save: "Salva"
+  ok: "Ok"
+  urec: "URec"
+  yes: "sì"
+  no: "no"
+
+nav:
+  form: "Modulo"
+  feedback: "Riscontri"
+  decision: "Documenti della decisione"
+  objection: "Documenti dell'opposizione"
+  index: "Pagina iniziale"
+  support: "Supporto"
+  public-instance: "Pubblicazione / esposizione"
+  logout: "Logout"
+  login: "Login"
+  applicants: "Diritti"
+  language: "Lingua"
+  instances: "Dossier"
+  applicant: "Richiedente"
+  group: "Gruppo"
+  internal: "all'area interna"
+  overview: "Panoramica"
+  faq: "FAQ"
+  form-builder: "Form Builder"
+  profile: "Profilo"
+  communications: "Comunicazione"
+  additional-demand: "Richieste di precisazioni"
+  construction-monitoring: "Accompagnamento dei lavori"
+
+feedback:
+  info: "Al momento non ci sono riscontri. Non appena inoltrato il dossier, qui saranno visualizzati eventuali riscontri da parte di autorità direttiva o servizi."
+
+documents:
+  deleteSuccess: "Il file è stato eliminato con successo."
+  deleteError: "Durante l'eliminazione del file qualcosa è andato storto."
+
+  hint1: "Bitte stellen Sie sicher, dass auch das"
+  hintEarthquake: "Formular Erdbebensicherheit (EbS)"
+  linkEarthquake: "https://www.bauen.dij.be.ch/content/dam/bauen_dij/dokumente/de/Formulare-Vorlagen/Formulare-Baugesuchsteller/ebs-erdbebensicherheit-de.pdf"
+  hint2: "und die"
+  hintMunicipalityForms: "gemeindespezifischen Formulare (5.0, 5.1, 5.2, 5.3 5.4, 5.5, 5.8)"
+  linkMunicipalityForms: "https://www.bauen.dij.be.ch/de/start/baubewilligungsverfahren/eBau/formulare-fuer-baugesuchsteller"
+  hint3: "falls benötigt, ausgefüllt und hochgeladen sind."
+
+  tags:
+    beilagen-vorabklaerung: "Allegati esame preliminare"
+    allgemeine-informationen: "Informazioni generali"
+    bauwerk-allgemein: "Opera – in generale"
+    informationen-ueber-grundstueck: "Informazioni relative al fondo"
+    zustimmungen: "Consensi"
+    bauwerk-brandschutz: "Opera – protezione antincendio"
+    spezialformulare-waermepumpen: "Moduli speciali – pompe di calore"
+    spezialformulare-zivilschutz: "Moduli speciali – protezione civile"
+    spezialformulare-gastgewerbe: "Moduli speciali – settore della ristorazione"
+    plaene: "Piani"
+    spezialformulare-biologische-sicherheit: "Moduli speciali – sicurezza biologica"
+    spezialformulare-stoerfallvorsorge: "Moduli speciali – prevenzione contro gli incidenti rilevanti"
+    spezialformulare-konsultationsbereiche: "Moduli speciali – progetto di costruzione in perimetri di consultazione"
+    bauwerk-gewaesserschutz: "Opera – protezione delle acque"
+    bauwerk-energie: "Opera – energia"
+    spezialformulare-immissionsschutz: "Moduli speciali – protezione dalle immissioni"
+    spezialformulare-entsorgung-bodenschutz: "Moduli speciali – smaltimento, riciclaggio e protezione del suolo"
+    spezialformulare-wald: "Moduli speciali – bosco (devono essere inoltrati in formato cartaceo in quattro copie)"
+    spezialformulare-naturgefahren: "Moduli speciali – pericoli naturali"
+    baugesuch-mit-uvp: "Domanda di costruzione con EIA"
+    spezialformulare-reklame: "Moduli speciali – dispositivi pubblicitari"
+    bauen-ausserhalb-bauzone: "Costruire fuori dalle zone edificabili"
+    selbstdeklaration-2: "Autocertificazione 2"
+    nachweise: "Prove"
+    weitere-unterlagen: "Ulteriore documentazione"
+    brandschutzdokumente: "Documenti antincendio"
+
+dms:
+  downloadError: "Si è verificato un problema durante l'esportazione. Riprova"
+
+gis:
+  title: "Carta"
+  apply-button: "Riprendi dati"
+  attention: "Attenzione"
+  parcel: "Particella"
+  no-map:
+    message: "La carta non viene rappresentata correttamente?"
+    link: "Ricarica"
+  info-text: "Clicca nel relativo punto sulla carta per riprendere i dati."
+  info-override: "I dati ripresi sostituiscono quelli indicati in precedenza. Tutte le informazioni aggiunte manualmente andranno perse."
+  additional:
+    title: "Riprendere i dati?"
+  oereb: "Catasto RDPP:"
+
+  notifications:
+    min-one: "deve selezionare almeno una particella."
+    max-one: "In caso di un semplice esame preliminare è possibile selezionare al massimo una particella."
+    error-additional: "Errore nel tentativo di interrogare le informazioni supplementari. Si prega di cercare di riprendere nuovamente i dati."
+
+support:
+  type: "Ha domande relative alla procedura o al modulo?"
+  technical: |-
+    In caso di problemi tecnici con eBau contattare il <b>supporto
+    tecnico (24/7)</b> chiamando il numero:<br><a href="tel:+41 31 636 99
+    97">+41 31 636 99 97</a>
+  professional: |-
+    In caso di domande specifiche relative alla procedura o al modulo 
+    <b>contattare l'autorità competente</b> o usare la funzione di aiuto
+    <b>«Supporto in merito alla procedura<span uk-icon="question"></span>»</b> nel
+    relativo dossier.
+
+index:
+  welcome: "Willkommen im eBau-Portal des Kantons Bern"
+  nextStep: "Cosa desidera fare?"
+
+instances:
+  title: "I miei dossier"
+  logo: "Logo {service}"
+  instance-id: "N. dossier:"
+  special-id: "N. eBau"
+  type: "Tipo di domanda"
+  submitDate: "Data di inoltro"
+  submitDateFrom: "Data di inoltro dal"
+  submitDateTo: "Data di inoltro entro il"
+  description: "Progetto di costruzione"
+  municipality: "Comune"
+  address: "Indirizzo"
+  applicant: "Richiedente"
+  parcel: "Numero della particella / numero dell'immobile"
+  filter: "Filtro"
+  reset: "Ripristina"
+  pageInfo: "Dossiers '<strong'>1 - {length}'</strong'> su {total}"
+  emptyTitle: "Non ci sono ancora sue domande!"
+  emptyText: "Crea con pochi clic la prima domanda. È possibile interrompere in qualsiasi momento e riprendere più tardi."
+  edit: "Elabora i dossier"
+  print: "Visualizzazione stampa"
+  orderBy: "Ordina per"
+  desc: "ordine decrescente"
+  asc: "ordine crescente"
+  masterData: "Dati di base"
+  lead: "Autorità direttrice"
+  building-specification: "Descrizione dell'opera"
+  actions: "Azioni"
+  activateFurtherPersons: "Autorizza un accesso per altre persone"
+  activateFurtherPersonsText: "Nel menu «Diritti» è possibile conferire diritti di accesso affinché anche altre persone possano elaborare questo dossier."
+  downloadReceipt: "Scarica la ricevuta dell'inoltro"
+  downloadReceiptText: "Qui è possibile scaricare di nuovo la ricevuta dell'inoltro."
+  managePermissions: "Amministra i diritti"
+  furtherProcessingOfForm: "Continua a elaborare il modulo"
+  furtherProcessingOfFormText: "Qui è possibile continuare a elaborare il modulo e procedere con l'inoltro."
+  processingOfForm: "Modifica il modulo"
+  processingOfFormSb1: "Continua l'elaborazione di Autocertificazione 1"
+  processingOfFormSb1Text: "Qui è possibile continuare l'elaborazione dell'Autocertificazione 1 e procedere con l'inoltro."
+  processingOfFormSb2: "Continua l'elaborazione di Autocertificazione 2"
+  processingOfFormSb2Text: "Qui è possibile continuare l'elaborazione dell'Autocertificazione 2 e procedere con l'inoltro."
+  deleteInstance: "Elimina dossier"
+  deleteInstanceText: "Qui è possibile eliminare una domanda non più necessaria."
+  deleteInstanceModal: "Elimina davvero il dossier?"
+  deleteInstanceError: "Non è stato possibile eliminare il dossier"
+  deleteInstanceSuccess: "Il dossier è stato eliminato con successo"
+  reasonForRejection: "Motivazione del respingimento"
+  modificationTitle: "Nuova modifica del progetto"
+  modificationText: "Il suo progetto di costruzione ha subito una modifica? Qui può indicare una modifica del progetto senza dover reinserire nuovamente i dati esistenti."
+  modificationConfirm: "'<strong'>Sta per iniziare il processo di inserimento per una modifica del progetto (art. 43 BewD)'</strong'>'<br'>'<br'>Per rispondere a una richiesta di '<u'>precisazioni'</u'> o per procedere a un nuovo inoltro di un '<u'>dossier respinto'</u'> '<u'>non è necessario inoltrare una modifica del progetto'</u'>. A questo scopo occorre usare le funzioni eBau (risposta a richiesta di precisazioni o nuovo inoltro del dossier).'<br'>'<br'>'<strong'>Continua con il rilevamento di una modifica del progetto?'</strong'>"
+  rejectionTitle: "Nuovo inoltro del dossier"
+  rejectionTitleSuffix: "(Respingimento)"
+  rejectionText: "Può elaborare il dossier inoltrato in origine in base ai riscontri dell'autorità direttrice (vedi testo «Motivazione del respingimento») e inoltrarlo nuovamente. Per la correzione viene assegnato un nuovo numero di dossier."
+  rejectionInfoText: "Aprire di nuovo il modulo cliccando su <strong>«Nuovo inoltro del dossier»</strong> e aggiungere le indicazioni mancanti."
+  decisionRemarks: "Decisione / valutazione"
+  onlyPaperDossiers: "Solo dossier cartacei"
+
+  extensionPeriodOfValidityTitle: "Proroga della durata di validità"
+  extensionPeriodOfValidityText: "Qui è possibile chiedere una proroga della durata di validità."
+  extensionPeriodOfValidityButton: "Chiedere"
+  createBuildingPermitTitle: "Crea domanda di costruzione"
+  createBuildingPermitText: "Qui ha la possibilità di riprendere i dati già inseriti dell'esame preliminare completo in una nuova domanda di costruzione."
+  createBuildingPermitButton: "Crea domanda di costruzione"
+
+  objectionPeriod: "Termine di opposizione"
+  messageBuildingServicesTitle: "Notifica per Impiantistica (impianti e prove)"
+  messageBuildingServicesText: "Per la notifica di impianti tecnici e per l'inoltro di prove in relazione a una procedura per il rilascio della licenza edilizia in corso (ad es. impianti termotecnici, prova di protezione antincendio, certificato energetico o attestato di protezione fonica) usare il modulo «IMPIANTISTICA» nella panoramica."
+  messageBuildingServicesButton: "Inoltra notifica per impiantistica"
+
+  withdrawInstance: "Ritira dossier"
+  withdrawInstanceModal: "Ritira davvero il dossier?"
+  withdrawInstanceError: "Non è stato possibile ritirare il dossier"
+  withdrawInstanceSuccess: "Il dossier è stato ritirato con successo"
+
+  categories:
+    all: "Tutti"
+    pending: "In corso"
+    sb: "Autocertificazione"
+    constructionAcceptance: "Decisi"
+    constructionMonitoring: "Decisi"
+    done: "Conclusi"
+    notSubmitted: "Nuovi"
+    submitted: "Trasmessi"
+
+  new:
+    title: "Nuovo dossier"
+    kind: "Di che tipo di dossier si tratta?"
+    convertFromInfo: "Sta per creare un nuovo dossier con i dati già esistenti dell'esame preliminare completo {dossierId}{ebauNr}."
+
+    preliminary-clarification:
+      title: "Esame preliminare"
+      info: "Se la situazione di partenza non è chiara (in particolare in caso di progetti di costruzione complicati e complessi o in caso di situazione giuridica incerta), prima di inoltrare la domanda di costruzione si raccomanda di far verificare le condizioni quadro in materia edilizia con un esame preliminare. Quanto prima vengono coordinati gli interessi delle parti interessate, più semplice sarà di regola la procedura per il rilascio della licenza edilizia.\n\n L'**esame preliminare semplice** è uno strumento che permette in particolare al comune di ubicazione in veste di autorità competente di valutare e rispondere direttamente a ogni tipo di domanda (esempio: nuova tettoia per auto, ampliamento mansarda, distanze dai confini).\n\n Con l'**esame preliminare completo** è possibile coinvolgere e coordinare anche progetti di costruzione completi in cui sono coinvolti anche uffici cantonali, federali o altri uffici esterni (esempio: progetto di costruzione nella zona agricola, progetto di costruzione con un nuovo raccordo a una strada cantonale)."
+
+    building-permit:
+      title: "Domanda"
+      info: "Il caso più frequente è l'inoltro di una **domanda di costruzione** (esempio: costruzione annessa di un'autorimessa, nuova costruzione di una casa unifamiliare, montaggio di finestre per tetti).\n\n Nella maggior parte dei casi le domande di costruzione generali o le domande di costruzione con un esame dell'impatto sull'ambiente (EIA) sono state discusse in via preliminare con le autorità e nel caso ideale sono già state oggetto di un esame preliminare completo.\n\n La **domanda di costruzione generale** è l'opzione giusta per progetti di grandi dimensioni, quando non tutti i dettagli sono stati chiariti e occorre accertare in via preliminare se è possibile ottenere un permesso (esempio: centro commerciale per il quale ad es. la ventilazione e la protezione antincendio vengono elaborate in un secondo momento e in via preliminare occorre chiarire il volume, lo sfruttamento e i posteggi).\n\n Si opta per la **domanda di costruzione con EIA** quando il progetto di costruzione richiede un esame dell'impatto sull'ambiente. Un elenco esaustivo delle costruzioni soggette a tale obbligo è stabilito nell'allegato all'ordinanza federale concernente l'esame dell'impatto sull'ambiente (OEIA; esempio: nuova realizzazione di un centro di logistica con una superficie di deposito superiore a 20 000 m² oppure un progetto di costruzione che prevede oltre 500 posteggi)."
+
+    special-procedure:
+      title: "Procedura speciale"
+      info: "Conformemente all'art. 18a della legge sulla pianificazione del territorio (LPT; RS 700), gli **impianti solari** non soggetti all'autorizzazione devono essere annunciati all'autorità competente prima della realizzazione. Per impianti non sufficientemente adattati ai tetti è sempre necessaria una licenza edilizia. Questo vale anche per impianti solari nell'ambito di monumenti culturali o naturali. Presentando una domanda di costruzione viene tuttavia soddisfatto anche l'obbligo di annuncio. Per gli impianti per i quali non è necessaria una licenza edilizia vi è un obbligo di annuncio. L'autorità competente per l'annuncio di un impianto solare è il comune di ubicazione.\n\n Ogni **sostituzione del generatore di calore** (sostituzione del riscaldamento) è soggetta all'obbligo di annuncio.  Questo vale per ogni categoria di edificio e indipendentemente dal sistema di riscaldamento attualmente installato o previsto. È considerata una sostituzione del generatore di calore secondo l'art. 20a cpv. 2 KEnV quando vengono sostituiti il sistema intero, la caldaia, il bruciatore (se la caldaia ha più di 10 anni), il camino o il serbatoio dell'olio da riscaldamento. Se dopo la sostituzione del generatore di calore un edificio della categoria I – VI, che al momento dell'annuncio ha più di 20 anni, continua ad essere alimentato con combustibili fossili valgono requisiti supplementari."
+
+    internal-procedure-canton:
+      title: "Procedure cantonali interne"
+      info: "La presente procedura riassume le domande seguenti:\n\n<ul><li>Procedura di approvazione interna</li>\n\n <li>Procedura di corapporto interna</li>\n\n <li>Procedura di corapporto/ PAP per edifici militari</li>\n\n <li>Procedura di corapporto / PAP in base alla legge federale sulla navigazione aerea</li>\n\n <li>Procedura di corapporto interna UCP</li>\n\n <li>Internes Mitberichtsverfahren ALA</li>\n\n <li>Internes Mitberichtsverfahren ALA (Korporationsstrassen mit Subventionierung)</li>\n\n <li>Procedura di corapporto interna UET</li>\n\n <li>Konzessionsverfahren Regierungsrat für Anlagen bis 1000 kW (Artikel 18 GNG)</li>\n\n <li>Konzessionsverfahren Landrat für Anlagen ab 1000 kW (Artikel 18 GNG)</li>\n\n <li>Konzessionsverfahren Baudirektion für Wärmeentnahmen (Artikel 40 GNG)</li>\n\n <li>Konzessionsverfahren Korporationsgewässer mit Genehmigung durch Regierungsrat (Artikel 15 GNG)</li>\n\n <li>Internes Mitberichtsverfahren SD AfKP</li>\n\n <li>Internes Mitberichtsverfahren SD</li>\n\n <li>PGV Kantonsstrasse (Artikel 30 StrG)</li>\n\n <li>PGV Gemeindestrasse (Artikel 30 StrG)</li>\n\n <li>PGV Korporationsstrasse (Artikel 30 StrG)</li>\n\n <li>PGV vereinfachtes Verfahren (Artikel 31 StrG)</li>\n\n <li>PGV öffentliche Gewässer (Artikel 12 WBG)</li>\n\n <li>PGV private Gewässer (Artikel 19 WBG)</li>\n\n <li>Mitberichtsverfahren / PGV nach Starkstromverordnung (EleG)</li>\n\n <li>Mitberichtsverfahren / PGV nach Nationalstrassengesetz (NSG)</li>\n\n <li>Konzessionsverfahren Baudirektion Beanspruchung Kantonsgewässer bis 500 m2 (Artikel 3 ORR)</li>\n\n <li>Internes Mitberichtsverfahren BD</li>\n\n <li>Acquisizione di fondi e diritti</li>\n\n <li>Internes Mitberichtsverfahren AfU</li>\n\n <li>Procedura di corapporto interna secondo l'articolo 30 della legge sulla protezione dell'ambiente</li>\n\n <li>Procedura di corapporto interna / procedura di approvazione in base all'EIA</li></ul>"
+
+    others:
+      title: "Altri"
+
+  status:
+    title: "Stato"
+
+    # BE
+    creation: "Nuovi"
+    receiving: "Ricezione comune"
+    communal: "Elaborazione comune"
+    in-progress: "Programma della procedura"
+    sb1: "Autocertificazione 1"
+    sb2: "Autocertificazione 2"
+    finished: "Valutazione conclusa"
+    rejected: "Respinta"
+    archived: "Archiviata"
+
+    # UR
+    comm: "Elaborazione autorità direttrice"
+    ext: "Elaborazione ufficio di coordinamento"
+    circ: "In circolazione"
+    redac: "Circolazione presso il comune"
+    arch: "Archiviata"
+    del: "Eliminata"
+    new: "Nuova creazione"
+    nfd: "Documenti della richiesta di precisazioni"
+    subm: "Inoltrati al comune"
+    ext_gem: "Dossier rimane presso l'autorità edilizia comunale"
+    old: "Dossier archiviato"
+    control: "Decisione edilizia e su opposizione inviata"
+
+    # GR
+    circulation: "In circolazione"
+    inProcedure: "In procedura"
+    submitted: "Trasmessa"
+    constructionAcceptance: "Accompagnamento dei lavori"
+
+    # SO
+    withdrawn: "Ritirata"
+    constructionMonitoring: "Accompagnamento dei lavori"
+
+    # Shared
+    done: "Conclusa"
+
+  forms:
+    nfd: "Richieste di precisazioni"
+    sb1: "Autocertificazione 1"
+    sb2: "Autocertificazione 2"
+
+  applicants:
+    municipality-access: "Accesso del comune"
+    municipality-info: "Se per compilare il modulo è necessario l'aiuto del comune competente, qui è possibile concedere i relativi diritti di lettura già prima dell'inoltro del dossier."
+    municipality-info-empty: "Attualmente non ha selezionato alcun comune. Seleziona uno dei comuni per concedere i relativi diritti."
+    period: "Periodo"
+    municipality: "Comune"
+    authorize: "Autorizza il comune"
+    revoke: "Elimina diritto"
+    now: "Ora"
+
+    invitee: "Utente"
+    created: "Registrato il"
+    user: "Aggiunto da"
+    email: "E-mail"
+    unregistered: "non ancora registrato"
+    noSuggestions: "Nessun dato personale trovato"
+    noApplicants: "Non sono ancora stati assegnati dei diritti"
+
+    add: "Invitare"
+
+    addSuccess: "Utente aggiunto con successo"
+    addError: "Durante l'aggiunta dell'utente qualcosa è andato storto."
+    deleteSuccess: "Utente eliminato con successo"
+    deleteError: "Durante l'eliminazione dell'utente qualcosa è andato storto."
+
+be-submit-instance:
+  success: "La domanda è stata presentata con successo."
+  failed-camac: "Errore nel tentativo di scrivere sull'interfaccia."
+  failed-message: "Ops! Qualcosa è andato storto. Verifica nuovamente i dati inseriti. {reasons}"
+  button-hint-text: "<strong>Hinweis:</strong> Als Systembetrieb können keine Gesuche eingereicht werden."
+
+claims:
+  deadline: "Scadenza"
+  answered: "Risposta in data"
+  answer: "Rispondi"
+  showAnswer: "Visualizza risposta"
+  submit: "Invia richiesta di precisazioni"
+  comment: "Osservazione"
+  confirm: "Conferma"
+  documents: "Documenti"
+  contents: "Contenuti"
+
+  error: "Errore nel tentativo di rispondere alla richiesta di precisazioni"
+
+  empty:
+    pending: "Non vi sono richieste di precisazioni in corso"
+    answered: "Non ha ancora risposto a richieste di precisazioni"
+
+  filter:
+    pending: "In corso"
+    answered: "Risposto"
+
+notfound:
+  title: "404"
+  subtitle: "La pagina non è stata trovata"
+  link: "Torna alla"
+  home: "pagina iniziale"
+
+paper:
+  type: "Carta"
+  noteTitle: "Nota:"
+  noteBody: 'sta per creare un dossier che nel suo comune è stato inoltrato in forma cartacea (dossier cartaceo). Per creare un dossier normale in veste di persona richiedente selezionare «Persona richiedente» nel menu di gruppo in alto a destra.'
+
+modification:
+  type: "Modifica del progetto"
+
+dashboard:
+  edit: "modifica"
+  content: "Contenuto"
+  no-content: 'Non è ancora stato creato un contenuto. Clicca su «Modifica» per creare un nuovo contenuto.'
+  load-error: "Errore nel tentativo di caricare il contenuto"
+  save-error: "Errore nel tentativo di salvare il contenuto"
 
 logo-gr:
-  title: "Canton del Grigioni"
+  title: "Cantone dei Grigioni"

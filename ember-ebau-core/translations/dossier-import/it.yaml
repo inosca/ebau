@@ -1,0 +1,149 @@
+dossierImport:
+  new:
+    title: Nuova importazione
+    importsLink: Indietro
+    uploadDrop: Trascina un file in questa area o
+    uploadSelect: clicca qui per caricare un file.
+    uploadedFileLabel: File caricato
+    locationLabel: Comune
+    locationInfo: Seleziona un comune per attribuire l'importazione.
+    detailLink: Avanti
+    uploadHintBold: "Nota:"
+    uploadHint: a seconda delle dimensioni del file il caricamento può richiedere alcuni minuti.
+    uploadError:
+      fileTooLarge: Il file Zip caricato è troppo grande. La dimensione massima ammessa è di 1 GB.
+  imports:
+    title: Importazione dei dati
+    info: Qui è possibile importare i dossier da altri sistemi.
+    fetchImportsError: Errore nel tentativo di caricare l'importazione. Riprova
+    listTitle: Avanzamento dell'importazione
+    tableHeader:
+      filename: Nome file
+      createDate: Data di creazione
+      author: Autore
+      status: Stato
+      importDate: Data dell'importazione
+    tableBody:
+      noImports: Non sono ancora state registrate delle importazioni.
+    status:
+      in-progress: In elaborazione
+      verified: Bozza (convalida avvenuta con successo)
+      failed: Bozza (convalida non andata a buon fine)
+      import-failed: Importazione non andata a buon fine
+      new: Nuova
+      imported: Importazione sul sistema di prova
+      confirmed: Confermata
+      cleaned: Corretta
+      clean-failed: Correzione non andata a buon fine
+      undo-in-progress: Sarà annullata
+      undo-failed: Errore nel tentativo di annullare
+      undone: Annullata
+      transmitting: Viene trasferita al sistema di produzione
+      transmitted: Trasferita al sistema di produzione
+      transmission-failed: Trasferimento al sistema di produzione non andato a buon fine
+    newImportLink: Nuova importazione
+  detail:
+    title: "Dettagli relativi all'importazione del {creationDate} ({user})"
+    filename: Nome file
+    created: Creato
+    importsLink: Alla panoramica
+    fetchImportError: Errore nel tentativo di caricare l'importazione. Riprova
+    analysis:
+      title: Analisi
+      status:
+        verified: La struttura è corretta
+        failed: La struttura è errata
+        in-progress: L'importazione è stata avviata
+        imported: L'importazione sul sistema di prova è stata completata
+      issuesInfo:
+        verified: "I seguenti problemi sono ancora presenti nel file di importazione:"
+        failed: "I seguenti problemi sono ancora presenti nel file di importazione:"
+        imported: "Durante l'importazione si sono verificati i problemi seguenti:"
+    statistics:
+      title: Statistica
+      infoSuccess:
+        verified: "Dal file di importazione è possibile importare i dati seguenti:"
+        failed: "Dal file di importazione è possibile importare i dati seguenti:"
+        imported: "È possibile importare i dati seguenti:"
+      infoFailure:
+        verified: Dal file di importazione non è possibile importare dati.
+        failed: Dal file di importazione non è possibile importare dati.
+        imported: Non è stato possibile importare dati.
+      dossiers: "{count} dossier"
+      documents: "{count} documenti"
+    status:
+      title: Stato
+      description:
+        verified: |-
+          È stato caricato un file di importazione valido. Controlla le informazioni alla voce «Analisi» e «Statistica». Una volta corretti i riscontri rilevanti l'importazione potrà essere avviata.
+        failed: |-
+          Ha caricato un file di importazione non valido. Per eliminare gli errori
+          è necessario caricare un nuovo file di importazione.
+        import-failed: Errore nel tentativo di importare. La preghiamo di contattare il supporto.
+        in-progress: Importazione in corso.
+        undo-in-progress: L'importazione sta per essere annullata.
+        undo-failed: Errore nel tentativo di annullare l'importazione. La preghiamo di contattare il supporto.
+        imported: L'importazione sul sistema di prova è avvenuta con successo.
+        confirmed: Il via libera per l'importazione è stato rilasciato per l'esecuzione nel sistema di produzione.
+        transmitting: È in corso la trasmissione dell'importazione al sistema di produzione. A seconda delle dimensioni l'operazione può richiedere alcuni minuti.
+        transmitted: L'importazione è stata trasmessa al sistema di produzione.
+        transmission-failed: Errore nel tentativo di trasmissione al sistema di produzione.
+        cleaned: La correzione dell'importazione è andata a buon fine.
+        clean-failed: Errore nel tentativo di correggere.
+      draftHintBold: "Attenzione:"
+      draftHintDescription: |-
+        le importazioni impostate su «Bozza» vengono eliminate
+        automaticamente dopo 10 giorni!
+      technicalDetails: Dettagli tecnici
+    actions:
+      title: Azioni
+      startImport:
+        title: Avvia importazione
+        description: |-
+          Una volta evasi tutti i messaggi di errore rilevanti,
+          se si desidera importare i dati è possibile avviare l'importazione.
+        buttonLabel: Avvia importazione
+        success: L'importazione è stata avviata con successo.
+        error: "Qualcosa è andato storto all'avvio dell'importazione, riprova."
+      confirmImport:
+        title: Conferma l'importazione
+        description: |-
+          Se l'esito dell'importazione è quello desiderato, qui è possibile rilasciare il via
+          libera per l'esecuzione sul sistema di produzione.
+        buttonLabel: Conferma l'importazione
+        success: L'importazione è stata confermata con successo.
+        error: "Qualcosa è andato storto durante la conferma dell'importazione, riprova."
+      transmitImport:
+        title: Trasferisci l'importazione sul sistema di produzione
+        description: |-
+          In questo modo è possibile trasferire l'importazione sul sistema di produzione.
+        buttonLabel: Trasferisci l'importazione
+        success: L'importazione è stata trasferita con successo.
+        error: Qualcosa è andato storto durante il trasferimento dell'importazione.
+      downloadImport:
+        title: Scarica il file di importazione
+        description: |-
+          Qui è possibile scaricare il file di importazione.
+        buttonLabel: Scarica importazione
+        error: Qualcosa è andato storto durante il download dell'importazione.
+      undoImport:
+        title: Ripristina importazione
+        description: |-
+          Elimina l'importazione e tutti i dossier importati nel corso della stessa operazione.
+        buttonLabel: Ripristina importazione
+        started: Annullamento dell'importazione avviato
+        success: L'importazione è stata annullata con successo.
+        error: Qualcosa è andato storto durante l'annullamento dell'importazione.
+      cleanImport:
+        title: Correggi il file di importazione
+        description: |-
+          Dopo un'importazione produttiva di successo, questa operazione permette di eliminare il file di importazione (ZIP) non più necessario.
+        buttonLabel: Correggi importazione
+        success: La correzione dell'importazione è andata a buon fine.
+        error: Qualcosa è andato storto durante la correzione dell'importazione.
+      deleteImport:
+        title: Elimina importazione
+        description: Qui è possibile eliminare l'importazione non più necessaria.
+        buttonLabel: Elimina importazione
+        error: "Qualcosa è andato storto durante l'eliminazione dell'importazione, riprova."
+        success: L'importazione è stata eliminata con successo.
