@@ -1,0 +1,3 @@
+dms:
+  docs:
+    general-info-text: "I segnaposto possono essere inseriti in un modulo usando doppie «parentesi graffe» (ad es. <code>'{{ RICHIEDENTE '}}</code>). Per ottenere un campo di testo a più righe con interruzioni di riga è possibile contrassegnarlo con <code>multiline</code> (ad es. <code>'{{ PROGETTO DI COSTRUZIONE | multiline '}}</code>)."

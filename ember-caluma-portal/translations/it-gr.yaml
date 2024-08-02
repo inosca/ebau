@@ -1,0 +1,25 @@
+global:
+  title: "ebau GR"
+  page-title: "ebau-GR"
+
+index:
+  welcome: "Benvenuti sul portale eBau del Cantone dei Grigioni"
+
+instances:
+  instance-id: "ID"
+  special-id: "N. dossier:"
+  rejectionText: "Tenere conto del riscontro dell'autorità direttiva (vedi testo «Motivazione del respingimento»). Se desidera rielaborare il dossier e trasmetterlo nuovamente può farlo qui. Si prega di osservare che sarà creata una copia del presente dossier."
+  new:
+    building-permit:
+      title: "Procedura per il rilascio della licenza edilizia"
+      info: "Il caso più frequente è l'inoltro di una **domanda di costruzione** (ad es. costruzione annessa di un'autorimessa, nuova costruzione di una casa di abitazione, montaggio di finestre per tetti).\n\nLa **domanda di costruzione** deve essere selezionata per avviare la procedura ordinaria per progetti di costruzione all'interno delle zone edificabili (domanda EIZ) o al di fuori delle zone edificabili (domanda EFZ) secondo l'art. 42 dell'ordinanza cantonale sulla pianificazione territoriale (OPTC).\n\nSelezionare **domanda di costruzione** anche per avviare la procedura semplificata per il rilascio della licenza edilizia secondo l'art. 50 OPTC (ad es. modifica del progetto).\n\nSe la situazione di partenza non è chiara, prima di inoltrare la domanda di costruzione si raccomanda di procedere a un esame preliminare dei punti fondamentali del progetto di costruzione. A questo scopo occorre selezionare la **Valutazione provvisoria (esame preliminare)** secondo l'art. 41 OPTC."
+
+    special-procedure:
+      title: "Ulteriore procedura"
+      info: "I progetti di costruzione esentati dall'obbligo della licenza edilizia conformemente all'art. 40 cpv. 1 dell'ordinanza cantonale sulla pianificazione territoriale (OPTC) devono essere annunciati all'autorità edilizia comunale prima dell'esecuzione con un **annuncio della costruzione** (cfr. art. 40a OPTC).\n\n**Impianti solari** installati sui tetti sono soggetti all'obbligo di annuncio conformemente all'art. 40a OPTC. L'autorità edilizia comunale decide in base al diritto federale se un impianto solare installato su un tetto sia sufficientemente adattato e quindi esentato dall'obbligo della licenza."
+
+support:
+  technical: |-
+    In caso di problemi tecnici con eBau contattare il <b>supporto
+    tecnico (24/7)</b> chiamando il numero:<br><a href="tel:+41 81 553 35
+    00">+41 81 553 35 00</a>

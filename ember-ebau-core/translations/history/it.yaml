@@ -1,0 +1,9 @@
+history:
+  event: "Evento"
+
+  types:
+    notification: "Notifica"
+    status-change: "Cambiamento dello stato"
+
+  expand: "Espandi dettagli"
+  collapse: "Minimizza dettagli"

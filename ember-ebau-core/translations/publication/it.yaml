@@ -1,0 +1,37 @@
+publication:
+  title: "{index}. {name}"
+  new: "Nuova pubblicazione"
+  published: "Approvata"
+  draft: "Bozza"
+  canceled: "Annullato"
+  loadingError: "Errore nel tentativo di caricare"
+  cancelError: "Errore nel tentativo di annullare"
+  active: "Attivo"
+  future: "Imminente"
+  past: "Scaduto"
+
+  cancelConfirm:
+    public: "Desidera davvero annullare la pubblicazione?"
+    neighbors: "Desidera davvero annullare l'informazione dei vicini?"
+
+  empty:
+    public: "Non sono avvenute pubblicazioni."
+    neighbors: "Non sono avvenute informazioni dei vicini."
+
+  info:
+    attention: "Attenzione:"
+    note: "Nota:"
+    documents: "nel menu «Documenti» indicare i documenti che devono essere pubblicati come documenti per l'esposizione."
+    published:
+      public: "La pubblicazione è stata approvata. Cliccando sul link, durante il periodo stabilito è possibile consultare i dossier di questo comune esposti pubblicamente:"
+    unpublished:
+      public: "Affinché nel periodo definito il dossier figuri nell'apposita sezione del portale dedicata all'esposizione pubblica, la pubblicazione deve essere approvata."
+      neighbors: "Affinché il codice QR e il link diretto funzioni e possa essere inviato, l'informazione dei vicini deve essere approvata."
+    canceled:
+      public: "La pubblicazione è stata annullata. Se non sono in corso altre pubblicazioni approvate, il dossier non figura più nell'apposita sezione del portale dedicata all'esposizione pubblica."
+      neighbors: "L'informazione dei vicini è stata annullata. Codice QR e link diretto non funzionano più."
+
+  qr-code:
+    link: "Link diretto"
+    download: "Scarica"
+    downloadError: "Errore nel tentativo di scaricare"

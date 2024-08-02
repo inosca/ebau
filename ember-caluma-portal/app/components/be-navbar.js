@@ -9,7 +9,7 @@ const {
   languages,
   environment,
   profileURL,
-  APPLICATION: { name, internalFrontend },
+  APPLICATION: { internalFrontend },
   ebau: { internalURL },
 } = config;
 
@@ -62,9 +62,6 @@ export default class BeNavbarComponent extends Component {
   }
 
   get showLanguageSwitcher() {
-    if (name === "gr") {
-      return false;
-    }
     return this.languages.length > 1;
   }
 
