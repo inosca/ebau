@@ -1,9 +1,11 @@
 import csv
 
+import magic
 from alexandria.core.models import Category
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import models as caluma_workflow_models
 from django.core.management.base import BaseCommand
+from inflection import underscore
 
 from camac.core.models import InstanceResource, InstanceResourceT, Resource, ResourceT
 from camac.notification.models import NotificationTemplate, NotificationTemplateT
@@ -73,7 +75,7 @@ models = [
         "type": "caluma",
         "model": caluma_workflow_models.Task,
         "filename": "Task",
-        "columns": ["name", "description"],
+        "columns": ["name"],
     },
     {
         "type": "caluma",
@@ -99,9 +101,16 @@ models = [
 def _load_csv(config):
     data = {}
     for column in config["columns"]:
-        file = f"camac/core/translation_files/{config['filename']}_{column}_it.csv"
+        file = (
+            f"camac/core/translation_files/GR_IT/{config['filename']}_{column}_it.csv"
+        )
 
-        with open(file) as csv_file:
+        blob = open(file, "rb").read()
+        m = magic.open(magic.MAGIC_MIME_ENCODING)
+        m.load()
+        encoding = m.buffer(blob)
+        print(f"detected encoding of {file} as {encoding}")
+        with open(file, encoding=encoding) as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=",")
             line_count = 0
             for item in csv_reader:
@@ -122,33 +131,41 @@ def _load_csv(config):
 
 def _upload_data(config, data):
     for pk, row in data.items():
-        if config["type"] == "camac":
-            if config["translation_model_name"] == "NotificationTemplateT":
-                _, created = config["translation_model"].objects.update_or_create(
-                    template_id=pk,
-                    language="it",
-                    defaults=row,
-                    template_slug_id=config["model"].objects.get(pk=pk).slug,
-                )
-            else:
-                _, created = config["translation_model"].objects.update_or_create(
-                    template_id=pk,
-                    language="it",
-                    defaults=row,
-                )
-            translation_model_name = config["translation_model_name"]
-            if created:
-                print(f"{translation_model_name}({pk}) was created: {row}")
-        elif config["type"] == "caluma":
-            model = config["model"].objects.get(slug=pk)
-            for column in config["columns"]:
-                getattr(model, column).set("it", row[column])
-                model.save()
+        try:
+            if config["type"] == "camac":
+                if config["translation_model_name"] == "NotificationTemplateT":
+                    _, created = config["translation_model"].objects.update_or_create(
+                        template_id=pk,
+                        language="it",
+                        defaults=row,
+                        template_slug_id=config["model"].objects.get(pk=pk).slug,
+                    )
+                else:
+                    fk_column_name = f"{underscore(config['model'].__name__)}_id"
+                    _, created = config["translation_model"].objects.update_or_create(
+                        **{
+                            fk_column_name: pk,
+                            "language": "it",
+                            "defaults": row,
+                        }
+                    )
+                translation_model_name = config["translation_model_name"]
+                if created:
+                    print(f"{translation_model_name}({pk}) was created: {row}")
+            elif config["type"] == "caluma":
+                model = config["model"].objects.get(slug=pk)
+                for column in row.keys():
+                    getattr(model, column).set("it", row[column])
+                    model.save()
+        except Exception:
+            breakpoint()
+            pass
 
 
 class Command(BaseCommand):
     def handle(self, *args, **option):
         for config in models:
+            print(f"importing {config['filename']}")
             data = _load_csv(config)
 
             _upload_data(config, data)

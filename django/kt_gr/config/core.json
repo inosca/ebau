@@ -1359,6 +1359,176 @@
   },
   {
     "model": "core.instanceresourcet",
+    "pk": 2000007,
+    "fields": {
+      "instance_resource": 2000000,
+      "language": "it",
+      "name": "Compiti",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 2000008,
+    "fields": {
+      "instance_resource": 15000002,
+      "language": "it",
+      "name": "Comunicazione",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 2000009,
+    "fields": {
+      "instance_resource": 2000001,
+      "language": "it",
+      "name": "Modulo",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 2000010,
+    "fields": {
+      "instance_resource": 18000000,
+      "language": "it",
+      "name": "Documenti",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 2000011,
+    "fields": {
+      "instance_resource": 14000011,
+      "language": "it",
+      "name": "Modelli",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 2000012,
+    "fields": {
+      "instance_resource": 12000008,
+      "language": "it",
+      "name": "Competenza",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 2000013,
+    "fields": {
+      "instance_resource": 14000005,
+      "language": "it",
+      "name": "Circolazione",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 2000014,
+    "fields": {
+      "instance_resource": 12000006,
+      "language": "it",
+      "name": "Pubblicazione",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 2000015,
+    "fields": {
+      "instance_resource": 14000016,
+      "language": "it",
+      "name": "Richiesta di precisazioni",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 2000016,
+    "fields": {
+      "instance_resource": 21000000,
+      "language": "it",
+      "name": "Progetti di costruzione REA collegati",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 2000017,
+    "fields": {
+      "instance_resource": 15000001,
+      "language": "it",
+      "name": "Respingere dossier",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 2000018,
+    "fields": {
+      "instance_resource": 15000000,
+      "language": "it",
+      "name": "Decisione",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 2000019,
+    "fields": {
+      "instance_resource": 2000006,
+      "language": "it",
+      "name": "Collaudo",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 2000020,
+    "fields": {
+      "instance_resource": 14000008,
+      "language": "it",
+      "name": "Registro",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 2000021,
+    "fields": {
+      "instance_resource": 18000001,
+      "language": "it",
+      "name": "Cronologia",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 2000022,
+    "fields": {
+      "instance_resource": 14000014,
+      "language": "it",
+      "name": "Aiuti per la correzione",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 2000023,
+    "fields": {
+      "instance_resource": 12000016,
+      "language": "it",
+      "name": "Diritti",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
     "pk": 12000006,
     "fields": {
       "instance_resource": 12000006,
@@ -6387,6 +6557,96 @@
       "resource": 140000,
       "language": "fr",
       "name": "Tâches",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 2000000,
+    "fields": {
+      "resource": 140000,
+      "language": "it",
+      "name": "Compiti",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 2000001,
+    "fields": {
+      "resource": 20006,
+      "language": "it",
+      "name": "I miei dossier",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 2000002,
+    "fields": {
+      "resource": 14000000,
+      "language": "it",
+      "name": "Gestione dei modelli",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 2000003,
+    "fields": {
+      "resource": 14000001,
+      "language": "it",
+      "name": "La mia organizzazione",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 2000004,
+    "fields": {
+      "resource": 14000003,
+      "language": "it",
+      "name": "Novità",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 2000005,
+    "fields": {
+      "resource": 14000004,
+      "language": "it",
+      "name": "Aiuto",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 2000006,
+    "fields": {
+      "resource": 14000005,
+      "language": "it",
+      "name": "FAQ",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 2000007,
+    "fields": {
+      "resource": 14000006,
+      "language": "it",
+      "name": "REA",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 2000008,
+    "fields": {
+      "resource": 14000007,
+      "language": "it",
+      "name": "Comunicazione",
       "description": null
     }
   },
