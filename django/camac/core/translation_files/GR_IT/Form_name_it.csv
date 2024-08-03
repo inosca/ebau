@@ -1,0 +1,77 @@
+﻿id,name,
+check-additional-demand,Nachforderung prüfen,Verificare richiesta di precisazioni
+fill-additional-demand,Nachforderung,Richiesta di precisazioni
+send-additional-demand,Nachforderung erstellen,Creare richiesta di precisazioni
+decision,Entscheid,Decisione
+distribution,Zirkulation,Circolazione
+inquiry,Anfrage zur Stellungnahme,Richiesta relativa alla presa di posizione
+inquiry-answer,Stellungnahme,Presa di posizione
+abfallanlage,Abfallanlage,Impianto per i rifiuti
+abfallcodes-tabelle,Abfallcodes Tabelle,Tabella codici dei rifiuti
+abgasanlagen-tabelle,Abgasanlagen,Dispositivi di evacuazione dei gas di scarico
+ableitung-von-industrie-und-gewerbeabwasser,Industrie- und Gewerbeabwasser,Acque di scarico industriali e artigianali
+allgemeine-informationen,Allgemeine Informationen,Informazioni generali
+angaben-zum-feuerungsbetrieb-form,Angaben zum Feuerungsbetrieb,Indicazioni relative all'impianto di combustione
+angaben-zum-motorenbetrieb-form,Angaben zum Motorenbetrieb,Indicazioni relative al motore
+anlagedatenblatt,Anlagedatenblatt,Scheda tecnica dell'impianto
+anlagen-prozesse-table,Anlagen/Prozesse,Impianti/processi
+ausbildungsnachweis-tabelle,Ausbildungsnachweis Tabelle,Tabella attestato di formazione
+bab,Bauten und Anlagen ausserhalb der Bauzone (BAB),Edifici e impianti al di fuori della zona edificabile (EFZ)
+bauanzeige,Bauanzeige,Annuncio di costruzione
+baugesuch,Baugesuch,Domanda di costruzione
+bauvorhaben,Bauvorhaben,Progetto di costruzione
+beschreibung-einzelfeuerung-form,Beschreibung Einzelfeuerung,Descrizione dell'impianto di combustione singolo
+bestaetigung,Bestätigung,Conferma
+betriebsleiterwohnhaus,Betriebsleiterwohnhaus,Abitazione del gestore dell'azienda
+brandschutz-bauliche-angaben,Brandschutz - Bauliche Angaben,Protezione antincendio - indicazioni edilizie
+brandschutz-haustechnik,Brandschutz - Haustechnik,Protezione antincendio - impiantistica
+construction-monitoring,Baubegleitung,Accompagnamento dei lavori
+dashboard,Dashboard,Dashboard
+details-zentralheizung,Details Zentralheizung,Dettagli del riscaldamento centrale
+dieselgetriebene-motoren,Dieselgetriebene Motoren,Motori diesel
+dokumente,Dokumente,Documenti
+dokumente-ohne-pflichtdokumente,Dokumente,Documenti
+dossierpruefung,Dossierprüfung,Esame del dossier
+eingesetzte-stoffe-tabelle,Eingesetzte Stoffe Tabelle,Tabella sostanze impiegate
+eingriffe-in-gewaesserschutzbereichen,Eingriffe in Gewässerschutzbereichen Aᵤ,Interventi in settori di protezione delle acque Aᵤ
+einreichen,Einreichen,Inoltrare
+einsatzort-tabelle,Einsatzort Tabelle,Tabella luogo dell'impiego
+emissionserklaerung,Emissionserklärung,Dichiarazione delle emissioni
+entfernung-von-hecken-tabelle,Entfernung von Hecken / Feldgehölzen oder Ufervegetation Tabelle,Tabella rimozione di siepi / boschetti campestri o vegetazione riparia
+feuerungsanlagen,Feuerungsanlagen,Impianti di combustione
+gebaeude-tabelle,Gebäude Tabelle,Tabella edifici
+gefaehrdete-umliegende-objekte-tabelle,Schutzabstände Flüssiggas Tabelle,Tabella distanze di sicurezza gas liquefatti
+gewinnung-von-kies-sand-und-anderem-material,"Gewinnung von Kies, Sand und anderem Material","Estrazione di ghiaia, sabbia e altro materiale"
+grundwasserentnahme-brauchwasser,Grundwasserentnahme Brauchwasser,Prelievo di acque sotterranee per uso come acqua non potabile
+gwr,Gebäude- und Wohnungsregister,Registro federale degli edifici e delle abitazioni
+hecken-feldgehoelze-und-ufervegetation,"Hecken, Feldgehölze und Ufervegetation","Siepi, boschetti campestri e vegetazione riparia"
+holzfeuerung-form,Holzfeuerung,Riscaldamento a legna
+komplexe-erdwaermesonden,Komplexe Erdwärmesonden,Sonde geotermiche complesse
+lageranlagen-wassergefaehrdenden-fluessigkeiten,Lageranlagen mit wassergefährdenden Flüssigkeiten,Impianti di deposito con liquidi che costituiscono un pericolo per le acque
+materielle-vorpruefung,Materielle Vorprüfung,Esame preliminare materiale
+mineralische-bauabfaelle,Mineralische Bauabfälle,Rifiuti edili minerali
+nutzung-bauvorhaben,Triage,Domande di triage
+oel-oder-gasfeuerung-form,Öl- oder Gasfeuerung,Impianti a combustione alimentati con olio o gas
+recyclingprodukt-tabelle,Recyclingprodukt Tabelle,Tabella prodotto riciclato
+schutzplaetze,Schutzplätze,Posti protetti
+solaranlage,Solaranlage,Impianto solare
+solaranlagen,Solaranlagen,Impianti solari
+solaranlagen-tabelle,Solaranlagen Tabelle,Tabella degli impianti solari
+spezialformulare,Spezialformulare,Moduli speciali
+stallbau-und-hofduengerlager,Stallbau und Hofdüngerlager,Stalle e depositi di concimi aziendali
+stationaere-verbrennungsmotoren,Stationäre Verbrennungsmotoren,Motori a combustione stazionari
+terrainveraenderungen,Terrainveränderungen,Modifiche del terreno
+unterschriftenberechtigung-tabelle,Unterschriftenberechtigung Tabelle,Tabella del diritto di firma
+verwendete-stoffe-und-produkte,Verwendete Stoffe und Produkte,Sostanze e prodotti usati
+vollstaendigkeitspruefung,Vollständigkeitsprüfung,Esame di completezza
+vorlaeufige-beurteilung,Vorläufige Beurteilung (Vorabklärung),Valutazione provvisoria (esame preliminare)
+waermepumpenanlage,Wärmepumpenanlage,Pompa termica
+wasserentnahme-aus-oberflaechengewaessern,Wasserentnahme aus Oberflächengewässern,Prelievo da acque di superficie
+wohnung-tabelle,Wohnung Tabelle,Tabella dell'abitazione
+allgemeine-angaben-kurz,Allgemeine Angaben,Indicazioni generali
+parzelle-tabelle,Parzelle Tabelle,Tabella della particella
+personalien,Personalien,Dati personali
+personalien-tabelle,Personalien Tabelle,Tabella dei dati personali
+formal-exam,Formelle Prüfung,Esame formale
+material-exam,Materielle Prüfung,Esame materiale
+publikation,Publikation,Pubblicazione

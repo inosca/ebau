@@ -1,0 +1,10 @@
+id,placeholder,
+betriebsbewilligung-nr,AV-,
+bewilligungs-nr,AV-,
+bewilligungs-nr-fuer-bohrungen-in-besonders-gefaehrdeten-bereichen,AV-20,
+einleitungsbewilligung-bewilligungs-nr,AV-,
+errichtungsbewilligung-nr,AV-,
+gebaeudenummer-bezeichnung,z.B. MFH A,ad es. casa plurifamiliare A
+kaeltemittel,R-,
+kaeltemittel-waermepumpe,"z.B. R407C, R410A","ad es. R407C, R410A"
+temperaturklasse-abgasanlage,z.B. T400,ad es. T400
