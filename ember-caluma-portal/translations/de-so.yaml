@@ -17,6 +17,7 @@ instances:
   furtherProcessingOfForm: "Dossier bearbeiten"
   processingOfForm: "Dossier bearbeiten"
   activateFurtherPersons: "Weitere Personen für dieses Dossier freischalten"
+  rejectionInfoText: ""
 
   new:
     preliminary-clarification:
