@@ -1,4 +1,5 @@
 import json
+import logging
 
 import pytest
 from django.urls import reverse
@@ -15,20 +16,48 @@ class FakeResponse:
         return self.data
 
 
+@pytest.mark.freeze_time("2024-07-23 12:00:00")
 @pytest.mark.parametrize(
-    "token,keycloak_error,expected_status",
+    "token,keycloak_error,expected_status,error_message",
     [
-        (None, False, status.HTTP_403_FORBIDDEN),
-        (lazy_fixture("invalid_exp_jwt_token"), False, status.HTTP_403_FORBIDDEN),
-        (lazy_fixture("invalid_iss_jwt_token"), False, status.HTTP_403_FORBIDDEN),
-        (lazy_fixture("invalid_signature_jwt_token"), False, status.HTTP_403_FORBIDDEN),
-        (lazy_fixture("failed_decryption_jwt_token"), False, status.HTTP_403_FORBIDDEN),
-        (lazy_fixture("jwt_token"), True, status.HTTP_403_FORBIDDEN),
-        (lazy_fixture("jwt_token"), False, status.HTTP_200_OK),
+        (None, False, status.HTTP_403_FORBIDDEN, None),
+        (
+            lazy_fixture("invalid_exp_jwt_token"),
+            False,
+            status.HTTP_403_FORBIDDEN,
+            "Expired at",
+        ),
+        (
+            lazy_fixture("invalid_iss_jwt_token"),
+            False,
+            status.HTTP_403_FORBIDDEN,
+            "Invalid 'iss'",
+        ),
+        (
+            lazy_fixture("invalid_signature_jwt_token"),
+            False,
+            status.HTTP_403_FORBIDDEN,
+            "InvalidJWSSignature",
+        ),
+        (
+            lazy_fixture("failed_decryption_jwt_token"),
+            False,
+            status.HTTP_403_FORBIDDEN,
+            "InvalidSignature",
+        ),
+        (
+            lazy_fixture("jwt_token"),
+            True,
+            status.HTTP_403_FORBIDDEN,
+            "some keycloak error",
+        ),
+        (lazy_fixture("jwt_token"), False, status.HTTP_200_OK, None),
     ],
 )
 def test_token_exchange(
     db,
+    caplog,
+    error_message,
     expected_status,
     jwt_client,
     keycloak_error,
@@ -53,6 +82,8 @@ def test_token_exchange(
             return_value={"access_token": "my new access token"},
         )
 
+    caplog.set_level(logging.ERROR)
+
     response = jwt_client.post(
         reverse("token-exchange"),
         data=json.dumps({"jwt-token": token}),
@@ -61,3 +92,6 @@ def test_token_exchange(
 
     assert response.status_code == expected_status
     assert response.json() == snapshot
+
+    if error_message:
+        assert error_message in caplog.text

@@ -1,36 +1,36 @@
 # serializer version: 1
-# name: test_token_exchange[None-False-403]
+# name: test_token_exchange[None-False-403-None]
   dict({
     'detail': 'JWT token must be passed',
   })
 # ---
-# name: test_token_exchange[failed_decryption_jwt_token-False-403]
+# name: test_token_exchange[failed_decryption_jwt_token-False-403-InvalidSignature]
   dict({
-    'detail': 'Invalid padding bytes.',
+    'detail': 'Invalid token',
   })
 # ---
-# name: test_token_exchange[invalid_exp_jwt_token-False-403]
+# name: test_token_exchange[invalid_exp_jwt_token-False-403-Expired at]
   dict({
-    'detail': 'Signature has expired.',
+    'detail': 'Invalid token',
   })
 # ---
-# name: test_token_exchange[invalid_iss_jwt_token-False-403]
+# name: test_token_exchange[invalid_iss_jwt_token-False-403-Invalid 'iss']
   dict({
-    'detail': 'Invalid issuer',
+    'detail': 'Invalid token',
   })
 # ---
-# name: test_token_exchange[invalid_signature_jwt_token-False-403]
+# name: test_token_exchange[invalid_signature_jwt_token-False-403-InvalidJWSSignature]
   dict({
-    'detail': 'Signature verification failed.',
+    'detail': 'Invalid token',
   })
 # ---
-# name: test_token_exchange[jwt_token-False-200]
+# name: test_token_exchange[jwt_token-False-200-None]
   dict({
     'access_token': 'my new access token',
   })
 # ---
-# name: test_token_exchange[jwt_token-True-403]
+# name: test_token_exchange[jwt_token-True-403-some keycloak error]
   dict({
-    'detail': 'some keycloak error',
+    'detail': 'Token could not be exchanged',
   })
 # ---
