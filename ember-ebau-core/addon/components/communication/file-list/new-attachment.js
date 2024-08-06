@@ -13,8 +13,8 @@ export default class CommunicationFileListNewAttachmentComponent extends Compone
       mainConfig.documentBackend === "camac" ? "attachment" : "document";
 
     return this.args.attachment
-      ? this.store.peekRecord(model, this.args.attachment) ??
-          (await this.store.findRecord(model, this.args.attachment))
+      ? (this.store.peekRecord(model, this.args.attachment) ??
+          (await this.store.findRecord(model, this.args.attachment)))
       : null;
   });
 

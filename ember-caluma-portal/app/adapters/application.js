@@ -4,7 +4,11 @@ import OIDCJSONAPIAdapter from "ember-simple-auth-oidc/adapters/oidc-json-api-ad
 export default class ApplicationAdapter extends OIDCJSONAPIAdapter {
   @service session;
 
-  namespace = "api/v1";
+  get namespace() {
+    // this needs to be a getter instead of a property in order for
+    // ember-alexandria to override it with a getter in their adapters
+    return "api/v1";
+  }
 
   _appendInclude(url, adapterOptions) {
     if (adapterOptions?.include) {

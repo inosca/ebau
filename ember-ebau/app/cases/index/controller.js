@@ -48,7 +48,7 @@ export default class CasesIndexController extends Controller {
   }
 
   get casesBackend() {
-    return this.isCaluma ?? true ? "caluma" : "camac-ng";
+    return (this.isCaluma ?? true) ? "caluma" : "camac-ng";
   }
 
   @action

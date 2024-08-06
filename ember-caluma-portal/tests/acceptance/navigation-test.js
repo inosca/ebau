@@ -1,6 +1,5 @@
 import { visit, click, waitFor } from "@ember/test-helpers";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { setupIntl } from "ember-intl/test-support";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import { module, test } from "qunit";
 
@@ -10,7 +9,6 @@ import testIf from "caluma-portal/tests/helpers/test-if";
 module("Acceptance | navigation", function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
-  setupIntl(hooks, "de");
 
   hooks.beforeEach(async function () {
     this.server.create("user", { name: "John", surname: "Doe" });
