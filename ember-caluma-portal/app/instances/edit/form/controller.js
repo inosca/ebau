@@ -29,7 +29,7 @@ export default class InstancesEditFormController extends Controller {
         form: this.model,
       },
     }),
-    "allCases.edges.firstObject.node",
+    "allCases.edges.0.node",
     (raw) => {
       if (this.editController.instance.calumaForm === this.model) {
         return raw.document;

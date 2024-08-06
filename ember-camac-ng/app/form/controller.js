@@ -27,7 +27,7 @@ export default class FormController extends Controller {
         fetchPolicy: "network-only",
         variables: { instanceId: this.model.id },
       },
-      "allCases.edges.firstObject.node",
+      "allCases.edges.0.node",
     );
 
     return { instance, case: raw, document: raw.document };
