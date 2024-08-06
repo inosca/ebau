@@ -429,7 +429,7 @@
       "type": "simple",
       "meta": {},
       "address_groups": "['building-commission']|groups",
-      "control_groups": null,
+      "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": null,
       "lead_time": 1209600,
