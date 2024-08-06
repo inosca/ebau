@@ -83,6 +83,7 @@ class Dossier:
     landowner: Optional[Union[List[Person], str]] = None
     project_author: Optional[Union[List[Person], str]] = None
     attachments: Optional[Union[List[Attachment], str]] = None
+    responsible: Optional[str] = field(default=None)
 
     @dataclass
     class Meta:

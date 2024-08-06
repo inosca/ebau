@@ -571,6 +571,27 @@ msgid "Value \"%(value)s\" in field %(target)s is too long (max: %(max)s)"
 msgstr ""
 "Il valore \"%(value)s\" nel campo %(target)s è troppo lungo (max: %(max)s)"
 
+#: camac/dossier_import/writers.py:556
+msgid "No responsible service, cannot set responsible user"
+msgstr ""
+"Nessun servizio responsabile, non è possibile impostare un utente "
+"responsabile"
+
+#: camac/dossier_import/writers.py:569
+#, python-brace-format
+msgid "Multiple users in database with email {value}"
+msgstr "Più utenti nel database con l'email {value}"
+
+#: camac/dossier_import/writers.py:573
+#, python-brace-format
+msgid "No user found in database with email {value}"
+msgstr "Nessun utente trovato nel database con l'email {value}"
+
+#: camac/dossier_import/writers.py:581
+#, python-brace-format
+msgid "Could not assign/update responsible: {detail}"
+msgstr "Impossibile assegnare/aggiornare il responsabile: {detail}"
+
 #: camac/ech0211/send_handlers.py:737
 #, fuzzy
 #| msgid "Dossier submitted"

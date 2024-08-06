@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-25 16:03+0200\n"
-"PO-Revision-Date: 2024-07-11 08:33+0200\n"
+"POT-Creation-Date: 2024-08-05 17:18+0200\n"
+"PO-Revision-Date: 2024-08-05 17:30+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -379,7 +379,7 @@ msgstr ""
 msgid "Specifying an \"attachments\" filter is mandatory!"
 msgstr "Der \"attachments\" Filter ist obligatorisch!"
 
-#: camac/dossier_import/loaders.py:273
+#: camac/dossier_import/loaders.py:275
 #, python-format
 msgid ""
 "The given coordinates (E: %(e)i and N: %(n)i) are not in Switzerland or are "
@@ -388,14 +388,14 @@ msgstr ""
 "Die angegebenen Koordinaten (O: %(e)i und N: %(n)i) befinden sich nicht in "
 "der Schweiz oder nutzen nicht das Schweizer Koordinatensystem (epsg:2056)."
 
-#: camac/dossier_import/loaders.py:291
+#: camac/dossier_import/loaders.py:293
 #, python-format
 msgid "Failed to load and transform coordinates from E: %(e)i and N: %(n)i"
 msgstr ""
 "Laden und transformieren der Koordinaten E: %(e)i und N: %(n)i ist "
 "fehlgeschlagen"
 
-#: camac/dossier_import/loaders.py:346
+#: camac/dossier_import/loaders.py:348
 #, python-format
 msgid ""
 "Failed to load plot with numbers `%(plot_numbers)s` and egrid values "
@@ -404,7 +404,7 @@ msgstr ""
 "Parzellendaten konnten nicht geladen werden. Nummer(n): `%(plot_numbers)s`. "
 "Egrid: `%(egrids)s`"
 
-#: camac/dossier_import/loaders.py:359 camac/dossier_import/validation.py:305
+#: camac/dossier_import/loaders.py:361 camac/dossier_import/validation.py:305
 msgid "Meta data file in archive is corrupt or not a valid .xlsx file."
 msgstr "Die Metadatendatei `dossiers.xlsx` ist kein gültiges Xlsx-Format."
 
@@ -563,6 +563,27 @@ msgstr ""
 msgid "Value \"%(value)s\" in field %(target)s is too long (max: %(max)s)"
 msgstr ""
 "Wert \"%(value)s\" im Feld %(target)s ist zu lang (maximal %(max)s Zeichen)"
+
+#: camac/dossier_import/writers.py:556
+msgid "No responsible service, cannot set responsible user"
+msgstr ""
+"Keine verantwortliche Stelle gefunden, kann verantwortliche Person nicht "
+"festlegen"
+
+#: camac/dossier_import/writers.py:569
+#, python-brace-format
+msgid "Multiple users in database with email {value}"
+msgstr "Es existieren mehrere Benutzer mit dieser E-Mail-Adresse: {value}"
+
+#: camac/dossier_import/writers.py:573
+#, python-brace-format
+msgid "No user found in database with email {value}"
+msgstr "Keinen Benutzer mit Mailadresse {value} gefunden"
+
+#: camac/dossier_import/writers.py:581
+#, python-brace-format
+msgid "Could not assign/update responsible: {detail}"
+msgstr "Konnte verantwortliche Person nicht schreiben: {detail}"
 
 #: camac/ech0211/send_handlers.py:737
 #, fuzzy
@@ -912,7 +933,7 @@ msgstr "Gemeinde"
 msgid "Building permit valid until"
 msgstr "Verfahren"
 
-#: camac/instance/mixins.py:530 camac/instance/mixins.py:567
+#: camac/instance/mixins.py:553 camac/instance/mixins.py:590
 #, python-format
 msgid "Not allowed to add data to instance %(instance)s"
 msgstr "Keine Berechtigung um Daten zum Dossier %(instance)s hinzuzufügen"
@@ -1216,56 +1237,56 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr "Einsprache %(objection) hat bereits einen Vertreter"
 
-#: camac/settings/django.py:871 camac/settings/django.py:1568
-#: camac/settings/django.py:1764
+#: camac/settings/django.py:871 camac/settings/django.py:1601
+#: camac/settings/django.py:1797
 msgid "Circulation started"
 msgstr "Zirkulation gestartet"
 
-#: camac/settings/django.py:888 camac/settings/django.py:1786
+#: camac/settings/django.py:888 camac/settings/django.py:1819
 msgid "Procedure completed"
 msgstr "Baugesuchsverfahren abgeschlossen"
 
-#: camac/settings/django.py:1563
+#: camac/settings/django.py:1596
 msgid "Preliminary exam performed"
 msgstr "Vorläufige Prüfung durchgeführt"
 
-#: camac/settings/django.py:1574
+#: camac/settings/django.py:1607
 msgid "Additional demand sent"
 msgstr "Nachforderung begonnen"
 
-#: camac/settings/django.py:1581
+#: camac/settings/django.py:1614
 msgid "Additional demand was answered"
 msgstr "Nachforderung wurde beantwortet"
 
-#: camac/settings/django.py:1589
+#: camac/settings/django.py:1622
 msgid "Construction monitoring performed"
 msgstr "Baubegleitung durchgeführt"
 
-#: camac/settings/django.py:1755
+#: camac/settings/django.py:1788
 msgid "Formal exam performed"
 msgstr "Formelle Prüfung durchgeführt"
 
-#: camac/settings/django.py:1759
+#: camac/settings/django.py:1792
 msgid "Material exam performed"
 msgstr "Materielle Prüfung durchgeführt"
 
-#: camac/settings/django.py:2142
+#: camac/settings/django.py:2175
 msgid "German"
 msgstr "Deutsch"
 
-#: camac/settings/django.py:2143
+#: camac/settings/django.py:2176
 msgid "French"
 msgstr "Französisch"
 
-#: camac/settings/django.py:2144
+#: camac/settings/django.py:2177
 msgid "Italian"
 msgstr "Italienisch"
 
-#: camac/settings/modules/additional_demand.py:27
+#: camac/settings/modules/additional_demand.py:30
 msgid "Additional demand accepted"
 msgstr "Nachforderung abgeschlossen"
 
-#: camac/settings/modules/additional_demand.py:28
+#: camac/settings/modules/additional_demand.py:31
 msgid "Additional demand rejected"
 msgstr "Nachforderung unvollständig"
 
@@ -1273,24 +1294,24 @@ msgstr "Nachforderung unvollständig"
 msgid "Dossier corrected"
 msgstr "Dossier korrigiert"
 
-#: camac/settings/modules/distribution.py:68
-#: camac/settings/modules/distribution.py:573
-#: camac/settings/modules/distribution.py:618
-#: camac/settings/modules/distribution.py:701
+#: camac/settings/modules/distribution.py:71
+#: camac/settings/modules/distribution.py:576
+#: camac/settings/modules/distribution.py:621
+#: camac/settings/modules/distribution.py:704
 msgid "Circulation completed"
 msgstr "Zirkulation abgeschlossen"
 
-#: camac/settings/modules/distribution.py:69
-#: camac/settings/modules/distribution.py:574
-#: camac/settings/modules/distribution.py:619
-#: camac/settings/modules/distribution.py:702
+#: camac/settings/modules/distribution.py:72
+#: camac/settings/modules/distribution.py:577
+#: camac/settings/modules/distribution.py:622
+#: camac/settings/modules/distribution.py:705
 msgid "Circulation skipped"
 msgstr "Zirkulation übersprungen"
 
-#: camac/settings/modules/distribution.py:70
-#: camac/settings/modules/distribution.py:575
-#: camac/settings/modules/distribution.py:620
-#: camac/settings/modules/distribution.py:703
+#: camac/settings/modules/distribution.py:73
+#: camac/settings/modules/distribution.py:578
+#: camac/settings/modules/distribution.py:623
+#: camac/settings/modules/distribution.py:706
 msgid "Circulation reopened"
 msgstr "Zirkulation wiedereröffnet"
 
