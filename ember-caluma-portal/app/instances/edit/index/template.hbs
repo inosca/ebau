@@ -62,12 +62,14 @@
           {{~this.editController.instance.rejectionFeedback~}}
         </p>
       </div>
-      <div
-        uk-alert
-        class="uk-margin-remove-top border-highlight uk-width-1-1 uk-padding-small"
-      >
-        {{t "instances.rejectionInfoText" htmlSafe=true}}
-      </div>
+      {{#if (t "instances.rejectionInfoText")}}
+        <div
+          uk-alert
+          class="uk-margin-remove-top border-highlight uk-width-1-1 uk-padding-small"
+        >
+          {{t "instances.rejectionInfoText" htmlSafe=true}}
+        </div>
+      {{/if}}
     </div>
   </div>
 {{/if}}
