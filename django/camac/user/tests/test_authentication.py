@@ -1,7 +1,8 @@
 import json
 
 import pytest
-from jose.exceptions import ExpiredSignatureError, JOSEError
+from jwcrypto.common import JWException
+from jwcrypto.jwt import JWTExpired
 from mozilla_django_oidc.contrib.drf import OIDCAuthentication
 from rest_framework import exceptions, status
 from rest_framework.exceptions import AuthenticationFailed
@@ -214,7 +215,7 @@ def test_django_admin_oidc_authentication(
             assert user.is_authenticated
 
 
-@pytest.mark.parametrize("side_effect", [ExpiredSignatureError(), JOSEError()])
+@pytest.mark.parametrize("side_effect", [JWTExpired(), JWException()])
 def test_authenticate_side_effect(rf, mocker, side_effect, clear_cache):
     decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
     decode_token.side_effect = side_effect

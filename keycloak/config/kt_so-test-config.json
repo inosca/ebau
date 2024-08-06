@@ -5269,7 +5269,7 @@
         "redirectUris": [
           "http://egov.local/*",
           "http://localhost:4200/*",
-          "http://ebau-portal/*"
+          "http://ebau-portal.local/*"
         ],
         "webOrigins": ["+"],
         "notBefore": 0,

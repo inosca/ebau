@@ -11,7 +11,8 @@ from django.db.models import Exists, OuterRef, Q
 from django.utils import translation
 from django.utils.encoding import force_bytes, smart_str
 from django.utils.translation import gettext as _
-from jose.exceptions import ExpiredSignatureError, JOSEError
+from jwcrypto.common import JWException
+from jwcrypto.jwt import JWTExpired
 from keycloak import KeycloakOpenID
 from keycloak.exceptions import KeycloakAuthenticationError, KeycloakGetError
 from mozilla_django_oidc.auth import OIDCAuthenticationBackend
@@ -74,14 +75,13 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         )
 
     def _verify_token(self, jwt_value, accept_language_header):  # noqa: C901
-        options = {"exp": True, "verify_aud": False, "verify_signature": True}
         try:
             jwt_decoded = self.keycloak.decode_token(
-                jwt_value, self.keycloak.certs(), options=options
+                jwt_value.decode(), check_claims={"exp": None}
             )
-        except ExpiredSignatureError:
+        except JWTExpired:
             raise AuthenticationFailed(_("Signature has expired."))
-        except JOSEError:
+        except JWException:
             raise AuthenticationFailed(_("Invalid token."))
 
         try:
