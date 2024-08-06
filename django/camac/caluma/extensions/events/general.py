@@ -259,3 +259,26 @@ def set_work_items_unread_on_reopen(
     for wi in filter(None, [*work_items, work_item]):
         wi.meta = {**wi.meta, "not-viewed": True}
         wi.save()
+
+
+@on(post_create_work_item, raise_exception=True)
+@transaction.atomic
+def post_create_review_building_commission(sender, work_item, user, context, **kwargs):
+    """Set name of the created work item to include the meeting date."""
+    if work_item.task_id != "review-building-commission":
+        return
+
+    if settings.APPLICATION_NAME != "kt_uri":  # pragma: no cover
+        return
+
+    release_document = work_item.case.family.work_items.get(
+        task_id="release-for-bk"
+    ).document
+    meeting_date_value = release_document.answers.get(
+        question_id="release-for-bk-meeting-date"
+    ).date
+    meeting_date_string = meeting_date_value.strftime("%d.%m.%Y")
+
+    work_item.name = f"{work_item.name} (BK Sitzung: {meeting_date_string})"
+
+    work_item.save(update_fields=["name"])
