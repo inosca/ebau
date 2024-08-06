@@ -1,4 +1,4 @@
-FROM danlynn/ember-cli:4.12.1 AS build
+FROM danlynn/ember-cli:5.12.0-node_20.18 AS build
 
 # Copy pnpm relevant files from all apps in workspace
 COPY package.json pnpm-*.yaml /myapp/

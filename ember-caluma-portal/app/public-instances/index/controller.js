@@ -77,7 +77,7 @@ export default class PublicInstancesIndexController extends Controller {
               municipalityQuestion: mainConfig.answerSlugs.municipality,
             },
           },
-          "allQuestions.edges.firstObject.node.options.edges",
+          "allQuestions.edges.0.node.options.edges",
         )) || [];
 
       return options.map(({ node }) => ({

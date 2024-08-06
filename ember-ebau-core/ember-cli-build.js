@@ -1,5 +1,6 @@
 "use strict";
 
+// eslint-disable-next-line n/no-unpublished-require
 const EmberAddon = require("ember-cli/lib/broccoli/ember-addon");
 
 module.exports = function (defaults) {
@@ -16,6 +17,7 @@ module.exports = function (defaults) {
     behave. You most likely want to be modifying `./index.js` or app's build file
   */
 
+  // eslint-disable-next-line n/no-unpublished-require
   const { maybeEmbroider } = require("@embroider/test-setup");
   return maybeEmbroider(app, {
     skipBabel: [
