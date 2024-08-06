@@ -308,11 +308,12 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
     if extra := set([cell.value for cell in _get_first_row(worksheet)]) - set(
         [e.value for e in XlsxFileDossierLoader.Column]
     ):
+        sorted_missing_columns = [str(x) for x in (extra - set(["None", None]))]
         dossier_import.messages["validation"]["summary"]["warning"].append(
             _(
                 "Found unknown columns: %(extra)s. Those columns will be ignored while importing."
             )
-            % dict(extra=extra)
+            % dict(extra="; ".join(sorted_missing_columns))
         )
 
     # collect all messages for every dossier in a list
