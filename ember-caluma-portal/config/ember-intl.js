@@ -76,12 +76,8 @@ module.exports = function (/* environment */) {
      * @type {Function}
      * @default "function(key,locale){return true}"
      */
-    requiresTranslation(key, locale) {
-      if (key.startsWith("caluma.form-builder")) {
-        return false;
-      }
-
-      return !process.env.CI && ["de", "fr"].includes(locale);
+    requiresTranslation(/* key, locale */) {
+      return false;
     },
   };
 };

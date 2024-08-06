@@ -86,12 +86,12 @@
                 <td>{{or (format-date acl.startTime format="date") "-"}}</td>
                 <td>{{or (format-date acl.endTime format="date") "-"}}</td>
                 <td><span
-                    class={{(concat
+                    class={{concat
                       "uk-label "
                       (if (eq acl.status "active") "uk-label-success")
                       (if (eq acl.status "scheduled") "uk-label-warning")
                       (if (eq acl.status "expired") "background-expired ")
-                    )}}
+                    }}
                   >{{t (concat "permissions.status." acl.status)}}</span></td>
                 <td class="uk-table-shrink uk-text-center">
                   {{#if (and acl.revokeable canEditAcl)}}

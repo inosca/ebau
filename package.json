@@ -1,10 +1,21 @@
 {
   "private": true,
   "packageManager": "pnpm@8.12.1",
+  "//": {
+    "@ember/string": [
+      "This resolution is needed because certain addons in our dependency",
+      "chain already use v4 but all @ember-data/* packages still use v3. If we",
+      "do not consolidate this, ember-data will be installed twice which will",
+      "break the application."
+    ]
+  },
+  "resolutions": {
+    "@ember/string": "4.0.0"
+  },
   "pnpm": {
     "peerDependencyRules": {
       "allowedVersions": {
-        "graphql": "^15.8.0"
+        "graphql": "^15.9.0"
       }
     }
   }

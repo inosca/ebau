@@ -7,7 +7,7 @@
   <DossierImportDetailBlock @title={{t "dossierImport.detail.created"}}>
     {{format-date this.import.createdAt format="datetime"}}
     {{t "global.by"}}
-    {{(if this.isProd this.import.group.name this.import.user.fullName)}}
+    {{if this.isProd this.import.group.name this.import.user.fullName}}
   </DossierImportDetailBlock>
   {{#if (or this.isValidated this.isImported)}}
     <DossierImportDetailBlock

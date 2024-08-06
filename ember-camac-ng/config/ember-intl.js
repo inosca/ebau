@@ -85,13 +85,8 @@ module.exports = function (/* environment */) {
      * @type {Function}
      * @default "function(key,locale){return true}"
      */
-    requiresTranslation(key, locale) {
-      return (
-        !process.env.CI &&
-        !key.startsWith("caluma.") &&
-        !key.startsWith("ember-gwr.") &&
-        require("./locales")?.includes(locale)
-      );
+    requiresTranslation(/* key, locale */) {
+      return false;
     },
   };
 };

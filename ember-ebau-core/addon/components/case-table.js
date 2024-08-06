@@ -519,7 +519,7 @@ export default class CaseTableComponent extends Component {
 
     const columnNames = Array.isArray(tableColumns)
       ? tableColumns
-      : tableColumns[this.ebauModules.baseRole] ?? tableColumns.default ?? [];
+      : (tableColumns[this.ebauModules.baseRole] ?? tableColumns.default ?? []);
 
     const availableOrderings = Object.keys(
       caseTableConfig.availableOrderings ?? [],

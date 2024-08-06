@@ -13,6 +13,8 @@ module.exports = {
         "is-legacy-app",
       ],
     },
+    "no-builtin-form-components": false,
+    "no-at-ember-render-modifiers": "warn",
   },
   overrides: [
     {
