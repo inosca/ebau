@@ -94,7 +94,15 @@ def test_create_instance_dossier_import_case(
         dossier_import.messages["import"]["details"].append(message.to_dict())
     update_summary(dossier_import)
     assert dossier_import.messages["import"]["summary"]["stats"]["dossiers"] == 2
-    assert len(dossier_import.messages["import"]["summary"]["warning"]) == 0
+
+    # bern has an invalid email in the repsonsible column.
+    # See test_writers.test_responsible_user_writer()
+    expected_warnings = 1 if config == "kt_bern" else 0
+
+    assert (
+        len(dossier_import.messages["import"]["summary"]["warning"])
+        == expected_warnings
+    )
     assert len(dossier_import.messages["import"]["summary"]["error"]) == 0
 
     instances = Instance.objects.filter(

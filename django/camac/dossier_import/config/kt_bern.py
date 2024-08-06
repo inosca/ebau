@@ -25,6 +25,7 @@ from camac.dossier_import.writers import (
     CaseMetaWriter,
     DossierWriter,
     EbauNumberWriter,
+    ResponsibleUserWriter,
 )
 from camac.instance.domain_logic import SUBMIT_DATE_FORMAT, CreateInstanceLogic
 from camac.instance.domain_logic.decision import DecisionLogic
@@ -146,6 +147,8 @@ class KtBernDossierWriter(DossierWriter):
             }
         },
     )
+
+    responsible = ResponsibleUserWriter(target="TODO_RESPONSIBLE_SERVICE__USER")
 
     def create_instance(self, dossier: Dossier) -> Instance:
         """Create a Camac NG Instance with a case.
