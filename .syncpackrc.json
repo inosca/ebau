@@ -1,0 +1,46 @@
+{
+  "lintFormatting": false,
+  "customTypes": {
+    "engines": {
+      "path": "engines",
+      "strategy": "versionsByName"
+    }
+  },
+  "semverGroups": [
+    {
+      "label": "Use fixed version ranges",
+      "range": "",
+      "dependencies": ["**"]
+    }
+  ],
+  "versionGroups": [
+    {
+      "label": "Don't use broken ember-apollo-client versions",
+      "dependencies": ["ember-apollo-client"],
+      "pinVersion": "4.0.2"
+    },
+    {
+      "label": "Keep @ember-data/* in sync with ember-data",
+      "dependencies": ["@ember-data/*", "ember-data"],
+      "policy": "sameRange"
+    },
+    {
+      "label": "Use workspace protocol for local packages",
+      "dependencies": ["$LOCAL"],
+      "dependencyTypes": ["!local"],
+      "pinVersion": "workspace:*"
+    },
+    {
+      "label": "Only use devDependencies in applications",
+      "packages": ["citizen-portal", "camac-ng", "caluma-portal", "ebau"],
+      "dependencyTypes": ["!dev", "!local", "!engines"],
+      "isBanned": true
+    },
+    {
+      "label": "Only use devDependencies and dependencies in addons",
+      "packages": ["ember-ebau-core"],
+      "dependencyTypes": ["!dev", "!prod", "!local", "!engines"],
+      "isBanned": true
+    }
+  ]
+}
