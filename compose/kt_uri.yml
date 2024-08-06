@@ -70,6 +70,7 @@ services:
       - ENABLE_HISTORICAL_API=true
       - KEYCLOAK_REALM=urec
       - DJANGO_USE_X_FORWARDED_HOST=True
+      - VISIBILITY_PERFORMANCE_OPTIMISATIONS_ACTIVE=True
     volumes:
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp/camac/tmpfiles

@@ -1415,6 +1415,10 @@ APPLICATIONS = {
             },
         },
         "INTER_SERVICE_GROUP_VISIBILITIES": {},
+        # This can be removed once all the kantons are using it
+        "VISIBILITY_PERFORMANCE_OPTIMISATIONS_ACTIVE": env.bool(
+            "VISIBILITY_PERFORMANCE_OPTIMISATION_ACTIVE", default=False
+        ),
     },
     "demo": {
         "SHORT_NAME": "demo",
