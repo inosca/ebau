@@ -315,15 +315,30 @@ def test_dynamic_group_abwasser_uri(
 
 
 def test_dynamic_group_schnurgeruestabnahme_uri(
-    db, service_factory, ur_instance, answer_factory, mocker
+    db,
+    service_factory,
+    ur_instance,
+    answer_factory,
+    work_item_factory,
+    document_factory,
+    mocker,
+    construction_monitoring_settings,
 ):
     service = service_factory()
     ur_instance.responsible_service = mocker.PropertyMock(return_value=service)
 
+    planning_work_item = work_item_factory(
+        case=ur_instance.case,
+        task_id=construction_monitoring_settings[
+            "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"
+        ],
+        document=document_factory(),
+    )
+
     question = Question.objects.get(pk="schnurgeruestabnahme-durch")
 
     answer_factory(
-        document=ur_instance.case.document,
+        document=planning_work_item.document,
         question=question,
         value="schnurgeruestabnahme-durch-gemeinde",
     )
@@ -337,9 +352,9 @@ def test_dynamic_group_schnurgeruestabnahme_uri(
     geometer_service = service_factory(pk=uri_constants.GEOMETER_SERVICE_ID)
 
     answer_factory(
-        document=ur_instance.case.document,
+        document=planning_work_item.document,
         question=question,
-        value="schnurgeruestabnahme-durch-geometer",
+        value="wer-fuehrt-die-schnurgeruestabnahme-durch-geometer",
     )
 
     assert CustomDynamicGroups().resolve("schnurgeruestabnahme-uri")(
