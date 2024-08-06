@@ -40,6 +40,9 @@ module.exports = {
         soGisUrl: process.env.SO_GIS_URL || "https://geo-i.so.ch",
         enableWatermark: process.env.ENABLE_WATERMARK ?? false,
         watermark: process.env.WATERMARK ?? "dev",
+        allowedWebDAVMimeTypes:
+          process.env.ALEXANDRIA_MANABI_ALLOWED_MIMETYPES ??
+          "application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         // feature flags
         hasBuildingControl: ENV === "be",
         // token exchange (this is not a regular feature flag because it differs

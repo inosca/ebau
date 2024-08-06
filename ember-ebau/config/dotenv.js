@@ -11,6 +11,7 @@ module.exports = function () {
       "SO_GIS_URL",
       "ENABLE_WATERMARK",
       "WATERMARK",
+      "ALEXANDRIA_MANABI_ALLOWED_MIMETYPES",
     ],
     path: path.join(path.dirname(__dirname), "../.env"),
   };

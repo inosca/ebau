@@ -148,6 +148,7 @@ services:
       SO_GIS_URL: https://geo-i.so.ch
       ENABLE_WATERMARK: true
       WATERMARK: local
+      ALEXANDRIA_MANABI_ALLOWED_MIMETYPES: application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
     networks:
       - ebau.local
 
