@@ -818,9 +818,10 @@
           "index": 1,
           "total": 3
         },
-        "construction-step-id": "construction-step-schnurgeruestabnahme"
+        "construction-step-id": "construction-step-schnurgeruestabnahme",
+        "is-actionable-for-control": false
       },
-      "address_groups": "['municipality']|groups",
+      "address_groups": "['municipality', 'schnurgeruestabnahme-uri']|groups",
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "construction-step-schnurgeruestabnahme-planen",
@@ -839,7 +840,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Schnurger\\u00fcst kontrollieren\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Schnurger\\u00fcstabnahme durchf\\u00fchren\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -849,7 +850,8 @@
           "total": 3,
           "needs-approval": "construction-step-schnurgeruestabnahme-is-approved"
         },
-        "construction-step-id": "construction-step-schnurgeruestabnahme"
+        "construction-step-id": "construction-step-schnurgeruestabnahme",
+        "is-actionable-for-control": false
       },
       "address_groups": "['municipality', 'schnurgeruestabnahme-uri']|groups",
       "control_groups": "['municipality']|groups",

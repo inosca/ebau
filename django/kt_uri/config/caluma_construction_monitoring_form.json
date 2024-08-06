@@ -767,7 +767,7 @@
       "modified_by_group": null,
       "form": "construction-step-plan-construction-stage",
       "question": "construction-stage-name",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -782,7 +782,7 @@
       "modified_by_group": null,
       "form": "construction-step-plan-construction-stage",
       "question": "construction-steps",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -798,6 +798,21 @@
       "form": "construction-step-plan-construction-stage",
       "question": "construction-steps-bemerkungen",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-plan-construction-stage.schnurgeruestabnahme-durch",
+    "fields": {
+      "created_at": "2024-08-06T09:54:50.558Z",
+      "modified_at": "2024-08-06T09:54:50.558Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-plan-construction-stage",
+      "question": "schnurgeruestabnahme-durch",
+      "sort": 2
     }
   },
   {
@@ -3603,19 +3618,19 @@
     "pk": "schnurgeruestabnahme-durch",
     "fields": {
       "created_at": "2024-07-05T11:03:11.325Z",
-      "modified_at": "2024-07-05T11:03:11.325Z",
+      "modified_at": "2024-08-06T09:55:29.313Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Wer f\\u00fchrt die Schnurger\\u00fcstabnahme durch?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "!(\"construction-step-schnurgeruestabnahme\" in \"construction-steps\"|answer([]))",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -4248,8 +4263,8 @@
     "model": "caluma_form.questionoption",
     "pk": "schnurgeruestabnahme-durch.wer-fuehrt-die-schnurgeruestabnahme-durch-gemeinde",
     "fields": {
-      "created_at": "2024-07-05T11:03:11.352Z",
-      "modified_at": "2024-07-05T11:03:11.352Z",
+      "created_at": "2024-08-06T09:55:29.328Z",
+      "modified_at": "2024-08-06T09:55:29.328Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -4263,8 +4278,8 @@
     "model": "caluma_form.questionoption",
     "pk": "schnurgeruestabnahme-durch.wer-fuehrt-die-schnurgeruestabnahme-durch-geometer",
     "fields": {
-      "created_at": "2024-07-05T11:03:11.344Z",
-      "modified_at": "2024-07-05T11:03:11.344Z",
+      "created_at": "2024-08-06T09:55:29.324Z",
+      "modified_at": "2024-08-06T09:55:29.324Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",

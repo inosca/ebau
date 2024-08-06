@@ -191,13 +191,24 @@ class CustomDynamicGroups(BaseDynamicGroups):
     def resolve_schnurgeruestabnahme_uri(
         self, task, case, user, prev_work_item, context, **kwargs
     ):
-        answer = CalumaApi().get_answer_value(
-            "schnurgeruestabnahme-durch", case.instance
+        construction_stage_planing_document = case.work_items.get(
+            task_id=settings.CONSTRUCTION_MONITORING[
+                "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"
+            ]
+        ).document
+        relevant_answer_value = construction_stage_planing_document.answers.get(
+            question_id="schnurgeruestabnahme-durch"
+        ).value
+        check_by_geometer = (
+            relevant_answer_value
+            == "wer-fuehrt-die-schnurgeruestabnahme-durch-geometer"
         )
-        if answer == "schnurgeruestabnahme-durch-gemeinde":
+
+        if check_by_geometer:
+            return self.resolve_geometer_ur(
+                task, case, user, prev_work_item, context, **kwargs
+            )
+        else:
             return self.resolve_municipality(
                 task, case, user, prev_work_item, context, **kwargs
             )
-        return self.resolve_geometer_ur(
-            task, case, user, prev_work_item, context, **kwargs
-        )
