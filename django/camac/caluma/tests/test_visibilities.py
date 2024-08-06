@@ -1147,7 +1147,6 @@ def test_single_instance_mode(
 )
 def test_work_item_filter_with_tasks(
     db,
-    application_settings,
     set_application_ur,
     mocker,
     admin_user,
@@ -1158,9 +1157,10 @@ def test_work_item_filter_with_tasks(
     filter,
     ur_additional_demand_settings,
     work_item_factory,
+    application_settings,
 ):
     mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [CustomVisibility])
-    mocker.patch.object(CustomVisibility, "PERFORMANCE_OPTIMISATION_ACTIVE", True)
+    application_settings["VISIBILITY_PERFORMANCE_OPTIMISATIONS_ACTIVE"] = True
     ur_instance.case.meta["camac-instance-id"] = ur_instance.pk
     ur_instance.case.save()
 
