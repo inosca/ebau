@@ -54,14 +54,7 @@
                   @loading={{@complete.isRunning}}
                   @disabled={{or (not isValid) @complete.isRunning}}
                   @onClick={{fn (perform @complete) @workItem validate}}
-                  @label={{t
-                    (concat
-                      "construction-monitoring.construction-step."
-                      @workItem.task.slug
-                      "-complete"
-                    )
-                    default="construction-monitoring.construction-step.construction-step-complete"
-                  }}
+                  @label={{this.buttonLabel}}
                   class="uk-margin-small-right"
                 />
               {{/if}}
