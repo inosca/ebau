@@ -38,6 +38,9 @@ def needs_visibility(module_settings, task_slugs):
     If user did not specify task slugs then we assume that user is interested in all tasks,
     including the ones from this module.
     """
+    if not settings.APPLICATION.get("VISIBILITY_PERFORMANCE_OPTIMISATIONS_ACTIVE"):
+        return bool(module_settings)
+
     if not module_settings:
         return False
 
@@ -56,18 +59,6 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
     """
 
     instance_field = None
-
-    # TODO: remove once rolled out everywhere
-    PERFORMANCE_OPTIMISATION_ACTIVE_CONFIG = {
-        "kt_uri": True,
-        "kt_bern": False,
-        "kt_so": False,
-        "kt_gr": False,
-        "kt_schwyz": False,
-    }
-    PERFORMANCE_OPTIMISATION_ACTIVE = PERFORMANCE_OPTIMISATION_ACTIVE_CONFIG.get(
-        settings.APPLICATION_NAME, False
-    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -150,29 +141,17 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
         # Consider only work items that user is interested in
         task_slugs = ast_utils.extract_tasks_from_filters(info)
 
-        if (
-            self.PERFORMANCE_OPTIMISATION_ACTIVE
-            and needs_visibility(settings.DISTRIBUTION, task_slugs)
-        ) or (not self.PERFORMANCE_OPTIMISATION_ACTIVE and settings.DISTRIBUTION):
+        if needs_visibility(settings.DISTRIBUTION, task_slugs):
             # Provide additional filtering for inquiry work-items
             filters &= ~Q(task_id=settings.DISTRIBUTION["INQUIRY_TASK"]) | (
                 Q(task_id=settings.DISTRIBUTION["INQUIRY_TASK"])
                 & visible_inquiries_expression(self.request.group)
             )
 
-        if (
-            self.PERFORMANCE_OPTIMISATION_ACTIVE
-            and needs_visibility(settings.ADDITIONAL_DEMAND, task_slugs)
-        ) or (not self.PERFORMANCE_OPTIMISATION_ACTIVE and settings.ADDITIONAL_DEMAND):
+        if needs_visibility(settings.ADDITIONAL_DEMAND, task_slugs):
             filters &= self.visible_additional_demands_expression(self.request.group)
 
-        if (
-            self.PERFORMANCE_OPTIMISATION_ACTIVE
-            and needs_visibility(settings.CONSTRUCTION_MONITORING, task_slugs)
-        ) or (
-            not self.PERFORMANCE_OPTIMISATION_ACTIVE
-            and settings.CONSTRUCTION_MONITORING
-        ):
+        if needs_visibility(settings.CONSTRUCTION_MONITORING, task_slugs):
             queryset = queryset.annotate(
                 is_construction_stage=ExpressionWrapper(
                     Q(
@@ -264,9 +243,10 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
         # Note: If the total amount of instances is less than a few thousand, this optimization
         # is not helping much (in fact, it potentially slows down list queries a little bit).
         # Currently this is only used for Kt. Uri.
-        if (
-            getattr(instance_ids, "_single_instance_mode", False)
-            or not self.PERFORMANCE_OPTIMISATION_ACTIVE
+        if getattr(
+            instance_ids, "_single_instance_mode", False
+        ) or not settings.APPLICATION.get(
+            "VISIBILITY_PERFORMANCE_OPTIMISATIONS_ACTIVE"
         ):
             instance_ids = list(instance_ids.values_list("pk", flat=True))
 
