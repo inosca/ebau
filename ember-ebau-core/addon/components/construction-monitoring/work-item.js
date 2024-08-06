@@ -29,6 +29,16 @@ export default class ConstructionMonitoringWorkItemComponent extends Component {
     return this.args.workItem.meta["is-actionable-for-control"];
   }
 
+  get buttonLabel() {
+    const key = `construction-monitoring.construction-step.${this.args.workItem.task.slug}-complete`;
+
+    return this.intl.exists(key)
+      ? this.intl.t(key)
+      : this.intl.t(
+          "construction-monitoring.construction-step.construction-step-complete",
+        );
+  }
+
   @dropTask
   *toggleActionable() {
     try {
