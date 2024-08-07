@@ -177,25 +177,27 @@ class PermissionManager:
             cache.set(cache_key, permissions_sorted, cache_duration.total_seconds())
         return permissions_sorted
 
-    def has_any(self, instance, required_permissions: List[str]):
+    def has_any(self, instance, required_permissions: Union[str, List[str]]):
         """Return True if user has at least one of the required permissions."""
-        assert isinstance(required_permissions, list)
+        if isinstance(required_permissions, str):
+            required_permissions = [required_permissions]
         have = self.get_permissions(instance)
         return any(permission in have for permission in required_permissions)
 
-    def has_all(self, instance, required_permissions: List[str]):
+    def has_all(self, instance, required_permissions: Union[str, List[str]]):
         """Return True if user has all required permissions."""
-        assert isinstance(required_permissions, list)
+        if isinstance(required_permissions, str):
+            required_permissions = [required_permissions]
         have = self.get_permissions(instance)
         return all(permission in have for permission in required_permissions)
 
-    def require_any(self, instance, required_permissions: List[str]):
+    def require_any(self, instance, required_permissions: Union[str, List[str]]):
         """Enforce presence of at least one of the given permissions."""
         if self.has_any(instance, required_permissions):
             return
         raise PermissionDenied("You do not have the required permission to do this")
 
-    def require_all(self, instance, required_permissions: List[str]):
+    def require_all(self, instance, required_permissions: Union[str, List[str]]):
         """Enforce presence of all of the given the given permissions."""
         if self.has_all(instance, required_permissions):
             return
