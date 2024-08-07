@@ -39,7 +39,7 @@ export default class DecisionInfoMissingGeometerInvolvementComponent extends Com
 
   get showInfo() {
     return (
-      this.decisionGeometer.value.length &&
+      this.decisionGeometer.value?.length &&
       !this.decisionGeometer.value[0].node.document.answers.edges[0]?.node.value
     );
   }
