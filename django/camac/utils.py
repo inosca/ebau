@@ -103,10 +103,15 @@ def order(request):
 def headers(info):  # pragma: todo cover
     # TODO: Will be included in coverage again in refactoring of caluma extensions.
     """Extract headers from request."""
-    return {
+    headers = {
         "x-camac-group": info.context.META.get("HTTP_X_CAMAC_GROUP", None),
         "authorization": info.context.META.get("HTTP_AUTHORIZATION", None),
     }
+
+    if settings.DEBUG and (mode := info.context.COOKIES.get("permission_mode")):
+        headers["cookie"] = f"permission_mode={mode}"  # pragma: no cover
+
+    return headers
 
 
 def get_paper_settings(key=None):
