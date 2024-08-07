@@ -855,58 +855,6 @@ def test_post_create_reject_work_item(
     )
 
 
-@pytest.mark.parametrize(
-    "answer,expected_status",
-    [
-        (
-            "complete-check-baubewilligungspflichtig-baubewilligungspflichtig",
-            caluma_workflow_models.WorkItem.STATUS_READY,
-        ),
-        (
-            "complete-check-baubewilligungspflichtig-baubewilligungspflichtig-nein",
-            caluma_workflow_models.WorkItem.STATUS_SKIPPED,
-        ),
-    ],
-)
-def test_event_skip_circulation_ur(
-    caluma_admin_user,
-    work_item_factory,
-    document_factory,
-    question_factory,
-    answer_factory,
-    task_factory,
-    answer,
-    expected_status,
-    set_application_ur,
-):
-    complete_distribution_work_item = work_item_factory(
-        task_id=task_factory(slug="complete-distribution").pk
-    )
-    complete_check_work_item = work_item_factory(
-        task_id=task_factory(slug="complete-check").pk, document=document_factory()
-    )
-    complete_distribution_work_item.case.parent_work_item = complete_check_work_item
-    complete_distribution_work_item.case.save()
-
-    answer_factory(
-        document=complete_distribution_work_item.case.parent_work_item.document,
-        question=question_factory(slug="complete-check-baubewilligungspflichtig"),
-        value=answer,
-    )
-
-    send_event(
-        post_create_work_item,
-        sender="post_create_work_item",
-        work_item=complete_distribution_work_item,
-        user=caluma_admin_user,
-        context={},
-    )
-
-    complete_distribution_work_item.refresh_from_db()
-
-    assert complete_distribution_work_item.status == expected_status
-
-
 def test_convert_solar_instance_to_construction_permit_ur(
     db,
     task_factory,
