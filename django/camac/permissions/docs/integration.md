@@ -244,10 +244,6 @@ Here are the settings you can use for the `PERMISSION_MODE`:
   permanently.
 * `OFF`: Off mode means only the old permission code is run
 
-**Recommendation:**: When integrating the permissions module, it is recommended
-to manually switch between `FULL` and `OFF` modes, or even better: Have a second
-test system open and compare the behaviour side-by-side.
-
 There are a few more modes that are not recommended, as the performance impact is
 too big, and automatically changes behaviour depending on environment:
 
@@ -258,6 +254,18 @@ too big, and automatically changes behaviour depending on environment:
 * `AUTO_OFF`: Auto off mode uses logging mode in dev, but "off" in production.
 * `DEV`: Equal to logging, but returns "new" data if it differs
 
+
+### Recommendation: Testing in dual mode
+
+You can set a cookie named `permission_mode` to override the configured mode.
+This allows you to use the following workflow:
+
+1. Open two different browsers (or one in private mode, or similarly separated)
+2. Login to eBau with the same user in both
+3. In one, set the cookie `permission_mode` to `OFF`, in the other one set it to `ON`
+4. Click through the application side-by-side and compare the behaviour
+
+![](permission_mode_cookie.png)
 
 ## Caveats & Gotchas
 
