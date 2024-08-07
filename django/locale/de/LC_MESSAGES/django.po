@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-05 17:18+0200\n"
+"POT-Creation-Date: 2024-08-07 13:51+0200\n"
 "PO-Revision-Date: 2024-08-05 17:30+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -58,7 +58,7 @@ msgstr "Leitbehörde"
 #: camac/caluma/extensions/data_sources.py:25
 #: camac/caluma/extensions/data_sources.py:27
 #: camac/instance/document_merge_service.py:89
-#: camac/instance/export/serializers.py:97 camac/notification/serializers.py:77
+#: camac/instance/export/serializers.py:98 camac/notification/serializers.py:77
 msgid "Municipality"
 msgstr "Gemeinde"
 
@@ -518,7 +518,7 @@ msgstr ""
 "Spalte %(missing)s fehlt in der Metadatendatei des Archivs. Erforderliche "
 "Spalten: %(required)s"
 
-#: camac/dossier_import/validation.py:313
+#: camac/dossier_import/validation.py:314
 #, python-format
 msgid ""
 "Found unknown columns: %(extra)s. Those columns will be ignored while "
@@ -642,7 +642,7 @@ msgstr "Erforderlicher Parameter %(parameter)s wurde nicht übergeben"
 
 #: camac/instance/document_merge_service.py:83
 #: camac/instance/export/serializers.py:87
-#: camac/instance/export/serializers.py:188 camac/user/models.py:80
+#: camac/instance/export/serializers.py:190 camac/user/models.py:80
 #: camac/user/models.py:228 camac/user/models.py:606
 msgid "Address"
 msgstr "Adresse"
@@ -763,7 +763,7 @@ msgid "eBau number"
 msgstr "eBau-Nr."
 
 #: camac/instance/export/serializers.py:82
-#: camac/instance/export/serializers.py:177
+#: camac/instance/export/serializers.py:179
 msgid "Instance number"
 msgstr "Dossier-Nr."
 
@@ -776,72 +776,76 @@ msgid "Parcels"
 msgstr "Parzellen"
 
 #: camac/instance/export/serializers.py:93
-#: camac/instance/export/serializers.py:195
+#: camac/instance/export/serializers.py:197
 msgid "Submission Date"
 msgstr "Eingabedatum"
 
 #: camac/instance/export/serializers.py:95
-#: camac/instance/export/serializers.py:190
+#: camac/instance/export/serializers.py:192
 msgid "Status"
 msgstr "Status"
 
-#: camac/instance/export/serializers.py:98
+#: camac/instance/export/serializers.py:97
+msgid "Applicants emails"
+msgstr "Email Gesuchsteller/in"
+
+#: camac/instance/export/serializers.py:99
 msgid "Administrative District"
 msgstr "Verwaltungskreis"
 
-#: camac/instance/export/serializers.py:99
+#: camac/instance/export/serializers.py:100
 msgid "Administrative Region"
 msgstr "Verwaltungsregion"
 
-#: camac/instance/export/serializers.py:102
+#: camac/instance/export/serializers.py:103
 msgid "Arrival RSTA"
 msgstr "Eingang RSTA"
 
-#: camac/instance/export/serializers.py:106
+#: camac/instance/export/serializers.py:107
 msgid "Decision"
 msgstr "Bauentscheid"
 
-#: camac/instance/export/serializers.py:110
+#: camac/instance/export/serializers.py:111
 msgid "SB1 submission date"
 msgstr "SB1 Eingabedatum"
 
-#: camac/instance/export/serializers.py:114
+#: camac/instance/export/serializers.py:115
 msgid "SB2 submission date"
 msgstr "SB2 Eingabedatum"
 
-#: camac/instance/export/serializers.py:116
+#: camac/instance/export/serializers.py:117
 msgid "Tags"
 msgstr "Schlagworte"
 
-#: camac/instance/export/serializers.py:117
+#: camac/instance/export/serializers.py:118
 msgid "Building project"
 msgstr "Bauvorhaben"
 
-#: camac/instance/export/serializers.py:181
+#: camac/instance/export/serializers.py:183
 msgid "Building permit type"
 msgstr "Verfahren"
 
-#: camac/instance/export/serializers.py:184
+#: camac/instance/export/serializers.py:186
 msgid "Lead authority"
 msgstr "Leitbehörde"
 
-#: camac/instance/export/serializers.py:186
+#: camac/instance/export/serializers.py:188
 msgid "Builder"
 msgstr "Bauherrschaft"
 
-#: camac/instance/export/serializers.py:187
+#: camac/instance/export/serializers.py:189
 msgid "Intent"
 msgstr "Vorhaben"
 
-#: camac/instance/export/serializers.py:197
+#: camac/instance/export/serializers.py:199
 msgid "Inquiry Assessment"
 msgstr "Stellungnahme Kurzantwort"
 
-#: camac/instance/export/serializers.py:200
+#: camac/instance/export/serializers.py:202
 msgid "Decision Date Communal"
 msgstr "Datum Bauentscheid"
 
-#: camac/instance/export/serializers.py:204
+#: camac/instance/export/serializers.py:206
 msgid "Decision Date Cantonal"
 msgstr "Datum Gesamtentscheid"
 
@@ -1237,48 +1241,48 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr "Einsprache %(objection) hat bereits einen Vertreter"
 
-#: camac/settings/django.py:871 camac/settings/django.py:1601
-#: camac/settings/django.py:1797
+#: camac/settings/django.py:871 camac/settings/django.py:1606
+#: camac/settings/django.py:1802
 msgid "Circulation started"
 msgstr "Zirkulation gestartet"
 
-#: camac/settings/django.py:888 camac/settings/django.py:1819
+#: camac/settings/django.py:888 camac/settings/django.py:1824
 msgid "Procedure completed"
 msgstr "Baugesuchsverfahren abgeschlossen"
 
-#: camac/settings/django.py:1596
+#: camac/settings/django.py:1601
 msgid "Preliminary exam performed"
 msgstr "Vorläufige Prüfung durchgeführt"
 
-#: camac/settings/django.py:1607
+#: camac/settings/django.py:1612
 msgid "Additional demand sent"
 msgstr "Nachforderung begonnen"
 
-#: camac/settings/django.py:1614
+#: camac/settings/django.py:1619
 msgid "Additional demand was answered"
 msgstr "Nachforderung wurde beantwortet"
 
-#: camac/settings/django.py:1622
+#: camac/settings/django.py:1627
 msgid "Construction monitoring performed"
 msgstr "Baubegleitung durchgeführt"
 
-#: camac/settings/django.py:1788
+#: camac/settings/django.py:1793
 msgid "Formal exam performed"
 msgstr "Formelle Prüfung durchgeführt"
 
-#: camac/settings/django.py:1792
+#: camac/settings/django.py:1797
 msgid "Material exam performed"
 msgstr "Materielle Prüfung durchgeführt"
 
-#: camac/settings/django.py:2175
+#: camac/settings/django.py:2180
 msgid "German"
 msgstr "Deutsch"
 
-#: camac/settings/django.py:2176
+#: camac/settings/django.py:2181
 msgid "French"
 msgstr "Französisch"
 
-#: camac/settings/django.py:2177
+#: camac/settings/django.py:2182
 msgid "Italian"
 msgstr "Italienisch"
 
@@ -1460,11 +1464,11 @@ msgstr "Ausgewählte Organisationen aktivieren"
 msgid "User management"
 msgstr "Benutzerverwaltung"
 
-#: camac/user/authentication.py:49
+#: camac/user/authentication.py:50
 msgid "Invalid Authorization header. No credentials provided"
 msgstr "Ungültiger Authorization Header. Keine Anmeldedaten geliefert"
 
-#: camac/user/authentication.py:54
+#: camac/user/authentication.py:55
 msgid ""
 "Invalid Authorization header. Credentials string should not contain spaces."
 msgstr ""

@@ -94,6 +94,7 @@ class InstanceExportSerializerBE(InstanceExportSerializer):
     )
     instance_state_name = serializers.CharField(label=_("Status"))
     applicants = serializers.CharField(label=_("Applicant"))
+    applicants_emails = serializers.CharField(label=_("Applicants emails"))
     municipality = serializers.CharField(label=_("Municipality"))
     district = serializers.SerializerMethodField(label=_("Administrative District"))
     region = serializers.SerializerMethodField(label=_("Administrative Region"))
@@ -157,6 +158,7 @@ class InstanceExportSerializerBE(InstanceExportSerializer):
             "instance_state_name",
             "responsible_user",
             "applicants",
+            "applicants_emails",
             "municipality",
             "district",
             "region",
