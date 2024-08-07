@@ -488,7 +488,7 @@ class CustomPermission(BasePermission):
         else:  # pragma: no cover
             return False
 
-        if settings.APPLICATION_NAME == "kt_uri":
+        if settings.APPLICATION_NAME in ["kt_uri", "kt_so"]:
             serializer = CalumaInstanceSerializer(
                 case.family.instance, context={"request": self.request}
             )
