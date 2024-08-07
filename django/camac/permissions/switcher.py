@@ -62,14 +62,33 @@ FULLY_ENABLED_MODES = [
 
 
 def get_permission_mode():
-    if not settings.PERMISSIONS:  # pragma: no cover
-        # Cantons that don't have the permissions module activated at all won't
-        # even have the setting
-        return PERMISSION_MODE.OFF
+    # Lazy import needed to avoid premature model init
+    from caluma.caluma_core.models import HistoricalRecords
+
     set_mode = (
         settings.PERMISSIONS.get("PERMISSION_MODE", PERMISSION_MODE.OFF)
         or PERMISSION_MODE.OFF
     )
+
+    try:  # pragma: no cover
+        request = HistoricalRecords.context.request
+        override = request.COOKIES.get("permission_mode")
+        # Only do this in DEBUG mode (never ever on PROD!)
+        if override and settings.DEBUG:
+            new_mode = PERMISSION_MODE[override]
+            log.warning(
+                f"PERMISSION MODE OVERRIDE FROM COOKIE: {override} "
+                f"(configured: {set_mode})"
+            )
+            return new_mode
+
+    except Exception:  # pragma: no cover
+        pass
+
+    if not settings.PERMISSIONS:  # pragma: no cover
+        # Cantons that don't have the permissions module activated at all won't
+        # even have the setting
+        return PERMISSION_MODE.OFF
 
     if isinstance(set_mode, str):
         # This way, we can also set it from env
