@@ -37,7 +37,7 @@ class CustomPermission:
         # check without the permissions module. As soon as GR fully integrates
         # the permissions module, we should find a way to combine the two
         # permission mechanisms or even drop the current one.
-        return manager.has_any(instance, ["documents-write"])
+        return manager.has_all(instance, "documents-write")
 
     @has_base_permission.register_old
     def _has_base_permission(self, request, instance):
@@ -48,7 +48,7 @@ class CustomPermission:
         # permission but all the other "old" permissions don't have any
         # permissions, we need to check whether the "documents-read" is assigned
         # and then explicitly prohibit any writing actions in alexandria.
-        return not manager.has_any(instance, ["documents-read"])
+        return not manager.has_any(instance, "documents-read")
 
     def get_needed_permissions(self, request, document=None) -> set:
         if request.method == "POST":
