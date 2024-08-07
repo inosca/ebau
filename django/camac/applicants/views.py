@@ -45,7 +45,7 @@ class ApplicantsView(InstanceQuerysetMixin, ModelViewSet):
         # Just check if the user has the permissions on it
         manager = PermissionManager.from_request(self.request)
         return manager.has_any(
-            self.request.data["instance"]["id"], [applicant_permissions.APPLICANT_ADD]
+            self.request.data["instance"]["id"], applicant_permissions.APPLICANT_ADD
         )
 
     def has_create_permission_for_support(self):
@@ -77,7 +77,7 @@ class ApplicantsView(InstanceQuerysetMixin, ModelViewSet):
     @permission_aware
     def has_object_destroy_permission(self, obj):
         manager = PermissionManager.from_request(self.request)
-        if not manager.has_any(obj.instance, [applicant_permissions.APPLICANT_REMOVE]):
+        if not manager.has_all(obj.instance, applicant_permissions.APPLICANT_REMOVE):
             return False
 
         is_last_applicant = obj.instance.involved_applicants.count() == 1

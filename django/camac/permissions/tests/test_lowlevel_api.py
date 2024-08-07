@@ -422,6 +422,11 @@ def test_condition_objects(
         ("require_all", ["bar"], None, True),
         ("require_any", ["foo", "bar"], None, False),
         ("require_all", ["foo", "bar"], None, True),
+        # Shortcut calls without explicit list of strings
+        ("has_any", "foo", True, False),
+        ("has_all", "foo", True, False),
+        ("require_any", "foo", None, False),
+        ("require_all", "foo", None, False),
     ],
 )
 def test_require_functions(
