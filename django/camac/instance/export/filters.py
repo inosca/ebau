@@ -298,6 +298,19 @@ class InstanceExportFilterBackendBE(InstanceExportFilterBackend):
             delimiter=", ",
         )
 
+        applicants_emails = StringAggSubquery(
+            AnswerDocument.objects.filter(
+                answer__question_id="personalien-gesuchstellerin",
+                answer__document_id=OuterRef("case__document_id"),
+            )
+            .annotate(
+                email=answer("e-mail-gesuchstellerin", "document_id"),
+            )
+            .values("email"),
+            column_name="email",
+            delimiter=", ",
+        )
+
         tag_names = StringAgg(
             Trim("tags__name"),
             filter=Q(tags__service_id=current_service),
@@ -323,6 +336,7 @@ class InstanceExportFilterBackendBE(InstanceExportFilterBackend):
                 tag_names=tag_names,
                 instance_state_name=instance_state_name,
                 applicants=applicants,
+                applicants_emails=applicants_emails,
                 building_project=building_project,
             )
             .select_related("case", "case__document", "case__document__form")
