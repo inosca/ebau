@@ -125,3 +125,11 @@ ATTACHMENT_SECTION_BEILAGEN_GESUCH = 1
 
 # Instance resource
 INSTANCE_RESOURCE_ZIRKULATION = 20004
+
+# Geometer
+GEOMETER_NECESSITY_QUESTION_SLUG = "geometer-beurteilung-notwendigkeit-vermessung"
+GEOMETER_NECESSARY_OPTION_SLUG = (
+    "geometer-beurteilung-notwendigkeit-vermessung-notwendig"
+)
+GEOMETER_RECIPIENTS = "geometer_acl_services"
+GEOMETER_TASK_SLUG = "geometer"
