@@ -8,7 +8,7 @@ from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
 )
-from caluma.caluma_form.models import Answer
+from caluma.caluma_form.api import save_answer
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.core import mail
 from django.urls import reverse
@@ -1477,8 +1477,12 @@ def test_responsible_user(admin_client, instance, user, service, multilang):
     [("Applicant", LazyFixture("admin_user"), "municipality")],
 )
 @pytest.mark.parametrize(
-    "instance_state__name,expected_status",
-    [("sb1", status.HTTP_200_OK), ("new", status.HTTP_403_FORBIDDEN)],
+    "instance_state__name,geometer_is_unnecessary,expected_status,expected_emails",
+    [
+        ("sb1", False, status.HTTP_200_OK, 3),
+        ("sb1", True, status.HTTP_200_OK, 2),
+        ("new", False, status.HTTP_403_FORBIDDEN, 0),
+    ],
 )
 def test_instance_report(
     admin_client,
@@ -1501,6 +1505,14 @@ def test_instance_report(
     settings,
     be_decision_settings,
     be_ech0211_settings,
+    service_factory,
+    question_factory,
+    instance_acl_factory,
+    access_level_factory,
+    work_item_factory,
+    permissions_settings,
+    geometer_is_unnecessary,
+    expected_emails,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
@@ -1511,12 +1523,45 @@ def test_instance_report(
         {
             "template_slug": notification_template.slug,
             "recipient_types": ["applicant", "construction_control"],
-        }
+        },
+        {
+            "template_slug": notification_template.slug,
+            "recipient_types": ["geometer_acl_services"],
+        },
     ]
 
     if instance_state.name == "sb1":
         service = be_instance.responsible_service()
         construction_control = construction_control_for(service)
+
+        geometer_service = service_factory(email="geometer@example.ch")
+        instance_acl_factory(
+            instance=be_instance,
+            access_level=access_level_factory(slug="geometer"),
+            service=geometer_service,
+            metainfo={"disable-notification-on-creation": True},
+        )
+        permissions_settings["geometer"] = [("foo", ["*"])]
+
+        geometer_work_item = work_item_factory(
+            task_id="geometer",
+            status="completed",
+            case=be_instance.case,
+        )
+
+        geometer_value = "geometer-beurteilung-notwendigkeit-vermessung-notwendig"
+        if geometer_is_unnecessary:
+            geometer_value = (
+                "geometer-beurteilung-notwendigkeit-vermessung-nicht-notwendig"
+            )
+
+        save_answer(
+            question=question_factory(
+                slug="geometer-beurteilung-notwendigkeit-vermessung"
+            ),
+            document=geometer_work_item.document,
+            value=geometer_value,
+        )
 
         for task_id, fn in [
             ("submit", workflow_api.complete_work_item),
@@ -1540,12 +1585,14 @@ def test_instance_report(
     assert response.status_code == expected_status
 
     if expected_status == status.HTTP_200_OK:
-        assert len(mail.outbox) == 2
+        assert len(mail.outbox) == expected_emails
 
         recipients = flatten([m.to for m in mail.outbox])
 
         assert be_instance.user.email in recipients
         assert construction_control.email in recipients
+        if not geometer_is_unnecessary:
+            assert geometer_service.email in recipients
 
         be_instance.case.refresh_from_db()
         assert be_instance.case.status == "running"
@@ -1559,8 +1606,12 @@ def test_instance_report(
     [("Applicant", LazyFixture("admin_user"), "municipality")],
 )
 @pytest.mark.parametrize(
-    "instance_state__name,expected_status",
-    [("sb2", status.HTTP_200_OK), ("new", status.HTTP_403_FORBIDDEN)],
+    "instance_state__name,geometer_is_unnecessary,expected_status,expected_emails",
+    [
+        ("sb2", False, status.HTTP_200_OK, 3),
+        ("sb2", True, status.HTTP_200_OK, 2),
+        ("new", False, status.HTTP_403_FORBIDDEN, 0),
+    ],
 )
 @pytest.mark.parametrize(
     "create_awa_workitem",
@@ -1587,6 +1638,14 @@ def test_instance_finalize(
     settings,
     be_decision_settings,
     be_ech0211_settings,
+    service_factory,
+    question_factory,
+    instance_acl_factory,
+    access_level_factory,
+    work_item_factory,
+    permissions_settings,
+    geometer_is_unnecessary,
+    expected_emails,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
@@ -1600,9 +1659,12 @@ def test_instance_finalize(
             "recipient_types": [
                 "applicant",
                 "construction_control",
-                "geometer_acl_services",
             ],
-        }
+        },
+        {
+            "template_slug": notification_template.slug,
+            "recipient_types": ["geometer_acl_services"],
+        },
     ]
 
     be_instance.case.meta.update(
@@ -1616,6 +1678,35 @@ def test_instance_finalize(
     if instance_state.name == "sb2":
         service = be_instance.responsible_service()
         construction_control = construction_control_for(service)
+
+        geometer_service = service_factory(email="geometer@example.ch")
+        instance_acl_factory(
+            instance=be_instance,
+            access_level=access_level_factory(slug="geometer"),
+            service=geometer_service,
+            metainfo={"disable-notification-on-creation": True},
+        )
+        permissions_settings["geometer"] = [("foo", ["*"])]
+
+        geometer_work_item = work_item_factory(
+            task_id="geometer",
+            status="completed",
+            case=be_instance.case,
+        )
+
+        geometer_value = "geometer-beurteilung-notwendigkeit-vermessung-notwendig"
+        if geometer_is_unnecessary:
+            geometer_value = (
+                "geometer-beurteilung-notwendigkeit-vermessung-nicht-notwendig"
+            )
+
+        save_answer(
+            question=question_factory(
+                slug="geometer-beurteilung-notwendigkeit-vermessung"
+            ),
+            document=geometer_work_item.document,
+            value=geometer_value,
+        )
 
         for task_id, fn in [
             ("submit", workflow_api.complete_work_item),
@@ -1664,12 +1755,14 @@ def test_instance_finalize(
     assert response.status_code == expected_status
 
     if expected_status == status.HTTP_200_OK and not create_awa_workitem:
-        assert len(mail.outbox) == 2
+        assert len(mail.outbox) == expected_emails
 
         recipients = flatten([m.to for m in mail.outbox])
 
         assert be_instance.user.email in recipients
         assert construction_control.email in recipients
+        if not geometer_is_unnecessary:
+            assert geometer_service.email in recipients
 
         assert sorted(
             be_instance.case.work_items.filter(status="ready").values_list(
@@ -2632,7 +2725,7 @@ def test_create_instance_from_modification(
 
     project_modification_settings["ALLOW_FORMS"] = ["main-form"]
 
-    Answer.objects.create(
+    caluma_form_models.Answer.objects.create(
         document=be_instance.case.document,
         question_id="projektaenderung",
         value="projektaenderung-ja",
