@@ -1,0 +1,19 @@
+{{#unless this.hidden}}
+  <div
+    class="uk-background-muted uk-border uk-padding-small uk-position-fixed uk-position-bottom-right"
+  >
+    <label for="permission-mode" class="uk-text-small uk-text-bold">
+      {{! template-lint-disable no-bare-strings }}
+      Permission mode:
+    </label>
+    <select
+      id="permission-mode"
+      class="uk-select uk-form-small uk-width-small"
+      {{on "change" this.setMode}}
+    >
+      {{#each this.modes as |mode|}}
+        <option selected={{if (eq this.mode mode) "selected"}}>{{mode}}</option>
+      {{/each}}
+    </select>
+  </div>
+{{/unless}}
