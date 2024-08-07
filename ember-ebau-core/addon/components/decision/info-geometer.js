@@ -15,7 +15,7 @@ export default class DecisionInfoGeometerComponent extends Component {
       provider_for_instance_municipality: `geometer;${instanceId}`,
     });
 
-    return geometer.firstObject;
+    return geometer[0];
   });
 
   geometer = trackedTask(this, this.fetchGeometer, () => [

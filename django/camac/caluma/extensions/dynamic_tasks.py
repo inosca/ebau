@@ -15,6 +15,7 @@ from camac.caluma.extensions.events.construction_monitoring import (
 from camac.caluma.extensions.events.general import get_instance
 from camac.core.utils import canton_aware, create_history_entry
 from camac.instance import domain_logic
+from camac.instance.serializers import _geometer_cadastral_survey_necessary
 from camac.user.models import User
 
 
@@ -260,26 +261,8 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
     @register_dynamic_task("after-check-sb2")
     def resolve_after_check_sb2(self, case, user, prev_work_item, context):
-        geometer_work_item = WorkItem.objects.filter(
-            case=case,
-            task_id="geometer",
-            status=WorkItem.STATUS_COMPLETED,
-        ).first()
-
-        if geometer_work_item:
-            perform_cadastral_survey = (
-                geometer_work_item.document.answers.filter(
-                    question_id="geometer-beurteilung-notwendigkeit-vermessung"
-                )
-                .values_list("value", flat=True)
-                .first()
-            )
-
-            if (
-                perform_cadastral_survey
-                == "geometer-beurteilung-notwendigkeit-vermessung-notwendig"
-            ):
-                return ["cadastral-survey"]
+        if _geometer_cadastral_survey_necessary(case.instance):
+            return ["cadastral-survey"]
 
         return []
 
