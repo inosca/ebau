@@ -1145,6 +1145,7 @@ APPLICATIONS = {
                     },
                 },
                 "init-distribution": {
+                    "next_instance_state": "circ",
                     "notification": {
                         "template_slug": "dossier-weitergeleitet-an-koordinationsstelle",
                         "recipient_types": ["applicant"],
