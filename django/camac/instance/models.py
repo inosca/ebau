@@ -185,6 +185,9 @@ class Instance(models.Model):
 
     @canton_aware
     def get_linked_instances(self, queryset=None):
+        if not self.instance_group:  # pragma: no cover
+            return Instance.objects.none()
+
         return (
             self._get_queryset_for_linked_instances(queryset)
             .filter(instance_group=self.instance_group)
@@ -199,6 +202,9 @@ class Instance(models.Model):
         the linking and displaying is performed using the identifier
         in the frontend.
         """
+        if not self.instance_group:  # pragma: no cover
+            return Instance.objects.none()
+
         return (
             self._get_queryset_for_linked_instances(queryset)
             .filter(instance_group=self.instance_group)
