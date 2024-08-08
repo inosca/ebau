@@ -3,6 +3,7 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import transaction
 from django.db.models import Q
+from django.db.models.functions import Collate
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import response, status
 from rest_framework.decorators import action
@@ -267,10 +268,17 @@ class PublicGroupView(MultilangMixin, ReadOnlyModelViewSet):
 
 class UserGroupView(ModelViewSet):
     serializer_class = serializers.UserGroupSerializer
-    queryset = models.UserGroup.objects.all()
+    queryset = models.UserGroup.objects.annotate(
+        user_email_deterministic=Collate("user__email", "und-x-icu")
+    )
     filterset_class = filters.UserGroupFilterSet
     http_method_names = ["get", "post", "delete"]
-    search_fields = ["user__name", "user__surname", "user__email", "group__trans__name"]
+    search_fields = [
+        "user__name",
+        "user__surname",
+        "user_email_deterministic",
+        "group__trans__name",
+    ]
     ordering = "-created_at"
 
     def get_queryset(self):

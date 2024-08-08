@@ -153,3 +153,20 @@ def test_user_group_create_token_exchange_enabled(
     assert response.json()["data"]["relationships"]["user"]["data"]["id"] == str(
         regular_user.pk
     )
+
+
+def test_user_group_search(admin_client, user_group_factory, service):
+    expected = user_group_factory(
+        group__service=service, user__email="test@some-domain.com"
+    )
+
+    response = admin_client.get(
+        reverse("usergroup-list"), data={"search": "@some-domain"}
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    ids = [int(row["id"]) for row in response.json()["data"]]
+
+    assert len(ids) == 1
+    assert ids[0] == expected.pk
