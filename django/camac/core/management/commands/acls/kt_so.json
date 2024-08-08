@@ -16,11 +16,6 @@
         "withdrawal",
         "withdrawn"
       ],
-      "municipality-construction-monitoring": [
-        "construction-monitoring",
-        "decided",
-        "finished"
-      ],
       "municipality-lead": [
         "construction-monitoring",
         "decided",
@@ -80,11 +75,6 @@
         "subm",
         "withdrawal",
         "withdrawn"
-      ],
-      "municipality-construction-monitoring": [
-        "construction-monitoring",
-        "decided",
-        "finished"
       ],
       "municipality-lead": [
         "construction-monitoring",
@@ -160,11 +150,6 @@
         "subm",
         "withdrawal",
         "withdrawn"
-      ],
-      "municipality-construction-monitoring": [
-        "construction-monitoring",
-        "decided",
-        "finished"
       ],
       "municipality-lead": [
         "construction-monitoring",
@@ -242,11 +227,6 @@
         "withdrawal",
         "withdrawn"
       ],
-      "municipality-construction-monitoring": [
-        "construction-monitoring",
-        "decided",
-        "finished"
-      ],
       "municipality-lead": [
         "construction-monitoring",
         "decided",
@@ -292,11 +272,6 @@
         "rejected",
         "withdrawal",
         "withdrawn"
-      ],
-      "municipality-construction-monitoring": [
-        "construction-monitoring",
-        "decided",
-        "finished"
       ],
       "municipality-lead": [
         "construction-monitoring",
@@ -378,11 +353,6 @@
         "withdrawal",
         "withdrawn"
       ],
-      "municipality-construction-monitoring": [
-        "construction-monitoring",
-        "decided",
-        "finished"
-      ],
       "municipality-lead": [
         "construction-monitoring",
         "decided",
@@ -456,11 +426,6 @@
         "subm",
         "withdrawal",
         "withdrawn"
-      ],
-      "municipality-construction-monitoring": [
-        "construction-monitoring",
-        "decided",
-        "finished"
       ],
       "municipality-lead": [
         "construction-monitoring",
@@ -536,11 +501,6 @@
         "withdrawal",
         "withdrawn"
       ],
-      "municipality-construction-monitoring": [
-        "construction-monitoring",
-        "decided",
-        "finished"
-      ],
       "municipality-lead": [
         "construction-monitoring",
         "decided",
@@ -596,11 +556,6 @@
         "init-distribution",
         "withdrawal",
         "withdrawn"
-      ],
-      "municipality-construction-monitoring": [
-        "construction-monitoring",
-        "decided",
-        "finished"
       ],
       "municipality-lead": [
         "construction-monitoring",
@@ -1117,21 +1072,15 @@
   "22": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Baubegleitung",
     "acls": {
-      "municipality-construction-monitoring": [
-        "construction-monitoring",
-        "decided",
-        "finished"
-      ]
+      "municipality-clerk": ["construction-monitoring", "decided", "finished"],
+      "municipality-lead": ["construction-monitoring", "decided", "finished"]
     }
   },
   "23": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Verfahren abschliessen",
     "acls": {
-      "municipality-construction-monitoring": [
-        "construction-monitoring",
-        "decided",
-        "finished"
-      ]
+      "municipality-clerk": ["construction-monitoring", "decided", "finished"],
+      "municipality-lead": ["construction-monitoring", "decided", "finished"]
     }
   },
   "24": {
@@ -1173,11 +1122,6 @@
         "subm",
         "withdrawal",
         "withdrawn"
-      ],
-      "municipality-construction-monitoring": [
-        "construction-monitoring",
-        "decided",
-        "finished"
       ],
       "municipality-lead": [
         "construction-monitoring",

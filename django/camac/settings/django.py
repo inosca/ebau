@@ -1730,7 +1730,6 @@ APPLICATIONS = {
             "municipality-admin": "municipality",
             "municipality-lead": "municipality",
             "municipality-clerk": "municipality",
-            "municipality-construction-monitoring": "municipality",
             "municipality-read": "municipality",
             "service-admin": "service",
             "service-lead": "service",
@@ -1742,7 +1741,6 @@ APPLICATIONS = {
             "DEMO_MODE_GROUPS",
             default=[
                 5,  # Leitung Gemeinde Solothurn
-                7,  # Baubegleitung Gemeinde Solothurn
                 8,  # Einsichtsberechtigte Gemeinde Solothurn
                 539,  # Leitung Amt für Umwelt (AfU)
                 551,  # Leitung Amt für Wald, Jagd und Fischerei
