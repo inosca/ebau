@@ -700,9 +700,15 @@ class InstanceView(
         form_fields_value = FormField.objects.filter(
             instance=instance,
             name__in=[
+                "grundeigentumerschaft",
                 "grundeigentumerschaft-v2",
+                "bauherrschaft",
+                "bauherrschaft-v2",
                 "bauherrschaft-v3",
+                "projektverfasser-planer",
+                "projektverfasser-planer-v2",
                 "projektverfasser-planer-v3",
+                "vertreter-mit-vollmacht",
                 "vertreter-mit-vollmacht-v2",
             ],
         ).values("value")
@@ -717,30 +723,34 @@ class InstanceView(
 
     @canton_aware
     def add_project_personalities_to_applicants(self, instance):
+        return  # pragma: no cover
+
+    def add_project_personalities_to_applicants_sz(self, instance):
         involved_emails = self.get_project_personalities_emails(instance)
         notification_template = settings.APPLICATION["NOTIFICATIONS"]["APPLICANT"].get(
             "NEW"
         )
 
         for email in involved_emails:
-            applicant = Applicant.objects.create(
+            applicant, created = Applicant.objects.get_or_create(
                 instance=instance,
                 user=instance.user,
                 email=email,
                 invitee=User.objects.filter(email=email).first(),
             )
 
-            Trigger.applicant_added(
-                request=self.request, instance=instance, applicant=applicant
-            )
-            if notification_template:
-                send_mail(
-                    notification_template,
-                    self.get_serializer_context(),
-                    recipient_types=["email_list"],
-                    email_list=email,
-                    instance={"id": instance.pk, "type": "instances"},
+            if created:
+                Trigger.applicant_added(
+                    request=self.request, instance=instance, applicant=applicant
                 )
+                if notification_template:
+                    send_mail(
+                        notification_template,
+                        self.get_serializer_context(),
+                        recipient_types=["email_list"],
+                        email_list=email,
+                        instance={"id": instance.pk, "type": "instances"},
+                    )
 
     def _custom_serializer_action(
         self, request, pk=None, status_code=None, perform_save=True
