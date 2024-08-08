@@ -48,9 +48,6 @@ def get_type_map(canton):
                     "admin": Role.objects.get(pk=4),  # Administration Leitbehörde
                     "lead": Role.objects.get(pk=5),  # Leitung Leitbehörde
                     "clerk": Role.objects.get(pk=6),  # Sachbearbeitung Leitbehörde
-                    "construction-monitoring": Role.objects.get(
-                        pk=7
-                    ),  # Baubegleitung Leitbehörde
                     "read": Role.objects.get(pk=8),  # Einsichtsberechtigte Leitbehörde
                 },
                 2: {
@@ -89,7 +86,6 @@ def get_group_types(canton):
             "admin": "Administration",
             "clerk": "Sachbearbeitung",
             "read": "Einsichtsberechtigte",
-            "construction-monitoring": "Baubegleitung",
         }
 
     return {}

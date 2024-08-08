@@ -55,15 +55,6 @@
   },
   {
     "model": "user.role",
-    "pk": 7,
-    "fields": {
-      "role_parent": null,
-      "name": "municipality-construction-monitoring",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.role",
     "pk": 8,
     "fields": {
       "role_parent": null,
@@ -164,16 +155,6 @@
       "role": 6,
       "language": "de",
       "name": "Sachbearbeitung Gemeinde",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 7,
-    "fields": {
-      "role": 7,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde",
       "group_prefix": null
     }
   },
