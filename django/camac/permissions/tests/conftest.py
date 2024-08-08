@@ -8,10 +8,3 @@ def be_access_levels(be_permissions_settings, db, access_level_factory):
     for access_level in be_permissions_settings["ACCESS_LEVELS"]:
         if not AccessLevel.objects.filter(slug=access_level).exists():
             access_level_factory(slug=access_level)
-
-
-@pytest.fixture
-def so_access_levels(so_permissions_settings, db, access_level_factory):
-    for access_level in so_permissions_settings["ACCESS_LEVELS"]:
-        if not AccessLevel.objects.filter(slug=access_level).exists():
-            access_level_factory(slug=access_level)
