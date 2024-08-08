@@ -56,10 +56,6 @@ services:
       context: ../keycloak
       cache_from:
         - acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-master}
-      args:
-        # Remember to test the token exchange feature when adjusting the
-        # keycloak version as the API might have changed
-        VERSION: 24.0.4
 
   document-merge-service:
     image: acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_TAG:-master}
