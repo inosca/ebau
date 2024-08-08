@@ -40,6 +40,7 @@ FORMS_ONLY_BUILDING_PERMIT = ~IsForm(["voranfrage", "meldung"])
 
 # Role rules
 ROLES_NO_READONLY = ~HasRole(["municipality-read", "service-read"])
+ROLES_MUNICIPALITY = HasRole(["municipality-lead", "municipality-clerk"])
 
 # Module rules
 #
@@ -53,16 +54,18 @@ ROLES_NO_READONLY = ~HasRole(["municipality-read", "service-read"])
 MODULE_ADDITIONAL_DEMANDS = STATES_ALL & ~IsForm(["voranfrage"]) & ~IsAppeal()
 MODULE_APPEAL = STATES_ACCESSIBLE & ROLES_NO_READONLY & IsAppeal()
 MODULE_BILLING = STATES_ALL & ROLES_NO_READONLY
-MODULE_CONSTRUCTION_MONITORING = (
-    STATES_POST_DECISION
-    & FORMS_ONLY_BUILDING_PERMIT
-    & HasRole(["municipality-construction-monitoring"])
-    & ~IsAppeal()
-)
 MODULE_COMMUNICATIONS = STATES_ALL & ROLES_NO_READONLY
-MODULE_CORRECTIONS = (STATES_ALL | RequireInstanceState(["correction"])) & HasRole(
-    ["municipality-lead", "municipality-clerk"]
+MODULE_COMPLETE_INSTANCE = (
+    FORMS_ONLY_BUILDING_PERMIT
+    & ROLES_MUNICIPALITY
+    & RequireWorkItem("complete-instance")
 )
+MODULE_CONSTRUCTION_MONITORING = (
+    STATES_POST_DECISION & FORMS_ONLY_BUILDING_PERMIT & ROLES_MUNICIPALITY
+)
+MODULE_CORRECTIONS = (
+    STATES_ALL | RequireInstanceState(["correction"])
+) & ROLES_MUNICIPALITY
 MODULE_DECISION = STATES_ACCESSIBLE & ~RequireInstanceState(
     ["subm", "material-exam", "init-distribution", "distribution"]
 )
@@ -73,18 +76,12 @@ MODULE_DISTRIBUTION = (
 )
 MODULE_DMS_GENERATE = STATES_ACCESSIBLE & ROLES_NO_READONLY
 MODULE_DOCUMENTS = STATES_ALL | (
-    RequireInstanceState(["new"])
-    & HasRole(["municipality-lead", "municipality-clerk"])
-    & IsPaper()
+    RequireInstanceState(["new"]) & ROLES_MUNICIPALITY & IsPaper()
 )
 MODULE_FORM = (
     STATES_ALL
     | RequireInstanceState(["correction"])
-    | (
-        RequireInstanceState(["new"])
-        & HasRole(["municipality-lead", "municipality-clerk"])
-        & IsPaper()
-    )
+    | (RequireInstanceState(["new"]) & ROLES_MUNICIPALITY & IsPaper())
 )
 MODULE_FORMAL_EXAM = STATES_ALL & FORMS_ONLY_BUILDING_PERMIT & ~IsAppeal()
 MODULE_HISTORY = STATES_ALL
@@ -119,13 +116,11 @@ MODULE_PUBLICATION = (
     & FORMS_ONLY_BUILDING_PERMIT
     & ~IsAppeal()
 )
-MODULE_REJECTION = RequireInstanceState(["reject", "rejected"]) & HasRole(
-    ["municipality-lead", "municipality-clerk"]
-)
+MODULE_REJECTION = RequireInstanceState(["reject", "rejected"]) & ROLES_MUNICIPALITY
 MODULE_RELATED_GWR_PROJECTS = (
     (STATES_ACCESSIBLE & ~RequireInstanceState(["subm", "material-exam"]))
     & FORMS_ONLY_BUILDING_PERMIT
-    & HasRole(["municipality-lead", "municipality-clerk"])
+    & ROLES_MUNICIPALITY
     & ~IsAppeal()
 )
 MODULE_RESPONSIBLE = STATES_ALL & ROLES_NO_READONLY
@@ -138,15 +133,11 @@ MODULE_PORTAL_COMMUNICATIONS_WRITE = (
 )
 MODULE_PORTAL_FORM_READ = Always()
 MODULE_PORTAL_FORM_WRITE = RequireInstanceState(["new"]) & (
-    HasApplicantRole(["ADMIN", "EDITOR"])
-    | (HasRole(["municipality-lead", "municipality-clerk"]) & IsPaper())
+    HasApplicantRole(["ADMIN", "EDITOR"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
 MODULE_PORTAL_DOCUMENTS_WRITE = (
     RequireInstanceState(["new"]) | RequireWorkItem("fill-additional-demand", "ready")
-) & (
-    HasApplicantRole(["ADMIN", "EDITOR"])
-    | (HasRole(["municipality-lead", "municipality-clerk"]) & IsPaper())
-)
+) & (HasApplicantRole(["ADMIN", "EDITOR"]) | (ROLES_MUNICIPALITY & IsPaper()))
 MODULE_PORTAL_ADDITIONAL_DEMANDS_READ = RequireWorkItem("fill-additional-demand")
 MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE = (
     MODULE_PORTAL_ADDITIONAL_DEMANDS_READ & HasApplicantRole(["ADMIN", "EDITOR"])
@@ -157,12 +148,10 @@ MODULE_PORTAL_CONSTRUCTION_MONITORING_WRITE = (
 )
 
 ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & (
-    HasApplicantRole(["ADMIN"])
-    | (HasRole(["municipality-lead", "municipality-clerk"]) & IsPaper())
+    HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
 ACTION_INSTANCE_SUBMIT = RequireInstanceState(["new"]) & (
-    HasApplicantRole(["ADMIN"])
-    | (HasRole(["municipality-lead", "municipality-clerk"]) & IsPaper())
+    HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
 ACTION_INSTANCE_WITHDRAW = RequireInstanceState(
     [
@@ -172,10 +161,7 @@ ACTION_INSTANCE_WITHDRAW = RequireInstanceState(
         "distribution",
         "decision",
     ]
-) & (
-    HasApplicantRole(["ADMIN"])
-    | (HasRole(["municipality-lead", "municipality-clerk"]) & IsPaper())
-)
+) & (HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper()))
 
 # Actual config
 SO_PERMISSIONS_SETTINGS = {
@@ -239,7 +225,7 @@ SO_PERMISSIONS_SETTINGS = {
             ("billing-read", MODULE_BILLING),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
-            ("complete-instance-read", MODULE_CONSTRUCTION_MONITORING),
+            ("complete-instance-read", MODULE_COMPLETE_INSTANCE),
             ("construction-monitoring-read", MODULE_CONSTRUCTION_MONITORING),
             ("construction-monitoring-write", MODULE_CONSTRUCTION_MONITORING),
             ("corrections-read", MODULE_CORRECTIONS),
@@ -252,10 +238,7 @@ SO_PERMISSIONS_SETTINGS = {
             (
                 "form-write",
                 MODULE_PORTAL_FORM_WRITE
-                | (
-                    RequireInstanceState(["correction"])
-                    & HasRole(["municipality-lead", "municipality-clerk"])
-                ),
+                | (RequireInstanceState(["correction"]) & ROLES_MUNICIPALITY),
             ),
             ("formal-exam-read", MODULE_FORMAL_EXAM),
             ("history-read", MODULE_HISTORY),
