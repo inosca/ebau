@@ -58731,7 +58731,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Die Ausf\\u00fchrungspl\\u00e4ne k\\u00f6nnen nach der Projektgenehmigung direkt, sp\\u00e4testens vier Wochen vor Baubeginn, dem Amt f\\u00fcr Milit\\u00e4r und Zivilschutz eingereicht werden.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Die Ausf\\u00fchrungspl\\u00e4ne und die Schutzraumstatik k\\u00f6nnen nach der Projektgenehmigung direkt, sp\\u00e4testens vier Wochen vor Baubeginn, dem Amt f\\u00fcr Milit\\u00e4r und Zivilschutz eingereicht werden.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
         "hideLabel": false
@@ -59172,7 +59172,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Der Bauherr wird gem\\u00e4ss Art. 15, Anhang 2 zur Verordnung zum Zivilschutzgesetz (BR 640.110-A2) f\\u00fcr die Pr\\u00fcfung des Schutzraumbauprojektes geb\\u00fchrenpflichtig.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Die Bauherrschaft wird gem\\u00e4ss Art. 15, Anhang 2 zur Verordnung zum Zivilschutzgesetz (BR 640.110-A2) f\\u00fcr die Pr\\u00fcfung des Schutzraumbauprojektes geb\\u00fchrenpflichtig.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -67019,7 +67019,7 @@
       "label": "{\"de\": \"Projektierte Schutzr\\u00e4ume Infotext\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "\"werden-schutzplaetze-erstellt-ja\" != \"werden-schutzplaetze-erstellt\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
