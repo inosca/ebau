@@ -38,6 +38,13 @@ class Command(BaseCommand):
             "subservice": "distribution-service",
             "support": "support",
         },
+        "kt_gr": {
+            "municipality-lead": "lead-authority",
+            "subservice": "distribution-service",
+            "service-lead": "distribution-service",
+            "support": "support",
+            "uso": "uso",
+        },
     }
 
     def __init__(self, *args, **kwargs):

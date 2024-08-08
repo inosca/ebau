@@ -473,6 +473,7 @@ def test_distribution_permission_for_answer(
         ("Service", WorkItem.STATUS_READY, True, True),
         ("Support", WorkItem.STATUS_COMPLETED, False, True),
         ("Coordination", WorkItem.STATUS_READY, True, True),
+        ("uso", WorkItem.STATUS_READY, True, True),
     ],
 )
 def test_simple_caluma_form_permissions(

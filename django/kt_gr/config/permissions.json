@@ -1,10 +1,60 @@
 [
   {
     "model": "permissions.accesslevel",
+    "pk": "applicant",
+    "fields": {
+      "name": "{\"de\": \"Gesuchsteller/in\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Gesuchsteller/in\", \"fr\": \"\", \"it\": \"\"}",
+      "required_grant_type": "USER",
+      "applicable_area": "APPLICANT"
+    }
+  },
+  {
+    "model": "permissions.accesslevel",
+    "pk": "distribution-service",
+    "fields": {
+      "name": "{\"de\": \"Fachstelle\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Fachstelle\", \"fr\": \"\", \"it\": \"\"}",
+      "required_grant_type": "SERVICE",
+      "applicable_area": "INTERNAL"
+    }
+  },
+  {
+    "model": "permissions.accesslevel",
+    "pk": "lead-authority",
+    "fields": {
+      "name": "{\"de\": \"Gemeinde\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Gemeinde\", \"fr\": \"\", \"it\": \"\"}",
+      "required_grant_type": "SERVICE",
+      "applicable_area": "INTERNAL"
+    }
+  },
+  {
+    "model": "permissions.accesslevel",
     "pk": "read",
     "fields": {
-      "name": "{\"de\": \"Leseberechtigung\", \"fr\": \"\", \"it\": \"Autorizzazione di lettura\"}",
+      "name": "{\"de\": \"Leseberechtigung\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "required_grant_type": "SERVICE",
+      "applicable_area": "INTERNAL"
+    }
+  },
+  {
+    "model": "permissions.accesslevel",
+    "pk": "support",
+    "fields": {
+      "name": "{\"de\": \"Support\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Support\", \"fr\": \"\", \"it\": \"\"}",
+      "required_grant_type": "ROLE",
+      "applicable_area": "ANY"
+    }
+  },
+  {
+    "model": "permissions.accesslevel",
+    "pk": "uso",
+    "fields": {
+      "name": "{\"de\": \"USO\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Umweltschutzorganisation\", \"fr\": \"\", \"it\": \"\"}",
       "required_grant_type": "SERVICE",
       "applicable_area": "INTERNAL"
     }

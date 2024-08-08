@@ -41,25 +41,38 @@ export default class InstanceAclModel extends Model {
   @belongsTo("public-service", { inverse: null, async: true }) revokedByService;
   @belongsTo("access-level", { inverse: null, async: true }) accessLevel;
 
-  get createdByName() {
-    if (this.createdByEvent !== EVENT_TYPES.MANUAL_CREATION) {
-      return this.intl.t("permissions.details.managedBySystem");
+  _eventDescription(user, service, event) {
+    const author =
+      user?.get("fullName") ??
+      service?.get("name") ??
+      this.intl.t("permissions.details.system");
+
+    if (event) {
+      const translationKey = `permissions.events.${event}`;
+      if (this.intl.exists(translationKey)) {
+        return `${author} (${this.intl.t(translationKey)})`;
+      }
     }
-    return this.createdByUser
-      ? this.createdByUser.get("fullName")
-      : this.createdByService.get("name");
+    return author;
+  }
+
+  get createdByName() {
+    return this._eventDescription(
+      this.createdByUser,
+      this.createdByService,
+      this.createdByEvent,
+    );
   }
 
   get revokedByName() {
-    if (
-      this.revokedByEvent &&
-      this.revokedByEvent !== EVENT_TYPES.MANUAL_REVOCATION
-    ) {
-      return this.intl.t("permissions.details.managedBySystem");
+    if (!this.revokedAt) {
+      return "";
     }
-    return this.revokedByUser
-      ? this.revokedByUser.get("fullName")
-      : this.revokedByService.get("name");
+    return this._eventDescription(
+      this.revokedByUser,
+      this.revokedByService,
+      this.revokedByEvent,
+    );
   }
 
   get status() {

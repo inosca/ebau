@@ -16,6 +16,9 @@ export default {
     createPaper: true,
     exportExcel: false,
   },
+  permissions: {
+    applicantRoles: true,
+  },
   caluma: {
     useNumberSeparatorWidgetAsDefault: true,
   },
