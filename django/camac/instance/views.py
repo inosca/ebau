@@ -43,6 +43,7 @@ from camac.notification.utils import send_mail
 from camac.permissions import api as permissions_api
 from camac.permissions.events import Trigger
 from camac.permissions.models import InstanceACL
+from camac.permissions.switcher import permission_switching_method
 from camac.swagger.utils import get_operation_description, group_param
 from camac.user.models import Service, User
 from camac.user.permissions import (
@@ -260,7 +261,14 @@ class InstanceView(
     def has_base_permission_for_coordination(self, instance):
         return self.has_base_permission_for_municipality(instance)
 
+    @permission_switching_method
     def has_object_destroy_permission(self, instance):
+        return permissions_api.PermissionManager.from_request(self.request).has_all(
+            instance, "instance-delete"
+        )
+
+    @has_object_destroy_permission.register_old
+    def _has_object_destroy_permission(self, instance):
         deletable_states = ["new"]
         if settings.APPLICATION["CALUMA"].get("CREATE_IN_PROCESS", False):
             deletable_states.append("comm")
@@ -271,7 +279,14 @@ class InstanceView(
             and instance.previous_instance_state.name in deletable_states
         )
 
+    @permission_switching_method
     def has_object_submit_permission(self, instance):
+        return permissions_api.PermissionManager.from_request(self.request).has_all(
+            instance, "instance-submit"
+        )
+
+    @has_object_submit_permission.register_old
+    def _has_object_submit_permission(self, instance):
         return self.has_base_permission(instance) and instance.instance_state.name in (
             "new",
             # kt. uri
@@ -417,10 +432,8 @@ class InstanceView(
         return RejectionLogic.has_permission(instance, self.request.group)
 
     def has_object_withdraw_permission(self, instance):
-        return WithdrawalLogic.has_permission(
-            instance,
-            self.request.user,
-            self.request.group,
+        return permissions_api.PermissionManager.from_request(self.request).has_all(
+            instance, "instance-withdraw"
         )
 
     @permission_aware

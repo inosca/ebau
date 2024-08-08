@@ -4,6 +4,7 @@ import { Ability } from "ember-can";
 export default class AdditionalDemandAbility extends Ability {
   @service ebauModules;
   @service session;
+  @service permissions;
 
   get canCreate() {
     return this.session.isInternal && !this.session.isReadOnlyRole;
@@ -20,12 +21,22 @@ export default class AdditionalDemandAbility extends Ability {
     return !this.model.isReady;
   }
 
-  get canFill() {
+  async canFill() {
     if (!this.model.isReady) {
       return false;
     }
 
     if (this.model.task.slug === "fill-additional-demand") {
+      if (this.permissions.fullyEnabled) {
+        return (
+          this.ebauModules.isApplicant &&
+          (await this.permissions.hasAll(
+            this.instanceId,
+            "additional-demands-write",
+          ))
+        );
+      }
+
       return this.ebauModules.isApplicant;
     }
 

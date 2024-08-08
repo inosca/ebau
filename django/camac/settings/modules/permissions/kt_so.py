@@ -1,10 +1,13 @@
 from camac.permissions.conditions import (
     Always,
     Callback,
+    HasApplicantRole,
     HasRole,
     IsAppeal,
     IsForm,
+    IsPaper,
     RequireInstanceState,
+    RequireWorkItem,
 )
 from camac.permissions.switcher import PERMISSION_MODE
 from camac.settings.env import env
@@ -69,8 +72,20 @@ MODULE_DISTRIBUTION = (
     & ~IsAppeal()
 )
 MODULE_DMS_GENERATE = STATES_ACCESSIBLE & ROLES_NO_READONLY
-MODULE_DOCUMENTS = STATES_ALL
-MODULE_FORM = STATES_ALL | RequireInstanceState(["correction"])
+MODULE_DOCUMENTS = STATES_ALL | (
+    RequireInstanceState(["new"])
+    & HasRole(["municipality-lead", "municipality-clerk"])
+    & IsPaper()
+)
+MODULE_FORM = (
+    STATES_ALL
+    | RequireInstanceState(["correction"])
+    | (
+        RequireInstanceState(["new"])
+        & HasRole(["municipality-lead", "municipality-clerk"])
+        & IsPaper()
+    )
+)
 MODULE_FORMAL_EXAM = STATES_ALL & FORMS_ONLY_BUILDING_PERMIT & ~IsAppeal()
 MODULE_HISTORY = STATES_ALL
 MODULE_JOURNAL = STATES_ALL
@@ -116,21 +131,93 @@ MODULE_RELATED_GWR_PROJECTS = (
 MODULE_RESPONSIBLE = STATES_ALL & ROLES_NO_READONLY
 MODULE_WORK_ITEMS = STATES_ALL & ROLES_NO_READONLY
 
+MODULE_PORTAL_APPLICANTS = HasApplicantRole(["ADMIN"])
+MODULE_PORTAL_COMMUNICATIONS_READ = ~RequireInstanceState(["new"])
+MODULE_PORTAL_COMMUNICATIONS_WRITE = (
+    MODULE_PORTAL_COMMUNICATIONS_READ & HasApplicantRole(["ADMIN", "EDITOR"])
+)
+MODULE_PORTAL_FORM_READ = Always()
+MODULE_PORTAL_FORM_WRITE = RequireInstanceState(["new"]) & (
+    HasApplicantRole(["ADMIN", "EDITOR"])
+    | (HasRole(["municipality-lead", "municipality-clerk"]) & IsPaper())
+)
+MODULE_PORTAL_DOCUMENTS_WRITE = (
+    RequireInstanceState(["new"]) | RequireWorkItem("fill-additional-demand", "ready")
+) & (
+    HasApplicantRole(["ADMIN", "EDITOR"])
+    | (HasRole(["municipality-lead", "municipality-clerk"]) & IsPaper())
+)
+MODULE_PORTAL_ADDITIONAL_DEMANDS_READ = RequireWorkItem("fill-additional-demand")
+MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE = (
+    MODULE_PORTAL_ADDITIONAL_DEMANDS_READ & HasApplicantRole(["ADMIN", "EDITOR"])
+)
+MODULE_PORTAL_CONSTRUCTION_MONITORING_READ = RequireWorkItem("construction-stage")
+MODULE_PORTAL_CONSTRUCTION_MONITORING_WRITE = (
+    MODULE_PORTAL_ADDITIONAL_DEMANDS_READ & HasApplicantRole(["ADMIN", "EDITOR"])
+)
+
+ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & (
+    HasApplicantRole(["ADMIN"])
+    | (HasRole(["municipality-lead", "municipality-clerk"]) & IsPaper())
+)
+ACTION_INSTANCE_SUBMIT = RequireInstanceState(["new"]) & (
+    HasApplicantRole(["ADMIN"])
+    | (HasRole(["municipality-lead", "municipality-clerk"]) & IsPaper())
+)
+ACTION_INSTANCE_WITHDRAW = RequireInstanceState(
+    [
+        "subm",
+        "material-exam",
+        "init-distribution",
+        "distribution",
+        "decision",
+    ]
+) & (
+    HasApplicantRole(["ADMIN"])
+    | (HasRole(["municipality-lead", "municipality-clerk"]) & IsPaper())
+)
+
 # Actual config
 SO_PERMISSIONS_SETTINGS = {
     "ENABLED": True,
     "ACCESS_LEVELS": {
         "applicant": [
-            ("applicant-add", Always()),
-            ("applicant-read", Always()),
-            ("applicant-remove", Always()),
-            ("documents-write", Always()),
-            ("permissions-read-municipality-before-submission", Always()),
+            ("additional-demands-read", MODULE_PORTAL_ADDITIONAL_DEMANDS_READ),
+            ("additional-demands-write", MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE),
+            ("applicant-add", MODULE_PORTAL_APPLICANTS),
+            ("applicant-read", MODULE_PORTAL_APPLICANTS),
+            ("applicant-remove", MODULE_PORTAL_APPLICANTS),
+            ("communications-read", MODULE_PORTAL_COMMUNICATIONS_READ),
+            ("communications-write", MODULE_PORTAL_COMMUNICATIONS_WRITE),
+            (
+                "construction-monitoring-read",
+                MODULE_PORTAL_CONSTRUCTION_MONITORING_READ,
+            ),
+            (
+                "construction-monitoring-write",
+                MODULE_PORTAL_CONSTRUCTION_MONITORING_WRITE,
+            ),
+            ("documents-write", MODULE_PORTAL_DOCUMENTS_WRITE),
+            ("form-read", MODULE_PORTAL_FORM_READ),
+            ("form-write", MODULE_PORTAL_FORM_WRITE),
+            (
+                "grant-municipality-before-submission",
+                MODULE_PORTAL_APPLICANTS & RequireInstanceState(["new"]),
+            ),
+            ("instance-delete", ACTION_INSTANCE_DELETE),
+            ("instance-submit", ACTION_INSTANCE_SUBMIT),
+            ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
+            (
+                "permissions-read-municipality-before-submission",
+                MODULE_PORTAL_APPLICANTS,
+            ),
         ],
         "distribution-service": [
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
+            ("additional-demands-write", MODULE_ADDITIONAL_DEMANDS),
             ("billing-read", MODULE_BILLING),
             ("communications-read", MODULE_COMMUNICATIONS),
+            ("communications-write", MODULE_COMMUNICATIONS),
             ("decision-read", MODULE_DECISION),
             ("distribution-read", MODULE_DISTRIBUTION),
             ("dms-generate-read", MODULE_DMS_GENERATE),
@@ -147,11 +234,14 @@ SO_PERMISSIONS_SETTINGS = {
         ],
         "lead-authority": [
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
+            ("additional-demands-write", MODULE_ADDITIONAL_DEMANDS),
             ("appeal-read", MODULE_APPEAL),
             ("billing-read", MODULE_BILLING),
             ("communications-read", MODULE_COMMUNICATIONS),
+            ("communications-write", MODULE_COMMUNICATIONS),
             ("complete-instance-read", MODULE_CONSTRUCTION_MONITORING),
             ("construction-monitoring-read", MODULE_CONSTRUCTION_MONITORING),
+            ("construction-monitoring-write", MODULE_CONSTRUCTION_MONITORING),
             ("corrections-read", MODULE_CORRECTIONS),
             ("decision-read", MODULE_DECISION),
             ("distribution-read", MODULE_DISTRIBUTION),
@@ -159,8 +249,19 @@ SO_PERMISSIONS_SETTINGS = {
             ("documents-read", MODULE_DOCUMENTS),
             ("documents-write", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
+            (
+                "form-write",
+                MODULE_PORTAL_FORM_WRITE
+                | (
+                    RequireInstanceState(["correction"])
+                    & HasRole(["municipality-lead", "municipality-clerk"])
+                ),
+            ),
             ("formal-exam-read", MODULE_FORMAL_EXAM),
             ("history-read", MODULE_HISTORY),
+            ("instance-delete", ACTION_INSTANCE_DELETE),
+            ("instance-submit", ACTION_INSTANCE_SUBMIT),
+            ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
             ("journal-read", MODULE_JOURNAL),
             ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
@@ -175,6 +276,7 @@ SO_PERMISSIONS_SETTINGS = {
             ("work-items-read", MODULE_WORK_ITEMS),
         ],
         "municipality-before-submission": [
+            ("documents-read", RequireInstanceState(["new"])),
             ("form-read", RequireInstanceState(["new"])),
             ("redirect-to-portal", RequireInstanceState(["new"])),
         ],
@@ -184,10 +286,14 @@ SO_PERMISSIONS_SETTINGS = {
             ("form-read", MODULE_FORM),
         ],
         "support": [
+            ("applicant-add", Always()),
+            ("applicant-read", Always()),
+            ("applicant-remove", Always()),
             ("documents-read", Always()),
             ("documents-write", Always()),
             ("form-read", Always()),
             ("history-read", Always()),
+            ("instance-delete", RequireInstanceState(["new"])),
             ("permissions-read-any", Always()),
             ("permissions-read", Always()),
         ],

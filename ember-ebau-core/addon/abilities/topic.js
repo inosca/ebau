@@ -5,6 +5,7 @@ import mainConfig from "ember-ebau-core/config/main";
 
 export default class extends Ability {
   @service ebauModules;
+  @service permissions;
 
   get isActiveInstanceService() {
     return (
@@ -19,7 +20,14 @@ export default class extends Ability {
     return instanceServices.includes(parseInt(this.ebauModules.serviceId));
   }
 
-  get canCreate() {
+  async canCreate() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(
+        this.instanceId,
+        "communications-write",
+      );
+    }
+
     return !this.ebauModules.isReadOnlyRole;
   }
 

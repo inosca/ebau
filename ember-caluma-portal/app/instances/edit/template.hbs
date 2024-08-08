@@ -88,12 +88,7 @@
           </AriaHeading>
         </Tab.item>
       {{/if}}
-      {{#if
-        (and
-          (has-feature "communications")
-          (can "read communication of instance" this.instance)
-        )
-      }}
+      {{#if (await (can "read communication of instance" this.instance))}}
         <Tab.item
           @href={{concat "/instances/" @model "/communications"}}
           as |active|
@@ -107,7 +102,7 @@
           </AriaHeading>
         </Tab.item>
       {{/if}}
-      {{#if (can "read applicants of instance" this.instance)}}
+      {{#if (await (can "read applicants of instance" this.instance))}}
         <Tab.item
           @href={{concat "/instances/" @model "/applicants"}}
           as |active|
@@ -117,29 +112,33 @@
           </AriaHeading>
         </Tab.item>
       {{/if}}
-      {{#if (macroCondition (macroGetOwnConfig "enableAdditionalDemand"))}}
-        {{#if
-          (and
-            (not this.instance.isPaper) this.additionalDemandsCount.value.any
+      {{#if
+        (await
+          (can
+            "read additional demands of instance"
+            this.instance
+            additionalDemandsCount=this.additionalDemandsCount.value
           )
-        }}
-          <Tab.item
-            @href={{concat "/instances/" @model "/additional-demand"}}
-            as |active|
-          >
-            <AriaHeading @enabled={{active}}>
-              {{t "nav.additional-demand"}}
-              {{#if this.additionalDemandsCount.value.ready}}
-                <UkBadge
-                  @label={{this.additionalDemandsCount.value.ready}}
-                  class="uk-margin-small-left"
-                />
-              {{/if}}
-            </AriaHeading>
-          </Tab.item>
-        {{/if}}
+        )
+      }}
+        <Tab.item
+          @href={{concat "/instances/" @model "/additional-demand"}}
+          as |active|
+        >
+          <AriaHeading @enabled={{active}}>
+            {{t "nav.additional-demand"}}
+            {{#if this.additionalDemandsCount.value.ready}}
+              <UkBadge
+                @label={{this.additionalDemandsCount.value.ready}}
+                class="uk-margin-small-left"
+              />
+            {{/if}}
+          </AriaHeading>
+        </Tab.item>
       {{/if}}
-      {{#if (can "read construction-monitoring of instance" this.instance)}}
+      {{#if
+        (await (can "read construction monitoring of instance" this.instance))
+      }}
         <Tab.item
           @href={{concat "/instances/" @model "/construction-monitoring"}}
           as |active|

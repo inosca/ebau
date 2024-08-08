@@ -45,6 +45,10 @@ export default function makeServer(config) {
         exclude: ["update"],
       });
 
+      this.get("/api/v1/instance-permissions", {
+        meta: { "fully-enabled": false, mode: "off" },
+      });
+
       this.post("/graphql/", graphqlHandler(this), 200);
       this.passthrough("/index/token");
     },

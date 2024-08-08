@@ -1,9 +1,24 @@
 import Service, { service } from "@ember/service";
+import { tracked } from "@glimmer/tracking";
 
 export default class PermissionsService extends Service {
   @service store;
+  @service fetch;
 
   #cache = new Map();
+
+  @tracked fullyEnabled = false;
+  @tracked mode = null;
+
+  async setup() {
+    const response = await this.fetch.fetch(
+      "/api/v1/instance-permissions?page[size]=1",
+    );
+    const { meta } = await response.json();
+
+    this.fullyEnabled = meta["fully-enabled"];
+    this.mode = meta["permission-mode"];
+  }
 
   async #triggerCache(instanceId, reload) {
     if (!instanceId) return;
@@ -69,5 +84,19 @@ export default class PermissionsService extends Service {
   async hasAll(instanceId, requiredPermissions, reload = false) {
     await this.#triggerCache(instanceId, reload);
     return this.#checkPermissions(instanceId, requiredPermissions, true);
+  }
+
+  /**
+   * Populate the permissions cache for a given instance.
+   *
+   * This method is helpful for fetching the permissions of an instance before
+   * rendering anything so the permissions helpers resolve instantly afterwards.
+   * This prevents the UI from flickering.
+   *
+   * @param {Number} instanceId - The ID of the instance to populate the cache for
+   * @returns {Promise}
+   */
+  async populateCacheFor(instanceId) {
+    await this.#triggerCache(instanceId, true);
   }
 }

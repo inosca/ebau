@@ -1,6 +1,12 @@
 from django.db import models
 
 
+class ROLE_CHOICES(models.TextChoices):
+    ADMIN = "ADMIN", "Admin"
+    EDITOR = "EDITOR", "Editor"
+    READ_ONLY = "READ_ONLY", "Read only"
+
+
 class Applicant(models.Model):
     instance = models.ForeignKey(
         "instance.Instance",
@@ -23,6 +29,11 @@ class Applicant(models.Model):
     )
     created = models.DateTimeField(db_column="CREATED", auto_now=True)
     email = models.EmailField(db_collation="case_insensitive")
+    role = models.CharField(
+        max_length=50,
+        choices=ROLE_CHOICES.choices,
+        default=ROLE_CHOICES.ADMIN.value,
+    )
 
     class Meta:
         managed = True

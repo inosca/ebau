@@ -103,6 +103,9 @@ Several of those are available in the `camac.permissions.conditions` module:
 * `Never`: will never grant the permission
 * `IsForm`: The instance's main case's document has one of the given forms
 * `Callback`: generic callback, if you need a client-specific check
+* `HasApplicantRole`: will check if user has a given applicant role (admin, editor or readonly)
+* `IsPaper`: only applies if the current instance is a "paper dossier"
+* `RequireWorkItem`: Will check if the instance has a certain work item (the status of the work item doesn't matter)
 
 These conditions are composable, by combining them with binary operators like
 `&` (AND) as well as `|` (OR) and even prefix operator `~` (NOT). It is entirely

@@ -1,4 +1,5 @@
 import Controller, { inject as controller } from "@ember/controller";
+import { action } from "@ember/object";
 import { service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
@@ -16,6 +17,7 @@ export default class InstancesEditApplicantsController extends Controller {
   @controller("instances.edit") editController;
 
   @tracked email = "";
+  @tracked role = "ADMIN";
 
   municipalityPermissions = query(this, "instance-acl", () => ({
     access_level: "municipality-before-submission",
@@ -52,12 +54,18 @@ export default class InstancesEditApplicantsController extends Controller {
     return this.applicants?.map((applicant) => applicant.email);
   }
 
+  @action
+  setRole(event) {
+    this.role = event.target.value;
+  }
+
   @dropTask
   *add(event) {
     event.preventDefault();
 
     const user = this.store.createRecord("applicant", {
       email: this.email,
+      role: this.role,
       instance: this.editController.instance,
     });
 
