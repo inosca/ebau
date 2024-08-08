@@ -9962,7 +9962,7 @@ iframe[data-uk-cover] {
   width: 287px; }
 
 .kc-login {
-  background-image: url("../img/bg.jpeg");
+  background-image: url("../img/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -10062,13 +10062,3 @@ h1 {
 
 .icon-local {
   background-image: url("../img/map.svg"); }
-
-.copyright {
-  position: fixed;
-  bottom: 0;
-  font-size: 12px;
-  padding: 0.5rem; }
-
-.copyright a {
-  color: white;
-  font-weight: 400; }
