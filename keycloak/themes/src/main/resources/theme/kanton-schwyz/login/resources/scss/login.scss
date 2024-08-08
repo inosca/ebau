@@ -5,7 +5,7 @@
 
 @import "uikit/src/scss/uikit-theme.scss";
 
-$transparent-white: rgba(255, 255, 255, 0.9);
+$transparent-white: rgba(255, 255, 255, 0.95);
 
 .alert {
   @extend .uk-alert;
@@ -19,13 +19,6 @@ $transparent-white: rgba(255, 255, 255, 0.9);
   display: none;
 }
 
-a,
-h1,
-h2,
-.uk-button {
-  font-weight: 700;
-}
-
 #kc-header {
   height: 100px;
   background-color: white;
@@ -33,34 +26,25 @@ h2,
 }
 
 #kc-header-wrapper {
+  height: 100%;
   max-width: 900px + 2 * 32; /* account for padding on .kc-form-card */
   margin: 0 auto;
-  padding: 1rem;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-end;
 }
 
-.urec-logo {
-  background-image: url("../img/urec.svg");
+.sz-logo {
+  background-image: url("../img/logo-kanton-schwyz.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  height: 67px;
-  width: 171px;
-  margin-right: 2rem;
-}
-
-.ur-logo {
-  background-image: url("../img/uri.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  height: 67px;
-  width: 157px;
+  height: 40px;
+  width: 287px;
 }
 
 .kc-login {
-  background-image: url("../img/reussdelta.jpg");
+  background-image: url("../img/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -178,27 +162,6 @@ h1 {
   background-position: center;
 }
 
-.icon-iweb {
-  height: 31px;
-  background-image: url("../img/people.svg");
-}
-
-.icon-afi {
-  background-image: url("../img/stier.svg");
-}
-
 .icon-local {
   background-image: url("../img/map.svg");
-}
-
-.copyright {
-  position: fixed;
-  bottom: 0;
-  font-size: 12px;
-  padding: 0.5rem;
-}
-
-.copyright a {
-  color: white;
-  font-weight: 400;
 }

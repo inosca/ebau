@@ -1,4 +1,4 @@
-<#-- Copy of https://github.com/keycloak/keycloak/blob/release/25.0/themes/src/main/resources/theme/base/login/register.ftl -->
+<#-- Copy of https://github.com/keycloak/keycloak/blob/dc9de96f7b82b9ca97532cf985a2fe8f9e11e7fe/themes/src/main/resources/theme/base/login/register.ftl -->
 <#-- Changes are highlighted with "CHANGE:" -->
 <#import "template.ftl" as layout>
 <#import "user-profile-commons.ftl" as userProfileCommons>
@@ -41,8 +41,6 @@
 		                                ${kcSanitize(messagesPerField.get('password'))?no_esc}
 		                            </span>
                                 </#if>
-                                <#-- CHANGE: add hint about password policy -->
-                                <span class="uk-text-small uk-text-muted">${msg("passwordHint")}</span>
                             </div>
                         </div>
 
