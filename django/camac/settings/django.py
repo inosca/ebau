@@ -2162,6 +2162,7 @@ USE_I18N = True
 USE_TZ = True
 LOCALE_PATHS = (
     os.path.join(ROOT_DIR, "camac", "instance", "placeholders", "locale"),
+    os.path.join(ROOT_DIR, "camac", "instance", "milestones", "locale"),
     os.path.join(ROOT_DIR, "locale"),
 )
 
