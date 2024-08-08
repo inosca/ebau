@@ -121,22 +121,6 @@
   },
   {
     "model": "user.group",
-    "pk": 7,
-    "fields": {
-      "role": 7,
-      "service": 1,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 8,
     "fields": {
       "role": 8,
@@ -217,22 +201,6 @@
   },
   {
     "model": "user.group",
-    "pk": 13,
-    "fields": {
-      "role": 7,
-      "service": 2,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 14,
     "fields": {
       "role": 5,
@@ -284,22 +252,6 @@
     "pk": 17,
     "fields": {
       "role": 8,
-      "service": 3,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 18,
-    "fields": {
-      "role": 7,
       "service": 3,
       "disabled": 0,
       "name": null,
@@ -377,22 +329,6 @@
   },
   {
     "model": "user.group",
-    "pk": 23,
-    "fields": {
-      "role": 7,
-      "service": 4,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 24,
     "fields": {
       "role": 5,
@@ -444,22 +380,6 @@
     "pk": 27,
     "fields": {
       "role": 8,
-      "service": 5,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 28,
-    "fields": {
-      "role": 7,
       "service": 5,
       "disabled": 0,
       "name": null,
@@ -537,22 +457,6 @@
   },
   {
     "model": "user.group",
-    "pk": 33,
-    "fields": {
-      "role": 7,
-      "service": 6,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 34,
     "fields": {
       "role": 5,
@@ -604,22 +508,6 @@
     "pk": 37,
     "fields": {
       "role": 8,
-      "service": 7,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 38,
-    "fields": {
-      "role": 7,
       "service": 7,
       "disabled": 0,
       "name": null,
@@ -697,22 +585,6 @@
   },
   {
     "model": "user.group",
-    "pk": 43,
-    "fields": {
-      "role": 7,
-      "service": 8,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 44,
     "fields": {
       "role": 5,
@@ -764,22 +636,6 @@
     "pk": 47,
     "fields": {
       "role": 8,
-      "service": 9,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 48,
-    "fields": {
-      "role": 7,
       "service": 9,
       "disabled": 0,
       "name": null,
@@ -857,22 +713,6 @@
   },
   {
     "model": "user.group",
-    "pk": 53,
-    "fields": {
-      "role": 7,
-      "service": 10,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 54,
     "fields": {
       "role": 5,
@@ -924,22 +764,6 @@
     "pk": 57,
     "fields": {
       "role": 8,
-      "service": 11,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 58,
-    "fields": {
-      "role": 7,
       "service": 11,
       "disabled": 0,
       "name": null,
@@ -1017,22 +841,6 @@
   },
   {
     "model": "user.group",
-    "pk": 63,
-    "fields": {
-      "role": 7,
-      "service": 12,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 64,
     "fields": {
       "role": 5,
@@ -1084,22 +892,6 @@
     "pk": 67,
     "fields": {
       "role": 8,
-      "service": 13,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 68,
-    "fields": {
-      "role": 7,
       "service": 13,
       "disabled": 0,
       "name": null,
@@ -1177,22 +969,6 @@
   },
   {
     "model": "user.group",
-    "pk": 73,
-    "fields": {
-      "role": 7,
-      "service": 14,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 74,
     "fields": {
       "role": 5,
@@ -1244,22 +1020,6 @@
     "pk": 77,
     "fields": {
       "role": 8,
-      "service": 15,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 78,
-    "fields": {
-      "role": 7,
       "service": 15,
       "disabled": 0,
       "name": null,
@@ -1337,22 +1097,6 @@
   },
   {
     "model": "user.group",
-    "pk": 83,
-    "fields": {
-      "role": 7,
-      "service": 16,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 84,
     "fields": {
       "role": 5,
@@ -1404,22 +1148,6 @@
     "pk": 87,
     "fields": {
       "role": 8,
-      "service": 17,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 88,
-    "fields": {
-      "role": 7,
       "service": 17,
       "disabled": 0,
       "name": null,
@@ -1497,22 +1225,6 @@
   },
   {
     "model": "user.group",
-    "pk": 93,
-    "fields": {
-      "role": 7,
-      "service": 18,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 94,
     "fields": {
       "role": 5,
@@ -1564,22 +1276,6 @@
     "pk": 97,
     "fields": {
       "role": 8,
-      "service": 19,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 98,
-    "fields": {
-      "role": 7,
       "service": 19,
       "disabled": 0,
       "name": null,
@@ -1657,22 +1353,6 @@
   },
   {
     "model": "user.group",
-    "pk": 103,
-    "fields": {
-      "role": 7,
-      "service": 20,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 104,
     "fields": {
       "role": 5,
@@ -1724,22 +1404,6 @@
     "pk": 107,
     "fields": {
       "role": 8,
-      "service": 21,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 108,
-    "fields": {
-      "role": 7,
       "service": 21,
       "disabled": 0,
       "name": null,
@@ -1817,22 +1481,6 @@
   },
   {
     "model": "user.group",
-    "pk": 113,
-    "fields": {
-      "role": 7,
-      "service": 22,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 114,
     "fields": {
       "role": 5,
@@ -1884,22 +1532,6 @@
     "pk": 117,
     "fields": {
       "role": 8,
-      "service": 23,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 118,
-    "fields": {
-      "role": 7,
       "service": 23,
       "disabled": 0,
       "name": null,
@@ -1977,22 +1609,6 @@
   },
   {
     "model": "user.group",
-    "pk": 123,
-    "fields": {
-      "role": 7,
-      "service": 24,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 124,
     "fields": {
       "role": 5,
@@ -2044,22 +1660,6 @@
     "pk": 127,
     "fields": {
       "role": 8,
-      "service": 25,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 128,
-    "fields": {
-      "role": 7,
       "service": 25,
       "disabled": 0,
       "name": null,
@@ -2137,22 +1737,6 @@
   },
   {
     "model": "user.group",
-    "pk": 133,
-    "fields": {
-      "role": 7,
-      "service": 26,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 134,
     "fields": {
       "role": 5,
@@ -2204,22 +1788,6 @@
     "pk": 137,
     "fields": {
       "role": 8,
-      "service": 27,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 138,
-    "fields": {
-      "role": 7,
       "service": 27,
       "disabled": 0,
       "name": null,
@@ -2297,22 +1865,6 @@
   },
   {
     "model": "user.group",
-    "pk": 143,
-    "fields": {
-      "role": 7,
-      "service": 28,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 144,
     "fields": {
       "role": 5,
@@ -2364,22 +1916,6 @@
     "pk": 147,
     "fields": {
       "role": 8,
-      "service": 29,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 148,
-    "fields": {
-      "role": 7,
       "service": 29,
       "disabled": 0,
       "name": null,
@@ -2457,22 +1993,6 @@
   },
   {
     "model": "user.group",
-    "pk": 153,
-    "fields": {
-      "role": 7,
-      "service": 30,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 154,
     "fields": {
       "role": 5,
@@ -2524,22 +2044,6 @@
     "pk": 157,
     "fields": {
       "role": 8,
-      "service": 31,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 158,
-    "fields": {
-      "role": 7,
       "service": 31,
       "disabled": 0,
       "name": null,
@@ -2617,22 +2121,6 @@
   },
   {
     "model": "user.group",
-    "pk": 163,
-    "fields": {
-      "role": 7,
-      "service": 32,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 164,
     "fields": {
       "role": 5,
@@ -2684,22 +2172,6 @@
     "pk": 167,
     "fields": {
       "role": 8,
-      "service": 33,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 168,
-    "fields": {
-      "role": 7,
       "service": 33,
       "disabled": 0,
       "name": null,
@@ -2777,22 +2249,6 @@
   },
   {
     "model": "user.group",
-    "pk": 173,
-    "fields": {
-      "role": 7,
-      "service": 34,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 174,
     "fields": {
       "role": 5,
@@ -2844,22 +2300,6 @@
     "pk": 177,
     "fields": {
       "role": 8,
-      "service": 35,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 178,
-    "fields": {
-      "role": 7,
       "service": 35,
       "disabled": 0,
       "name": null,
@@ -2937,22 +2377,6 @@
   },
   {
     "model": "user.group",
-    "pk": 183,
-    "fields": {
-      "role": 7,
-      "service": 36,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 184,
     "fields": {
       "role": 5,
@@ -3004,22 +2428,6 @@
     "pk": 187,
     "fields": {
       "role": 8,
-      "service": 37,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 188,
-    "fields": {
-      "role": 7,
       "service": 37,
       "disabled": 0,
       "name": null,
@@ -3097,22 +2505,6 @@
   },
   {
     "model": "user.group",
-    "pk": 193,
-    "fields": {
-      "role": 7,
-      "service": 38,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 194,
     "fields": {
       "role": 5,
@@ -3164,22 +2556,6 @@
     "pk": 197,
     "fields": {
       "role": 8,
-      "service": 39,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 198,
-    "fields": {
-      "role": 7,
       "service": 39,
       "disabled": 0,
       "name": null,
@@ -3257,22 +2633,6 @@
   },
   {
     "model": "user.group",
-    "pk": 203,
-    "fields": {
-      "role": 7,
-      "service": 40,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 204,
     "fields": {
       "role": 5,
@@ -3324,22 +2684,6 @@
     "pk": 207,
     "fields": {
       "role": 8,
-      "service": 41,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 208,
-    "fields": {
-      "role": 7,
       "service": 41,
       "disabled": 0,
       "name": null,
@@ -3417,22 +2761,6 @@
   },
   {
     "model": "user.group",
-    "pk": 213,
-    "fields": {
-      "role": 7,
-      "service": 42,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 214,
     "fields": {
       "role": 5,
@@ -3484,22 +2812,6 @@
     "pk": 217,
     "fields": {
       "role": 8,
-      "service": 43,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 218,
-    "fields": {
-      "role": 7,
       "service": 43,
       "disabled": 0,
       "name": null,
@@ -3577,22 +2889,6 @@
   },
   {
     "model": "user.group",
-    "pk": 223,
-    "fields": {
-      "role": 7,
-      "service": 44,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 224,
     "fields": {
       "role": 5,
@@ -3644,22 +2940,6 @@
     "pk": 227,
     "fields": {
       "role": 8,
-      "service": 45,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 228,
-    "fields": {
-      "role": 7,
       "service": 45,
       "disabled": 0,
       "name": null,
@@ -3737,22 +3017,6 @@
   },
   {
     "model": "user.group",
-    "pk": 233,
-    "fields": {
-      "role": 7,
-      "service": 46,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 234,
     "fields": {
       "role": 5,
@@ -3804,22 +3068,6 @@
     "pk": 237,
     "fields": {
       "role": 8,
-      "service": 47,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 238,
-    "fields": {
-      "role": 7,
       "service": 47,
       "disabled": 0,
       "name": null,
@@ -3897,22 +3145,6 @@
   },
   {
     "model": "user.group",
-    "pk": 243,
-    "fields": {
-      "role": 7,
-      "service": 48,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 244,
     "fields": {
       "role": 5,
@@ -3964,22 +3196,6 @@
     "pk": 247,
     "fields": {
       "role": 8,
-      "service": 49,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 248,
-    "fields": {
-      "role": 7,
       "service": 49,
       "disabled": 0,
       "name": null,
@@ -4057,22 +3273,6 @@
   },
   {
     "model": "user.group",
-    "pk": 253,
-    "fields": {
-      "role": 7,
-      "service": 50,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 254,
     "fields": {
       "role": 5,
@@ -4124,22 +3324,6 @@
     "pk": 257,
     "fields": {
       "role": 8,
-      "service": 51,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 258,
-    "fields": {
-      "role": 7,
       "service": 51,
       "disabled": 0,
       "name": null,
@@ -4217,22 +3401,6 @@
   },
   {
     "model": "user.group",
-    "pk": 263,
-    "fields": {
-      "role": 7,
-      "service": 52,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 264,
     "fields": {
       "role": 5,
@@ -4284,22 +3452,6 @@
     "pk": 267,
     "fields": {
       "role": 8,
-      "service": 53,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 268,
-    "fields": {
-      "role": 7,
       "service": 53,
       "disabled": 0,
       "name": null,
@@ -4377,22 +3529,6 @@
   },
   {
     "model": "user.group",
-    "pk": 273,
-    "fields": {
-      "role": 7,
-      "service": 54,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 274,
     "fields": {
       "role": 5,
@@ -4444,22 +3580,6 @@
     "pk": 277,
     "fields": {
       "role": 8,
-      "service": 55,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 278,
-    "fields": {
-      "role": 7,
       "service": 55,
       "disabled": 0,
       "name": null,
@@ -4537,22 +3657,6 @@
   },
   {
     "model": "user.group",
-    "pk": 283,
-    "fields": {
-      "role": 7,
-      "service": 56,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 284,
     "fields": {
       "role": 5,
@@ -4604,22 +3708,6 @@
     "pk": 287,
     "fields": {
       "role": 8,
-      "service": 57,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 288,
-    "fields": {
-      "role": 7,
       "service": 57,
       "disabled": 0,
       "name": null,
@@ -4697,22 +3785,6 @@
   },
   {
     "model": "user.group",
-    "pk": 293,
-    "fields": {
-      "role": 7,
-      "service": 58,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 294,
     "fields": {
       "role": 5,
@@ -4764,22 +3836,6 @@
     "pk": 297,
     "fields": {
       "role": 8,
-      "service": 59,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 298,
-    "fields": {
-      "role": 7,
       "service": 59,
       "disabled": 0,
       "name": null,
@@ -4857,22 +3913,6 @@
   },
   {
     "model": "user.group",
-    "pk": 303,
-    "fields": {
-      "role": 7,
-      "service": 60,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 304,
     "fields": {
       "role": 5,
@@ -4924,22 +3964,6 @@
     "pk": 307,
     "fields": {
       "role": 8,
-      "service": 61,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 308,
-    "fields": {
-      "role": 7,
       "service": 61,
       "disabled": 0,
       "name": null,
@@ -5017,22 +4041,6 @@
   },
   {
     "model": "user.group",
-    "pk": 313,
-    "fields": {
-      "role": 7,
-      "service": 62,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 314,
     "fields": {
       "role": 5,
@@ -5084,22 +4092,6 @@
     "pk": 317,
     "fields": {
       "role": 8,
-      "service": 63,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 318,
-    "fields": {
-      "role": 7,
       "service": 63,
       "disabled": 0,
       "name": null,
@@ -5177,22 +4169,6 @@
   },
   {
     "model": "user.group",
-    "pk": 323,
-    "fields": {
-      "role": 7,
-      "service": 64,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 324,
     "fields": {
       "role": 5,
@@ -5244,22 +4220,6 @@
     "pk": 327,
     "fields": {
       "role": 8,
-      "service": 65,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 328,
-    "fields": {
-      "role": 7,
       "service": 65,
       "disabled": 0,
       "name": null,
@@ -5337,22 +4297,6 @@
   },
   {
     "model": "user.group",
-    "pk": 333,
-    "fields": {
-      "role": 7,
-      "service": 66,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 339,
     "fields": {
       "role": 5,
@@ -5404,22 +4348,6 @@
     "pk": 342,
     "fields": {
       "role": 8,
-      "service": 68,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 343,
-    "fields": {
-      "role": 7,
       "service": 68,
       "disabled": 0,
       "name": null,
@@ -5497,22 +4425,6 @@
   },
   {
     "model": "user.group",
-    "pk": 348,
-    "fields": {
-      "role": 7,
-      "service": 69,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 349,
     "fields": {
       "role": 5,
@@ -5564,22 +4476,6 @@
     "pk": 352,
     "fields": {
       "role": 8,
-      "service": 70,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 353,
-    "fields": {
-      "role": 7,
       "service": 70,
       "disabled": 0,
       "name": null,
@@ -5657,22 +4553,6 @@
   },
   {
     "model": "user.group",
-    "pk": 358,
-    "fields": {
-      "role": 7,
-      "service": 71,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 359,
     "fields": {
       "role": 5,
@@ -5724,22 +4604,6 @@
     "pk": 362,
     "fields": {
       "role": 8,
-      "service": 72,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 363,
-    "fields": {
-      "role": 7,
       "service": 72,
       "disabled": 0,
       "name": null,
@@ -5817,22 +4681,6 @@
   },
   {
     "model": "user.group",
-    "pk": 368,
-    "fields": {
-      "role": 7,
-      "service": 73,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 369,
     "fields": {
       "role": 5,
@@ -5884,22 +4732,6 @@
     "pk": 372,
     "fields": {
       "role": 8,
-      "service": 74,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 373,
-    "fields": {
-      "role": 7,
       "service": 74,
       "disabled": 0,
       "name": null,
@@ -5977,22 +4809,6 @@
   },
   {
     "model": "user.group",
-    "pk": 378,
-    "fields": {
-      "role": 7,
-      "service": 75,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 379,
     "fields": {
       "role": 5,
@@ -6044,22 +4860,6 @@
     "pk": 382,
     "fields": {
       "role": 8,
-      "service": 76,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 383,
-    "fields": {
-      "role": 7,
       "service": 76,
       "disabled": 0,
       "name": null,
@@ -6137,22 +4937,6 @@
   },
   {
     "model": "user.group",
-    "pk": 388,
-    "fields": {
-      "role": 7,
-      "service": 77,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 389,
     "fields": {
       "role": 5,
@@ -6204,22 +4988,6 @@
     "pk": 392,
     "fields": {
       "role": 8,
-      "service": 78,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 393,
-    "fields": {
-      "role": 7,
       "service": 78,
       "disabled": 0,
       "name": null,
@@ -6297,22 +5065,6 @@
   },
   {
     "model": "user.group",
-    "pk": 398,
-    "fields": {
-      "role": 7,
-      "service": 79,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 399,
     "fields": {
       "role": 5,
@@ -6364,22 +5116,6 @@
     "pk": 402,
     "fields": {
       "role": 8,
-      "service": 80,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 403,
-    "fields": {
-      "role": 7,
       "service": 80,
       "disabled": 0,
       "name": null,
@@ -6457,22 +5193,6 @@
   },
   {
     "model": "user.group",
-    "pk": 408,
-    "fields": {
-      "role": 7,
-      "service": 81,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 409,
     "fields": {
       "role": 5,
@@ -6524,22 +5244,6 @@
     "pk": 412,
     "fields": {
       "role": 8,
-      "service": 82,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 413,
-    "fields": {
-      "role": 7,
       "service": 82,
       "disabled": 0,
       "name": null,
@@ -6617,22 +5321,6 @@
   },
   {
     "model": "user.group",
-    "pk": 418,
-    "fields": {
-      "role": 7,
-      "service": 83,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 419,
     "fields": {
       "role": 5,
@@ -6684,22 +5372,6 @@
     "pk": 422,
     "fields": {
       "role": 8,
-      "service": 84,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 423,
-    "fields": {
-      "role": 7,
       "service": 84,
       "disabled": 0,
       "name": null,
@@ -6777,22 +5449,6 @@
   },
   {
     "model": "user.group",
-    "pk": 428,
-    "fields": {
-      "role": 7,
-      "service": 85,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 429,
     "fields": {
       "role": 5,
@@ -6844,22 +5500,6 @@
     "pk": 432,
     "fields": {
       "role": 8,
-      "service": 86,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 433,
-    "fields": {
-      "role": 7,
       "service": 86,
       "disabled": 0,
       "name": null,
@@ -6937,22 +5577,6 @@
   },
   {
     "model": "user.group",
-    "pk": 438,
-    "fields": {
-      "role": 7,
-      "service": 87,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 439,
     "fields": {
       "role": 5,
@@ -7004,22 +5628,6 @@
     "pk": 442,
     "fields": {
       "role": 8,
-      "service": 88,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 443,
-    "fields": {
-      "role": 7,
       "service": 88,
       "disabled": 0,
       "name": null,
@@ -7097,22 +5705,6 @@
   },
   {
     "model": "user.group",
-    "pk": 448,
-    "fields": {
-      "role": 7,
-      "service": 89,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 449,
     "fields": {
       "role": 5,
@@ -7164,22 +5756,6 @@
     "pk": 452,
     "fields": {
       "role": 8,
-      "service": 90,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 453,
-    "fields": {
-      "role": 7,
       "service": 90,
       "disabled": 0,
       "name": null,
@@ -7257,22 +5833,6 @@
   },
   {
     "model": "user.group",
-    "pk": 458,
-    "fields": {
-      "role": 7,
-      "service": 91,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 459,
     "fields": {
       "role": 5,
@@ -7324,22 +5884,6 @@
     "pk": 462,
     "fields": {
       "role": 8,
-      "service": 92,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 463,
-    "fields": {
-      "role": 7,
       "service": 92,
       "disabled": 0,
       "name": null,
@@ -7417,22 +5961,6 @@
   },
   {
     "model": "user.group",
-    "pk": 468,
-    "fields": {
-      "role": 7,
-      "service": 93,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 469,
     "fields": {
       "role": 5,
@@ -7484,22 +6012,6 @@
     "pk": 472,
     "fields": {
       "role": 8,
-      "service": 94,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 473,
-    "fields": {
-      "role": 7,
       "service": 94,
       "disabled": 0,
       "name": null,
@@ -7577,22 +6089,6 @@
   },
   {
     "model": "user.group",
-    "pk": 478,
-    "fields": {
-      "role": 7,
-      "service": 95,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 479,
     "fields": {
       "role": 5,
@@ -7644,22 +6140,6 @@
     "pk": 482,
     "fields": {
       "role": 8,
-      "service": 96,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 483,
-    "fields": {
-      "role": 7,
       "service": 96,
       "disabled": 0,
       "name": null,
@@ -7737,22 +6217,6 @@
   },
   {
     "model": "user.group",
-    "pk": 488,
-    "fields": {
-      "role": 7,
-      "service": 97,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 489,
     "fields": {
       "role": 5,
@@ -7804,22 +6268,6 @@
     "pk": 492,
     "fields": {
       "role": 8,
-      "service": 98,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 493,
-    "fields": {
-      "role": 7,
       "service": 98,
       "disabled": 0,
       "name": null,
@@ -7897,22 +6345,6 @@
   },
   {
     "model": "user.group",
-    "pk": 498,
-    "fields": {
-      "role": 7,
-      "service": 99,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 499,
     "fields": {
       "role": 5,
@@ -7964,22 +6396,6 @@
     "pk": 502,
     "fields": {
       "role": 8,
-      "service": 100,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 503,
-    "fields": {
-      "role": 7,
       "service": 100,
       "disabled": 0,
       "name": null,
@@ -8057,22 +6473,6 @@
   },
   {
     "model": "user.group",
-    "pk": 508,
-    "fields": {
-      "role": 7,
-      "service": 101,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 509,
     "fields": {
       "role": 5,
@@ -8124,22 +6524,6 @@
     "pk": 512,
     "fields": {
       "role": 8,
-      "service": 102,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 513,
-    "fields": {
-      "role": 7,
       "service": 102,
       "disabled": 0,
       "name": null,
@@ -8217,22 +6601,6 @@
   },
   {
     "model": "user.group",
-    "pk": 518,
-    "fields": {
-      "role": 7,
-      "service": 103,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 519,
     "fields": {
       "role": 5,
@@ -8284,22 +6652,6 @@
     "pk": 522,
     "fields": {
       "role": 8,
-      "service": 104,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 523,
-    "fields": {
-      "role": 7,
       "service": 104,
       "disabled": 0,
       "name": null,
@@ -8377,22 +6729,6 @@
   },
   {
     "model": "user.group",
-    "pk": 528,
-    "fields": {
-      "role": 7,
-      "service": 105,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 529,
     "fields": {
       "role": 5,
@@ -8457,22 +6793,6 @@
   },
   {
     "model": "user.group",
-    "pk": 533,
-    "fields": {
-      "role": 7,
-      "service": 106,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 534,
     "fields": {
       "role": 5,
@@ -8524,22 +6844,6 @@
     "pk": 537,
     "fields": {
       "role": 8,
-      "service": 107,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 538,
-    "fields": {
-      "role": 7,
       "service": 107,
       "disabled": 0,
       "name": null,
@@ -9111,16 +7415,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 7,
-    "fields": {
-      "group": 7,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Solothurn",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 8,
     "fields": {
       "group": 8,
@@ -9171,16 +7465,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 13,
-    "fields": {
-      "group": 13,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Aedermannsdorf",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 14,
     "fields": {
       "group": 14,
@@ -9216,16 +7500,6 @@
       "group": 17,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Aeschi",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 18,
-    "fields": {
-      "group": 18,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Aeschi",
       "city": null
     }
   },
@@ -9271,16 +7545,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 23,
-    "fields": {
-      "group": 23,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Balm bei Günsberg",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 24,
     "fields": {
       "group": 24,
@@ -9316,16 +7580,6 @@
       "group": 27,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Balsthal",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 28,
-    "fields": {
-      "group": 28,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Balsthal",
       "city": null
     }
   },
@@ -9371,16 +7625,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 33,
-    "fields": {
-      "group": 33,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Bärschwil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 34,
     "fields": {
       "group": 34,
@@ -9416,16 +7660,6 @@
       "group": 37,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Bättwil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 38,
-    "fields": {
-      "group": 38,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Bättwil",
       "city": null
     }
   },
@@ -9471,16 +7705,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 43,
-    "fields": {
-      "group": 43,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Beinwil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 44,
     "fields": {
       "group": 44,
@@ -9516,16 +7740,6 @@
       "group": 47,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Bellach",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 48,
-    "fields": {
-      "group": 48,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Bellach",
       "city": null
     }
   },
@@ -9571,16 +7785,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 53,
-    "fields": {
-      "group": 53,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Bettlach",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 54,
     "fields": {
       "group": 54,
@@ -9616,16 +7820,6 @@
       "group": 57,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Biberist",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 58,
-    "fields": {
-      "group": 58,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Biberist",
       "city": null
     }
   },
@@ -9671,16 +7865,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 63,
-    "fields": {
-      "group": 63,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Biezwil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 64,
     "fields": {
       "group": 64,
@@ -9716,16 +7900,6 @@
       "group": 67,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Bolken",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 68,
-    "fields": {
-      "group": 68,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Bolken",
       "city": null
     }
   },
@@ -9771,16 +7945,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 73,
-    "fields": {
-      "group": 73,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Boningen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 74,
     "fields": {
       "group": 74,
@@ -9816,16 +7980,6 @@
       "group": 77,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Breitenbach",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 78,
-    "fields": {
-      "group": 78,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Breitenbach",
       "city": null
     }
   },
@@ -9871,16 +8025,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 83,
-    "fields": {
-      "group": 83,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Buchegg",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 84,
     "fields": {
       "group": 84,
@@ -9916,16 +8060,6 @@
       "group": 87,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Büren",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 88,
-    "fields": {
-      "group": 88,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Büren",
       "city": null
     }
   },
@@ -9971,16 +8105,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 93,
-    "fields": {
-      "group": 93,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Büsserach",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 94,
     "fields": {
       "group": 94,
@@ -10016,16 +8140,6 @@
       "group": 97,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Däniken",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 98,
-    "fields": {
-      "group": 98,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Däniken",
       "city": null
     }
   },
@@ -10071,16 +8185,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 103,
-    "fields": {
-      "group": 103,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Deitingen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 104,
     "fields": {
       "group": 104,
@@ -10116,16 +8220,6 @@
       "group": 107,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Derendingen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 108,
-    "fields": {
-      "group": 108,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Derendingen",
       "city": null
     }
   },
@@ -10171,16 +8265,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 113,
-    "fields": {
-      "group": 113,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Dornach",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 114,
     "fields": {
       "group": 114,
@@ -10216,16 +8300,6 @@
       "group": 117,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Drei Höfe",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 118,
-    "fields": {
-      "group": 118,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Drei Höfe",
       "city": null
     }
   },
@@ -10271,16 +8345,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 123,
-    "fields": {
-      "group": 123,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Dulliken",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 124,
     "fields": {
       "group": 124,
@@ -10316,16 +8380,6 @@
       "group": 127,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Egerkingen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 128,
-    "fields": {
-      "group": 128,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Egerkingen",
       "city": null
     }
   },
@@ -10371,16 +8425,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 133,
-    "fields": {
-      "group": 133,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Eppenberg-Wöschnau",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 134,
     "fields": {
       "group": 134,
@@ -10416,16 +8460,6 @@
       "group": 137,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Erlinsbach",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 138,
-    "fields": {
-      "group": 138,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Erlinsbach",
       "city": null
     }
   },
@@ -10471,16 +8505,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 143,
-    "fields": {
-      "group": 143,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Erschwil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 144,
     "fields": {
       "group": 144,
@@ -10516,16 +8540,6 @@
       "group": 147,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Etziken",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 148,
-    "fields": {
-      "group": 148,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Etziken",
       "city": null
     }
   },
@@ -10571,16 +8585,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 153,
-    "fields": {
-      "group": 153,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Fehren",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 154,
     "fields": {
       "group": 154,
@@ -10616,16 +8620,6 @@
       "group": 157,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Feldbrunnen-St. Niklaus",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 158,
-    "fields": {
-      "group": 158,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Feldbrunnen-St. Niklaus",
       "city": null
     }
   },
@@ -10671,16 +8665,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 163,
-    "fields": {
-      "group": 163,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Flumenthal",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 164,
     "fields": {
       "group": 164,
@@ -10716,16 +8700,6 @@
       "group": 167,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Fulenbach",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 168,
-    "fields": {
-      "group": 168,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Fulenbach",
       "city": null
     }
   },
@@ -10771,16 +8745,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 173,
-    "fields": {
-      "group": 173,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Gempen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 174,
     "fields": {
       "group": 174,
@@ -10816,16 +8780,6 @@
       "group": 177,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Gerlafingen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 178,
-    "fields": {
-      "group": 178,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Gerlafingen",
       "city": null
     }
   },
@@ -10871,16 +8825,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 183,
-    "fields": {
-      "group": 183,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Grenchen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 184,
     "fields": {
       "group": 184,
@@ -10916,16 +8860,6 @@
       "group": 187,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Gretzenbach",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 188,
-    "fields": {
-      "group": 188,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Gretzenbach",
       "city": null
     }
   },
@@ -10971,16 +8905,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 193,
-    "fields": {
-      "group": 193,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Grindel",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 194,
     "fields": {
       "group": 194,
@@ -11016,16 +8940,6 @@
       "group": 197,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Günsberg",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 198,
-    "fields": {
-      "group": 198,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Günsberg",
       "city": null
     }
   },
@@ -11071,16 +8985,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 203,
-    "fields": {
-      "group": 203,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Gunzgen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 204,
     "fields": {
       "group": 204,
@@ -11116,16 +9020,6 @@
       "group": 207,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Hägendorf",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 208,
-    "fields": {
-      "group": 208,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Hägendorf",
       "city": null
     }
   },
@@ -11171,16 +9065,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 213,
-    "fields": {
-      "group": 213,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Halten",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 214,
     "fields": {
       "group": 214,
@@ -11216,16 +9100,6 @@
       "group": 217,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Härkingen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 218,
-    "fields": {
-      "group": 218,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Härkingen",
       "city": null
     }
   },
@@ -11271,16 +9145,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 223,
-    "fields": {
-      "group": 223,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Hauenstein-Ifenthal",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 224,
     "fields": {
       "group": 224,
@@ -11316,16 +9180,6 @@
       "group": 227,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Herbetswil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 228,
-    "fields": {
-      "group": 228,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Herbetswil",
       "city": null
     }
   },
@@ -11371,16 +9225,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 233,
-    "fields": {
-      "group": 233,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Himmelried",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 234,
     "fields": {
       "group": 234,
@@ -11416,16 +9260,6 @@
       "group": 237,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Hochwald",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 238,
-    "fields": {
-      "group": 238,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Hochwald",
       "city": null
     }
   },
@@ -11471,16 +9305,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 243,
-    "fields": {
-      "group": 243,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Hofstetten-Flüh",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 244,
     "fields": {
       "group": 244,
@@ -11516,16 +9340,6 @@
       "group": 247,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Holderbank",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 248,
-    "fields": {
-      "group": 248,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Holderbank",
       "city": null
     }
   },
@@ -11571,16 +9385,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 253,
-    "fields": {
-      "group": 253,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Horriwil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 254,
     "fields": {
       "group": 254,
@@ -11616,16 +9420,6 @@
       "group": 257,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Hubersdorf",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 258,
-    "fields": {
-      "group": 258,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Hubersdorf",
       "city": null
     }
   },
@@ -11671,16 +9465,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 263,
-    "fields": {
-      "group": 263,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Hüniken",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 264,
     "fields": {
       "group": 264,
@@ -11716,16 +9500,6 @@
       "group": 267,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Kammersrohr",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 268,
-    "fields": {
-      "group": 268,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Kammersrohr",
       "city": null
     }
   },
@@ -11771,16 +9545,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 273,
-    "fields": {
-      "group": 273,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Kappel",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 274,
     "fields": {
       "group": 274,
@@ -11816,16 +9580,6 @@
       "group": 277,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Kestenholz",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 278,
-    "fields": {
-      "group": 278,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Kestenholz",
       "city": null
     }
   },
@@ -11871,16 +9625,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 283,
-    "fields": {
-      "group": 283,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Kienberg",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 284,
     "fields": {
       "group": 284,
@@ -11916,16 +9660,6 @@
       "group": 287,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Kleinlützel",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 288,
-    "fields": {
-      "group": 288,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Kleinlützel",
       "city": null
     }
   },
@@ -11971,16 +9705,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 293,
-    "fields": {
-      "group": 293,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Kriegstetten",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 294,
     "fields": {
       "group": 294,
@@ -12016,16 +9740,6 @@
       "group": 297,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Langendorf",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 298,
-    "fields": {
-      "group": 298,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Langendorf",
       "city": null
     }
   },
@@ -12071,16 +9785,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 303,
-    "fields": {
-      "group": 303,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Laupersdorf",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 304,
     "fields": {
       "group": 304,
@@ -12116,16 +9820,6 @@
       "group": 307,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Lohn-Ammannsegg",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 308,
-    "fields": {
-      "group": 308,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Lohn-Ammannsegg",
       "city": null
     }
   },
@@ -12171,16 +9865,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 313,
-    "fields": {
-      "group": 313,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Lommiswil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 314,
     "fields": {
       "group": 314,
@@ -12216,16 +9900,6 @@
       "group": 317,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Lostorf",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 318,
-    "fields": {
-      "group": 318,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Lostorf",
       "city": null
     }
   },
@@ -12271,16 +9945,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 323,
-    "fields": {
-      "group": 323,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Lüsslingen-Nennigkofen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 324,
     "fields": {
       "group": 324,
@@ -12316,16 +9980,6 @@
       "group": 327,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Luterbach",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 328,
-    "fields": {
-      "group": 328,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Luterbach",
       "city": null
     }
   },
@@ -12371,16 +10025,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 333,
-    "fields": {
-      "group": 333,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Lüterkofen-Ichertswil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 339,
     "fields": {
       "group": 339,
@@ -12416,16 +10060,6 @@
       "group": 342,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Matzendorf",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 343,
-    "fields": {
-      "group": 343,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Matzendorf",
       "city": null
     }
   },
@@ -12471,16 +10105,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 348,
-    "fields": {
-      "group": 348,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Meltingen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 349,
     "fields": {
       "group": 349,
@@ -12516,16 +10140,6 @@
       "group": 352,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Messen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 353,
-    "fields": {
-      "group": 353,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Messen",
       "city": null
     }
   },
@@ -12571,16 +10185,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 358,
-    "fields": {
-      "group": 358,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Metzerlen-Mariastein",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 359,
     "fields": {
       "group": 359,
@@ -12616,16 +10220,6 @@
       "group": 362,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Mümliswil-Ramiswil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 363,
-    "fields": {
-      "group": 363,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Mümliswil-Ramiswil",
       "city": null
     }
   },
@@ -12671,16 +10265,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 368,
-    "fields": {
-      "group": 368,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Neuendorf",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 369,
     "fields": {
       "group": 369,
@@ -12716,16 +10300,6 @@
       "group": 372,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Niederbuchsiten",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 373,
-    "fields": {
-      "group": 373,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Niederbuchsiten",
       "city": null
     }
   },
@@ -12771,16 +10345,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 378,
-    "fields": {
-      "group": 378,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Niedergösgen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 379,
     "fields": {
       "group": 379,
@@ -12816,16 +10380,6 @@
       "group": 382,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Nuglar-St. Pantaleon",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 383,
-    "fields": {
-      "group": 383,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Nuglar-St. Pantaleon",
       "city": null
     }
   },
@@ -12871,16 +10425,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 388,
-    "fields": {
-      "group": 388,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Nunningen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 389,
     "fields": {
       "group": 389,
@@ -12916,16 +10460,6 @@
       "group": 392,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Oberbuchsiten",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 393,
-    "fields": {
-      "group": 393,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Oberbuchsiten",
       "city": null
     }
   },
@@ -12971,16 +10505,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 398,
-    "fields": {
-      "group": 398,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Oberdorf",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 399,
     "fields": {
       "group": 399,
@@ -13016,16 +10540,6 @@
       "group": 402,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Obergerlafingen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 403,
-    "fields": {
-      "group": 403,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Obergerlafingen",
       "city": null
     }
   },
@@ -13071,16 +10585,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 408,
-    "fields": {
-      "group": 408,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Obergösgen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 409,
     "fields": {
       "group": 409,
@@ -13116,16 +10620,6 @@
       "group": 412,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Oekingen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 413,
-    "fields": {
-      "group": 413,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Oekingen",
       "city": null
     }
   },
@@ -13171,16 +10665,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 418,
-    "fields": {
-      "group": 418,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Oensingen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 419,
     "fields": {
       "group": 419,
@@ -13216,16 +10700,6 @@
       "group": 422,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Olten",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 423,
-    "fields": {
-      "group": 423,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Olten",
       "city": null
     }
   },
@@ -13271,16 +10745,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 428,
-    "fields": {
-      "group": 428,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Recherswil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 429,
     "fields": {
       "group": 429,
@@ -13316,16 +10780,6 @@
       "group": 432,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Rickenbach",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 433,
-    "fields": {
-      "group": 433,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Rickenbach",
       "city": null
     }
   },
@@ -13371,16 +10825,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 438,
-    "fields": {
-      "group": 438,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Riedholz",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 439,
     "fields": {
       "group": 439,
@@ -13416,16 +10860,6 @@
       "group": 442,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Rodersdorf",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 443,
-    "fields": {
-      "group": 443,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Rodersdorf",
       "city": null
     }
   },
@@ -13471,16 +10905,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 448,
-    "fields": {
-      "group": 448,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Rüttenen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 449,
     "fields": {
       "group": 449,
@@ -13516,16 +10940,6 @@
       "group": 452,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Schnottwil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 453,
-    "fields": {
-      "group": 453,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Schnottwil",
       "city": null
     }
   },
@@ -13571,16 +10985,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 458,
-    "fields": {
-      "group": 458,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Schönenwerd",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 459,
     "fields": {
       "group": 459,
@@ -13616,16 +11020,6 @@
       "group": 462,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Seewen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 463,
-    "fields": {
-      "group": 463,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Seewen",
       "city": null
     }
   },
@@ -13671,16 +11065,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 468,
-    "fields": {
-      "group": 468,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Selzach",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 469,
     "fields": {
       "group": 469,
@@ -13716,16 +11100,6 @@
       "group": 472,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Starrkirch-Wil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 473,
-    "fields": {
-      "group": 473,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Starrkirch-Wil",
       "city": null
     }
   },
@@ -13771,16 +11145,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 478,
-    "fields": {
-      "group": 478,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Stüsslingen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 479,
     "fields": {
       "group": 479,
@@ -13816,16 +11180,6 @@
       "group": 482,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Subingen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 483,
-    "fields": {
-      "group": 483,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Subingen",
       "city": null
     }
   },
@@ -13871,16 +11225,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 488,
-    "fields": {
-      "group": 488,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Trimbach",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 489,
     "fields": {
       "group": 489,
@@ -13916,16 +11260,6 @@
       "group": 492,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Unterramsern",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 493,
-    "fields": {
-      "group": 493,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Unterramsern",
       "city": null
     }
   },
@@ -13971,16 +11305,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 498,
-    "fields": {
-      "group": 498,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Walterswil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 499,
     "fields": {
       "group": 499,
@@ -14016,16 +11340,6 @@
       "group": 502,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Wangen bei Olten",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 503,
-    "fields": {
-      "group": 503,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Wangen bei Olten",
       "city": null
     }
   },
@@ -14071,16 +11385,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 508,
-    "fields": {
-      "group": 508,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Welschenrohr-Gänsbrunnen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 509,
     "fields": {
       "group": 509,
@@ -14116,16 +11420,6 @@
       "group": 512,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Winznau",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 513,
-    "fields": {
-      "group": 513,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Winznau",
       "city": null
     }
   },
@@ -14171,16 +11465,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 518,
-    "fields": {
-      "group": 518,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Wisen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 519,
     "fields": {
       "group": 519,
@@ -14216,16 +11500,6 @@
       "group": 522,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Witterswil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 523,
-    "fields": {
-      "group": 523,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Witterswil",
       "city": null
     }
   },
@@ -14271,16 +11545,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 528,
-    "fields": {
-      "group": 528,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Wolfwil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 529,
     "fields": {
       "group": 529,
@@ -14321,16 +11585,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 533,
-    "fields": {
-      "group": 533,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Zuchwil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 534,
     "fields": {
       "group": 534,
@@ -14366,16 +11620,6 @@
       "group": 537,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde Zullwil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 538,
-    "fields": {
-      "group": 538,
-      "language": "de",
-      "name": "Baubegleitung Gemeinde Zullwil",
       "city": null
     }
   },
@@ -14838,17 +12082,6 @@
       "group": 3,
       "default_group": 1,
       "created_at": "2024-03-28T11:32:23.996Z",
-      "created_by": 1
-    }
-  },
-  {
-    "model": "user.usergroup",
-    "pk": 13,
-    "fields": {
-      "user": 1,
-      "group": 7,
-      "default_group": 0,
-      "created_at": "2024-04-17T13:54:29.285Z",
       "created_by": 1
     }
   },
