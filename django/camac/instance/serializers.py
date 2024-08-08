@@ -51,7 +51,10 @@ from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.utils import copy_instance, fill_ebau_number
 from camac.notification.utils import send_mail, send_mail_without_request
 from camac.permissions import api as permissions_api, events as permissions_events
-from camac.permissions.switcher import permission_switching_method
+from camac.permissions.switcher import (
+    is_permission_mode_fully_enabled,
+    permission_switching_method,
+)
 from camac.responsible.domain_logic import ResponsibleServiceDomainLogic
 from camac.responsible.models import ResponsibleService
 from camac.tags.models import Keyword
@@ -1145,6 +1148,24 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             is_modification = is_modification or caluma_api.is_modification(
                 source_instance
             )
+
+            # The "instance-copy-after-rejection" permission must only be
+            # checked if we are copying an instance that is not a modification
+            # and the source instance is actually rejected. This is necessary,
+            # because otherwise we'd check it on project modifications and
+            # convertions of preliminary clarifications to building permits.
+            # Those use-cases will have their own permission checks in the
+            # future.
+            if (
+                is_permission_mode_fully_enabled()
+                and settings.REJECTION
+                and not is_modification
+                and source_instance.instance_state.name
+                == settings.REJECTION["INSTANCE_STATE"]
+            ):
+                permissions_api.PermissionManager.from_request(
+                    self.context["request"]
+                ).require_all(source_instance, "instance-copy-after-rejection")
 
             # when making copies, the form ID remains the same
             validated_data["form"] = source_instance.form

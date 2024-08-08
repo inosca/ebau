@@ -147,6 +147,9 @@ MODULE_PORTAL_CONSTRUCTION_MONITORING_WRITE = (
     MODULE_PORTAL_CONSTRUCTION_MONITORING_READ & HasApplicantRole(["ADMIN", "EDITOR"])
 )
 
+ACTION_INSTANCE_COPY_AFTER_REJECTION = RequireInstanceState(["rejected"]) & (
+    HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
+)
 ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & (
     HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
@@ -190,6 +193,7 @@ SO_PERMISSIONS_SETTINGS = {
                 "grant-municipality-before-submission",
                 MODULE_PORTAL_APPLICANTS & RequireInstanceState(["new"]),
             ),
+            ("instance-copy-after-rejection", ACTION_INSTANCE_COPY_AFTER_REJECTION),
             ("instance-delete", ACTION_INSTANCE_DELETE),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
             ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
@@ -242,6 +246,7 @@ SO_PERMISSIONS_SETTINGS = {
             ),
             ("formal-exam-read", MODULE_FORMAL_EXAM),
             ("history-read", MODULE_HISTORY),
+            ("instance-copy-after-rejection", ACTION_INSTANCE_COPY_AFTER_REJECTION),
             ("instance-delete", ACTION_INSTANCE_DELETE),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
             ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
