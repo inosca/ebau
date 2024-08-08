@@ -1010,3 +1010,39 @@ def test_suspend_circulation_based_on_complete_check(
     )
     distribution_init_work_item.refresh_from_db()
     assert distribution_init_work_item.status == expected_status
+
+
+def test_post_create_review_building_commission(
+    case_factory,
+    work_item_factory,
+    document_factory,
+    answer_factory,
+    caluma_admin_user,
+    set_application_ur,
+):
+    caluma_case = case_factory()
+    release_work_item = work_item_factory(
+        task__slug="release-for-bk", case=caluma_case, document=document_factory()
+    )
+    review_work_item = work_item_factory(
+        task__slug="review-building-commission",
+        case=caluma_case,
+        document=document_factory(),
+    )
+    answer_factory(
+        document=release_work_item.document,
+        question__slug="release-for-bk-meeting-date",
+        date="2023-01-01",
+    )
+
+    desired_work_item_name = f"{review_work_item.name} (BK Sitzung: 01.01.2023)"
+
+    send_event(
+        post_create_work_item,
+        sender="post_create_work_item",
+        work_item=review_work_item,
+        user=caluma_admin_user,
+        context={},
+    )
+
+    assert review_work_item.name.de == desired_work_item_name
