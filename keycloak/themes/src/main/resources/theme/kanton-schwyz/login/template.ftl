@@ -42,11 +42,10 @@
 
 <body class="${properties.kcBodyClass!}">
   <div class="${properties.kcLoginClass!}">
-    <div class="copyright">
-       <a href="https://www.reasyvisuals.com/" target="_blank" rel="noopener noreferrer">© M. Risi</a>
-    </div>
     <div id="kc-header" class="${properties.kcHeaderClass!}">
-      <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}"><div class="urec-logo"></div><div class="ur-logo"></div></div>
+      <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">
+        <div class="sz-logo"></div>
+      </div>
     </div>
     <#-- add custom class for login page to allow "moving" the buttons out of the white container in CSS -->
     <div class="${properties.kcFormCardClass!} <#if displayWide>${properties.kcFormCardAccountClass!}</#if> <#if isLogin>is-login-page</#if>">
@@ -67,6 +66,10 @@
         </#if>
         <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
             <#if displayRequiredFields>
+                <#-- CHANGE: remove "required fields" label -->
+                <#--<div class="${properties.kcLabelWrapperClass!} subtitle">-->
+                    <#--<span class="subtitle"><span class="required">*</span> ${msg("requiredFields")}</span>-->
+                <#--</div>-->
                 <div class="${properties.kcContentWrapperClass!}">
                     <div class="col-md-10">
                         <h1 id="kc-page-title"><#nested "header"></h1>

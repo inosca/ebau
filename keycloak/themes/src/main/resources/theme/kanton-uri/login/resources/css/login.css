@@ -9981,7 +9981,8 @@ h2,
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  min-height: 100vh; }
+  min-height: 100vh;
+  overflow: hidden; }
 
 h1 {
   margin-top: 2rem; }
@@ -10084,7 +10085,7 @@ h1 {
   background-image: url("../img/map.svg"); }
 
 .copyright {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   font-size: 12px;
   padding: 0.5rem; }

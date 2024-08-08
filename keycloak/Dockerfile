@@ -1,4 +1,4 @@
-ARG VERSION=22.0.1
+ARG VERSION=25.0
 
 # stage 1: build keycloak themes using maven
 # based on https://docs.docker.com/language/java/build-images/
@@ -26,7 +26,7 @@ ENV KC_HOSTNAME_STRICT_HTTPS=false
 ENV KC_HTTP_ENABLED=true
 ENV KC_HTTP_RELATIVE_PATH=/auth
 ENV KC_LOG_LEVEL=warn
-ENV KC_PROXY=edge
+ENV KC_PROXY_HEADERS=xforwarded
 ENV KC_CACHE_CONFIG_FILE=cache-ispn-tcpstatic.xml
 ENV KC_TRANSACTION_XA_ENABLED=false
 

@@ -1,4 +1,4 @@
-<#-- Copy of https://github.com/keycloak/keycloak/blob/release/25.0/themes/src/main/resources/theme/base/login/register.ftl -->
+<#-- Copy of https://github.com/keycloak/keycloak/blob/dc9de96f7b82b9ca97532cf985a2fe8f9e11e7fe/themes/src/main/resources/theme/base/login/register.ftl -->
 <#-- Changes are highlighted with "CHANGE:" -->
 <#import "template.ftl" as layout>
 <#import "user-profile-commons.ftl" as userProfileCommons>
@@ -28,12 +28,7 @@
                                            autocomplete="new-password"
                                            aria-invalid="<#if messagesPerField.existsError('password','password-confirm')>true</#if>"
                                     />
-                                    <button class="${properties.kcFormPasswordVisibilityButtonClass!}" type="button" aria-label="${msg('showPassword')}"
-                                            aria-controls="password"  data-password-toggle
-                                            data-icon-show="${properties.kcFormPasswordVisibilityIconShow!}" data-icon-hide="${properties.kcFormPasswordVisibilityIconHide!}"
-                                            data-label-show="${msg('showPassword')}" data-label-hide="${msg('hidePassword')}">
-                                        <i class="${properties.kcFormPasswordVisibilityIconShow!}" aria-hidden="true"></i>
-                                    </button>
+                                    <#-- CHANGE: remove password visibility toggle -->
                                 </div>
 
                                 <#if messagesPerField.existsError('password')>
@@ -41,8 +36,6 @@
 		                                ${kcSanitize(messagesPerField.get('password'))?no_esc}
 		                            </span>
                                 </#if>
-                                <#-- CHANGE: add hint about password policy -->
-                                <span class="uk-text-small uk-text-muted">${msg("passwordHint")}</span>
                             </div>
                         </div>
 
@@ -58,12 +51,7 @@
                                            name="password-confirm"
                                            aria-invalid="<#if messagesPerField.existsError('password-confirm')>true</#if>"
                                     />
-                                    <button class="${properties.kcFormPasswordVisibilityButtonClass!}" type="button" aria-label="${msg('showPassword')}"
-                                            aria-controls="password-confirm"  data-password-toggle
-                                            data-icon-show="${properties.kcFormPasswordVisibilityIconShow!}" data-icon-hide="${properties.kcFormPasswordVisibilityIconHide!}"
-                                            data-label-show="${msg('showPassword')}" data-label-hide="${msg('hidePassword')}">
-                                        <i class="${properties.kcFormPasswordVisibilityIconShow!}" aria-hidden="true"></i>
-                                    </button>
+                                    <#-- CHANGE: remove password visibility toggle -->
                                 </div>
 
                                 <#if messagesPerField.existsError('password-confirm')>
