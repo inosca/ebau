@@ -31,7 +31,13 @@ permissions:
     createdAt: Erstellt am
     createdBy: Erstellt von
     revokedBy: Entzogen von
-    managedBySystem: Automatische Systemverwaltung
+    system: System
+    systemEvent: System ({event})
+
+  events:
+    dossier-retrieved: Dossier geöffnet
+    inquiry-sent: Zirkulationseinladung
+    inquiry-completed: Stellungnahme abgegeben
 
   status:
     active: Aktiv
