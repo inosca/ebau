@@ -1,3 +1,4 @@
+import re
 from datetime import timedelta
 
 import pytest
@@ -343,6 +344,7 @@ def test_submit_create_acl_be(
     permissions_settings,
     is_paper,
     utils,
+    caplog,
 ):
     # ensure we can submit
     be_instance.instance_state.name = "new"
@@ -371,7 +373,7 @@ def test_submit_create_acl_be(
         "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
     )
 
-    be_permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.CHECKING
+    be_permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.LOGGING
 
     # Ensure our user is applicant (both old and new permission style)
     be_instance.involved_applicants.create(
@@ -392,6 +394,25 @@ def test_submit_create_acl_be(
 
     resp = admin_client.post(url)
     assert resp.status_code == status.HTTP_200_OK
+
+    # We currently expect certain discrepancies as the applicant permissions for
+    # Kt. BE are not fully configured yet.
+    expected_discrepancies = {
+        "InstanceView.has_object_submit_permission",
+        "CalumaInstanceSerializer.get_permissions",
+    }
+
+    logged_discrepancies = set(
+        [
+            re.match(r"Permissions module discrepancy in `(.*)`", message).group(1)
+            for message in caplog.messages
+            if message.startswith("Permissions module discrepancy")
+        ]
+    )
+
+    assert (
+        logged_discrepancies == expected_discrepancies
+    ), "There are permissions module discrepancies that are either unexpected or are expected but weren't logged"
 
     # After submission, there must be municipality access unless it's a paper instance
     if is_paper:

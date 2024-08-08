@@ -1,15 +1,12 @@
 from datetime import date
 
 import pytest
-from caluma.caluma_form.api import save_answer
-from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.api import skip_work_item
 from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
 from rest_framework import status
 
 from camac.core.models import HistoryActionConfig
-from camac.instance.domain_logic import WithdrawalLogic
 
 
 @pytest.fixture
@@ -44,54 +41,6 @@ def publications(so_instance, so_publication_settings, utils, work_item_factory)
     return work_items
 
 
-@pytest.mark.parametrize(
-    "instance_state__name,role__name,is_applicant,is_paper,has_permission",
-    [
-        ("subm", "Applicant", True, False, True),
-        ("subm", "Municipality", False, True, True),
-        ("subm", "Municipality", False, False, False),  # not paper instance
-        ("decision", "Applicant", True, False, False),  # wrong instance state
-        ("subm", "Support", True, False, False),  # wrong role
-        ("subm", "Applicant", False, False, False),  # not an applicant
-    ],
-)
-def test_has_permission(
-    db,
-    admin_user,
-    applicant_factory,
-    caluma_admin_user,
-    group,
-    has_permission,
-    is_applicant,
-    is_paper,
-    so_instance,
-):
-    if is_applicant:
-        applicant_factory(instance=so_instance, invitee=admin_user)
-
-    if is_paper:
-        save_answer(
-            document=so_instance.case.document,
-            question=Question.objects.get(pk="is-paper"),
-            value="is-paper-yes",
-            user=caluma_admin_user,
-        )
-
-    assert (
-        WithdrawalLogic.has_permission(so_instance, admin_user, group) == has_permission
-    )
-
-
-def test_has_permission_module_disabled(
-    db,
-    so_instance,
-    admin_user,
-    group,
-    disable_withdrawal_settings,
-):
-    assert not WithdrawalLogic.has_permission(so_instance, admin_user, group)
-
-
 @pytest.mark.freeze_time("2024-04-15", tick=True)
 @pytest.mark.parametrize("role__name", ["applicant"])
 @pytest.mark.parametrize(
@@ -122,6 +71,7 @@ def test_withdraw_instance(
     has_publications,
     request,
     so_ech0211_settings,
+    grant_all_permissions,
 ):
     so_instance.involved_applicants.all().delete()
     applicant_factory(instance=so_instance, invitee=admin_user)

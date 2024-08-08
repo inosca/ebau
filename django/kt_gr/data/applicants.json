@@ -7,7 +7,8 @@
       "user": 1,
       "invitee": 1,
       "created": "2023-10-27T08:50:33.083Z",
-      "email": "admin@example.com"
+      "email": "admin@example.com",
+      "role": "ADMIN"
     }
   },
   {
@@ -18,7 +19,8 @@
       "user": 1,
       "invitee": 1,
       "created": "2023-10-27T08:54:10.511Z",
-      "email": "admin@example.com"
+      "email": "admin@example.com",
+      "role": "ADMIN"
     }
   }
 ]

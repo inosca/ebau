@@ -37,6 +37,7 @@ export function isInstanceService(instance, serviceId) {
 
 export default class InstanceAbility extends Ability {
   @service ebauModules;
+  @service permissions;
 
   // BE
   get canSetEbauNumber() {
@@ -133,14 +134,7 @@ export default class InstanceAbility extends Ability {
     return isAuthority(this.model, this.ebauModules.serviceId);
   }
 
-  get canWithdraw() {
-    return (
-      this.model.isPaper &&
-      isAuthority(this.model, this.ebauModules.serviceId) &&
-      hasInstanceState(
-        this.model,
-        mainConfig.withdrawal?.allowedInstanceStates ?? [],
-      )
-    );
+  async canWithdraw() {
+    return await this.permissions.hasAll(this.model?.id, "instance-withdraw");
   }
 }

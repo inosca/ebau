@@ -5,11 +5,15 @@ import config from "caluma-portal/config/environment";
 
 export default class ProtectedRoute extends Route {
   @service session;
+  @service permissions;
 
-  beforeModel(transition) {
-    this.session.requireAuthentication(
+  async beforeModel(transition) {
+    await this.session.requireAuthentication(
       transition,
       config["ember-simple-auth-oidc"].afterLogoutUri,
     );
+    if (this.session.isAuthenticated) {
+      await this.permissions.setup();
+    }
   }
 }

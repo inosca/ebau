@@ -10,11 +10,16 @@ export default class BeSubmitInstanceComponent extends DocumentValidityButtonCom
   @service router;
   @service fetch;
   @service session;
+  @service permissions;
 
   validateOnEnter = true;
   showLoadingHint = true;
   showButtonHint = true;
   type = "submit";
+
+  get requiredPermissions() {
+    return this.permissions.fullyEnabled ? ["instance-submit"] : null;
+  }
 
   @dropTask
   *afterValidate() {

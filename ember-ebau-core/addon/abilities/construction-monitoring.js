@@ -4,26 +4,47 @@ import { Ability } from "ember-can";
 export default class ConstructionMonitoringAbility extends Ability {
   @service ebauModules;
   @service constructionMonitoring;
+  @service permissions;
 
-  get canInitialize() {
+  async canInitialize() {
     const workItem = this.constructionMonitoring.controls.init;
-    return (
-      !this.ebauModules.isReadOnlyRole &&
-      workItem?.status === "READY" &&
-      workItem?.addressedGroups
-        .map((id) => parseInt(id))
-        .includes(parseInt(this.ebauModules.serviceId))
-    );
+    const isReady = workItem?.status === "READY";
+    const isAddressed = workItem?.addressedGroups
+      .map((id) => parseInt(id))
+      .includes(parseInt(this.ebauModules.serviceId));
+
+    if (this.permissions.fullyEnabled) {
+      return (
+        (await this.permissions.hasAll(
+          this.ebauModules.instanceId,
+          "construction-monitoring-write",
+        )) &&
+        isReady &&
+        isAddressed
+      );
+    }
+
+    return !this.ebauModules.isReadOnlyRole && isReady && isAddressed;
   }
 
-  get canComplete() {
+  async canComplete() {
     const workItem = this.constructionMonitoring.controls.complete;
-    return (
-      !this.ebauModules.isReadOnlyRole &&
-      workItem?.status === "READY" &&
-      workItem?.addressedGroups
-        .map((id) => parseInt(id))
-        .includes(parseInt(this.ebauModules.serviceId))
-    );
+    const isReady = workItem?.status === "READY";
+    const isAddressed = workItem?.addressedGroups
+      .map((id) => parseInt(id))
+      .includes(parseInt(this.ebauModules.serviceId));
+
+    if (this.permissions.fullyEnabled) {
+      return (
+        (await this.permissions.hasAll(
+          this.ebauModules.instanceId,
+          "construction-monitoring-write",
+        )) &&
+        isReady &&
+        isAddressed
+      );
+    }
+
+    return !this.ebauModules.isReadOnlyRole && isReady && isAddressed;
   }
 }

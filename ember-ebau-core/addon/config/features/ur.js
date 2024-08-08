@@ -6,4 +6,5 @@ export default {
     disableAuthentication: true,
   },
   constructionMonitoring: true,
+  additionalDemands: true,
 };

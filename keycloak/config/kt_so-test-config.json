@@ -2041,14 +2041,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
+              "saml-user-property-mapper",
               "saml-user-attribute-mapper",
               "oidc-full-name-mapper",
-              "oidc-sha256-pairwise-sub-mapper",
               "oidc-usermodel-property-mapper",
+              "oidc-sha256-pairwise-sub-mapper",
               "oidc-address-mapper",
-              "saml-user-property-mapper",
-              "saml-role-list-mapper",
-              "oidc-usermodel-attribute-mapper"
+              "oidc-usermodel-attribute-mapper",
+              "saml-role-list-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -2072,14 +2072,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "saml-user-attribute-mapper",
-              "oidc-usermodel-attribute-mapper",
               "oidc-sha256-pairwise-sub-mapper",
               "saml-user-property-mapper",
-              "oidc-full-name-mapper",
+              "oidc-usermodel-attribute-mapper",
               "oidc-address-mapper",
+              "oidc-usermodel-property-mapper",
+              "saml-user-attribute-mapper",
               "saml-role-list-mapper",
-              "oidc-usermodel-property-mapper"
+              "oidc-full-name-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -3291,6 +3291,35 @@
         "groups": []
       },
       {
+        "id": "a6643bd6-e883-4187-bc91-cf3a4b56adc9",
+        "username": "editor",
+        "firstName": "Applicant",
+        "lastName": "Editor",
+        "email": "editor@example.com",
+        "emailVerified": true,
+        "attributes": {
+          "locale": ["de"]
+        },
+        "createdTimestamp": 1723042454702,
+        "enabled": true,
+        "totp": false,
+        "credentials": [
+          {
+            "id": "8fc319a7-136a-49f1-aef2-51f80d53e92f",
+            "type": "password",
+            "userLabel": "My password",
+            "createdDate": 1723042466260,
+            "secretData": "{\"value\":\"c8mMix9f9RqKNewiCpLzlgYu3yqgzjX7lbXS+JGfRvsFHcN22Evl6IAfqmvzklnFz9mcRVyXMW12mXlOqkjWrA==\",\"salt\":\"B0XDupFSCXi6A0vHYE1GgQ==\",\"additionalParameters\":{}}",
+            "credentialData": "{\"hashIterations\":210000,\"algorithm\":\"pbkdf2-sha512\",\"additionalParameters\":{}}"
+          }
+        ],
+        "disableableCredentialTypes": [],
+        "requiredActions": [],
+        "realmRoles": ["default-roles-ebau"],
+        "notBefore": 0,
+        "groups": []
+      },
+      {
         "id": "62356894-0062-4357-b372-e13465620879",
         "username": "egov:1",
         "firstName": "John",
@@ -3318,6 +3347,35 @@
         "enabled": true,
         "totp": false,
         "credentials": [],
+        "disableableCredentialTypes": [],
+        "requiredActions": [],
+        "realmRoles": ["default-roles-ebau"],
+        "notBefore": 0,
+        "groups": []
+      },
+      {
+        "id": "75b5c1f9-329c-4b34-a145-84482b6e4cb5",
+        "username": "readonly",
+        "firstName": "Applicant",
+        "lastName": "Readonly",
+        "email": "readonly@example.com",
+        "emailVerified": true,
+        "attributes": {
+          "locale": ["de"]
+        },
+        "createdTimestamp": 1723042485499,
+        "enabled": true,
+        "totp": false,
+        "credentials": [
+          {
+            "id": "6d655bb7-9470-487c-9b91-ee81f0fff9d0",
+            "type": "password",
+            "userLabel": "My password",
+            "createdDate": 1723042494111,
+            "secretData": "{\"value\":\"O9QRZYpW3MD5IYc6jDDSly7cN3E63zmIu4Wdi3N/vkdSnrumt7B/21TD7kl8QI6GIHsRFtOf7B4b+MnbpxPmdQ==\",\"salt\":\"M29/PLydHH0vaExJhf/wMw==\",\"additionalParameters\":{}}",
+            "credentialData": "{\"hashIterations\":210000,\"algorithm\":\"pbkdf2-sha512\",\"additionalParameters\":{}}"
+          }
+        ],
         "disableableCredentialTypes": [],
         "requiredActions": [],
         "realmRoles": ["default-roles-ebau"],
@@ -4824,6 +4882,17 @@
               }
             },
             {
+              "id": "8b8650f4-3a96-440d-8bf7-49ea85bb27f3",
+              "name": "view.permission.users",
+              "type": "scope",
+              "logic": "POSITIVE",
+              "decisionStrategy": "UNANIMOUS",
+              "config": {
+                "resources": "[\"Users\"]",
+                "scopes": "[\"view\"]"
+              }
+            },
+            {
               "id": "9f394a03-add8-4e50-8510-a300d1518186",
               "name": "token-exchange.permission.client.e1610afe-fdf2-43b5-bdb3-09f0ee5d9f1b",
               "description": "",
@@ -4834,17 +4903,6 @@
                 "resources": "[\"client.resource.e1610afe-fdf2-43b5-bdb3-09f0ee5d9f1b\"]",
                 "scopes": "[\"token-exchange\"]",
                 "applyPolicies": "[\"token-exchange\"]"
-              }
-            },
-            {
-              "id": "8b8650f4-3a96-440d-8bf7-49ea85bb27f3",
-              "name": "view.permission.users",
-              "type": "scope",
-              "logic": "POSITIVE",
-              "decisionStrategy": "UNANIMOUS",
-              "config": {
-                "resources": "[\"Users\"]",
-                "scopes": "[\"view\"]"
               }
             },
             {
@@ -5267,9 +5325,9 @@
         "clientAuthenticatorType": "client-secret",
         "secret": "76e3ScwJqsP0EMsYHKmEyBjlE1bNeOU1",
         "redirectUris": [
+          "http://ebau-portal.local/*",
           "http://egov.local/*",
-          "http://localhost:4200/*",
-          "http://ebau-portal.local/*"
+          "http://localhost:4200/*"
         ],
         "webOrigins": ["+"],
         "notBefore": 0,
@@ -6077,12 +6135,12 @@
           "config": {
             "allowed-protocol-mapper-types": [
               "saml-user-attribute-mapper",
-              "oidc-usermodel-attribute-mapper",
-              "oidc-full-name-mapper",
-              "saml-role-list-mapper",
-              "oidc-usermodel-property-mapper",
-              "oidc-sha256-pairwise-sub-mapper",
               "oidc-address-mapper",
+              "oidc-sha256-pairwise-sub-mapper",
+              "oidc-usermodel-property-mapper",
+              "saml-role-list-mapper",
+              "oidc-full-name-mapper",
+              "oidc-usermodel-attribute-mapper",
               "saml-user-property-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
@@ -6153,14 +6211,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "saml-user-property-mapper",
-              "oidc-full-name-mapper",
+              "oidc-sha256-pairwise-sub-mapper",
               "oidc-usermodel-attribute-mapper",
               "saml-role-list-mapper",
+              "saml-user-property-mapper",
+              "oidc-address-mapper",
+              "oidc-full-name-mapper",
               "oidc-usermodel-property-mapper",
-              "oidc-sha256-pairwise-sub-mapper",
-              "saml-user-attribute-mapper",
-              "oidc-address-mapper"
+              "saml-user-attribute-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }

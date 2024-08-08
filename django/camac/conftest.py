@@ -1985,3 +1985,11 @@ def mock_tika(mocker):
 def vcr_cassette_dir(request):
     module = request.node.fspath
     return os.path.join(module.dirname, "cassettes")
+
+
+@pytest.fixture
+def grant_all_permissions(mocker):
+    mocker.patch("camac.permissions.api.PermissionManager.has_any", return_value=True)
+    mocker.patch("camac.permissions.api.PermissionManager.has_all", return_value=True)
+    mocker.patch("camac.permissions.api.PermissionManager.require_any")
+    mocker.patch("camac.permissions.api.PermissionManager.require_all")

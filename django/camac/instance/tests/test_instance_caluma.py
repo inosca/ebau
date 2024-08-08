@@ -16,6 +16,7 @@ from django.utils.timezone import make_aware
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
+from camac.applicants.models import ROLE_CHOICES
 from camac.caluma.api import CalumaApi
 from camac.conftest import CALUMA_FORM_TYPES_SLUGS
 from camac.constants import (
@@ -32,6 +33,7 @@ from camac.instance.serializers import (
     CalumaInstanceSerializer,
     CalumaInstanceSubmitSerializer,
 )
+from camac.permissions import api as permissions_api
 from camac.user.models import Location, Service
 from camac.utils import flatten
 
@@ -3020,3 +3022,39 @@ def test_instance_submit_so_bab(
 
     assert response.status_code == status.HTTP_200_OK
     assert so_instance.case.meta.get("is-bab") is True
+
+
+@pytest.mark.parametrize("instance_state__name", ["new"])
+@pytest.mark.parametrize(
+    "has_permission, expect_status",
+    [
+        (True, status.HTTP_204_NO_CONTENT),
+        (False, status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_instance_delete_permissions_module(
+    db,
+    access_level_factory,
+    admin_client,
+    admin_user,
+    applicant_factory,
+    expect_status,
+    has_permission,
+    so_instance,
+    so_permissions_settings,
+):
+    so_instance.involved_applicants.all().delete()
+    role = ROLE_CHOICES.ADMIN.value if has_permission else ROLE_CHOICES.READ_ONLY.value
+    applicant_factory(instance=so_instance, invitee=admin_user, role=role)
+
+    permissions_api.grant(
+        so_instance,
+        grant_type=permissions_api.GRANT_CHOICES.USER.value,
+        access_level=access_level_factory(pk="applicant"),
+        user=admin_user,
+    )
+
+    url = reverse("instance-detail", args=[so_instance.pk])
+    response = admin_client.delete(url)
+
+    assert response.status_code == expect_status
