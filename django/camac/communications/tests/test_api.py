@@ -69,7 +69,7 @@ def test_create_topic(db, be_instance, admin_client, expect_status, role):
     else:
         entity_id = {
             "id": str(admin_client.user.get_default_group().service.pk),
-            "name": admin_client.user.get_default_group().service.get_trans_obj().name,
+            "name": admin_client.user.get_default_group().service.get_name(),
         }
     assert data["data"]["attributes"]["involved-entities"] == [entity_id]
     assert data["data"]["attributes"]["initiated-by-entity"] == entity_id

@@ -296,7 +296,7 @@ class Instance(models.Model):
     def is_active_or_involved_lead_authority(self, service_id):
         """Return true if the given service is a lead authority (active or involved)."""
         if not settings.APPLICATION.get("USE_INSTANCE_SERVICE"):  # pragma: no cover
-            raise NotImplementedError
+            return self.responsible_service().pk == int(service_id)
 
         return self.services.filter(pk=int(service_id)).exists()
 

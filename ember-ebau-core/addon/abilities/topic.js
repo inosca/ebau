@@ -1,4 +1,5 @@
 import { service } from "@ember/service";
+import { macroCondition, getOwnConfig } from "@embroider/macros";
 import { Ability } from "ember-can";
 
 import mainConfig from "ember-ebau-core/config/main";
@@ -15,9 +16,14 @@ export default class extends Ability {
   }
 
   get isActiveOrInvolvedLeadAuthority() {
-    let instanceServices = this.model?.get("instance.services") ?? [];
-    instanceServices = instanceServices.map((service) => parseInt(service.id));
-    return instanceServices.includes(parseInt(this.ebauModules.serviceId));
+    if (macroCondition(getOwnConfig().useInstanceService)) {
+      let instanceServices = this.model?.get("instance.services") ?? [];
+      instanceServices = instanceServices.map((service) =>
+        parseInt(service.id),
+      );
+      return instanceServices.includes(parseInt(this.ebauModules.serviceId));
+    }
+    return this.isActiveInstanceService;
   }
 
   async canCreate() {
