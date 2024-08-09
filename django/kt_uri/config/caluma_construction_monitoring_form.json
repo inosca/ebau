@@ -542,7 +542,22 @@
       "modified_by_group": null,
       "form": "construction-monitoring-update-gwr-state",
       "question": "gwr-dossier-verknuepft",
-      "sort": 2
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-monitoring-update-gwr-state.gwr-status-complete",
+    "fields": {
+      "created_at": "2024-08-02T09:02:37.423Z",
+      "modified_at": "2024-08-02T09:02:37.423Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-monitoring-update-gwr-state",
+      "question": "gwr-status-complete",
+      "sort": 1
     }
   },
   {
@@ -557,7 +572,7 @@
       "modified_by_group": null,
       "form": "construction-monitoring-update-gwr-state",
       "question": "gwr-status-nachfuehren",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -572,7 +587,7 @@
       "modified_by_group": null,
       "form": "construction-monitoring-update-gwr-state",
       "question": "gwr-status-nachfuehren-titel",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -587,7 +602,7 @@
       "modified_by_group": null,
       "form": "construction-monitoring-update-gwr-state",
       "question": "hinweis-gwr-status-nachfuehren",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -1896,12 +1911,12 @@
     "pk": "wer-fuehrt-die-schnurgeruestabnahme-durch-gemeinde",
     "fields": {
       "created_at": "2024-07-05T11:03:11.146Z",
-      "modified_at": "2024-07-05T11:03:11.147Z",
+      "modified_at": "2024-08-06T08:26:43.568Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Gemeinde\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Gemeinde (beauftragter Unternehmer / Ingenieur)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1912,12 +1927,12 @@
     "pk": "wer-fuehrt-die-schnurgeruestabnahme-durch-geometer",
     "fields": {
       "created_at": "2024-07-05T11:03:11.151Z",
-      "modified_at": "2024-07-05T11:03:11.151Z",
+      "modified_at": "2024-08-06T08:28:16.564Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Geometer\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Geometer (Acht Grad Ost AG)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -3509,6 +3524,42 @@
       "hint_text": "{\"de\": \"Falls Sie das URec Dossier noch nicht mit dem GWR verkn\\u00fcpft haben, sollten Sie dies jetzt tun.\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gwr-status-complete",
+    "fields": {
+      "created_at": "2024-08-02T09:02:37.331Z",
+      "modified_at": "2024-08-02T09:02:37.331Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,

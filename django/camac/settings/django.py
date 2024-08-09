@@ -1152,7 +1152,6 @@ APPLICATIONS = {
                     },
                 },
                 "complete-distribution": {
-                    "next_instance_state": "done",
                     "notification": {
                         "template_slug": "zirkulation-abgeschlossen",
                         "recipient_types": ["applicant"],
@@ -1164,8 +1163,8 @@ APPLICATIONS = {
                         "recipient_types": ["applicant", "involved_in_distribution"],
                     },
                 },
-                "construction-supervision": {
-                    "next_instance_state": "control",
+                "complete-instance": {
+                    "next_instance_state": "done",
                 },
                 "archive": {
                     "next_instance_state": "arch",
@@ -1173,7 +1172,7 @@ APPLICATIONS = {
             },
             "PRE_COMPLETE": {
                 "decision": {
-                    "complete": ["review-building-commission"],
+                    "complete": ["review-building-commission", "release-for-bk"],
                 },
             },
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
