@@ -66,19 +66,6 @@
   },
   {
     "model": "caluma_workflow.flow",
-    "pk": "cd431922-ea53-4793-ba5c-c3eb46925b62",
-    "fields": {
-      "created_at": "2023-11-02T10:19:40.899Z",
-      "modified_at": "2023-11-02T10:19:40.899Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "next": "['archive']|tasks"
-    }
-  },
-  {
-    "model": "caluma_workflow.flow",
     "pk": "daa6dccf-2c8f-48c2-a7c8-603d32759737",
     "fields": {
       "created_at": "2024-06-13T06:20:49.541Z",
@@ -201,29 +188,6 @@
       "is_archived": false,
       "form": "complete-check",
       "lead_time": 259200,
-      "is_multiple_instance": false,
-      "continue_async": false
-    }
-  },
-  {
-    "model": "caluma_workflow.task",
-    "pk": "construction-supervision",
-    "fields": {
-      "created_at": "2023-11-02T10:16:19.188Z",
-      "modified_at": "2024-04-15T08:27:30.239Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "name": "{\"de\": \"Bauverwaltung\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "type": "simple",
-      "meta": {},
-      "address_groups": "['municipality']|groups",
-      "control_groups": "['municipality']|groups",
-      "is_archived": false,
-      "form": null,
-      "lead_time": 47347200,
       "is_multiple_instance": false,
       "continue_async": false
     }
@@ -473,22 +437,6 @@
       "workflow": "building-permit",
       "task": "submit",
       "flow": "7f2c57bc-dd15-4bcc-8c36-0802d38e7b10",
-      "redoable": null
-    }
-  },
-  {
-    "model": "caluma_workflow.taskflow",
-    "pk": "47d5f946-048f-41f8-9688-72f066234b93",
-    "fields": {
-      "created_at": "2023-11-02T10:19:40.900Z",
-      "modified_at": "2023-11-02T10:19:40.900Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "workflow": "building-permit",
-      "task": "construction-supervision",
-      "flow": "cd431922-ea53-4793-ba5c-c3eb46925b62",
       "redoable": null
     }
   },
