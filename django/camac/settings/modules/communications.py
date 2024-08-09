@@ -30,6 +30,9 @@ COMMUNICATIONS = {
             "service",
         ],
     },
+    "kt_schwyz": {
+        "ENABLED": True,
+    },
     "demo": {
         "ENABLED": True,
     },
