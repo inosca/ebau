@@ -56,9 +56,7 @@ def test_mark_as_read(db, admin_client, communications_message, be_instance):
     read_by_info = resp_after.json()["data"]["attributes"]["read-by-entity"]
     expected_read_by = [
         {
-            "name": str(
-                admin_client.user.get_default_group().service.get_trans_obj().name
-            ),
+            "name": str(admin_client.user.get_default_group().service.get_name()),
             "id": str(admin_client.user.get_default_group().service.pk),
         },
         {

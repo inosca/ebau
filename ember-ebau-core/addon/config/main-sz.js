@@ -20,4 +20,7 @@ export default {
   useLocation: true,
   intentSlugs: ["voranfrage-vorhaben", "are-geschaeft-vorhaben"],
   answerSlugs: {},
+  communication: {
+    rolesWithApplicantContact: ["activeOrInolvedLeadAuthority"],
+  },
 };

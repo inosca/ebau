@@ -3,3 +3,5 @@ global:
   yes: "Ja"
   no: "Nein"
   loadingPrompt: "Lädt..."
+  cancel: "Abbrechen"
+  back: "Zurück"

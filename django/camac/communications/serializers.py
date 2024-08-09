@@ -37,7 +37,7 @@ class EntityNameMixin:
             return gettext("Applicant")
         else:
             entity_service = user_models.Service.objects.get(pk=entity)
-            return entity_service.get_trans_obj().name
+            return entity_service.get_name()
 
     def _entity_name(self, entity):
         key = f"{self._cache_key_prefix}-{entity}"

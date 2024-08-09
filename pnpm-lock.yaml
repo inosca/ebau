@@ -200,6 +200,9 @@ importers:
       ember-power-select:
         specifier: 8.3.0
         version: 8.3.0(@babel/core@7.25.2)(@ember/test-helpers@3.3.1)(@glimmer/component@1.1.2)(@glimmer/tracking@1.1.2)(@glint/template@1.4.0)(ember-basic-dropdown@8.2.0)(ember-concurrency@4.0.2)(ember-source@4.12.4)
+      ember-promise-helpers:
+        specifier: 2.0.0
+        version: 2.0.0
       ember-qunit:
         specifier: 8.1.0
         version: 8.1.0(@ember/test-helpers@3.3.1)(@glint/template@1.4.0)(ember-source@4.12.4)(qunit@2.21.1)

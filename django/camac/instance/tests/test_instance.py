@@ -31,15 +31,15 @@ from camac.instance.models import FormField, HistoryEntryT, InstanceGroup, Insta
         (
             "Applicant",
             LazyFixture("admin_user"),
-            19,
+            20,
             1,
             {"instance", "form", "document"},
         ),
         # reader should see instances from other users but has no editables
-        ("Reader", LazyFixture("user"), 19, 1, set()),
-        ("Canton", LazyFixture("user"), 19, 1, {"form", "document"}),
-        ("Municipality", LazyFixture("user"), 20, 1, {"form", "document"}),
-        ("Service", LazyFixture("user"), 20, 1, {"form", "document"}),
+        ("Reader", LazyFixture("user"), 20, 1, set()),
+        ("Canton", LazyFixture("user"), 20, 1, {"form", "document"}),
+        ("Municipality", LazyFixture("user"), 21, 1, {"form", "document"}),
+        ("Service", LazyFixture("user"), 21, 1, {"form", "document"}),
         ("Public", LazyFixture("user"), 2, 0, {}),
     ],
 )
@@ -70,6 +70,7 @@ def test_instance_list(
 
     included = serializers.InstanceSerializer.included_serializers
     with django_assert_num_queries(num_queries):
+        # Uses the SchwyzInstanceSerializer due to FORM_BACKEND "camac-ng"
         response = admin_client.get(
             url,
             data={
