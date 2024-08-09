@@ -301,7 +301,7 @@ class KeycloakApplyView(CreateAPIView):
     def check_permissions(self, request):
         super().check_permissions(request)
 
-        if not CustomPermission().has_camac_edit_permission(
+        if not CustomPermission(request).has_camac_edit_permission(
             Document.objects.get(pk=request.data["document"]), request.caluma_info
         ):
             raise PermissionDenied()

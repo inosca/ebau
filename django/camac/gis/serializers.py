@@ -74,7 +74,7 @@ class GISApplySerializer(serializers.Serializer):
         document = validated_data["instance"].case.document
         written_questions = set()
 
-        if not CustomPermission().has_camac_edit_permission(
+        if not CustomPermission(self.context["request"]).has_camac_edit_permission(
             document, self.context["request"].caluma_info
         ):
             raise PermissionDenied()

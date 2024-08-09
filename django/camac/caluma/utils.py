@@ -273,6 +273,7 @@ class CalumaInfo:
 
             self.user = extend_user(oidc_user, request)
             self.META = request.META
+            self.COOKIES = request.COOKIES
 
 
 def filter_by_workflow_base(settings_keys, get_settings):
