@@ -261,7 +261,9 @@ class KtSchwyzDossierWriter(DossierWriter):
             if config and target_state != TargetStatus.WRITTEN_OFF.value:
                 config.pop("depreciate-case", None)
             if config.get("make-decision"):
-                config["make-decision"]["cancel"] = ["publication"]
+                config["make-decision"]["cancel"] = config["make-decision"][
+                    "cancel"
+                ] + ["publication"]
                 permissions_events.Trigger.decision_decreed(None, instance)
             config = config and config.get(work_item.task_id)
             if config:
