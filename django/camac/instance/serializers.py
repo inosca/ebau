@@ -453,11 +453,21 @@ class SchwyzInstanceSerializer(InstanceSerializer):
     def get_caluma_workflow(self, instance):
         return CalumaApi().get_workflow_slug(instance)
 
+    included_serializers = {
+        **InstanceSerializer.included_serializers,
+        "involved_applicants": "camac.applicants.serializers.ApplicantSerializer",
+    }
+
     class Meta(InstanceSerializer.Meta):
-        fields = InstanceSerializer.Meta.fields + ("caluma_form", "caluma_workflow")
+        fields = InstanceSerializer.Meta.fields + (
+            "caluma_form",
+            "caluma_workflow",
+            "involved_applicants",
+        )
         read_only_fields = InstanceSerializer.Meta.read_only_fields + (
             "caluma_form",
             "caluma-workflow",
+            "involved_applicants",
         )
         meta_fields = InstanceSerializer.Meta.meta_fields
 

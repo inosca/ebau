@@ -64,7 +64,7 @@ def test_create_topic(
     else:
         expected_entities = {
             "id": str(admin_client.user.get_default_group().service.pk),
-            "name": admin_client.user.get_default_group().service.get_trans_obj().name,
+            "name": admin_client.user.get_default_group().service.get_name(),
         }
     assert data["data"]["attributes"]["involved-entities"] == [expected_entities]
 

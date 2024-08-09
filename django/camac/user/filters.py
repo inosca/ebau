@@ -368,7 +368,7 @@ class PublicGroupFilterSet(FilterSet):
 
     class Meta:
         model = models.Group
-        fields = ("service_group", "role", "service")
+        fields = ("service_group", "role", "service", "group_id")
 
 
 class UserGroupFilterSet(FilterSet):

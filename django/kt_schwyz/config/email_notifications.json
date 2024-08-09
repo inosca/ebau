@@ -178,5 +178,29 @@
       "service": null,
       "type": "email"
     }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 32,
+    "fields": {
+      "slug": "communications-new-message",
+      "purpose": "Neue Nachricht",
+      "subject": "Neue Nachricht (eBau {{identifier}})",
+      "body": "Sie haben eine neue Nachricht auf dem Dossier {{identifier}}, {{location}} erhalten.\r\nSie können die Nachricht über das eBau Portal einsehen.",
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 34,
+    "fields": {
+      "slug": "communications-new-message-internal",
+      "purpose": "Neue Nachricht (Behörden)",
+      "subject": "Neue Nachricht (eBau {{identifier}})",
+      "body": "Sie haben eine neue Nachricht auf dem Dossier {{identifier}}, {{location}} erhalten.\r\nSie können die Nachricht über das eBau Portal einsehen.",
+      "service": null,
+      "type": "email"
+    }
   }
 ]

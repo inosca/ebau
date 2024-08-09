@@ -85,7 +85,11 @@
         </td>
         {{#unless @instanceId}}
           <td class="uk-text-nowrap" data-test-dossier-number>
-            {{topic.dossierNumber}}
+            {{#if topic.dossierNumber}}
+              {{topic.dossierNumber}}
+            {{else if topic.instance.identifier}}
+              {{topic.instance.identifier}}
+            {{/if}}
             ({{topic.instance.id}})
           </td>
         {{/unless}}
