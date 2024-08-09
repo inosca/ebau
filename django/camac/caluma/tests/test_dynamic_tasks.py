@@ -577,9 +577,9 @@ def test_dynamic_task_after_decision_ur(
     [
         (
             "complete-check-vollstaendigkeitspruefung-incomplete",
-            ["additional-demand"],
+            ["additional-demand", "release-for-bk"],
         ),
-        ("complete-check-vollstaendigkeitspruefung-complete", []),
+        ("complete-check-vollstaendigkeitspruefung-complete", ["release-for-bk"]),
     ],
 )
 def test_dynamic_task_after_complete_check_ur(
@@ -604,6 +604,11 @@ def test_dynamic_task_after_complete_check_ur(
         document=work_item.document,
         question=question_factory(slug="complete-check-vollstaendigkeitspruefung"),
         value=answer,
+    )
+    answer_factory(
+        document=work_item.document,
+        question=question_factory(slug="complete-check-baubewilligungspflichtig"),
+        value="complete-check-baubewilligungspflichtig-baubewilligungspflichtig",
     )
 
     result = CustomDynamicTasks().resolve_after_complete_check_ur(

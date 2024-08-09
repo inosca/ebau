@@ -107,19 +107,30 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
     @register_dynamic_task("after-complete-check-ur")
     def resolve_after_complete_check_ur(self, case, user, prev_work_item, context):
+        tasks = []
+
         complete_check_document = case.work_items.get(task="complete-check").document
 
-        answer = complete_check_document.answers.get(
+        completeness_answer = complete_check_document.answers.get(
             question_id="complete-check-vollstaendigkeitspruefung"
         ).value
 
-        if answer in [
+        if completeness_answer in [
             "complete-check-vollstaendigkeitspruefung-incomplete",
             "complete-check-vollstaendigkeitspruefung-incomplete-wait",
         ]:
-            return ["additional-demand"]
+            tasks.append("additional-demand")
 
-        return []
+        if needs_permit_answer := complete_check_document.answers.filter(
+            question_id="complete-check-baubewilligungspflichtig"
+        ).first():
+            if (
+                needs_permit_answer.value
+                == "complete-check-baubewilligungspflichtig-baubewilligungspflichtig"
+            ):
+                tasks.append("release-for-bk")
+
+        return tasks
 
     @register_dynamic_task("after-inquiries-completed")
     def resolve_after_inquiries_completed(self, case, user, prev_work_item, context):
