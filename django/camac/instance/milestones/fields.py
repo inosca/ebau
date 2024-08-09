@@ -1,6 +1,7 @@
 from caluma.caluma_form.models import Answer, Document
 from caluma.caluma_workflow.models import WorkItem
 from django.db.models import Q
+from django.utils.translation import gettext as _
 from rest_framework import serializers
 
 
@@ -21,7 +22,7 @@ class WorkItemsField(serializers.ReadOnlyField):
         super().__init__(**kwargs)
 
         self.slug = slug
-        self.label = label
+        self.label = _(label)
         self.task = task
         self.field = field
         self.status = status
@@ -36,7 +37,7 @@ class WorkItemsField(serializers.ReadOnlyField):
         work_items = WorkItem.objects.filter(
             task=self.task,
             case__in=cases,
-        )
+        ).exclude(**{self.field: None})
 
         work_items = (
             work_items.filter(status=self.status) if self.status else work_items
@@ -54,6 +55,9 @@ class WorkItemsField(serializers.ReadOnlyField):
         return work_items.values_list(self.field, flat=True)
 
 
+# This has no test coverage because Uri will use this in the future
+# but hasn't decided yet which answers they are going to use here
+# It therefore doesn't show up in the snapshot tests and that means no coverage.
 class AnswerField(serializers.ReadOnlyField):
     def __init__(
         self,
@@ -61,14 +65,14 @@ class AnswerField(serializers.ReadOnlyField):
         label="",
         document="",
         **kwargs,
-    ):
+    ):  # pragma: no cover
         super().__init__(**kwargs)
 
         self.slug = slug
-        self.label = label
+        self.label = _(label)
         self.document = document
 
-    def get_attribute(self, instance):
+    def get_attribute(self, instance):  # pragma: no cover
         documents = Document.objects.filter(
             Q(form__slug=self.document)
             & (Q(case=instance.case) | Q(work_item__in=instance._all_work_items))
@@ -120,7 +124,7 @@ class MilestoneSectionField(serializers.ReadOnlyField):
         super().__init__(**kwargs)
 
         self.slug = slug
-        self.label = label
+        self.label = _(label)
         self.fields = fields
 
     # This is necessary to bind the field to the root serializer (because they are nested)
@@ -136,5 +140,5 @@ class MethodField(serializers.SerializerMethodField):
         super().__init__(*args, **kwargs)
 
         self.slug = slug
-        self.label = label
+        self.label = _(label)
         self.method_name = f"get_{slug.replace('-', '_')}"

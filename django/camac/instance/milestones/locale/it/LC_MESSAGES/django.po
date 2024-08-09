@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-07 14:55+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: camac/instance/milestones/serializers.py:75
+msgid "regular process"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py:78
+msgid "instance submitted"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py:81
+msgid "Paper submission"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py:85
+msgid "Additional demand"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py:91
+msgid "Instance complete"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py:95
+msgid "Review building commission"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py:104
+msgid "Start circulation"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py:114
+msgid "Distribution completed"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py:124
+msgid "Decision made"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py:131
+msgid "notice to geometer"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py:137
+msgid "notice to gebaeudeschaetzung"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py:145
+msgid "is paper"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py:149
+msgid "Check completed"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py:155
+msgid "Returned to municipality"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py:163
+msgid "Building permit valid until"
+msgstr ""
