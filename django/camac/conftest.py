@@ -187,6 +187,7 @@ class FakeRequest:
     auth: dict = field(default_factory=dict)
     query_params: dict = field(default_factory=dict)
     META: dict = field(default_factory=dict)
+    COOKIES: dict = field(default_factory=dict)
 
 
 @pytest.fixture
