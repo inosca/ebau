@@ -2,7 +2,7 @@ from datetime import timedelta
 
 from caluma.caluma_form.models import Document
 from caluma.caluma_user.models import AnonymousUser
-from caluma.caluma_workflow.models import Task, WorkItem
+from caluma.caluma_workflow.models import Case, Task, WorkItem
 from caluma.caluma_workflow.utils import get_jexl_groups
 from django.core.management.base import BaseCommand
 from django.db import transaction
@@ -66,7 +66,6 @@ INSTANCE_STATUS_MAPPING = {
             {},
         ),
         ("decision", WorkItem.STATUS_COMPLETED, {}),
-        ("construction-supervision", WorkItem.STATUS_COMPLETED, {}),
         ("archive", WorkItem.STATUS_COMPLETED, {}),
     ],
     "del": [],  # "name": "del", "description": "Gelöscht"
@@ -92,7 +91,7 @@ INSTANCE_STATUS_MAPPING = {
     "control": [  # "name": "control", "description": "Bau- und Einspracheentscheid zugestellt"
         *WORK_ITEMS_FOR_INSTANCE_IN_PROGRESS,
         ("decision", WorkItem.STATUS_COMPLETED, {}),
-        ("construction-supervision", WorkItem.STATUS_READY, {}),
+        ("init-construction-monitoring", WorkItem.STATUS_READY, {}),
     ],
 }
 
@@ -210,12 +209,12 @@ class Command(BaseCommand):
             deadline = closed_at or timezone.now() + timedelta(seconds=task.lead_time)
 
         created_at = timezone.now()
-        if task_slug == "construction-supervision":
+        if task_slug == "init-construction-monitoring":
             if (
                 not instance.case.work_items.filter(task__slug="decision").exists()
                 and instance.instance_state.name == "arch"
             ):
-                # a dossier in the "arch" state might not have a construction-supervision worfklowentry
+                # a dossier in the "arch" state may not have a construction-supervision worfklowentry
                 return
 
             if not instance.case.work_items.get(task__slug="decision").closed_at:
@@ -226,9 +225,7 @@ class Command(BaseCommand):
             created_at = instance.case.work_items.get(task__slug="decision").closed_at
 
             if created_at:
-                deadline = created_at + timedelta(
-                    days=365 * 1.5
-                )  # "construction supervision" is always 1.5 years in uri
+                deadline = created_at + timedelta(seconds=task.lead_time)
 
             if corresponding_workflow_entry := get_workflow_entry(
                 instance,
@@ -293,6 +290,15 @@ class Command(BaseCommand):
                     "del",
                 ]:  # "new" is the only state that doesnt have an InstanceService yet
                     self._create_instance_service_object(instance)
+
+                if case.status == Case.STATUS_COMPLETED and instance_state not in [
+                    "del",
+                    "arch",
+                ]:
+                    # There are instances where the case in uri can be completed but with the new workflow
+                    # the case should not be completed yet.
+                    case.status = Case.STATUS_RUNNING
+                    case.save()
 
                 for (
                     task_slug,
