@@ -1,211 +1,331 @@
 # serializer version: 1
-# name: test_milestones_ur[is-paper-no-Municipality]
+# name: test_milestones_ur[is-paper-no-complete-check-vollstaendigkeitspruefung-complete-False-Sekretariat der Gemeindebaubeh\xf6rde]
   dict({
     'sections': list([
       dict({
         'fields': list([
           dict({
-            'label': 'instance submitted',
+            'label': 'Dossier erfasst',
             'slug': 'instance-submitted',
             'value': '2023-01-01T19:00:00Z',
           }),
           dict({
-            'label': 'Paper submission',
+            'label': 'Eingang Post',
             'slug': 'paper-submission',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'Additional demand',
+            'label': 'Nachforderung Gemeindebaubehörde',
             'slug': 'additional-demand',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'Instance complete',
-            'slug': 'instance-complete',
-            'value': None,
+            'label': 'Dossier vollstandig',
+            'slug': 'check-completed',
+            'value': list([
+              '2023-01-01T19:00:00Z',
+            ]),
           }),
           dict({
-            'label': 'Review building commission',
+            'label': 'Dossier vollstandig',
+            'slug': 'instance-complete',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Prüfung durch Gemeinde',
             'slug': 'review-building-commission',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'Start circulation',
+            'label': 'Start Zirkulation',
             'slug': 'start-circulation',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'Distribution completed',
+            'label': 'Zirkulation beendet',
             'slug': 'distribution-completed',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'Decision made',
+            'label': 'Stellungnahme - Vorentscheid',
             'slug': 'decision',
             'value': list([
+              '2023-01-01T19:00:00Z',
             ]),
           }),
           dict({
-            'label': 'notice to geometer',
+            'label': 'Meldung Baubewilligung an Geometer',
             'slug': 'notice-to-geometer',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'notice to gebaeudeschaetzung',
+            'label': 'Meldung Baubewilligung an Gebäudeschätzung',
             'slug': 'notice-to-gebaeudeschaetzung',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'is paper',
-            'slug': 'is-paper',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Check completed',
-            'slug': 'check-completed',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Forwarded to coordination service',
-            'slug': 'forwarded-to-koor',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Start of cantonal distribution',
-            'slug': 'start-cantonal-distribution',
-            'value': list([
-              '2023-12-31T00:00:00Z',
-            ]),
-          }),
-          dict({
-            'label': 'Returned to municipality',
-            'slug': 'returned-to-municipality',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Building permit valid until',
+            'label': 'Baubewilligung gültig bis',
             'slug': 'building-permit-valid-until',
             'value': '2024-01-01T19:00:00Z',
           }),
         ]),
-        'label': 'regular process',
+        'label': 'Ordentliches Verfahren',
         'slug': 'regular-process',
       }),
     ]),
   })
 # ---
-# name: test_milestones_ur[is-paper-yes-Municipality]
+# name: test_milestones_ur[is-paper-no-complete-check-vollstaendigkeitspruefung-incomplete-False-Sekretariat der Gemeindebaubeh\xf6rde]
   dict({
     'sections': list([
       dict({
         'fields': list([
           dict({
-            'label': 'instance submitted',
+            'label': 'Dossier erfasst',
             'slug': 'instance-submitted',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Eingang Post',
+            'slug': 'paper-submission',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'Paper submission',
-            'slug': 'paper-submission',
-            'value': '2023-01-01T19:00:00Z',
-          }),
-          dict({
-            'label': 'Additional demand',
+            'label': 'Nachforderung Gemeindebaubehörde',
             'slug': 'additional-demand',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'Instance complete',
-            'slug': 'instance-complete',
-            'value': None,
+            'label': 'Dossier vollstandig',
+            'slug': 'check-completed',
+            'value': list([
+              '2023-01-01T19:00:00Z',
+            ]),
           }),
           dict({
-            'label': 'Review building commission',
+            'label': 'Dossier vollstandig',
+            'slug': 'instance-complete',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Prüfung durch Gemeinde',
             'slug': 'review-building-commission',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'Start circulation',
+            'label': 'Start Zirkulation',
             'slug': 'start-circulation',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'Distribution completed',
+            'label': 'Zirkulation beendet',
             'slug': 'distribution-completed',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'Decision made',
+            'label': 'Stellungnahme - Vorentscheid',
             'slug': 'decision',
             'value': list([
+              '2023-01-01T19:00:00Z',
             ]),
           }),
           dict({
-            'label': 'notice to geometer',
+            'label': 'Meldung Baubewilligung an Geometer',
             'slug': 'notice-to-geometer',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'notice to gebaeudeschaetzung',
+            'label': 'Meldung Baubewilligung an Gebäudeschätzung',
             'slug': 'notice-to-gebaeudeschaetzung',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'is paper',
-            'slug': 'is-paper',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Check completed',
-            'slug': 'check-completed',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Forwarded to coordination service',
-            'slug': 'forwarded-to-koor',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Start of cantonal distribution',
-            'slug': 'start-cantonal-distribution',
-            'value': list([
-              '2023-12-31T00:00:00Z',
-            ]),
-          }),
-          dict({
-            'label': 'Returned to municipality',
-            'slug': 'returned-to-municipality',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Building permit valid until',
+            'label': 'Baubewilligung gültig bis',
             'slug': 'building-permit-valid-until',
             'value': '2024-01-01T19:00:00Z',
           }),
         ]),
-        'label': 'regular process',
+        'label': 'Ordentliches Verfahren',
+        'slug': 'regular-process',
+      }),
+    ]),
+  })
+# ---
+# name: test_milestones_ur[is-paper-no-complete-check-vollstaendigkeitspruefung-incomplete-True-Sekretariat der Gemeindebaubeh\xf6rde]
+  dict({
+    'sections': list([
+      dict({
+        'fields': list([
+          dict({
+            'label': 'Dossier erfasst',
+            'slug': 'instance-submitted',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Eingang Post',
+            'slug': 'paper-submission',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Nachforderung Gemeindebaubehörde',
+            'slug': 'additional-demand',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Dossier vollstandig',
+            'slug': 'check-completed',
+            'value': list([
+              '2023-01-01T19:00:00Z',
+            ]),
+          }),
+          dict({
+            'label': 'Dossier vollstandig',
+            'slug': 'instance-complete',
+            'value': None,
+          }),
+          dict({
+            'label': 'Prüfung durch Gemeinde',
+            'slug': 'review-building-commission',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Start Zirkulation',
+            'slug': 'start-circulation',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Zirkulation beendet',
+            'slug': 'distribution-completed',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Stellungnahme - Vorentscheid',
+            'slug': 'decision',
+            'value': list([
+              '2023-01-01T19:00:00Z',
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Baubewilligung an Geometer',
+            'slug': 'notice-to-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Baubewilligung an Gebäudeschätzung',
+            'slug': 'notice-to-gebaeudeschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Baubewilligung gültig bis',
+            'slug': 'building-permit-valid-until',
+            'value': '2024-01-01T19:00:00Z',
+          }),
+        ]),
+        'label': 'Ordentliches Verfahren',
+        'slug': 'regular-process',
+      }),
+    ]),
+  })
+# ---
+# name: test_milestones_ur[is-paper-yes-complete-check-vollstaendigkeitspruefung-complete-False-Sekretariat der Gemeindebaubeh\xf6rde]
+  dict({
+    'sections': list([
+      dict({
+        'fields': list([
+          dict({
+            'label': 'Dossier erfasst',
+            'slug': 'instance-submitted',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Eingang Post',
+            'slug': 'paper-submission',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Nachforderung Gemeindebaubehörde',
+            'slug': 'additional-demand',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Dossier vollstandig',
+            'slug': 'check-completed',
+            'value': list([
+              '2023-01-01T19:00:00Z',
+            ]),
+          }),
+          dict({
+            'label': 'Dossier vollstandig',
+            'slug': 'instance-complete',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Prüfung durch Gemeinde',
+            'slug': 'review-building-commission',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Start Zirkulation',
+            'slug': 'start-circulation',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Zirkulation beendet',
+            'slug': 'distribution-completed',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Stellungnahme - Vorentscheid',
+            'slug': 'decision',
+            'value': list([
+              '2023-01-01T19:00:00Z',
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Baubewilligung an Geometer',
+            'slug': 'notice-to-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Baubewilligung an Gebäudeschätzung',
+            'slug': 'notice-to-gebaeudeschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Baubewilligung gültig bis',
+            'slug': 'building-permit-valid-until',
+            'value': '2024-01-01T19:00:00Z',
+          }),
+        ]),
+        'label': 'Ordentliches Verfahren',
         'slug': 'regular-process',
       }),
     ]),
