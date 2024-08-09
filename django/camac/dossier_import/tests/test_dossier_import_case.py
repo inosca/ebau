@@ -174,9 +174,8 @@ def test_create_instance_dossier_import_case(
                 ("complete-check", "skipped"),
                 ("publication", "canceled"),
                 ("distribution", "skipped"),
-                ("depreciate-case", "skipped"),
+                ("depreciate-case", "canceled"),
                 ("make-decision", "skipped"),
-                ("archive-instance", "ready"),
             ],
             "running",
         ),  # "Entscheid verfügen"
@@ -189,7 +188,7 @@ def test_create_instance_dossier_import_case(
                 ("complete-check", "skipped"),
                 ("publication", "canceled"),
                 ("distribution", "skipped"),
-                ("depreciate-case", "skipped"),
+                ("depreciate-case", "canceled"),
                 ("make-decision", "skipped"),
                 ("complete-instance", "skipped"),
                 ("archive-instance", "skipped"),
@@ -221,16 +220,36 @@ def test_set_workflow_state_sz(
     can_perform_construction_monitoring,
     settings,
 ):
+    # The workflow is deciding based on the form.family.name if an instance can perform the
+    # construction monitoring step or not. Therefore set the family name accordingly.
+    sz_instance_with_form.form.family.name = (
+        "baugesuch-reklamegesuch"
+        if can_perform_construction_monitoring
+        else "vorabklarung"
+    )
+    sz_instance_with_form.form.family.save()
+
+    # The parametrize var is not freshly written each run, so we cannot modify it since we would
+    # impact future runs with wrong data. Therefore reset it at earch run to a copy of the original
+    # values.
+    current_expected_work_items_states = expected_work_items_states.copy()
+
     # This test skips instance creation where the instance's instance_state is set to the correct
     # state.
     writer = setup_dossier_writer("kt_schwyz")
     dossier._meta.target_state = target_state
     writer._set_workflow_state(sz_instance_with_form, dossier)
+    if can_perform_construction_monitoring and target_state == "APPROVED":
+        current_expected_work_items_states.append(
+            ("init-construction-monitoring", "ready")
+        )
+    if not can_perform_construction_monitoring and target_state == "APPROVED":
+        current_expected_work_items_states.append(("complete-instance", "ready"))
     if can_perform_construction_monitoring and target_state == "DONE":
-        expected_work_items_states.append(("init-construction-monitoring", "skipped"))
-    if not can_perform_construction_monitoring:
-        settings.CONSTCUTION_MONITORING = None
-    for task_id, expected_status in expected_work_items_states:
+        current_expected_work_items_states.append(
+            ("init-construction-monitoring", "skipped")
+        )
+    for task_id, expected_status in current_expected_work_items_states:
         assert (
             sz_instance_with_form.case.work_items.get(task_id=task_id).status
             == expected_status
