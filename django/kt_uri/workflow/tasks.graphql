@@ -102,20 +102,6 @@ mutation CreateDecisionTask {
   }
 }
 
-mutation CreateConstructionSupervisionTask {
-  saveSimpleTask(
-    input: {
-      slug: "construction-supervision"
-      name: "Bauverwaltung"
-      addressGroups: "['municipality']|groups"
-      controlGroups: "['municipality']|groups"
-      leadTime: 47347200 # 1.5 years (ceil(1.5 * 365) * 24 * 60 * 60)
-    }
-  ) {
-    clientMutationId
-  }
-}
-
 mutation CreateArchiveTask {
   saveSimpleTask(
     input: {
