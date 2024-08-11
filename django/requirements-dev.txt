@@ -1,5 +1,5 @@
 -r requirements.txt
-debugpy==1.8.2
+debugpy==1.8.5
 django-extensions==3.2.3
 django-silk==5.1.0
 Faker==22.7.0
