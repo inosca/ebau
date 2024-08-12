@@ -350,3 +350,25 @@ prettier-fix: # Fix formatting of yml and config files with prettier
 compare-dump: # Compares two given .json dump files
 	@pnpm -C tools -s install
 	@node tools/bin/compare-dumps.js $(PWD)/$(word 1,$^) $(PWD)/$(word 2,$^)
+	
+.PHONY: gr-extract-translations
+gr-extract-translations: # Export translation files
+	@mkdir -p "django/extracted_translations"
+	@mkdir -p "django/extracted_translations/csv_files" "django/extracted_translations/keycloak" "django/extracted_translations/po_files" "django/extracted_translations/yaml_files"
+	@mkdir -p "django/extracted_translations/keycloak/email" "django/extracted_translations/keycloak/login"
+	@mkdir -p "django/extracted_translations/yaml_files/ember-caluma-portal" "django/extracted_translations/yaml_files/ember-ebau" "django/extracted_translations/yaml_files/ember-ebau-core"
+	@cp keycloak/themes/src/main/resources/theme/kanton-gr/email/messages/messages_de.properties django/extracted_translations/keycloak/email/messages_de.properties
+	@cp keycloak/themes/src/main/resources/theme/kanton-gr/login/messages/messages_de.properties django/extracted_translations/keycloak/login/messages_de.properties
+	@cp django/locale/de/LC_MESSAGES/django.po django/extracted_translations/po_files/django_de.po
+	@cp django/locale/fr/LC_MESSAGES/django.po django/extracted_translations/po_files/django_fr.po
+	@cp django/locale/it/LC_MESSAGES/django.po django/extracted_translations/po_files/django_it.po
+	@cp django/camac/instance/placeholders/locale/de/LC_MESSAGES/django.po django/extracted_translations/po_files/placeholders_de.po
+	@cp django/camac/instance/placeholders/locale/fr/LC_MESSAGES/django.po django/extracted_translations/po_files/placeholders_fr.po
+	@cp django/camac/instance/placeholders/locale/it/LC_MESSAGES/django.po django/extracted_translations/po_files/placeholders_it.po
+	@cp -r ember-ebau/translations django/extracted_translations/yaml_files/ember-ebau
+	@cp -r ember-caluma-portal/translations django/extracted_translations/yaml_files/ember-caluma-portal
+	@cp -r ember-camac-ng/translations django/extracted_translations/yaml_files/ember-camac-ng
+	@cp -r ember-ebau-core/translations django/extracted_translations/yaml_files/ember-ebau-core
+	@mkdir -p "django/translations"
+	docker compose exec django python manage.py translate_extract
+	@cp -r django/translations/. django/extracted_translations/csv_files/
