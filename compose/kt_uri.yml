@@ -1,4 +1,3 @@
-version: "3.4"
 services:
   cache:
     image: memcached:1.6-alpine
