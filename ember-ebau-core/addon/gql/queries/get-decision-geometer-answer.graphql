@@ -1,17 +1,14 @@
-query GetDecisionGeometer($instanceId: GenericScalar!, $question: ID!) {
+query GetDecisionGeometer(
+  $instanceId: GenericScalar!
+  $question: ID!
+  $value: GenericScalar!
+) {
   allWorkItems(
     filter: [
       { caseMetaValue: [{ key: "camac-instance-id", value: $instanceId }] }
       { status: COMPLETED }
       { task: "decision" }
-      {
-        documentHasAnswer: [
-          {
-            question: "decision-workflow",
-            value: "building-permit",
-          }
-        ]
-      }
+      { documentHasAnswer: [{ question: "decision-workflow", value: $value }] }
     ]
   ) {
     edges {

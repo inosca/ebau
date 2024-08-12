@@ -28,6 +28,7 @@ export default class DecisionInfoMissingGeometerInvolvementComponent extends Com
           variables: {
             instanceId: this.ebauModules.instanceId,
             question: "decision-geometer",
+            value: "building-permit",
           },
         },
         "allWorkItems.edges",
