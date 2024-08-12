@@ -3662,7 +3662,7 @@
       "label": "{\"de\": \"Wer f\\u00fchrt die Schnurger\\u00fcstabnahme durch?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "!(\"construction-step-schnurgeruestabnahme\" in \"construction-steps\"|answer([]))",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
