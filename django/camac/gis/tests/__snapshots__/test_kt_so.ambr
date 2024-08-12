@@ -4,7 +4,7 @@
     'data': dict({
       'bundesinventare': dict({
         'hidden': False,
-        'label': 'Herr Michail Sauer B.Eng.',
+        'label': 'Herr Michail Säuberlich B.Eng.',
         'value': 'BLN: Weissenstein, Nr. des BLN: 1010, IVS Regional und Lokal: Hächler - Schitterwald, Nr. des IVS Regional und Lokal: SO 421',
       }),
       'gemeinde': dict({
@@ -15,28 +15,28 @@
       }),
       'gemeindenummer-bfs': dict({
         'hidden': False,
-        'label': 'Elise Thanel',
+        'label': 'Elise Täsche',
         'value': 2430,
       }),
       'nutzungsplanung-grundnutzung': dict({
         'hidden': False,
-        'label': 'Sinaida Söding-Christoph',
+        'label': 'Sinaida Siering-Christoph',
         'value': 'Wald',
       }),
       'nutzungsplanung-weitere-festlegungen': dict({
         'hidden': False,
-        'label': 'Rainer van der Dussen',
+        'label': 'Rainer Ullmann',
         'value': None,
       }),
       'ort': dict({
         'hidden': False,
-        'label': 'Herr Hans-Rainer Zänker',
+        'label': 'Herr Hans-Rainer Wulff',
         'value': 'Welschenrohr',
       }),
       'parzellen': dict({
         'form': 'those-charge-why',
         'hidden': False,
-        'label': 'Elwira Pärtzelt',
+        'label': 'Elwira Paffrath',
         'value': list([
           dict({
             'e-grid': dict({
@@ -52,15 +52,15 @@
               'value': 2606265.992581233,
             }),
             'ort': dict({
-              'label': 'Herr Hans-Rainer Zänker',
+              'label': 'Herr Hans-Rainer Wulff',
               'value': 'Welschenrohr',
             }),
             'parzellennummer': dict({
-              'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
+              'label': 'Univ.Prof. Randolf Oderwald B.A.',
               'value': '685',
             }),
             'plz': dict({
-              'label': 'Muzaffer Reuter',
+              'label': 'Muzaffer Renner',
               'value': None,
             }),
             'strasse-flurname': dict({
@@ -81,7 +81,7 @@
       }),
       'richtplan-weiteres': dict({
         'hidden': False,
-        'label': 'Tülay Rose',
+        'label': 'Tülay Rörricht',
         'value': 'Linie: Historischer_Verkehrsweg, Waldnähe (aus Richtplan): Ja, Fläche: Juraschutzzone, Fläche: Naturpark, Fläche: BLN_Gebiet',
       }),
       'strasse-flurname': dict({
@@ -96,7 +96,7 @@
       }),
       'weitere-gis-informationen': dict({
         'hidden': False,
-        'label': 'Kay-Uwe Walter',
+        'label': 'Kay-Uwe Wagner',
         'value': 'Bodenbedeckung: geschlossener_Wald',
       }),
     }),
@@ -107,7 +107,7 @@
     'data': dict({
       'bundesinventare': dict({
         'hidden': False,
-        'label': 'Herr Michail Sauer B.Eng.',
+        'label': 'Herr Michail Säuberlich B.Eng.',
         'value': None,
       }),
       'gemeinde': dict({
@@ -118,28 +118,28 @@
       }),
       'gemeindenummer-bfs': dict({
         'hidden': False,
-        'label': 'Elise Thanel',
+        'label': 'Elise Täsche',
         'value': 2543,
       }),
       'nutzungsplanung-grundnutzung': dict({
         'hidden': False,
-        'label': 'Sinaida Söding-Christoph',
+        'label': 'Sinaida Siering-Christoph',
         'value': 'Wohnzone 3',
       }),
       'nutzungsplanung-weitere-festlegungen': dict({
         'hidden': False,
-        'label': 'Rainer van der Dussen',
+        'label': 'Rainer Ullmann',
         'value': None,
       }),
       'ort': dict({
         'hidden': False,
-        'label': 'Herr Hans-Rainer Zänker',
+        'label': 'Herr Hans-Rainer Wulff',
         'value': 'Bettlach',
       }),
       'parzellen': dict({
         'form': 'those-charge-why',
         'hidden': False,
-        'label': 'Elwira Pärtzelt',
+        'label': 'Elwira Paffrath',
         'value': list([
           dict({
             'e-grid': dict({
@@ -155,15 +155,15 @@
               'value': 2599196.9568125005,
             }),
             'ort': dict({
-              'label': 'Herr Hans-Rainer Zänker',
+              'label': 'Herr Hans-Rainer Wulff',
               'value': 'Bettlach',
             }),
             'parzellennummer': dict({
-              'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
+              'label': 'Univ.Prof. Randolf Oderwald B.A.',
               'value': '2117, 2128',
             }),
             'plz': dict({
-              'label': 'Muzaffer Reuter',
+              'label': 'Muzaffer Renner',
               'value': '2544',
             }),
             'strasse-flurname': dict({
@@ -184,7 +184,7 @@
       }),
       'richtplan-weiteres': dict({
         'hidden': False,
-        'label': 'Tülay Rose',
+        'label': 'Tülay Rörricht',
         'value': 'Waldnähe (aus Richtplan): Nein',
       }),
       'strasse-flurname': dict({
@@ -199,7 +199,7 @@
       }),
       'weitere-gis-informationen': dict({
         'hidden': False,
-        'label': 'Kay-Uwe Walter',
+        'label': 'Kay-Uwe Wagner',
         'value': None,
       }),
     }),
@@ -210,7 +210,7 @@
     'data': dict({
       'bundesinventare': dict({
         'hidden': False,
-        'label': 'Herr Michail Sauer B.Eng.',
+        'label': 'Herr Michail Säuberlich B.Eng.',
         'value': None,
       }),
       'gemeinde': dict({
@@ -221,28 +221,28 @@
       }),
       'gemeindenummer-bfs': dict({
         'hidden': False,
-        'label': 'Elise Thanel',
+        'label': 'Elise Täsche',
         'value': 2464,
       }),
       'nutzungsplanung-grundnutzung': dict({
         'hidden': False,
-        'label': 'Sinaida Söding-Christoph',
+        'label': 'Sinaida Siering-Christoph',
         'value': 'Landwirtschaftszone',
       }),
       'nutzungsplanung-weitere-festlegungen': dict({
         'hidden': False,
-        'label': 'Rainer van der Dussen',
+        'label': 'Rainer Ullmann',
         'value': 'Fläche: Kommunale Schutzzone Wildtierkorridor',
       }),
       'ort': dict({
         'hidden': False,
-        'label': 'Herr Hans-Rainer Zänker',
+        'label': 'Herr Hans-Rainer Wulff',
         'value': 'Lüsslingen',
       }),
       'parzellen': dict({
         'form': 'those-charge-why',
         'hidden': False,
-        'label': 'Elwira Pärtzelt',
+        'label': 'Elwira Paffrath',
         'value': list([
           dict({
             'e-grid': dict({
@@ -258,15 +258,15 @@
               'value': 2603913.165006131,
             }),
             'ort': dict({
-              'label': 'Herr Hans-Rainer Zänker',
+              'label': 'Herr Hans-Rainer Wulff',
               'value': 'Lüsslingen',
             }),
             'parzellennummer': dict({
-              'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
+              'label': 'Univ.Prof. Randolf Oderwald B.A.',
               'value': '9',
             }),
             'plz': dict({
-              'label': 'Muzaffer Reuter',
+              'label': 'Muzaffer Renner',
               'value': None,
             }),
             'strasse-flurname': dict({
@@ -287,7 +287,7 @@
       }),
       'richtplan-weiteres': dict({
         'hidden': False,
-        'label': 'Tülay Rose',
+        'label': 'Tülay Rörricht',
         'value': 'Waldnähe (aus Richtplan): Nein, Fläche: Fruchtfolgeflaeche, Fläche: Witischutzzone',
       }),
       'strasse-flurname': dict({
@@ -302,7 +302,7 @@
       }),
       'weitere-gis-informationen': dict({
         'hidden': False,
-        'label': 'Kay-Uwe Walter',
+        'label': 'Kay-Uwe Wagner',
         'value': None,
       }),
     }),
@@ -313,7 +313,7 @@
     'data': dict({
       'bundesinventare': dict({
         'hidden': False,
-        'label': 'Herr Michail Sauer B.Eng.',
+        'label': 'Herr Michail Säuberlich B.Eng.',
         'value': None,
       }),
       'gemeinde': dict({
@@ -324,28 +324,28 @@
       }),
       'gemeindenummer-bfs': dict({
         'hidden': False,
-        'label': 'Elise Thanel',
+        'label': 'Elise Täsche',
         'value': 2601,
       }),
       'nutzungsplanung-grundnutzung': dict({
         'hidden': False,
-        'label': 'Sinaida Söding-Christoph',
+        'label': 'Sinaida Siering-Christoph',
         'value': 'Kernzone, offene Bauweise, 3-geschossig AZ max. 1.0',
       }),
       'nutzungsplanung-weitere-festlegungen': dict({
         'hidden': False,
-        'label': 'Rainer van der Dussen',
+        'label': 'Rainer Ullmann',
         'value': None,
       }),
       'ort': dict({
         'hidden': False,
-        'label': 'Herr Hans-Rainer Zänker',
+        'label': 'Herr Hans-Rainer Wulff',
         'value': 'Solothurn',
       }),
       'parzellen': dict({
         'form': 'those-charge-why',
         'hidden': False,
-        'label': 'Elwira Pärtzelt',
+        'label': 'Elwira Paffrath',
         'value': list([
           dict({
             'e-grid': dict({
@@ -361,15 +361,15 @@
               'value': 2607160.642708333,
             }),
             'ort': dict({
-              'label': 'Herr Hans-Rainer Zänker',
+              'label': 'Herr Hans-Rainer Wulff',
               'value': 'Solothurn',
             }),
             'parzellennummer': dict({
-              'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
+              'label': 'Univ.Prof. Randolf Oderwald B.A.',
               'value': '850',
             }),
             'plz': dict({
-              'label': 'Muzaffer Reuter',
+              'label': 'Muzaffer Renner',
               'value': None,
             }),
             'strasse-flurname': dict({
@@ -390,7 +390,7 @@
       }),
       'richtplan-weiteres': dict({
         'hidden': False,
-        'label': 'Tülay Rose',
+        'label': 'Tülay Rörricht',
         'value': 'Waldnähe (aus Richtplan): Nein',
       }),
       'strasse-flurname': dict({
@@ -405,7 +405,7 @@
       }),
       'weitere-gis-informationen': dict({
         'hidden': False,
-        'label': 'Kay-Uwe Walter',
+        'label': 'Kay-Uwe Wagner',
         'value': None,
       }),
     }),
@@ -416,7 +416,7 @@
     'data': dict({
       'bundesinventare': dict({
         'hidden': False,
-        'label': 'Herr Michail Sauer B.Eng.',
+        'label': 'Herr Michail Säuberlich B.Eng.',
         'value': None,
       }),
       'gemeinde': dict({
@@ -427,28 +427,28 @@
       }),
       'gemeindenummer-bfs': dict({
         'hidden': False,
-        'label': 'Elise Thanel',
+        'label': 'Elise Täsche',
         'value': 2527,
       }),
       'nutzungsplanung-grundnutzung': dict({
         'hidden': False,
-        'label': 'Sinaida Söding-Christoph',
+        'label': 'Sinaida Siering-Christoph',
         'value': None,
       }),
       'nutzungsplanung-weitere-festlegungen': dict({
         'hidden': False,
-        'label': 'Rainer van der Dussen',
+        'label': 'Rainer Ullmann',
         'value': None,
       }),
       'ort': dict({
         'hidden': False,
-        'label': 'Herr Hans-Rainer Zänker',
+        'label': 'Herr Hans-Rainer Wulff',
         'value': 'Luterbach',
       }),
       'parzellen': dict({
         'form': 'those-charge-why',
         'hidden': False,
-        'label': 'Elwira Pärtzelt',
+        'label': 'Elwira Paffrath',
         'value': list([
           dict({
             'e-grid': dict({
@@ -464,15 +464,15 @@
               'value': 2611103.2977669733,
             }),
             'ort': dict({
-              'label': 'Herr Hans-Rainer Zänker',
+              'label': 'Herr Hans-Rainer Wulff',
               'value': 'Luterbach',
             }),
             'parzellennummer': dict({
-              'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
+              'label': 'Univ.Prof. Randolf Oderwald B.A.',
               'value': '2501',
             }),
             'plz': dict({
-              'label': 'Muzaffer Reuter',
+              'label': 'Muzaffer Renner',
               'value': None,
             }),
             'strasse-flurname': dict({
@@ -493,7 +493,7 @@
       }),
       'richtplan-weiteres': dict({
         'hidden': False,
-        'label': 'Tülay Rose',
+        'label': 'Tülay Rörricht',
         'value': 'Linie: Nationalstrasse.Strasse, Waldnähe (aus Richtplan): Nein',
       }),
       'strasse-flurname': dict({
@@ -508,7 +508,7 @@
       }),
       'weitere-gis-informationen': dict({
         'hidden': False,
-        'label': 'Kay-Uwe Walter',
+        'label': 'Kay-Uwe Wagner',
         'value': None,
       }),
     }),
@@ -519,7 +519,7 @@
     'data': dict({
       'bundesinventare': dict({
         'hidden': False,
-        'label': 'Herr Michail Sauer B.Eng.',
+        'label': 'Herr Michail Säuberlich B.Eng.',
         'value': 'IVS National: St. Niklaus - Einsiedelei; Verenaschlucht, Nr. des IVS National: SO 365.0.1',
       }),
       'gemeinde': dict({
@@ -530,28 +530,28 @@
       }),
       'gemeindenummer-bfs': dict({
         'hidden': False,
-        'label': 'Elise Thanel',
+        'label': 'Elise Täsche',
         'value': 2555,
       }),
       'nutzungsplanung-grundnutzung': dict({
         'hidden': False,
-        'label': 'Sinaida Söding-Christoph',
+        'label': 'Sinaida Siering-Christoph',
         'value': None,
       }),
       'nutzungsplanung-weitere-festlegungen': dict({
         'hidden': False,
-        'label': 'Rainer van der Dussen',
+        'label': 'Rainer Ullmann',
         'value': 'Fläche: Perimeter kantonaler Nutzungsplan',
       }),
       'ort': dict({
         'hidden': False,
-        'label': 'Herr Hans-Rainer Zänker',
+        'label': 'Herr Hans-Rainer Wulff',
         'value': 'Rüttenen',
       }),
       'parzellen': dict({
         'form': 'those-charge-why',
         'hidden': False,
-        'label': 'Elwira Pärtzelt',
+        'label': 'Elwira Paffrath',
         'value': list([
           dict({
             'e-grid': dict({
@@ -567,15 +567,15 @@
               'value': 2607372.235299003,
             }),
             'ort': dict({
-              'label': 'Herr Hans-Rainer Zänker',
+              'label': 'Herr Hans-Rainer Wulff',
               'value': 'Rüttenen',
             }),
             'parzellennummer': dict({
-              'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
+              'label': 'Univ.Prof. Randolf Oderwald B.A.',
               'value': '90041',
             }),
             'plz': dict({
-              'label': 'Muzaffer Reuter',
+              'label': 'Muzaffer Renner',
               'value': None,
             }),
             'strasse-flurname': dict({
@@ -596,7 +596,7 @@
       }),
       'richtplan-weiteres': dict({
         'hidden': False,
-        'label': 'Tülay Rose',
+        'label': 'Tülay Rörricht',
         'value': 'Linie: Historischer_Verkehrsweg, Waldnähe (aus Richtplan): Ja, Fläche: kantonales_Naturreservat',
       }),
       'strasse-flurname': dict({
@@ -611,7 +611,7 @@
       }),
       'weitere-gis-informationen': dict({
         'hidden': False,
-        'label': 'Kay-Uwe Walter',
+        'label': 'Kay-Uwe Wagner',
         'value': 'Denkmalschutz Schutzstufe: geschützt, Denkmalschutzobjekt: Verenaschlucht, Bodenbedeckung: geschlossener_Wald, Denkmalschutz Schutzstufe: geschützt, Denkmalschutzobjekt: Gedenkstein für Amanz Gressly, Bodenbedeckung: fliessendes Gewaesser',
       }),
     }),
@@ -622,7 +622,7 @@
     'data': dict({
       'bundesinventare': dict({
         'hidden': False,
-        'label': 'Herr Michail Sauer B.Eng.',
+        'label': 'Herr Michail Säuberlich B.Eng.',
         'value': 'IVS Regional und Lokal: Solothurn/Hübeli - Kreuzen - Einsiedelei, Nr. des IVS Regional und Lokal: SO 441',
       }),
       'gemeinde': dict({
@@ -633,28 +633,28 @@
       }),
       'gemeindenummer-bfs': dict({
         'hidden': False,
-        'label': 'Elise Thanel',
+        'label': 'Elise Täsche',
         'value': 2555,
       }),
       'nutzungsplanung-grundnutzung': dict({
         'hidden': False,
-        'label': 'Sinaida Söding-Christoph',
+        'label': 'Sinaida Siering-Christoph',
         'value': None,
       }),
       'nutzungsplanung-weitere-festlegungen': dict({
         'hidden': False,
-        'label': 'Rainer van der Dussen',
+        'label': 'Rainer Ullmann',
         'value': None,
       }),
       'ort': dict({
         'hidden': False,
-        'label': 'Herr Hans-Rainer Zänker',
+        'label': 'Herr Hans-Rainer Wulff',
         'value': 'Rüttenen',
       }),
       'parzellen': dict({
         'form': 'those-charge-why',
         'hidden': False,
-        'label': 'Elwira Pärtzelt',
+        'label': 'Elwira Paffrath',
         'value': list([
           dict({
             'e-grid': dict({
@@ -670,15 +670,15 @@
               'value': 2607376.2625398953,
             }),
             'ort': dict({
-              'label': 'Herr Hans-Rainer Zänker',
+              'label': 'Herr Hans-Rainer Wulff',
               'value': 'Rüttenen',
             }),
             'parzellennummer': dict({
-              'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
+              'label': 'Univ.Prof. Randolf Oderwald B.A.',
               'value': '99',
             }),
             'plz': dict({
-              'label': 'Muzaffer Reuter',
+              'label': 'Muzaffer Renner',
               'value': '4500',
             }),
             'strasse-flurname': dict({
@@ -699,7 +699,7 @@
       }),
       'richtplan-weiteres': dict({
         'hidden': False,
-        'label': 'Tülay Rose',
+        'label': 'Tülay Rörricht',
         'value': 'Waldnähe (aus Richtplan): Ja',
       }),
       'strasse-flurname': dict({
@@ -714,7 +714,7 @@
       }),
       'weitere-gis-informationen': dict({
         'hidden': False,
-        'label': 'Kay-Uwe Walter',
+        'label': 'Kay-Uwe Wagner',
         'value': 'Denkmalschutz Schutzstufe: geschützt, Denkmalschutzobjekt: Sigristenhaus zu Kreuzen, Denkmalschutzobjekt: Verenaschlucht, Bodenbedeckung: geschlossener_Wald',
       }),
     }),
@@ -725,7 +725,7 @@
     'data': dict({
       'bundesinventare': dict({
         'hidden': False,
-        'label': 'Herr Michail Sauer B.Eng.',
+        'label': 'Herr Michail Säuberlich B.Eng.',
         'value': 'Amphibien Ortsfeste Objekte: Grenchner Witi, Wasser- und Zugvogelreservate: Witi (BE,SO), Flachmoore: Altwasser',
       }),
       'gemeinde': dict({
@@ -736,28 +736,28 @@
       }),
       'gemeindenummer-bfs': dict({
         'hidden': False,
-        'label': 'Elise Thanel',
+        'label': 'Elise Täsche',
         'value': 2546,
       }),
       'nutzungsplanung-grundnutzung': dict({
         'hidden': False,
-        'label': 'Sinaida Söding-Christoph',
+        'label': 'Sinaida Siering-Christoph',
         'value': 'Landwirtschaftszone',
       }),
       'nutzungsplanung-weitere-festlegungen': dict({
         'hidden': False,
-        'label': 'Rainer van der Dussen',
+        'label': 'Rainer Ullmann',
         'value': 'Fläche: Perimeter kantonaler Nutzungsplan',
       }),
       'ort': dict({
         'hidden': False,
-        'label': 'Herr Hans-Rainer Zänker',
+        'label': 'Herr Hans-Rainer Wulff',
         'value': 'Grenchen',
       }),
       'parzellen': dict({
         'form': 'those-charge-why',
         'hidden': False,
-        'label': 'Elwira Pärtzelt',
+        'label': 'Elwira Paffrath',
         'value': list([
           dict({
             'e-grid': dict({
@@ -773,15 +773,15 @@
               'value': 2595908.1098607033,
             }),
             'ort': dict({
-              'label': 'Herr Hans-Rainer Zänker',
+              'label': 'Herr Hans-Rainer Wulff',
               'value': 'Grenchen',
             }),
             'parzellennummer': dict({
-              'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
+              'label': 'Univ.Prof. Randolf Oderwald B.A.',
               'value': '5',
             }),
             'plz': dict({
-              'label': 'Muzaffer Reuter',
+              'label': 'Muzaffer Renner',
               'value': None,
             }),
             'strasse-flurname': dict({
@@ -802,7 +802,7 @@
       }),
       'richtplan-weiteres': dict({
         'hidden': False,
-        'label': 'Tülay Rose',
+        'label': 'Tülay Rörricht',
         'value': 'Waldnähe (aus Richtplan): Nein, Fläche: kantonale_Uferschutzzone, Fläche: kantonales_Naturreservat, Fläche: Witischutzzone',
       }),
       'strasse-flurname': dict({
@@ -817,7 +817,7 @@
       }),
       'weitere-gis-informationen': dict({
         'hidden': False,
-        'label': 'Kay-Uwe Walter',
+        'label': 'Kay-Uwe Wagner',
         'value': None,
       }),
     }),
@@ -828,7 +828,7 @@
     'data': dict({
       'bundesinventare': dict({
         'hidden': False,
-        'label': 'Herr Michail Sauer B.Eng.',
+        'label': 'Herr Michail Säuberlich B.Eng.',
         'value': None,
       }),
       'gemeinde': dict({
@@ -839,28 +839,28 @@
       }),
       'gemeindenummer-bfs': dict({
         'hidden': False,
-        'label': 'Elise Thanel',
+        'label': 'Elise Täsche',
         'value': 2550,
       }),
       'nutzungsplanung-grundnutzung': dict({
         'hidden': False,
-        'label': 'Sinaida Söding-Christoph',
+        'label': 'Sinaida Siering-Christoph',
         'value': 'Landwirtschaftszone',
       }),
       'nutzungsplanung-weitere-festlegungen': dict({
         'hidden': False,
-        'label': 'Rainer van der Dussen',
+        'label': 'Rainer Ullmann',
         'value': 'Grundwasserschutz: S2, Fläche: kommunale Landschaftsschutzzone',
       }),
       'ort': dict({
         'hidden': False,
-        'label': 'Herr Hans-Rainer Zänker',
+        'label': 'Herr Hans-Rainer Wulff',
         'value': 'Langendorf',
       }),
       'parzellen': dict({
         'form': 'those-charge-why',
         'hidden': False,
-        'label': 'Elwira Pärtzelt',
+        'label': 'Elwira Paffrath',
         'value': list([
           dict({
             'e-grid': dict({
@@ -876,15 +876,15 @@
               'value': 2606261.686890635,
             }),
             'ort': dict({
-              'label': 'Herr Hans-Rainer Zänker',
+              'label': 'Herr Hans-Rainer Wulff',
               'value': 'Langendorf',
             }),
             'parzellennummer': dict({
-              'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
+              'label': 'Univ.Prof. Randolf Oderwald B.A.',
               'value': '298',
             }),
             'plz': dict({
-              'label': 'Muzaffer Reuter',
+              'label': 'Muzaffer Renner',
               'value': None,
             }),
             'strasse-flurname': dict({
@@ -905,7 +905,7 @@
       }),
       'richtplan-weiteres': dict({
         'hidden': False,
-        'label': 'Tülay Rose',
+        'label': 'Tülay Rörricht',
         'value': 'Waldnähe (aus Richtplan): Ja, Fläche: Grundwasserschutzzone_areal',
       }),
       'strasse-flurname': dict({
@@ -920,7 +920,7 @@
       }),
       'weitere-gis-informationen': dict({
         'hidden': False,
-        'label': 'Kay-Uwe Walter',
+        'label': 'Kay-Uwe Wagner',
         'value': 'Bodenbedeckung: geschlossener_Wald',
       }),
     }),

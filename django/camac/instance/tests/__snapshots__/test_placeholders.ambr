@@ -240,17 +240,17 @@
     'EBAU_URL': 'http://ebau.local',
     'EIGENE_GEBUEHREN': list([
       dict({
-        'BETRAG': '732.36',
-        'FORFAIT': '732.36',
-        'POSITION': 'others',
-      }),
-      dict({
-        'BETRAG': '910.36',
-        'FORFAIT': '910.36',
+        'BETRAG': '295.10',
+        'FORFAIT': '295.10',
         'POSITION': 'up',
       }),
+      dict({
+        'BETRAG': '493.32',
+        'FORFAIT': '493.32',
+        'POSITION': 'next',
+      }),
     ]),
-    'EIGENE_GEBUEHREN_TOTAL': '1’642.72',
+    'EIGENE_GEBUEHREN_TOTAL': '788.42',
     'EIGENE_NEBENBESTIMMUNGEN': 'Nebenbestimmungen 1',
     'EIGENE_STELLUNGNAHMEN': 'Stellungnahme 1',
     'EINSPRACHEN': list([
@@ -284,27 +284,27 @@
     'EMAIL': '',
     'EMOLUMENTS': list([
       dict({
-        'BETRAG': '274.87',
-        'FORFAIT': '274.87',
+        'BETRAG': '885.56',
+        'FORFAIT': '885.56',
         'POSITION': 'state',
       }),
       dict({
-        'BETRAG': '167.85',
-        'FORFAIT': '167.85',
+        'BETRAG': '378.93',
+        'FORFAIT': '378.93',
         'POSITION': 'pick',
       }),
       dict({
-        'BETRAG': '732.36',
-        'FORFAIT': '732.36',
-        'POSITION': 'others',
-      }),
-      dict({
-        'BETRAG': '910.36',
-        'FORFAIT': '910.36',
+        'BETRAG': '295.10',
+        'FORFAIT': '295.10',
         'POSITION': 'up',
       }),
+      dict({
+        'BETRAG': '493.32',
+        'FORFAIT': '493.32',
+        'POSITION': 'next',
+      }),
     ]),
-    'EMOLUMENTS_TOTAL': '2’085.44',
+    'EMOLUMENTS_TOTAL': '2’052.91',
     'ENSEMBLE_BÂTI': 'Ja',
     'ENSEMBLE_BÂTI_DÉNOMINATION': 'Test Baugruppe',
     'ERHALTENSWERT': 'Nein',
@@ -414,27 +414,27 @@
     'GEBAEUDEEIGENTUEMER_NAME_ADRESSE': 'Peter Meier, Thunstrasse 88, 3002 Bern',
     'GEBUEHREN': list([
       dict({
-        'BETRAG': '274.87',
-        'FORFAIT': '274.87',
+        'BETRAG': '885.56',
+        'FORFAIT': '885.56',
         'POSITION': 'state',
       }),
       dict({
-        'BETRAG': '167.85',
-        'FORFAIT': '167.85',
+        'BETRAG': '378.93',
+        'FORFAIT': '378.93',
         'POSITION': 'pick',
       }),
       dict({
-        'BETRAG': '732.36',
-        'FORFAIT': '732.36',
-        'POSITION': 'others',
-      }),
-      dict({
-        'BETRAG': '910.36',
-        'FORFAIT': '910.36',
+        'BETRAG': '295.10',
+        'FORFAIT': '295.10',
         'POSITION': 'up',
       }),
+      dict({
+        'BETRAG': '493.32',
+        'FORFAIT': '493.32',
+        'POSITION': 'next',
+      }),
     ]),
-    'GEBUEHREN_TOTAL': '2’085.44',
+    'GEBUEHREN_TOTAL': '2’052.91',
     'GEFAEHRLICHE_STOFFE': list([
     ]),
     'GEMEINDE': 'Burgdorf',
@@ -579,17 +579,17 @@
     'MEINE_ORGANISATION_TELEFON': '',
     'MES_EMOLUMENTS': list([
       dict({
-        'BETRAG': '732.36',
-        'FORFAIT': '732.36',
-        'POSITION': 'others',
-      }),
-      dict({
-        'BETRAG': '910.36',
-        'FORFAIT': '910.36',
+        'BETRAG': '295.10',
+        'FORFAIT': '295.10',
         'POSITION': 'up',
       }),
+      dict({
+        'BETRAG': '493.32',
+        'FORFAIT': '493.32',
+        'POSITION': 'next',
+      }),
     ]),
-    'MES_EMOLUMENTS_TOTAL': '1’642.72',
+    'MES_EMOLUMENTS_TOTAL': '788.42',
     'MODIFICATION_DATE': '',
     'MODIFICATION_TIME': '',
     'MON_ORGANISATION_ADRESSE_1': '',
@@ -8387,7 +8387,7 @@
         'BEANTWORTET': '',
         'ERSTELLT': '30.08.2021',
         'FRIST': '27.01.2010',
-        'NAME': 'Charlene Allen',
+        'NAME': 'Brian Bates',
       }),
       dict({
         'BEANTWORTET': '',
@@ -8503,7 +8503,7 @@
         'BEANTWORTET': '',
         'ERSTELLT': '30.08.2021',
         'FRIST': '27.01.2010',
-        'NAME': 'Charlene Allen',
+        'NAME': 'Brian Bates',
       }),
       dict({
         'BEANTWORTET': '',
@@ -8543,7 +8543,7 @@
         'BEANTWORTET': '',
         'ERSTELLT': '30.08.2021',
         'FRIST': '27.01.2010',
-        'NAME': 'Charlene Allen',
+        'NAME': 'Brian Bates',
       }),
       dict({
         'BEANTWORTET': '',
@@ -8572,28 +8572,28 @@
 # ---
 # name: test_dms_placeholders_so[Municipality]
   dict({
-    'ALLE_GESUCHSTELLER_VERTRETER': 'Mark Russo, Brown, Coleman and Aguirre, Patrick Dougherty',
-    'ALLE_GESUCHSTELLER_VERTRETER_NAME_ADRESSE': 'Mark Russo, Martinez Pines 20675, 4308 Darrenfurt, Brown, Coleman and Aguirre, Patrick Dougherty, Andrew Field 9877, 1884 Lisaburgh',
-    'ALLE_RECHNUNGSEMPFAENGER': 'Richard Garcia, Clay, Bennett and Martin, Deanna Smith',
-    'ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Richard Garcia, Day Pine 984, 6907 Patriciachester, Clay, Bennett and Martin, Deanna Smith, Padilla Radial 0236, 9208 South Drewstad',
+    'ALLE_GESUCHSTELLER_VERTRETER': 'Justin Mccoy, Little-Adams, Sandra Rodriguez',
+    'ALLE_GESUCHSTELLER_VERTRETER_NAME_ADRESSE': 'Justin Mccoy, Paul Walk 7142, 1917 Gonzalezville, Little-Adams, Sandra Rodriguez, Peters Radial 2779, 5028 North Andrew',
+    'ALLE_RECHNUNGSEMPFAENGER': 'Steven Henderson, Miller, Walker and Jones, Michael King',
+    'ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Steven Henderson, Chelsea Manors 45362, 6200 West Crystal, Miller, Walker and Jones, Michael King, Patricia Village 92092, 7620 Williamburgh',
     'ANGEMELDET_EMAIL': 'admin@example.com',
     'ANGEMELDET_NAME': 'Admin User',
     'BAUENTSCHEID_DATUM': '18. April 2024',
     'EIGENE_GEBUEHREN': list([
       dict({
-        'BETRAG': '553.25',
+        'BETRAG': '467.56',
         'KOSTENSTELLE': '122344013',
         'POSITION': 'they',
         'RECHTSGRUNDLAGE': 'agency',
       }),
       dict({
-        'BETRAG': '76.51',
+        'BETRAG': '63.45',
         'KOSTENSTELLE': '122022995',
         'POSITION': 'marriage',
         'RECHTSGRUNDLAGE': 'show',
       }),
     ]),
-    'EIGENE_GEBUEHREN_TOTAL': '629.76',
+    'EIGENE_GEBUEHREN_TOTAL': '531.01',
     'EINGEREICHTE_PLAENE': list([
       dict({
         'BESCHREIBUNG': '''
@@ -8757,37 +8757,37 @@
     ]),
     'GEBUEHREN': list([
       dict({
-        'BETRAG': '553.25',
+        'BETRAG': '467.56',
         'KOSTENSTELLE': '122344013',
         'POSITION': 'they',
         'RECHTSGRUNDLAGE': 'agency',
       }),
       dict({
-        'BETRAG': '76.51',
+        'BETRAG': '63.45',
         'KOSTENSTELLE': '122022995',
         'POSITION': 'marriage',
         'RECHTSGRUNDLAGE': 'show',
       }),
       dict({
-        'BETRAG': '1’697.35',
+        'BETRAG': '156.17',
         'KOSTENSTELLE': '',
-        'POSITION': 'ok',
+        'POSITION': 'cultural',
         'RECHTSGRUNDLAGE': '',
       }),
       dict({
-        'BETRAG': '493.27',
+        'BETRAG': '432.23',
         'KOSTENSTELLE': '',
-        'POSITION': 'woman',
+        'POSITION': 'during',
         'RECHTSGRUNDLAGE': '',
       }),
     ]),
-    'GEBUEHREN_TOTAL': '2’820.38',
+    'GEBUEHREN_TOTAL': '1’119.41',
     'GEMEINDE_WEBSEITE': 'https://gemeinde.ch',
     'GESUCHSTELLER_ANREDE': 'Herr',
-    'GESUCHSTELLER_VERTRETER': 'Mark Russo',
-    'GESUCHSTELLER_VERTRETER_ADRESSE_1': 'Martinez Pines 20675',
-    'GESUCHSTELLER_VERTRETER_ADRESSE_2': '4308 Darrenfurt',
-    'GESUCHSTELLER_VERTRETER_NAME_ADRESSE': 'Mark Russo, Martinez Pines 20675, 4308 Darrenfurt',
+    'GESUCHSTELLER_VERTRETER': 'Justin Mccoy',
+    'GESUCHSTELLER_VERTRETER_ADRESSE_1': 'Paul Walk 7142',
+    'GESUCHSTELLER_VERTRETER_ADRESSE_2': '1917 Gonzalezville',
+    'GESUCHSTELLER_VERTRETER_NAME_ADRESSE': 'Justin Mccoy, Paul Walk 7142, 1917 Gonzalezville',
     'LEITBEHOERDE_NAME_ADRESSE': 'Test Leitbehörde, Teststrasse 13, 3000 Musterhausen',
     'LEITBEHOERDE_WEBSEITE': 'https://leitbehoerde.ch',
     'MEINE_ORGANISATION_WEBSEITE': 'https://meine-organisation.ch',
@@ -8806,10 +8806,10 @@
       }),
     ]),
     'PUBLIKATION_START': '1. Dezember 2023',
-    'RECHNUNGSEMPFAENGER': 'Richard Garcia',
-    'RECHNUNGSEMPFAENGER_ADRESSE_1': 'Day Pine 984',
-    'RECHNUNGSEMPFAENGER_ADRESSE_2': '6907 Patriciachester',
-    'RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Richard Garcia, Day Pine 984, 6907 Patriciachester',
+    'RECHNUNGSEMPFAENGER': 'Steven Henderson',
+    'RECHNUNGSEMPFAENGER_ADRESSE_1': 'Chelsea Manors 45362',
+    'RECHNUNGSEMPFAENGER_ADRESSE_2': '6200 West Crystal',
+    'RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Steven Henderson, Chelsea Manors 45362, 6200 West Crystal',
   })
 # ---
 # name: test_dms_placeholders_ur[Municipality]
