@@ -14,19 +14,19 @@ from camac.models import dynamic_default_value
 class MultilingualModel:
     """Mixin for models that have a multilingual "name" property."""
 
-    def get_name(self, lang=None):
-        return self.get_trans_attr("name", lang)
+    def get_name(self, lang=None, fallback=True):
+        return self.get_trans_attr("name", lang, fallback)
 
-    def get_trans_attr(self, name, lang=None):
+    def get_trans_attr(self, name, lang=None, fallback=True):
         if not settings.APPLICATION.get("IS_MULTILINGUAL", False):
             return getattr(self, name)
 
-        match = self.get_trans_obj(lang)
+        match = self.get_trans_obj(lang, fallback)
         if not match:
-            return getattr(self, name)
+            return getattr(self, name) if fallback else None
         return getattr(match, name)
 
-    def get_trans_obj(self, lang=None):
+    def get_trans_obj(self, lang=None, fallback=True):
         lang = lang or translation.get_language()
 
         # we filter the translation in python so we don't trigger another query
@@ -34,7 +34,7 @@ class MultilingualModel:
         # most cases
         trans = self.trans.all()
         match = next(filter(lambda t: t.language == lang, trans), None)
-        if not match:
+        if not match and fallback:
             match = next(
                 filter(lambda t: t.language == settings.LANGUAGE_CODE, trans), None
             )
