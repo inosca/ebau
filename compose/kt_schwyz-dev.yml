@@ -83,7 +83,7 @@ services:
       - MANABI_ENABLE=False
     networks:
       - ebau.local
-    command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0.0.0.0:80 --pythonpath /app/$APPLICATION"
+    command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py compilemessage && ./manage.py runserver 0.0.0.0:80 --pythonpath /app/$APPLICATION"
 
   # repeat definition here because otherwise prod settings are applied
   django-q:
