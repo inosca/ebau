@@ -1,6 +1,6 @@
 from logging import getLogger
 
-from caluma.caluma_core.events import on
+from caluma.caluma_core.events import filter_events, on
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_form.jexl import QuestionJexl
 from caluma.caluma_form.structure import FieldSet
@@ -263,22 +263,44 @@ def set_work_items_unread_on_reopen(
 
 @on(post_create_work_item, raise_exception=True)
 @transaction.atomic
+@filter_events(lambda work_item: work_item.task.slug == "review-building-commission")
 def post_create_review_building_commission(sender, work_item, user, context, **kwargs):
     """Set name of the created work item to include the meeting date."""
-    if work_item.task_id != "review-building-commission":
-        return
-
     if settings.APPLICATION_NAME != "kt_uri":  # pragma: no cover
         return
 
     release_document = work_item.case.family.work_items.get(
         task_id="release-for-bk"
     ).document
-    meeting_date_value = release_document.answers.get(
+    meeting_date_answer = release_document.answers.filter(
         question_id="release-for-bk-meeting-date"
-    ).date
-    meeting_date_string = meeting_date_value.strftime("%d.%m.%Y")
+    ).first()
 
-    work_item.name = f"{work_item.name} (BK Sitzung: {meeting_date_string})"
+    if meeting_date_answer:
+        meeting_date_string = meeting_date_answer.date.strftime("%d.%m.%Y")
 
-    work_item.save(update_fields=["name"])
+        work_item.name = f"{work_item.name} (BK Sitzung: {meeting_date_string})"
+
+        work_item.save(update_fields=["name"])
+
+
+@on(post_complete_work_item, raise_exception=True)
+@transaction.atomic
+@filter_events(lambda work_item: work_item.task.slug == "decision")
+def post_decision_ur(sender, work_item, user, context, **kwargs):
+    """Skip the building comission work items if they exist."""
+    if settings.APPLICATION_NAME != "kt_uri":  # pragma: no cover
+        return
+
+    # If we haven't release this dossier for the BK we don't need this work item anymore
+    release_for_bk_work_items = work_item.case.family.work_items.filter(
+        task_id="release-for-bk", status=WorkItem.STATUS_READY
+    )
+    for release_work_item in release_for_bk_work_items:
+        workflow_api.skip_work_item(release_work_item, user, context)
+
+    review_work_items = work_item.case.family.work_items.filter(
+        task_id="review-building-commission", status=WorkItem.STATUS_READY
+    )
+    for review_work_item in review_work_items:
+        workflow_api.skip_work_item(review_work_item, user, context)

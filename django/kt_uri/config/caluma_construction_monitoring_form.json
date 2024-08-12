@@ -549,9 +549,9 @@
     "model": "caluma_form.formquestion",
     "pk": "construction-monitoring-update-gwr-state.gwr-status-complete",
     "fields": {
-      "created_at": "2024-08-02T09:02:37.423Z",
-      "modified_at": "2024-08-02T09:02:37.423Z",
-      "created_by_user": "admin",
+      "created_at": "2024-08-02T08:42:35.650Z",
+      "modified_at": "2024-08-02T08:42:35.650Z",
+      "created_by_user": "stephan.hug@adfinis.com",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
@@ -782,7 +782,7 @@
       "modified_by_group": null,
       "form": "construction-step-plan-construction-stage",
       "question": "construction-stage-name",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -797,7 +797,7 @@
       "modified_by_group": null,
       "form": "construction-step-plan-construction-stage",
       "question": "construction-steps",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -813,21 +813,6 @@
       "form": "construction-step-plan-construction-stage",
       "question": "construction-steps-bemerkungen",
       "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "construction-step-plan-construction-stage.schnurgeruestabnahme-durch",
-    "fields": {
-      "created_at": "2024-08-06T09:54:50.558Z",
-      "modified_at": "2024-08-06T09:54:50.558Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "construction-step-plan-construction-stage",
-      "question": "schnurgeruestabnahme-durch",
-      "sort": 2
     }
   },
   {
@@ -2103,19 +2088,19 @@
     "pk": "construction-stage-name",
     "fields": {
       "created_at": "2023-10-27T12:40:24.637Z",
-      "modified_at": "2023-10-27T12:40:24.637Z",
+      "modified_at": "2024-08-07T09:26:38.752Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Bezeichnung der Bauetappe\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -3539,9 +3524,9 @@
     "model": "caluma_form.question",
     "pk": "gwr-status-complete",
     "fields": {
-      "created_at": "2024-08-02T09:02:37.331Z",
-      "modified_at": "2024-08-02T09:02:37.331Z",
-      "created_by_user": "admin",
+      "created_at": "2024-08-02T08:42:35.589Z",
+      "modified_at": "2024-08-02T08:42:35.589Z",
+      "created_by_user": "stephan.hug@adfinis.com",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
@@ -3669,15 +3654,15 @@
     "pk": "schnurgeruestabnahme-durch",
     "fields": {
       "created_at": "2024-07-05T11:03:11.325Z",
-      "modified_at": "2024-08-06T09:55:29.313Z",
+      "modified_at": "2024-08-06T08:28:16.647Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Wer f\\u00fchrt die Schnurger\\u00fcstabnahme durch?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "!(\"construction-step-schnurgeruestabnahme\" in \"construction-steps\"|answer([]))",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -4314,11 +4299,11 @@
     "model": "caluma_form.questionoption",
     "pk": "schnurgeruestabnahme-durch.wer-fuehrt-die-schnurgeruestabnahme-durch-gemeinde",
     "fields": {
-      "created_at": "2024-08-06T09:55:29.328Z",
-      "modified_at": "2024-08-06T09:55:29.328Z",
-      "created_by_user": "admin",
+      "created_at": "2024-08-06T08:28:16.655Z",
+      "modified_at": "2024-08-06T08:28:16.655Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "schnurgeruestabnahme-durch",
       "option": "wer-fuehrt-die-schnurgeruestabnahme-durch-gemeinde",
@@ -4329,11 +4314,11 @@
     "model": "caluma_form.questionoption",
     "pk": "schnurgeruestabnahme-durch.wer-fuehrt-die-schnurgeruestabnahme-durch-geometer",
     "fields": {
-      "created_at": "2024-08-06T09:55:29.324Z",
-      "modified_at": "2024-08-06T09:55:29.324Z",
-      "created_by_user": "admin",
+      "created_at": "2024-08-06T08:28:16.653Z",
+      "modified_at": "2024-08-06T08:28:16.653Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "schnurgeruestabnahme-durch",
       "option": "wer-fuehrt-die-schnurgeruestabnahme-durch-geometer",

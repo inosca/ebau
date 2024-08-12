@@ -85,18 +85,23 @@ class CustomDynamicTasks(BaseDynamicTasks):
     def resolve_after_decision_ur(self, case, user, prev_work_item, context):
         tasks = []
 
-        involve_geometer = (
-            prev_work_item.document.answers.get(
-                question_id="decision-task-nachfuehrungsgeometer"
-            ).value
-            == "decision-task-nachfuehrungsgeometer-ja"
-        )
-        involve_gebaeudeschaetzung = (
-            prev_work_item.document.answers.get(
-                question_id="decision-task-gebaudeschaetzung"
-            ).value
-            == "decision-task-gebaudeschaetzung-ja"
-        )
+        involve_geometer = False
+        involve_gebaeudeschaetzung = False
+
+        if geometer_answer := prev_work_item.document.answers.filter(
+            question_id="decision-task-nachfuehrungsgeometer"
+        ).first():
+            involve_geometer = (
+                geometer_answer.value == "decision-task-nachfuehrungsgeometer-ja"
+            )
+
+        if involve_gebaeudeschaetzung_answer := prev_work_item.document.answers.filter(
+            question_id="decision-task-gebaudeschaetzung"
+        ).first():
+            involve_gebaeudeschaetzung = (
+                involve_gebaeudeschaetzung_answer.value
+                == "decision-task-gebaudeschaetzung-ja"
+            )
 
         if involve_geometer:
             tasks.append("geometer")
