@@ -1152,27 +1152,21 @@ APPLICATIONS = {
                     },
                 },
                 "complete-distribution": {
+                    "next_instance_state": "done",
                     "notification": {
                         "template_slug": "zirkulation-abgeschlossen",
                         "recipient_types": ["applicant"],
                     },
                 },
                 "decision": {
+                    "next_instance_state": "control",
                     "notification": {
                         "template_slug": "eroeffnung-stellungnahme-vorentscheid",
                         "recipient_types": ["applicant", "involved_in_distribution"],
                     },
                 },
                 "complete-instance": {
-                    "next_instance_state": "done",
-                },
-                "archive": {
                     "next_instance_state": "arch",
-                },
-            },
-            "PRE_COMPLETE": {
-                "decision": {
-                    "complete": ["review-building-commission", "release-for-bk"],
                 },
             },
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
@@ -1417,7 +1411,7 @@ APPLICATIONS = {
         "INTER_SERVICE_GROUP_VISIBILITIES": {},
         # This can be removed once all the kantons are using it
         "VISIBILITY_PERFORMANCE_OPTIMISATIONS_ACTIVE": env.bool(
-            "VISIBILITY_PERFORMANCE_OPTIMISATION_ACTIVE", default=False
+            "VISIBILITY_PERFORMANCE_OPTIMISATIONS_ACTIVE", default=False
         ),
     },
     "demo": {

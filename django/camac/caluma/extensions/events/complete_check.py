@@ -10,11 +10,11 @@ from camac.user.models import User
 
 @on(post_complete_work_item, raise_exception=True)
 @transaction.atomic
-@filter_events(lambda work_item: work_item.task.slug == "complete-check")
+@filter_events(
+    lambda work_item: work_item.task.slug == "complete-check"
+    and settings.APPLICATION_NAME == "kt_uri"
+)
 def convert_instance_ur(sender, work_item, user, context=None, **kwargs):
-    if settings.APPLICATION_NAME != "kt_uri":  # pragma: no cover
-        return
-
     requires_building_permit = False
 
     if complete_check_answer := work_item.document.answers.filter(
