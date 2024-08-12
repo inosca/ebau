@@ -872,6 +872,7 @@ def caluma_forms_ur(settings):
         "instance-management",
         "construction-monitoring",
         "bab",
+        "geometer-tasks",
     ]:
         caluma_form_models.Form.objects.create(slug=form, name=form)
 

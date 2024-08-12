@@ -1,1 +1,62 @@
-[]
+[
+  {
+    "model": "permissions.accesslevel",
+    "pk": "applicant",
+    "fields": {
+      "name": "{\"de\": \"Gesuchsteller/in\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "required_grant_type": null,
+      "applicable_area": "APPLICANT"
+    }
+  },
+  {
+    "model": "permissions.accesslevel",
+    "pk": "coordination",
+    "fields": {
+      "name": "{\"de\": \"Koordinationsstelle\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "required_grant_type": "SERVICE",
+      "applicable_area": "ANY"
+    }
+  },
+  {
+    "model": "permissions.accesslevel",
+    "pk": "distribution-service",
+    "fields": {
+      "name": "{\"de\": \"Fachstelle\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "required_grant_type": "SERVICE",
+      "applicable_area": "INTERNAL"
+    }
+  },
+  {
+    "model": "permissions.accesslevel",
+    "pk": "lead-authority",
+    "fields": {
+      "name": "{\"de\": \"Leitbeh\\u00f6rde\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "required_grant_type": "SERVICE",
+      "applicable_area": "INTERNAL"
+    }
+  },
+  {
+    "model": "permissions.accesslevel",
+    "pk": "read",
+    "fields": {
+      "name": "{\"de\": \"Leseberechtigung\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "required_grant_type": "SERVICE",
+      "applicable_area": "INTERNAL"
+    }
+  },
+  {
+    "model": "permissions.accesslevel",
+    "pk": "support",
+    "fields": {
+      "name": "{\"de\": \"Support\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "required_grant_type": "ROLE",
+      "applicable_area": "ANY"
+    }
+  }
+]
