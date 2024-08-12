@@ -11,13 +11,11 @@ export default class PermissionsService extends Service {
   @tracked mode = null;
 
   async setup() {
-    const response = await this.fetch.fetch(
-      "/api/v1/instance-permissions?page[size]=1",
-    );
-    const { meta } = await response.json();
+    const response = await this.fetch.fetch("/api/v1/permissions-meta");
+    const { data } = await response.json();
 
-    this.fullyEnabled = meta["fully-enabled"];
-    this.mode = meta["permission-mode"];
+    this.fullyEnabled = data["fully-enabled"];
+    this.mode = data["permission-mode"];
   }
 
   async #triggerCache(instanceId, reload) {
