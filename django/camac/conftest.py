@@ -873,6 +873,7 @@ def caluma_forms_ur(settings):
         "construction-monitoring",
         "bab",
         "geometer-tasks",
+        "review-building-commission",
     ]:
         caluma_form_models.Form.objects.create(slug=form, name=form)
 
