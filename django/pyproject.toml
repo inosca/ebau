@@ -90,13 +90,12 @@ filterwarnings = [
     "error::DeprecationWarning",
     "error::PendingDeprecationWarning",
     "error::RuntimeWarning",
-    "ignore:the imp module is deprecated:DeprecationWarning",                          # Deprecation in future
-    "ignore:defusedxml.lxml:DeprecationWarning",                                       # Deprecation in wsgidav
-    "ignore:The 'arrayconnection' module is deprecated:DeprecationWarning",            # Deprecation in graphene
-    "ignore:No fixture data:RuntimeWarning",                                           # Caused by automatically generated empty fixtures
-    "ignore:No directory at:UserWarning",                                              # Caused by whitenoise in tests
-    "ignore:Duplicate name:UserWarning",                                               # Caused by multiple tests using the same test files
-    "ignore:'django_extensions' defines default_app_config:PendingDeprecationWarning", # https://github.com/django-extensions/django-extensions/issues/1757
+    # Caused by automatically generated empty fixtures
+    "ignore:No fixture data:RuntimeWarning",
+    # Caused by whitenoise in tests
+    "ignore:No directory at:UserWarning",
+    # Caused by multiple tests using the same test files
+    "ignore:Duplicate name:UserWarning",
     # Deprecated usage of django-filters method in drf-yasg
     "ignore:Built-in schema generation is deprecated.*:DeprecationWarning",
     # Issue in pytest-factoryboy
@@ -104,7 +103,7 @@ filterwarnings = [
     # the (unmaintened) django-excel package is using distutils which will get removed in python 3.12
     "ignore:distutils Version classes are deprecated.*:DeprecationWarning",
     # Caused by josepy which is used by mozilla-django-oidc
-    "ignore:CSR support in pyOpenSSL is deprecated. You should use the APIs in cryptography.:DeprecationWarning"
+    "ignore:CSR support in pyOpenSSL is deprecated. You should use the APIs in cryptography.:DeprecationWarning",
 ]
 
 [tool.coverage.run]

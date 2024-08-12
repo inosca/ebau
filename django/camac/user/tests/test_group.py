@@ -1,6 +1,6 @@
 import pytest
 from django.urls import reverse
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 
@@ -62,8 +62,8 @@ def test_group_detail_include(
 @pytest.mark.parametrize(
     "role__name,instance__user,count",
     [
-        ("Municipality", LazyFixture("admin_user"), 1),
-        ("Applicant", LazyFixture("admin_user"), 2),
+        ("Municipality", lf("admin_user"), 1),
+        ("Applicant", lf("admin_user"), 2),
     ],
 )
 def test_group_instance_filter(

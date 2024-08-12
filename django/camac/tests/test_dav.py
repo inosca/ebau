@@ -9,7 +9,7 @@ from django.conf import settings
 from django.urls import reverse
 from manabi.token import Key, Token
 from manabi.util import from_string
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf
 
 from camac.document import models, permissions
 
@@ -73,7 +73,7 @@ def prepare_file():
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user", [("Municipality", LazyFixture("admin_user"))]
+    "role__name,instance__user", [("Municipality", lf("admin_user"))]
 )
 @pytest.mark.parametrize("threshold_enabled", [True, False])
 def test_callback(

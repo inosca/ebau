@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 
 import pytest
 from django.urls import reverse
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 from camac.core.models import WorkflowEntry
@@ -32,7 +32,7 @@ def test_publication_list(admin_client, publication_entry, activation, size):
         assert json["data"][0]["id"] == str(publication_entry.pk)
 
 
-@pytest.mark.parametrize("publication_entry__instance", [LazyFixture("sz_instance")])
+@pytest.mark.parametrize("publication_entry__instance", [lf("sz_instance")])
 @pytest.mark.parametrize(
     "role__name,status_code",
     [

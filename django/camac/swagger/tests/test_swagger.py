@@ -1,7 +1,7 @@
 import pytest
 from django.conf import settings
 from django.urls import reverse
-from pytest_lazyfixture import lazy_fixture
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 
@@ -9,20 +9,20 @@ from rest_framework import status
     "appconfig,_ech0211_settings",
     [
         (
-            lazy_fixture("set_application_be"),
-            lazy_fixture("be_ech0211_settings"),
+            lf("set_application_be"),
+            lf("be_ech0211_settings"),
         ),
         (
-            lazy_fixture("set_application_sz"),
-            lazy_fixture("sz_ech0211_settings"),
+            lf("set_application_sz"),
+            lf("sz_ech0211_settings"),
         ),
         (
-            lazy_fixture("set_application_so"),
-            lazy_fixture("so_ech0211_settings"),
+            lf("set_application_so"),
+            lf("so_ech0211_settings"),
         ),
         # for coverage of the actual url config we need to run a test that
         # does not override the actual url settings:
-        ("kt_bern", lazy_fixture("ech0211_settings")),
+        ("kt_bern", lf("ech0211_settings")),
     ],
 )
 def test_swagger_schema(

@@ -1,10 +1,9 @@
-version: "3.4"
 services:
   cache:
     image: memcached:1.6-alpine
 
   proxy:
-    image: nginx:1.25-alpine
+    image: nginx:1.27-alpine
     depends_on:
       - ember-caluma-portal
       - django

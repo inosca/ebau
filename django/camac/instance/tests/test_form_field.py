@@ -1,6 +1,6 @@
 import pytest
 from django.urls import reverse
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 from camac.instance import models, serializers
@@ -9,12 +9,12 @@ from camac.instance import models, serializers
 @pytest.mark.parametrize(
     "role__name,instance__user,size",
     [
-        ("Applicant", LazyFixture("admin_user"), 1),
-        ("Unknown", LazyFixture("user"), 0),
-        ("Support", LazyFixture("user"), 1),
-        ("Service", LazyFixture("user"), 1),
-        ("Public", LazyFixture("user"), 0),
-        ("Municipality", LazyFixture("user"), 1),
+        ("Applicant", lf("admin_user"), 1),
+        ("Unknown", lf("user"), 0),
+        ("Support", lf("user"), 1),
+        ("Service", lf("user"), 1),
+        ("Public", lf("user"), 0),
+        ("Municipality", lf("user"), 1),
     ],
 )
 @pytest.mark.parametrize("form_field__name", ["kategorie-des-vorhabens"])
@@ -39,32 +39,32 @@ def test_form_field_list(admin_client, form_field, size):
     [
         (
             "Applicant",
-            LazyFixture("admin_user"),
+            lf("admin_user"),
             {"einsprecher": 0, "kategorie-des-vorhabens": 1},
         ),
         (
             "Unknown",
-            LazyFixture("user"),
+            lf("user"),
             {"einsprecher": 0, "kategorie-des-vorhabens": 1},
         ),
         (
             "Support",
-            LazyFixture("user"),
+            lf("user"),
             {"einsprecher": 0, "kategorie-des-vorhabens": 1},
         ),
         (
             "Service",
-            LazyFixture("user"),
+            lf("user"),
             {"einsprecher": 0, "kategorie-des-vorhabens": 1},
         ),
         (
             "Public",
-            LazyFixture("user"),
+            lf("user"),
             {"einsprecher": 0, "kategorie-des-vorhabens": 1},
         ),
         (
             "Municipality",
-            LazyFixture("user"),
+            lf("user"),
             {"einsprecher": 1, "kategorie-des-vorhabens": 1},
         ),
     ],
@@ -90,7 +90,7 @@ def test_form_field_visible_for(
 
 @pytest.mark.parametrize(
     "role__name,instance__user",
-    [("Applicant", LazyFixture("admin_user")), ("Reader", LazyFixture("admin_user"))],
+    [("Applicant", lf("admin_user")), ("Reader", lf("admin_user"))],
 )
 @pytest.mark.parametrize("form_field__value", [["Test1", "Test2"]])
 @pytest.mark.parametrize("form_field__name", ["kategorie-des-vorhabens"])
@@ -109,42 +109,42 @@ def test_form_field_detail(admin_client, form_field, form_field__value):
         (
             "Applicant",
             "new",
-            LazyFixture("admin_user"),
+            lf("admin_user"),
             "kategorie-des-vorhabens",
             status.HTTP_200_OK,
         ),
         (
             "Applicant",
             "new",
-            LazyFixture("admin_user"),
+            lf("admin_user"),
             "unknown-question",
             status.HTTP_404_NOT_FOUND,
         ),
         (
             "Applicant",
             "new",
-            LazyFixture("user"),
+            lf("user"),
             "kategorie-des-vorhabens",
             status.HTTP_404_NOT_FOUND,
         ),
         (
             "Applicant",
             "comm",
-            LazyFixture("admin_user"),
+            lf("admin_user"),
             "kategorie-des-vorhabens",
             status.HTTP_403_FORBIDDEN,
         ),
         (
             "Reader",
             "new",
-            LazyFixture("user"),
+            lf("user"),
             "kategorie-des-vorhabens",
             status.HTTP_403_FORBIDDEN,
         ),
         (
             "Reader",
             "new",
-            LazyFixture("admin_user"),
+            lf("admin_user"),
             "kategorie-des-vorhabens",
             status.HTTP_403_FORBIDDEN,
         ),
@@ -179,25 +179,25 @@ def test_form_field_update(admin_client, form_field, status_code):
     [
         (
             "Applicant",
-            LazyFixture("admin_user"),
+            lf("admin_user"),
             "kategorie-des-vorhabens",
             status.HTTP_201_CREATED,
         ),
         (
             "Applicant",
-            LazyFixture("admin_user"),
+            lf("admin_user"),
             "einsprecher",
             status.HTTP_400_BAD_REQUEST,
         ),
         (
             "Applicant",
-            LazyFixture("admin_user"),
+            lf("admin_user"),
             "unknown-question",
             status.HTTP_400_BAD_REQUEST,
         ),
         (
             "Applicant",
-            LazyFixture("user"),
+            lf("user"),
             "kategorie-des-vorhabens",
             status.HTTP_400_BAD_REQUEST,
         ),
@@ -235,8 +235,8 @@ def test_form_field_create(admin_client, instance, form_field_name, status_code)
 @pytest.mark.parametrize(
     "role__name,instance__user,status_code",
     [
-        ("Applicant", LazyFixture("admin_user"), status.HTTP_403_FORBIDDEN),
-        ("Canton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
+        ("Applicant", lf("admin_user"), status.HTTP_403_FORBIDDEN),
+        ("Canton", lf("user"), status.HTTP_403_FORBIDDEN),
     ],
 )
 @pytest.mark.parametrize("form_field__name", ["kategorie-des-vorhabens"])
@@ -299,7 +299,7 @@ def test_form_field_list_filtering(
 
 @pytest.mark.parametrize(
     "role__name,instance_state__name,instance__user",
-    [("Applicant", "new", LazyFixture("admin_user"))],
+    [("Applicant", "new", lf("admin_user"))],
 )
 @pytest.mark.parametrize(
     "has_existing,old_value,new_value,has_history_entry",

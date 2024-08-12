@@ -196,6 +196,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"BGZ: abwarten Gemeinde\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -212,6 +213,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Unterlagenerg\\u00e4nzung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -228,6 +230,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Unterlagenerg\\u00e4nzung & Rechtliches Geh\\u00f6r\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -244,6 +247,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Abschliessend beurteilbar\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -260,6 +264,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Weitere Abkl\\u00e4rungen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -276,6 +281,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Augenschein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -292,6 +298,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Zwischenbericht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -308,6 +315,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Rechtliches Geh\\u00f6r\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -324,6 +332,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Fachbereich nicht betroffen / keine Bemerkungen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -340,6 +349,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Widerspruch\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null

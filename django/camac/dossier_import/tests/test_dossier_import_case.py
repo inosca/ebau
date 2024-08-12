@@ -5,7 +5,7 @@ import pytest
 from caluma.caluma_user.models import BaseUser
 from django.conf import settings
 from django.utils import timezone
-from pytest_lazyfixture import lazy_fixture
+from pytest_lazy_fixtures import lf
 
 from camac.caluma.api import CalumaApi
 from camac.core.models import InstanceLocation
@@ -62,9 +62,9 @@ def test_bad_file_format_dossier_xlsx(
 @pytest.mark.parametrize(
     "config,camac_instance",
     [
-        ("kt_schwyz", lazy_fixture("sz_instance_with_form")),
-        ("kt_bern", lazy_fixture("be_instance")),
-        ("kt_so", lazy_fixture("so_instance")),
+        ("kt_schwyz", lf("sz_instance_with_form")),
+        ("kt_bern", lf("be_instance")),
+        ("kt_so", lf("so_instance")),
     ],
 )
 def test_create_instance_dossier_import_case(
@@ -260,8 +260,8 @@ def test_set_workflow_state_sz(
 @pytest.mark.parametrize(
     "config,camac_instance",
     [
-        ("kt_schwyz", lazy_fixture("sz_instance")),
-        ("kt_bern", lazy_fixture("be_instance")),
+        ("kt_schwyz", lf("sz_instance")),
+        ("kt_bern", lf("be_instance")),
     ],
 )
 @pytest.mark.parametrize(
@@ -457,9 +457,7 @@ IMPORT_ROWS_BE = [
     "is_empty",
     [True, False],
 )
-@pytest.mark.parametrize(
-    "config,camac_instance", [("kt_bern", lazy_fixture("be_instance"))]
-)
+@pytest.mark.parametrize("config,camac_instance", [("kt_bern", lf("be_instance"))])
 @pytest.mark.parametrize("dossier_row_patch,expected_target", IMPORT_ROWS_BE)
 def test_record_loading_be(
     db,
@@ -548,9 +546,7 @@ IMPORT_ROWS_SO = [
 
 
 @pytest.mark.parametrize("is_empty", [True, False])
-@pytest.mark.parametrize(
-    "config,camac_instance", [("kt_so", lazy_fixture("so_instance"))]
-)
+@pytest.mark.parametrize("config,camac_instance", [("kt_so", lf("so_instance"))])
 @pytest.mark.parametrize("dossier_row_patch,expected_target", IMPORT_ROWS_SO)
 def test_record_loading_so(
     work_item_factory,
@@ -616,7 +612,7 @@ IMPORT_ROWS_SZ = [
 @pytest.mark.parametrize(
     "config,camac_instance",
     [
-        ("kt_schwyz", lazy_fixture("sz_instance")),
+        ("kt_schwyz", lf("sz_instance")),
     ],
 )
 @pytest.mark.parametrize("dossier_row_patch,target", IMPORT_ROWS_SZ)
@@ -654,8 +650,8 @@ def test_record_loading_sz(
 @pytest.mark.parametrize(
     "config,camac_instance",
     [
-        ("kt_schwyz", lazy_fixture("sz_instance")),
-        ("kt_bern", lazy_fixture("be_instance")),
+        ("kt_schwyz", lf("sz_instance")),
+        ("kt_bern", lf("be_instance")),
     ],
 )
 def test_record_loading_all_empty(
@@ -680,9 +676,9 @@ def test_record_loading_all_empty(
 @pytest.mark.parametrize(
     "config,camac_instance,import_rows",
     [
-        ("kt_schwyz", lazy_fixture("sz_instance"), IMPORT_ROWS_SZ),
-        ("kt_bern", lazy_fixture("be_instance"), IMPORT_ROWS_BE),
-        ("kt_so", lazy_fixture("so_instance"), IMPORT_ROWS_SO),
+        ("kt_schwyz", lf("sz_instance"), IMPORT_ROWS_SZ),
+        ("kt_bern", lf("be_instance"), IMPORT_ROWS_BE),
+        ("kt_so", lf("so_instance"), IMPORT_ROWS_SO),
     ],
 )
 def test_reimport_delete_values(
@@ -762,8 +758,8 @@ def test_delete_case_meta_field(
 @pytest.mark.parametrize(
     "config,camac_instance",
     [
-        ("kt_schwyz", lazy_fixture("sz_instance")),
-        ("kt_bern", lazy_fixture("be_instance")),
+        ("kt_schwyz", lf("sz_instance")),
+        ("kt_bern", lf("be_instance")),
     ],
 )
 def test_reimport_ignores_empty(
@@ -807,9 +803,7 @@ def test_reimport_ignores_empty(
             continue
 
 
-@pytest.mark.parametrize(
-    "config,camac_instance", [("kt_schwyz", lazy_fixture("sz_instance"))]
-)
+@pytest.mark.parametrize("config,camac_instance", [("kt_schwyz", lf("sz_instance"))])
 @pytest.mark.parametrize(
     "dossier_row_patch,expected",
     [
@@ -848,7 +842,7 @@ def test_record_loading_exceptions(
         assert getattr(dossier._meta, key) == value
 
 
-@pytest.mark.parametrize("dossier_exists", [False, lazy_fixture("instance")])
+@pytest.mark.parametrize("dossier_exists", [False, lf("instance")])
 @pytest.mark.parametrize(
     "loader,input_file,expected_exception,expected_existing",
     [
@@ -1205,9 +1199,9 @@ def test_set_workflow_state_so(
 @pytest.mark.parametrize(
     "config,camac_instance",
     [
-        ("kt_bern", lazy_fixture("be_instance")),
-        ("kt_schwyz", lazy_fixture("sz_instance")),
-        ("kt_so", lazy_fixture("so_instance")),
+        ("kt_bern", lf("be_instance")),
+        ("kt_schwyz", lf("sz_instance")),
+        ("kt_so", lf("so_instance")),
     ],
 )
 def test_import_documents(dossier, setup_dossier_writer, camac_instance, config):

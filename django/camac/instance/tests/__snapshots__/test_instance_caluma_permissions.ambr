@@ -1,5 +1,5 @@
 # serializer version: 1
-# name: test_instance_permissions_be[applicant-None-circulation-instance__user0]
+# name: test_instance_permissions_be[applicant-None-circulation-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -35,7 +35,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[applicant-None-circulation_init-instance__user0]
+# name: test_instance_permissions_be[applicant-None-circulation_init-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -71,7 +71,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[applicant-None-conclusion-instance__user0]
+# name: test_instance_permissions_be[applicant-None-conclusion-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -109,7 +109,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[applicant-None-coordination-instance__user0]
+# name: test_instance_permissions_be[applicant-None-coordination-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -145,7 +145,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[applicant-None-correction-instance__user0]
+# name: test_instance_permissions_be[applicant-None-correction-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -181,7 +181,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[applicant-None-evaluated-instance__user0]
+# name: test_instance_permissions_be[applicant-None-evaluated-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -217,7 +217,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[applicant-None-finished-instance__user0]
+# name: test_instance_permissions_be[applicant-None-finished-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -253,7 +253,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[applicant-None-finished_internal-instance__user0]
+# name: test_instance_permissions_be[applicant-None-finished_internal-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -289,7 +289,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[applicant-None-in_progress-instance__user0]
+# name: test_instance_permissions_be[applicant-None-in_progress-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -325,7 +325,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[applicant-None-in_progress_internal-instance__user0]
+# name: test_instance_permissions_be[applicant-None-in_progress_internal-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -361,7 +361,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[applicant-None-new-instance__user0]
+# name: test_instance_permissions_be[applicant-None-new-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -398,7 +398,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[applicant-None-rejected-instance__user0]
+# name: test_instance_permissions_be[applicant-None-rejected-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -434,7 +434,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[applicant-None-sb1-instance__user0]
+# name: test_instance_permissions_be[applicant-None-sb1-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -472,7 +472,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[applicant-None-sb2-instance__user0]
+# name: test_instance_permissions_be[applicant-None-sb2-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -511,7 +511,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[applicant-None-subm-instance__user0]
+# name: test_instance_permissions_be[applicant-None-subm-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -547,7 +547,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-construction-control-circulation-instance__user0]
+# name: test_instance_permissions_be[construction-control-construction-control-circulation-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -583,7 +583,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-construction-control-circulation_init-instance__user0]
+# name: test_instance_permissions_be[construction-control-construction-control-circulation_init-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -619,7 +619,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-construction-control-conclusion-instance__user0]
+# name: test_instance_permissions_be[construction-control-construction-control-conclusion-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -657,7 +657,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-construction-control-coordination-instance__user0]
+# name: test_instance_permissions_be[construction-control-construction-control-coordination-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -693,7 +693,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-construction-control-correction-instance__user0]
+# name: test_instance_permissions_be[construction-control-construction-control-correction-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -729,7 +729,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-construction-control-evaluated-instance__user0]
+# name: test_instance_permissions_be[construction-control-construction-control-evaluated-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -765,7 +765,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-construction-control-finished-instance__user0]
+# name: test_instance_permissions_be[construction-control-construction-control-finished-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -801,7 +801,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-construction-control-finished_internal-instance__user0]
+# name: test_instance_permissions_be[construction-control-construction-control-finished_internal-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -837,7 +837,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-construction-control-in_progress-instance__user0]
+# name: test_instance_permissions_be[construction-control-construction-control-in_progress-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -873,7 +873,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-construction-control-in_progress_internal-instance__user0]
+# name: test_instance_permissions_be[construction-control-construction-control-in_progress_internal-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -909,7 +909,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-construction-control-new-instance__user0]
+# name: test_instance_permissions_be[construction-control-construction-control-new-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -946,7 +946,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-construction-control-rejected-instance__user0]
+# name: test_instance_permissions_be[construction-control-construction-control-rejected-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -982,7 +982,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-construction-control-sb1-instance__user0]
+# name: test_instance_permissions_be[construction-control-construction-control-sb1-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1020,7 +1020,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-construction-control-sb2-instance__user0]
+# name: test_instance_permissions_be[construction-control-construction-control-sb2-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1059,7 +1059,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-construction-control-subm-instance__user0]
+# name: test_instance_permissions_be[construction-control-construction-control-subm-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1095,7 +1095,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-readonly-construction-control-circulation-instance__user0]
+# name: test_instance_permissions_be[construction-control-readonly-construction-control-circulation-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1137,7 +1137,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-readonly-construction-control-circulation_init-instance__user0]
+# name: test_instance_permissions_be[construction-control-readonly-construction-control-circulation_init-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1179,7 +1179,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-readonly-construction-control-conclusion-instance__user0]
+# name: test_instance_permissions_be[construction-control-readonly-construction-control-conclusion-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1223,7 +1223,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-readonly-construction-control-coordination-instance__user0]
+# name: test_instance_permissions_be[construction-control-readonly-construction-control-coordination-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1265,7 +1265,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-readonly-construction-control-correction-instance__user0]
+# name: test_instance_permissions_be[construction-control-readonly-construction-control-correction-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1305,7 +1305,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-readonly-construction-control-evaluated-instance__user0]
+# name: test_instance_permissions_be[construction-control-readonly-construction-control-evaluated-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1347,7 +1347,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-readonly-construction-control-finished-instance__user0]
+# name: test_instance_permissions_be[construction-control-readonly-construction-control-finished-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1389,7 +1389,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-readonly-construction-control-finished_internal-instance__user0]
+# name: test_instance_permissions_be[construction-control-readonly-construction-control-finished_internal-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1431,7 +1431,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-readonly-construction-control-in_progress-instance__user0]
+# name: test_instance_permissions_be[construction-control-readonly-construction-control-in_progress-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1473,7 +1473,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-readonly-construction-control-in_progress_internal-instance__user0]
+# name: test_instance_permissions_be[construction-control-readonly-construction-control-in_progress_internal-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1516,7 +1516,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-readonly-construction-control-new-instance__user0]
+# name: test_instance_permissions_be[construction-control-readonly-construction-control-new-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1555,7 +1555,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-readonly-construction-control-rejected-instance__user0]
+# name: test_instance_permissions_be[construction-control-readonly-construction-control-rejected-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1597,7 +1597,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-readonly-construction-control-sb1-instance__user0]
+# name: test_instance_permissions_be[construction-control-readonly-construction-control-sb1-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1640,7 +1640,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-readonly-construction-control-sb2-instance__user0]
+# name: test_instance_permissions_be[construction-control-readonly-construction-control-sb2-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1684,7 +1684,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[construction-control-readonly-construction-control-subm-instance__user0]
+# name: test_instance_permissions_be[construction-control-readonly-construction-control-subm-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1725,7 +1725,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-lead-geometer-circulation-instance__user0]
+# name: test_instance_permissions_be[geometer-lead-geometer-circulation-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1763,7 +1763,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-lead-geometer-circulation_init-instance__user0]
+# name: test_instance_permissions_be[geometer-lead-geometer-circulation_init-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1801,7 +1801,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-lead-geometer-conclusion-instance__user0]
+# name: test_instance_permissions_be[geometer-lead-geometer-conclusion-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1841,7 +1841,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-lead-geometer-coordination-instance__user0]
+# name: test_instance_permissions_be[geometer-lead-geometer-coordination-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1879,7 +1879,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-lead-geometer-correction-instance__user0]
+# name: test_instance_permissions_be[geometer-lead-geometer-correction-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1917,7 +1917,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-lead-geometer-evaluated-instance__user0]
+# name: test_instance_permissions_be[geometer-lead-geometer-evaluated-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1955,7 +1955,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-lead-geometer-finished-instance__user0]
+# name: test_instance_permissions_be[geometer-lead-geometer-finished-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -1993,7 +1993,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-lead-geometer-finished_internal-instance__user0]
+# name: test_instance_permissions_be[geometer-lead-geometer-finished_internal-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2031,7 +2031,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-lead-geometer-in_progress-instance__user0]
+# name: test_instance_permissions_be[geometer-lead-geometer-in_progress-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2069,7 +2069,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-lead-geometer-in_progress_internal-instance__user0]
+# name: test_instance_permissions_be[geometer-lead-geometer-in_progress_internal-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2107,7 +2107,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-lead-geometer-new-instance__user0]
+# name: test_instance_permissions_be[geometer-lead-geometer-new-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2146,7 +2146,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-lead-geometer-rejected-instance__user0]
+# name: test_instance_permissions_be[geometer-lead-geometer-rejected-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2184,7 +2184,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-lead-geometer-sb1-instance__user0]
+# name: test_instance_permissions_be[geometer-lead-geometer-sb1-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2224,7 +2224,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-lead-geometer-sb2-instance__user0]
+# name: test_instance_permissions_be[geometer-lead-geometer-sb2-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2265,7 +2265,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-lead-geometer-subm-instance__user0]
+# name: test_instance_permissions_be[geometer-lead-geometer-subm-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2303,7 +2303,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-readonly-geometer-circulation-instance__user0]
+# name: test_instance_permissions_be[geometer-readonly-geometer-circulation-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2341,7 +2341,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-readonly-geometer-circulation_init-instance__user0]
+# name: test_instance_permissions_be[geometer-readonly-geometer-circulation_init-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2379,7 +2379,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-readonly-geometer-conclusion-instance__user0]
+# name: test_instance_permissions_be[geometer-readonly-geometer-conclusion-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2419,7 +2419,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-readonly-geometer-coordination-instance__user0]
+# name: test_instance_permissions_be[geometer-readonly-geometer-coordination-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2457,7 +2457,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-readonly-geometer-correction-instance__user0]
+# name: test_instance_permissions_be[geometer-readonly-geometer-correction-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2495,7 +2495,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-readonly-geometer-evaluated-instance__user0]
+# name: test_instance_permissions_be[geometer-readonly-geometer-evaluated-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2533,7 +2533,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-readonly-geometer-finished-instance__user0]
+# name: test_instance_permissions_be[geometer-readonly-geometer-finished-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2571,7 +2571,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-readonly-geometer-finished_internal-instance__user0]
+# name: test_instance_permissions_be[geometer-readonly-geometer-finished_internal-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2609,7 +2609,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-readonly-geometer-in_progress-instance__user0]
+# name: test_instance_permissions_be[geometer-readonly-geometer-in_progress-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2647,7 +2647,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-readonly-geometer-in_progress_internal-instance__user0]
+# name: test_instance_permissions_be[geometer-readonly-geometer-in_progress_internal-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2685,7 +2685,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-readonly-geometer-new-instance__user0]
+# name: test_instance_permissions_be[geometer-readonly-geometer-new-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2724,7 +2724,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-readonly-geometer-rejected-instance__user0]
+# name: test_instance_permissions_be[geometer-readonly-geometer-rejected-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2762,7 +2762,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-readonly-geometer-sb1-instance__user0]
+# name: test_instance_permissions_be[geometer-readonly-geometer-sb1-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2802,7 +2802,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-readonly-geometer-sb2-instance__user0]
+# name: test_instance_permissions_be[geometer-readonly-geometer-sb2-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2843,7 +2843,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[geometer-readonly-geometer-subm-instance__user0]
+# name: test_instance_permissions_be[geometer-readonly-geometer-subm-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2881,7 +2881,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-district-circulation-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-district-circulation-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2928,7 +2928,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-district-circulation_init-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-district-circulation_init-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -2975,7 +2975,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-district-conclusion-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-district-conclusion-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -3022,7 +3022,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-district-coordination-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-district-coordination-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -3070,7 +3070,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-district-correction-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-district-correction-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -3112,7 +3112,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-district-evaluated-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-district-evaluated-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -3155,7 +3155,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-district-finished-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-district-finished-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -3198,7 +3198,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-district-finished_internal-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-district-finished_internal-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -3241,7 +3241,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-district-in_progress-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-district-in_progress-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -3287,7 +3287,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-district-in_progress_internal-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-district-in_progress_internal-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -3336,7 +3336,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-district-new-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-district-new-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -3375,7 +3375,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-district-rejected-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-district-rejected-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -3420,7 +3420,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-district-sb1-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-district-sb1-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -3466,7 +3466,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-district-sb2-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-district-sb2-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -3513,7 +3513,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-district-subm-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-district-subm-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -3556,7 +3556,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-municipality-circulation-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-municipality-circulation-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -3603,7 +3603,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-municipality-circulation_init-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-municipality-circulation_init-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -3650,7 +3650,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-municipality-conclusion-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-municipality-conclusion-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -3697,7 +3697,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-municipality-coordination-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-municipality-coordination-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -3745,7 +3745,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-municipality-correction-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-municipality-correction-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -3787,7 +3787,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-municipality-evaluated-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-municipality-evaluated-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -3830,7 +3830,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-municipality-finished-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-municipality-finished-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -3873,7 +3873,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-municipality-finished_internal-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-municipality-finished_internal-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -3916,7 +3916,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-municipality-in_progress-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-municipality-in_progress-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -3962,7 +3962,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-municipality-in_progress_internal-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-municipality-in_progress_internal-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -4011,7 +4011,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-municipality-new-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-municipality-new-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -4050,7 +4050,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-municipality-rejected-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-municipality-rejected-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -4095,7 +4095,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-municipality-sb1-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-municipality-sb1-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -4141,7 +4141,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-municipality-sb2-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-municipality-sb2-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -4188,7 +4188,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-lead-municipality-subm-instance__user0]
+# name: test_instance_permissions_be[municipality-lead-municipality-subm-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -4231,7 +4231,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-district-circulation-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-district-circulation-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -4273,7 +4273,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-district-circulation_init-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-district-circulation_init-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -4315,7 +4315,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-district-conclusion-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-district-conclusion-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -4359,7 +4359,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-district-coordination-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-district-coordination-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -4401,7 +4401,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-district-correction-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-district-correction-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -4441,7 +4441,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-district-evaluated-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-district-evaluated-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -4483,7 +4483,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-district-finished-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-district-finished-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -4525,7 +4525,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-district-finished_internal-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-district-finished_internal-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -4567,7 +4567,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-district-in_progress-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-district-in_progress-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -4609,7 +4609,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-district-in_progress_internal-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-district-in_progress_internal-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -4652,7 +4652,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-district-new-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-district-new-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -4691,7 +4691,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-district-rejected-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-district-rejected-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -4733,7 +4733,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-district-sb1-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-district-sb1-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -4776,7 +4776,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-district-sb2-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-district-sb2-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -4820,7 +4820,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-district-subm-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-district-subm-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -4861,7 +4861,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-municipality-circulation-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-municipality-circulation-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -4903,7 +4903,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-municipality-circulation_init-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-municipality-circulation_init-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -4945,7 +4945,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-municipality-conclusion-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-municipality-conclusion-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -4989,7 +4989,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-municipality-coordination-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-municipality-coordination-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5031,7 +5031,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-municipality-correction-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-municipality-correction-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5071,7 +5071,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-municipality-evaluated-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-municipality-evaluated-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5113,7 +5113,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-municipality-finished-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-municipality-finished-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5155,7 +5155,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-municipality-finished_internal-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-municipality-finished_internal-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5197,7 +5197,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-municipality-in_progress-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-municipality-in_progress-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5239,7 +5239,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-municipality-in_progress_internal-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-municipality-in_progress_internal-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5282,7 +5282,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-municipality-new-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-municipality-new-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5321,7 +5321,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-municipality-rejected-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-municipality-rejected-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5363,7 +5363,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-municipality-sb1-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-municipality-sb1-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5406,7 +5406,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-municipality-sb2-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-municipality-sb2-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5450,7 +5450,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[municipality-readonly-municipality-subm-instance__user0]
+# name: test_instance_permissions_be[municipality-readonly-municipality-subm-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5491,7 +5491,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-lead-service-circulation-instance__user0]
+# name: test_instance_permissions_be[service-lead-service-circulation-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5530,7 +5530,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-lead-service-circulation_init-instance__user0]
+# name: test_instance_permissions_be[service-lead-service-circulation_init-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5569,7 +5569,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-lead-service-conclusion-instance__user0]
+# name: test_instance_permissions_be[service-lead-service-conclusion-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5610,7 +5610,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-lead-service-coordination-instance__user0]
+# name: test_instance_permissions_be[service-lead-service-coordination-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5649,7 +5649,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-lead-service-correction-instance__user0]
+# name: test_instance_permissions_be[service-lead-service-correction-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5685,7 +5685,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-lead-service-evaluated-instance__user0]
+# name: test_instance_permissions_be[service-lead-service-evaluated-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5724,7 +5724,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-lead-service-finished-instance__user0]
+# name: test_instance_permissions_be[service-lead-service-finished-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5763,7 +5763,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-lead-service-finished_internal-instance__user0]
+# name: test_instance_permissions_be[service-lead-service-finished_internal-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5802,7 +5802,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-lead-service-in_progress-instance__user0]
+# name: test_instance_permissions_be[service-lead-service-in_progress-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5841,7 +5841,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-lead-service-in_progress_internal-instance__user0]
+# name: test_instance_permissions_be[service-lead-service-in_progress_internal-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5880,7 +5880,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-lead-service-new-instance__user0]
+# name: test_instance_permissions_be[service-lead-service-new-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5915,7 +5915,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-lead-service-rejected-instance__user0]
+# name: test_instance_permissions_be[service-lead-service-rejected-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5954,7 +5954,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-lead-service-sb1-instance__user0]
+# name: test_instance_permissions_be[service-lead-service-sb1-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -5993,7 +5993,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-lead-service-sb2-instance__user0]
+# name: test_instance_permissions_be[service-lead-service-sb2-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -6033,7 +6033,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-lead-service-subm-instance__user0]
+# name: test_instance_permissions_be[service-lead-service-subm-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -6069,7 +6069,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-readonly-service-circulation-instance__user0]
+# name: test_instance_permissions_be[service-readonly-service-circulation-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -6108,7 +6108,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-readonly-service-circulation_init-instance__user0]
+# name: test_instance_permissions_be[service-readonly-service-circulation_init-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -6147,7 +6147,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-readonly-service-conclusion-instance__user0]
+# name: test_instance_permissions_be[service-readonly-service-conclusion-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -6188,7 +6188,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-readonly-service-coordination-instance__user0]
+# name: test_instance_permissions_be[service-readonly-service-coordination-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -6227,7 +6227,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-readonly-service-correction-instance__user0]
+# name: test_instance_permissions_be[service-readonly-service-correction-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -6263,7 +6263,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-readonly-service-evaluated-instance__user0]
+# name: test_instance_permissions_be[service-readonly-service-evaluated-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -6302,7 +6302,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-readonly-service-finished-instance__user0]
+# name: test_instance_permissions_be[service-readonly-service-finished-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -6341,7 +6341,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-readonly-service-finished_internal-instance__user0]
+# name: test_instance_permissions_be[service-readonly-service-finished_internal-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -6380,7 +6380,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-readonly-service-in_progress-instance__user0]
+# name: test_instance_permissions_be[service-readonly-service-in_progress-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -6419,7 +6419,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-readonly-service-in_progress_internal-instance__user0]
+# name: test_instance_permissions_be[service-readonly-service-in_progress_internal-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -6458,7 +6458,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-readonly-service-new-instance__user0]
+# name: test_instance_permissions_be[service-readonly-service-new-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -6493,7 +6493,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-readonly-service-rejected-instance__user0]
+# name: test_instance_permissions_be[service-readonly-service-rejected-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -6532,7 +6532,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-readonly-service-sb1-instance__user0]
+# name: test_instance_permissions_be[service-readonly-service-sb1-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -6571,7 +6571,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-readonly-service-sb2-instance__user0]
+# name: test_instance_permissions_be[service-readonly-service-sb2-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -6611,7 +6611,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[service-readonly-service-subm-instance__user0]
+# name: test_instance_permissions_be[service-readonly-service-subm-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -6647,7 +6647,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[support-None-circulation-instance__user0]
+# name: test_instance_permissions_be[support-None-circulation-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -6697,7 +6697,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[support-None-circulation_init-instance__user0]
+# name: test_instance_permissions_be[support-None-circulation_init-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -6747,7 +6747,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[support-None-conclusion-instance__user0]
+# name: test_instance_permissions_be[support-None-conclusion-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -6797,7 +6797,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[support-None-coordination-instance__user0]
+# name: test_instance_permissions_be[support-None-coordination-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -6847,7 +6847,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[support-None-correction-instance__user0]
+# name: test_instance_permissions_be[support-None-correction-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -6897,7 +6897,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[support-None-evaluated-instance__user0]
+# name: test_instance_permissions_be[support-None-evaluated-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -6947,7 +6947,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[support-None-finished-instance__user0]
+# name: test_instance_permissions_be[support-None-finished-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -6997,7 +6997,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[support-None-finished_internal-instance__user0]
+# name: test_instance_permissions_be[support-None-finished_internal-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -7047,7 +7047,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[support-None-in_progress-instance__user0]
+# name: test_instance_permissions_be[support-None-in_progress-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -7097,7 +7097,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[support-None-in_progress_internal-instance__user0]
+# name: test_instance_permissions_be[support-None-in_progress_internal-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -7147,7 +7147,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[support-None-new-instance__user0]
+# name: test_instance_permissions_be[support-None-new-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -7197,7 +7197,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[support-None-rejected-instance__user0]
+# name: test_instance_permissions_be[support-None-rejected-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -7247,7 +7247,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[support-None-sb1-instance__user0]
+# name: test_instance_permissions_be[support-None-sb1-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -7297,7 +7297,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[support-None-sb2-instance__user0]
+# name: test_instance_permissions_be[support-None-sb2-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -7347,7 +7347,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_be[support-None-subm-instance__user0]
+# name: test_instance_permissions_be[support-None-subm-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -7397,7 +7397,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_sz[Fachstelle-circ-200-instance__user0]
+# name: test_instance_permissions_sz[Fachstelle-circ-200-admin_user]
   dict({
     'bauverwaltung': list([
       'read',
@@ -7417,28 +7417,28 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_sz[Fachstelle-construction-monitoring-200-instance__user0]
+# name: test_instance_permissions_sz[Fachstelle-construction-monitoring-200-admin_user]
   dict({
     'bauverwaltung': list([
       'read',
     ]),
   })
 # ---
-# name: test_instance_permissions_sz[Fachstelle-done-200-instance__user0]
+# name: test_instance_permissions_sz[Fachstelle-done-200-admin_user]
   dict({
     'bauverwaltung': list([
       'read',
     ]),
   })
 # ---
-# name: test_instance_permissions_sz[Fachstelle-instance-completed-200-instance__user0]
+# name: test_instance_permissions_sz[Fachstelle-instance-completed-200-admin_user]
   dict({
     'bauverwaltung': list([
       'read',
     ]),
   })
 # ---
-# name: test_instance_permissions_sz[Fachstelle-internal-200-instance__user0]
+# name: test_instance_permissions_sz[Fachstelle-internal-200-admin_user]
   dict({
     'main': list([
       'read',
@@ -7446,21 +7446,21 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_sz[Fachstelle-new-200-instance__user0]
+# name: test_instance_permissions_sz[Fachstelle-new-200-admin_user]
   dict({
     'bauverwaltung': list([
       'read',
     ]),
   })
 # ---
-# name: test_instance_permissions_sz[Fachstelle-redac-200-instance__user0]
+# name: test_instance_permissions_sz[Fachstelle-redac-200-admin_user]
   dict({
     'bauverwaltung': list([
       'read',
     ]),
   })
 # ---
-# name: test_instance_permissions_sz[Gemeinde-circ-200-instance__user0]
+# name: test_instance_permissions_sz[Gemeinde-circ-200-admin_user]
   dict({
     'bauverwaltung': list([
       'read',
@@ -7480,7 +7480,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_sz[Gemeinde-construction-monitoring-200-instance__user0]
+# name: test_instance_permissions_sz[Gemeinde-construction-monitoring-200-admin_user]
   dict({
     'bauverwaltung': list([
       'read',
@@ -7492,7 +7492,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_sz[Gemeinde-done-200-instance__user0]
+# name: test_instance_permissions_sz[Gemeinde-done-200-admin_user]
   dict({
     'bauverwaltung': list([
       'read',
@@ -7504,7 +7504,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_sz[Gemeinde-instance-completed-200-instance__user0]
+# name: test_instance_permissions_sz[Gemeinde-instance-completed-200-admin_user]
   dict({
     'bauverwaltung': list([
       'read',
@@ -7514,7 +7514,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_sz[Gemeinde-internal-200-instance__user0]
+# name: test_instance_permissions_sz[Gemeinde-internal-200-admin_user]
   dict({
     'main': list([
       'read',
@@ -7522,26 +7522,14 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_sz[Gemeinde-new-200-instance__user0]
+# name: test_instance_permissions_sz[Gemeinde-new-200-admin_user]
   dict({
     'main': list([
       'read',
     ]),
   })
 # ---
-# name: test_instance_permissions_sz[Gemeinde-redac-200-instance__user0]
-  dict({
-    'bauverwaltung': list([
-      'read',
-      'write',
-    ]),
-    'main': list([
-      'read',
-      'write',
-    ]),
-  })
-# ---
-# name: test_instance_permissions_sz[Support-nfd-200-instance__user0]
+# name: test_instance_permissions_sz[Gemeinde-redac-200-admin_user]
   dict({
     'bauverwaltung': list([
       'read',
@@ -7553,7 +7541,19 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_ur[circ-Coordination-instance__user0]
+# name: test_instance_permissions_sz[Support-nfd-200-admin_user]
+  dict({
+    'bauverwaltung': list([
+      'read',
+      'write',
+    ]),
+    'main': list([
+      'read',
+      'write',
+    ]),
+  })
+# ---
+# name: test_instance_permissions_ur[circ-Coordination-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -7572,46 +7572,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_ur[circ-Support-instance__user0]
-  dict({
-    'case-meta': list([
-      'read',
-      'write',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
-    'main': list([
-      'read',
-      'write',
-    ]),
-  })
-# ---
-# name: test_instance_permissions_ur[ext-Coordination-instance__user0]
-  dict({
-    'case-meta': list([
-      'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
-    'main': list([
-      'read',
-      'write',
-    ]),
-  })
-# ---
-# name: test_instance_permissions_ur[ext-Support-instance__user0]
+# name: test_instance_permissions_ur[circ-Support-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -7631,7 +7592,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_ur[redac-Coordination-instance__user0]
+# name: test_instance_permissions_ur[ext-Coordination-admin_user]
   dict({
     'case-meta': list([
       'read',
@@ -7650,7 +7611,46 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_ur[redac-Support-instance__user0]
+# name: test_instance_permissions_ur[ext-Support-admin_user]
+  dict({
+    'case-meta': list([
+      'read',
+      'write',
+    ]),
+    'inquiry': list([
+      'read',
+      'write',
+    ]),
+    'inquiry-answer': list([
+      'read',
+      'write',
+    ]),
+    'main': list([
+      'read',
+      'write',
+    ]),
+  })
+# ---
+# name: test_instance_permissions_ur[redac-Coordination-admin_user]
+  dict({
+    'case-meta': list([
+      'read',
+    ]),
+    'inquiry': list([
+      'read',
+      'write',
+    ]),
+    'inquiry-answer': list([
+      'read',
+      'write',
+    ]),
+    'main': list([
+      'read',
+      'write',
+    ]),
+  })
+# ---
+# name: test_instance_permissions_ur[redac-Support-admin_user]
   dict({
     'case-meta': list([
       'read',

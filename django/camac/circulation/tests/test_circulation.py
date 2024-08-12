@@ -1,6 +1,6 @@
 import pytest
 from django.urls import reverse
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 from camac.circulation import serializers
@@ -9,10 +9,10 @@ from camac.circulation import serializers
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries",
     [
-        ("Applicant", LazyFixture("admin_user"), 10),
-        ("Canton", LazyFixture("user"), 10),
-        ("Municipality", LazyFixture("user"), 10),
-        ("Service", LazyFixture("user"), 10),
+        ("Applicant", lf("admin_user"), 10),
+        ("Canton", lf("user"), 10),
+        ("Municipality", lf("user"), 10),
+        ("Service", lf("user"), 10),
     ],
 )
 def test_circulation_list(
@@ -42,9 +42,7 @@ def test_circulation_list(
     assert len(json["included"]) == len(included)
 
 
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 def test_circulation_detail(admin_client, circulation):
     url = reverse("circulation-detail", args=[circulation.pk])
 
@@ -53,7 +51,7 @@ def test_circulation_detail(admin_client, circulation):
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user", [("Municipality", LazyFixture("admin_user"))]
+    "role__name,instance__user", [("Municipality", lf("admin_user"))]
 )
 @pytest.mark.parametrize(
     "url,method,expected_status",
@@ -77,7 +75,7 @@ def test_circulation_permissions(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user", [("Municipality", LazyFixture("admin_user"))]
+    "role__name,instance__user", [("Municipality", lf("admin_user"))]
 )
 @pytest.mark.parametrize(
     "has_activation,has_other_circulations,instance_state__name,expected_status",
@@ -111,7 +109,7 @@ def test_delete_circulation(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user", [("Municipality", LazyFixture("admin_user"))]
+    "role__name,instance__user", [("Municipality", lf("admin_user"))]
 )
 def test_end_circulation(
     admin_client,

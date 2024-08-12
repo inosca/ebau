@@ -1,5 +1,5 @@
 # serializer version: 1
-# name: test_fix_work_items[Support-circulation_init-200-expected_work_items1-False-instance__user0-municipality]
+# name: test_fix_work_items[Support-circulation_init-200-expected_work_items1-False-admin_user-municipality]
   '''
   Fixed 0 wrong instances states
   Fixed 0 missing circulation work items
@@ -17,7 +17,7 @@
   
   '''
 # ---
-# name: test_fix_work_items[Support-circulation_init-200-expected_work_items1-True-instance__user0-municipality]
+# name: test_fix_work_items[Support-circulation_init-200-expected_work_items1-True-admin_user-municipality]
   '''
   Fixed 0 wrong instances states
   Fixed 0 missing circulation work items
@@ -35,7 +35,7 @@
   
   '''
 # ---
-# name: test_fix_work_items[Support-sb1-200-expected_work_items2-False-instance__user0-municipality]
+# name: test_fix_work_items[Support-sb1-200-expected_work_items2-False-admin_user-municipality]
   '''
   Fixed 0 wrong instances states
   Fixed 0 missing circulation work items
@@ -53,7 +53,7 @@
   
   '''
 # ---
-# name: test_fix_work_items[Support-sb1-200-expected_work_items2-True-instance__user0-municipality]
+# name: test_fix_work_items[Support-sb1-200-expected_work_items2-True-admin_user-municipality]
   '''
   Fixed 0 wrong instances states
   Fixed 0 missing circulation work items
@@ -71,7 +71,7 @@
   
   '''
 # ---
-# name: test_fix_work_items[Support-subm-200-expected_work_items0-False-instance__user0-municipality]
+# name: test_fix_work_items[Support-subm-200-expected_work_items0-False-admin_user-municipality]
   '''
   Fixed 0 wrong instances states
   Fixed 0 missing circulation work items
@@ -89,7 +89,7 @@
   
   '''
 # ---
-# name: test_fix_work_items[Support-subm-200-expected_work_items0-True-instance__user0-municipality]
+# name: test_fix_work_items[Support-subm-200-expected_work_items0-True-admin_user-municipality]
   '''
   Fixed 0 wrong instances states
   Fixed 0 missing circulation work items

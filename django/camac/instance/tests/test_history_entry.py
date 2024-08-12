@@ -1,10 +1,10 @@
 import pytest
 from django.urls import reverse
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 
-@pytest.mark.parametrize("history_entry__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("history_entry__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "role__name,size",
     [("Applicant", 0), ("Canton", 1), ("Municipality", 1), ("Service", 1)],
@@ -57,7 +57,7 @@ def test_history_entry_create(
         )
 
 
-@pytest.mark.parametrize("history_entry__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("history_entry__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "role__name,status_code",
     [
@@ -104,7 +104,7 @@ def test_history_entry_update(admin_client, history_entry, activation, status_co
     assert response.status_code == status_code
 
 
-@pytest.mark.parametrize("history_entry__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("history_entry__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "role__name,status_code",
     [

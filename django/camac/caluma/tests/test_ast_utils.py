@@ -102,9 +102,9 @@ def test_extract_filter_data():
 @pytest.mark.parametrize(
     "filter_name, filter_value, expected_output",
     [
-        ("task", "some-task", ["some-task"]),
-        ("tasks", ["some-task"], ["some-task"]),
-        ("tasks", ["some-task", "some-other-task"], ["some-task", "some-other-task"]),
+        ("task", "some-task", {"some-task"}),
+        ("tasks", ["some-task"], {"some-task"}),
+        ("tasks", ["some-task", "some-other-task"], {"some-task", "some-other-task"}),
     ],
 )
 def test_extract_tasks_from_filters(filter_name, filter_value, expected_output):
@@ -135,6 +135,6 @@ def test_extract_tasks_from_filters(filter_name, filter_value, expected_output):
         ],
     )
 
-    out = ast_utils.extract_tasks_from_filters(info)
+    out = set(ast_utils.extract_tasks_from_filters(info))
 
     assert out == expected_output

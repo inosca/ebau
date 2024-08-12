@@ -1,6 +1,6 @@
 import pytest
 from django.urls import reverse
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 from camac.constants import kt_uri as uri_constants
@@ -65,7 +65,7 @@ def test_filter_only_involved_applicants(
 
 @pytest.mark.parametrize(
     "instance__user,attachment__path,role__name",
-    [(LazyFixture("admin_user"), django_file("multiple-pages.pdf"), "Applicant")],
+    [(lf("admin_user"), django_file("multiple-pages.pdf"), "Applicant")],
 )
 @pytest.mark.parametrize(
     "is_decision,expected_workflow_entries", [(True, 1), (False, 0)]

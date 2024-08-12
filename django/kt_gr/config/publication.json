@@ -165,6 +165,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Baugesuch inkl. Dokumente in eBau publizieren (w\\u00e4hrend der Publikationsfrist von Gemeinde- und Kantonsamtsblatt)\", \"fr\": null, \"it\": \"Pubblicare in eBau la domanda di costruzione incl. documenti (durante il termine di pubblicazione del Foglio ufficiale comunale e cantonale)\"}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null

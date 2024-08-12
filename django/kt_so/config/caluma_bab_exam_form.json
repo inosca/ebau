@@ -682,6 +682,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Augenschein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -698,6 +699,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Besprechung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -714,6 +716,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Info\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -730,6 +733,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Telefongespr\\u00e4ch\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -746,6 +750,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Versand\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -762,6 +767,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"abgeschlossen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -778,6 +784,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"in Bearbeitung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -794,6 +801,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"sistiert\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -810,6 +818,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"BJD (Leitbeh\\u00f6rde)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -826,6 +835,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"FD (Leitbeh\\u00f6rde)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -842,6 +852,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00f6rtliche Baubeh\\u00f6rde\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -858,6 +869,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ablehnung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -874,6 +886,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"ausstehend\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -890,6 +903,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"R\\u00fcckweisung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -906,6 +920,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"R\\u00fcckzug\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -922,6 +937,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Teilzustimmung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -938,6 +954,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Zustimmung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -954,6 +971,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ablehnung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -970,6 +988,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"R\\u00fcckweisung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -986,6 +1005,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"R\\u00fcckzug\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1002,6 +1022,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Teilzustimmung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1018,6 +1039,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Zustimmung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1034,6 +1056,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Augenschein / Besprechung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1050,6 +1073,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Baubewilligung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1066,6 +1090,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"E-Mail\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1082,6 +1107,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Stellungnahme\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1098,6 +1124,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Verf\\u00fcgung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1114,6 +1141,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"forstwirtschaftlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1130,6 +1158,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"landwirtschaftlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1146,6 +1175,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00f6ffentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1162,6 +1192,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"privat\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1178,6 +1209,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"ausstehend\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1194,6 +1226,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"bestellt\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1210,6 +1243,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"eingetroffen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1226,6 +1260,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"ausstehend\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1242,6 +1277,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"eingetroffen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1258,6 +1294,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Andere (siehe Journal)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1274,6 +1311,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Archivakten bei \\u00f6rtlicher Baubeh\\u00f6rde verlangt\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1290,6 +1328,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Augenschein abwarten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1306,6 +1345,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Einsprachen? Mitteilung Gemeinde ausstehend\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1322,6 +1362,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Entscheid \\u00f6rtliche Baubeh\\u00f6rde h\\u00e4ngig\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1338,6 +1379,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00d6ffentliche Auflage nicht beendet\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1354,6 +1396,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"rechtliches Geh\\u00f6r\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1370,6 +1413,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Stellungnahme: Bund ausstehend\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1386,6 +1430,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Stellungnahme: procap ausstehend\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1402,6 +1447,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Unterlagen: Abkl\\u00e4rungen durch Bauherrschaft\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1418,6 +1464,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Unterlagen: Erg\\u00e4nzung durch Bauherrschaft\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1434,6 +1481,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Unterlagen: \\u00dcberarbeitung durch Bauherrschaft\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1450,6 +1498,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Verhandlung durch Fachstelle mit Bauherrschaft\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1466,6 +1515,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Baukontrolle\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1482,6 +1532,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Beschwerdeverfahren\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1498,6 +1549,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Entscheid\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1514,6 +1566,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"ordentliche Pr\\u00fcfung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1530,6 +1583,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Vollstreckungsverfahren\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1546,6 +1600,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Oberamt Dorneck-Thierstein, Passwangstrasse 29, 4626 Breitenbach\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1562,6 +1617,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Oberamt Olten-G\\u00f6sgen, Amthausquai 23, 4600 Olten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1578,6 +1634,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Oberamt Region Solothurn, R\\u00f6tistrasse 4, 4502 Solothurn\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1594,6 +1651,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Oberamt Thal-G\\u00e4u, Wenigmattstrasse 2, 4710 Balsthal\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1610,6 +1668,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Abbaugebiete\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1626,6 +1685,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Abwasserentsorgung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1642,6 +1702,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Agrotourismus\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1658,6 +1719,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Antenne\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1674,6 +1736,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Bauten und Anlagen zur Erholung (Themenwege)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1690,6 +1753,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Bootsanlegestelle\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1706,6 +1770,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Clubhaus\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1722,6 +1787,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Deponien\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1738,6 +1804,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Einfriedungen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1754,6 +1821,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eisenbahnrechtliche Bauten und Anlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1770,6 +1838,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Energieversorgung (Strom, Gas etc.)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1786,6 +1855,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Erschliessungsanlage (Strasse / Br\\u00fccke)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1802,6 +1872,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"G\\u00e4rtnereigeb\\u00e4ude\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1818,6 +1889,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Gastgewerbe\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1834,6 +1906,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Gew\\u00e4chshaus\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1850,6 +1923,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Gewerbebau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1866,6 +1940,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Heime\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1882,6 +1957,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Heizung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1898,6 +1974,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Landw. Kleinbaute und -anlage\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1914,6 +1991,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Landw. \\u00d6konomiegeb\\u00e4ude\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1930,6 +2008,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Landw. Wohngeb\\u00e4ude\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1946,6 +2025,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Milit\\u00e4rische Bauten und Anlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1962,6 +2042,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nationalstrassenareal\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1978,6 +2059,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Recyclinganlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1994,6 +2076,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Reklamen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2010,6 +2093,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Schiessanlage\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2026,6 +2110,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Seilbahn\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2042,6 +2127,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Solaranlage (Photovoltaikanlage)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2058,6 +2144,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Spital\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2074,6 +2161,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Sportanlage\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2090,6 +2178,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Tankanlage (inkl. L\\u00f6schwassertank)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2106,6 +2195,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Telekommunikationsleitung (inkl. TV, Glasfaser etc.)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2122,6 +2212,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Terrainver\\u00e4nderung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2138,6 +2229,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Tierpark / Tieranlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2154,6 +2246,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Umweltbildung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2170,6 +2263,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Wald, nachteilige Nutzung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2186,6 +2280,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Wald, Rodungsbewilligung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2202,6 +2297,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Waldwege\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2218,6 +2314,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Wald, Wege (alle Typen)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2234,6 +2331,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Wald, zonenkonform\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2250,6 +2348,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Wanderwege\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2266,6 +2365,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Wasserversorgung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2282,6 +2382,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Weiher\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2298,6 +2399,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Wochenendhaus / Ferienhaus\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2314,6 +2416,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Wohngeb\\u00e4ude\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2330,6 +2433,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Wohngeb\\u00e4ude, Kleinbauten und -anlagen dazu Wohngeb\\u00e4ude\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null

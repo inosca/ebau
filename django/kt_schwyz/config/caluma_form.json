@@ -1850,6 +1850,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Assistenz der GL\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1866,6 +1867,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Bauberatung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1882,6 +1884,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Berichterstattung gem\\u00e4ss Art. 9 RPV\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1898,6 +1901,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Beschaffungen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1914,6 +1918,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Dritte\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1930,6 +1935,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Einmalige Auftr\\u00e4ge / ProjekteBauherrschaft\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1946,6 +1952,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Facility Management\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1962,6 +1969,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Finanzen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1978,6 +1986,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Gesetzgebung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1994,6 +2003,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Informatik\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2010,6 +2020,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Personal\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2026,6 +2037,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Planungshilfen und Leitf\\u00e4den\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2042,6 +2054,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Projektverfasser\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2058,6 +2071,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Raum+ und Siedlungsfl\\u00e4chenpotentiale\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2074,6 +2088,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Tagungen / Anl\\u00e4sse\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2090,6 +2105,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Vollzug\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2106,6 +2122,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Akteneinsicht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2122,6 +2139,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Anforderungsspezifikation Gesch\\u00e4ftskontrolle\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2138,6 +2156,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Anh\\u00f6rung gem\\u00e4ss Art. 19 RPV\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2154,6 +2173,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Anlass- / Verkehrsbewilligung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2170,6 +2190,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Baugesuch\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2186,6 +2207,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Baumeldung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2202,6 +2224,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Beh\\u00f6rdliche Mitwirkung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2218,6 +2241,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Beratungen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2234,6 +2258,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Beratungen (z.B. Startgespr\\u00e4ch)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2250,6 +2275,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Bereinigung gem\\u00e4ss Art. 20 RPV\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2266,6 +2292,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Beschwerdevernehmlassung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2282,6 +2309,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Daueraufgaben (jeweils f\\u00fcr eine bestimmte Periode)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2298,6 +2326,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Einmalige Auftr\\u00e4ge / Projekte\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2314,6 +2343,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Fachgruppen und fachliche Mitwirkung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2330,6 +2360,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Genehmigung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2346,6 +2377,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kommissionsarbeit\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2362,6 +2394,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Konzession Wasserentnahme\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2378,6 +2411,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mitwirkung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2394,6 +2428,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mitwirkung Gesetzgebung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2410,6 +2445,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00d6ffentliche Mitwirkung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2426,6 +2462,7 @@
       "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00d6REB (Anmerkung Grundbuch, zeitverz\\u00f6gerte Folgeaufgabe mit Frist in Zukunft)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2442,6 +2479,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"PBG\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2458,6 +2496,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"PBV\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2474,6 +2513,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Plangenehmigungsgesuch\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2490,6 +2530,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Politische Vorst\\u00f6sse\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2506,6 +2547,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Projekt\\u00e4nderung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2522,6 +2564,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Projektgenehmigung gem. \\u00a715 StraG\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2538,6 +2581,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Technische Bewilligung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2554,6 +2598,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Umweltvertr\\u00e4glichkeitspr\\u00fcfung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2570,6 +2615,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Vollzugsaufgaben\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2586,6 +2632,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Vollzug und Umsetzung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2602,6 +2649,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Vorabkl\\u00e4rung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2618,6 +2666,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Vorentscheid gem. \\u00a784 PBG\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2634,6 +2683,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Vorpr\\u00fcfung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2650,6 +2700,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Administration\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2666,6 +2717,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Aggloprogramme\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2682,6 +2734,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Arbeitsgruppen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2698,6 +2751,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Bauen ausserhalb Bauzone\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2714,6 +2768,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Baugesuche\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2730,6 +2785,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Bundessachpl\\u00e4ne und Konzepte\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2746,6 +2802,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"ESP Koordination\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2762,6 +2819,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Gemeindeaufsicht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2778,6 +2836,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Gesch\\u00e4ftsleitung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2794,6 +2853,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Gestaltungsplan\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2810,6 +2870,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kantonale Richtplanung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2826,6 +2887,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kommunale Richtplanung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2842,6 +2904,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nutzungsplan\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2858,6 +2921,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00d6ffentlichkeitsgesetz\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2874,6 +2938,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00d6REB\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2890,6 +2955,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Planungs- und Baugesetz\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2906,6 +2972,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Politik\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2922,6 +2989,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Raumbeobachtung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2938,6 +3006,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Rechtsfragen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2954,6 +3023,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Abweisung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2970,6 +3040,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Gutheissung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2986,6 +3057,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"R\\u00fcckweisung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -3002,6 +3074,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"R\\u00fcckzug\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -3018,6 +3091,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"teilweise Gutheissung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -3034,6 +3108,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Bundesgericht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -3050,6 +3125,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Regierungsrat\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -3066,6 +3142,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Verwaltungsgericht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -3082,6 +3159,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Beschwerdef\\u00fchrer\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -3098,6 +3176,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Beschwerdegegner\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -3114,6 +3193,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Firma\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -3130,6 +3210,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Frau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -3146,6 +3227,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Herr\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -3162,6 +3244,7 @@
       "modified_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
       "modified_by_group": null,
       "label": "{\"de\": \"Anfragesteller\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -3178,6 +3261,7 @@
       "modified_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
       "modified_by_group": null,
       "label": "{\"de\": \"Bauherrschaft\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -3194,6 +3278,7 @@
       "modified_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
       "modified_by_group": null,
       "label": "{\"de\": \"Grundeigent\\u00fcmerschaft\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -3210,6 +3295,7 @@
       "modified_by_user": "a4d0c254-cd39-4070-8b20-e7e83de68694",
       "modified_by_group": null,
       "label": "{\"de\": \"Projektverfasser / Planer\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null

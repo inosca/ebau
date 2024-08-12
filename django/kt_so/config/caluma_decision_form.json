@@ -148,6 +148,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mit Wiederherstellung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -164,6 +165,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ohne Wiederherstellung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -180,6 +182,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ablehnung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -196,6 +199,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Beschwerde Entscheid best\\u00e4tigt\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -212,6 +216,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Beschwerde Entscheid ge\\u00e4ndert / aufgehoben\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -228,6 +233,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Beschwerde Entscheid zur\\u00fcckgewiesen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -244,6 +250,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Negativ\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -260,6 +267,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Positiv\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -276,6 +284,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"R\\u00fcckzug\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -292,6 +301,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Teilzustimmung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -308,6 +318,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Zustimmung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null

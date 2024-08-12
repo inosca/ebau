@@ -1,6 +1,6 @@
 import pytest
 from django.urls import reverse
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 from camac.permissions.conditions import Always
@@ -9,7 +9,7 @@ from camac.permissions.conditions import Always
 @pytest.mark.parametrize(
     "role__name,instance__user",
     [
-        ("Applicant", LazyFixture("admin_user")),
+        ("Applicant", lf("admin_user")),
     ],
 )
 def test_instance_form_name_filter(
@@ -69,7 +69,7 @@ def test_instance_form_name_filter(
 @pytest.mark.parametrize(
     "role__name,instance__user",
     [
-        ("Applicant", LazyFixture("admin_user")),
+        ("Applicant", lf("admin_user")),
     ],
 )
 def test_instance_resource_filter_instance(

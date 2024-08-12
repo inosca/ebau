@@ -18,7 +18,7 @@ from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
 from django.utils.timezone import make_aware
 from django.utils.translation import override
-from pytest_lazyfixture import lazy_fixture
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 from camac.instance.placeholders.utils import get_tel_and_email, human_readable_date
@@ -901,9 +901,9 @@ def test_human_readable_date(language, expected):
 @pytest.mark.parametrize(
     "dms_config",
     [
-        lazy_fixture("be_dms_config"),
-        lazy_fixture("gr_dms_config"),
-        lazy_fixture("so_dms_config"),
+        lf("be_dms_config"),
+        lf("gr_dms_config"),
+        lf("so_dms_config"),
     ],
 )
 def test_dms_placeholders_docs(admin_client, snapshot, dms_config):
@@ -915,9 +915,9 @@ def test_dms_placeholders_docs(admin_client, snapshot, dms_config):
 @pytest.mark.parametrize(
     "dms_config",
     [
-        lazy_fixture("be_dms_config"),
-        lazy_fixture("gr_dms_config"),
-        lazy_fixture("so_dms_config"),
+        lf("be_dms_config"),
+        lf("gr_dms_config"),
+        lf("so_dms_config"),
     ],
 )
 def test_dms_placeholders_docs_available_placeholders(
