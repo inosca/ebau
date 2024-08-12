@@ -1,5 +1,6 @@
 import pytest
 from django.urls import reverse
+from rest_framework import status
 
 from camac.permissions import api
 from camac.permissions.conditions import Callback, RequireInstanceState
@@ -118,9 +119,13 @@ def test_no_include_instance(
     if do_include:
         params["include"] = "instance"
 
-        with pytest.raises(Exception) as exc:
-            admin_client.get(url, params)
-        assert exc.match("This endpoint does not support the include parameter")
+        response = admin_client.get(url, params)
+
+        assert response.status_code == status.HTTP_400_BAD_REQUEST
+        assert (
+            response.json()["errors"][0]["detail"]
+            == "This endpoint does not support the include parameter"
+        )
 
     else:
         # no includes = all good

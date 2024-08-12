@@ -15,7 +15,6 @@ from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
 
 
-@pytest.mark.freeze_time("2020-2-2")
 @pytest.fixture
 def ech_instance_sz(
     attachment_factory,
