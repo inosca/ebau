@@ -1,6 +1,6 @@
 import pytest
 from django.urls import reverse
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 from camac.permissions.conditions import Always
@@ -22,8 +22,8 @@ def app_settings_with_notif_templates(application_settings, notification_templat
 @pytest.mark.parametrize(
     "role__name,instance__user,expected_applicants",
     [
-        ("Applicant", LazyFixture("admin_user"), 1),
-        ("Public", LazyFixture("user"), 0),
+        ("Applicant", lf("admin_user"), 1),
+        ("Public", lf("user"), 0),
     ],
 )
 def test_applicant_list(
@@ -86,12 +86,12 @@ def _sync_applicants(instance):
 @pytest.mark.parametrize(
     "role__name,instance__user,extra_applicants,expected_status",
     [
-        ("Applicant", LazyFixture("admin_user"), 0, status.HTTP_403_FORBIDDEN),
-        ("Applicant", LazyFixture("admin_user"), 1, status.HTTP_204_NO_CONTENT),
-        ("Municipality", LazyFixture("admin_user"), 1, status.HTTP_403_FORBIDDEN),
-        ("Service", LazyFixture("admin_user"), 1, status.HTTP_403_FORBIDDEN),
-        ("Canton", LazyFixture("admin_user"), 1, status.HTTP_403_FORBIDDEN),
-        ("Support", LazyFixture("admin_user"), 1, status.HTTP_204_NO_CONTENT),
+        ("Applicant", lf("admin_user"), 0, status.HTTP_403_FORBIDDEN),
+        ("Applicant", lf("admin_user"), 1, status.HTTP_204_NO_CONTENT),
+        ("Municipality", lf("admin_user"), 1, status.HTTP_403_FORBIDDEN),
+        ("Service", lf("admin_user"), 1, status.HTTP_403_FORBIDDEN),
+        ("Canton", lf("admin_user"), 1, status.HTTP_403_FORBIDDEN),
+        ("Support", lf("admin_user"), 1, status.HTTP_204_NO_CONTENT),
     ],
 )
 def test_applicant_delete(
@@ -137,7 +137,7 @@ def test_applicant_delete(
 
 
 @pytest.mark.parametrize("use_permission_mod", [True, False])
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "role__name,passed_email,existing_user,expected_status",
     [
@@ -218,7 +218,7 @@ def test_applicant_create(
         assert response.json()["data"]["relationships"]["invitee"]["data"]
 
 
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
 def test_applicant_create_multiple_users(
     admin_client, be_instance, user_factory, app_settings_with_notif_templates
 ):
@@ -243,7 +243,7 @@ def test_applicant_create_multiple_users(
     assert response.status_code == status.HTTP_201_CREATED
 
 
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
 def test_missing_applicant_access_level(
     admin_client,
     be_instance,
@@ -285,7 +285,7 @@ def test_missing_applicant_access_level(
     assert "Access level 'applicant' is not configured" in caplog.messages
 
 
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
 def test_applicant_create_token_exchange(
     admin_client, instance, settings, user_factory
 ):

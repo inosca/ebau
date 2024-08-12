@@ -3,7 +3,7 @@ from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.core import mail
 from django.urls import reverse
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 from camac.ech0211.models import Message
@@ -98,7 +98,7 @@ def test_set_ebau_number(
 
 
 @pytest.mark.freeze_time("2020-12-03")
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "role__name,expected_status,caluma_workflow,instance_state__name,expected_instance_state,expect_completed_work_item",
     [
@@ -221,7 +221,7 @@ def test_set_ebau_number_workflow(
         )
 
 
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "role__name,expected_status",
     [
@@ -252,7 +252,7 @@ def test_archive(
         assert be_instance.instance_state.name == "archived"
 
 
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "role__name,current_form_slug,new_form_slug,expected_status",
     [
@@ -646,7 +646,7 @@ def test_change_responsible_service_audit_validation(
 
 @pytest.mark.xfail
 @pytest.mark.parametrize(
-    "instance__user,service_group__name", [(LazyFixture("admin_user"), "municipality")]
+    "instance__user,service_group__name", [(lf("admin_user"), "municipality")]
 )
 @pytest.mark.parametrize("dry", [True, False])
 @pytest.mark.parametrize(
@@ -705,7 +705,7 @@ def test_fix_work_items(
             ) == sorted(expected_work_items)
 
 
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "role__name,expected_status",
     [
@@ -767,7 +767,7 @@ def test_instance_convert_modification(
         assert be_instance.case.document.source is None
 
 
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "role__name,has_inquiry,expected_status",
     [

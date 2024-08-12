@@ -786,6 +786,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -802,6 +803,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -818,6 +820,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Hallenb\\u00e4der, XII\", \"fr\": \"Piscines couvertes, XII\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -834,6 +837,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Industrie, IX\", \"fr\": \"Industrie, IX\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -850,6 +854,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Lager, X\", \"fr\": \"D\\u00e9pots, X\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -866,6 +871,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Restaurants, VI\", \"fr\": \"Restauration, VI\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -882,6 +888,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Schulen, IV\", \"fr\": \"Ecoles, IV\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -898,6 +905,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Spit\\u00e4ler, VIII\", \"fr\": \"H\\u00f4pitaux, VIII\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -914,6 +922,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Sportbauten, XI\", \"fr\": \"Installations sportives, XI\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -930,6 +939,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Verkauf, V\", \"fr\": \"Commerce, V\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -946,6 +956,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Versammlungslokale, VII\", \"fr\": \"Lieux de rassemblement, VII\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -962,6 +973,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Verwaltung, III\", \"fr\": \"Administration, III\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -978,6 +990,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Wohnen EFH, II\", \"fr\": \"Habitat individuel,l II\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -994,6 +1007,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Wohnen MFH, I\", \"fr\": \"Habitat collectif, I\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1010,6 +1024,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Die Richtigkeit der Angaben best\\u00e4tigt die Liegenschaftseigent\\u00fcmerschaft oder deren Vertretung\", \"fr\": \"Le propri\\u00e9taire de l'immeuble ou son repr\\u00e9sentant confirme l'exactitude des donn\\u00e9es\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1026,6 +1041,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Abw\\u00e4rme (inkl. Fernw\\u00e4rme aus KVA, ARA, Industrie)\", \"fr\": \"Rejets de chaleur (y compris chaleur \\u00e0 distance provenant d'UIOM, de STEP, d'industries)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1042,6 +1058,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Biomasse (Holz, Biogas, Kl\\u00e4rgas)\", \"fr\": \"Biomasse (bois, biogaz, gaz d'\\u00e9puration)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1058,6 +1075,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Elektrizit\\u00e4t\", \"fr\": \"Electricit\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1074,6 +1092,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Heiz\\u00f6l, Gas, Kohle\", \"fr\": \"Mazout, gaz, charbon\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1090,6 +1109,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Sonne, Umweltw\\u00e4rme, Geothermie\", \"fr\": \"Solaire, chaleur de l'environnement, g\\u00e9othermie\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1106,6 +1126,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Fernw\\u00e4rme (inkl. Abw\\u00e4rme aus KVA, ARA, Industrie)\", \"fr\": \"Chaleur \\u00e0 distance (y compris rejets de chaleur provenant d'UIOM, de STEP, d'industries)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1122,6 +1143,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Gasfeuerung m./ o. W\\u00e4rmeverbund\", \"fr\": \"Chauffage au gaz avec/sans r\\u00e9seau de chaleur\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": true,
       "meta": {},
       "source": null
@@ -1138,6 +1160,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Gasfeuerung kondensierend\", \"fr\": \"Chaudi\\u00e8re \\u00e0 gaz \\u00e0 condensation\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": true,
       "meta": {},
       "source": null
@@ -1154,6 +1177,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Gasfeuerung\", \"fr\": \"Chaudi\\u00e8re \\u00e0 gaz\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1170,6 +1194,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Holzfeuerung m./ o. W\\u00e4rmeverbund\", \"fr\": \"Chauffage au bois avec/sans r\\u00e9seau de chaleur\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": true,
       "meta": {},
       "source": null
@@ -1186,6 +1211,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Holzfeuerung (St\\u00fcckholz, Pellet,  Schnitzel)\", \"fr\": \"Chauffage au bois (b\\u00fbches, pellets, copeaux de bois)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1202,6 +1228,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nahw\\u00e4rme erneuerbar (Holz, W\\u00e4rmepumpe, usw.)\", \"fr\": \"R\\u00e9seau de chaleur de proximit\\u00e9 aliment\\u00e9 par des \\u00e9nergies renouvelables (bois, pompe \\u00e0 chaleur, etc.)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1218,6 +1245,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nahw\\u00e4rme fossil (\\u00d6l, Gas)\", \"fr\": \"R\\u00e9seau de chaleur de proximit\\u00e9 aliment\\u00e9 par des \\u00e9nergies fossiles (mazout, gaz)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1234,6 +1262,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00d6lfeuerung m. / o. W\\u00e4rmeverbund\", \"fr\": \"Chauffage au mazout avec/sans r\\u00e9seau de chaleur\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": true,
       "meta": {},
       "source": null
@@ -1250,6 +1279,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00d6lfeuerung kondensierend\", \"fr\": \"Chaudi\\u00e8re \\u00e0 mazout \\u00e0 condensation\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": true,
       "meta": {},
       "source": null
@@ -1266,6 +1296,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00d6lfeuerung\", \"fr\": \"Chaudi\\u00e8re au mazout\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1282,6 +1313,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Pelletfeuerung\", \"fr\": \"Chauffage aux pellets\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": true,
       "meta": {},
       "source": null
@@ -1298,6 +1330,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"St\\u00fcckholzfeuerung\", \"fr\": \"Chauffage \\u00e0 b\\u00fbches\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": true,
       "meta": {},
       "source": null
@@ -1314,6 +1347,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Thermische Solaranlage\", \"fr\": \"Installation solaire thermique\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1330,6 +1364,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmekraftkopplung (WKK, BHKW)\", \"fr\": \"Couplage chaleur-force (CCF, cog\\u00e9n\\u00e9ration)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1346,6 +1381,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmepumpe Aussenluft  (Aussenaufstellung)\", \"fr\": \"Pompe \\u00e0 chaleur air ext\\u00e9rieur (Installation ext\\u00e9rieure)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1362,6 +1398,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmepumpe Aussenluft\", \"fr\": \"Pompe \\u00e0 chaleur air ext\\u00e9rieur\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": true,
       "meta": {},
       "source": null
@@ -1378,6 +1415,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmepumpe Erdregister\", \"fr\": \"Pompe \\u00e0 chaleur registre terrestre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1394,6 +1432,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmepumpe Erdsonde\", \"fr\": \"Pompe \\u00e0 chaleur sonde g\\u00e9othermique\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1410,6 +1449,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmepumpe Grundwasser\", \"fr\": \"Pompe \\u00e0 chaleur eau souterraine\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1426,6 +1466,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmepumpe Aussenluft  (Innenaufstellung)\", \"fr\": \"Pompe \\u00e0 chaleur air ext\\u00e9rieur (Installation int\\u00e9rieure)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1442,6 +1483,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmepumpe Oberfl\\u00e4chengew\\u00e4sser\", \"fr\": \"Pompe \\u00e0 chaleur eaux de surface\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1458,6 +1500,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Fernw\\u00e4rme (inkl. Abw\\u00e4rme aus KVA, ARA, Industrie)\", \"fr\": \"Chaleur \\u00e0 distance (y compris rejets de chaleur provenant d'UIOM, de STEP, d'industries)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1474,6 +1517,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Gasfeuerung\", \"fr\": \"Chaudi\\u00e8re \\u00e0 gaz\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1490,6 +1534,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Gasfeuerung kondensierend\", \"fr\": \"Chaudi\\u00e8re \\u00e0 gaz \\u00e0 condensation\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": true,
       "meta": {},
       "source": null
@@ -1506,6 +1551,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Holzfeuerung (St\\u00fcckholz, Pellet,  Schnitzel)\", \"fr\": \"Chauffage au bois (b\\u00fbches, pellets, copeaux de bois)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1522,6 +1568,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nahw\\u00e4rme erneuerbar (Holz, W\\u00e4rmepumpe, usw.)\", \"fr\": \"R\\u00e9seau de chaleur de proximit\\u00e9 aliment\\u00e9 par des \\u00e9nergies renouvelables (bois, pompe \\u00e0 chaleur, etc.)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1538,6 +1585,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nahw\\u00e4rme fossil (\\u00d6l, Gas)\", \"fr\": \"R\\u00e9seau de chaleur de proximit\\u00e9 aliment\\u00e9 par des \\u00e9nergies fossiles (mazout, gaz)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1554,6 +1602,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00d6lfeuerung\", \"fr\": \"Chaudi\\u00e8re au mazout\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1570,6 +1619,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00d6lfeuerung kondensierend\", \"fr\": \"Chaudi\\u00e8re \\u00e0 mazout \\u00e0 condensation\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": true,
       "meta": {},
       "source": null
@@ -1586,6 +1636,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Pelletfeuerung\", \"fr\": \"Chauffage aux pellets\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": true,
       "meta": {},
       "source": null
@@ -1602,6 +1653,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Provisorium (Heizungsausfall w\\u00e4hrend Heizperiode)\", \"fr\": \"R\\u00e9gime provisoire en cas d\\u2019une panne de chauffage pendant la p\\u00e9riode de chauffage\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1618,6 +1670,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"St\\u00fcckholzfeuerung\", \"fr\": \"Chauffage \\u00e0 b\\u00fbches\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": true,
       "meta": {},
       "source": null
@@ -1634,6 +1687,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Thermische Solaranlage\", \"fr\": \"Installation solaire thermique\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1650,6 +1704,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00dcbergangsl\\u00f6sung in Fernw\\u00e4rmeausbaugebieten\", \"fr\": \"R\\u00e9gime provisoire dans les zones de d\\u00e9veloppement du chauffage \\u00e0 distance (solution transitoire)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1666,6 +1721,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmekraftkopplung (WKK, BHKW)\", \"fr\": \"Couplage chaleur-force (CCF, cog\\u00e9n\\u00e9ration)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1682,6 +1738,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmepumpe Aussenluft  (Aussenaufstellung)\", \"fr\": \"Pompe \\u00e0 chaleur air ext\\u00e9rieur (Installation ext\\u00e9rieure)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1698,6 +1755,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmepumpe Aussenluft\", \"fr\": \"Pompe \\u00e0 chaleur air ext\\u00e9rieur\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": true,
       "meta": {},
       "source": null
@@ -1714,6 +1772,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmepumpe Erdregister\", \"fr\": \"Pompe \\u00e0 chaleur registre terrestre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1730,6 +1789,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmepumpe Erdsonde\", \"fr\": \"Pompe \\u00e0 chaleur sonde g\\u00e9othermique\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1746,6 +1806,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmepumpe Grundwasser\", \"fr\": \"Pompe \\u00e0 chaleur eau souterraine\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1762,6 +1823,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmepumpe Aussenluft  (Innenaufstellung)\", \"fr\": \"Pompe \\u00e0 chaleur air ext\\u00e9rieur (Installation int\\u00e9rieure)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1778,6 +1840,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmepumpe Oberfl\\u00e4chengew\\u00e4sser\", \"fr\": \"Pompe \\u00e0 chaleur eaux de surface\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1794,6 +1857,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1810,6 +1874,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1826,6 +1891,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Hochgeladen\", \"fr\": \"T\\u00e9l\\u00e9charg\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1842,6 +1908,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nicht erforderlich\", \"fr\": \"Pas n\\u00e9cessaire\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1858,6 +1925,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1874,6 +1942,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1890,6 +1959,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Hochgeladen\", \"fr\": \"T\\u00e9l\\u00e9charg\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1906,6 +1976,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nicht erforderlich\", \"fr\": \"Pas n\\u00e9cessaire\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1922,6 +1993,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Hochgeladen\", \"fr\": \"T\\u00e9l\\u00e9charg\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1938,6 +2010,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nicht erforderlich\", \"fr\": \"Pas n\\u00e9cessaire\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1954,6 +2027,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Die Anforderungen sind gem\\u00e4ss den gesetzlichen Bestimmungen von Art. 40a des Kantonalen Energiegesetzes und von Art. 20a der Kantonalen Energieverordnung eingehalten.\", \"fr\": \"Les exigences sont respect\\u00e9es conform\\u00e9ment aux dispositions l\\u00e9gales de l'art. 40a de la loi cantonale sur l'\\u00e9nergie et de l'art. 20a de l'ordonnance cantonale sur l'\\u00e9nergie.\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1970,6 +2044,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Keine\", \"fr\": \"Aucune\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1986,6 +2061,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Photovoltaik\", \"fr\": \"Photovolta\\u00efque\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2002,6 +2078,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Solarthermie\", \"fr\": \"Solaire thermique\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2018,6 +2095,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Hochgeladen\", \"fr\": \"T\\u00e9l\\u00e9charg\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2034,6 +2112,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nicht erforderlich\", \"fr\": \"Pas n\\u00e9cessaire\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2050,6 +2129,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Brenner (wenn Kessel \\u00e4lter als 10 Jahre)\", \"fr\": \"Br\\u00fbleur (si la chaudi\\u00e8re a plus de 10 ans)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2066,6 +2146,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Gesamtsystem\", \"fr\": \"Syst\\u00e8me global\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2082,6 +2163,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Kamin\", \"fr\": \"Chemin\\u00e9e\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2098,6 +2180,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Kessel\", \"fr\": \"Chaudi\\u00e8re\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2114,6 +2197,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00d6ltank\", \"fr\": \"Citerne \\u00e0 mazout\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2130,6 +2214,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2146,6 +2231,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2162,6 +2248,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Kompletter Brennerersatz (nicht gesetzeskonforme L\\u00f6sung ohne Nachweis der Anforderungen)\", \"fr\": \"Remplacement complet du br\\u00fbleur (solution non conforme \\u00e0 la loi sans justification du respect des exigences)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2178,6 +2265,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Mobile Elektroheizung (z.B. Hotboy)\", \"fr\": \"Chauffage \\u00e9lectrique mobile (p. ex. Hotboy)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2194,6 +2282,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Mobile Heizzentrale (z.B. Elektro-, \\u00d6l-, Gas- oder Pelletsheizger\\u00e4te)\", \"fr\": \"Centrale de chauffage mobile (par ex. appareils de chauffage \\u00e9lectriques, au mazout, au gaz ou aux pellets)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2210,6 +2299,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Hochgeladen\", \"fr\": \"T\\u00e9l\\u00e9charg\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2226,6 +2316,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Mit Warmwassererw\\u00e4rmung\", \"fr\": \"Avec production d'eau chaude sanitaire\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2242,6 +2333,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ohne Warmwassererw\\u00e4rmung\", \"fr\": \"Sans production d'eau chaude sanitaire\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null

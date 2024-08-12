@@ -3,7 +3,7 @@ import logging
 
 import pytest
 from django.urls import reverse
-from pytest_lazyfixture import lazy_fixture
+from pytest_lazy_fixtures import lf
 from requests import HTTPError
 from rest_framework import status
 
@@ -22,36 +22,36 @@ class FakeResponse:
     [
         (None, False, status.HTTP_403_FORBIDDEN, None),
         (
-            lazy_fixture("invalid_exp_jwt_token"),
+            lf("invalid_exp_jwt_token"),
             False,
             status.HTTP_403_FORBIDDEN,
             "Expired at",
         ),
         (
-            lazy_fixture("invalid_iss_jwt_token"),
+            lf("invalid_iss_jwt_token"),
             False,
             status.HTTP_403_FORBIDDEN,
             "Invalid 'iss'",
         ),
         (
-            lazy_fixture("invalid_signature_jwt_token"),
+            lf("invalid_signature_jwt_token"),
             False,
             status.HTTP_403_FORBIDDEN,
             "InvalidJWSSignature",
         ),
         (
-            lazy_fixture("failed_decryption_jwt_token"),
+            lf("failed_decryption_jwt_token"),
             False,
             status.HTTP_403_FORBIDDEN,
             "InvalidSignature",
         ),
         (
-            lazy_fixture("jwt_token"),
+            lf("jwt_token"),
             True,
             status.HTTP_403_FORBIDDEN,
             "some keycloak error",
         ),
-        (lazy_fixture("jwt_token"), False, status.HTTP_200_OK, None),
+        (lf("jwt_token"), False, status.HTTP_200_OK, None),
     ],
 )
 def test_token_exchange(

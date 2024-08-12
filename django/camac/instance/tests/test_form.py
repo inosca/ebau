@@ -1,6 +1,6 @@
 import pytest
 from django.urls import reverse
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf, lfc
 from rest_framework import status
 
 
@@ -50,8 +50,8 @@ def test_form_versioned_filter(
 @pytest.mark.parametrize(
     "form__form_state,amount",
     [
-        (LazyFixture("form_state"), 1),
-        (LazyFixture(lambda form_state_factory: form_state_factory()), 0),
+        (lf("form_state"), 1),
+        (lfc("form_state_factory"), 0),
     ],
 )
 def test_form_state_filter(admin_client, form, form_state, amount):

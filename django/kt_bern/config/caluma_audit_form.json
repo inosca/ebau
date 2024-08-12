@@ -8433,6 +8433,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8449,6 +8450,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8465,6 +8467,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Die Gemeinde best\\u00e4tigt die Richtigkeit der Angaben zur Landwirtschaft\", \"fr\": \"La commune confirme l'exactitude des donn\\u00e9es relatives \\u00e0 l'agriculture\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8481,6 +8484,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"nach dem 30.06.1972\", \"fr\": \"Apr\\u00e8s le 30 juin 1972\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8497,6 +8501,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"vor dem 01.07.1972\", \"fr\": \"Avant le 1\\u1d49\\u02b3 juillet 1972\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8513,6 +8518,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8529,6 +8535,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8545,6 +8552,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8561,6 +8569,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8577,6 +8586,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8593,6 +8603,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8609,6 +8620,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8625,6 +8637,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8641,6 +8654,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Andere\", \"fr\": \"Autre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8657,6 +8671,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Dienstleistung\", \"fr\": \"Services\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8673,6 +8688,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Gastgewerbe\", \"fr\": \"H\\u00f4tellerie et restauration\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8689,6 +8705,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Gewerbe\", \"fr\": \"Artisanat\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8705,6 +8722,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Industrie\", \"fr\": \"Industrie\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8721,6 +8739,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Lager\", \"fr\": \"Entreposage\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8737,6 +8756,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Landwirtschaft\", \"fr\": \"Agriculture\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8753,6 +8773,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Verkauf\", \"fr\": \"Vente\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8769,6 +8790,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Wohnen\", \"fr\": \"Logement\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8785,6 +8807,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8801,6 +8824,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8817,6 +8841,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8833,6 +8858,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8849,6 +8875,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8865,6 +8892,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8881,6 +8909,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8897,6 +8926,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8913,6 +8943,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8929,6 +8960,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8945,6 +8977,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8961,6 +8994,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8977,6 +9011,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Andere\", \"fr\": \"Autre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8993,6 +9028,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Generelle Baubewilligung nach Art. 32d BauG\", \"fr\": \"Permis de construire g\\u00e9n\\u00e9ral selon l'article 32d LC\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9009,6 +9045,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Gesch\\u00e4ftsfall Regierungsstatthalteramt\", \"fr\": \"Dossier commercial du pr\\u00e9fecture\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9025,6 +9062,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kleine Baubewilligung nach Art. 32b BauG\", \"fr\": \"Petit permis de construire selon l\\u2019article 32b LC\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9041,6 +9079,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ordentliche Baubewilligung Art. 32a BauG\", \"fr\": \"Permis de construire ordinaire selon l'article 32a LC\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9057,6 +9096,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Teilbaubewilligung nach Art. 32c BauG\", \"fr\": \"Permis de construire g\\u00e9n\\u00e9ral selon l'article 32c LC\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9073,6 +9113,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Vorzeitige Baubewilligung nach Art. 37 BauG\", \"fr\": \"Octroi anticip\\u00e9 du permis de construire selon l'article 37 LC\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9089,6 +9130,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Vorzeitiger Baubeginn nach Art. 39 BewD\", \"fr\": \"D\\u00e9but anticip\\u00e9 des travaux selon l'article 39 DPC\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9105,6 +9147,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9121,6 +9164,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9137,6 +9181,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9153,6 +9198,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9169,6 +9215,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Amt f\\u00fcr Gemeinden und Raumordnung - Abteilung Orts- und Regionalplanung (KoG)\", \"fr\": \"Unit\\u00e9 francophone de l'OACOT - Service de l'am\\u00e9nagement local et r\\u00e9gional (LCoord)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9185,6 +9232,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Direktion f\\u00fcr Inneres und Justiz (Art. 102 BauG und KoG)\", \"fr\": \"Direction de l\\u2019int\\u00e9rieur et de la justice (Art. 102 LC et LCoord)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9201,6 +9249,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Gemeinde\", \"fr\": \"Commune\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9217,6 +9266,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Regierungsstatthalteramt\", \"fr\": \"Pr\\u00e9fecture\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9233,6 +9283,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Zust\\u00e4ndigkeit unklar, Entscheid Regierungsstatthalteramt erbeten\", \"fr\": \"Comp\\u00e9tence incertaine; demander une d\\u00e9cision pr\\u00e9fectorale\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9249,6 +9300,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"mehr als die im Hilfetext erw\\u00e4hnten Anforderungen, oder die Baukosten liegen \\u00fcber 1 Million Franken\", \"fr\": \"davantage que les documents mentionn\\u00e9s dans le texte d'aide, ou alors sa r\\u00e9alisation revient \\u00e0 plus d'un million de francs\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": true,
       "meta": {},
       "source": null
@@ -9265,6 +9317,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"mehr als die im Hilfetext erw\\u00e4hnten Anforderungen, oder die Baukosten liegen \\u00fcber 1.4 Millionen Franken\", \"fr\": \"davantage que les documents mentionn\\u00e9s dans le texte d'aide, ou alors sa r\\u00e9alisation revient \\u00e0 plus de 1.4 million de francs\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9281,6 +9334,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"nicht mehr als die im Hilfetext erw\\u00e4hnten Anforderungen\", \"fr\": \"rien de plus que les documents mentionn\\u00e9s dans le texte d'aide\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9297,6 +9351,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"eine UVP\", \"fr\": \"une \\u00e9tude d'impact sur l'environnement\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9313,6 +9368,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"betrifft einen Gastgewerbebetrieb\", \"fr\": \"porte sur l'h\\u00f4tellerie et la restauration\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9329,6 +9385,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"ist f\\u00fcr Zwecke der Gemeinde bestimmt\", \"fr\": \"est propre \\u00e0 la commune\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9345,6 +9402,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"betrifft Gew\\u00e4sser ohne Gemeindehoheit (Art. 101 BauV)\", \"fr\": \"est situ\\u00e9 sur un lac ou une rivi\\u00e8re soumis \\u00e0 la souverainet\\u00e9 d'aucune commune (art. 101 OC)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9361,6 +9419,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9377,6 +9436,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9393,6 +9453,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9409,6 +9470,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9425,6 +9487,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9441,6 +9504,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9457,6 +9521,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9473,6 +9538,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9489,6 +9555,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9505,6 +9572,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9521,6 +9589,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9537,6 +9606,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9553,6 +9623,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9569,6 +9640,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9585,6 +9657,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9601,6 +9674,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9617,6 +9691,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9633,6 +9708,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9649,6 +9725,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9665,6 +9742,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9681,6 +9759,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9697,6 +9776,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9713,6 +9793,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9729,6 +9810,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9745,6 +9827,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9761,6 +9844,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9777,6 +9861,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9793,6 +9878,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9809,6 +9895,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9825,6 +9912,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9841,6 +9929,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9857,6 +9946,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9873,6 +9963,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9889,6 +9980,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9905,6 +9997,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9921,6 +10014,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9937,6 +10031,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9953,6 +10048,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9969,6 +10065,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9985,6 +10082,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10001,6 +10099,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10017,6 +10116,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10033,6 +10133,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10049,6 +10150,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10065,6 +10167,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10081,6 +10184,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10097,6 +10201,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10113,6 +10218,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10129,6 +10235,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10145,6 +10252,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10161,6 +10269,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10177,6 +10286,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10193,6 +10303,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10209,6 +10320,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10225,6 +10337,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10241,6 +10354,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10257,6 +10371,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10273,6 +10388,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10289,6 +10405,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10305,6 +10422,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10321,6 +10439,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10337,6 +10456,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10353,6 +10473,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10369,6 +10490,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10385,6 +10507,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10401,6 +10524,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10417,6 +10541,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10433,6 +10558,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10449,6 +10575,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10465,6 +10592,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10481,6 +10609,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10497,6 +10626,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10513,6 +10643,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10529,6 +10660,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10545,6 +10677,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10561,6 +10694,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10577,6 +10711,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10593,6 +10728,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10609,6 +10745,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10625,6 +10762,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10641,6 +10779,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10657,6 +10796,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10673,6 +10813,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10689,6 +10830,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10705,6 +10847,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10721,6 +10864,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10737,6 +10881,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10753,6 +10898,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10769,6 +10915,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10785,6 +10932,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10801,6 +10949,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10817,6 +10966,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10833,6 +10983,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10849,6 +11000,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10865,6 +11017,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10881,6 +11034,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10897,6 +11051,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10913,6 +11068,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10929,6 +11085,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10945,6 +11102,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10961,6 +11119,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10977,6 +11136,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10993,6 +11153,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11009,6 +11170,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11025,6 +11187,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11041,6 +11204,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11057,6 +11221,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11073,6 +11238,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11089,6 +11255,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11105,6 +11272,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11121,6 +11289,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11137,6 +11306,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11153,6 +11323,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11169,6 +11340,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11185,6 +11357,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11201,6 +11374,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11217,6 +11391,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11233,6 +11408,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11249,6 +11425,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11265,6 +11442,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11281,6 +11459,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11297,6 +11476,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11313,6 +11493,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11329,6 +11510,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11345,6 +11527,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11361,6 +11544,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11377,6 +11561,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11393,6 +11578,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11409,6 +11595,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11425,6 +11612,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11441,6 +11629,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11457,6 +11646,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11473,6 +11663,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11489,6 +11680,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11505,6 +11697,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11521,6 +11714,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11537,6 +11731,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11553,6 +11748,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11569,6 +11765,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11585,6 +11782,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11601,6 +11799,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11617,6 +11816,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11633,6 +11833,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11649,6 +11850,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11665,6 +11867,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11681,6 +11884,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11697,6 +11901,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11713,6 +11918,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11729,6 +11935,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11745,6 +11952,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11761,6 +11969,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11777,6 +11986,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11793,6 +12003,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11809,6 +12020,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11825,6 +12037,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11841,6 +12054,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11857,6 +12071,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11873,6 +12088,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11889,6 +12105,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11905,6 +12122,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11921,6 +12139,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11937,6 +12156,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11953,6 +12173,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11969,6 +12190,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11985,6 +12207,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12001,6 +12224,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12017,6 +12241,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12033,6 +12258,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12049,6 +12275,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12065,6 +12292,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12081,6 +12309,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12097,6 +12326,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12113,6 +12343,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12129,6 +12360,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12145,6 +12377,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12161,6 +12394,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12177,6 +12411,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12193,6 +12428,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12209,6 +12445,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12225,6 +12462,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12241,6 +12479,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12257,6 +12496,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12273,6 +12513,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12289,6 +12530,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12305,6 +12547,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12321,6 +12564,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12337,6 +12581,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12353,6 +12598,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12369,6 +12615,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12385,6 +12632,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12401,6 +12649,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12417,6 +12666,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12433,6 +12683,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12449,6 +12700,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12465,6 +12717,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12481,6 +12734,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12497,6 +12751,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12513,6 +12768,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12529,6 +12785,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12545,6 +12802,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12561,6 +12819,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12577,6 +12836,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12593,6 +12853,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12609,6 +12870,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12625,6 +12887,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12641,6 +12904,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12657,6 +12921,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12673,6 +12938,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12689,6 +12955,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12705,6 +12972,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12721,6 +12989,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12737,6 +13006,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12753,6 +13023,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12769,6 +13040,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12785,6 +13057,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12801,6 +13074,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12817,6 +13091,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12833,6 +13108,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12849,6 +13125,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12865,6 +13142,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12881,6 +13159,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12897,6 +13176,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12913,6 +13193,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12929,6 +13210,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12945,6 +13227,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12961,6 +13244,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12977,6 +13261,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12993,6 +13278,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13009,6 +13295,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13025,6 +13312,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13041,6 +13329,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13057,6 +13346,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13073,6 +13363,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13089,6 +13380,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13105,6 +13397,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13121,6 +13414,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13137,6 +13431,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13153,6 +13448,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13169,6 +13465,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13185,6 +13482,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13201,6 +13499,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13217,6 +13516,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13233,6 +13533,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13249,6 +13550,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13265,6 +13567,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13281,6 +13584,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13297,6 +13601,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13313,6 +13618,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13329,6 +13635,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13345,6 +13652,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13361,6 +13669,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13377,6 +13686,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13393,6 +13703,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13409,6 +13720,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13425,6 +13737,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13441,6 +13754,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13457,6 +13771,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13473,6 +13788,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13489,6 +13805,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13505,6 +13822,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13521,6 +13839,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13537,6 +13856,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13553,6 +13873,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13569,6 +13890,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13585,6 +13907,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13601,6 +13924,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13617,6 +13941,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13633,6 +13958,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13649,6 +13975,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13665,6 +13992,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13681,6 +14009,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13697,6 +14026,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13713,6 +14043,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13729,6 +14060,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13745,6 +14077,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13761,6 +14094,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13777,6 +14111,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13793,6 +14128,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13809,6 +14145,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13825,6 +14162,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13841,6 +14179,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13857,6 +14196,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13873,6 +14213,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13889,6 +14230,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13905,6 +14247,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13921,6 +14264,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13937,6 +14281,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13953,6 +14298,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13969,6 +14315,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13985,6 +14332,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14001,6 +14349,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14017,6 +14366,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14033,6 +14383,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14049,6 +14400,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14065,6 +14417,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14081,6 +14434,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14097,6 +14451,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14113,6 +14468,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14129,6 +14485,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14145,6 +14502,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14161,6 +14519,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14177,6 +14536,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14193,6 +14553,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14209,6 +14570,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14225,6 +14587,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14241,6 +14604,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14257,6 +14621,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14273,6 +14638,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14289,6 +14655,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14305,6 +14672,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14321,6 +14689,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14337,6 +14706,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14353,6 +14723,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14369,6 +14740,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14385,6 +14757,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14401,6 +14774,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14417,6 +14791,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14433,6 +14808,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14449,6 +14825,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14465,6 +14842,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14481,6 +14859,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14497,6 +14876,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14513,6 +14893,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14529,6 +14910,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14545,6 +14927,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14561,6 +14944,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14577,6 +14961,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14593,6 +14978,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14609,6 +14995,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14625,6 +15012,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14641,6 +15029,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14657,6 +15046,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14673,6 +15063,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14689,6 +15080,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14705,6 +15097,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14721,6 +15114,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14737,6 +15131,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14753,6 +15148,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14769,6 +15165,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14785,6 +15182,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14801,6 +15199,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14817,6 +15216,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14833,6 +15233,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14849,6 +15250,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14865,6 +15267,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14881,6 +15284,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14897,6 +15301,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14913,6 +15318,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14929,6 +15335,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14945,6 +15352,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14961,6 +15369,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14977,6 +15386,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14993,6 +15403,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15009,6 +15420,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15025,6 +15437,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15041,6 +15454,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15057,6 +15471,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15073,6 +15488,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15089,6 +15505,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15105,6 +15522,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15121,6 +15539,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15137,6 +15556,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15153,6 +15573,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15169,6 +15590,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15185,6 +15607,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15201,6 +15624,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15217,6 +15641,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15233,6 +15658,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15249,6 +15675,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15265,6 +15692,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15281,6 +15709,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15297,6 +15726,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15313,6 +15743,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15329,6 +15760,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15345,6 +15777,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15361,6 +15794,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15377,6 +15811,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15393,6 +15828,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15409,6 +15845,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15425,6 +15862,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15441,6 +15879,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15457,6 +15896,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15473,6 +15913,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15489,6 +15930,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15505,6 +15947,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15521,6 +15964,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15537,6 +15981,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15553,6 +15998,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15569,6 +16015,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15585,6 +16032,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15601,6 +16049,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15617,6 +16066,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15633,6 +16083,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15649,6 +16100,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15665,6 +16117,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15681,6 +16134,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15697,6 +16151,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15713,6 +16168,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15729,6 +16185,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15745,6 +16202,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15761,6 +16219,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15777,6 +16236,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15793,6 +16253,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15809,6 +16270,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15825,6 +16287,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15841,6 +16304,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15857,6 +16321,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15873,6 +16338,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15889,6 +16355,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15905,6 +16372,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15921,6 +16389,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15937,6 +16406,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15953,6 +16423,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15969,6 +16440,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15985,6 +16457,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16001,6 +16474,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16017,6 +16491,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16033,6 +16508,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16049,6 +16525,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16065,6 +16542,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16081,6 +16559,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16097,6 +16576,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16113,6 +16593,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16129,6 +16610,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16145,6 +16627,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16161,6 +16644,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16177,6 +16661,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16193,6 +16678,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16209,6 +16695,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16225,6 +16712,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16241,6 +16729,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16257,6 +16746,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16273,6 +16763,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16289,6 +16780,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16305,6 +16797,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16321,6 +16814,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16337,6 +16831,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16353,6 +16848,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16369,6 +16865,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16385,6 +16882,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16401,6 +16899,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16417,6 +16916,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16433,6 +16933,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16449,6 +16950,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16465,6 +16967,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16481,6 +16984,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16497,6 +17001,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16513,6 +17018,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16529,6 +17035,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16545,6 +17052,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16561,6 +17069,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16577,6 +17086,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16593,6 +17103,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16609,6 +17120,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16625,6 +17137,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16641,6 +17154,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16657,6 +17171,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16673,6 +17188,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16689,6 +17205,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16705,6 +17222,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16721,6 +17239,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16737,6 +17256,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16753,6 +17273,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16769,6 +17290,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16785,6 +17307,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16801,6 +17324,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16817,6 +17341,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16833,6 +17358,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16849,6 +17375,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16865,6 +17392,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16881,6 +17409,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16897,6 +17426,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16913,6 +17443,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16929,6 +17460,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16945,6 +17477,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16961,6 +17494,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16977,6 +17511,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16993,6 +17528,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17009,6 +17545,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17025,6 +17562,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17041,6 +17579,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17057,6 +17596,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17073,6 +17613,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17089,6 +17630,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17105,6 +17647,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17121,6 +17664,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17137,6 +17681,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17153,6 +17698,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17169,6 +17715,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17185,6 +17732,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17201,6 +17749,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17217,6 +17766,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17233,6 +17783,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17249,6 +17800,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17265,6 +17817,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17281,6 +17834,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17297,6 +17851,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17313,6 +17868,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17329,6 +17885,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17345,6 +17902,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17361,6 +17919,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17377,6 +17936,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17393,6 +17953,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17409,6 +17970,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17425,6 +17987,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17441,6 +18004,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17457,6 +18021,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17473,6 +18038,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17489,6 +18055,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17505,6 +18072,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17521,6 +18089,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17537,6 +18106,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17553,6 +18123,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17569,6 +18140,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17585,6 +18157,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17601,6 +18174,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17617,6 +18191,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17633,6 +18208,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17649,6 +18225,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17665,6 +18242,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17681,6 +18259,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17697,6 +18276,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17713,6 +18293,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17729,6 +18310,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17745,6 +18327,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17761,6 +18344,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17777,6 +18361,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17793,6 +18378,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17809,6 +18395,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17825,6 +18412,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17841,6 +18429,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17857,6 +18446,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17873,6 +18463,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17889,6 +18480,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17905,6 +18497,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17921,6 +18514,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17937,6 +18531,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17953,6 +18548,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17969,6 +18565,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17985,6 +18582,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18001,6 +18599,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18017,6 +18616,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18033,6 +18633,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18049,6 +18650,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18065,6 +18667,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18081,6 +18684,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18097,6 +18701,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18113,6 +18718,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18129,6 +18735,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18145,6 +18752,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18161,6 +18769,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18177,6 +18786,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18193,6 +18803,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18209,6 +18820,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18225,6 +18837,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18241,6 +18854,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18257,6 +18871,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null

@@ -1,7 +1,7 @@
 import pytest
 from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf, lfc
 from rest_framework import status
 
 from camac.document import permissions
@@ -342,8 +342,8 @@ def test_attachment_modification_by_activation_involvement(
     assert create_res.status_code == status.HTTP_400_BAD_REQUEST
 
 
-_admin_service = LazyFixture(lambda admin_user: admin_user.get_default_group().service)
-_other_service = LazyFixture(lambda service_factory: service_factory())
+_admin_service = lfc(lambda user: user.get_default_group().service, lf("admin_user"))
+_other_service = lfc("service_factory")
 
 
 @pytest.mark.parametrize(

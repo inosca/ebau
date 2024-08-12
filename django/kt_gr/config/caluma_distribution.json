@@ -199,6 +199,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Bewilligung\", \"fr\": null, \"it\": \"Autorizzazione\"}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -215,6 +216,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nachforderung\", \"fr\": null, \"it\": \"Richiesta di precisazioni\"}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -231,6 +233,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Stellungnahme nachfolgend\", \"fr\": null, \"it\": \"In risposta a presa di posizione\"}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -247,6 +250,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Negative Stellungnahme\", \"fr\": null, \"it\": \"Presa di posizione negativa\"}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -263,6 +267,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nicht betroffen / nicht zust\\u00e4ndig\", \"fr\": null, \"it\": \"Non interessata / non competente\"}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -279,6 +284,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Positive Stellungnahme\", \"fr\": null, \"it\": \"Presa di posizione positiva\"}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -295,6 +301,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Ablehnung\", \"fr\": null, \"it\": \"Rifiuto\"}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -311,6 +318,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Auf Stellungnahme wird verzichtet\", \"fr\": null, \"it\": \"Si rinuncia a una presa di posizione\"}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -327,6 +335,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Siehe Fachbericht (Antwort via eCH)\", \"fr\": null, \"it\": \"Vedi rapporto tecnico (risposta via eCH)\"}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -343,6 +352,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Abschreibung\", \"fr\": null, \"it\": \"Stralcio\"}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -359,6 +369,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Die gesuchstellende Person best\\u00e4tigt, dass die Anforderungen gem\\u00e4ss der FKS-Richtlinie f\\u00fcr Feuerwehrzufahrten, Bewegungs- und Stellfl\\u00e4chen sowie der VKF-Brandschutzrichtlinie 14-15 \\\"Verwendung von Baustoffen\\\" eingehalten werden\", \"fr\": null, \"it\": \"La presa di posizione/autorizzazione/decisione si trova nell'archivio dei documenti\"}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null

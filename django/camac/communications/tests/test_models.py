@@ -1,5 +1,6 @@
 import pytest
 from alexandria.core.factories import FileFactory, MarkFactory
+from pytest_lazy_fixtures import lf
 
 
 @pytest.fixture
@@ -56,9 +57,9 @@ def alexandria_attachment(
 @pytest.mark.parametrize(
     "model,expected",
     [
-        (pytest.lazy_fixture("file_attachment"), "myfile.txt"),
-        (pytest.lazy_fixture("document_attachment"), "myotherfile.pdf"),
-        (pytest.lazy_fixture("alexandria_attachment"), "mydocument.docx"),
+        (lf("file_attachment"), "myfile.txt"),
+        (lf("document_attachment"), "myotherfile.pdf"),
+        (lf("alexandria_attachment"), "mydocument.docx"),
     ],
 )
 def test_attachment_filename(db, model, expected):
@@ -68,10 +69,10 @@ def test_attachment_filename(db, model, expected):
 @pytest.mark.parametrize(
     "model,has_display_name,expected",
     [
-        (pytest.lazy_fixture("file_attachment"), None, "myfile.txt"),
-        (pytest.lazy_fixture("document_attachment"), True, "My Attachment"),
-        (pytest.lazy_fixture("document_attachment"), False, "myotherfile.pdf"),
-        (pytest.lazy_fixture("alexandria_attachment"), None, "My Document"),
+        (lf("file_attachment"), None, "myfile.txt"),
+        (lf("document_attachment"), True, "My Attachment"),
+        (lf("document_attachment"), False, "myotherfile.pdf"),
+        (lf("alexandria_attachment"), None, "My Document"),
     ],
 )
 def test_attachment_display_name(db, model, has_display_name, expected, attachment):
@@ -85,11 +86,11 @@ def test_attachment_display_name(db, model, has_display_name, expected, attachme
 @pytest.mark.parametrize(
     "model,has_is_replaced,expected",
     [
-        (pytest.lazy_fixture("file_attachment"), None, False),
-        (pytest.lazy_fixture("document_attachment"), True, True),
-        (pytest.lazy_fixture("document_attachment"), False, False),
-        (pytest.lazy_fixture("alexandria_attachment"), True, True),
-        (pytest.lazy_fixture("alexandria_attachment"), False, False),
+        (lf("file_attachment"), None, False),
+        (lf("document_attachment"), True, True),
+        (lf("document_attachment"), False, False),
+        (lf("alexandria_attachment"), True, True),
+        (lf("alexandria_attachment"), False, False),
     ],
 )
 def test_attachment_is_replaced(
@@ -112,10 +113,10 @@ def test_attachment_is_replaced(
 @pytest.mark.parametrize(
     "model,expected",
     [
-        (pytest.lazy_fixture("file_attachment"), "text/plain"),
-        (pytest.lazy_fixture("document_attachment"), "application/pdf"),
+        (lf("file_attachment"), "text/plain"),
+        (lf("document_attachment"), "application/pdf"),
         (
-            pytest.lazy_fixture("alexandria_attachment"),
+            lf("alexandria_attachment"),
             "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
         ),
     ],

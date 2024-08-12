@@ -88,6 +88,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -104,6 +105,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null

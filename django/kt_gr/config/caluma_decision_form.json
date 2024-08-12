@@ -150,6 +150,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Bewilligt\", \"fr\": null, \"it\": \"Approvata\"}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -166,6 +167,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Negativ\", \"fr\": null, \"it\": \"Negativa\"}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -182,6 +184,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Anderweitiger Gesch\\u00e4ftsabschluss\", \"fr\": null, \"it\": \"Altra chiusura dell'affare\"}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -198,6 +201,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Positiv\", \"fr\": null, \"it\": \"Positiva\"}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -214,6 +218,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mit Vorbehalt positiv (Projekt muss angepasst werden)\", \"fr\": null, \"it\": \"Positiva con riserva (il progetto deve essere adeguato)\"}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -230,6 +235,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Abgelehnt\", \"fr\": null, \"it\": \"Respinta\"}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -246,6 +252,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"R\\u00fcckzug\", \"fr\": null, \"it\": \"Ritirata\"}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -262,6 +269,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Abgeschrieben\", \"fr\": null, \"it\": \"Stralciata\"}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -278,6 +286,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Dossier f\\u00fcr Geb\\u00e4udeversicherung (GVG) freigeben\", \"fr\": null, \"it\": \"Rilasciare il dossier per l'Assicurazione fabbricati (AFG)\"}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null

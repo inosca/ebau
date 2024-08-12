@@ -5019,6 +5019,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ausdruck / Auszug aus der Konsultationsbereichskarte St\\u00f6rfallverordnung des Kantons Bern\", \"fr\": \"Impression/extrait de la carte des p\\u00e9rim\\u00e8tres de consultation OPAM du canton de Berne\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5035,6 +5036,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Erd\\u00f6l\", \"fr\": \"P\\u00e9trole\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5051,6 +5053,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Gas (Biogas)\", \"fr\": \"Gaz (biogaz)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5067,6 +5070,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Gas (Fl\\u00fcssiggas)\", \"fr\": \"Gaz (gaz liqu\\u00e9fi\\u00e9s)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5083,6 +5087,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Holz (Pellet)\", \"fr\": \"Bois (pellet)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5099,6 +5104,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Holz (Schnitzel)\", \"fr\": \"Bois (plaquettes de bois)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5115,6 +5121,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Holz (Sp\\u00e4ne)\", \"fr\": \"Bois (copeaux)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5131,6 +5138,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Holz (St\\u00fcckholz)\", \"fr\": \"Bois (b\\u00fbches)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5147,6 +5155,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Feuerwehraufzug\", \"fr\": \"Ascenseur pour sapeurs-pompiers\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5163,6 +5172,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Personenaufzug\", \"fr\": \"Ascenseur pour personnes\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5179,6 +5189,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Warenaufzug\", \"fr\": \"monte-charge (ascenseur de marchandises)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5195,6 +5206,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Bestehend\", \"fr\": \"Existant\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5211,6 +5223,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Neu\", \"fr\": \"Nouveau\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5227,6 +5240,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Blitzschutzanlage\", \"fr\": \"SPF (Syst\\u00e8me de protection contre la foudre)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5243,6 +5257,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Brandmeldanlage\", \"fr\": \"DI (Installation de d\\u00e9tection d\\u2019incendie)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5259,6 +5274,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Rauchschutzdruckanlage\", \"fr\": \"SMS (Syst\\u00e8me de mise en supression)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5275,6 +5291,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Rauch- und W\\u00e4rmeabzug\", \"fr\": \"EFC (Installations d\\u2019extraction de fum\\u00e9e et de chaleur)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5291,6 +5308,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Sprinkleranlage\", \"fr\": \"SP (Installation sprinklers)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5307,6 +5325,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Bestehend\", \"fr\": \"Existant\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5323,6 +5342,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Neu\", \"fr\": \"Nouveau\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5339,6 +5359,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Brennbare Feststoffe (z. B. Pneu, Pyrotechnik, Sprengstoffe)\", \"fr\": \"Solides combustibles (p. ex. pneus, pyrotechnie, explosifs)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5355,6 +5376,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Brennbare Fl\\u00fcssigkeiten\", \"fr\": \"Liquides inflammables\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5371,6 +5393,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Brennbare Gase\", \"fr\": \"Gaz inflammables\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5387,6 +5410,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Chemikalien\", \"fr\": \"Substances chimiques\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5403,6 +5427,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Komprimierte Gase\", \"fr\": \"Gaz comprim\\u00e9s\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5419,6 +5444,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5435,6 +5461,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5451,6 +5478,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5467,6 +5495,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5483,6 +5512,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5499,6 +5529,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5515,6 +5546,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5531,6 +5563,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5547,6 +5580,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5563,6 +5597,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5579,6 +5614,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"L\\u00fcftung f\\u00fcr gewerbliche K\\u00fcchen / Restaurants\", \"fr\": \"Ventilation des cuisines industrielles / restaurants\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5595,6 +5631,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"L\\u00fcftung f\\u00fcr technische Einrichtungen (Labors / Spritzkabinen usw.)\", \"fr\": \"Ventilation pour les installations techniques (laboratoires / cabines de peinture, etc.)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5611,6 +5648,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"L\\u00fcftungsanlage (z. B. Komfortl\\u00fcftung)\", \"fr\": \"Syst\\u00e8me de ventilation (par ex. ventilation de confort)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5627,6 +5665,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Bestehend\", \"fr\": \"Existant\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5643,6 +5682,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Neu\", \"fr\": \"Nouveau\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5659,6 +5699,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Elektrospeicherheizung\", \"fr\": \"Chauffage \\u00e9lectrique \\u00e0 accumulation\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5675,6 +5716,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Erd\\u00f6l\", \"fr\": \"P\\u00e9trole\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5691,6 +5733,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Fernw\\u00e4rmeanschluss\", \"fr\": \"Raccordement au chauffage \\u00e0 distance\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5707,6 +5750,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Gas (Erdgas Biogas)\", \"fr\": \"Gaz (gaz naturel biogaz)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5723,6 +5767,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Gas (Fl\\u00fcssiggas)\", \"fr\": \"Gaz (gaz liqu\\u00e9fi\\u00e9s)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5739,6 +5784,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Holz (Chemin\\u00e9e / Schwedenofen)\", \"fr\": \"Bois (chemin\\u00e9e / po\\u00eale su\\u00e9dois)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5755,6 +5801,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Holz (Pellet)\", \"fr\": \"Bois (pellet)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5771,6 +5818,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Holz (Schnitzel)\", \"fr\": \"Bois (plaquettes de bois)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5787,6 +5835,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Holz (Sp\\u00e4ne)\", \"fr\": \"Bois (copeaux)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5803,6 +5852,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Holz (St\\u00fcckholz)\", \"fr\": \"Bois (b\\u00fbches)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5819,6 +5869,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmepumpe / K\\u00e4lteanlage elektrisch\", \"fr\": \"Pompe \\u00e0 chaleur / syst\\u00e8me de refroidissement \\u00e9lectrique\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5835,6 +5886,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmepumpe / K\\u00e4lteanlage elektrisch mit giftigem oder brennbaren K\\u00e4ltemittel\", \"fr\": \"Pompe \\u00e0 chaleur / installation frigorifique \\u00e9lectrique avec r\\u00e9frig\\u00e9rant toxique ou inflammable\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5851,6 +5903,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmepumpe / K\\u00e4lteanlage mit Verbrennungsmotor\", \"fr\": \"Pompe \\u00e0 chaleur / syst\\u00e8me de refroidissement avec moteur \\u00e0 combustion\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5867,6 +5920,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Bestehend\", \"fr\": \"Existant\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5883,6 +5937,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Neu\", \"fr\": \"Nouveau\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5899,6 +5954,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5915,6 +5971,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5931,6 +5988,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5947,6 +6005,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5963,6 +6022,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5979,6 +6039,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5995,6 +6056,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6011,6 +6073,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6027,6 +6090,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"bis zu 50 zus\\u00e4tzlichen Personen*.\", \"fr\": \"jusqu\\u2019\\u00e0 50 personnes suppl\\u00e9mentaires*.\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6043,6 +6107,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"mehr als 100 zus\\u00e4tzlichen Personen*.\", \"fr\": \"plus de 100 personnes suppl\\u00e9mentaires*.\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6059,6 +6124,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"zwischen 51 und 100 zus\\u00e4tzlichen Personen*.\", \"fr\": \"entre 51 et 100 personnes suppl\\u00e9mentaires*.\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6075,6 +6141,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Trifft nicht zu\", \"fr\": \"Ne s'applique pas\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6091,6 +6158,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Trifft zu\", \"fr\": \"S'applique\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6107,6 +6175,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Trifft nicht zu\", \"fr\": \"Ne s'applique pas\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6123,6 +6192,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Trifft zu\", \"fr\": \"S'applique\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6139,6 +6209,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Andere Durchgangsstrasse\", \"fr\": \"autre route de grand transit\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6155,6 +6226,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Autobahn\", \"fr\": \"autoroute\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6171,6 +6243,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Betrieb\", \"fr\": \"entreprise\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6187,6 +6260,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Eisenbahnanlage\", \"fr\": \"installation ferroviaire\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6203,6 +6277,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Erdgashochdruckleitung\", \"fr\": \"gazoduc \\u00e0 haute pression\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6219,6 +6294,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Milit\\u00e4rische Anlage\", \"fr\": \"installation militaire\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6235,6 +6311,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Kurzbericht gem\\u00e4ss StFV\", \"fr\": \"Rapport succinct selon l'OPAM\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6251,6 +6328,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Vollst\\u00e4ndiger Kurzbericht nach StFV oder aktualisierter Kurzbericht bzw. aktualisierte Risikoermittlung\", \"fr\": \"Rapport succinct selon l\\u2019OPAM complet ou rapport succinct ou \\u00e9tude de risque mis(e) \\u00e0 jour\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6267,6 +6345,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Risikoermittlung gem\\u00e4ss StFV\", \"fr\": \"Etude de risque selon l'OPAM\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6283,6 +6362,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Sicherheitsdatenbl\\u00e4tter St\\u00f6rfallvorsorge\", \"fr\": \"Fiches de donn\\u00e9es de s\\u00e9curit\\u00e9 (pr\\u00e9vention des accidents majeurs)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6299,6 +6379,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6315,6 +6396,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6331,6 +6413,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Photovoltaik Dach\", \"fr\": \"photovolta\\u00efque (toiture)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6347,6 +6430,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Photovoltaik Fassaden\", \"fr\": \"photovolta\\u00efque \\u00abfa\\u00e7ades\\u00bb\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6363,6 +6447,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Photovoltaik freistehend\", \"fr\": \"photovolta\\u00efque \\u00abautonome\\u00bb\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6379,6 +6464,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Thermisch Dach\", \"fr\": \"thermique \\u00abtoiture\\u00bb\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6395,6 +6481,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Thermisch Fassaden\", \"fr\": \"thermique \\u00abfa\\u00e7ades\\u00bb\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6411,6 +6498,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Thermisch freistehend\", \"fr\": \"thermique \\u00abautonome\\u00bb\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6427,6 +6515,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Bestehend\", \"fr\": \"Existant\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6443,6 +6532,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Neu\", \"fr\": \"Nouveau\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6459,6 +6549,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Stoffliste St\\u00f6rfallvorsorge\", \"fr\": \"Liste des substances (pr\\u00e9vention des accidents majeurs)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6475,6 +6566,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Bestehender Betrieb mit Neu- oder Umbau\", \"fr\": \"Entreprise existante avec nouvelles constructions ou transformations\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6491,6 +6583,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Neuer Betrieb\", \"fr\": \"Nouvelle entreprise\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6507,6 +6600,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Betrieb nach Neu- oder Umbau, in dem mit gentechnisch ver\\u00e4nderten, pathogenen oder einschliessungspflichtigen gebietsfremden Organismen eine T\\u00e4tigkeit durchgef\\u00fchrt wird, die nach der Einschliessungsverordnung (ESV) der Klasse 3 oder 4 zuzuordnen ist (Art. 1 Abs. 2 Bst. b StFV)\", \"fr\": \"Entreprise, nouvelles constructions ou transformations incluses, utilisant des organismes g\\u00e9n\\u00e9tiquement modifi\\u00e9s ou pathog\\u00e8nes ou des organismes exotiques soumis au confinement obligatoire pour une activit\\u00e9 attribu\\u00e9e \\u00e0 la classe 3 ou 4 selon l\\u2019ordonnance sur l\\u2019utilisation confin\\u00e9e (OUC)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6523,6 +6617,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Betrieb, der durch die Vollzugsbeh\\u00f6rde der St\\u00f6rfallverordnung unterstellt wurde, da er aufgrund seines Gefahrenpotentials die Bev\\u00f6lkerung oder die Umwelt schwer sch\\u00e4digen k\\u00f6nnte (Art. 1 Abs. 3 Bst. a \\u2013 b StFV)\", \"fr\": \"Entreprise que l\\u2019autorit\\u00e9 d\\u2019ex\\u00e9cution a assujettie \\u00e0 l\\u2019ordonnance sur les accidents majeurs, car elle pourrait porter gravement atteinte \\u00e0 la population ou \\u00e0 l\\u2019environnement en raison du danger potentiel qu\\u2019elle pr\\u00e9sente (art. 1 al. 3 let. a \\u2013 b OPAM)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6539,6 +6634,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Betrieb nach Neu- oder Umbau, in dem die Mengenschwellen f\\u00fcr Stoffe, Zubereitungen oder Sonderabf\\u00e4lle nach Anhang 1.1 StFV \\u00fcberschritten werden (Art. 1 Abs. 2 Bst. a StFV)\", \"fr\": \"Entreprise, nouvelles constructions ou transformations incluses, d\\u00e9passant les seuils quantitatifs des substances, des pr\\u00e9parations ou des d\\u00e9chets sp\\u00e9ciaux au sens de l\\u2019annexe 1.1 OPAM (art. 1 al. 2 let. a OPAM)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6555,6 +6651,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"ja\", \"fr\": \"oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6571,6 +6668,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"nein\", \"fr\": \"non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6587,6 +6685,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja, ein Kurzbericht.\", \"fr\": \"Oui, un rapport succinct.\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6603,6 +6702,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja, ein Kurzbericht und eine Risikoermittlung.\", \"fr\": \"Oui, un rapport succinct et une \\u00e9tude de risque.\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6619,6 +6719,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein, es liegt weder ein Kurzbericht noch eine Risikoermittlung vor.\", \"fr\": \"Non, il n\\u2019existe ni rapport succinct ni \\u00e9tude de risque.\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6635,6 +6736,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja, eine Risikoermittlung.\", \"fr\": \"Oui, une \\u00e9tude de risque.\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6651,6 +6753,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Trifft nicht zu\", \"fr\": \"Ne s\\u2019applique pas\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6667,6 +6770,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Trifft zu\", \"fr\": \"S\\u2019applique\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6683,6 +6787,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6699,6 +6804,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6715,6 +6821,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6731,6 +6838,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6747,6 +6855,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6763,6 +6872,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null

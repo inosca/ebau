@@ -166,6 +166,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Bau- und Justizdepartement (BJD)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -182,6 +183,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Bundesgericht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -198,6 +200,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Verwaltungsgericht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -214,6 +217,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -230,6 +234,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Aufforderung zur Stellungnahme\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -246,6 +251,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eingabe bei Beschwerdeinstanz (Poststempel)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -262,6 +268,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Entscheid\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -278,6 +285,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Er\\u00f6ffnung des Beschwerdeverfahren bei Beschwerdeinstanz\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -294,6 +302,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Frist der Stellungnahme\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -310,6 +319,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Stellungnahme\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null

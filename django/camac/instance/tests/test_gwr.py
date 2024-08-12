@@ -1,6 +1,6 @@
 import pytest
 from django.urls import reverse
-from pytest_lazyfixture import lazy_fixture
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 from camac.instance.tests.test_master_data import (
@@ -17,23 +17,23 @@ from camac.instance.tests.test_master_data import (
     [
         (
             "kt_uri",
-            lazy_fixture("ur_master_data_case_gwr"),
+            lf("ur_master_data_case_gwr"),
         ),
         (
             "kt_gr",
-            lazy_fixture("gr_master_data_case"),
+            lf("gr_master_data_case"),
         ),
         (
             "kt_schwyz",
-            lazy_fixture("sz_master_data_case_gwr"),
+            lf("sz_master_data_case_gwr"),
         ),
         (
             "kt_schwyz",
-            lazy_fixture("sz_master_data_case_gwr_v2"),
+            lf("sz_master_data_case_gwr_v2"),
         ),
         (
             "kt_so",
-            lazy_fixture("so_master_data_case"),
+            lf("so_master_data_case"),
         ),
     ],
 )

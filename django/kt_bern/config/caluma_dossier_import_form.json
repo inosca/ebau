@@ -274,6 +274,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Amtsbericht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -290,6 +291,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Anfrage Zust\\u00e4ndigkeit\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -306,6 +308,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Baubewilligungsverfahren\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -322,6 +325,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Baupolizeiliches Verfahren\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -338,6 +342,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Entfernen von Hecken und Feldgeh\\u00f6lzen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -354,6 +359,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pr\\u00fcfung Bewilligungspflicht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -370,6 +376,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Vorabkl\\u00e4rung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null

@@ -2,7 +2,7 @@ import os.path
 
 import pytest
 import xmlschema
-from pytest_lazyfixture import lazy_fixture
+from pytest_lazy_fixtures import lf
 
 from camac.constants.kt_bern import ECH_BASE_DELIVERY
 from camac.ech0211 import formatters
@@ -14,27 +14,27 @@ from camac.ech0211 import formatters
     [
         (
             "kt_gr",
-            lazy_fixture("set_application_gr"),
-            lazy_fixture("ech_instance_gr"),
-            lazy_fixture("gr_master_data_settings"),
+            lf("set_application_gr"),
+            lf("ech_instance_gr"),
+            lf("gr_master_data_settings"),
         ),
         (
             "kt_bern",
-            lazy_fixture("set_application_be"),
-            lazy_fixture("ech_instance_be"),
-            lazy_fixture("be_master_data_settings"),
+            lf("set_application_be"),
+            lf("ech_instance_be"),
+            lf("be_master_data_settings"),
         ),
         (
             "kt_schwyz",
-            lazy_fixture("set_application_sz"),
-            lazy_fixture("ech_instance_sz"),
-            lazy_fixture("sz_master_data_settings"),
+            lf("set_application_sz"),
+            lf("ech_instance_sz"),
+            lf("sz_master_data_settings"),
         ),
         (
             "kt_so",
-            lazy_fixture("set_application_so"),
-            lazy_fixture("ech_instance_so"),
-            lazy_fixture("so_master_data_settings"),
+            lf("set_application_so"),
+            lf("ech_instance_so"),
+            lf("so_master_data_settings"),
         ),
     ],
 )

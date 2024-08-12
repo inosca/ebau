@@ -8,7 +8,7 @@ from django.conf import settings
 from django.urls import reverse
 from django.utils import timezone
 from PIL import Image
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf, lfc
 from rest_framework import status
 
 from camac.document import models, permissions, serializers
@@ -48,12 +48,12 @@ def _configure_geometer_access(
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries",
     [
-        ("Applicant", LazyFixture("admin_user"), 14),
-        ("Reader", LazyFixture("user"), 14),
-        ("Canton", LazyFixture("user"), 14),
-        ("Municipality", LazyFixture("user"), 14),
-        ("Service", LazyFixture("user"), 14),
-        ("Geometer", LazyFixture("user"), 16),
+        ("Applicant", lf("admin_user"), 14),
+        ("Reader", lf("user"), 14),
+        ("Canton", lf("user"), 14),
+        ("Municipality", lf("user"), 14),
+        ("Service", lf("user"), 14),
+        ("Geometer", lf("user"), 16),
     ],
 )
 @pytest.mark.parametrize(
@@ -136,9 +136,7 @@ def test_attachment_list(
     assert (data[0]["attributes"]["webdav-link"] is not None) == (can_write and is_docx)
 
 
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 @pytest.mark.parametrize(
     "filter,attachment__context,expect_count",
     [
@@ -207,11 +205,11 @@ def test_attachment_context_filter(
             "multiple-pages.pdf",  # filename
             "application/pdf",  # mime_type
             "Applicant",  # role__name
-            LazyFixture("admin_user"),  # instance__user
-            LazyFixture("location"),  # instance__location
-            LazyFixture("service"),  # activation__service
-            LazyFixture("group"),  # instance__group
-            LazyFixture("instance_state"),  # instance__instance_state
+            lf("admin_user"),  # instance__user
+            lf("location"),  # instance__location
+            lf("service"),  # activation__service
+            lf("group"),  # instance__group
+            lf("instance_state"),  # instance__instance_state
             None,  # instance__case__status
             permissions.AdminPermission,  # mode
             status.HTTP_201_CREATED,  # status_code
@@ -223,11 +221,11 @@ def test_attachment_context_filter(
             "test-thumbnail.jpg",
             "image/jpeg",
             "Municipality",
-            LazyFixture("user"),
-            LazyFixture("location"),
-            LazyFixture("service"),
-            LazyFixture("group"),
-            LazyFixture("instance_state"),
+            lf("user"),
+            lf("location"),
+            lf("service"),
+            lf("group"),
+            lf("instance_state"),
             None,
             permissions.AdminPermission,
             status.HTTP_201_CREATED,
@@ -239,11 +237,11 @@ def test_attachment_context_filter(
             "test-thumbnail.jpg",
             "image/jpeg",
             "Service",
-            LazyFixture("user"),
-            LazyFixture(lambda location_factory: location_factory()),
-            LazyFixture("service"),
-            LazyFixture("group"),
-            LazyFixture("instance_state"),
+            lf("user"),
+            lfc("location_factory"),
+            lf("service"),
+            lf("group"),
+            lf("instance_state"),
             None,
             permissions.AdminPermission,
             status.HTTP_201_CREATED,
@@ -255,11 +253,11 @@ def test_attachment_context_filter(
             "test-thumbnail.jpg",
             "image/jpeg",
             "Service",
-            LazyFixture("user"),
-            LazyFixture(lambda location_factory: location_factory()),
-            LazyFixture("service"),
-            LazyFixture("group"),
-            LazyFixture("instance_state"),
+            lf("user"),
+            lfc("location_factory"),
+            lf("service"),
+            lf("group"),
+            lf("instance_state"),
             None,
             permissions.AdminInternalPermission,
             status.HTTP_201_CREATED,
@@ -271,11 +269,11 @@ def test_attachment_context_filter(
             "test-thumbnail.jpg",
             "image/jpeg",
             "Service",
-            LazyFixture("user"),
-            LazyFixture(lambda location_factory: location_factory()),
-            LazyFixture("service"),
-            LazyFixture("group"),
-            LazyFixture("instance_state"),
+            lf("user"),
+            lfc("location_factory"),
+            lf("service"),
+            lf("group"),
+            lf("instance_state"),
             None,
             permissions.AdminServicePermission,
             status.HTTP_201_CREATED,
@@ -286,11 +284,11 @@ def test_attachment_context_filter(
             "test-thumbnail.jpg",
             "image/jpeg",
             "Canton",
-            LazyFixture("user"),
-            LazyFixture(lambda location_factory: location_factory()),
-            LazyFixture("service"),
-            LazyFixture("group"),
-            LazyFixture("instance_state"),
+            lf("user"),
+            lfc("location_factory"),
+            lf("service"),
+            lf("group"),
+            lf("instance_state"),
             None,
             permissions.AdminPermission,
             status.HTTP_201_CREATED,
@@ -301,11 +299,11 @@ def test_attachment_context_filter(
             "invalid-attachment.gif",
             "image/gif",
             "Applicant",
-            LazyFixture("admin_user"),
-            LazyFixture("location"),
-            LazyFixture("service"),
-            LazyFixture("group"),
-            LazyFixture("instance_state"),
+            lf("admin_user"),
+            lf("location"),
+            lf("service"),
+            lf("group"),
+            lf("instance_state"),
             None,
             permissions.AdminPermission,
             status.HTTP_400_BAD_REQUEST,
@@ -317,11 +315,11 @@ def test_attachment_context_filter(
             "multiple-pages.pdf",
             "application/pdf",
             "Applicant",
-            LazyFixture("user"),
-            LazyFixture("location"),
-            LazyFixture("service"),
-            LazyFixture("group"),
-            LazyFixture("instance_state"),
+            lf("user"),
+            lf("location"),
+            lf("service"),
+            lf("group"),
+            lf("instance_state"),
             None,
             permissions.AdminPermission,
             status.HTTP_400_BAD_REQUEST,
@@ -332,11 +330,11 @@ def test_attachment_context_filter(
             "test-thumbnail.jpg",
             "image/jpeg",
             "Applicant",
-            LazyFixture("admin_user"),
-            LazyFixture("location"),
-            LazyFixture("service"),
-            LazyFixture("group"),
-            LazyFixture("instance_state"),
+            lf("admin_user"),
+            lf("location"),
+            lf("service"),
+            lf("group"),
+            lf("instance_state"),
             None,
             permissions.ReadPermission,
             status.HTTP_400_BAD_REQUEST,
@@ -348,11 +346,11 @@ def test_attachment_context_filter(
             "test-thumbnail.jpg",
             "image/jpeg",
             "Municipality",
-            LazyFixture("user"),
-            LazyFixture(lambda location_factory: location_factory()),
-            LazyFixture(lambda service_factory: service_factory()),
-            LazyFixture(lambda group_factory: group_factory()),
-            LazyFixture("instance_state"),
+            lf("user"),
+            lfc("location_factory"),
+            lfc("service_factory"),
+            lfc("group_factory"),
+            lf("instance_state"),
             None,
             permissions.AdminPermission,
             status.HTTP_400_BAD_REQUEST,
@@ -364,11 +362,11 @@ def test_attachment_context_filter(
             "test-thumbnail.jpg",
             "image/jpeg",
             "Municipality",
-            LazyFixture("user"),
-            LazyFixture(lambda location_factory: location_factory()),
-            LazyFixture("service"),
-            LazyFixture("group"),
-            LazyFixture("instance_state"),
+            lf("user"),
+            lfc("location_factory"),
+            lf("service"),
+            lf("group"),
+            lf("instance_state"),
             None,
             permissions.AdminPermission,
             status.HTTP_201_CREATED,
@@ -380,11 +378,11 @@ def test_attachment_context_filter(
             "test-thumbnail.jpg",
             "image/jpeg",
             "Municipality",
-            LazyFixture("user"),
-            LazyFixture("location"),
-            LazyFixture("service"),
-            LazyFixture(lambda group_factory: group_factory()),
-            LazyFixture("instance_state"),
+            lf("user"),
+            lf("location"),
+            lf("service"),
+            lfc("group_factory"),
+            lf("instance_state"),
             None,
             permissions.AdminPermission,
             status.HTTP_400_BAD_REQUEST,
@@ -396,11 +394,11 @@ def test_attachment_context_filter(
             "test-thumbnail.jpg",
             "image/jpeg",
             "Service",
-            LazyFixture("admin_user"),
-            LazyFixture("location"),
-            LazyFixture(lambda service_factory: service_factory()),
-            LazyFixture(lambda group_factory: group_factory()),
-            LazyFixture("instance_state"),
+            lf("admin_user"),
+            lf("location"),
+            lfc("service_factory"),
+            lfc("group_factory"),
+            lf("instance_state"),
             None,
             permissions.AdminPermission,
             status.HTTP_400_BAD_REQUEST,
@@ -410,11 +408,11 @@ def test_attachment_context_filter(
             "test-thumbnail.jpg",
             "image/jpeg",
             "Reader",
-            LazyFixture("admin_user"),
-            LazyFixture("location"),
-            LazyFixture("service"),
-            LazyFixture("group"),
-            LazyFixture("instance_state"),
+            lf("admin_user"),
+            lf("location"),
+            lf("service"),
+            lf("group"),
+            lf("instance_state"),
             None,
             permissions.AdminPermission,
             status.HTTP_400_BAD_REQUEST,
@@ -424,11 +422,11 @@ def test_attachment_context_filter(
             "multiple-pages.pdf",
             "application/pdf",
             "Support",
-            LazyFixture("admin_user"),
-            LazyFixture("location"),
-            LazyFixture("service"),
-            LazyFixture("group"),
-            LazyFixture("instance_state"),
+            lf("admin_user"),
+            lf("location"),
+            lf("service"),
+            lf("group"),
+            lf("instance_state"),
             None,
             permissions.AdminPermission,
             status.HTTP_201_CREATED,
@@ -439,12 +437,16 @@ def test_attachment_context_filter(
             "multiple-pages.pdf",
             "application/pdf",
             "Municipality",
-            LazyFixture("admin_user"),
-            LazyFixture("location"),
-            LazyFixture("service"),
-            LazyFixture("group"),
-            LazyFixture(
-                lambda instance_state_factory: instance_state_factory(name="internal")
+            lf("admin_user"),
+            lf("location"),
+            lf("service"),
+            lf("group"),
+            # In theory, this could be shortened to lfc("instance_state_factory", name="internal")
+            # However, this doesn't work as the "name" argument is already being
+            # used by pytest-lazy-fixtures internals
+            lfc(
+                lambda instance_state_factory: instance_state_factory(name="internal"),
+                lf("instance_state_factory"),
             ),
             "running",
             permissions.AdminInternalBusinessControlPermission,
@@ -456,12 +458,13 @@ def test_attachment_context_filter(
             "test-thumbnail.jpg",
             "image/jpeg",
             "Service",
-            LazyFixture("admin_user"),
-            LazyFixture("location"),
-            LazyFixture("service"),
-            LazyFixture("group"),
-            LazyFixture(
-                lambda instance_state_factory: instance_state_factory(name="internal")
+            lf("admin_user"),
+            lf("location"),
+            lf("service"),
+            lf("group"),
+            lfc(
+                lambda instance_state_factory: instance_state_factory(name="internal"),
+                lf("instance_state_factory"),
             ),
             "running",
             permissions.AdminInternalBusinessControlPermission,
@@ -473,12 +476,13 @@ def test_attachment_context_filter(
             "multiple-pages.pdf",
             "image/jpeg",
             "Service",
-            LazyFixture("admin_user"),
-            LazyFixture("location"),
-            LazyFixture("service"),
-            LazyFixture("group"),
-            LazyFixture(
-                lambda instance_state_factory: instance_state_factory(name="subm")
+            lf("admin_user"),
+            lf("location"),
+            lf("service"),
+            lf("group"),
+            lfc(
+                lambda instance_state_factory: instance_state_factory(name="subm"),
+                lf("instance_state_factory"),
             ),
             "running",
             permissions.AdminInternalBusinessControlPermission,
@@ -490,12 +494,13 @@ def test_attachment_context_filter(
             "multiple-pages.pdf",
             "image/jpeg",
             "Service",
-            LazyFixture("admin_user"),
-            LazyFixture("location"),
-            LazyFixture("service"),
-            LazyFixture("group"),
-            LazyFixture(
-                lambda instance_state_factory: instance_state_factory(name="internal")
+            lf("admin_user"),
+            lf("location"),
+            lf("service"),
+            lf("group"),
+            lfc(
+                lambda instance_state_factory: instance_state_factory(name="internal"),
+                lf("instance_state_factory"),
             ),
             "completed",
             permissions.AdminInternalBusinessControlPermission,
@@ -506,11 +511,11 @@ def test_attachment_context_filter(
             "1MB.pdf",
             "application/pdf",
             "Applicant",
-            LazyFixture("admin_user"),
-            LazyFixture("location"),
-            LazyFixture("service"),
-            LazyFixture("group"),
-            LazyFixture("instance_state"),
+            lf("admin_user"),
+            lf("location"),
+            lf("service"),
+            lf("group"),
+            lf("instance_state"),
             None,
             permissions.AdminPermission,
             status.HTTP_400_BAD_REQUEST,
@@ -591,7 +596,7 @@ def test_attachment_download_404(admin_client, attachment):
 
 @pytest.mark.parametrize(
     "role__name,instance__user,instance_state__name,acl_mode",
-    [("Applicant", LazyFixture("admin_user"), "new", permissions.AdminPermission)],
+    [("Applicant", lf("admin_user"), "new", permissions.AdminPermission)],
 )
 @pytest.mark.parametrize("multi", [False, True])
 @pytest.mark.parametrize("document", ["multiple-pages.pdf", "important.docx"])
@@ -668,9 +673,7 @@ def test_invalid_attachment_download(admin_client, filter, status_code):
 
 
 @pytest.mark.parametrize("thumbnail_size", [("x300"), ("x500")])
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 @pytest.mark.parametrize(
     "attachment__path,status_code",
     [
@@ -718,7 +721,7 @@ def test_attachment_thumbnail(
 
 @pytest.mark.parametrize(
     "role__name,instance__user,attachment_section__allowed_mime_types",
-    [("Canton", LazyFixture("admin_user"), [])],
+    [("Canton", lf("admin_user"), [])],
 )
 @pytest.mark.parametrize(
     "send_path,status_code",
@@ -932,7 +935,7 @@ def test_attachment_update_context(
 
 @pytest.mark.parametrize(
     "role__name,instance__user",
-    [("Applicant", LazyFixture("admin_user")), ("Reader", LazyFixture("admin_user"))],
+    [("Applicant", lf("admin_user")), ("Reader", lf("admin_user"))],
 )
 def test_attachment_detail(
     admin_client,
@@ -961,9 +964,7 @@ def test_attachment_detail(
     assert response.status_code == status.HTTP_200_OK
 
 
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 def test_attachment_loosen_filter(
     admin_client, role, mocker, instance, attachment_section, attachment
 ):
@@ -1001,10 +1002,10 @@ def test_attachment_loosen_filter(
         (
             "nfd",
             "Applicant",  # role__name
-            LazyFixture("admin_user"),  # instance__user
-            LazyFixture("location"),  # instance__location
-            LazyFixture("service"),  # activation__service
-            LazyFixture("group"),  # instance__group
+            lf("admin_user"),  # instance__user
+            lf("location"),  # instance__location
+            lf("service"),  # activation__service
+            lf("group"),  # instance__group
             permissions.AdminPermission,  # mode
         )
     ],
@@ -1056,9 +1057,7 @@ def test_attachment_mime_type(
     assert response.status_code == status_code
 
 
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 def test_attachment_section_filters(
     admin_client, role, mocker, instance, attachment_section_factory, attachment_factory
 ):
@@ -1245,7 +1244,7 @@ def test_attachment_public_access(
         (
             "circulation",
             django_file("no-thumbnail.txt"),
-            LazyFixture(lambda service_factory: service_factory()),
+            lfc("service_factory"),
             permissions.AdminBeforeDecisionPermission,
             False,
             status.HTTP_204_NO_CONTENT,
@@ -1253,7 +1252,7 @@ def test_attachment_public_access(
         (
             "finished",
             django_file("no-thumbnail.txt"),
-            LazyFixture(lambda service_factory: service_factory()),
+            lfc("service_factory"),
             permissions.AdminBeforeDecisionPermission,
             False,
             status.HTTP_403_FORBIDDEN,
@@ -1261,7 +1260,7 @@ def test_attachment_public_access(
         (
             "finished",
             django_file("no-thumbnail.txt"),
-            LazyFixture(lambda service_factory: service_factory()),
+            lfc("service_factory"),
             permissions.AdminServiceBeforeDecisionPermission,
             False,
             status.HTTP_403_FORBIDDEN,
@@ -1269,7 +1268,7 @@ def test_attachment_public_access(
         (
             "finished",
             django_file("no-thumbnail.txt"),
-            LazyFixture("service"),
+            lf("service"),
             permissions.AdminServiceBeforeDecisionPermission,
             False,
             status.HTTP_403_FORBIDDEN,
@@ -1277,7 +1276,7 @@ def test_attachment_public_access(
         (
             "finished",
             django_file("no-thumbnail.txt"),
-            LazyFixture("service"),
+            lf("service"),
             permissions.AdminServiceBeforeDecisionPermission,
             False,
             status.HTTP_403_FORBIDDEN,
@@ -1285,7 +1284,7 @@ def test_attachment_public_access(
         (
             "circulation",
             django_file("no-thumbnail.txt"),
-            LazyFixture("service"),
+            lf("service"),
             permissions.AdminServiceRunningInquiryPermission,
             True,
             status.HTTP_204_NO_CONTENT,
@@ -1293,7 +1292,7 @@ def test_attachment_public_access(
         (
             "circulation",
             django_file("no-thumbnail.txt"),
-            LazyFixture("service"),
+            lf("service"),
             permissions.AdminServiceRunningInquiryPermission,
             False,
             status.HTTP_403_FORBIDDEN,
@@ -1346,26 +1345,26 @@ def test_attachment_delete_custom_admin_modes(
     [
         (
             "circulation",
-            LazyFixture(lambda service_factory: service_factory()),
+            lfc("service_factory"),
             status.HTTP_400_BAD_REQUEST,
             "Nicht ausreichend Berechtigungen um eine Datei in den Ordner 'new' hochzuladen.",
             [],
         ),
         (
             "circulation",
-            LazyFixture("service"),
+            lf("service"),
             status.HTTP_400_BAD_REQUEST,
             "Der aktuelle Dateityp kann nicht als Dokument hochgeladen werden. Erlaubte Dateitypen für Abschnitt existing sind: pdf",
             ["application/pdf"],
         ),
         (
             "finished",
-            LazyFixture("service"),
+            lf("service"),
             status.HTTP_400_BAD_REQUEST,
             "Nicht ausreichend Berechtigungen um eine Datei aus dem Ordner 'delete' zu löschen.",
             [],
         ),
-        ("circulation", LazyFixture("service"), status.HTTP_200_OK, None, []),
+        ("circulation", lf("service"), status.HTTP_200_OK, None, []),
     ],
 )
 def test_attachment_update_section(
@@ -1531,7 +1530,7 @@ def test_attachment_update_custom_permissions(
 
 @pytest.mark.parametrize(
     "role__name,instance__user,instance_state__name,acl_mode",
-    [("Applicant", LazyFixture("admin_user"), "new", permissions.AdminPermission)],
+    [("Applicant", lf("admin_user"), "new", permissions.AdminPermission)],
 )
 def test_convert_docx_to_word(
     admin_client,

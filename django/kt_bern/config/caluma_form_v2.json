@@ -4598,6 +4598,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4614,6 +4615,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4630,6 +4632,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Erdverlegte Tanks\", \"fr\": \"R\\u00e9servoir de moyenne grandeur enterr\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4646,6 +4649,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"F\\u00e4sser\", \"fr\": \"F\\u00fbts\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4662,6 +4666,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Gebinde\", \"fr\": \"R\\u00e9cipients\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4678,6 +4683,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kleintank < 2000 Liter\", \"fr\": \"Petit r\\u00e9servoir < 2000 litres\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4694,6 +4700,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mittelgrosser Tank > 2000 Liter\", \"fr\": \"R\\u00e9servoir de moyenne grandeur > 2000 litres\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4710,6 +4717,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Zustimmung des Eigent\\u00fcmers f\\u00fcr den Anschluss an die Sammelkan\\u00e4le bzw. zur Einleitung in einen Vorfluter wenn die Gemeinde nicht Eigent\\u00fcmerin ist\", \"fr\": \"Consentement du propri\\u00e9taire pour le raccordement aux collecteurs ou au cours d'eau (si la commune n'est pas propri\\u00e9taire)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4726,6 +4734,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Andere\", \"fr\": \"Autre\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4742,6 +4751,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Filterbrunnen\", \"fr\": \"Puits filtrant\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4758,6 +4768,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Offene Wasserhaltung\", \"fr\": \"Epuisement de surface\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4774,6 +4785,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Vakuumverfahren\", \"fr\": \"Aspiration sous vide\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4790,6 +4802,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mischwasserkanal (\\u00f6ffentliche Leitung)\", \"fr\": \"Eaux m\\u00e9lang\\u00e9es (canalisation publique)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4806,6 +4819,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Oberfl\\u00e4chengew\\u00e4sser (Private Leitung)\", \"fr\": \"Eaux superficielles (canalisation priv\\u00e9e)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4822,6 +4836,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Regenwasserkanal (\\u00f6ffentliche Leitung)\", \"fr\": \"Eaux pluviales (canalisation publique)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4838,6 +4853,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mischwasserkanal (\\u00f6ffentliche Leitung)\", \"fr\": \"Eaux m\\u00e9lang\\u00e9es (canalisation publique)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4854,6 +4870,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Oberfl\\u00e4chengew\\u00e4sser (Private Leitung)\", \"fr\": \"Eaux superficielles (canalisation priv\\u00e9e)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4870,6 +4887,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Regenwasserkanal (\\u00f6ffentliche Leitung)\", \"fr\": \"Eaux pluviales (canalisation publique)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4886,6 +4904,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Gemeinsame Auffangwanne\", \"fr\": \"Un seul bassin\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4902,6 +4921,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kunststoff\", \"fr\": \"Mati\\u00e8re plastique\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4918,6 +4938,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Stahl\", \"fr\": \"Acier\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4934,6 +4955,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Zweiwandige Tanks\", \"fr\": \"R\\u00e9servoirs \\u00e0 2 parois\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4950,6 +4972,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Beschichtung\", \"fr\": \"Enduit\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4966,6 +4989,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Folie\", \"fr\": \"Feuille\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4982,6 +5006,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Laminat\", \"fr\": \"Stratifi\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4998,6 +5023,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Beton\", \"fr\": \"B\\u00e9ton\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5014,6 +5040,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kunststoff\", \"fr\": \"Mati\\u00e8re plastique\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5030,6 +5057,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Metall\", \"fr\": \"M\\u00e9tal\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5046,6 +5074,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Ja\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5062,6 +5091,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Nein\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5078,6 +5108,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5094,6 +5125,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5110,6 +5142,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5126,6 +5159,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5142,6 +5176,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5158,6 +5193,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5174,6 +5210,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Bodenschutzkonzept einer zertifizierten Bodenkundlichen Baubegleitung (BBB)\", \"fr\": \"Plan de protection du sol d'un suivi p\\u00e9dologique de chantier (SPC) effectu\\u00e9 par un sp\\u00e9cialiste certifi\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5190,6 +5227,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Entw\\u00e4sserung \\u00fcber Oberfl\\u00e4chengew\\u00e4sser\", \"fr\": \"Evacuation par les eaux superficielles\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5206,6 +5244,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Entw\\u00e4sserung \\u00fcber Mischwasserkanal\", \"fr\": \"Evacuation par le canal des eaux mixtes\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5222,6 +5261,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Entw\\u00e4sserung \\u00fcber Regenwasserkanal\", \"fr\": \"Evacuation par le canal des eaux pluviales\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5238,6 +5278,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5254,6 +5295,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5270,6 +5312,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Elektrooptische Sonde\", \"fr\": \"Sonde \\u00e9lectro-optique\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5286,6 +5329,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mechanische F\\u00fcllsicherung\", \"fr\": \"Intercepteur m\\u00e9canique\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5302,6 +5346,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Spezialf\\u00fcllsicherung\", \"fr\": \"Intercepteur sp\\u00e9cial\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5318,6 +5363,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5334,6 +5380,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5350,6 +5397,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Gesuch f\\u00fcr eine Ausnahmebewilligung mit hydrogeologisches Gutachten und Nachweis, dass die Durchflusskapazit\\u00e4t des Grundwassers gegen\\u00fcber dem unbeinflussten Zustand um h\\u00f6chstens 10% vemindert wird.\", \"fr\": \"Demande de d\\u00e9rogation accompagn\\u00e9e d'une expertise hydrog\\u00e9ologique et de la preuve que la capacit\\u00e9 d\\u2019\\u00e9coulement des eaux souterraines est r\\u00e9duite de 10 % au plus par rapport \\u00e0 l\\u2019\\u00e9tat non influenc\\u00e9 par les installations en question.\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5366,6 +5414,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5382,6 +5431,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5398,6 +5448,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"A\\u2092\", \"fr\": \"A\\u2092\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5414,6 +5465,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"A\\u1d64\", \"fr\": \"A\\u1d64\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5430,6 +5482,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00fcB\", \"fr\": \"Autre secteur\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5446,6 +5499,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Gew\\u00e4sserschutz Landwirtschaft\", \"fr\": \"Protection des eaux dans l'agriculture\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5462,6 +5516,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Grundst\\u00fccksentw\\u00e4sserungsplan SN 592 000\", \"fr\": \"Plan d'\\u00e9vacuation des eaux du bien-fonds conforme \\u00e0 la norme SN 592 000\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5478,6 +5533,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5494,6 +5550,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5510,6 +5567,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"S1\", \"fr\": \"S1\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5526,6 +5584,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"S2\", \"fr\": \"S2\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5542,6 +5601,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"S3 / S3Zu\", \"fr\": \"S3 / S3Zu\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5558,6 +5618,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"SA\", \"fr\": \"SA\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5574,6 +5635,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"SBW\", \"fr\": \"SBW\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5590,6 +5652,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"S\\u2095\", \"fr\": \"S\\u2095\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5606,6 +5669,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"S\\u2098\", \"fr\": \"S\\u2098\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5622,6 +5686,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5638,6 +5703,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5654,6 +5720,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kanalisationskatasterplan\", \"fr\": \"Plan des canalisations\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5670,6 +5737,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Benzin\", \"fr\": \"Essence\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5686,6 +5754,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Diesel\", \"fr\": \"Diesel\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5702,6 +5771,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Heiz\\u00f6l\", \"fr\": \"Mazout\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5718,6 +5788,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Weitere\", \"fr\": \"Autres\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5734,6 +5805,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mit Fl\\u00fcssigkeitsf\\u00fchler\", \"fr\": \"Avec sonde\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5750,6 +5822,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mit \\u00dcberdruck\", \"fr\": \"En surpression\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5766,6 +5839,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mit Unterdruck (Vakuum)\", \"fr\": \"Avec sous-pression\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5782,6 +5856,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Meldeblatt f\\u00fcr Terrainver\\u00e4nderungen\", \"fr\": \"Demande de remodelages de terrain\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5798,6 +5873,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5814,6 +5890,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5830,6 +5907,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5846,6 +5924,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5862,6 +5941,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Plan der tempor\\u00e4ren und definitiven Fl\\u00e4che\", \"fr\": \"Plan des surfaces temporaires et d\\u00e9finitives\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5878,6 +5958,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"1-Strang\", \"fr\": \"Monotube\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5894,6 +5975,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Doppelmantel\", \"fr\": \"Double manteau\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5910,6 +5992,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Druckpumpe\", \"fr\": \"Pompe de transfert\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5926,6 +6009,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Eigensicher\", \"fr\": \"Auto s\\u00e9curis\\u00e9es\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5942,6 +6026,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Im Leckerkennungsrohr\", \"fr\": \"Dans gaine \\u00e9tanche\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5958,6 +6043,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Leckwarnger\\u00e4t\", \"fr\": \"Syst\\u00e8me d\\u00e9tection des fuites\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5974,6 +6060,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mit R\\u00fccklauf\", \"fr\": \"Avec conduite de retour\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -5990,6 +6077,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Saugbetrieb\", \"fr\": \"Aspiration\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6006,6 +6094,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Sichtbar\", \"fr\": \"Visible\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6022,6 +6111,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Vakuum- / Magnetventil\", \"fr\": \"Vanne anti-siphonnage\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6038,6 +6128,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6054,6 +6145,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6070,6 +6162,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Beton nach SIA Norm 262 und SN-EN 206-1\", \"fr\": \"B\\u00e9ton selon les normes SIA 162 et SN-EN 206-1\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6086,6 +6179,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Dichtigkeitspr\\u00fcfung mit Wasserflutung\", \"fr\": \"Epreuve d'\\u00e9tanch\\u00e9it\\u00e9 \\u00e0 l'eau\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6102,6 +6196,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mit Auskleidung\", \"fr\": \"Avec rev\\u00eatement\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6118,6 +6213,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ohne Auskleidung\", \"fr\": \"Sans rev\\u00eatement\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6134,6 +6230,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6150,6 +6247,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6166,6 +6264,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Versickerungsanlage Typ a\", \"fr\": \"Installation d'infiltration du type a\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6182,6 +6281,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Versickerungsanlage Typ b\", \"fr\": \"Installation d'infiltration du type b\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6198,6 +6298,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Fasslager / Gebindelager\", \"fr\": \"R\\u00e9cipients / f\\u00fbts\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6214,6 +6315,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kleintank < 2000 Liter\", \"fr\": \"Petit r\\u00e9servoir < 2000 litres\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6230,6 +6332,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mehrkammertank\", \"fr\": \"R\\u00e9servoir \\u00e0 plusieurs chambres\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6246,6 +6349,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mittelgrosser Tank > 2000 Liter\", \"fr\": \"R\\u00e9servoir de moyenne grandeur > 2000 litres\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6262,6 +6366,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Versickerungsanlage Typ a\", \"fr\": \"Installation d'infiltration du type a\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6278,6 +6383,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"durchl\\u00e4ssige Fl\\u00e4che\", \"fr\": \"Rev\\u00eatement perm\\u00e9able\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6294,6 +6400,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00fcber die Schulter\", \"fr\": \"Par-dessus l'\\u00e9paule\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6310,6 +6417,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Einfr\\u00e4sen\", \"fr\": \"Avec une trancheuse / du fraisage\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6326,6 +6434,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Einpfl\\u00fcgen\", \"fr\": \"Avec une charrue\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6342,6 +6451,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Offener Grabenbau\", \"fr\": \"En fouille ouverte\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6358,6 +6468,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"(Sp\\u00fcl-)bohrung\", \"fr\": \"Par forage (\\u00e0 chasse d'eau)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6374,6 +6485,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Pl\\u00e4ne, Berichte und Berechnungen \\u00fcber neue und bestehende Versickerungsanlagen\", \"fr\": \"Plans, rapports et notes de calcul relatifs aux installations d'infiltration\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6390,6 +6502,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6406,6 +6519,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6422,6 +6536,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Deklaration zur Verwertung von abgetragenem Boden\", \"fr\": \"D\\u00e9claration sur la valorisation de mat\\u00e9riaux terreux d\\u00e9cap\\u00e9s\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6438,6 +6553,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Klasse A\", \"fr\": \"Liquide de la classe A\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6454,6 +6570,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Klasse B\", \"fr\": \"Liquide de la classe B\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -6470,6 +6587,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Zustimmung der Anst\\u00f6sser falls die Versickerung nicht publiziert wurde\", \"fr\": \"Consentement des voisins si l'infiltration n'a pas fait l'objet d'une publication\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null

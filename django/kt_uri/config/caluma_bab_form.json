@@ -394,6 +394,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Abbruch\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -410,6 +411,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Abparzellierung Ver\\u00e4usserung Betriebs\\u00fcbergabe\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -426,6 +428,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -442,6 +445,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ersatzneubau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -458,6 +462,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Neubau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -474,6 +479,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Sanierung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -490,6 +496,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Umbau / Anbau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -506,6 +513,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Zweck\\u00e4nderung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -522,6 +530,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Entsiegelte / renaturierte Fl\\u00e4chen (Erschliessung)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -538,6 +547,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Entsiegelte / renaturierte Fl\\u00e4chen (Geb\\u00e4ude)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -554,6 +564,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Entsiegelte / renaturierte Fl\\u00e4chen (Umgebung)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -570,6 +581,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Neue versiegelte Fl\\u00e4chen (Erschliessung)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -586,6 +598,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Neue versiegelte Fl\\u00e4chen (Geb\\u00e4ude)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -602,6 +615,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Neue versiegelte Fl\\u00e4chen (Umgebung)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -618,6 +632,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"BGBB 4a VBB Abparzellierung von Bauten und Anlagen, Feststellungsverf\\u00fcgung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -634,6 +649,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 22 allgemein zonenkonform\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -650,6 +666,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Andere Dossiers\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -666,6 +683,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 16a 1 RPV 34a Gewinnung von Energie aus Biomasse\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -682,6 +700,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 18 RPV 33 Zonenkonforme Bauten und Anlagen in Weiler- oder Erhaltungszonen u.\\u00e4.\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -698,6 +717,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 24b 1 Nichtlandwirtschaftliche Nebenbetriebe zur Existenzsicherung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -714,6 +734,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 24d 2 Vollst\\u00e4ndige Zweck\\u00e4nderung gesch\\u00fctzter Bauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -730,6 +751,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 16a 2 RPV 37 Innere Aufstockung Gem\\u00fcse- und Pflanzenbau (Gew\\u00e4chsh\\u00e4user)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -746,6 +768,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 24e 2-4 Aussenanlagen zur hobbym\\u00e4ssigen Tierhaltung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -762,6 +785,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 24e 1 Hobbym\\u00e4ssige Tierhaltung in nahe bei der Bauzone gelegenen Geb\\u00e4uden\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -778,6 +802,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Innerhalb Bauzone\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -794,6 +819,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 24 RPV 39 2 Vollst\\u00e4ndige Zweck\\u00e4nderung landschaftspr\\u00e4gender Bauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -810,6 +836,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 16a 1 RPV 34 2 Landwirtschaftliche Bauten: Aufbereitung Lagerung und Verkauf\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -826,6 +853,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 24d 1 RPV 42a \\u00c4nderungen an ehemals landwirtschaftlich genutzten Wohnbauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -842,6 +870,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 24b 1 bis Nichtlandw. Nebenbetriebe mit engem Bezug zu landw. Gewerbe\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -858,6 +887,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 16a RPV 34 1 \\u00d6konomiebauten f\\u00fcr die bodenabh\\u00e4ngige Landwirtschaft\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -874,6 +904,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 24a Zweck\\u00e4nderung ohne bauliche Massnahmen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -890,6 +921,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 18a Solaranlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -906,6 +938,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPV 32c Standortgebundene Solaranlagen ausserhalb der Bauzonen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -922,6 +955,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 16a 3 RPV 38 Bauten und Anlagen in Speziallandwirtschaftszonen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -938,6 +972,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 18 allgemein, Zonenkonforme Bauten und Anlagen in Spezialzonen (Deponie, Sport, u.\\u00e4. ohne Weiler, Erhaltungszonen)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -954,6 +989,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 16a RPV 35 Gemeinschaftliche Stallbauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -970,6 +1006,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 24 Standortgebundene Bauten und Anlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -986,6 +1023,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 24 RPV 39 1 Vollst\\u00e4ndige Zweck\\u00e4nderung von Bauten in Streusiedlungsgebieten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1002,6 +1040,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 24b 1 ter Nichtlandw. Nebenbetriebe in tempor\\u00e4ren Betriebszentren\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1018,6 +1057,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 16a 2 RPV 36 Innere Aufstockung Tierhaltung (Schweinest\\u00e4lle, Gefl\\u00fcgelhallen)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1034,6 +1074,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 16a 1 RPV 34 3 Wohnbauten f\\u00fcr landwirtschaftliche Gewerbe\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1050,6 +1091,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 17 allgemein, Zonenkonforme Bauten und Anlagen in Schutzzonen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1066,6 +1108,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 24c RPV 42 \\u00c4nderung zonenwidrig gewordener Bauten und Anlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1082,6 +1125,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"RPG 37a RPV 43 \\u00c4nderung zonenwidrig gewordener gewerblicher Bauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1098,6 +1142,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1114,6 +1159,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Negativ\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1130,6 +1176,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Positiv\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1146,6 +1193,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1162,6 +1210,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Freihaltezone\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1178,6 +1227,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Landwirtschaftszone\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1194,6 +1244,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Reservezone\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1210,6 +1261,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Verkehrsfl\\u00e4chen aBZ\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1226,6 +1278,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Wald\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1242,6 +1295,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Weilerzone\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1258,6 +1312,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1274,6 +1329,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ausnahmebewilligung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1290,6 +1346,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Zonenkonform\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1306,6 +1363,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1322,6 +1380,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Energie\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1338,6 +1397,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Landwirtschaft\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1354,6 +1414,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Tourismus\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1370,6 +1431,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Verkehr (kantonale und nationale Projekte)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1386,6 +1448,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Wald (Projekte f\\u00fcr die Waldbewirtschaftung)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1402,6 +1465,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1418,6 +1482,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Betrieb Gewerbe Liegenschaften\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1434,6 +1499,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Bewirtschaftungsweg\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1450,6 +1516,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Fahrnisbauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1466,6 +1533,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Gewerbebaute mit Arbeitspl\\u00e4tzen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1482,6 +1550,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Gewerbebaute ohne Arbeitspl\\u00e4tzen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1498,6 +1567,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Hof- / G\\u00fctererschliessung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1514,6 +1584,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00d6konomiebaute mit Tierhaltung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1530,6 +1601,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00d6konomiebaute ohne Tierhaltung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1546,6 +1618,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Terrainver\\u00e4nderung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1562,6 +1635,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Viehtriebweg\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1578,6 +1652,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Wanderweg\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1594,6 +1669,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Wohnbaute\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1610,6 +1686,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Wohn- / \\u00d6konomiebaute\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1626,6 +1703,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nicht relevant (Tourismus und Landwirtschaft)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1642,6 +1720,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Relevant\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1658,6 +1737,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Andere private Auftraggeber (z.B. SAC Sektionen, Kirchgemeinden, Stiftungen, Vereine)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1674,6 +1754,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"ASTRA (Bundesamt f\\u00fcr Strassen)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1690,6 +1771,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Banken\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1706,6 +1788,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"BBL (Bundesamt f\\u00fcr Bauten und Logistik)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1722,6 +1805,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Bundesamt f\\u00fcr Umweltschutz\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1738,6 +1822,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Einzelfirmen oder Personengesellschaften\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1754,6 +1839,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Elektrizit\\u00e4tswerke (ausgenommen gemeindeeigene Werke)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1770,6 +1856,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Gaswerke\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1786,6 +1873,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Gemeinden (inkl. Korporationen B\\u00fcrgergemeinden und Alpgenossenschaften)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1802,6 +1890,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Gemeinden (\\u00f6ffentliche Unternehmen Gemeinde, z.B. Wasserwerke, Elektrizit\\u00e4stwerke)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1818,6 +1907,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Immobilienbranche (AG, GmbH, Genossenschaft)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1834,6 +1924,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Immobilienbranche (Einzelpersonen oder Personengesellschaften)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1850,6 +1941,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Immobilienbranche (Wohnbaugenossenschaften)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1866,6 +1958,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Internationale Organisationen, Botschaften\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1882,6 +1975,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kanton (z.B. ARE BD, ohne \\u00f6ffentliche Unternehmen)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1898,6 +1992,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kanton (\\u00f6ffentliche Unternehmen des Kantons, z.B. Spital)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1914,6 +2009,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kapitalgesellschaften (AG, GmbH, Genossenschaft)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1930,6 +2026,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Krankenkassen, SUVA\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1946,6 +2043,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Personalf\\u00fcrsorgestiftungen (Pensionskassen)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1962,6 +2060,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Die Post\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1978,6 +2077,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Privatbahnen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1994,6 +2094,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Privatpersonen (inkl. Erbengemeinschaften)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2010,6 +2111,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"SBB (Schweizerische Bundesbahnen)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2026,6 +2128,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Swisscom\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2042,6 +2145,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"VBS (Eidg. Departement f\\u00fcr Verteidigung, Bev\\u00f6lkerungsschutz und Sport)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2058,6 +2162,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Versicherungsgesellschaften\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null

@@ -3,12 +3,13 @@ import json
 import pytest
 from alexandria.core.factories import CategoryFactory, FileFactory
 from django.urls import reverse
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 
 @pytest.mark.parametrize(
     "role__name,communications_message__topic",
-    [("Municipality", pytest.lazy_fixture("topic_with_admin_involved"))],
+    [("Municipality", lf("topic_with_admin_involved"))],
 )
 def test_s3_attachment_download_url(
     admin_client,
@@ -32,7 +33,7 @@ def test_s3_attachment_download_url(
 
 @pytest.mark.parametrize(
     "role__name,communications_message__topic",
-    [("Municipality", pytest.lazy_fixture("topic_with_admin_involved"))],
+    [("Municipality", lf("topic_with_admin_involved"))],
 )
 def test_alexandria_attachment_download_url(
     admin_client,

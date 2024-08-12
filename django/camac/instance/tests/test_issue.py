@@ -1,6 +1,6 @@
 import pytest
 from django.urls import reverse
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 from camac.instance.models import Issue
@@ -86,7 +86,7 @@ def test_issue_destroy(admin_client, issue, activation, status_code):
     assert response.status_code == status_code
 
 
-@pytest.mark.parametrize("issue__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("issue__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "role__name,size",
     [
