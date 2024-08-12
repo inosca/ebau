@@ -9,10 +9,11 @@ from caluma.caluma_workflow.events import (
     post_create_work_item,
     post_skip_work_item,
 )
-from caluma.caluma_workflow.models import Task
+from caluma.caluma_workflow.models import Task, WorkItem
 from django.conf import settings
 from django.utils import timezone
 
+from camac.caluma.extensions.events.general import post_decision_ur
 from camac.constants import kt_uri as uri_constants
 from camac.instance.models import HistoryEntryT
 
@@ -994,3 +995,39 @@ def test_post_create_review_building_commission(
     )
 
     assert review_work_item.name.de == desired_work_item_name
+
+
+def test_post_decision_ur(
+    db,
+    caluma_admin_user,
+    case_factory,
+    work_item_factory,
+    set_application_ur,
+):
+    settings.APPLICATION_NAME = "kt_uri"
+    caluma_case = case_factory()
+    decision_work_item = work_item_factory(case=caluma_case, task__slug="decision")
+    unfinished_release_for_bk_work_item = work_item_factory(
+        case=caluma_case, task__slug="release-for-bk", child_case=None
+    )
+    unfininished_review_building_commission_work_item = work_item_factory(
+        case=caluma_case, task__slug="review-building-commission", child_case=None
+    )
+
+    post_decision_ur(
+        sender="post_decision_ur",
+        work_item=decision_work_item,
+        user=caluma_admin_user,
+        context={},
+    )
+
+    unfinished_release_for_bk_work_item.refresh_from_db()
+    unfininished_review_building_commission_work_item.refresh_from_db()
+
+    assert (
+        unfinished_release_for_bk_work_item.status == WorkItem.STATUS_SKIPPED
+    ), "any open release work items need to be skipped."
+    assert (
+        unfininished_review_building_commission_work_item.status
+        == WorkItem.STATUS_SKIPPED
+    ), "any open review work items need to be completed."

@@ -240,10 +240,10 @@
     "pk": "additional-demand-buckets",
     "fields": {
       "created_at": "2024-07-18T08:08:34.810Z",
-      "modified_at": "2024-07-18T13:45:02.608Z",
+      "modified_at": "2024-08-07T15:49:27.585Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "stephan.hug@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Dokumente\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -253,7 +253,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"test\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
         "widgetOverride": "camac-additional-demand-files",
