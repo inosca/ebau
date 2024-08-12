@@ -1354,6 +1354,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1370,6 +1371,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1386,6 +1388,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1402,6 +1405,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1418,6 +1422,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1434,6 +1439,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1450,6 +1456,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1466,6 +1473,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1482,6 +1490,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1498,6 +1507,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1514,6 +1524,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt mit Unterschrift, die Generalvollmacht an Bevollm\\u00e4chtigte\", \"fr\": \"Par sa signature, le requ\\u00e9rant/la requ\\u00e9rante confirme la procuration g\\u00e9n\\u00e9rale donn\\u00e9e au/\\u00e0 la mandataire.\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1530,6 +1541,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Beizulegende Vollmacht mit beschriebenen Handlungsspielraum an Bevollm\\u00e4chtigte\", \"fr\": \"Procuration \\u00e0 joindre, d\\u00e9crivant la marge de man\\u0153uvre du/de la mandataire\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1546,6 +1558,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Geb\\u00e4udeeigent\\u00fcmer/in\", \"fr\": \"Propri\\u00e9taire immobilier/immobili\\u00e8re\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1562,6 +1575,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Grundeigent\\u00fcmer/in\", \"fr\": \"Propri\\u00e9taire foncier/fonci\\u00e8re\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1578,6 +1592,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Projektverfasser/in\", \"fr\": \"Auteur/e du projet\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1594,6 +1609,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Vertreter/in mit Vollmacht\", \"fr\": \"Repr\\u00e9sentant/e disposant d'une procuration\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null

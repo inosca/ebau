@@ -420,6 +420,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Die Anforderungen sind gem\\u00e4ss den Richtlinien \\u00abBewilligungsfreie Anlagen zur Gewinnung von erneuerbarer Energie\\u00bb eingehalten\", \"fr\": \"Les exigences \\u00e9nonc\\u00e9es dans les directives \\u00abInstallations de production d\\u2019\\u00e9nergies renouvelables non soumises au r\\u00e9gime du permis de construire\\u00bb sont respect\\u00e9es\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -436,6 +437,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Die Richtigkeit der Angaben best\\u00e4tigt die Liegenschaftseigent\\u00fcmerschaft oder deren Vertretung\", \"fr\": \"Le ou la propri\\u00e9taire du bien-fonds ou son repr\\u00e9sentant/sa repr\\u00e9sentante confirme l\\u2019exactitude des indications fournies\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -452,6 +454,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Grundriss- und/oder Ansichtsplan (wenn m\\u00f6glich Fotomontage) mit eingezeichneter Solaranlage (auf dem Plan ist die Nordrichtung anzugeben)\", \"fr\": \"Vue en plan et/ou d\\u2019un plan en coupe (si possible sous la forme d\\u2019un photomontage) qui int\\u00e8gre l\\u2019installation solaire (la direction du nord doit \\u00eatre indiqu\\u00e9e sur le plan)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -468,6 +471,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Flachkollektoren\", \"fr\": \"Capteurs plans\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -484,6 +488,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Hybridkollektoren\", \"fr\": \"Capteurs hybrides\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -500,6 +505,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"R\\u00f6hrenkollektoren\", \"fr\": \"Capteurs \\u00e0 tubes\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -516,6 +522,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Aufdach - Montage\", \"fr\": \"Installation sur le toit\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -532,6 +539,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Indach - Montage\", \"fr\": \"Syst\\u00e8me int\\u00e9gr\\u00e9 au toit\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -548,6 +556,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Andere\", \"fr\": \"Pour une autre utilisation\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -564,6 +573,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"f\\u00fcr Brauchwarmwasser\", \"fr\": \"Pour l\\u2019eau chaude sanitaire\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -580,6 +590,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"f\\u00fcr Heizungsunterst\\u00fctzung\", \"fr\": \"Pour un chauffage d\\u2019appoint\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -596,6 +607,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Photovoltaikanlage (Stromproduktion)\", \"fr\": \"Installation photovolta\\u00efque (production d\\u2019\\u00e9lectricit\\u00e9)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -612,6 +624,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Thermische Solaranlage (W\\u00e4rmeproduktion)\", \"fr\": \"Installation solaire thermique (production de chaleur)\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null

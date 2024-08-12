@@ -58,6 +58,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nicht notwendig\", \"fr\": \"Pas n\\u00e9cessaire\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -74,6 +75,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Notwendig\", \"fr\": \"N\\u00e9cessaire\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
