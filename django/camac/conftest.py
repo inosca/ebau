@@ -5,13 +5,12 @@ import os
 import sys
 from copy import deepcopy
 from dataclasses import dataclass, field
-from datetime import date, datetime, timezone
+from datetime import date
 from importlib import import_module, reload
 from pathlib import Path
 
 import faker
 import pytest
-import urllib3
 from alexandria.storages.backends.s3 import SsecGlobalS3Storage
 from caluma.caluma_core.faker import MultilangProvider
 from caluma.caluma_core.relay import extract_global_id
@@ -35,8 +34,6 @@ from django.utils.timezone import make_aware
 from factory import Faker
 from factory.base import FactoryMetaClass
 from jwt import encode as jwt_encode
-from minio import Minio
-from minio.datatypes import Object as MinioStatObject
 from pytest_factoryboy import register
 from pytest_factoryboy.fixture import Box, get_model_name
 from rest_framework import status
@@ -1613,51 +1610,10 @@ def gql():
 
 @pytest.fixture
 def minio_mock(mocker):
-    stat_response = MinioStatObject(
-        # taken from a real-world minio stat() call
-        bucket_name="alexandria-media",
-        object_name="a3d0429d-5400-47ac-9d02-124592302631_attack.wav",
-        etag="5d41402abc4b2a76b9719d911017c592",
-        size=8200,
-        last_modified=datetime(2021, 3, 5, 15, 24, 33, tzinfo=timezone.utc),
-        content_type="application/pdf",
-        metadata=urllib3._collections.HTTPHeaderDict(
-            {
-                "Accept-Ranges": "bytes",
-                "Content-Length": "5",
-                "Content-Security-Policy": "block-all-mixed-content",
-                "Content-Type": "binary/octet-stream",
-                "ETag": '"5d41402abc4b2a76b9719d911017c592"',
-                "Last-Modified": "Fri, 05 Mar 2021 15:24:33 GMT",
-                "Server": "MinIO",
-                "Vary": "Origin",
-                "X-Amz-Request-Id": "16697BAAD69D2214",
-                "X-Xss-Protection": "1; mode=block",
-                "Date": "Fri, 05 Mar 2021 15:25:15 GMT",
-            }
-        ),
-        owner_id=None,
-        owner_name=None,
-        storage_class=None,
-        version_id=None,
-    )
-    mocker.patch.object(Minio, "presigned_get_object")
-    mocker.patch.object(Minio, "presigned_put_object")
-    mocker.patch.object(Minio, "stat_object")
-    mocker.patch.object(Minio, "bucket_exists")
-    mocker.patch.object(Minio, "make_bucket")
-    mocker.patch.object(Minio, "remove_object")
-    mocker.patch.object(Minio, "copy_object")
-    mocker.patch.object(Minio, "put_object")
-    Minio.presigned_put_object.return_value = "http://minio/upload-url"
-    Minio.stat_object.return_value = stat_response
-    Minio.bucket_exists.return_value = True
-
     mocker.patch("storages.backends.s3.S3Storage.save")
     mocker.patch("storages.backends.s3.S3Storage.open")
     SsecGlobalS3Storage.save.return_value = "name-of-the-file"
     SsecGlobalS3Storage.open.return_value = django_file("multiple-pages.pdf")
-    return Minio
 
 
 @pytest.fixture
