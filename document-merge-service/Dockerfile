@@ -1,4 +1,4 @@
-FROM ghcr.io/adfinis/document-merge-service:7.0.1
+FROM ghcr.io/adfinis/document-merge-service:7.0.2
 
 # Only root user can install packages
 USER root
@@ -6,8 +6,6 @@ RUN \
   --mount=type=cache,target=/var/cache/apt,sharing=locked \
   apt-get update && apt-get install -y --no-install-recommends hyphen-de hyphen-fr
 USER document-merge-service
-
-RUN poetry run pip install boto3==1.34.117
 
 ENV CACHE_BACKEND=django.core.cache.backends.memcached.PyMemcacheCache
 ENV DATABASE_ENGINE=django.db.backends.postgresql
