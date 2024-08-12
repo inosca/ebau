@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 from django.core.management import CommandError, call_command
-from pytest_lazyfixture import lazy_fixture
+from pytest_lazy_fixtures import lf
 
 from camac.dossier_import.models import DossierImport
 from camac.dossier_import.tests.test_dossier_import_case import (
@@ -40,9 +40,9 @@ def test_import_dossiers_exceptions(
 @pytest.mark.parametrize(
     "config,use_location,camac_instance",
     [
-        ("kt_schwyz", True, lazy_fixture("sz_instance")),
-        ("kt_bern", False, lazy_fixture("be_instance")),
-        ("kt_so", False, lazy_fixture("so_instance")),
+        ("kt_schwyz", True, lf("sz_instance")),
+        ("kt_bern", False, lf("be_instance")),
+        ("kt_so", False, lf("so_instance")),
     ],
 )
 def test_import_dossiers_manage_command(

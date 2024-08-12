@@ -1,5 +1,5 @@
 import pytest
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf
 
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
@@ -19,12 +19,12 @@ from ..models import Message
 
 @pytest.mark.parametrize(
     "instance__user,location__communal_federal_number,instance_state__name",
-    [(LazyFixture("admin_user"), "1311", "new")],
+    [(lf("admin_user"), "1311", "new")],
 )
 @pytest.mark.parametrize(
     "role__name,instance__location,form__name",
     [
-        ("Support", LazyFixture("location"), "baugesuch"),
+        ("Support", lf("location"), "baugesuch"),
     ],
 )
 @pytest.mark.freeze_time("2022-07-07")

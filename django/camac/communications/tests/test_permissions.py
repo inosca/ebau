@@ -1,9 +1,10 @@
 import pytest
 from django.urls import reverse
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 
-_admin = pytest.lazy_fixture("admin_user")
-_other = pytest.lazy_fixture("some_other_user")
+_admin = lf("admin_user")
+_other = lf("some_other_user")
 
 
 @pytest.mark.parametrize(
@@ -69,9 +70,9 @@ def test_create_topic(
     assert data["data"]["attributes"]["involved-entities"] == [expected_entities]
 
 
-_topic = pytest.lazy_fixture("communications_topic")
-_message = pytest.lazy_fixture("communications_message")
-_attachment = pytest.lazy_fixture("communications_attachment")
+_topic = lf("communications_topic")
+_message = lf("communications_message")
+_attachment = lf("communications_attachment")
 
 
 @pytest.mark.parametrize("role__name", ["Municipality", "Applicant"])

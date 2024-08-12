@@ -11,7 +11,7 @@ from caluma.caluma_workflow import api as workflow_api, models as caluma_workflo
 from django.urls import reverse
 from django.utils.timezone import make_aware, now
 from freezegun import freeze_time
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf, lfc
 from rest_framework import status
 
 from camac.applicants.models import Applicant
@@ -30,17 +30,17 @@ from camac.instance.models import FormField, HistoryEntryT, InstanceGroup, Insta
     [
         (
             "Applicant",
-            LazyFixture("admin_user"),
+            lf("admin_user"),
             20,
             1,
             {"instance", "form", "document"},
         ),
         # reader should see instances from other users but has no editables
-        ("Reader", LazyFixture("user"), 20, 1, set()),
-        ("Canton", LazyFixture("user"), 20, 1, {"form", "document"}),
-        ("Municipality", LazyFixture("user"), 21, 1, {"form", "document"}),
-        ("Service", LazyFixture("user"), 21, 1, {"form", "document"}),
-        ("Public", LazyFixture("user"), 2, 0, {}),
+        ("Reader", lf("user"), 20, 1, set()),
+        ("Canton", lf("user"), 20, 1, {"form", "document"}),
+        ("Municipality", lf("user"), 21, 1, {"form", "document"}),
+        ("Service", lf("user"), 21, 1, {"form", "document"}),
+        ("Public", lf("user"), 2, 0, {}),
     ],
 )
 def test_instance_list(
@@ -89,9 +89,7 @@ def test_instance_list(
         snapshot.assert_match([i["type"] for i in json["included"]])
 
 
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Coordination", LazyFixture("user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Coordination", lf("user"))])
 @pytest.mark.parametrize(
     "answer,koor_role,expected_count",
     [
@@ -138,7 +136,7 @@ def test_instance_list_for_coordination_ur(
         ("2023-11-30 00:00:00+00", "ready", 0),
     ],
 )
-@pytest.mark.parametrize("role__name,instance__user", [("uso", LazyFixture("user"))])
+@pytest.mark.parametrize("role__name,instance__user", [("uso", lf("user"))])
 def test_instance_list_for_uso_gr(
     admin_client,
     gr_instance,
@@ -172,9 +170,7 @@ def test_instance_list_for_uso_gr(
 
 
 @pytest.mark.freeze_time("2023-12-01")
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("uso", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("uso", lf("admin_user"))])
 def test_instance_detail_uso(
     admin_client,
     instance,
@@ -215,9 +211,7 @@ def test_instance_detail_uso(
         assert work_item.deadline == first_fetch + timedelta(days=7)
 
 
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 def test_instance_detail(admin_client, instance):
     url = reverse("instance-detail", args=[instance.pk])
 
@@ -227,9 +221,7 @@ def test_instance_detail(admin_client, instance):
 
 @pytest.mark.parametrize("instance__identifier", ["00-00-000"])
 @pytest.mark.parametrize("form_field__name", ["name"])
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 @pytest.mark.parametrize(
     "form_field__value,search",
     [
@@ -284,9 +276,7 @@ def test_instance_search_sanctions(
         assert json["data"][0]["id"] == str(ur_instance.pk)
 
 
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 def test_instance_filter_fields(admin_client, instance, form_field_factory):
     filters = {}
 
@@ -306,11 +296,11 @@ def test_instance_filter_fields(admin_client, instance, form_field_factory):
 @pytest.mark.parametrize(
     "role__name,instance__user,form_filter,form_filter_name,exclude,expected_count",
     [
-        ("Applicant", LazyFixture("admin_user"), False, None, False, 1),
-        ("Applicant", LazyFixture("admin_user"), True, None, False, 1),
-        ("Applicant", LazyFixture("admin_user"), True, None, True, 0),
-        ("Applicant", LazyFixture("admin_user"), True, "test", False, 0),
-        ("Applicant", LazyFixture("admin_user"), True, "test", True, 1),
+        ("Applicant", lf("admin_user"), False, None, False, 1),
+        ("Applicant", lf("admin_user"), True, None, False, 1),
+        ("Applicant", lf("admin_user"), True, None, True, 0),
+        ("Applicant", lf("admin_user"), True, "test", False, 0),
+        ("Applicant", lf("admin_user"), True, "test", True, 1),
     ],
 )
 def test_instance_form_name_filter(
@@ -337,7 +327,7 @@ def test_instance_form_name_filter(
     assert len(data) == expected_count
 
 
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "field,submit_date,expected_count",
     [
@@ -377,7 +367,7 @@ def test_instance_submit_date_filter(
     assert len(data) == expected_count
 
 
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "address,expected_count",
     [
@@ -419,7 +409,7 @@ def test_instance_address_filter(
     assert len(data) == expected_count
 
 
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "intent,expected_count",
     [
@@ -436,9 +426,9 @@ def test_instance_address_filter(
 @pytest.mark.parametrize(
     "index,form_field__name,form_field__value,form_field__instance",
     [
-        (0, "intent1", "Large house", LazyFixture("instance")),
-        (1, "intent2", "Small garden", LazyFixture("instance")),
-        (2, "intent3", "Luxury tent", LazyFixture("instance")),
+        (0, "intent1", "Large house", lf("instance")),
+        (1, "intent2", "Small garden", lf("instance")),
+        (2, "intent3", "Luxury tent", lf("instance")),
     ],
 )
 def test_instance_intent_filter(
@@ -460,7 +450,7 @@ def test_instance_intent_filter(
     assert len(data) == expected_count[index]
 
 
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "plot,expected_count",
     [
@@ -510,9 +500,9 @@ def test_instance_plot_filter(
 @pytest.mark.parametrize(
     "role__name,instance__user",
     [
-        ("Municipality", LazyFixture("admin_user")),
-        ("Service", LazyFixture("admin_user")),
-        ("Applicant", LazyFixture("admin_user")),
+        ("Municipality", lf("admin_user")),
+        ("Service", lf("admin_user")),
+        ("Applicant", lf("admin_user")),
     ],
 )
 @pytest.mark.parametrize(
@@ -694,9 +684,7 @@ def test_keyword_search_filter_sz(
     assert len(response.json()["data"]) == expected_count[role.name]
 
 
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 @pytest.mark.parametrize(
     "with_cantonal_participation,expected_count", [(True, 1), (False, 2)]
 )
@@ -730,7 +718,7 @@ def test_with_cantonal_participation_filter(
     assert len(data) == expected_count
 
 
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "form_field_name,filter_name",
     [
@@ -874,7 +862,7 @@ def test_instance_form_field_list_value_filter(
     assert len(data) == expected_count[form_field_name]
 
 
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
 def test_instance_form_name_versioned_filter(
     admin_client,
     instance,
@@ -905,9 +893,9 @@ def test_instance_form_name_versioned_filter(
 @pytest.mark.parametrize(
     "instance__user,instance__identifier,identifier,expected_count",
     [
-        (LazyFixture("admin_user"), "001", "1", 1),
-        (LazyFixture("admin_user"), "001", "2", 0),
-        (LazyFixture("admin_user"), "001", "001", 1),
+        (lf("admin_user"), "001", "1", 1),
+        (lf("admin_user"), "001", "2", 0),
+        (lf("admin_user"), "001", "001", 1),
     ],
 )
 def test_instance_identifier_filter(
@@ -928,7 +916,7 @@ def test_instance_identifier_filter(
 @pytest.mark.parametrize(
     "instance__user,expected_count",
     [
-        (LazyFixture("admin_user"), 1),
+        (lf("admin_user"), 1),
     ],
 )
 def test_instance_service_filter_sz(
@@ -966,7 +954,7 @@ def test_instance_service_filter_sz(
 @pytest.mark.parametrize(
     "instance__user,expected_count",
     [
-        (LazyFixture("admin_user"), 1),
+        (lf("admin_user"), 1),
     ],
 )
 def test_instance_service_filter_ur(
@@ -991,7 +979,7 @@ def test_instance_service_filter_ur(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user", [("Municipality", LazyFixture("admin_user"))]
+    "role__name,instance__user", [("Municipality", lf("admin_user"))]
 )
 def test_linked_instances(
     admin_client, instance, instance_group_factory, instance_factory
@@ -1012,7 +1000,7 @@ def test_linked_instances(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user", [("Municipality", LazyFixture("admin_user"))]
+    "role__name,instance__user", [("Municipality", lf("admin_user"))]
 )
 def test_involved_services(
     admin_client, group, be_instance, active_inquiry_factory, service_factory
@@ -1189,13 +1177,13 @@ def test_instance_group_unlink(
     [
         # applicant/reader can't update their own Instance,
         # but might update FormField etc.
-        ("Applicant", LazyFixture("admin_user"), status.HTTP_200_OK),
-        ("Reader", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
-        ("Canton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
-        ("Municipality", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
-        ("Service", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
-        ("Unknown", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
-        ("Coordination", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
+        ("Applicant", lf("admin_user"), status.HTTP_200_OK),
+        ("Reader", lf("user"), status.HTTP_403_FORBIDDEN),
+        ("Canton", lf("user"), status.HTTP_403_FORBIDDEN),
+        ("Municipality", lf("user"), status.HTTP_403_FORBIDDEN),
+        ("Service", lf("user"), status.HTTP_403_FORBIDDEN),
+        ("Unknown", lf("user"), status.HTTP_404_NOT_FOUND),
+        ("Coordination", lf("user"), status.HTTP_404_NOT_FOUND),
     ],
 )
 def test_instance_update(
@@ -1236,13 +1224,13 @@ def test_instance_update(
 @pytest.mark.parametrize(
     "role__name,instance__user,instance_state__name,status_code",
     [
-        ("Applicant", LazyFixture("admin_user"), "new", status.HTTP_204_NO_CONTENT),
-        ("Applicant", LazyFixture("admin_user"), "subm", status.HTTP_403_FORBIDDEN),
-        ("Reader", LazyFixture("admin_user"), "new", status.HTTP_204_NO_CONTENT),
-        ("Canton", LazyFixture("user"), "new", status.HTTP_403_FORBIDDEN),
-        ("Municipality", LazyFixture("user"), "new", status.HTTP_403_FORBIDDEN),
-        ("Service", LazyFixture("user"), "new", status.HTTP_403_FORBIDDEN),
-        ("Unknown", LazyFixture("user"), "new", status.HTTP_404_NOT_FOUND),
+        ("Applicant", lf("admin_user"), "new", status.HTTP_204_NO_CONTENT),
+        ("Applicant", lf("admin_user"), "subm", status.HTTP_403_FORBIDDEN),
+        ("Reader", lf("admin_user"), "new", status.HTTP_204_NO_CONTENT),
+        ("Canton", lf("user"), "new", status.HTTP_403_FORBIDDEN),
+        ("Municipality", lf("user"), "new", status.HTTP_403_FORBIDDEN),
+        ("Service", lf("user"), "new", status.HTTP_403_FORBIDDEN),
+        ("Unknown", lf("user"), "new", status.HTTP_404_NOT_FOUND),
     ],
 )
 def test_instance_destroy(
@@ -1271,7 +1259,7 @@ def test_instance_destroy(
 
 @pytest.mark.parametrize(
     "instance_state__name,instance__location",
-    [("new", None), ("new", LazyFixture("location"))],
+    [("new", None), ("new", lf("location"))],
 )
 def test_instance_create(
     admin_client, admin_user, form, instance_state, instance, caluma_workflow_config_sz
@@ -1370,29 +1358,29 @@ def test_instance_create_internal_sz(
 @pytest.mark.freeze_time("2017-7-27")
 @pytest.mark.parametrize(
     "instance__user,location__communal_federal_number,instance_state__name",
-    [(LazyFixture("admin_user"), "1311", "new")],
+    [(lf("admin_user"), "1311", "new")],
 )
 @pytest.mark.parametrize("attachment__question", ["dokument-parzellen"])
 @pytest.mark.parametrize("short_dossier_number", [True, False])
 @pytest.mark.parametrize(
     "role__name,instance__location,form__name,status_code",
     [
-        ("Applicant", LazyFixture("location"), "baugesuch", status.HTTP_200_OK),
-        ("Applicant", LazyFixture("location"), "", status.HTTP_400_BAD_REQUEST),
+        ("Applicant", lf("location"), "baugesuch", status.HTTP_200_OK),
+        ("Applicant", lf("location"), "", status.HTTP_400_BAD_REQUEST),
         ("Applicant", None, "baugesuch", status.HTTP_400_BAD_REQUEST),
         (
             "Applicant",
-            LazyFixture(lambda location_factory: location_factory()),
+            lfc("location_factory"),
             "baugesuch",
             status.HTTP_400_BAD_REQUEST,
         ),
         (
             "Applicant",
-            LazyFixture("location"),
+            lf("location"),
             "geschaeftskontrolle",
             status.HTTP_200_OK,
         ),
-        ("Applicant", LazyFixture("location"), "baugesuch", status.HTTP_200_OK),
+        ("Applicant", lf("location"), "baugesuch", status.HTTP_200_OK),
     ],
 )
 def test_instance_submit_sz(
@@ -1586,21 +1574,21 @@ def test_instance_export_list(
     [
         (
             "Applicant",
-            LazyFixture("admin_user"),
+            lf("admin_user"),
             "baugesuch",
             status.HTTP_200_OK,
             "docx",
         ),
         (
             "Applicant",
-            LazyFixture("admin_user"),
+            lf("admin_user"),
             "baugesuch",
             status.HTTP_200_OK,
             "pdf",
         ),
         (
             "Applicant",
-            LazyFixture("admin_user"),
+            lf("admin_user"),
             "baugesuch",
             status.HTTP_400_BAD_REQUEST,
             "invalid",
@@ -1846,7 +1834,7 @@ def test_instance_generate_identifier_gr(
     [
         (
             "Municipality",
-            LazyFixture("admin_user"),
+            lf("admin_user"),
             datetime(2016, 6, 28, tzinfo=pytz.UTC),
             datetime(2016, 7, 10, tzinfo=pytz.UTC),
             True,
@@ -1854,7 +1842,7 @@ def test_instance_generate_identifier_gr(
         ),
         (
             "PublicReader",
-            LazyFixture("admin_user"),
+            lf("admin_user"),
             datetime(2017, 6, 28, tzinfo=pytz.UTC),
             datetime(2017, 8, 1, tzinfo=pytz.UTC),
             True,
@@ -1862,7 +1850,7 @@ def test_instance_generate_identifier_gr(
         ),
         (
             "Public",
-            LazyFixture("admin_user"),
+            lf("admin_user"),
             datetime(2017, 6, 28, tzinfo=pytz.UTC),
             datetime(2017, 7, 10, tzinfo=pytz.UTC),
             True,
@@ -1870,7 +1858,7 @@ def test_instance_generate_identifier_gr(
         ),
         (
             "Public",
-            LazyFixture("user"),
+            lf("user"),
             datetime(2016, 6, 28, tzinfo=pytz.UTC),
             datetime(2017, 7, 10, tzinfo=pytz.UTC),
             True,
@@ -1878,7 +1866,7 @@ def test_instance_generate_identifier_gr(
         ),
         (
             "PublicReader",
-            LazyFixture("admin_user"),
+            lf("admin_user"),
             datetime(2017, 6, 26, tzinfo=pytz.UTC),
             datetime(2017, 7, 10, tzinfo=pytz.UTC),
             True,
@@ -1886,7 +1874,7 @@ def test_instance_generate_identifier_gr(
         ),
         (
             "PublicReader",
-            LazyFixture("admin_user"),
+            lf("admin_user"),
             datetime(2017, 6, 28, tzinfo=pytz.UTC),
             datetime(2017, 7, 10, tzinfo=pytz.UTC),
             False,
@@ -1903,9 +1891,7 @@ def test_instance_detail_publication(
     assert response.status_code == status_code
 
 
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 def test_circulation_state_filter(
     application_settings,
     admin_client,
@@ -1962,7 +1948,7 @@ def test_tags_filter(admin_client, admin_user, instance_factory):
 
 @pytest.mark.parametrize(
     "role__name,instance_state__name,responsible_service__responsible_user,responsible_service__service, instance_service__active",
-    [("Service", "new", LazyFixture("user"), LazyFixture("service"), 1)],
+    [("Service", "new", lf("user"), lf("service"), 1)],
 )
 def test_responsible_service_filters(
     admin_client,
@@ -2038,9 +2024,7 @@ def test_responsible_service_filters(
     assert len(data) == 0
 
 
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 def test_instance_filter_is_applicant(admin_client, instance):
     url = reverse("instance-list")
 
@@ -2055,9 +2039,7 @@ def test_instance_filter_is_applicant(admin_client, instance):
     assert len(json["data"]) == 0
 
 
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 @pytest.mark.parametrize("is_finished,expected", [(True, 0), (False, 1)])
 def test_instance_filter_pending_sanctions_control_instance(
     admin_client, admin_user, instance, sanction_factory, is_finished, expected
@@ -2222,7 +2204,7 @@ def test_instance_list_organization_readonly(
     assert json["data"][0]["id"] == str(instance.pk)
 
 
-@pytest.mark.parametrize("instance__user", [(LazyFixture("admin_user"))])
+@pytest.mark.parametrize("instance__user", [(lf("admin_user"))])
 @pytest.mark.parametrize(
     "role__name,current_form_slug,new_form_slug,starting_instance_state,expected_status",
     [

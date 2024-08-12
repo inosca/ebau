@@ -2,7 +2,7 @@ import pytest
 from caluma.caluma_form.models import Question
 from django.core.management import call_command
 from django.urls import reverse
-from pytest_lazyfixture import lazy_fixture
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 from camac.gis.models import GISDataSource
@@ -127,9 +127,9 @@ def so_unknown_question_data_source(so_fake_data_source):
 @pytest.mark.parametrize(
     "data_source,expected_status",
     [
-        (lazy_fixture("so_unknown_layer_data_source"), status.HTTP_200_OK),
-        (lazy_fixture("so_unknown_property_data_source"), status.HTTP_200_OK),
-        (lazy_fixture("so_unknown_question_data_source"), status.HTTP_200_OK),
+        (lf("so_unknown_layer_data_source"), status.HTTP_200_OK),
+        (lf("so_unknown_property_data_source"), status.HTTP_200_OK),
+        (lf("so_unknown_question_data_source"), status.HTTP_200_OK),
     ],
 )
 @pytest.mark.vcr()

@@ -3,7 +3,7 @@ import functools
 import pyexcel
 import pytest
 from django.urls import reverse
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 from camac.circulation import serializers
@@ -12,10 +12,10 @@ from camac.circulation import serializers
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries",
     [
-        ("Applicant", LazyFixture("admin_user"), 6),
-        ("Canton", LazyFixture("user"), 6),
-        ("Municipality", LazyFixture("user"), 6),
-        ("Service", LazyFixture("user"), 6),
+        ("Applicant", lf("admin_user"), 6),
+        ("Canton", lf("user"), 6),
+        ("Municipality", lf("user"), 6),
+        ("Service", lf("user"), 6),
     ],
 )
 def test_activation_list(
@@ -34,9 +34,7 @@ def test_activation_list(
     assert len(json["included"]) == len(included)
 
 
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 def test_activation_detail(admin_client, activation):
     url = reverse("activation-detail", args=[activation.pk])
 

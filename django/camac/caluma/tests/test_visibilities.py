@@ -11,7 +11,7 @@ from caluma.caluma_workflow import (
 from caluma.caluma_workflow.api import skip_work_item
 from caluma.schema import schema
 from django.db.models import Q, Value
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf
 
 from camac.caluma.extensions.visibilities import CustomVisibility, CustomVisibilitySZ
 from camac.instance.tests.test_instance_public import (  # noqa: F401
@@ -446,8 +446,8 @@ def test_work_item_additional_demand_visibility(
 @pytest.mark.parametrize(
     "role__name,instance__user,service",
     [
-        ("Applicant", LazyFixture("user"), None),
-        ("Municipality", LazyFixture("admin_user"), None),
+        ("Applicant", lf("user"), None),
+        ("Municipality", lf("admin_user"), None),
     ],
 )
 def test_work_item_visibility_for_applicants_sz(

@@ -13,7 +13,7 @@ from caluma.caluma_workflow import api as workflow_api, models as caluma_workflo
 from django.core import mail
 from django.urls import reverse
 from django.utils.timezone import make_aware
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 from camac.applicants.models import ROLE_CHOICES
@@ -463,8 +463,8 @@ def test_create_identifier_without_permisssion(
 @pytest.mark.parametrize(
     "role__name,instance__user,editable",
     [
-        ("Service", LazyFixture("user"), {"form", "document"}),
-        ("Canton", LazyFixture("user"), {"form", "document"}),
+        ("Service", lf("user"), {"form", "document"}),
+        ("Canton", lf("user"), {"form", "document"}),
     ],
 )
 def test_instance_list(
@@ -499,9 +499,7 @@ def test_instance_list(
 
 @pytest.mark.parametrize("service_group__name", ["municipality"])
 @pytest.mark.parametrize("instance_state__name", ["new"])
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 @pytest.mark.parametrize("has_personalien_sb1", [True, False])
 @pytest.mark.parametrize(
     "notification_template__body",
@@ -571,7 +569,7 @@ def test_instance_submit_be(
 
 
 @pytest.mark.parametrize("instance_state__name", ["new"])
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "role__name,service_group__name,form_slug,special_case",
     [
@@ -730,7 +728,7 @@ def test_instance_submit_ur(
 
 
 @pytest.mark.parametrize("instance_state__name", ["new"])
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
 def test_instance_submit_ur_without_camac_form_id(
     admin_client,
     ur_instance,
@@ -769,9 +767,7 @@ def test_instance_submit_ur_without_camac_form_id(
 @pytest.mark.parametrize("service_group__name", ["coordination"])
 @pytest.mark.parametrize("submit_to", ["KOOR_BD", "KOOR_SD"])
 @pytest.mark.parametrize("instance_state__name", ["new"])
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 def test_instance_submit_cantonal_territory_usage_ur(
     mocker,
     admin_client,
@@ -854,9 +850,7 @@ def test_instance_submit_cantonal_territory_usage_ur(
     "form_slug", ["konzession-waermeentnahme", "bohrbewilligung-waermeentnahme"]
 )
 @pytest.mark.parametrize("instance_state__name", ["new"])
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 def test_instance_submit_heat_extraction_ur(
     mocker,
     admin_client,
@@ -953,9 +947,7 @@ def test_instance_submit_heat_extraction_ur(
 
 @pytest.mark.parametrize("service_group__name", ["applicant"])
 @pytest.mark.parametrize("instance_state__name", ["new"])
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 def test_instance_submit_pgv_gemeindestrasse_ur(
     mocker,
     admin_client,
@@ -1030,7 +1022,7 @@ def test_instance_submit_pgv_gemeindestrasse_ur(
 
 @pytest.mark.parametrize(
     "instance_state__name,instance__user,service_group__name",
-    [("new", LazyFixture("admin_user"), "Sekretariate Gemeindebaubehörden")],
+    [("new", lf("admin_user"), "Sekretariate Gemeindebaubehörden")],
 )
 def test_instance_submit_mitbericht_kanton_doesnt_send_mail(
     admin_client,
@@ -1076,7 +1068,7 @@ def test_instance_submit_mitbericht_kanton_doesnt_send_mail(
 
 
 @pytest.mark.parametrize("instance_state__name", ["new"])
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "role__name,service_group__name", [("Applicant", "coordination")]
 )
@@ -1168,9 +1160,7 @@ def test_set_instance_service_ur_bgbb(
 @pytest.mark.parametrize("form_slug", ["oereb", "oereb-verfahren-gemeinde"])
 @pytest.mark.parametrize("service_group__name", [("municipality", "coordination")])
 @pytest.mark.parametrize("instance_state__name", ["new"])
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 def test_oereb_instance_copy_for_koor_afj(
     mocker,
     admin_client,
@@ -1304,9 +1294,7 @@ def test_oereb_instance_copy_for_koor_afj(
 
 
 @pytest.mark.parametrize("instance_state__name", ["new"])
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 def test_instance_submit_message_building_services_ur(
     admin_client,
     settings,
@@ -1374,9 +1362,7 @@ def test_instance_submit_message_building_services_ur(
 
 @pytest.mark.parametrize("service_group__name", ["municipality"])
 @pytest.mark.parametrize("instance_state__name", ["new"])
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 @pytest.mark.parametrize(
     "is_building_police_procedure,is_extend_validity", [(True, False), (False, True)]
 )
@@ -1451,7 +1437,7 @@ def test_instance_submit_state_change_be(
         assert be_instance.instance_state.name == "in_progress_internal"
 
 
-@pytest.mark.parametrize("role__name,instance__user", [("Canton", LazyFixture("user"))])
+@pytest.mark.parametrize("role__name,instance__user", [("Canton", lf("user"))])
 def test_responsible_user(admin_client, instance, user, service, multilang):
     instance.responsibilities.create(user=user, service=service)
 
@@ -1476,7 +1462,7 @@ def test_responsible_user(admin_client, instance, user, service, multilang):
 
 @pytest.mark.parametrize(
     "role__name,instance__user,service_group__name",
-    [("Applicant", LazyFixture("admin_user"), "municipality")],
+    [("Applicant", lf("admin_user"), "municipality")],
 )
 @pytest.mark.parametrize(
     "instance_state__name,geometer_is_unnecessary,expected_status,expected_emails",
@@ -1605,7 +1591,7 @@ def test_instance_report(
 
 @pytest.mark.parametrize(
     "role__name,instance__user,service_group__name",
-    [("Applicant", LazyFixture("admin_user"), "municipality")],
+    [("Applicant", lf("admin_user"), "municipality")],
 )
 @pytest.mark.parametrize(
     "instance_state__name,geometer_is_unnecessary,expected_status,expected_emails",
@@ -1896,9 +1882,7 @@ def test_generate_and_store_pdf_in_alexandria(
     assert alexandria_category.documents.count() == 1
 
 
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 @pytest.mark.parametrize("is_paper,expected_count", [("1", 1), ("0", 2), ("", 3)])
 def test_caluma_instance_list_filter(
     admin_client,
@@ -1931,9 +1915,7 @@ def test_caluma_instance_list_filter(
     assert len(json["data"]) == expected_count
 
 
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 @pytest.mark.parametrize(
     "has_pending_billing_entry,expected_count", [("1", 1), ("0", 2), ("", 3)]
 )
@@ -1999,9 +1981,7 @@ def test_objection_received_filter(
     assert len(response.json()["data"]) == expected_count
 
 
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 @pytest.mark.parametrize(
     "filter,expected",
     [
@@ -2095,9 +2075,7 @@ def test_construction_zone_location_filter_sz(
     assert len(response.json()["data"]) == expected_count
 
 
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 @pytest.mark.parametrize(
     "has_pending_sanction,expected_count", [("1", 1), ("0", 2), ("", 3)]
 )
@@ -2143,7 +2121,7 @@ def test_has_pending_sanction_filter(
         ("something", False, status.HTTP_400_BAD_REQUEST),
     ],
 )
-@pytest.mark.parametrize("role__name,instance__user", [("Canton", LazyFixture("user"))])
+@pytest.mark.parametrize("role__name,instance__user", [("Canton", lf("user"))])
 def test_generate_pdf_action(
     db,
     mocker,
@@ -2711,9 +2689,7 @@ def test_instance_create_caluma_sz(
     assert response.status_code == status.HTTP_201_CREATED
 
 
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 def test_create_instance_from_modification(
     db,
     admin_client,
@@ -2921,7 +2897,7 @@ def test_inquiry_and_decision_data(
 
 @pytest.mark.parametrize(
     "role__name,instance_state__name,instance__user",
-    [("Applicant", "new", LazyFixture("admin_user"))],
+    [("Applicant", "new", lf("admin_user"))],
 )
 @pytest.mark.parametrize(
     "form_slug,expected_instance_state,expected_work_items",
@@ -2987,7 +2963,7 @@ def test_instance_submit_so(
 
 @pytest.mark.parametrize(
     "role__name,instance_state__name,instance__user",
-    [("Applicant", "new", LazyFixture("admin_user"))],
+    [("Applicant", "new", lf("admin_user"))],
 )
 @pytest.mark.parametrize("bab_question", ["bab", "aushublagerplaetze-oder-baupisten"])
 def test_instance_submit_so_bab(

@@ -8,6 +8,7 @@ from caluma.caluma_workflow import (
     models as caluma_workflow_models,
 )
 from django.utils.translation import override
+from pytest_lazy_fixtures import lf
 
 from camac.tests.data import so_personal_row_factory
 
@@ -787,9 +788,9 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
     "canton_master_data_settings,language,case,select_related,prefetch_related,num_queries",
     [
         (
-            pytest.lazy_fixture("be_master_data_settings"),
+            lf("be_master_data_settings"),
             "de",
-            pytest.lazy_fixture("be_master_data_case"),
+            lf("be_master_data_case"),
             ["document"],
             [
                 "document__answers",
@@ -814,9 +815,9 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
             10,
         ),
         (
-            pytest.lazy_fixture("be_master_data_settings"),
+            lf("be_master_data_settings"),
             "fr",
-            pytest.lazy_fixture("be_master_data_case"),
+            lf("be_master_data_case"),
             ["document"],
             [
                 "document__answers",
@@ -831,9 +832,9 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
             10,
         ),
         (
-            pytest.lazy_fixture("ur_master_data_settings"),
+            lf("ur_master_data_settings"),
             "de",
-            pytest.lazy_fixture("ur_master_data_case"),
+            lf("ur_master_data_case"),
             ["document", "instance"],
             [
                 "document__answers",
@@ -854,9 +855,9 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
             8,
         ),
         (
-            pytest.lazy_fixture("sz_master_data_settings"),
+            lf("sz_master_data_settings"),
             "de",
-            pytest.lazy_fixture("sz_master_data_case_gwr"),
+            lf("sz_master_data_case_gwr"),
             ["instance", "instance__form"],
             ["instance__fields", "instance__workflowentry_set", "work_items"],
             # 1. Query for fetching case
@@ -867,9 +868,9 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
             5,
         ),
         (
-            pytest.lazy_fixture("sz_master_data_settings"),
+            lf("sz_master_data_settings"),
             "de",
-            pytest.lazy_fixture("sz_master_data_case_gwr_v2"),
+            lf("sz_master_data_case_gwr_v2"),
             ["instance", "instance__form"],
             ["instance__fields", "instance__workflowentry_set", "work_items"],
             # 1. Query for fetching case
@@ -880,9 +881,9 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
             5,
         ),
         (
-            pytest.lazy_fixture("so_master_data_settings"),
+            lf("so_master_data_settings"),
             "de",
-            pytest.lazy_fixture("so_master_data_case"),
+            lf("so_master_data_case"),
             ["document"],
             [
                 "document__answers",

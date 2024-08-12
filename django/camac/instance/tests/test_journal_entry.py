@@ -1,6 +1,6 @@
 import pytest
 from django.urls import reverse
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 from rest_framework.test import APIClient
 
@@ -45,7 +45,7 @@ def test_journal_entry_visibility(
     assert len(json["data"]) == results
 
 
-@pytest.mark.parametrize("journal_entry__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("journal_entry__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "role__name,size",
     [
@@ -77,7 +77,7 @@ def test_journal_entry_list(
         assert json["data"][0]["id"] == str(journal_entry.pk)
 
 
-@pytest.mark.parametrize("journal_entry__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("journal_entry__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "role__name,size",
     [
@@ -107,7 +107,7 @@ def test_journal_entry_visible_for(
         assert journal_entries[0] == journal_entry.pk
 
 
-@pytest.mark.parametrize("journal_entry__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("journal_entry__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "role__name,status_code",
     [
@@ -186,7 +186,7 @@ def test_journal_entry_create(
         )
 
 
-@pytest.mark.parametrize("journal_entry__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("journal_entry__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "role__name,status_code",
     [

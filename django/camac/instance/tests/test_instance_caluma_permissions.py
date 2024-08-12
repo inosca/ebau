@@ -6,7 +6,7 @@ from caluma.caluma_form import (
 from caluma.caluma_workflow import api as workflow_api
 from django.conf import settings
 from django.urls import reverse
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 from camac.permissions import api, models
@@ -30,7 +30,7 @@ def sort_permissions(permissions):
     return {key: sorted(value) for key, value in permissions.items()}
 
 
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "instance_state__name",
     [
@@ -116,7 +116,7 @@ def test_instance_permissions_be(
     )
 
 
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize("role__name", ["Coordination", "Support"])
 @pytest.mark.parametrize("instance_state__name", ["ext", "circ", "redac"])
 def test_instance_permissions_ur(
@@ -141,7 +141,7 @@ def test_instance_permissions_ur(
     )
 
 
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "role__name,instance_state__name,expected_status",
     [
@@ -283,17 +283,17 @@ def document_with_row_and_erledigt(empty_document, row_form, nfd_table_question)
     return doc
 
 
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "role__name,expected_nfd_permissions,caluma_doc",
     [
-        ("Applicant", [], pytest.lazy_fixture("empty_document")),
-        ("Applicant", [], pytest.lazy_fixture("document_with_row_but_wrong_status")),
-        ("Applicant", R, pytest.lazy_fixture("document_with_row_and_erledigt")),
-        ("Applicant", RW, pytest.lazy_fixture("document_with_all_rows")),
-        ("Service", [], pytest.lazy_fixture("empty_document")),
-        ("Municipality", R, pytest.lazy_fixture("empty_document")),
-        ("Support", RW, pytest.lazy_fixture("empty_document")),
+        ("Applicant", [], lf("empty_document")),
+        ("Applicant", [], lf("document_with_row_but_wrong_status")),
+        ("Applicant", R, lf("document_with_row_and_erledigt")),
+        ("Applicant", RW, lf("document_with_all_rows")),
+        ("Service", [], lf("empty_document")),
+        ("Municipality", R, lf("empty_document")),
+        ("Support", RW, lf("empty_document")),
     ],
 )
 def test_instance_nfd_permissions(
