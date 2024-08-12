@@ -983,6 +983,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Es wird darauf hingewiesen, dass die Bearbeitung von Vorabkl\\u00e4rungen Kosten (Geb\\u00fchren) verursachen kann. Die anfragende Person best\\u00e4tigt, dass sie f\\u00fcr die Kosten vollumf\\u00e4nglich aufkommt. Wenn die anfragende Person diese Kosten nicht selber \\u00fcbernehmen will, so ist im Feld \\u00abPersonalien\\u00bb unter \\u00abAbweichende Rechnungsempf\\u00e4nger\\u00bb anzugeben, an wen die Kosten verrechnet werden sollen.\", \"fr\": \"Nous attirons votre attention sur le fait que le traitement des demandes pr\\u00e9alables peut entra\\u00eener des frais (\\u00e9moluments). La personne requ\\u00e9rante confirme qu'elle prend en charge l'int\\u00e9gralit\\u00e9 de ces frais. Si la personne requ\\u00e9rante ne souhaite pas assumer elle-m\\u00eame ces frais, elle doit indiquer \\u00e0 qui les frais doivent \\u00eatre factur\\u00e9s dans le champ \\u00ab Donn\\u00e9es personnelles \\u00bb sous \\u00ab Destinataires de factures diff\\u00e9rents \\u00bb.\", \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null

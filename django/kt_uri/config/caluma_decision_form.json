@@ -193,6 +193,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Baubegleitungsprozess erforderlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -209,6 +210,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Baubegleitungsprozess\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -225,6 +227,7 @@
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Bewilligung kann nicht in Aussicht gestellt werden (rechtliches Geh\\u00f6r)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -241,6 +244,7 @@
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Keine formelle Bewilligung notwendig\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -257,6 +261,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -273,6 +278,7 @@
       "modified_by_user": "stephan.hug@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Verf\\u00fcgung / Bau- und Einspracheentscheid\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -289,6 +295,7 @@
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Mitteilung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -305,6 +312,7 @@
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Protokoll\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -321,6 +329,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Stellungnahme / Vorentscheid\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -337,6 +346,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Meldung erforderlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -353,6 +363,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Meldung nicht erforderlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -369,6 +380,7 @@
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Meldung erforderlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -385,6 +397,7 @@
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Meldung nicht erforderlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -401,6 +414,7 @@
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Bewilligung wird erteilt\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -417,6 +431,7 @@
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Bewilligung kann nicht erteilt werden\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -433,6 +448,7 @@
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": true,
       "meta": {},
       "source": null
@@ -449,6 +465,7 @@
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": true,
       "meta": {},
       "source": null
@@ -465,6 +482,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -481,6 +499,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -497,6 +516,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -513,6 +533,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null

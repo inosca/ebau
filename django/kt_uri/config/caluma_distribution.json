@@ -184,6 +184,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -200,6 +201,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -216,6 +218,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Bewilligung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -232,6 +235,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Koordinierte R\\u00fcckmeldung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -248,6 +252,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Negative Stellungnahme\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -264,6 +269,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -280,6 +286,7 @@
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"-\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": true,
       "meta": {},
       "source": null
@@ -296,6 +303,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Keine Stellungnahme\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -312,6 +320,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Fachstelle nicht betroffen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -328,6 +337,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Positive Stellungnahme\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -344,6 +354,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Ablehnung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -360,6 +371,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Abschreibung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -376,6 +388,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -392,6 +405,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja mit Auflagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -408,6 +422,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -424,6 +439,7 @@
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"BaB Entscheid Justizdirektion\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -440,6 +456,7 @@
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"BaB Vorentscheid / Stellungnahme\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -456,6 +473,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Fachstelle nicht betroffen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -472,6 +490,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Fachtechnische Beurteilung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -488,6 +507,7 @@
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Interessensabw\\u00e4gung und Gesamtentscheid durch Gemeindebaubeh\\u00f6rde\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -504,6 +524,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Interner Kurzbericht via URec\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -520,6 +541,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Keine Stellungnahme\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -536,6 +558,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Koordinierte R\\u00fcckmeldung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -552,6 +575,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Mitbericht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -568,6 +592,7 @@
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"-\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": true,
       "meta": {},
       "source": null
@@ -584,6 +609,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Planbegutachtung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -600,6 +626,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Planvisum\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -616,6 +643,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Rechnung / Geb\\u00fchr\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -632,6 +660,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Stellungnahme\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -648,6 +677,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Verf\\u00fcgung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
