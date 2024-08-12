@@ -14,6 +14,7 @@ const ENV_MAP = {
 const ENVS = Object.values(ENV_MAP);
 const ENV = ENV_MAP[process.env.APPLICATION] || ENVS[0];
 const UNUSED_ENVS = ENVS.filter((e) => e !== ENV).join("|");
+const LOCALES = process.env.LOCALES;
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
@@ -32,6 +33,7 @@ module.exports = function (defaults) {
       },
       setOwnConfig: {
         application: ENV,
+        locales: LOCALES?.split(",") ?? null,
       },
     },
     fingerprint: {

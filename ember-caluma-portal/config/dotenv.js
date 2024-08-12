@@ -16,6 +16,7 @@ module.exports = function () {
       "ENABLE_TOKEN_EXCHANGE",
       "ENABLE_WATERMARK",
       "WATERMARK",
+      "LOCALES",
     ],
     path: path.join(path.dirname(__dirname), "../.env"),
   };

@@ -1,6 +1,6 @@
 import { action } from "@ember/object";
 import { service } from "@ember/service";
-import { isTesting, macroCondition } from "@embroider/macros";
+import { isTesting, macroCondition, getOwnConfig } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { findAll } from "ember-data-resources";
 import mainConfig from "ember-ebau-core/config/main";
@@ -15,14 +15,16 @@ export default class MainNavigationComponent extends Component {
   @service router;
   @service fetch;
 
-  languages = languages;
-
   // not part of translations (should not be translated)
   languageNames = {
     de: "Deutsch",
     it: "Italiano",
     fr: "Français",
   };
+
+  get languages() {
+    return getOwnConfig().locales ?? languages;
+  }
 
   get logoPath() {
     if (["gr", "so"].includes(name)) {
