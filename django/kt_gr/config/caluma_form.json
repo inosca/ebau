@@ -12487,7 +12487,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "anzahl-schutzplaetze-spital",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -12502,7 +12502,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "anzahl-schutzplaetze-wohnhaus",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -12532,7 +12532,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "beschreibung-andere-gebaeudeart",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -12547,7 +12547,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "ersatzbeitrag-spital",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -12562,7 +12562,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "ersatzbeitrag-wohnhaus",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -12577,7 +12577,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "flaeche-projektierte-schutzraeume",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -12592,7 +12592,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "gebaeudeart",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -12607,7 +12607,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "hinweis-ausfuehrungsplaene",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -12622,6 +12622,21 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "hinweis-gebuehrenpflicht",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze.hinweis-gebuehrenpflicht-ersatzbeitrag",
+    "fields": {
+      "created_at": "2024-08-12T12:23:39.352Z",
+      "modified_at": "2024-08-12T12:23:39.352Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze",
+      "question": "hinweis-gebuehrenpflicht-ersatzbeitrag",
       "sort": 3
     }
   },
@@ -12637,7 +12652,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "hinweis-zustaendigkeit-amz",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -12652,7 +12667,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "projektierte-schutzraeume-infotext",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -12667,7 +12682,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "projektierte-schutzraeume-titel",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -12682,7 +12697,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "schutzplaetze-titel",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -12697,7 +12712,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "spital-anzahl-betten",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -12712,7 +12727,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "spital-oder-heim-titel",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -12742,7 +12757,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "volumen-projektierte-schutzraeume",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -12757,7 +12772,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "werden-schutzplaetze-erstellt",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -12772,7 +12787,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "wohnhaus-anzahl-zimmer",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -12787,7 +12802,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "wohn-oder-ferienhaus-titel",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -60526,6 +60541,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"Die Bauherrschaft wird gem\\u00e4ss Art. 15, Anhang 2 zur Verordnung zum Zivilschutzgesetz (BR 640.110-A2) f\\u00fcr die Pr\\u00fcfung des Schutzraumbauprojektes geb\\u00fchrenpflichtig.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-gebuehrenpflicht-ersatzbeitrag",
+    "fields": {
+      "created_at": "2024-08-12T12:23:39.304Z",
+      "modified_at": "2024-08-12T12:23:39.304Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Geb\\u00fchrenpflicht Ersatzbeitrag\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"werden-schutzplaetze-erstellt-nein\" == \"werden-schutzplaetze-erstellt\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Die Bauherrschaft wird gem\\u00e4ss Art. 15, Anhang 2 zur Verordnung zum Zivilschutzgesetz (BR 640.110-A2) f\\u00fcr die Pr\\u00fcfung des Ersatzbeitragsgesuches geb\\u00fchrenpflichtig.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
