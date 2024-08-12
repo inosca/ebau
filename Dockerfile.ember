@@ -46,13 +46,13 @@ WORKDIR /myapp/$WORKSPACE
 RUN pnpm ember deploy $DEPLOY_TARGET
 
 # Production environment
-FROM nginxinc/nginx-unprivileged:1.25-alpine AS prod
+FROM nginxinc/nginx-unprivileged:1.27-alpine AS prod
 ARG WORKSPACE
 COPY --from=build /myapp/$WORKSPACE/build /usr/share/nginx/html
 COPY nginx/ember.conf /etc/nginx/conf.d/default.conf
 
 # Production environment with runtime environment variables (currently only used in SO & BE)
-FROM nginxinc/nginx-unprivileged:1.25-alpine AS prod-env
+FROM nginxinc/nginx-unprivileged:1.27-alpine AS prod-env
 ARG WORKSPACE
 ARG REPLACE_ENV
 ENV REPLACE_ENV_RUNTIME=$REPLACE_ENV
