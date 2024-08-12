@@ -66,4 +66,5 @@ COPY . $APP_HOME
 
 EXPOSE 80
 
-CMD /bin/sh -c "wait-for-it $DATABASE_HOST:$DATABASE_PORT -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py camac_load && ./manage.py compilemessages && uwsgi"
+ENTRYPOINT ["/bin/sh", "/app/entrypoint.sh"]
+CMD ["uwsgi"]
