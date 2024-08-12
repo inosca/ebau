@@ -18,7 +18,7 @@ from django.core.mail import EmailMessage
 from django.core.management import call_command
 from django.urls import reverse
 from django.utils import timezone
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 from camac.conftest import CALUMA_FORM_TYPES_SLUGS, FakeRequest
@@ -33,12 +33,12 @@ from camac.notification.serializers import (
 @pytest.mark.parametrize(
     "role__name,num_queries,size,notification_template__type,notification_template__service",
     [
-        ("Applicant", 1, 0, "email", LazyFixture("service")),
-        ("Service", 2, 1, "email", LazyFixture("service")),
+        ("Applicant", 1, 0, "email", lf("service")),
+        ("Service", 2, 1, "email", lf("service")),
         ("Municipality", 2, 1, "email", None),
         ("Canton", 2, 1, "textcomponent", None),
-        ("Service", 2, 1, "textcomponent", LazyFixture("service")),
-        ("Geometer", 2, 1, "textcomponent", LazyFixture("service")),
+        ("Service", 2, 1, "textcomponent", lf("service")),
+        ("Geometer", 2, 1, "textcomponent", lf("service")),
     ],
 )
 def test_notification_template_list(
@@ -1059,7 +1059,7 @@ def test_notification_validate_slug_create(admin_client, notification_template):
 
 
 @pytest.mark.parametrize("service__email", [None, "", "foo@example.org"])
-@pytest.mark.parametrize("instance__location", [LazyFixture("location")])
+@pytest.mark.parametrize("instance__location", [lf("location")])
 def test_recipient_type_municipality_users(
     db, instance, location, location_factory, service, role, mocker, group_location
 ):

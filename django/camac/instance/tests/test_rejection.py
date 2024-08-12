@@ -2,7 +2,7 @@ import pytest
 from caluma.caluma_workflow.api import suspend_case
 from caluma.caluma_workflow.models import Case, WorkItem
 from django.urls import reverse
-from pytest_lazyfixture import lazy_fixture
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 from rest_framework.exceptions import ValidationError
 
@@ -44,12 +44,12 @@ def test_has_permission(
         ),
         (
             "claim",
-            lazy_fixture("additional_demand_settings"),
+            lf("additional_demand_settings"),
             "Das Dossier kann nicht zurückgewiesen werden solange noch Nachforderungen offen sind.",
         ),
         (
             "claim_legacy",
-            lazy_fixture("disable_additional_demand_settings"),
+            lf("disable_additional_demand_settings"),
             "Das Dossier kann nicht zurückgewiesen werden solange noch Nachforderungen offen sind.",
         ),
     ],

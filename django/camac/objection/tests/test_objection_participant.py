@@ -1,7 +1,7 @@
 import pytest
 from django.core.exceptions import ObjectDoesNotExist
 from django.urls import reverse
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 
@@ -23,9 +23,9 @@ def test_objection_participant_list(admin_client, objection_participant, size):
 @pytest.mark.parametrize(
     "role__name,instance__user,status_code",
     [
-        ("Municipality", LazyFixture("admin_user"), status.HTTP_201_CREATED),
-        ("Service", LazyFixture("admin_user"), status.HTTP_201_CREATED),
-        ("Applicant", LazyFixture("admin_user"), status.HTTP_403_FORBIDDEN),
+        ("Municipality", lf("admin_user"), status.HTTP_201_CREATED),
+        ("Service", lf("admin_user"), status.HTTP_201_CREATED),
+        ("Applicant", lf("admin_user"), status.HTTP_403_FORBIDDEN),
     ],
 )
 def test_objection_participant_create(admin_client, status_code, objection):

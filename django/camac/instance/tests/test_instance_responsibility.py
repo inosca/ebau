@@ -1,12 +1,12 @@
 import pytest
 from django.urls import reverse
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 
 @pytest.mark.parametrize(
     "instance__user,instance_responsibility__user",
-    [(LazyFixture("admin_user"), LazyFixture("admin_user"))],
+    [(lf("admin_user"), lf("admin_user"))],
 )
 @pytest.mark.parametrize(
     "role__name,size",
@@ -28,7 +28,7 @@ def test_instance_responsibility_list(
 
 @pytest.mark.parametrize(
     "instance__user,instance_responsibility__user",
-    [(LazyFixture("admin_user"), LazyFixture("admin_user"))],
+    [(lf("admin_user"), lf("admin_user"))],
 )
 @pytest.mark.parametrize(
     "role__name,status_code",
@@ -51,11 +51,11 @@ def test_instance_responsibility_update(
 @pytest.mark.parametrize(
     "role__name,instance__user,status_code",
     [
-        ("Applicant", LazyFixture("admin_user"), status.HTTP_403_FORBIDDEN),
-        ("Canton", LazyFixture("admin_user"), status.HTTP_201_CREATED),
-        ("Canton", LazyFixture("user"), status.HTTP_400_BAD_REQUEST),
-        ("Service", LazyFixture("admin_user"), status.HTTP_201_CREATED),
-        ("Municipality", LazyFixture("admin_user"), status.HTTP_201_CREATED),
+        ("Applicant", lf("admin_user"), status.HTTP_403_FORBIDDEN),
+        ("Canton", lf("admin_user"), status.HTTP_201_CREATED),
+        ("Canton", lf("user"), status.HTTP_400_BAD_REQUEST),
+        ("Service", lf("admin_user"), status.HTTP_201_CREATED),
+        ("Municipality", lf("admin_user"), status.HTTP_201_CREATED),
     ],
 )
 def test_instance_responsibility_create(
@@ -85,7 +85,7 @@ def test_instance_responsibility_create(
 
 @pytest.mark.parametrize(
     "instance__user,instance_responsibility__user",
-    [(LazyFixture("admin_user"), LazyFixture("admin_user"))],
+    [(lf("admin_user"), lf("admin_user"))],
 )
 @pytest.mark.parametrize(
     "role__name,status_code",

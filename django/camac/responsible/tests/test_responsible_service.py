@@ -1,6 +1,6 @@
 import pytest
 from django.urls import reverse
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 
@@ -18,11 +18,11 @@ def test_responsible_service_list(admin_client, responsible_service):
 @pytest.mark.parametrize(
     "role__name,instance__user,status_code",
     [
-        ("Service", LazyFixture("admin_user"), status.HTTP_201_CREATED),
-        ("Municipality", LazyFixture("admin_user"), status.HTTP_201_CREATED),
-        ("Coordination", LazyFixture("admin_user"), status.HTTP_201_CREATED),
-        ("Applicant", LazyFixture("admin_user"), status.HTTP_403_FORBIDDEN),
-        ("Geometer", LazyFixture("admin_user"), status.HTTP_201_CREATED),
+        ("Service", lf("admin_user"), status.HTTP_201_CREATED),
+        ("Municipality", lf("admin_user"), status.HTTP_201_CREATED),
+        ("Coordination", lf("admin_user"), status.HTTP_201_CREATED),
+        ("Applicant", lf("admin_user"), status.HTTP_403_FORBIDDEN),
+        ("Geometer", lf("admin_user"), status.HTTP_201_CREATED),
     ],
 )
 def test_responsible_service_create(
@@ -80,11 +80,11 @@ def test_responsible_service_create(
 @pytest.mark.parametrize(
     "role__name,responsible_service__responsible_user,status_code",
     [
-        ("Service", LazyFixture("admin_user"), status.HTTP_200_OK),
-        ("Municipality", LazyFixture("admin_user"), status.HTTP_200_OK),
-        ("Coordination", LazyFixture("admin_user"), status.HTTP_200_OK),
-        ("Applicant", LazyFixture("admin_user"), status.HTTP_403_FORBIDDEN),
-        ("Geometer", LazyFixture("admin_user"), status.HTTP_200_OK),
+        ("Service", lf("admin_user"), status.HTTP_200_OK),
+        ("Municipality", lf("admin_user"), status.HTTP_200_OK),
+        ("Coordination", lf("admin_user"), status.HTTP_200_OK),
+        ("Applicant", lf("admin_user"), status.HTTP_403_FORBIDDEN),
+        ("Geometer", lf("admin_user"), status.HTTP_200_OK),
     ],
 )
 def test_responsible_service_update(

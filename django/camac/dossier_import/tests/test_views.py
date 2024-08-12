@@ -4,7 +4,7 @@ import pytest
 from django.utils import timezone
 from django_q.brokers import get_broker
 from django_q.signing import SignedPackage
-from pytest_lazyfixture import lazy_fixture
+from pytest_lazy_fixtures import lf
 from rest_framework import status
 from rest_framework.reverse import reverse
 
@@ -76,25 +76,25 @@ def test_imported_instance_be_get_name(
     [
         (
             "import-example-validation-errors.zip",
-            lazy_fixture("sz_dossier_import_settings"),
-            lazy_fixture("location"),
+            lf("sz_dossier_import_settings"),
+            lf("location"),
             status.HTTP_201_CREATED,
         ),
         (
             "import-example-validation-errors.zip",
-            lazy_fixture("sz_dossier_import_settings"),
+            lf("sz_dossier_import_settings"),
             None,
             status.HTTP_400_BAD_REQUEST,
         ),
         (
             "import-example-validation-errors.zip",
-            lazy_fixture("be_dossier_import_settings"),
+            lf("be_dossier_import_settings"),
             None,
             status.HTTP_201_CREATED,
         ),
         (
             "import-example-validation-errors.zip",
-            lazy_fixture("so_dossier_import_settings"),
+            lf("so_dossier_import_settings"),
             None,
             status.HTTP_201_CREATED,
         ),
@@ -137,7 +137,7 @@ def test_validation_errors(
 
 
 @pytest.mark.parametrize("role__name", ["Support"])
-@pytest.mark.parametrize("dossier_exists", [False, lazy_fixture("instance")])
+@pytest.mark.parametrize("dossier_exists", [False, lf("instance")])
 @pytest.mark.parametrize(
     # expected_status expands for `dossier_exists`
     # results: union of messages for import and reimport
@@ -264,8 +264,8 @@ def test_file_validation(
 @pytest.mark.parametrize(
     "config,camac_instance",
     [
-        ("kt_bern", lazy_fixture("be_instance")),
-        # ("kt_schwyz", lazy_fixture("sz_instance")),
+        ("kt_bern", lf("be_instance")),
+        # ("kt_schwyz", lf("sz_instance")),
     ],
 )
 @pytest.mark.parametrize(

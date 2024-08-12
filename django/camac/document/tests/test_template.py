@@ -11,7 +11,7 @@ from django.urls import reverse
 from django.utils.timezone import make_aware
 from docxtpl import DocxTemplate
 from lxml import etree
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf, lfc
 from rest_framework import status
 
 from .data import django_file
@@ -107,13 +107,7 @@ def test_template_destroy(admin_client, template, status_code):
 @pytest.mark.parametrize("location__name", ["Schwyz"])
 @pytest.mark.parametrize(
     "instance__identifier,instance__group,instance__user",
-    [
-        (
-            "11-18-011",
-            LazyFixture(lambda group_factory: group_factory()),
-            LazyFixture("user"),
-        )
-    ],
+    [("11-18-011", lfc("group_factory"), lf("user"))],
 )
 @pytest.mark.parametrize(
     "role__name,status_code,to_type",

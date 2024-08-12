@@ -2,7 +2,7 @@ import pathlib
 
 import pytest
 from django.urls import reverse
-from pytest_factoryboy import LazyFixture
+from pytest_lazy_fixtures import lf, lfc
 from rest_framework import status
 
 from camac.document import models, permissions
@@ -10,16 +10,14 @@ from camac.document import models, permissions
 from .data import django_file
 
 
-@pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 @pytest.mark.parametrize(
     "instance_state__name,attachment__path,attachment__service,case_status,acl_mode,status_code",
     [
         (
             "new",
             django_file("multiple-pages.pdf"),
-            LazyFixture(lambda service_factory: service_factory()),
+            lfc("service_factory"),
             None,
             permissions.AdminPermission,
             status.HTTP_204_NO_CONTENT,
@@ -27,7 +25,7 @@ from .data import django_file
         (
             "new",
             django_file("test-thumbnail.jpg"),
-            LazyFixture(lambda service_factory: service_factory()),
+            lfc("service_factory"),
             None,
             permissions.AdminPermission,
             status.HTTP_204_NO_CONTENT,
@@ -35,7 +33,7 @@ from .data import django_file
         (
             "new",
             django_file("no-thumbnail.txt"),
-            LazyFixture(lambda service_factory: service_factory()),
+            lfc("service_factory"),
             None,
             permissions.AdminPermission,
             status.HTTP_204_NO_CONTENT,
@@ -43,7 +41,7 @@ from .data import django_file
         (
             "new",
             django_file("no-thumbnail.txt"),
-            LazyFixture("service"),
+            lf("service"),
             None,
             permissions.AdminInternalPermission,
             status.HTTP_204_NO_CONTENT,
@@ -51,7 +49,7 @@ from .data import django_file
         (
             "new",
             django_file("no-thumbnail.txt"),
-            LazyFixture("service"),
+            lf("service"),
             None,
             permissions.AdminServicePermission,
             status.HTTP_204_NO_CONTENT,
@@ -59,7 +57,7 @@ from .data import django_file
         (
             "new",
             django_file("test-thumbnail.jpg"),
-            LazyFixture(lambda service_factory: service_factory()),
+            lfc("service_factory"),
             None,
             permissions.WritePermission,
             status.HTTP_403_FORBIDDEN,
@@ -67,7 +65,7 @@ from .data import django_file
         (
             "subm",
             django_file("test-thumbnail.jpg"),
-            LazyFixture(lambda service_factory: service_factory()),
+            lfc("service_factory"),
             None,
             permissions.WritePermission,
             status.HTTP_403_FORBIDDEN,
@@ -75,7 +73,7 @@ from .data import django_file
         (
             "subm",
             django_file("test-thumbnail.jpg"),
-            LazyFixture(lambda service_factory: service_factory()),
+            lfc("service_factory"),
             None,
             permissions.WritePermission,
             status.HTTP_403_FORBIDDEN,
@@ -83,7 +81,7 @@ from .data import django_file
         (
             "rejected",
             django_file("test-thumbnail.jpg"),
-            LazyFixture(lambda service_factory: service_factory()),
+            lfc("service_factory"),
             None,
             permissions.ReadPermission,
             status.HTTP_403_FORBIDDEN,
@@ -91,7 +89,7 @@ from .data import django_file
         (
             "new",
             django_file("no-thumbnail.txt"),
-            LazyFixture(lambda service_factory: service_factory()),
+            lfc("service_factory"),
             None,
             permissions.AdminInternalPermission,
             status.HTTP_404_NOT_FOUND,
@@ -99,7 +97,7 @@ from .data import django_file
         (
             "new",
             django_file("no-thumbnail.txt"),
-            LazyFixture(lambda service_factory: service_factory()),
+            lfc("service_factory"),
             None,
             permissions.AdminServicePermission,
             status.HTTP_403_FORBIDDEN,
@@ -107,7 +105,7 @@ from .data import django_file
         (
             "internal",
             django_file("multiple-pages.pdf"),
-            LazyFixture("service"),
+            lf("service"),
             "running",
             permissions.AdminInternalBusinessControlPermission,
             status.HTTP_204_NO_CONTENT,
@@ -115,7 +113,7 @@ from .data import django_file
         (
             "subm",
             django_file("test-thumbnail.jpg"),
-            LazyFixture("service"),
+            lf("service"),
             "running",
             permissions.AdminInternalBusinessControlPermission,
             status.HTTP_403_FORBIDDEN,
@@ -123,7 +121,7 @@ from .data import django_file
         (
             "internal",
             django_file("multiple-pages.pdf"),
-            LazyFixture(lambda service_factory: service_factory()),
+            lfc("service_factory"),
             "running",
             permissions.AdminInternalBusinessControlPermission,
             status.HTTP_403_FORBIDDEN,
@@ -131,7 +129,7 @@ from .data import django_file
         (
             "internal",
             django_file("test-thumbnail.jpg"),
-            LazyFixture("service"),
+            lf("service"),
             "completed",
             permissions.AdminInternalBusinessControlPermission,
             status.HTTP_403_FORBIDDEN,
@@ -139,7 +137,7 @@ from .data import django_file
         (
             "new",
             django_file("no-thumbnail.txt"),
-            LazyFixture("service"),
+            lf("service"),
             None,
             permissions.AdminDeleteableStatePermission,
             status.HTTP_204_NO_CONTENT,
@@ -147,7 +145,7 @@ from .data import django_file
         (
             "nfd",
             django_file("no-thumbnail.txt"),
-            LazyFixture("service"),
+            lf("service"),
             None,
             permissions.AdminDeleteableStatePermission,
             status.HTTP_403_FORBIDDEN,
@@ -200,16 +198,16 @@ def test_attachment_delete(
         (
             "new",
             django_file("multiple-pages.pdf"),
-            LazyFixture("service"),
+            lf("service"),
             "applicant",
-            LazyFixture("admin_user"),
+            lf("admin_user"),
         ),
     ],
 )
 @pytest.mark.parametrize(
     "communications_attachment__document_attachment, expect_success, expect_file_on_disk",
     [
-        (LazyFixture("attachment"), False, True),
+        (lf("attachment"), False, True),
         (None, True, False),
     ],
 )

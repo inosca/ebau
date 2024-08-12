@@ -3,6 +3,7 @@ from datetime import timedelta
 import pytest
 from django.urls import reverse
 from django.utils import timezone
+from pytest_lazy_fixtures import lf
 
 from camac.instance import models as instance_models
 from camac.permissions import api, conditions, exceptions, models
@@ -60,7 +61,7 @@ def test_visible_instances(
     assert visible_instances.count() == 1
 
 
-_some_user = pytest.lazy_fixture("user")
+_some_user = lf("user")
 
 
 @pytest.mark.parametrize(
