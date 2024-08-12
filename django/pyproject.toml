@@ -37,14 +37,7 @@ lint.ignore = [
 line-length = 88
 
 
-lint.select = [
-    "C9",
-    "D",
-    "E",
-    "F",
-    "W",
-    "I",
-]
+lint.select = ["C9", "D", "E", "F", "W", "I"]
 
 [tool.ruff.lint.mccabe]
 max-complexity = 11
@@ -84,7 +77,7 @@ env = [
     "APPLICATION=test",
     "APPLICATION_ENV=ci",
     "TEST_SUITE_RUNNING=true",
-    "DJANGO_Q_ENABLE_SYNC=false"
+    "DJANGO_Q_ENABLE_SYNC=false",
 ]
 filterwarnings = [
     "error::DeprecationWarning",
@@ -229,6 +222,7 @@ omit = [
     "camac/core/management/commands/migrate_bab_form_ur.py",
     "camac/core/management/commands/migrate_file_encryption.py",
     "camac/core/management/commands/translate_camac_it.py",
+    "camac/core/management/commands/translate_extract.py",
     # Audit migration"
     "camac/core/management/commands/config/",
     "camac/core/management/commands/migrate_audit.py",
