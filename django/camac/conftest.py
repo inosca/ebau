@@ -58,6 +58,7 @@ from camac.notification.serializers import (
 )
 from camac.objection import factories as objection_factories
 from camac.permissions import factories as permissions_factories
+from camac.permissions.models import AccessLevel
 from camac.responsible import factories as responsible_factories
 from camac.settings.modules.construction_monitoring import CONSTRUCTION_MONITORING
 from camac.settings.testing import *  # noqa F403, F401
@@ -1950,3 +1951,12 @@ def grant_all_permissions(mocker):
     mocker.patch("camac.permissions.api.PermissionManager.has_all", return_value=True)
     mocker.patch("camac.permissions.api.PermissionManager.require_any")
     mocker.patch("camac.permissions.api.PermissionManager.require_all")
+
+
+@pytest.fixture
+def so_access_levels(so_permissions_settings, db, access_level_factory, role_factory):
+    role_factory(name="support")
+
+    for access_level in so_permissions_settings["ACCESS_LEVELS"]:
+        if not AccessLevel.objects.filter(slug=access_level).exists():
+            access_level_factory(slug=access_level)

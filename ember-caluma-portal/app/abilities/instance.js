@@ -115,7 +115,14 @@ export default class InstanceAbility extends Ability {
     );
   }
 
-  get canCreateCopy() {
+  async canCreateCopy() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(
+        this.model?.id,
+        "instance-copy-after-rejection",
+      );
+    }
+
     return (
       this.instanceStateId === config.APPLICATION.instanceStates.rejected &&
       (!this.session.isInternal ||
