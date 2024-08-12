@@ -10,14 +10,20 @@ module("Integration | Component | journal-entry", function (hooks) {
   setupMirage(hooks);
 
   test("it renders", async function (assert) {
-    const journal = this.server.create("journal-entry");
-    const model = await this.owner
-      .lookup("service:store")
-      .query("journal-entry", { include: "user" });
-    this.set("model", model[0]);
+    const journal = this.server.create("journal-entry", {
+      user: this.server.create("public-user", { name: "John", surname: "Doe" }),
+      service: this.server.create("public-service", { name: "ACME Inc." }),
+    });
+
+    this.model = (
+      await this.owner
+        .lookup("service:store")
+        .query("journal-entry", { include: "user,service" })
+    )[0];
 
     await render(hbs`<JournalEntry @journalEntry={{this.model}} />`);
 
+    assert.dom("[data-test-creator]").hasText("John Doe (ACME Inc.)");
     assert.dom("[data-test-journal-text]").hasText(journal.text);
   });
 });

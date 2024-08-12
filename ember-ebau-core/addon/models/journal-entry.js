@@ -8,6 +8,6 @@ export default class JournalEntryModel extends Model {
   @attr("string") duration;
 
   @belongsTo("instance", { inverse: null, async: true }) instance;
-  @belongsTo("user", { inverse: null, async: true }) user;
-  @belongsTo("service", { inverse: null, async: true }) service;
+  @belongsTo("public-user", { inverse: null, async: true }) user;
+  @belongsTo("public-service", { inverse: null, async: true }) service;
 }
