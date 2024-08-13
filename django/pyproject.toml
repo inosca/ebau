@@ -97,6 +97,10 @@ filterwarnings = [
     "ignore:distutils Version classes are deprecated.*:DeprecationWarning",
     # Caused by josepy which is used by mozilla-django-oidc
     "ignore:CSR support in pyOpenSSL is deprecated. You should use the APIs in cryptography.:DeprecationWarning",
+    # Deprecated usage of pkg_resources (from setuptools) in docxtpl
+    "ignore:pkg_resources is deprecated as an API:DeprecationWarning",
+    # Deprecated usage of pkg_resources.declare_namespace (from setuptools) in tika
+    "ignore:Deprecated call to `pkg_resources.declare_namespace:DeprecationWarning"
 ]
 
 [tool.coverage.run]
