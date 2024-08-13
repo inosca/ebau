@@ -5,12 +5,18 @@ from django.db.models import Exists, OuterRef, Q
 from rest_framework import response, status
 from rest_framework.decorators import action
 from rest_framework.exceptions import ValidationError
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
 
 from camac.core import models as core_models
 from camac.instance import filters as instance_filters, models as instance_models
 from camac.instance.mixins import InstanceQuerysetMixin
-from camac.permissions.switcher import permission_switching_method
+from camac.permissions.switcher import (
+    get_permission_mode,
+    is_permission_mode_fully_enabled,
+    permission_switching_method,
+)
 from camac.user.permissions import get_group, get_role_name, permission_aware
 from camac.utils import get_dict_item
 
@@ -206,3 +212,13 @@ class AccessLevelViewset(ReadOnlyModelViewSet):
 
     def get_queryset_for_support(self):
         return super().get_queryset()
+
+
+class PermissionsMetaView(APIView):
+    def get(self, request):
+        return Response(
+            {
+                "permission-mode": get_permission_mode().value,
+                "fully-enabled": is_permission_mode_fully_enabled(),
+            }
+        )
