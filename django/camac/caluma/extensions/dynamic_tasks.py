@@ -114,8 +114,8 @@ class CustomDynamicTasks(BaseDynamicTasks):
     def resolve_after_complete_check_ur(self, case, user, prev_work_item, context):
         tasks = []
 
+        # Additional demand
         complete_check_document = case.work_items.get(task="complete-check").document
-
         completeness_answer = complete_check_document.answers.get(
             question_id="complete-check-vollstaendigkeitspruefung"
         ).value
@@ -126,14 +126,17 @@ class CustomDynamicTasks(BaseDynamicTasks):
         ]:
             tasks.append("additional-demand")
 
-        if needs_permit_answer := complete_check_document.answers.filter(
-            question_id="complete-check-baubewilligungspflichtig"
-        ).first():
-            if (
-                needs_permit_answer.value
-                == "complete-check-baubewilligungspflichtig-baubewilligungspflichtig"
-            ):
-                tasks.append("release-for-bk")
+        # Building commission
+        forms_with_building_commission_involvement = [
+            "building-permit",
+            "commercial-permit",
+            "preliminary-clarification",
+            "proposal-declaration",
+            "solar-declaration",
+            "technische-bewilligung",
+        ]
+        if case.family.document.form_id in forms_with_building_commission_involvement:
+            tasks.append("release-for-bk")
 
         return tasks
 
