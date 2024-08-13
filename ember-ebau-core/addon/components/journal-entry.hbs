@@ -1,8 +1,9 @@
 <div class="uk-card uk-card-default uk-card-small uk-margin-bottom">
   <div class="uk-card-header uk-flex uk-flex-between">
-    <p
-      class="uk-margin-remove-bottom uk-text-bold"
-    >{{@journalEntry.user.fullName}}</p>
+    <p class="uk-margin-remove-bottom" data-test-creator>
+      <span class="uk-text-bold">{{@journalEntry.user.fullName}}</span>
+      ({{@journalEntry.service.name}})
+    </p>
     <div
       class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top"
     >
