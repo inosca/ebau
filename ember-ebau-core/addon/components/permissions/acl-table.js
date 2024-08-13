@@ -40,7 +40,7 @@ export default class AclTable extends Component {
 
   acls = paginatedQuery(this, "instance-acl", () => ({
     instance: this.args.instanceId,
-    // TODO: include: "user", maybe in the future?
+    include: "user,service",
     filter: {
       ...(this.statusFilter === "all" ? {} : { status: this.statusFilter }),
       ...(this.accessLevelFilter
