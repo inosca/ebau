@@ -5919,21 +5919,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "dokumente-ohne-bab.dimensionierungsnachweis",
-    "fields": {
-      "created_at": "2024-02-22T13:31:23.085Z",
-      "modified_at": "2024-02-22T13:31:23.085Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-ohne-bab",
-      "question": "dimensionierungsnachweis",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "dokumente-ohne-bab.energienachweis",
     "fields": {
       "created_at": "2023-11-29T15:41:24.472Z",
@@ -19402,23 +19387,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Teilweise\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "dimensionierungsnachweis-ja",
-    "fields": {
-      "created_at": "2024-02-22T13:24:21.020Z",
-      "modified_at": "2024-02-22T13:24:21.020Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Dimensionierungsnachweis\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -35240,7 +35208,7 @@
       "label": "{\"de\": \"Brandschutznachweis\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!(\n\t[\n\t\t\"nutzungszwecke-gewerbe\",\n\t\t\"nutzungszwecke-industrie\",\n\t\t\"nutzungszwecke-dienstleistung\",\n\t\t\"nutzungszwecke-gastgewerbe\"\n\t] intersects \"nutzungszwecke\"|answer([]) ||\n\t\"mindest-und-grenzabstaende-gebaeudeabstand\" in \"mindest-und-grenzabstaende\"|answer([]) ||\n\t(\n\t\t\"brandschutz-kleine-umbauten-erweiterung-und-nutzungsaenderungen\"|answer == \"brandschutz-kleine-umbauten-erweiterung-und-nutzungsaenderungen-nein\" &&\n\t\t\"brandschutz-einfamilienhaeuser-und-oder-nebengebaeude\"|answer == \"brandschutz-einfamilienhaeuser-und-oder-nebengebaeude-nein\"\n\t)\n)",
+      "is_hidden": "!(\n\t[\n\t\t\"nutzungszwecke-gewerbe\",\n\t\t\"nutzungszwecke-industrie\",\n\t\t\"nutzungszwecke-dienstleistung\",\n\t\t\"nutzungszwecke-gastgewerbe\"\n\t] intersects \"nutzungszwecke\"|answer([]) ||\n\t\"mindest-und-grenzabstaende-gebaeudeabstand\" in \"mindest-und-grenzabstaende\"|answer([]) ||\n\t(\n\t\t\"brandschutz-kleine-umbauten-erweiterung-und-nutzungsaenderungen\"|answer(null) == \"brandschutz-kleine-umbauten-erweiterung-und-nutzungsaenderungen-nein\" &&\n\t\t\"brandschutz-einfamilienhaeuser-und-oder-nebengebaeude\"|answer(null) == \"brandschutz-einfamilienhaeuser-und-oder-nebengebaeude-nein\"\n\t)\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -36162,39 +36130,6 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "dimensionierungsnachweis",
-    "fields": {
-      "created_at": "2024-02-22T13:24:21.299Z",
-      "modified_at": "2024-02-22T13:38:44.300Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Dimensionierungsnachweis\", \"fr\": null, \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "true",
-      "is_hidden": "!(\"gebaeudetechnik\"|answer|mapby(\"erdwaerme-heizleistungsbedarf\") >= 50)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true
-      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -41992,7 +41927,7 @@
       "label": "{\"de\": \"Geb\\u00e4udetechnik\", \"fr\": null, \"it\": null}",
       "type": "table",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
-      "is_hidden": "info.root.form != \"erdwaermesonden\" && \"haustechnische-anlagen-erstellt\"|answer != \"haustechnische-anlagen-erstellt-ja\"",
+      "is_hidden": "!(\n\tinfo.root.form == \"erdwaermesonden\" ||\n\t\"haustechnische-anlagen-erstellt\"|answer(null) == \"haustechnische-anlagen-erstellt-ja\"\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -62818,21 +62753,6 @@
       "modified_by_group": null,
       "question": "dient-schutz-vor-naturgefahren-oder-biodiversitaet",
       "option": "dient-schutz-vor-naturgefahren-oder-biodiversitaet-teilweise",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "dimensionierungsnachweis.dimensionierungsnachweis-ja",
-    "fields": {
-      "created_at": "2024-02-22T13:38:44.311Z",
-      "modified_at": "2024-02-22T13:38:44.311Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "dimensionierungsnachweis",
-      "option": "dimensionierungsnachweis-ja",
       "sort": 1
     }
   },
