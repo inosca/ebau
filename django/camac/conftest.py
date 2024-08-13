@@ -620,7 +620,7 @@ def caluma_workflow_config_gr(
         settings.ROOT_DIR("kt_gr/config/caluma_additional_demand.json"),
     )
 
-    workflow = caluma_workflow_models.Workflow.objects.first()
+    workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
     main_form = caluma_form_models.Form.objects.get(pk="main-form")
 
     workflow.allow_forms.clear()
@@ -1964,5 +1964,14 @@ def so_access_levels(so_permissions_settings, db, access_level_factory, role_fac
     role_factory(name="support")
 
     for access_level in so_permissions_settings["ACCESS_LEVELS"]:
+        if not AccessLevel.objects.filter(slug=access_level).exists():
+            access_level_factory(slug=access_level)
+
+
+@pytest.fixture
+def gr_access_levels(gr_permissions_settings, db, access_level_factory, role_factory):
+    role_factory(name="support")
+
+    for access_level in gr_permissions_settings["ACCESS_LEVELS"]:
         if not AccessLevel.objects.filter(slug=access_level).exists():
             access_level_factory(slug=access_level)
