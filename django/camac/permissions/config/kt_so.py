@@ -5,6 +5,7 @@ from camac.permissions.events import EmptyEventHandler
 from .common import (
     ApplicantsEventHandlerMixin,
     DistributionHandlerMixin,
+    InstanceCopyHandlerMixin,
     InstanceCreationHandlerMixin,
     InstanceSubmissionHandlerMixin,
 )
@@ -15,6 +16,7 @@ class PermissionEventHandlerSO(
     DistributionHandlerMixin,
     InstanceCreationHandlerMixin,
     InstanceSubmissionHandlerMixin,
+    InstanceCopyHandlerMixin,
     EmptyEventHandler,
 ):
     def instance_submitted(self, instance: Instance):

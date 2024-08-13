@@ -160,3 +160,24 @@ class InstanceCreationHandlerMixin:
             role=support_role,
             event_name="instance-created",
         )
+
+
+class InstanceCopyHandlerMixin:
+    def instance_copied(self, instance: Instance, from_instance: Instance):
+        current_acls = InstanceACL.currently_active().filter(
+            instance=from_instance,
+        )
+
+        if instance.case.meta.get("is-appeal") or instance.case.meta.get(
+            "is-rejected-appeal"
+        ):
+            current_acls = current_acls.filter(
+                access_level_id__in=["lead-authority", "applicant"]
+            )
+        # else: if we don't have any appeal flag, copy everything. This is a
+        # commandline copy, not a "part-of-the-process-process" copy
+
+        for acl in current_acls:
+            acl.pk = None
+            acl.instance = instance
+            acl.save()
