@@ -135,10 +135,15 @@ def distribution_permission_for(
 
 
 class CustomPermission(BasePermission):
-    def __init__(self):
+    def __init__(self, request=None):
         super().__init__()
 
-        self.request = None
+        # In most cases this will be overwritten by `has_permission` or
+        # `has_object_permission`. However, there are use cases where we
+        # initialize this class manually in our code and check
+        # `has_camac_edit_permission`. In order for that to work, we need to be
+        # able to pass the request to this class.
+        self.request = request
 
     # Override has_permission of BasePermission to only allow authenticated
     # users, which also adhere to the permission methods defined by the
