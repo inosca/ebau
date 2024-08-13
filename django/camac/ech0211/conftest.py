@@ -332,11 +332,18 @@ def ech_snapshot(snapshot):
 @pytest.fixture
 def mocked_request_object(admin_user, group, caluma_admin_user):
     Request = namedtuple(
-        "Request", ["user", "group", "caluma_info", "query_params", "META"]
+        "Request", ["user", "group", "caluma_info", "query_params", "META", "COOKIES"]
     )
     CalumaInfo = namedtuple("CalumaInfo", "context")
     Context = namedtuple("Context", "user")
-    request = Request(admin_user, group, CalumaInfo(Context(caluma_admin_user)), {}, {})
+    request = Request(
+        user=admin_user,
+        group=group,
+        caluma_info=CalumaInfo(Context(caluma_admin_user)),
+        query_params={},
+        META={},
+        COOKIES={},
+    )
     return request
 
 
