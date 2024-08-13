@@ -14,7 +14,7 @@ export default class JournalComponent extends Component {
 
   entries = query(this, "journal-entry", () => ({
     instance: this.args.instanceId,
-    include: "user",
+    include: "user,service",
   }));
 
   @lastValue("initializeNewEntry") instance;

@@ -2414,7 +2414,8 @@ class DurationField(serializers.DurationField):
 class JournalEntrySerializer(InstanceEditableMixin, serializers.ModelSerializer):
     included_serializers = {
         "instance": InstanceSerializer,
-        "user": "camac.user.serializers.UserSerializer",
+        "user": "camac.user.serializers.PublicUserSerializer",
+        "service": "camac.user.serializers.PublicServiceSerializer",
     }
 
     visibility = serializers.ChoiceField(choices=models.JournalEntry.VISIBILITIES)
