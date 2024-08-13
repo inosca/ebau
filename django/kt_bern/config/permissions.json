@@ -71,6 +71,16 @@
   },
   {
     "model": "permissions.accesslevel",
+    "pk": "read",
+    "fields": {
+      "name": "{\"de\": \"Leseberechtigung\", \"fr\": \"Autorisation de lecture\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "required_grant_type": "SERVICE",
+      "applicable_area": "INTERNAL"
+    }
+  },
+  {
+    "model": "permissions.accesslevel",
     "pk": "support",
     "fields": {
       "name": "{\"de\": \"Support\", \"fr\": \"Support\", \"it\": \"\"}",
