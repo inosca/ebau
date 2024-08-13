@@ -3,7 +3,6 @@ from camac.permissions.conditions import (
     Callback,
     HasApplicantRole,
     HasRole,
-    IsAppeal,
     IsForm,
     IsPaper,
     RequireInstanceState,
@@ -30,13 +29,6 @@ STATES_ALL = RequireInstanceState(
         "rejected",
     ]
 )
-STATES_ACCESSIBLE = STATES_ALL & ~RequireInstanceState(["reject", "rejected"])
-STATES_POST_DECISION = RequireInstanceState(
-    ["decided", "construction-monitoring", "finished", "withdrawn"]
-)
-
-# Form rules
-FORMS_ONLY_BUILDING_PERMIT = ~IsForm(["voranfrage", "meldung"])
 
 # Role rules
 ROLES_NO_READONLY = ~HasRole(["municipality-read", "service-read"])
@@ -47,33 +39,32 @@ ROLES_MUNICIPALITY = HasRole(["municipality-lead", "municipality-clerk"])
 # In order to have some kind of consistency, those rule should always be sorted
 # by the following order:
 #
-# 1. Instance state rules
+# 1. Instance state / work item rules
 # 2. Form rules
 # 3. Role rules
 # 4. Other
-MODULE_ADDITIONAL_DEMANDS = STATES_ALL & ~IsForm(["voranfrage"]) & ~IsAppeal()
-MODULE_APPEAL = STATES_ACCESSIBLE & ROLES_NO_READONLY & IsAppeal()
+MODULE_ADDITIONAL_DEMANDS = (
+    # We need to check the form here because the work item will exists in
+    # preliminary clarification as we allow a distribution. However, only a
+    # distribution is allowed but no additional demands.
+    RequireWorkItem("init-additional-demand") & ~IsForm(["voranfrage"])
+)
+MODULE_APPEAL = RequireWorkItem("appeal") & ROLES_NO_READONLY
 MODULE_BILLING = STATES_ALL & ROLES_NO_READONLY
 MODULE_COMMUNICATIONS = STATES_ALL & ROLES_NO_READONLY
 MODULE_COMPLETE_INSTANCE = (
-    FORMS_ONLY_BUILDING_PERMIT
-    & ROLES_MUNICIPALITY
-    & RequireWorkItem("complete-instance")
+    RequireWorkItem("complete-instance", "ready") & ROLES_NO_READONLY
 )
 MODULE_CONSTRUCTION_MONITORING = (
-    STATES_POST_DECISION & FORMS_ONLY_BUILDING_PERMIT & ROLES_MUNICIPALITY
+    RequireWorkItem("init-construction-monitoring") & ROLES_NO_READONLY
 )
 MODULE_CORRECTIONS = (
     STATES_ALL | RequireInstanceState(["correction"])
-) & ROLES_MUNICIPALITY
-MODULE_DECISION = STATES_ACCESSIBLE & ~RequireInstanceState(
-    ["subm", "material-exam", "init-distribution", "distribution"]
+) & ROLES_NO_READONLY
+MODULE_DECISION = (RequireWorkItem("decision") & ROLES_MUNICIPALITY) | RequireWorkItem(
+    "decision", "completed"
 )
-MODULE_DISTRIBUTION = (
-    (STATES_ACCESSIBLE & ~RequireInstanceState(["subm", "material-exam"]))
-    & ~IsForm(["voranfrage"])
-    & ~IsAppeal()
-)
+MODULE_DISTRIBUTION = RequireWorkItem("distribution")
 MODULE_DMS_GENERATE = STATES_ALL & ROLES_NO_READONLY
 MODULE_DOCUMENTS = STATES_ALL | (
     RequireInstanceState(["new"]) & ROLES_MUNICIPALITY & IsPaper()
@@ -83,45 +74,31 @@ MODULE_FORM = (
     | RequireInstanceState(["correction"])
     | (RequireInstanceState(["new"]) & ROLES_MUNICIPALITY & IsPaper())
 )
-MODULE_FORMAL_EXAM = STATES_ALL & FORMS_ONLY_BUILDING_PERMIT & ~IsAppeal()
+MODULE_FORMAL_EXAM = (
+    RequireWorkItem("formal-exam") & ROLES_MUNICIPALITY
+) | RequireWorkItem("formal-exam", "completed")
 MODULE_HISTORY = STATES_ALL
 MODULE_JOURNAL = STATES_ALL
-MODULE_LEGAL_SUBMISSIONS = (
-    (STATES_ACCESSIBLE & ~RequireInstanceState(["subm", "material-exam"]))
-    & FORMS_ONLY_BUILDING_PERMIT
-    & ~IsAppeal()
-)
-MODULE_LINKED_INSTANCES = STATES_ALL & ROLES_NO_READONLY
+MODULE_LEGAL_SUBMISSIONS = RequireWorkItem("objections")
+MODULE_LINKED_INSTANCES = STATES_ALL
 MODULE_MATERIAL_EXAM = (
-    (STATES_ALL & ~RequireInstanceState(["subm"]))
-    & FORMS_ONLY_BUILDING_PERMIT
-    & ~IsAppeal()
-)
-MODULE_MATERIAL_EXAM_BAB = (
-    STATES_ACCESSIBLE
-    & Callback(
-        lambda instance: instance.case.meta.get("is-bab", False),
-        allow_caching=True,
-        name="is_bab",
-    )
-    & Callback(
-        lambda userinfo: userinfo.service.service_group.name == "service-bab",
-        allow_caching=True,
-        name="is_service_bab",
-    )
+    RequireWorkItem("material-exam") & ROLES_MUNICIPALITY
+) | RequireWorkItem("material-exam", "completed")
+MODULE_MATERIAL_EXAM_BAB = RequireWorkItem("material-exam-bab") & Callback(
+    lambda userinfo: userinfo.service.service_group.name == "service-bab",
+    allow_caching=True,
+    name="is_service_bab",
 )
 MODULE_PERMISSIONS = STATES_ALL & HasRole(["municipality-lead"])
-MODULE_PUBLICATION = (
-    (STATES_ACCESSIBLE & ~RequireInstanceState(["subm", "material-exam"]))
-    & FORMS_ONLY_BUILDING_PERMIT
-    & ~IsAppeal()
-)
-MODULE_REJECTION = RequireInstanceState(["reject", "rejected"]) & ROLES_MUNICIPALITY
+MODULE_PUBLICATION = RequireWorkItem("fill-publication")
+MODULE_REJECTION = RequireWorkItem("reject") & ROLES_NO_READONLY
 MODULE_RELATED_GWR_PROJECTS = (
-    (STATES_ACCESSIBLE & ~RequireInstanceState(["subm", "material-exam"]))
-    & FORMS_ONLY_BUILDING_PERMIT
+    (
+        STATES_ALL
+        & ~RequireInstanceState(["subm", "material-exam", "reject", "rejected"])
+    )
+    & IsForm(["baugesuch"])
     & ROLES_MUNICIPALITY
-    & ~IsAppeal()
 )
 MODULE_RESPONSIBLE = STATES_ALL & ROLES_NO_READONLY
 MODULE_WORK_ITEMS = STATES_ALL & ROLES_NO_READONLY
@@ -132,11 +109,12 @@ MODULE_PORTAL_COMMUNICATIONS_WRITE = (
     MODULE_PORTAL_COMMUNICATIONS_READ & HasApplicantRole(["ADMIN", "EDITOR"])
 )
 MODULE_PORTAL_FORM_READ = Always()
-MODULE_PORTAL_FORM_WRITE = RequireInstanceState(["new"]) & (
+MODULE_PORTAL_FORM_WRITE = RequireWorkItem("submit", "ready") & (
     HasApplicantRole(["ADMIN", "EDITOR"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
 MODULE_PORTAL_DOCUMENTS_WRITE = (
-    RequireInstanceState(["new"]) | RequireWorkItem("fill-additional-demand", "ready")
+    RequireWorkItem("submit", "ready")
+    | RequireWorkItem("fill-additional-demand", "ready")
 ) & (HasApplicantRole(["ADMIN", "EDITOR"]) | (ROLES_MUNICIPALITY & IsPaper()))
 MODULE_PORTAL_ADDITIONAL_DEMANDS_READ = RequireWorkItem("fill-additional-demand")
 MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE = (
@@ -153,7 +131,7 @@ ACTION_INSTANCE_COPY_AFTER_REJECTION = RequireInstanceState(["rejected"]) & (
 ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & (
     HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
-ACTION_INSTANCE_SUBMIT = RequireInstanceState(["new"]) & (
+ACTION_INSTANCE_SUBMIT = RequireWorkItem("submit", "ready") & (
     HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
 ACTION_INSTANCE_WITHDRAW = RequireInstanceState(
