@@ -84,7 +84,7 @@ MODULE_CONFIG_FIXTURES = {
     "ech0211": ["kt_schwyz", "kt_bern", "kt_gr", "kt_so"],
     "dossier_import": ["kt_schwyz", "kt_bern", "kt_so"],
     "bab": ["kt_so"],
-    "project_modification": [],
+    "project_modification": ["kt_gr"],
     "user": ["kt_gr"],
 }
 

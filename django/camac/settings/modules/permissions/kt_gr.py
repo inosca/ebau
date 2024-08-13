@@ -85,6 +85,10 @@ MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE = (
     MODULE_PORTAL_ADDITIONAL_DEMANDS_READ & HasApplicantRole(["ADMIN", "EDITOR"])
 )
 
+ACTION_INSTANCE_CREATE_MODIFICATION = (
+    HasApplicantRole(["ADMIN"]) & ~RequireInstanceState(["new"]) & IsForm(["baugesuch"])
+) | (ROLES_MUNICIPALITY & IsPaper())
+
 ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & (
     HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
@@ -105,6 +109,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("documents-write", MODULE_PORTAL_DOCUMENTS_WRITE),
             ("form-read", MODULE_PORTAL_FORM_READ),
             ("form-write", MODULE_PORTAL_FORM_WRITE),
+            ("instance-create-modification", ACTION_INSTANCE_CREATE_MODIFICATION),
             ("instance-delete", ACTION_INSTANCE_DELETE),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
         ],
@@ -203,5 +208,5 @@ GR_PERMISSIONS_SETTINGS = {
         "SUPPORT": "support",
     },
     "ENABLE_CACHE": False,
-    "PERMISSION_MODE": PERMISSION_MODE.OFF,
+    "PERMISSION_MODE": PERMISSION_MODE.FULL,
 }
