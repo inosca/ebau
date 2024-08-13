@@ -5,6 +5,7 @@ from rest_framework import status
 from camac.permissions import api
 from camac.permissions.conditions import Callback, RequireInstanceState
 from camac.permissions.switcher import (
+    PERMISSION_MODE,
     get_permission_mode,
     is_permission_mode_fully_enabled,
 )
@@ -148,3 +149,23 @@ def test_no_include_instance(
                 "fully-enabled": is_permission_mode_fully_enabled(),
             },
         }
+
+
+@pytest.mark.parametrize(
+    "mode,expected",
+    [
+        (
+            PERMISSION_MODE.OFF.value,
+            {"permission-mode": PERMISSION_MODE.OFF.value, "fully-enabled": False},
+        ),
+        (
+            PERMISSION_MODE.FULL.value,
+            {"permission-mode": PERMISSION_MODE.FULL.value, "fully-enabled": True},
+        ),
+    ],
+)
+def test_permissions_meta(db, admin_client, mode, expected, permissions_settings):
+    permissions_settings["PERMISSION_MODE"] = mode
+    response = admin_client.get(reverse("permissions-meta"))
+    assert response.status_code == status.HTTP_200_OK
+    assert response.json()["data"] == expected
