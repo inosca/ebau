@@ -183,9 +183,15 @@ def test_notice_ruling_send_handler(
     application_settings["DOCUMENT_BACKEND"] = document_backend
     if is_vorabklaerung:
         notification_template_factory(slug="08-beurteilung-zu-voranfrage-gesuchsteller")
+        notification_template_factory(
+            slug="08-beurteilung-zu-voranfrage-gesuchsteller-nicht-registriert"
+        )
         notification_template_factory(slug="08-beurteilung-zu-voranfrage-behoerden")
     else:
         notification_template_factory(slug="08-entscheid-gesuchsteller")
+        notification_template_factory(
+            slug="08-entscheid-gesuchsteller-nicht-registriert"
+        )
         notification_template_factory(slug="08-entscheid-behoerden")
 
     service_gemeinde = service_factory(

@@ -62,6 +62,7 @@ logger = getLogger(__name__)
 
 RECIPIENT_TYPE_NAMES = {
     "applicant": translation.gettext_noop("Applicant"),
+    "unregistered_applicant": translation.gettext_noop("Unregistered Applicant"),
     "caluma_municipality": translation.gettext_noop("Municipality (from Caluma)"),
     "construction_control": translation.gettext_noop("Construction control"),
     "inactive_municipality": translation.gettext_noop(
@@ -1030,6 +1031,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     recipient_types = serializers.MultipleChoiceField(
         choices=(
             "applicant",
+            "unregistered_applicant",
             "municipality",
             "caluma_municipality",
             "leitbehoerde",
@@ -1178,6 +1180,12 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             {"to": applicant.invitee.email}
             for applicant in instance.involved_applicants.all()
             if applicant.invitee
+        ]
+
+    def _get_recipients_unregistered_applicant(self, instance):
+        return [
+            {"to": applicant.email}
+            for applicant in instance.involved_applicants.filter(invitee__isnull=True)
         ]
 
     def _get_recipients_acl_authorized(self, instance):
