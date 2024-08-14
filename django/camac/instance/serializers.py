@@ -1336,7 +1336,8 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                     },
                 },
             )
-            document.marks.add(settings.ALEXANDRIA["MARK_VISIBILITY"]["SENSITIVE"][0])
+            for mark in settings.ALEXANDRIA["MARK_VISIBILITY"].get("SENSITIVE", []):
+                document.marks.add(mark)
         else:
             attachment_section = AttachmentSection.objects.get(pk=target_lookup)
             attachment_section.attachments.create(
