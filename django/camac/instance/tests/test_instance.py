@@ -18,6 +18,8 @@ from camac.applicants.models import Applicant
 from camac.core.models import InstanceLocation, WorkflowEntry
 from camac.instance import domain_logic, serializers
 from camac.instance.models import FormField, HistoryEntryT, InstanceGroup, InstanceState
+from camac.permissions.events import Trigger
+from camac.permissions.models import InstanceACL
 
 
 @pytest.mark.freeze_time("2018-04-17")
@@ -171,13 +173,16 @@ def test_instance_list_for_uso_gr(
 
 @pytest.mark.freeze_time("2023-12-01")
 @pytest.mark.parametrize("role__name,instance__user", [("uso", lf("admin_user"))])
+@pytest.mark.parametrize("access_level__slug", ["uso"])
 def test_instance_detail_uso(
     admin_client,
     instance,
     gr_instance,
     case_factory,
+    access_level,
     work_item_factory,
     distribution_settings,
+    gr_permissions_settings,
     settings,
 ):
     settings.APPLICATION_NAME = "kt_gr"
@@ -193,6 +198,12 @@ def test_instance_detail_uso(
     AnswerFactory(
         question_id="inquiry-deadline", document=work_item.document, date=deadline_date
     )
+    # Permission Trigger - grant recipient service the required permissions
+    Trigger.inquiry_sent(None, gr_instance, work_item)
+
+    acl1 = InstanceACL.objects.filter(
+        instance=gr_instance, service=gr_instance.group.service
+    ).first()
 
     url = reverse("instance-detail", args=[instance.pk])
     response = admin_client.get(url)
@@ -203,12 +214,39 @@ def test_instance_detail_uso(
     assert work_item.meta.get("retrieved_by_uso") == first_fetch.isoformat()
     assert work_item.deadline == now() + timedelta(days=7)
 
+    acl1.refresh_from_db()
+    assert acl1.revoked_by_event == "dossier-retrieved"
+    assert acl1.revoked_at == now()
+
+    active_acls = InstanceACL.currently_active().filter(
+        instance=gr_instance, service=gr_instance.group.service
+    )
+    assert active_acls.count() == 1
+    acl2 = active_acls.first()
+    assert acl2.created_by_event == "dossier-retrieved"
+    assert acl2.end_time == now() + timedelta(days=7)
+
     # when fetching again later, deadline does not change anymore
-    with freeze_time("2023-12-01"):
+    with freeze_time("2023-12-03"):
         admin_client.get(url)
         work_item.refresh_from_db()
+        acl2.refresh_from_db()
         assert work_item.meta.get("retrieved_by_uso") == first_fetch.isoformat()
         assert work_item.deadline == first_fetch + timedelta(days=7)
+        assert acl2.end_time == first_fetch + timedelta(days=7)
+
+        Trigger.inquiry_completed(None, gr_instance, work_item)
+        acl2.refresh_from_db()
+        assert acl2.revoked_by_event == "inquiry-completed"
+        assert acl2.revoked_at == now()
+
+        active_acls = InstanceACL.currently_active().filter(
+            instance=gr_instance, service=gr_instance.group.service
+        )
+        assert active_acls.count() == 1
+        acl3 = active_acls.first()
+        assert acl3.created_by_event == "inquiry-completed"
+        assert not acl3.end_time
 
 
 @pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
