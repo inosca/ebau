@@ -39,7 +39,7 @@ module("Integration | Component | permissions/acl-table", function (hooks) {
 
     assert.deepEqual(requests[requests.length - 1].queryParams, {
       "filter[status]": "active",
-      include: "user,service",
+      include: "user,service,role",
       instance: `${this.instance.id}`,
       "page[number]": "1",
       "page[size]": "20",
@@ -51,7 +51,7 @@ module("Integration | Component | permissions/acl-table", function (hooks) {
 
     assert.deepEqual(requests[requests.length - 1].queryParams, {
       "filter[status]": "scheduled",
-      include: "user,service",
+      include: "user,service,role",
       instance: `${this.instance.id}`,
       "page[number]": "1",
       "page[size]": "20",
@@ -62,7 +62,7 @@ module("Integration | Component | permissions/acl-table", function (hooks) {
 
     assert.deepEqual(requests[requests.length - 1].queryParams, {
       "filter[status]": "expired",
-      include: "user,service",
+      include: "user,service,role",
       instance: `${this.instance.id}`,
       "page[number]": "1",
       "page[size]": "20",
@@ -72,7 +72,7 @@ module("Integration | Component | permissions/acl-table", function (hooks) {
     await click("button[data-test-filter-button=all]");
 
     assert.deepEqual(requests[requests.length - 1].queryParams, {
-      include: "user,service",
+      include: "user,service,role",
       instance: `${this.instance.id}`,
       "page[number]": "1",
       "page[size]": "20",

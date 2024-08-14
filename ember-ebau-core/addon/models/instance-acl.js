@@ -33,6 +33,7 @@ export default class InstanceAclModel extends Model {
   @attr token;
   @belongsTo("public-service", { inverse: null, async: true }) service;
   @belongsTo("public-user", { inverse: null, async: true }) user;
+  @belongsTo("public-role", { inverse: null, async: true }) role;
 
   @belongsTo("instance", { inverse: null, async: false }) instance;
   @belongsTo("public-user", { inverse: null, async: true }) createdByUser;
@@ -94,16 +95,47 @@ export default class InstanceAclModel extends Model {
         return this.user.get("fullName") ?? placeholder;
       case "SERVICE":
         return this.service.get("name") ?? placeholder;
-      case "AUTHENTICATED-PUBLIC":
-        return this.intl.t("permissions.entities.public-registered");
-      case "ANONYMOUS-PUBLIC":
-        return this.intl.t("permissions.entities.public-anonymous");
-      case "TOKEN":
-        return this.intl.t("permissions.entities.token");
       case "ROLE":
-        return this.intl.t("permissions.entities.role");
+        return this.role.get("name") ?? placeholder;
       default:
         return placeholder;
+    }
+  }
+
+  get entityType() {
+    switch (this.grantType) {
+      case "USER":
+        return {
+          label: this.intl.t("permissions.entities.user"),
+          color: "default",
+        };
+      case "SERVICE":
+        return {
+          label: this.intl.t("permissions.entities.service"),
+          color: "default",
+        };
+      case "AUTHENTICATED-PUBLIC":
+        return {
+          label: this.intl.t("permissions.entities.public-registered"),
+          color: "danger",
+        };
+      case "ANONYMOUS-PUBLIC":
+        return {
+          label: this.intl.t("permissions.entities.public-anonymous"),
+          color: "danger",
+        };
+      case "TOKEN":
+        return {
+          label: this.intl.t("permissions.entities.token"),
+          color: "danger",
+        };
+      case "ROLE":
+        return {
+          label: this.intl.t("permissions.entities.role"),
+          color: "default",
+        };
+      default:
+        return null;
     }
   }
 
@@ -124,10 +156,6 @@ export default class InstanceAclModel extends Model {
       this.createdByEvent === EVENT_TYPES.MANUAL_CREATION &&
       this.status !== "expired"
     );
-  }
-
-  get isFlatRate() {
-    return !["USER", "SERVICE"].includes(this.grantType);
   }
 
   async revoke() {
