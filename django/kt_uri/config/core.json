@@ -15112,6 +15112,22 @@
     }
   },
   {
+    "model": "core.instanceresource",
+    "pk": 14000037,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 12000003,
+      "name": "Baukommission",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 29,
+      "form_group": 161,
+      "require_permission": null
+    }
+  },
+  {
     "model": "core.instanceresourceaction",
     "pk": 1,
     "fields": {
@@ -19359,6 +19375,60 @@
       "instance_resource": 14000035,
       "role": 6,
       "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1251,
+    "fields": {
+      "instance_resource": 14000029,
+      "role": 1133,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1252,
+    "fields": {
+      "instance_resource": 14000029,
+      "role": 1133,
+      "instance_state": 30
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1253,
+    "fields": {
+      "instance_resource": 14000030,
+      "role": 1133,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1254,
+    "fields": {
+      "instance_resource": 14000030,
+      "role": 1133,
+      "instance_state": 30
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1255,
+    "fields": {
+      "instance_resource": 14000030,
+      "role": 1107,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1256,
+    "fields": {
+      "instance_resource": 14000030,
+      "role": 1107,
+      "instance_state": 30
     }
   },
   {
@@ -32754,6 +32824,15 @@
     }
   },
   {
+    "model": "core.irroleacl",
+    "pk": 12001998,
+    "fields": {
+      "instance_resource": 14000037,
+      "role": 7,
+      "instance_state": 21
+    }
+  },
+  {
     "model": "core.irtaskform",
     "pk": 12000001,
     "fields": {
@@ -32814,6 +32893,13 @@
     "pk": 14000036,
     "fields": {
       "task": "geometer"
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 14000037,
+    "fields": {
+      "task": "review-building-commission"
     }
   },
   {
