@@ -269,6 +269,15 @@ export default class CaseTableComponent extends Component {
                       },
                     ],
                   },
+                  freetext: {
+                    searchAnswers: [
+                      {
+                        questions: mainConfig.freetextSlugs,
+                        lookup: "CONTAINS",
+                        value: filter.freetext,
+                      },
+                    ],
+                  },
                   personalDetails: {
                     searchAnswers: [
                       {
