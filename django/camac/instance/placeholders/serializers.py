@@ -1142,6 +1142,20 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("BUILDING_OWNER_NAME_ADDRESS")],
         description=_("Name and address of the building owner"),
     )
+    gebaeudeeigentuemer_first_name = fields.MasterDataPersonField(
+        source="building_owners",
+        only_first=True,
+        fields=["first_name"],
+        aliases=[_("BUILDING_OWNER_FIRST_NAME")],
+        description=_("First name of the building owner"),
+    )
+    gebaeudeeigentuemer_last_name = fields.MasterDataPersonField(
+        source="building_owners",
+        only_first=True,
+        fields=["last_name"],
+        aliases=[_("BUILDING_OWNER_LAST_NAME")],
+        description=_("Last name of the building owner"),
+    )
     gebaeudeeigentuemer = fields.MasterDataPersonField(
         source="building_owners",
         only_first=True,
@@ -1161,12 +1175,40 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("MUNICIPALITY_ADDRESS_2")],
         description=_("Address line 2 of the municipality"),
     )
+    gesuchsteller_first_name = fields.MasterDataPersonField(
+        source="applicants",
+        fields=["first_name"],
+        only_first=True,
+        aliases=[_("APPLICANT_FIRST_NAME")],
+        description=_("First name of the applicant"),
+    )
+    gesuchsteller_last_name = fields.MasterDataPersonField(
+        source="applicants",
+        fields=["last_name"],
+        only_first=True,
+        aliases=[_("APPLICANT_LAST_NAME")],
+        description=_("Last name of the applicant"),
+    )
     gewaesserschutzbereich = fields.MasterDataField(
         source="water_protection_area",
         parser=get_option_label,
         join_by=", ",
         aliases=[_("WATER_PROTECTION_AREA")],
         description=_("Water protection area"),
+    )
+    grundeigentuemer_first_name = fields.MasterDataPersonField(
+        source="landowners",
+        fields=["first_name"],
+        only_first=True,
+        aliases=[_("LANDOWNER_FIRST_NAME")],
+        description=_("First name of the landowner"),
+    )
+    grundeigentuemer_last_name = fields.MasterDataPersonField(
+        source="landowners",
+        fields=["last_name"],
+        only_first=True,
+        aliases=[_("LANDOWNER_LAST_NAME")],
+        description=_("Last name of the landowner"),
     )
     interior_seating = fields.MasterDataField(
         sum_by="total_seats",
@@ -1239,6 +1281,20 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         source="usage_zone",
         aliases=[_("USAGE_ZONE")],
         description=_("Usage zone"),
+    )
+    projektverfasser_first_name = fields.MasterDataPersonField(
+        source="project_authors",
+        fields=["first_name"],
+        only_first=True,
+        aliases=[_("PROJECT_AUTHOR_FIRST_NAME")],
+        description=_("First name of the project author"),
+    )
+    projektverfasser_last_name = fields.MasterDataPersonField(
+        source="project_authors",
+        fields=["last_name"],
+        only_first=True,
+        aliases=[_("PROJECT_AUTHOR_LAST_NAME")],
+        description=_("Last name of the project author"),
     )
     protected = fields.MasterDataField(
         aliases=[_("PROTECTED")],
@@ -1346,6 +1402,20 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         fields="__all__",
         aliases=[_("LEGAL_REPRESENTATIVE_NAME_ADDRESS")],
         description=_("Name and address of the legal representative"),
+    )
+    vertreter_first_name = fields.MasterDataPersonField(
+        source="legal_representatives",
+        only_first=True,
+        fields=["first_name"],
+        aliases=[_("LEGAL_REPRESENTATIVE_FIRST_NAME")],
+        description=_("First name of the legal representative"),
+    )
+    vertreter_last_name = fields.MasterDataPersonField(
+        source="legal_representatives",
+        only_first=True,
+        fields=["last_name"],
+        aliases=[_("LEGAL_REPRESENTATIVE_LAST_NAME")],
+        description=_("Last name of the legal representative"),
     )
     vertreter = fields.MasterDataPersonField(
         source="legal_representatives",

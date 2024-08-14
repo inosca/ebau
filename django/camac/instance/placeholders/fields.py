@@ -26,6 +26,8 @@ from .utils import (
     clean_and_add_full_name,
     get_person_address_1,
     get_person_address_2,
+    get_person_first_name,
+    get_person_last_name,
     get_person_name,
     human_readable_date,
     row_to_person,
@@ -695,6 +697,22 @@ class MasterDataPersonField(MasterDataField):
                     row,
                     include_name=True,
                     include_juristic_name=False,
+                    use_representative=self.use_representative,
+                )
+            )
+
+        if "first_name" in self.fields:
+            parts.append(
+                get_person_first_name(
+                    row,
+                    use_representative=self.use_representative,
+                )
+            )
+
+        if "last_name" in self.fields:
+            parts.append(
+                get_person_last_name(
+                    row,
                     use_representative=self.use_representative,
                 )
             )
