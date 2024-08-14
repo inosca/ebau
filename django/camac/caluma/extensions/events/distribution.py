@@ -420,6 +420,8 @@ def _get_inquiry_sent_notification_key(work_item):
 @filter_by_task("INQUIRY_TASK")
 @transaction.atomic
 def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
+    Trigger.inquiry_completed(None, work_item.case.family.instance, work_item)
+
     # send notification to controlling service
     send_inquiry_notification("INQUIRY_ANSWERED", work_item, user)
 

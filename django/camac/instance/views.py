@@ -446,27 +446,31 @@ class InstanceView(
     @swagger_auto_schema(auto_schema=None)
     @permission_aware
     def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        Trigger.instance_retrieved(None, instance, request.group)
         return super().retrieve(request, *args, **kwargs)
 
     def retrieve_for_uso(self, request, *args, **kwargs):
-        # Special case for Kt. GR: Ecology groups ("USOs") loose access to instances 7 days
-        # after they **first accessed** them.
         instance = self.get_object()
+        service = request.group.service
+        Trigger.instance_retrieved(None, instance, request.group)
+
         work_items = workflow_models.WorkItem.objects.filter(
             case__family_id=instance.case.pk,
             task_id="inquiry",
-            addressed_groups=[request.group.service.pk],
+            addressed_groups=[service.pk],
         ).exclude(meta__has_key="retrieved_by_uso")
 
         for work_item in work_items:
+            # TODO when permission module has been fully rolled out, the meta
+            # property might not be needed anymore
             work_item.meta["retrieved_by_uso"] = timezone.now().isoformat()
             work_item.save()
 
             deadline_answer = work_item.document.answers.filter(
                 question_id=settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
             )
-            new_deadline = timezone.now().date() + timedelta(days=7)
-            deadline_answer.update(date=new_deadline)
+            deadline_answer.update(date=timezone.now() + timedelta(days=7))
 
             sync_inquiry_deadline(work_item)
 
