@@ -1845,18 +1845,20 @@ def test_generate_and_store_pdf_in_alexandria(
     db,
     admin_user,
     application_settings,
+    alexandria_settings,
     dms_settings,
     gr_instance,
     group,
     mocker,
 ):
-    MarkFactory(pk="sensitive")
+    sensitive_mark = MarkFactory()
     alexandria_category = CategoryFactory()
     application_settings["STORE_PDF"] = {
         "SECTION": {
             "MAIN": {"DEFAULT": alexandria_category.pk, "PAPER": alexandria_category.pk}
         },
     }
+    alexandria_settings["MARK_VISIBILITY"]["SENSITIVE"] = [sensitive_mark.pk]
     application_settings["DOCUMENT_BACKEND"] = "alexandria"
 
     client = mocker.patch(
@@ -1880,6 +1882,7 @@ def test_generate_and_store_pdf_in_alexandria(
     serializer._generate_and_store_pdf(gr_instance)
 
     assert alexandria_category.documents.count() == 1
+    assert sensitive_mark in alexandria_category.documents.first().marks.all()
 
 
 @pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])

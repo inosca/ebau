@@ -20,7 +20,7 @@ class CustomValidation(AlexandriaValidator):
                 )
 
             if (
-                mark.pk in settings.ALEXANDRIA["MARK_VISIBILITY"]["SENSITIVE"]
+                mark.pk in settings.ALEXANDRIA["MARK_VISIBILITY"].get("SENSITIVE", [])
                 and len(
                     mark_ids & set(settings.ALEXANDRIA["MARK_VISIBILITY"]["PUBLIC"])
                 )
