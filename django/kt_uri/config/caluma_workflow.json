@@ -87,7 +87,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['distribution','after-complete-check-ur','release-for-bk', 'bab']|tasks"
+      "next": "['distribution','after-complete-check-ur', 'bab']|tasks"
     }
   },
   {

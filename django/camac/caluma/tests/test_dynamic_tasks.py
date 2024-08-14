@@ -573,14 +573,18 @@ def test_dynamic_task_after_decision_ur(
 
 
 @pytest.mark.parametrize(
-    "answer,expected_tasks",
+    "complete_check_answer,should_generate_additional_demand_task",
     [
         (
             "complete-check-vollstaendigkeitspruefung-incomplete",
-            ["additional-demand", "release-for-bk"],
+            True,
         ),
-        ("complete-check-vollstaendigkeitspruefung-complete", ["release-for-bk"]),
+        ("complete-check-vollstaendigkeitspruefung-complete", False),
     ],
+)
+@pytest.mark.parametrize(
+    "main_form_slug,should_generate_bk_task",
+    [("building-permit", True), ("cantonal-territory-usage", False)],
 )
 def test_dynamic_task_after_complete_check_ur(
     db,
@@ -588,34 +592,39 @@ def test_dynamic_task_after_complete_check_ur(
     document_factory,
     question_factory,
     answer_factory,
-    ur_instance,
+    # ur_instance,
     caluma_admin_user,
-    answer,
-    expected_tasks,
+    complete_check_answer,
+    main_form_slug,
+    should_generate_additional_demand_task,
+    case_factory,
+    should_generate_bk_task,
 ):
+    caluma_case = case_factory(document__form__slug=main_form_slug)
     work_item = work_item_factory(
-        case=ur_instance.case,
-        task_id="complete-check",
+        case=caluma_case, task__slug="complete-check", document=document_factory()
     )
-    work_item.document = document_factory()
-    work_item.save()
 
     answer_factory(
         document=work_item.document,
         question=question_factory(slug="complete-check-vollstaendigkeitspruefung"),
-        value=answer,
-    )
-    answer_factory(
-        document=work_item.document,
-        question=question_factory(slug="complete-check-baubewilligungspflichtig"),
-        value="complete-check-baubewilligungspflichtig-baubewilligungspflichtig",
+        value=complete_check_answer,
     )
 
     result = CustomDynamicTasks().resolve_after_complete_check_ur(
-        ur_instance.case, caluma_admin_user, work_item, None
+        caluma_case, caluma_admin_user, work_item, None
     )
 
-    assert result == expected_tasks
+    assert (
+        "additional-demand" in result
+        if should_generate_additional_demand_task
+        else "additional-demand" not in result
+    )
+    assert (
+        "release-for-bk" in result
+        if should_generate_bk_task
+        else "release-for-bk" not in result
+    )
 
 
 @pytest.mark.parametrize(
