@@ -55,7 +55,7 @@ last_param = openapi.Parameter(
 
 class FileSwaggerAutoSchema(SwaggerAutoSchema):
     def get_produces(self):
-        return ["application/octet-stream"]
+        return ["*/*"]
 
 
 class MessageView(RetrieveModelMixin, GenericViewSet):
