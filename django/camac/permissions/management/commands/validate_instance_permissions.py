@@ -32,6 +32,10 @@ class Command(BaseCommand):
             "subservice": "distribution-service",
             "support": "support",
         },
+        "kt_schwyz": {
+            "Lesezugriff": "read",
+            "support": "support",
+        },
         "kt_so": {
             "municipality-lead": "lead-authority",
             "service-lead": "distribution-service",
