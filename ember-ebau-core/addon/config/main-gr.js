@@ -1,6 +1,6 @@
 export default {
   name: "gr",
-  languages: ["de", "it"],
+  languages: ["de"],
   fallbackLanguage: "de",
   prodUrl: "ebau.admin.gr.ch",
   allowApplicantManualWorkItem: false,
