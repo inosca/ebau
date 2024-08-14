@@ -77,6 +77,7 @@ export default {
     },
   },
   intentSlugs: ["beschreibung-bauvorhaben"],
+  freetextSlugs: ["freies-textfeld-1", "freies-textfeld-2"],
   publication: {
     neighbors: {
       task: "information-of-neighbors",

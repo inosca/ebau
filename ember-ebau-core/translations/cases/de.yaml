@@ -85,6 +85,8 @@ cases:
     instanceState: "Status"
     intent-placeholder: ""
     intent: "Vorhaben"
+    freetext: Freitextfelder (nur migrierte Dossiers)
+    freetext-placeholder: ""
     keywordSearch: "Stichwortsuche"
     keywordSearch-placeholder: ""
     keywordSearch-hint: "Die Stichwortsuche kann etwas länger dauern, da alle Dossierdaten durchsucht werden."
