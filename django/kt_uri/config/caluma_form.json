@@ -12886,7 +12886,7 @@
       "modified_by_group": null,
       "form": "release-for-bk",
       "question": "release-for-bk-complete",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -12901,7 +12901,7 @@
       "modified_by_group": null,
       "form": "release-for-bk",
       "question": "release-for-bk-info",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -12916,6 +12916,21 @@
       "modified_by_group": null,
       "form": "release-for-bk",
       "question": "release-for-bk-meeting-date",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "release-for-bk.release-for-bk-skip",
+    "fields": {
+      "created_at": "2024-08-12T12:02:53.420Z",
+      "modified_at": "2024-08-12T12:02:53.420Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "release-for-bk",
+      "question": "release-for-bk-skip",
       "sort": 2
     }
   },
@@ -56348,6 +56363,42 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "release-for-bk-skip",
+    "fields": {
+      "created_at": "2024-08-12T12:02:53.351Z",
+      "modified_at": "2024-08-12T12:03:51.592Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00dcberspringen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "default",
+        "action": "skip",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "remarks",
     "fields": {
       "created_at": "2020-08-28T15:42:20.747Z",
@@ -61605,12 +61656,12 @@
     "pk": "waldfeststellung-mit-statischen-waldgrenzen-gemeinde",
     "fields": {
       "created_at": "2023-02-03T14:34:12.999Z",
-      "modified_at": "2023-02-03T14:39:06.334Z",
+      "modified_at": "2024-08-13T11:12:11.558Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Wird eine Waldfeststellung mit statischen Waldgrenzen parallel durchgef\\u00fchrt?\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Wird eine Waldfeststellung mit statischen Waldgrenzen parallel durchgef\\u00fchrt oder werden statische Waldgrenzen aufgehoben?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "!(\"oereb-thema-gemeinde-gnp\" == \"oereb-thema-gemeinde\"|answer)",
@@ -77865,11 +77916,11 @@
     "model": "caluma_form.questionoption",
     "pk": "waldfeststellung-mit-statischen-waldgrenzen-gemeinde.waldfeststellung-mit-statischen-waldgrenzen-gemeinde-ja",
     "fields": {
-      "created_at": "2023-02-03T14:39:06.345Z",
-      "modified_at": "2023-02-03T14:39:06.345Z",
-      "created_by_user": "admin",
+      "created_at": "2024-08-13T11:12:11.578Z",
+      "modified_at": "2024-08-13T11:12:11.578Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "waldfeststellung-mit-statischen-waldgrenzen-gemeinde",
       "option": "waldfeststellung-mit-statischen-waldgrenzen-gemeinde-ja",
@@ -77880,11 +77931,11 @@
     "model": "caluma_form.questionoption",
     "pk": "waldfeststellung-mit-statischen-waldgrenzen-gemeinde.waldfeststellung-mit-statischen-waldgrenzen-gemeinde-nein",
     "fields": {
-      "created_at": "2023-02-03T14:39:06.341Z",
-      "modified_at": "2023-02-03T14:39:06.341Z",
-      "created_by_user": "admin",
+      "created_at": "2024-08-13T11:12:11.571Z",
+      "modified_at": "2024-08-13T11:12:11.571Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "waldfeststellung-mit-statischen-waldgrenzen-gemeinde",
       "option": "waldfeststellung-mit-statischen-waldgrenzen-gemeinde-nein",
