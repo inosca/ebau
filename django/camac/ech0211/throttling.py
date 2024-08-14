@@ -1,11 +1,12 @@
 import time
 
+from django.conf import settings
 from rest_framework.throttling import SimpleRateThrottle
 
 
 class ECHMessageThrottle(SimpleRateThrottle):
     scope = "ech_message"
-    rate = "1/min"
+    rate = settings.ECH_THROTTLING_RATE
 
     # mitigate https://github.com/spulec/freezegun/issues/382
     # see https://github.com/encode/django-rest-framework/pull/7955#issuecomment-830312565
