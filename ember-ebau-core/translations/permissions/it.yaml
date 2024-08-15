@@ -9,9 +9,12 @@ permissions:
   confirmRevoke: Revocare davvero il diritto?
 
   entities:
+    service: Organizzazione
+    user: Utenti
     public-registered: Accesso pubblico (registrato)
     public-anonymous: Accesso pubblico (non registrato)
     token: Attraverso codice di accesso
+    role: Ruolo
 
   placeholder:
     name: "-"
@@ -20,6 +23,7 @@ permissions:
   details:
     heading: Informazioni relative al diritto
     entityName: Unità autorizzata
+    entityType: Tipo
     entityEmail: E-mail
     organisation: Organizzazione
     accessLevel: Livello di accesso
@@ -39,4 +43,3 @@ permissions:
 
   access-level:
     all-levels: Tutti i livelli di accesso
-

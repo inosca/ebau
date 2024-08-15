@@ -24,6 +24,7 @@ class InstanceACLSerializer(serializers.ModelSerializer):
         "instance": "camac.instance.serializers.InstanceSerializer",
         "service": "camac.user.serializers.PublicServiceSerializer",
         "user": "camac.user.serializers.PublicUserSerializer",
+        "role": "camac.user.serializers.PublicRoleSerializer",
         "created_by_user": "camac.user.serializers.PublicUserSerializer",
         "created_by_service": "camac.user.serializers.PublicServiceSerializer",
         "revoked_by_user": "camac.user.serializers.PublicUserSerializer",
@@ -43,6 +44,7 @@ class InstanceACLSerializer(serializers.ModelSerializer):
             "user",
             "service",
             "token",
+            "role",
             # Creation data
             "created_at",
             "created_by_event",

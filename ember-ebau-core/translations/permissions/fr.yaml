@@ -7,9 +7,10 @@ permissions:
   revokeError: Une erreur s'est produite lors de la révocation du droit d'accès.
   revoke: Révoquer le droit d'accès
   confirmRevoke: Voulez-vous vraiment révoquer le droit d'accès?
-  flat-rate: Forfait
 
   entities:
+    service: Organisation
+    user: Utilisateur
     public-registered: Accès public (enregistré)
     public-anonymous: Accès public (non enregistré)
     token: Via le code d'accès
@@ -22,6 +23,7 @@ permissions:
   details:
     heading: Informations sur le droit d'accès
     entityName: Entité autorisée
+    entityType: Type
     entityEmail: Courriel
     organisation: Organisation
     accessLevel: Niveau d'accès
