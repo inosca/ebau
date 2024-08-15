@@ -188,4 +188,15 @@ export default {
     ],
     disallowStates: ["new", "archived", "finished"],
   },
+  publicInstanceStates: [
+    "creation",
+    "receiving",
+    "communal",
+    "in-progress",
+    "sb1",
+    "sb2",
+    "finished",
+    "rejected",
+    "archived",
+  ],
 };

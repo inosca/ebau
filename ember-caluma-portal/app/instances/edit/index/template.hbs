@@ -27,6 +27,10 @@
       <BeOverviewGridCell
         @label={{t "instances.status.title"}}
         @value={{or this.editController.instance.status "-"}}
+        @infoComponent={{if
+          (has-feature "portal.stateInfoButton")
+          (component "state-info-button")
+        }}
       />
       {{#if (is-application "be")}}
         <BeOverviewGridCell

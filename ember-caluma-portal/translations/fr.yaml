@@ -295,17 +295,27 @@ instances:
 
   status:
     title: "État"
+    modal-title: ""
 
     # BE
     creation: "Nouveau"
+    creation-description: ""
     receiving: "Communauté d'accueil"
+    receiving-description: ""
     communal: "Traitement communautaire"
+    communal-description: ""
     in-progress: "Programme de procédure"
+    in-progress-description: ""
     sb1: "Déclaration spontanée 1"
+    sb1-description: ""
     sb2: "Déclaration spontanée 2"
+    sb2-description: ""
     finished: "Décision finalisé"
+    finisehd-description: ""
     rejected: "Repoussé"
+    rejected-description: ""
     archived: "Archivé"
+    archived-description: ""
 
     # UR
     comm: ""
