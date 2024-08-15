@@ -55,6 +55,7 @@
         <thead>
           <tr>
             <th>{{t "permissions.details.entityName"}}</th>
+            <th>{{t "permissions.details.entityType"}}</th>
             <th>{{t "permissions.details.accessLevel"}}</th>
             <th>{{t "permissions.details.startTime"}}</th>
             <th>{{t "permissions.details.endTime"}}</th>
@@ -74,15 +75,12 @@
                   >{{acl.entityName}}</a>
                 </td>
                 <td>
-                  {{acl.accessLevel.name}}
-                  {{#if acl.isFlatRate}}
-                    <UkLabel
-                      @label={{t "permissions.flat-rate"}}
-                      @color="warning"
-                      class="uk-margin-small-left"
-                    />
-                  {{/if}}
+                  <UkLabel
+                    @label={{acl.entityType.label}}
+                    @color={{acl.entityType.color}}
+                  />
                 </td>
+                <td>{{acl.accessLevel.name}}</td>
                 <td>{{or (format-date acl.startTime format="date") "-"}}</td>
                 <td>{{or (format-date acl.endTime format="date") "-"}}</td>
                 <td><span

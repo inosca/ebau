@@ -7,9 +7,10 @@ permissions:
   revokeError: Beim Widerrufen der Berechtigung ist ein Fehler aufgetreten.
   revoke: Berechtigung entziehen
   confirmRevoke: Sind Sie sich sicher, dass sie die Berechtigung entziehen wollen?
-  flat-rate: Pauschal
 
   entities:
+    service: Organisation
+    user: Benutzer
     public-registered: Öffentlicher Zugriff (registriert)
     public-anonymous: Öffentlicher Zugriff (nicht registriert)
     token: Via Zugriffscode
@@ -22,6 +23,7 @@ permissions:
   details:
     heading: Informationen zur Berechtigung
     entityName: Berechtigte Entität
+    entityType: Typ
     entityEmail: E-Mail
     organisation: Organisation
     accessLevel: Zugangsstufe
