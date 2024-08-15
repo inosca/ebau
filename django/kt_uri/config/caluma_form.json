@@ -20065,6 +20065,57 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "dossier-mit-ac-ja-kontrolle-durch-gemeindebaubehoerde",
+    "fields": {
+      "created_at": "2024-05-15T14:39:26.161Z",
+      "modified_at": "2024-05-15T14:39:26.161Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja, Kontrolle durch Gemeindebaubeh\\u00f6rde\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "dossier-mit-ac-ja-kontrolle-durch-kantonale-fachstelle",
+    "fields": {
+      "created_at": "2024-05-15T14:39:26.118Z",
+      "modified_at": "2024-05-15T14:39:26.118Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja, Kontrolle durch kantonale Fachstelle\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "dossier-mit-ac-nein",
+    "fields": {
+      "created_at": "2024-05-15T14:39:26.171Z",
+      "modified_at": "2024-05-15T14:39:26.171Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "einbauten-ins-grundwasser-ja",
     "fields": {
       "created_at": "2022-02-24T12:32:13.785Z",
@@ -23253,6 +23304,40 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Die Baustelle ist kleiner als 4'000 m2 bzw. das Bauvolumen weniger als 10'000 m3\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "grundbucheintrag-zwg-ja",
+    "fields": {
+      "created_at": "2024-04-29T12:35:39.095Z",
+      "modified_at": "2024-04-29T12:35:39.095Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "grundbucheintrag-zwg-nein",
+    "fields": {
+      "created_at": "2024-04-29T12:35:39.089Z",
+      "modified_at": "2024-04-29T12:35:39.089Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -43673,6 +43758,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "dossier-mit-ac",
+    "fields": {
+      "created_at": "2024-05-15T14:39:26.235Z",
+      "modified_at": "2024-05-15T14:40:04.045Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dossier mit mittel- bzw. langfristigem Auflagen-Controlling?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "druckbehaelter-titel",
     "fields": {
       "created_at": "2020-10-26T10:28:50.761Z",
@@ -48110,6 +48226,37 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "grundbucheintrag-zwg",
+    "fields": {
+      "created_at": "2024-04-29T12:35:40.072Z",
+      "modified_at": "2024-04-29T12:35:40.072Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grundbucheintrag ZWG\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -67024,6 +67171,51 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "dossier-mit-ac.dossier-mit-ac-ja-kontrolle-durch-gemeindebaubehoerde",
+    "fields": {
+      "created_at": "2024-05-15T14:40:04.054Z",
+      "modified_at": "2024-05-15T14:40:04.054Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "dossier-mit-ac",
+      "option": "dossier-mit-ac-ja-kontrolle-durch-gemeindebaubehoerde",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "dossier-mit-ac.dossier-mit-ac-ja-kontrolle-durch-kantonale-fachstelle",
+    "fields": {
+      "created_at": "2024-05-15T14:40:04.050Z",
+      "modified_at": "2024-05-15T14:40:04.050Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "dossier-mit-ac",
+      "option": "dossier-mit-ac-ja-kontrolle-durch-kantonale-fachstelle",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "dossier-mit-ac.dossier-mit-ac-nein",
+    "fields": {
+      "created_at": "2024-05-15T14:40:04.053Z",
+      "modified_at": "2024-05-15T14:40:04.053Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "dossier-mit-ac",
+      "option": "dossier-mit-ac-nein",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "einbauten-ins-grundwasser.einbauten-ins-grundwasser-ja",
     "fields": {
       "created_at": "2022-03-24T07:22:49.651Z",
@@ -69765,6 +69957,36 @@
       "question": "groesse-der-baustelle",
       "option": "groesse-der-baustelle-kleiner-4000",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "grundbucheintrag-zwg.grundbucheintrag-zwg-ja",
+    "fields": {
+      "created_at": "2024-04-29T12:35:40.087Z",
+      "modified_at": "2024-04-29T12:35:40.087Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "grundbucheintrag-zwg",
+      "option": "grundbucheintrag-zwg-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "grundbucheintrag-zwg.grundbucheintrag-zwg-nein",
+    "fields": {
+      "created_at": "2024-04-29T12:35:40.080Z",
+      "modified_at": "2024-04-29T12:35:40.080Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "grundbucheintrag-zwg",
+      "option": "grundbucheintrag-zwg-nein",
+      "sort": 1
     }
   },
   {
