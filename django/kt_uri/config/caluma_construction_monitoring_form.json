@@ -19,42 +19,6 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "complete-instance-canton",
-    "fields": {
-      "created_at": "2024-07-17T06:47:17.842Z",
-      "modified_at": "2024-07-17T06:47:17.842Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"complete-instance-canton\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "meta": {},
-      "is_published": false,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
-    "pk": "complete-instance-municipality",
-    "fields": {
-      "created_at": "2024-07-17T06:47:07.809Z",
-      "modified_at": "2024-07-17T06:47:07.809Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"complete-instance-municipality\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "meta": {},
-      "is_published": false,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
     "pk": "construction-monitoring-update-gwr-state",
     "fields": {
       "created_at": "2024-06-13T13:02:17.311Z",
@@ -397,137 +361,77 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "complete-instance-canton.complete-instance-ac",
+    "pk": "complete-instance.complete-instance-ac",
     "fields": {
-      "created_at": "2024-07-17T06:52:17.136Z",
-      "modified_at": "2024-07-17T06:52:17.136Z",
+      "created_at": "2024-08-15T12:00:12.308Z",
+      "modified_at": "2024-08-15T12:00:12.308Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "complete-instance-canton",
+      "form": "complete-instance",
       "question": "complete-instance-ac",
-      "sort": 2
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "complete-instance-canton.complete-instance-complete",
+    "pk": "complete-instance.complete-instance-auflagen",
     "fields": {
-      "created_at": "2024-07-17T06:51:11.872Z",
-      "modified_at": "2024-07-17T06:51:11.872Z",
+      "created_at": "2024-08-15T11:48:09.011Z",
+      "modified_at": "2024-08-15T11:48:09.011Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "complete-instance-canton",
-      "question": "complete-instance-complete",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "complete-instance-canton.complete-instance-title",
-    "fields": {
-      "created_at": "2024-07-17T06:48:56.078Z",
-      "modified_at": "2024-07-17T06:48:56.078Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "complete-instance-canton",
-      "question": "complete-instance-title",
+      "form": "complete-instance",
+      "question": "complete-instance-auflagen",
       "sort": 3
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "complete-instance.complete-instance-canton",
+    "pk": "complete-instance.complete-instance-complete",
     "fields": {
-      "created_at": "2024-07-17T06:53:25.348Z",
-      "modified_at": "2024-07-17T06:53:25.348Z",
+      "created_at": "2024-08-15T11:29:46.796Z",
+      "modified_at": "2024-08-15T11:29:46.796Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "complete-instance",
-      "question": "complete-instance-canton",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "complete-instance.complete-instance-municipality",
-    "fields": {
-      "created_at": "2024-07-17T06:53:07.591Z",
-      "modified_at": "2024-07-17T06:53:07.591Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "complete-instance",
-      "question": "complete-instance-municipality",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "complete-instance-municipality.complete-instance-complete",
-    "fields": {
-      "created_at": "2024-07-17T06:48:35.211Z",
-      "modified_at": "2024-07-17T06:48:35.211Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "complete-instance-municipality",
       "question": "complete-instance-complete",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "complete-instance-municipality.complete-instance-title",
+    "pk": "complete-instance.complete-instance-title",
     "fields": {
-      "created_at": "2024-07-17T06:47:48.771Z",
-      "modified_at": "2024-07-17T06:47:48.771Z",
+      "created_at": "2024-08-15T11:29:22.683Z",
+      "modified_at": "2024-08-15T11:29:22.683Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "complete-instance-municipality",
+      "form": "complete-instance",
       "question": "complete-instance-title",
       "sort": 5
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "complete-instance-municipality.dossier-mit-ac",
+    "pk": "complete-instance.complete-instance-zwg",
     "fields": {
-      "created_at": "2024-07-17T06:48:01.949Z",
-      "modified_at": "2024-07-17T06:48:01.949Z",
+      "created_at": "2024-08-15T11:55:27.340Z",
+      "modified_at": "2024-08-15T11:55:27.340Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "complete-instance-municipality",
-      "question": "dossier-mit-ac",
+      "form": "complete-instance",
+      "question": "complete-instance-zwg",
       "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "complete-instance-municipality.grundbucheintrag-zwg",
-    "fields": {
-      "created_at": "2024-07-17T06:47:57.470Z",
-      "modified_at": "2024-07-17T06:47:57.470Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "complete-instance-municipality",
-      "question": "grundbucheintrag-zwg",
-      "sort": 3
     }
   },
   {
@@ -1271,6 +1175,91 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "complete-instance-auflagen-a-kontrolle-durch-gemeindebaubehoerde",
+    "fields": {
+      "created_at": "2024-08-15T11:48:08.402Z",
+      "modified_at": "2024-08-15T12:00:43.483Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kontrolle durch Gemeindebaubeh\\u00f6rde\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "complete-instance-auflagen-ja-kontrolle-durch-kantonale-fachstelle",
+    "fields": {
+      "created_at": "2024-08-15T11:48:08.399Z",
+      "modified_at": "2024-08-15T12:00:43.481Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kontrolle durch kantonale Fachstelle\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "complete-instance-auflagen-nein",
+    "fields": {
+      "created_at": "2024-08-15T11:48:08.476Z",
+      "modified_at": "2024-08-15T12:00:43.470Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "complete-instance-zwg-ja",
+    "fields": {
+      "created_at": "2024-08-15T11:55:27.039Z",
+      "modified_at": "2024-08-15T11:55:27.039Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "complete-instance-zwg-nein",
+    "fields": {
+      "created_at": "2024-08-15T11:55:27.035Z",
+      "modified_at": "2024-08-15T11:55:27.035Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "construction-step-baubeginn",
     "fields": {
       "created_at": "2023-10-27T12:43:46.678Z",
@@ -1798,91 +1787,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "dossier-mit-ac-ja-kontrolle-durch-gemeindebaubehoerde",
-    "fields": {
-      "created_at": "2024-05-15T14:39:26.161Z",
-      "modified_at": "2024-05-15T14:39:26.161Z",
-      "created_by_user": "paul.walker@ur.ch",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja, Kontrolle durch Gemeindebaubeh\\u00f6rde\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "dossier-mit-ac-ja-kontrolle-durch-kantonale-fachstelle",
-    "fields": {
-      "created_at": "2024-05-15T14:39:26.118Z",
-      "modified_at": "2024-05-15T14:39:26.118Z",
-      "created_by_user": "paul.walker@ur.ch",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja, Kontrolle durch kantonale Fachstelle\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "dossier-mit-ac-nein",
-    "fields": {
-      "created_at": "2024-05-15T14:39:26.171Z",
-      "modified_at": "2024-05-15T14:39:26.171Z",
-      "created_by_user": "paul.walker@ur.ch",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "grundbucheintrag-zwg-ja",
-    "fields": {
-      "created_at": "2024-04-29T12:35:39.095Z",
-      "modified_at": "2024-04-29T12:35:39.095Z",
-      "created_by_user": "paul.walker@ur.ch",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "grundbucheintrag-zwg-nein",
-    "fields": {
-      "created_at": "2024-04-29T12:35:39.089Z",
-      "modified_at": "2024-04-29T12:35:39.089Z",
-      "created_by_user": "paul.walker@ur.ch",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "gwr-dossier-verknuepft-ja",
     "fields": {
       "created_at": "2024-07-05T09:01:04.561Z",
@@ -1971,19 +1875,19 @@
     "pk": "complete-instance-ac",
     "fields": {
       "created_at": "2024-07-17T06:52:17.012Z",
-      "modified_at": "2024-07-17T06:52:17.012Z",
+      "modified_at": "2024-08-15T12:03:29.951Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"complete-instance-ac\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Verfahren abschliessen\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -1999,28 +1903,28 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "complete-instance-canton",
+    "pk": "complete-instance-auflagen",
     "fields": {
-      "created_at": "2024-07-17T06:53:25.253Z",
-      "modified_at": "2024-07-17T06:55:03.556Z",
+      "created_at": "2024-08-15T11:48:08.795Z",
+      "modified_at": "2024-08-15T12:02:02.019Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"Verfahren abschliessen (Kanton)\", \"fr\": null, \"it\": null}",
-      "type": "form",
-      "is_required": "true",
-      "is_hidden": "!(info.case.form in [\"cantonal-territory-usage\", \"konzession-waermeentnahme\", \"bohrbewilligung-waermeentnahme\", \"pgv-gemeindestrasse\", \"bgbb\", \"oereb\", \"verfahren-gemeinde\"])",
+      "label": "{\"de\": \"Auflagen-Controlling\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\"complete-instance-ac\"|answer == \"complete-instance-ac-verfahren-abgeschlossen-auflagenkontrolle-notwendig\")",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
-      "sub_form": "complete-instance-canton",
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -2033,18 +1937,18 @@
     "pk": "complete-instance-complete",
     "fields": {
       "created_at": "2024-07-17T06:48:35.004Z",
-      "modified_at": "2024-07-17T06:48:35.004Z",
+      "modified_at": "2024-08-15T12:03:59.561Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"complete-instance-complete\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Dossier abschliessen\", \"fr\": null, \"it\": null}",
       "type": "action_button",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -2057,37 +1961,6 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "complete-instance-municipality",
-    "fields": {
-      "created_at": "2024-07-17T06:53:07.387Z",
-      "modified_at": "2024-07-17T06:55:42.691Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Verfahren abschliessen (Gemeinde)\", \"fr\": null, \"it\": null}",
-      "type": "form",
-      "is_required": "true",
-      "is_hidden": "info.case.form in [\"cantonal-territory-usage\", \"konzession-waermeentnahme\", \"bohrbewilligung-waermeentnahme\", \"pgv-gemeindestrasse\", \"bgbb\", \"oereb\", \"verfahren-gemeinde\"]",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": "complete-instance-municipality",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -2114,6 +1987,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"<div class=\\\"uk-text-lead uk-text-bold\\\">Verfahren abschliessen</div>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "complete-instance-zwg",
+    "fields": {
+      "created_at": "2024-08-15T11:55:27.188Z",
+      "modified_at": "2024-08-15T11:55:59.083Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grundbucheintrag ZWG\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "info.case.form in [\"cantonal-territory-usage\", \"konzession-waermeentnahme\", \"bohrbewilligung-waermeentnahme\", \"pgv-gemeindestrasse\", \"bgbb\", \"oereb\", \"oereb-verfahren-gemeinde\", \"verfahren-gemeinde\", \"mitbericht-kanton\"]",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -3472,68 +3376,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "dossier-mit-ac",
-    "fields": {
-      "created_at": "2024-05-15T14:39:26.235Z",
-      "modified_at": "2024-05-15T14:40:04.045Z",
-      "created_by_user": "paul.walker@ur.ch",
-      "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Dossier mit mittel- bzw. langfristigem Auflagen-Controlling?\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "grundbucheintrag-zwg",
-    "fields": {
-      "created_at": "2024-04-29T12:35:40.072Z",
-      "modified_at": "2024-04-29T12:35:40.072Z",
-      "created_by_user": "paul.walker@ur.ch",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Grundbucheintrag ZWG\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "gwr-dossier-verknuepft",
     "fields": {
       "created_at": "2024-07-05T09:01:04.746Z",
@@ -3727,8 +3569,8 @@
     "model": "caluma_form.questionoption",
     "pk": "complete-instance-ac.complete-instance-ac-verfahren-abgeschlossen-auflagenkontrolle-notwendig",
     "fields": {
-      "created_at": "2024-07-17T06:52:17.019Z",
-      "modified_at": "2024-07-17T06:52:17.019Z",
+      "created_at": "2024-08-15T12:03:29.962Z",
+      "modified_at": "2024-08-15T12:03:29.962Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -3742,8 +3584,8 @@
     "model": "caluma_form.questionoption",
     "pk": "complete-instance-ac.complete-instance-ac-verfahren-abgeschlossen-dossier-wird-archiviert",
     "fields": {
-      "created_at": "2024-07-17T06:52:17.030Z",
-      "modified_at": "2024-07-17T06:52:17.030Z",
+      "created_at": "2024-08-15T12:03:29.967Z",
+      "modified_at": "2024-08-15T12:03:29.967Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -3751,6 +3593,81 @@
       "question": "complete-instance-ac",
       "option": "complete-instance-ac-verfahren-abgeschlossen-dossier-wird-archiviert",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "complete-instance-auflagen.complete-instance-auflagen-a-kontrolle-durch-gemeindebaubehoerde",
+    "fields": {
+      "created_at": "2024-08-15T12:02:02.043Z",
+      "modified_at": "2024-08-15T12:02:02.043Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "complete-instance-auflagen",
+      "option": "complete-instance-auflagen-a-kontrolle-durch-gemeindebaubehoerde",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "complete-instance-auflagen.complete-instance-auflagen-ja-kontrolle-durch-kantonale-fachstelle",
+    "fields": {
+      "created_at": "2024-08-15T12:02:02.037Z",
+      "modified_at": "2024-08-15T12:02:02.037Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "complete-instance-auflagen",
+      "option": "complete-instance-auflagen-ja-kontrolle-durch-kantonale-fachstelle",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "complete-instance-auflagen.complete-instance-auflagen-nein",
+    "fields": {
+      "created_at": "2024-08-15T12:02:02.032Z",
+      "modified_at": "2024-08-15T12:02:02.032Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "complete-instance-auflagen",
+      "option": "complete-instance-auflagen-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "complete-instance-zwg.complete-instance-zwg-ja",
+    "fields": {
+      "created_at": "2024-08-15T11:55:59.100Z",
+      "modified_at": "2024-08-15T11:55:59.100Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "complete-instance-zwg",
+      "option": "complete-instance-zwg-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "complete-instance-zwg.complete-instance-zwg-nein",
+    "fields": {
+      "created_at": "2024-08-15T11:55:59.094Z",
+      "modified_at": "2024-08-15T11:55:59.094Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "complete-instance-zwg",
+      "option": "complete-instance-zwg-nein",
+      "sort": 1
     }
   },
   {
@@ -4215,81 +4132,6 @@
       "modified_by_group": null,
       "question": "construction-step-zwischenkontrolle-melden-bestaetigung",
       "option": "construction-step-zwischenkontrolle-melden-bestaetigung-text",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "dossier-mit-ac.dossier-mit-ac-ja-kontrolle-durch-gemeindebaubehoerde",
-    "fields": {
-      "created_at": "2024-05-15T14:40:04.054Z",
-      "modified_at": "2024-05-15T14:40:04.054Z",
-      "created_by_user": "paul.walker@ur.ch",
-      "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
-      "modified_by_group": null,
-      "question": "dossier-mit-ac",
-      "option": "dossier-mit-ac-ja-kontrolle-durch-gemeindebaubehoerde",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "dossier-mit-ac.dossier-mit-ac-ja-kontrolle-durch-kantonale-fachstelle",
-    "fields": {
-      "created_at": "2024-05-15T14:40:04.050Z",
-      "modified_at": "2024-05-15T14:40:04.050Z",
-      "created_by_user": "paul.walker@ur.ch",
-      "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
-      "modified_by_group": null,
-      "question": "dossier-mit-ac",
-      "option": "dossier-mit-ac-ja-kontrolle-durch-kantonale-fachstelle",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "dossier-mit-ac.dossier-mit-ac-nein",
-    "fields": {
-      "created_at": "2024-05-15T14:40:04.053Z",
-      "modified_at": "2024-05-15T14:40:04.053Z",
-      "created_by_user": "paul.walker@ur.ch",
-      "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
-      "modified_by_group": null,
-      "question": "dossier-mit-ac",
-      "option": "dossier-mit-ac-nein",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "grundbucheintrag-zwg.grundbucheintrag-zwg-ja",
-    "fields": {
-      "created_at": "2024-04-29T12:35:40.087Z",
-      "modified_at": "2024-04-29T12:35:40.087Z",
-      "created_by_user": "paul.walker@ur.ch",
-      "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
-      "modified_by_group": null,
-      "question": "grundbucheintrag-zwg",
-      "option": "grundbucheintrag-zwg-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "grundbucheintrag-zwg.grundbucheintrag-zwg-nein",
-    "fields": {
-      "created_at": "2024-04-29T12:35:40.080Z",
-      "modified_at": "2024-04-29T12:35:40.080Z",
-      "created_by_user": "paul.walker@ur.ch",
-      "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
-      "modified_by_group": null,
-      "question": "grundbucheintrag-zwg",
-      "option": "grundbucheintrag-zwg-nein",
       "sort": 1
     }
   },
