@@ -11,7 +11,43 @@
       "phone": null,
       "disabled": 0,
       "language": "de",
-      "last_login": "2023-06-08T14:49:00.025Z",
+      "last_login": "2024-08-16T08:41:55.374Z",
+      "address": null,
+      "city": null,
+      "zip": null
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 2,
+    "fields": {
+      "username": "34fc2a57-dec1-42d5-8831-9db8960ffbcb",
+      "password": null,
+      "name": "Applicant",
+      "surname": "Editor",
+      "email": "editor@example.com",
+      "phone": null,
+      "disabled": 0,
+      "language": "de",
+      "last_login": null,
+      "address": null,
+      "city": null,
+      "zip": null
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 3,
+    "fields": {
+      "username": "54bd82c8-9e3b-4e51-aed7-6ac95ad38845",
+      "password": null,
+      "name": "Applicant",
+      "surname": "Readonly",
+      "email": "readonly@example.com",
+      "phone": null,
+      "disabled": 0,
+      "language": "de",
+      "last_login": null,
       "address": null,
       "city": null,
       "zip": null
