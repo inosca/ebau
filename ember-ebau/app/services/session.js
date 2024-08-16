@@ -40,11 +40,13 @@ export default class CustomSession extends Session {
     this.store.pushPayload(response);
 
     // we have to know which is the current group
+    const relationships = response.data.relationships;
+    const defaultGroup = relationships["default-group"]?.data?.id;
+    const availableGroups = relationships.groups?.data?.map(({ id }) => id);
+
     let groupId = this.group;
-    if (!groupId) {
-      groupId =
-        response.data.relationships["default-group"]?.data?.id ??
-        response.data.relationships.groups.data?.[0]?.id;
+    if (!groupId || !availableGroups.includes(groupId)) {
+      groupId = defaultGroup ?? availableGroups[0];
 
       this.group = groupId;
     }
