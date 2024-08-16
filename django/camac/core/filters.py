@@ -1,7 +1,7 @@
 from django.db.models import Q
 from django_filters.rest_framework import FilterSet
 
-from camac.filters import NumberFilter, NumberMultiValueFilter
+from camac.filters import CharMultiValueFilter, NumberFilter, NumberMultiValueFilter
 from camac.instance.models import Instance
 from camac.permissions.api import PermissionManager
 from camac.permissions.switcher import is_permission_mode_fully_enabled
@@ -76,7 +76,8 @@ class StaticContentFilterSet(FilterSet):
 
 class ServiceContentFilterSet(FilterSet):
     service = NumberMultiValueFilter()
+    forms = CharMultiValueFilter()
 
     class Meta:
         model = models.ServiceContent
-        fields = ("id", "service")
+        fields = ("id", "service", "forms")
