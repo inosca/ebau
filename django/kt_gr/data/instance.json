@@ -75,6 +75,58 @@
     }
   },
   {
+    "model": "instance.historyentry",
+    "pk": 10,
+    "fields": {
+      "instance": 4,
+      "service": null,
+      "user": 1,
+      "created_at": "2024-08-16T08:41:45.204Z",
+      "title": null,
+      "body": null,
+      "history_type": "notification"
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 11,
+    "fields": {
+      "instance": 4,
+      "service": null,
+      "user": 1,
+      "created_at": "2024-08-16T08:42:07.954Z",
+      "title": null,
+      "body": null,
+      "history_type": "notification"
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 12,
+    "fields": {
+      "instance": 5,
+      "service": null,
+      "user": 1,
+      "created_at": "2024-08-16T08:42:14.271Z",
+      "title": null,
+      "body": null,
+      "history_type": "notification"
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 13,
+    "fields": {
+      "instance": 5,
+      "service": null,
+      "user": 1,
+      "created_at": "2024-08-16T08:42:20.133Z",
+      "title": null,
+      "body": null,
+      "history_type": "notification"
+    }
+  },
+  {
     "model": "instance.historyentryt",
     "pk": 21,
     "fields": {
@@ -161,6 +213,126 @@
       "title": "Notifikation gesendet an email@example.ch (Leitbehörde) ([eBau Test]: Neu eingegangen)",
       "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 2023-2 (Baugesuch, Gemeinde Chur).\n\nhttp://ember-ebau.local/index/redirect-to-instance-resource/instance-id/4\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
       "history_entry": 9,
+      "language": "it"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 30,
+    "fields": {
+      "title": "Notifikation gesendet an editor@example.com ([eBau Test]: Einsicht respektive Mitarbeit in Dossier (Nr. 2023-2))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben von Fritz Tester, Teststrasse, 1234 Testhausen den Zugriff auf das Dossier-Nr. 2023-2 (Baugesuch, Gemeinde Chur, http://ebau-portal.local/instances/4) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\n\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Graubünden erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: http://ebau-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
+      "history_entry": 10,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 31,
+    "fields": {
+      "title": "Notification envoyée à editor@example.com ([eBau Test]: Einsicht respektive Mitarbeit in Dossier (Nr. 2023-2))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben von Fritz Tester, Teststrasse, 1234 Testhausen den Zugriff auf das Dossier-Nr. 2023-2 (Baugesuch, Gemeinde Chur, http://ebau-portal.local/instances/4) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\n\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Graubünden erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: http://ebau-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
+      "history_entry": 10,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 32,
+    "fields": {
+      "title": "Notifikation gesendet an editor@example.com ([eBau Test]: Einsicht respektive Mitarbeit in Dossier (Nr. 2023-2))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben von Fritz Tester, Teststrasse, 1234 Testhausen den Zugriff auf das Dossier-Nr. 2023-2 (Baugesuch, Gemeinde Chur, http://ebau-portal.local/instances/4) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\n\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Graubünden erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: http://ebau-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
+      "history_entry": 10,
+      "language": "it"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 33,
+    "fields": {
+      "title": "Notifikation gesendet an readonly@example.com ([eBau Test]: Einsicht respektive Mitarbeit in Dossier (Nr. 2023-2))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben von Fritz Tester, Teststrasse, 1234 Testhausen den Zugriff auf das Dossier-Nr. 2023-2 (Baugesuch, Gemeinde Chur, http://ebau-portal.local/instances/4) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\n\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Graubünden erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: http://ebau-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
+      "history_entry": 11,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 34,
+    "fields": {
+      "title": "Notification envoyée à readonly@example.com ([eBau Test]: Einsicht respektive Mitarbeit in Dossier (Nr. 2023-2))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben von Fritz Tester, Teststrasse, 1234 Testhausen den Zugriff auf das Dossier-Nr. 2023-2 (Baugesuch, Gemeinde Chur, http://ebau-portal.local/instances/4) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\n\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Graubünden erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: http://ebau-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
+      "history_entry": 11,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 35,
+    "fields": {
+      "title": "Notifikation gesendet an readonly@example.com ([eBau Test]: Einsicht respektive Mitarbeit in Dossier (Nr. 2023-2))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben von Fritz Tester, Teststrasse, 1234 Testhausen den Zugriff auf das Dossier-Nr. 2023-2 (Baugesuch, Gemeinde Chur, http://ebau-portal.local/instances/4) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\n\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Graubünden erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: http://ebau-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
+      "history_entry": 11,
+      "language": "it"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 36,
+    "fields": {
+      "title": "Notifikation gesendet an editor@example.com ([eBau Test]: Einsicht respektive Mitarbeit in Dossier (Nr. -))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben von Max Muster, Musterstrasse, 1234 Musterdorf den Zugriff auf das Dossier-Nr. - (Baugesuch, Gemeinde Chur, http://ebau-portal.local/instances/5) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\n\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Graubünden erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: http://ebau-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
+      "history_entry": 12,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 37,
+    "fields": {
+      "title": "Notification envoyée à editor@example.com ([eBau Test]: Einsicht respektive Mitarbeit in Dossier (Nr. -))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben von Max Muster, Musterstrasse, 1234 Musterdorf den Zugriff auf das Dossier-Nr. - (Baugesuch, Gemeinde Chur, http://ebau-portal.local/instances/5) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\n\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Graubünden erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: http://ebau-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
+      "history_entry": 12,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 38,
+    "fields": {
+      "title": "Notifikation gesendet an editor@example.com ([eBau Test]: Einsicht respektive Mitarbeit in Dossier (Nr. -))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben von Max Muster, Musterstrasse, 1234 Musterdorf den Zugriff auf das Dossier-Nr. - (Baugesuch, Gemeinde Chur, http://ebau-portal.local/instances/5) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\n\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Graubünden erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: http://ebau-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
+      "history_entry": 12,
+      "language": "it"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 39,
+    "fields": {
+      "title": "Notifikation gesendet an readonly@example.com ([eBau Test]: Einsicht respektive Mitarbeit in Dossier (Nr. -))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben von Max Muster, Musterstrasse, 1234 Musterdorf den Zugriff auf das Dossier-Nr. - (Baugesuch, Gemeinde Chur, http://ebau-portal.local/instances/5) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\n\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Graubünden erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: http://ebau-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
+      "history_entry": 13,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 40,
+    "fields": {
+      "title": "Notification envoyée à readonly@example.com ([eBau Test]: Einsicht respektive Mitarbeit in Dossier (Nr. -))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben von Max Muster, Musterstrasse, 1234 Musterdorf den Zugriff auf das Dossier-Nr. - (Baugesuch, Gemeinde Chur, http://ebau-portal.local/instances/5) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\n\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Graubünden erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: http://ebau-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
+      "history_entry": 13,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 41,
+    "fields": {
+      "title": "Notifikation gesendet an readonly@example.com ([eBau Test]: Einsicht respektive Mitarbeit in Dossier (Nr. -))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben von Max Muster, Musterstrasse, 1234 Musterdorf den Zugriff auf das Dossier-Nr. - (Baugesuch, Gemeinde Chur, http://ebau-portal.local/instances/5) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\n\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Graubünden erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: http://ebau-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
+      "history_entry": 13,
       "language": "it"
     }
   }

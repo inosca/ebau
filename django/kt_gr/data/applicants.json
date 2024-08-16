@@ -22,5 +22,53 @@
       "email": "admin@example.com",
       "role": "ADMIN"
     }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 6,
+    "fields": {
+      "instance": 4,
+      "user": 1,
+      "invitee": 2,
+      "created": "2024-08-16T08:42:29.384Z",
+      "email": "editor@example.com",
+      "role": "EDITOR"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 7,
+    "fields": {
+      "instance": 4,
+      "user": 1,
+      "invitee": 3,
+      "created": "2024-08-16T08:42:44.810Z",
+      "email": "readonly@example.com",
+      "role": "READ_ONLY"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 8,
+    "fields": {
+      "instance": 5,
+      "user": 1,
+      "invitee": 2,
+      "created": "2024-08-16T08:42:29.419Z",
+      "email": "editor@example.com",
+      "role": "EDITOR"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 9,
+    "fields": {
+      "instance": 5,
+      "user": 1,
+      "invitee": 3,
+      "created": "2024-08-16T08:42:44.830Z",
+      "email": "readonly@example.com",
+      "role": "READ_ONLY"
+    }
   }
 ]
