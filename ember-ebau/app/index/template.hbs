@@ -1,0 +1,9 @@
+{{#unless this.session.group}}
+  <div class="uk-flex uk-flex-column uk-flex-middle">
+    <div class="uk-width-large uk-text-center">
+      <UkIcon @icon="lock" @ratio="4" class="uk-text-muted" />
+      <p>{{t "global.noGroups" htmlSafe=true}}</p>
+      <p class="uk-text-italic">{{t "global.noGroupsHelp"}}</p>
+    </div>
+  </div>
+{{/unless}}

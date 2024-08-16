@@ -4,8 +4,13 @@ import { service } from "@ember/service";
 export default class IndexRoute extends Route {
   @service router;
   @service store;
+  @service session;
 
-  async redirect() {
+  async afterModel() {
+    if (!this.session.group) {
+      return;
+    }
+
     const firstResource = (
       await this.store.query("resource", {
         "page[size]": 1,
