@@ -31,10 +31,10 @@
     "enabled": true,
     "sslRequired": "external",
     "registrationAllowed": false,
-    "registrationEmailAsUsername": true,
+    "registrationEmailAsUsername": false,
     "rememberMe": false,
     "verifyEmail": false,
-    "loginWithEmailAllowed": true,
+    "loginWithEmailAllowed": false,
     "duplicateEmailsAllowed": false,
     "resetPasswordAllowed": false,
     "editUsernameAllowed": false,
@@ -643,7 +643,7 @@
     "users": [
       {
         "id": "b7bc020f-6285-436d-babf-18848211f7c8",
-        "username": "admin@example.com",
+        "username": "admin",
         "firstName": "",
         "lastName": "",
         "email": "admin@example.com",
@@ -666,83 +666,6 @@
         "clientRoles": {
           "account": ["manage-account", "view-profile"]
         },
-        "notBefore": 0,
-        "groups": []
-      },
-      {
-        "id": "16ec677f-7f6d-4072-9bea-a596eb918253",
-        "username": "camac",
-        "emailVerified": false,
-        "createdTimestamp": 1519832460860,
-        "enabled": true,
-        "totp": false,
-        "credentials": [
-          {
-            "id": "ba74c682-b94d-4a76-8a65-045d46b911df",
-            "type": "password",
-            "createdDate": 1641459995835,
-            "secretData": "{\"value\":\"8Qg/vFgO0O+eKLu8uzbezmUcypwt4YOohBxPP+UD/xT7aPf6ZRarZqnnwplV9dQlEzWkpyQQCsSA70JeRqJbFg==\",\"salt\":\"i3SnARL0eOsWGAmg6c7Akg==\"}",
-            "credentialData": "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
-          }
-        ],
-        "disableableCredentialTypes": [],
-        "requiredActions": [],
-        "realmRoles": ["admin", "uma_authorization", "offline_access"],
-        "clientRoles": {
-          "account": ["manage-account", "view-profile"]
-        },
-        "notBefore": 0,
-        "groups": []
-      },
-      {
-        "id": "16d06918-743f-4672-8946-94c904fc15c2",
-        "username": "editor@example.com",
-        "firstName": "Applicant",
-        "lastName": "Editor",
-        "email": "editor@example.com",
-        "emailVerified": true,
-        "createdTimestamp": 1723126150836,
-        "enabled": true,
-        "totp": false,
-        "credentials": [
-          {
-            "id": "6b752028-2d0f-4076-a368-8d350fbe9f9e",
-            "type": "password",
-            "userLabel": "My password",
-            "createdDate": 1723126161383,
-            "secretData": "{\"value\":\"6E6GDXX7Vht2V+Azk5PNKzv7JGDoJZhG7XNKYp+JaLk=\",\"salt\":\"WSQ/3dnL1kCwtLp6XTcacw==\",\"additionalParameters\":{}}",
-            "credentialData": "{\"hashIterations\":5,\"algorithm\":\"argon2\",\"additionalParameters\":{\"hashLength\":[\"32\"],\"memory\":[\"7168\"],\"type\":[\"id\"],\"version\":[\"1.3\"],\"parallelism\":[\"1\"]}}"
-          }
-        ],
-        "disableableCredentialTypes": [],
-        "requiredActions": [],
-        "realmRoles": ["default-roles-master"],
-        "notBefore": 0,
-        "groups": []
-      },
-      {
-        "id": "0581de46-cb2a-41f6-9ebf-b4a830e185cc",
-        "username": "readonly@example.com",
-        "firstName": "Applicant",
-        "lastName": "Readonly",
-        "email": "readonly@example.com",
-        "emailVerified": true,
-        "createdTimestamp": 1723126176094,
-        "enabled": true,
-        "totp": false,
-        "credentials": [
-          {
-            "id": "2999b981-4920-47c7-8232-0a762a1f249b",
-            "type": "password",
-            "userLabel": "My password",
-            "createdDate": 1723126193521,
-            "secretData": "{\"value\":\"irN0oFu20vcgsSzojMxQo4X+sKkIcqjp2p4rUMYf6FQ=\",\"salt\":\"5d70lV/SsD+tZfyjz1Lu/A==\",\"additionalParameters\":{}}",
-            "credentialData": "{\"hashIterations\":5,\"algorithm\":\"argon2\",\"additionalParameters\":{\"hashLength\":[\"32\"],\"memory\":[\"7168\"],\"type\":[\"id\"],\"version\":[\"1.3\"],\"parallelism\":[\"1\"]}}"
-          }
-        ],
-        "disableableCredentialTypes": [],
-        "requiredActions": [],
-        "realmRoles": ["default-roles-master"],
         "notBefore": 0,
         "groups": []
       }
@@ -2985,10 +2908,10 @@
     "enabled": true,
     "sslRequired": "external",
     "registrationAllowed": true,
-    "registrationEmailAsUsername": true,
+    "registrationEmailAsUsername": false,
     "rememberMe": true,
-    "verifyEmail": true,
-    "loginWithEmailAllowed": true,
+    "verifyEmail": false,
+    "loginWithEmailAllowed": false,
     "duplicateEmailsAllowed": false,
     "resetPasswordAllowed": true,
     "editUsernameAllowed": true,
@@ -3400,7 +3323,7 @@
     "users": [
       {
         "id": "462afaba-aeb7-494a-8596-3497b81ed701",
-        "username": "admin@example.com",
+        "username": "admin",
         "firstName": "Static",
         "lastName": "Administrator",
         "email": "admin@example.com",
@@ -3431,7 +3354,7 @@
       },
       {
         "id": "34fc2a57-dec1-42d5-8831-9db8960ffbcb",
-        "username": "editor@example.com",
+        "username": "editor",
         "firstName": "Applicant",
         "lastName": "Editor",
         "email": "editor@example.com",
@@ -3460,7 +3383,7 @@
       },
       {
         "id": "54bd82c8-9e3b-4e51-aed7-6ac95ad38845",
-        "username": "readonly@example.com",
+        "username": "readonly",
         "firstName": "Applicant",
         "lastName": "Readonly",
         "email": "readonly@example.com",
