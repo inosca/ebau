@@ -10,6 +10,7 @@ from django.conf import settings
 from django.db.models import Exists, OuterRef, Q, Sum
 from django.db.models.fields.files import ImageFieldFile
 from django.utils import timezone
+from django.utils.timezone import get_current_timezone
 from django.utils.translation import get_language, gettext, gettext_noop as _
 from PIL import Image
 from rest_framework import serializers
@@ -952,6 +953,7 @@ class AlexandriaDocumentField(AliasedMixin, serializers.ReadOnlyField):
                 ).first():
                     modified_by = modified_by_user.get_full_name()
 
+            timezone = get_current_timezone()
             data.append(
                 {
                     "NAME": document.title.de,
@@ -960,9 +962,13 @@ class AlexandriaDocumentField(AliasedMixin, serializers.ReadOnlyField):
                     .first()
                     .name,
                     "DESCRIPTION": document.description.de,
-                    "CREATED_AT": document.created_at.strftime("%d.%m.%Y %H:%M"),
+                    "CREATED_AT": document.created_at.astimezone(timezone).strftime(
+                        "%d.%m.%Y %H:%M"
+                    ),
                     "CREATED_BY": created_by,
-                    "MODIFIED_AT": document.modified_at.strftime("%d.%m.%Y %H:%M"),
+                    "MODIFIED_AT": document.modified_at.astimezone(timezone).strftime(
+                        "%d.%m.%Y %H:%M"
+                    ),
                     "MODIFIED_BY": modified_by,
                     "CATEGORY": document.category.slug,
                     "MARKS": list(document.marks.values_list("slug", flat=True)),
