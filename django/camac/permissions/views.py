@@ -215,6 +215,8 @@ class AccessLevelViewset(ReadOnlyModelViewSet):
 
 
 class PermissionsMetaView(APIView):
+    permission_classes = []
+
     def get(self, request):
         return Response(
             {

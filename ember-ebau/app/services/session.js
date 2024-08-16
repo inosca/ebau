@@ -51,7 +51,7 @@ export default class CustomSession extends Session {
       this.group = groupId;
     }
 
-    const group = this.store.peekRecord("group", groupId);
+    const group = groupId ? this.store.peekRecord("group", groupId) : null;
 
     return {
       user: this.store.peekRecord("user", response.data.id),

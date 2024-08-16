@@ -32,7 +32,9 @@
                   class="uk-navbar-subtitle"
                 >{{this.session.groupModel.name}}</div>
               </div>
-              <span uk-drop-parent-icon></span>
+              {{#if this.session.groups.records.length}}
+                <span uk-drop-parent-icon></span>
+              {{/if}}
             </a>
             {{#if this.session.groups.records.length}}
               <div
