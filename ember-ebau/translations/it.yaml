@@ -32,3 +32,5 @@ global:
   ok: "Ok"
   continue: "Avanti"
   close: "Chiudi"
+  noGroups: "<strong>Attenzione:</strong> non disponi ancora di alcuna autorizzazione."
+  noGroupsHelp: "Contattate l'amministratore della vostra organizzazione, che potrà concedervi le autorizzazioni appropriate."
