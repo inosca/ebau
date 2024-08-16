@@ -13,10 +13,11 @@ export default class ServiceContentComponent extends Component {
   content = trackedFunction(this, async () => {
     const caseId = decodeId(this.args.field.document.raw.case.id);
     const calumaCase = this.calumaStore.find(`Case:${caseId}`);
-    const answer = this.args.field.document.findAnswer(
+    const municipality_answer = this.args.field.document.findAnswer(
       mainConfig.answerSlugs.municipality,
     );
-    const serviceId = answer ?? calumaCase.municipalityId ?? null;
+    const formSlug = this.args.field.document.raw.form.slug;
+    const serviceId = municipality_answer ?? calumaCase.municipalityId ?? null;
 
     if (!serviceId) {
       return "";
@@ -24,6 +25,7 @@ export default class ServiceContentComponent extends Component {
 
     const content = await this.store.query("service-content", {
       service: serviceId,
+      forms: formSlug,
     });
 
     return content[0].content;

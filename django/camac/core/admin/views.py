@@ -1,4 +1,5 @@
 from adminsortable2.admin import SortableAdminMixin
+from caluma.caluma_form.models import Form
 from django.contrib.admin import ModelAdmin, display, register
 from django.utils.translation import gettext_lazy as _
 from localized_fields.admin import LocalizedFieldsAdminMixin
@@ -102,9 +103,21 @@ class InstanceResourceAdmin(
 class ServiceContentAdmin(LocalizedFieldsAdminMixin, EbauAdminMixin, ModelAdmin):
     form = ServiceContentForm
     ordering = ["service"]
-    list_display = ["id", "service", "content"]
+    list_display = ["id", "service", "get_forms", "content"]
     list_per_page = 20
     search_fields = ["content"]
     search_fields_ml = ["trans__content"]
     select_related = ["service"]
     list_filter = ["service"]
+    filter_horizontal = ["forms"]
+
+    @display(description=_("Forms"))
+    def get_forms(self, obj):
+        return ", ".join(obj.forms.values_list("slug", flat=True)).title()
+
+    def formfield_for_manytomany(self, db_field, request, **kwargs):
+        if db_field.name == "forms":
+            kwargs["queryset"] = Form.objects.filter(**{"meta__is-main-form": True})
+        return super(ServiceContentAdmin, self).formfield_for_manytomany(
+            db_field, request, **kwargs
+        )

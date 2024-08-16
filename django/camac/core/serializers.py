@@ -1,5 +1,6 @@
 from urllib.parse import urlencode
 
+from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
 from django.db import transaction
@@ -239,8 +240,11 @@ class StaticContentSerializer(serializers.ModelSerializer):
 
 class ServiceContentSerializer(serializers.ModelSerializer):
     service = relations.ResourceRelatedField(queryset=Service.objects)
+    forms = relations.ResourceRelatedField(
+        many=True, queryset=caluma_form_models.Form.objects
+    )
     content = serializers.CharField()
 
     class Meta:
         model = models.ServiceContent
-        fields = ("id", "content", "service")
+        fields = ("id", "content", "forms", "service")
