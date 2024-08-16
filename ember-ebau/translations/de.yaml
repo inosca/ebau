@@ -34,3 +34,5 @@ global:
   ok: "Ok"
   continue: "Weiter"
   close: "Schliessen"
+  noGroups: "<strong>Achtung:</strong> Sie haben noch keine Berechtigungen."
+  noGroupsHelp: "Bitte melden Sie sich bei den Administrator/innen Ihrer Organisation, diese können Ihnen die entsprechenden Berechtigungen erteilen."
