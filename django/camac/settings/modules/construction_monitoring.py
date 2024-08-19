@@ -84,6 +84,12 @@ CONSTRUCTION_MONITORING = {
         "CONSTRUCTION_MONITORING_INSTANCE_STATE": "control",
         "NOTIFICATIONS": {},
         "NOTIFICATION_RECIPIENTS": {},
+        "ALLOW_FORMS": [
+            "building-permit",
+            "commercial-permit",
+            "solar-declaration",
+            "technische-bewilligung",
+        ],
     },
     "kt_so": {
         "ENABLED": True,

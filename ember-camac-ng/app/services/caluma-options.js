@@ -470,6 +470,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
                     "Bundesstellen",
                     "Umweltschutzverbände",
                     "Infrastrukturanlagen Pendenzen von Koordinationstellen",
+                    "Ausserkantonale Fachstellen",
                   ]
                 : ["Infrastrukturanlagen Pendenzen von Gemeinden"]
               ).join(","),

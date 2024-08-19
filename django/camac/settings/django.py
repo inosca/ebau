@@ -1212,6 +1212,8 @@ APPLICATIONS = {
                 15: "ARE BaB Kreis 3",  # Seelisberg
                 5: "ARE BaB Kreis 3",  # Bürglen
                 3: "ARE BaB Kreis 3",  # Attinghausen
+                21: "ARE BaB Kreis 1",  # Diverse Gemeinden
+                22: "ARE BaB Kreis 1",  # Alle Gemeinden
             },
         },
         "STORE_PDF": {
