@@ -4,6 +4,7 @@ from caluma.caluma_workflow.events import post_complete_work_item
 from django.conf import settings
 from django.db import transaction
 
+from camac.caluma.extensions.events.simple_workflow import send_notification
 from camac.constants import kt_uri as uri_constants
 from camac.user.models import User
 
@@ -43,3 +44,38 @@ def convert_instance_ur(sender, work_item, user, context=None, **kwargs):
             reversion.set_user(camac_user)
             work_item.case.instance.form_id = uri_constants.FORM_BAUGESUCH
             work_item.case.instance.save()
+
+
+@on(post_complete_work_item, raise_exception=True)
+@transaction.atomic
+@filter_events(
+    lambda work_item: work_item.task.slug == "complete-check"
+    and settings.APPLICATION_NAME == "kt_uri"
+)
+def send_notification_after_complete_check(
+    sender, work_item, user, context=None, **kwargs
+):
+    complete_check_answer_value = (
+        work_item.document.answers.filter(
+            question_id="complete-check-vollstaendigkeitspruefung"
+        )
+        .values_list("value", flat=True)
+        .first()
+    )
+
+    if (
+        complete_check_answer_value
+        == "complete-check-vollstaendigkeitspruefung-complete"
+    ):
+        instance = work_item.case.family.instance
+
+        send_notification(
+            notification={
+                "template_slug": "dossier-angenommen",
+                "recipient_types": ["applicant"],
+            },
+            context=context,
+            instance=instance,
+            user=user,
+            work_item=work_item,
+        )
