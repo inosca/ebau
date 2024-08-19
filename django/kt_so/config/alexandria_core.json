@@ -67,16 +67,6 @@
               }
             ]
           },
-          "service-clerk": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "permission": "update"
-              }
-            ]
-          },
           "municipality-lead": {
             "visibility": "all",
             "permissions": [
@@ -103,16 +93,6 @@
           },
           "municipality-read": {
             "visibility": "all"
-          },
-          "municipality-clerk": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "scope": "All",
-                "fields": ["title", "description", "date", "tags", "marks"],
-                "permission": "update"
-              }
-            ]
           }
         }
       },
@@ -244,16 +224,6 @@
               }
             ]
           },
-          "service-clerk": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "permission": "update"
-              }
-            ]
-          },
           "municipality-lead": {
             "visibility": "all",
             "permissions": [
@@ -274,24 +244,6 @@
           },
           "municipality-read": {
             "visibility": "all"
-          },
-          "municipality-clerk": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "fields": ["title", "description", "date", "files"],
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "fields": ["tags", "marks"],
-                "permission": "update"
-              }
-            ]
           }
         }
       },
@@ -393,42 +345,6 @@
               }
             ]
           },
-          "service-clerk": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "fields": [
-                  "title",
-                  "description",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "fields": ["title", "description", "date", "files"],
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "permission": "update"
-              },
-              {
-                "marks": ["decision"],
-                "scope": "All",
-                "fields": ["marks"],
-                "condition": {
-                  "BaBService": true,
-                  "BaBInstance": true
-                },
-                "permission": "update"
-              }
-            ]
-          },
           "municipality-lead": {
             "visibility": "all",
             "permissions": [
@@ -449,24 +365,6 @@
           },
           "municipality-read": {
             "visibility": "all"
-          },
-          "municipality-clerk": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "fields": ["title", "description", "date", "files"],
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "fields": ["tags", "marks"],
-                "permission": "update"
-              }
-            ]
           }
         }
       },
@@ -526,16 +424,6 @@
               }
             ]
           },
-          "service-clerk": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "permission": "update"
-              }
-            ]
-          },
           "municipality-lead": {
             "visibility": "all",
             "permissions": [
@@ -556,24 +444,6 @@
           },
           "municipality-read": {
             "visibility": "all"
-          },
-          "municipality-clerk": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "fields": ["title", "description", "date", "files"],
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "fields": ["tags", "marks"],
-                "permission": "update"
-              }
-            ]
           }
         }
       },
@@ -677,38 +547,6 @@
               }
             ]
           },
-          "service-clerk": {
-            "visibility": "service",
-            "permissions": [
-              {
-                "fields": [
-                  "title",
-                  "description",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "category",
-                  "tags",
-                  "files"
-                ],
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "permission": "delete"
-              }
-            ]
-          },
           "municipality-lead": {
             "visibility": "service",
             "permissions": [
@@ -743,38 +581,6 @@
           },
           "municipality-read": {
             "visibility": "service"
-          },
-          "municipality-clerk": {
-            "visibility": "service",
-            "permissions": [
-              {
-                "fields": [
-                  "title",
-                  "description",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "category",
-                  "date",
-                  "tags",
-                  "files"
-                ],
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "permission": "delete"
-              }
-            ]
           }
         }
       },
@@ -874,36 +680,6 @@
               }
             ]
           },
-          "service-clerk": {
-            "visibility": "service-and-subservice",
-            "permissions": [
-              {
-                "fields": [
-                  "title",
-                  "description",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
-                "permission": "create"
-              },
-              {
-                "scope": "ServiceAndSubservice",
-                "fields": ["title", "description", "date", "tags", "files"],
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "fields": ["category"],
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "permission": "delete"
-              }
-            ]
-          },
           "municipality-lead": {
             "visibility": "service-and-subservice",
             "permissions": [
@@ -936,36 +712,6 @@
           },
           "municipality-read": {
             "visibility": "service-and-subservice"
-          },
-          "municipality-clerk": {
-            "visibility": "service-and-subservice",
-            "permissions": [
-              {
-                "fields": [
-                  "title",
-                  "description",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
-                "permission": "create"
-              },
-              {
-                "scope": "ServiceAndSubservice",
-                "fields": ["title", "description", "date", "tags", "files"],
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "fields": ["category"],
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "permission": "delete"
-              }
-            ]
           }
         }
       },
@@ -1025,16 +771,6 @@
               }
             ]
           },
-          "service-clerk": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "permission": "update"
-              }
-            ]
-          },
           "municipality-lead": {
             "visibility": "all",
             "permissions": [
@@ -1063,32 +799,6 @@
           },
           "municipality-read": {
             "visibility": "all"
-          },
-          "municipality-clerk": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "scope": "All",
-                "condition": {
-                  "MigratedInstance": true
-                },
-                "permission": "create"
-              },
-              {
-                "scope": "All",
-                "condition": {
-                  "MigratedInstance": true
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "condition": {
-                  "MigratedInstance": true
-                },
-                "permission": "delete"
-              }
-            ]
           }
         }
       },
@@ -1167,16 +877,6 @@
               }
             ]
           },
-          "service-clerk": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "permission": "update"
-              }
-            ]
-          },
           "municipality-lead": {
             "visibility": "all",
             "permissions": [
@@ -1202,16 +902,6 @@
           },
           "municipality-read": {
             "visibility": "all"
-          },
-          "municipality-clerk": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "scope": "All",
-                "fields": ["title", "description", "date", "tags", "marks"],
-                "permission": "update"
-              }
-            ]
           }
         }
       },

@@ -2,20 +2,6 @@
   "1": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Aufgaben",
     "acls": {
-      "municipality-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
-        "init-distribution",
-        "material-exam",
-        "reject",
-        "rejected",
-        "subm",
-        "withdrawal",
-        "withdrawn"
-      ],
       "municipality-lead": [
         "construction-monitoring",
         "decided",
@@ -27,15 +13,6 @@
         "reject",
         "rejected",
         "subm",
-        "withdrawal",
-        "withdrawn"
-      ],
-      "service-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
         "withdrawal",
         "withdrawn"
       ],
@@ -62,20 +39,6 @@
   "2": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Dokumente",
     "acls": {
-      "municipality-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
-        "init-distribution",
-        "material-exam",
-        "reject",
-        "rejected",
-        "subm",
-        "withdrawal",
-        "withdrawn"
-      ],
       "municipality-lead": [
         "construction-monitoring",
         "decided",
@@ -101,15 +64,6 @@
         "reject",
         "rejected",
         "subm",
-        "withdrawal",
-        "withdrawn"
-      ],
-      "service-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
         "withdrawal",
         "withdrawn"
       ],
@@ -136,21 +90,6 @@
   "3": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Formular",
     "acls": {
-      "municipality-clerk": [
-        "construction-monitoring",
-        "correction",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
-        "init-distribution",
-        "material-exam",
-        "reject",
-        "rejected",
-        "subm",
-        "withdrawal",
-        "withdrawn"
-      ],
       "municipality-lead": [
         "construction-monitoring",
         "correction",
@@ -181,15 +120,6 @@
         "withdrawal",
         "withdrawn"
       ],
-      "service-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
-        "withdrawal",
-        "withdrawn"
-      ],
       "service-lead": [
         "construction-monitoring",
         "decided",
@@ -213,20 +143,6 @@
   "4": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Formelle Prüfung",
     "acls": {
-      "municipality-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
-        "init-distribution",
-        "material-exam",
-        "reject",
-        "rejected",
-        "subm",
-        "withdrawal",
-        "withdrawn"
-      ],
       "municipality-lead": [
         "construction-monitoring",
         "decided",
@@ -260,19 +176,6 @@
   "5": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Materielle Prüfung",
     "acls": {
-      "municipality-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
-        "init-distribution",
-        "material-exam",
-        "reject",
-        "rejected",
-        "withdrawal",
-        "withdrawn"
-      ],
       "municipality-lead": [
         "construction-monitoring",
         "decided",
@@ -304,16 +207,6 @@
   "6": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Publikation",
     "acls": {
-      "municipality-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
-        "init-distribution",
-        "withdrawal",
-        "withdrawn"
-      ],
       "municipality-lead": [
         "construction-monitoring",
         "decided",
@@ -339,20 +232,6 @@
   "7": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > History",
     "acls": {
-      "municipality-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
-        "init-distribution",
-        "material-exam",
-        "reject",
-        "rejected",
-        "subm",
-        "withdrawal",
-        "withdrawn"
-      ],
       "municipality-lead": [
         "construction-monitoring",
         "decided",
@@ -378,15 +257,6 @@
         "reject",
         "rejected",
         "subm",
-        "withdrawal",
-        "withdrawn"
-      ],
-      "service-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
         "withdrawal",
         "withdrawn"
       ],
@@ -413,20 +283,6 @@
   "8": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Journal",
     "acls": {
-      "municipality-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
-        "init-distribution",
-        "material-exam",
-        "reject",
-        "rejected",
-        "subm",
-        "withdrawal",
-        "withdrawn"
-      ],
       "municipality-lead": [
         "construction-monitoring",
         "decided",
@@ -452,15 +308,6 @@
         "reject",
         "rejected",
         "subm",
-        "withdrawal",
-        "withdrawn"
-      ],
-      "service-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
         "withdrawal",
         "withdrawn"
       ],
@@ -487,20 +334,6 @@
   "9": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Zuständigkeit",
     "acls": {
-      "municipality-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
-        "init-distribution",
-        "material-exam",
-        "reject",
-        "rejected",
-        "subm",
-        "withdrawal",
-        "withdrawn"
-      ],
       "municipality-lead": [
         "construction-monitoring",
         "decided",
@@ -512,15 +345,6 @@
         "reject",
         "rejected",
         "subm",
-        "withdrawal",
-        "withdrawn"
-      ],
-      "service-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
         "withdrawal",
         "withdrawn"
       ],
@@ -547,16 +371,6 @@
   "10": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Zirkulation",
     "acls": {
-      "municipality-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
-        "init-distribution",
-        "withdrawal",
-        "withdrawn"
-      ],
       "municipality-lead": [
         "construction-monitoring",
         "decided",
@@ -574,15 +388,6 @@
         "distribution",
         "finished",
         "init-distribution",
-        "withdrawal",
-        "withdrawn"
-      ],
-      "service-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
         "withdrawal",
         "withdrawn"
       ],
@@ -609,20 +414,6 @@
   "11": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Nachforderungen",
     "acls": {
-      "municipality-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
-        "init-distribution",
-        "material-exam",
-        "reject",
-        "rejected",
-        "subm",
-        "withdrawal",
-        "withdrawn"
-      ],
       "municipality-lead": [
         "construction-monitoring",
         "decided",
@@ -648,15 +439,6 @@
         "reject",
         "rejected",
         "subm",
-        "withdrawal",
-        "withdrawn"
-      ],
-      "service-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
         "withdrawal",
         "withdrawn"
       ],
@@ -683,21 +465,6 @@
   "12": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Korrekturhilfen",
     "acls": {
-      "municipality-clerk": [
-        "construction-monitoring",
-        "correction",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
-        "init-distribution",
-        "material-exam",
-        "reject",
-        "rejected",
-        "subm",
-        "withdrawal",
-        "withdrawn"
-      ],
       "municipality-lead": [
         "construction-monitoring",
         "correction",
@@ -718,14 +485,6 @@
   "13": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Entscheid / Beurteilung",
     "acls": {
-      "municipality-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "finished",
-        "withdrawal",
-        "withdrawn"
-      ],
       "municipality-lead": [
         "construction-monitoring",
         "decided",
@@ -747,18 +506,6 @@
   "14": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Vorlagen",
     "acls": {
-      "municipality-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
-        "init-distribution",
-        "material-exam",
-        "subm",
-        "withdrawal",
-        "withdrawn"
-      ],
       "municipality-lead": [
         "construction-monitoring",
         "decided",
@@ -768,15 +515,6 @@
         "init-distribution",
         "material-exam",
         "subm",
-        "withdrawal",
-        "withdrawn"
-      ],
-      "service-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
         "withdrawal",
         "withdrawn"
       ],
@@ -803,20 +541,6 @@
   "15": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Gebühren",
     "acls": {
-      "municipality-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
-        "init-distribution",
-        "material-exam",
-        "reject",
-        "rejected",
-        "subm",
-        "withdrawal",
-        "withdrawn"
-      ],
       "municipality-lead": [
         "construction-monitoring",
         "decided",
@@ -828,15 +552,6 @@
         "reject",
         "rejected",
         "subm",
-        "withdrawal",
-        "withdrawn"
-      ],
-      "service-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
         "withdrawal",
         "withdrawn"
       ],
@@ -863,23 +578,12 @@
   "16": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Dossier zurückweisen",
     "acls": {
-      "municipality-clerk": ["reject", "rejected"],
       "municipality-lead": ["reject", "rejected"]
     }
   },
   "17": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Einsprachen",
     "acls": {
-      "municipality-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
-        "init-distribution",
-        "withdrawal",
-        "withdrawn"
-      ],
       "municipality-lead": [
         "construction-monitoring",
         "decided",
@@ -897,15 +601,6 @@
         "distribution",
         "finished",
         "init-distribution",
-        "withdrawal",
-        "withdrawn"
-      ],
-      "service-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
         "withdrawal",
         "withdrawn"
       ],
@@ -932,20 +627,6 @@
   "18": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Kommunikation",
     "acls": {
-      "municipality-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
-        "init-distribution",
-        "material-exam",
-        "reject",
-        "rejected",
-        "subm",
-        "withdrawal",
-        "withdrawn"
-      ],
       "municipality-lead": [
         "construction-monitoring",
         "decided",
@@ -957,15 +638,6 @@
         "reject",
         "rejected",
         "subm",
-        "withdrawal",
-        "withdrawn"
-      ],
-      "service-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
         "withdrawal",
         "withdrawn"
       ],
@@ -992,16 +664,6 @@
   "19": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Verknüpfte GWR-Bauprojekte",
     "acls": {
-      "municipality-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
-        "init-distribution",
-        "withdrawal",
-        "withdrawn"
-      ],
       "municipality-lead": [
         "construction-monitoring",
         "decided",
@@ -1017,16 +679,6 @@
   "20": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Beschwerdeverfahren",
     "acls": {
-      "municipality-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
-        "init-distribution",
-        "withdrawal",
-        "withdrawn"
-      ],
       "municipality-lead": [
         "construction-monitoring",
         "decided",
@@ -1072,29 +724,18 @@
   "22": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Baubegleitung",
     "acls": {
-      "municipality-clerk": ["construction-monitoring", "decided", "finished"],
       "municipality-lead": ["construction-monitoring", "decided", "finished"]
     }
   },
   "23": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Verfahren abschliessen",
     "acls": {
-      "municipality-clerk": ["construction-monitoring", "decided", "finished"],
       "municipality-lead": ["construction-monitoring", "decided", "finished"]
     }
   },
   "24": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Beurteilung BaB",
     "acls": {
-      "service-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
-        "withdrawal",
-        "withdrawn"
-      ],
       "service-lead": [
         "construction-monitoring",
         "decided",
@@ -1109,20 +750,6 @@
   "25": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Verknüpfte Dossiers",
     "acls": {
-      "municipality-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
-        "init-distribution",
-        "material-exam",
-        "reject",
-        "rejected",
-        "subm",
-        "withdrawal",
-        "withdrawn"
-      ],
       "municipality-lead": [
         "construction-monitoring",
         "decided",
@@ -1134,15 +761,6 @@
         "reject",
         "rejected",
         "subm",
-        "withdrawal",
-        "withdrawn"
-      ],
-      "service-clerk": [
-        "construction-monitoring",
-        "decided",
-        "decision",
-        "distribution",
-        "finished",
         "withdrawal",
         "withdrawn"
       ],

@@ -105,22 +105,6 @@
   },
   {
     "model": "user.group",
-    "pk": 6,
-    "fields": {
-      "role": 6,
-      "service": 1,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 8,
     "fields": {
       "role": 8,
@@ -156,22 +140,6 @@
     "pk": 10,
     "fields": {
       "role": 4,
-      "service": 2,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 11,
-    "fields": {
-      "role": 6,
       "service": 2,
       "disabled": 0,
       "name": null,
@@ -233,22 +201,6 @@
   },
   {
     "model": "user.group",
-    "pk": 16,
-    "fields": {
-      "role": 6,
-      "service": 3,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 17,
     "fields": {
       "role": 8,
@@ -284,22 +236,6 @@
     "pk": 20,
     "fields": {
       "role": 4,
-      "service": 4,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 21,
-    "fields": {
-      "role": 6,
       "service": 4,
       "disabled": 0,
       "name": null,
@@ -361,22 +297,6 @@
   },
   {
     "model": "user.group",
-    "pk": 26,
-    "fields": {
-      "role": 6,
-      "service": 5,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 27,
     "fields": {
       "role": 8,
@@ -412,22 +332,6 @@
     "pk": 30,
     "fields": {
       "role": 4,
-      "service": 6,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 31,
-    "fields": {
-      "role": 6,
       "service": 6,
       "disabled": 0,
       "name": null,
@@ -489,22 +393,6 @@
   },
   {
     "model": "user.group",
-    "pk": 36,
-    "fields": {
-      "role": 6,
-      "service": 7,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 37,
     "fields": {
       "role": 8,
@@ -540,22 +428,6 @@
     "pk": 40,
     "fields": {
       "role": 4,
-      "service": 8,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 41,
-    "fields": {
-      "role": 6,
       "service": 8,
       "disabled": 0,
       "name": null,
@@ -617,22 +489,6 @@
   },
   {
     "model": "user.group",
-    "pk": 46,
-    "fields": {
-      "role": 6,
-      "service": 9,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 47,
     "fields": {
       "role": 8,
@@ -668,22 +524,6 @@
     "pk": 50,
     "fields": {
       "role": 4,
-      "service": 10,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 51,
-    "fields": {
-      "role": 6,
       "service": 10,
       "disabled": 0,
       "name": null,
@@ -745,22 +585,6 @@
   },
   {
     "model": "user.group",
-    "pk": 56,
-    "fields": {
-      "role": 6,
-      "service": 11,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 57,
     "fields": {
       "role": 8,
@@ -796,22 +620,6 @@
     "pk": 60,
     "fields": {
       "role": 4,
-      "service": 12,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 61,
-    "fields": {
-      "role": 6,
       "service": 12,
       "disabled": 0,
       "name": null,
@@ -873,22 +681,6 @@
   },
   {
     "model": "user.group",
-    "pk": 66,
-    "fields": {
-      "role": 6,
-      "service": 13,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 67,
     "fields": {
       "role": 8,
@@ -924,22 +716,6 @@
     "pk": 70,
     "fields": {
       "role": 4,
-      "service": 14,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 71,
-    "fields": {
-      "role": 6,
       "service": 14,
       "disabled": 0,
       "name": null,
@@ -1001,22 +777,6 @@
   },
   {
     "model": "user.group",
-    "pk": 76,
-    "fields": {
-      "role": 6,
-      "service": 15,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 77,
     "fields": {
       "role": 8,
@@ -1052,22 +812,6 @@
     "pk": 80,
     "fields": {
       "role": 4,
-      "service": 16,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 81,
-    "fields": {
-      "role": 6,
       "service": 16,
       "disabled": 0,
       "name": null,
@@ -1129,22 +873,6 @@
   },
   {
     "model": "user.group",
-    "pk": 86,
-    "fields": {
-      "role": 6,
-      "service": 17,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 87,
     "fields": {
       "role": 8,
@@ -1180,22 +908,6 @@
     "pk": 90,
     "fields": {
       "role": 4,
-      "service": 18,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 91,
-    "fields": {
-      "role": 6,
       "service": 18,
       "disabled": 0,
       "name": null,
@@ -1257,22 +969,6 @@
   },
   {
     "model": "user.group",
-    "pk": 96,
-    "fields": {
-      "role": 6,
-      "service": 19,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 97,
     "fields": {
       "role": 8,
@@ -1308,22 +1004,6 @@
     "pk": 100,
     "fields": {
       "role": 4,
-      "service": 20,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 101,
-    "fields": {
-      "role": 6,
       "service": 20,
       "disabled": 0,
       "name": null,
@@ -1385,22 +1065,6 @@
   },
   {
     "model": "user.group",
-    "pk": 106,
-    "fields": {
-      "role": 6,
-      "service": 21,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 107,
     "fields": {
       "role": 8,
@@ -1436,22 +1100,6 @@
     "pk": 110,
     "fields": {
       "role": 4,
-      "service": 22,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 111,
-    "fields": {
-      "role": 6,
       "service": 22,
       "disabled": 0,
       "name": null,
@@ -1513,22 +1161,6 @@
   },
   {
     "model": "user.group",
-    "pk": 116,
-    "fields": {
-      "role": 6,
-      "service": 23,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 117,
     "fields": {
       "role": 8,
@@ -1564,22 +1196,6 @@
     "pk": 120,
     "fields": {
       "role": 4,
-      "service": 24,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 121,
-    "fields": {
-      "role": 6,
       "service": 24,
       "disabled": 0,
       "name": null,
@@ -1641,22 +1257,6 @@
   },
   {
     "model": "user.group",
-    "pk": 126,
-    "fields": {
-      "role": 6,
-      "service": 25,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 127,
     "fields": {
       "role": 8,
@@ -1692,22 +1292,6 @@
     "pk": 130,
     "fields": {
       "role": 4,
-      "service": 26,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 131,
-    "fields": {
-      "role": 6,
       "service": 26,
       "disabled": 0,
       "name": null,
@@ -1769,22 +1353,6 @@
   },
   {
     "model": "user.group",
-    "pk": 136,
-    "fields": {
-      "role": 6,
-      "service": 27,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 137,
     "fields": {
       "role": 8,
@@ -1820,22 +1388,6 @@
     "pk": 140,
     "fields": {
       "role": 4,
-      "service": 28,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 141,
-    "fields": {
-      "role": 6,
       "service": 28,
       "disabled": 0,
       "name": null,
@@ -1897,22 +1449,6 @@
   },
   {
     "model": "user.group",
-    "pk": 146,
-    "fields": {
-      "role": 6,
-      "service": 29,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 147,
     "fields": {
       "role": 8,
@@ -1948,22 +1484,6 @@
     "pk": 150,
     "fields": {
       "role": 4,
-      "service": 30,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 151,
-    "fields": {
-      "role": 6,
       "service": 30,
       "disabled": 0,
       "name": null,
@@ -2025,22 +1545,6 @@
   },
   {
     "model": "user.group",
-    "pk": 156,
-    "fields": {
-      "role": 6,
-      "service": 31,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 157,
     "fields": {
       "role": 8,
@@ -2076,22 +1580,6 @@
     "pk": 160,
     "fields": {
       "role": 4,
-      "service": 32,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 161,
-    "fields": {
-      "role": 6,
       "service": 32,
       "disabled": 0,
       "name": null,
@@ -2153,22 +1641,6 @@
   },
   {
     "model": "user.group",
-    "pk": 166,
-    "fields": {
-      "role": 6,
-      "service": 33,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 167,
     "fields": {
       "role": 8,
@@ -2204,22 +1676,6 @@
     "pk": 170,
     "fields": {
       "role": 4,
-      "service": 34,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 171,
-    "fields": {
-      "role": 6,
       "service": 34,
       "disabled": 0,
       "name": null,
@@ -2281,22 +1737,6 @@
   },
   {
     "model": "user.group",
-    "pk": 176,
-    "fields": {
-      "role": 6,
-      "service": 35,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 177,
     "fields": {
       "role": 8,
@@ -2332,22 +1772,6 @@
     "pk": 180,
     "fields": {
       "role": 4,
-      "service": 36,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 181,
-    "fields": {
-      "role": 6,
       "service": 36,
       "disabled": 0,
       "name": null,
@@ -2409,22 +1833,6 @@
   },
   {
     "model": "user.group",
-    "pk": 186,
-    "fields": {
-      "role": 6,
-      "service": 37,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 187,
     "fields": {
       "role": 8,
@@ -2460,22 +1868,6 @@
     "pk": 190,
     "fields": {
       "role": 4,
-      "service": 38,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 191,
-    "fields": {
-      "role": 6,
       "service": 38,
       "disabled": 0,
       "name": null,
@@ -2537,22 +1929,6 @@
   },
   {
     "model": "user.group",
-    "pk": 196,
-    "fields": {
-      "role": 6,
-      "service": 39,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 197,
     "fields": {
       "role": 8,
@@ -2588,22 +1964,6 @@
     "pk": 200,
     "fields": {
       "role": 4,
-      "service": 40,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 201,
-    "fields": {
-      "role": 6,
       "service": 40,
       "disabled": 0,
       "name": null,
@@ -2665,22 +2025,6 @@
   },
   {
     "model": "user.group",
-    "pk": 206,
-    "fields": {
-      "role": 6,
-      "service": 41,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 207,
     "fields": {
       "role": 8,
@@ -2716,22 +2060,6 @@
     "pk": 210,
     "fields": {
       "role": 4,
-      "service": 42,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 211,
-    "fields": {
-      "role": 6,
       "service": 42,
       "disabled": 0,
       "name": null,
@@ -2793,22 +2121,6 @@
   },
   {
     "model": "user.group",
-    "pk": 216,
-    "fields": {
-      "role": 6,
-      "service": 43,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 217,
     "fields": {
       "role": 8,
@@ -2844,22 +2156,6 @@
     "pk": 220,
     "fields": {
       "role": 4,
-      "service": 44,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 221,
-    "fields": {
-      "role": 6,
       "service": 44,
       "disabled": 0,
       "name": null,
@@ -2921,22 +2217,6 @@
   },
   {
     "model": "user.group",
-    "pk": 226,
-    "fields": {
-      "role": 6,
-      "service": 45,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 227,
     "fields": {
       "role": 8,
@@ -2972,22 +2252,6 @@
     "pk": 230,
     "fields": {
       "role": 4,
-      "service": 46,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 231,
-    "fields": {
-      "role": 6,
       "service": 46,
       "disabled": 0,
       "name": null,
@@ -3049,22 +2313,6 @@
   },
   {
     "model": "user.group",
-    "pk": 236,
-    "fields": {
-      "role": 6,
-      "service": 47,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 237,
     "fields": {
       "role": 8,
@@ -3100,22 +2348,6 @@
     "pk": 240,
     "fields": {
       "role": 4,
-      "service": 48,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 241,
-    "fields": {
-      "role": 6,
       "service": 48,
       "disabled": 0,
       "name": null,
@@ -3177,22 +2409,6 @@
   },
   {
     "model": "user.group",
-    "pk": 246,
-    "fields": {
-      "role": 6,
-      "service": 49,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 247,
     "fields": {
       "role": 8,
@@ -3228,22 +2444,6 @@
     "pk": 250,
     "fields": {
       "role": 4,
-      "service": 50,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 251,
-    "fields": {
-      "role": 6,
       "service": 50,
       "disabled": 0,
       "name": null,
@@ -3305,22 +2505,6 @@
   },
   {
     "model": "user.group",
-    "pk": 256,
-    "fields": {
-      "role": 6,
-      "service": 51,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 257,
     "fields": {
       "role": 8,
@@ -3356,22 +2540,6 @@
     "pk": 260,
     "fields": {
       "role": 4,
-      "service": 52,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 261,
-    "fields": {
-      "role": 6,
       "service": 52,
       "disabled": 0,
       "name": null,
@@ -3433,22 +2601,6 @@
   },
   {
     "model": "user.group",
-    "pk": 266,
-    "fields": {
-      "role": 6,
-      "service": 53,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 267,
     "fields": {
       "role": 8,
@@ -3484,22 +2636,6 @@
     "pk": 270,
     "fields": {
       "role": 4,
-      "service": 54,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 271,
-    "fields": {
-      "role": 6,
       "service": 54,
       "disabled": 0,
       "name": null,
@@ -3561,22 +2697,6 @@
   },
   {
     "model": "user.group",
-    "pk": 276,
-    "fields": {
-      "role": 6,
-      "service": 55,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 277,
     "fields": {
       "role": 8,
@@ -3612,22 +2732,6 @@
     "pk": 280,
     "fields": {
       "role": 4,
-      "service": 56,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 281,
-    "fields": {
-      "role": 6,
       "service": 56,
       "disabled": 0,
       "name": null,
@@ -3689,22 +2793,6 @@
   },
   {
     "model": "user.group",
-    "pk": 286,
-    "fields": {
-      "role": 6,
-      "service": 57,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 287,
     "fields": {
       "role": 8,
@@ -3740,22 +2828,6 @@
     "pk": 290,
     "fields": {
       "role": 4,
-      "service": 58,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 291,
-    "fields": {
-      "role": 6,
       "service": 58,
       "disabled": 0,
       "name": null,
@@ -3817,22 +2889,6 @@
   },
   {
     "model": "user.group",
-    "pk": 296,
-    "fields": {
-      "role": 6,
-      "service": 59,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 297,
     "fields": {
       "role": 8,
@@ -3868,22 +2924,6 @@
     "pk": 300,
     "fields": {
       "role": 4,
-      "service": 60,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 301,
-    "fields": {
-      "role": 6,
       "service": 60,
       "disabled": 0,
       "name": null,
@@ -3945,22 +2985,6 @@
   },
   {
     "model": "user.group",
-    "pk": 306,
-    "fields": {
-      "role": 6,
-      "service": 61,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 307,
     "fields": {
       "role": 8,
@@ -3996,22 +3020,6 @@
     "pk": 310,
     "fields": {
       "role": 4,
-      "service": 62,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 311,
-    "fields": {
-      "role": 6,
       "service": 62,
       "disabled": 0,
       "name": null,
@@ -4073,22 +3081,6 @@
   },
   {
     "model": "user.group",
-    "pk": 316,
-    "fields": {
-      "role": 6,
-      "service": 63,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 317,
     "fields": {
       "role": 8,
@@ -4124,22 +3116,6 @@
     "pk": 320,
     "fields": {
       "role": 4,
-      "service": 64,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 321,
-    "fields": {
-      "role": 6,
       "service": 64,
       "disabled": 0,
       "name": null,
@@ -4201,22 +3177,6 @@
   },
   {
     "model": "user.group",
-    "pk": 326,
-    "fields": {
-      "role": 6,
-      "service": 65,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 327,
     "fields": {
       "role": 8,
@@ -4252,22 +3212,6 @@
     "pk": 330,
     "fields": {
       "role": 4,
-      "service": 66,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 331,
-    "fields": {
-      "role": 6,
       "service": 66,
       "disabled": 0,
       "name": null,
@@ -4329,22 +3273,6 @@
   },
   {
     "model": "user.group",
-    "pk": 341,
-    "fields": {
-      "role": 6,
-      "service": 68,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 342,
     "fields": {
       "role": 8,
@@ -4380,22 +3308,6 @@
     "pk": 345,
     "fields": {
       "role": 4,
-      "service": 69,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 346,
-    "fields": {
-      "role": 6,
       "service": 69,
       "disabled": 0,
       "name": null,
@@ -4457,22 +3369,6 @@
   },
   {
     "model": "user.group",
-    "pk": 351,
-    "fields": {
-      "role": 6,
-      "service": 70,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 352,
     "fields": {
       "role": 8,
@@ -4508,22 +3404,6 @@
     "pk": 355,
     "fields": {
       "role": 4,
-      "service": 71,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 356,
-    "fields": {
-      "role": 6,
       "service": 71,
       "disabled": 0,
       "name": null,
@@ -4585,22 +3465,6 @@
   },
   {
     "model": "user.group",
-    "pk": 361,
-    "fields": {
-      "role": 6,
-      "service": 72,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 362,
     "fields": {
       "role": 8,
@@ -4636,22 +3500,6 @@
     "pk": 365,
     "fields": {
       "role": 4,
-      "service": 73,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 366,
-    "fields": {
-      "role": 6,
       "service": 73,
       "disabled": 0,
       "name": null,
@@ -4713,22 +3561,6 @@
   },
   {
     "model": "user.group",
-    "pk": 371,
-    "fields": {
-      "role": 6,
-      "service": 74,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 372,
     "fields": {
       "role": 8,
@@ -4764,22 +3596,6 @@
     "pk": 375,
     "fields": {
       "role": 4,
-      "service": 75,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 376,
-    "fields": {
-      "role": 6,
       "service": 75,
       "disabled": 0,
       "name": null,
@@ -4841,22 +3657,6 @@
   },
   {
     "model": "user.group",
-    "pk": 381,
-    "fields": {
-      "role": 6,
-      "service": 76,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 382,
     "fields": {
       "role": 8,
@@ -4892,22 +3692,6 @@
     "pk": 385,
     "fields": {
       "role": 4,
-      "service": 77,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 386,
-    "fields": {
-      "role": 6,
       "service": 77,
       "disabled": 0,
       "name": null,
@@ -4969,22 +3753,6 @@
   },
   {
     "model": "user.group",
-    "pk": 391,
-    "fields": {
-      "role": 6,
-      "service": 78,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 392,
     "fields": {
       "role": 8,
@@ -5020,22 +3788,6 @@
     "pk": 395,
     "fields": {
       "role": 4,
-      "service": 79,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 396,
-    "fields": {
-      "role": 6,
       "service": 79,
       "disabled": 0,
       "name": null,
@@ -5097,22 +3849,6 @@
   },
   {
     "model": "user.group",
-    "pk": 401,
-    "fields": {
-      "role": 6,
-      "service": 80,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 402,
     "fields": {
       "role": 8,
@@ -5148,22 +3884,6 @@
     "pk": 405,
     "fields": {
       "role": 4,
-      "service": 81,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 406,
-    "fields": {
-      "role": 6,
       "service": 81,
       "disabled": 0,
       "name": null,
@@ -5225,22 +3945,6 @@
   },
   {
     "model": "user.group",
-    "pk": 411,
-    "fields": {
-      "role": 6,
-      "service": 82,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 412,
     "fields": {
       "role": 8,
@@ -5276,22 +3980,6 @@
     "pk": 415,
     "fields": {
       "role": 4,
-      "service": 83,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 416,
-    "fields": {
-      "role": 6,
       "service": 83,
       "disabled": 0,
       "name": null,
@@ -5353,22 +4041,6 @@
   },
   {
     "model": "user.group",
-    "pk": 421,
-    "fields": {
-      "role": 6,
-      "service": 84,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 422,
     "fields": {
       "role": 8,
@@ -5404,22 +4076,6 @@
     "pk": 425,
     "fields": {
       "role": 4,
-      "service": 85,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 426,
-    "fields": {
-      "role": 6,
       "service": 85,
       "disabled": 0,
       "name": null,
@@ -5481,22 +4137,6 @@
   },
   {
     "model": "user.group",
-    "pk": 431,
-    "fields": {
-      "role": 6,
-      "service": 86,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 432,
     "fields": {
       "role": 8,
@@ -5532,22 +4172,6 @@
     "pk": 435,
     "fields": {
       "role": 4,
-      "service": 87,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 436,
-    "fields": {
-      "role": 6,
       "service": 87,
       "disabled": 0,
       "name": null,
@@ -5609,22 +4233,6 @@
   },
   {
     "model": "user.group",
-    "pk": 441,
-    "fields": {
-      "role": 6,
-      "service": 88,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 442,
     "fields": {
       "role": 8,
@@ -5660,22 +4268,6 @@
     "pk": 445,
     "fields": {
       "role": 4,
-      "service": 89,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 446,
-    "fields": {
-      "role": 6,
       "service": 89,
       "disabled": 0,
       "name": null,
@@ -5737,22 +4329,6 @@
   },
   {
     "model": "user.group",
-    "pk": 451,
-    "fields": {
-      "role": 6,
-      "service": 90,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 452,
     "fields": {
       "role": 8,
@@ -5788,22 +4364,6 @@
     "pk": 455,
     "fields": {
       "role": 4,
-      "service": 91,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 456,
-    "fields": {
-      "role": 6,
       "service": 91,
       "disabled": 0,
       "name": null,
@@ -5865,22 +4425,6 @@
   },
   {
     "model": "user.group",
-    "pk": 461,
-    "fields": {
-      "role": 6,
-      "service": 92,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 462,
     "fields": {
       "role": 8,
@@ -5916,22 +4460,6 @@
     "pk": 465,
     "fields": {
       "role": 4,
-      "service": 93,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 466,
-    "fields": {
-      "role": 6,
       "service": 93,
       "disabled": 0,
       "name": null,
@@ -5993,22 +4521,6 @@
   },
   {
     "model": "user.group",
-    "pk": 471,
-    "fields": {
-      "role": 6,
-      "service": 94,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 472,
     "fields": {
       "role": 8,
@@ -6044,22 +4556,6 @@
     "pk": 475,
     "fields": {
       "role": 4,
-      "service": 95,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 476,
-    "fields": {
-      "role": 6,
       "service": 95,
       "disabled": 0,
       "name": null,
@@ -6121,22 +4617,6 @@
   },
   {
     "model": "user.group",
-    "pk": 481,
-    "fields": {
-      "role": 6,
-      "service": 96,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 482,
     "fields": {
       "role": 8,
@@ -6172,22 +4652,6 @@
     "pk": 485,
     "fields": {
       "role": 4,
-      "service": 97,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 486,
-    "fields": {
-      "role": 6,
       "service": 97,
       "disabled": 0,
       "name": null,
@@ -6249,22 +4713,6 @@
   },
   {
     "model": "user.group",
-    "pk": 491,
-    "fields": {
-      "role": 6,
-      "service": 98,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 492,
     "fields": {
       "role": 8,
@@ -6300,22 +4748,6 @@
     "pk": 495,
     "fields": {
       "role": 4,
-      "service": 99,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 496,
-    "fields": {
-      "role": 6,
       "service": 99,
       "disabled": 0,
       "name": null,
@@ -6377,22 +4809,6 @@
   },
   {
     "model": "user.group",
-    "pk": 501,
-    "fields": {
-      "role": 6,
-      "service": 100,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 502,
     "fields": {
       "role": 8,
@@ -6428,22 +4844,6 @@
     "pk": 505,
     "fields": {
       "role": 4,
-      "service": 101,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 506,
-    "fields": {
-      "role": 6,
       "service": 101,
       "disabled": 0,
       "name": null,
@@ -6505,22 +4905,6 @@
   },
   {
     "model": "user.group",
-    "pk": 511,
-    "fields": {
-      "role": 6,
-      "service": 102,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 512,
     "fields": {
       "role": 8,
@@ -6556,22 +4940,6 @@
     "pk": 515,
     "fields": {
       "role": 4,
-      "service": 103,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 516,
-    "fields": {
-      "role": 6,
       "service": 103,
       "disabled": 0,
       "name": null,
@@ -6633,22 +5001,6 @@
   },
   {
     "model": "user.group",
-    "pk": 521,
-    "fields": {
-      "role": 6,
-      "service": 104,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 522,
     "fields": {
       "role": 8,
@@ -6684,22 +5036,6 @@
     "pk": 525,
     "fields": {
       "role": 4,
-      "service": 105,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 526,
-    "fields": {
-      "role": 6,
       "service": 105,
       "disabled": 0,
       "name": null,
@@ -6761,22 +5097,6 @@
   },
   {
     "model": "user.group",
-    "pk": 531,
-    "fields": {
-      "role": 6,
-      "service": 106,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 532,
     "fields": {
       "role": 8,
@@ -6812,22 +5132,6 @@
     "pk": 535,
     "fields": {
       "role": 4,
-      "service": 107,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 536,
-    "fields": {
-      "role": 6,
       "service": 107,
       "disabled": 0,
       "name": null,
@@ -6889,22 +5193,6 @@
   },
   {
     "model": "user.group",
-    "pk": 541,
-    "fields": {
-      "role": 11,
-      "service": 108,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 542,
     "fields": {
       "role": 10,
@@ -6924,22 +5212,6 @@
     "pk": 543,
     "fields": {
       "role": 9,
-      "service": 109,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 544,
-    "fields": {
-      "role": 11,
       "service": 109,
       "disabled": 0,
       "name": null,
@@ -6985,22 +5257,6 @@
   },
   {
     "model": "user.group",
-    "pk": 547,
-    "fields": {
-      "role": 11,
-      "service": 110,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 548,
     "fields": {
       "role": 10,
@@ -7020,22 +5276,6 @@
     "pk": 549,
     "fields": {
       "role": 9,
-      "service": 111,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 550,
-    "fields": {
-      "role": 11,
       "service": 111,
       "disabled": 0,
       "name": null,
@@ -7081,22 +5321,6 @@
   },
   {
     "model": "user.group",
-    "pk": 553,
-    "fields": {
-      "role": 11,
-      "service": 112,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 554,
     "fields": {
       "role": 10,
@@ -7116,22 +5340,6 @@
     "pk": 555,
     "fields": {
       "role": 9,
-      "service": 113,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 556,
-    "fields": {
-      "role": 11,
       "service": 113,
       "disabled": 0,
       "name": null,
@@ -7177,22 +5385,6 @@
   },
   {
     "model": "user.group",
-    "pk": 559,
-    "fields": {
-      "role": 11,
-      "service": 114,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 560,
     "fields": {
       "role": 10,
@@ -7225,22 +5417,6 @@
   },
   {
     "model": "user.group",
-    "pk": 562,
-    "fields": {
-      "role": 11,
-      "service": 115,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 563,
     "fields": {
       "role": 10,
@@ -7260,22 +5436,6 @@
     "pk": 564,
     "fields": {
       "role": 9,
-      "service": 116,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 565,
-    "fields": {
-      "role": 11,
       "service": 116,
       "disabled": 0,
       "name": null,
@@ -7399,16 +5559,6 @@
     "fields": {
       "group": 5,
       "language": "de",
-      "name": "Leitung Gemeinde Solothurn",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 6,
-    "fields": {
-      "group": 6,
-      "language": "de",
       "name": "Sachbearbeitung Gemeinde Solothurn",
       "city": null
     }
@@ -7429,7 +5579,7 @@
     "fields": {
       "group": 9,
       "language": "de",
-      "name": "Leitung Gemeinde Aedermannsdorf",
+      "name": "Sachbearbeitung Gemeinde Aedermannsdorf",
       "city": null
     }
   },
@@ -7440,16 +5590,6 @@
       "group": 10,
       "language": "de",
       "name": "Administration Gemeinde Aedermannsdorf",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 11,
-    "fields": {
-      "group": 11,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Aedermannsdorf",
       "city": null
     }
   },
@@ -7469,7 +5609,7 @@
     "fields": {
       "group": 14,
       "language": "de",
-      "name": "Leitung Gemeinde Aeschi",
+      "name": "Sachbearbeitung Gemeinde Aeschi",
       "city": null
     }
   },
@@ -7480,16 +5620,6 @@
       "group": 15,
       "language": "de",
       "name": "Administration Gemeinde Aeschi",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 16,
-    "fields": {
-      "group": 16,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Aeschi",
       "city": null
     }
   },
@@ -7509,7 +5639,7 @@
     "fields": {
       "group": 19,
       "language": "de",
-      "name": "Leitung Gemeinde Balm bei Günsberg",
+      "name": "Sachbearbeitung Gemeinde Balm bei Günsberg",
       "city": null
     }
   },
@@ -7520,16 +5650,6 @@
       "group": 20,
       "language": "de",
       "name": "Administration Gemeinde Balm bei Günsberg",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 21,
-    "fields": {
-      "group": 21,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Balm bei Günsberg",
       "city": null
     }
   },
@@ -7549,7 +5669,7 @@
     "fields": {
       "group": 24,
       "language": "de",
-      "name": "Leitung Gemeinde Balsthal",
+      "name": "Sachbearbeitung Gemeinde Balsthal",
       "city": null
     }
   },
@@ -7560,16 +5680,6 @@
       "group": 25,
       "language": "de",
       "name": "Administration Gemeinde Balsthal",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 26,
-    "fields": {
-      "group": 26,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Balsthal",
       "city": null
     }
   },
@@ -7589,7 +5699,7 @@
     "fields": {
       "group": 29,
       "language": "de",
-      "name": "Leitung Gemeinde Bärschwil",
+      "name": "Sachbearbeitung Gemeinde Bärschwil",
       "city": null
     }
   },
@@ -7600,16 +5710,6 @@
       "group": 30,
       "language": "de",
       "name": "Administration Gemeinde Bärschwil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 31,
-    "fields": {
-      "group": 31,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Bärschwil",
       "city": null
     }
   },
@@ -7629,7 +5729,7 @@
     "fields": {
       "group": 34,
       "language": "de",
-      "name": "Leitung Gemeinde Bättwil",
+      "name": "Sachbearbeitung Gemeinde Bättwil",
       "city": null
     }
   },
@@ -7640,16 +5740,6 @@
       "group": 35,
       "language": "de",
       "name": "Administration Gemeinde Bättwil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 36,
-    "fields": {
-      "group": 36,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Bättwil",
       "city": null
     }
   },
@@ -7669,7 +5759,7 @@
     "fields": {
       "group": 39,
       "language": "de",
-      "name": "Leitung Gemeinde Beinwil",
+      "name": "Sachbearbeitung Gemeinde Beinwil",
       "city": null
     }
   },
@@ -7680,16 +5770,6 @@
       "group": 40,
       "language": "de",
       "name": "Administration Gemeinde Beinwil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 41,
-    "fields": {
-      "group": 41,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Beinwil",
       "city": null
     }
   },
@@ -7709,7 +5789,7 @@
     "fields": {
       "group": 44,
       "language": "de",
-      "name": "Leitung Gemeinde Bellach",
+      "name": "Sachbearbeitung Gemeinde Bellach",
       "city": null
     }
   },
@@ -7720,16 +5800,6 @@
       "group": 45,
       "language": "de",
       "name": "Administration Gemeinde Bellach",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 46,
-    "fields": {
-      "group": 46,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Bellach",
       "city": null
     }
   },
@@ -7749,7 +5819,7 @@
     "fields": {
       "group": 49,
       "language": "de",
-      "name": "Leitung Gemeinde Bettlach",
+      "name": "Sachbearbeitung Gemeinde Bettlach",
       "city": null
     }
   },
@@ -7760,16 +5830,6 @@
       "group": 50,
       "language": "de",
       "name": "Administration Gemeinde Bettlach",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 51,
-    "fields": {
-      "group": 51,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Bettlach",
       "city": null
     }
   },
@@ -7789,7 +5849,7 @@
     "fields": {
       "group": 54,
       "language": "de",
-      "name": "Leitung Gemeinde Biberist",
+      "name": "Sachbearbeitung Gemeinde Biberist",
       "city": null
     }
   },
@@ -7800,16 +5860,6 @@
       "group": 55,
       "language": "de",
       "name": "Administration Gemeinde Biberist",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 56,
-    "fields": {
-      "group": 56,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Biberist",
       "city": null
     }
   },
@@ -7829,7 +5879,7 @@
     "fields": {
       "group": 59,
       "language": "de",
-      "name": "Leitung Gemeinde Biezwil",
+      "name": "Sachbearbeitung Gemeinde Biezwil",
       "city": null
     }
   },
@@ -7840,16 +5890,6 @@
       "group": 60,
       "language": "de",
       "name": "Administration Gemeinde Biezwil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 61,
-    "fields": {
-      "group": 61,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Biezwil",
       "city": null
     }
   },
@@ -7869,7 +5909,7 @@
     "fields": {
       "group": 64,
       "language": "de",
-      "name": "Leitung Gemeinde Bolken",
+      "name": "Sachbearbeitung Gemeinde Bolken",
       "city": null
     }
   },
@@ -7880,16 +5920,6 @@
       "group": 65,
       "language": "de",
       "name": "Administration Gemeinde Bolken",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 66,
-    "fields": {
-      "group": 66,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Bolken",
       "city": null
     }
   },
@@ -7909,7 +5939,7 @@
     "fields": {
       "group": 69,
       "language": "de",
-      "name": "Leitung Gemeinde Boningen",
+      "name": "Sachbearbeitung Gemeinde Boningen",
       "city": null
     }
   },
@@ -7920,16 +5950,6 @@
       "group": 70,
       "language": "de",
       "name": "Administration Gemeinde Boningen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 71,
-    "fields": {
-      "group": 71,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Boningen",
       "city": null
     }
   },
@@ -7949,7 +5969,7 @@
     "fields": {
       "group": 74,
       "language": "de",
-      "name": "Leitung Gemeinde Breitenbach",
+      "name": "Sachbearbeitung Gemeinde Breitenbach",
       "city": null
     }
   },
@@ -7960,16 +5980,6 @@
       "group": 75,
       "language": "de",
       "name": "Administration Gemeinde Breitenbach",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 76,
-    "fields": {
-      "group": 76,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Breitenbach",
       "city": null
     }
   },
@@ -7989,7 +5999,7 @@
     "fields": {
       "group": 79,
       "language": "de",
-      "name": "Leitung Gemeinde Buchegg",
+      "name": "Sachbearbeitung Gemeinde Buchegg",
       "city": null
     }
   },
@@ -8000,16 +6010,6 @@
       "group": 80,
       "language": "de",
       "name": "Administration Gemeinde Buchegg",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 81,
-    "fields": {
-      "group": 81,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Buchegg",
       "city": null
     }
   },
@@ -8029,7 +6029,7 @@
     "fields": {
       "group": 84,
       "language": "de",
-      "name": "Leitung Gemeinde Büren",
+      "name": "Sachbearbeitung Gemeinde Büren",
       "city": null
     }
   },
@@ -8040,16 +6040,6 @@
       "group": 85,
       "language": "de",
       "name": "Administration Gemeinde Büren",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 86,
-    "fields": {
-      "group": 86,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Büren",
       "city": null
     }
   },
@@ -8069,7 +6059,7 @@
     "fields": {
       "group": 89,
       "language": "de",
-      "name": "Leitung Gemeinde Büsserach",
+      "name": "Sachbearbeitung Gemeinde Büsserach",
       "city": null
     }
   },
@@ -8080,16 +6070,6 @@
       "group": 90,
       "language": "de",
       "name": "Administration Gemeinde Büsserach",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 91,
-    "fields": {
-      "group": 91,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Büsserach",
       "city": null
     }
   },
@@ -8109,7 +6089,7 @@
     "fields": {
       "group": 94,
       "language": "de",
-      "name": "Leitung Gemeinde Däniken",
+      "name": "Sachbearbeitung Gemeinde Däniken",
       "city": null
     }
   },
@@ -8120,16 +6100,6 @@
       "group": 95,
       "language": "de",
       "name": "Administration Gemeinde Däniken",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 96,
-    "fields": {
-      "group": 96,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Däniken",
       "city": null
     }
   },
@@ -8149,7 +6119,7 @@
     "fields": {
       "group": 99,
       "language": "de",
-      "name": "Leitung Gemeinde Deitingen",
+      "name": "Sachbearbeitung Gemeinde Deitingen",
       "city": null
     }
   },
@@ -8160,16 +6130,6 @@
       "group": 100,
       "language": "de",
       "name": "Administration Gemeinde Deitingen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 101,
-    "fields": {
-      "group": 101,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Deitingen",
       "city": null
     }
   },
@@ -8189,7 +6149,7 @@
     "fields": {
       "group": 104,
       "language": "de",
-      "name": "Leitung Gemeinde Derendingen",
+      "name": "Sachbearbeitung Gemeinde Derendingen",
       "city": null
     }
   },
@@ -8200,16 +6160,6 @@
       "group": 105,
       "language": "de",
       "name": "Administration Gemeinde Derendingen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 106,
-    "fields": {
-      "group": 106,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Derendingen",
       "city": null
     }
   },
@@ -8229,7 +6179,7 @@
     "fields": {
       "group": 109,
       "language": "de",
-      "name": "Leitung Gemeinde Dornach",
+      "name": "Sachbearbeitung Gemeinde Dornach",
       "city": null
     }
   },
@@ -8240,16 +6190,6 @@
       "group": 110,
       "language": "de",
       "name": "Administration Gemeinde Dornach",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 111,
-    "fields": {
-      "group": 111,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Dornach",
       "city": null
     }
   },
@@ -8269,7 +6209,7 @@
     "fields": {
       "group": 114,
       "language": "de",
-      "name": "Leitung Gemeinde Drei Höfe",
+      "name": "Sachbearbeitung Gemeinde Drei Höfe",
       "city": null
     }
   },
@@ -8280,16 +6220,6 @@
       "group": 115,
       "language": "de",
       "name": "Administration Gemeinde Drei Höfe",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 116,
-    "fields": {
-      "group": 116,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Drei Höfe",
       "city": null
     }
   },
@@ -8309,7 +6239,7 @@
     "fields": {
       "group": 119,
       "language": "de",
-      "name": "Leitung Gemeinde Dulliken",
+      "name": "Sachbearbeitung Gemeinde Dulliken",
       "city": null
     }
   },
@@ -8320,16 +6250,6 @@
       "group": 120,
       "language": "de",
       "name": "Administration Gemeinde Dulliken",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 121,
-    "fields": {
-      "group": 121,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Dulliken",
       "city": null
     }
   },
@@ -8349,7 +6269,7 @@
     "fields": {
       "group": 124,
       "language": "de",
-      "name": "Leitung Gemeinde Egerkingen",
+      "name": "Sachbearbeitung Gemeinde Egerkingen",
       "city": null
     }
   },
@@ -8360,16 +6280,6 @@
       "group": 125,
       "language": "de",
       "name": "Administration Gemeinde Egerkingen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 126,
-    "fields": {
-      "group": 126,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Egerkingen",
       "city": null
     }
   },
@@ -8389,7 +6299,7 @@
     "fields": {
       "group": 129,
       "language": "de",
-      "name": "Leitung Gemeinde Eppenberg-Wöschnau",
+      "name": "Sachbearbeitung Gemeinde Eppenberg-Wöschnau",
       "city": null
     }
   },
@@ -8400,16 +6310,6 @@
       "group": 130,
       "language": "de",
       "name": "Administration Gemeinde Eppenberg-Wöschnau",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 131,
-    "fields": {
-      "group": 131,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Eppenberg-Wöschnau",
       "city": null
     }
   },
@@ -8429,7 +6329,7 @@
     "fields": {
       "group": 134,
       "language": "de",
-      "name": "Leitung Gemeinde Erlinsbach",
+      "name": "Sachbearbeitung Gemeinde Erlinsbach",
       "city": null
     }
   },
@@ -8440,16 +6340,6 @@
       "group": 135,
       "language": "de",
       "name": "Administration Gemeinde Erlinsbach",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 136,
-    "fields": {
-      "group": 136,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Erlinsbach",
       "city": null
     }
   },
@@ -8469,7 +6359,7 @@
     "fields": {
       "group": 139,
       "language": "de",
-      "name": "Leitung Gemeinde Erschwil",
+      "name": "Sachbearbeitung Gemeinde Erschwil",
       "city": null
     }
   },
@@ -8480,16 +6370,6 @@
       "group": 140,
       "language": "de",
       "name": "Administration Gemeinde Erschwil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 141,
-    "fields": {
-      "group": 141,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Erschwil",
       "city": null
     }
   },
@@ -8509,7 +6389,7 @@
     "fields": {
       "group": 144,
       "language": "de",
-      "name": "Leitung Gemeinde Etziken",
+      "name": "Sachbearbeitung Gemeinde Etziken",
       "city": null
     }
   },
@@ -8520,16 +6400,6 @@
       "group": 145,
       "language": "de",
       "name": "Administration Gemeinde Etziken",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 146,
-    "fields": {
-      "group": 146,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Etziken",
       "city": null
     }
   },
@@ -8549,7 +6419,7 @@
     "fields": {
       "group": 149,
       "language": "de",
-      "name": "Leitung Gemeinde Fehren",
+      "name": "Sachbearbeitung Gemeinde Fehren",
       "city": null
     }
   },
@@ -8560,16 +6430,6 @@
       "group": 150,
       "language": "de",
       "name": "Administration Gemeinde Fehren",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 151,
-    "fields": {
-      "group": 151,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Fehren",
       "city": null
     }
   },
@@ -8589,7 +6449,7 @@
     "fields": {
       "group": 154,
       "language": "de",
-      "name": "Leitung Gemeinde Feldbrunnen-St. Niklaus",
+      "name": "Sachbearbeitung Gemeinde Feldbrunnen-St. Niklaus",
       "city": null
     }
   },
@@ -8600,16 +6460,6 @@
       "group": 155,
       "language": "de",
       "name": "Administration Gemeinde Feldbrunnen-St. Niklaus",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 156,
-    "fields": {
-      "group": 156,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Feldbrunnen-St. Niklaus",
       "city": null
     }
   },
@@ -8629,7 +6479,7 @@
     "fields": {
       "group": 159,
       "language": "de",
-      "name": "Leitung Gemeinde Flumenthal",
+      "name": "Sachbearbeitung Gemeinde Flumenthal",
       "city": null
     }
   },
@@ -8640,16 +6490,6 @@
       "group": 160,
       "language": "de",
       "name": "Administration Gemeinde Flumenthal",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 161,
-    "fields": {
-      "group": 161,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Flumenthal",
       "city": null
     }
   },
@@ -8669,7 +6509,7 @@
     "fields": {
       "group": 164,
       "language": "de",
-      "name": "Leitung Gemeinde Fulenbach",
+      "name": "Sachbearbeitung Gemeinde Fulenbach",
       "city": null
     }
   },
@@ -8680,16 +6520,6 @@
       "group": 165,
       "language": "de",
       "name": "Administration Gemeinde Fulenbach",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 166,
-    "fields": {
-      "group": 166,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Fulenbach",
       "city": null
     }
   },
@@ -8709,7 +6539,7 @@
     "fields": {
       "group": 169,
       "language": "de",
-      "name": "Leitung Gemeinde Gempen",
+      "name": "Sachbearbeitung Gemeinde Gempen",
       "city": null
     }
   },
@@ -8720,16 +6550,6 @@
       "group": 170,
       "language": "de",
       "name": "Administration Gemeinde Gempen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 171,
-    "fields": {
-      "group": 171,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Gempen",
       "city": null
     }
   },
@@ -8749,7 +6569,7 @@
     "fields": {
       "group": 174,
       "language": "de",
-      "name": "Leitung Gemeinde Gerlafingen",
+      "name": "Sachbearbeitung Gemeinde Gerlafingen",
       "city": null
     }
   },
@@ -8760,16 +6580,6 @@
       "group": 175,
       "language": "de",
       "name": "Administration Gemeinde Gerlafingen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 176,
-    "fields": {
-      "group": 176,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Gerlafingen",
       "city": null
     }
   },
@@ -8789,7 +6599,7 @@
     "fields": {
       "group": 179,
       "language": "de",
-      "name": "Leitung Gemeinde Grenchen",
+      "name": "Sachbearbeitung Gemeinde Grenchen",
       "city": null
     }
   },
@@ -8800,16 +6610,6 @@
       "group": 180,
       "language": "de",
       "name": "Administration Gemeinde Grenchen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 181,
-    "fields": {
-      "group": 181,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Grenchen",
       "city": null
     }
   },
@@ -8829,7 +6629,7 @@
     "fields": {
       "group": 184,
       "language": "de",
-      "name": "Leitung Gemeinde Gretzenbach",
+      "name": "Sachbearbeitung Gemeinde Gretzenbach",
       "city": null
     }
   },
@@ -8840,16 +6640,6 @@
       "group": 185,
       "language": "de",
       "name": "Administration Gemeinde Gretzenbach",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 186,
-    "fields": {
-      "group": 186,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Gretzenbach",
       "city": null
     }
   },
@@ -8869,7 +6659,7 @@
     "fields": {
       "group": 189,
       "language": "de",
-      "name": "Leitung Gemeinde Grindel",
+      "name": "Sachbearbeitung Gemeinde Grindel",
       "city": null
     }
   },
@@ -8880,16 +6670,6 @@
       "group": 190,
       "language": "de",
       "name": "Administration Gemeinde Grindel",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 191,
-    "fields": {
-      "group": 191,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Grindel",
       "city": null
     }
   },
@@ -8909,7 +6689,7 @@
     "fields": {
       "group": 194,
       "language": "de",
-      "name": "Leitung Gemeinde Günsberg",
+      "name": "Sachbearbeitung Gemeinde Günsberg",
       "city": null
     }
   },
@@ -8920,16 +6700,6 @@
       "group": 195,
       "language": "de",
       "name": "Administration Gemeinde Günsberg",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 196,
-    "fields": {
-      "group": 196,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Günsberg",
       "city": null
     }
   },
@@ -8949,7 +6719,7 @@
     "fields": {
       "group": 199,
       "language": "de",
-      "name": "Leitung Gemeinde Gunzgen",
+      "name": "Sachbearbeitung Gemeinde Gunzgen",
       "city": null
     }
   },
@@ -8960,16 +6730,6 @@
       "group": 200,
       "language": "de",
       "name": "Administration Gemeinde Gunzgen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 201,
-    "fields": {
-      "group": 201,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Gunzgen",
       "city": null
     }
   },
@@ -8989,7 +6749,7 @@
     "fields": {
       "group": 204,
       "language": "de",
-      "name": "Leitung Gemeinde Hägendorf",
+      "name": "Sachbearbeitung Gemeinde Hägendorf",
       "city": null
     }
   },
@@ -9000,16 +6760,6 @@
       "group": 205,
       "language": "de",
       "name": "Administration Gemeinde Hägendorf",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 206,
-    "fields": {
-      "group": 206,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Hägendorf",
       "city": null
     }
   },
@@ -9029,7 +6779,7 @@
     "fields": {
       "group": 209,
       "language": "de",
-      "name": "Leitung Gemeinde Halten",
+      "name": "Sachbearbeitung Gemeinde Halten",
       "city": null
     }
   },
@@ -9040,16 +6790,6 @@
       "group": 210,
       "language": "de",
       "name": "Administration Gemeinde Halten",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 211,
-    "fields": {
-      "group": 211,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Halten",
       "city": null
     }
   },
@@ -9069,7 +6809,7 @@
     "fields": {
       "group": 214,
       "language": "de",
-      "name": "Leitung Gemeinde Härkingen",
+      "name": "Sachbearbeitung Gemeinde Härkingen",
       "city": null
     }
   },
@@ -9080,16 +6820,6 @@
       "group": 215,
       "language": "de",
       "name": "Administration Gemeinde Härkingen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 216,
-    "fields": {
-      "group": 216,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Härkingen",
       "city": null
     }
   },
@@ -9109,7 +6839,7 @@
     "fields": {
       "group": 219,
       "language": "de",
-      "name": "Leitung Gemeinde Hauenstein-Ifenthal",
+      "name": "Sachbearbeitung Gemeinde Hauenstein-Ifenthal",
       "city": null
     }
   },
@@ -9120,16 +6850,6 @@
       "group": 220,
       "language": "de",
       "name": "Administration Gemeinde Hauenstein-Ifenthal",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 221,
-    "fields": {
-      "group": 221,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Hauenstein-Ifenthal",
       "city": null
     }
   },
@@ -9149,7 +6869,7 @@
     "fields": {
       "group": 224,
       "language": "de",
-      "name": "Leitung Gemeinde Herbetswil",
+      "name": "Sachbearbeitung Gemeinde Herbetswil",
       "city": null
     }
   },
@@ -9160,16 +6880,6 @@
       "group": 225,
       "language": "de",
       "name": "Administration Gemeinde Herbetswil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 226,
-    "fields": {
-      "group": 226,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Herbetswil",
       "city": null
     }
   },
@@ -9189,7 +6899,7 @@
     "fields": {
       "group": 229,
       "language": "de",
-      "name": "Leitung Gemeinde Himmelried",
+      "name": "Sachbearbeitung Gemeinde Himmelried",
       "city": null
     }
   },
@@ -9200,16 +6910,6 @@
       "group": 230,
       "language": "de",
       "name": "Administration Gemeinde Himmelried",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 231,
-    "fields": {
-      "group": 231,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Himmelried",
       "city": null
     }
   },
@@ -9229,7 +6929,7 @@
     "fields": {
       "group": 234,
       "language": "de",
-      "name": "Leitung Gemeinde Hochwald",
+      "name": "Sachbearbeitung Gemeinde Hochwald",
       "city": null
     }
   },
@@ -9240,16 +6940,6 @@
       "group": 235,
       "language": "de",
       "name": "Administration Gemeinde Hochwald",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 236,
-    "fields": {
-      "group": 236,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Hochwald",
       "city": null
     }
   },
@@ -9269,7 +6959,7 @@
     "fields": {
       "group": 239,
       "language": "de",
-      "name": "Leitung Gemeinde Hofstetten-Flüh",
+      "name": "Sachbearbeitung Gemeinde Hofstetten-Flüh",
       "city": null
     }
   },
@@ -9280,16 +6970,6 @@
       "group": 240,
       "language": "de",
       "name": "Administration Gemeinde Hofstetten-Flüh",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 241,
-    "fields": {
-      "group": 241,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Hofstetten-Flüh",
       "city": null
     }
   },
@@ -9309,7 +6989,7 @@
     "fields": {
       "group": 244,
       "language": "de",
-      "name": "Leitung Gemeinde Holderbank",
+      "name": "Sachbearbeitung Gemeinde Holderbank",
       "city": null
     }
   },
@@ -9320,16 +7000,6 @@
       "group": 245,
       "language": "de",
       "name": "Administration Gemeinde Holderbank",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 246,
-    "fields": {
-      "group": 246,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Holderbank",
       "city": null
     }
   },
@@ -9349,7 +7019,7 @@
     "fields": {
       "group": 249,
       "language": "de",
-      "name": "Leitung Gemeinde Horriwil",
+      "name": "Sachbearbeitung Gemeinde Horriwil",
       "city": null
     }
   },
@@ -9360,16 +7030,6 @@
       "group": 250,
       "language": "de",
       "name": "Administration Gemeinde Horriwil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 251,
-    "fields": {
-      "group": 251,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Horriwil",
       "city": null
     }
   },
@@ -9389,7 +7049,7 @@
     "fields": {
       "group": 254,
       "language": "de",
-      "name": "Leitung Gemeinde Hubersdorf",
+      "name": "Sachbearbeitung Gemeinde Hubersdorf",
       "city": null
     }
   },
@@ -9400,16 +7060,6 @@
       "group": 255,
       "language": "de",
       "name": "Administration Gemeinde Hubersdorf",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 256,
-    "fields": {
-      "group": 256,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Hubersdorf",
       "city": null
     }
   },
@@ -9429,7 +7079,7 @@
     "fields": {
       "group": 259,
       "language": "de",
-      "name": "Leitung Gemeinde Hüniken",
+      "name": "Sachbearbeitung Gemeinde Hüniken",
       "city": null
     }
   },
@@ -9440,16 +7090,6 @@
       "group": 260,
       "language": "de",
       "name": "Administration Gemeinde Hüniken",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 261,
-    "fields": {
-      "group": 261,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Hüniken",
       "city": null
     }
   },
@@ -9469,7 +7109,7 @@
     "fields": {
       "group": 264,
       "language": "de",
-      "name": "Leitung Gemeinde Kammersrohr",
+      "name": "Sachbearbeitung Gemeinde Kammersrohr",
       "city": null
     }
   },
@@ -9480,16 +7120,6 @@
       "group": 265,
       "language": "de",
       "name": "Administration Gemeinde Kammersrohr",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 266,
-    "fields": {
-      "group": 266,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Kammersrohr",
       "city": null
     }
   },
@@ -9509,7 +7139,7 @@
     "fields": {
       "group": 269,
       "language": "de",
-      "name": "Leitung Gemeinde Kappel",
+      "name": "Sachbearbeitung Gemeinde Kappel",
       "city": null
     }
   },
@@ -9520,16 +7150,6 @@
       "group": 270,
       "language": "de",
       "name": "Administration Gemeinde Kappel",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 271,
-    "fields": {
-      "group": 271,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Kappel",
       "city": null
     }
   },
@@ -9549,7 +7169,7 @@
     "fields": {
       "group": 274,
       "language": "de",
-      "name": "Leitung Gemeinde Kestenholz",
+      "name": "Sachbearbeitung Gemeinde Kestenholz",
       "city": null
     }
   },
@@ -9560,16 +7180,6 @@
       "group": 275,
       "language": "de",
       "name": "Administration Gemeinde Kestenholz",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 276,
-    "fields": {
-      "group": 276,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Kestenholz",
       "city": null
     }
   },
@@ -9589,7 +7199,7 @@
     "fields": {
       "group": 279,
       "language": "de",
-      "name": "Leitung Gemeinde Kienberg",
+      "name": "Sachbearbeitung Gemeinde Kienberg",
       "city": null
     }
   },
@@ -9600,16 +7210,6 @@
       "group": 280,
       "language": "de",
       "name": "Administration Gemeinde Kienberg",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 281,
-    "fields": {
-      "group": 281,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Kienberg",
       "city": null
     }
   },
@@ -9629,7 +7229,7 @@
     "fields": {
       "group": 284,
       "language": "de",
-      "name": "Leitung Gemeinde Kleinlützel",
+      "name": "Sachbearbeitung Gemeinde Kleinlützel",
       "city": null
     }
   },
@@ -9640,16 +7240,6 @@
       "group": 285,
       "language": "de",
       "name": "Administration Gemeinde Kleinlützel",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 286,
-    "fields": {
-      "group": 286,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Kleinlützel",
       "city": null
     }
   },
@@ -9669,7 +7259,7 @@
     "fields": {
       "group": 289,
       "language": "de",
-      "name": "Leitung Gemeinde Kriegstetten",
+      "name": "Sachbearbeitung Gemeinde Kriegstetten",
       "city": null
     }
   },
@@ -9680,16 +7270,6 @@
       "group": 290,
       "language": "de",
       "name": "Administration Gemeinde Kriegstetten",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 291,
-    "fields": {
-      "group": 291,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Kriegstetten",
       "city": null
     }
   },
@@ -9709,7 +7289,7 @@
     "fields": {
       "group": 294,
       "language": "de",
-      "name": "Leitung Gemeinde Langendorf",
+      "name": "Sachbearbeitung Gemeinde Langendorf",
       "city": null
     }
   },
@@ -9720,16 +7300,6 @@
       "group": 295,
       "language": "de",
       "name": "Administration Gemeinde Langendorf",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 296,
-    "fields": {
-      "group": 296,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Langendorf",
       "city": null
     }
   },
@@ -9749,7 +7319,7 @@
     "fields": {
       "group": 299,
       "language": "de",
-      "name": "Leitung Gemeinde Laupersdorf",
+      "name": "Sachbearbeitung Gemeinde Laupersdorf",
       "city": null
     }
   },
@@ -9760,16 +7330,6 @@
       "group": 300,
       "language": "de",
       "name": "Administration Gemeinde Laupersdorf",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 301,
-    "fields": {
-      "group": 301,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Laupersdorf",
       "city": null
     }
   },
@@ -9789,7 +7349,7 @@
     "fields": {
       "group": 304,
       "language": "de",
-      "name": "Leitung Gemeinde Lohn-Ammannsegg",
+      "name": "Sachbearbeitung Gemeinde Lohn-Ammannsegg",
       "city": null
     }
   },
@@ -9800,16 +7360,6 @@
       "group": 305,
       "language": "de",
       "name": "Administration Gemeinde Lohn-Ammannsegg",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 306,
-    "fields": {
-      "group": 306,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Lohn-Ammannsegg",
       "city": null
     }
   },
@@ -9829,7 +7379,7 @@
     "fields": {
       "group": 309,
       "language": "de",
-      "name": "Leitung Gemeinde Lommiswil",
+      "name": "Sachbearbeitung Gemeinde Lommiswil",
       "city": null
     }
   },
@@ -9840,16 +7390,6 @@
       "group": 310,
       "language": "de",
       "name": "Administration Gemeinde Lommiswil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 311,
-    "fields": {
-      "group": 311,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Lommiswil",
       "city": null
     }
   },
@@ -9869,7 +7409,7 @@
     "fields": {
       "group": 314,
       "language": "de",
-      "name": "Leitung Gemeinde Lostorf",
+      "name": "Sachbearbeitung Gemeinde Lostorf",
       "city": null
     }
   },
@@ -9880,16 +7420,6 @@
       "group": 315,
       "language": "de",
       "name": "Administration Gemeinde Lostorf",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 316,
-    "fields": {
-      "group": 316,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Lostorf",
       "city": null
     }
   },
@@ -9909,7 +7439,7 @@
     "fields": {
       "group": 319,
       "language": "de",
-      "name": "Leitung Gemeinde Lüsslingen-Nennigkofen",
+      "name": "Sachbearbeitung Gemeinde Lüsslingen-Nennigkofen",
       "city": null
     }
   },
@@ -9920,16 +7450,6 @@
       "group": 320,
       "language": "de",
       "name": "Administration Gemeinde Lüsslingen-Nennigkofen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 321,
-    "fields": {
-      "group": 321,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Lüsslingen-Nennigkofen",
       "city": null
     }
   },
@@ -9949,7 +7469,7 @@
     "fields": {
       "group": 324,
       "language": "de",
-      "name": "Leitung Gemeinde Luterbach",
+      "name": "Sachbearbeitung Gemeinde Luterbach",
       "city": null
     }
   },
@@ -9960,16 +7480,6 @@
       "group": 325,
       "language": "de",
       "name": "Administration Gemeinde Luterbach",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 326,
-    "fields": {
-      "group": 326,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Luterbach",
       "city": null
     }
   },
@@ -9989,7 +7499,7 @@
     "fields": {
       "group": 329,
       "language": "de",
-      "name": "Leitung Gemeinde Lüterkofen-Ichertswil",
+      "name": "Sachbearbeitung Gemeinde Lüterkofen-Ichertswil",
       "city": null
     }
   },
@@ -10000,16 +7510,6 @@
       "group": 330,
       "language": "de",
       "name": "Administration Gemeinde Lüterkofen-Ichertswil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 331,
-    "fields": {
-      "group": 331,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Lüterkofen-Ichertswil",
       "city": null
     }
   },
@@ -10029,7 +7529,7 @@
     "fields": {
       "group": 339,
       "language": "de",
-      "name": "Leitung Gemeinde Matzendorf",
+      "name": "Sachbearbeitung Gemeinde Matzendorf",
       "city": null
     }
   },
@@ -10040,16 +7540,6 @@
       "group": 340,
       "language": "de",
       "name": "Administration Gemeinde Matzendorf",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 341,
-    "fields": {
-      "group": 341,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Matzendorf",
       "city": null
     }
   },
@@ -10069,7 +7559,7 @@
     "fields": {
       "group": 344,
       "language": "de",
-      "name": "Leitung Gemeinde Meltingen",
+      "name": "Sachbearbeitung Gemeinde Meltingen",
       "city": null
     }
   },
@@ -10080,16 +7570,6 @@
       "group": 345,
       "language": "de",
       "name": "Administration Gemeinde Meltingen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 346,
-    "fields": {
-      "group": 346,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Meltingen",
       "city": null
     }
   },
@@ -10109,7 +7589,7 @@
     "fields": {
       "group": 349,
       "language": "de",
-      "name": "Leitung Gemeinde Messen",
+      "name": "Sachbearbeitung Gemeinde Messen",
       "city": null
     }
   },
@@ -10120,16 +7600,6 @@
       "group": 350,
       "language": "de",
       "name": "Administration Gemeinde Messen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 351,
-    "fields": {
-      "group": 351,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Messen",
       "city": null
     }
   },
@@ -10149,7 +7619,7 @@
     "fields": {
       "group": 354,
       "language": "de",
-      "name": "Leitung Gemeinde Metzerlen-Mariastein",
+      "name": "Sachbearbeitung Gemeinde Metzerlen-Mariastein",
       "city": null
     }
   },
@@ -10160,16 +7630,6 @@
       "group": 355,
       "language": "de",
       "name": "Administration Gemeinde Metzerlen-Mariastein",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 356,
-    "fields": {
-      "group": 356,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Metzerlen-Mariastein",
       "city": null
     }
   },
@@ -10189,7 +7649,7 @@
     "fields": {
       "group": 359,
       "language": "de",
-      "name": "Leitung Gemeinde Mümliswil-Ramiswil",
+      "name": "Sachbearbeitung Gemeinde Mümliswil-Ramiswil",
       "city": null
     }
   },
@@ -10200,16 +7660,6 @@
       "group": 360,
       "language": "de",
       "name": "Administration Gemeinde Mümliswil-Ramiswil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 361,
-    "fields": {
-      "group": 361,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Mümliswil-Ramiswil",
       "city": null
     }
   },
@@ -10229,7 +7679,7 @@
     "fields": {
       "group": 364,
       "language": "de",
-      "name": "Leitung Gemeinde Neuendorf",
+      "name": "Sachbearbeitung Gemeinde Neuendorf",
       "city": null
     }
   },
@@ -10240,16 +7690,6 @@
       "group": 365,
       "language": "de",
       "name": "Administration Gemeinde Neuendorf",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 366,
-    "fields": {
-      "group": 366,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Neuendorf",
       "city": null
     }
   },
@@ -10269,7 +7709,7 @@
     "fields": {
       "group": 369,
       "language": "de",
-      "name": "Leitung Gemeinde Niederbuchsiten",
+      "name": "Sachbearbeitung Gemeinde Niederbuchsiten",
       "city": null
     }
   },
@@ -10280,16 +7720,6 @@
       "group": 370,
       "language": "de",
       "name": "Administration Gemeinde Niederbuchsiten",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 371,
-    "fields": {
-      "group": 371,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Niederbuchsiten",
       "city": null
     }
   },
@@ -10309,7 +7739,7 @@
     "fields": {
       "group": 374,
       "language": "de",
-      "name": "Leitung Gemeinde Niedergösgen",
+      "name": "Sachbearbeitung Gemeinde Niedergösgen",
       "city": null
     }
   },
@@ -10320,16 +7750,6 @@
       "group": 375,
       "language": "de",
       "name": "Administration Gemeinde Niedergösgen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 376,
-    "fields": {
-      "group": 376,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Niedergösgen",
       "city": null
     }
   },
@@ -10349,7 +7769,7 @@
     "fields": {
       "group": 379,
       "language": "de",
-      "name": "Leitung Gemeinde Nuglar-St. Pantaleon",
+      "name": "Sachbearbeitung Gemeinde Nuglar-St. Pantaleon",
       "city": null
     }
   },
@@ -10360,16 +7780,6 @@
       "group": 380,
       "language": "de",
       "name": "Administration Gemeinde Nuglar-St. Pantaleon",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 381,
-    "fields": {
-      "group": 381,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Nuglar-St. Pantaleon",
       "city": null
     }
   },
@@ -10389,7 +7799,7 @@
     "fields": {
       "group": 384,
       "language": "de",
-      "name": "Leitung Gemeinde Nunningen",
+      "name": "Sachbearbeitung Gemeinde Nunningen",
       "city": null
     }
   },
@@ -10400,16 +7810,6 @@
       "group": 385,
       "language": "de",
       "name": "Administration Gemeinde Nunningen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 386,
-    "fields": {
-      "group": 386,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Nunningen",
       "city": null
     }
   },
@@ -10429,7 +7829,7 @@
     "fields": {
       "group": 389,
       "language": "de",
-      "name": "Leitung Gemeinde Oberbuchsiten",
+      "name": "Sachbearbeitung Gemeinde Oberbuchsiten",
       "city": null
     }
   },
@@ -10440,16 +7840,6 @@
       "group": 390,
       "language": "de",
       "name": "Administration Gemeinde Oberbuchsiten",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 391,
-    "fields": {
-      "group": 391,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Oberbuchsiten",
       "city": null
     }
   },
@@ -10469,7 +7859,7 @@
     "fields": {
       "group": 394,
       "language": "de",
-      "name": "Leitung Gemeinde Oberdorf",
+      "name": "Sachbearbeitung Gemeinde Oberdorf",
       "city": null
     }
   },
@@ -10480,16 +7870,6 @@
       "group": 395,
       "language": "de",
       "name": "Administration Gemeinde Oberdorf",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 396,
-    "fields": {
-      "group": 396,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Oberdorf",
       "city": null
     }
   },
@@ -10509,7 +7889,7 @@
     "fields": {
       "group": 399,
       "language": "de",
-      "name": "Leitung Gemeinde Obergerlafingen",
+      "name": "Sachbearbeitung Gemeinde Obergerlafingen",
       "city": null
     }
   },
@@ -10520,16 +7900,6 @@
       "group": 400,
       "language": "de",
       "name": "Administration Gemeinde Obergerlafingen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 401,
-    "fields": {
-      "group": 401,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Obergerlafingen",
       "city": null
     }
   },
@@ -10549,7 +7919,7 @@
     "fields": {
       "group": 404,
       "language": "de",
-      "name": "Leitung Gemeinde Obergösgen",
+      "name": "Sachbearbeitung Gemeinde Obergösgen",
       "city": null
     }
   },
@@ -10560,16 +7930,6 @@
       "group": 405,
       "language": "de",
       "name": "Administration Gemeinde Obergösgen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 406,
-    "fields": {
-      "group": 406,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Obergösgen",
       "city": null
     }
   },
@@ -10589,7 +7949,7 @@
     "fields": {
       "group": 409,
       "language": "de",
-      "name": "Leitung Gemeinde Oekingen",
+      "name": "Sachbearbeitung Gemeinde Oekingen",
       "city": null
     }
   },
@@ -10600,16 +7960,6 @@
       "group": 410,
       "language": "de",
       "name": "Administration Gemeinde Oekingen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 411,
-    "fields": {
-      "group": 411,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Oekingen",
       "city": null
     }
   },
@@ -10629,7 +7979,7 @@
     "fields": {
       "group": 414,
       "language": "de",
-      "name": "Leitung Gemeinde Oensingen",
+      "name": "Sachbearbeitung Gemeinde Oensingen",
       "city": null
     }
   },
@@ -10640,16 +7990,6 @@
       "group": 415,
       "language": "de",
       "name": "Administration Gemeinde Oensingen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 416,
-    "fields": {
-      "group": 416,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Oensingen",
       "city": null
     }
   },
@@ -10669,7 +8009,7 @@
     "fields": {
       "group": 419,
       "language": "de",
-      "name": "Leitung Gemeinde Olten",
+      "name": "Sachbearbeitung Gemeinde Olten",
       "city": null
     }
   },
@@ -10680,16 +8020,6 @@
       "group": 420,
       "language": "de",
       "name": "Administration Gemeinde Olten",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 421,
-    "fields": {
-      "group": 421,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Olten",
       "city": null
     }
   },
@@ -10709,7 +8039,7 @@
     "fields": {
       "group": 424,
       "language": "de",
-      "name": "Leitung Gemeinde Recherswil",
+      "name": "Sachbearbeitung Gemeinde Recherswil",
       "city": null
     }
   },
@@ -10720,16 +8050,6 @@
       "group": 425,
       "language": "de",
       "name": "Administration Gemeinde Recherswil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 426,
-    "fields": {
-      "group": 426,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Recherswil",
       "city": null
     }
   },
@@ -10749,7 +8069,7 @@
     "fields": {
       "group": 429,
       "language": "de",
-      "name": "Leitung Gemeinde Rickenbach",
+      "name": "Sachbearbeitung Gemeinde Rickenbach",
       "city": null
     }
   },
@@ -10760,16 +8080,6 @@
       "group": 430,
       "language": "de",
       "name": "Administration Gemeinde Rickenbach",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 431,
-    "fields": {
-      "group": 431,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Rickenbach",
       "city": null
     }
   },
@@ -10789,7 +8099,7 @@
     "fields": {
       "group": 434,
       "language": "de",
-      "name": "Leitung Gemeinde Riedholz",
+      "name": "Sachbearbeitung Gemeinde Riedholz",
       "city": null
     }
   },
@@ -10800,16 +8110,6 @@
       "group": 435,
       "language": "de",
       "name": "Administration Gemeinde Riedholz",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 436,
-    "fields": {
-      "group": 436,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Riedholz",
       "city": null
     }
   },
@@ -10829,7 +8129,7 @@
     "fields": {
       "group": 439,
       "language": "de",
-      "name": "Leitung Gemeinde Rodersdorf",
+      "name": "Sachbearbeitung Gemeinde Rodersdorf",
       "city": null
     }
   },
@@ -10840,16 +8140,6 @@
       "group": 440,
       "language": "de",
       "name": "Administration Gemeinde Rodersdorf",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 441,
-    "fields": {
-      "group": 441,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Rodersdorf",
       "city": null
     }
   },
@@ -10869,7 +8159,7 @@
     "fields": {
       "group": 444,
       "language": "de",
-      "name": "Leitung Gemeinde Rüttenen",
+      "name": "Sachbearbeitung Gemeinde Rüttenen",
       "city": null
     }
   },
@@ -10880,16 +8170,6 @@
       "group": 445,
       "language": "de",
       "name": "Administration Gemeinde Rüttenen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 446,
-    "fields": {
-      "group": 446,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Rüttenen",
       "city": null
     }
   },
@@ -10909,7 +8189,7 @@
     "fields": {
       "group": 449,
       "language": "de",
-      "name": "Leitung Gemeinde Schnottwil",
+      "name": "Sachbearbeitung Gemeinde Schnottwil",
       "city": null
     }
   },
@@ -10920,16 +8200,6 @@
       "group": 450,
       "language": "de",
       "name": "Administration Gemeinde Schnottwil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 451,
-    "fields": {
-      "group": 451,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Schnottwil",
       "city": null
     }
   },
@@ -10949,7 +8219,7 @@
     "fields": {
       "group": 454,
       "language": "de",
-      "name": "Leitung Gemeinde Schönenwerd",
+      "name": "Sachbearbeitung Gemeinde Schönenwerd",
       "city": null
     }
   },
@@ -10960,16 +8230,6 @@
       "group": 455,
       "language": "de",
       "name": "Administration Gemeinde Schönenwerd",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 456,
-    "fields": {
-      "group": 456,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Schönenwerd",
       "city": null
     }
   },
@@ -10989,7 +8249,7 @@
     "fields": {
       "group": 459,
       "language": "de",
-      "name": "Leitung Gemeinde Seewen",
+      "name": "Sachbearbeitung Gemeinde Seewen",
       "city": null
     }
   },
@@ -11000,16 +8260,6 @@
       "group": 460,
       "language": "de",
       "name": "Administration Gemeinde Seewen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 461,
-    "fields": {
-      "group": 461,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Seewen",
       "city": null
     }
   },
@@ -11029,7 +8279,7 @@
     "fields": {
       "group": 464,
       "language": "de",
-      "name": "Leitung Gemeinde Selzach",
+      "name": "Sachbearbeitung Gemeinde Selzach",
       "city": null
     }
   },
@@ -11040,16 +8290,6 @@
       "group": 465,
       "language": "de",
       "name": "Administration Gemeinde Selzach",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 466,
-    "fields": {
-      "group": 466,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Selzach",
       "city": null
     }
   },
@@ -11069,7 +8309,7 @@
     "fields": {
       "group": 469,
       "language": "de",
-      "name": "Leitung Gemeinde Starrkirch-Wil",
+      "name": "Sachbearbeitung Gemeinde Starrkirch-Wil",
       "city": null
     }
   },
@@ -11080,16 +8320,6 @@
       "group": 470,
       "language": "de",
       "name": "Administration Gemeinde Starrkirch-Wil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 471,
-    "fields": {
-      "group": 471,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Starrkirch-Wil",
       "city": null
     }
   },
@@ -11109,7 +8339,7 @@
     "fields": {
       "group": 474,
       "language": "de",
-      "name": "Leitung Gemeinde Stüsslingen",
+      "name": "Sachbearbeitung Gemeinde Stüsslingen",
       "city": null
     }
   },
@@ -11120,16 +8350,6 @@
       "group": 475,
       "language": "de",
       "name": "Administration Gemeinde Stüsslingen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 476,
-    "fields": {
-      "group": 476,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Stüsslingen",
       "city": null
     }
   },
@@ -11149,7 +8369,7 @@
     "fields": {
       "group": 479,
       "language": "de",
-      "name": "Leitung Gemeinde Subingen",
+      "name": "Sachbearbeitung Gemeinde Subingen",
       "city": null
     }
   },
@@ -11160,16 +8380,6 @@
       "group": 480,
       "language": "de",
       "name": "Administration Gemeinde Subingen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 481,
-    "fields": {
-      "group": 481,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Subingen",
       "city": null
     }
   },
@@ -11189,7 +8399,7 @@
     "fields": {
       "group": 484,
       "language": "de",
-      "name": "Leitung Gemeinde Trimbach",
+      "name": "Sachbearbeitung Gemeinde Trimbach",
       "city": null
     }
   },
@@ -11200,16 +8410,6 @@
       "group": 485,
       "language": "de",
       "name": "Administration Gemeinde Trimbach",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 486,
-    "fields": {
-      "group": 486,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Trimbach",
       "city": null
     }
   },
@@ -11229,7 +8429,7 @@
     "fields": {
       "group": 489,
       "language": "de",
-      "name": "Leitung Gemeinde Unterramsern",
+      "name": "Sachbearbeitung Gemeinde Unterramsern",
       "city": null
     }
   },
@@ -11240,16 +8440,6 @@
       "group": 490,
       "language": "de",
       "name": "Administration Gemeinde Unterramsern",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 491,
-    "fields": {
-      "group": 491,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Unterramsern",
       "city": null
     }
   },
@@ -11269,7 +8459,7 @@
     "fields": {
       "group": 494,
       "language": "de",
-      "name": "Leitung Gemeinde Walterswil",
+      "name": "Sachbearbeitung Gemeinde Walterswil",
       "city": null
     }
   },
@@ -11280,16 +8470,6 @@
       "group": 495,
       "language": "de",
       "name": "Administration Gemeinde Walterswil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 496,
-    "fields": {
-      "group": 496,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Walterswil",
       "city": null
     }
   },
@@ -11309,7 +8489,7 @@
     "fields": {
       "group": 499,
       "language": "de",
-      "name": "Leitung Gemeinde Wangen bei Olten",
+      "name": "Sachbearbeitung Gemeinde Wangen bei Olten",
       "city": null
     }
   },
@@ -11320,16 +8500,6 @@
       "group": 500,
       "language": "de",
       "name": "Administration Gemeinde Wangen bei Olten",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 501,
-    "fields": {
-      "group": 501,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Wangen bei Olten",
       "city": null
     }
   },
@@ -11349,7 +8519,7 @@
     "fields": {
       "group": 504,
       "language": "de",
-      "name": "Leitung Gemeinde Welschenrohr-Gänsbrunnen",
+      "name": "Sachbearbeitung Gemeinde Welschenrohr-Gänsbrunnen",
       "city": null
     }
   },
@@ -11360,16 +8530,6 @@
       "group": 505,
       "language": "de",
       "name": "Administration Gemeinde Welschenrohr-Gänsbrunnen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 506,
-    "fields": {
-      "group": 506,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Welschenrohr-Gänsbrunnen",
       "city": null
     }
   },
@@ -11389,7 +8549,7 @@
     "fields": {
       "group": 509,
       "language": "de",
-      "name": "Leitung Gemeinde Winznau",
+      "name": "Sachbearbeitung Gemeinde Winznau",
       "city": null
     }
   },
@@ -11400,16 +8560,6 @@
       "group": 510,
       "language": "de",
       "name": "Administration Gemeinde Winznau",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 511,
-    "fields": {
-      "group": 511,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Winznau",
       "city": null
     }
   },
@@ -11429,7 +8579,7 @@
     "fields": {
       "group": 514,
       "language": "de",
-      "name": "Leitung Gemeinde Wisen",
+      "name": "Sachbearbeitung Gemeinde Wisen",
       "city": null
     }
   },
@@ -11440,16 +8590,6 @@
       "group": 515,
       "language": "de",
       "name": "Administration Gemeinde Wisen",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 516,
-    "fields": {
-      "group": 516,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Wisen",
       "city": null
     }
   },
@@ -11469,7 +8609,7 @@
     "fields": {
       "group": 519,
       "language": "de",
-      "name": "Leitung Gemeinde Witterswil",
+      "name": "Sachbearbeitung Gemeinde Witterswil",
       "city": null
     }
   },
@@ -11480,16 +8620,6 @@
       "group": 520,
       "language": "de",
       "name": "Administration Gemeinde Witterswil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 521,
-    "fields": {
-      "group": 521,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Witterswil",
       "city": null
     }
   },
@@ -11509,7 +8639,7 @@
     "fields": {
       "group": 524,
       "language": "de",
-      "name": "Leitung Gemeinde Wolfwil",
+      "name": "Sachbearbeitung Gemeinde Wolfwil",
       "city": null
     }
   },
@@ -11520,16 +8650,6 @@
       "group": 525,
       "language": "de",
       "name": "Administration Gemeinde Wolfwil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 526,
-    "fields": {
-      "group": 526,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Wolfwil",
       "city": null
     }
   },
@@ -11549,7 +8669,7 @@
     "fields": {
       "group": 529,
       "language": "de",
-      "name": "Leitung Gemeinde Zuchwil",
+      "name": "Sachbearbeitung Gemeinde Zuchwil",
       "city": null
     }
   },
@@ -11560,16 +8680,6 @@
       "group": 530,
       "language": "de",
       "name": "Administration Gemeinde Zuchwil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 531,
-    "fields": {
-      "group": 531,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Zuchwil",
       "city": null
     }
   },
@@ -11589,7 +8699,7 @@
     "fields": {
       "group": 534,
       "language": "de",
-      "name": "Leitung Gemeinde Zullwil",
+      "name": "Sachbearbeitung Gemeinde Zullwil",
       "city": null
     }
   },
@@ -11600,16 +8710,6 @@
       "group": 535,
       "language": "de",
       "name": "Administration Gemeinde Zullwil",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 536,
-    "fields": {
-      "group": 536,
-      "language": "de",
-      "name": "Sachbearbeitung Gemeinde Zullwil",
       "city": null
     }
   },
@@ -11629,7 +8729,7 @@
     "fields": {
       "group": 539,
       "language": "de",
-      "name": "Leitung Amt für Umwelt (AfU)",
+      "name": "Sachbearbeitung Amt für Umwelt (AfU)",
       "city": null
     }
   },
@@ -11645,21 +8745,11 @@
   },
   {
     "model": "user.groupt",
-    "pk": 541,
-    "fields": {
-      "group": 541,
-      "language": "de",
-      "name": "Sachbearbeitung Amt für Umwelt (AfU)",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 542,
     "fields": {
       "group": 542,
       "language": "de",
-      "name": "Leitung Amt für Raumplanung (ARP)",
+      "name": "Sachbearbeitung Amt für Raumplanung (ARP)",
       "city": null
     }
   },
@@ -11675,21 +8765,11 @@
   },
   {
     "model": "user.groupt",
-    "pk": 544,
-    "fields": {
-      "group": 544,
-      "language": "de",
-      "name": "Sachbearbeitung Amt für Raumplanung (ARP)",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 545,
     "fields": {
       "group": 545,
       "language": "de",
-      "name": "Leitung Amt für Militär und Bevölkerungsschutz",
+      "name": "Sachbearbeitung Amt für Militär und Bevölkerungsschutz",
       "city": null
     }
   },
@@ -11705,21 +8785,11 @@
   },
   {
     "model": "user.groupt",
-    "pk": 547,
-    "fields": {
-      "group": 547,
-      "language": "de",
-      "name": "Sachbearbeitung Amt für Militär und Bevölkerungsschutz",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 548,
     "fields": {
       "group": 548,
       "language": "de",
-      "name": "Leitung Amt für Wirtschaft und Arbeit",
+      "name": "Sachbearbeitung Amt für Wirtschaft und Arbeit",
       "city": null
     }
   },
@@ -11735,21 +8805,11 @@
   },
   {
     "model": "user.groupt",
-    "pk": 550,
-    "fields": {
-      "group": 550,
-      "language": "de",
-      "name": "Sachbearbeitung Amt für Wirtschaft und Arbeit",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 551,
     "fields": {
       "group": 551,
       "language": "de",
-      "name": "Leitung Amt für Wald, Jagd und Fischerei",
+      "name": "Sachbearbeitung Amt für Wald, Jagd und Fischerei",
       "city": null
     }
   },
@@ -11765,21 +8825,11 @@
   },
   {
     "model": "user.groupt",
-    "pk": 553,
-    "fields": {
-      "group": 553,
-      "language": "de",
-      "name": "Sachbearbeitung Amt für Wald, Jagd und Fischerei",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 554,
     "fields": {
       "group": 554,
       "language": "de",
-      "name": "Leitung Amt für Denkmalpflege und Archäologie",
+      "name": "Sachbearbeitung Amt für Denkmalpflege und Archäologie",
       "city": null
     }
   },
@@ -11795,21 +8845,11 @@
   },
   {
     "model": "user.groupt",
-    "pk": 556,
-    "fields": {
-      "group": 556,
-      "language": "de",
-      "name": "Sachbearbeitung Amt für Denkmalpflege und Archäologie",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 557,
     "fields": {
       "group": 557,
       "language": "de",
-      "name": "Leitung Gesundheitsamt",
+      "name": "Sachbearbeitung Gesundheitsamt",
       "city": null
     }
   },
@@ -11825,21 +8865,11 @@
   },
   {
     "model": "user.groupt",
-    "pk": 559,
-    "fields": {
-      "group": 559,
-      "language": "de",
-      "name": "Sachbearbeitung Gesundheitsamt",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 560,
     "fields": {
       "group": 560,
       "language": "de",
-      "name": "Leitung Solothurnische Gebäudeversicherung (SGV)",
+      "name": "Sachbearbeitung Solothurnische Gebäudeversicherung (SGV)",
       "city": null
     }
   },
@@ -11855,21 +8885,11 @@
   },
   {
     "model": "user.groupt",
-    "pk": 562,
-    "fields": {
-      "group": 562,
-      "language": "de",
-      "name": "Sachbearbeitung Solothurnische Gebäudeversicherung (SGV)",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 563,
     "fields": {
       "group": 563,
       "language": "de",
-      "name": "Leitung Procap",
+      "name": "Sachbearbeitung Procap",
       "city": null
     }
   },
@@ -11880,16 +8900,6 @@
       "group": 564,
       "language": "de",
       "name": "Administration Procap",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 565,
-    "fields": {
-      "group": 565,
-      "language": "de",
-      "name": "Sachbearbeitung Procap",
       "city": null
     }
   },
