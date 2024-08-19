@@ -686,7 +686,7 @@
       "modified_by_group": null,
       "form": "construction-step-plan-construction-stage",
       "question": "construction-stage-name",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -701,7 +701,7 @@
       "modified_by_group": null,
       "form": "construction-step-plan-construction-stage",
       "question": "construction-steps",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -717,6 +717,21 @@
       "form": "construction-step-plan-construction-stage",
       "question": "construction-steps-bemerkungen",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-plan-construction-stage.schnurgeruestabnahme-durch",
+    "fields": {
+      "created_at": "2024-08-16T13:57:33.125Z",
+      "modified_at": "2024-08-16T13:57:33.125Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-plan-construction-stage",
+      "question": "schnurgeruestabnahme-durch",
+      "sort": 2
     }
   },
   {
@@ -3539,10 +3554,10 @@
     "pk": "schnurgeruestabnahme-durch",
     "fields": {
       "created_at": "2024-07-05T11:03:11.325Z",
-      "modified_at": "2024-08-06T08:28:16.647Z",
+      "modified_at": "2024-08-16T13:57:49.980Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Wer f\\u00fchrt die Schnurger\\u00fcstabnahme durch?\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -4184,11 +4199,11 @@
     "model": "caluma_form.questionoption",
     "pk": "schnurgeruestabnahme-durch.wer-fuehrt-die-schnurgeruestabnahme-durch-gemeinde",
     "fields": {
-      "created_at": "2024-08-06T08:28:16.655Z",
-      "modified_at": "2024-08-06T08:28:16.655Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-08-16T13:57:49.999Z",
+      "modified_at": "2024-08-16T13:57:49.999Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "schnurgeruestabnahme-durch",
       "option": "wer-fuehrt-die-schnurgeruestabnahme-durch-gemeinde",
@@ -4199,11 +4214,11 @@
     "model": "caluma_form.questionoption",
     "pk": "schnurgeruestabnahme-durch.wer-fuehrt-die-schnurgeruestabnahme-durch-geometer",
     "fields": {
-      "created_at": "2024-08-06T08:28:16.653Z",
-      "modified_at": "2024-08-06T08:28:16.653Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2024-08-16T13:57:49.995Z",
+      "modified_at": "2024-08-16T13:57:49.995Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "schnurgeruestabnahme-durch",
       "option": "wer-fuehrt-die-schnurgeruestabnahme-durch-geometer",

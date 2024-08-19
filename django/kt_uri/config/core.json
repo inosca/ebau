@@ -15122,6 +15122,22 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
+      "sort": 30,
+      "form_group": 161,
+      "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 14000038,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 12000003,
+      "name": "Definitive Vermessung",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
       "sort": 29,
       "form_group": 161,
       "require_permission": null
@@ -19428,6 +19444,24 @@
     "fields": {
       "instance_resource": 14000030,
       "role": 1107,
+      "instance_state": 30
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1257,
+    "fields": {
+      "instance_resource": 14000018,
+      "role": 7,
+      "instance_state": 29
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1258,
+    "fields": {
+      "instance_resource": 14000018,
+      "role": 7,
       "instance_state": 30
     }
   },
@@ -32833,6 +32867,24 @@
     }
   },
   {
+    "model": "core.irroleacl",
+    "pk": 12001999,
+    "fields": {
+      "instance_resource": 14000033,
+      "role": 1021,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002000,
+    "fields": {
+      "instance_resource": 14000038,
+      "role": 1021,
+      "instance_state": 34
+    }
+  },
+  {
     "model": "core.irtaskform",
     "pk": 12000001,
     "fields": {
@@ -32900,6 +32952,13 @@
     "pk": 14000037,
     "fields": {
       "task": "review-building-commission"
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 14000038,
+    "fields": {
+      "task": "geometer-final-measurement"
     }
   },
   {

@@ -1151,10 +1151,6 @@ APPLICATIONS = {
             "SIMPLE_WORKFLOW": {
                 "complete-check": {
                     "next_instance_state": "comm",
-                    "notification": {
-                        "template_slug": "dossier-angenommen",
-                        "recipient_types": ["applicant"],
-                    },
                 },
                 "send-additional-demand": {
                     "notification": {

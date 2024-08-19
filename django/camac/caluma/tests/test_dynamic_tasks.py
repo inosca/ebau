@@ -573,18 +573,75 @@ def test_dynamic_task_after_decision_ur(
 
 
 @pytest.mark.parametrize(
-    "complete_check_answer,should_generate_additional_demand_task",
+    "involve_geometer,should_have_geometer_task",
     [
-        (
-            "complete-check-vollstaendigkeitspruefung-incomplete",
-            True,
-        ),
-        ("complete-check-vollstaendigkeitspruefung-complete", False),
+        ("decision-task-nachfuehrungsgeometer-ja", True),
+        ("decision-task-nachfuehrungsgeometer-nein", False),
     ],
 )
+def test_after_complete_construction_monitoring_ur(
+    db,
+    case_factory,
+    work_item_factory,
+    document_factory,
+    answer_factory,
+    #
+    involve_geometer,
+    should_have_geometer_task,
+):
+    decision_work_item = work_item_factory(
+        task__slug="decision",
+        document=document_factory(),
+        case=case_factory(),
+    )
+    answer_factory(
+        question__slug="decision-task-nachfuehrungsgeometer",
+        value=involve_geometer,
+        document=decision_work_item.document,
+    )
+
+    result = CustomDynamicTasks().resolve_after_complete_construction_monitoring_ur(
+        decision_work_item.case, None, work_item_factory(), None
+    )
+
+    if should_have_geometer_task:
+        assert "geometer-final-measurement" in result
+    else:
+        assert "geometer-final-measurement" not in result
+
+
 @pytest.mark.parametrize(
-    "main_form_slug,should_generate_bk_task",
-    [("building-permit", True), ("cantonal-territory-usage", False)],
+    "main_form_slug,complete_check_answer,should_generate_additional_demand_task,should_generate_reject_task,should_generate_bk_task",
+    [
+        (
+            "building-permit",
+            "complete-check-vollstaendigkeitspruefung-incomplete",
+            True,
+            False,
+            True,
+        ),
+        (
+            "building-permit",
+            "complete-check-vollstaendigkeitspruefung-complete",
+            False,
+            False,
+            True,
+        ),
+        (
+            "building-permit",
+            "complete-check-vollstaendigkeitspruefung-reject",
+            False,
+            True,
+            False,
+        ),
+        (
+            "cantona-territory-usage",
+            "complete-check-vollstaendigkeitspruefung-complete",
+            False,
+            False,
+            False,
+        ),
+    ],
 )
 def test_dynamic_task_after_complete_check_ur(
     db,
@@ -592,13 +649,13 @@ def test_dynamic_task_after_complete_check_ur(
     document_factory,
     question_factory,
     answer_factory,
-    # ur_instance,
     caluma_admin_user,
     complete_check_answer,
     main_form_slug,
     should_generate_additional_demand_task,
     case_factory,
     should_generate_bk_task,
+    should_generate_reject_task,
 ):
     caluma_case = case_factory(document__form__slug=main_form_slug)
     work_item = work_item_factory(
@@ -615,16 +672,20 @@ def test_dynamic_task_after_complete_check_ur(
         caluma_case, caluma_admin_user, work_item, None
     )
 
-    assert (
-        "additional-demand" in result
-        if should_generate_additional_demand_task
-        else "additional-demand" not in result
-    )
-    assert (
-        "release-for-bk" in result
-        if should_generate_bk_task
-        else "release-for-bk" not in result
-    )
+    if should_generate_additional_demand_task:
+        assert "additional-demand" in result
+    else:
+        assert "additional-demand" not in result
+
+    if should_generate_bk_task:
+        assert "release-for-bk" in result
+    else:
+        assert "release-for-bk" not in result
+
+    if should_generate_reject_task:
+        assert "reject" in result
+    else:
+        assert "reject" not in result
 
 
 @pytest.mark.parametrize(

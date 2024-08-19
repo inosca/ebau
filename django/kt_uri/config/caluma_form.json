@@ -650,6 +650,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "geometer-final-measurement",
+    "fields": {
+      "created_at": "2024-08-19T06:28:28.055Z",
+      "modified_at": "2024-08-19T06:28:57.701Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Aufgabe: Definitive Vermessung pr\\u00fcfen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "geometer-tasks",
     "fields": {
       "created_at": "2024-08-12T06:08:49.626Z",
@@ -7397,6 +7415,51 @@
       "form": "generelle-fachthemen",
       "question": "verkehr",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "geometer-final-measurement.geometer-final-measurement-bemerkungen",
+    "fields": {
+      "created_at": "2024-08-19T08:23:51.192Z",
+      "modified_at": "2024-08-19T08:23:51.192Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "geometer-final-measurement",
+      "question": "geometer-final-measurement-bemerkungen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "geometer-final-measurement.geometer-final-measurement-complete",
+    "fields": {
+      "created_at": "2024-08-19T08:24:04.066Z",
+      "modified_at": "2024-08-19T08:24:04.066Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "geometer-final-measurement",
+      "question": "geometer-final-measurement-complete",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "geometer-final-measurement.geometer-final-measurement-datum",
+    "fields": {
+      "created_at": "2024-08-19T08:23:35.543Z",
+      "modified_at": "2024-08-19T08:23:35.543Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "geometer-final-measurement",
+      "question": "geometer-final-measurement-datum",
+      "sort": 3
     }
   },
   {
@@ -47510,6 +47573,107 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "generelle-fachthemen",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "geometer-final-measurement-bemerkungen",
+    "fields": {
+      "created_at": "2024-08-19T08:23:51.094Z",
+      "modified_at": "2024-08-19T08:23:51.094Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "geometer-final-measurement-complete",
+    "fields": {
+      "created_at": "2024-08-19T08:24:03.973Z",
+      "modified_at": "2024-08-19T08:24:03.973Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "geometer-final-measurement-datum",
+    "fields": {
+      "created_at": "2024-08-19T08:23:35.432Z",
+      "modified_at": "2024-08-19T08:23:35.432Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Definitive Vermessung durchgef\\u00fchrt am\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
