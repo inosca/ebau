@@ -23,74 +23,18 @@ module("Unit | Ability | instance", function (hooks) {
 
     ability.set("form", { meta: { "is-main-form": true }, slug: "baugesuch" });
 
-    assert.ok(ability.canWriteForm);
-    assert.ok(ability.canReadForm);
+    assert.ok(await ability.canWriteForm());
+    assert.ok(await ability.canReadForm());
 
     ability.set("form", { meta: { "is-main-form": false }, slug: "sb1" });
 
-    assert.notOk(ability.canWriteForm);
-    assert.ok(ability.canReadForm);
+    assert.notOk(await ability.canWriteForm());
+    assert.ok(await ability.canReadForm());
 
     ability.set("form", { meta: { "is-main-form": false }, slug: "sb2" });
 
-    assert.notOk(ability.canWriteForm);
-    assert.notOk(ability.canReadForm);
-  });
-
-  test("it computes read permissions", async function (assert) {
-    const ability = this.owner.lookup("ability:instance");
-
-    ability.set("model", {
-      meta: {
-        permissions: {
-          main: [],
-          sb1: [],
-          sb2: [],
-        },
-      },
-    });
-
-    assert.notOk(ability.canRead);
-
-    ability.set("model", {
-      meta: {
-        permissions: {
-          main: ["read"],
-          sb1: [],
-          sb2: [],
-        },
-      },
-    });
-
-    assert.ok(ability.canRead);
-  });
-
-  test("it computes write permissions", async function (assert) {
-    const ability = this.owner.lookup("ability:instance");
-
-    ability.set("model", {
-      meta: {
-        permissions: {
-          main: [],
-          sb1: [],
-          sb2: [],
-        },
-      },
-    });
-
-    assert.notOk(ability.canWrite);
-
-    ability.set("model", {
-      meta: {
-        permissions: {
-          main: ["write"],
-          sb1: [],
-          sb2: [],
-        },
-      },
-    });
-
-    assert.ok(ability.canWrite);
+    assert.notOk(await ability.canWriteForm());
+    assert.notOk(await ability.canReadForm());
   });
 
   test("it computes create permissions", async function (assert) {

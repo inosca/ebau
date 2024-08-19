@@ -13,6 +13,7 @@ from django.utils.dateparse import parse_datetime
 from inflection import underscore
 
 from camac.caluma.extensions.permissions import CustomPermission
+from camac.permissions.switcher import PERMISSION_MODE
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
@@ -734,3 +735,59 @@ def test_simpe_form_permission_with_child_case_document(
     document = work_item.child_case.document
 
     assert permission.has_caluma_form_edit_permission_for_municipality(document, None)
+
+
+@pytest.mark.parametrize(
+    "form,granted_permissions,success",
+    [
+        ("main", ["form-write"], True),
+        ("main", ["form-read"], False),
+    ],
+)
+def test_form_permissions_new(
+    db,
+    caluma_admin_schema_executor,
+    case_factory,
+    form_question_factory,
+    form,
+    granted_permissions,
+    instance_factory,
+    mocker,
+    permissions_settings,
+    success,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL.value
+
+    mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [Any])
+
+    get_permissions = mocker.patch(
+        "camac.permissions.api.PermissionManager.get_permissions"
+    )
+    get_permissions.return_value = granted_permissions
+
+    case = case_factory(document__form__slug=form)
+    instance_factory(case=case)
+    document = case.document
+
+    question = form_question_factory(
+        form=document.form, question__type=Question.TYPE_TEXT
+    ).question
+
+    query = """
+        mutation($question: ID!, $document: ID!) {
+            saveDocumentStringAnswer(input: {
+                question: $question
+                document: $document
+                value: "foo"
+            }) {
+                clientMutationId
+            }
+        }
+    """
+
+    result = caluma_admin_schema_executor(
+        query, variables={"question": question.pk, "document": str(document.pk)}
+    )
+
+    get_permissions.assert_called()
+    assert bool(result.errors) != success
