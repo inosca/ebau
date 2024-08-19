@@ -6,8 +6,8 @@
       actionButtonOnSuccess=(perform this.getData)
     }}
     @disabled={{or
-      (cannot "write form of instance" this.data.instance)
-      (cannot "edit document of case" this.data.case)
+      (await (cannot "write form of instance" this.data.instance))
+      (await (cannot "edit document of case" this.data.case))
     }}
   />
 {{/if}}

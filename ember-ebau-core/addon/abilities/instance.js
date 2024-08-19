@@ -76,7 +76,11 @@ export default class InstanceAbility extends Ability {
     return ["municipality", "coordination"].includes(this.ebauModules.baseRole);
   }
 
-  get canWriteForm() {
+  async canWriteForm() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(this.model?.id, "form-write");
+    }
+
     if (macroCondition(getOwnConfig().application === "sz")) {
       return (this.model.meta?.editable || []).includes("form");
     }
