@@ -32,7 +32,7 @@ STATES_ALL = RequireInstanceState(
 
 # Role rules
 ROLES_NO_READONLY = ~HasRole(["municipality-read", "service-read"])
-ROLES_MUNICIPALITY = HasRole(["municipality-lead", "municipality-clerk"])
+ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
 
 # Module rules
 #
