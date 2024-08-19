@@ -119,12 +119,18 @@ class CustomDynamicTasks(BaseDynamicTasks):
         completeness_answer = complete_check_document.answers.get(
             question_id="complete-check-vollstaendigkeitspruefung"
         ).value
+        is_rejected = (
+            completeness_answer == "complete-check-vollstaendigkeitspruefung-reject"
+        )
 
         if completeness_answer in [
             "complete-check-vollstaendigkeitspruefung-incomplete",
             "complete-check-vollstaendigkeitspruefung-incomplete-wait",
         ]:
             tasks.append("additional-demand")
+
+        if is_rejected:
+            tasks.append("reject")
 
         # Building commission
         forms_with_building_commission_involvement = [
@@ -135,8 +141,31 @@ class CustomDynamicTasks(BaseDynamicTasks):
             "solar-declaration",
             "technische-bewilligung",
         ]
-        if case.family.document.form_id in forms_with_building_commission_involvement:
+        if (
+            not is_rejected
+            and case.family.document.form_id
+            in forms_with_building_commission_involvement
+        ):
             tasks.append("release-for-bk")
+
+        return tasks
+
+    @register_dynamic_task("after-complete-construction-monitoring-ur")
+    def resolve_after_complete_construction_monitoring_ur(
+        self, case, user, prev_work_item, context
+    ):
+        tasks = []
+
+        involve_geometer_value = (
+            case.family.work_items.get(task_id="decision")
+            .document.answers.filter(question_id="decision-task-nachfuehrungsgeometer")
+            .values_list("value", flat=True)
+            .first()
+        )
+
+        # Only involve the geometer if this was set during the "decision" process
+        if involve_geometer_value == "decision-task-nachfuehrungsgeometer-ja":
+            tasks.append("geometer-final-measurement")
 
         return tasks
 

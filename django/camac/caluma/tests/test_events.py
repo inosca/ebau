@@ -13,6 +13,9 @@ from caluma.caluma_workflow.models import Task, WorkItem
 from django.conf import settings
 from django.utils import timezone
 
+from camac.caluma.extensions.events.complete_check import (
+    send_notification_after_complete_check,
+)
 from camac.caluma.extensions.events.general import post_decision_ur
 from camac.constants import kt_uri as uri_constants
 from camac.instance.models import HistoryEntryT
@@ -1031,3 +1034,35 @@ def test_post_decision_ur(
         unfininished_review_building_commission_work_item.status
         == WorkItem.STATUS_SKIPPED
     ), "any open review work items need to be completed."
+
+
+def test_complete_check_ur(
+    db,
+    work_item_factory,
+    document_factory,
+    answer_factory,
+    mocker,
+    set_application_ur,
+    ur_instance,
+):
+    work_item = work_item_factory(
+        task_id="complete-check", document=document_factory(), case=ur_instance.case
+    )
+    answer_factory(
+        document=work_item.document,
+        question__slug="complete-check-vollstaendigkeitspruefung",
+        value="complete-check-vollstaendigkeitspruefung-complete",
+    )
+
+    send_notification_mock = mocker.patch(
+        "camac.caluma.extensions.events.complete_check.send_notification"
+    )
+
+    send_notification_after_complete_check(
+        sender=None,
+        work_item=work_item,
+        user=None,
+        context={},
+    )
+
+    send_notification_mock.assert_called()
