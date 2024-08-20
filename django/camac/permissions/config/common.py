@@ -35,7 +35,7 @@ class ApplicantsEventHandlerMixin:
     def applicant_removed(self, instance, applicant):
         # See if our applicant has a permission, then revoke if
         # it exists
-        acls = InstanceACL.objects.filter(
+        acls = InstanceACL.currently_active().filter(
             instance=instance,
             user=applicant.invitee,
             access_level=APPLICANT_ACCESS_LEVEL,
