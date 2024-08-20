@@ -361,7 +361,7 @@ module.exports = function (environment) {
           instanceStatesGr.inCorrection,
           instanceStatesGr.decision,
         ],
-        constructionAcceptance: [instanceStatesGr.constructionAcceptance],
+        decided: [instanceStatesGr.constructionAcceptance],
         done: [instanceStatesGr.finished, instanceStatesGr.rejected],
       },
       completePreliminaryClarificationSlugs: [],
@@ -408,7 +408,7 @@ module.exports = function (environment) {
           instanceStatesSo.decision,
           instanceStatesSo.reject,
         ],
-        constructionMonitoring: [
+        decided: [
           instanceStatesSo.decided,
           instanceStatesSo["construction-monitoring"],
         ],
