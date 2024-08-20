@@ -152,7 +152,7 @@
       "invitee": 4,
       "created": "2024-08-07T15:01:41.283Z",
       "email": "readonly@example.com",
-      "role": "ADMIN"
+      "role": "READ_ONLY"
     }
   },
   {
