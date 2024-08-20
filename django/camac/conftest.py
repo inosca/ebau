@@ -132,6 +132,8 @@ FORM_QUESTION_MAP_BE = [
     ("main-form", "personalien-gesuchstellerin"),
     ("sb1", "is-paper"),
     ("sb1", "personalien-sb1-sb2"),
+    ("sb1-v2", "is-paper"),
+    ("sb1-v2", "personalien-sb1-sb2"),
     ("sb2", "is-paper"),
     ("nfd", "is-paper"),
     ("decision", "decision-workflow"),
@@ -364,7 +366,7 @@ def multilang(application_settings):
 def use_caluma_form(application_settings):
     application_settings["FORM_BACKEND"] = "caluma"
     application_settings["CALUMA"] = {
-        "FORM_PERMISSIONS": ["main", "sb1", "sb2", "nfd", "dossierpruefung"],
+        "FORM_PERMISSIONS": ["main", "sb1", "sb1-v2", "sb2", "nfd", "dossierpruefung"],
         "HAS_PROJECT_CHANGE": True,
         "CREATE_IN_PROCESS": False,
         "USE_LOCATION": False,
@@ -731,6 +733,7 @@ def caluma_forms_be(settings):
         name={"de": "Baugesuch", "fr": "Demande de permis de construire"},
     )
     caluma_form_models.Form.objects.create(slug="sb1")
+    caluma_form_models.Form.objects.create(slug="sb1-v2")
     caluma_form_models.Form.objects.create(slug="sb2")
     caluma_form_models.Form.objects.create(slug="nfd")
     caluma_form_models.Form.objects.create(slug="migriertes-dossier")

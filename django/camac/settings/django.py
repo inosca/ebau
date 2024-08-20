@@ -872,6 +872,7 @@ APPLICATIONS = {
             "FORM_PERMISSIONS": [
                 "main",
                 "sb1",
+                "sb1-v2",
                 "sb2",
                 "nfd",
                 "dossierpruefung",

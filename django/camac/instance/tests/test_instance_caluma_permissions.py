@@ -3,7 +3,7 @@ from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
 )
-from caluma.caluma_workflow import api as workflow_api
+from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.conf import settings
 from django.urls import reverse
 from pytest_lazy_fixtures import lf
@@ -78,6 +78,8 @@ def test_instance_permissions_be(
     instance_state,
     use_caluma_form,
     snapshot,
+    work_item_factory,
+    document_factory,
     application_settings,
     permissions_settings,
     access_level,
@@ -91,7 +93,19 @@ def test_instance_permissions_be(
     application_settings["INSTANCE_PERMISSIONS"] = settings.APPLICATIONS["kt_bern"][
         "INSTANCE_PERMISSIONS"
     ]
-
+    # SB1 additional setup
+    work_item_factory(
+        case=be_instance.case,
+        task_id="sb1",
+        status=caluma_workflow_models.WorkItem.STATUS_READY,
+        document=document_factory(form_id="sb1"),
+    )
+    work_item_factory(
+        case=be_instance.case,
+        task_id="sb1",
+        status=caluma_workflow_models.WorkItem.STATUS_READY,
+        document=document_factory(form_id="sb1-v2"),
+    )
     permissions_settings["ACCESS_LEVELS"] = {
         access_level.pk: [("foo", Always()), ("bar", Always())],
         "geometer": [("foo", Always()), ("bar", Always())],
@@ -326,6 +340,8 @@ def test_instance_nfd_permissions(
         ("rejected", "construction-control", "main", R),
         ("sb1", "municipality", "sb1", R),
         ("sb1", "construction-control", "sb1", RW),
+        ("sb1", "municipality", "sb1-v2", R),
+        ("sb1", "construction-control", "sb1-v2", RW),
         ("sb2", "municipality", "sb2", R),
         ("sb2", "construction-control", "sb2", RW),
     ],
@@ -344,6 +360,8 @@ def test_instance_paper_permissions(
     group_factory,
     service_factory,
     user_group_factory,
+    work_item_factory,
+    document_factory,
     application_settings,
     instance_service_factory,
 ):
@@ -373,6 +391,14 @@ def test_instance_paper_permissions(
             "DEFAULT": [municipality_group.service.service_group.pk],
         },
     }
+    # SB1 additional setup
+    if instance_state.name == "sb1":
+        work_item_factory(
+            case=be_instance.case,
+            task_id="sb1",
+            status=caluma_workflow_models.WorkItem.STATUS_READY,
+            document=document_factory(form_id=form_slug),
+        )
 
     response = admin_client.get(
         reverse("instance-detail", args=[be_instance.pk]),
