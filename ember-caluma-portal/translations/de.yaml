@@ -208,8 +208,7 @@ instances:
     all: "Alle"
     pending: "Offen"
     sb: "Selbstdeklaration"
-    constructionAcceptance: "Entschieden"
-    constructionMonitoring: "Entschieden"
+    decided: "Entschieden"
     done: "Abgeschlossen"
     notSubmitted: "Neu"
     submitted: "Eingereicht"
@@ -332,6 +331,7 @@ instances:
     # SO
     withdrawn: "Zurückgezogen"
     constructionMonitoring: "Baubegleitung"
+    decided: "Entschieden"
 
     # Shared
     done: "Abgeschlossen"
