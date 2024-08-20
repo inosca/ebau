@@ -1,928 +1,216 @@
 # serializer version: 1
-# name: test_sogis_client[bln-and-ivs-regional-local-coords3]
+# name: test_sogis_client[scenario_01]
   dict({
-    'data': dict({
-      'bundesinventare': dict({
-        'hidden': False,
-        'label': 'Herr Michail Säuberlich B.Eng.',
-        'value': 'BLN: Weissenstein, Nr. des BLN: 1010, IVS Regional und Lokal: Hächler - Schitterwald, Nr. des IVS Regional und Lokal: SO 421',
-      }),
-      'gemeinde': dict({
-        'displayValue': 'Welschenrohr-Gänsbrunnen',
-        'hidden': False,
-        'label': 'Suse Junk',
-        'value': '1',
-      }),
-      'gemeindenummer-bfs': dict({
-        'hidden': False,
-        'label': 'Elise Täsche',
-        'value': 2430,
-      }),
-      'nutzungsplanung-grundnutzung': dict({
-        'hidden': False,
-        'label': 'Sinaida Siering-Christoph',
-        'value': 'Wald',
-      }),
-      'nutzungsplanung-weitere-festlegungen': dict({
-        'hidden': False,
-        'label': 'Rainer Ullmann',
-        'value': None,
-      }),
-      'ort': dict({
-        'hidden': False,
-        'label': 'Herr Hans-Rainer Wulff',
-        'value': 'Welschenrohr',
-      }),
-      'parzellen': dict({
-        'form': 'those-charge-why',
-        'hidden': False,
-        'label': 'Elwira Paffrath',
-        'value': list([
-          dict({
-            'e-grid': dict({
-              'label': 'Marc Caspar MBA.',
-              'value': 'CH607506603227',
-            }),
-            'lagekoordinaten-nord': dict({
-              'label': 'Traugott Kaul',
-              'value': 1235122.657259761,
-            }),
-            'lagekoordinaten-ost': dict({
-              'label': 'Ilona Henck B.Eng.',
-              'value': 2606265.992581233,
-            }),
-            'ort': dict({
-              'label': 'Herr Hans-Rainer Wulff',
-              'value': 'Welschenrohr',
-            }),
-            'parzellennummer': dict({
-              'label': 'Univ.Prof. Randolf Oderwald B.A.',
-              'value': '685',
-            }),
-            'plz': dict({
-              'label': 'Muzaffer Renner',
-              'value': None,
-            }),
-            'strasse-flurname': dict({
-              'label': 'Ing. Monique Hoffmann MBA.',
-              'value': None,
-            }),
-            'strasse-nummer': dict({
-              'label': 'Apostolos Klapp',
-              'value': None,
-            }),
+    'gemeinde': dict({
+      'displayValue': 'Solothurn',
+      'hidden': False,
+      'label': 'Suse Junk',
+      'value': '1',
+    }),
+    'gemeindenummer-bfs': dict({
+      'hidden': False,
+      'label': 'Elise Täsche',
+      'value': 2601,
+    }),
+    'nutzungsplanung-grundnutzung': dict({
+      'hidden': False,
+      'label': 'Tülay Rörricht',
+      'value': '4-geschossige Mischzone, ZR § 6 und 17 (Gemeinde), N133_Gewerbezone_mit_Wohnen_Mischzone_4_G_und_groesser (Kanton)',
+    }),
+    'nutzungsplanung-weitere-festlegungen': dict({
+      'hidden': False,
+      'label': 'Sinaida Siering-Christoph',
+      'value': 'Erschliessungsplan (Linie): Baulinie Strasse, Erschliessungsplan (Linie): Strassenbaulinie für 1-geschossige Bauten, Erschliessungsplan (Linie): Gestaltungsbaulinie, Erschliessungsplan (Linie): min. Abstand gem. § 46 kant. Bauverordnung entlang Gemeindestrasse (5.0m), Fläche: Archäologische Fundstellen',
+    }),
+    'ort': dict({
+      'hidden': False,
+      'label': 'Herr Hans-Rainer Wulff',
+      'value': 'Solothurn',
+    }),
+    'parzellen': dict({
+      'form': 'those-charge-why',
+      'hidden': False,
+      'label': 'Elwira Paffrath',
+      'value': list([
+        dict({
+          'amtschreiberei': dict({
+            'hidden': False,
+            'label': None,
+            'value': 'Amtschreiberei Region Solothurn',
           }),
-        ]),
-      }),
-      'richtplan-grundnutzung': dict({
-        'hidden': False,
-        'label': 'Ing. Helen Jungfer',
-        'value': 'Wald',
-      }),
-      'richtplan-weiteres': dict({
-        'hidden': False,
-        'label': 'Tülay Rörricht',
-        'value': 'Linie: Historischer_Verkehrsweg, Waldnähe (aus Richtplan): Ja, Fläche: Juraschutzzone, Fläche: Naturpark, Fläche: BLN_Gebiet',
-      }),
-      'strasse-flurname': dict({
-        'hidden': False,
-        'label': 'Ing. Monique Hoffmann MBA.',
-        'value': None,
-      }),
-      'strasse-nummer': dict({
-        'hidden': False,
-        'label': 'Apostolos Klapp',
-        'value': None,
-      }),
-      'weitere-gis-informationen': dict({
-        'hidden': False,
-        'label': 'Kay-Uwe Wagner',
-        'value': 'Bodenbedeckung: geschlossener_Wald',
-      }),
+          'e-grid': dict({
+            'hidden': False,
+            'label': 'Marc Caspar MBA.',
+            'value': 'CH127079320611',
+          }),
+          'flaeche-m': dict({
+            'hidden': False,
+            'label': 'Ing. Helen Jungfer',
+            'value': 1465,
+          }),
+          'grundbuchkreis': dict({
+            'hidden': False,
+            'label': None,
+            'value': 'Solothurn',
+          }),
+          'grundstueckart': dict({
+            'hidden': False,
+            'label': None,
+            'value': 'Liegenschaft',
+          }),
+          'lagekoordinaten-nord': dict({
+            'hidden': True,
+            'label': 'Traugott Kaul',
+            'value': 1228110.0,
+          }),
+          'lagekoordinaten-ost': dict({
+            'hidden': True,
+            'label': 'Ilona Henck B.Eng.',
+            'value': 2607345.0,
+          }),
+          'parzellennummer': dict({
+            'hidden': False,
+            'label': 'Univ.Prof. Randolf Oderwald B.A.',
+            'value': '1939',
+          }),
+        }),
+      ]),
+    }),
+    'plz': dict({
+      'hidden': False,
+      'label': 'Muzaffer Renner',
+      'value': '4500',
+    }),
+    'strasse-flurname': dict({
+      'hidden': False,
+      'label': 'Ing. Monique Hoffmann MBA.',
+      'value': 'Krummturmstrasse',
+    }),
+    'strasse-nummer': dict({
+      'hidden': False,
+      'label': 'Apostolos Klapp',
+      'value': '3',
     }),
   })
 # ---
-# name: test_sogis_client[building-law-coords8]
+# name: test_sogis_client[scenario_02]
   dict({
-    'data': dict({
-      'bundesinventare': dict({
-        'hidden': False,
-        'label': 'Herr Michail Säuberlich B.Eng.',
-        'value': None,
-      }),
-      'gemeinde': dict({
-        'displayValue': 'Bettlach',
-        'hidden': False,
-        'label': 'Suse Junk',
-        'value': '2',
-      }),
-      'gemeindenummer-bfs': dict({
-        'hidden': False,
-        'label': 'Elise Täsche',
-        'value': 2543,
-      }),
-      'nutzungsplanung-grundnutzung': dict({
-        'hidden': False,
-        'label': 'Sinaida Siering-Christoph',
-        'value': 'Wohnzone 3',
-      }),
-      'nutzungsplanung-weitere-festlegungen': dict({
-        'hidden': False,
-        'label': 'Rainer Ullmann',
-        'value': None,
-      }),
-      'ort': dict({
-        'hidden': False,
-        'label': 'Herr Hans-Rainer Wulff',
-        'value': 'Bettlach',
-      }),
-      'parzellen': dict({
-        'form': 'those-charge-why',
-        'hidden': False,
-        'label': 'Elwira Paffrath',
-        'value': list([
-          dict({
-            'e-grid': dict({
-              'label': 'Marc Caspar MBA.',
-              'value': 'CH427250320619, CH107306383226',
-            }),
-            'lagekoordinaten-nord': dict({
-              'label': 'Traugott Kaul',
-              'value': 1227706.570833333,
-            }),
-            'lagekoordinaten-ost': dict({
-              'label': 'Ilona Henck B.Eng.',
-              'value': 2599196.9568125005,
-            }),
-            'ort': dict({
-              'label': 'Herr Hans-Rainer Wulff',
-              'value': 'Bettlach',
-            }),
-            'parzellennummer': dict({
-              'label': 'Univ.Prof. Randolf Oderwald B.A.',
-              'value': '2117, 2128',
-            }),
-            'plz': dict({
-              'label': 'Muzaffer Renner',
-              'value': '2544',
-            }),
-            'strasse-flurname': dict({
-              'label': 'Ing. Monique Hoffmann MBA.',
-              'value': 'Sägereiweg',
-            }),
-            'strasse-nummer': dict({
-              'label': 'Apostolos Klapp',
-              'value': '19, 19a, 19b, 19c, 19d',
-            }),
-          }),
-        ]),
-      }),
-      'richtplan-grundnutzung': dict({
-        'hidden': False,
-        'label': 'Ing. Helen Jungfer',
-        'value': 'Siedlungsgebiet.Wohnen_oeffentliche_Bauten',
-      }),
-      'richtplan-weiteres': dict({
-        'hidden': False,
-        'label': 'Tülay Rörricht',
-        'value': 'Waldnähe (aus Richtplan): Nein',
-      }),
-      'strasse-flurname': dict({
-        'hidden': False,
-        'label': 'Ing. Monique Hoffmann MBA.',
-        'value': 'Sägereiweg',
-      }),
-      'strasse-nummer': dict({
-        'hidden': False,
-        'label': 'Apostolos Klapp',
-        'value': '19, 19a, 19b, 19c, 19d',
-      }),
-      'weitere-gis-informationen': dict({
-        'hidden': False,
-        'label': 'Kay-Uwe Wagner',
-        'value': None,
-      }),
+    'weitere-gis-informationen': dict({
+      'hidden': False,
+      'label': 'Rainer Ullmann',
+      'value': 'Bodenbedeckung: geschlossener_Wald, Bodenbedeckung: fliessendes Gewaesser',
     }),
   })
 # ---
-# name: test_sogis_client[crop-rotation-area-coords6]
+# name: test_sogis_client[scenario_03]
   dict({
-    'data': dict({
-      'bundesinventare': dict({
-        'hidden': False,
-        'label': 'Herr Michail Säuberlich B.Eng.',
-        'value': None,
-      }),
-      'gemeinde': dict({
-        'displayValue': 'Lüsslingen-Nennigkofen',
-        'hidden': False,
-        'label': 'Suse Junk',
-        'value': '3',
-      }),
-      'gemeindenummer-bfs': dict({
-        'hidden': False,
-        'label': 'Elise Täsche',
-        'value': 2464,
-      }),
-      'nutzungsplanung-grundnutzung': dict({
-        'hidden': False,
-        'label': 'Sinaida Siering-Christoph',
-        'value': 'Landwirtschaftszone',
-      }),
-      'nutzungsplanung-weitere-festlegungen': dict({
-        'hidden': False,
-        'label': 'Rainer Ullmann',
-        'value': 'Fläche: Kommunale Schutzzone Wildtierkorridor',
-      }),
-      'ort': dict({
-        'hidden': False,
-        'label': 'Herr Hans-Rainer Wulff',
-        'value': 'Lüsslingen',
-      }),
-      'parzellen': dict({
-        'form': 'those-charge-why',
-        'hidden': False,
-        'label': 'Elwira Paffrath',
-        'value': list([
-          dict({
-            'e-grid': dict({
-              'label': 'Marc Caspar MBA.',
-              'value': 'CH727351320675',
-            }),
-            'lagekoordinaten-nord': dict({
-              'label': 'Traugott Kaul',
-              'value': 1227634.5322569455,
-            }),
-            'lagekoordinaten-ost': dict({
-              'label': 'Ilona Henck B.Eng.',
-              'value': 2603913.165006131,
-            }),
-            'ort': dict({
-              'label': 'Herr Hans-Rainer Wulff',
-              'value': 'Lüsslingen',
-            }),
-            'parzellennummer': dict({
-              'label': 'Univ.Prof. Randolf Oderwald B.A.',
-              'value': '9',
-            }),
-            'plz': dict({
-              'label': 'Muzaffer Renner',
-              'value': None,
-            }),
-            'strasse-flurname': dict({
-              'label': 'Ing. Monique Hoffmann MBA.',
-              'value': None,
-            }),
-            'strasse-nummer': dict({
-              'label': 'Apostolos Klapp',
-              'value': None,
-            }),
-          }),
-        ]),
-      }),
-      'richtplan-grundnutzung': dict({
-        'hidden': False,
-        'label': 'Ing. Helen Jungfer',
-        'value': 'Landwirtschaftsgebiet',
-      }),
-      'richtplan-weiteres': dict({
-        'hidden': False,
-        'label': 'Tülay Rörricht',
-        'value': 'Waldnähe (aus Richtplan): Nein, Fläche: Fruchtfolgeflaeche, Fläche: Witischutzzone',
-      }),
-      'strasse-flurname': dict({
-        'hidden': False,
-        'label': 'Ing. Monique Hoffmann MBA.',
-        'value': None,
-      }),
-      'strasse-nummer': dict({
-        'hidden': False,
-        'label': 'Apostolos Klapp',
-        'value': None,
-      }),
-      'weitere-gis-informationen': dict({
-        'hidden': False,
-        'label': 'Kay-Uwe Wagner',
-        'value': None,
-      }),
+    'fruchtfolgeflaeche': dict({
+      'hidden': False,
+      'label': 'Kay-Uwe Wagner',
+      'value': 'Fruchtfolgeflächen-Qualität: geeignet',
     }),
   })
 # ---
-# name: test_sogis_client[default-coords0]
+# name: test_sogis_client[scenario_04]
   dict({
-    'data': dict({
-      'bundesinventare': dict({
-        'hidden': False,
-        'label': 'Herr Michail Säuberlich B.Eng.',
-        'value': None,
-      }),
-      'gemeinde': dict({
-        'displayValue': 'Solothurn',
-        'hidden': False,
-        'label': 'Suse Junk',
-        'value': '4',
-      }),
-      'gemeindenummer-bfs': dict({
-        'hidden': False,
-        'label': 'Elise Täsche',
-        'value': 2601,
-      }),
-      'nutzungsplanung-grundnutzung': dict({
-        'hidden': False,
-        'label': 'Sinaida Siering-Christoph',
-        'value': 'Kernzone, offene Bauweise, 3-geschossig AZ max. 1.0',
-      }),
-      'nutzungsplanung-weitere-festlegungen': dict({
-        'hidden': False,
-        'label': 'Rainer Ullmann',
-        'value': None,
-      }),
-      'ort': dict({
-        'hidden': False,
-        'label': 'Herr Hans-Rainer Wulff',
-        'value': 'Solothurn',
-      }),
-      'parzellen': dict({
-        'form': 'those-charge-why',
-        'hidden': False,
-        'label': 'Elwira Paffrath',
-        'value': list([
-          dict({
-            'e-grid': dict({
-              'label': 'Marc Caspar MBA.',
-              'value': 'CH354732700648',
-            }),
-            'lagekoordinaten-nord': dict({
-              'label': 'Traugott Kaul',
-              'value': 1228434.884375,
-            }),
-            'lagekoordinaten-ost': dict({
-              'label': 'Ilona Henck B.Eng.',
-              'value': 2607160.642708333,
-            }),
-            'ort': dict({
-              'label': 'Herr Hans-Rainer Wulff',
-              'value': 'Solothurn',
-            }),
-            'parzellennummer': dict({
-              'label': 'Univ.Prof. Randolf Oderwald B.A.',
-              'value': '850',
-            }),
-            'plz': dict({
-              'label': 'Muzaffer Renner',
-              'value': None,
-            }),
-            'strasse-flurname': dict({
-              'label': 'Ing. Monique Hoffmann MBA.',
-              'value': None,
-            }),
-            'strasse-nummer': dict({
-              'label': 'Apostolos Klapp',
-              'value': None,
-            }),
-          }),
-        ]),
-      }),
-      'richtplan-grundnutzung': dict({
-        'hidden': False,
-        'label': 'Ing. Helen Jungfer',
-        'value': 'Siedlungsgebiet.Wohnen_oeffentliche_Bauten',
-      }),
-      'richtplan-weiteres': dict({
-        'hidden': False,
-        'label': 'Tülay Rörricht',
-        'value': 'Waldnähe (aus Richtplan): Nein',
-      }),
-      'strasse-flurname': dict({
-        'hidden': False,
-        'label': 'Ing. Monique Hoffmann MBA.',
-        'value': None,
-      }),
-      'strasse-nummer': dict({
-        'hidden': False,
-        'label': 'Apostolos Klapp',
-        'value': None,
-      }),
-      'weitere-gis-informationen': dict({
-        'hidden': False,
-        'label': 'Kay-Uwe Wagner',
-        'value': None,
-      }),
+    'naturgefahren-gis': dict({
+      'hidden': False,
+      'label': 'Herr Michail Säuberlich B.Eng.',
+      'value': 'Gefahrenstufe: mittel, Charakterisierung: U6',
     }),
   })
 # ---
-# name: test_sogis_client[highway-coords7]
+# name: test_sogis_client[scenario_05]
   dict({
-    'data': dict({
-      'bundesinventare': dict({
-        'hidden': False,
-        'label': 'Herr Michail Säuberlich B.Eng.',
-        'value': None,
-      }),
-      'gemeinde': dict({
-        'displayValue': 'Luterbach',
-        'hidden': False,
-        'label': 'Suse Junk',
-        'value': '5',
-      }),
-      'gemeindenummer-bfs': dict({
-        'hidden': False,
-        'label': 'Elise Täsche',
-        'value': 2527,
-      }),
-      'nutzungsplanung-grundnutzung': dict({
-        'hidden': False,
-        'label': 'Sinaida Siering-Christoph',
-        'value': None,
-      }),
-      'nutzungsplanung-weitere-festlegungen': dict({
-        'hidden': False,
-        'label': 'Rainer Ullmann',
-        'value': None,
-      }),
-      'ort': dict({
-        'hidden': False,
-        'label': 'Herr Hans-Rainer Wulff',
-        'value': 'Luterbach',
-      }),
-      'parzellen': dict({
-        'form': 'those-charge-why',
-        'hidden': False,
-        'label': 'Elwira Paffrath',
-        'value': list([
-          dict({
-            'e-grid': dict({
-              'label': 'Marc Caspar MBA.',
-              'value': 'CH667932069772',
-            }),
-            'lagekoordinaten-nord': dict({
-              'label': 'Traugott Kaul',
-              'value': 1228741.4541305029,
-            }),
-            'lagekoordinaten-ost': dict({
-              'label': 'Ilona Henck B.Eng.',
-              'value': 2611103.2977669733,
-            }),
-            'ort': dict({
-              'label': 'Herr Hans-Rainer Wulff',
-              'value': 'Luterbach',
-            }),
-            'parzellennummer': dict({
-              'label': 'Univ.Prof. Randolf Oderwald B.A.',
-              'value': '2501',
-            }),
-            'plz': dict({
-              'label': 'Muzaffer Renner',
-              'value': None,
-            }),
-            'strasse-flurname': dict({
-              'label': 'Ing. Monique Hoffmann MBA.',
-              'value': None,
-            }),
-            'strasse-nummer': dict({
-              'label': 'Apostolos Klapp',
-              'value': None,
-            }),
-          }),
-        ]),
-      }),
-      'richtplan-grundnutzung': dict({
-        'hidden': False,
-        'label': 'Ing. Helen Jungfer',
-        'value': 'Nationalstrasse',
-      }),
-      'richtplan-weiteres': dict({
-        'hidden': False,
-        'label': 'Tülay Rörricht',
-        'value': 'Linie: Nationalstrasse.Strasse, Waldnähe (aus Richtplan): Nein',
-      }),
-      'strasse-flurname': dict({
-        'hidden': False,
-        'label': 'Ing. Monique Hoffmann MBA.',
-        'value': None,
-      }),
-      'strasse-nummer': dict({
-        'hidden': False,
-        'label': 'Apostolos Klapp',
-        'value': None,
-      }),
-      'weitere-gis-informationen': dict({
-        'hidden': False,
-        'label': 'Kay-Uwe Wagner',
-        'value': None,
-      }),
+  })
+# ---
+# name: test_sogis_client[scenario_06]
+  dict({
+    'gewaesserschutz': dict({
+      'hidden': False,
+      'label': 'Dipl.-Ing. Nelli Rogge',
+      'value': 'Schutzzone: S1',
     }),
   })
 # ---
-# name: test_sogis_client[ivs-national-coords4]
+# name: test_sogis_client[scenario_07]
   dict({
-    'data': dict({
-      'bundesinventare': dict({
-        'hidden': False,
-        'label': 'Herr Michail Säuberlich B.Eng.',
-        'value': 'IVS National: St. Niklaus - Einsiedelei; Verenaschlucht, Nr. des IVS National: SO 365.0.1',
-      }),
-      'gemeinde': dict({
-        'displayValue': 'Rüttenen',
-        'hidden': False,
-        'label': 'Suse Junk',
-        'value': '6',
-      }),
-      'gemeindenummer-bfs': dict({
-        'hidden': False,
-        'label': 'Elise Täsche',
-        'value': 2555,
-      }),
-      'nutzungsplanung-grundnutzung': dict({
-        'hidden': False,
-        'label': 'Sinaida Siering-Christoph',
-        'value': None,
-      }),
-      'nutzungsplanung-weitere-festlegungen': dict({
-        'hidden': False,
-        'label': 'Rainer Ullmann',
-        'value': 'Fläche: Perimeter kantonaler Nutzungsplan',
-      }),
-      'ort': dict({
-        'hidden': False,
-        'label': 'Herr Hans-Rainer Wulff',
-        'value': 'Rüttenen',
-      }),
-      'parzellen': dict({
-        'form': 'those-charge-why',
-        'hidden': False,
-        'label': 'Elwira Paffrath',
-        'value': list([
-          dict({
-            'e-grid': dict({
-              'label': 'Marc Caspar MBA.',
-              'value': 'CH810699329948',
-            }),
-            'lagekoordinaten-nord': dict({
-              'label': 'Traugott Kaul',
-              'value': 1230212.5463196996,
-            }),
-            'lagekoordinaten-ost': dict({
-              'label': 'Ilona Henck B.Eng.',
-              'value': 2607372.235299003,
-            }),
-            'ort': dict({
-              'label': 'Herr Hans-Rainer Wulff',
-              'value': 'Rüttenen',
-            }),
-            'parzellennummer': dict({
-              'label': 'Univ.Prof. Randolf Oderwald B.A.',
-              'value': '90041',
-            }),
-            'plz': dict({
-              'label': 'Muzaffer Renner',
-              'value': None,
-            }),
-            'strasse-flurname': dict({
-              'label': 'Ing. Monique Hoffmann MBA.',
-              'value': None,
-            }),
-            'strasse-nummer': dict({
-              'label': 'Apostolos Klapp',
-              'value': None,
-            }),
-          }),
-        ]),
-      }),
-      'richtplan-grundnutzung': dict({
-        'hidden': False,
-        'label': 'Ing. Helen Jungfer',
-        'value': 'Wald',
-      }),
-      'richtplan-weiteres': dict({
-        'hidden': False,
-        'label': 'Tülay Rörricht',
-        'value': 'Linie: Historischer_Verkehrsweg, Waldnähe (aus Richtplan): Ja, Fläche: kantonales_Naturreservat',
-      }),
-      'strasse-flurname': dict({
-        'hidden': False,
-        'label': 'Ing. Monique Hoffmann MBA.',
-        'value': None,
-      }),
-      'strasse-nummer': dict({
-        'hidden': False,
-        'label': 'Apostolos Klapp',
-        'value': None,
-      }),
-      'weitere-gis-informationen': dict({
-        'hidden': False,
-        'label': 'Kay-Uwe Wagner',
-        'value': 'Denkmalschutz Schutzstufe: geschützt, Denkmalschutzobjekt: Verenaschlucht, Bodenbedeckung: geschlossener_Wald, Denkmalschutz Schutzstufe: geschützt, Denkmalschutzobjekt: Gedenkstein für Amanz Gressly, Bodenbedeckung: fliessendes Gewaesser',
-      }),
+    'denkmalschutz': dict({
+      'hidden': False,
+      'label': 'Erhard Oestrovsky',
+      'value': 'Denkmalschutzobjekt: Buristurm, Denkmalschutz Schutzstufe: geschützt',
     }),
   })
 # ---
-# name: test_sogis_client[monument-coords5]
+# name: test_sogis_client[scenario_08]
   dict({
-    'data': dict({
-      'bundesinventare': dict({
-        'hidden': False,
-        'label': 'Herr Michail Säuberlich B.Eng.',
-        'value': 'IVS Regional und Lokal: Solothurn/Hübeli - Kreuzen - Einsiedelei, Nr. des IVS Regional und Lokal: SO 441',
-      }),
-      'gemeinde': dict({
-        'displayValue': 'Rüttenen',
-        'hidden': False,
-        'label': 'Suse Junk',
-        'value': '6',
-      }),
-      'gemeindenummer-bfs': dict({
-        'hidden': False,
-        'label': 'Elise Täsche',
-        'value': 2555,
-      }),
-      'nutzungsplanung-grundnutzung': dict({
-        'hidden': False,
-        'label': 'Sinaida Siering-Christoph',
-        'value': None,
-      }),
-      'nutzungsplanung-weitere-festlegungen': dict({
-        'hidden': False,
-        'label': 'Rainer Ullmann',
-        'value': None,
-      }),
-      'ort': dict({
-        'hidden': False,
-        'label': 'Herr Hans-Rainer Wulff',
-        'value': 'Rüttenen',
-      }),
-      'parzellen': dict({
-        'form': 'those-charge-why',
-        'hidden': False,
-        'label': 'Elwira Paffrath',
-        'value': list([
-          dict({
-            'e-grid': dict({
-              'label': 'Marc Caspar MBA.',
-              'value': 'CH227060320651',
-            }),
-            'lagekoordinaten-nord': dict({
-              'label': 'Traugott Kaul',
-              'value': 1230171.7275696846,
-            }),
-            'lagekoordinaten-ost': dict({
-              'label': 'Ilona Henck B.Eng.',
-              'value': 2607376.2625398953,
-            }),
-            'ort': dict({
-              'label': 'Herr Hans-Rainer Wulff',
-              'value': 'Rüttenen',
-            }),
-            'parzellennummer': dict({
-              'label': 'Univ.Prof. Randolf Oderwald B.A.',
-              'value': '99',
-            }),
-            'plz': dict({
-              'label': 'Muzaffer Renner',
-              'value': '4500',
-            }),
-            'strasse-flurname': dict({
-              'label': 'Ing. Monique Hoffmann MBA.',
-              'value': 'Kreuzen',
-            }),
-            'strasse-nummer': dict({
-              'label': 'Apostolos Klapp',
-              'value': '6',
-            }),
-          }),
-        ]),
-      }),
-      'richtplan-grundnutzung': dict({
-        'hidden': False,
-        'label': 'Ing. Helen Jungfer',
-        'value': 'Wald',
-      }),
-      'richtplan-weiteres': dict({
-        'hidden': False,
-        'label': 'Tülay Rörricht',
-        'value': 'Waldnähe (aus Richtplan): Ja',
-      }),
-      'strasse-flurname': dict({
-        'hidden': False,
-        'label': 'Ing. Monique Hoffmann MBA.',
-        'value': 'Kreuzen',
-      }),
-      'strasse-nummer': dict({
-        'hidden': False,
-        'label': 'Apostolos Klapp',
-        'value': '6',
-      }),
-      'weitere-gis-informationen': dict({
-        'hidden': False,
-        'label': 'Kay-Uwe Wagner',
-        'value': 'Denkmalschutz Schutzstufe: geschützt, Denkmalschutzobjekt: Sigristenhaus zu Kreuzen, Denkmalschutzobjekt: Verenaschlucht, Bodenbedeckung: geschlossener_Wald',
-      }),
+    'archaeologie': dict({
+      'hidden': False,
+      'label': 'Janos Pohl',
+      'value': 'Röm. Münze und versch. Einzelfunde, Neuzeitliche Schanze',
     }),
   })
 # ---
-# name: test_sogis_client[moor-and-sanctuary-coords2]
+# name: test_sogis_client[scenario_09]
   dict({
-    'data': dict({
-      'bundesinventare': dict({
-        'hidden': False,
-        'label': 'Herr Michail Säuberlich B.Eng.',
-        'value': 'Amphibien Ortsfeste Objekte: Grenchner Witi, Wasser- und Zugvogelreservate: Witi (BE,SO), Flachmoore: Altwasser',
-      }),
-      'gemeinde': dict({
-        'displayValue': 'Grenchen',
-        'hidden': False,
-        'label': 'Suse Junk',
-        'value': '7',
-      }),
-      'gemeindenummer-bfs': dict({
-        'hidden': False,
-        'label': 'Elise Täsche',
-        'value': 2546,
-      }),
-      'nutzungsplanung-grundnutzung': dict({
-        'hidden': False,
-        'label': 'Sinaida Siering-Christoph',
-        'value': 'Landwirtschaftszone',
-      }),
-      'nutzungsplanung-weitere-festlegungen': dict({
-        'hidden': False,
-        'label': 'Rainer Ullmann',
-        'value': 'Fläche: Perimeter kantonaler Nutzungsplan',
-      }),
-      'ort': dict({
-        'hidden': False,
-        'label': 'Herr Hans-Rainer Wulff',
-        'value': 'Grenchen',
-      }),
-      'parzellen': dict({
-        'form': 'those-charge-why',
-        'hidden': False,
-        'label': 'Elwira Paffrath',
-        'value': list([
-          dict({
-            'e-grid': dict({
-              'label': 'Marc Caspar MBA.',
-              'value': 'CH470673043283',
-            }),
-            'lagekoordinaten-nord': dict({
-              'label': 'Traugott Kaul',
-              'value': 1223872.4541323201,
-            }),
-            'lagekoordinaten-ost': dict({
-              'label': 'Ilona Henck B.Eng.',
-              'value': 2595908.1098607033,
-            }),
-            'ort': dict({
-              'label': 'Herr Hans-Rainer Wulff',
-              'value': 'Grenchen',
-            }),
-            'parzellennummer': dict({
-              'label': 'Univ.Prof. Randolf Oderwald B.A.',
-              'value': '5',
-            }),
-            'plz': dict({
-              'label': 'Muzaffer Renner',
-              'value': None,
-            }),
-            'strasse-flurname': dict({
-              'label': 'Ing. Monique Hoffmann MBA.',
-              'value': None,
-            }),
-            'strasse-nummer': dict({
-              'label': 'Apostolos Klapp',
-              'value': None,
-            }),
-          }),
-        ]),
-      }),
-      'richtplan-grundnutzung': dict({
-        'hidden': False,
-        'label': 'Ing. Helen Jungfer',
-        'value': 'Landwirtschaftsgebiet',
-      }),
-      'richtplan-weiteres': dict({
-        'hidden': False,
-        'label': 'Tülay Rörricht',
-        'value': 'Waldnähe (aus Richtplan): Nein, Fläche: kantonale_Uferschutzzone, Fläche: kantonales_Naturreservat, Fläche: Witischutzzone',
-      }),
-      'strasse-flurname': dict({
-        'hidden': False,
-        'label': 'Ing. Monique Hoffmann MBA.',
-        'value': None,
-      }),
-      'strasse-nummer': dict({
-        'hidden': False,
-        'label': 'Apostolos Klapp',
-        'value': None,
-      }),
-      'weitere-gis-informationen': dict({
-        'hidden': False,
-        'label': 'Kay-Uwe Wagner',
-        'value': None,
-      }),
+    'bundesinventare': dict({
+      'hidden': False,
+      'label': 'Patrik Müller MBA.',
+      'value': 'IVS Regional und Lokal: Lohn/Rütifeld - Lüsslingen, Nr. des IVS Regional und Lokal: SO 563',
     }),
   })
 # ---
-# name: test_sogis_client[near-forest-coords1]
+# name: test_sogis_client[scenario_10]
   dict({
-    'data': dict({
-      'bundesinventare': dict({
-        'hidden': False,
-        'label': 'Herr Michail Säuberlich B.Eng.',
-        'value': None,
-      }),
-      'gemeinde': dict({
-        'displayValue': 'Langendorf',
-        'hidden': False,
-        'label': 'Suse Junk',
-        'value': '8',
-      }),
-      'gemeindenummer-bfs': dict({
-        'hidden': False,
-        'label': 'Elise Täsche',
-        'value': 2550,
-      }),
-      'nutzungsplanung-grundnutzung': dict({
-        'hidden': False,
-        'label': 'Sinaida Siering-Christoph',
-        'value': 'Landwirtschaftszone',
-      }),
-      'nutzungsplanung-weitere-festlegungen': dict({
-        'hidden': False,
-        'label': 'Rainer Ullmann',
-        'value': 'Grundwasserschutz: S2, Fläche: kommunale Landschaftsschutzzone',
-      }),
-      'ort': dict({
-        'hidden': False,
-        'label': 'Herr Hans-Rainer Wulff',
-        'value': 'Langendorf',
-      }),
-      'parzellen': dict({
-        'form': 'those-charge-why',
-        'hidden': False,
-        'label': 'Elwira Paffrath',
-        'value': list([
-          dict({
-            'e-grid': dict({
-              'label': 'Marc Caspar MBA.',
-              'value': 'CH640632711258',
-            }),
-            'lagekoordinaten-nord': dict({
-              'label': 'Traugott Kaul',
-              'value': 1230671.22757022,
-            }),
-            'lagekoordinaten-ost': dict({
-              'label': 'Ilona Henck B.Eng.',
-              'value': 2606261.686890635,
-            }),
-            'ort': dict({
-              'label': 'Herr Hans-Rainer Wulff',
-              'value': 'Langendorf',
-            }),
-            'parzellennummer': dict({
-              'label': 'Univ.Prof. Randolf Oderwald B.A.',
-              'value': '298',
-            }),
-            'plz': dict({
-              'label': 'Muzaffer Renner',
-              'value': None,
-            }),
-            'strasse-flurname': dict({
-              'label': 'Ing. Monique Hoffmann MBA.',
-              'value': None,
-            }),
-            'strasse-nummer': dict({
-              'label': 'Apostolos Klapp',
-              'value': None,
-            }),
-          }),
-        ]),
-      }),
-      'richtplan-grundnutzung': dict({
-        'hidden': False,
-        'label': 'Ing. Helen Jungfer',
-        'value': 'Landwirtschaftsgebiet',
-      }),
-      'richtplan-weiteres': dict({
-        'hidden': False,
-        'label': 'Tülay Rörricht',
-        'value': 'Waldnähe (aus Richtplan): Ja, Fläche: Grundwasserschutzzone_areal',
-      }),
-      'strasse-flurname': dict({
-        'hidden': False,
-        'label': 'Ing. Monique Hoffmann MBA.',
-        'value': None,
-      }),
-      'strasse-nummer': dict({
-        'hidden': False,
-        'label': 'Apostolos Klapp',
-        'value': None,
-      }),
-      'weitere-gis-informationen': dict({
-        'hidden': False,
-        'label': 'Kay-Uwe Wagner',
-        'value': 'Bodenbedeckung: geschlossener_Wald',
-      }),
+    'bundesinventare': dict({
+      'hidden': False,
+      'label': 'Patrik Müller MBA.',
+      'value': 'IVS National: Buechrain - Lohn, Nr. des IVS National: SO 6.1.2',
+    }),
+  })
+# ---
+# name: test_sogis_client[scenario_11]
+  dict({
+    'bundesinventare': dict({
+      'hidden': False,
+      'label': 'Patrik Müller MBA.',
+      'value': 'BLN: Weissenstein, Nr. des BLN: 1010',
+    }),
+  })
+# ---
+# name: test_sogis_client[scenario_12]
+  dict({
+    'bundesinventare': dict({
+      'hidden': False,
+      'label': 'Patrik Müller MBA.',
+      'value': 'Trockenwiesen und -weiden (TWW): Bützen',
+    }),
+  })
+# ---
+# name: test_sogis_client[scenario_13]
+  dict({
+    'bundesinventare': dict({
+      'hidden': False,
+      'label': 'Patrik Müller MBA.',
+      'value': 'Hochmoore: Chlepfimoos/Burgmoos, BLN: Steineberg – Steinhof – Burgäschisee, Nr. des BLN: 1313',
+    }),
+  })
+# ---
+# name: test_sogis_client[scenario_14]
+  dict({
+    'bundesinventare': dict({
+      'hidden': False,
+      'label': 'Patrik Müller MBA.',
+      'value': 'Amphibien Ortsfeste Objekte: Grenchner Witi, Wasser- und Zugvogelreservate: Witi (BE,SO)',
+    }),
+  })
+# ---
+# name: test_sogis_client[scenario_15]
+  dict({
+    'bundesinventare': dict({
+      'hidden': False,
+      'label': 'Patrik Müller MBA.',
+      'value': 'Auengebiete: Aare bei Altreu',
     }),
   })
 # ---
@@ -933,6 +221,10 @@
     'errors': list([
       dict({
         'client': 'camac.gis.clients.sogis.SoGisClient',
+        'data_source_description': '''
+          Figure opportunity service number inside. Fire try cell open else look. Table same method work.
+          Statement bag someone them style truth deep. These health team change shake meeting.
+        ''',
         'data_source_id': '49992886-4602-4eb3-8499-ebeb58c9f17d',
         'detail': 'Fehler 404 beim Abrufen der Daten von der geo.so.ch Schnittstelle',
       }),
@@ -958,6 +250,10 @@
     'errors': list([
       dict({
         'client': 'camac.gis.clients.sogis.SoGisClient',
+        'data_source_description': '''
+          Figure opportunity service number inside. Fire try cell open else look. Table same method work.
+          Statement bag someone them style truth deep. These health team change shake meeting.
+        ''',
         'data_source_id': '49992886-4602-4eb3-8499-ebeb58c9f17d',
         'detail': 'Unknown question unknown_question in gis config',
       }),

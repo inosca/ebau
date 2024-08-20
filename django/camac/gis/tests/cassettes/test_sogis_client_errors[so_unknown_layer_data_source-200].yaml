@@ -9,9 +9,9 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.31.0
+      - python-requests/2.32.3
     method: GET
-    uri: https://geo-i.so.ch/api/data/v1/ch.so.agi.av.unknown_layer/?bbox=2607160.642708333,1228434.884375,2607160.642708333,1228434.884375
+    uri: https://geo-i.so.ch/api/data/v1/ch.so.agi.av.unknown_layer/?bbox=2607345.0,1228110.0,2607345.0,1228110.0
   response:
     body:
       string: "<html>\n\t<head>\n\t\t<title>404 - Seite nicht gefunden | Kanton Solothurn</title>\n\t\t<style
@@ -112,13 +112,13 @@ interactions:
       Content-Type:
       - text/html
       Date:
-      - Tue, 29 Aug 2023 12:42:02 GMT
+      - Wed, 28 Aug 2024 11:39:38 GMT
       Keep-Alive:
       - timeout=10, max=300
       Server:
       - Kanton Solothurn
       Set-Cookie:
-      - SCDID_S=rtpkdeYw-8iUSyxaPPmD3ICWzsooNabfblZQMiLkvxsv02DhBZ1Qkg$$; path=/;
+      - SCDID_S=w1FJd4MrMIuGYO1FBSHl8mjZHYAcF2zi0qMqRe4XEvg67DaqEC-pVw$$; path=/;
         Secure; HttpOnly
     status:
       code: 404

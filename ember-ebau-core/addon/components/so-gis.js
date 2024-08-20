@@ -1,6 +1,7 @@
 import { action } from "@ember/object";
 import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
+import { isEmpty } from "@ember/utils";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { restartableTask, timeout } from "ember-concurrency";
@@ -92,4 +93,10 @@ export default class SoGisMapComponent extends Component {
       this.notification.danger(this.intl.t("gis.search-error"));
     }
   });
+
+  get egrids() {
+    const table = this.args.field.document.findAnswer("parzellen") ?? [];
+
+    return table.map((row) => row["e-grid"]).filter((egrid) => !isEmpty(egrid));
+  }
 }

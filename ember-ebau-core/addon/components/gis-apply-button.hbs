@@ -34,16 +34,16 @@
                 >
                   <tbody>
                     {{#each-in row as |rowQuestion rowData|}}
-                      <tr>
-                        <td
-                          data-test-gis-data-table-label
-                        >{{rowData.label}}</td>
-                        <td data-test-gis-data-table-value>{{or
-                            rowData.displayValue
-                            rowData.value
-                            "-"
-                          }}</td>
-                      </tr>
+                      {{#unless rowData.hidden}}
+                        <tr>
+                          <td data-test-gis-data-table-label>
+                            {{rowData.label}}
+                          </td>
+                          <td data-test-gis-data-table-value>
+                            {{or rowData.displayValue rowData.value "-"}}
+                          </td>
+                        </tr>
+                      {{/unless}}
                     {{/each-in}}
                   </tbody>
                 </table>
