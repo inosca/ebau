@@ -32,7 +32,6 @@ export default {
         "responsibleServiceUser",
         "decision",
         "paper",
-        "modification",
         "appeal",
       ],
       service: [
