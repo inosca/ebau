@@ -84,7 +84,7 @@ CONSTRUCTION_MONITORING = {
         "CONSTRUCTION_MONITORING_INSTANCE_STATE": "control",
         "NOTIFICATIONS": {},
         "NOTIFICATION_RECIPIENTS": {},
-        "ALLOW_FORMS": [
+        "ALLOW_CALUMA_FORMS": [
             "building-permit",
             "commercial-permit",
             "solar-declaration",
