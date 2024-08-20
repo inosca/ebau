@@ -5,6 +5,9 @@ from caluma.caluma_workflow.api import complete_work_item
 from caluma.caluma_workflow.models import Case, WorkItem
 from django.core import mail
 
+from camac.caluma.extensions.events.construction_monitoring import (
+    can_perform_construction_monitoring,
+)
 from camac.caluma.extensions.visibilities import CustomVisibility
 from camac.instance.models import InstanceState
 
@@ -398,3 +401,37 @@ def test_construction_monitoring_work_item_visibility_coordination(mocker):
     )
 
     assert custom_visibility.visible_construction_step_work_items_expression_for_municipality.called
+
+
+@pytest.mark.parametrize(
+    "allow_forms_setting,allow_caluma_forms_setting,should_be_allowed",
+    [
+        (None, ["building-permit-caluma"], True),
+        (["building-permit-camac"], None, True),
+        (["no-building-permits-allowed-camac"], None, False),
+        (None, ["no-building-permits-allowed-caluma"], False),
+    ],
+)
+def test_can_perform_construction_monitoring(
+    db,
+    instance,
+    construction_monitoring_settings,
+    case_factory,
+    document_factory,
+    form_factory,
+    # parametrize fixtures
+    allow_forms_setting,
+    allow_caluma_forms_setting,
+    should_be_allowed,
+):
+    instance.form.family = form_factory(name="building-permit-camac")
+    instance.save()
+    case_factory(
+        instance=instance,
+        document=document_factory(form__slug="building-permit-caluma"),
+    )
+
+    construction_monitoring_settings["ALLOW_FORMS"] = allow_forms_setting
+    construction_monitoring_settings["ALLOW_CALUMA_FORMS"] = allow_caluma_forms_setting
+
+    assert can_perform_construction_monitoring(instance) == should_be_allowed

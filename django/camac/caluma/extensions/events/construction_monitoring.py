@@ -71,6 +71,13 @@ def can_perform_construction_monitoring(instance):
     if not settings.CONSTRUCTION_MONITORING:  # pragma: no cover  TODO: cover
         return False
 
+    if allowed_caluma_forms := settings.CONSTRUCTION_MONITORING.get(
+        "ALLOW_CALUMA_FORMS"
+    ):
+        form_slug = instance.case.document.form_id
+
+        return form_slug in allowed_caluma_forms
+
     allow_forms = settings.CONSTRUCTION_MONITORING.get("ALLOW_FORMS")
     if not allow_forms:
         return True
