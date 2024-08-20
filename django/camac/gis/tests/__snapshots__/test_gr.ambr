@@ -85,10 +85,12 @@
         'value': list([
           dict({
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH676877828654',
             }),
             'parzellennummer': dict({
+              'hidden': False,
               'label': 'parzellennummer',
               'value': '2830',
             }),
@@ -191,10 +193,12 @@
         'value': list([
           dict({
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH737679917002',
             }),
             'parzellennummer': dict({
+              'hidden': False,
               'label': 'parzellennummer',
               'value': '3051',
             }),
@@ -281,10 +285,12 @@
         'value': list([
           dict({
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH427965866853',
             }),
             'parzellennummer': dict({
+              'hidden': False,
               'label': 'parzellennummer',
               'value': '31778',
             }),
@@ -385,10 +391,12 @@
         'value': list([
           dict({
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH546886777384',
             }),
             'parzellennummer': dict({
+              'hidden': False,
               'label': 'parzellennummer',
               'value': '1257',
             }),
@@ -500,20 +508,24 @@
         'value': list([
           dict({
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH776877828620',
             }),
             'parzellennummer': dict({
+              'hidden': False,
               'label': 'parzellennummer',
               'value': '2733',
             }),
           }),
           dict({
             'baurecht-nummer': dict({
+              'hidden': False,
               'label': 'baurecht-nummer',
               'value': '12768',
             }),
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH907068848655',
             }),
@@ -611,20 +623,24 @@
         'value': list([
           dict({
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH916888867745',
             }),
             'parzellennummer': dict({
+              'hidden': False,
               'label': 'parzellennummer',
               'value': '1844',
             }),
           }),
           dict({
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH738677680776',
             }),
             'parzellennummer': dict({
+              'hidden': False,
               'label': 'parzellennummer',
               'value': '4308',
             }),
@@ -676,10 +692,12 @@
         'value': list([
           dict({
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH737679917002',
             }),
             'parzellennummer': dict({
+              'hidden': False,
               'label': 'parzellennummer',
               'value': '3051',
             }),
@@ -771,20 +789,24 @@
         'value': list([
           dict({
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH479178647641',
             }),
             'parzellennummer': dict({
+              'hidden': False,
               'label': 'parzellennummer',
               'value': '921',
             }),
           }),
           dict({
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH356476789154',
             }),
             'parzellennummer': dict({
+              'hidden': False,
               'label': 'parzellennummer',
               'value': '920',
             }),
@@ -897,70 +919,84 @@
         'value': list([
           dict({
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH827700866871',
             }),
             'parzellennummer': dict({
+              'hidden': False,
               'label': 'parzellennummer',
               'value': '4628',
             }),
           }),
           dict({
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH846886770055',
             }),
             'parzellennummer': dict({
+              'hidden': False,
               'label': 'parzellennummer',
               'value': '4630',
             }),
           }),
           dict({
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH898677006887',
             }),
             'parzellennummer': dict({
+              'hidden': False,
               'label': 'parzellennummer',
               'value': '4625',
             }),
           }),
           dict({
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH807768008655',
             }),
             'parzellennummer': dict({
+              'hidden': False,
               'label': 'parzellennummer',
               'value': '4626',
             }),
           }),
           dict({
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH838677680049',
             }),
             'parzellennummer': dict({
+              'hidden': False,
               'label': 'parzellennummer',
               'value': '4629',
             }),
           }),
           dict({
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH880086687762',
             }),
             'parzellennummer': dict({
+              'hidden': False,
               'label': 'parzellennummer',
               'value': '4624',
             }),
           }),
           dict({
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH816800867795',
             }),
             'parzellennummer': dict({
+              'hidden': False,
               'label': 'parzellennummer',
               'value': '4627',
             }),
@@ -1058,20 +1094,24 @@
         'value': list([
           dict({
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH786876917826',
             }),
             'parzellennummer': dict({
+              'hidden': False,
               'label': 'parzellennummer',
               'value': '493',
             }),
           }),
           dict({
             'baurecht-nummer': dict({
+              'hidden': False,
               'label': 'baurecht-nummer',
               'value': '544',
             }),
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH837678916876',
             }),
@@ -1147,10 +1187,12 @@
         'value': list([
           dict({
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH698677986855',
             }),
             'parzellennummer': dict({
+              'hidden': False,
               'label': 'parzellennummer',
               'value': '3479',
             }),
@@ -1221,10 +1263,12 @@
         'value': list([
           dict({
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH416823867724',
             }),
             'parzellennummer': dict({
+              'hidden': False,
               'label': 'parzellennummer',
               'value': '6978',
             }),
@@ -1295,20 +1339,24 @@
         'value': list([
           dict({
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH416823867724',
             }),
             'parzellennummer': dict({
+              'hidden': False,
               'label': 'parzellennummer',
               'value': '6978',
             }),
           }),
           dict({
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH567786689869',
             }),
             'parzellennummer': dict({
+              'hidden': False,
               'label': 'parzellennummer',
               'value': '3476',
             }),
@@ -1411,10 +1459,12 @@
         'value': list([
           dict({
             'e-grid-nr': dict({
+              'hidden': False,
               'label': 'e-grid-nr',
               'value': 'CH946886778137',
             }),
             'parzellennummer': dict({
+              'hidden': False,
               'label': 'parzellennummer',
               'value': '2646',
             }),

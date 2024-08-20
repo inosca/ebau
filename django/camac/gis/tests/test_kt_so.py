@@ -7,17 +7,93 @@ from rest_framework import status
 
 from camac.gis.models import GISDataSource
 
-TEST_COORDINATES = {
-    "default": (2607160.642708333, 1228434.884375),
-    "near-forest": (2606261.686890635, 1230671.22757022),
-    "moor-and-sanctuary": (2595908.1098607033, 1223872.4541323201),
-    "bln-and-ivs-regional-local": (2606265.992581233, 1235122.657259761),
-    "ivs-national": (2607372.235299003, 1230212.5463196996),
-    "monument": (2607376.2625398953, 1230171.7275696846),
-    "crop-rotation-area": (2603913.165006131, 1227634.5322569455),
-    "highway": (2611103.2977669733, 1228741.4541305029),
-    "building-law": (2599196.9568125005, 1227706.570833333),
-}
+TEST_SCENARIOS = [
+    {
+        # Grundinformationen (Adresse, Grundstück, Zone, etc.)
+        "coords": (2607345, 1228110),
+        "checked_questions": [
+            "gemeinde",
+            "gemeindenummer-bfs",
+            "strasse-flurname",
+            "strasse-nummer",
+            "plz",
+            "ort",
+            "parzellen",
+            "nutzungsplanung-grundnutzung",
+            "nutzungsplanung-weitere-festlegungen",
+        ],
+    },
+    {
+        # Wald- und Gewässernähe
+        "coords": (2606564, 1227444),
+        "checked_questions": ["weitere-gis-informationen"],
+    },
+    {
+        # Fruchtfolgefläche
+        "coords": (2606403, 1230468),
+        "checked_questions": ["fruchtfolgeflaeche"],
+    },
+    {
+        # Naturgefahren
+        "coords": (2610176, 1229506),
+        "checked_questions": ["naturgefahren-gis"],
+    },
+    {
+        # Altlasten (does not work yet because the layer is private)
+        "coords": (2608132, 1229641),
+        "checked_questions": ["altlasten-gis"],
+    },
+    {
+        # Gewässerschutz
+        "coords": (2606323, 1230662),
+        "checked_questions": ["gewaesserschutz"],
+    },
+    {
+        # Denkmalschutz
+        "coords": (2607278, 1228635),
+        "checked_questions": ["denkmalschutz"],
+    },
+    {
+        # Archäologie
+        "coords": (2606997, 1228295),
+        "checked_questions": ["archaeologie"],
+    },
+    {
+        # Bundesinventare: IVS Regional und Lokal
+        "coords": (2605769, 1224934),
+        "checked_questions": ["bundesinventare"],
+    },
+    {
+        # Bundesinventare: IVS National
+        "coords": (2606771, 1225353),
+        "checked_questions": ["bundesinventare"],
+    },
+    {
+        # Bundesinventare: BLN
+        "coords": (2602055, 1231778),
+        "checked_questions": ["bundesinventare"],
+    },
+    {
+        # Bundesinventare: Trockenwiesen und -weiden
+        "coords": (2596747, 1230180),
+        "checked_questions": ["bundesinventare"],
+    },
+    {
+        # Bundesinventare: Hochmoore
+        "coords": (2617752, 1224560),
+        "checked_questions": ["bundesinventare"],
+    },
+    {
+        # Bundesinventare: Flachmoore, Wasser- und Zugvogelreservate, Amphibienlaichgebiete (Ortsfeste Objekte)
+        "coords": (2595903, 1223703),
+        "checked_questions": ["bundesinventare"],
+    },
+    {
+        # Bundesinventare: Auengebiete
+        "coords": (2600778, 1225954),
+        "checked_questions": ["bundesinventare"],
+    },
+]
 
 
 @pytest.fixture
@@ -36,11 +112,16 @@ def so_data_sources(question_factory, settings, mock_municipalities):
         ("e-grid", Question.TYPE_TEXT),
         ("lagekoordinaten-ost", Question.TYPE_FLOAT),
         ("lagekoordinaten-nord", Question.TYPE_FLOAT),
-        ("richtplan-grundnutzung", Question.TYPE_TEXTAREA),
-        ("richtplan-weiteres", Question.TYPE_TEXTAREA),
+        ("flaeche-m", Question.TYPE_INTEGER),
         ("nutzungsplanung-grundnutzung", Question.TYPE_TEXTAREA),
         ("nutzungsplanung-weitere-festlegungen", Question.TYPE_TEXTAREA),
         ("weitere-gis-informationen", Question.TYPE_TEXTAREA),
+        ("fruchtfolgeflaeche", Question.TYPE_TEXTAREA),
+        ("naturgefahren-gis", Question.TYPE_TEXTAREA),
+        ("altlasten-gis", Question.TYPE_TEXTAREA),
+        ("gewaesserschutz", Question.TYPE_TEXTAREA),
+        ("denkmalschutz", Question.TYPE_TEXTAREA),
+        ("archaeologie", Question.TYPE_TEXTAREA),
         ("bundesinventare", Question.TYPE_TEXTAREA),
     ]
 
@@ -48,38 +129,39 @@ def so_data_sources(question_factory, settings, mock_municipalities):
         question_factory(slug=slug, type=type)
 
     Question.objects.filter(slug="gemeinde").update(data_source="Municipalities")
-    mock_municipalities(
-        [
-            "Welschenrohr-Gänsbrunnen",
-            "Bettlach",
-            "Lüsslingen-Nennigkofen",
-            "Solothurn",
-            "Luterbach",
-            "Rüttenen",
-            "Grenchen",
-            "Langendorf",
-        ]
-    )
+    mock_municipalities(["Solothurn"])
 
     return GISDataSource.objects.all()
 
 
-@pytest.mark.parametrize("name,coords", TEST_COORDINATES.items())
+@pytest.mark.parametrize(
+    "scenario",
+    TEST_SCENARIOS,
+    # Make sure the generated test names are zero-padded in order for the
+    # snapshots to be in the same order as the scenario definitions above.
+    ids=lambda val: f"scenario_{str(TEST_SCENARIOS.index(val) + 1).zfill(2)}",
+)
 @pytest.mark.vcr()
 def test_sogis_client(
     db,
     admin_client,
     gis_snapshot,
-    name,
-    coords,
+    scenario,
     so_data_sources,
     vcr_config,
 ):
-    x, y = coords
+    x, y = scenario["coords"]
     response = admin_client.get(reverse("gis-data"), data={"x": x, "y": y})
 
     assert response.status_code == status.HTTP_200_OK
-    assert response.json() == gis_snapshot
+
+    checked_data = {
+        k: v
+        for k, v in response.json()["data"].items()
+        if k in scenario["checked_questions"]
+    }
+
+    assert checked_data == gis_snapshot
 
 
 @pytest.fixture
@@ -143,7 +225,7 @@ def test_sogis_client_errors(
 ):
     response = admin_client.get(
         reverse("gis-data"),
-        data={"x": TEST_COORDINATES["default"][0], "y": TEST_COORDINATES["default"][1]},
+        data={"x": TEST_SCENARIOS[0]["coords"][0], "y": TEST_SCENARIOS[0]["coords"][1]},
     )
 
     assert response.status_code == expected_status
