@@ -147,7 +147,7 @@ mutation CreateSb1Task {
     input: {
       slug: "sb1"
       name: "Selbstdeklaration 1 ausfüllen"
-      form: "sb1"
+      form: "sb1-v2"
       addressGroups: "[]"
     }
   ) {

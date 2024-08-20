@@ -339,6 +339,7 @@ instances:
   forms:
     nfd: "Nachforderungen"
     sb1: "Selbstdeklaration 1"
+    sb1-v2: "Selbstdeklaration 1"
     sb2: "Selbstdeklaration 2"
 
   applicants:

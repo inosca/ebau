@@ -137,9 +137,9 @@ DMS = {
                 "exclude_slugs": [],
             },
             "selbstdeklaration": {
-                "forms": ["sb1", "sb2"],
+                "forms": ["sb1", "sb2", "sb1-v2"],
                 "template": "form",
-                "personalien": "selbstdeklaration-sb1",
+                "personalien": "personalien-sb1-sb2",
                 "exclude_slugs": [
                     "is-paper",
                     "einreichen-button-sb1",

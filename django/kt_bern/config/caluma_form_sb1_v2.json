@@ -1,0 +1,284 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "sb1-v2",
+    "fields": {
+      "created_at": "2024-08-15T12:08:29.056Z",
+      "modified_at": "2024-08-15T12:09:39.437Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Selbstdeklaration Baukontrolle 1\", \"fr\": \"D\\u00e9claration spontan\\u00e9e en mati\\u00e8re de contr\\u00f4le des constructions 1\", \"it\": null}",
+      "description": "{\"de\": \"Selbstdeklaration Baukontrolle 1 (v2)\", \"fr\": \"\", \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "sb1"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "selbstdeklaration-sb1-v2",
+    "fields": {
+      "created_at": "2024-08-15T07:42:15.435Z",
+      "modified_at": "2024-08-15T11:38:04.416Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Selbstdeklaration\", \"fr\": \"D\\u00e9claration spontan\\u00e9e\", \"it\": null}",
+      "description": "{\"de\": \"Selbstdeklaration (v2)\", \"fr\": \"\", \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "selbstdeklaration-sb1"
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "sb1-v2.dokumente-sb1",
+    "fields": {
+      "created_at": "2024-08-15T12:08:29.067Z",
+      "modified_at": "2024-08-15T12:08:29.067Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "sb1-v2",
+      "question": "dokumente-sb1",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "sb1-v2.freigabequittung-sb1",
+    "fields": {
+      "created_at": "2024-08-15T12:08:29.070Z",
+      "modified_at": "2024-08-15T12:08:29.070Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "sb1-v2",
+      "question": "freigabequittung-sb1",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "sb1-v2.selbstdeklaration-sb1-v2",
+    "fields": {
+      "created_at": "2024-08-15T12:13:16.802Z",
+      "modified_at": "2024-08-15T12:13:16.802Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "sb1-v2",
+      "question": "selbstdeklaration-sb1-v2",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "selbstdeklaration-sb1-v2.abweichung",
+    "fields": {
+      "created_at": "2024-08-15T07:42:15.449Z",
+      "modified_at": "2024-08-15T07:42:15.449Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "selbstdeklaration-sb1-v2",
+      "question": "abweichung",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "selbstdeklaration-sb1-v2.bedingungen-und-auflagen-erfuellt",
+    "fields": {
+      "created_at": "2024-08-15T07:42:15.446Z",
+      "modified_at": "2024-08-15T07:42:15.446Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "selbstdeklaration-sb1-v2",
+      "question": "bedingungen-und-auflagen-erfuellt",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "selbstdeklaration-sb1-v2.beginn-bauarbeiten",
+    "fields": {
+      "created_at": "2024-08-15T07:42:15.457Z",
+      "modified_at": "2024-08-15T07:42:15.457Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "selbstdeklaration-sb1-v2",
+      "question": "beginn-bauarbeiten",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "selbstdeklaration-sb1-v2.ist-eine-schnurgerustabnahme-erforderlich",
+    "fields": {
+      "created_at": "2024-08-15T07:42:15.452Z",
+      "modified_at": "2024-08-15T07:42:15.452Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "selbstdeklaration-sb1-v2",
+      "question": "ist-eine-schnurgerustabnahme-erforderlich",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "selbstdeklaration-sb1-v2.personalien-sb1-sb2",
+    "fields": {
+      "created_at": "2024-08-15T07:42:15.442Z",
+      "modified_at": "2024-08-15T07:42:15.442Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "selbstdeklaration-sb1-v2",
+      "question": "personalien-sb1-sb2",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "selbstdeklaration-sb1-v2.voraussichtliche-baudauer-in-monaten-v2",
+    "fields": {
+      "created_at": "2024-08-15T11:58:08.160Z",
+      "modified_at": "2024-08-15T11:58:08.160Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "selbstdeklaration-sb1-v2",
+      "question": "voraussichtliche-baudauer-in-monaten-v2",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "selbstdeklaration-sb1-v2.wann-sind-schnurgeruest-und-die-bewilligte-hoehe-zur-abnahme-bereit-v2",
+    "fields": {
+      "created_at": "2024-08-15T11:59:57.279Z",
+      "modified_at": "2024-08-15T11:59:57.279Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "selbstdeklaration-sb1-v2",
+      "question": "wann-sind-schnurgeruest-und-die-bewilligte-hoehe-zur-abnahme-bereit-v2",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "selbstdeklaration-sb1-v2",
+    "fields": {
+      "created_at": "2024-08-15T12:13:16.744Z",
+      "modified_at": "2024-08-22T13:44:29.506Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Selbstdeklaration\", \"fr\": \"D\\u00e9claration spontan\\u00e9e\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "selbstdeklaration-sb1-v2",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "voraussichtliche-baudauer-in-monaten-v2",
+    "fields": {
+      "created_at": "2024-08-15T11:58:08.106Z",
+      "modified_at": "2024-08-22T13:01:24.711Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Voraussichtliche Baudauer in Monaten\", \"fr\": \"Dur\\u00e9e pr\\u00e9visionelle des travaux en mois\", \"it\": null}",
+      "type": "integer",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!(\n  'ist-eine-schnurgerustabnahme-erforderlich-nein' ==\n  'ist-eine-schnurgerustabnahme-erforderlich'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": 0
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "wann-sind-schnurgeruest-und-die-bewilligte-hoehe-zur-abnahme-bereit-v2",
+    "fields": {
+      "created_at": "2024-08-15T11:59:57.225Z",
+      "modified_at": "2024-08-22T13:02:43.326Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wann sind Schnurger\\u00fcst und die bewilligte H\\u00f6he zur Abnahme bereit?\", \"fr\": \"Quand le gabarit d\\u2019implantation et la cote d\\u2019altitude autoris\\u00e9e seront-ils pr\\u00eats pour leur relev\\u00e9 ?\", \"it\": null}",
+      "type": "date",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!(\n  'ist-eine-schnurgerustabnahme-erforderlich-ja' ==\n  'ist-eine-schnurgerustabnahme-erforderlich'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  }
+]
