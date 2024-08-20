@@ -432,6 +432,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
               "inquiry-answer-status-positive": INQUIRY_STATUS.POSITIVE,
               "inquiry-answer-status-negative": INQUIRY_STATUS.NEGATIVE,
               "inquiry-answer-status-no-response": INQUIRY_STATUS.SKIPPED,
+              "inquiry-answer-status-no-answer": INQUIRY_STATUS.SKIPPED,
               "inquiry-answer-status-not-involved": INQUIRY_STATUS.SKIPPED,
               "inquiry-answer-status-koordinierte-rueckmeldung":
                 INQUIRY_STATUS.POSITIVE,
