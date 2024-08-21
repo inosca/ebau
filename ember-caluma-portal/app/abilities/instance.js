@@ -24,11 +24,25 @@ export default class InstanceAbility extends Ability {
     return parseInt(this.model?.get("instanceState.id"));
   }
 
-  get canWriteForm() {
+  async canWriteForm() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(
+        this.model?.id,
+        this.formName === "main" ? "form-write" : `form-${this.formName}-write`,
+      );
+    }
+
     return this.formPermissions.includes("write");
   }
 
-  get canReadForm() {
+  async canReadForm() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(
+        this.model?.id,
+        this.formName === "main" ? "form-read" : `form-${this.formName}-read`,
+      );
+    }
+
     return this.formPermissions.includes("read");
   }
 
@@ -86,18 +100,6 @@ export default class InstanceAbility extends Ability {
       parseInt(this.model?.activeService?.get("id")) ===
         parseInt(this.session.group?.get("service.id"))
     );
-  }
-
-  get canRead() {
-    return Object.values(this.model?.meta?.permissions ?? {})
-      .reduce((items, flat) => [...flat, ...items], [])
-      .includes("read");
-  }
-
-  get canWrite() {
-    return Object.values(this.model?.meta?.permissions ?? {})
-      .reduce((items, flat) => [...flat, ...items], [])
-      .includes("write");
   }
 
   get canCreateModification() {

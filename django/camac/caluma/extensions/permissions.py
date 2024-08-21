@@ -39,6 +39,8 @@ from inflection import underscore
 from camac.caluma.utils import CamacRequest
 from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
 from camac.instance.serializers import CalumaInstanceSerializer
+from camac.permissions.api import PermissionManager
+from camac.permissions.switcher import is_permission_mode_fully_enabled
 from camac.user.permissions import permission_aware
 from camac.utils import build_url, headers
 
@@ -493,7 +495,22 @@ class CustomPermission(BasePermission):
         else:  # pragma: no cover
             return False
 
-        if settings.APPLICATION_NAME in ["kt_uri", "kt_so"]:
+        if permission_key != "case-meta" and is_permission_mode_fully_enabled():
+            # TODO: Use this logic for the case-meta permission as soon as Kt.
+            # BE uses the full mode. This permission is needed for the feature
+            # where the authority can add a "paper-submit-date" to the case
+            # meta.
+            permission_name = (
+                f"form-{required_permission}"
+                if permission_key == "main"
+                else f"form-{permission_key}-{required_permission}"
+            )
+
+            return PermissionManager.from_request(self.request).has_all(
+                case.family.instance, permission_name
+            )
+
+        if settings.APPLICATION_NAME == "kt_uri":
             serializer = CalumaInstanceSerializer(
                 case.family.instance, context={"request": self.request}
             )

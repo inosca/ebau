@@ -1,19 +1,22 @@
 <LoadingOrNotfound
   @loading={{this.document.isLoading}}
-  @hasPermission={{can
-    "read form of instance"
-    this.editController.instance
-    form=this.document.value.form
-    permissions=this.editController.permissions
+  @hasPermission={{await
+    (can
+      "read form of instance"
+      this.editController.instance
+      form=this.document.value.form
+    )
   }}
 >
   {{#if (is-embedded)}}
     <CfContent
       @documentId={{decode-id this.document.value.id}}
-      @disabled={{cannot
-        "write form of instance"
-        this.editController.instance
-        form=this.document.value.form
+      @disabled={{await
+        (cannot
+          "write form of instance"
+          this.editController.instance
+          form=this.document.value.form
+        )
       }}
       @useAsHeading={{true}}
       @headingBaseLevel={{2}}
@@ -36,10 +39,12 @@
   {{else}}
     <CfContent
       @documentId={{decode-id this.document.value.id}}
-      @disabled={{cannot
-        "write form of instance"
-        this.editController.instance
-        form=this.document.value.form
+      @disabled={{await
+        (cannot
+          "write form of instance"
+          this.editController.instance
+          form=this.document.value.form
+        )
       }}
       @useAsHeading={{true}}
       @headingBaseLevel={{2}}
