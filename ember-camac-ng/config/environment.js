@@ -1,6 +1,15 @@
 "use strict";
 
 module.exports = function (environment) {
+  if (environment !== "production") {
+    /* eslint-disable no-console */
+    console.log("Build environment:");
+    require("./dotenv")(environment).clientAllowedKeys.forEach((key) => {
+      console.log(`\t${key}: ${process.env[key]}`);
+    });
+    /* eslint-enable no-console */
+  }
+
   const ENV = {
     modulePrefix: "camac-ng",
     environment,
