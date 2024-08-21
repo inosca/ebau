@@ -1,10 +1,15 @@
 "use strict";
 
 module.exports = function (environment) {
-  // eslint-disable-next-line no-console
-  console.log(
-    `build env: APPLICATION: ${process.env.APPLICATION}, KEYCLOAK_HOST: ${process.env.KEYCLOAK_HOST}`,
-  );
+  if (environment !== "production") {
+    /* eslint-disable no-console */
+    console.log("Build environment:");
+    require("./dotenv")(environment).clientAllowedKeys.forEach((key) => {
+      console.log(`\t${key}: ${process.env[key]}`);
+    });
+    /* eslint-enable no-console */
+  }
+
   const oidcHost = process.env.KEYCLOAK_HOST || "http://ebau-keycloak.local";
   const oidcRealm = process.env.APPLICATION === "kt_uri" ? "urec" : "ebau";
 

@@ -2,7 +2,7 @@
 
 const path = require("path");
 
-module.exports = function () {
+module.exports = function (environment) {
   return {
     clientAllowedKeys: [
       "APPLICATION",
@@ -14,5 +14,6 @@ module.exports = function () {
       "ALEXANDRIA_MANABI_ALLOWED_MIMETYPES",
     ],
     path: path.join(path.dirname(__dirname), "../.env"),
+    enabled: environment !== "production",
   };
 };
