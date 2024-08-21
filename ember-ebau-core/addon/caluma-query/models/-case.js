@@ -9,6 +9,7 @@ import {
   getAnswer,
   getAnswerDisplayValue,
 } from "ember-ebau-core/utils/get-answer";
+import { getApplicants } from "ember-ebau-core/utils/get-applicants";
 
 const { answerSlugs } = mainConfig;
 
@@ -125,33 +126,7 @@ export default class CustomCaseBaseModel extends CaseModel {
   }
 
   get applicants() {
-    const applicants =
-      this.getAnswer(answerSlugs.personalDataApplicant)?.node.value ?? [];
-
-    const applicantNames = applicants.map((row) => {
-      const firstName = getAnswerDisplayValue(
-        row,
-        answerSlugs.firstNameApplicant,
-      );
-      const lastName = getAnswerDisplayValue(
-        row,
-        answerSlugs.lastNameApplicant,
-      );
-      const juristicName = getAnswerDisplayValue(
-        row,
-        answerSlugs.juristicNameApplicant,
-      );
-
-      return (
-        juristicName?.trim() ??
-        [firstName, lastName]
-          .filter(Boolean)
-          .map((name) => name.trim())
-          .join(" ")
-      );
-    });
-
-    return applicantNames.filter(Boolean).join(", ");
+    return getApplicants(this.case.document);
   }
 
   get municipalityId() {

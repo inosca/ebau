@@ -44,6 +44,10 @@
         {{if @workItem.closedByUser @workItem.closedByUser.fullName "-"}}
       {{else if (eq column "description")}}
         {{@workItem.instanceDescription}}
+      {{else if (eq column "municipality")}}
+        {{@workItem.municipality}}
+      {{else if (eq column "applicants")}}
+        {{@workItem.applicants}}
       {{/if}}
     </td>
   {{/each}}
