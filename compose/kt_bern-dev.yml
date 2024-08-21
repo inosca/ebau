@@ -98,7 +98,7 @@ services:
       - ebau.local
     tty: true
     stdin_open: true
-    command: [devserver]
+    command: devserver
 
   django-q:
     <<: *django
