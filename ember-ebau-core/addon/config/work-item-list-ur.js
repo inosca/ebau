@@ -16,4 +16,15 @@ export default {
     services: {},
     default: [],
   },
+  columns(status) {
+    return [
+      "task",
+      "instance",
+      "description",
+      "applicants",
+      ...(status === "COMPLETED"
+        ? ["closedAt", "closedBy"]
+        : ["deadline", "responsible"]),
+    ].filter((value) => value !== null);
+  },
 };

@@ -17,6 +17,8 @@ workItems:
   notifyCompleted: "bei Abschluss"
   notifyDeadline: "bei Fristüberschreitung"
   comment: "Kommentar"
+  municipality: "Gemeinde"
+  applicants: "Gesuchsteller"
 
   current: "Aktuelle Aufgaben"
   new: "Neue Aufgabe"

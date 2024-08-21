@@ -9,13 +9,24 @@ import CustomCaseModel from "ember-ebau-core/caluma-query/models/case";
 import mainConfig from "ember-ebau-core/config/main";
 import saveWorkItemMutation from "ember-ebau-core/gql/mutations/save-workitem.graphql";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+import { getAnswerDisplayValue } from "ember-ebau-core/utils/get-answer";
+import { getApplicants } from "ember-ebau-core/utils/get-applicants";
 
-const QUESTIONS = JSON.stringify(mainConfig.intentSlugs);
+const QUESTIONS = JSON.stringify([
+  ...mainConfig.intentSlugs,
+  mainConfig.answerSlugs.municipality
+    ? mainConfig.answerSlugs.municipality
+    : "",
+  mainConfig.answerSlugs.personalDataApplicant
+    ? mainConfig.answerSlugs.personalDataApplicant
+    : "",
+]);
 
 export default class CustomWorkItemModel extends WorkItemModel {
   @queryManager apollo;
 
   @service store;
+
   @service ebauModules;
   @service router;
   @service intl;
@@ -168,8 +179,24 @@ export default class CustomWorkItemModel extends WorkItemModel {
     }
 
     return this.case?.document.answers.edges
-      .map((edge) => edge.node.value)
+      .map((edge) =>
+        mainConfig.intentSlugs.includes(edge.node.question.slug)
+          ? edge.node.value
+          : null,
+      )
+      .filter(Boolean)
       .join("\n");
+  }
+
+  get municipality() {
+    return getAnswerDisplayValue(
+      this.case.document,
+      mainConfig.answerSlugs.municipality,
+    );
+  }
+
+  get applicants() {
+    return getApplicants(this.case.document);
   }
 
   get childCase() {
@@ -404,8 +431,37 @@ export default class CustomWorkItemModel extends WorkItemModel {
           answers(filter: [{ questions: ${QUESTIONS} }]) {
             edges {
               node {
+                question {
+                  id
+                  slug
+                  ... on TableQuestion {
+                    rowForm {
+                      slug
+                    }
+                  }
+                }
+                ... on TableAnswer {
+                  value {
+                    answers {
+                      edges {
+                        node {
+                          question {
+                            slug
+                          }
+                          ... on StringAnswer {
+                            stringValue: value
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
                 ... on StringAnswer {
-                  value
+                  stringValue: value
+                  selectedOption {
+                    slug
+                    label
+                  }
                 }
               }
             }
