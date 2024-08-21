@@ -38,32 +38,28 @@ def get_type_map(canton):
     elif canton == "kt_so":
         return {
             "SERVICE_GROUP": {
-                1: ServiceGroup.objects.get(pk=1),  # Gemeinde
-                2: ServiceGroup.objects.get(pk=2),  # Kantonale Fachstelle
-                3: ServiceGroup.objects.get(pk=3),  # Ausserkantonale Fachstelle
-                4: ServiceGroup.objects.get(pk=4),  # Fachstelle BaB
+                1: ServiceGroup.objects.get(name="municipality"),
+                2: ServiceGroup.objects.get(name="service-cantonal"),
+                3: ServiceGroup.objects.get(name="service-extra-cantonal"),
+                4: ServiceGroup.objects.get(name="service-bab"),
             },
             "ROLE": {
                 1: {
-                    "admin": Role.objects.get(pk=4),  # Administration Leitbehörde
-                    "lead": Role.objects.get(pk=5),  # Leitung Leitbehörde
-                    "clerk": Role.objects.get(pk=6),  # Sachbearbeitung Leitbehörde
-                    "read": Role.objects.get(pk=8),  # Einsichtsberechtigte Leitbehörde
+                    "admin": Role.objects.get(name="municipality-admin"),
+                    "lead": Role.objects.get(name="municipality-lead"),
+                    "read": Role.objects.get(name="municipality-read"),
                 },
                 2: {
-                    "admin": Role.objects.get(pk=9),  # Administration Fachstelle
-                    "lead": Role.objects.get(pk=10),  # Leitung Fachstelle
-                    "clerk": Role.objects.get(pk=11),  # Sachbearbeitung Fachstelle
+                    "admin": Role.objects.get(name="service-admin"),
+                    "lead": Role.objects.get(name="service-lead"),
                 },
                 3: {
-                    "admin": Role.objects.get(pk=9),  # Administration Fachstelle
-                    "lead": Role.objects.get(pk=10),  # Leitung Fachstelle
-                    "clerk": Role.objects.get(pk=11),  # Sachbearbeitung Fachstelle
+                    "admin": Role.objects.get(name="service-admin"),
+                    "lead": Role.objects.get(name="service-lead"),
                 },
                 4: {
-                    "admin": Role.objects.get(pk=9),  # Administration Fachstelle
-                    "lead": Role.objects.get(pk=10),  # Leitung Fachstelle
-                    "clerk": Role.objects.get(pk=11),  # Sachbearbeitung Fachstelle
+                    "admin": Role.objects.get(name="service-admin"),
+                    "lead": Role.objects.get(name="service-lead"),
                 },
             },
             "PREFIX": {
@@ -82,9 +78,8 @@ def get_group_types(canton):
         return {"lead": "Sachbearbeitung", "admin": "Administration"}
     elif canton == "kt_so":
         return {
-            "lead": "Leitung",
+            "lead": "Sachbearbeitung",
             "admin": "Administration",
-            "clerk": "Sachbearbeitung",
             "read": "Einsichtsberechtigte",
         }
 

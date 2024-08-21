@@ -46,15 +46,6 @@
   },
   {
     "model": "user.role",
-    "pk": 6,
-    "fields": {
-      "role_parent": null,
-      "name": "municipality-clerk",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.role",
     "pk": 8,
     "fields": {
       "role_parent": null,
@@ -77,15 +68,6 @@
     "fields": {
       "role_parent": null,
       "name": "service-lead",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.role",
-    "pk": 11,
-    "fields": {
-      "role_parent": null,
-      "name": "service-clerk",
       "group_prefix": null
     }
   },
@@ -144,16 +126,6 @@
     "fields": {
       "role": 5,
       "language": "de",
-      "name": "Leitung Gemeinde",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 6,
-    "fields": {
-      "role": 6,
-      "language": "de",
       "name": "Sachbearbeitung Gemeinde",
       "group_prefix": null
     }
@@ -183,16 +155,6 @@
     "pk": 10,
     "fields": {
       "role": 10,
-      "language": "de",
-      "name": "Leitung Fachstelle",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 11,
-    "fields": {
-      "role": 11,
       "language": "de",
       "name": "Sachbearbeitung Fachstelle",
       "group_prefix": null

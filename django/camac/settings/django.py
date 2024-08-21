@@ -1745,23 +1745,21 @@ APPLICATIONS = {
             "applicant": "applicant",
             "municipality-admin": "municipality",
             "municipality-lead": "municipality",
-            "municipality-clerk": "municipality",
             "municipality-read": "municipality",
             "service-admin": "service",
             "service-lead": "service",
-            "service-clerk": "service",
             "subservice": "service",
             "support": "support",
         },
         "DEMO_MODE_GROUPS": env.list(
             "DEMO_MODE_GROUPS",
             default=[
-                5,  # Leitung Gemeinde Solothurn
+                5,  # Sachbearbeitung Gemeinde Solothurn
                 8,  # Einsichtsberechtigte Gemeinde Solothurn
-                539,  # Leitung Amt für Umwelt (AfU)
-                551,  # Leitung Amt für Wald, Jagd und Fischerei
-                560,  # Leitung Solothurnische Gebäudeversicherung (SGV)
-                542,  # Leitung Amt für Raumplanung (ARP)
+                539,  # Sachbearbeitung Amt für Umwelt (AfU)
+                551,  # Sachbearbeitung Amt für Wald, Jagd und Fischerei
+                560,  # Sachbearbeitung Solothurnische Gebäudeversicherung (SGV)
+                542,  # Sachbearbeitung Amt für Raumplanung (ARP)
             ],
         ),
         "ADMIN_GROUP": 1,
