@@ -21,6 +21,7 @@ start: ## Start the development server
 
 .PHONY: test
 test: ## Test the project
+	env
 	@touch .env
 	@ruff check .
 	@ruff format --check .
