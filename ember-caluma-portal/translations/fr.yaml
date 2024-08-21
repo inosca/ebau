@@ -340,6 +340,7 @@ instances:
     # SO
     withdrawn: ""
     constructionMonitoring: ""
+    decided: ""
 
     # Shared
     done: "Finalisé"
