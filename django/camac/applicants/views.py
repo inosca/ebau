@@ -77,11 +77,23 @@ class ApplicantsView(InstanceQuerysetMixin, ModelViewSet):
     @permission_aware
     def has_object_destroy_permission(self, obj):
         manager = PermissionManager.from_request(self.request)
+
         if not manager.has_all(obj.instance, applicant_permissions.APPLICANT_REMOVE):
             return False
 
-        is_last_applicant = obj.instance.involved_applicants.count() == 1
-        return not is_last_applicant
+        # Make sure that admins can only be deleted if there is another admin
+        # that has an invitee (unregistered applicants don't count)
+        if (
+            obj.role == models.ROLE_CHOICES.ADMIN.value
+            and obj.instance.involved_applicants.filter(
+                role=models.ROLE_CHOICES.ADMIN.value,
+                invitee__isnull=False,
+            ).count()
+            == 1
+        ):
+            return False
+
+        return True
 
     def has_object_destroy_permission_for_support(self, obj):
         # Support override ¯\_(ツ)_/¯
