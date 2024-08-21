@@ -999,34 +999,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     @permission_switching_method
     @permission_aware
     def get_permissions(self, instance):
-        manager = permissions_api.PermissionManager.from_request(
-            self.context["request"]
-        )
-        permissions = manager.get_permissions(instance)
-
-        def permission_prefix(form):
-            # This will map a form slug to its respective permission prefix. For
-            # the main form, the actual form slug will be omitted.
-            # E.g. main => form- and some-form => form-some-form-
-            return "form-" if form == "main" else f"form-{form}-"
-
-        form_permissions = {
-            form: set(
-                [
-                    permission.replace(permission_prefix(form), "")
-                    for permission in permissions
-                    if permission.startswith(permission_prefix(form))
-                ]
-            )
-            for form in settings.APPLICATION.get("CALUMA", {}).get(
-                "FORM_PERMISSIONS", []
-            )
-        }
-
-        return {
-            "case-meta": self._get_case_meta_permissions(instance),
-            **form_permissions,
-        }
+        # TODO: Remove this property completely when all cantons are migrated to
+        # the new permissions module
+        return {}
 
     @get_permissions.register_old
     def _get_permissions(self, instance):
