@@ -93,7 +93,6 @@ services:
       cache_from:
         - acr.run/camac-ng/camac-ng/ember:master
       args:
-        DEPLOY_TARGET: staging
         WORKSPACE: ember
       target: prod
     depends_on:
