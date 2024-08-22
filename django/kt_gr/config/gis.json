@@ -143,6 +143,15 @@
               "propertyName": "ortschaftsname"
             }
           ]
+        },
+        {
+          "identifier": "naturgefahren_plan_gko",
+          "properties": [
+            {
+              "question": "plan-der-gefahrenkommission",
+              "propertyName": "bezeichnung"
+            }
+          ]
         }
       ],
       "disabled": false,
