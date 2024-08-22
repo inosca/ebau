@@ -183,6 +183,7 @@ class GrGisClient(GISBaseClient):
     def get_plans(self, response_content) -> dict:
         plan_configs = [
             ("zonenplan", "zp_"),
+            ("plan-der-gefahrenkommission", "naturgefahren_"),
             ("genereller-gestaltungsplan", "ggp_"),
             ("genereller-erschliessungsplan", "gep_"),
             ("folgeplanung", "folgeplanung_"),

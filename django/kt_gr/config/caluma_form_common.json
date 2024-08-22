@@ -115,7 +115,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "folgeplanung",
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -145,7 +145,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "genereller-erschliessungsplan",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -160,7 +160,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "genereller-gestaltungsplan",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -266,6 +266,21 @@
       "form": "allgemeine-angaben-kurz",
       "question": "parzelle",
       "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.plan-der-gefahrenkommission",
+    "fields": {
+      "created_at": "2024-08-22T12:38:56.094Z",
+      "modified_at": "2024-08-22T12:38:56.094Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz",
+      "question": "plan-der-gefahrenkommission",
+      "sort": 4
     }
   },
   {
@@ -1761,6 +1776,40 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"### Personalien\", \"fr\": \"\", \"it\": \"### Dati personali\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "plan-der-gefahrenkommission",
+    "fields": {
+      "created_at": "2024-08-22T12:38:55.930Z",
+      "modified_at": "2024-08-22T12:38:55.930Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Plan der Gefahrenkommission\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
