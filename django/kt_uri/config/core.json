@@ -374,6 +374,20 @@
   },
   {
     "model": "core.action",
+    "pk": 1375,
+    "fields": {
+      "available_action": "workitem",
+      "button": 12000001,
+      "name": "Complete ruckweisung work item",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.action",
     "pk": 12000000,
     "fields": {
       "available_action": "save",
@@ -439,7 +453,7 @@
       "success_message": null,
       "error_message": "Beim Verschicken der E-Mail ist ein Fehler aufgetreten",
       "execute_always": 0,
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -580,20 +594,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 13000009,
-    "fields": {
-      "available_action": "case",
-      "button": 12000001,
-      "name": "Suspend case",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 3
     }
   },
   {
@@ -948,16 +948,19 @@
   },
   {
     "model": "core.actioncase",
-    "pk": 13000009,
-    "fields": {
-      "process_type": "suspend"
-    }
-  },
-  {
-    "model": "core.actioncase",
     "pk": 13000010,
     "fields": {
       "process_type": "resume"
+    }
+  },
+  {
+    "model": "core.actionworkitem",
+    "pk": 1375,
+    "fields": {
+      "tasks": "[\"reject\"]",
+      "process_type": "complete",
+      "process_all": false,
+      "fail_on_empty": false
     }
   },
   {
@@ -7554,6 +7557,15 @@
   },
   {
     "model": "core.broleacl",
+    "pk": 671,
+    "fields": {
+      "button": 12000001,
+      "role": 6,
+      "instance_state": 31
+    }
+  },
+  {
+    "model": "core.broleacl",
     "pk": 12000000,
     "fields": {
       "button": 12000001,
@@ -13513,6 +13525,14 @@
   },
   {
     "model": "core.formgroupform",
+    "pk": 20010,
+    "fields": {
+      "form_group": 12000001,
+      "form": 305
+    }
+  },
+  {
+    "model": "core.formgroupform",
     "pk": 2000000,
     "fields": {
       "form_group": 250,
@@ -19463,6 +19483,60 @@
       "instance_resource": 14000018,
       "role": 7,
       "instance_state": 30
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1259,
+    "fields": {
+      "instance_resource": 14000038,
+      "role": 1021,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1260,
+    "fields": {
+      "instance_resource": 14000033,
+      "role": 1021,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1261,
+    "fields": {
+      "instance_resource": 14000033,
+      "role": 4,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1262,
+    "fields": {
+      "instance_resource": 14000033,
+      "role": 1129,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1263,
+    "fields": {
+      "instance_resource": 14000033,
+      "role": 1128,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1264,
+    "fields": {
+      "instance_resource": 14000033,
+      "role": 1127,
+      "instance_state": 21
     }
   },
   {
