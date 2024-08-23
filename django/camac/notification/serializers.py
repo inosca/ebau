@@ -1476,6 +1476,34 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             return [{"to": service.email}]
         return []  # pragma: no cover
 
+    def _get_recipients_abwasser_uri(self, instance):
+        service = Service.objects.filter(name="AWU").first()
+        if service:
+            return [{"to": service.email}]
+        return []  # pragma: no cover
+
+    def _get_recipients_schnurgeruestabnahme_uri(self, instance):
+        construction_stage_planing_document = instance.case.work_items.get(
+            task_id=settings.CONSTRUCTION_MONITORING[
+                "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"
+            ]
+        ).document
+        relevant_answer_value = construction_stage_planing_document.answers.get(
+            question_id="schnurgeruestabnahme-durch"
+        ).value
+        check_by_geometer = (
+            relevant_answer_value
+            == "wer-fuehrt-die-schnurgeruestabnahme-durch-geometer"
+        )
+
+        if check_by_geometer:
+            service = Service.objects.filter(name="AGO").first()
+            if service:
+                return [{"to": service.email}]
+            return []  # pragma: no cover
+        else:
+            return self._get_recipients_municipality(instance)
+
     def _recipient_log(self, recipients):
         return ", ".join(
             [
