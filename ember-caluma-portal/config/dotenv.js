@@ -2,7 +2,7 @@
 
 const path = require("path");
 
-module.exports = function () {
+module.exports = function (environment) {
   return {
     clientAllowedKeys: [
       "APPLICATION",
@@ -19,5 +19,6 @@ module.exports = function () {
       "LOCALES",
     ],
     path: path.join(path.dirname(__dirname), "../.env"),
+    enabled: environment !== "production",
   };
 };

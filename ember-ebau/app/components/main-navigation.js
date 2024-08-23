@@ -28,10 +28,10 @@ export default class MainNavigationComponent extends Component {
 
   get logoPath() {
     if (["gr", "so"].includes(name)) {
-      return `/ebau-${name}-logo.svg`;
+      return `/assets/images/ebau-${name}-logo.svg`;
     }
 
-    return "/ebau-inosca-logo.svg";
+    return "/assets/images/ebau-inosca-logo.svg";
   }
 
   get showLanguageSwitcher() {

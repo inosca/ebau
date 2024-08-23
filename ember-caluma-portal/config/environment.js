@@ -3,10 +3,15 @@
 const locales = require("./locales");
 
 module.exports = function (environment) {
-  // eslint-disable-next-line no-console
-  console.log(
-    `build env: APPLICATION: ${process.env.APPLICATION}, KEYCLOAK_HOST: ${process.env.KEYCLOAK_HOST}, KEYCLOAK_REALM: ${process.env.KEYCLOAK_REALM}`,
-  );
+  if (environment !== "production") {
+    /* eslint-disable no-console */
+    console.log("Build environment:");
+    require("./dotenv")(environment).clientAllowedKeys.forEach((key) => {
+      console.log(`\t${key}: ${process.env[key]}`);
+    });
+    /* eslint-enable no-console */
+  }
+
   const app = process.env.APPLICATION || "kt_bern";
   const instanceStatesBe = {
     new: 1,
