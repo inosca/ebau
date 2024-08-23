@@ -13,6 +13,10 @@ from caluma.caluma_workflow.models import Task, WorkItem
 from django.conf import settings
 from django.utils import timezone
 
+from camac.caluma.extensions.events.caluma_workflow_notifications import (
+    post_complete_caluma_workflow_notifications,
+    post_create_caluma_workflow_notifications,
+)
 from camac.caluma.extensions.events.complete_check import (
     send_notification_after_complete_check,
 )
@@ -1066,3 +1070,71 @@ def test_complete_check_ur(
     )
 
     send_notification_mock.assert_called()
+
+
+def test_post_create_caluma_workflow_notifications(
+    db, application_settings, ur_instance, document_factory, work_item_factory, mocker
+):
+    application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"] = {
+        "send-additional-demand": [
+            {
+                "event": "created",
+                "notification": {
+                    "template_slug": "send-additional-demand",
+                    "recipient_types": ["applicant"],
+                },
+            }
+        ]
+    }
+    work_item = work_item_factory(
+        task_id="send-additional-demand",
+        document=document_factory(),
+        case=ur_instance.case,
+    )
+    send_notification_mock = mocker.patch(
+        "camac.caluma.extensions.events.caluma_workflow_notifications.send_notification"
+    )
+
+    post_create_caluma_workflow_notifications(
+        sender=None, work_item=work_item, user=None, context={}
+    )
+    send_notification_mock.assert_called()
+    assert (
+        send_notification_mock.call_args[0][0]["template_slug"]
+        == "send-additional-demand"
+    )
+    assert send_notification_mock.call_args[0][0]["recipient_types"] == ["applicant"]
+
+
+def test_post_complete_caluma_workflow_notifications(
+    db, application_settings, ur_instance, document_factory, work_item_factory, mocker
+):
+    application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"] = {
+        "complete-distribution": [
+            {
+                "event": "completed",
+                "notification": {
+                    "template_slug": "zirkulation-abgeschlossen",
+                    "recipient_types": ["applicant"],
+                },
+            }
+        ]
+    }
+    work_item = work_item_factory(
+        task_id="complete-distribution",
+        document=document_factory(),
+        case=ur_instance.case,
+    )
+    send_notification_mock = mocker.patch(
+        "camac.caluma.extensions.events.caluma_workflow_notifications.send_notification"
+    )
+
+    post_complete_caluma_workflow_notifications(
+        sender=None, work_item=work_item, user=None, context={}
+    )
+    send_notification_mock.assert_called()
+    assert (
+        send_notification_mock.call_args[0][0]["template_slug"]
+        == "zirkulation-abgeschlossen"
+    )
+    assert send_notification_mock.call_args[0][0]["recipient_types"] == ["applicant"]

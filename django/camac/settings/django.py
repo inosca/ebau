@@ -268,6 +268,8 @@ APPLICATIONS = {
             "koor_sd_users",
             "koor_afe_users",
             "responsible_koor",
+            "abwasser_uri",
+            "schnurgeruestabnahme_uri",
             # GR
             "aib",
             "gvg",
@@ -1130,6 +1132,8 @@ APPLICATIONS = {
             "koor_sd_users",
             "koor_afe_users",
             "responsible_koor",
+            "abwasser_uri",
+            "schnurgeruestabnahme_uri",
         ],
         "DOCUMENTS_SKIP_CONTEXT_VALIDATION": True,
         "CALUMA": {
@@ -1148,42 +1152,174 @@ APPLICATIONS = {
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
             "SYNC_FORM_TYPE": True,
             "SUBMIT_TASKS": ["submit"],
+            "CALUMA_WORKFLOW_NOTIFICATIONS": {
+                "send-additional-demand": [
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "send-additional-demand",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "fill-additional-demand": [
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "fill-additional-demand",
+                            "recipient_types": ["work_item_controlling"],
+                        },
+                    },
+                ],
+                "init-distribution": [
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "zirkulation-gestartet-gesuchsteller",
+                            "recipient_types": ["applicant"],
+                        },
+                    },
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "zirkulation-gestartet",
+                            "recipient_types": ["involved_in_distribution"],
+                        },
+                    },
+                ],
+                "complete-distribution": [
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "zirkulation-abgeschlossen",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "decision": [
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "eroeffnung-stellungnahme-vorentscheid",
+                            "recipient_types": [
+                                "applicant",
+                                "involved_in_distribution",
+                            ],
+                        },
+                    }
+                ],
+                "construction-step-baubeginn-melden": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-monitoring-new-task",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-baufreigabe-beantragen": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-monitoring-new-task",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-kanalisation-kontrollieren": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-monitoring-new-task",
+                            "recipient_types": ["abwasser_uri"],
+                        },
+                    }
+                ],
+                "construction-step-kanalisationsabnahme-melden": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-monitoring-new-task",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-rohbauabnahme-melden": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-monitoring-new-task",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-schlussabnahme-gebaeude-melden": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-monitoring-new-task",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-schlussabnahme-projekt-melden": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-monitoring-new-task",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-schnurgeruestabnahme-melden": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-monitoring-new-task",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-schnurgeruestabnahme-planen": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-monitoring-new-task",
+                            "recipient_types": ["schnurgeruestabnahme_uri"],
+                        },
+                    }
+                ],
+                "construction-step-schnurgeruest-kontrollieren": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-monitoring-new-task",
+                            "recipient_types": ["schnurgeruestabnahme_uri"],
+                        },
+                    }
+                ],
+                "construction-step-zwischenkontrolle-melden": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-monitoring-new-task",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+            },
             "SIMPLE_WORKFLOW": {
                 "complete-check": {
                     "next_instance_state": "comm",
                 },
-                "send-additional-demand": {
-                    "notification": {
-                        "template_slug": "send-additional-demand",
-                        "recipient_types": ["applicant"],
-                    },
-                },
-                "fill-additional-demand": {
-                    "notification": {
-                        "template_slug": "fill-additional-demand",
-                        "recipient_types": ["work_item_controlling"],
-                    },
-                },
                 "init-distribution": {
                     "next_instance_state": "circ",
-                    "notification": {
-                        "template_slug": "dossier-weitergeleitet-an-koordinationsstelle",
-                        "recipient_types": ["applicant"],
-                    },
                 },
                 "complete-distribution": {
                     "next_instance_state": "done",
-                    "notification": {
-                        "template_slug": "zirkulation-abgeschlossen",
-                        "recipient_types": ["applicant"],
-                    },
                 },
                 "decision": {
                     "next_instance_state": "control",
-                    "notification": {
-                        "template_slug": "eroeffnung-stellungnahme-vorentscheid",
-                        "recipient_types": ["applicant", "involved_in_distribution"],
-                    },
                 },
                 "complete-instance": {
                     "next_instance_state": "arch",
