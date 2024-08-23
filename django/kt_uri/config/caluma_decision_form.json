@@ -89,7 +89,22 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "decision-task-entscheid-beurteilung",
-      "sort": 11
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-task-entscheid-beurteilung-beschreibung",
+    "fields": {
+      "created_at": "2024-08-23T07:22:17.318Z",
+      "modified_at": "2024-08-23T07:22:17.318Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-task-entscheid-beurteilung-beschreibung",
+      "sort": 12
     }
   },
   {
@@ -104,6 +119,21 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "decision-task-feedback-type",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-task-feedback-type-beschreibung",
+    "fields": {
+      "created_at": "2024-08-23T07:23:04.635Z",
+      "modified_at": "2024-08-23T07:23:04.635Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-task-feedback-type-beschreibung",
       "sort": 10
     }
   },
@@ -210,6 +240,40 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Baubegleitungsprozess\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-task-entscheid-beurteilung-andere",
+    "fields": {
+      "created_at": "2024-08-22T09:06:12.832Z",
+      "modified_at": "2024-08-22T09:06:12.832Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-task-entscheid-beurteilung-bewilligung-in-aussicht-gestellt",
+    "fields": {
+      "created_at": "2024-08-20T11:40:17.951Z",
+      "modified_at": "2024-08-20T11:40:25.397Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bewilligung kann in Aussicht gestellt werden\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -704,6 +768,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "decision-task-entscheid-beurteilung-beschreibung",
+    "fields": {
+      "created_at": "2024-08-23T07:22:17.256Z",
+      "modified_at": "2024-08-23T07:23:43.540Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "!(\"decision-task-entscheid-beurteilung\"|answer == \"decision-task-entscheid-beurteilung-andere\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "decision-task-feedback-type",
     "fields": {
       "created_at": "2024-03-06T07:22:48.677Z",
@@ -722,6 +820,40 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-task-feedback-type-beschreibung",
+    "fields": {
+      "created_at": "2024-08-23T07:23:04.575Z",
+      "modified_at": "2024-08-23T07:23:50.308Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "!(\"decision-task-feedback-type\"|answer == \"decision-task-feedback-type-andere\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -920,73 +1052,103 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "decision-task-entscheid-beurteilung.decision-task-entscheid-beurteilung-andere",
+    "fields": {
+      "created_at": "2024-08-22T09:06:12.935Z",
+      "modified_at": "2024-08-22T09:06:12.935Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "decision-task-entscheid-beurteilung",
+      "option": "decision-task-entscheid-beurteilung-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-task-entscheid-beurteilung.decision-task-entscheid-beurteilung-bewilligung-in-aussicht-gestellt",
+    "fields": {
+      "created_at": "2024-08-22T09:06:12.939Z",
+      "modified_at": "2024-08-22T09:06:12.939Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "decision-task-entscheid-beurteilung",
+      "option": "decision-task-entscheid-beurteilung-bewilligung-in-aussicht-gestellt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "decision-task-entscheid-beurteilung.decision-task-entscheid-beurteilung-bewilligung-nicht-in-aussicht-gestellt",
     "fields": {
-      "created_at": "2024-05-29T11:10:55.073Z",
-      "modified_at": "2024-05-29T11:10:55.073Z",
+      "created_at": "2024-08-22T09:06:12.944Z",
+      "modified_at": "2024-08-22T09:06:12.944Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "decision-task-entscheid-beurteilung",
       "option": "decision-task-entscheid-beurteilung-bewilligung-nicht-in-aussicht-gestellt",
-      "sort": 2
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "decision-task-entscheid-beurteilung.decision-task-entscheid-beurteilung-keine-bewilligung-notwendig",
     "fields": {
-      "created_at": "2024-05-29T11:10:55.066Z",
-      "modified_at": "2024-05-29T11:10:55.066Z",
+      "created_at": "2024-08-22T09:06:12.942Z",
+      "modified_at": "2024-08-22T09:06:12.942Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "decision-task-entscheid-beurteilung",
       "option": "decision-task-entscheid-beurteilung-keine-bewilligung-notwendig",
-      "sort": 1
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "decision-task-entscheid-beurteilung.entscheid-beurteilung-bewilligt",
     "fields": {
-      "created_at": "2024-05-29T11:10:55.079Z",
-      "modified_at": "2024-05-29T11:10:55.079Z",
+      "created_at": "2024-08-22T09:06:12.948Z",
+      "modified_at": "2024-08-22T09:06:12.948Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "decision-task-entscheid-beurteilung",
       "option": "entscheid-beurteilung-bewilligt",
-      "sort": 4
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "decision-task-entscheid-beurteilung.entscheid-beurteilung-nicht-bewilligt",
     "fields": {
-      "created_at": "2024-05-29T11:10:55.076Z",
-      "modified_at": "2024-05-29T11:10:55.076Z",
+      "created_at": "2024-08-22T09:06:12.946Z",
+      "modified_at": "2024-08-22T09:06:12.946Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "decision-task-entscheid-beurteilung",
       "option": "entscheid-beurteilung-nicht-bewilligt",
-      "sort": 3
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "decision-task-feedback-type.decision-task-feedback-type-andere",
     "fields": {
-      "created_at": "2024-08-06T06:56:57.833Z",
-      "modified_at": "2024-08-06T06:56:57.833Z",
-      "created_by_user": "stephan.hug@adfinis.com",
+      "created_at": "2024-08-22T09:07:30.166Z",
+      "modified_at": "2024-08-22T09:07:30.166Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "decision-task-feedback-type",
       "option": "decision-task-feedback-type-andere",
@@ -997,11 +1159,11 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-task-feedback-type.decision-task-feedback-type-bau-und-einspracheentscheid",
     "fields": {
-      "created_at": "2024-08-06T06:56:57.840Z",
-      "modified_at": "2024-08-06T06:56:57.840Z",
-      "created_by_user": "stephan.hug@adfinis.com",
+      "created_at": "2024-08-22T09:07:30.175Z",
+      "modified_at": "2024-08-22T09:07:30.175Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "decision-task-feedback-type",
       "option": "decision-task-feedback-type-bau-und-einspracheentscheid",
@@ -1012,11 +1174,11 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-task-feedback-type.decision-task-feedback-type-mitteilung",
     "fields": {
-      "created_at": "2024-08-06T06:56:57.836Z",
-      "modified_at": "2024-08-06T06:56:57.836Z",
-      "created_by_user": "stephan.hug@adfinis.com",
+      "created_at": "2024-08-22T09:07:30.170Z",
+      "modified_at": "2024-08-22T09:07:30.170Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "decision-task-feedback-type",
       "option": "decision-task-feedback-type-mitteilung",
@@ -1027,11 +1189,11 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-task-feedback-type.decision-task-feedback-type-protokoll",
     "fields": {
-      "created_at": "2024-08-06T06:56:57.838Z",
-      "modified_at": "2024-08-06T06:56:57.838Z",
-      "created_by_user": "stephan.hug@adfinis.com",
+      "created_at": "2024-08-22T09:07:30.172Z",
+      "modified_at": "2024-08-22T09:07:30.172Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "decision-task-feedback-type",
       "option": "decision-task-feedback-type-protokoll",
@@ -1042,11 +1204,11 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-task-feedback-type.decision-task-feedback-type-stellungnahme-vorentscheid",
     "fields": {
-      "created_at": "2024-08-06T06:56:57.843Z",
-      "modified_at": "2024-08-06T06:56:57.843Z",
-      "created_by_user": "stephan.hug@adfinis.com",
+      "created_at": "2024-08-22T09:07:30.177Z",
+      "modified_at": "2024-08-22T09:07:30.177Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "decision-task-feedback-type",
       "option": "decision-task-feedback-type-stellungnahme-vorentscheid",
