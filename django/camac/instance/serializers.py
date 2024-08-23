@@ -26,7 +26,7 @@ from rest_framework import exceptions
 from rest_framework_json_api import relations, serializers
 
 from camac.caluma.api import CalumaApi
-from camac.constants import kt_bern as bern_constants, kt_uri as uri_constants
+from camac.constants import kt_uri as uri_constants
 from camac.core.models import (
     Answer,
     Answer as CamacAnswer,
@@ -89,27 +89,6 @@ assert not getattr(settings, "ATOMIC_REQUEST", False), (
     "ATOMIC_REQUEST are not supported, because dossier identifier generation "
     "needs to run in its own transaction (to reduce collision probability)."
 )
-
-
-def _geometer_cadastral_survey_necessary(instance):
-    geometer_work_item = instance.case.work_items.filter(
-        task_id=bern_constants.GEOMETER_TASK_SLUG,
-        status=workflow_models.WorkItem.STATUS_COMPLETED,
-    ).first()
-
-    if geometer_work_item:
-        perform_cadastral_survey = (
-            geometer_work_item.document.answers.filter(
-                question_id=bern_constants.GEOMETER_NECESSITY_QUESTION_SLUG
-            )
-            .values_list("value", flat=True)
-            .first()
-        )
-
-        if perform_cadastral_survey == bern_constants.GEOMETER_NECESSARY_OPTION_SLUG:
-            return True
-
-    return False
 
 
 def _is_sb1_form_version(instance, form_slug):
@@ -1902,11 +1881,6 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
 
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"]["REPORT"]:
-            if bern_constants.GEOMETER_RECIPIENTS in notification_config[
-                "recipient_types"
-            ] and not _geometer_cadastral_survey_necessary(instance):
-                continue
-
             self._send_notification(**notification_config)
 
         return instance
@@ -2233,11 +2207,6 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
 
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"]["FINALIZE"]:
-            if bern_constants.GEOMETER_RECIPIENTS in notification_config[
-                "recipient_types"
-            ] and not _geometer_cadastral_survey_necessary(instance):
-                continue
-
             self._send_notification(**notification_config)
 
         return instance

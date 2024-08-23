@@ -4,6 +4,7 @@ from typing import Union
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import AnswerDocument, Option, Question
 from caluma.caluma_user.models import OIDCUser
+from caluma.caluma_workflow import models as workflow_models
 from caluma.caluma_workflow.api import complete_work_item, skip_work_item
 from django.db.models import Prefetch
 from django.db.models.query import QuerySet
@@ -11,8 +12,8 @@ from django.utils.timezone import now
 from django.utils.translation import gettext as _
 
 from camac.caluma.api import CalumaApi
+from camac.constants import kt_bern as bern_constants
 from camac.instance.models import Instance
-from camac.permissions.events import Trigger
 from camac.user.models import Group, Service, ServiceRelation, User
 
 
@@ -250,6 +251,8 @@ def copy_instance(
 
         new_instance.set_instance_state("subm", user)
 
+    from camac.permissions.events import Trigger
+
     Trigger.instance_copied(None, new_instance, instance)
 
     return new_instance
@@ -278,3 +281,25 @@ def fill_ebau_number(
 
     # Complete work item
     complete_work_item(work_item=work_item, user=caluma_user)
+
+
+def geometer_cadastral_survey_is_necessary(answer):
+    return answer == bern_constants.GEOMETER_NECESSARY_OPTION_SLUG
+
+
+def geometer_cadastral_survey_necessary_answer(instance):
+    geometer_work_item = instance.case.work_items.filter(
+        task_id=bern_constants.GEOMETER_TASK_SLUG,
+        status=workflow_models.WorkItem.STATUS_COMPLETED,
+    ).first()
+
+    if geometer_work_item:
+        return (
+            geometer_work_item.document.answers.filter(
+                question_id=bern_constants.GEOMETER_NECESSITY_QUESTION_SLUG
+            )
+            .values_list("value", flat=True)
+            .first()
+        )
+
+    return None
