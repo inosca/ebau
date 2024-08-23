@@ -47,6 +47,10 @@ from camac.instance.master_data import MasterData
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.instance.placeholders import fields
+from camac.instance.utils import (
+    geometer_cadastral_survey_is_necessary,
+    geometer_cadastral_survey_necessary_answer,
+)
 from camac.instance.validators import transform_coordinates
 from camac.lookups import Any
 from camac.permissions.models import InstanceACL
@@ -1120,6 +1124,10 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             .filter(instance=instance)
             .filter(access_level_id="geometer")
         )
+
+        answer = geometer_cadastral_survey_necessary_answer(instance)
+        if answer and not geometer_cadastral_survey_is_necessary(answer):
+            geometer_acls = geometer_acls.filter(created_by_event="manual-creation")
 
         return flatten(
             [self._get_responsible(instance, acl.service) for acl in geometer_acls]
