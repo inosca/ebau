@@ -15164,6 +15164,38 @@
     }
   },
   {
+    "model": "core.instanceresource",
+    "pk": 14000039,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 12000003,
+      "name": "GWR Status nachführen (Projektabschluss)",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 31,
+      "form_group": 161,
+      "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 14000040,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 12000003,
+      "name": "Gebäudeschätzung",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 32,
+      "form_group": 161,
+      "require_permission": null
+    }
+  },
+  {
     "model": "core.instanceresourceaction",
     "pk": 1,
     "fields": {
@@ -32977,6 +33009,141 @@
     }
   },
   {
+    "model": "core.irroleacl",
+    "pk": 12002003,
+    "fields": {
+      "instance_resource": 14000039,
+      "role": 1129,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002004,
+    "fields": {
+      "instance_resource": 14000039,
+      "role": 6,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002005,
+    "fields": {
+      "instance_resource": 14000030,
+      "role": 1,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002006,
+    "fields": {
+      "instance_resource": 14000030,
+      "role": 1133,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002007,
+    "fields": {
+      "instance_resource": 14000030,
+      "role": 1101,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002008,
+    "fields": {
+      "instance_resource": 14000030,
+      "role": 1127,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002009,
+    "fields": {
+      "instance_resource": 14000030,
+      "role": 1128,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002010,
+    "fields": {
+      "instance_resource": 14000030,
+      "role": 1107,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002011,
+    "fields": {
+      "instance_resource": 14000030,
+      "role": 1061,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002012,
+    "fields": {
+      "instance_resource": 14000030,
+      "role": 1129,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002013,
+    "fields": {
+      "instance_resource": 14000030,
+      "role": 1106,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002014,
+    "fields": {
+      "instance_resource": 14000030,
+      "role": 6,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002018,
+    "fields": {
+      "instance_resource": 14000040,
+      "role": 4,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002019,
+    "fields": {
+      "instance_resource": 14000040,
+      "role": 4,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002020,
+    "fields": {
+      "instance_resource": 14000040,
+      "role": 4,
+      "instance_state": 26
+    }
+  },
+  {
     "model": "core.irtaskform",
     "pk": 12000001,
     "fields": {
@@ -33051,6 +33218,20 @@
     "pk": 14000038,
     "fields": {
       "task": "geometer-final-measurement"
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 14000039,
+    "fields": {
+      "task": "construction-monitoring-update-gwr-state-complete"
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 14000040,
+    "fields": {
+      "task": "gebaeudeschaetzung"
     }
   },
   {

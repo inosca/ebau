@@ -16,5 +16,102 @@
       "is_archived": false,
       "source": null
     }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeudeschaetzung.gebaeudeschaetzung-complete",
+    "fields": {
+      "created_at": "2024-08-26T06:36:58.232Z",
+      "modified_at": "2024-08-26T06:36:58.232Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeudeschaetzung",
+      "question": "gebaeudeschaetzung-complete",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeudeschaetzung.gebaeudeschaetzung-help",
+    "fields": {
+      "created_at": "2024-08-26T06:36:48.745Z",
+      "modified_at": "2024-08-26T06:36:48.745Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeudeschaetzung",
+      "question": "gebaeudeschaetzung-help",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gebaeudeschaetzung-complete",
+    "fields": {
+      "created_at": "2024-08-26T06:36:58.139Z",
+      "modified_at": "2024-08-26T06:36:58.139Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"gebaeudeschaetzung-complete\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gebaeudeschaetzung-help",
+    "fields": {
+      "created_at": "2024-08-26T06:36:48.635Z",
+      "modified_at": "2024-08-26T06:36:48.635Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"gebaeudeschaetzung-help\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Hier m\\u00fcssen wir noch ein passendes Formular erstellen.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
   }
 ]

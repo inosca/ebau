@@ -37,6 +37,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "construction-monitoring-update-gwr-state-complete",
+    "fields": {
+      "created_at": "2024-08-23T13:52:20.457Z",
+      "modified_at": "2024-08-23T13:52:20.457Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"GWR Status nachf\\u00fchren (Projektabschluss)\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "construction-step-baubeginn-melden",
     "fields": {
       "created_at": "2023-10-27T12:54:22.468Z",

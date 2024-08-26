@@ -141,8 +141,9 @@ def post_complete_check_additional_demand(
             decision == settings.ADDITIONAL_DEMAND["ANSWERS"]["DECISION"]["ACCEPTED"]
             and not has_pending_checks
         ):
-            if suspended_distribution_work_item := instance.case.work_items.filter(
-                task_id=settings.DISTRIBUTION["DISTRIBUTION_TASK"],
+            if suspended_distribution_work_item := WorkItem.objects.filter(
+                task_id=settings.DISTRIBUTION["DISTRIBUTION_INIT_TASK"],
+                case__family=instance.case,
                 status=WorkItem.STATUS_SUSPENDED,
             ).first():
                 workflow_api.resume_work_item(

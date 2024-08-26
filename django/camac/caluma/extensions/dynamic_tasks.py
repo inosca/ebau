@@ -86,7 +86,6 @@ class CustomDynamicTasks(BaseDynamicTasks):
         tasks = []
 
         involve_geometer = False
-        involve_gebaeudeschaetzung = False
 
         if geometer_answer := prev_work_item.document.answers.filter(
             question_id="decision-task-nachfuehrungsgeometer"
@@ -95,18 +94,8 @@ class CustomDynamicTasks(BaseDynamicTasks):
                 geometer_answer.value == "decision-task-nachfuehrungsgeometer-ja"
             )
 
-        if involve_gebaeudeschaetzung_answer := prev_work_item.document.answers.filter(
-            question_id="decision-task-gebaudeschaetzung"
-        ).first():
-            involve_gebaeudeschaetzung = (
-                involve_gebaeudeschaetzung_answer.value
-                == "decision-task-gebaudeschaetzung-ja"
-            )
-
         if involve_geometer:
             tasks.append("geometer")
-        if involve_gebaeudeschaetzung:
-            tasks.append("gebaeudeschaetzung")
 
         return tasks
 
@@ -163,9 +152,19 @@ class CustomDynamicTasks(BaseDynamicTasks):
             .first()
         )
 
+        involve_gebaeudeschaetzung_value = (
+            case.family.work_items.get(task_id="decision")
+            .document.answers.filter(question_id="decision-task-gebaudeschaetzung")
+            .values_list("value", flat=True)
+            .first()
+        )
+
         # Only involve the geometer if this was set during the "decision" process
         if involve_geometer_value == "decision-task-nachfuehrungsgeometer-ja":
             tasks.append("geometer-final-measurement")
+
+        if involve_gebaeudeschaetzung_value == "decision-task-gebaudeschaetzung-ja":
+            tasks.append("gebaeudeschaetzung")
 
         return tasks
 
