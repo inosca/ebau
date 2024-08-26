@@ -521,16 +521,14 @@ def test_dynamic_task_after_check_sb2(
 
 
 @pytest.mark.parametrize(
-    "answer1,answer2,expected_tasks",
+    "answer1,expected_tasks",
     [
         (
             "decision-task-nachfuehrungsgeometer-ja",
-            "decision-task-gebaudeschaetzung-ja",
-            ["geometer", "gebaeudeschaetzung"],
+            ["geometer"],
         ),
         (
             "decision-task-nachfuehrungsgeometer-nein",
-            "decision-task-gebaudeschaetzung-nein",
             [],
         ),
     ],
@@ -543,9 +541,9 @@ def test_dynamic_task_after_decision_ur(
     answer_factory,
     ur_instance,
     caluma_admin_user,
+    #
     expected_tasks,
     answer1,
-    answer2,
 ):
     work_item = work_item_factory(
         case=ur_instance.case,
@@ -559,11 +557,6 @@ def test_dynamic_task_after_decision_ur(
         question=question_factory(slug="decision-task-nachfuehrungsgeometer"),
         value=answer1,
     )
-    answer_factory(
-        document=work_item.document,
-        question=question_factory(slug="decision-task-gebaudeschaetzung"),
-        value=answer2,
-    )
 
     result = CustomDynamicTasks().resolve_after_decision_ur(
         ur_instance.case, caluma_admin_user, work_item, None
@@ -573,10 +566,18 @@ def test_dynamic_task_after_decision_ur(
 
 
 @pytest.mark.parametrize(
-    "involve_geometer,should_have_geometer_task",
+    "involve_geometer,involve_gebaeudeschaetzung,expected_tasks",
     [
-        ("decision-task-nachfuehrungsgeometer-ja", True),
-        ("decision-task-nachfuehrungsgeometer-nein", False),
+        (
+            "decision-task-nachfuehrungsgeometer-ja",
+            "decision-task-gebaudeschaetzung-ja",
+            ["geometer-final-measurement", "gebaeudeschaetzung"],
+        ),
+        (
+            "decision-task-nachfuehrungsgeometer-nein",
+            "decision-task-gebaudeschaetzung-nein",
+            [],
+        ),
     ],
 )
 def test_after_complete_construction_monitoring_ur(
@@ -587,7 +588,8 @@ def test_after_complete_construction_monitoring_ur(
     answer_factory,
     #
     involve_geometer,
-    should_have_geometer_task,
+    involve_gebaeudeschaetzung,
+    expected_tasks,
 ):
     decision_work_item = work_item_factory(
         task__slug="decision",
@@ -599,15 +601,18 @@ def test_after_complete_construction_monitoring_ur(
         value=involve_geometer,
         document=decision_work_item.document,
     )
+    answer_factory(
+        document=decision_work_item.document,
+        question__slug="decision-task-gebaudeschaetzung",
+        value=involve_gebaeudeschaetzung,
+    )
 
     result = CustomDynamicTasks().resolve_after_complete_construction_monitoring_ur(
         decision_work_item.case, None, work_item_factory(), None
     )
 
-    if should_have_geometer_task:
-        assert "geometer-final-measurement" in result
-    else:
-        assert "geometer-final-measurement" not in result
+    for task in expected_tasks:
+        assert task in result
 
 
 @pytest.mark.parametrize(

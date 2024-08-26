@@ -152,7 +152,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['after-complete-construction-monitoring-ur']|tasks"
+      "next": "['complete-instance', 'construction-monitoring-update-gwr-state-complete', 'after-complete-construction-monitoring-ur']|tasks"
     }
   },
   {
@@ -165,7 +165,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['complete-instance', 'after-init-construction-monitoring']|tasks"
+      "next": "['after-init-construction-monitoring']|tasks"
     }
   },
   {
@@ -336,6 +336,29 @@
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "construction-monitoring-update-gwr-state",
+      "lead_time": 432000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-monitoring-update-gwr-state-complete",
+    "fields": {
+      "created_at": "2024-06-14T09:36:44.828Z",
+      "modified_at": "2024-06-14T09:36:44.828Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "name": "{\"de\": \"GWR Status nachf\\u00fchren (Projektabschluss)\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {},
+      "address_groups": "['municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-monitoring-update-gwr-state-complete",
       "lead_time": 432000,
       "is_multiple_instance": false,
       "continue_async": false

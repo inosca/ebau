@@ -125,3 +125,4 @@ volumes:
   djangotmpmedia:
   phpsessions:
   templatefiles:
+  dmsfiles:
