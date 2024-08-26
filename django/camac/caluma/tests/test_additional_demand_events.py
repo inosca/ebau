@@ -30,7 +30,7 @@ def test_creating_an_additional_demand_sets_the_correct_instance_state(
     )
 
 
-def test_when_checking_all_additional_demands_the_instance_state_gets_reverted(
+def test_post_complete_check_additional_demand_ur(
     db,
     work_item_factory,
     workflow_factory,
@@ -49,9 +49,9 @@ def test_when_checking_all_additional_demands_the_instance_state_gets_reverted(
         task_id=ur_additional_demand_settings["CHECK_TASK"],
         status=WorkItem.STATUS_COMPLETED,
     )
-    work_item_factory(
+    distribution_init_work_item = work_item_factory(
         case=ur_instance.case,
-        task_id=ur_distribution_settings["DISTRIBUTION_TASK"],
+        task_id=ur_distribution_settings["DISTRIBUTION_INIT_TASK"],
         status=WorkItem.STATUS_SUSPENDED,
     )
     answer_factory(
@@ -79,3 +79,5 @@ def test_when_checking_all_additional_demands_the_instance_state_gets_reverted(
         ur_instance.instance_state.name
         == ur_additional_demand_settings["STATES"]["AFTER_ADDITIONAL_DEMANDS"]
     )
+    distribution_init_work_item.refresh_from_db()
+    assert distribution_init_work_item.status == WorkItem.STATUS_READY
