@@ -37,6 +37,7 @@ export default class TaskFormController extends Controller {
         "complete-check",
         "release-for-bk",
         "construction-monitoring-update-gwr-state",
+        "construction-monitoring-update-gwr-state-complete",
       ].includes(this.model)
     ) {
       this.ebauModules.redirectToWorkItems();

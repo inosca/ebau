@@ -124,26 +124,13 @@
           @header={{t "cases.tableHeaders.involvedServices"}}
         >
           <ul class="uk-list">
-            {{#each this.models.activations as |activation|}}
+            {{#each this.models.involvedServices as |involvedService|}}
               <li>
-                <ActivationIndicator @activation={{activation}} />
-                {{activation.service.name}}
+                {{involvedService.name}}
               </li>
             {{/each}}
           </ul>
         </CaseDashboard::Column>
-      </tr>
-
-      <tr>
-        {{#if (and this.isService this.models.ownActivation)}}
-          <CaseDashboard::Column
-            @header={{t "cases.tableHeaders.processingDeadline"}}
-            @value={{format-date
-              this.models.ownActivation.deadlineDate
-              format="date"
-            }}
-          />
-        {{/if}}
       </tr>
     </CaseDashboard::Section>
     <hr />

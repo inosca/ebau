@@ -56,7 +56,7 @@ export default class CaseDashboardComponent extends Component {
   *fetchCurrentInstance(reload = false) {
     return yield this.store.findRecord("instance", this.args.instanceId, {
       reload,
-      include: "linked_instances",
+      include: "linked_instances,involved_services",
     });
   }
 
@@ -72,10 +72,7 @@ export default class CaseDashboardComponent extends Component {
 
     this.totalJournalEntries = journalEntries.meta.pagination.count;
 
-    const activations = yield this.store.query("activation", {
-      instance: this.args.instanceId,
-      include: "service",
-    });
+    const involvedServices = this.currentInstance.involvedServices;
 
     const workflowEntries = yield this.store.query("workflowEntry", {
       instance: this.args.instanceId,
@@ -87,12 +84,6 @@ export default class CaseDashboardComponent extends Component {
         (we) =>
           we.belongsTo("workflowItem").id() === WORKFLOW_ITEM_IDS[1].toString(),
       )?.workflowDate || workflowEntries[0]?.workflowDate;
-
-    const ownActivation = activations.find(
-      (activation) =>
-        parseInt(activation.get("service.id")) ===
-          this.shoebox.content.serviceId && activation.state === "RUN",
-    );
 
     const attachment = yield this.store.query("attachment", {
       instance: this.args.instanceId,
@@ -151,10 +142,9 @@ export default class CaseDashboardComponent extends Component {
     return {
       caseModel,
       journalEntries,
-      activations,
-      ownActivation,
       acceptDate,
       parcelPicture,
+      involvedServices,
     };
   }
 }
