@@ -113,8 +113,8 @@
     "fields": {
       "slug": "dossier-angenommen",
       "purpose": "2.2 Info an Gesuchsteller - Das Dossier wurde von der Gemeinde angenommen",
-      "subject": "Dossier von der Gemeindebaubehörde angenommen",
-      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nStatusmeldung zum Stand des Bewilligungsverfahrens\r\nDOSSIER ANGENOMMEN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDas Dossier mit der ID Nr. {{INSTANCE_ID}} wurde von der Gemeindebaubehörde {{INSTANCE_LOCATION}} als vollständig angenommen. Das Prüfverfahren / Bewilligungsverfahren wurde gestartet. Sie werden mit Statusmeldungen über den weiteren Verlauf des Verfahrens informiert.\r\n\r\nUnter dem Vorbehalt, dass auch von den kantonalen Fachstellen keine weiteren Angaben nachgefordert werden oder ein Augenschein vor Ort notwendig ist, beträgt die verbleidende Bearbeitungszeit bis zum Bau- und Einspracheentscheid der Gemeindebaubehörde ca. 10 Wochen.\r\n\r\nBitte beachten:\r\nFür \"einfache Baumeldungen\" gelten andere Fristen. Sie sollten von der zuständigen Gemeindebaubehörde umgehend Bescheid erhalten, ob allenfalls ein umfangreicheres Baubewilligungsverfahren notwendig ist oder ob das Vorhaben realisiert werden kann. \r\n\r\n\r\nMit freundlichen Grüssen\r\nGemeindebaubehörde {{INSTANCE_LOCATION}}",
+      "subject": "Dossier angenommen",
+      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nDOSSIER ANGENOMMEN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDas Dossier mit der ID Nr. {{INSTANCE_ID}} wurde von der zuständigen Behörde als vollständig angenommen. Das Prüfverfahren / Bewilligungsverfahren wurde gestartet. Sie werden mit Statusmeldungen über den weiteren Verlauf des Verfahrens informiert.\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -125,8 +125,8 @@
     "fields": {
       "slug": "dossier-abgewiesen",
       "purpose": "2.1 Info an Gesuchsteller - Das Dossier wurde von Gemeinde zurückgewiesen",
-      "subject": "Dossier von der Gemeindebaubehörde zurückgewiesen",
-      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nDOSSIER ZURÜCKGEWIESEN \r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nSie haben via URec das Dossier mit der ID {{INSTANCE_ID}} erfasst. Wir stellen fest, dass das Dossier unvollständig ist. Das Dossier wird deshalb zurückgewiesen. Bitte loggen Sie sich im URec Portal ein, vervollständigen Sie das Dossier und reichen Sie es erneut ein.\r\n\r\nMit freundliche Grüssen\r\nGemeindebaubehörde {{INSTANCE_LOCATION}}",
+      "subject": "Dossier ID {{INSTANCE_ID}} Zurückgewiesen",
+      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nDOSSIER ZURÜCKGEWIESEN \r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDas Dossier mit der ID {{INSTANCE_ID}} wurde zurückgewiesen. Die Begründung dazu entnehmen Sie bitte der entsprechenden Mitteilung auf dem URec Portal.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{ INTERNAL_DOSSIER_LINK }}\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -172,9 +172,9 @@
     "pk": 1369,
     "fields": {
       "slug": "zirkulation-abgeschlossen",
-      "purpose": "2.6 Info an Gesuchsteller - Zirkulation bei den kantonalen Fachstellen abgeschlossen",
-      "subject": "URec Dossier Nr. {{DOSSIER_NR}} Die Zirkulation bei den kantonalen Fachstellen ist abgeschlossen",
-      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nStatusmeldung zum Stand des Bewilligungsverfahrens\r\nZIRKULATION ABGESCHLOSSEN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDie Prüfung Ihres Dossiers mit der ID Nr. {{INSTANCE_ID}} (CAMAC Dossiernummer {{DOSSIER_NR}}) durch die kantonalen Fachstellen ist abgeschlossen. \r\nDas Dossier wird nun von der Gemeindebaubehörde abschliessend bearbeitet. Bitte beachten Sie, dass die Ausarbeitung der Entscheiddokumente und die Protokollgenehmigung zusätzlich Zeit beanspruchen. Der Versand der Entscheiddokumente erfolgt voraussichtlich innert 2 bis 4 Wochen.\r\n\r\n{{SENDER_SERVICE_ADDRESS}}",
+      "purpose": "2.6 Info an Gesuchsteller - Zirkulation abgeschlossen",
+      "subject": "Dossier ID {{INSTANCE_ID}} Zirkulation abgeschlossen",
+      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nZIRKULATION ABGESCHLOSSEN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDie zuständigen Fachstellen haben das Dossier geprüft. Die zuständige Leitbehörde wird die Rückmeldungen auswerten und Ihnen den Entscheid (Stellungnahme / Verfügung) digital via URec Portal zustellen (je nach Praxis der zuständigen Leitbehörde werden Verfügungen und Stellungnahmen zusätzlich auch per Post verschickt).\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -222,7 +222,7 @@
       "slug": "dossier-eingereicht-gesuchsteller",
       "purpose": "2 Info an Gesuchsteller - Dossier eingereicht",
       "subject": "Eingangsbestätigung",
-      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nEINGANGSBESTÄTIGUNG\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nVielen Dank für Ihre Eingabe. Das Dossier mit der ID Nr. {{INSTANCE_ID}} wird umgehend von der zuständigen Gemeindebaubehörde auf Vollständigkeit geprüft. Falls zusätzliche Unterlagen notwendig sind oder wenn das Prüfverfahren / Bewilligungsverfahren gestartet wird, erhalten Sie eine entsprechende Statusmeldung.\r\n\r\nDossiers bei denen Unterlagen und Angaben fehlen, können zurückgewiesen werden.\r\n\r\nMit freundlichen Grüssen\r\nGemeindebaubehörde {{INSTANCE_LOCATION}}",
+      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nEINGANGSBESTÄTIGUNG\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nVielen Dank für Ihre Eingabe. Das Dossier mit der ID Nr. {{INSTANCE_ID}} wird umgehend von der zuständigen Behörde auf Vollständigkeit geprüft. Falls zusätzliche Unterlagen notwendig sind oder wenn das Prüfverfahren / Bewilligungsverfahren gestartet wird, erhalten Sie eine entsprechende Statusmeldung.\r\n\r\nDossiers bei denen Unterlagen und Angaben fehlen, können zurückgewiesen werden.\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -233,8 +233,8 @@
     "fields": {
       "slug": "dossier-eingereicht-gemeinde",
       "purpose": "1 Info an Gemeinde - Neues Dossier wurde online eingereicht",
-      "subject": "Neues Dossier wurde online eingereicht",
-      "body": "URec Info\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nNEUES ONLINE DOSSIER\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nVia URec wurde ein neues Dossier mit der ID Nr. {{INSTANCE_ID}} eingereicht. Bitte prüfen Sie das Dossier auf Vollständigkeit. Falls zusätzliche Unterlagen notwendig sind, können Sie diese im Menu Rückweisung direkt beim Gesuchsteller nachfordern. \r\n\r\nWenn das Dossier vollständig ist, klicken Sie auf «Dossier annehmen». Das Dossier wird in der Dossierbearbeitung starten angezeigt. Der Gesuchsteller erhält eine entsprechende Annahmebestätigung per E-Mail.\r\n\r\nBei Bedarf wandeln Sie das Dossier um in ein entsprechendes Verfahren mit kantonaler Beteiligung.\r\n\r\nBitte beachten:\r\nURec verschickt bei allen online erfassten Dossiers eine Notifikation. Bei Dossiers für Verfahren nach BGBB / und Abparzellierung müssen Sie Nichts unternehmen (diese Dossiers wurden von der Koordinationsstelle intern erfasst und Sie haben keine Pendenz). Diese E-Mail dient einzig der Information, dass dieses Dossier eingereicht bzw. erfasst wurde. \r\n\r\nBei Fragen schreiben Sie uns bitte eine E-Mail an:\r\nurec@ur.ch",
+      "subject": "Neues Dossier wurde eingereicht / erfasst",
+      "body": "URec Info\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nNEUES DOSSIER\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm URec wurde ein neues Dossier mit der ID Nr. {{INSTANCE_ID}} erfasst bzw. eingereicht. Bitte prüfen Sie das Dossier auf Vollständigkeit. Falls zusätzliche Unterlagen notwendig sind, können diese im Rahmen der \"Vollständigkeitsprüfung\" nachgefordert werden. \r\n\r\nDer Gesuchsteller erhält eine entsprechende Meldung.\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -365,8 +365,8 @@
     "fields": {
       "slug": "eroeffnung-stellungnahme-vorentscheid",
       "purpose": "8.3 Info an Gesuchsteller und Beteiligte - Eröffnung Stellungnahme / Vorentscheid",
-      "subject": "URec Dossier Nr. {{DOSSIER_NR}}: Bau- und Einsprache-Entscheid",
-      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten) Statusmeldung zum Stand des Verfahrens\r\n\r\nERÖFFNUNG STELLUNGNAHME / VORENTSCHEID\r\n\r\nSehr geehrte Dame Sehr geehrter Herr\r\n\r\nZum Dossier mit der ID Nr. {{INSTANCE_ID}}, (URec Dossiernummer {{DOSSIER_NR}}) wird Ihnen hiermit eine Stellungnahme / Vorentscheid via {{CURRENT_SERVICE_DESCRIPTION}} zugestellt. Die Originaldokumente bleiben bei der ausstellenden Behörde und können bei Bedarf angefordert werden. Sie können die relevanten Dokumente über den folgenden Link herunterladen:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFalls der Link nicht funktioniert, stellen Sie bitte sicher, dass Sie sich im URec Portal registriert und angemeldet haben. Unter folgendem Link können Sie sich registrieren: https://urec-portal.ur.ch/.\r\n\r\nMit dem Öffnen eines Dokuments beginnt gleichzeitig die in der Stellungnahme / Vorentscheid erwähnte Frist für das rechtliche Gehör. Das aktuelle Datum beim Anklicken des Links wurde im System gespeichert und gilt als Eröffnungsdatum.\r\n\r\nMit freundlichen Grüssen\r\n\r\n{{CURRENT_SERVICE_DESCRIPTION}}",
+      "subject": "Dossier ID {{INSTANCE_ID}} Eröffnung Stellungnahme / Entscheid",
+      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten) Statusmeldung zum Stand des Verfahrens\r\n\r\nERÖFFNUNG STELLUNGNAHME / ENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} wird hiermit die Stellungnahme bzw. der Entscheid der Leitbehörde eröffnet.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nMit dem Öffnen eines Dokuments beginnt gleichzeitig die in der Stellungnahme / Vorentscheid erwähnte Frist für das rechtliche Gehör. Das aktuelle Datum beim Anklicken des Links wurde im System gespeichert und gilt als Eröffnungsdatum.\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -400,9 +400,9 @@
     "pk": 1461,
     "fields": {
       "slug": "send-additional-demand",
-      "purpose": "Nachforderung, Neu",
-      "subject": "Neue Nachforderung (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\r\n\r\nIm eBau gibt es eine neue Nachforderung im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\neBau",
+      "purpose": "Nachforderung (Neu) an Gesuchsteller",
+      "subject": "Nachforderung Dossier-Nr. {{DOSSIER_NR}}",
+      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der Dossier-Nr. {{DOSSIER_NR}} wurden Unterlagen / Angaben nachgefordert.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -412,9 +412,9 @@
     "pk": 1462,
     "fields": {
       "slug": "fill-additional-demand",
-      "purpose": "Nachforderung beantwortet",
-      "subject": "Nachforderung beantwortet (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\r\n\r\nIm eBau wurde die Nachforderung beantwortet im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau",
+      "purpose": "Nachforderung beantwortet an Leitbehörde",
+      "subject": "Nachforderung Dossier-Nr. {{DOSSIER_NR}} beantwortet",
+      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDie Nachforderung betreffend das Dossier mit Dossier-Nr. {{DOSSIER_NR}} wurde beantwortet.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -439,6 +439,42 @@
       "purpose": "Nachforderung geprüft negativ",
       "subject": "Nachforderung abgelehnt (Dossier-Nr. {{DOSSIER_NR}})",
       "body": "Guten Tag\r\n\r\nIm eBau wurde ihre Nachforderung abgelehnt im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau",
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1465,
+    "fields": {
+      "slug": "construction-monitoring-new-task",
+      "purpose": "Aufgaben an Gesuchsteller und Gemeinden für alle Aufgaben im Rahmen der Baubegleitung",
+      "subject": "(Dossier-Nr. {{DOSSIER_NR}}) Neue Aufgabe",
+      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nNeue Aufgabe\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse\r\neBau",
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1466,
+    "fields": {
+      "slug": "zirkulation-gestartet-gesuchsteller",
+      "purpose": "Zirkulation gestartet an Gesuchsteller",
+      "subject": "(Dossier-Nr. {{DOSSIER_NR}}) Neue Aufgabe",
+      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nNeue Aufgabe\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse\r\neBau",
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1467,
+    "fields": {
+      "slug": "zirkulation-gestartet-koors-und-gemeinde",
+      "purpose": "Zirkulation gestartet an KOORs und Gemeinde",
+      "subject": "Dossier ID {{INSTANCE_ID}} Zirkulation gestartet",
+      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nZirkulation gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm URec wurde Ihnen das Dossier mit der ID {{INSTANCE_ID}} als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu prüfen und die entsprechende Rückmeldung (Stellungnahme, Verfügung, interne Rückmeldung, Planvisum usw.) innert Frist zurückzuschicken.\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
