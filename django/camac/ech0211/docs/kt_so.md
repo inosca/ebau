@@ -46,7 +46,7 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
 ## Abweichungen und Besonderheiten
 
 - Der Type `planningPermissionAplicationIdentifier` enthält unter `localId` die kantonale Dossiernummer und unter `dossierIdentification` den technischen Primärschlüssel "Dossier ID" ("Instance id")
-- Der Type `localOrganisationId` enthält unter `organisationId` unsere Service id. Service ids können über den `/ech/v1/public-services/` endpoint abgefragt werden.
+- Der Type `localOrganisationId` enthält unter `organisationId` unsere Service id. Service ids können über den `/api/v1/public-services/` endpoint abgefragt werden.
 - Der von uns empfangene Typ `task`, um Stellungnahmen anzufordern (Spezifikation 3.2) muss zwingend die Service id der einzuladenden Stelle im `extension` Typ enthalten:
   ```xml
   <ns2:extension>
