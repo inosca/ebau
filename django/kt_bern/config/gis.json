@@ -31,17 +31,25 @@
       "client": "camac.gis.clients.begis.BeGisClient",
       "config": {
         "layers": {
-          "GK5_SY_VW_21534": {
-            "is_boolean": true,
+          "NATGEFKA_SYGEFGEB_VW_28731": {
+            "is_boolean": false,
             "properties": [
               {
-                "mapper": "boolean",
-                "question": "gebiet-mit-naturgefahren"
+                "mapper": "naturgefahren",
+                "question": "gebiet-mit-naturgefahren",
+                "values_mapping": {
+                  "Gering": "ja",
+                  "Mittel": "ja",
+                  "Erheblich": "ja",
+                  "Restgefährdung": "ja",
+                  "Nicht gefährdet": "nein"
+                }
               }
-            ]
+            ],
+            "search_term": "GEFSTUFT_GEFSTUF_DE"
           }
         },
-        "service_code": "of_geoscientificinformation01_de_ms_wfs"
+        "service_code": "of_geoscientificinformation04_de_ms_wfs"
       },
       "disabled": false,
       "sort": 1
@@ -107,12 +115,29 @@
             "is_boolean": false,
             "properties": [
               {
-                "mapper": "gewaesserschutzbereich_v2",
-                "question": "gewaesserschutzbereich-v2"
+                "mapper": "options",
+                "question": "gewaesserschutzbereich-v2",
+                "values_mapping": {
+                  "übriger Bereich üB": "ueb",
+                  "Gewässerschutzbereich Ao": "ao",
+                  "Gewässerschutzbereich Au": "au"
+                }
               },
               {
-                "mapper": "grundwasserschutzzonen_v2",
-                "question": "grundwasserschutzzonen-v2"
+                "mapper": "options",
+                "question": "grundwasserschutzzonen-v2",
+                "values_mapping": {
+                  "Grundwasserschutzzone S1": "s1",
+                  "Grundwasserschutzzone S2": "s2",
+                  "Grundwasserschutzzone S3": "s3-s3zu",
+                  "Grundwasserschutzzone Sh": "sh",
+                  "Grundwasserschutzzone Sm": "sm",
+                  "Grundwasserschutzzone SA1": "sa",
+                  "Grundwasserschutzzone SA2": "sa",
+                  "Grundwasserschutzzone SA3": "sa",
+                  "Grundwasserschutzzone SBW": "sbw",
+                  "Grundwasserschutzzone S3Zu": "s3-s3zu"
+                }
               }
             ],
             "search_term": "GSKT_BEZEICH_DE"
@@ -160,7 +185,7 @@
             "is_boolean": false,
             "properties": [
               {
-                "mapper": "nutzungszone",
+                "mapper": "text",
                 "question": "nutzungszone"
               }
             ],
@@ -179,7 +204,7 @@
             "is_boolean": false,
             "properties": [
               {
-                "mapper": "ueberbauungsordnung",
+                "mapper": "text",
                 "question": "ueberbauungsordnung"
               }
             ],
