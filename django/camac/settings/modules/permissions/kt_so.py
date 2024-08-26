@@ -3,6 +3,7 @@ from camac.permissions.conditions import (
     Callback,
     HasApplicantRole,
     HasRole,
+    IsAppeal,
     IsForm,
     IsPaper,
     RequireInstanceState,
@@ -134,15 +135,19 @@ ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & (
 ACTION_INSTANCE_SUBMIT = RequireWorkItem("submit", "ready") & (
     HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
-ACTION_INSTANCE_WITHDRAW = RequireInstanceState(
-    [
-        "subm",
-        "material-exam",
-        "init-distribution",
-        "distribution",
-        "decision",
-    ]
-) & (HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper()))
+ACTION_INSTANCE_WITHDRAW = (
+    RequireInstanceState(
+        [
+            "subm",
+            "material-exam",
+            "init-distribution",
+            "distribution",
+            "decision",
+        ]
+    )
+    & (HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper()))
+    & ~IsAppeal()
+)
 
 # Actual config
 SO_PERMISSIONS_SETTINGS = {
