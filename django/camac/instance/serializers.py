@@ -762,8 +762,15 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     def _get_main_form_permissions_for_support(self, instance):
         return set(["read", "write"])
 
+    def _is_sb1_form_version(self, instance, form_slug):
+        return (
+            instance.case.work_items.filter(task="sb1")
+            .filter(document__form__slug=form_slug)
+            .exists()
+        )
+
     @permission_aware
-    def _get_sb1_form_permissions(self, instance):
+    def _get_sb1_form_permissions_base(self, instance):
         state = instance.instance_state.name
         permissions = set()
 
@@ -775,13 +782,13 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
         return permissions
 
-    def _get_sb1_form_permissions_for_service(self, instance):
+    def _get_sb1_form_permissions_base_for_service(self, instance):
         if instance.instance_state.name in ["sb2", "conclusion"]:
             return set(["read"])
 
         return set()
 
-    def _get_sb1_form_permissions_for_municipality(self, instance):
+    def _get_sb1_form_permissions_base_for_municipality(self, instance):
         state = instance.instance_state.name
         is_paper = CalumaApi().is_paper(instance)
         service_group = self.context["request"].group.service.service_group
@@ -802,8 +809,22 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
         return permissions
 
-    def _get_sb1_form_permissions_for_support(self, instance):
+    def _get_sb1_form_permissions_base_for_support(self, instance):
         return ["read", "write"]
+
+    def _get_sb1_form_permissions(self, instance):
+        permissions = set()
+        is_sb1_form = self._is_sb1_form_version(instance, "sb1")
+        if is_sb1_form:
+            permissions = self._get_sb1_form_permissions_base(instance)
+        return permissions
+
+    def _get_sb1_v2_form_permissions(self, instance):
+        permissions = set()
+        is_sb1_v2_form = self._is_sb1_form_version(instance, "sb1-v2")
+        if is_sb1_v2_form:
+            permissions = self._get_sb1_form_permissions_base(instance)
+        return permissions
 
     @permission_aware
     def _get_sb2_form_permissions(self, instance):
