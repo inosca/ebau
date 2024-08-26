@@ -121,6 +121,13 @@
       (can
         "write form of instance"
         this.editController.instance
+        form=(hash slug="sb1-v2")
+      )
+    )
+    (await
+      (can
+        "write form of instance"
+        this.editController.instance
         form=(hash slug="sb2")
       )
     )
@@ -220,11 +227,20 @@
       {{/if}}
 
       {{#if
-        (await
-          (can
-            "write form of instance"
-            this.editController.instance
-            form=(hash slug="sb1")
+        (or
+          (await
+            (can
+              "write form of instance"
+              this.editController.instance
+              form=(hash slug="sb1")
+            )
+          )
+          (await
+            (can
+              "write form of instance"
+              this.editController.instance
+              form=(hash slug="sb1-v2")
+            )
           )
         )
       }}

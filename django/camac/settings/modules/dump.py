@@ -1,34 +1,50 @@
 from django.db.models.expressions import Q
 
 
-def generate_form_dump_config(regex=None, version=None):
-    if regex:
-        return {
-            "caluma_form.Option": Q(questions__forms__pk__iregex=regex),
-            "caluma_form.Question": Q(forms__pk__iregex=regex),
-            "caluma_form.Form": Q(pk__iregex=regex),
-            "caluma_form.QuestionOption": Q(question__forms__pk__iregex=regex),
-            "caluma_form.FormQuestion": Q(form__pk__iregex=regex),
-            "caluma_form.Answer": Q(
-                question__forms__pk__iregex=regex,
-                document__isnull=True,
-            ),
-        }
-    elif version:
-        v = f"-v{version}"
-        return {
-            "caluma_form.Form": Q(pk__endswith=v),
-            "caluma_form.FormQuestion": Q(form__pk__endswith=v),
-            "caluma_form.Question": Q(pk__endswith=v),
-            "caluma_form.QuestionOption": Q(question__pk__endswith=v),
-            "caluma_form.Option": Q(questions__pk__endswith=v),
-            "caluma_form.Answer": Q(
-                question__forms__pk__endswith=v,
-                document__isnull=True,
-            ),
-        }
+def add_dump_form_config_conditions(existing_filter: dict, conditions: dict):
+    for key, condition in conditions.items():
+        if key not in existing_filter:
+            existing_filter[key] = condition
+        else:
+            existing_filter[key] &= condition
 
-    return {}  # pragma: no cover
+
+def generate_form_dump_config(regex: str = None, version: int = None):
+    filters = {}
+
+    if regex:
+        add_dump_form_config_conditions(
+            filters,
+            {
+                "caluma_form.Option": Q(questions__forms__pk__iregex=regex),
+                "caluma_form.Question": Q(forms__pk__iregex=regex),
+                "caluma_form.Form": Q(pk__iregex=regex),
+                "caluma_form.QuestionOption": Q(question__forms__pk__iregex=regex),
+                "caluma_form.FormQuestion": Q(form__pk__iregex=regex),
+                "caluma_form.Answer": Q(
+                    question__forms__pk__iregex=regex,
+                    document__isnull=True,
+                ),
+            },
+        )
+
+    if version:
+        v = f"-v{version}"
+        add_dump_form_config_conditions(
+            filters,
+            {
+                "caluma_form.Form": Q(pk__endswith=v),
+                "caluma_form.FormQuestion": Q(form__pk__endswith=v),
+                "caluma_form.Question": Q(pk__endswith=v),
+                "caluma_form.QuestionOption": Q(question__pk__endswith=v),
+                "caluma_form.Option": Q(questions__pk__endswith=v),
+                "caluma_form.Answer": Q(
+                    question__forms__pk__endswith=v,
+                    document__isnull=True,
+                ),
+            },
+        )
+    return filters
 
 
 def generate_workflow_dump_config(regex, include_task_regex=False):
@@ -365,6 +381,10 @@ DUMP = {
                     )
                     | Q(questions__pk__in=COMMON_QUESTION_SLUGS_BE),
                 },
+                "caluma_form_sb1_v2": generate_form_dump_config(
+                    regex=r"(-)?sb1",
+                    version=2,
+                ),
                 "caluma_form_v2": generate_form_dump_config(version=2),
                 "caluma_form_v3": generate_form_dump_config(version=3),
                 "caluma_form_v4": generate_form_dump_config(version=4),
