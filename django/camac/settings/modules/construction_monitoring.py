@@ -141,7 +141,35 @@ CONSTRUCTION_MONITORING = {
         "ENABLED": True,
         "PREVIOUS_INSTANCE_STATE": "decided",
         "CONSTRUCTION_MONITORING_INSTANCE_STATE": "construction-monitoring",
-        "NOTIFICATIONS": {},
+        "NOTIFICATIONS": {
+            "construction-step-baufreigabe": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+            "construction-step-kanalisation-kontrollieren": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+            "construction-step-schnurgeruestabnahme-planen": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+            "construction-step-schnurgeruest-kontrollieren": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+            "construction-step-rohbau-kontrollieren": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+            "construction-step-zwischenkontrolle": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+            "construction-step-schlussabnahme-gebaeude": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+            "construction-step-schlussabnahme-projekt-planen": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+            "construction-step-schlussabnahme-projekt": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+        },
         "NOTIFICATION_RECIPIENTS": {},
     },
     "demo": {
