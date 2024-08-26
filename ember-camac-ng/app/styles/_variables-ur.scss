@@ -1,6 +1,6 @@
 // Base colors
-$global-primary-background: rgb(129, 155, 66);
-$global-secondary-background: rgb(30, 30, 30);
+$global-primary-background: rgb(255, 212, 1);
+$global-secondary-background: rgb(44, 52, 67);
 $global-success-background: rgb(0, 153, 0);
 $global-muted-background: rgb(245, 245, 245);
 
@@ -10,7 +10,7 @@ $global-emphasis-color: rgb(50, 50, 50);
 $global-muted-color: rgb(100, 100, 100);
 $global-link-color: $global-primary-background;
 $global-link-hover-color: $global-primary-background;
-$global-font-family: initial;
+$global-font-family: "Open Sans";
 
 // Font size
 $text-large-font-size: 18px;
@@ -38,3 +38,7 @@ $activation-warning-expired: red;
 $activation-warning-completed: green;
 
 $ember-power-select-placeholder-color: $global-muted-color;
+
+$button-primary-color: rgb(0, 0, 0);
+$base-link-color: rgb(0, 0, 0);
+$base-link-hover-color: rgb(0, 0, 0);
