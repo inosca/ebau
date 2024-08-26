@@ -556,6 +556,51 @@ def test_notification_template_gvg(
     assert mailoutbox[0].recipients() == ["versicherung@gvg.gr.ch"]
 
 
+def test_recipient_abwasser_uri(db, service_factory):
+    serializer = serializers.NotificationTemplateSendmailSerializer()
+    awu_service = service_factory(name="AWU")
+    assert serializer._get_recipients_abwasser_uri(None) == [{"to": awu_service.email}]
+
+
+@pytest.mark.parametrize("check_by_geometer", [True, False])
+@pytest.mark.parametrize("service__email", ["foo@bar.com"])
+def test_recipient_schnurgeruestabnahme_uri(
+    db,
+    settings,
+    ur_instance,
+    construction_monitoring_settings,
+    check_by_geometer,
+    work_item_factory,
+    document_factory,
+    answer_factory,
+    service_factory,
+):
+    serializer = serializers.NotificationTemplateSendmailSerializer()
+    work_item = work_item_factory(
+        case=ur_instance.case,
+        document=document_factory(),
+        task_id=settings.CONSTRUCTION_MONITORING[
+            "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"
+        ],
+    )
+    ago_service = service_factory(name="AGO")
+    answer_factory(
+        document=work_item.document,
+        question_id="schnurgeruestabnahme-durch",
+        value="wer-fuehrt-die-schnurgeruestabnahme-durch-geometer"
+        if check_by_geometer
+        else "wer-fuehrt-die-schnurgeruestabnahme-durch-municipality",
+    )
+    if check_by_geometer:
+        assert serializer._get_recipients_schnurgeruestabnahme_uri(ur_instance) == [
+            {"to": ago_service.email}
+        ]
+    else:
+        assert serializer._get_recipients_schnurgeruestabnahme_uri(ur_instance) == [
+            {"to": "foo@bar.com"}
+        ]
+
+
 @pytest.mark.parametrize(
     "user__email,service__email",
     [("user@example.com", "service@example.com, service2@example.com")],
