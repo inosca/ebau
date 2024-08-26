@@ -2948,13 +2948,14 @@ def test_instance_submit_so(
     settings.APPLICATION_NAME = "kt_so"
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = False
+    application_settings["NOTIFICATIONS"] = {"SUBMIT": [], "SUBMIT_OTHERS": []}
 
     instance_state_factory(name="init-distribution")
     instance_state_factory(name="decision")
     instance_state_factory(name="subm")
 
     mocker.patch(
-        "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notifications"
+        "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification"
     )
 
     so_instance.case.document.form_id = form_slug
@@ -2998,12 +2999,13 @@ def test_instance_submit_so_bab(
     settings.APPLICATION_NAME = "kt_so"
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = False
+    application_settings["NOTIFICATIONS"] = {"SUBMIT": [], "SUBMIT_OTHERS": []}
 
     service_factory(service_group__name=so_bab_settings["SERVICE_GROUP"])
 
     instance_state_factory(name="subm")
     mocker.patch(
-        "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notifications"
+        "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification"
     )
 
     utils.add_answer(so_instance.case.document, bab_question, f"{bab_question}-ja")
@@ -3040,6 +3042,7 @@ def test_instance_submit_so_canton(
     settings.APPLICATION_NAME = "kt_so"
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = False
+    application_settings["NOTIFICATIONS"] = {"SUBMIT": [], "SUBMIT_OTHERS": []}
 
     municipality_service = service_factory(service_group__name="municipality")
     canton_service = service_factory(service_group__name="canton")
@@ -3047,7 +3050,7 @@ def test_instance_submit_so_canton(
 
     instance_state_factory(name="subm")
     mocker.patch(
-        "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notifications"
+        "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification"
     )
 
     dynamic_option_factory(

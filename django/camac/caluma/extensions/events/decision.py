@@ -28,10 +28,17 @@ def get_notification_config(instance):
     elif instance.case.meta.get("is-appeal") and settings.APPEAL:
         return settings.APPEAL["NOTIFICATIONS"].get("APPEAL_DECISION", [])
     # TODO(GR): replace by preliminary clarification workflow
-    elif instance.case.document.form.slug in [
-        "bauanzeige",
-        "vorlaeufige-beurteilung",
-    ]:  # pragma: no cover
+    elif (
+        settings.APPLICATION_NAME == "kt_gr"
+        and instance.case.document.form.slug
+        in [
+            "bauanzeige",
+            "vorlaeufige-beurteilung",
+        ]
+    ) or (
+        settings.APPLICATION_NAME == "kt_so"
+        and instance.case.document.form_id != "baugesuch"
+    ):  # pragma: no cover
         return settings.APPLICATION["NOTIFICATIONS"].get(
             "NON_BUILDING_PERMIT_DECISION", []
         )

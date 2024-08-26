@@ -2110,6 +2110,16 @@ APPLICATIONS = {
                     "recipient_types": ["leitbehoerde"],
                 },
             ],
+            "SUBMIT_OTHERS": [
+                {
+                    "template_slug": "empfang-andere-bauherrschaft",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "empfang-baugesuch-gemeinde",
+                    "recipient_types": ["leitbehoerde"],
+                },
+            ],
             "APPLICANT": {
                 "NEW": "gesuchsbearbeitungs-einladung-neu",
                 "EXISTING": "gesuchsbearbeitungs-einladung-bestehend",
@@ -2117,6 +2127,16 @@ APPLICATIONS = {
             "DECISION": [
                 {
                     "template_slug": "entscheid-bauherrschaft",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "entscheid-behoerden",
+                    "recipient_types": ["involved_in_distribution"],
+                },
+            ],
+            "NON_BUILDING_PERMIT_DECISION": [
+                {
+                    "template_slug": "beurteilung-bauherrschaft",
                     "recipient_types": ["applicant"],
                 },
                 {
