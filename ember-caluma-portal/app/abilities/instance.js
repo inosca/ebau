@@ -102,7 +102,14 @@ export default class InstanceAbility extends Ability {
     );
   }
 
-  get canCreateModification() {
+  async canCreateModification() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(
+        this.model?.id,
+        "instance-create-modification",
+      );
+    }
+
     const form = this.model?.calumaForm;
 
     return (

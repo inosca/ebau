@@ -1139,29 +1139,39 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
             is_paper = caluma_api.is_paper(source_instance)
 
+            if is_permission_mode_fully_enabled():
+                # "copy after rejection" means copying an instance that is not a modification
+                # and the source instance is actually rejected.
+                is_rejection = (
+                    settings.REJECTION
+                    and source_instance.instance_state.name
+                    == settings.REJECTION["INSTANCE_STATE"]
+                )
+
+                # The "instance-copy-after-rejection" permission must only be
+                # checked if we are copying an instance that is not a modification
+                # and the source instance is actually rejected. This is necessary,
+                # because otherwise we'd check it on project modifications and
+                # convertions of preliminary clarifications to building permits.
+                # Those use-cases will have their own permission checks in the
+                # future.
+                if is_modification:
+                    permissions_api.PermissionManager.from_request(
+                        self.context["request"]
+                    ).require_all(source_instance, "instance-create-modification")
+
+                elif is_rejection:
+                    permissions_api.PermissionManager.from_request(
+                        self.context["request"]
+                    ).require_all(source_instance, "instance-copy-after-rejection")
+
+                # TODO: add permission check for convertions of preliminary clarifications to building permits.
+
             # If the source instance is a project modification, the new
             # instance must be one as well
             is_modification = is_modification or caluma_api.is_modification(
                 source_instance
             )
-
-            # The "instance-copy-after-rejection" permission must only be
-            # checked if we are copying an instance that is not a modification
-            # and the source instance is actually rejected. This is necessary,
-            # because otherwise we'd check it on project modifications and
-            # convertions of preliminary clarifications to building permits.
-            # Those use-cases will have their own permission checks in the
-            # future.
-            if (
-                is_permission_mode_fully_enabled()
-                and settings.REJECTION
-                and not is_modification
-                and source_instance.instance_state.name
-                == settings.REJECTION["INSTANCE_STATE"]
-            ):
-                permissions_api.PermissionManager.from_request(
-                    self.context["request"]
-                ).require_all(source_instance, "instance-copy-after-rejection")
 
             # when making copies, the form ID remains the same
             validated_data["form"] = source_instance.form

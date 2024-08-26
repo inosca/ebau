@@ -34,6 +34,9 @@ from camac.instance.serializers import (
     CalumaInstanceSubmitSerializer,
 )
 from camac.permissions import api as permissions_api
+from camac.permissions.conditions import (
+    HasApplicantRole,
+)
 from camac.user.models import Location, Service
 from camac.utils import flatten
 
@@ -3044,7 +3047,7 @@ def test_instance_delete_permissions_module(
     [(True, status.HTTP_201_CREATED), (False, status.HTTP_403_FORBIDDEN)],
 )
 @pytest.mark.parametrize("instance_state__name", ["rejected"])
-def test_copy_instance(
+def test_copy_rejected_instance(
     db,
     admin_client,
     admin_user,
@@ -3060,6 +3063,8 @@ def test_copy_instance(
     so_instance,
     so_permissions_settings,
 ):
+    """Make sure the permission 'instance-copy-after-rejection' is checked."""
+
     application_settings["NOTIFICATIONS"]["SUBMIT"] = []
     instance_state_factory(name="new")
 
@@ -3081,6 +3086,66 @@ def test_copy_instance(
                 "type": "instances",
                 "attributes": {
                     "copy-source": str(so_instance.pk),
+                },
+            }
+        },
+    )
+
+    assert response.status_code == expected_status
+
+
+@pytest.mark.parametrize(
+    "has_permission,expected_status",
+    [(True, status.HTTP_201_CREATED), (False, status.HTTP_403_FORBIDDEN)],
+)
+def test_copy_instance_modification(
+    db,
+    admin_client,
+    admin_user,
+    applicant_factory,
+    application_settings,
+    disable_ech0211_settings,
+    expected_status,
+    has_permission,
+    instance_state_factory,
+    mock_generate_and_store_pdf,
+    set_application_gr,
+    gr_access_levels,
+    gr_instance,
+    gr_permissions_settings,
+    gr_project_modification_settings,
+):
+    """Make sure the permission 'instance-create-modification' is checked."""
+
+    gr_project_modification_settings["ALLOW_FORMS"] = ["main-form"]
+    gr_permissions_settings["ACCESS_LEVELS"]["applicant"] = [
+        (
+            "instance-create-modification",
+            HasApplicantRole(["ADMIN"]),
+        ),
+    ]
+    application_settings["NOTIFICATIONS"]["SUBMIT"] = []
+    instance_state_factory(name="new")
+
+    gr_instance.involved_applicants.all().delete()
+    role = ROLE_CHOICES.ADMIN.value if has_permission else ROLE_CHOICES.READ_ONLY.value
+    applicant_factory(instance=gr_instance, invitee=admin_user, role=role)
+
+    permissions_api.grant(
+        gr_instance,
+        grant_type=permissions_api.GRANT_CHOICES.USER.value,
+        access_level="applicant",
+        user=admin_user,
+    )
+
+    response = admin_client.post(
+        reverse("instance-list"),
+        {
+            "data": {
+                "type": "instances",
+                "attributes": {
+                    "copy-source": str(gr_instance.pk),
+                    "is-modification": True,
                 },
             }
         },
