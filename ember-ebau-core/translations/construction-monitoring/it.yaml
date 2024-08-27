@@ -10,15 +10,15 @@ construction-monitoring:
     in-progress: "In corso"
     completed: "Conclusa"
     canceled: "Conclusa prima del tempo"
-    pending: "In elaborazione"
+    pending: "In corso"
     not-approved: "La fase della procedura non è stata approvata."
     unknown: "Sconosciuta"
     approved: "Confermata"
 
   controls:
     start-info: Clicca su «+» per avviare una tappa edilizia. Se non è necessario un processo di accompagnamento dei lavori può anche tralasciare questa fase.
-    
-    skip: "Tralasciare il processo di accompagnamento dei lavori"
+
+    skip: "Tralascia il processo di accompagnamento dei lavori"
     skip-confirm: "Conferma che il processo di accompagnamento dei lavori deve essere tralasciato. Questo passaggio non può essere annullato."
     skip-error: "Errore nel tentativo di tralasciare il processo di accompagnamento dei lavori."
 
@@ -30,9 +30,9 @@ construction-monitoring:
     title: "Tappa edilizia"
 
     create: "Avvia tappa edilizia"
-    create-error: "Errore nel tentativo di avviare la tappa edilizia."
+    create-error: "Errore durante l'avvio della tappa edilizia."
 
-    cancel: "Annulla tappa edilizia"
+    cancel: "Interrompi tappa edilizia"
     cancel-confirm: "Conferma che la tappa edilizia deve essere annullata. Questo passaggio non può essere annullato."
     cancel-error: "Errore nel tentativo di annullare la tappa edilizia."
     canceled-info: "La tappa edilizia <b>{constructionStageName}</b> è stata annullata."
@@ -70,6 +70,8 @@ construction-monitoring:
       divider-info-ready: La prossima fase della procedura è in corso presso il comune.
       divider-info-skipped: La fase della procedura è stata interrotta prima del tempo.
 
+      take-over-editing: Rileva elaborazione
+      finish-editing: Concludi elaborazione
       addressed-to-applicant: Di regola deve essere compilata dalle persone richiedenti.
 
     update-construction-stage-name-error: "Errore nel tentativo di salvare il nome della tappa edilizia."

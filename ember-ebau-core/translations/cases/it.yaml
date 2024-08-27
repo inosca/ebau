@@ -34,15 +34,17 @@ cases:
     parcelPicture: "Immagine delle particelle"
     processingDeadline: "Scadenza"
     reason: "Motivo"
-    responsibility: "Persona competente"
+    responsibility: "Responsabile"
     street: "Via/toponimo"
     submitDate: "Inoltrato il"
-    user: "Autore"
+    user: "Creato da"
 
   filter: "Cerca dossier"
   filters:
     address-placeholder: ""
     address: "Indirizzo"
+    appeal-placeholder: ""
+    appeal: "Procedura di ricorso"
     applicant-placeholder: ""
     applicant: "Richiedente"
     builder-placeholder: ""
@@ -60,7 +62,7 @@ cases:
     decisionDateBefore-placeholder: ""
     decisionDateBefore: "Data della decisione (al)"
     dossierNumber-placeholder: ""
-    dossierNumber: "Numero del dossier"
+    dossierNumber: "Numero dossier"
     form-placeholder: ""
     form: "Tipo di domanda"
     inquiryAnswer-placeholder: ""
@@ -78,7 +80,7 @@ cases:
     instanceId-placeholder: ""
     instanceId: "ID"
     instanceIdentifier-placeholder: ""
-    instanceIdentifier: "Numero del dossier"
+    instanceIdentifier: "Numero dossier"
     instanceState-placeholder: ""
     instanceState: "Stato"
     intent-placeholder: ""
@@ -86,7 +88,7 @@ cases:
     keywordSearch: "Ricerca per parole chiave"
     keywordSearch-placeholder: ""
     keywordSearch-hint: "La ricerca per parole chiave può durare più a lungo poiché vengono controllati i dati di tutti i dossier."
-    keywordSearchTooShort: 'Die einzelnen Begriffe der Stichwortsuche müssen mindestens drei Buchstaben beinhalten, z.B. Neubau EFH oder "KW 1"'
+    keywordSearchTooShort: 'I singoli termini della ricerca per parole chiave devono avere almeno tre lettere, ad es. nuova EFZ o «sett. 1»'
     landowner-placeholder: ""
     calumaKeywordSearch: "Ricerca per parole chiave"
     calumaKeywordSearch-placeholder: ""
@@ -112,12 +114,12 @@ cases:
     service-placeholder: ""
     service: "Servizio"
     submitDateAfter-placeholder: ""
-    submitDateAfter: "Redatto dal"
+    submitDateAfter: "Creazione dal"
     submitDateBefore-placeholder: ""
-    submitDateBefore: "Redatto entro il"
-    caseCreatedDateAfter: "Redatto dal"
+    submitDateBefore: "Creazione entro il"
+    caseCreatedDateAfter: "Creazione dal"
     caseCreatedDateAfter-placeholder: ""
-    caseCreatedDateBefore: "Redatto entro il"
+    caseCreatedDateBefore: "Creazione entro il"
     caseCreatedDateBefore-placeholder: ""
     keywords-placeholder: ""
     keywords: "Parole chiave"
@@ -135,6 +137,8 @@ cases:
     enterDossierNumber: "Inserisci numero del dossier"
     showAll: "Visualizza tutti"
     modalTitle: "Tutti i dossier sulla particella"
+    noLinkedInstances: "Non sono ancora collegati dei dossier."
+    noInstancesOnSamePlot: "Non sono stati trovati dossier relativi a questa particella."
 
   new:
     title: "Crea nuova domanda"
@@ -145,7 +149,7 @@ cases:
     RUNNING: "In corso"
     COMPLETED: "Concluso"
     CANCELED: "Annullato"
-    SUSPENDED: "In pausa"
+    SUSPENDED: "In sospeso"
 
   paper:
     only: "Solo dossier cartacei"
@@ -156,20 +160,24 @@ cases:
     none: "Nessuna modifica di progetto"
 
   inquiryState:
-    pending: "In elaborazione"
+    pending: "In corso"
     completed: "Concluso"
 
   formCategories:
     preliminary-clarification: "Esame preliminare"
     building-permit: "Domanda"
     special-procedure: "Procedura speciale"
-    others: "Altri"
+    others: "Altro"
 
   export:
-    title: "Esportare"
+    title: "Esporta"
     too-many: "È possibile esportare al massimo 1000 dossier contemporaneamente. Precisa la selezione"
     error: "Errore nel tentativo di esportare i dossier"
 
   presets:
     pending: "Pendenze"
     paper: "Tutti i dossier cartacei"
+
+  appeal:
+    only: "Solo procedure di ricorso"
+    none: "Nessuna procedura di ricorso"

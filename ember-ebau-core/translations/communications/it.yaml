@@ -34,8 +34,8 @@ communications:
     involvedEntities: "Partecipanti: {entities}"
 
   new:
-    linkFile: È anche possibile collegare
-    linkFileAction: direttamente dei file dal modulo documenti
+    linkFile: È anche possibile collegare direttamente dei file dal modulo documenti
+    linkFileAction: ""
     newTopic: Avvia nuova conversazione
     involvedEntities: Parti coinvolte
     involvedEntitiesPlaceholder: Parti coinvolte...

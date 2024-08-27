@@ -5,6 +5,8 @@ nav:
   documents: "Documenti"
   paper: "Carta"
   appeal: "Procedura di ricorso"
+  bab: "BaB"
+  modification: "Modifica del progetto"
   masterData:
     label: "Dati di base"
     hide: "Nascondi i dati di base"
@@ -18,7 +20,7 @@ global:
   empty: "Nessuna voce trovata"
   cancel: "Annulla"
   date: "Data"
-  by: "Da"
+  by: "dal"
   back: "Indietro"
   noMatch: "Nessun risultato trovato"
   loadMore: "Carica altri"

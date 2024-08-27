@@ -15,11 +15,11 @@ additional-demand:
     internal:
       draft: "Bozza"
       sent: "Inviata"
-      needs-interaction: "Azione necessaria"
+      needs-interaction: "Operazione necessaria"
       completed: "Conclusa"
       canceled: "Terminata prima del tempo"
     portal:
-      sent: "Azione necessaria"
-      needs-interaction: "In elaborazione"
+      sent: "Operazione necessaria"
+      needs-interaction: "In corso"
       completed: "Conclusa"
       canceled: "Terminata prima del tempo"

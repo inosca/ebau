@@ -30,7 +30,7 @@ dossierImport:
       verified: Bozza (convalida avvenuta con successo)
       failed: Bozza (convalida non andata a buon fine)
       import-failed: Importazione non andata a buon fine
-      new: Nuova
+      new: Nuovo
       imported: Importazione sul sistema di prova
       confirmed: Confermata
       cleaned: Corretta
@@ -80,7 +80,7 @@ dossierImport:
           Ha caricato un file di importazione non valido. Per eliminare gli errori
           è necessario caricare un nuovo file di importazione.
         import-failed: Errore nel tentativo di importare. La preghiamo di contattare il supporto.
-        in-progress: Importazione in corso.
+        in-progress: Importazione in corso
         undo-in-progress: L'importazione sta per essere annullata.
         undo-failed: Errore nel tentativo di annullare l'importazione. La preghiamo di contattare il supporto.
         imported: L'importazione sul sistema di prova è avvenuta con successo.
@@ -96,7 +96,7 @@ dossierImport:
         automaticamente dopo 10 giorni!
       technicalDetails: Dettagli tecnici
     actions:
-      title: Azioni
+      title: Operazioni
       startImport:
         title: Avvia importazione
         description: |-
@@ -108,7 +108,7 @@ dossierImport:
       confirmImport:
         title: Conferma l'importazione
         description: |-
-          Se l'esito dell'importazione è quello desiderato, qui è possibile rilasciare il via
+          Se l'esito dell'importazione è quello desiderato, qui è possibile rilasciare il via 
           libera per l'esecuzione sul sistema di produzione.
         buttonLabel: Conferma l'importazione
         success: L'importazione è stata confermata con successo.
@@ -131,7 +131,7 @@ dossierImport:
         description: |-
           Elimina l'importazione e tutti i dossier importati nel corso della stessa operazione.
         buttonLabel: Ripristina importazione
-        started: Annullamento dell'importazione avviato
+        started: Annullamento dell'importazione avviato.
         success: L'importazione è stata annullata con successo.
         error: Qualcosa è andato storto durante l'annullamento dell'importazione.
       cleanImport:

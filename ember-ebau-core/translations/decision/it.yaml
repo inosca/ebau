@@ -1,6 +1,6 @@
 decision:
   info:
-    geometer: "Questo comune è assegnato alla/al geometra revisore <b>{geometer}</b>."
+    geometer: "Questo comune è assegnato alla/al geometra revisora/e <b>{geometer}</b>."
 
   submit:
     preliminary-clarification: "Concludi la valutazione"
@@ -19,7 +19,7 @@ decision:
       concluso.
 
   appeal-confirm: |-
-    Avviare davvero una nuova procedura di ricorso? Al presente dossier viene
+    Avvia davvero una nuova procedura di ricorso? Al presente dossier viene
     assegnato in modo irrevocabile lo stato <b>"concluso"</b>. Viene generato un
     dossier di ricorso nel quale può essere documentata 
     la procedura di ricorso.
