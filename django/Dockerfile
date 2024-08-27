@@ -35,6 +35,7 @@ RUN \
   libsodium23=1.0.18-1 \
   # alexandria dependencies
   ffmpeg \
+  libgettextpo-dev \
   inkscape \
   libfile-mimeinfo-perl \
   libimage-exiftool-perl \
@@ -65,4 +66,5 @@ COPY . $APP_HOME
 
 EXPOSE 80
 
-CMD /bin/sh -c "wait-for-it $DATABASE_HOST:$DATABASE_PORT -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py camac_load && uwsgi"
+ENTRYPOINT ["/bin/sh", "/app/entrypoint.sh"]
+CMD ["uwsgi"]
