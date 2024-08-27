@@ -503,7 +503,8 @@
           "total": 2,
           "needs-approval": "construction-step-kanalisationsabnahme-is-approved"
         },
-        "construction-step-id": "construction-step-kanalisationsabnahme"
+        "construction-step-id": "construction-step-kanalisationsabnahme",
+        "is-actionable-for-control": false
       },
       "address_groups": "['municipality', 'abwasser-uri']|groups",
       "control_groups": "['municipality']|groups",

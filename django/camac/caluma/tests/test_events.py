@@ -975,8 +975,10 @@ def test_post_create_review_building_commission(
     answer_factory,
     caluma_admin_user,
     set_application_ur,
+    application_settings,
 ):
     caluma_case = case_factory()
+    application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"] = {}
     release_work_item = work_item_factory(
         task__slug="release-for-bk", case=caluma_case, document=document_factory()
     )
