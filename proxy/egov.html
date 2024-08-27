@@ -1,21 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>eGov Demo</title>
   </head>
   <body>
     <strong>Login als natürliche Person</strong>
-    <br>
+    <br />
     <a href="/prestation/1?redirectUrl=http://localhost:4200/login">eBauSO</a>
-    <br>
-    <a href="/prestation/2?redirectUrl=http://localhost:4200/login">eBauSO - öffentliche Planauflage</a>
-    <br>
-    <br>
+    <br />
+    <a href="/prestation/2?redirectUrl=http://localhost:4200/login">
+      eBauSO - öffentliche Planauflage
+    </a>
+    <br />
+    <br />
     <strong>Login als Firma</strong>
-    <br>
-    <a href="/prestation/3?redirectUrl=http://localhost:4200/login">eBauSO</a>
-    <br>
-    <a href="/prestation/4?redirectUrl=http://localhost:4200/login">eBauSO - öffentliche Planauflage</a>
+    <br />
+    <a href="/prestation/3?redirectUrl=http://localhost:4200/login">eBauSO </a>
+    <br />
+    <a href="/prestation/4?redirectUrl=http://localhost:4200/login">
+      eBauSO - öffentliche Planauflage
+    </a>
+
+    <script>
+      // The token that we return here is an encrypted and signed token
+      // consisting of test data and an expiry in the year 3000. The token is
+      // encrypted and signed with the default secrets found in the django
+      // settings.
+      //
+      // To take a look at the content of the tokens, decrypt the token using
+      // https://dinochiesa.github.io/jwt/ and decode it afterwards using
+      // https://jwt.io/.
+      //
+      // To modify the token, change the data in the
+      // `django/camac/token_exchange/management/commands/generate_dev_tokens.py`
+      // file, run the command and copy the new tokens from the output file into
+      // the variables below.
+      const userToken =
+        "eyJhbGciOiJkaXIiLCJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwidHlwIjoiSldUIn0..YWvwGFtR81eFptZllKe1kA.EBDpbs5OfnufCGEuqJl3cbjX-IzegU8TXFhNFzw1ds9CvjncTXLX7Yk8wghBVyXatI9Hes23ECreoP9zKaSu3PjL51AkkjBasWpAGXtCuQegpHs9DAdRoOTft2IuxDPjWq5_5NZVJQaYXbuMkRZf1QGFvbDzXLXGizYbVjHCgSU5T7VxLN2rt4rmN_zmVGENKfIeA-J8vJcZxx8fJQBRcy73zl0aQ3Qqu-M0J4y6cbguYppzMe9EhWPsimtyhocieoMhBNumUTVUksWPtuHOBlWh4q_g7WAABaSmBrDRKijgsKzeMntMaPCdCILIpgDyVSspWZu0r5B1vLVBtVPbhE3eAszVIoP3NPjQcgpFau5Ejv8LRW_mFf1Aae4h2UKKHpMdj6VEjId6gPlMMmLD8xJ_z8Cak0PZMOQL-fKvUJY9F2HkzC5CH-WFB2Nf16hp.DG1vTXXWImP6XoCGLecCtK9EIre9b-je9QYm-577Okg"
+      const companyToken =
+        "eyJhbGciOiJkaXIiLCJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwidHlwIjoiSldUIn0..cDOHdmn_xLL2i7hDQ5IUPQ.K7fkzT9qolcThNC9C2VHlRhfJ7JKSTObSInO2MfYo-kF2MpeDJ6KsVGnB9e0EthKlTKtIzlVBz4qq_WAfiO-WryO2GA8R-DHTxHeRLVaGx9nM-lpsMBplF-i5VQoNxdlRx365d_qVA5Bc0zbaQ-ZZrRJc6dQH12P2DR0vvqlinwHRKyArmsaTj1xzRaqbn70QH7zvjSxNZGWHaFudOoY0eVA2rBkGi2srDOhOOUplB6JxBZsx5uH44WIEn_9F11xZbzhSbweqbjHBOISMO1kRK4gAKja5nb3TjUqGjTRB13SOqdWNa8tsPxYY3sRnVuyXC763JFuydsXty42E8zyfzfDm192uNg_cYJS_93cq-fzbCVn6WgDKf9UvVN2QZBm4KUYkhBXLCMp34T_IqpbW6yi8Ug4QgoQmWC0rLMggrdasHbJJcqDhkOzAaUhRo6X.v8Oi_5-MI05F0g31rWO2DaXsU-M6DGq6J-v3Kx3RFRc"
+
+      const mapping = {
+        1: (url) => `${url}?token=${userToken}`,
+        2: (url) => `${url}?nextURL=/public-instances&token=${userToken}`,
+        3: (url) => `${url}?token=${companyToken}`,
+        4: (url) => `${url}?nextURL=/public-instances&token=${companyToken}`,
+      };
+
+      try {
+        const prestationId = parseInt(
+          location.pathname.match(/prestation\/(\d+)/)[1],
+        );
+        const redirectUrl = location.search.match(/redirectUrl=(.*)/)[1];
+        const url = mapping[prestationId](redirectUrl);
+
+        // This whole redirection logic was first implemented using NGINX only.
+        // However, we can't do that anymore because the portal checks the
+        // referer header on login which is not the right one if we simply do a
+        // redirect from NGINX.
+        location.assign(url);
+      } catch {}
+    </script>
   </body>
 </html>

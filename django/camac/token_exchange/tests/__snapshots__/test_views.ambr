@@ -4,22 +4,7 @@
     'detail': 'JWT token must be passed',
   })
 # ---
-# name: test_token_exchange[failed_decryption_jwt_token-False-403-InvalidSignature]
-  dict({
-    'detail': 'Invalid token',
-  })
-# ---
-# name: test_token_exchange[invalid_exp_jwt_token-False-403-Expired at]
-  dict({
-    'detail': 'Invalid token',
-  })
-# ---
-# name: test_token_exchange[invalid_iss_jwt_token-False-403-Invalid 'iss']
-  dict({
-    'detail': 'Invalid token',
-  })
-# ---
-# name: test_token_exchange[invalid_signature_jwt_token-False-403-InvalidJWSSignature]
+# name: test_token_exchange[invalid_jwt_token-False-403-InvalidSignature]
   dict({
     'detail': 'Invalid token',
   })
