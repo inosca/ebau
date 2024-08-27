@@ -478,5 +478,41 @@
       "service": null,
       "type": "email"
     }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1468,
+    "fields": {
+      "slug": "neue-aufgabe-intern",
+      "purpose": "Neue Aufgabe mit internem Link",
+      "subject": "(Dossier-Nr. {{DOSSIER_NR}}) Neue Aufgabe",
+      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nNeue Aufgabe\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse\r\neBau",
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1469,
+    "fields": {
+      "slug": "construction-monitoring-new-task-internal",
+      "purpose": "Aufgaben an Gesuchsteller und Gemeinden für alle Aufgaben im Rahmen der Baubegleitung",
+      "subject": "(Dossier-Nr. {{DOSSIER_NR}}) Neue Aufgabe",
+      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nNeue Aufgabe\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse\r\neBau",
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1470,
+    "fields": {
+      "slug": "eroeffnung-stellungnahme-vorentscheid-intern",
+      "purpose": "8.3 Info an Gesuchsteller und Beteiligte - Eröffnung Stellungnahme / Vorentscheid",
+      "subject": "Dossier ID {{INSTANCE_ID}} Eröffnung Stellungnahme / Entscheid",
+      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten) Statusmeldung zum Stand des Verfahrens\r\n\r\nERÖFFNUNG STELLUNGNAHME / ENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} wird hiermit die Stellungnahme bzw. der Entscheid der Leitbehörde eröffnet.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nMit dem Öffnen eines Dokuments beginnt gleichzeitig die in der Stellungnahme / Vorentscheid erwähnte Frist für das rechtliche Gehör. Das aktuelle Datum beim Anklicken des Links wurde im System gespeichert und gilt als Eröffnungsdatum.\r\n\r\nFreundliche Grüsse",
+      "service": null,
+      "type": "email"
+    }
   }
 ]

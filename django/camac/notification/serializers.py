@@ -1483,7 +1483,11 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         return []  # pragma: no cover
 
     def _get_recipients_schnurgeruestabnahme_uri(self, instance):
-        construction_stage_planing_document = instance.case.work_items.get(
+        work_item = self.validated_data.get("work_item")
+
+        # Do not use "instance" here because construction monitoring work items
+        # are nested inside construction monitoring cases (bauetappen)
+        construction_stage_planing_document = work_item.case.work_items.get(
             task_id=settings.CONSTRUCTION_MONITORING[
                 "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"
             ]
@@ -1497,7 +1501,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         )
 
         if check_by_geometer:
-            service = Service.objects.filter(name="AGO").first()
+            service = Service.objects.filter(name="AGO (Geometer)").first()
             if service:
                 return [{"to": service.email}]
             return []  # pragma: no cover

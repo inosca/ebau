@@ -1205,7 +1205,37 @@ APPLICATIONS = {
                             "template_slug": "eroeffnung-stellungnahme-vorentscheid",
                             "recipient_types": [
                                 "applicant",
+                            ],
+                        },
+                    },
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "eroeffnung-stellungnahme-vorentscheid-intern",
+                            "recipient_types": [
                                 "involved_in_distribution",
+                            ],
+                        },
+                    },
+                ],
+                "geometer": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "neue-aufgabe-intern",
+                            "recipient_types": [
+                                "work_item_addressed",
+                            ],
+                        },
+                    }
+                ],
+                "review-building-commission": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "neue-aufgabe-intern",
+                            "recipient_types": [
+                                "work_item_addressed",
                             ],
                         },
                     }
@@ -1232,7 +1262,7 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task",
+                            "template_slug": "construction-monitoring-new-task-internal",
                             "recipient_types": ["abwasser_uri"],
                         },
                     }
@@ -1286,7 +1316,7 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task",
+                            "template_slug": "construction-monitoring-new-task-internal",
                             "recipient_types": ["schnurgeruestabnahme_uri"],
                         },
                     }
@@ -1295,7 +1325,7 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task",
+                            "template_slug": "construction-monitoring-new-task-internal",
                             "recipient_types": ["schnurgeruestabnahme_uri"],
                         },
                     }
@@ -1306,6 +1336,28 @@ APPLICATIONS = {
                         "notification": {
                             "template_slug": "construction-monitoring-new-task",
                             "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "geometer-final-measurement": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "neue-aufgabe-intern",
+                            "recipient_types": [
+                                "work_item_addressed",
+                            ],
+                        },
+                    }
+                ],
+                "gebaeudeschaetzung": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "neue-aufgabe-intern",
+                            "recipient_types": [
+                                "work_item_addressed",
+                            ],
                         },
                     }
                 ],
