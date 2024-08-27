@@ -12859,7 +12859,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "e-mail",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -12874,7 +12874,22 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "anrede",
-      "sort": 29
+      "sort": 30
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.bemerkungen-personalien",
+    "fields": {
+      "created_at": "2024-08-27T07:40:12.515Z",
+      "modified_at": "2024-08-27T07:40:12.515Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "bemerkungen-personalien",
+      "sort": 2
     }
   },
   {
@@ -12904,7 +12919,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "juristische-person",
-      "sort": 32
+      "sort": 33
     }
   },
   {
@@ -12919,7 +12934,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "juristische-person-kontaktperson-titel",
-      "sort": 30
+      "sort": 31
     }
   },
   {
@@ -12934,7 +12949,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "juristische-person-name",
-      "sort": 31
+      "sort": 32
     }
   },
   {
@@ -12949,7 +12964,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "land",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -12964,7 +12979,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "nachname",
-      "sort": 26
+      "sort": 27
     }
   },
   {
@@ -12979,7 +12994,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "ort",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -12994,7 +13009,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "plz",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -13009,7 +13024,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "postfach",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -13024,7 +13039,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "strasse",
-      "sort": 25
+      "sort": 26
     }
   },
   {
@@ -13039,7 +13054,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "strasse-nummer",
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -13054,7 +13069,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "telefon",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -13069,7 +13084,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "titel",
-      "sort": 28
+      "sort": 29
     }
   },
   {
@@ -13084,7 +13099,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "vertretung",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -13099,7 +13114,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "vertretung-anrede",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -13114,7 +13129,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "vertretung-e-mail",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -13129,7 +13144,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "vertretung-juristische-person",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -13144,7 +13159,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "vertretung-juristische-person-kontaktperson-titel",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -13159,7 +13174,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "vertretung-juristische-person-name",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -13174,7 +13189,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "vertretung-land",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -13189,7 +13204,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "vertretung-nachname",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -13204,7 +13219,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "vertretung-nummer",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -13219,7 +13234,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "vertretung-ort",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -13234,7 +13249,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "vertretung-plz",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -13249,7 +13264,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "vertretung-postfach",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -13264,7 +13279,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "vertretung-strasse",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -13279,7 +13294,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "vertretung-telefon",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -13294,7 +13309,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "vertretung-titel",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -13309,7 +13324,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "vertretung-vorname",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -13324,7 +13339,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "vorname",
-      "sort": 27
+      "sort": 28
     }
   },
   {
@@ -33687,6 +33702,40 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bemerkungen-personalien",
+    "fields": {
+      "created_at": "2024-08-27T07:40:12.461Z",
+      "modified_at": "2024-08-27T07:40:12.461Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
