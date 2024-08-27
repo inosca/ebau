@@ -12,6 +12,7 @@ module.exports = function (environment) {
       "ENABLE_WATERMARK",
       "WATERMARK",
       "ALEXANDRIA_MANABI_ALLOWED_MIMETYPES",
+      "LOCALES",
     ],
     path: path.join(path.dirname(__dirname), "../.env"),
     enabled: environment !== "production",
