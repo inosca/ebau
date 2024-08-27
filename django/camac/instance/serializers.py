@@ -112,6 +112,14 @@ def _geometer_cadastral_survey_necessary(instance):
     return False
 
 
+def _is_sb1_form_version(instance, form_slug):
+    return (
+        instance.case.work_items.filter(task="sb1")
+        .filter(document__form__slug=form_slug)
+        .exists()
+    )
+
+
 class NewInstanceStateDefault(object):
     def __call__(self):
         return models.InstanceState.objects.get(name="new")
@@ -762,13 +770,6 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     def _get_main_form_permissions_for_support(self, instance):
         return set(["read", "write"])
 
-    def _is_sb1_form_version(self, instance, form_slug):
-        return (
-            instance.case.work_items.filter(task="sb1")
-            .filter(document__form__slug=form_slug)
-            .exists()
-        )
-
     @permission_aware
     def _get_sb1_form_permissions_base(self, instance):
         state = instance.instance_state.name
@@ -814,14 +815,14 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
     def _get_sb1_form_permissions(self, instance):
         permissions = set()
-        is_sb1_form = self._is_sb1_form_version(instance, "sb1")
+        is_sb1_form = _is_sb1_form_version(instance, "sb1")
         if is_sb1_form:
             permissions = self._get_sb1_form_permissions_base(instance)
         return permissions
 
     def _get_sb1_v2_form_permissions(self, instance):
         permissions = set()
-        is_sb1_v2_form = self._is_sb1_form_version(instance, "sb1-v2")
+        is_sb1_v2_form = _is_sb1_form_version(instance, "sb1-v2")
         if is_sb1_v2_form:
             permissions = self._get_sb1_form_permissions_base(instance)
         return permissions
@@ -1883,7 +1884,12 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
             )
 
         # generate and submit pdf
-        self._generate_and_store_pdf(instance, "sb1")
+        form_slug = "sb1"
+
+        if _is_sb1_form_version(instance, "sb1-v2"):
+            form_slug = "sb1-v2"
+
+        self._generate_and_store_pdf(instance, form_slug)
 
         self._create_history_entry(gettext_noop("SB1 submitted"))
 
