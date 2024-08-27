@@ -148,6 +148,9 @@ ACTION_INSTANCE_WITHDRAW = (
     & (HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper()))
     & ~IsAppeal()
 )
+ACTION_INSTANCE_CREATE_MODIFICATION = RequireWorkItem("construction-stage") & (
+    HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
+)
 
 # Actual config
 SO_PERMISSIONS_SETTINGS = {
@@ -176,6 +179,7 @@ SO_PERMISSIONS_SETTINGS = {
                 "grant-municipality-before-submission",
                 MODULE_PORTAL_APPLICANTS & RequireInstanceState(["new"]),
             ),
+            ("instance-create-modification", ACTION_INSTANCE_CREATE_MODIFICATION),
             ("instance-copy-after-rejection", ACTION_INSTANCE_COPY_AFTER_REJECTION),
             ("instance-delete", ACTION_INSTANCE_DELETE),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
