@@ -46,6 +46,7 @@ services:
       - mailpit
       - unoconv
     environment:
+      - APPLICATION_ENV=ci
       - KEYCLOAK_URL=http://keycloak:8080/auth/
       - OAUTHLIB_INSECURE_TRANSPORT=1
       - DATABASE_HOST=db
