@@ -1,4 +1,5 @@
 import { getOwner } from "@ember/application";
+import { service } from "@ember/service";
 import { getConfig } from "@embroider/macros";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import OIDCAuthenticationRoute from "ember-simple-auth-oidc/routes/oidc-authentication";
@@ -13,6 +14,9 @@ function getQueryParam(transition, name) {
 }
 
 export default class LoginRoute extends OIDCAuthenticationRoute {
+  @service intl;
+  @service notification;
+
   queryParams = {
     token: { refreshModel: true },
     nextUrl: { refreshModel: true },
@@ -69,6 +73,17 @@ export default class LoginRoute extends OIDCAuthenticationRoute {
     }
 
     try {
+      const redirectOrigin =
+        getOwner(this).lookup("service:-document").referrer;
+
+      if (
+        redirectOrigin?.replace(/\/$/, "") !==
+        getConfig("ember-ebau-core").eGovPortalURL
+      ) {
+        // Make sure the referrer is the expected eGov Portal
+        throw new Error("Invalid referrer");
+      }
+
       const response = await fetch("/api/v1/auth/token-exchange", {
         method: "POST",
         body: JSON.stringify({ "jwt-token": token }),
@@ -92,6 +107,7 @@ export default class LoginRoute extends OIDCAuthenticationRoute {
       await this.session.session._setup("authenticator:oidc", parsed, true);
     } catch (error) {
       console.error(error);
+      this.notification.danger(this.intl.t("token-exchange-login-error"));
     }
   }
 }

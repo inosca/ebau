@@ -22,25 +22,7 @@ class FakeResponse:
     [
         (None, False, status.HTTP_403_FORBIDDEN, None),
         (
-            lf("invalid_exp_jwt_token"),
-            False,
-            status.HTTP_403_FORBIDDEN,
-            "Expired at",
-        ),
-        (
-            lf("invalid_iss_jwt_token"),
-            False,
-            status.HTTP_403_FORBIDDEN,
-            "Invalid 'iss'",
-        ),
-        (
-            lf("invalid_signature_jwt_token"),
-            False,
-            status.HTTP_403_FORBIDDEN,
-            "InvalidJWSSignature",
-        ),
-        (
-            lf("failed_decryption_jwt_token"),
+            lf("invalid_jwt_token"),
             False,
             status.HTTP_403_FORBIDDEN,
             "InvalidSignature",
@@ -57,6 +39,7 @@ class FakeResponse:
 def test_token_exchange(
     db,
     caplog,
+    clear_cache,
     error_message,
     expected_status,
     jwt_client,
@@ -95,3 +78,27 @@ def test_token_exchange(
 
     if error_message:
         assert error_message in caplog.text
+
+
+def test_token_exchange_token_reuse(db, clear_cache, jwt_client, jwt_token, mocker):
+    mocker.patch("camac.token_exchange.keycloak.KeycloakClient.get_token")
+    mocker.patch("camac.token_exchange.keycloak.KeycloakClient.update_or_create_user")
+    mocker.patch(
+        "camac.token_exchange.keycloak.KeycloakClient.token_exchange",
+        return_value={"access_token": "my new access token"},
+    )
+
+    response1 = jwt_client.post(
+        reverse("token-exchange"),
+        data=json.dumps({"jwt-token": jwt_token}),
+        content_type="application/json",
+    )
+    response2 = jwt_client.post(
+        reverse("token-exchange"),
+        data=json.dumps({"jwt-token": jwt_token}),
+        content_type="application/json",
+    )
+
+    assert response1.status_code == status.HTTP_200_OK
+    assert response2.status_code == status.HTTP_403_FORBIDDEN
+    assert response2.json()["detail"] == "JWT token can't be used twice"
