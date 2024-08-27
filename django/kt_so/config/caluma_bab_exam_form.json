@@ -19,6 +19,42 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "materielle-pruefung-bab-beschwerden-tabelle",
+    "fields": {
+      "created_at": "2024-08-27T07:31:58.002Z",
+      "modified_at": "2024-08-27T07:31:58.002Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Beurteilung BaB Beschwerden Tabelle\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "materielle-pruefung-bab-beschwerdeverfahren",
+    "fields": {
+      "created_at": "2024-08-27T07:31:32.063Z",
+      "modified_at": "2024-08-27T07:31:32.063Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Beurteilung BaB Beschwerdeverfahren\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "materielle-pruefung-bab-entscheid",
     "fields": {
       "created_at": "2024-06-27T08:58:10.601Z",
@@ -58,12 +94,12 @@
     "pk": "materielle-pruefung-bab-journal",
     "fields": {
       "created_at": "2024-06-27T08:57:50.452Z",
-      "modified_at": "2024-06-27T08:57:50.452Z",
+      "modified_at": "2024-08-27T07:28:33.712Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "name": "{\"de\": \"Beurteilung BaB Journal\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Beurteilung BaB Interne Informationen\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
@@ -109,15 +145,33 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "materielle-pruefung-bab-verfahren-vorhaben",
+    "pk": "materielle-pruefung-bab-nutzungsplan-tabelle",
     "fields": {
-      "created_at": "2024-06-27T08:57:19.313Z",
-      "modified_at": "2024-06-27T08:57:19.313Z",
+      "created_at": "2024-08-27T07:09:43.311Z",
+      "modified_at": "2024-08-27T07:09:43.311Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Beurteilung BaB Verfahren / Vorhaben\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Beurteilung BaB Nutzungsplan Tabelle\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "materielle-pruefung-bab-unterschutz-tabelle",
+    "fields": {
+      "created_at": "2024-08-27T07:18:57.274Z",
+      "modified_at": "2024-08-27T07:18:57.274Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Beurteilung BaB Unterschutzstellung Tabelle\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
@@ -159,6 +213,141 @@
       "is_published": false,
       "is_archived": false,
       "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-beschwerden-tabelle.mp-bab-beschwerdeentscheid",
+    "fields": {
+      "created_at": "2024-08-27T07:35:36.444Z",
+      "modified_at": "2024-08-27T07:35:36.444Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-beschwerden-tabelle",
+      "question": "mp-bab-beschwerdeentscheid",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-beschwerden-tabelle.mp-bab-beschwerdefuehrerin",
+    "fields": {
+      "created_at": "2024-08-27T07:34:51.752Z",
+      "modified_at": "2024-08-27T07:34:51.752Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-beschwerden-tabelle",
+      "question": "mp-bab-beschwerdefuehrerin",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-beschwerden-tabelle.mp-bab-beschwerdegegenstand",
+    "fields": {
+      "created_at": "2024-08-27T07:34:22.156Z",
+      "modified_at": "2024-08-27T07:34:22.156Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-beschwerden-tabelle",
+      "question": "mp-bab-beschwerdegegenstand",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-beschwerden-tabelle.mp-bab-beschwerdeinstanz",
+    "fields": {
+      "created_at": "2024-08-27T07:32:36.465Z",
+      "modified_at": "2024-08-27T07:32:36.466Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-beschwerden-tabelle",
+      "question": "mp-bab-beschwerdeinstanz",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-beschwerden-tabelle.mp-bab-entscheiddatum-der-beschwerde",
+    "fields": {
+      "created_at": "2024-08-27T07:36:04.829Z",
+      "modified_at": "2024-08-27T07:36:04.829Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-beschwerden-tabelle",
+      "question": "mp-bab-entscheiddatum-der-beschwerde",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-beschwerden-tabelle.mp-bab-geschaeftsnummer-bemerkungen",
+    "fields": {
+      "created_at": "2024-08-27T07:35:50.718Z",
+      "modified_at": "2024-08-27T07:35:50.718Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-beschwerden-tabelle",
+      "question": "mp-bab-geschaeftsnummer-bemerkungen",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-beschwerden-tabelle.mp-bab-parteientschaedigung-durch-kanton-zu-bezahlen",
+    "fields": {
+      "created_at": "2024-08-27T07:37:07.666Z",
+      "modified_at": "2024-08-27T07:37:07.666Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-beschwerden-tabelle",
+      "question": "mp-bab-parteientschaedigung-durch-kanton-zu-bezahlen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-beschwerdeverfahren.mp-bab-arp-akten",
+    "fields": {
+      "created_at": "2024-08-27T07:37:50.955Z",
+      "modified_at": "2024-08-27T07:37:50.955Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-beschwerdeverfahren",
+      "question": "mp-bab-arp-akten",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-beschwerdeverfahren.mp-bab-beschwerden",
+    "fields": {
+      "created_at": "2024-08-27T07:33:32.378Z",
+      "modified_at": "2024-08-27T07:33:32.378Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-beschwerdeverfahren",
+      "question": "mp-bab-beschwerden",
+      "sort": 2
     }
   },
   {
@@ -463,6 +652,156 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-lage-objekt.mp-bab-angaben-zur-unterschutzstellung",
+    "fields": {
+      "created_at": "2024-08-27T07:19:37.486Z",
+      "modified_at": "2024-08-27T07:19:37.486Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-lage-objekt",
+      "question": "mp-bab-angaben-zur-unterschutzstellung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-lage-objekt.mp-bab-art-der-arbeiten",
+    "fields": {
+      "created_at": "2024-08-27T07:26:59.619Z",
+      "modified_at": "2024-08-27T07:26:59.619Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-lage-objekt",
+      "question": "mp-bab-art-der-arbeiten",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-lage-objekt.mp-bab-bauzone",
+    "fields": {
+      "created_at": "2024-08-27T07:07:44.049Z",
+      "modified_at": "2024-08-27T07:07:44.049Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-lage-objekt",
+      "question": "mp-bab-bauzone",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-lage-objekt.mp-bab-checkliste-bab-so-nach-rpg",
+    "fields": {
+      "created_at": "2024-08-27T07:24:35.158Z",
+      "modified_at": "2024-08-27T07:24:35.158Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-lage-objekt",
+      "question": "mp-bab-checkliste-bab-so-nach-rpg",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-lage-objekt.mp-bab-gemeindenummer-bfs-gis",
+    "fields": {
+      "created_at": "2024-08-27T07:06:35.678Z",
+      "modified_at": "2024-08-27T07:06:35.678Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-lage-objekt",
+      "question": "mp-bab-gemeindenummer-bfs-gis",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-lage-objekt.mp-bab-gemeindenummer-kantonal-arp",
+    "fields": {
+      "created_at": "2024-08-27T07:06:54.123Z",
+      "modified_at": "2024-08-27T07:06:54.123Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-lage-objekt",
+      "question": "mp-bab-gemeindenummer-kantonal-arp",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-lage-objekt.mp-bab-link-planarchiv",
+    "fields": {
+      "created_at": "2024-08-27T07:13:16.417Z",
+      "modified_at": "2024-08-27T07:13:16.417Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-lage-objekt",
+      "question": "mp-bab-link-planarchiv",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-lage-objekt.mp-bab-nutzungsplan",
+    "fields": {
+      "created_at": "2024-08-27T07:10:26.515Z",
+      "modified_at": "2024-08-27T07:10:26.515Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-lage-objekt",
+      "question": "mp-bab-nutzungsplan",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-lage-objekt.mp-bab-objektschutz",
+    "fields": {
+      "created_at": "2024-08-27T07:13:57.751Z",
+      "modified_at": "2024-08-27T07:13:57.751Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-lage-objekt",
+      "question": "mp-bab-objektschutz",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-lage-objekt.mp-bab-referenz-vorakten",
+    "fields": {
+      "created_at": "2024-08-27T07:04:25.992Z",
+      "modified_at": "2024-08-27T07:04:25.992Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-lage-objekt",
+      "question": "mp-bab-referenz-vorakten",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "materielle-pruefung-bab-lage-objekt.mp-bab-zweck-des-bauvorhabens",
     "fields": {
       "created_at": "2024-06-27T09:23:23.596Z",
@@ -478,6 +817,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab.materielle-pruefung-bab-beschwerdeverfahren",
+    "fields": {
+      "created_at": "2024-08-27T07:33:05.343Z",
+      "modified_at": "2024-08-27T07:33:05.343Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab",
+      "question": "materielle-pruefung-bab-beschwerdeverfahren",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "materielle-pruefung-bab.materielle-pruefung-bab-entscheid",
     "fields": {
       "created_at": "2024-06-27T09:02:00.026Z",
@@ -488,7 +842,7 @@
       "modified_by_group": null,
       "form": "materielle-pruefung-bab",
       "question": "materielle-pruefung-bab-entscheid",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -503,7 +857,7 @@
       "modified_by_group": null,
       "form": "materielle-pruefung-bab",
       "question": "materielle-pruefung-bab-interne-auftragserledigung",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -518,7 +872,7 @@
       "modified_by_group": null,
       "form": "materielle-pruefung-bab",
       "question": "materielle-pruefung-bab-journal",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -533,22 +887,7 @@
       "modified_by_group": null,
       "form": "materielle-pruefung-bab",
       "question": "materielle-pruefung-bab-lage-objekt",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "materielle-pruefung-bab.materielle-pruefung-bab-verfahren-vorhaben",
-    "fields": {
-      "created_at": "2024-06-27T09:00:31.932Z",
-      "modified_at": "2024-06-27T09:00:31.932Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "materielle-pruefung-bab",
-      "question": "materielle-pruefung-bab-verfahren-vorhaben",
-      "sort": 6
+      "sort": 4
     }
   },
   {
@@ -568,17 +907,182 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "materielle-pruefung-bab-verfahren-vorhaben.mp-bab-referenz-vorakten",
+    "pk": "materielle-pruefung-bab-nutzungsplan-tabelle.mp-bab-plannummer",
     "fields": {
-      "created_at": "2024-06-27T09:04:46.788Z",
-      "modified_at": "2024-06-27T09:04:46.788Z",
+      "created_at": "2024-08-27T07:11:03.222Z",
+      "modified_at": "2024-08-27T07:11:03.222Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "materielle-pruefung-bab-verfahren-vorhaben",
-      "question": "mp-bab-referenz-vorakten",
+      "form": "materielle-pruefung-bab-nutzungsplan-tabelle",
+      "question": "mp-bab-plannummer",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-nutzungsplan-tabelle.mp-bab-plantitel",
+    "fields": {
+      "created_at": "2024-08-27T07:10:50.867Z",
+      "modified_at": "2024-08-27T07:10:50.867Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-nutzungsplan-tabelle",
+      "question": "mp-bab-plantitel",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-nutzungsplan-tabelle.mp-bab-rrb-datum",
+    "fields": {
+      "created_at": "2024-08-27T07:11:49.110Z",
+      "modified_at": "2024-08-27T07:11:49.110Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-nutzungsplan-tabelle",
+      "question": "mp-bab-rrb-datum",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-nutzungsplan-tabelle.mp-bab-rrb-nr",
+    "fields": {
+      "created_at": "2024-08-27T07:11:29.535Z",
+      "modified_at": "2024-08-27T07:11:29.535Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-nutzungsplan-tabelle",
+      "question": "mp-bab-rrb-nr",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-nutzungsplan-tabelle.mp-bab-rrb-publikation-amtsblatt-datum",
+    "fields": {
+      "created_at": "2024-08-27T07:12:37.744Z",
+      "modified_at": "2024-08-27T07:12:37.744Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-nutzungsplan-tabelle",
+      "question": "mp-bab-rrb-publikation-amtsblatt-datum",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-nutzungsplan-tabelle.mp-bab-rrb-publikation-amtsblatt-nr",
+    "fields": {
+      "created_at": "2024-08-27T07:12:07.563Z",
+      "modified_at": "2024-08-27T07:12:07.563Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-nutzungsplan-tabelle",
+      "question": "mp-bab-rrb-publikation-amtsblatt-nr",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-nutzungsplan-tabelle.mp-bab-zonen",
+    "fields": {
+      "created_at": "2024-08-27T07:11:16.435Z",
+      "modified_at": "2024-08-27T07:11:16.435Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-nutzungsplan-tabelle",
+      "question": "mp-bab-zonen",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-unterschutz-tabelle.mp-bab-beschlussnummer",
+    "fields": {
+      "created_at": "2024-08-27T07:21:29.842Z",
+      "modified_at": "2024-08-27T07:21:29.842Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-unterschutz-tabelle",
+      "question": "mp-bab-beschlussnummer",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-unterschutz-tabelle.mp-bab-datum-beschluss",
+    "fields": {
+      "created_at": "2024-08-27T07:21:44.196Z",
+      "modified_at": "2024-08-27T07:21:44.196Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-unterschutz-tabelle",
+      "question": "mp-bab-datum-beschluss",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-unterschutz-tabelle.mp-bab-datum-verfuegung",
+    "fields": {
+      "created_at": "2024-08-27T07:21:56.969Z",
+      "modified_at": "2024-08-27T07:21:56.969Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-unterschutz-tabelle",
+      "question": "mp-bab-datum-verfuegung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-unterschutz-tabelle.mp-bab-schutzobjekt-bezeichnung",
+    "fields": {
+      "created_at": "2024-08-27T07:20:43.069Z",
+      "modified_at": "2024-08-27T07:20:43.069Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-unterschutz-tabelle",
+      "question": "mp-bab-schutzobjekt-bezeichnung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-bab-unterschutz-tabelle.mp-bab-verfuegende-behoerde",
+    "fields": {
+      "created_at": "2024-08-27T07:21:10.268Z",
+      "modified_at": "2024-08-27T07:21:10.268Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-bab-unterschutz-tabelle",
+      "question": "mp-bab-verfuegende-behoerde",
+      "sort": 4
     }
   },
   {
@@ -673,6 +1177,159 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "mp-bab-arp-akten-bei-gericht",
+    "fields": {
+      "created_at": "2024-08-27T07:37:50.819Z",
+      "modified_at": "2024-08-27T07:37:50.819Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"bei Gericht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-arp-akten-bei-rd-bjd",
+    "fields": {
+      "created_at": "2024-08-27T07:37:50.832Z",
+      "modified_at": "2024-08-27T07:37:50.832Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"bei RD BJD\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-arp-akten-im-arp",
+    "fields": {
+      "created_at": "2024-08-27T07:37:50.820Z",
+      "modified_at": "2024-08-27T07:37:50.820Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"im ARP\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-art-der-arbeiten-abbruch",
+    "fields": {
+      "created_at": "2024-08-27T07:26:59.452Z",
+      "modified_at": "2024-08-27T07:26:59.452Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abbruch\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-art-der-arbeiten-abbruch-und-wiederaufbau",
+    "fields": {
+      "created_at": "2024-08-27T07:26:59.390Z",
+      "modified_at": "2024-08-27T07:26:59.390Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abbruch und Wiederaufbau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-art-der-arbeiten-abparzellierung",
+    "fields": {
+      "created_at": "2024-08-27T07:26:59.466Z",
+      "modified_at": "2024-08-27T07:26:59.466Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abparzellierung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-art-der-arbeiten-neubau",
+    "fields": {
+      "created_at": "2024-08-27T07:26:59.453Z",
+      "modified_at": "2024-08-27T07:26:59.453Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neubau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-art-der-arbeiten-umbau-anbau",
+    "fields": {
+      "created_at": "2024-08-27T07:26:59.470Z",
+      "modified_at": "2024-08-27T07:26:59.470Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Umbau / Anbau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-art-der-arbeiten-umnutzung",
+    "fields": {
+      "created_at": "2024-08-27T07:26:59.404Z",
+      "modified_at": "2024-08-27T07:26:59.404Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Umnutzung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "mp-bab-art-des-eintrages-augenschein",
     "fields": {
       "created_at": "2024-06-27T09:19:49.917Z",
@@ -758,6 +1415,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "mp-bab-bauzone-ausserhalb",
+    "fields": {
+      "created_at": "2024-08-27T07:07:43.898Z",
+      "modified_at": "2024-08-27T07:07:43.898Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"ausserhalb\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-bauzone-innerhalb",
+    "fields": {
+      "created_at": "2024-08-27T07:07:43.895Z",
+      "modified_at": "2024-08-27T07:07:43.895Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"innerhalb\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "mp-bab-bearbeitungsstatus-abgeschlossen",
     "fields": {
       "created_at": "2024-06-27T09:07:58.790Z",
@@ -809,6 +1500,244 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "mp-bab-beschwerdeentscheid-abgeschrieben",
+    "fields": {
+      "created_at": "2024-08-27T07:35:36.256Z",
+      "modified_at": "2024-08-27T07:35:36.256Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"abgeschrieben\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-beschwerdeentscheid-gutgeheissen",
+    "fields": {
+      "created_at": "2024-08-27T07:35:36.266Z",
+      "modified_at": "2024-08-27T07:35:36.266Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"gutgeheissen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-beschwerdeentscheid-nichteintreten",
+    "fields": {
+      "created_at": "2024-08-27T07:35:36.202Z",
+      "modified_at": "2024-08-27T07:35:36.202Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"nichteintreten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-beschwerdeentscheid-pendent",
+    "fields": {
+      "created_at": "2024-08-27T07:35:36.213Z",
+      "modified_at": "2024-08-27T07:35:36.213Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"pendent\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-beschwerdeentscheid-sistiert",
+    "fields": {
+      "created_at": "2024-08-27T07:35:36.259Z",
+      "modified_at": "2024-08-27T07:35:36.259Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"sistiert\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-beschwerdeentscheid-teilweise-gutgeheissen-abgewiesen",
+    "fields": {
+      "created_at": "2024-08-27T07:35:36.264Z",
+      "modified_at": "2024-08-27T07:35:36.264Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"teilweise gutgeheissen / abgewiesen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-beschwerdefuehrerin-bauherrschaft",
+    "fields": {
+      "created_at": "2024-08-27T07:34:51.614Z",
+      "modified_at": "2024-08-27T07:34:51.614Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauherrschaft\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-beschwerdefuehrerin-einsprecherin",
+    "fields": {
+      "created_at": "2024-08-27T07:34:51.615Z",
+      "modified_at": "2024-08-27T07:34:51.615Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einsprecher/in\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-beschwerdegegenstand-kantonale-baubewilligung",
+    "fields": {
+      "created_at": "2024-08-27T07:34:22.021Z",
+      "modified_at": "2024-08-27T07:34:22.021Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"kantonale Baubewilligung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-beschwerdegegenstand-kommunale-baubewilligung",
+    "fields": {
+      "created_at": "2024-08-27T07:34:22.017Z",
+      "modified_at": "2024-08-27T07:34:22.017Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"kommunale Baubewilligung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-beschwerdegegenstand-verfuegung-bjd-fd",
+    "fields": {
+      "created_at": "2024-08-27T07:34:22.024Z",
+      "modified_at": "2024-08-27T07:34:22.024Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verf\\u00fcgung BJD / FD\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-beschwerdeinstanz-bjd",
+    "fields": {
+      "created_at": "2024-08-27T07:32:36.281Z",
+      "modified_at": "2024-08-27T07:32:36.281Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"BJD\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-beschwerdeinstanz-bundesgericht",
+    "fields": {
+      "created_at": "2024-08-27T07:32:36.278Z",
+      "modified_at": "2024-08-27T07:32:36.278Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bundesgericht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-beschwerdeinstanz-verwaltungsgericht",
+    "fields": {
+      "created_at": "2024-08-27T07:32:36.280Z",
+      "modified_at": "2024-08-27T07:32:36.280Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verwaltungsgericht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "mp-bab-bewilligungsbehoerde-bjd-leitbehoerde",
     "fields": {
       "created_at": "2024-06-27T09:12:52.751Z",
@@ -852,6 +1781,380 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00f6rtliche Baubeh\\u00f6rde\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg-a1",
+    "fields": {
+      "created_at": "2024-08-27T07:24:34.431Z",
+      "modified_at": "2024-08-27T07:24:34.431Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A1 - standortgebunden\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg-a10",
+    "fields": {
+      "created_at": "2024-08-27T07:24:34.611Z",
+      "modified_at": "2024-08-27T07:24:34.611Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A10 - zonenfremde gewerbliche Bauten/Anlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg-a11",
+    "fields": {
+      "created_at": "2024-08-27T07:24:34.630Z",
+      "modified_at": "2024-08-27T07:24:34.630Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A11 - Solaranlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg-a12",
+    "fields": {
+      "created_at": "2024-08-27T07:24:34.604Z",
+      "modified_at": "2024-08-27T07:24:34.604Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A12 - hobbym\\u00e4ssige Tierhaltung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg-a2",
+    "fields": {
+      "created_at": "2024-08-27T07:24:34.367Z",
+      "modified_at": "2024-08-27T07:24:34.367Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A2 - Weilerzone\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg-a3",
+    "fields": {
+      "created_at": "2024-08-27T07:24:34.406Z",
+      "modified_at": "2024-08-27T07:24:34.406Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A3 - Erhaltungszone\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg-a4",
+    "fields": {
+      "created_at": "2024-08-27T07:24:34.345Z",
+      "modified_at": "2024-08-27T07:24:34.345Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A4 - nicht landw. Nebenbetriebe\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg-a5",
+    "fields": {
+      "created_at": "2024-08-27T07:24:34.380Z",
+      "modified_at": "2024-08-27T07:24:34.380Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A5 - Zweck\\u00e4nderung ohne baul. Massnahmen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg-a6",
+    "fields": {
+      "created_at": "2024-08-27T07:24:34.447Z",
+      "modified_at": "2024-08-27T07:24:34.447Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A6 - 24c RPG Erneuerung/\\u00c4nderung/Erweiterung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg-a7",
+    "fields": {
+      "created_at": "2024-08-27T07:24:34.501Z",
+      "modified_at": "2024-08-27T07:24:34.501Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A7 - 24c RPG Wiederaufbau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg-a8",
+    "fields": {
+      "created_at": "2024-08-27T07:24:34.572Z",
+      "modified_at": "2024-08-27T07:24:34.572Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A8 - 24d RPG Umwidmung landw. in nicht landw. Wohnnutzung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg-a9",
+    "fields": {
+      "created_at": "2024-08-27T07:24:34.533Z",
+      "modified_at": "2024-08-27T07:24:34.533Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A9 - 24d RPG Vollst. Zwech\\u00e4nderung unter Schutz gestellter Bauten und Anlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg-z1",
+    "fields": {
+      "created_at": "2024-08-27T07:24:34.685Z",
+      "modified_at": "2024-08-27T07:24:34.685Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Z1 - landw. bodenabh\\u00e4ngige Bewirtschaftung/bodenabh\\u00e4ngige Produktion verwertbarer Erzeugnisse aus Pflanzenbau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg-z10",
+    "fields": {
+      "created_at": "2024-08-27T07:24:34.901Z",
+      "modified_at": "2024-08-27T07:24:34.901Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Z10 - Pferdehaltung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg-z2",
+    "fields": {
+      "created_at": "2024-08-27T07:24:34.751Z",
+      "modified_at": "2024-08-27T07:24:34.751Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Z2 - Aufbereitung, Lagerung, Verkauf landw. oder gartenbaulicher Produkte\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg-z3",
+    "fields": {
+      "created_at": "2024-08-27T07:24:34.729Z",
+      "modified_at": "2024-08-27T07:24:34.729Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Z3 - Wohnen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg-z4",
+    "fields": {
+      "created_at": "2024-08-27T07:24:34.815Z",
+      "modified_at": "2024-08-27T07:24:34.815Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Z4 - Nebenerwerbslandwirtschaft\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg-z5",
+    "fields": {
+      "created_at": "2024-08-27T07:24:34.767Z",
+      "modified_at": "2024-08-27T07:24:34.767Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Z5 - gemeinschaftliche Stallbauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg-z6",
+    "fields": {
+      "created_at": "2024-08-27T07:24:34.781Z",
+      "modified_at": "2024-08-27T07:24:34.781Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Z6 - innere Aufstockung Tierhaltung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg-z7",
+    "fields": {
+      "created_at": "2024-08-27T07:24:34.888Z",
+      "modified_at": "2024-08-27T07:24:34.888Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Z7 - innere Aufstockung Gem\\u00fcse- und Gartenbau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg-z8",
+    "fields": {
+      "created_at": "2024-08-27T07:24:34.872Z",
+      "modified_at": "2024-08-27T07:24:34.872Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Z8 - bodenunabh\\u00e4ngige Produktion\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg-z9",
+    "fields": {
+      "created_at": "2024-08-27T07:24:34.903Z",
+      "modified_at": "2024-08-27T07:24:34.903Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Z9 - Biomasse\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -1192,6 +2495,108 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"privat\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-objektschutz-erhaltenswert",
+    "fields": {
+      "created_at": "2024-08-27T07:13:57.585Z",
+      "modified_at": "2024-08-27T07:13:57.585Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"erhaltenswert\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-objektschutz-geschuetzt",
+    "fields": {
+      "created_at": "2024-08-27T07:13:57.583Z",
+      "modified_at": "2024-08-27T07:13:57.583Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"gesch\\u00fctzt\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-objektschutz-nein",
+    "fields": {
+      "created_at": "2024-08-27T07:13:57.594Z",
+      "modified_at": "2024-08-27T07:13:57.594Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-objektschutz-schuetzenswert",
+    "fields": {
+      "created_at": "2024-08-27T07:13:57.540Z",
+      "modified_at": "2024-08-27T07:13:57.540Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"sch\\u00fctzenswert\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-parteientschaedigung-durch-kanton-zu-bezahlen-ja",
+    "fields": {
+      "created_at": "2024-08-27T07:37:07.380Z",
+      "modified_at": "2024-08-27T07:37:07.380Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-parteientschaedigung-durch-kanton-zu-bezahlen-nein",
+    "fields": {
+      "created_at": "2024-08-27T07:37:07.375Z",
+      "modified_at": "2024-08-27T07:37:07.375Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"nein\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -1583,6 +2988,40 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Vollstreckungsverfahren\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-verfuegende-behoerde-kantonal",
+    "fields": {
+      "created_at": "2024-08-27T07:21:10.102Z",
+      "modified_at": "2024-08-27T07:21:10.102Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"kantonal\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-bab-verfuegende-behoerde-kommunal",
+    "fields": {
+      "created_at": "2024-08-27T07:21:10.109Z",
+      "modified_at": "2024-08-27T07:21:10.109Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"kommunal\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -2441,6 +3880,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "materielle-pruefung-bab-beschwerdeverfahren",
+    "fields": {
+      "created_at": "2024-08-27T07:33:05.291Z",
+      "modified_at": "2024-08-27T07:33:05.291Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschwerdeverfahren\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "materielle-pruefung-bab-beschwerdeverfahren",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "materielle-pruefung-bab-entscheid",
     "fields": {
       "created_at": "2024-06-27T09:01:59.984Z",
@@ -2506,12 +3976,12 @@
     "pk": "materielle-pruefung-bab-journal",
     "fields": {
       "created_at": "2024-06-27T09:01:18.811Z",
-      "modified_at": "2024-06-27T09:01:22.440Z",
+      "modified_at": "2024-08-27T07:28:26.624Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Journal\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Interne Informationen\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
       "is_hidden": "false",
@@ -2556,37 +4026,6 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "materielle-pruefung-bab-lage-objekt",
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "materielle-pruefung-bab-verfahren-vorhaben",
-    "fields": {
-      "created_at": "2024-06-27T09:00:31.879Z",
-      "modified_at": "2024-06-27T09:00:35.628Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Verfahren / Vorhaben\", \"fr\": null, \"it\": null}",
-      "type": "form",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": "materielle-pruefung-bab-verfahren-vorhaben",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -2661,6 +4100,103 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "mp-bab-angaben-zur-unterschutzstellung",
+    "fields": {
+      "created_at": "2024-08-27T07:19:37.428Z",
+      "modified_at": "2024-08-27T07:20:15.758Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Angaben zur Unterschutzstellung\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "\"mp-bab-objektschutz\"|answer != \"mp-bab-objektschutz-geschuetzt\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": "materielle-pruefung-bab-unterschutz-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-arp-akten",
+    "fields": {
+      "created_at": "2024-08-27T07:37:50.888Z",
+      "modified_at": "2024-08-27T07:37:50.888Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"ARP-Akten\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-art-der-arbeiten",
+    "fields": {
+      "created_at": "2024-08-27T07:26:59.536Z",
+      "modified_at": "2024-08-27T07:26:59.536Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art der Arbeiten\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "mp-bab-art-des-eintrages",
     "fields": {
       "created_at": "2024-06-27T09:19:49.969Z",
@@ -2677,6 +4213,39 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-bauzone",
+    "fields": {
+      "created_at": "2024-08-27T07:07:43.976Z",
+      "modified_at": "2024-08-27T07:14:04.168Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauzone\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -2717,6 +4286,203 @@
       },
       "data_source": null,
       "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-beschlussnummer",
+    "fields": {
+      "created_at": "2024-08-27T07:21:29.788Z",
+      "modified_at": "2024-08-27T07:21:29.788Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschlussnummer\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-beschwerdeentscheid",
+    "fields": {
+      "created_at": "2024-08-27T07:35:36.358Z",
+      "modified_at": "2024-08-27T07:35:36.358Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschwerdeentscheid\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-beschwerdefuehrerin",
+    "fields": {
+      "created_at": "2024-08-27T07:34:51.678Z",
+      "modified_at": "2024-08-27T07:34:51.678Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschwerdef\\u00fchrer/in\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-beschwerdegegenstand",
+    "fields": {
+      "created_at": "2024-08-27T07:34:22.081Z",
+      "modified_at": "2024-08-27T07:34:22.081Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschwerdegegenstand\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-beschwerdeinstanz",
+    "fields": {
+      "created_at": "2024-08-27T07:32:36.372Z",
+      "modified_at": "2024-08-27T07:33:45.562Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschwerdeinstanz\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-beschwerden",
+    "fields": {
+      "created_at": "2024-08-27T07:33:32.318Z",
+      "modified_at": "2024-08-27T07:33:32.318Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschwerden\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": "materielle-pruefung-bab-beschwerden-tabelle",
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -2782,6 +4548,70 @@
       "meta": {
         "widgetOverride": "cf-field/input/powerselect"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg",
+    "fields": {
+      "created_at": "2024-08-27T07:24:35.006Z",
+      "modified_at": "2024-08-27T07:24:58.906Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Checkliste BaB SO nach RPG\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-datum-beschluss",
+    "fields": {
+      "created_at": "2024-08-27T07:21:44.138Z",
+      "modified_at": "2024-08-27T07:21:44.138Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Datum Beschluss\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -2949,6 +4779,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "mp-bab-datum-verfuegung",
+    "fields": {
+      "created_at": "2024-08-27T07:21:56.904Z",
+      "modified_at": "2024-08-27T07:21:56.904Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Datum Verf\\u00fcgung\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "mp-bab-entscheid-bewilligungsbehoerde",
     "fields": {
       "created_at": "2024-06-27T09:28:44.454Z",
@@ -2970,6 +4831,37 @@
       "meta": {
         "widgetOverride": "cf-field/input/powerselect"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-entscheiddatum-der-beschwerde",
+    "fields": {
+      "created_at": "2024-08-27T07:36:04.761Z",
+      "modified_at": "2024-08-27T07:36:04.761Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheiddatum der Beschwerde\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -3036,6 +4928,108 @@
       "meta": {
         "widgetOverride": "cf-field/input/powerselect"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-gemeindenummer-bfs-gis",
+    "fields": {
+      "created_at": "2024-08-27T07:06:35.620Z",
+      "modified_at": "2024-08-27T07:06:35.620Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gemeindenummer BfS (GIS)\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-gemeindenummer-kantonal-arp",
+    "fields": {
+      "created_at": "2024-08-27T07:06:54.059Z",
+      "modified_at": "2024-08-27T07:06:54.059Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gemeindenummer (kantonal / ARP)\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-geschaeftsnummer-bemerkungen",
+    "fields": {
+      "created_at": "2024-08-27T07:35:50.653Z",
+      "modified_at": "2024-08-27T07:35:50.653Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gesch\\u00e4ftsnummer / Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -3115,13 +5109,44 @@
     "pk": "mp-bab-journal-tabelle",
     "fields": {
       "created_at": "2024-06-27T09:18:49.334Z",
-      "modified_at": "2024-06-27T09:18:49.334Z",
+      "modified_at": "2024-08-27T07:28:41.121Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Interne Informationen\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": "materielle-pruefung-bab-journal-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-link-planarchiv",
+    "fields": {
+      "created_at": "2024-08-27T07:13:16.350Z",
+      "modified_at": "2024-08-27T07:13:16.350Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Journal\", \"fr\": null, \"it\": null}",
-      "type": "table",
+      "label": "{\"de\": \"Link Planarchiv\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
@@ -3129,10 +5154,13 @@
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
-      "row_form": "materielle-pruefung-bab-journal-tabelle",
+      "row_form": null,
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -3161,6 +5189,171 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-nutzungsplan",
+    "fields": {
+      "created_at": "2024-08-27T07:10:26.460Z",
+      "modified_at": "2024-08-27T07:17:41.754Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Angaben zu kantonalem Nutzungsplan\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "!(\n\t\"mp-bab-bewilligungsbehoerde\"|answer in [\n\t\t\"mp-bab-bewilligungsbehoerde-bjd-leitbehoerde\",\n\t\t\"mp-bab-bewilligungsbehoerde-fd-leitbehoerde\"\n\t]\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": "materielle-pruefung-bab-nutzungsplan-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-objektschutz",
+    "fields": {
+      "created_at": "2024-08-27T07:13:57.663Z",
+      "modified_at": "2024-08-27T07:13:57.663Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Objektschutz\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-parteientschaedigung-durch-kanton-zu-bezahlen",
+    "fields": {
+      "created_at": "2024-08-27T07:37:07.599Z",
+      "modified_at": "2024-08-27T07:37:07.599Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Parteientsch\\u00e4digung durch Kanton zu bezahlen\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-plannummer",
+    "fields": {
+      "created_at": "2024-08-27T07:11:03.162Z",
+      "modified_at": "2024-08-27T07:11:03.162Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Plannummer\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-plantitel",
+    "fields": {
+      "created_at": "2024-08-27T07:10:50.813Z",
+      "modified_at": "2024-08-27T07:10:50.813Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Plantitel\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -3241,6 +5434,136 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "mp-bab-rrb-datum",
+    "fields": {
+      "created_at": "2024-08-27T07:11:49.047Z",
+      "modified_at": "2024-08-27T07:11:49.047Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RRB Datum\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-rrb-nr",
+    "fields": {
+      "created_at": "2024-08-27T07:11:29.485Z",
+      "modified_at": "2024-08-27T07:11:29.485Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RRB Nr.\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-rrb-publikation-amtsblatt-datum",
+    "fields": {
+      "created_at": "2024-08-27T07:12:37.690Z",
+      "modified_at": "2024-08-27T07:12:37.690Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RRB Publikation Amtsblatt Datum\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-rrb-publikation-amtsblatt-nr",
+    "fields": {
+      "created_at": "2024-08-27T07:12:07.512Z",
+      "modified_at": "2024-08-27T07:12:07.512Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"RRB Publikation Amtsblatt Nr.\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "mp-bab-rueckmeldeformular",
     "fields": {
       "created_at": "2024-06-27T09:28:04.677Z",
@@ -3285,6 +5608,40 @@
       "label": "{\"de\": \"Sachverhalt\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-schutzobjekt-bezeichnung",
+    "fields": {
+      "created_at": "2024-08-27T07:20:43.002Z",
+      "modified_at": "2024-08-27T07:20:43.002Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schutzobjekt (Bezeichnung)\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -3467,6 +5824,73 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "mp-bab-verfuegende-behoerde",
+    "fields": {
+      "created_at": "2024-08-27T07:21:10.184Z",
+      "modified_at": "2024-08-27T07:21:10.184Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"verf\\u00fcgende Beh\\u00f6rde\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-bab-zonen",
+    "fields": {
+      "created_at": "2024-08-27T07:11:16.386Z",
+      "modified_at": "2024-08-27T07:11:16.386Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zonen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "mp-bab-zustaendiges-oberamt",
     "fields": {
       "created_at": "2024-06-27T09:32:37.184Z",
@@ -3529,6 +5953,141 @@
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-arp-akten.mp-bab-arp-akten-bei-gericht",
+    "fields": {
+      "created_at": "2024-08-27T07:37:50.893Z",
+      "modified_at": "2024-08-27T07:37:50.893Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-arp-akten",
+      "option": "mp-bab-arp-akten-bei-gericht",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-arp-akten.mp-bab-arp-akten-bei-rd-bjd",
+    "fields": {
+      "created_at": "2024-08-27T07:37:50.896Z",
+      "modified_at": "2024-08-27T07:37:50.896Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-arp-akten",
+      "option": "mp-bab-arp-akten-bei-rd-bjd",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-arp-akten.mp-bab-arp-akten-im-arp",
+    "fields": {
+      "created_at": "2024-08-27T07:37:50.900Z",
+      "modified_at": "2024-08-27T07:37:50.900Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-arp-akten",
+      "option": "mp-bab-arp-akten-im-arp",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-art-der-arbeiten.mp-bab-art-der-arbeiten-abbruch",
+    "fields": {
+      "created_at": "2024-08-27T07:26:59.556Z",
+      "modified_at": "2024-08-27T07:26:59.556Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-art-der-arbeiten",
+      "option": "mp-bab-art-der-arbeiten-abbruch",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-art-der-arbeiten.mp-bab-art-der-arbeiten-abbruch-und-wiederaufbau",
+    "fields": {
+      "created_at": "2024-08-27T07:26:59.553Z",
+      "modified_at": "2024-08-27T07:26:59.553Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-art-der-arbeiten",
+      "option": "mp-bab-art-der-arbeiten-abbruch-und-wiederaufbau",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-art-der-arbeiten.mp-bab-art-der-arbeiten-abparzellierung",
+    "fields": {
+      "created_at": "2024-08-27T07:26:59.551Z",
+      "modified_at": "2024-08-27T07:26:59.551Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-art-der-arbeiten",
+      "option": "mp-bab-art-der-arbeiten-abparzellierung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-art-der-arbeiten.mp-bab-art-der-arbeiten-neubau",
+    "fields": {
+      "created_at": "2024-08-27T07:26:59.548Z",
+      "modified_at": "2024-08-27T07:26:59.548Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-art-der-arbeiten",
+      "option": "mp-bab-art-der-arbeiten-neubau",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-art-der-arbeiten.mp-bab-art-der-arbeiten-umbau-anbau",
+    "fields": {
+      "created_at": "2024-08-27T07:26:59.545Z",
+      "modified_at": "2024-08-27T07:26:59.545Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-art-der-arbeiten",
+      "option": "mp-bab-art-der-arbeiten-umbau-anbau",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-art-der-arbeiten.mp-bab-art-der-arbeiten-umnutzung",
+    "fields": {
+      "created_at": "2024-08-27T07:26:59.542Z",
+      "modified_at": "2024-08-27T07:26:59.542Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-art-der-arbeiten",
+      "option": "mp-bab-art-der-arbeiten-umnutzung",
+      "sort": 1
     }
   },
   {
@@ -3608,6 +6167,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "mp-bab-bauzone.mp-bab-bauzone-ausserhalb",
+    "fields": {
+      "created_at": "2024-08-27T07:14:04.177Z",
+      "modified_at": "2024-08-27T07:14:04.177Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-bauzone",
+      "option": "mp-bab-bauzone-ausserhalb",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-bauzone.mp-bab-bauzone-innerhalb",
+    "fields": {
+      "created_at": "2024-08-27T07:14:04.174Z",
+      "modified_at": "2024-08-27T07:14:04.174Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-bauzone",
+      "option": "mp-bab-bauzone-innerhalb",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "mp-bab-bearbeitungsstatus.mp-bab-bearbeitungsstatus-abgeschlossen",
     "fields": {
       "created_at": "2024-06-27T09:17:09.171Z",
@@ -3648,6 +6237,216 @@
       "modified_by_group": null,
       "question": "mp-bab-bearbeitungsstatus",
       "option": "mp-bab-bearbeitungsstatus-sistiert",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-beschwerdeentscheid.mp-bab-beschwerdeentscheid-abgeschrieben",
+    "fields": {
+      "created_at": "2024-08-27T07:35:36.367Z",
+      "modified_at": "2024-08-27T07:35:36.367Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-beschwerdeentscheid",
+      "option": "mp-bab-beschwerdeentscheid-abgeschrieben",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-beschwerdeentscheid.mp-bab-beschwerdeentscheid-gutgeheissen",
+    "fields": {
+      "created_at": "2024-08-27T07:35:36.378Z",
+      "modified_at": "2024-08-27T07:35:36.378Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-beschwerdeentscheid",
+      "option": "mp-bab-beschwerdeentscheid-gutgeheissen",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-beschwerdeentscheid.mp-bab-beschwerdeentscheid-nichteintreten",
+    "fields": {
+      "created_at": "2024-08-27T07:35:36.373Z",
+      "modified_at": "2024-08-27T07:35:36.373Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-beschwerdeentscheid",
+      "option": "mp-bab-beschwerdeentscheid-nichteintreten",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-beschwerdeentscheid.mp-bab-beschwerdeentscheid-pendent",
+    "fields": {
+      "created_at": "2024-08-27T07:35:36.382Z",
+      "modified_at": "2024-08-27T07:35:36.382Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-beschwerdeentscheid",
+      "option": "mp-bab-beschwerdeentscheid-pendent",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-beschwerdeentscheid.mp-bab-beschwerdeentscheid-sistiert",
+    "fields": {
+      "created_at": "2024-08-27T07:35:36.370Z",
+      "modified_at": "2024-08-27T07:35:36.370Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-beschwerdeentscheid",
+      "option": "mp-bab-beschwerdeentscheid-sistiert",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-beschwerdeentscheid.mp-bab-beschwerdeentscheid-teilweise-gutgeheissen-abgewiesen",
+    "fields": {
+      "created_at": "2024-08-27T07:35:36.363Z",
+      "modified_at": "2024-08-27T07:35:36.363Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-beschwerdeentscheid",
+      "option": "mp-bab-beschwerdeentscheid-teilweise-gutgeheissen-abgewiesen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-beschwerdefuehrerin.mp-bab-beschwerdefuehrerin-bauherrschaft",
+    "fields": {
+      "created_at": "2024-08-27T07:34:51.694Z",
+      "modified_at": "2024-08-27T07:34:51.694Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-beschwerdefuehrerin",
+      "option": "mp-bab-beschwerdefuehrerin-bauherrschaft",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-beschwerdefuehrerin.mp-bab-beschwerdefuehrerin-einsprecherin",
+    "fields": {
+      "created_at": "2024-08-27T07:34:51.691Z",
+      "modified_at": "2024-08-27T07:34:51.691Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-beschwerdefuehrerin",
+      "option": "mp-bab-beschwerdefuehrerin-einsprecherin",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-beschwerdegegenstand.mp-bab-beschwerdegegenstand-kantonale-baubewilligung",
+    "fields": {
+      "created_at": "2024-08-27T07:34:22.086Z",
+      "modified_at": "2024-08-27T07:34:22.086Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-beschwerdegegenstand",
+      "option": "mp-bab-beschwerdegegenstand-kantonale-baubewilligung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-beschwerdegegenstand.mp-bab-beschwerdegegenstand-kommunale-baubewilligung",
+    "fields": {
+      "created_at": "2024-08-27T07:34:22.092Z",
+      "modified_at": "2024-08-27T07:34:22.092Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-beschwerdegegenstand",
+      "option": "mp-bab-beschwerdegegenstand-kommunale-baubewilligung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-beschwerdegegenstand.mp-bab-beschwerdegegenstand-verfuegung-bjd-fd",
+    "fields": {
+      "created_at": "2024-08-27T07:34:22.089Z",
+      "modified_at": "2024-08-27T07:34:22.089Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-beschwerdegegenstand",
+      "option": "mp-bab-beschwerdegegenstand-verfuegung-bjd-fd",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-beschwerdeinstanz.mp-bab-beschwerdeinstanz-bjd",
+    "fields": {
+      "created_at": "2024-08-27T07:33:45.581Z",
+      "modified_at": "2024-08-27T07:33:45.581Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-beschwerdeinstanz",
+      "option": "mp-bab-beschwerdeinstanz-bjd",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-beschwerdeinstanz.mp-bab-beschwerdeinstanz-bundesgericht",
+    "fields": {
+      "created_at": "2024-08-27T07:33:45.571Z",
+      "modified_at": "2024-08-27T07:33:45.571Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-beschwerdeinstanz",
+      "option": "mp-bab-beschwerdeinstanz-bundesgericht",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-beschwerdeinstanz.mp-bab-beschwerdeinstanz-verwaltungsgericht",
+    "fields": {
+      "created_at": "2024-08-27T07:33:45.576Z",
+      "modified_at": "2024-08-27T07:33:45.576Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-beschwerdeinstanz",
+      "option": "mp-bab-beschwerdeinstanz-verwaltungsgericht",
       "sort": 2
     }
   },
@@ -3694,6 +6493,336 @@
       "question": "mp-bab-bewilligungsbehoerde",
       "option": "mp-bab-bewilligungsbehoerde-oertliche-baubehoerde",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg.mp-bab-checkliste-bab-so-nach-rpg-a1",
+    "fields": {
+      "created_at": "2024-08-27T07:24:59.002Z",
+      "modified_at": "2024-08-27T07:24:59.002Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-checkliste-bab-so-nach-rpg",
+      "option": "mp-bab-checkliste-bab-so-nach-rpg-a1",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg.mp-bab-checkliste-bab-so-nach-rpg-a10",
+    "fields": {
+      "created_at": "2024-08-27T07:24:58.960Z",
+      "modified_at": "2024-08-27T07:24:58.960Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-checkliste-bab-so-nach-rpg",
+      "option": "mp-bab-checkliste-bab-so-nach-rpg-a10",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg.mp-bab-checkliste-bab-so-nach-rpg-a11",
+    "fields": {
+      "created_at": "2024-08-27T07:24:58.955Z",
+      "modified_at": "2024-08-27T07:24:58.955Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-checkliste-bab-so-nach-rpg",
+      "option": "mp-bab-checkliste-bab-so-nach-rpg-a11",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg.mp-bab-checkliste-bab-so-nach-rpg-a12",
+    "fields": {
+      "created_at": "2024-08-27T07:24:58.951Z",
+      "modified_at": "2024-08-27T07:24:58.951Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-checkliste-bab-so-nach-rpg",
+      "option": "mp-bab-checkliste-bab-so-nach-rpg-a12",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg.mp-bab-checkliste-bab-so-nach-rpg-a2",
+    "fields": {
+      "created_at": "2024-08-27T07:24:58.999Z",
+      "modified_at": "2024-08-27T07:24:58.999Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-checkliste-bab-so-nach-rpg",
+      "option": "mp-bab-checkliste-bab-so-nach-rpg-a2",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg.mp-bab-checkliste-bab-so-nach-rpg-a3",
+    "fields": {
+      "created_at": "2024-08-27T07:24:58.995Z",
+      "modified_at": "2024-08-27T07:24:58.995Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-checkliste-bab-so-nach-rpg",
+      "option": "mp-bab-checkliste-bab-so-nach-rpg-a3",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg.mp-bab-checkliste-bab-so-nach-rpg-a4",
+    "fields": {
+      "created_at": "2024-08-27T07:24:58.989Z",
+      "modified_at": "2024-08-27T07:24:58.989Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-checkliste-bab-so-nach-rpg",
+      "option": "mp-bab-checkliste-bab-so-nach-rpg-a4",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg.mp-bab-checkliste-bab-so-nach-rpg-a5",
+    "fields": {
+      "created_at": "2024-08-27T07:24:58.985Z",
+      "modified_at": "2024-08-27T07:24:58.985Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-checkliste-bab-so-nach-rpg",
+      "option": "mp-bab-checkliste-bab-so-nach-rpg-a5",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg.mp-bab-checkliste-bab-so-nach-rpg-a6",
+    "fields": {
+      "created_at": "2024-08-27T07:24:58.980Z",
+      "modified_at": "2024-08-27T07:24:58.980Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-checkliste-bab-so-nach-rpg",
+      "option": "mp-bab-checkliste-bab-so-nach-rpg-a6",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg.mp-bab-checkliste-bab-so-nach-rpg-a7",
+    "fields": {
+      "created_at": "2024-08-27T07:24:58.973Z",
+      "modified_at": "2024-08-27T07:24:58.973Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-checkliste-bab-so-nach-rpg",
+      "option": "mp-bab-checkliste-bab-so-nach-rpg-a7",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg.mp-bab-checkliste-bab-so-nach-rpg-a8",
+    "fields": {
+      "created_at": "2024-08-27T07:24:58.969Z",
+      "modified_at": "2024-08-27T07:24:58.969Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-checkliste-bab-so-nach-rpg",
+      "option": "mp-bab-checkliste-bab-so-nach-rpg-a8",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg.mp-bab-checkliste-bab-so-nach-rpg-a9",
+    "fields": {
+      "created_at": "2024-08-27T07:24:58.965Z",
+      "modified_at": "2024-08-27T07:24:58.965Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-checkliste-bab-so-nach-rpg",
+      "option": "mp-bab-checkliste-bab-so-nach-rpg-a9",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg.mp-bab-checkliste-bab-so-nach-rpg-z1",
+    "fields": {
+      "created_at": "2024-08-27T07:24:58.945Z",
+      "modified_at": "2024-08-27T07:24:58.945Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-checkliste-bab-so-nach-rpg",
+      "option": "mp-bab-checkliste-bab-so-nach-rpg-z1",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg.mp-bab-checkliste-bab-so-nach-rpg-z10",
+    "fields": {
+      "created_at": "2024-08-27T07:24:58.914Z",
+      "modified_at": "2024-08-27T07:24:58.914Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-checkliste-bab-so-nach-rpg",
+      "option": "mp-bab-checkliste-bab-so-nach-rpg-z10",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg.mp-bab-checkliste-bab-so-nach-rpg-z2",
+    "fields": {
+      "created_at": "2024-08-27T07:24:58.941Z",
+      "modified_at": "2024-08-27T07:24:58.941Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-checkliste-bab-so-nach-rpg",
+      "option": "mp-bab-checkliste-bab-so-nach-rpg-z2",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg.mp-bab-checkliste-bab-so-nach-rpg-z3",
+    "fields": {
+      "created_at": "2024-08-27T07:24:58.936Z",
+      "modified_at": "2024-08-27T07:24:58.936Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-checkliste-bab-so-nach-rpg",
+      "option": "mp-bab-checkliste-bab-so-nach-rpg-z3",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg.mp-bab-checkliste-bab-so-nach-rpg-z4",
+    "fields": {
+      "created_at": "2024-08-27T07:24:58.933Z",
+      "modified_at": "2024-08-27T07:24:58.933Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-checkliste-bab-so-nach-rpg",
+      "option": "mp-bab-checkliste-bab-so-nach-rpg-z4",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg.mp-bab-checkliste-bab-so-nach-rpg-z5",
+    "fields": {
+      "created_at": "2024-08-27T07:24:58.930Z",
+      "modified_at": "2024-08-27T07:24:58.930Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-checkliste-bab-so-nach-rpg",
+      "option": "mp-bab-checkliste-bab-so-nach-rpg-z5",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg.mp-bab-checkliste-bab-so-nach-rpg-z6",
+    "fields": {
+      "created_at": "2024-08-27T07:24:58.926Z",
+      "modified_at": "2024-08-27T07:24:58.926Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-checkliste-bab-so-nach-rpg",
+      "option": "mp-bab-checkliste-bab-so-nach-rpg-z6",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg.mp-bab-checkliste-bab-so-nach-rpg-z7",
+    "fields": {
+      "created_at": "2024-08-27T07:24:58.923Z",
+      "modified_at": "2024-08-27T07:24:58.923Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-checkliste-bab-so-nach-rpg",
+      "option": "mp-bab-checkliste-bab-so-nach-rpg-z7",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg.mp-bab-checkliste-bab-so-nach-rpg-z8",
+    "fields": {
+      "created_at": "2024-08-27T07:24:58.920Z",
+      "modified_at": "2024-08-27T07:24:58.920Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-checkliste-bab-so-nach-rpg",
+      "option": "mp-bab-checkliste-bab-so-nach-rpg-z8",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-checkliste-bab-so-nach-rpg.mp-bab-checkliste-bab-so-nach-rpg-z9",
+    "fields": {
+      "created_at": "2024-08-27T07:24:58.917Z",
+      "modified_at": "2024-08-27T07:24:58.917Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-checkliste-bab-so-nach-rpg",
+      "option": "mp-bab-checkliste-bab-so-nach-rpg-z9",
+      "sort": 2
     }
   },
   {
@@ -3993,6 +7122,96 @@
       "modified_by_group": null,
       "question": "mp-bab-interesse-am-vorhaben",
       "option": "mp-bab-interesse-am-vorhaben-privat",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-objektschutz.mp-bab-objektschutz-erhaltenswert",
+    "fields": {
+      "created_at": "2024-08-27T07:13:57.688Z",
+      "modified_at": "2024-08-27T07:13:57.688Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-objektschutz",
+      "option": "mp-bab-objektschutz-erhaltenswert",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-objektschutz.mp-bab-objektschutz-geschuetzt",
+    "fields": {
+      "created_at": "2024-08-27T07:13:57.676Z",
+      "modified_at": "2024-08-27T07:13:57.676Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-objektschutz",
+      "option": "mp-bab-objektschutz-geschuetzt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-objektschutz.mp-bab-objektschutz-nein",
+    "fields": {
+      "created_at": "2024-08-27T07:13:57.671Z",
+      "modified_at": "2024-08-27T07:13:57.671Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-objektschutz",
+      "option": "mp-bab-objektschutz-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-objektschutz.mp-bab-objektschutz-schuetzenswert",
+    "fields": {
+      "created_at": "2024-08-27T07:13:57.683Z",
+      "modified_at": "2024-08-27T07:13:57.683Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-objektschutz",
+      "option": "mp-bab-objektschutz-schuetzenswert",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-parteientschaedigung-durch-kanton-zu-bezahlen.mp-bab-parteientschaedigung-durch-kanton-zu-bezahlen-ja",
+    "fields": {
+      "created_at": "2024-08-27T07:37:07.609Z",
+      "modified_at": "2024-08-27T07:37:07.609Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-parteientschaedigung-durch-kanton-zu-bezahlen",
+      "option": "mp-bab-parteientschaedigung-durch-kanton-zu-bezahlen-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-parteientschaedigung-durch-kanton-zu-bezahlen.mp-bab-parteientschaedigung-durch-kanton-zu-bezahlen-nein",
+    "fields": {
+      "created_at": "2024-08-27T07:37:07.605Z",
+      "modified_at": "2024-08-27T07:37:07.605Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-parteientschaedigung-durch-kanton-zu-bezahlen",
+      "option": "mp-bab-parteientschaedigung-durch-kanton-zu-bezahlen-nein",
       "sort": 1
     }
   },
@@ -4338,6 +7557,36 @@
       "modified_by_group": null,
       "question": "mp-bab-verfahrensstand",
       "option": "mp-bab-verfahrensstand-vollstreckungsverfahren",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-verfuegende-behoerde.mp-bab-verfuegende-behoerde-kantonal",
+    "fields": {
+      "created_at": "2024-08-27T07:21:10.193Z",
+      "modified_at": "2024-08-27T07:21:10.193Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-verfuegende-behoerde",
+      "option": "mp-bab-verfuegende-behoerde-kantonal",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-bab-verfuegende-behoerde.mp-bab-verfuegende-behoerde-kommunal",
+    "fields": {
+      "created_at": "2024-08-27T07:21:10.190Z",
+      "modified_at": "2024-08-27T07:21:10.190Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "mp-bab-verfuegende-behoerde",
+      "option": "mp-bab-verfuegende-behoerde-kommunal",
       "sort": 1
     }
   },
