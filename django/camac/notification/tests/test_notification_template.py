@@ -574,8 +574,24 @@ def test_recipient_schnurgeruestabnahme_uri(
     document_factory,
     answer_factory,
     service_factory,
+    notification_template,
 ):
-    serializer = serializers.NotificationTemplateSendmailSerializer()
+    serializer = serializers.PermissionlessNotificationTemplateSendmailSerializer(
+        data={
+            "instance": {"type": "instances", "id": ur_instance.pk},
+            "notification_template": {
+                "type": "notification-templates",
+                "id": notification_template.pk,
+            },
+            "recipient_types": ["schnurgeruestabnahme_uri"],
+            "subject": "test",
+            "work_item": {
+                "type": "work-items",
+                "id": work_item_factory(case=ur_instance.case).pk,
+            },
+        }
+    )
+    serializer.is_valid()
     work_item = work_item_factory(
         case=ur_instance.case,
         document=document_factory(),
@@ -583,7 +599,7 @@ def test_recipient_schnurgeruestabnahme_uri(
             "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"
         ],
     )
-    ago_service = service_factory(name="AGO")
+    ago_service = service_factory(name="AGO (Geometer)")
     answer_factory(
         document=work_item.document,
         question_id="schnurgeruestabnahme-durch",
