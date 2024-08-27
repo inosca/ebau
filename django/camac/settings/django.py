@@ -1075,6 +1075,7 @@ APPLICATIONS = {
             "SECTION": {
                 "MAIN": {"DEFAULT": 1, "PAPER": 13},
                 "SB1": {"DEFAULT": 6, "PAPER": 10},
+                "SB1-V2": {"DEFAULT": 6, "PAPER": 10},
                 "SB2": {"DEFAULT": 5, "PAPER": 11},
             }
         },
