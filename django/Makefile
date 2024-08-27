@@ -21,9 +21,11 @@ start: ## Start the development server
 
 .PHONY: test
 test: ## Test the project
+	env
 	@touch .env
 	@ruff check .
 	@ruff format --check .
+	@python manage.py compilemessages
 	@pytest -vv --cov --cov-report term --cov-report xml:artifacts/cobertura.xml --record-mode=none -n 8 --dist worksteal --junitxml=artifacts/junit.xml
 	@python tools/whichtest.py  --check-locality --verbose --no-report-100percent
 

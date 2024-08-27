@@ -46,3 +46,6 @@ __pycache__/
 # coverage and test reports
 artifacts/*
 !artifacts/.gitkeep
+
+# languages
+**/*.mo
