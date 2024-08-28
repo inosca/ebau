@@ -1,6 +1,7 @@
-id,label,
+﻿id,label,label
 additional-demand-decision-accept,Vollständig beantwortet,Risposto in ogni sua parte
-decision-decision-approved,Bewilligt,Approvata
+additional-demand-decision-reject,Unvollständig beantwortet,Parzialmente risposto
+decision-decision-approved,Bewilligt,Autorizzata
 decision-decision-negative,Negativ,Negativa
 decision-decision-other,Anderweitiger Geschäftsabschluss,Altra chiusura dell'affare
 decision-decision-positive,Positiv,Positiva
@@ -19,7 +20,7 @@ inquiry-answer-status-rejected,Ablehnung,Rifiuto
 inquiry-answer-status-renounced,Auf Stellungnahme wird verzichtet,Si rinuncia a una presa di posizione
 inquiry-answer-status-unknown,Siehe Fachbericht (Antwort via eCH),Vedi rapporto tecnico (risposta via eCH)
 inquiry-answer-status-written-off,Abschreibung,Stralcio
-ja,Die Stellungnahme/Bewilligung/Verfügung befindet sich in der Dokumentenablage,La presa di posizione/autorizzazione/decisione si trova nell'archivio dei documenti
+ja,"Die gesuchstellende Person bestätigt, dass die Anforderungen gemäss der FKS-Richtlinie für Feuerwehrzufahrten, Bewegungs- und Stellflächen sowie der VKF-Brandschutzrichtlinie 14-15 ""Verwendung von Baustoffen"" eingehalten werden","La persona richiedente conferma che sono rispettati i requisiti conformemente alla direttiva CSP concernente le vie di accesso, le superfici di manovra e di appoggio per i mezzi dei pompieri nonché alla direttiva della protezione antincendio AICAA 14-15 «Utilizzo di materiali da costruzione»"
 24d-rpg-ja,Ja,sì
 24d-rpg-nein,Nein,no
 abblaseleitung-ja,Ja,sì
@@ -29,13 +30,13 @@ abfaelle-und-erzeugnisse-der-landwirtschaft-nein,Nein,no
 abgaskatalysator-bhkw-ja,Ja,sì
 abgaskatalysator-bhkw-nein,Nein,no
 abgehaengte-decken-in-fluchtwegen-brennbar,Brennbar (bestehender Zustand),infiammabile (stato esistente)
-abgehaengte-decken-in-fluchtwegen-keine,Keine,nessuna
+abgehaengte-decken-in-fluchtwegen-keine,Keine,nessuno
 abgehaengte-decken-in-fluchtwegen-nicht-brennbar,Nicht brennbar,non infiammabile
 ablaufleitung-fuer-fluessiggas-ja,Ja,sì
 ablaufleitung-fuer-fluessiggas-nein,Nein,no
-ableitung-des-gepumpten-gereinigten-wassers-in-grundwasser,Grundwasser,acque sotterranee
+ableitung-des-gepumpten-gereinigten-wassers-in-grundwasser,Grundwasser,Acque sotterranee
 ableitung-des-gepumpten-gereinigten-wassers-in-vorfluter,Vorfluter,ricettore naturale
-ableitung-des-gereinigten-bohrabwassers-in-grundwasser,Grundwasser,acque sotterranee
+ableitung-des-gereinigten-bohrabwassers-in-grundwasser,Grundwasser,Acque sotterranee
 ableitung-des-gereinigten-bohrabwassers-in-vorfluter,Vorfluter,ricettore naturale
 abluft-ja,Ja,sì
 abluft-nein,Nein,no
@@ -77,7 +78,7 @@ anlage-prozess-weitere-anlagen-oder-prozesse,Weitere Anlagen oder Prozesse,Altri
 anlage-ragt-nicht-ueber-dachflaeche-hinaus-ja,Ja,sì
 anlage-ragt-nicht-ueber-dachflaeche-hinaus-nein,Nein,no
 anlagetyp-allgemeine-lueftungsanlage,Allgemeine Lüftungsanlage,Impianti di ventilazione in generale
-anlagetyp-andere,Andere,Altri
+anlagetyp-andere,Andere,Altro
 anlagetyp-gewerbliche-kueche,Gewerbliche Küche,Cucina commerciale
 anlagetyp-kontrollierte-raumlufterneuerung,Kontrollierte Raumlufterneuerung,Rinnovo controllato dell'aria ambiente
 antrag-ausnahme-solarpflicht-technisch,Sie ist technisch nicht möglich,Tecnicamente impossibile
@@ -90,7 +91,7 @@ anzahl-starts-auf-display-ja,Ja,sì
 anzahl-starts-auf-display-nein,Nein,no
 anzahl-starts-auf-display-rauchgasbehandlung-ja,Ja,sì
 anzahl-starts-auf-display-rauchgasbehandlung-nein,Nein,no
-art-der-abfallanlage-andere,Andere,Altri
+art-der-abfallanlage-andere,Andere,Altro
 art-der-abfallanlage-aufbereitungsanlage,Aufbereitungsanlage,Impianto di pretrattamento
 art-der-abfallanlage-kompostierungsanlage,Kompostierungsanlage,Impianto di compostaggio
 art-der-abfallanlage-recyclinganlage,Recyclinganlage,Impianto di riciclaggio
@@ -98,7 +99,7 @@ art-der-abfallanlage-sammelstelle,Sammelstelle,Centro di raccolta
 art-der-abfallanlage-thermische-behandlungsanlage,Thermische Behandlungsanlage,Impianto di trattamento termico
 art-der-abfallanlage-vergaerungsanlage,Vergärungsanlage,Impianto di metanizzazione
 art-der-abfallanlage-zwischenlager,Zwischenlager,Deposito intermedio
-art-der-anlage-andere,Andere,Altri
+art-der-anlage-andere,Andere,Altro
 art-der-anlage-behaelter-kleingebinde,Kleingebinde,Fusti piccoli
 art-der-anlage-behaelter-kunstsoff-kleintank,Kunstsoff (Kleintank),Sintetico (piccolo serbatoio)
 art-der-anlage-behaelter-kunststoff-gfk,Kunststoff (GFK),Sintetico (GFK)
@@ -126,11 +127,13 @@ art-der-entfernung-ufervegetation,Ufervegetation,Vegetazione ripuale
 art-der-entwaesserung-abflusslos,abflusslos,senza scarico
 art-der-entwaesserung-direkt-in-gewaesser,direkt in Gewässer,direttamente nelle acque
 art-der-entwaesserung-ueber-kanalisation,über Kanalisation in ARA,nell'IDA attraverso la canalizzazione
-art-der-festen-brennstoffe-pelletsfeuerung,Pelletsfeuerung,Impianto di riscaldamento a pellet
-art-der-festen-brennstoffe-schnitzelfeuerung,Schnitzelfeuerung,Impianto di riscaldamento a cippato
+art-der-festen-brennstoffe-andere,Andere,Altro
+art-der-festen-brennstoffe-pelletsfeuerung,Pellets,Granulati pellet
+art-der-festen-brennstoffe-schnitzelfeuerung,Schnitzel,Cippato
+art-der-festen-brennstoffe-spaene,Späne,Trucioli
 art-der-festen-brennstoffe-stueckholz,Stückholz,Ceppi di legna
 art-der-installation-absetzkammer,Absetzkammer (Beruhigungszone),Bacino di decantazione (zona di stabilizzazione)
-art-der-installation-andere,Andere,Altri
+art-der-installation-andere,Andere,Altro
 art-der-installation-elektrofilter,Elektrofilter,Elettrofiltro
 art-der-installation-entschwadungseinrichtung,Entschwadungseinrichtung,Dispositivo di dispersione del vapore
 art-der-installation-entstickungseinrichtung,Entstickungseinrichtung,Dispositivo di denitrificazione
@@ -149,7 +152,7 @@ art-der-massnahme-gegen-waermeeinwirkung-erdverlegt,Erdverlegt,Posa interrata
 art-der-massnahme-gegen-waermeeinwirkung-schirmmauer,Schirmmauer,Muro di protezione
 art-der-massnahme-ueberfahrschutz,Überfahrschutz,Protezione anti schiacciamento
 art-der-reklamebaute-aenderung-reklamebaute,Änderung einer bestehenden Reklamebaute,Modifica di un dispositivo pubblicitario esistente
-art-der-reklamebaute-neue-reklamebaute,Neu,nuovo
+art-der-reklamebaute-neue-reklamebaute,Neu,Nuovo
 art-der-solaranlage-gemischt,Gemischt PV / thermisch,Misto fotovoltaico/termico
 art-der-solaranlage-photovoltaikanlage,Photovoltaikanlage,Impianto fotovoltaico
 art-der-solaranlage-thermische-anlage,Thermische Anlage,Impianto termico
@@ -159,41 +162,40 @@ art-der-sondierung-sondierbohrung,Sondierbohrung,Trivellazione di sondaggio
 art-der-waermepumpe-erdregister,Wärmepumpenanlage mit Erdregister,Pompa termica con scambiatore geotermico
 art-der-waermepumpe-erdsonde,Wärmepumpenanlage mit Erdsonde,Pompa di calore con sonda geotermica
 art-der-waermepumpe-luft-wasser,Luft-/Wasser Wärmepumpe,Pompa di calore aria/acqua
-bauabhnahme-durchgefuehrt-ja,Ja,sì
 art-der-waermepumpe-nutzung-der-wasserwaerme,Wärmepumpenanlage mit Nutzung der Wasserwärme,Pompa di calore con sfruttamento del calore dell'acqua
 art-der-waermequelle-abwasser,Abwasser,Acque di scarico
-art-der-waermequelle-andere,Andere,Altri
+art-der-waermequelle-andere,Andere,Altro
 art-der-waermequelle-grundwasser,Grundwasser,Acque sotterranee
 art-der-waermequelle-oberflaechengewaesser,Oberflächengewässer,Acque di superficie
 art-der-waermequelle-quellwasser,Quellwasser,Acqua di sorgente
-art-der-zentralheizung-andere,Andere,Altri
+art-der-zentralheizung-andere,Andere,Altro
 art-der-zentralheizung-erdgas,Erdgas,Gas naturale
 art-der-zentralheizung-feste-brennstoffe,Feste Brennstoffe,Combustibili solidi
 art-der-zentralheizung-fluessiggas,Flüssiggas,Gas liquefatto
 art-der-zentralheizung-oelfeuerung,Ölfeuerung,Impianto a combustione alimentato con olio
 art-des-betriebs-baugewerbe,Baugewerbe,Edilizia
-art-des-betriebs-brandschutz-andere,Andere,Altri
-art-des-betriebs-garage,Garage,Officina
+art-des-betriebs-brandschutz-andere,Andere,Altro
+art-des-betriebs-garage,Garage,Autofficina
 art-des-betriebs-karosseriebetrieb,Karosseriebetrieb,Azienda di carrozzeria
 art-des-betriebs-kies-und-sandabbaubetrieb,Kies- und Sandabbaubetrieb,Azienda per l'estrazione di ghiaia e sabbia
 art-des-betriebs-malerei,Malerei,Azienda di pittura
 art-des-betriebs-spritzwerk,Spritzwerk,Officina per la verniciatura a spruzzo
 art-des-betriebs-transportbetrieb,Transportbetrieb,Azienda di trasporti
 art-des-betriebs-werkhof,Werkhof,Centro di manutenzione
-art-des-bypassbetriebs-andere,Andere,Altri
+art-des-bypassbetriebs-andere,Andere,Altro
 art-des-bypassbetriebs-entschwadungseinrichtung,Entschwadungseinrichtung,Dispositivo di dispersione del vapore
 art-des-bypassbetriebs-entstickungseinrichtung,Entstickungseinrichtung,Dispositivo di denitrificazione
 art-des-bypassbetriebs-rekuperator,Rekuperator,Recuperatore
-art-des-gebaeude-andere,Andere,Altri
+art-des-gebaeude-andere,Andere,Altro
 art-des-gebaeude-bauten-und-anlagen-mit-raeumen-mit-grosser-personenbelegung,"Bauten und Anlagen mit Räumen mit grosser Personenbelegung (z.B. Schulhäuser, Mehrzweck-, Sport- und Ausstellungshallen, Bahnstationen, Theater, Kinos, Restaurants und ähnliche Versammlungsstätten)","Edifici e impianti con spazi a elevata frequentazione (ad es. edifici scolastici, sale multiuso, sportive e d'esposizione, stazioni ferroviarie, teatri, cinema, ristoranti e strutture di ritrovo simili)"
 art-des-gebaeude-beherbergungsbetriebe,"Beherbergungsbetriebe (z.B. Hotel, B&B, Garni, touristisch bewirtschaftetes Wohnen, Heime, Anstalten, Krankenhäuser mit folgender Anzahl Gäste, Insassen oder Patienten)","Esercizi ricettivi (ad es. alberghi, B&B, garni, alloggi a gestione turistica, istituti, penitenziari, ospedali con seguente numero di ospiti, detenuti o pazienti)"
 art-des-gebaeude-einfamilienhaus,Einfamilienhaus,Casa unifamiliare
-art-des-gebaeude-gebaeude-geringer-abmessungen,Gebäude geringer Abmessungen,Edificio di piccole dimensioni
+art-des-gebaeude-gebaeude-geringer-abmessungen,Gebäude geringer Abmessungen (gem. VKF-Brandschutznorm Art. 13 Abs. 3d),Fabbricati di piccole dimensioni (conf. art. 13 cpv. 3d norma di protezione antincendio AICAA)
 art-des-gebaeude-landwirtschaftliche-bauten,Landwirtschaftliche Bauten,Edifici rurali
 art-des-gebaeude-mehrfamilienhaus,Mehrfamilienhaus,Casa plurifamiliare
 art-des-gebaeude-parkings,Parkings,Parcheggi
 art-des-gebaeude-verkaufsgeschaefte,Verkaufsgeschäfte,Negozi
-art-des-gewaessers-andere,Andere,Altri
+art-des-gewaessers-andere,Andere,Altro
 art-des-gewaessers-bach,Bach,Ruscello
 art-des-gewaessers-fluss,Fluss,Fiume
 art-des-gewaessers-see,See,Lago
@@ -209,7 +211,7 @@ art-des-umschlageplatz-gueterumschlag,Güterumschlag,Piazza di trasbordo
 art-gewaesserschutzbereich-au,Aᵤ,Settori di protezione delle acque Aᵤ
 art-gewaesserschutzbereich-nicht-betroffen,Nicht betroffen,Non interessato
 art-gewaesserschutzbereich-ueb,üB,Territorio rimanente üB
-art-und-menge-des-abwassers-andere,Andere,Altri
+art-und-menge-des-abwassers-andere,Andere,Altro
 art-und-menge-des-abwassers-automatische-waschanlage,Automatische Waschanlage,Lavaggio automatico automobili
 art-und-menge-des-abwassers-karosseriereinigungen,Karosseriereinigungen,Pulizia di carrozzerie
 art-und-menge-des-abwassers-maschinenreinigungen,Maschinenreinigungen (z.B. Bau- oder 	Landmaschinen),Pulizia di macchinari (ad es. macchine edili o agricole)
@@ -239,11 +241,13 @@ ausserhalb-bauzone-bauvorhaben-ausserhalb-bauzone-ja,Ja,sì
 ausserhalb-bauzone-bauvorhaben-ausserhalb-bauzone-nein,Nein,no
 ausserhalb-bauzone-ja,Ja,sì
 ausserhalb-bauzone-nein,Nein,no
-b1,B1,
-b2,B2,
+b1,B1,B1
+b2,B2,B2
+bauabhnahme-durchgefuehrt-ja,Ja,sì
 bauabhnahme-durchgefuehrt-nein,Nein,no
 bauabnahme-abgeschlossen-ja,Ja,sì
 bauabnahme-abgeschlossen-nein,Nein,no
+beschreibung-der-anlagen-waermepumpen,Wärmepumpen,Pompe di calore
 bauanzeige-bauvorhaben-betrifft-neubau-anbau,Neubau / Anbau / Umbau / Ausbau / Umnutzung von Gebäude oder Gebäudeteilen,Nuova costruzione / costruzione annessa / trasformazione / ampliamento / destinazione ad altro scopo di edifici o parti di essi
 bauanzeige-bauvorhaben-betrifft-neubau-ausbau,Neubau / Ausbau / Umbau von haustechnischen (wärmetechnischen) Anlagen,Nuova costruzione / ampliamento / trasformazione di impiantistica (termica)
 bauanzeige-haustechnische-anlagen-brandschutz-ja,Ja,sì
@@ -280,7 +284,6 @@ beschreibung-der-anlagen-solaranlagen,Solartechnische Anlagen,Impianti solari
 beschreibung-der-anlagen-terrainveraenderung,Terrainveränderung (> 200m² / > 50m³),Modifica del terreno (> 200 m² / > 50 m³)
 beschreibung-der-anlagen-untergrund,Wärmepumpen mit Wärmeentzug aus dem Untergrund (Sonde / Register / Wasser),Pompe di calore con recupero del calore dal sottosuolo (sonda / scambiatore geotermico / acqua)
 beschreibung-der-anlagen-verkehrsanlagen,"Verkehrsanlagen (Trottoire, Haltestellen)","Impianti per il traffico (marciapiedi, fermate)"
-beschreibung-der-anlagen-waermepumpen,Wärmepumpen,Pompe di calore
 beschreibung-der-landwirtschaftlichen-bauten-gewerbebauten,Gewerbebauten,Edifici commerciali
 beschreibung-der-landwirtschaftlichen-bauten-oekonomiebaute,Ökonomiebaute,Edificio a scopo di sfruttamento agricolo
 beschreibung-der-landwirtschaftlichen-bauten-wohnhaus,Wohnhaus,Casa d'abitazione
@@ -292,23 +295,23 @@ beschreibung-der-nutzung-materialgewinnung,Materialgewinnung,Estrazione di mater
 beschreibung-der-wohnnutzung-beherbergung-oeffentliche-bauten,Beherbergung / öffentliche Bauten,Esercizio ricettivo / edifici pubblici
 beschreibung-der-wohnnutzung-mehr-als-vier-wohneinheiten,mehr als vier Wohneinheiten,Più di quattro unità abitative
 beschreibung-der-wohnnutzung-wohn-oder-ferienhaus-spital-heim,"Wohn- oder Ferienhaus, Spital, Heim","Casa di abitazione o di vacanza, ospedale, casa di cura"
-beschreibung-grossviehstall-andere,Andere,Altri
-beschreibung-grossviehstall-pferdestall,Pferdestall,Stalla per cavalli
-beschreibung-grossviehstall-rinderstall,Rinderstall,Stalla per bovini
+beschreibung-grossviehstall-andere,Andere,Altro
+beschreibung-grossviehstall-pferdestall,Pferdestall,stalla per cavalli
+beschreibung-grossviehstall-rinderstall,Rinderstall,stalla per bovini
 beschreibung-kantonsstrassen-leitungen,Leitungen in und über Kantonsstrasse,Condotte nella e sopra la strada cantonale
 beschreibung-kantonsstrassen-naeherbauten,"Näherbauten, Zufahrten, Parkplätze, usw.","Costruzioni a distanze ridotte, accessi carrabili, parcheggi, ecc."
 beschreibung-kantonsstrassen-strassenreklamen,Strassenreklamen,Pubblicità stradali
-beschreibung-kleinviehstall-andere,Andere,Altri
+beschreibung-kleinviehstall-andere,Andere,Altro
 beschreibung-kleinviehstall-gefluegelstall,Geflügelstall,pollaio
-beschreibung-kleinviehstall-schafstall,Schafstall,Stalla per ovini
-beschreibung-kleinviehstall-schweinestall,Schweinestall,Stalla per suini
-beschreibung-kleinviehstall-ziegenstall,Ziegenstall,Stalla per caprini
-beschreibung-wasserversorgung-fassung-vorgesehen-brunnen,Brunnen,Fontana
-beschreibung-wasserversorgung-fassung-vorgesehen-oeffentliche-wasserversorgung,öffentliche Wasserversorgung,Approvvigionamento idrico pubblico
+beschreibung-kleinviehstall-schafstall,Schafstall,stalla per ovini
+beschreibung-kleinviehstall-schweinestall,Schweinestall,stalla per suini
+beschreibung-kleinviehstall-ziegenstall,Ziegenstall,stalla per caprini
+beschreibung-wasserversorgung-fassung-vorgesehen-brunnen,Brunnen,fontana
+beschreibung-wasserversorgung-fassung-vorgesehen-oeffentliche-wasserversorgung,öffentliche Wasserversorgung,approvvigionamento idrico pubblico
 beschreibung-wasserversorgung-fassung-vorgesehen-quellfassung,Quellfassung,Captazione di sorgente
 beschreibung-wasserversorgung-vorhanden-bach,Bach,Ruscello
-beschreibung-wasserversorgung-vorhanden-brunnen,Brunnen,Fontana
-beschreibung-wasserversorgung-vorhanden-oeffentliche-wasserversorgung,öffentliche Wasserversorgung,Approvvigionamento idrico pubblico
+beschreibung-wasserversorgung-vorhanden-brunnen,Brunnen,fontana
+beschreibung-wasserversorgung-vorhanden-oeffentliche-wasserversorgung,öffentliche Wasserversorgung,approvvigionamento idrico pubblico
 beschreibung-wasserversorgung-vorhanden-quelle,Quelle,Fonte
 besitzverhaeltnis-eigentum,Eigentum,Proprietà
 besitzverhaeltnis-miete,Miete,Locazione
@@ -316,7 +319,6 @@ besondere-bedingungen-abbruch-rueckbau-aufbereitung,Abbruch / Rückbau / Aufbere
 besondere-bedingungen-archaeologie,Objekt Archäologie und Denkmalpflege,Oggetto archeologia e conservazione dei monumenti storici
 besondere-bedingungen-belasteter-standort,belasteter Standort (Kbs),Sito inquinato (CSIN)
 besondere-bedingungen-emissionen,Emissionen (Gewerbe / Feuerung / > 150 Parkplätze),Emissioni (artigianato / impianto di combustione / >150 parcheggi)
-einverstaendnis-grundeigentuemerin-vorhanden-ja,Ja,sì
 besondere-bedingungen-entfernung-ufervegetation-hecken,Entfernung Ufervegetation / Hecken / Feldgehölze,Rimozione di vegetazione riparia / siepi / boschetti campestri
 besondere-bedingungen-gewaesserschutzbereich,Gewässerschutzbereich,Settore di protezione delle acque
 besondere-bedingungen-laermbelastetes-gebiet,"Lärmbelastetes Gebiet (Strasse, Bahn)","Zona esposta ai rumori (strada, ferrovia)"
@@ -340,14 +342,14 @@ betriebsstunden-auf-display-rauchgasbehandlung-ja,Ja,sì
 betriebsstunden-auf-display-rauchgasbehandlung-nein,Nein,no
 bewilligung-gefaehrdete-bereiche-ja,Ja,sì
 bewilligung-gefaehrdete-bereiche-nein,Nein,no
-bewirtschaftung-durch-eigentuemer,Eigentümer,Proprietario
+bewirtschaftung-durch-eigentuemer,Eigentümer,Proprietaria/o
 bewirtschaftung-durch-paechter,Pächter,Persona affittuaria
-biogener-brennstoff-andere,Andere,Altri
+biogener-brennstoff-andere,Andere,Altro
 biogener-brennstoff-ara-klaergas,ARA-Klärgas,Gas di depurazione IDA
 biogener-brennstoff-biogas-aus-landwirtschaft,Biogas aus Landwirtschaft,Biogas agricolo
 biogener-brennstoff-biogas-faulgas,Biogas-Faulgas,Biogas di depurazione
 biogener-brennstoff-feuerungsanlage-ara-klaergas,ARA-Klärgas,Gas di depurazione IDA
-biogener-brennstoff-feuerungsanlage-biogas-faulgas,Biogas-Faulgas,Biogas di depurazione
+biogener-brennstoff-feuerungsanlage-biogas-faulgas,Biogas - Faulgas,Biogas di depurazione
 biogener-brennstoff-holzgas-inputmaterial,"Holzgas, Inputmaterial","Gas di legno, materiale in entrata"
 biogener-brennstoff-zuendstrahlbetrieb,Zündstrahlbetrieb,Motore a getto
 blitzschutzanlage-blitzschutzsystem,Das Blitzschutzsystem wird gemäss den Regeln der Technik angeschlossen,Il sistema parafulmine viene allacciato in conformità alle regole della tecnica
@@ -355,10 +357,10 @@ blitzschutzanlage-kein-blitzschutzsystem,Kein Blitzschutzsystem vorhanden,Nessun
 bodenbelaege-aus-beton-ja,Ja,sì
 bodenbelaege-aus-beton-nein,Nein,no
 bodenbelaege-im-treppenhaus-brennbar,Brennbar,infiammabile
-bodenbelaege-im-treppenhaus-keine,Keine,nessuna
+bodenbelaege-im-treppenhaus-keine,Keine,nessuno
 bodenbelaege-im-treppenhaus-nicht-brennbar,Nicht brennbar,non infiammabile
 bodenbelaege-in-korridoren-brennbar,Brennbar,infiammabile
-bodenbelaege-in-korridoren-keine,Keine,nessuna
+bodenbelaege-in-korridoren-keine,Keine,nessuno
 bodenbelaege-in-korridoren-nicht-brennbar,Nicht brennbar,non infiammabile
 bodenbelag-laufhof-dicht,Beton (= dichte Beläge),Calcestruzzo (= rivestimento stagno)
 bodenbelag-laufhof-spaltenboden,Spaltenboden,Pavimento a griglia
@@ -368,7 +370,7 @@ bodenkundliches-fachgutachten-ja,Bodenkundliches Fachgutachten,Perizia pedologic
 bohrungen-oder-grabarbeiten-ja,Ja,sì
 bohrungen-oder-grabarbeiten-nein,Nein,no
 branche-abbau-und-verarbeitung-von-steinen-und-erden,Abbau und Verarbeitung von Steinen und Erden,Estrazione e lavorazione di pietre e terra
-branche-andere,Andere,Altri
+branche-andere,Andere,Altro
 branche-baugewerbe,Baugewerbe,Edilizia
 branche-chemische-industrie,Chemische Industrie,Industria chimica
 branche-dienstleistungen,Dienstleistungen,Servizi
@@ -379,21 +381,22 @@ branche-metall-maschinenindustrie,Metall- / Maschinenindustrie,Industria del met
 branche-nahrungs-und-futtermittelindustrie,Nahrungs- und Futtermittelindustrie,Industria alimentare e degli alimenti per animali
 branche-textilindustrie,Textilindustrie,Industria tessile
 brandschutzkonzept-ja,Brandschutzkonzept,Strategia antincendio
-brandschutzplaene-ja,"Brandschutzpläne inkl. Grundrisse, Schnitte, Fassaden","Piani antincendio incl. planimetrie, sezioni, facciate"
-brennstoff-andere,Andere,Altri
+brandschutzplaene-inkl-grundrisse-schnitte-fassaden-und-gegebenenfalls-brandschutzkonzept-ja,"Brandschutzpläne inkl. Grundrisse, Schnitte, Fassaden und gegebenenfalls Brandschutzkonzept","Piani antincendio incl. planimetrie, sezioni, facciate ed eventualmente strategia di protezione antincendio"
+brandschutzplaene-ja,"Brandschutzpläne inkl. Grundrisse, Schnitte, Fassaden","Piani di protezione antincendio incl. planimetrie, sezioni, facciate"
+brennstoff-andere,Andere,Altro
 brennstoff-feste-brennstoffe,Feste Brennstoffe,Combustibili solidi
 brennstoff-gas,Gas,Gas
 brennstoff-oel,Öl,Olio
-brennstofftyp-andere,Andere,Altri
+brennstofftyp-andere,Andere,Altro
 brennstofftyp-biogener-brennstoff,Biogener Brennstoff,Combustibile biogeno
-brennstofftyp-feuerungsanlage-andere,Andere,Altri
+brennstofftyp-feuerungsanlage-andere,Andere,Altro
 brennstofftyp-feuerungsanlage-biogener-brennstoff,Biogener Brennstoff,Combustibile biogeno
 brennstofftyp-feuerungsanlage-normierter-brennstoff,Normierter Brennstoff,Combustibile conforme alle norme vigenti
 brennstofftyp-fossiler-brennstoff,Normierter fossiler Brennstoff,Combustibile fossile conforme alle norme vigenti
-brennstoffverbrauch-holzfeuerung-kgh,kg/h,
-brennstoffverbrauch-holzfeuerung-m3h,m³/h,
-brennstoffverbrauch-kgh,kg/h,
-brennstoffverbrauch-mh,m³/h,
+brennstoffverbrauch-holzfeuerung-kgh,kg/h,kg/h
+brennstoffverbrauch-holzfeuerung-m3h,m³/h,m³/h
+brennstoffverbrauch-kgh,kg/h,kg/h
+brennstoffverbrauch-mh,m³/h,m³/h
 chemische-bodenbelastung-ja,Ja,sì
 chemische-bodenbelastung-nein,Nein,no
 dachausrichtung-sued,Süd,Sud
@@ -411,14 +414,14 @@ das-ganze-jahr-in-betrieb-nein,Nein,no
 dauer-der-entnahme-staendig,Ständig,Permanente
 dauer-der-entnahme-temporaer,Temporär,Temporaneo
 deckenverkleidung-in-fluchtwegen-brennbar,Brennbar (bestehender Zustand),infiammabile (stato esistente)
-deckenverkleidung-in-fluchtwegen-keine,Keine,nessuna
+deckenverkleidung-in-fluchtwegen-keine,Keine,nessuno
 deckenverkleidung-in-fluchtwegen-nicht-brennbar,Nicht brennbar,non infiammabile
 de-no-bhkw-ja,Ja,sì
 de-no-bhkw-nein,Nein,no
-details-alternativenergien-andere,Andere,Altri
+details-alternativenergien-andere,Andere,Altro
 details-alternativenergien-fernheizung,Fernheizung,Rete di teleriscaldamento
 details-alternativenergien-solaranlage,Solaranlage,Impianto solare
-dispositionsplan-heizungsraum-ja,Dispositionsplan Heizungsraum,Piano di disposizione del locale riscaldamento
+dispositionsplan-heizungsraum-ja,Dispositionsplan Heizungsraum / Technikraum,Piano di disposizione del locale riscaldamento / locale tecnico
 einbauart-erdverlegt,Erdverlegt (Unterflur),Interrato (sotterraneo)
 einbauart-im-freien,Im Freien (Überflur),All'esterno (in superficie)
 einbauart-im-gebaeude,Im Gebäude,Nell'edificio
@@ -434,8 +437,9 @@ einleitungsbewilligung-nein,Nein,no
 einliegerwohnung-max-25-zimmer-mit,Mit,Con
 einliegerwohnung-max-25-zimmer-ohne,Ohne,Senza
 einreichen-button-eingereicht,Eingereicht,Trasmessa
-einsatz-des-grundwassers-andere,Andere,Altri
+einsatz-des-grundwassers-andere,Andere,Altro
 einsatz-des-grundwassers-bewaesserung,Bewässerung,Irrigazione
+einverstaendnis-grundeigentuemerin-vorhanden-ja,Ja,sì
 einverstaendnis-grundeigentuemerin-vorhanden-nein,Nein,no
 elektrisch-kombiniert-ja,Ja,sì
 elektrisch-kombiniert-nein,Nein,no
@@ -443,7 +447,7 @@ emissionserklaerung-ja,Ja,sì
 emissionserklaerung-nein,Nein,no
 emissionsmessungen-ja,Ja,sì
 emissionsmessungen-nein,Nein,no
-energie-waermequelle-heizung-7500,Keine,nessuna
+energie-waermequelle-heizung-7500,Keine,nessuno
 energie-waermequelle-heizung-7501,Luft,Aria
 energie-waermequelle-heizung-7510,Erdwärme (generisch),Geotermia (generica)
 energie-waermequelle-heizung-7511,Erdwärmesonde,Sonda geotermica
@@ -463,7 +467,7 @@ energie-waermequelle-heizung-7582,Fernwärme (Niedertemperatur),Calore prodotto 
 energie-waermequelle-heizung-7598,Unbestimmt,Indeterminata
 energie-waermequelle-heizung-7599,Andere,Altro
 energie-waermequelle-heizung-abwaerme,Abwärme (innerhalb des Gebäudes),Scarichi termici (nell'edificio)
-energie-waermequelle-heizung-andere,Andere,Altri
+energie-waermequelle-heizung-andere,Andere,Altro
 energie-waermequelle-heizung-elektrizitaet,Elektrizität,Elettricità
 energie-waermequelle-heizung-erdregister,Erdregister,Scambiatore geotermico
 energie-waermequelle-heizung-erdwaerme-generisch,Erdwärme (generisch),Geotermia (generica)
@@ -476,17 +480,17 @@ energie-waermequelle-heizung-heizoel,Heizöl,Olio da riscaldamento
 energie-waermequelle-heizung-holz-generisch,Holz (generisch),Legna (generica)
 energie-waermequelle-heizung-holz-pellets,Holz (Pellets),Legna (granulati pellet)
 energie-waermequelle-heizung-holz-stueckholz,Holz (Stückholz),Legna (ceppi)
-energie-waermequelle-heizung-keine,Keine,nessuna
+energie-waermequelle-heizung-keine,Keine,nessuno
 energie-waermequelle-heizung-luft,Luft,Aria
 energie-waermequelle-heizung-noch-nicht-festgelegt,Noch nicht festgelegt,Non ancora stabilita
-entgegennahme-berechtigt-ja,Ja,sì
 energie-waermequelle-heizung-sonne-thermisch,Sonne (thermisch),Sole (termico)
 energie-waermequelle-heizung-unbestimmt,Unbestimmt,Indeterminata
 energie-waermequelle-heizung-wasser,"Wasser (Grundwasser, Oberflächenwasser, Abwasser)","Acqua (acque sotterranee, acque di superficie, acque residue)"
-energie-waermequelle-warmwasser-7500,Keine,nessuna
+energie-waermequelle-warmwasser-7500,Keine,nessuno
 energie-waermequelle-warmwasser-7501,Luft,Aria
 energie-waermequelle-warmwasser-7510,Erdwärme (generisch),Geotermia (generica)
 energie-waermequelle-warmwasser-7511,Erdwärmesonde,Sonda geotermica
+gebaeudevolumen-less-3000,< 3'000m³,< 3'000m³
 energie-waermequelle-warmwasser-7512,Erdregister,Scambiatore geotermico
 energie-waermequelle-warmwasser-7513,"Wasser (Grundwasser, Oberflächenwasser, Abwasser)","Acqua (acque sotterranee, acque di superficie, acque residue)"
 energie-waermequelle-warmwasser-7520,Gas,Gas
@@ -501,9 +505,9 @@ energie-waermequelle-warmwasser-7580,Fernwärme (generisch),Calore prodotto a di
 energie-waermequelle-warmwasser-7581,Fernwärme (Hochtemperatur),Calore prodotto a distanza (alta temperatura)
 energie-waermequelle-warmwasser-7582,Fernwärme (Niedertemperatur),Calore prodotto a distanza (bassa temperatura)
 energie-waermequelle-warmwasser-7598,Unbestimmt,Indeterminata
-energie-waermequelle-warmwasser-7599,Andere,Altri
+energie-waermequelle-warmwasser-7599,Andere,Altro
 energie-waermequelle-warmwasser-abwaerme-innerhalb-des-gebaeudes,Abwärme (innerhalb des Gebäudes),Scarichi termici (nell'edificio)
-energie-waermequelle-warmwasser-andere,Andere,Altri
+energie-waermequelle-warmwasser-andere,Andere,Altro
 energie-waermequelle-warmwasser-elektrizitaet,Elektrizität,Elettricità
 energie-waermequelle-warmwasser-erdregister,Erdregister,Scambiatore geotermico
 energie-waermequelle-warmwasser-erdwaerme-generisch,Erdwärme (generisch),Geotermia (generica)
@@ -516,12 +520,13 @@ energie-waermequelle-warmwasser-heizoel,Heizöl,Olio da riscaldamento
 energie-waermequelle-warmwasser-holz-generisch,Holz (generisch),Legna (generica)
 energie-waermequelle-warmwasser-holz-pellets,Holz (Pellets),Legna (granulati pellet)
 energie-waermequelle-warmwasser-holz-stueckholz,Holz (Stückholz),Legna (ceppi)
-energie-waermequelle-warmwasser-keine,Keine,nessuna
+energie-waermequelle-warmwasser-keine,Keine,nessuno
 energie-waermequelle-warmwasser-luft,Luft,Aria
 energie-waermequelle-warmwasser-noch-nicht-festgelegt,Noch nicht festgelegt,Non ancora stabilita
 energie-waermequelle-warmwasser-sonne-thermisch,Sonne (thermisch),Sole (termico)
 energie-waermequelle-warmwasser-unbestimmt,Unbestimmt,Indeterminata
 energie-waermequelle-warmwasser-wasser,"Wasser (Grundwasser, Oberflächenwasser, Abwasser)","Acqua (acque sotterranee, acque di superficie, acque residue)"
+entgegennahme-berechtigt-ja,Ja,sì
 entgegennahme-berechtigt-nein,Nein,no
 entwaesserung-guellegrube-ja,Ja,sì
 entwaesserung-guellegrube-nein,Nein,no
@@ -530,7 +535,7 @@ entwaesserung-guellegrube-warum-nicht-keine-milchproduktion,Keine Milchproduktio
 ersatz-hecke-ersatzpflanzung,Ersatzpflanzung (Realersatz),Piantagione sostitutiva (compensazione in natura)
 ersatz-hecke-monetaere-ersatzabgabe,Monetäre Ersatzabgabe (Ausnahme),Tassa di compensazione in denaro (eccezione)
 erschliessungsanlagen-abwasser,Abwasser,Acque di scarico
-erschliessungsanlagen-andere,Andere,Altri
+erschliessungsanlagen-andere,Andere,Altro
 erschliessungsanlagen-antennenanlage,Antennenanlage,Impianto d'antenna
 erschliessungsanlagen-beschneiungsanlage,Beschneiungsanlage,Impianto d'innevamento
 erschliessungsanlagen-materialablagerung,Materialablagerung und -abtrag,Deposito e asportazione di materiale
@@ -550,7 +555,7 @@ farbton-absorberflaeche-schwarz,Schwarz/dunkel,Nera/scura
 farbton-einfassungen-anderer,Anderer,altro
 farbton-einfassungen-schwarz,Schwarz/dunkel,Nera/scura
 fassadenverkleidung-brennbar,Brennbar,infiammabile
-fassadenverkleidung-keine,Keine,nessuna
+fassadenverkleidung-keine,Keine,nessuno
 fassadenverkleidung-nicht-brennbar,Nicht brennbar,non infiammabile
 fassungstyp-fest-installiert,Fest installiert,Fissa
 fassungstyp-mobil,Mobil,Mobile
@@ -571,8 +576,8 @@ form-des-behaelters-zylindrisch-liegend,"zylindrisch, liegend","cilindrica, oriz
 form-des-behaelters-zylindrisch-stehend,"zylindrisch, stehend","cilindrica, verticale"
 forstliche-baute-ja,Ja,sì
 forstliche-baute-nein,Nein,no
-fuer-aib-freigeben-ja,Dossier für Amt für Immobilienbewertung (AIB) freigeben,Rilasciare il dossier per l'Ufficio per le valutazioni immobiliari (UVI)
-fundationsart-andere,Andere,Altri
+fuer-aib-freigeben-ja,Dossier für Amt für Immobilienbewertung (AIB) freigeben,Rilascia il dossier per l'Ufficio per le valutazioni immobiliari (UVI)
+fundationsart-andere,Andere,Altro
 fundationsart-flach,"Flach (Fundamentplatte, Streifen- und Einzelfundamente)","Superficiale (piastra di fondazione, fondazione continua, plinto di fondazione)"
 fundationsart-tief,Tief (Pfählung),Profonda (palificazione)
 ganzes-jahr-in-betrieb-ja,Ja,sì
@@ -581,7 +586,8 @@ gas-absperrarmatur-ausserhalb-aufstellungsraumes-ja,Ja,sì
 gas-absperrarmatur-ausserhalb-aufstellungsraumes-nein,Nein,no
 gasmeldeanlage-erforderlich-ja,Ja,sì
 gasmeldeanlage-erforderlich-nein,Nein,no
-gebaeudeart-aufstellungsraum-andere,Andere,Altri
+gebaeudeart-andere,Andere,Altro
+gebaeudeart-aufstellungsraum-andere,Andere,Altro
 gebaeudeart-aufstellungsraum-einfamilienhaus,Einfamilienhaus,Casa unifamiliare
 gebaeudeart-aufstellungsraum-mehrfamilienhaus,Mehrfamilienhaus,Casa plurifamiliare
 gebaeudeart-spital-oder-heim,Spital oder Heim,Ospedale o casa di cura
@@ -589,35 +595,34 @@ gebaeudeart-wohn-oder-ferienhaus,Wohn- oder Ferienhaus,Casa di abitazione o di v
 gebaeudehoehe-geringe-hoehe,geringe Höhe (bis 11m),altezza contenuta (fino a 11 m)
 gebaeudehoehe-hochhaus,Hochhaus (mehr als 30m),palazzo (oltre 30 m)
 gebaeudehoehe-mittlere-hoehe,Mittlere Höhe (bis 30m),altezza media (fino a 30 m)
-gebaeudekategorie-andere,Andere Wohngebäude (Wohngebäude mit Nebennutzung),Altri edifici abitativi (edificio abitativo con utilizzazione accessoria)
+gebaeudekategorie-andere,Andere Wohngebäude (Wohngebäude mit Nebennutzung),Altri edifici abitativi (edifici abitativi con utilizzazione accessoria)
 gebaeudekategorie-ausschliessliche-wohnnutzung,Gebäude mit ausschliesslicher Wohnnutzung,Edifici ad uso esclusivamente abitativo
 gebaeudekategorie-ohne-wohnnutzung,Gebäude ohne Wohnnutzung,Edifici ad uso non abitativo
 gebaeudekategorie-provisorische-unterkunft,Provisorische Unterkunft,Abitazioni provvisorie
 gebaeudekategorie-sonderbau,Sonderbau,Costruzioni speciali
 gebaeudekategorie-teilweise-wohnnutzung,Gebäude mit teilweiser Wohnnutzung,Edifici ad uso parzialmente abitativo
-gebaeudevolumen-greater-3000,> 3'000m³,
-gebaeudevolumen-less-3000,< 3'000m³,
-gebaeudevolumen-nach-norm-sia-116,SIA-116,
-gebaeudevolumen-nach-norm-sia-416,SIA-416,
+gebaeudevolumen-greater-3000,> 3'000m³,> 3'000m³
+gebaeudevolumen-nach-norm-sia-116,SIA-116,SIA-116
+gebaeudevolumen-nach-norm-sia-416,SIA-416,SIA-416
 geplanter-ausbau-entnahmebrunnen,Entnahmebrunnen,Pozzo di captazione
 geplanter-ausbau-kein-ausbau,Kein Ausbau/Verfüllung,Nessuno sviluppo/riempimento
 geplanter-ausbau-piezometer,Piezometer,Piezometro
 geplanter-ausbau-rueckgabebrunnen,Rückgabebrunnen,Pozzo di resa
-gesuch-feuerpolizeiliche-bewilligung-ja,Gesuch für eine feuerpolizeiliche Bewilligung,Domanda per un'autorizzazione della polizia del fuoco
+gesuch-feuerpolizeiliche-bewilligung-ja,Gesuch für feuerpolizeiliche Bewilligung,Domanda per un permesso di polizia del fuoco
 gesuchsunterlagen-vollstaendig-ja,Ja,sì
 gesuchsunterlagen-vollstaendig-nein,Nein,no
 gesuchsunterlagen-vollstaendig-nicht-beurteilbar,Nicht beurteilbar / Nachforderung erforderlich,Non valutabile / necessario chiedere precisazioni
-gewaesserschutzbereich-s1,S1,
-gewaesserschutzbereich-s2,S2,
-gewaesserschutzbereich-s3,S3,
+gewaesserschutzbereich-s1,S1,S1
+gewaesserschutzbereich-s2,S2,S2
+gewaesserschutzbereich-s3,S3,S3
 gewerbefilter-aus-metall-ja,Ja,sì
 gewerbefilter-aus-metall-nein,Nein,no
 grundwasserschutzzone-nicht-betroffen,Nicht betroffen,Non interessato
-grundwasserschutzzone-s1,S1,
-grundwasserschutzzone-s2,S2,
-grundwasserschutzzone-s3,S3,
-grundwasserschutzzone-sh,Sh,
-grundwasserschutzzone-sm,Sm,
+grundwasserschutzzone-s1,S1,S1
+grundwasserschutzzone-s2,S2,S2
+grundwasserschutzzone-s3,S3,S3
+grundwasserschutzzone-sh,Sh,Sh
+grundwasserschutzzone-sm,Sm,Sm
 guellelager-neubau-oder-erweiterung-erweiterung-umbau,Erweiterung / Umbau,Ampliamento / trasformazione
 guellelager-neubau-oder-erweiterung-neubau,Neubau,Nuova costruzione
 haben-sie-in-ihrem-betrieb-eine-tankstelle-ja,Ja,sì
@@ -681,23 +686,30 @@ korrosionsschutz-doppelmanteltank,Doppelmanteltank,Serbatoio a doppio mantello
 korrosionsschutz-kathodenschutz,Kathodenschutz,Protezione catodica
 kulturobjekt-ja,Ja,sì
 kulturobjekt-nein,Nein,no
+lage-abgasanlage-anderes,Anderes,Altro
+lage-abgasanlage-fassade,Abgasanlage an der Fassade,Impianto di evacuazione dei gas sulla facciata
+lage-abgasanlage-im-gebaeude,Abgasanlage im Gebäude,Impianto di evacuazione dei gas nell'edificio
+lage-der-solaranlage-dach,Auf dem Dach,Sul tetto
+lage-der-solaranlage-dach-und-fassade,Auf dem Dach und an der Fassade,Sul tetto e sulla facciata
+lage-der-solaranlage-fassade,An der Fassade,Sulla facciata
 lage-des-vorhabens-korrekt-ja,Ja,sì
 lage-des-vorhabens-korrekt-nein,Nein,no
 lageranlagen-gewaesserschutzbereich-au,Aᵤ,Settori di protezione delle acque Aᵤ
 lageranlagen-gewaesserschutzbereich-nicht-betroffen,Nicht betroffen,Non interessato
 lageranlagen-grundwasserschutzzone-nicht-betroffen,Nicht betroffen,Non interessato
-lageranlagen-grundwasserschutzzone-s1,S1,
-lageranlagen-grundwasserschutzzone-s2,S2,
-lageranlagen-grundwasserschutzzone-s3,S3,
-lageranlagen-grundwasserschutzzone-sh,Sh,
-lageranlagen-grundwasserschutzzone-sm,Sm,
+lageranlagen-grundwasserschutzzone-s1,S1,S1
+lageranlagen-grundwasserschutzzone-s2,S2,S2
+lageranlagen-grundwasserschutzzone-s3,S3,S3
+lageranlagen-grundwasserschutzzone-sh,Sh,Sh
+lageranlagen-grundwasserschutzzone-sm,Sm,Sm
+lagergut-ableitung-der-abgase-andere,Andere,Altro
 lagergut-ableitung-der-abgase-benzin,Benzin,Benzina
 lagergut-ableitung-der-abgase-biogas,Biogas,Biogas
 lagergut-ableitung-der-abgase-dieseloel,Dieselöl,Olio diesel
 lagergut-ableitung-der-abgase-feste-brennstoffe,Feste Brennstoffe,Combustibili solidi
 lagergut-ableitung-der-abgase-fluessiggas,Flüssiggas,Gas liquefatto
 lagergut-ableitung-der-abgase-heizoel,Heizöl,Olio da riscaldamento
-lagergut-andere,Andere,Altri
+lagergut-andere,Andere,Altro
 lagergut-diesel,Diesel,Diesel
 lagergut-heizoel,Heizöl,Olio da riscaldamento
 landwirtschaftliches-vorhaben-ja,Ja,sì
@@ -715,7 +727,7 @@ massnahmen-gegen-ausbreitung-fluessiggas-notwendig,Notwendig,Necessarie
 massnahmen-gegen-mechanische-beschaedigung-nicht-notwendig,Nicht notwendig,Non necessarie
 massnahmen-gegen-mechanische-beschaedigung-notwendig,Notwendig,Necessarie
 massnahmen-gegen-unterfeuern-gefaelle,≥ 2% Gefälle,≥ 2% pendenza
-massnahmen-gegen-unterfeuern-keine,Keine,nessuna
+massnahmen-gegen-unterfeuern-keine,Keine,nessuno
 massnahmen-gegen-waermeeinwirkung-eingehalten-keine-weiteren-massnahmen-notwendig,"Eingehalten, keine weiteren Massnahmen notwendig","Rispettate, nessuna ulteriore misura necessaria"
 massnahmen-gegen-waermeeinwirkung-verkuerzt-durch-folgende-massnahmen,Verkürzt durch folgende Massnahmen,Ridotte tramite le misure seguenti
 materialablagerung-beschreibung-abtransport-von-material,Abtransport von Material,Asporto di materiale
@@ -770,10 +782,10 @@ neben-kulturobjekt-ja,Ja,sì
 neben-kulturobjekt-nein,Nein,no
 netzgebunden-ja,Ja,sì
 netzgebunden-nein,"Nein, Inselanlage","No, impianto a isola"
-neue-oder-bestehende-anlage-alt-bestehend,Alt bestehend,Vecchio esistente
+neue-oder-bestehende-anlage-alt-bestehend,Alt bestehend (Sanierung),Vecchio esistente (risanamento)
 neue-oder-bestehende-anlage-neue-anlage,Neue Anlage,Nuovo impianto
-neue-oder-bestehende-lagerung-alt-bestehend,Alt bestehend,Vecchio esistente
-neue-oder-bestehende-lagerung-neue-lagerung,Neue Lagerung,Deposito nuovo
+neue-oder-bestehende-lagerung-alt-bestehend,Alt bestehend (bauliche Veränderung oder geänderte Lagermenge),Vecchio esistente (modifica edilizia o cambiamento della capacità di stoccaggio)
+neue-oder-bestehende-lagerung-neue-lagerung,Neue Lagerung,Nuovo stoccaggio
 neuer-auslauf-beim-stall-ja,Ja,sì
 neuer-auslauf-beim-stall-nein,Nein,no
 nichtforstliche-kleinbaute-ja,Ja,sì
@@ -785,16 +797,16 @@ normierter-brennstoff-erdgas,Erdgas,Gas naturale
 normierter-brennstoff-fluessiggas,Flüssiggas,Gas liquefatto
 normierter-brennstoff-heizoel-euro-extra-leicht,Heizöl Euro extra leicht,Olio da riscaldamento extra leggero
 normierter-brennstoff-oeko-heizoel,Öko-Heizöl,Olio combustibile ecologico
-normierter-fossiler-brennstoff-andere,Andere,Altri
+normierter-fossiler-brennstoff-andere,Andere,Altro
 normierter-fossiler-brennstoff-diesel,Diesel,Diesel
 normierter-fossiler-brennstoff-erdgas,Erdgas,Gas naturale
 normierter-fossiler-brennstoff-fluessiggas,Flüssiggas,Gas liquefatto
 normierter-fossiler-brennstoff-oeko-heizoel,Öko-Heizöl,Olio combustibile ecologico
-nutzungszweck-der-gewerblichen-baute-andere,Andere,Altri
+nutzungszweck-der-gewerblichen-baute-andere,Andere,Altro
 nutzungszweck-der-gewerblichen-baute-gastronomie,Gastronomie,Ristorazione
 nutzungszweck-der-gewerblichen-baute-hotel,Hotel,Albergo
 nutzungszweck-landwirtschaft-alpwirtschaftlicher-betrieb,Alpwirtschaftlicher Betrieb,Azienda alpestre
-nutzungszweck-landwirtschaft-andere,Andere,Altri
+nutzungszweck-landwirtschaft-andere,Andere,Altro
 nutzungszweck-landwirtschaft-aufbereitungsraum,"Aufbereitungs-, bzw. Lagerraum für den Obst-, Wein- und Gartenbau","Locale per i preparativi e l'immagazzinamento in ambito frutticolo, viticolo e del giardinaggio"
 nutzungszweck-landwirtschaft-bienenhaus,Bienenhaus,Alveare
 nutzungszweck-landwirtschaft-gastronomie,Gastronomie,Ristorazione
@@ -804,7 +816,7 @@ nutzungszweck-landwirtschaft-hofduengeranlage,Hofdüngeranlage,Impianto per il d
 nutzungszweck-landwirtschaft-hotel,Hotel,Albergo
 nutzungszweck-landwirtschaft-kleinviehstall,Kleinviehstall,Stalla per bestiame minuto
 nutzungszweck-landwirtschaft-nutzungszweck-der-baute-alpwirtschaftlicher-betrieb,Alpwirtschaftlicher Betrieb,Azienda alpestre
-nutzungszweck-landwirtschaft-nutzungszweck-der-baute-andere,Andere,Altri
+nutzungszweck-landwirtschaft-nutzungszweck-der-baute-andere,Andere,Altro
 nutzungszweck-landwirtschaft-nutzungszweck-der-baute-aufbereitungsraum,"Aufbereitungs-, bzw. Lagerraum für den Obst-, Wein- und Gartenbau","Locale per i preparativi e l'immagazzinamento in ambito frutticolo, viticolo e del giardinaggio"
 nutzungszweck-landwirtschaft-nutzungszweck-der-baute-bienenhaus,Bienenhaus,Alveare
 nutzungszweck-landwirtschaft-nutzungszweck-der-baute-gastronomie,Gastronomie,Ristorazione
@@ -821,12 +833,13 @@ ort-der-entlueftung-oben,Oben,Sopra
 ort-der-entlueftung-unten,Unten,Sotto
 partikelfilter-ja,Ja,sì
 partikelfilter-nein,Nein,no
-platzierung-der-anlage-andere,Andere,Altri
+platzierung-der-anlage-andere,Andere,Altro
 platzierung-der-anlage-erdverlegt,Erdverlegt,Posa interrata
 platzierung-der-anlage-im-gebaeude,Im Gebäude,Nell'edificio
 problematische-holzabfaelle-beschichtungen,Beschichtungen (PVC-halogenorganische Verbindungen),Rivestimenti (PVC - composti organici alogenati)
 problematische-holzabfaelle-druckimpraegniertes-holz,"Druckimprägniertes Holz (wie Zäune, Pfähle, Bahnschwellen etc.)","Legno impregnato (come recinzioni, pali, traversine ferroviarie, ecc.)"
 problematische-holzabfaelle-uebrige-verbundwerkstoffe,"Übrige Verbundwerkstoffe (wie Fenster, Türen etc.)","Altro materiale composito (come finestre, porte, ecc.)"
+projektplaene-ja,"Projektpläne (Situationsplan, Grundriss, Ansichten, Schnitt etc.)","Piani di progetto (piano di situazione, pianta, viste, sezioni, ecc.)"
 proposal-abbruch,Abbruch,Demolizione
 proposal-neubau,Neubau,Nuova costruzione
 proposal-umbau,Umbau,Trasformazione
@@ -851,18 +864,18 @@ pruefung-zonenkonformitaet-nicht-beurteilbar,Nicht beurteilbar / Nachforderung e
 pruefung-zonenkonformitaet-nicht-korrekt,Nicht korrekt,Non corretto
 pruefung-zonenkonformitaet-nicht-relevant,Nicht relevant,Non rilevante
 qualitaetssicherungsstufe-qss-qss-1,QSS 1,GGQ 1
-qualitaetssicherungsstufe-qss-qss-2,QSS 2,GGQ 2
-qualitaetssicherungsstufe-qss-qss-3,QSS 3,GGQ 3
-qualitaetssicherungsstufe-qss-qss-4,QSS 4,GGQ 4
+qualitaetssicherungsstufe-qss-qss-2,QSS 2,QSS 2
+qualitaetssicherungsstufe-qss-qss-3,QSS 3,QSS 3
+qualitaetssicherungsstufe-qss-qss-4,QSS 4,QSS 4
 raumlueftung-automatische-gas-absperrarmatur,Automatische Gas-Absperrarmatur ausserhalb des Aufstellungsraumes,Valvola automatica di intercettazione del gas fuori dal locale di installazione
 raumlueftung-gasmeldeanlage,Gasmeldeanlage,Impianto di rilevazione di gas
-raumlueftung-heizungsraumzugang-direkt-vom-freien,"Heizungsraumzugang direkt vom Freien (über 600 kW im 2. UG, über 1200 kW im 1. UG oder EG)","Accesso al locale del riscaldamento direttamente dall'esterno (oltre 600 kW al 2° PI, oltre 1200 kW al 1° PI o al PT)"
+raumlueftung-heizungsraumzugang-direkt-vom-freien,"Heizungsraumzugang direkt vom Freien (über 600 kW im 2. UG, über 1200 kW im 1. UG oder EG)","Accesso al locale riscaldamento direttamente dall'esterno (oltre 600 kW al 2° PI, oltre 1200 kW al 1° PI o al PT)"
 raumlueftung-kuenstliche-entlueftung,Künstliche Entlüftung,Ventilazione artificiale
 raumlueftung-natuerliche-entlueftung,Natürliche Lüftung,Ventilazione naturale
 recyclingprodukt-rc-asphaltgranulat,RC-Asphaltgranulat,RC-Granulato d'asfalto
 recyclingprodukt-rc-betongranulat,RC-Betongranulat,RC-Granulato da calcestruzzo
 recyclingprodukt-rc-mischabbruchgranulat,RC-Mischabbruchgranulat,RC-Granulato misto da demolizione
-recyclingprodukt-weitere,Weitere,Altri
+recyclingprodukt-weitere,Weitere,Altre
 reflexionsarm-ja,Ja,sì
 reflexionsarm-nein,Nein,no
 restholz-aus-holzverarbeitung-ausschliesslich-mechanisch,Ausschliesslich mechanisch bearbeitete Abschnitte aus Massivholz,Parti in legno massiccio ricavate esclusivamente con procedimenti meccanici
@@ -872,7 +885,7 @@ resultate-der-geforderten-bodenuntersuchung-ja,Resultate der geforderten Bodenun
 rodung-ja,Ja,sì
 rodung-nein,Nein,no
 rodungsgesuchsformular-ja,Rodungsgesuch inkl. den darin aufgeführten Beilagen,Domanda di dissodamento incl. gli allegati indicati
-rueckgabeart-andere,Andere,Altri
+rueckgabeart-andere,Andere,Altro
 rueckgabeart-einleitung-oberflaechengewaesser,Einleitung Oberflächengewässer,Immissione in acque di superficie
 rueckgabeart-rueckgabebrunnen,Rückgabebrunnen,Pozzo di resa
 rueckgabeart-sickerschacht-galerie,Sickerschacht/-galerie,Pozzo/galleria di infiltrazione
@@ -892,6 +905,7 @@ schalldaempfer-ja,Ja,sì
 schalldaempfer-nein,Nein,no
 schraegdach-tragwerksnormen-ja,Ja,sì
 schraegdach-tragwerksnormen-nein,Nein,no
+schutzraumplaene-ja,"Schutzraumpläne (Massstab 1:50, mit Grundriss und Schnitt)",Piani dei rifugi (pianta e sezione in scala 1:50)
 sicherheitsdatenblatt-ja,Sicherheitsdatenblatt,Scheda di dati di sicurezza
 siedlungsabfaelle-kuechenabfaelle,Küchenabfälle,Rifiuti di cucina
 siedlungsabfaelle-papier-und-karton,Papier und Karton,Carta e cartone
@@ -903,7 +917,7 @@ sind-folgende-anlagen-betroffen-einzelfeuerung-fuer-fluessig-oder-erdgas,Einzelf
 sind-folgende-anlagen-betroffen-ortsfeste-fluessiggasbehaelter,Ortsfeste Flüssiggasbehälter,Serbatoi fissi per gas liquefatto
 sind-folgende-anlagen-betroffen-tankstellen,Tankstellen,Stazioni di servizio
 sind-folgende-anlagen-betroffen-waermepumpe,Wärmepumpe,Pompa di calore
-sind-folgende-anlagen-betroffen-zentralheizung,Zentralheizung,Riscaldamento centrale
+sind-folgende-anlagen-betroffen-zentralheizung,"Zentralheizung (flüssige, feste oder gasförmige Brennstoffe)","Riscaldamento centrale (combustibili liquidi, solidi o gassosi)"
 sind-vertragsflaechen-gemaess-oeqv-betroffen-ja,Ja,sì
 sind-vertragsflaechen-gemaess-oeqv-betroffen-nein,Nein,no
 solarpflicht-ja,Ja,sì
@@ -929,17 +943,17 @@ stelldach-nicht-brennbar,Nicht brennbar,non infiammabile
 stockwerktyp-obergeschoss,Obergeschoss,Piano superiore
 stockwerktyp-parterre,Parterre inkl. Hochparterre,Pianterreno incl. piano terra rialzato
 stockwerktyp-untergeschoss,Untergeschoss,Piano interrato
-taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-andere,Andere,Altri
+taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-andere,Andere,Altro
 taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-anlage-zur-materialaufbereitung,Anlage zur Materialaufbereitung,Impianto per il trattamento di materiale
 taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-kieswerk,Kieswerk,Cava di ghiaia
 taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-steinbruch,Steinbruch,Cava di pietra
 taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-zement-kalk-gipswerk,"Zement-, Kalk-, Gipswerk","Cementificio, calcificio e gessificio"
 taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-ziegelei,Ziegelei,Fabbrica di laterizi
 taetigkeit-des-betriebs-baugewerbe-ablaugerei,Ablaugerei,Impresa di decapaggio
-taetigkeit-des-betriebs-baugewerbe-andere,Andere,Altri
+taetigkeit-des-betriebs-baugewerbe-andere,Andere,Altro
 taetigkeit-des-betriebs-baugewerbe-hoch-tiefbau,"Hoch-, Tiefbau",Edilizia / genio civile
 taetigkeit-des-betriebs-baugewerbe-maler-gipserbetrieb,Maler-/Gipserbetrieb,Impresa di pittura/gessatura
-taetigkeit-des-betriebs-dienstleistungen-andere,Andere,Altri
+taetigkeit-des-betriebs-dienstleistungen-andere,Andere,Altro
 taetigkeit-des-betriebs-dienstleistungen-gastgewerbe,Gastgewerbe,Settore della ristorazione
 taetigkeit-des-betriebs-dienstleistungen-reparaturwerkstaette-fuer-andere-fahrzeuge-oder-maschinen,Reparaturwerkstätte für andere Fahrzeuge oder Maschinen,Officina per la riparazione di altri veicoli a motore o altre macchine
 taetigkeit-des-betriebs-dienstleistungen-reparaturwerkstaette-fuer-autos,Reparaturwerkstätte für Autos,Autofficina
@@ -948,39 +962,39 @@ taetigkeit-des-betriebs-dienstleistungen-spritzwerke,Spritzwerke,Officine per la
 taetigkeit-des-betriebs-dienstleistungen-tankreinigung,Tankreinigung,Pulizia cisterne
 taetigkeit-des-betriebs-dienstleistungen-textilreinigung,Textilreinigung,Pulitura a secco
 taetigkeit-des-betriebs-handel-anlagen-fuer-den-umschlag-staubender-gueter,Anlagen für den Umschlag staubender Güter,Impianti per il trasbordo di merci polverose
-taetigkeit-des-betriebs-handel-anlagen-zum-handel-mit-heizoel-diesel-benzin-oder-fluessiggas,"Anlagen zum Handel mit Heizöl, Diesel, Benzin oder Flüssiggas","Stabilimenti per il commercio di olio da riscaldamento, diesel, benzina o di gas liquido"
+taetigkeit-des-betriebs-handel-anlagen-zum-handel-mit-heizoel-diesel-benzin-oder-fluessiggas,"Anlagen zum Handel mit Heizöl, Diesel, Benzin oder Flüssiggas","Stabilimenti per il commercio di olio da riscaldamento, diesel, benzina o di gas liquefatto"
 taetigkeit-des-betriebs-handel-tankstelle,Tankstelle,Stazione di servizio
 taetigkeit-des-betriebs-holzverarbeitung-beiz-und-polierwerkstaette,Beiz- und Polierwerkstätte,Officine di decapaggio e di politura
 taetigkeit-des-betriebs-holzverarbeitung-hobelwerk,Hobelwerk,Officina di piallatura
 taetigkeit-des-betriebs-holzverarbeitung-saegewerk,Sägewerk,Segheria
 taetigkeit-des-betriebs-holzverarbeitung-schreinerei,Schreinerei,Falegnameria
-taetigkeit-des-betriebs-kunststoffverarbeitung-andere,Andere,Altri
+taetigkeit-des-betriebs-kunststoffverarbeitung-andere,Andere,Altro
 taetigkeit-des-betriebs-kunststoffverarbeitung-kunststoffe-und-gummiwaren,Anlage zur Herstellung von Kunststoffen und Gummiwaren,Impianto per la produzione di materiali sintetici e articoli in gomma
 taetigkeit-des-betriebs-kunststoffverarbeitung-pulverbeschichtung,Pulverbeschichtung,Verniciatura a polvere
 taetigkeit-des-betriebs-kunststoffverarbeitung-spritzgusswerk,Spritzgusswerk,Officina di stampaggio a iniezione
-taetigkeit-des-betriebs-metall-maschinenindustrie-andere,Andere,Altri
+taetigkeit-des-betriebs-metall-maschinenindustrie-andere,Andere,Altro
 taetigkeit-des-betriebs-metall-maschinenindustrie-galvanikbetrieb,Galvanikbetrieb,Impianto di galvanizzazione
 taetigkeit-des-betriebs-metall-maschinenindustrie-giesserei,Giesserei,Fonderia
 taetigkeit-des-betriebs-metall-maschinenindustrie-schlosserei,Schlosserei,Officina di fabbro
 taetigkeit-des-betriebs-metall-maschinenindustrie-verzinkerei,Verzinkerei,Officina di zincatura
-taetigkeit-des-betriebs-nahrungsmittelindustrie-andere,Andere,Altri
+taetigkeit-des-betriebs-nahrungsmittelindustrie-andere,Andere,Altro
 taetigkeit-des-betriebs-nahrungsmittelindustrie-hersetllung-von-futtermitteln,Herstellung von Futtermitteln,Produzione di alimenti per animali
 taetigkeit-des-betriebs-nahrungsmittelindustrie-herstellung-von-nahrungsmitteln,Herstellung von Nahrungsmitteln,Produzione di prodotti alimentari
 tankraum-auskleidung-beschichtung,Beschichtung,Rivestimento
 tankraum-auskleidung-laminat,Laminat,Laminato
 tankraum-auskleidung-ohne-auskleidung,ohne Auskleidung,Senza manto
 tankraum-auskleidung-tankraumfolie,Tankraumfolie,Rivestimento per cisterne
-temparaturklasse-ableitung-der-abgase-t080,T080 (≤ 80 °C),
-temparaturklasse-ableitung-der-abgase-t100,T100 (≤ 100 °C),
-temparaturklasse-ableitung-der-abgase-t120,T120 (≤ 120 °C),
-temparaturklasse-ableitung-der-abgase-t140,T140 (≤ 140 °C),
-temparaturklasse-ableitung-der-abgase-t160,T160 (≤ 160 °C),
-temparaturklasse-ableitung-der-abgase-t200,T200 (≤ 200 °C),
-temparaturklasse-ableitung-der-abgase-t250,T250 (≤ 250 °C),
-temparaturklasse-ableitung-der-abgase-t300,T300 (≤ 300 °C),
-temparaturklasse-ableitung-der-abgase-t400,T400 (≤ 400 °C),
-temparaturklasse-ableitung-der-abgase-t450,T450  (≤ 450 °C),
-temparaturklasse-ableitung-der-abgase-t600,T600 (≤ 600 °C),
+temparaturklasse-ableitung-der-abgase-t080,T080 (≤ 80 °C),T080 (≤ 80 °C)
+temparaturklasse-ableitung-der-abgase-t100,T100 (≤ 100 °C),T100 (≤ 100 °C)
+temparaturklasse-ableitung-der-abgase-t120,T120 (≤ 120 °C),T120 (≤ 120 °C)
+temparaturklasse-ableitung-der-abgase-t140,T140 (≤ 140 °C),T140 (≤ 140 °C)
+temparaturklasse-ableitung-der-abgase-t160,T160 (≤ 160 °C),T160 (≤ 160 °C)
+temparaturklasse-ableitung-der-abgase-t200,T200 (≤ 200 °C),T200 (≤ 200 °C)
+temparaturklasse-ableitung-der-abgase-t250,T250 (≤ 250 °C),T250 (≤ 250 °C)
+temparaturklasse-ableitung-der-abgase-t300,T300 (≤ 300 °C),T300 (≤ 300 °C)
+temparaturklasse-ableitung-der-abgase-t400,T400 (≤ 400 °C),T400 (≤ 400 °C)
+temparaturklasse-ableitung-der-abgase-t450,T450  (≤ 450 °C),T450  (≤ 450 °C)
+temparaturklasse-ableitung-der-abgase-t600,T600 (≤ 600 °C),T600 (≤ 600 °C)
 terrainveraenderungen-hecken-ja,Ja,sì
 terrainveraenderungen-hecken-nein,Nein,no
 tragbarkeitsberechnung-ja,Tragbarkeitsberechnungs- und Finanzierungsnachweis (berechnet vom Plantahof),Prova del calcolo della sostenibilità e del finanziamento (calcolo effettuato dal Plantahof)
@@ -991,14 +1005,15 @@ treppen-brennbar,Brennbar,infiammabile
 treppenform-geradlaeufig,Geradläufig,Diritta
 treppenform-gewunden,Gewunden,Curva
 treppen-nicht-brennbar,Nicht brennbar,non infiammabile
-triage-brandschutz-anlage,Neubau / Ausbau / Umbau von haustechnischen (wärmetechnischen) Anlagen,Nuova costruzione / ampliamento / trasformazione di impiantistica (termica)
-triage-brandschutz-gebaeude,Neubau / Anbau / Umbau / Ausbau / Umnutzung von Gebäude oder Gebäudeteilen,Nuova costruzione / costruzione annessa / trasformazione / ampliamento / destinazione ad altro scopo di edifici o parti di essi
+triage-brandschutz-anlage,Neubau oder Ersatz von wärmetechnischen Anlagen,
+triage-brandschutz-gebaeude,"Neubau / Anbau / Umbau / Ausbau / Umnutzung von Gebäude oder Gebäudeteilen (inkl. Lufttechnische Anlagen, Beförderungsanlagen, technische Brandschutzeinrichtungen)","Nuova costruzione / costruzione annessa / trasformazione / ampliamento / destinazione ad altro scopo di edifici o parti di essi (incl. impianti tecnici di ventilazione, impianti di trasporto, dispositivi tecnici di protezione antincendio)"
+triage-brandschutz-keine-zusatzbewilligung,Gemäss Brandschutzgesetz Art. 7 ist keine feuerpolizeiliche Zusatzbewilligung nötig,Conformemente all'art. 7 della legge sulla protezione antincendio non è necessario un permesso di polizia del fuoco
 tuere-ableitung-der-abgase-bestehend,bestehend,esistente
-tuere-ableitung-der-abgase-ei-30,EI 30,
-tuere-ableitung-der-abgase-neu,neu,nuova
+tuere-ableitung-der-abgase-ei-30,EI 30,EI 30
+tuere-ableitung-der-abgase-neu,neu,nuovo
 tuere-bestehend,Bestehend,esistente
 tuere-ei-30,Neu EI 30,Nuovo EI 30
-tuere-neu,Neu,nuovo
+tuere-neu,Neu,Nuovo
 turbulenzen-in-der-erdwaermesonde-laminar,Laminar,Moto laminare
 turbulenzen-in-der-erdwaermesonde-turbulent,Turbulent,Moto turbolento
 typ-abgaskatalysator-3-wege-kat,3-Wege-Kat.,Cat. a 3 vie
@@ -1010,7 +1025,7 @@ typ-der-anlage-solar-hybridkollektoren,Solar-Hybridkollektoren (thermische & PV-
 typ-der-anlage-thermische-anlage,Thermische Anlage,Impianto termico
 typ-der-waermepumpe-mit-brennbarem-kaeltemittel,Brennbar,infiammabile
 typ-der-waermepumpe-ohne-brennbarem-kaeltemittel,Nicht brennbar,non infiammabile
-typ-des-bauwerks-andere,Andere,Altri
+typ-des-bauwerks-andere,Andere,Altro
 typ-des-bauwerks-brennstofflager,Brennstofflager,Serbatoio di stoccaggio di combustibili
 typ-des-bauwerks-doppeleinfamilienhaus,Einfamilienhaus angebaut,Casa unifamiliare annessa
 typ-des-bauwerks-einfamilienhaus,Einfamilienhaus freistehend,Casa unifamiliare isolata
@@ -1041,6 +1056,7 @@ typ-des-bauwerks-wohnheim,Wohnheim ohne Pflegedienste und Betreuung,Residenza se
 typ-des-bauwerks-wohn-und-geschaeftshaus,Wohn- und Geschäftshaus,Abitazione ed edificio commerciale
 typ-des-fluessiggas-butan,Butan,Butano
 typ-des-fluessiggas-propan,Propan,Propano
+uebereinstimmungserklaerung-fuer-pv-anlagen-ja,Übereinstimmungserklärung für PV-Anlagen (Systemkategorie 0 oder 1 mit vereinfachtem Brandschutznachweis),Dichiarazione di conformità per impianti FV (classe 0 o 1 con certificato antincendio semplificato)
 ueberragt-dachflaeche-ja,Ja,sì
 ueberragt-dachflaeche-nein,Nein,no
 uebersteigt-terrainveraenderung-ja,Ja,sì
@@ -1067,8 +1083,9 @@ verdampferanlage-nein,Nein,no
 vereinbarkeit-zweitwohnungsgesetz-ja,Vereinbarkeit Zweitwohnungsgesetz,Conciliabilità legge sulle abitazioni secondarie
 verfahrensart-ordentliches-baubewilligungsverfahren,Ordentliches Baubewilligungsverfahren,Procedura ordinaria per il rilascio della licenza edilizia
 verfahrensart-vereinfachtes-baubewilligungsverfahren,Vereinfachtes Baubewilligungsverfahren,Procedura semplificata per il rilascio della licenza edilizia
-verursacher-emissionen-feuerungsanlagen,Feuerungsanlagen,Impianti a combustione
+verursacher-emissionen-feuerungsanlagen,Feuerungsanlagen,Impianti di combustione
 verursacher-emissionen-stationaere-verbrennungsmotoren,Stationäre Verbrennungsmotoren,Motori a combustione stazionari
+verwendungszweck-des-gases-anderes,Anderes,Altro
 verwendungszweck-des-gases-blockheizkraftwerk,Blockheizkraftwerk,Centrale termoelettrica a blocco
 verwendungszweck-des-gases-heizen,Heizen,Riscaldamento
 verwendungszweck-des-gases-kochen,Kochen,Cucina
@@ -1093,7 +1110,7 @@ vorablaerungsbericht-tiefbauamt-naeherbauten-ja,"Vorabklärungsbericht Tiefbauam
 vorablaerungsbericht-tiefbauamt-strassenreklamen-ja,Vorabklärungsbericht Tiefbauamt für Strassenreklamen (Art. 52 Abs. 2 KRVO),Esame preliminare dell'Ufficio tecnico per pubblicità stradali (art. 52 cpv. 2 OPTC)
 vorgesehene-abwasserableitung-gemeindekanalisation,Gemeindekanalisation,Canalizzazione comunale
 vorgesehene-abwasserableitung-oberirdisches-gewaesser,Oberirdisches Gewässer,Acque superficiali
-vorgesehene-abwasservorbehandlung-andere,Andere,Altri
+vorgesehene-abwasservorbehandlung-andere,Andere,Altro
 vorgesehene-abwasservorbehandlung-biologische-reinigungsanlage,Biologische Reinigungsanlage,Impianto di trattamento biologico
 vorgesehene-abwasservorbehandlung-koaleszenzabscheider,Koaleszenzabscheider,Separatore a coalescenza
 vorgesehene-abwasservorbehandlung-mineraloelabscheider,Mineralölabscheider,Separatore di oli minerali
@@ -1107,10 +1124,10 @@ vorhaben-erneuerung,Erneuerung,Rinnovo
 vorhaben-erweiterung-anbau,Erweiterung,Ampliamento
 vorhaben-neubau,Neubau,Nuova costruzione
 vorhaben-projektaenderung-einer-bewilligten-baute-anlage,Projektänderung einer bewilligten Baute / Anlage,Modifica del progetto di un edificio/impianto autorizzato
-vorhaben-umbau-erweiterung-zweckaenderung,Umbau,Ristrutturazione
+vorhaben-umbau-erweiterung-zweckaenderung,Umbau,Trasformazione
 vorhaben-zweckaenderung,Zweckänderung,Destinazione ad altro scopo
 waermedaemmung-der-aussenwand-brennbar,Brennbar,infiammabile
-waermedaemmung-der-aussenwand-keine,Keine,nessuna
+waermedaemmung-der-aussenwand-keine,Keine,nessuno
 waermedaemmung-der-aussenwand-nicht-brennbar,Nicht brennbar,non infiammabile
 waerme-der-dampferzeugung-ueber-110,über 110 °C,oltre 110 °C
 waerme-der-dampferzeugung-ueber-150,über 150 °C,oltre 150 °C
@@ -1128,13 +1145,14 @@ waermeerzeuger-heizung-7435,Heizkessel kondensierend für mehrere Gebäude,Calda
 waermeerzeuger-heizung-7436,Ofen,Stufa
 waermeerzeuger-heizung-7440,Wärmekraftkopplungsanlage für ein Gebäude,Impianto di cogenerazione di energia elettrica e termica per un solo edificio
 waermeerzeuger-heizung-7441,Wärmekraftkopplungsanlage für mehrere Gebäude,Impianto di cogenerazione di energia elettrica e termica per più edifici
+weitere-waermeerzeuger-heizung-7499,Andere,Altro
 waermeerzeuger-heizung-7450,Elektrospeicher-Zentralheizung für ein Gebäude,Riscaldamento centrale elettrico per un solo edificio
 waermeerzeuger-heizung-7451,Elektrospeicher-Zentralheizung für mehrere Gebäude,Riscaldamento centrale elettrico per più edifici
 waermeerzeuger-heizung-7452,Elektro direkt,Radiatori elettrici
-waermeerzeuger-heizung-7460,Wärmetauscher (einschliesslich für Fernwärme) für ein Gebäude,Scambiatore di calore e impianto ad hoc per teleriscaldamento per un solo edificio 
+waermeerzeuger-heizung-7460,Wärmetauscher (einschliesslich für Fernwärme) für ein Gebäude,Scambiatore di calore e impianto ad hoc per teleriscaldamento per un solo edificio
 waermeerzeuger-heizung-7461,Wärmetauscher (einschliesslich für Fernwärme) für mehrere Gebäude,Scambiatore di calore e impianto ad hoc per teleriscaldamento per più edifici
-waermeerzeuger-heizung-7499,Andere,Altri
-waermeerzeuger-heizung-andere,Andere,Altri
+waermeerzeuger-heizung-7499,Andere,Altro
+waermeerzeuger-heizung-andere,Andere,Altro
 waermeerzeuger-heizung-elektro-direkt,Elektro direkt,Radiatori elettrici
 waermeerzeuger-heizung-elektrospeicher-zentralheizung-fuer-ein-gebaeude,Elektrospeicher-Zentralheizung für ein Gebäude,Riscaldamento centrale elettrico per un solo edificio
 waermeerzeuger-heizung-elektrospeicher-zentralheizung-fuer-mehrere-gebaeude,Elektrospeicher-Zentralheizung für mehrere Gebäude,Riscaldamento centrale elettrico per più edifici
@@ -1164,9 +1182,9 @@ waermeerzeuger-warmwasser-7634,Heizkessel kondensierend,Caldaia a condensazione
 waermeerzeuger-warmwasser-7640,Wärmekraftkopplungsanlage,Impianto di cogenerazione di energia elettrica e termica
 waermeerzeuger-warmwasser-7650,Zentraler Elektroboiler,Boiler centrale elettrico
 waermeerzeuger-warmwasser-7651,Kleinboiler,Piccolo boiler
-waermeerzeuger-warmwasser-7660,Wärmetauscher (einschliesslich für Fernwärme),Scambiatore di calore e impianto ad hoc per teleriscaldamento 
-waermeerzeuger-warmwasser-7699,Andere,Altri
-waermeerzeuger-warmwasser-andere,Andere,Altri
+waermeerzeuger-warmwasser-7660,Wärmetauscher (einschliesslich für Fernwärme),Scambiatore di calore e impianto ad hoc per teleriscaldamento
+waermeerzeuger-warmwasser-7699,Andere,Altro
+waermeerzeuger-warmwasser-andere,Andere,Altro
 waermeerzeuger-warmwasser-heizkessel-generisch,Heizkessel (generisch),Caldaia (generica)
 waermeerzeuger-warmwasser-heizkessel-kondensierend,Heizkessel kondensierend,Caldaia a condensazione
 waermeerzeuger-warmwasser-heizkessel-nicht-kondensierend,Heizkessel nicht kondensierend,Caldaia standard
@@ -1179,11 +1197,11 @@ waermeerzeuger-warmwasser-waermepumpe,Wärmepumpe,Pompa di calore
 waermeerzeuger-warmwasser-waermetauscher-einschliesslich-fuer-fernwaerme,Wärmetauscher (einschliesslich für Fernwärme),Scambiatore di calore e impianto ad hoc per teleriscaldamento
 waermeerzeuger-warmwasser-zentraler-elektroboiler,Zentraler Elektroboiler,Boiler centrale elettrico
 waermespeicher-holzfeuerung-liter,Liter,Litri
-waermespeicher-holzfeuerung-m3,m³,
+waermespeicher-holzfeuerung-m3,m³,m³
 waldareal-ja,"Ja, im Wald","Sì, nel bosco"
 waldareal-nein,Nein,no
 waldareal-waldabstandsbereich,"Ja, im Waldabstandsbereich von 10m","Sì, nella fascia di arretramento dalla foresta di 10 m"
-waschwasser-behandlung-ableitung,Ableitung,Evacuazione
+waschwasser-behandlung-ableitung,Ableitung,Immissione
 waschwasser-behandlung-absetzbecken,Absetzbecken,Decantatore
 waschwasser-behandlung-kammerfilterpresse,Kammerfilterpresse,Filtropressa a camera
 waschwasser-behandlung-kompaktanlage,Kompaktanlage,Impianto compatto
@@ -1193,15 +1211,15 @@ waschwasserbezug-oberflaechengewaesser,Oberflächengewässer,Acque di superficie
 waschwasserbezug-oeffentliche-wasserversorgung,Öffentliche Wasserversorgung,Approvvigionamento idrico pubblico
 was-fuer-eine-anlage-wird-erstellt-mobile-anlage-zb-alp-landwirtschaft-steinbruch-etc,"Mobile Anlage (z.B. Alp-Landwirtschaft, Steinbruch etc.)","Impianto mobile (ad es. alpeggio, cava, ecc.)"
 was-fuer-eine-anlage-wird-erstellt-stationaere-anlage,Stationäre Anlage,Impianto stazionario
-wassergehalt-35-45,M 35 - 45%,
+wassergehalt-35-45,M 35 - 45%,M 35 - 45%
 wassergehalt-ueber-45,M über 45%,M superiore al 45%
 wassergehalt-unter-35,M unter 35%,M inferiore al 35%
-was-verursacht-die-emissionen-feuerungsanlagen,Feuerungsanlagen,Impianti a combustione
+was-verursacht-die-emissionen-feuerungsanlagen,Feuerungsanlagen,Impianti di combustione
 was-verursacht-die-emissionen-sonstige-anlagen,"sonstige Anlagen (z.B. Parkierungsanlagen, Räucheranlagen, Röstanlagen, Trocknungsanlagen usw.)","Altri impianti (ad es. parcheggi, impianti di affumicatura, sistemi di tostatura, impianti di essiccazione, ecc.)"
 was-verursacht-die-emissionen-verbrennungsmotoren,stationäre Verbrennungsmotoren,Motori a combustione stazionari
 weitere-anschluesse-abgasanlage-ja,Ja,sì
 weitere-anschluesse-abgasanlage-nein,Nein,no
-weitere-energie-waermequelle-heizung-7500,Keine,nessuna
+weitere-energie-waermequelle-heizung-7500,Keine,nessuno
 weitere-energie-waermequelle-heizung-7501,Luft,Aria
 weitere-energie-waermequelle-heizung-7510,Erdwärme (generisch),Geotermia (generica)
 weitere-energie-waermequelle-heizung-7511,Erdwärmesonde,Sonda geotermica
@@ -1219,9 +1237,9 @@ weitere-energie-waermequelle-heizung-7580,Fernwärme (generisch),Calore prodotto
 weitere-energie-waermequelle-heizung-7581,Fernwärme (Hochtemperatur),Calore prodotto a distanza (alta temperatura)
 weitere-energie-waermequelle-heizung-7582,Fernwärme (Niedertemperatur),Calore prodotto a distanza (bassa temperatura)
 weitere-energie-waermequelle-heizung-7598,Unbestimmt,Indeterminata
-weitere-energie-waermequelle-heizung-7599,Andere,Altri
+weitere-energie-waermequelle-heizung-7599,Andere,Altro
 weitere-energie-waermequelle-heizung-noch-nicht-festgelegt,Noch nicht festgelegt,Non ancora stabilita
-weitere-energie-waermequelle-warmwasser-7500,Keine,nessuna
+weitere-energie-waermequelle-warmwasser-7500,Keine,nessuno
 weitere-energie-waermequelle-warmwasser-7501,Luft,Aria
 weitere-energie-waermequelle-warmwasser-7510,Erdwärme (generisch),Geotermia (generica)
 weitere-energie-waermequelle-warmwasser-7511,Erdwärmesonde,Sonda geotermica
@@ -1239,7 +1257,7 @@ weitere-energie-waermequelle-warmwasser-7580,Fernwärme (generisch),Calore prodo
 weitere-energie-waermequelle-warmwasser-7581,Fernwärme (Hochtemperatur),Calore prodotto a distanza (alta temperatura)
 weitere-energie-waermequelle-warmwasser-7582,Fernwärme (Niedertemperatur),Calore prodotto a distanza (bassa temperatura)
 weitere-energie-waermequelle-warmwasser-7598,Unbestimmt,Indeterminata
-weitere-energie-waermequelle-warmwasser-7599,Andere,Altri
+weitere-energie-waermequelle-warmwasser-7599,Andere,Altro
 weitere-energie-waermequelle-warmwasser-noch-nicht-festgelegt,Noch nicht festgelegt,Non ancora stabilita
 weitere-waermeerzeuger-heizung-7400,Kein Wärmeerzeuger,Senza generatore di calore
 weitere-waermeerzeuger-heizung-7410,Wärmepumpe für ein Gebäude,Pompa di calore per un solo edificio
@@ -1260,7 +1278,6 @@ weitere-waermeerzeuger-heizung-7451,Elektrospeicher-Zentralheizung für mehrere 
 weitere-waermeerzeuger-heizung-7452,Elektro direkt,Radiatori elettrici
 weitere-waermeerzeuger-heizung-7460,Wärmetauscher (einschliesslich für Fernwärme) für ein Gebäude,Scambiatore di calore e impianto ad hoc per teleriscaldamento per un solo edificio
 weitere-waermeerzeuger-heizung-7461,Wärmetauscher (einschliesslich für Fernwärme) für mehrere Gebäude,Scambiatore di calore e impianto ad hoc per teleriscaldamento per più edifici
-weitere-waermeerzeuger-heizung-7499,Andere,Altri
 weitere-waermeerzeuger-heizung-noch-nicht-festgelegt,Noch nicht festgelegt,Non ancora stabilita
 weitere-waermeerzeuger-warmwasser-7600,Kein Wärmeerzeuger,Senza generatore di calore
 weitere-waermeerzeuger-warmwasser-7610,Wärmepumpe,Pompa di calore
@@ -1272,7 +1289,7 @@ weitere-waermeerzeuger-warmwasser-7640,Wärmekraftkopplungsanlage,Impianto di co
 weitere-waermeerzeuger-warmwasser-7650,Zentraler Elektroboiler,Boiler centrale elettrico
 weitere-waermeerzeuger-warmwasser-7651,Kleinboiler,Piccolo boiler
 weitere-waermeerzeuger-warmwasser-7660,Wärmetauscher (einschliesslich für Fernwärme),Scambiatore di calore e impianto ad hoc per teleriscaldamento
-weitere-waermeerzeuger-warmwasser-7699,Andere,Altri
+weitere-waermeerzeuger-warmwasser-7699,Andere,Altro
 weitere-waermeerzeuger-warmwasser-noch-nicht-festgelegt,Noch nicht festgelegt,Non ancora stabilita
 welche-abfaelle-fallen-in-ihrem-betrieb-an-chemikalienreste,Chemikalienreste,Resti di prodotti chimici
 welche-abfaelle-fallen-in-ihrem-betrieb-an-farb-lackabfaelle,Farb-/Lackabfälle,Rifiuti di colori/vernici
@@ -1315,7 +1332,7 @@ wird-material-vor-ort-aufbereitet-ja,Ja,sì
 wird-material-vor-ort-aufbereitet-nein,Nein,no
 wohnhaus-bestandteil-landwirtschaftliches-gewerbe-ja,Ja,sì
 wohnhaus-bestandteil-landwirtschaftliches-gewerbe-nein,Nein,no
-wohnhaus-bewohnt-durch-2-eigentuemer,Eigentümer,Proprietario
+wohnhaus-bewohnt-durch-2-eigentuemer,Eigentümer,Proprietaria/o
 wohnhaus-bewohnt-durch-2-paechter,Pächter,Persona affittuaria
 wohnnutzung-ja,Ja,sì
 wohnnutzung-nein,Nein,no
@@ -1332,7 +1349,7 @@ zweck-der-bohrung-grundwassernutzung-trinkwasser,Grundwassernutzung Trinkwasser,
 zweck-der-bohrung-grundwassersanierung,Grundwassersanierung,Risanamento della falda freatica
 zweck-der-bohrung-grundwasserueberwachung,Grundwasserüberwachung,Monitoraggio della falda freatica
 zweck-der-bohrung-untersuchung-von-belasteten-standorten,Untersuchung von belasteten Standorten,Indagine su siti inquinati
-zweck-der-bohrung-weitere,Weitere,Altro
+zweck-der-bohrung-weitere,Weitere,Altri
 zweck-der-strom-waermeerzeugung-eigenbedarf-prozesswaerme,"Eigenbedarf, Einspeisung / Prozesswärme","Fabbisogno proprio, immissione in rete / calore di processo"
 zweck-der-strom-waermeerzeugung-eigenbedarf-raumheizung,"Eigenbedarf, Einspeisung / Raumheizung","Fabbisogno proprio, immissione in rete / riscaldamento di locali"
 zweck-der-strom-waermeerzeugung-einspeisung,Einspeisung / Swissgrid-Nutzung,Immissione in rete / utilizzazione Swissgrid
@@ -1341,14 +1358,14 @@ zweck-der-strom-waermeerzeugung-stromerzeugung,"Stromerzeugung, keine Netzerschl
 zweck-der-waermeerzeugung-feuerungsbetrieb-dampferzeugung,Dampferzeugung,Produzione di vapore
 zweck-der-waermeerzeugung-feuerungsbetrieb-raumheizung,Raumheizung,Riscaldamento di un locale
 zweck-der-waermeerzeugung-feuerungsbetrieb-warmwasser,Erzeugung von Warm- oder Heisswasser,Produzione di acqua calda o surriscaldata
-zweck-der-wasserentnahme-andere,Andere,Altri
+zweck-der-wasserentnahme-andere,Andere,Altro
 zweck-der-wasserentnahme-beschneiungsanlagen,Beschneiungsanlagen,Impianti d'innevamento
 zweck-der-wasserentnahme-kieswerkbetrieb,Kieswerkbetrieb,Gestione di una cava di ghiaia
 zweck-der-wasserentnahme-landwirtschaftliche-bewaesserung,Landwirtschaftliche Bewässerung,Irrigazione agricola
 zweck-der-wasserentnahme-wasserkraftnutzung,Wasserkraftnutzung,Sfruttamento della forza idrica
 zweitwohnungsgesetz-ja,Ja,sì
 zweitwohnungsgesetz-nein,Nein,no
-zwg-erstwohnung,"Erstwohnung (Art. 7, Abs. 2, Bst. a ZWG)",
+zwg-erstwohnung,"Erstwohnung (Art. 7, Abs. 2, Bst. a ZWG)",Abitazione primaria (art. 7 cpv. 2 lett. a LASec)
 zwg-keine,"Keine Beschränkung (Art. 8, 9 und 10 ZWG)","Senza limitazione d'uso (art. 8, 9 e 10 LASec)"
 zwg-touristisch-a,"Touristisch bewirtschaftete Wohnung (Art. 7, Abs. 2, Bst. a ZWG)",Abitazione sfruttata a scopi turistici (art. 7 cpv. 2 lett. a LASec)
 zwg-touristisch-b,"Touristisch bewirtschaftete Wohnung (Art. 7, Abs. 2, Bst. b ZWG)",Abitazione sfruttata a scopi turistici (art. 7 cpv. 2 lett. b LASec)
@@ -1364,8 +1381,7 @@ juristische-person-gesuchstellerin-nein,Nein,no
 projektaenderung-ja,Ja,sì
 projektaenderung-nein,Nein,no
 weitere-personen-abweichender-rechnungsempfaenger,Abweichender Rechnungsempfänger,Altra/o destinataria/o della fattura
-weitere-personen-grundeigentumerin,Grundeigentümer/in,Proprietaria/o fondiaria/o
+weitere-personen-grundeigentumerin,Grundeigentümer/in,Persona proprietaria del fondo
 weitere-personen-projektverfasserin,Projektverfasser/in,Progettista
 weitere-personen-rechnungsempfaenger,Abweichende(r) Rechnungsempfänger/in,Altra/o destinataria/o della fattura
-oeffentliche-auflage-ja,Baugesuch inkl. Dokumente in eBau publizieren (während der Publikationsfrist von Gemeinde- und Kantonsamtsblatt),Pubblicare in eBau la domanda di costruzione incl. documenti (durante il termine di pubblicazione del Foglio ufficiale comunale e cantonale)
-additional-demand-decision-reject,Unvollständig beantwortet,Parzialmente risposto
+oeffentliche-auflage-ja,Baugesuch inkl. Dokumente in eBau publizieren (während der Publikationsfrist von Gemeinde- und Kantonsamtsblatt),Pubblica in eBau la domanda di costruzione incl. documenti (durante il termine di pubblicazione del Foglio ufficiale comunale e cantonale)

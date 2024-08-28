@@ -1,4 +1,4 @@
-﻿id,hint_text,
+﻿id,hint_text,hint_text
 anzahl-schutzplaetze-spital,1 Schutzplatz pro Patientenbett,1 posto protetto per ogni letto per pazienti
 anzahl-schutzplaetze-wohnhaus,2 Schutzplätze pro 3 Zimmer,2 posti protetti ogni 3 locali
 bauanzeige-haustechnische-anlagen-brandschutz,"Bitte beachten: Die Befreiung von der Baubewilligungspflicht entbindet nicht von der Einhaltung der Vorschriften des materiellen Rechts (z.B. Grenzabstand bei Kleinbauten) und der Einholung anderer Bewilligungen (z.B. Gastwirtschaftsbewilligungen).    Bestehen Anzeichen dafür, dass durch ein bewilligungsfreies Bauvorhaben Vorschriften des materiellen Rechts verletzt sein könnten, leitet die kommunale Baubehörde von Amtes wegen, auf Ersuchen der Fachstelle oder auf Hinweis von Dritten hin das Baubewilligungsverfahren ein (vgl. Art. 40 Abs. 3 der kantonalen Raumplanungsverordnung [KRVO])","Attenzione: l'esenzione dall'obbligo della licenza edilizia non esonera dall'osservanza delle prescrizioni del diritto materiale (ad es. distanza dal confine in caso di piccole costruzioni) e dalla richiesta di altre autorizzazioni (ad es. patenti d'esercizio pubblico).    Qualora vi fossero indizi che con un progetto di costruzione che non necessita di una licenza potrebbero venire lese prescrizioni di diritto materiale, l'autorità edilizia comunale avvia d'ufficio, su richiesta del Servizio o su indicazione di terzi, la procedura per il rilascio della licenza edilizia (cfr. art. 40 cpv. 3 dell'ordinanza cantonale sulla pianificazione territoriale [OPTC])"
@@ -25,14 +25,14 @@ kaminhoehe-ueber-giebel-feuerungsanlagen,Oder dem Emissionsniveau im Einwirkungs
 leistung-elektrisch-kva,Einzel / Gesamt,Singolo / Complessivo
 leistung-elektrisch-kwel,Einzel / Gesamt,Singolo / Complessivo
 leistung-thermisch-kwth,Einzel / Gesamt,Singolo / Complessivo
-marke-fabrikat-bhwk,Bei mehreren baugleichen Motoren: Anzahl und Motoren Nr. (z.B. 3 / m1-M3),In caso di più motori identici: Numero e motori n. (ad es. 3 / m1- M3)
+marke-fabrikat-bhwk,Bei mehreren baugleichen Motoren: Anzahl und Motoren Nr. (z.B. 3 / M1-M3),In caso di più motori identici: numero e motori n. (ad es. 3 / M1-M3)
 massnahmen-gegen-waermeeinwirkung,Schutzabstände gemäss EKAS-RL. 6517 Flüssiggas,Distanze di sicurezza secondo la direttiva CFSL 6517 gas liquefatti
 mehr-als-2000-quadratmeter-boden-beansprucht,"Wenn ja, bitte Bodenkundliches Fachgutachten beilegen","Se sì, allegare la perizia pedologica"
 minimale-sondenruecklauftemperatur,nach 50 Jahren,dopo 50 anni
 paechter,Sofern verpachtet,Se in affitto
 personen-mit-ausbildungsnachweis,Bitte Ausbildungsnachweis für jede Person als Kopie beilegen.,Allegare una copia dell'attestato di formazione di ogni persona.
-sondenaussendurchmesser,32 mm / 40 mm,
-sondenaussendurchmesser-mm,32 mm / 40 mm,
+sondenaussendurchmesser,32 mm / 40 mm,32 mm / 40 mm
+sondenaussendurchmesser-mm,32 mm / 40 mm,32 mm / 40 mm
 verfahren-produkte,Kurzbeschreibung,Breve descrizione
 waermespeicher-holzfeuerung,In Liter oder m³,In litri o in m³
 weitere-personen,"Bitte nur Personen erfassen, welche nicht identisch mit der Bauherrschaft sind.",Registrare solo le persone che non coincidono con la committenza.

@@ -21,7 +21,7 @@
     "pk": "decision",
     "fields": {
       "created_at": "2022-04-29T06:24:21.909Z",
-      "modified_at": "2024-08-02T12:36:59.884Z",
+      "modified_at": "2024-08-28T12:24:54.487Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -144,12 +144,12 @@
     "pk": "decision-decision-approved",
     "fields": {
       "created_at": "2023-05-30T12:23:06.507Z",
-      "modified_at": "2024-08-02T12:36:56.277Z",
+      "modified_at": "2024-08-28T12:24:50.575Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Bewilligt\", \"fr\": null, \"it\": \"Approvata\"}",
+      "label": "{\"de\": \"Bewilligt\", \"fr\": null, \"it\": \"Autorizzata\"}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -161,7 +161,7 @@
     "pk": "decision-decision-negative",
     "fields": {
       "created_at": "2023-06-21T11:17:40.962Z",
-      "modified_at": "2024-08-02T12:36:56.279Z",
+      "modified_at": "2024-08-28T12:24:50.577Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -178,7 +178,7 @@
     "pk": "decision-decision-other",
     "fields": {
       "created_at": "2023-06-21T09:35:47.189Z",
-      "modified_at": "2024-08-02T12:36:56.282Z",
+      "modified_at": "2024-08-28T12:24:50.580Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -195,7 +195,7 @@
     "pk": "decision-decision-positive",
     "fields": {
       "created_at": "2023-06-21T11:17:40.932Z",
-      "modified_at": "2024-08-02T12:36:56.284Z",
+      "modified_at": "2024-08-28T12:24:50.583Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -212,7 +212,7 @@
     "pk": "decision-decision-positive-with-reservation",
     "fields": {
       "created_at": "2023-06-21T11:17:40.988Z",
-      "modified_at": "2024-08-02T12:36:56.287Z",
+      "modified_at": "2024-08-28T12:24:50.586Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -229,7 +229,7 @@
     "pk": "decision-decision-rejected",
     "fields": {
       "created_at": "2023-05-30T12:23:06.486Z",
-      "modified_at": "2024-08-02T12:36:56.289Z",
+      "modified_at": "2024-08-28T12:24:50.588Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -246,7 +246,7 @@
     "pk": "decision-decision-retreat",
     "fields": {
       "created_at": "2023-06-21T11:17:40.952Z",
-      "modified_at": "2024-08-02T12:36:56.291Z",
+      "modified_at": "2024-08-28T12:24:50.591Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -263,7 +263,7 @@
     "pk": "decision-decision-written-off",
     "fields": {
       "created_at": "2023-05-30T12:23:06.477Z",
-      "modified_at": "2024-08-02T12:36:56.300Z",
+      "modified_at": "2024-08-28T12:24:50.594Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -280,7 +280,7 @@
     "pk": "fuer-gvg-freigeben-ja",
     "fields": {
       "created_at": "2024-01-03T07:21:55.352Z",
-      "modified_at": "2024-08-02T12:36:56.304Z",
+      "modified_at": "2024-08-28T12:24:50.600Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -297,7 +297,7 @@
     "pk": "decision-date",
     "fields": {
       "created_at": "2023-06-21T10:33:43.495Z",
-      "modified_at": "2024-08-02T12:36:51.292Z",
+      "modified_at": "2024-08-28T12:24:45.177Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -328,7 +328,7 @@
     "pk": "decision-decision",
     "fields": {
       "created_at": "2023-05-30T12:22:30.470Z",
-      "modified_at": "2024-08-02T12:36:51.295Z",
+      "modified_at": "2024-08-28T12:24:45.181Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -359,7 +359,7 @@
     "pk": "decision-description",
     "fields": {
       "created_at": "2023-06-21T11:29:00.624Z",
-      "modified_at": "2024-08-02T12:36:51.299Z",
+      "modified_at": "2024-08-28T12:24:45.185Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -393,7 +393,7 @@
     "pk": "decision-remarks",
     "fields": {
       "created_at": "2023-06-21T11:32:28.903Z",
-      "modified_at": "2024-08-02T12:36:51.302Z",
+      "modified_at": "2024-08-28T12:24:45.188Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -427,7 +427,7 @@
     "pk": "decision-submit",
     "fields": {
       "created_at": "2023-06-21T10:36:14.796Z",
-      "modified_at": "2024-08-02T12:36:51.308Z",
+      "modified_at": "2024-08-28T12:24:45.195Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -465,7 +465,7 @@
     "pk": "fuer-gvg-freigeben",
     "fields": {
       "created_at": "2024-01-03T07:21:55.520Z",
-      "modified_at": "2024-08-02T12:36:51.312Z",
+      "modified_at": "2024-08-28T12:24:45.199Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -498,7 +498,7 @@
     "pk": "info-gvg",
     "fields": {
       "created_at": "2024-01-10T14:27:39.978Z",
-      "modified_at": "2024-08-02T12:36:51.318Z",
+      "modified_at": "2024-08-28T12:24:45.211Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -511,7 +511,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"**Bitte beachten**: Gem\\u00e4ss Art. 17 Ziffer 1 des Gesetzes \\u00fcber die Geb\\u00e4udeversicherung im Kanton Graub\\u00fcnden (Geb\\u00e4udeversicherungsgesetz, GebVG) orientieren die Gemeinden die Geb\\u00e4udeversicherung Graub\\u00fcnden \\u00fcber die erteilte Baubewilligung.\\n<style>[data-question-slug=\\\"info-gvg\\\"], [data-question-slug=\\\"info-gvg\\\"] p {margin-bottom: 0 !important;}</style>\", \"fr\": \"\", \"it\": \"**Attenzione**: conformemente all'art.\\u00a017 cpv.\\u00a01 della legge concernente l'Assicurazione fabbricati nel Cantone dei Grigioni (legge sull'Assicurazione fabbricati, LAFab), i comuni informano l'Assicurazione fabbricati dei Grigioni in merito al rilascio della licenza edilizia.\\n \"}",
+      "static_content": "{\"de\": \"**Bitte beachten**: Gem\\u00e4ss Art. 17 Ziffer 1 des Gesetzes \\u00fcber die Geb\\u00e4udeversicherung im Kanton Graub\\u00fcnden (Geb\\u00e4udeversicherungsgesetz, GebVG) orientieren die Gemeinden die Geb\\u00e4udeversicherung Graub\\u00fcnden \\u00fcber die erteilte Baubewilligung.\\n<style>[data-question-slug=\\\"info-gvg\\\"], [data-question-slug=\\\"info-gvg\\\"] p {margin-bottom: 0 !important;}</style>\", \"fr\": \"\", \"it\": \"**Attenzione**: conformemente all'art.\\u00a017 cpv.\\u00a01 della legge concernente l'Assicurazione fabbricati nel Cantone dei Grigioni (legge sull'Assicurazione fabbricati, LAFab), i comuni informano l'Assicurazione fabbricati dei Grigioni in merito al rilascio della licenza edilizia.\\n<style>[data-question-slug=\\\"info-gvg\\\"], [data-question-slug=\\\"info-gvg\\\"] p {margin-bottom: 0 !important;}</style>\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
