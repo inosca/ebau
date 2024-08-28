@@ -1,26 +1,6 @@
 [
   {
     "model": "gis.gisdatasource",
-    "pk": "1426549a-b37e-4510-9cb9-204b59895bee",
-    "fields": {
-      "description": "Nutzungsplanung, weitere Festlegungen (Grundwasserschutz)",
-      "client": "camac.gis.clients.sogis.SoGisClient",
-      "config": {
-        "layer": "ch.so.afu.gewaesserschutz.zonen_areale.data_v2",
-        "properties": [
-          {
-            "question": "nutzungsplanung-weitere-festlegungen",
-            "template": "Grundwasserschutz: {value}",
-            "propertyName": "typ"
-          }
-        ]
-      },
-      "disabled": false,
-      "sort": 0
-    }
-  },
-  {
-    "model": "gis.gisdatasource",
     "pk": "1cfd54fd-a8df-4f80-b031-370805faac19",
     "fields": {
       "description": "Koordinaten",
@@ -28,17 +8,19 @@
       "config": [
         {
           "cast": "float",
+          "hidden": true,
           "question": "parzellen.lagekoordinaten-ost",
           "parameterName": "x"
         },
         {
           "cast": "float",
+          "hidden": true,
           "question": "parzellen.lagekoordinaten-nord",
           "parameterName": "y"
         }
       ],
       "disabled": false,
-      "sort": 1
+      "sort": 0
     }
   },
   {
@@ -58,7 +40,7 @@
         ]
       },
       "disabled": false,
-      "sort": 2
+      "sort": 14
     }
   },
   {
@@ -72,12 +54,18 @@
         "properties": [
           {
             "question": "nutzungsplanung-grundnutzung",
+            "template": "{value} (Gemeinde)",
             "propertyName": "typ_bezeichnung"
+          },
+          {
+            "question": "nutzungsplanung-grundnutzung",
+            "template": "{value} (Kanton)",
+            "propertyName": "typ_kt"
           }
         ]
       },
       "disabled": false,
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -111,7 +99,7 @@
         "invalidLayers": ["ch.bafu.bundesinventare-flachmoore_regional"]
       },
       "disabled": false,
-      "sort": 4
+      "sort": 20
     }
   },
   {
@@ -132,7 +120,7 @@
         ]
       },
       "disabled": false,
-      "sort": 5
+      "sort": 15
     }
   },
   {
@@ -152,34 +140,8 @@
           }
         ]
       },
-      "disabled": false,
-      "sort": 6
-    }
-  },
-  {
-    "model": "gis.gisdatasource",
-    "pk": "42de2d8f-efc7-43e8-9c6e-833a7965eb10",
-    "fields": {
-      "description": "Weitere GIS-Informationen (Denkmalschutz, Fläche)",
-      "client": "camac.gis.clients.sogis.SoGisClient",
-      "config": {
-        "layer": "ch.so.ada.denkmalschutz.flaechenobjekt.data",
-        "buffer": 25,
-        "properties": [
-          {
-            "question": "weitere-gis-informationen",
-            "template": "Denkmalschutz Schutzstufe: {value}",
-            "propertyName": "schutzstufe_text"
-          },
-          {
-            "question": "weitere-gis-informationen",
-            "template": "Denkmalschutzobjekt: {value}",
-            "propertyName": "objektname"
-          }
-        ]
-      },
-      "disabled": false,
-      "sort": 7
+      "disabled": true,
+      "sort": 23
     }
   },
   {
@@ -201,7 +163,7 @@
         ]
       },
       "disabled": false,
-      "sort": 8
+      "sort": 18
     }
   },
   {
@@ -227,30 +189,7 @@
         ]
       },
       "disabled": false,
-      "sort": 9
-    }
-  },
-  {
-    "model": "gis.gisdatasource",
-    "pk": "53bd545f-0284-4ab2-89f1-afacf6831eae",
-    "fields": {
-      "description": "Ort",
-      "client": "camac.gis.clients.sogis.SoGisClient",
-      "config": {
-        "layer": "ch.so.agi.av.grundbuchkreis.data",
-        "properties": [
-          {
-            "question": "ort",
-            "propertyName": "aname"
-          },
-          {
-            "question": "parzellen.ort",
-            "propertyName": "aname"
-          }
-        ]
-      },
-      "disabled": false,
-      "sort": 10
+      "sort": 21
     }
   },
   {
@@ -271,33 +210,32 @@
         ]
       },
       "disabled": false,
-      "sort": 11
+      "sort": 16
     }
   },
   {
     "model": "gis.gisdatasource",
-    "pk": "5adc2865-3911-4f36-a183-f2b03492861c",
+    "pk": "563996b1-fe28-42cc-ab83-e8997cdd5d7d",
     "fields": {
-      "description": "Weitere GIS-Informationen (Denkmalschutz, Punkt)",
+      "description": "Naturgefahren",
       "client": "camac.gis.clients.sogis.SoGisClient",
       "config": {
-        "layer": "ch.so.ada.denkmalschutz.punktobjekt.data",
-        "buffer": 25,
+        "layer": "ch.so.afu.naturgefahren.synoptisches_gefahrengebiet.data",
         "properties": [
           {
-            "question": "weitere-gis-informationen",
-            "template": "Denkmalschutz Schutzstufe: {value}",
-            "propertyName": "schutzstufe_text"
+            "question": "naturgefahren-gis",
+            "template": "Gefahrenstufe: {value}",
+            "propertyName": "gefahrenstufe_txt"
           },
           {
-            "question": "weitere-gis-informationen",
-            "template": "Denkmalschutzobjekt: {value}",
-            "propertyName": "objektname"
+            "question": "naturgefahren-gis",
+            "template": "Charakterisierung: {value}",
+            "propertyName": "charakterisierung"
           }
         ]
       },
       "disabled": false,
-      "sort": 12
+      "sort": 6
     }
   },
   {
@@ -317,8 +255,27 @@
           }
         ]
       },
+      "disabled": true,
+      "sort": 24
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "755e8b4c-5b29-4f68-9415-69cd1ed2eadd",
+    "fields": {
+      "description": "Archäologie (Fläche)",
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.ada.archaeologie.flaechenfundstellen.data",
+        "properties": [
+          {
+            "question": "archaeologie",
+            "propertyName": "fundstellen_art"
+          }
+        ]
+      },
       "disabled": false,
-      "sort": 13
+      "sort": 12
     }
   },
   {
@@ -340,7 +297,47 @@
         ]
       },
       "disabled": false,
-      "sort": 14
+      "sort": 19
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "83f0e0b4-9c44-4b84-81f2-79f5c679f3b4",
+    "fields": {
+      "description": "Fruchtfolgeflächen",
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.alw.fruchtfolgeflaechen.data",
+        "properties": [
+          {
+            "question": "fruchtfolgeflaeche",
+            "template": "Fruchtfolgeflächen-Qualität: {value}",
+            "propertyName": "bezeichnung"
+          }
+        ]
+      },
+      "disabled": false,
+      "sort": 5
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "866c1b30-6dd6-431e-8c44-36c6ae0b71be",
+    "fields": {
+      "description": "Gewässerschutz",
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.afu.gewaesserschutz.zonen_areale.data_v2",
+        "properties": [
+          {
+            "question": "gewaesserschutz",
+            "template": "Schutzzone: {value}",
+            "propertyName": "typ"
+          }
+        ]
+      },
+      "disabled": false,
+      "sort": 8
     }
   },
   {
@@ -358,8 +355,28 @@
           }
         ]
       },
+      "disabled": true,
+      "sort": 25
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "9e367d1b-ac41-40c3-9fdd-41ffce6d8b12",
+    "fields": {
+      "description": "Archäologie (Punkt)",
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.ada.archaeologie.punktfundstellen.data",
+        "buffer": 50,
+        "properties": [
+          {
+            "question": "archaeologie",
+            "propertyName": "fundstellen_art"
+          }
+        ]
+      },
       "disabled": false,
-      "sort": 15
+      "sort": 11
     }
   },
   {
@@ -381,8 +398,8 @@
           }
         ]
       },
-      "disabled": false,
-      "sort": 16
+      "disabled": true,
+      "sort": 26
     }
   },
   {
@@ -409,34 +426,52 @@
     "model": "gis.gisdatasource",
     "pk": "b1a09bf3-757f-4c23-b879-f5f1c940bc51",
     "fields": {
-      "description": "Gemeinde & BfS Nr.",
+      "description": "Grundbuch",
       "client": "camac.gis.clients.sogis.SoGisClient",
       "config": {
-        "layer": "ch.so.agi.gemeindegrenzen.data",
+        "layer": "ch.so.agi.av.grundbuchkreise.data",
         "properties": [
           {
-            "question": "gemeinde",
-            "propertyName": "gemeindename"
+            "question": "parzellen.grundbuchkreis",
+            "propertyName": "aname"
           },
           {
-            "cast": "integer",
-            "question": "gemeindenummer-bfs",
-            "propertyName": "bfs_gemeindenummer"
+            "question": "parzellen.amtschreiberei",
+            "propertyName": "amtschreiberei"
           }
         ]
       },
       "disabled": false,
-      "sort": 18
+      "sort": 3
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "bdbb2a02-2cf5-430d-8abd-6d93a6b3f7de",
+    "fields": {
+      "description": "Altlasten",
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.afu.altlasten.standorte.data_v2",
+        "properties": [
+          {
+            "question": "altlasten-gis",
+            "propertyName": "bewertung"
+          }
+        ]
+      },
+      "disabled": true,
+      "sort": 7
     }
   },
   {
     "model": "gis.gisdatasource",
     "pk": "cf5f31b3-6b38-4776-8bd4-347a3b68dd64",
     "fields": {
-      "description": "Adresse",
+      "description": "Gebäudeadresse",
       "client": "camac.gis.clients.sogis.SoGisClient",
       "config": {
-        "layer": "ch.so.agi.av.gebaeudeadressen.gebaeudeeingaenge",
+        "layer": "ch.so.agi.av.gebaeudeadressen.gebaeudeeingaenge.data",
         "buffer": 20,
         "properties": [
           {
@@ -448,22 +483,18 @@
             "propertyName": "hausnummer"
           },
           {
+            "question": "ort",
+            "propertyName": "ortschaft"
+          },
+          {
             "cast": "string",
-            "question": "parzellen.plz",
+            "question": "plz",
             "propertyName": "plz"
-          },
-          {
-            "question": "parzellen.strasse-flurname",
-            "propertyName": "strassenname"
-          },
-          {
-            "question": "parzellen.strasse-nummer",
-            "propertyName": "hausnummer"
           }
         ]
       },
       "disabled": false,
-      "sort": 19
+      "sort": 2
     }
   },
   {
@@ -482,8 +513,60 @@
           }
         ]
       },
+      "disabled": true,
+      "sort": 27
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "e5c4cce9-7acc-4dac-a5ff-c07489199b0a",
+    "fields": {
+      "description": "Denkmalschutz (Punkt)",
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.ada.denkmalschutz.punktobjekt.data",
+        "buffer": 25,
+        "properties": [
+          {
+            "question": "denkmalschutz",
+            "template": "Denkmalschutzobjekt: {value}",
+            "propertyName": "objektname"
+          },
+          {
+            "question": "denkmalschutz",
+            "template": "Denkmalschutz Schutzstufe: {value}",
+            "propertyName": "schutzstufe_text"
+          }
+        ]
+      },
       "disabled": false,
-      "sort": 20
+      "sort": 10
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "e70292e0-ca01-4ebe-bbfc-eff4b6e9c587",
+    "fields": {
+      "description": "Denkmalschutz (Fläche)",
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.ada.denkmalschutz.flaechenobjekt.data",
+        "buffer": 25,
+        "properties": [
+          {
+            "question": "denkmalschutz",
+            "template": "Denkmalschutzobjekt: {value}",
+            "propertyName": "objektname"
+          },
+          {
+            "question": "denkmalschutz",
+            "template": "Denkmalschutz Schutzstufe: {value}",
+            "propertyName": "schutzstufe_text"
+          }
+        ]
+      },
+      "disabled": false,
+      "sort": 9
     }
   },
   {
@@ -504,18 +587,27 @@
         ]
       },
       "disabled": false,
-      "sort": 21
+      "sort": 13
     }
   },
   {
     "model": "gis.gisdatasource",
     "pk": "f2169071-f7bc-4449-8e24-c2743f4b90c7",
     "fields": {
-      "description": "EGRID & Grundstücksnummer",
+      "description": "Amtliche Vermessung",
       "client": "camac.gis.clients.sogis.SoGisClient",
       "config": {
         "layer": "ch.so.agi.av.grundstuecke.rechtskraeftig.data",
         "properties": [
+          {
+            "question": "gemeinde",
+            "propertyName": "gemeinde"
+          },
+          {
+            "cast": "integer",
+            "question": "gemeindenummer-bfs",
+            "propertyName": "bfs_nr"
+          },
           {
             "question": "parzellen.e-grid",
             "propertyName": "egrid"
@@ -523,11 +615,20 @@
           {
             "question": "parzellen.parzellennummer",
             "propertyName": "nummer"
+          },
+          {
+            "question": "parzellen.grundstueckart",
+            "propertyName": "art_txt"
+          },
+          {
+            "cast": "integer",
+            "question": "parzellen.flaeche-m",
+            "propertyName": "flaechenmass"
           }
         ]
       },
       "disabled": false,
-      "sort": 22
+      "sort": 1
     }
   },
   {
@@ -553,7 +654,7 @@
         ]
       },
       "disabled": false,
-      "sort": 23
+      "sort": 22
     }
   }
 ]

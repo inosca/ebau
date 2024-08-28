@@ -12777,6 +12777,36 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "lokalisierung.altlasten-gis",
+    "fields": {
+      "created_at": "2024-08-22T10:38:56.568Z",
+      "modified_at": "2024-08-22T10:38:56.568Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lokalisierung",
+      "question": "altlasten-gis",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lokalisierung.archaeologie",
+    "fields": {
+      "created_at": "2024-08-22T10:39:18.711Z",
+      "modified_at": "2024-08-22T10:39:18.711Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lokalisierung",
+      "question": "archaeologie",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "lokalisierung.bundesinventare",
     "fields": {
       "created_at": "2023-08-28T09:13:15.922Z",
@@ -12792,6 +12822,36 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "lokalisierung.denkmalschutz",
+    "fields": {
+      "created_at": "2024-08-22T12:56:42.911Z",
+      "modified_at": "2024-08-22T12:56:42.911Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lokalisierung",
+      "question": "denkmalschutz",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lokalisierung.fruchtfolgeflaeche",
+    "fields": {
+      "created_at": "2024-08-22T10:38:35.566Z",
+      "modified_at": "2024-08-22T10:38:35.566Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lokalisierung",
+      "question": "fruchtfolgeflaeche",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "lokalisierung.gemeinde",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -12802,7 +12862,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "gemeinde",
-      "sort": 13
+      "sort": 18
     }
   },
   {
@@ -12817,7 +12877,22 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "gemeindenummer-bfs",
-      "sort": 12
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lokalisierung.gewaesserschutz",
+    "fields": {
+      "created_at": "2024-08-22T10:39:05.711Z",
+      "modified_at": "2024-08-22T10:39:05.711Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lokalisierung",
+      "question": "gewaesserschutz",
+      "sort": 4
     }
   },
   {
@@ -12832,7 +12907,22 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "gis-karte",
-      "sort": 14
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lokalisierung.hinweis-lokalisierung",
+    "fields": {
+      "created_at": "2024-08-22T10:06:58.068Z",
+      "modified_at": "2024-08-22T10:06:58.068Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lokalisierung",
+      "question": "hinweis-lokalisierung",
+      "sort": 11
     }
   },
   {
@@ -12847,7 +12937,22 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "lokalisierung-titel",
-      "sort": 16
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lokalisierung.naturgefahren-gis",
+    "fields": {
+      "created_at": "2024-08-23T09:08:53.961Z",
+      "modified_at": "2024-08-23T09:08:53.961Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lokalisierung",
+      "question": "naturgefahren-gis",
+      "sort": 6
     }
   },
   {
@@ -12862,7 +12967,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "nutzungsplanung-grundnutzung",
-      "sort": 4
+      "sort": 10
     }
   },
   {
@@ -12877,7 +12982,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "nutzungsplanung-weitere-festlegungen",
-      "sort": 3
+      "sort": 9
     }
   },
   {
@@ -12892,7 +12997,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "ort",
-      "sort": 9
+      "sort": 13
     }
   },
   {
@@ -12907,37 +13012,22 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "parzellen",
-      "sort": 8
+      "sort": 12
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "lokalisierung.richtplan-grundnutzung",
+    "pk": "lokalisierung.plz",
     "fields": {
-      "created_at": "2023-08-28T09:07:58.357Z",
-      "modified_at": "2023-08-28T09:07:58.357Z",
+      "created_at": "2024-08-27T15:14:18.133Z",
+      "modified_at": "2024-08-27T15:14:18.133Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "lokalisierung",
-      "question": "richtplan-grundnutzung",
-      "sort": 7
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "lokalisierung.richtplan-weiteres",
-    "fields": {
-      "created_at": "2023-08-28T09:15:55.507Z",
-      "modified_at": "2023-08-28T09:15:55.507Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "lokalisierung",
-      "question": "richtplan-weiteres",
-      "sort": 6
+      "question": "plz",
+      "sort": 14
     }
   },
   {
@@ -12952,7 +13042,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "strasse-flurname",
-      "sort": 11
+      "sort": 16
     }
   },
   {
@@ -12967,37 +13057,22 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "strasse-nummer",
-      "sort": 10
+      "sort": 15
     }
   },
   {
     "model": "caluma_form.formquestion",
     "pk": "lokalisierung.weitere-gis-informationen",
     "fields": {
-      "created_at": "2023-08-28T09:13:02.190Z",
-      "modified_at": "2023-08-28T09:13:02.190Z",
+      "created_at": "2024-08-22T12:42:54.638Z",
+      "modified_at": "2024-08-22T12:42:54.638Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "weitere-gis-informationen",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "lokalisierung.zone",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "lokalisierung",
-      "question": "zone",
-      "sort": 5
+      "sort": 8
     }
   },
   {
@@ -13477,7 +13552,7 @@
       "modified_by_group": null,
       "form": "naturgefahren",
       "question": "feststellungen-naturgefahren",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -13707,6 +13782,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "naturgefahren.naturgefahren-gis",
+    "fields": {
+      "created_at": "2024-08-28T07:52:48.696Z",
+      "modified_at": "2024-08-28T07:52:48.696Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "naturgefahren",
+      "question": "naturgefahren-gis",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "naturgefahren.objektschutzmassnahmen-beratung",
     "fields": {
       "created_at": "2024-05-22T14:11:29.711Z",
@@ -13797,6 +13887,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "parzelle-tabelle.amtschreiberei",
+    "fields": {
+      "created_at": "2024-08-22T10:42:47.648Z",
+      "modified_at": "2024-08-22T10:42:47.648Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "parzelle-tabelle",
+      "question": "amtschreiberei",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "parzelle-tabelle.baurechtsnummer",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -13807,7 +13912,7 @@
       "modified_by_group": null,
       "form": "parzelle-tabelle",
       "question": "baurechtsnummer",
-      "sort": 8
+      "sort": 12
     }
   },
   {
@@ -13822,7 +13927,52 @@
       "modified_by_group": null,
       "form": "parzelle-tabelle",
       "question": "e-grid",
-      "sort": 7
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "parzelle-tabelle.flaeche-m",
+    "fields": {
+      "created_at": "2024-08-22T10:41:56.224Z",
+      "modified_at": "2024-08-22T10:41:56.224Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "parzelle-tabelle",
+      "question": "flaeche-m",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "parzelle-tabelle.grundbuchkreis",
+    "fields": {
+      "created_at": "2024-08-22T10:42:39.488Z",
+      "modified_at": "2024-08-22T10:42:39.488Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "parzelle-tabelle",
+      "question": "grundbuchkreis",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "parzelle-tabelle.grundstueckart",
+    "fields": {
+      "created_at": "2024-08-22T10:49:00.281Z",
+      "modified_at": "2024-08-22T10:49:00.281Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "parzelle-tabelle",
+      "question": "grundstueckart",
+      "sort": 11
     }
   },
   {
@@ -13837,7 +13987,7 @@
       "modified_by_group": null,
       "form": "parzelle-tabelle",
       "question": "lagekoordinaten-nord",
-      "sort": 5
+      "sort": 1
     }
   },
   {
@@ -13852,22 +14002,7 @@
       "modified_by_group": null,
       "form": "parzelle-tabelle",
       "question": "lagekoordinaten-ost",
-      "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "parzelle-tabelle.ort",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "parzelle-tabelle",
-      "question": "ort",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -13882,52 +14017,7 @@
       "modified_by_group": null,
       "form": "parzelle-tabelle",
       "question": "parzellennummer",
-      "sort": 9
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "parzelle-tabelle.plz",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "parzelle-tabelle",
-      "question": "plz",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "parzelle-tabelle.strasse-flurname",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "parzelle-tabelle",
-      "question": "strasse-flurname",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "parzelle-tabelle.strasse-nummer",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "parzelle-tabelle",
-      "question": "strasse-nummer",
-      "sort": 3
+      "sort": 13
     }
   },
   {
@@ -33874,6 +33964,76 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "altlasten-gis",
+    "fields": {
+      "created_at": "2024-08-22T10:38:56.497Z",
+      "modified_at": "2024-08-22T15:28:08.086Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Altlasten\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "gis-layers": ["ch.so.afu.altlasten.standorte"]
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "amtschreiberei",
+    "fields": {
+      "created_at": "2024-08-22T10:42:47.584Z",
+      "modified_at": "2024-08-22T10:42:47.584Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Amtschreiberei\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "amts-fachstelle",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -35349,6 +35509,45 @@
       "configuration": {},
       "meta": {
         "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "archaeologie",
+    "fields": {
+      "created_at": "2024-08-22T10:39:18.651Z",
+      "modified_at": "2024-08-22T15:29:07.533Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Arch\\u00e4ologie\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "gis-layers": [
+          "ch.so.ada.archaeologie.fundstellen_siedlungsgebiet",
+          "ch.so.ada.archaeologie.schutzbereich_innenstadt"
+        ]
       },
       "data_source": null,
       "row_form": null,
@@ -37213,19 +37412,19 @@
     "pk": "baurechtsnummer",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2024-08-22T10:40:22.456Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Baurechtsnummer\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Baurechts- resp. Quellrechtsnummer\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -39886,25 +40085,38 @@
     "pk": "bundesinventare",
     "fields": {
       "created_at": "2023-08-28T09:13:15.686Z",
-      "modified_at": "2023-08-28T09:13:15.686Z",
+      "modified_at": "2024-08-22T15:30:03.131Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Bundesinventare\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
         "min_length": null
       },
-      "meta": {},
+      "meta": {
+        "gis-layers": [
+          "ch.bafu.bundesinventare-amphibien",
+          "ch.bafu.bundesinventare-amphibien_wanderobjekte",
+          "ch.bafu.bundesinventare-vogelreservate",
+          "ch.bafu.bundesinventare-auen",
+          "ch.bafu.bundesinventare-flachmoore",
+          "ch.bafu.bundesinventare-hochmoore",
+          "ch.bafu.bundesinventare-trockenwiesen_trockenweiden",
+          "ch.bafu.bundesinventare-bln",
+          "ch.astra.ivs-nat",
+          "ch.astra.ivs-reg_loc"
+        ]
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40527,6 +40739,42 @@
       "static_content": "{\"de\": \"## Ortsbildschutz / Denkmalpflege / Arch\\u00e4ologie\\n\\n#### Ortsbildschutz\\n\\n**[Bundesinventar der sch\\u00fctzenswerten Ortsbilder der Schweiz, ISOS](https://www.bak.admin.ch/bak/de/home/baukultur/isos-und-ortsbildschutz.html)** Im [ISOS](https://www.bak.admin.ch/bak/de/home/baukultur/isos-und-ortsbildschutz.html) sind zw\\u00f6lf Ortsbilder von nationaler Bedeutung, vier regional bedeutende und neun lokal bedeutende Ortsbilder erfasst. In diesen Gebieten m\\u00fcssen Bauvorhaben bedeutend h\\u00f6here Anforderungen erf\\u00fcllen als in anderen Ortsbildern.  Die Einpassung von Vorhaben in das Ortsbild muss allerdings an allen Orten, insbesondere auch ausserhalb der Hauptsiedlungen ber\\u00fccksichtigt werden.\\n\\n#### Denkmalpflege\\n\\nDie Kantonale Denkmalpflege setzt sich f\\u00fcr den Schutz und die Pflege von historischen Kulturdenkm\\u00e4lern ein. Eine \\u00dcbersicht \\u00fcber die gesch\\u00fctzten Kulturdenkm\\u00e4ler im Kanton Solothurn findet sich im [Geoinformationssystem](https://geo.so.ch/map/?k=d6859d0b0) des Kantons.\\n\\nDie Denkmalpflege ber\\u00e4t Beh\\u00f6rden, Institutionen und Private bei Bau- und Restaurierungsvorhaben und erm\\u00f6glicht die schonungsvolle Weiterentwicklung der historischen Kulturdenkm\\u00e4ler. In diesem Fall empfiehlt es sich, fr\\u00fchzeitig <u>**vor der Einreichung dieses Baugesuchs**</u> mit der Denkmalpflege f\\u00fcr Vorabkl\\u00e4rungen in Kontakt zu treten, um unerw\\u00fcnschte Plan\\u00e4nderungen zu vermeiden: Link zur [Kantonale Denkmalpflege](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-denkmalpflege-und-archaeologie/denkmalpflege/) mit den Kontaktdaten.\\n\\nDie Denkmalpflege kann finanzielle Beitr\\u00e4ge leisten an die Erhaltung und Pflege gesch\\u00fctzter Kulturdenkm\\u00e4ler. Weitere Informationen dazu und das Antragsformular finden sich unter folgendem Link: [Beitragsgesuch](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-denkmalpflege-und-archaeologie/denkmalpflege/)\\n\\n#### Arch\\u00e4ologie\\n\\nIm [Geoinformationsystem](https://geo.so.ch/map/?k=681b69e3c) des Kantons sind die bisher bekannten arch\\u00e4ologischen Fundstellen innerhalb des Siedlungsgebietes aufgef\\u00fchrt. F\\u00fcr Gesuchsteller/innen, die in einem solchen Gebiet ein Vorhaben realisieren m\\u00f6chten, das Bodeneingriffe beinhaltet, bedeutet das in erster Linie, dass im Zeitplan eine gewisse Reserve f\\u00fcr die arch\\u00e4ologischen Untersuchungen eingeplant werden sollte. Deren Umfang kann je nach Fundstelle und Bauvorhaben stark variieren. Eine vorg\\u00e4ngige Beratung <u>**wird vor der Einreichung dieses Baugesuchs**</u> empfohlen. \\nLink zur [Kantonsarch\\u00e4ologie](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-denkmalpflege-und-archaeologie/archaeologie/) mit den Kontaktdaten.\\n\\nAber auch an anderen Stellen \\u2013 insbesondere in Dorfzentren, in Kirchenn\\u00e4he oder auf auff\\u00e4lligen Gel\\u00e4ndeterrassen \\u2013 k\\u00f6nnten bisher noch unbekannte arch\\u00e4ologische Fundstellen zum Vorschein kommen. Werden bei Bau- und Grabarbeiten arch\\u00e4ologische Funde oder eine Fundstelle entdeckt, so haben gem\\u00e4ss Art. 22 der kantonalen Verordnung \\u00fcber den Schutz der historischen Kulturdenkm\\u00e4ler (KDV) die Gesuchsteller/in, die Bauleitung oder die Unternehmerschaft sofort die [Kantonsarch\\u00e4ologie](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-denkmalpflege-und-archaeologie/archaeologie/) zu benachrichtigen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "denkmalschutz",
+    "fields": {
+      "created_at": "2024-08-22T12:56:42.855Z",
+      "modified_at": "2024-08-22T15:28:44.263Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Denkmalschutz\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "gis-layers": ["ch.so.ada.denkmalschutz"]
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -41289,14 +41537,14 @@
     "pk": "e-grid",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-08-28T09:13:31.999Z",
+      "modified_at": "2024-08-28T08:10:01.742Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"EGRID\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"E-GRID\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -45210,6 +45458,42 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "flaeche-m",
+    "fields": {
+      "created_at": "2024-08-22T10:41:56.164Z",
+      "modified_at": "2024-08-22T10:41:56.164Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fl\\u00e4che [m\\u00b2]\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "flaeche-neu-in-m",
     "fields": {
       "created_at": "2023-09-13T12:52:12.971Z",
@@ -45940,6 +46224,42 @@
         "min_length": null
       },
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "fruchtfolgeflaeche",
+    "fields": {
+      "created_at": "2024-08-22T10:38:35.489Z",
+      "modified_at": "2024-08-22T15:27:30.220Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fruchtfolgefl\\u00e4che\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "gis-layers": ["ch.so.alw.fruchtfolgeflaechen"]
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -46877,21 +47197,23 @@
     "pk": "gemeindenummer-bfs",
     "fields": {
       "created_at": "2023-08-28T09:06:35.361Z",
-      "modified_at": "2023-08-28T09:06:35.361Z",
+      "modified_at": "2024-08-22T10:05:28.910Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Gemeindenummer BfS\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"BFS-Nummer\", \"fr\": null, \"it\": null}",
       "type": "integer",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
+        "max_value": null,
+        "min_value": null,
         "max_length": null,
         "min_length": null
       },
@@ -47510,6 +47832,45 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "gewaesserschutz",
+    "fields": {
+      "created_at": "2024-08-22T10:39:05.647Z",
+      "modified_at": "2024-08-22T15:28:03.146Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gew\\u00e4sserschutz\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "gis-layers": [
+          "ch.so.afu.gewaesserschutz.schutzzonen",
+          "ch.so.afu.gewaesserschutz.schutzareale"
+        ]
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "gewaesserschutz-titel",
     "fields": {
       "created_at": "2023-11-21T08:04:30.348Z",
@@ -47738,6 +48099,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "grundbuchkreis",
+    "fields": {
+      "created_at": "2024-08-22T10:42:39.426Z",
+      "modified_at": "2024-08-22T10:42:39.426Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grundbuchkreis\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "grundeigentuemerin",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -47829,6 +48224,40 @@
       "meta": {
         "hideLabel": true
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "grundstueckart",
+    "fields": {
+      "created_at": "2024-08-22T10:49:00.215Z",
+      "modified_at": "2024-08-22T10:49:00.215Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grundst\\u00fcckart\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -50027,6 +50456,39 @@
       "static_content": "{\"de\": \"**Hinweis Lebensmittelgesetz** \\n\\nPatente und Bewilligungen nach dem Gastwirtschaftsgesetz m\\u00fcssen gemeldet werden. Die Meldung \\u00fcbernimmt die Beh\\u00f6rde, welche die Patente bzw. Bewilligungen ausstellt.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-lokalisierung",
+    "fields": {
+      "created_at": "2024-08-22T10:06:58.015Z",
+      "modified_at": "2024-08-22T15:16:52.445Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Lokalisierung\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<p class=\\\"uk-text-small uk-text-bold\\\">Hinweise aufgrund der Lage des Bauvorhabens</p>\\n\\n<p class=\\\"uk-margin-remove\\\">Aufgrund der von Ihnen ausgew\\u00e4hlten Position des Bauvorhabens wurden untenstehende Daten aus dem Geoportal des Kantons Solothurn bezogen. Die Daten geben Ihnen einen Hinweis auf zu ber\\u00fccksichtigende Themen. Bitte konsultieren Sie auch das <a target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\" href=\\\"https://geo-i.so.ch/map?t=ebau&s=1000{replace-coords:&c=x,y}\\\" >Geoportal</a> des Kantons Solothurn.</p>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "coordinates-placeholder"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -53541,7 +54003,7 @@
     "pk": "lagekoordinaten-nord",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-08-28T09:14:16.968Z",
+      "modified_at": "2024-08-22T12:45:14.785Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -53560,7 +54022,8 @@
         "min_value": null
       },
       "meta": {
-        "widgetOverride": "cf-field/input/number-separator"
+        "hideLabel": true,
+        "widgetOverride": "cf-field/input/hidden"
       },
       "data_source": null,
       "row_form": null,
@@ -53577,7 +54040,7 @@
     "pk": "lagekoordinaten-ost",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-08-28T09:14:23.996Z",
+      "modified_at": "2024-08-22T12:45:10.316Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -53596,7 +54059,8 @@
         "min_value": null
       },
       "meta": {
-        "widgetOverride": "cf-field/input/number-separator"
+        "hideLabel": true,
+        "widgetOverride": "cf-field/input/hidden"
       },
       "data_source": null,
       "row_form": null,
@@ -56486,7 +56950,7 @@
     "pk": "naturgefahren",
     "fields": {
       "created_at": "2023-09-11T12:48:34.283Z",
-      "modified_at": "2024-08-09T11:01:52.398Z",
+      "modified_at": "2024-08-28T07:52:25.504Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -56565,6 +57029,42 @@
       "configuration": {},
       "meta": {
         "widgetOverride": "coordinates-placeholder"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "naturgefahren-gis",
+    "fields": {
+      "created_at": "2024-08-23T09:08:53.775Z",
+      "modified_at": "2024-08-23T09:09:27.742Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Naturgefahren\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "gis-layers": ["ch.so.afu.naturgefahren.synoptisches_gefahrengebiet"]
       },
       "data_source": null,
       "row_form": null,
@@ -57291,25 +57791,27 @@
     "pk": "nutzungsplanung-grundnutzung",
     "fields": {
       "created_at": "2023-08-28T09:12:34.961Z",
-      "modified_at": "2023-08-28T09:12:34.961Z",
+      "modified_at": "2024-08-22T15:22:41.108Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Nutzungsplanung (Grundnutzung)\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
         "min_length": null
       },
-      "meta": {},
+      "meta": {
+        "gis-layers": ["ch.so.arp.nutzungsplanung.grundnutzung"]
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -57325,25 +57827,33 @@
     "pk": "nutzungsplanung-weitere-festlegungen",
     "fields": {
       "created_at": "2023-08-28T09:12:49.760Z",
-      "modified_at": "2023-08-28T09:12:49.760Z",
+      "modified_at": "2024-08-22T15:26:57.861Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Nutzungsplanung, weitere Festlegungen\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
         "min_length": null
       },
-      "meta": {},
+      "meta": {
+        "gis-layers": [
+          "ch.so.arp.nutzungsplanung.erschliessungsplanung",
+          "ch.so.arp.nutzungsplanung.erschliessungsplanung.baulinien",
+          "ch.so.arp.nutzungsplanung.ortsbildschutz",
+          "ch.so.arp.nutzungsplanung.natur_landschaft_gruppe",
+          "ch.so.arp.nutzungsplanung.sondernutzungsplaene"
+        ]
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -57812,14 +58322,14 @@
     "pk": "ort",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-08-28T09:13:50.148Z",
+      "modified_at": "2024-08-27T15:15:38.179Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Ort\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Ortschaft\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "info.form != \"parzelle-tabelle\"",
+      "is_required": "info.form == \"personalien-tabelle\"",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -57945,7 +58455,7 @@
     "pk": "parzellen",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2024-05-22T14:44:34.317Z",
+      "modified_at": "2024-08-27T15:16:23.220Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -57961,12 +58471,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
-        "columnsToDisplay": [
-          "parzellennummer",
-          "baurechtsnummer",
-          "strasse-flurname",
-          "ort"
-        ]
+        "columnsToDisplay": ["parzellennummer", "e-grid"]
       },
       "data_source": null,
       "row_form": "parzelle-tabelle",
@@ -57983,14 +58488,14 @@
     "pk": "parzellennummer",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2024-05-22T14:44:48.148Z",
+      "modified_at": "2024-08-28T08:09:57.528Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Grundst\\u00fccksnummer\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -58375,14 +58880,14 @@
     "pk": "plz",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-08-28T09:13:57.029Z",
+      "modified_at": "2024-08-27T15:17:54.519Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"PLZ\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "true",
+      "is_required": "info.form == \"personalien-tabelle\"",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -59151,74 +59656,6 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "richtplan-grundnutzung",
-    "fields": {
-      "created_at": "2023-08-28T09:07:58.109Z",
-      "modified_at": "2023-08-28T09:07:58.109Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Richtplan Grundnutzung\", \"fr\": null, \"it\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "richtplan-weiteres",
-    "fields": {
-      "created_at": "2023-08-28T09:15:55.243Z",
-      "modified_at": "2023-08-28T09:15:55.243Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Richtplan, weiteres\", \"fr\": null, \"it\": null}",
-      "type": "textarea",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -60427,12 +60864,12 @@
     "pk": "strasse-flurname",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-11-09T10:55:58.906Z",
+      "modified_at": "2024-08-22T10:05:40.812Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Strasse / Flurname\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Strasse / Benanntes Gebiet\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
       "is_hidden": "false",
@@ -60557,12 +60994,12 @@
     "pk": "strasse-nummer",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-11-09T10:56:09.063Z",
+      "modified_at": "2024-08-22T10:05:48.766Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Nummer\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Hausnummer\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "info.root.form == \"einsprache\"",
       "is_hidden": "false",
@@ -64180,25 +64617,27 @@
     "pk": "weitere-gis-informationen",
     "fields": {
       "created_at": "2023-08-28T09:13:02.021Z",
-      "modified_at": "2023-08-28T09:13:02.021Z",
+      "modified_at": "2024-08-22T15:27:17.556Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Weitere GIS-Informationen\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Wald- und Gew\\u00e4ssern\\u00e4he\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
         "min_length": null
       },
-      "meta": {},
+      "meta": {
+        "gis-layers": ["ch.so.agi.av.bodenbedeckung_einzelobjekte"]
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -64369,40 +64808,6 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "zone",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Zone\", \"fr\": null, \"it\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
       "meta": {},
       "data_source": null,
       "row_form": null,

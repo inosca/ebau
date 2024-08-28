@@ -9,13 +9,13 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.31.0
+      - python-requests/2.32.3
     method: GET
-    uri: https://geo-i.so.ch/api/data/v1/ch.so.agi.gemeindegrenzen.data/?bbox=2607160.642708333,1228434.884375,2607160.642708333,1228434.884375
+    uri: https://geo-i.so.ch/api/data/v1/ch.so.agi.gemeindegrenzen.data/?bbox=2607345.0,1228110.0,2607345.0,1228110.0
   response:
     body:
       string: '{"type": "FeatureCollection", "features": [{"type": "Feature", "id":
-        37286, "geometry": {"type": "MultiPolygon", "coordinates": [[[[2605355.062,
+        180969, "geometry": {"type": "MultiPolygon", "coordinates": [[[[2605355.062,
         1228668.441], [2605356.471, 1228670.908], [2605357.49, 1228673.569], [2605357.878,
         1228674.389], [2605362.435, 1228677.076], [2605405.585, 1228693.132], [2605434.818,
         1228701.291], [2605467.547, 1228715.246], [2605490.177, 1228721.529], [2605510.535,
@@ -467,20 +467,18 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Tue, 29 Aug 2023 12:42:03 GMT
+      - Wed, 28 Aug 2024 11:39:39 GMT
       Keep-Alive:
       - timeout=10, max=300
       Server:
       - Kanton Solothurn
       Set-Cookie:
-      - SCDID_S=148iox6YrbSKwBD0BvnNumwMAHrmtvfqW2VDGoFBefUGPoB1RVYl_Q$$; path=/;
+      - SCDID_S=RBxjiQT640EEi3FNVk0DEXwq9uriKORmrSa9i-yR178O3W_KwkQyOA$$; path=/;
         Secure; HttpOnly
       access-control-allow-origin:
       - '*'
-      cache-control:
-      - private
       content-length:
-      - '37225'
+      - '37226'
       content-type:
       - application/json
     status:
