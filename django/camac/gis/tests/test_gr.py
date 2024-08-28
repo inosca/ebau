@@ -20,6 +20,7 @@ def gr_data_sources(
         ("ort", Question.TYPE_TEXT),
         ("street-and-housenumber", Question.TYPE_TEXT),
         ("zonenplan", Question.TYPE_TEXT),
+        ("plan-der-gefahrenkommission", Question.TYPE_TEXT),
         ("genereller-gestaltungsplan", Question.TYPE_TEXT),
         ("genereller-erschliessungsplan", Question.TYPE_TEXT),
         ("folgeplanung", Question.TYPE_TEXT),
