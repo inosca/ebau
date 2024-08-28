@@ -54,19 +54,35 @@ def test_mitberichtsverfahren(db, role, location_factory, expected_count):
     "test_class,expected,is_rsta",
     [
         (Authorities, [[1, "Baukommission Altdorf"]], False),
-        (Municipalities, [[1, {"de": "Bern", "fr": "Berne"}]], False),
+        (Municipalities, [[1, {"de": "Bern", "fr": "Berne", "it": "Bern"}]], False),
         (
             Municipalities,
-            [[2, {"de": "Biel (nicht aktiviert)", "fr": "Bienne (non activé)"}]],
+            [
+                [
+                    2,
+                    {
+                        "de": "Biel (nicht aktiviert)",
+                        "fr": "Bienne (non activé)",
+                        "it": "Biel (nicht aktiviert)",
+                    },
+                ]
+            ],
             True,
         ),
         (
             Services,
             [
-                ["-1", {"de": "Andere", "fr": "Autres"}],
-                ["1", {"de": "Gemeinde Bern", "fr": "Municipalité Berne"}],
-                ["3", {"de": "service3", "fr": "service3"}],
-                ["4", {"de": "service4", "fr": "service4"}],
+                ["-1", {"de": "Andere", "fr": "Autres", "it": "altri"}],
+                [
+                    "1",
+                    {
+                        "de": "Gemeinde Bern",
+                        "fr": "Municipalité Berne",
+                        "it": "Gemeinde Bern",
+                    },
+                ],
+                ["3", {"de": "service3", "fr": "service3", "it": "service3"}],
+                ["4", {"de": "service4", "fr": "service4", "it": "service4"}],
             ],
             False,
         ),
