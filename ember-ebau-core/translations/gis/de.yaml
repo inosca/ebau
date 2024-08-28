@@ -39,3 +39,7 @@ gis:
     detail: "Originaler Wert aus GIS:"
     row-added: "{count, plural, one {# Zeile} other {# Zeilen}} hinzugefügt"
     row-removed: "{count, plural, one {# Zeile} other {# Zeilen}} entfernt"
+
+  oereb: "ÖREB-Kataster:"
+  gis-portal: "Geoportal"
+  pdf: "PDF"

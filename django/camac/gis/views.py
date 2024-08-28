@@ -94,7 +94,14 @@ class GISDataView(ListAPIView):
     def add_hidden(self, data):
         """Attach the hidden field to the view response."""
         hidden_questions = self.extract_hidden(self.get_queryset())
-        for question in data.keys():
+        for question, config in data.items():
+            if config.get("form") and isinstance(config.get("value"), list):
+                for row in config.get("value"):
+                    for row_question in row.keys():
+                        row[row_question]["hidden"] = (
+                            f"{question}.{row_question}" in hidden_questions
+                        )
+
             data[question]["hidden"] = question in hidden_questions
 
         return data
@@ -131,6 +138,7 @@ class GISDataView(ListAPIView):
                         "detail": str(e),
                         "client": gis_data.client,
                         "data_source_id": gis_data.pk,
+                        "data_source_description": gis_data.description,
                     }
                 )
             except ValueError as e:

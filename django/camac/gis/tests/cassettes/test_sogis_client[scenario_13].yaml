@@ -1,0 +1,1072 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://geo-i.so.ch/api/data/v1/ch.so.agi.av.grundstuecke.rechtskraeftig.data/?bbox=2617752.0,1224560.0,2617752.0,1224560.0
+  response:
+    body:
+      string: '{"type": "FeatureCollection", "features": [{"type": "Feature", "id":
+        9578423, "geometry": {"type": "Polygon", "coordinates": [[[2617688.588, 1224530.055],
+        [2617702.015, 1224597.735], [2617739.452, 1224654.5], [2617775.448, 1224702.506],
+        [2617814.23, 1224719.956], [2617816.96, 1224721.103], [2617806.631, 1224625.149],
+        [2617770.772, 1224292.033], [2617760.36, 1224291.672], [2617741.813, 1224317.036],
+        [2617712.618, 1224411.307], [2617688.588, 1224530.055]]]}, "properties": {"bfs_nr":
+        2511, "gemeinde": "Aeschi (SO)", "nummer": "544", "art_txt": "Liegenschaft",
+        "egrid": "CH927751320693", "nbident": "SO0200002511", "flaechenmass": 30961}}],
+        "crs": {"type": "name", "properties": {"name": "urn:ogc:def:crs:EPSG::2056"}},
+        "bbox": [2617688.588, 1224291.672, 2617816.96, 1224721.103]}
+
+        '
+    headers:
+      Connection:
+      - Keep-Alive
+      Date:
+      - Wed, 28 Aug 2024 11:39:30 GMT
+      Keep-Alive:
+      - timeout=10, max=300
+      Server:
+      - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=z-wGnofzPjyFaLkLaVBWiH-Uox4yMkI9OhbAp1OEXECSGM2-J3j47Q$$; path=/;
+        Secure; HttpOnly
+      access-control-allow-origin:
+      - '*'
+      content-length:
+      - '783'
+      content-type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://geo-i.so.ch/api/data/v1/ch.so.agi.av.gebaeudeadressen.gebaeudeeingaenge.data/?bbox=2617742.0,1224550.0,2617762.0,1224570.0
+  response:
+    body:
+      string: '{"type": "FeatureCollection", "features": [], "crs": {"type": "name",
+        "properties": {"name": "urn:ogc:def:crs:EPSG::2056"}}}
+
+        '
+    headers:
+      Connection:
+      - Keep-Alive
+      Date:
+      - Wed, 28 Aug 2024 11:39:30 GMT
+      Keep-Alive:
+      - timeout=10, max=300
+      Server:
+      - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=rYQi9cDMbHf_aDVNf8BMPMqVKQaCefFyIqvYid6qADsKsAUVvLLFMQ$$; path=/;
+        Secure; HttpOnly
+      access-control-allow-origin:
+      - '*'
+      content-length:
+      - '125'
+      content-type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://geo-i.so.ch/api/data/v1/ch.so.agi.av.grundbuchkreise.data/?bbox=2617752.0,1224560.0,2617752.0,1224560.0
+  response:
+    body:
+      string: '{"type": "FeatureCollection", "features": [{"type": "Feature", "id":
+        1448, "geometry": {"type": "MultiPolygon", "coordinates": [[[[2615721.015,
+        1224552.285], [2615993.321, 1224675.893], [2616105.495, 1224771.962], [2616090.166,
+        1224830.093], [2616085.056, 1224852.993], [2616096.197, 1224861.663], [2616130.725,
+        1224884.089], [2616128.542, 1224887.451], [2616128.865, 1224887.661], [2616129.184,
+        1224887.877], [2616129.498, 1224888.099], [2616129.808, 1224888.328], [2616130.113,
+        1224888.564], [2616130.413, 1224888.805], [2616130.709, 1224889.052], [2616130.999,
+        1224889.305], [2616131.284, 1224889.565], [2616131.564, 1224889.829], [2616131.838,
+        1224890.1], [2616132.107, 1224890.376], [2616132.37, 1224890.657], [2616132.627,
+        1224890.944], [2616132.879, 1224891.235], [2616133.124, 1224891.532], [2616133.364,
+        1224891.834], [2616133.597, 1224892.141], [2616133.824, 1224892.452], [2616134.044,
+        1224892.767], [2616134.259, 1224893.088], [2616134.466, 1224893.412], [2616134.667,
+        1224893.741], [2616134.862, 1224894.073], [2616135.049, 1224894.41], [2616135.23,
+        1224894.75], [2616135.404, 1224895.093], [2616135.571, 1224895.441], [2616135.73,
+        1224895.791], [2616135.883, 1224896.145], [2616136.028, 1224896.502], [2616136.166,
+        1224896.861], [2616136.297, 1224897.223], [2616136.421, 1224897.588], [2616136.536,
+        1224897.956], [2616136.645, 1224898.325], [2616136.746, 1224898.697], [2616136.839,
+        1224899.071], [2616136.925, 1224899.446], [2616137.003, 1224899.823], [2616137.074,
+        1224900.202], [2616137.137, 1224900.582], [2616137.192, 1224900.963], [2616137.239,
+        1224901.345], [2616137.279, 1224901.729], [2616137.311, 1224902.112], [2616137.335,
+        1224902.497], [2616137.351, 1224902.882], [2616137.36, 1224903.267], [2616137.361,
+        1224903.652], [2616137.353, 1224904.037], [2616137.338, 1224904.422], [2616137.316,
+        1224904.806], [2616137.285, 1224905.19], [2616137.247, 1224905.574], [2616137.201,
+        1224905.956], [2616137.147, 1224906.337], [2616137.085, 1224906.718], [2616137.016,
+        1224907.097], [2616136.939, 1224907.474], [2616136.855, 1224907.85], [2616136.763,
+        1224908.224], [2616136.663, 1224908.596], [2616136.556, 1224908.966], [2616136.441,
+        1224909.333], [2616136.319, 1224909.699], [2616136.189, 1224910.062], [2616136.053,
+        1224910.422], [2616135.908, 1224910.779], [2616135.757, 1224911.133], [2616135.599,
+        1224911.484], [2616135.433, 1224911.832], [2616135.261, 1224912.176], [2616135.081,
+        1224912.517], [2616064.413, 1225043.568], [2616021.035, 1225123.89], [2616014.538,
+        1225134.904], [2615993.853, 1225173.333], [2615993.413, 1225173.096], [2615988.266,
+        1225182.679], [2615992.66, 1225187.247], [2615987.444, 1225196.923], [2615987.004,
+        1225196.686], [2615984.979, 1225200.459], [2615993.396, 1225209.524], [2616006.829,
+        1225228.006], [2615987.214, 1225242.571], [2616006.246, 1225262.869], [2616004.838,
+        1225266.16], [2616008.339, 1225268.224], [2615986.66, 1225318.47], [2615975.133,
+        1225342.97], [2615975.028, 1225343.203], [2615974.93, 1225343.439], [2615974.838,
+        1225343.677], [2615974.755, 1225343.919], [2615974.678, 1225344.162], [2615974.609,
+        1225344.408], [2615974.547, 1225344.656], [2615974.493, 1225344.906], [2615974.446,
+        1225345.157], [2615974.407, 1225345.409], [2615974.375, 1225345.663], [2615974.351,
+        1225345.917], [2615974.335, 1225346.172], [2615974.326, 1225346.427], [2615974.325,
+        1225346.683], [2615974.332, 1225346.938], [2615974.346, 1225347.193], [2615974.368,
+        1225347.448], [2615974.398, 1225347.701], [2615974.435, 1225347.954], [2615974.48,
+        1225348.206], [2615974.532, 1225348.456], [2615974.592, 1225348.704], [2615974.659,
+        1225348.95], [2615974.734, 1225349.195], [2615974.816, 1225349.437], [2615974.905,
+        1225349.676], [2615975.002, 1225349.913], [2615975.105, 1225350.146], [2615975.216,
+        1225350.377], [2615975.333, 1225350.604], [2615975.457, 1225350.827], [2615975.588,
+        1225351.047], [2615975.725, 1225351.262], [2615980.562, 1225355.499], [2615988.78,
+        1225361.964], [2616102.299, 1225461.573], [2616104.28, 1225463.354], [2616106.256,
+        1225465.141], [2616108.227, 1225466.932], [2616110.194, 1225468.729], [2616112.157,
+        1225470.53], [2616114.115, 1225472.336], [2616116.068, 1225474.147], [2616118.017,
+        1225475.963], [2616119.961, 1225477.784], [2616121.901, 1225479.61], [2616123.836,
+        1225481.44], [2616125.767, 1225483.276], [2616127.693, 1225485.116], [2616129.614,
+        1225486.961], [2616131.531, 1225488.811], [2616133.443, 1225490.666], [2616134.043,
+        1225491.266], [2616134.649, 1225491.86], [2616135.259, 1225492.45], [2616135.874,
+        1225493.034], [2616136.494, 1225493.613], [2616137.12, 1225494.186], [2616137.749,
+        1225494.755], [2616138.384, 1225495.318], [2616139.024, 1225495.875], [2616139.668,
+        1225496.427], [2616140.317, 1225496.974], [2616140.97, 1225497.515], [2616141.628,
+        1225498.051], [2616142.291, 1225498.581], [2616142.958, 1225499.105], [2616143.629,
+        1225499.624], [2616144.305, 1225500.137], [2616144.986, 1225500.644], [2616145.67,
+        1225501.145], [2616146.359, 1225501.641], [2616147.052, 1225502.131], [2616147.749,
+        1225502.614], [2616148.45, 1225503.092], [2616149.155, 1225503.564], [2616149.864,
+        1225504.03], [2616150.577, 1225504.49], [2616151.294, 1225504.944], [2616152.014,
+        1225505.392], [2616152.739, 1225505.834], [2616153.467, 1225506.269], [2616205.492,
+        1225536.778], [2616278.034, 1225578.255], [2616321.274, 1225602.03], [2616344.051,
+        1225615.884], [2616344.542, 1225616.192], [2616345.03, 1225616.507], [2616345.513,
+        1225616.827], [2616345.993, 1225617.154], [2616346.468, 1225617.486], [2616346.939,
+        1225617.825], [2616347.406, 1225618.169], [2616347.868, 1225618.52], [2616348.326,
+        1225618.876], [2616348.78, 1225619.238], [2616349.229, 1225619.605], [2616349.673,
+        1225619.978], [2616347.212, 1225623.135], [2616354.755, 1225656.084], [2616363.665,
+        1225675.124], [2616372.476, 1225697.024], [2616381.937, 1225730.354], [2616383.296,
+        1225735.862], [2616387.463, 1225753.344], [2616392.234, 1225772.433], [2616399.878,
+        1225813.096], [2616402.884, 1225834.442], [2616404.572, 1225850.14], [2616405.452,
+        1225861.945], [2616406.161, 1225872.112], [2616407.805, 1225913.201], [2616412.372,
+        1225991.093], [2616412.374, 1225991.516], [2616412.382, 1225991.939], [2616412.396,
+        1225992.361], [2616412.417, 1225992.783], [2616412.444, 1225993.205], [2616412.478,
+        1225993.627], [2616412.517, 1225994.048], [2616412.563, 1225994.468], [2616412.615,
+        1225994.888], [2616412.673, 1225995.306], [2616412.738, 1225995.724], [2616412.809,
+        1225996.141], [2616412.886, 1225996.557], [2616412.969, 1225996.972], [2616413.058,
+        1225997.385], [2616413.154, 1225997.797], [2616415.581, 1226004.165], [2616420.371,
+        1226011.355], [2616449.022, 1226043.555], [2616452.609, 1226043.849], [2616460.156,
+        1226051.176], [2616466.722, 1226044.095], [2616471.982, 1226042.975], [2616479.93,
+        1226037.353], [2616479.814, 1226037.439], [2616479.703, 1226037.531], [2616479.597,
+        1226037.629], [2616479.496, 1226037.732], [2616479.4, 1226037.839], [2616479.31,
+        1226037.952], [2616479.226, 1226038.069], [2616479.147, 1226038.19], [2616479.075,
+        1226038.314], [2616479.009, 1226038.443], [2616478.95, 1226038.574], [2616478.897,
+        1226038.709], [2616478.852, 1226038.845], [2616478.813, 1226038.984], [2616478.782,
+        1226039.125], [2616478.757, 1226039.267], [2616478.74, 1226039.41], [2616478.73,
+        1226039.554], [2616478.727, 1226039.698], [2616478.732, 1226039.842], [2616478.744,
+        1226039.986], [2616478.763, 1226040.129], [2616478.789, 1226040.271], [2616478.823,
+        1226040.411], [2616478.864, 1226040.549], [2616478.911, 1226040.685], [2616478.965,
+        1226040.819], [2616479.026, 1226040.949], [2616479.094, 1226041.077], [2616479.168,
+        1226041.2], [2616479.248, 1226041.32], [2616479.334, 1226041.436], [2616479.426,
+        1226041.547], [2616479.523, 1226041.654], [2616479.625, 1226041.755], [2616479.733,
+        1226041.851], [2616662.174, 1226196.817], [2616662.354, 1226196.958], [2616662.539,
+        1226197.093], [2616662.729, 1226197.221], [2616662.922, 1226197.343], [2616663.12,
+        1226197.459], [2616663.321, 1226197.567], [2616663.526, 1226197.669], [2616663.734,
+        1226197.764], [2616663.945, 1226197.852], [2616664.159, 1226197.933], [2616664.376,
+        1226198.007], [2616664.595, 1226198.073], [2616664.816, 1226198.132], [2616665.039,
+        1226198.184], [2616665.263, 1226198.228], [2616665.489, 1226198.264], [2616665.716,
+        1226198.293], [2616665.944, 1226198.314], [2616666.172, 1226198.327], [2616666.401,
+        1226198.333], [2616666.63, 1226198.331], [2616666.859, 1226198.322], [2616667.087,
+        1226198.304], [2616667.314, 1226198.28], [2616667.541, 1226198.247], [2616667.766,
+        1226198.207], [2616667.99, 1226198.159], [2616668.212, 1226198.104], [2616668.432,
+        1226198.042], [2616668.65, 1226197.972], [2616668.865, 1226197.895], [2616669.078,
+        1226197.81], [2616669.288, 1226197.719], [2616669.494, 1226197.62], [2616669.697,
+        1226197.515], [2616669.897, 1226197.403], [2616670.092, 1226197.284], [2616670.284,
+        1226197.159], [2616670.471, 1226197.028], [2616670.654, 1226196.89], [2616670.832,
+        1226196.746], [2616671.005, 1226196.596], [2616671.173, 1226196.441], [2616671.335,
+        1226196.28], [2616671.492, 1226196.113], [2616671.644, 1226195.942], [2616671.789,
+        1226195.765], [2616671.929, 1226195.584], [2616672.062, 1226195.398], [2616672.189,
+        1226195.208], [2616672.31, 1226195.013], [2616672.424, 1226194.815], [2616675.719,
+        1226197.056], [2616688.757, 1226178.099], [2616695.795, 1226167.719], [2616728.633,
+        1226121.218], [2616753.414, 1226084.866], [2616779.92, 1226153.324], [2616990.796,
+        1226084.713], [2617038.247, 1226064.511], [2617038.483, 1226064.406], [2617038.715,
+        1226064.294], [2617038.944, 1226064.175], [2617039.169, 1226064.049], [2617039.391,
+        1226063.917], [2617039.608, 1226063.778], [2617039.822, 1226063.633], [2617040.031,
+        1226063.481], [2617040.235, 1226063.323], [2617040.435, 1226063.16], [2617040.629,
+        1226062.99], [2617040.819, 1226062.815], [2617041.003, 1226062.635], [2617041.182,
+        1226062.449], [2617041.355, 1226062.257], [2617041.523, 1226062.061], [2617041.684,
+        1226061.86], [2617041.84, 1226061.654], [2617041.989, 1226061.444], [2617042.132,
+        1226061.229], [2617042.269, 1226061.01], [2617042.399, 1226060.787], [2617042.523,
+        1226060.561], [2617042.639, 1226060.33], [2617042.749, 1226060.097], [2617042.852,
+        1226059.86], [2617042.948, 1226059.621], [2617043.037, 1226059.378], [2617043.118,
+        1226059.134], [2617043.192, 1226058.886], [2617043.259, 1226058.637], [2617043.319,
+        1226058.386], [2617043.371, 1226058.133], [2617043.415, 1226057.879], [2617043.452,
+        1226057.624], [2617043.481, 1226057.367], [2617043.503, 1226057.11], [2617043.517,
+        1226056.852], [2617043.524, 1226056.594], [2617043.522, 1226056.336], [2617043.513,
+        1226056.079], [2617043.497, 1226055.821], [2617039.888, 1226035.21], [2617036.607,
+        1226020.255], [2617044.111, 1226023.58], [2617048.647, 1226024.641], [2617102.122,
+        1226008.053], [2617098.199, 1225994.675], [2617112.789, 1225990.213], [2617117.368,
+        1226003.362], [2617190.981, 1225980.543], [2617263.537, 1225980.013], [2617282.495,
+        1225979.933], [2617363.673, 1225979.442], [2617498.59, 1225978.571], [2617612.508,
+        1225977.419], [2617620.577, 1225977.276], [2617620.596, 1225978.35], [2617628.045,
+        1225968.922], [2617634.166, 1225960.692], [2617678.712, 1225901.561], [2617718.152,
+        1225849.057], [2617722.429, 1225849.551], [2617756.498, 1225912.306], [2617774.456,
+        1225942.222], [2617783.405, 1225961.501], [2617786.082, 1225960.018], [2617872.457,
+        1225946.122], [2617901.178, 1225921.519], [2617967.476, 1225889.034], [2617907.99,
+        1225826.609], [2617910.468, 1225824.445], [2617917.179, 1225826.53], [2618129.395,
+        1225775.405], [2618132.044, 1225770.695], [2618113.224, 1225721.561], [2618142.61,
+        1225696.145], [2618143.538, 1225691.334], [2618128.012, 1225690.972], [2618112.763,
+        1225689.46], [2618113.504, 1225682.188], [2618108.157, 1225677.142], [2618064.06,
+        1225332.934], [2618057.647, 1225281.546], [2618051.373, 1225232.881], [2618048.105,
+        1225232.603], [2618041.766, 1225201.291], [2618031.459, 1225124.464], [2618007.804,
+        1225046.879], [2617998.041, 1225025.997], [2617987.365, 1225007.656], [2617990.563,
+        1225005.553], [2617978.139, 1224988.856], [2617949.166, 1224956.896], [2617926.031,
+        1224934.113], [2617901.539, 1224912.872], [2617826.641, 1224854.78], [2617826.582,
+        1224851.229], [2617832.134, 1224845.335], [2617835.188, 1224842.855], [2617831.487,
+        1224835.121], [2617829.014, 1224833.178], [2617825.882, 1224804.257], [2617816.96,
+        1224721.103], [2617764.856, 1224237.078], [2617764.445, 1224231.763], [2617759.386,
+        1224185.797], [2617747.904, 1224185.714], [2617732.212, 1224185.495], [2617712.136,
+        1224185.276], [2617239.979, 1224181.488], [2617243.945, 1224165.79], [2617212.743,
+        1224160.077], [2617211.683, 1224181.457], [2617184.979, 1224239.887], [2617067.11,
+        1224179.683], [2617011.433, 1224161.209], [2616864.201, 1224102.568], [2616860.989,
+        1224101.208], [2616854.951, 1224109.556], [2616790.394, 1224183.906], [2616692.002,
+        1224054.872], [2616689.843, 1224052.132], [2616616.358, 1223955.812], [2616540.905,
+        1223857.024], [2616447.868, 1223734.442], [2616354.921, 1223611.709], [2616345.473,
+        1223603.499], [2616285.023, 1223550.711], [2616244.321, 1223515.233], [2616241.69,
+        1223517.351], [2616159.525, 1223580.234], [2616148.393, 1223560.066], [2616136.185,
+        1223541.428], [2616130.967, 1223545.349], [2616128.89, 1223551.044], [2616083.784,
+        1223588.657], [2616027.998, 1223629.722], [2616037.298, 1223642.203], [2616008.708,
+        1223702.195], [2616006.537, 1223706.595], [2615983.522, 1223753.803], [2615958.857,
+        1223805.673], [2615934.008, 1223857.456], [2615908.952, 1223909.372], [2615885.389,
+        1223958.838], [2615884.268, 1223961.316], [2615914.488, 1223994.033], [2615941.945,
+        1224023.46], [2615996.304, 1224082.018], [2615941.974, 1224102.887], [2615889.476,
+        1224122.937], [2615861.591, 1224154.638], [2615833.838, 1224186.405], [2615805.68,
+        1224218.127], [2615797.489, 1224277.841], [2615789.177, 1224337.761], [2615780.679,
+        1224397.517], [2615789.727, 1224407.67], [2615778.682, 1224446.734], [2615766.074,
+        1224482.595], [2615765.562, 1224483.971], [2615764.349, 1224488.417], [2615760.835,
+        1224500.05], [2615748.587, 1224520.899], [2615721.015, 1224552.285]]]]}, "properties":
+        {"nbident": "SO0200002511", "amtschreiberei": "Amtschreiberei Region Solothurn",
+        "aname": "Aeschi"}}], "crs": {"type": "name", "properties": {"name": "urn:ogc:def:crs:EPSG::2056"}},
+        "bbox": [2615721.015, 1223515.233, 2618143.538, 1226198.333]}
+
+        '
+    headers:
+      Connection:
+      - Keep-Alive
+      Date:
+      - Wed, 28 Aug 2024 11:39:30 GMT
+      Keep-Alive:
+      - timeout=10, max=300
+      Server:
+      - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=f449T8c6wv-nJaIvl8cM3nKvAik33UFSKv2ev1OxNoy6q_NBkEdtbw$$; path=/;
+        Secure; HttpOnly
+      access-control-allow-origin:
+      - '*'
+      content-length:
+      - '14333'
+      content-type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://geo-i.so.ch/api/data/v1/ch.so.arp.nutzungsplanung.grundnutzung.data/?bbox=2617752.0,1224560.0,2617752.0,1224560.0
+  response:
+    body:
+      string: '{"type": "FeatureCollection", "features": [{"type": "Feature", "id":
+        732563, "geometry": {"type": "Polygon", "coordinates": [[[2617806.631, 1224625.149],
+        [2617815.414, 1224706.733], [2617807.976, 1224694.178], [2617798.109, 1224681.944],
+        [2617772.439, 1224644.316], [2617763.886, 1224631.497], [2617746.144, 1224606.275],
+        [2617736.101, 1224594.509], [2617721.018, 1224581.044], [2617708.931, 1224561.188],
+        [2617714.936, 1224547.59], [2617703.872, 1224530.927], [2617702.292, 1224523.525],
+        [2617701.827, 1224506.424], [2617698.572, 1224496.468], [2617700.25, 1224479.96],
+        [2617713.145, 1224468.528], [2617729.344, 1224469.919], [2617762.183, 1224498.959],
+        [2617770.613, 1224518.091], [2617787.196, 1224546.415], [2617799.586, 1224559.709],
+        [2617806.631, 1224625.149]]]}, "properties": {"typ_kt": "N290_weitere_Landwirtschaftszonen",
+        "typ_bezeichnung": "Gebiet von besonderer Schoenheit und Eigenart"}}], "crs":
+        {"type": "name", "properties": {"name": "urn:ogc:def:crs:EPSG::2056"}}, "bbox":
+        [2617698.572, 1224468.528, 2617815.414, 1224706.733]}
+
+        '
+    headers:
+      Connection:
+      - Keep-Alive
+      Date:
+      - Wed, 28 Aug 2024 11:39:31 GMT
+      Keep-Alive:
+      - timeout=10, max=300
+      Server:
+      - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=mUbs1usO5o1rMjY8440eiWmeO3iNX84_4eyAGVfS-0MXS9xi0SJMQg$$; path=/;
+        Secure; HttpOnly
+      access-control-allow-origin:
+      - '*'
+      content-length:
+      - '1044'
+      content-type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://geo-i.so.ch/api/data/v1/ch.so.alw.fruchtfolgeflaechen.data/?bbox=2617752.0,1224560.0,2617752.0,1224560.0
+  response:
+    body:
+      string: '{"type": "FeatureCollection", "features": [], "crs": {"type": "name",
+        "properties": {"name": "urn:ogc:def:crs:EPSG::2056"}}}
+
+        '
+    headers:
+      Connection:
+      - Keep-Alive
+      Date:
+      - Wed, 28 Aug 2024 11:39:31 GMT
+      Keep-Alive:
+      - timeout=10, max=300
+      Server:
+      - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=_ey49Eq03axAk2HLLpEaF5WlJrEhCtkxPRrHJtKW_8GiJCEw5O-LrQ$$; path=/;
+        Secure; HttpOnly
+      access-control-allow-origin:
+      - '*'
+      content-length:
+      - '125'
+      content-type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://geo-i.so.ch/api/data/v1/ch.so.afu.naturgefahren.synoptisches_gefahrengebiet.data/?bbox=2617752.0,1224560.0,2617752.0,1224560.0
+  response:
+    body:
+      string: '{"type": "FeatureCollection", "features": [], "crs": {"type": "name",
+        "properties": {"name": "urn:ogc:def:crs:EPSG::2056"}}}
+
+        '
+    headers:
+      Connection:
+      - Keep-Alive
+      Date:
+      - Wed, 28 Aug 2024 11:39:31 GMT
+      Keep-Alive:
+      - timeout=10, max=300
+      Server:
+      - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=1XZopwY0FwBQOa7Zija1Rttbthp88jOSGDwFx2MwGDCPOaM53bye2g$$; path=/;
+        Secure; HttpOnly
+      access-control-allow-origin:
+      - '*'
+      content-length:
+      - '125'
+      content-type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://geo-i.so.ch/api/data/v1/ch.so.afu.gewaesserschutz.zonen_areale.data_v2/?bbox=2617752.0,1224560.0,2617752.0,1224560.0
+  response:
+    body:
+      string: '{"type": "FeatureCollection", "features": [], "crs": {"type": "name",
+        "properties": {"name": "urn:ogc:def:crs:EPSG::2056"}}}
+
+        '
+    headers:
+      Connection:
+      - Keep-Alive
+      Date:
+      - Wed, 28 Aug 2024 11:39:31 GMT
+      Keep-Alive:
+      - timeout=10, max=300
+      Server:
+      - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=3Q3JQc6xDtSJj5Ho53iD71w1dZBXkXupbszh7yCnG7-smHGcRdUHMA$$; path=/;
+        Secure; HttpOnly
+      access-control-allow-origin:
+      - '*'
+      content-length:
+      - '125'
+      content-type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://geo-i.so.ch/api/data/v1/ch.so.ada.denkmalschutz.flaechenobjekt.data/?bbox=2617739.5,1224547.5,2617764.5,1224572.5
+  response:
+    body:
+      string: '{"type": "FeatureCollection", "features": [], "crs": {"type": "name",
+        "properties": {"name": "urn:ogc:def:crs:EPSG::2056"}}}
+
+        '
+    headers:
+      Connection:
+      - Keep-Alive
+      Date:
+      - Wed, 28 Aug 2024 11:39:31 GMT
+      Keep-Alive:
+      - timeout=10, max=300
+      Server:
+      - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=n2PvbrHuSyRTMFZtT3J3Lig9tRPrvSziRXXqm_muCDCPdKNmPBh0Ew$$; path=/;
+        Secure; HttpOnly
+      access-control-allow-origin:
+      - '*'
+      content-length:
+      - '125'
+      content-type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://geo-i.so.ch/api/data/v1/ch.so.ada.denkmalschutz.punktobjekt.data/?bbox=2617739.5,1224547.5,2617764.5,1224572.5
+  response:
+    body:
+      string: '{"type": "FeatureCollection", "features": [], "crs": {"type": "name",
+        "properties": {"name": "urn:ogc:def:crs:EPSG::2056"}}}
+
+        '
+    headers:
+      Connection:
+      - Keep-Alive
+      Date:
+      - Wed, 28 Aug 2024 11:39:31 GMT
+      Keep-Alive:
+      - timeout=10, max=300
+      Server:
+      - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=0Awd57_gE6xlVgvYZACLjXbVjuldhCuQ_OkCZTmD66NVy3wUDCirQQ$$; path=/;
+        Secure; HttpOnly
+      access-control-allow-origin:
+      - '*'
+      content-length:
+      - '125'
+      content-type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://geo-i.so.ch/api/data/v1/ch.so.ada.archaeologie.punktfundstellen.data/?bbox=2617727.0,1224535.0,2617777.0,1224585.0
+  response:
+    body:
+      string: '{"type": "FeatureCollection", "features": [], "crs": {"type": "name",
+        "properties": {"name": "urn:ogc:def:crs:EPSG::2056"}}}
+
+        '
+    headers:
+      Connection:
+      - Keep-Alive
+      Date:
+      - Wed, 28 Aug 2024 11:39:31 GMT
+      Keep-Alive:
+      - timeout=10, max=300
+      Server:
+      - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=ZFJzOw9iIBBgViCnSXY-W2xdMwsILpIUGG8e7ka75NtLVzjfAf630w$$; path=/;
+        Secure; HttpOnly
+      access-control-allow-origin:
+      - '*'
+      content-length:
+      - '125'
+      content-type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://geo-i.so.ch/api/data/v1/ch.so.ada.archaeologie.flaechenfundstellen.data/?bbox=2617752.0,1224560.0,2617752.0,1224560.0
+  response:
+    body:
+      string: '{"type": "FeatureCollection", "features": [], "crs": {"type": "name",
+        "properties": {"name": "urn:ogc:def:crs:EPSG::2056"}}}
+
+        '
+    headers:
+      Connection:
+      - Keep-Alive
+      Date:
+      - Wed, 28 Aug 2024 11:39:31 GMT
+      Keep-Alive:
+      - timeout=10, max=300
+      Server:
+      - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=ZVCtRy9q5QTfbXYp-PAa1pv-dH6kix5qytAfHvIfn0vlfVCBHakbQw$$; path=/;
+        Secure; HttpOnly
+      access-control-allow-origin:
+      - '*'
+      content-length:
+      - '125'
+      content-type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://geo-i.so.ch/api/data/v1/ch.so.arp.nutzungsplanung.erschliessungsplanung_linie.data/?bbox=2617727.0,1224535.0,2617777.0,1224585.0
+  response:
+    body:
+      string: '{"type": "FeatureCollection", "features": [], "crs": {"type": "name",
+        "properties": {"name": "urn:ogc:def:crs:EPSG::2056"}}}
+
+        '
+    headers:
+      Connection:
+      - Keep-Alive
+      Date:
+      - Wed, 28 Aug 2024 11:39:32 GMT
+      Keep-Alive:
+      - timeout=10, max=300
+      Server:
+      - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=9z5MhjsJ9QoHcM89ujIYLMWtzEs3Ze3zRWykE-wI5x07KicIqZCs0w$$; path=/;
+        Secure; HttpOnly
+      access-control-allow-origin:
+      - '*'
+      content-length:
+      - '125'
+      content-type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://geo-i.so.ch/api/data/v1/ch.so.arp.nutzungsplanung.erschliessungsplanung_flaeche.data/?bbox=2617752.0,1224560.0,2617752.0,1224560.0
+  response:
+    body:
+      string: '{"type": "FeatureCollection", "features": [], "crs": {"type": "name",
+        "properties": {"name": "urn:ogc:def:crs:EPSG::2056"}}}
+
+        '
+    headers:
+      Connection:
+      - Keep-Alive
+      Date:
+      - Wed, 28 Aug 2024 11:39:32 GMT
+      Keep-Alive:
+      - timeout=10, max=300
+      Server:
+      - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=ydURn6L1N94qQOwSe0yfAQO5ZjloCWhAYi59bxyRjbEyELL92pZx6Q$$; path=/;
+        Secure; HttpOnly
+      access-control-allow-origin:
+      - '*'
+      content-length:
+      - '125'
+      content-type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://geo-i.so.ch/api/data/v1/ch.so.arp.nutzungsplanung.ueberlagernd_punkt.data/?bbox=2617727.0,1224535.0,2617777.0,1224585.0
+  response:
+    body:
+      string: '{"type": "FeatureCollection", "features": [], "crs": {"type": "name",
+        "properties": {"name": "urn:ogc:def:crs:EPSG::2056"}}}
+
+        '
+    headers:
+      Connection:
+      - Keep-Alive
+      Date:
+      - Wed, 28 Aug 2024 11:39:32 GMT
+      Keep-Alive:
+      - timeout=10, max=300
+      Server:
+      - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=y4DVkwDRpMm_sp70Qy6S4lhHuzn4AowbGeb7zIjVfDKuTv_xN-gucA$$; path=/;
+        Secure; HttpOnly
+      access-control-allow-origin:
+      - '*'
+      content-length:
+      - '125'
+      content-type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://geo-i.so.ch/api/data/v1/ch.so.arp.nutzungsplanung.ueberlagernd_linie.data/?bbox=2617727.0,1224535.0,2617777.0,1224585.0
+  response:
+    body:
+      string: '{"type": "FeatureCollection", "features": [], "crs": {"type": "name",
+        "properties": {"name": "urn:ogc:def:crs:EPSG::2056"}}}
+
+        '
+    headers:
+      Connection:
+      - Keep-Alive
+      Date:
+      - Wed, 28 Aug 2024 11:39:32 GMT
+      Keep-Alive:
+      - timeout=10, max=300
+      Server:
+      - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=VIJsd9pGjllzNqDO6DyB-n-R8g6KCe6FJou5vbdiOZLVrslsN-w2dw$$; path=/;
+        Secure; HttpOnly
+      access-control-allow-origin:
+      - '*'
+      content-length:
+      - '125'
+      content-type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://geo-i.so.ch/api/data/v1/ch.so.arp.nutzungsplanung.ueberlagernd_flaeche.data/?bbox=2617752.0,1224560.0,2617752.0,1224560.0
+  response:
+    body:
+      string: '{"type": "FeatureCollection", "features": [], "crs": {"type": "name",
+        "properties": {"name": "urn:ogc:def:crs:EPSG::2056"}}}
+
+        '
+    headers:
+      Connection:
+      - Keep-Alive
+      Date:
+      - Wed, 28 Aug 2024 11:39:32 GMT
+      Keep-Alive:
+      - timeout=10, max=300
+      Server:
+      - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=0FbJH4P-Hq_LDy6CID67bX_NqXyplNGtLw1W3KtoUepXhFzm6wWJLA$$; path=/;
+        Secure; HttpOnly
+      access-control-allow-origin:
+      - '*'
+      content-length:
+      - '125'
+      content-type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://geo-i.so.ch/api/data/v1/ch.so.agi.av.bodenbedeckung.data/?filter=%5B%5B%22art_txt%22,%22ilike%22,%22%25Wald%25%22%5D%5D&bbox=2617727.0,1224535.0,2617777.0,1224585.0
+  response:
+    body:
+      string: '{"type": "FeatureCollection", "features": [], "crs": {"type": "name",
+        "properties": {"name": "urn:ogc:def:crs:EPSG::2056"}}}
+
+        '
+    headers:
+      Connection:
+      - Keep-Alive
+      Date:
+      - Wed, 28 Aug 2024 11:39:32 GMT
+      Keep-Alive:
+      - timeout=10, max=300
+      Server:
+      - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=0lJF-opimnMv8vLqAefwoSVOxxECORK4anHs3pSEFn3De0X38X523Q$$; path=/;
+        Secure; HttpOnly
+      access-control-allow-origin:
+      - '*'
+      content-length:
+      - '125'
+      content-type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://geo-i.so.ch/api/data/v1/ch.so.agi.av.bodenbedeckung.data/?filter=%5B%5B%22art_txt%22,%22ilike%22,%22%25Gewaesser%25%22%5D%5D&bbox=2617727.0,1224535.0,2617777.0,1224585.0
+  response:
+    body:
+      string: '{"type": "FeatureCollection", "features": [], "crs": {"type": "name",
+        "properties": {"name": "urn:ogc:def:crs:EPSG::2056"}}}
+
+        '
+    headers:
+      Connection:
+      - Keep-Alive
+      Date:
+      - Wed, 28 Aug 2024 11:39:32 GMT
+      Keep-Alive:
+      - timeout=10, max=300
+      Server:
+      - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=FgruDcZzigW19cDV7ge1EqDUNxpKz08MO5Sn0Ej3CbbTLwvd-pHvoQ$$; path=/;
+        Secure; HttpOnly
+      access-control-allow-origin:
+      - '*'
+      content-length:
+      - '125'
+      content-type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://api3.geo.admin.ch/rest/services/api/MapServer/identify?returnGeometry=False&sr=2056&mapExtent=0,0,0,0&tolerance=0&imageDisplay=0,0,0&layers=all:ch.bafu.bundesinventare-amphibien,ch.bafu.bundesinventare-amphibien_wanderobjekte,ch.bafu.bundesinventare-vogelreservate,ch.bafu.bundesinventare-auen,ch.bafu.bundesinventare-auen_anhang2,ch.bafu.bundesinventare-auen_vegetation_alpin,ch.bafu.bundesinventare-flachmoore,ch.bafu.bundesinventare-hochmoore,ch.bafu.bundesinventare-moorlandschaften,ch.bafu.bundesinventare-jagdbanngebiete,ch.bafu.bundesinventare-trockenwiesen_trockenweiden,ch.bafu.bundesinventare-trockenwiesen_trockenweiden_anhang2&geometryType=esriGeometryEnvelope&geometry=2617752.0,1224560.0,2617752.0,1224560.0
+  response:
+    body:
+      string: '{"results": [{"layerBodId": "ch.bafu.bundesinventare-hochmoore", "layerName":
+        "Hochmoore", "featureId": 4478, "id": 4478, "attributes": {"name": "Chlepfimoos/Burgmoos",
+        "objnummer": 76, "shape_area": 6698.09695735, "hm_ke": 26, "unit_de": "Hochmoormischvegetation",
+        "unit_fr": "V\u00e9g\u00e9tation mixte de tourbi\u00e8re", "unit_it": "Vegetazione
+        mista di torbiera", "hochmoore_type_de": "Sekund\u00e4re Hochmoorfl\u00e4che",
+        "hochmoore_type_fr": "Tourbi\u00e8res secondaires", "hochmoore_type_it": "Torbiere
+        secondarie", "refobjblat": "https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr76.pdf",
+        "label": "Chlepfimoos/Burgmoos"}}]}'
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, HEAD, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Age:
+      - '1205'
+      Cache-Control:
+      - max-age=1800, public
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '671'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 28 Aug 2024 11:19:27 GMT
+      Server:
+      - Apache/2.4.59 (Debian)
+      Via:
+      - 1.1 179ba4c3ce59451c080c2ed7517bcb96.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - bWwGn1XvXBtJwrK2lBa9NHvKWwoasiYJBkEF4ex5IZbmrEi22bB_8A==
+      X-Amz-Cf-Pop:
+      - ZRH55-P1
+      X-Cache:
+      - Hit from cloudfront
+      X-Ua-Compatible:
+      - IE=Edge
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://api3.geo.admin.ch/rest/services/api/MapServer/identify?returnGeometry=False&sr=2056&mapExtent=0,0,0,0&tolerance=0&imageDisplay=0,0,0&layers=all:ch.bafu.bundesinventare-bln&geometryType=esriGeometryEnvelope&geometry=2617702.0,1224510.0,2617802.0,1224610.0
+  response:
+    body:
+      string: '{"results": [{"layerBodId": "ch.bafu.bundesinventare-bln", "layerName":
+        "BLN", "featureId": 1276, "id": 1276, "attributes": {"bln_name": "Steineberg
+        \u2013 Steinhof \u2013 Burg\u00e4schisee", "bln_obj": 1313, "bln_fl": 558.469,
+        "subareanumber": 0.0, "subareaname": null, "linkurldescription": "https://data.geo.admin.ch/ch.bafu.bundesinventare-bln/objectsheets/2017revision/nr1313.pdf",
+        "label": "Steineberg \u2013 Steinhof \u2013 Burg\u00e4schisee"}}]}'
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, HEAD, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Age:
+      - '1205'
+      Cache-Control:
+      - max-age=1800, public
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '453'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 28 Aug 2024 11:19:27 GMT
+      Server:
+      - Apache/2.4.59 (Debian)
+      Via:
+      - 1.1 7eb9eadda041aaab1056a6a0f8080462.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - VCC9LHCb1zllTMjcGOGgLsKKBJXoAu1hlFvtgrdxVvaZBB7J-1icdA==
+      X-Amz-Cf-Pop:
+      - ZRH55-P1
+      X-Cache:
+      - Hit from cloudfront
+      X-Ua-Compatible:
+      - IE=Edge
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://api3.geo.admin.ch/rest/services/api/MapServer/identify?returnGeometry=False&sr=2056&mapExtent=0,0,0,0&tolerance=0&imageDisplay=0,0,0&layers=all:ch.astra.ivs-nat,ch.astra.ivs-reg_loc&geometryType=esriGeometryEnvelope&geometry=2617727.0,1224535.0,2617777.0,1224585.0
+  response:
+    body:
+      string: '{"results": []}'
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET, HEAD, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Age:
+      - '1205'
+      Cache-Control:
+      - max-age=1800, public
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '15'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 28 Aug 2024 11:19:27 GMT
+      Server:
+      - Apache/2.4.59 (Debian)
+      Via:
+      - 1.1 9defe0d67603d45217a1199d0f877384.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - hpVM5EkZQHHtReUenPjIuecYTXJBIJDd7WrUdf-2WvUeKwidajynxQ==
+      X-Amz-Cf-Pop:
+      - ZRH55-P1
+      X-Cache:
+      - Hit from cloudfront
+      X-Ua-Compatible:
+      - IE=Edge
+    status:
+      code: 200
+      message: OK
+version: 1

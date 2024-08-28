@@ -14,3 +14,14 @@
     {{/if}}
   </div>
 {{/if}}
+
+{{#if this.gisLink}}
+  <a
+    class="uk-text-small uk-margin-small-left"
+    target="_blank"
+    rel="noopener noreferrer"
+    href={{this.gisLink}}
+  >
+    {{t "gis.gis-portal"}}
+  </a>
+{{/if}}

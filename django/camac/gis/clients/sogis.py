@@ -73,7 +73,9 @@ class SoGisClient(GISBaseClient):
         for property_config in config["properties"]:
             value = None
 
-            if property_config.get("yesNo"):
+            if property_config.get("yesNo"):  # pragma: no cover
+                # This is currently untested as the data source using this
+                # feature is temporarily disabled.
                 value = property_config.get("template", "{value}").format(
                     value="Ja" if len(features) > 0 else "Nein"
                 )

@@ -9,10 +9,12 @@
         'value': list([
           dict({
             'lagekoordinaten-nord': dict({
+              'hidden': False,
               'label': 'Mechtild Kobelt MBA.',
               'value': 1228434.884375,
             }),
             'lagekoordinaten-ost': dict({
+              'hidden': False,
               'label': 'Frau Isolde Zänker MBA.',
               'value': 2607160.642708333,
             }),
