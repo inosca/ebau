@@ -1,10 +1,10 @@
-﻿id,name,
-check-additional-demand,Nachforderung prüfen,Verificare richiesta di precisazioni
+﻿id,name,name
+check-additional-demand,Nachforderung prüfen,Verifica richiesta di precisazioni
 fill-additional-demand,Nachforderung,Richiesta di precisazioni
-send-additional-demand,Nachforderung erstellen,Creare richiesta di precisazioni
+send-additional-demand,Nachforderung erstellen,Crea richiesta di precisazioni
 decision,Entscheid,Decisione
 distribution,Zirkulation,Circolazione
-inquiry,Anfrage zur Stellungnahme,Richiesta relativa alla presa di posizione
+inquiry,Anfrage zur Stellungnahme,Richiesta di prendere posizione
 inquiry-answer,Stellungnahme,Presa di posizione
 abfallanlage,Abfallanlage,Impianto per i rifiuti
 abfallcodes-tabelle,Abfallcodes Tabelle,Tabella codici dei rifiuti
@@ -24,7 +24,7 @@ beschreibung-einzelfeuerung-form,Beschreibung Einzelfeuerung,Descrizione dell'im
 bestaetigung,Bestätigung,Conferma
 betriebsleiterwohnhaus,Betriebsleiterwohnhaus,Abitazione del gestore dell'azienda
 brandschutz-bauliche-angaben,Brandschutz - Bauliche Angaben,Protezione antincendio - indicazioni edilizie
-brandschutz-haustechnik,Brandschutz - Haustechnik,Protezione antincendio - impiantistica
+brandschutz-haustechnik,Brandschutz - wärmetechnische Anlagen,Protezione antincendio - impianti termotecnici
 construction-monitoring,Baubegleitung,Accompagnamento dei lavori
 dashboard,Dashboard,Dashboard
 details-zentralheizung,Details Zentralheizung,Dettagli del riscaldamento centrale
@@ -34,7 +34,7 @@ dokumente-ohne-pflichtdokumente,Dokumente,Documenti
 dossierpruefung,Dossierprüfung,Esame del dossier
 eingesetzte-stoffe-tabelle,Eingesetzte Stoffe Tabelle,Tabella sostanze impiegate
 eingriffe-in-gewaesserschutzbereichen,Eingriffe in Gewässerschutzbereichen Aᵤ,Interventi in settori di protezione delle acque Aᵤ
-einreichen,Einreichen,Inoltrare
+einreichen,Einreichen,Inoltra
 einsatzort-tabelle,Einsatzort Tabelle,Tabella luogo dell'impiego
 emissionserklaerung,Emissionserklärung,Dichiarazione delle emissioni
 entfernung-von-hecken-tabelle,Entfernung von Hecken / Feldgehölzen oder Ufervegetation Tabelle,Tabella rimozione di siepi / boschetti campestri o vegetazione riparia

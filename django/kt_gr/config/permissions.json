@@ -33,7 +33,7 @@
     "model": "permissions.accesslevel",
     "pk": "read",
     "fields": {
-      "name": "{\"de\": \"Leseberechtigung\", \"fr\": \"\", \"it\": \"\"}",
+      "name": "{\"de\": \"Leseberechtigung\", \"fr\": \"\", \"it\": \"Autorizzazione di lettura\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "required_grant_type": "SERVICE",
       "applicable_area": "INTERNAL"
