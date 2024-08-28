@@ -37,6 +37,7 @@ from camac.permissions import api as permissions_api
 from camac.permissions.conditions import (
     HasApplicantRole,
 )
+from camac.permissions.switcher import PERMISSION_MODE
 from camac.user.models import Location, Service
 from camac.utils import flatten
 
@@ -3118,6 +3119,7 @@ def test_copy_instance_modification(
     """Make sure the permission 'instance-create-modification' is checked."""
 
     gr_project_modification_settings["ALLOW_FORMS"] = ["main-form"]
+    gr_permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
     gr_permissions_settings["ACCESS_LEVELS"]["applicant"] = [
         (
             "instance-create-modification",
