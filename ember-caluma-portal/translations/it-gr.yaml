@@ -18,6 +18,10 @@ instances:
       title: "Ulteriore procedura"
       info: "I progetti di costruzione esentati dall'obbligo della licenza edilizia conformemente all'art. 40 cpv. 1 dell'ordinanza cantonale sulla pianificazione territoriale (OPTC) devono essere annunciati all'autorità edilizia comunale prima dell'esecuzione con un **annuncio della costruzione** (cfr. art. 40a OPTC).\n\n**Impianti solari** installati sui tetti sono soggetti all'obbligo di annuncio conformemente all'art. 40a OPTC. L'autorità edilizia comunale decide in base al diritto federale se un impianto solare installato su un tetto sia sufficientemente adattato e quindi esentato dall'obbligo della licenza."
 
+documents:
+  tags:
+    weitere-unterlagen: "Documentazione generale"
+
 support:
   technical: |-
     In caso di problemi tecnici con eBau contattare il <b>supporto

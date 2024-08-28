@@ -7,7 +7,7 @@ documents:
       dokument-weitere-gesuchsunterlagen: "Con *Altra documentazione di domanda* si intende documentazione di domanda come ad es. moduli - allacciamento elettrico, allacciamento antenna collettiva, allacciamento gas, allacciamento acqua, installazioni idriche / per le acque di scarico e altra documentazione di domanda."
       prefix: |+
         ## Informazioni supplementari
-         I documenti devono essere caricati in formato PDF, PNG o JPEG. Il nome dei file deve essere breve e descrittivo. Evitare di indicare numeri o designazioni di progetto per la sua archiviazione interna.
+         I documenti devono essere caricati in formato pdf, png o jpeg. Il nome dei file deve essere breve e descrittivo. Evitare di indicare numeri o designazioni di progetto che usa per la sua archiviazione interna.
 
 
     dokument-grundstucksangaben: Indicazioni relative al fondo e descrizione del progetto

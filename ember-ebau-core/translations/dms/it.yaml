@@ -20,7 +20,7 @@ dms:
   delete-error: "Errore nel tentativo di eliminare il modello"
   download-error: "Errore nel tentativo di scaricare il modello"
   download-export-error: "Si è verificato un problema durante l'esportazione. Riprova"
-  merge-and-save-success: 'Il modello è stato archiviato con successo nella categoria «interno».'
+  merge-and-save-success: 'Il modello è stato archiviato con successo nella categoria «Area interna».'
   merge-error: "Errore nel tentativo di creare il modello"
   save-error-placeholder: "{count, plural, one {Il segnaposto {placeholders} non esiste} other {I segnaposto {placeholders} non esistono}}."
   save-error-syntax: 'Il modello ha una sintassi non valida. Maggiori informazioni alla voce «Dettagli tecnici».'
@@ -35,9 +35,12 @@ dms:
     title-admin: "Documentazione"
     title-generate: "Informazioni tecniche relative ai segnaposto"
     title-placeholders: "Segnaposto"
+    complex-info: "Esempi su come usare i segnaposto"
+    copy-to-clipboard: "Copia segnaposto negli appunti"
+    copy-to-clipboard-success: "Segnaposto copiati"
 
     placeholder-and-description: "Segnaposto e descrizione"
     search: "Cerca segnaposto..."
     value: "Valore"
 
-    complexInfo: " <p> I segnaposto tecnici possono essere inseriti in un modello tramite iterazione nel modo seguente: </p> <p> L'esempio mostra l'uso del segnaposto <code>'{{ CIRCOLAZIONE_TUTTI '}}</code> </p> <p>Esempio per tabelle:</p> <table class=''uk-table uk-table-divider uk-table-small''> <thead> <tr> <th>Nome</th> <th>Termine</th> <th>Creato</th> </tr> </thead> <tbody> <tr><td colspan=''3''>'{%tr for SERVIZIO in CIRCOLAZIONE_TUTTI %'}</td></tr> <tr> <td>'{{ SERVIZIO.NOME '}}</td> <td>'{{ SERVIZIO.TERMINE '}}</td> <td>'{{ SERVIZIO.CREATO '}}</td> </tr> <tr><td colspan=''3''>'{%tr endfor %'}</td></tr> </tbody> </table> <p>Esempio per elenchi:</p> '{%p for SERVIZIO in CIRCOLAZIONE_TUTTI %'} <ul class=''uk-list uk-list-bullet uk-margin-remove''> <li> '{{ SERVIZIO.NOME '}} (Termine: '{{ SERVIZIO.TERMINE '}}) </li> </ul> '{%p endfor %'} "
+    complexInfo: " <p> I segnaposto tecnici possono essere inseriti in un modello tramite iterazione nel modo seguente: </p> <p> L'esempio mostra l'uso del segnaposto <code>'{{ CIRCOLAZIONE_TUTTI '}}</code> </p> <p>Esempio per tabelle:</p> <table class=''uk-table uk-table-divider uk-table-small''> <thead> <tr> <th>Nome</th> <th>Scadenza</th> <th>Creato</th> </tr> </thead> <tbody> <tr><td colspan=''3''>'{%tr for SERVIZIO in CIRCOLAZIONE_TUTTI %'}</td></tr> <tr> <td>'{{ SERVIZIO.NOME '}}</td> <td>'{{ SERVIZIO.SCADENZA '}}</td> <td>'{{ SERVIZIO.CREATO '}}</td> </tr> <tr><td colspan=''3''>'{%tr endfor %'}</td></tr> </tbody> </table> <p>Esempio per elenchi:</p> '{%p for SERVIZIO in CIRCOLAZIONE_TUTTI %'} <ul class=''uk-list uk-list-bullet uk-margin-remove''> <li> '{{ SERVIZIO.NOME '}} (Scadenza: '{{ SERVIZIO.SCADENZA '}}) </li> </ul> '{%p endfor %'} "
