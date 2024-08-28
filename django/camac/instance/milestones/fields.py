@@ -64,6 +64,7 @@ class AnswerField(serializers.ReadOnlyField):
         slug="",
         label="",
         document="",
+        family_form_id="",
         **kwargs,
     ):  # pragma: no cover
         super().__init__(**kwargs)
@@ -71,17 +72,28 @@ class AnswerField(serializers.ReadOnlyField):
         self.slug = slug
         self.label = _(label)
         self.document = document
+        self.family_form_id = family_form_id
 
     def get_attribute(self, instance):  # pragma: no cover
-        documents = Document.objects.filter(
-            Q(form__slug=self.document)
-            & (Q(case=instance.case) | Q(work_item__in=instance._all_work_items))
-        )
+        documents = Document.objects.filter(form__slug=self.document)
+
+        if self.family_form_id:
+            documents = documents.filter(
+                (Q(case=instance.case) & Q(work_item__in=instance._all_work_items))
+                | (
+                    Q(family__form_id=self.family_form_id)
+                    & Q(case__instance__pk=instance.pk)
+                )
+            )
+        else:
+            documents = documents.filter(
+                (Q(case=instance.case) | Q(work_item__in=instance._all_work_items))
+            )
+
         answers = Answer.objects.filter(
             question__slug=self.slug,
             document__in=documents,
         )
-
         # filter the answers for empty values
         answers = answers.exclude(Q(value__isnull=True) & Q(date__isnull=True))
 

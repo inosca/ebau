@@ -1,5 +1,5 @@
 # serializer version: 1
-# name: test_milestones_ur[is-paper-no-complete-check-vollstaendigkeitspruefung-complete-False-Sekretariat der Gemeindebaubeh\xf6rde]
+# name: test_milestones_ur[False-is-paper-no-complete-check-vollstaendigkeitspruefung-complete-False-Sekretariat der Gemeindebaubeh\xf6rde]
   dict({
     'sections': list([
       dict({
@@ -22,14 +22,14 @@
             ]),
           }),
           dict({
-            'label': 'Dossier vollstandig',
+            'label': 'Vollständigkeitsprüfung abgeschlossen',
             'slug': 'check-completed',
             'value': list([
               '2023-01-01T19:00:00Z',
             ]),
           }),
           dict({
-            'label': 'Dossier vollstandig',
+            'label': 'Dossier vollständig',
             'slug': 'instance-complete',
             'value': '2023-01-01T19:00:00Z',
           }),
@@ -37,6 +37,24 @@
             'label': 'Prüfung durch Gemeinde',
             'slug': 'review-building-commission',
             'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Publikationsdatum',
+            'slug': 'publication-date',
+            'value': '2023-12-31T00:00:00Z',
+          }),
+          dict({
+            'label': 'Eingang von Einsprachen',
+            'slug': 'einsprache',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Weiterleitung an KOOR',
+            'slug': '',
+            'value': list([
+              '2023-12-31T00:00:00Z',
             ]),
           }),
           dict({
@@ -53,16 +71,29 @@
           }),
           dict({
             'label': 'Stellungnahme - Vorentscheid',
-            'slug': 'decision',
-            'value': list([
-              '2023-01-01T19:00:00Z',
-            ]),
+            'slug': 'statement-preliminary-decision',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Bau- und Einspracheentscheid',
+            'slug': 'building-decision',
+            'value': None,
           }),
           dict({
             'label': 'Meldung Baubewilligung an Geometer',
             'slug': 'notice-to-geometer',
             'value': list([
             ]),
+          }),
+          dict({
+            'label': 'Empfangsbestätigung Entscheiddokumente',
+            'slug': 'receipt-confirmation-of-decision-documents',
+            'value': None,
+          }),
+          dict({
+            'label': 'Empfangsbestätigung Vorentscheid',
+            'slug': 'receipt-confirmation-of-preliminary-decision',
+            'value': '2023-12-31T00:00:00Z',
           }),
           dict({
             'label': 'Meldung Baubewilligung an Gebäudeschätzung',
@@ -82,7 +113,7 @@
     ]),
   })
 # ---
-# name: test_milestones_ur[is-paper-no-complete-check-vollstaendigkeitspruefung-incomplete-False-Sekretariat der Gemeindebaubeh\xf6rde]
+# name: test_milestones_ur[False-is-paper-no-complete-check-vollstaendigkeitspruefung-incomplete-False-Sekretariat der Gemeindebaubeh\xf6rde]
   dict({
     'sections': list([
       dict({
@@ -105,14 +136,14 @@
             ]),
           }),
           dict({
-            'label': 'Dossier vollstandig',
+            'label': 'Vollständigkeitsprüfung abgeschlossen',
             'slug': 'check-completed',
             'value': list([
               '2023-01-01T19:00:00Z',
             ]),
           }),
           dict({
-            'label': 'Dossier vollstandig',
+            'label': 'Dossier vollständig',
             'slug': 'instance-complete',
             'value': '2023-01-01T19:00:00Z',
           }),
@@ -120,6 +151,24 @@
             'label': 'Prüfung durch Gemeinde',
             'slug': 'review-building-commission',
             'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Publikationsdatum',
+            'slug': 'publication-date',
+            'value': '2023-12-31T00:00:00Z',
+          }),
+          dict({
+            'label': 'Eingang von Einsprachen',
+            'slug': 'einsprache',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Weiterleitung an KOOR',
+            'slug': '',
+            'value': list([
+              '2023-12-31T00:00:00Z',
             ]),
           }),
           dict({
@@ -136,16 +185,29 @@
           }),
           dict({
             'label': 'Stellungnahme - Vorentscheid',
-            'slug': 'decision',
-            'value': list([
-              '2023-01-01T19:00:00Z',
-            ]),
+            'slug': 'statement-preliminary-decision',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Bau- und Einspracheentscheid',
+            'slug': 'building-decision',
+            'value': None,
           }),
           dict({
             'label': 'Meldung Baubewilligung an Geometer',
             'slug': 'notice-to-geometer',
             'value': list([
             ]),
+          }),
+          dict({
+            'label': 'Empfangsbestätigung Entscheiddokumente',
+            'slug': 'receipt-confirmation-of-decision-documents',
+            'value': None,
+          }),
+          dict({
+            'label': 'Empfangsbestätigung Vorentscheid',
+            'slug': 'receipt-confirmation-of-preliminary-decision',
+            'value': '2023-12-31T00:00:00Z',
           }),
           dict({
             'label': 'Meldung Baubewilligung an Gebäudeschätzung',
@@ -165,7 +227,7 @@
     ]),
   })
 # ---
-# name: test_milestones_ur[is-paper-no-complete-check-vollstaendigkeitspruefung-incomplete-True-Sekretariat der Gemeindebaubeh\xf6rde]
+# name: test_milestones_ur[False-is-paper-no-complete-check-vollstaendigkeitspruefung-incomplete-True-Sekretariat der Gemeindebaubeh\xf6rde]
   dict({
     'sections': list([
       dict({
@@ -188,14 +250,14 @@
             ]),
           }),
           dict({
-            'label': 'Dossier vollstandig',
+            'label': 'Vollständigkeitsprüfung abgeschlossen',
             'slug': 'check-completed',
             'value': list([
               '2023-01-01T19:00:00Z',
             ]),
           }),
           dict({
-            'label': 'Dossier vollstandig',
+            'label': 'Dossier vollständig',
             'slug': 'instance-complete',
             'value': None,
           }),
@@ -206,6 +268,24 @@
             ]),
           }),
           dict({
+            'label': 'Publikationsdatum',
+            'slug': 'publication-date',
+            'value': '2023-12-31T00:00:00Z',
+          }),
+          dict({
+            'label': 'Eingang von Einsprachen',
+            'slug': 'einsprache',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Weiterleitung an KOOR',
+            'slug': '',
+            'value': list([
+              '2023-12-31T00:00:00Z',
+            ]),
+          }),
+          dict({
             'label': 'Start Zirkulation',
             'slug': 'start-circulation',
             'value': list([
@@ -219,16 +299,29 @@
           }),
           dict({
             'label': 'Stellungnahme - Vorentscheid',
-            'slug': 'decision',
-            'value': list([
-              '2023-01-01T19:00:00Z',
-            ]),
+            'slug': 'statement-preliminary-decision',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Bau- und Einspracheentscheid',
+            'slug': 'building-decision',
+            'value': None,
           }),
           dict({
             'label': 'Meldung Baubewilligung an Geometer',
             'slug': 'notice-to-geometer',
             'value': list([
             ]),
+          }),
+          dict({
+            'label': 'Empfangsbestätigung Entscheiddokumente',
+            'slug': 'receipt-confirmation-of-decision-documents',
+            'value': None,
+          }),
+          dict({
+            'label': 'Empfangsbestätigung Vorentscheid',
+            'slug': 'receipt-confirmation-of-preliminary-decision',
+            'value': '2023-12-31T00:00:00Z',
           }),
           dict({
             'label': 'Meldung Baubewilligung an Gebäudeschätzung',
@@ -248,7 +341,7 @@
     ]),
   })
 # ---
-# name: test_milestones_ur[is-paper-yes-complete-check-vollstaendigkeitspruefung-complete-False-Sekretariat der Gemeindebaubeh\xf6rde]
+# name: test_milestones_ur[False-is-paper-yes-complete-check-vollstaendigkeitspruefung-complete-False-Sekretariat der Gemeindebaubeh\xf6rde]
   dict({
     'sections': list([
       dict({
@@ -271,14 +364,14 @@
             ]),
           }),
           dict({
-            'label': 'Dossier vollstandig',
+            'label': 'Vollständigkeitsprüfung abgeschlossen',
             'slug': 'check-completed',
             'value': list([
               '2023-01-01T19:00:00Z',
             ]),
           }),
           dict({
-            'label': 'Dossier vollstandig',
+            'label': 'Dossier vollständig',
             'slug': 'instance-complete',
             'value': '2023-01-01T19:00:00Z',
           }),
@@ -286,6 +379,24 @@
             'label': 'Prüfung durch Gemeinde',
             'slug': 'review-building-commission',
             'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Publikationsdatum',
+            'slug': 'publication-date',
+            'value': '2023-12-31T00:00:00Z',
+          }),
+          dict({
+            'label': 'Eingang von Einsprachen',
+            'slug': 'einsprache',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Weiterleitung an KOOR',
+            'slug': '',
+            'value': list([
+              '2023-12-31T00:00:00Z',
             ]),
           }),
           dict({
@@ -302,16 +413,485 @@
           }),
           dict({
             'label': 'Stellungnahme - Vorentscheid',
-            'slug': 'decision',
-            'value': list([
-              '2023-01-01T19:00:00Z',
-            ]),
+            'slug': 'statement-preliminary-decision',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Bau- und Einspracheentscheid',
+            'slug': 'building-decision',
+            'value': None,
           }),
           dict({
             'label': 'Meldung Baubewilligung an Geometer',
             'slug': 'notice-to-geometer',
             'value': list([
             ]),
+          }),
+          dict({
+            'label': 'Empfangsbestätigung Entscheiddokumente',
+            'slug': 'receipt-confirmation-of-decision-documents',
+            'value': None,
+          }),
+          dict({
+            'label': 'Empfangsbestätigung Vorentscheid',
+            'slug': 'receipt-confirmation-of-preliminary-decision',
+            'value': '2023-12-31T00:00:00Z',
+          }),
+          dict({
+            'label': 'Meldung Baubewilligung an Gebäudeschätzung',
+            'slug': 'notice-to-gebaeudeschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Baubewilligung gültig bis',
+            'slug': 'building-permit-valid-until',
+            'value': '2024-01-01T19:00:00Z',
+          }),
+        ]),
+        'label': 'Ordentliches Verfahren',
+        'slug': 'regular-process',
+      }),
+    ]),
+  })
+# ---
+# name: test_milestones_ur[True-is-paper-no-complete-check-vollstaendigkeitspruefung-complete-False-Sekretariat der Gemeindebaubeh\xf6rde]
+  dict({
+    'sections': list([
+      dict({
+        'fields': list([
+          dict({
+            'label': 'Dossier erfasst',
+            'slug': 'instance-submitted',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Eingang Post',
+            'slug': 'paper-submission',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Nachforderung Gemeindebaubehörde',
+            'slug': 'additional-demand',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Vollständigkeitsprüfung abgeschlossen',
+            'slug': 'check-completed',
+            'value': list([
+              '2023-01-01T19:00:00Z',
+            ]),
+          }),
+          dict({
+            'label': 'Dossier vollständig',
+            'slug': 'instance-complete',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Prüfung durch Gemeinde',
+            'slug': 'review-building-commission',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Publikationsdatum',
+            'slug': 'publication-date',
+            'value': '2023-12-31T00:00:00Z',
+          }),
+          dict({
+            'label': 'Eingang von Einsprachen',
+            'slug': 'einsprache',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Weiterleitung an KOOR',
+            'slug': '',
+            'value': list([
+              '2023-12-31T00:00:00Z',
+            ]),
+          }),
+          dict({
+            'label': 'Start Zirkulation',
+            'slug': 'start-circulation',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Zirkulation beendet',
+            'slug': 'distribution-completed',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Stellungnahme - Vorentscheid',
+            'slug': 'statement-preliminary-decision',
+            'value': None,
+          }),
+          dict({
+            'label': 'Bau- und Einspracheentscheid',
+            'slug': 'building-decision',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Meldung Baubewilligung an Geometer',
+            'slug': 'notice-to-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Empfangsbestätigung Entscheiddokumente',
+            'slug': 'receipt-confirmation-of-decision-documents',
+            'value': '2023-12-31T00:00:00Z',
+          }),
+          dict({
+            'label': 'Empfangsbestätigung Vorentscheid',
+            'slug': 'receipt-confirmation-of-preliminary-decision',
+            'value': None,
+          }),
+          dict({
+            'label': 'Meldung Baubewilligung an Gebäudeschätzung',
+            'slug': 'notice-to-gebaeudeschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Baubewilligung gültig bis',
+            'slug': 'building-permit-valid-until',
+            'value': '2024-01-01T19:00:00Z',
+          }),
+        ]),
+        'label': 'Ordentliches Verfahren',
+        'slug': 'regular-process',
+      }),
+    ]),
+  })
+# ---
+# name: test_milestones_ur[True-is-paper-no-complete-check-vollstaendigkeitspruefung-incomplete-False-Sekretariat der Gemeindebaubeh\xf6rde]
+  dict({
+    'sections': list([
+      dict({
+        'fields': list([
+          dict({
+            'label': 'Dossier erfasst',
+            'slug': 'instance-submitted',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Eingang Post',
+            'slug': 'paper-submission',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Nachforderung Gemeindebaubehörde',
+            'slug': 'additional-demand',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Vollständigkeitsprüfung abgeschlossen',
+            'slug': 'check-completed',
+            'value': list([
+              '2023-01-01T19:00:00Z',
+            ]),
+          }),
+          dict({
+            'label': 'Dossier vollständig',
+            'slug': 'instance-complete',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Prüfung durch Gemeinde',
+            'slug': 'review-building-commission',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Publikationsdatum',
+            'slug': 'publication-date',
+            'value': '2023-12-31T00:00:00Z',
+          }),
+          dict({
+            'label': 'Eingang von Einsprachen',
+            'slug': 'einsprache',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Weiterleitung an KOOR',
+            'slug': '',
+            'value': list([
+              '2023-12-31T00:00:00Z',
+            ]),
+          }),
+          dict({
+            'label': 'Start Zirkulation',
+            'slug': 'start-circulation',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Zirkulation beendet',
+            'slug': 'distribution-completed',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Stellungnahme - Vorentscheid',
+            'slug': 'statement-preliminary-decision',
+            'value': None,
+          }),
+          dict({
+            'label': 'Bau- und Einspracheentscheid',
+            'slug': 'building-decision',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Meldung Baubewilligung an Geometer',
+            'slug': 'notice-to-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Empfangsbestätigung Entscheiddokumente',
+            'slug': 'receipt-confirmation-of-decision-documents',
+            'value': '2023-12-31T00:00:00Z',
+          }),
+          dict({
+            'label': 'Empfangsbestätigung Vorentscheid',
+            'slug': 'receipt-confirmation-of-preliminary-decision',
+            'value': None,
+          }),
+          dict({
+            'label': 'Meldung Baubewilligung an Gebäudeschätzung',
+            'slug': 'notice-to-gebaeudeschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Baubewilligung gültig bis',
+            'slug': 'building-permit-valid-until',
+            'value': '2024-01-01T19:00:00Z',
+          }),
+        ]),
+        'label': 'Ordentliches Verfahren',
+        'slug': 'regular-process',
+      }),
+    ]),
+  })
+# ---
+# name: test_milestones_ur[True-is-paper-no-complete-check-vollstaendigkeitspruefung-incomplete-True-Sekretariat der Gemeindebaubeh\xf6rde]
+  dict({
+    'sections': list([
+      dict({
+        'fields': list([
+          dict({
+            'label': 'Dossier erfasst',
+            'slug': 'instance-submitted',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Eingang Post',
+            'slug': 'paper-submission',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Nachforderung Gemeindebaubehörde',
+            'slug': 'additional-demand',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Vollständigkeitsprüfung abgeschlossen',
+            'slug': 'check-completed',
+            'value': list([
+              '2023-01-01T19:00:00Z',
+            ]),
+          }),
+          dict({
+            'label': 'Dossier vollständig',
+            'slug': 'instance-complete',
+            'value': None,
+          }),
+          dict({
+            'label': 'Prüfung durch Gemeinde',
+            'slug': 'review-building-commission',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Publikationsdatum',
+            'slug': 'publication-date',
+            'value': '2023-12-31T00:00:00Z',
+          }),
+          dict({
+            'label': 'Eingang von Einsprachen',
+            'slug': 'einsprache',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Weiterleitung an KOOR',
+            'slug': '',
+            'value': list([
+              '2023-12-31T00:00:00Z',
+            ]),
+          }),
+          dict({
+            'label': 'Start Zirkulation',
+            'slug': 'start-circulation',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Zirkulation beendet',
+            'slug': 'distribution-completed',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Stellungnahme - Vorentscheid',
+            'slug': 'statement-preliminary-decision',
+            'value': None,
+          }),
+          dict({
+            'label': 'Bau- und Einspracheentscheid',
+            'slug': 'building-decision',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Meldung Baubewilligung an Geometer',
+            'slug': 'notice-to-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Empfangsbestätigung Entscheiddokumente',
+            'slug': 'receipt-confirmation-of-decision-documents',
+            'value': '2023-12-31T00:00:00Z',
+          }),
+          dict({
+            'label': 'Empfangsbestätigung Vorentscheid',
+            'slug': 'receipt-confirmation-of-preliminary-decision',
+            'value': None,
+          }),
+          dict({
+            'label': 'Meldung Baubewilligung an Gebäudeschätzung',
+            'slug': 'notice-to-gebaeudeschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Baubewilligung gültig bis',
+            'slug': 'building-permit-valid-until',
+            'value': '2024-01-01T19:00:00Z',
+          }),
+        ]),
+        'label': 'Ordentliches Verfahren',
+        'slug': 'regular-process',
+      }),
+    ]),
+  })
+# ---
+# name: test_milestones_ur[True-is-paper-yes-complete-check-vollstaendigkeitspruefung-complete-False-Sekretariat der Gemeindebaubeh\xf6rde]
+  dict({
+    'sections': list([
+      dict({
+        'fields': list([
+          dict({
+            'label': 'Dossier erfasst',
+            'slug': 'instance-submitted',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Eingang Post',
+            'slug': 'paper-submission',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Nachforderung Gemeindebaubehörde',
+            'slug': 'additional-demand',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Vollständigkeitsprüfung abgeschlossen',
+            'slug': 'check-completed',
+            'value': list([
+              '2023-01-01T19:00:00Z',
+            ]),
+          }),
+          dict({
+            'label': 'Dossier vollständig',
+            'slug': 'instance-complete',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Prüfung durch Gemeinde',
+            'slug': 'review-building-commission',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Publikationsdatum',
+            'slug': 'publication-date',
+            'value': '2023-12-31T00:00:00Z',
+          }),
+          dict({
+            'label': 'Eingang von Einsprachen',
+            'slug': 'einsprache',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Weiterleitung an KOOR',
+            'slug': '',
+            'value': list([
+              '2023-12-31T00:00:00Z',
+            ]),
+          }),
+          dict({
+            'label': 'Start Zirkulation',
+            'slug': 'start-circulation',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Zirkulation beendet',
+            'slug': 'distribution-completed',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Stellungnahme - Vorentscheid',
+            'slug': 'statement-preliminary-decision',
+            'value': None,
+          }),
+          dict({
+            'label': 'Bau- und Einspracheentscheid',
+            'slug': 'building-decision',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Meldung Baubewilligung an Geometer',
+            'slug': 'notice-to-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Empfangsbestätigung Entscheiddokumente',
+            'slug': 'receipt-confirmation-of-decision-documents',
+            'value': '2023-12-31T00:00:00Z',
+          }),
+          dict({
+            'label': 'Empfangsbestätigung Vorentscheid',
+            'slug': 'receipt-confirmation-of-preliminary-decision',
+            'value': None,
           }),
           dict({
             'label': 'Meldung Baubewilligung an Gebäudeschätzung',
