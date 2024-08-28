@@ -21,7 +21,7 @@
     "pk": "allgemeine-angaben-kurz",
     "fields": {
       "created_at": "2020-10-07T13:30:11.211Z",
-      "modified_at": "2024-08-02T12:37:00.080Z",
+      "modified_at": "2024-08-28T12:24:54.684Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -39,7 +39,7 @@
     "pk": "parzelle-tabelle",
     "fields": {
       "created_at": "2019-03-28T14:11:40.223Z",
-      "modified_at": "2024-08-02T12:37:00.083Z",
+      "modified_at": "2024-08-28T12:24:54.687Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": null,
@@ -57,7 +57,7 @@
     "pk": "personalien",
     "fields": {
       "created_at": "2019-03-11T07:15:38.905Z",
-      "modified_at": "2024-08-02T12:37:00.085Z",
+      "modified_at": "2024-08-28T12:24:54.689Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": null,
@@ -75,7 +75,7 @@
     "pk": "personalien-tabelle",
     "fields": {
       "created_at": "2019-03-25T10:06:27.325Z",
-      "modified_at": "2024-08-02T12:37:00.088Z",
+      "modified_at": "2024-08-28T12:24:54.692Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": null,
@@ -663,7 +663,7 @@
     "pk": "is-paper-no",
     "fields": {
       "created_at": "2020-01-14T07:42:26.848Z",
-      "modified_at": "2024-08-02T12:36:59.844Z",
+      "modified_at": "2024-08-28T12:24:54.441Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -680,7 +680,7 @@
     "pk": "is-paper-yes",
     "fields": {
       "created_at": "2020-01-14T07:42:26.842Z",
-      "modified_at": "2024-08-02T12:36:59.846Z",
+      "modified_at": "2024-08-28T12:24:54.445Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -697,7 +697,7 @@
     "pk": "juristische-person-gesuchstellerin-ja",
     "fields": {
       "created_at": "2019-04-01T07:07:21.368Z",
-      "modified_at": "2024-08-02T12:36:59.849Z",
+      "modified_at": "2024-08-28T12:24:54.447Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -714,7 +714,7 @@
     "pk": "juristische-person-gesuchstellerin-nein",
     "fields": {
       "created_at": "2019-04-01T07:07:21.381Z",
-      "modified_at": "2024-08-02T12:36:59.851Z",
+      "modified_at": "2024-08-28T12:24:54.451Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -731,7 +731,7 @@
     "pk": "projektaenderung-ja",
     "fields": {
       "created_at": "2023-05-01T14:09:45.081Z",
-      "modified_at": "2024-08-02T12:36:59.854Z",
+      "modified_at": "2024-08-28T12:24:54.454Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -748,7 +748,7 @@
     "pk": "projektaenderung-nein",
     "fields": {
       "created_at": "2023-05-01T14:09:45.080Z",
-      "modified_at": "2024-08-02T12:36:59.856Z",
+      "modified_at": "2024-08-28T12:24:54.457Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -765,7 +765,7 @@
     "pk": "weitere-personen-abweichender-rechnungsempfaenger",
     "fields": {
       "created_at": "2023-04-12T05:39:19.048Z",
-      "modified_at": "2024-08-02T12:36:59.859Z",
+      "modified_at": "2024-08-28T12:24:54.460Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -782,12 +782,12 @@
     "pk": "weitere-personen-grundeigentumerin",
     "fields": {
       "created_at": "2019-03-14T16:03:48.806Z",
-      "modified_at": "2024-08-02T12:36:59.861Z",
+      "modified_at": "2024-08-28T12:24:54.463Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Grundeigent\\u00fcmer/in\", \"fr\": \"Propri\\u00e9taire foncier/fonci\\u00e8re\", \"it\": \"Proprietaria/o fondiaria/o\"}",
+      "label": "{\"de\": \"Grundeigent\\u00fcmer/in\", \"fr\": \"Propri\\u00e9taire foncier/fonci\\u00e8re\", \"it\": \"Persona proprietaria del fondo\"}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -799,7 +799,7 @@
     "pk": "weitere-personen-projektverfasserin",
     "fields": {
       "created_at": "2019-03-14T16:03:48.822Z",
-      "modified_at": "2024-08-02T12:36:59.864Z",
+      "modified_at": "2024-08-28T12:24:54.467Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -816,7 +816,7 @@
     "pk": "weitere-personen-rechnungsempfaenger",
     "fields": {
       "created_at": "2023-04-12T07:41:03.707Z",
-      "modified_at": "2024-08-02T12:36:59.866Z",
+      "modified_at": "2024-08-28T12:24:54.470Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -833,7 +833,7 @@
     "pk": "baurecht-nummer",
     "fields": {
       "created_at": "2019-03-28T14:12:52.743Z",
-      "modified_at": "2024-08-02T12:36:56.063Z",
+      "modified_at": "2024-08-28T12:24:50.318Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": null,
@@ -866,7 +866,7 @@
     "pk": "beschreibung-projektaenderung",
     "fields": {
       "created_at": "2023-09-11T06:12:47.054Z",
-      "modified_at": "2024-08-02T12:36:56.067Z",
+      "modified_at": "2024-08-28T12:24:50.321Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -900,7 +900,7 @@
     "pk": "dokumente-platzhalter",
     "fields": {
       "created_at": "2023-08-10T13:33:37.730Z",
-      "modified_at": "2024-08-02T12:36:53.967Z",
+      "modified_at": "2024-08-28T12:24:50.324Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -931,7 +931,7 @@
     "pk": "e-grid-nr",
     "fields": {
       "created_at": "2019-03-28T14:13:11.177Z",
-      "modified_at": "2024-08-02T12:36:56.004Z",
+      "modified_at": "2024-08-28T12:24:50.329Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": null,
@@ -964,7 +964,7 @@
     "pk": "e-mail-gesuchstellerin",
     "fields": {
       "created_at": "2019-04-04T07:56:23.894Z",
-      "modified_at": "2024-08-02T12:36:56.070Z",
+      "modified_at": "2024-08-28T12:24:50.333Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -998,7 +998,7 @@
     "pk": "folgeplanung",
     "fields": {
       "created_at": "2023-10-03T11:47:18.915Z",
-      "modified_at": "2024-08-02T12:36:56.077Z",
+      "modified_at": "2024-08-28T12:24:50.339Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1032,7 +1032,7 @@
     "pk": "gemeinde",
     "fields": {
       "created_at": "2019-05-05T12:48:17.169Z",
-      "modified_at": "2024-08-02T12:36:56.081Z",
+      "modified_at": "2024-08-28T12:24:50.343Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1065,7 +1065,7 @@
     "pk": "genereller-erschliessungsplan",
     "fields": {
       "created_at": "2023-10-03T11:47:12.861Z",
-      "modified_at": "2024-08-02T12:36:56.087Z",
+      "modified_at": "2024-08-28T12:24:50.353Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1099,7 +1099,7 @@
     "pk": "genereller-gestaltungsplan",
     "fields": {
       "created_at": "2023-10-03T11:46:57.972Z",
-      "modified_at": "2024-08-02T12:36:56.094Z",
+      "modified_at": "2024-08-28T12:24:50.359Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1133,12 +1133,12 @@
     "pk": "gis-map",
     "fields": {
       "created_at": "2023-10-03T11:45:55.373Z",
-      "modified_at": "2024-08-02T12:36:56.101Z",
+      "modified_at": "2024-08-28T12:24:50.366Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Karte\", \"fr\": null, \"it\": \"Mappa\"}",
+      "label": "{\"de\": \"Karte\", \"fr\": null, \"it\": \"Carta\"}",
       "type": "text",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "false",
@@ -1170,7 +1170,7 @@
     "pk": "hinweis-gis",
     "fields": {
       "created_at": "2023-10-25T16:21:59.439Z",
-      "modified_at": "2024-08-02T12:36:56.108Z",
+      "modified_at": "2024-08-28T12:24:50.372Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1201,7 +1201,7 @@
     "pk": "hinweis-personalien",
     "fields": {
       "created_at": "2020-11-12T15:15:05.246Z",
-      "modified_at": "2024-08-02T12:36:56.114Z",
+      "modified_at": "2024-08-28T12:24:50.379Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1232,7 +1232,7 @@
     "pk": "hinweis-pilotphase",
     "fields": {
       "created_at": "2023-10-26T07:53:57.702Z",
-      "modified_at": "2024-08-02T12:36:56.121Z",
+      "modified_at": "2024-08-28T12:24:50.386Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1245,7 +1245,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"**Bitte beachten:** Im Moment k\\u00f6nnen nur in folgenden Gemeinden Gesuche digital eingereicht werden:\\n\\n<style>\\ntable.columnwise {\\n  display: table;\\n}\\ntable.columnwise tr {\\n  display: table-cell;\\n  width: 33%;\\n}\\ntable.columnwise tr td {\\n  display: block;\\n}\\n</style>\\n<table class=\\\"columnwise\\\" style=\\\"width:100%\\\">\\n  <tr>\\n    <td>Albula/Alvra</td>\\n    <td>Avers</td>\\n    <td>Berg\\u00fcn Filisur</td>\\n    <td>Bonaduz</td>\\n    <td>Breil/Brigels</td>\\n    <td>Cazis</td>\\n    <td>Conters im Pr\\u00e4ttigau</td>\\n    <td>Disentis/Must\\u00e9r</td>\\n    <td>Domleschg</td>\\n    <td>Felsberg</td>\\n    <td>Fideris</td>\\n    <td>Fl\\u00e4sch</td>\\n    <td>Flerden</td>\\n    <td>Gr\\u00fcsch</td>\\n    <td>Jenaz</td>\\n  </tr>\\n  <tr>\\n    <td>Jenins</td>\\n    <td>Klosters</td>\\n    <td>K\\u00fcblis</td>\\n    <td>Luzein</td>\\n    <td>Masein</td>\\n    <td>Medel (Lucmagn)</td>\\n    <td>Pontresina</td>\\n    <td>Rh\\u00e4z\\u00fcns</td>\\n    <td>Rheinwald</td>\\n    <td>Rongellen</td>\\n    <td>Rothenbrunnen</td>\\n  \\t<td>Sagogn</td>\\n    <td>Samedan</td>\\n    <td>Scharans</td>\\n    <td>Schiers</td>\\n  </tr>\\n  <tr>\\n    <td>Schluein</td>\\n    <td>Seewis im Pr\\u00e4ttigau</td>\\n    <td>Sumvitg</td>\\n    <td>Surses</td>\\n    <td>Tamins</td>\\n    <td>Tschappina</td>\\n    <td>Tschiertschen-Praden</td>\\n    <td>Tujetsch</td>\\n    <td>Untervaz</td>\\n    <td>Urmein</td>\\n    <td>Vals</td>\\n    <td>Zillis-Reischen</td>\\n    <td>Zizers</td>\\n    <td>&nbsp;</td>\\n    <td>&nbsp;</td>\\n  </tr>\\n</table>\", \"fr\": \"\", \"it\": \"**Attenzione:** al momento \\u00e8 possibile inoltrare in forma digitale solo le domande dei comuni seguenti:\\n\\n \"}",
+      "static_content": "{\"de\": \"**Bitte beachten:** Im Moment k\\u00f6nnen nur in folgenden Gemeinden Gesuche digital eingereicht werden:\\n\\n<style>\\ntable.columnwise {\\n  display: table;\\n}\\ntable.columnwise tr {\\n  display: table-cell;\\n  width: 33%;\\n}\\ntable.columnwise tr td {\\n  display: block;\\n}\\n</style>\\n<table class=\\\"columnwise\\\" style=\\\"width:100%\\\">\\n  <tr>\\n    <td>Albula/Alvra</td>\\n    <td>Avers</td>\\n    <td>Berg\\u00fcn Filisur</td>\\n    <td>Bonaduz</td>\\n    <td>Breil/Brigels</td>\\n    <td>Cazis</td>\\n    <td>Conters im Pr\\u00e4ttigau</td>\\n    <td>Disentis/Must\\u00e9r</td>\\n    <td>Domleschg</td>\\n    <td>Felsberg</td>\\n    <td>Fideris</td>\\n    <td>Fl\\u00e4sch</td>\\n    <td>Flerden</td>\\n    <td>Gr\\u00fcsch</td>\\n    <td>Jenaz</td>\\n  </tr>\\n  <tr>\\n    <td>Jenins</td>\\n    <td>Klosters</td>\\n    <td>K\\u00fcblis</td>\\n    <td>Luzein</td>\\n    <td>Masein</td>\\n    <td>Medel (Lucmagn)</td>\\n    <td>Pontresina</td>\\n    <td>Rh\\u00e4z\\u00fcns</td>\\n    <td>Rheinwald</td>\\n    <td>Rongellen</td>\\n    <td>Rothenbrunnen</td>\\n  \\t<td>Sagogn</td>\\n    <td>Samedan</td>\\n    <td>Scharans</td>\\n    <td>Schiers</td>\\n  </tr>\\n  <tr>\\n    <td>Schluein</td>\\n    <td>Seewis im Pr\\u00e4ttigau</td>\\n    <td>Sumvitg</td>\\n    <td>Surses</td>\\n    <td>Tamins</td>\\n    <td>Tschappina</td>\\n    <td>Tschiertschen-Praden</td>\\n    <td>Tujetsch</td>\\n    <td>Untervaz</td>\\n    <td>Urmein</td>\\n    <td>Vals</td>\\n    <td>Zillis-Reischen</td>\\n    <td>Zizers</td>\\n    <td>&nbsp;</td>\\n    <td>&nbsp;</td>\\n  </tr>\\n</table>\", \"fr\": \"\", \"it\": \"**Attenzione:** al momento \\u00e8 possibile inoltrare in forma digitale solo le domande dei comuni seguenti:\\n\\n<style>\\ntable.columnwise {\\n  display: table;\\n}\\ntable.columnwise tr {\\n  display: table-cell;\\n  width: 33%;\\n}\\ntable.columnwise tr td {\\n  display: block;\\n}\\n</style>\\n<table class=\\\"columnwise\\\" style=\\\"width:100%\\\">\\n  <tr>\\n    <td>Albula/Alvra</td>\\n    <td>Avers</td>\\n    <td>Berg\\u00fcn Filisur</td>\\n    <td>Bonaduz</td>\\n    <td>Breil/Brigels</td>\\n    <td>Cazis</td>\\n    <td>Conters im Pr\\u00e4ttigau</td>\\n    <td>Disentis/Must\\u00e9r</td>\\n    <td>Domleschg</td>\\n    <td>Felsberg</td>\\n    <td>Fideris</td>\\n    <td>Fl\\u00e4sch</td>\\n    <td>Flerden</td>\\n    <td>Gr\\u00fcsch</td>\\n    <td>Jenaz</td>\\n  </tr>\\n  <tr>\\n    <td>Jenins</td>\\n    <td>Klosters</td>\\n    <td>K\\u00fcblis</td>\\n    <td>Luzein</td>\\n    <td>Masein</td>\\n    <td>Medel (Lucmagn)</td>\\n    <td>Pontresina</td>\\n    <td>Rh\\u00e4z\\u00fcns</td>\\n    <td>Rheinwald</td>\\n    <td>Rongellen</td>\\n    <td>Rothenbrunnen</td>\\n  \\t<td>Sagogn</td>\\n    <td>Samedan</td>\\n    <td>Scharans</td>\\n    <td>Schiers</td>\\n  </tr>\\n  <tr>\\n    <td>Schluein</td>\\n    <td>Seewis im Pr\\u00e4ttigau</td>\\n    <td>Sumvitg</td>\\n    <td>Surses</td>\\n    <td>Tamins</td>\\n    <td>Tschappina</td>\\n    <td>Tschiertschen-Praden</td>\\n    <td>Tujetsch</td>\\n    <td>Untervaz</td>\\n    <td>Urmein</td>\\n    <td>Vals</td>\\n    <td>Zillis-Reischen</td>\\n    <td>Zizers</td>\\n    <td>&nbsp;</td>\\n    <td>&nbsp;</td>\\n  </tr>\\n</table>\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -1263,12 +1263,12 @@
     "pk": "is-paper",
     "fields": {
       "created_at": "2020-01-14T07:42:26.963Z",
-      "modified_at": "2020-11-09T10:27:56Z",
+      "modified_at": "2024-08-28T12:24:50.390Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"is-paper\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"is-paper\", \"fr\": null, \"it\": \"is-paper\"}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "'verlaengerung-geltungsdauer' == form || 'migriertes-dossier' == form",
@@ -1297,7 +1297,7 @@
     "pk": "juristische-person-gesuchstellerin",
     "fields": {
       "created_at": "2019-04-01T07:07:21.499Z",
-      "modified_at": "2024-08-02T12:36:56.128Z",
+      "modified_at": "2024-08-28T12:24:50.396Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1328,7 +1328,7 @@
     "pk": "lage-des-vorhabens-titel",
     "fields": {
       "created_at": "2023-10-19T08:21:48.617Z",
-      "modified_at": "2024-08-02T12:36:54.831Z",
+      "modified_at": "2024-08-28T12:24:50.403Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -1359,7 +1359,7 @@
     "pk": "name-gesuchstellerin",
     "fields": {
       "created_at": "2019-04-04T07:52:20.078Z",
-      "modified_at": "2024-08-02T12:36:56.132Z",
+      "modified_at": "2024-08-28T12:24:50.406Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1393,7 +1393,7 @@
     "pk": "name-juristische-person-gesuchstellerin",
     "fields": {
       "created_at": "2019-04-04T07:48:51.263Z",
-      "modified_at": "2024-08-02T12:36:56.136Z",
+      "modified_at": "2024-08-28T12:24:50.410Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1427,7 +1427,7 @@
     "pk": "nummer-gesuchstellerin",
     "fields": {
       "created_at": "2019-04-04T07:53:45.186Z",
-      "modified_at": "2024-08-02T12:36:56.139Z",
+      "modified_at": "2024-08-28T12:24:50.414Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1461,7 +1461,7 @@
     "pk": "ort-gesuchstellerin",
     "fields": {
       "created_at": "2019-04-04T07:54:43.501Z",
-      "modified_at": "2024-08-02T12:36:56.143Z",
+      "modified_at": "2024-08-28T12:24:50.417Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1495,7 +1495,7 @@
     "pk": "ort-grundstueck",
     "fields": {
       "created_at": "2019-04-04T09:17:54.620Z",
-      "modified_at": "2024-08-02T12:36:56.146Z",
+      "modified_at": "2024-08-28T12:24:50.421Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": null,
@@ -1529,7 +1529,7 @@
     "pk": "parzelle",
     "fields": {
       "created_at": "2019-03-28T14:16:48.858Z",
-      "modified_at": "2024-08-02T12:36:56.150Z",
+      "modified_at": "2024-08-28T12:24:50.426Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1562,7 +1562,7 @@
     "pk": "parzellennummer",
     "fields": {
       "created_at": "2019-05-13T07:40:06.122Z",
-      "modified_at": "2024-08-02T12:36:56.156Z",
+      "modified_at": "2024-08-28T12:24:50.434Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1598,18 +1598,18 @@
     "pk": "personalien-gesuchstellerin",
     "fields": {
       "created_at": "2019-03-25T10:14:57.271Z",
-      "modified_at": "2024-08-02T12:36:56.163Z",
+      "modified_at": "2024-08-28T12:24:50.441Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Bauherrschaft\", \"fr\": \"Requ\\u00e9rant/e\", \"it\": \"Committente\"}",
+      "label": "{\"de\": \"Bauherrschaft\", \"fr\": \"Requ\\u00e9rant/e\", \"it\": \"Committenza\"}",
       "type": "table",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Nach Art. 89 Abs. 3 des kantonalen Raumplanungsgesetzes (KRG) ist das Baugesuch zwingend durch die Bauherrschaft zu unterzeichnen. \\n\\nIst die Bauherrschaft nicht Eigent\\u00fcmerin der Liegenschaft, ist das Baugesuch durch die Eigent\\u00fcmerin oder den Eigent\\u00fcmer mitzuunterzeichnen.\\n\\nDie Unterschriften werden am Schluss des Eingabeprozesses auf die  Eingabequittung, die auszudrucken ist, gesetzt.\", \"fr\": null, \"it\": \"Secondo l'art.\\u00a089 cpv.\\u00a03 della legge sulla pianificazione territoriale cantonale (LPTC) la committenza deve necessariamente firmare la domanda di costruzione. \\n\\nSe la committenza non \\u00e8 proprietaria dell'immobile, la domanda di costruzione deve essere controfirmata dalla proprietaria o dal proprietario.\\n\\nLe firme vengono poste al termine del processo di inserimento sulla ricevuta che deve essere stampata.\"}",
+      "info_text": "{\"de\": \"Nach Art. 89 Abs. 3 des kantonalen Raumplanungsgesetzes (KRG) ist das Baugesuch zwingend durch die Bauherrschaft zu unterzeichnen. \\n\\nIst die Bauherrschaft nicht Eigent\\u00fcmerin der Liegenschaft, ist das Baugesuch durch die Eigent\\u00fcmerin oder den Eigent\\u00fcmer mitzuunterzeichnen.\\n\\nDie Unterschriften werden am Schluss des Eingabeprozesses auf die  Eingabequittung, die auszudrucken ist, gesetzt.\", \"fr\": null, \"it\": \"Secondo l'art.\\u00a089 cpv.\\u00a03 della legge sulla pianificazione territoriale cantonale (LPTC) la committenza deve necessariamente firmare la domanda di costruzione. \\n\\nSe la committenza non \\u00e8 proprietaria dell'immobile, la domanda di costruzione deve essere controfirmata dalla persona proprietaria.\\n\\nLe firme vengono poste al termine del processo di inserimento sulla ricevuta che deve essere stampata.\"}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -1636,12 +1636,12 @@
     "pk": "personalien-grundeigentumerin",
     "fields": {
       "created_at": "2019-03-15T12:16:49.305Z",
-      "modified_at": "2024-08-02T12:36:56.166Z",
+      "modified_at": "2024-08-28T12:24:50.445Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Grundeigent\\u00fcmer/in\", \"fr\": \"propri\\u00e9taire foncier\", \"it\": \"Proprietaria/o fondiaria/o\"}",
+      "label": "{\"de\": \"Grundeigent\\u00fcmer/in\", \"fr\": \"propri\\u00e9taire foncier\", \"it\": \"Persona proprietaria del fondo\"}",
       "type": "table",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "!(\n  'weitere-personen-grundeigentumerin' in 'weitere-personen'|answer\n)",
@@ -1679,7 +1679,7 @@
     "pk": "personalien-projektverfasserin",
     "fields": {
       "created_at": "2019-03-15T12:15:48.393Z",
-      "modified_at": "2024-08-02T12:36:56.169Z",
+      "modified_at": "2024-08-28T12:24:50.450Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1722,7 +1722,7 @@
     "pk": "personalien-rechnungsempfaenger",
     "fields": {
       "created_at": "2023-04-12T07:40:16.811Z",
-      "modified_at": "2024-08-02T12:36:56.173Z",
+      "modified_at": "2024-08-28T12:24:50.461Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1761,7 +1761,7 @@
     "pk": "personalien-titel",
     "fields": {
       "created_at": "2023-10-19T08:22:34.060Z",
-      "modified_at": "2024-08-02T12:36:56.179Z",
+      "modified_at": "2024-08-28T12:24:50.469Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -1826,7 +1826,7 @@
     "pk": "plz-gesuchstellerin",
     "fields": {
       "created_at": "2019-04-04T07:54:11.762Z",
-      "modified_at": "2024-08-02T12:36:56.182Z",
+      "modified_at": "2024-08-28T12:24:50.472Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1860,20 +1860,20 @@
     "pk": "profil-uebernehmen",
     "fields": {
       "created_at": "2024-07-02T12:57:49.934Z",
-      "modified_at": "2024-07-02T12:57:49.934Z",
+      "modified_at": "2024-08-28T12:24:50.482Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Profil \\u00fcbernehmen\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Profil \\u00fcbernehmen\", \"fr\": null, \"it\": \"Riprendi profilo\"}",
       "type": "static",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Sie haben die M\\u00f6glichkeit, automatisch die Informationen aus ihrem [Benutzerprofil](/auth/realms/ebau/account?referrer=portal#/personal-info) ins Formular zu \\u00fcbernehmen.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Sie haben die M\\u00f6glichkeit, automatisch die Informationen aus ihrem [Benutzerprofil](/auth/realms/ebau/account?referrer=portal#/personal-info) ins Formular zu \\u00fcbernehmen.\", \"fr\": null, \"it\": \"Ha la possibilit\\u00e0 di riprendere automaticamente le informazioni del suo [profilo utente](/auth/realms/ebau/account?referrer=portal#/personal-info) nel modulo.\"}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"-\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"-\", \"fr\": \"\", \"it\": \"-\"}",
       "configuration": {},
       "meta": {
         "widgetOverride": "keycloak-profile-apply-button"
@@ -1893,7 +1893,7 @@
     "pk": "projektaenderung",
     "fields": {
       "created_at": "2023-05-01T14:09:45.238Z",
-      "modified_at": "2024-08-02T12:36:56.186Z",
+      "modified_at": "2024-08-28T12:24:50.485Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1927,7 +1927,7 @@
     "pk": "sachverhalt",
     "fields": {
       "created_at": "2020-10-12T11:28:23.687Z",
-      "modified_at": "2024-08-02T12:36:56.190Z",
+      "modified_at": "2024-08-28T12:24:50.489Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -1961,7 +1961,7 @@
     "pk": "strasse-gesuchstellerin",
     "fields": {
       "created_at": "2019-04-04T07:53:17.574Z",
-      "modified_at": "2024-08-02T12:36:56.194Z",
+      "modified_at": "2024-08-28T12:24:50.492Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1995,7 +1995,7 @@
     "pk": "street-and-housenumber",
     "fields": {
       "created_at": "2023-10-03T11:46:28.186Z",
-      "modified_at": "2024-08-02T12:36:56.198Z",
+      "modified_at": "2024-08-28T12:24:50.496Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -2029,7 +2029,7 @@
     "pk": "telefon-oder-mobile-gesuchstellerin",
     "fields": {
       "created_at": "2019-04-04T07:55:32.446Z",
-      "modified_at": "2024-08-02T12:36:56.201Z",
+      "modified_at": "2024-08-28T12:24:50.500Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -2063,7 +2063,7 @@
     "pk": "vorname-gesuchstellerin",
     "fields": {
       "created_at": "2019-04-04T07:51:39.379Z",
-      "modified_at": "2024-08-02T12:36:56.205Z",
+      "modified_at": "2024-08-28T12:24:50.504Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -2097,7 +2097,7 @@
     "pk": "weitere-personen",
     "fields": {
       "created_at": "2019-03-14T16:03:49.160Z",
-      "modified_at": "2024-08-02T12:36:56.214Z",
+      "modified_at": "2024-08-28T12:24:50.513Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -2128,7 +2128,7 @@
     "pk": "zonenplan",
     "fields": {
       "created_at": "2023-10-03T11:46:47.389Z",
-      "modified_at": "2024-08-02T12:36:56.220Z",
+      "modified_at": "2024-08-28T12:24:50.519Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
