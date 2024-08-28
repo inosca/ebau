@@ -1,4 +1,5 @@
 SO_PERSONAL_DATA_MAPPING = {
+    "row_id": "pk",
     "salutation": ("anrede", {"value_parser": "option", "prop": "label"}),
     "last_name": "nachname",
     "first_name": "vorname",
@@ -648,6 +649,7 @@ MASTER_DATA = {
                 "personalien-grundeigentumerin",
                 {
                     "column_mapping": {
+                        "row_id": "pk",
                         "last_name": "name-grundeigentuemerin",
                         "first_name": "vorname-grundeigentuemerin",
                         "street": "strasse-grundeigentuemerin",

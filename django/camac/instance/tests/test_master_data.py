@@ -9,6 +9,7 @@ from caluma.caluma_workflow import (
 )
 from django.utils.translation import override
 from pytest_lazy_fixtures import lf
+from syrupy.filters import paths
 
 from camac.tests.data import so_personal_row_factory
 
@@ -921,9 +922,14 @@ def test_master_data(
 
         master_data = MasterData(case)
 
-        snapshot.assert_match(
-            {
-                key: getattr(master_data, key)
-                for key in canton_master_data_settings["CONFIG"].keys()
-            }
+        assert {
+            key: getattr(master_data, key)
+            for key in canton_master_data_settings["CONFIG"].keys()
+        } == snapshot(
+            exclude=paths(
+                "landowners.0.row_id",
+                "applicants.0.row_id",
+                "invoice_recipients.0.row_id",
+                "project_authors.0.row_id",
+            )
         )
