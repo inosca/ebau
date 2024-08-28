@@ -1,7 +1,7 @@
-﻿id,static_content,
+﻿id,static_content,static_content
 info-gvg,"**Bitte beachten**: Gemäss Art. 17 Ziffer 1 des Gesetzes über die Gebäudeversicherung im Kanton Graubünden (Gebäudeversicherungsgesetz, GebVG) orientieren die Gemeinden die Gebäudeversicherung Graubünden über die erteilte Baubewilligung.
 <style>[data-question-slug=""info-gvg""], [data-question-slug=""info-gvg""] p {margin-bottom: 0 !important;}</style>","**Attenzione**: conformemente all'art. 17 cpv. 1 della legge concernente l'Assicurazione fabbricati nel Cantone dei Grigioni (legge sull'Assicurazione fabbricati, LAFab), i comuni informano l'Assicurazione fabbricati dei Grigioni in merito al rilascio della licenza edilizia.
- "
+<style>[data-question-slug=""info-gvg""], [data-question-slug=""info-gvg""] p {margin-bottom: 0 !important;}</style>"
 abfaelle-und-sonderabfaelle-titel,"---
 #### Abfälle und Sonderabfälle","---
 #### Rifiuti e rifiuti speciali"
@@ -111,9 +111,9 @@ brandbekaempfung-titel,"---
 brandschutzeinrichtungen-titel,"---
 #### Brandschutzeinrichtungen","---
 #### Dispositivi di protezione antincendio"
-brandschutz-haustechnik-titel,"### Brandschutz - Haustechnik
+brandschutz-haustechnik-titel,"### Brandschutz - wärmetechnische Anlagen
 
-#### Angaben zur Feuerungsanlage","### Protezione antincendio - impiantistica
+#### Angaben zur Feuerungsanlage","### Protezione antincendio - impianti termotecnici
 
 #### Indicazioni relative all'impianto di combustione"
 brennstofflager-titel,"---
@@ -136,7 +136,7 @@ durchschnittliche-betriebsdauer-der-anlage-titel,"---
 eingabedaten-titel,"---
 #### Eingabedaten","---
 #### Dati"
-einreichen-button,-,
+einreichen-button,-,-
 emissionserklaerung-titel,### Emissionserklärung,### Dichiarazione delle emissioni
 emissionsminderung-titel,#### Angaben zur Emissionsminderung,#### Indicazioni relative alla riduzione delle emissioni
 erdregister-titel,"---
@@ -145,11 +145,14 @@ erdregister-titel,"---
 erdwaermesonden-titel,"---
 #### Erdwärmesonden","---
 #### Sonde geotermiche"
-lufttechnische-anlagen-titel,"---
-#### Lufttechnische Anlagen","---
-#### Impianti tecnici di ventilazione"
+nutzungsbedingte-anforderungen-titel,"---
+#### Nutzungsbedingte Anforderungen","---
+#### Requisiti d'uso"
 feuerungsanlagen-titel,### Feuerungsanlagen,"---
 #### Impianti di combustione"
+feuerwehrzugaenglichkeit-titel,"---
+### Feuerwehrzugänglichkeit","---
+### Accessibilità per il corpo pompieri"
 gebaeudehoehen-titel,"---
 #### Gebäudehöhen","---
 #### Altezze dell'edificio"
@@ -174,6 +177,7 @@ herkunft-material-titel,"---
 #### Provenienza del suolo o del materiale del sottosuolo"
 hinweis-abmessung,Für Schnitzel- und Spänelager Entleerungsöffnung ins Freie: Abmessung,Per deposito di cippato e trucioli apertura di svuotamento verso l'esterno: Dimensioni
 hinweis-auflistung,"*Hinweis:* Bitte beachten Sie, dass die folgende Auflistung nicht vollständig ist. Konsultieren Sie das Baugesetz ihrer Gemeinde.",*Nota:* si prega di osservare che l'elenco seguente non è completo. Consultare la legge edilizia del relativo comune.
+hinweis-ausfuehrungsplaene,"Die Ausführungspläne und die Schutzraumstatik können nach der Projektgenehmigung direkt, spätestens vier Wochen vor Baubeginn, dem Amt für Militär und Zivilschutz eingereicht werden.","I piani d'esecuzione e la statica dei rifugi possono essere inoltrati direttamente all'Ufficio del militare e della protezione civile dopo l'approvazione del progetto, al più tardi quattro settimane prima dell'inizio dei lavori di costruzione."
 hinweis-bafu-richtlinie,Aufbereitung der Recyclingprodukte gem. BAFU-Richtlinie für die Verwertung mineralischer Bauabfälle:,Trattamento dei prodotti riciclati secondo la direttiva UFAM per il riciclaggio dei rifiuti edili minerali:
 hinweis-baugesuch-noetig,"**BITTE BEACHTEN** Die Voraussetzungen für die Befreiung von der Baubewilligungspflicht sind voraussichtlich nicht erfüllt. Es ist Ihnen freigestellt die geplante Solaranlage trotzdem vorerst der Gemeinde mit dem Formular ""Solaranlage"" zu melden. Wir möchten Sie darauf hinweisen, dass ein allfälliger Verfahrenswechsel mit einem zusätzlichen Zeitverlust verbunden ist.
 
@@ -187,12 +191,31 @@ hinweis-betriebsstunden-rauchgasbehandlung,"Die Betriebsstunden, Störungen und 
 hinweis-betriebsstunden-und-anzahl-starts,Die Betriebsstunden und Anzahl Starts sind nachzuweisen. Folgende Parameter sind ablesbar:,Occorre fornire prova delle ore in servizio e del numero di accensioni. I seguenti parametri sono indicati:
 hinweis-denkmalpflege,"Es wird empfohlen, [die Bauberaterin / den Bauberater der kantonalen Denkmalpflege](https://www.gr.ch/DE/institutionen/verwaltung/ekud/afk/dpg/bereiche/bauberatung/Seiten/Bauberatung.aspx) zu kontaktieren. Kantonale oder nationale Schutzeinträge sind im Grundbuch eingetragen. Bei Umbauten oder Veränderungen ist eine Zusatzbewilligung der Denkmalpflege erforderlich.",Si raccomanda di contattare [la / il consulente edile del Servizio monumenti cantonale](https://www.gr.ch/IT/istituzioni/amministrazione/ekud/afk/dpg/bereiche/bauberatung/Seiten/Bauberatung.aspx). Le richieste di messa sotto protezione di Cantone o Confederazione devono essere iscritte nel registro fondiario. In caso di trasformazioni o modifiche è necessaria un'autorizzazione supplementare del Servizio monumenti.
 hinweis-denkmalschutz,**Archäologie und Denkmalpflege:** Bitte nehmen Sie mit [der zuständigen Bauberaterin / dem zuständigen Bauberater](https://www.gr.ch/DE/institutionen/verwaltung/ekud/afk/dpg/DPGDokumentAblage/bauberatung_gebietszuteilung_d.pdf) Kontakt auf.,**Archeologia e conservazione dei monumenti storici:** Si prega di contattare [la / il competente consulente edile](https://www.gr.ch/DE/institutionen/verwaltung/ekud/afk/dpg/bereiche/administration/SiteAssets/IT_Bauberatung_Gebietszuteilung.pdf).
+hinweis-einzelfeuerung,"Für die Erstellung einer Einzelfeuerung für feste Brennstoffe oder Öl muss das Formular [Gesuch für eine Bewilligung sowie eine Einzelfeuerung für feste Brennstoffe oder Öl](https://gvg.gr.ch/gvg-download-bereich#Brandschutz+Formulare_und_Gesuche) der Gebäudeversicherung Graubünden, Brandschutz, vom Errichter der Anlage unterzeichnet, eingereicht werden.","Chi intende realizzare un impianto di combustione singolo per combustibili solidi oppure a olio deve firmare e inoltrare il modulo [Domanda per l'autorizzazione di un impianto di combustione singolo a combustibili solidi oppure a olio](https://gvg.gr.ch/it/gvg-area-download#Protezione_antincendio+Moduli) dell'Assicurazione fabbricati dei Grigioni, protezione antincendio."
 hinweis-erfassung-solaranlage,"*Bitte erfassen Sie die geplante Solaranlage mit der Tabelle ""Gebäudetechnik""*",*Rilevare l'impianto solare previsto usando la tabella «Impiantistica»*
 hinweis-erweiterung-guellelager,Bei Erweiterungen/Umbauten bestehender Bauten bitte Skizze mit dem Standort des bestehenden Güllelagers beilegen.,In caso di ampliamenti/trasformazioni di edifici esistenti si prega di allegare uno schizzo con l'ubicazione del serbatoio per il colaticcio esistente.
+hinweis-feuerwehrzugaenglichkeit,"Bei Neubauten sowie bei wesentlichen baulichen Veränderungen an Gebäuden oder der Umgebung, können Auflagen bezüglich der äusseren Zugänglichkeit für die Feuerwehr entstehen.
+Bauten und Anlagen müssen für den raschen und zweckmässigen Einsatz der Feuerwehr jederzeit zugänglich sein.","In caso di nuove costruzioni e importanti modifiche edilizie a edifici o agli ambienti circostanti è possibile che occorra osservare condizioni concernenti l'accessibilità agli spazi esterni per il corpo pompieri.
+Edifici e impianti devono essere accessibili in ogni momento per permettere l'intervento rapido e tempestivo dei pompieri."
+hinweis-gebuehrenpflicht,"Die Bauherrschaft wird gemäss Art. 15, Anhang 2 zur Verordnung zum Zivilschutzgesetz (BR 640.110-A2) für die Prüfung des Schutzraumbauprojektes gebührenpflichtig.","La committenza è tenuta a versare una tassa per l'esame di progetti di costruzione di rifugi conformemente all'art. 15, allegato 2 dell'ordinanza relativa alla legge sulla protezione civile (CSC 640.110-A2)."
+hinweis-gebuehrenpflicht-ersatzbeitrag,"Die Bauherrschaft wird gemäss Art. 15, Anhang 2 zur Verordnung zum Zivilschutzgesetz (BR 640.110-A2) für die Prüfung des Ersatzbeitragsgesuches gebührenpflichtig.","La committenza è tenuta a versare una tassa per l'esame della domanda di contributo sostitutivo conformemente all'art. 15, allegato 2 dell'ordinanza relativa alla legge sulla protezione civile (CSC 640.110-A2)."
 hinweis-hindernisfreies-bauen,Es sind die Empfehlungen der SIA 500 zu berücksichtigen.,Devono essere considerate le raccomandazioni SIA 500.
+hinweis-kantonales-brandschutzgesetz,"Bitte beachten Sie, dass gemäss kantonalen Brandschutzgesetzes Art. 7 Abs. 1 folgende Vorhaben bewilligungspflichtig sind:
+
+1. Neu-, An-, Um- und Ausbauten sowie die Umnutzung von Gebäuden oder Gebäudeteilen;
+1. Neu-, Aus- und Umbauten von haustechnischen Anlagen und technischen Brandschutzeinrichtungen;
+1. Betriebe, Anlagen und Einrichtungen, die der Herstellung, Verarbeitung oder Lagerung feuer- oder explosionsgefährlicher Stoffe und Waren dienen;
+1. Veranstaltungen mit besonderer Gefährdung von Personen, Tieren oder Sachen;
+1. das Abbrennen von pyrotechnischen Gegenständen zu Vergnügungszwecken (Feuerwerkskörper) und zu gewerblichen Zwecken.","Si prega di osservare che, conformemente all'art. 7 cpv. 1 della legge cantonale sulla protezione antincendio, i seguenti progetti sono soggetti all'obbligo del permesso:
+
+1. nuove costruzioni, costruzioni annesse, trasformazioni, ampliamenti nonché la destinazione ad altro scopo di edifici o parti di essi;
+1. nuove costruzioni, ampliamenti e modifiche di installazioni tecniche e dispositivi tecnici di protezione antincendio;
+1. aziende, impianti e installazioni che servono alla produzione, alla lavorazione o al deposito di sostanze e merci a rischio di incendio o di esplosione;
+1. manifestazioni con particolare pericolo per persone, animali od oggetti;
+1. l'accensione di pezzi pirotecnici per scopi di svago (fuochi d'artificio) e a scopo commerciale."
 hinweis-kesselauswechslungen,Bei Kesselauswechslungen sowie wesentlichen baulichen Veränderungen im Heizraum muss die Türe vom Heizraum zu angrenzenden Nutzungen dem Feuerwiderstand EI 30 entsprechen.,"In caso di sostituzioni di caldaie nonché di importanti modifiche edilizie nel locale riscaldamento, la porta che dal locale riscaldamento porta alle utilizzazioni circostanti deve corrispondere alla classe di resistenza al fuoco EI 30."
 hinweis-laermvorbelastetes-gebiet,"**Bitte beachten:** Werden in lärmbelasteten Gebieten entlang von z.B. Strasse, Eisenbahn, Schiessanlage usw. lärmempflindliche Räume durch Errichtung oder Umnutzung geschaffen oder wesentliche Änderungen an Gebäuden mit lärmempfindlichen Räumen vorgenommen, ist ein Lärmschutznachweis nach Art. 31 Abs. 1 der eidg. Lärmschutz-Verordnung (LSV) einzureichen.","**Attenzione:** Se nelle zone esposte ai rumori lungo ad es. strade, ferrovie, poligoni di tiro, ecc. vengono realizzati locali sensibili al rumore in seguito a realizzazione o a trasformazione, oppure se vengono apportate modifiche sostanziali a edifici con locali sensibili al rumore deve essere inoltrata una comprova della protezione contro l'inquinamento fonico secondo l'art. 31 cpv. 1 dell'ordinanza federale contro l'inquinamento fonico (OIF)."
-hinweis-lufthygienisch-relevante-stoffe,Für die Stoffbilanz dieser Anlage benötigen wir die Angabe von allen im Bereich dieser Anlage eingesetzten lufthygienisch relevanten Stoffen,Per determinare il bilancio delle sostanze tossiche di questo impianto ci occorrono indicazioni relative a tutte le sostanze rilevanti per l'igiene dell'aria impiegate
+hinweis-lufthygienisch-relevante-stoffe,Für die Stoffbilanz dieser Anlage benötigen wir die Angabe von allen im Bereich dieser Anlage eingesetzten lufthygienisch relevanten Stoffen,Per determinare il bilancio delle sostanze tossiche di questo impianto ci occorrono indicazioni relative a tutte le sostanze rilevanti per l'igiene dell'aria impiegate.
 hinweis-luft-wasser-waermepumpe,"Der ""Lärmschutznachweis für Luft / Wasser-Wärmepumpen"" ist durch den Planer der Wärmepumpe auszufüllen und dem Gesuch beizulegen. Sie finden das Formular z.B. [hier](https://www.cerclebruit.ch/enforcement/6/621WP-Deklarations-Formular.xls).",L'«Attestato di protezione fonica per pompe di calore aria / acqua» deve essere compilato dalla pianificatrice/dal pianificatore e allegato alla domanda. Il modulo è disponibile ad es. [qui] (solo in tedesco e in francese) (https://www.cerclebruit.ch/enforcement/6/621WP-Deklarations-Formular.xls).
 hinweis-maengel,"Bitte beachten Sie, dass die Bauabnahme nicht abgeschlossen werden sollte, solange noch Mängel zu beheben sind.",Si prega di osservare che il collaudo non andrebbe concluso prima che tutte le lacune siano state colmate.
 hinweis-mehrere-motoren,Bei mehreren baugleichen Motoren: Anzahl und Motoren Nr. (z.B. 3 / M1-M3),In caso di più motori identici: numero e motori n. (ad es. 3 / M1-M3)
@@ -223,19 +246,19 @@ hinweis-waldabstandsbereich,"Es ist frühzeitig Kontakt mit der zuständigen Wal
 hinweis-zustaendigkeit,Bei fachlichen Fragen zum Baugesuch wenden Sie sich bitte an die zuständige kommunale Baubehörde.,In caso di domande specifiche relative alla domanda di costruzione occorre rivolgersi all'autorità edilizia comunale competente.
 hinweis-zustaendigkeit-amz,"Für dieses Fachthema ist das Amt für Militär und Zivilschutz (AMZ) zuständig.<br>
 Email: info@amz.gr.ch Telefon: 081 257 35 35","Per questo tema specifico è competente l'Ufficio del militare e della protezione civile (UMPC).<br>
-E-mail: info@amz.gr.ch Telefono: "
+E-mail: info@amz.gr.ch Telefono: 081 257 35 35"
 hinweis-zustaendigkeit-anu,"Für dieses Fachthema ist das Amt für Natur und Umwelt (ANU) zuständig.<br>
 Email: info@anu.gr.ch Telefon: 081 257 29 46","Per questo tema specifico è competente l'Ufficio per la natura e l'ambiente (UNA).<br>
-E-mail: info@anu.gr.ch Telefono: "
+E-mail: info@anu.gr.ch Telefono: 081 257 29 46"
 hinweis-zustaendigkeit-bab,"Für dieses Fachthema ist das Amt für Raumentwicklung Graubünden (ARE) zuständig.<br>
 Email: info@are.gr.ch Telefon: 081 257 23 23","Per questo tema specifico è competente l'Ufficio per lo sviluppo del territorio (UST-GR).<br>
-E-mail: info@are.gr.ch Telefono: "
+E-mail: info@are.gr.ch Telefono: 081 257 23 23"
 hinweis-zustaendigkeit-betriebsleiterwohnhaus,"Für dieses Fachthema ist das Amt für Landwirtschaft und Geoinformation (ALG) zuständig.<br>
 Email: info@alg.gr.ch Telefon: 081 257 24 32","Per questo tema specifico è competente l'Ufficio per l'agricoltura e la geoinformazione (UAG).<br>
-E-mail: info@alg.gr.ch Telefono: "
+E-mail: info@alg.gr.ch Telefono: 081 257 24 32"
 hinweis-zustaendigkeit-gvg,"Für dieses Fachthema ist die Gebäudeversicherung Graubünden (GVG) zuständig.<br>
 Email: brandschutz@gvg.gr.ch Telefon: 081 258 90 50","Per questo tema specifico è competente l'Assicurazione fabbricati dei Grigioni (AFG).<br>
-E-mail: brandschutz@gvg.gr.ch Telefono: "
+E-mail: brandschutz@gvg.gr.ch Telefono: 081 258 90 50"
 holzfeuerung-titel,"---
 #### Holzfeuerung","---
 #### Riscaldamento a legna"
@@ -249,10 +272,10 @@ Email: [info@anu.gr.ch](mailto:info@anu.gr.ch) Telefon: 081 257 29 46","### Evac
 L'evacuazione di acque di scarico industriali e artigianali è soggetta ad autorizzazione.
 
 Per questo tema specifico è competente l'Ufficio per la natura e l'ambiente (UNA).  
-E-mail: [info@anu.gr.ch](mailto:info@anu.gr.ch) Telefono: "
+E-mail: [info@anu.gr.ch](mailto:info@anu.gr.ch) Telefono: 081 257 29 46"
 info-aib,"**Bitte beachten:** nach Art. 4 Abs. 1 und 2 des Gesetzes über die amtlichen Immobilienbewertungen (IBG) haben Gemeinden das AIB über Bauabnahmen zu informieren.
 <style>[data-question-slug=""info-aib""], [data-question-slug=""info-aib""] p { margin-bottom: 0 !important;}</style>","**Si prega di osservare che** secondo l'art. 4 cpv. 1 e 2 della legge sulle valutazioni immobiliari ufficiali (LVI), i comuni devono informare l'UVI in merito a collaudi avvenuti.
- "
+<style>[data-question-slug=""info-aib""], [data-question-slug=""info-aib""] p { margin-bottom: 0 !important;}</style>"
 informationen-zur-solaranlage-titel,#### Informationen zur Solaranlage,#### Informazioni relative all'impianto solare
 installation-zur-rauchgasbehandlung-titel,"----
 ### Installation zur Rauchgasbehandlung","----
@@ -264,14 +287,17 @@ kaminanlage-titel,"----
 ### Kaminanlage","----
 ### Camino"
 kamin-bild,![Plan Kamin](/assets/images/kamin.png),![Piano del camino](/assets/images/kamin.png)
-lageranlagen-titel,### Lageranlagen mit wassergefährdenden Flüssigkeiten,### Impianti di deposito con liquidi che costituiscono un pericolo per le acque
 komplexe-erdwaermesonden-titel,### Dimensionierungsnachweis von komplexen Erdwärmesonden-Anlagen nach SIA 384/6,### Comprova delle dimensioni di sonde geotermiche complesse conformemente a SIA 384/6
 kontrolle-der-prozesse-titel,"---
 #### Kontrolle der Prozesse","---
 #### Controllo dei processi"
+lageranlagen-titel,### Lageranlagen mit wassergefährdenden Flüssigkeiten,### Impianti di deposito con liquidi che costituiscono un pericolo per le acque
 laufhof-titel,"---
 #### Laufhof / Auslauf","---
 #### Area di esercizio / uscita"
+lufttechnische-anlagen-titel,"---
+#### Lufttechnische Anlagen","---
+#### Impianti tecnici di ventilazione"
 masse-guellegrube-titel,**Masse der neuen Güllegrube / des neuen Güllebehälters respektive Erweiterung**,**Dimensioni della nuova fossa per il colaticcio / del nuovo serbatoio per il colaticcio rispettivamente dell'ampliamento**
 masse-titel,**Masse des neuen Mistlagers respektive Erweiterung**,**Dimensioni del nuovo letamaio o dell'ampliamento**
 materialablagerung-titel,"---
@@ -284,10 +310,6 @@ mistlager-titel,"---
 notstromanlage-titel,"----
 ### Notstromanlage","---
 ### Gruppo elettrogeno d'emergenza"
-nutzungsbedingte-anforderungen-titel,"---
-#### Nutzungsbedingte Anforderungen","---
-#### Requisiti d'uso"
-lage-des-vorhabens-titel,### Lage des Vorhabens,### Posizione del progetto
 oel-oder-gasfeuerung-titel,"---
 #### Öl- oder Gasfeuerung","---
 #### Impianti a combustione alimentati con olio o gas"
@@ -297,6 +319,10 @@ ortsfeste-fluessiggasbehaelter-titel,"---
 photovoltaikanlage-titel,"---
 #### Photovoltaikanlage (Stromproduktion)","---
 #### Impianto fotovoltaico (produzione di energia elettrica)"
+projektierte-schutzraeume-infotext,Das Bundesamt für Bevölkerungsschutz regelt die Rahmenbedingungen für den Schutzraumbau. Die technischen Weisungen sind auf [babs.admin.ch](https://www.babs.admin.ch/de/unterlagen-schutzbauten) einsehbar.,L'Ufficio federale della protezione della popolazione disciplina le condizioni quadro per la costruzione dei rifugi. Le istruzioni tecniche si possono consultare sul sito [babs.admin.ch](https://www.babs.admin.ch/it/documenti-sulle-costruzioni-di-protezione).
+projektierte-schutzraeume-titel,"---
+#### Fläche und Volumen der projektierten Schutzräume","---
+#### Superficie e volume dei rifugi progettati"
 pumpversuch-titel,"---
 #### Pumpversuch","---
 #### Prova di pompaggio"
@@ -306,7 +332,6 @@ schutzplaetze-titel,### Schutzplätze,### Posti protetti
 selbstdeklaration-titel,"---
 #### Selbstdeklaration","---
 #### Autocertificazione"
-terrainveraenderungen-titel,### Terrainveränderungen,### Modifiche del terreno
 solaranlagen-auf-kulturobjekten,"---
 #### Kantonale Praxis - Klärung der Baubewilligungspflicht","---
 #### Prassi cantonale - chiarimento dell'obbligo della licenza edilizia"
@@ -318,7 +343,7 @@ Gemäss Artikel 29a des Energiereglements (EnR) muss die Leistung der installier
 
 Conformemente all'articolo 45a LEne, i tetti o le facciate degli edifici nuovi con una superficie determinante superiore a 300 m2 vanno dotati di impianti solari, in particolare fotovoltaici o termici. 
 
-"
+Conformemente all'articolo 29a del Regolamento sull'utilizzazione dell'energia (RUEn) la potenza dell'impianto solare installato deve ammontare almeno a 20 W per m2 di superficie determinante."
 solaranlagen-titel,### Selbstdeklaration über die korrekte Erstellung von Solaranlagen,### Autocertificazione relativa alla corretta installazione di impianti solari
 spezifikation-umschlageplatz-titel,"---
 #### Spezifikation Umschlageplatz","---
@@ -346,7 +371,9 @@ tankstellen-und-brennstofflager-titel,"---
 tankstelle-titel,"---
 #### Tankstelle","---
 #### Stazione di servizio"
-triage-titel,### Triage,### Domande di triage
+terrainveraenderungen-titel,### Terrainveränderungen,### Modifiche del terreno
+trennlinie,---,---
+triage-titel,### Triage,### Cernita
 verwendete-stoffe-und-produkte-titel,"---
 #### Verwendete Stoffe und Produkte Titel","---
 #### Sostanze e prodotti usati titolo"
@@ -372,11 +399,14 @@ weitere-materielle-pruefung,"---
 #### Weitere materielle Prüfung gemäss Baugesetz der Gemeinde durchgeführt","---
 #### Altro esame materiale conformemente alla legge edilizia del comune"
 wohn-oder-ferienhaus-titel,"---
-#### Wohn- oder Ferienhaus","---
-#### Abitazione o casa di vacanza"
+#### Wohnhaus, Ferienhaus oder anderes Gebäude","---
+#### Casa d'abitazione, casa di vacanza o altro edificio"
 zonenkonformitaet-titel,"---
 #### Zonenkonformität","---
 #### Conformità alla zona"
+zustaendigkeit-anu,"Für dieses Fachthema ist das Amt für Natur und Umwelt (ANU) zuständig.<br>
+Email: info@anu.gr.ch Telefon: 081 257 29 46","Per questo tema specifico è competente l'Ufficio per la natura e l'ambiente (UNA).<br>
+E-mail: info@anu.gr.ch Telefono: 081 257 29 46"
 hinweis-gis,"#### Lokalisierung
 
 Bitte tragen Sie die Adresse Ihres Bauvorhabens in die Zeile ein oder klicken Sie in die nachfolgende Karte um die Lage des Bauvorhabens in der Karte zu verorten. 
@@ -407,38 +437,125 @@ table.columnwise tr td {
 </style>
 <table class=""columnwise"" style=""width:100%"">
   <tr>
+    <td>Albula/Alvra</td>
+    <td>Avers</td>
     <td>Bergün Filisur</td>
     <td>Bonaduz</td>
     <td>Breil/Brigels</td>
+    <td>Cazis</td>
+    <td>Conters im Prättigau</td>
+    <td>Disentis/Mustér</td>
     <td>Domleschg</td>
     <td>Felsberg</td>
     <td>Fideris</td>
     <td>Fläsch</td>
-    <td>Furna</td>
-  </tr>
-  <tr>
+    <td>Flerden</td>
     <td>Grüsch</td>
     <td>Jenaz</td>
+  </tr>
+  <tr>
     <td>Jenins</td>
     <td>Klosters</td>
     <td>Küblis</td>
     <td>Luzein</td>
     <td>Masein</td>
+    <td>Medel (Lucmagn)</td>
     <td>Pontresina</td>
+    <td>Rhäzüns</td>
+    <td>Rheinwald</td>
+    <td>Rongellen</td>
+    <td>Rothenbrunnen</td>
+  	<td>Sagogn</td>
+    <td>Samedan</td>
+    <td>Scharans</td>
+    <td>Schiers</td>
   </tr>
   <tr>
-    <td>Samedan</td>
-    <td>Schiers</td>
+    <td>Schluein</td>
     <td>Seewis im Prättigau</td>
+    <td>Sumvitg</td>
+    <td>Surses</td>
+    <td>Tamins</td>
+    <td>Tschappina</td>
     <td>Tschiertschen-Praden</td>
     <td>Tujetsch</td>
     <td>Untervaz</td>
+    <td>Urmein</td>
+    <td>Vals</td>
+    <td>Zillis-Reischen</td>
     <td>Zizers</td>
+    <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
 </table>","**Attenzione:** al momento è possibile inoltrare in forma digitale solo le domande dei comuni seguenti:
 
- "
-personalien-titel,### Personalien,### Dati personali
+<style>
+table.columnwise {
+  display: table;
+}
+table.columnwise tr {
+  display: table-cell;
+  width: 33%;
+}
+table.columnwise tr td {
+  display: block;
+}
+</style>
+<table class=""columnwise"" style=""width:100%"">
+  <tr>
+    <td>Albula/Alvra</td>
+    <td>Avers</td>
+    <td>Bergün Filisur</td>
+    <td>Bonaduz</td>
+    <td>Breil/Brigels</td>
+    <td>Cazis</td>
+    <td>Conters im Prättigau</td>
+    <td>Disentis/Mustér</td>
+    <td>Domleschg</td>
+    <td>Felsberg</td>
+    <td>Fideris</td>
+    <td>Fläsch</td>
+    <td>Flerden</td>
+    <td>Grüsch</td>
+    <td>Jenaz</td>
+  </tr>
+  <tr>
+    <td>Jenins</td>
+    <td>Klosters</td>
+    <td>Küblis</td>
+    <td>Luzein</td>
+    <td>Masein</td>
+    <td>Medel (Lucmagn)</td>
+    <td>Pontresina</td>
+    <td>Rhäzüns</td>
+    <td>Rheinwald</td>
+    <td>Rongellen</td>
+    <td>Rothenbrunnen</td>
+  	<td>Sagogn</td>
+    <td>Samedan</td>
+    <td>Scharans</td>
+    <td>Schiers</td>
+  </tr>
+  <tr>
+    <td>Schluein</td>
+    <td>Seewis im Prättigau</td>
+    <td>Sumvitg</td>
+    <td>Surses</td>
+    <td>Tamins</td>
+    <td>Tschappina</td>
+    <td>Tschiertschen-Praden</td>
+    <td>Tujetsch</td>
+    <td>Untervaz</td>
+    <td>Urmein</td>
+    <td>Vals</td>
+    <td>Zillis-Reischen</td>
+    <td>Zizers</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>"
+lage-des-vorhabens-titel,### Lage des Vorhabens,### Posizione del progetto
 materielle-pruefung-titel,### Materielle Prüfung,### Esame materiale
+personalien-titel,### Personalien,### Dati personali
+profil-uebernehmen,-,-
 hinweis-publikationsdokumente,"**Bitte beachten Sie, dass die Dokumente, welche publiziert werden sollen, im Voraus als Publikationsdokumente in der Dokumentenablage markiert werden müssen.**",**Si prega di osservare che i documenti che devono essere pubblicati devono essere contrassegnati in precedenza come documenti da pubblicare nell'archivio di documenti.**
