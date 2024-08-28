@@ -13,6 +13,8 @@ from camac.user.models import Location, Service
 
 from .countries import COUNTRIES
 
+LANGUAGES = [key for key, _ in settings.LANGUAGES]
+
 
 def get_municipality_label(service, municipality_prefix=False):
     translations = service.trans.all()
@@ -33,7 +35,7 @@ def get_municipality_label(service, municipality_prefix=False):
 
         label[translation.language] = name
 
-    for language in ["de", "fr"]:
+    for language in LANGUAGES:
         if language not in label.keys():
             label[language] = list(label.values())[0]
 
@@ -43,7 +45,7 @@ def get_municipality_label(service, municipality_prefix=False):
 def get_additional_option(slug="-1", text=gettext_noop("Others")):
     label = {}
 
-    for language in ["de", "fr"]:
+    for language in LANGUAGES:
         with override(language):
             label[language] = _(text)
 
