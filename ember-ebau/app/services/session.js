@@ -2,6 +2,7 @@
 
 import { getOwner } from "@ember/application";
 import { service } from "@ember/service";
+import { getOwnConfig } from "@embroider/macros";
 import { tracked } from "@glimmer/tracking";
 import { query } from "ember-data-resources";
 import mainConfig from "ember-ebau-core/config/main";
@@ -16,7 +17,7 @@ import UIkit from "uikit";
 const { languages, fallbackLanguage } = mainConfig;
 
 const validateLanguage = (language) =>
-  languages.find((lang) => lang === language);
+  (getOwnConfig().locales ?? languages).find((lang) => lang === language);
 
 export default class CustomSession extends Session {
   @service fetch;
