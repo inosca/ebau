@@ -5242,7 +5242,7 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "allgemeine-informationen",
-      "sort": 10
+      "sort": 9
     }
   },
   {
@@ -5257,7 +5257,7 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "bauen-ausserhalb-bauzone",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -5272,7 +5272,7 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "bauprojekt",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -5302,7 +5302,7 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "durchgefuehrte-vorabklaerungen",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -5332,7 +5332,7 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "generelle-fachthemen",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -5347,7 +5347,7 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "lokalisierung",
-      "sort": 8
+      "sort": 6
     }
   },
   {
@@ -8362,7 +8362,7 @@
       "modified_by_group": null,
       "form": "erdwaermesonden",
       "question": "allgemeine-informationen",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -8377,7 +8377,7 @@
       "modified_by_group": null,
       "form": "erdwaermesonden",
       "question": "bauprojekt-erdwaermesonde",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -8392,7 +8392,7 @@
       "modified_by_group": null,
       "form": "erdwaermesonden",
       "question": "dokumente-ohne-bab",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -8407,7 +8407,7 @@
       "modified_by_group": null,
       "form": "erdwaermesonden",
       "question": "durchgefuehrte-vorabklaerungen",
-      "sort": 7
+      "sort": 6
     }
   },
   {
@@ -8422,7 +8422,7 @@
       "modified_by_group": null,
       "form": "erdwaermesonden",
       "question": "einreichen",
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -8437,7 +8437,7 @@
       "modified_by_group": null,
       "form": "erdwaermesonden",
       "question": "lokalisierung",
-      "sort": 6
+      "sort": 4
     }
   },
   {
@@ -13132,7 +13132,7 @@
       "modified_by_group": null,
       "form": "meldung",
       "question": "lokalisierung",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -13147,7 +13147,7 @@
       "modified_by_group": null,
       "form": "meldung",
       "question": "personalien",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -13897,7 +13897,7 @@
       "modified_by_group": null,
       "form": "parzelle-tabelle",
       "question": "amtschreiberei",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -13912,7 +13912,7 @@
       "modified_by_group": null,
       "form": "parzelle-tabelle",
       "question": "baurechtsnummer",
-      "sort": 12
+      "sort": 9
     }
   },
   {
@@ -13927,7 +13927,7 @@
       "modified_by_group": null,
       "form": "parzelle-tabelle",
       "question": "e-grid",
-      "sort": 10
+      "sort": 7
     }
   },
   {
@@ -13942,7 +13942,7 @@
       "modified_by_group": null,
       "form": "parzelle-tabelle",
       "question": "flaeche-m",
-      "sort": 9
+      "sort": 6
     }
   },
   {
@@ -13957,7 +13957,22 @@
       "modified_by_group": null,
       "form": "parzelle-tabelle",
       "question": "grundbuchkreis",
-      "sort": 4
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "parzelle-tabelle.grundeigentuemerinnen",
+    "fields": {
+      "created_at": "2024-08-28T12:36:06.782Z",
+      "modified_at": "2024-08-28T12:36:06.782Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "parzelle-tabelle",
+      "question": "grundeigentuemerinnen",
+      "sort": 3
     }
   },
   {
@@ -13972,7 +13987,7 @@
       "modified_by_group": null,
       "form": "parzelle-tabelle",
       "question": "grundstueckart",
-      "sort": 11
+      "sort": 8
     }
   },
   {
@@ -14017,7 +14032,7 @@
       "modified_by_group": null,
       "form": "parzelle-tabelle",
       "question": "parzellennummer",
-      "sort": 13
+      "sort": 10
     }
   },
   {
@@ -16822,7 +16837,7 @@
       "modified_by_group": null,
       "form": "voranfrage",
       "question": "lokalisierung",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -16837,7 +16852,7 @@
       "modified_by_group": null,
       "form": "voranfrage",
       "question": "personalien",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -48192,6 +48207,39 @@
       "configuration": {},
       "meta": {},
       "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "grundeigentuemerinnen",
+    "fields": {
+      "created_at": "2024-08-28T12:36:06.723Z",
+      "modified_at": "2024-08-28T12:38:06.139Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grundeigent\\u00fcmer/innen\", \"fr\": null, \"it\": null}",
+      "type": "dynamic_multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": "Landowners",
       "row_form": null,
       "sub_form": null,
       "source": null,

@@ -6,6 +6,7 @@ from caluma.caluma_user.models import BaseUser
 from django.conf import settings
 from django.utils import timezone
 from pytest_lazy_fixtures import lf
+from syrupy.filters import paths
 
 from camac.caluma.api import CalumaApi
 from camac.core.models import InstanceLocation
@@ -509,7 +510,7 @@ def test_record_loading_be(
     dossier = dossier_loader._load_dossier(dossier_row_sparse)
     writer.write_fields(camac_instance, dossier)
     md = MasterData(camac_instance.case)
-    snapshot.assert_match(getattr(md, expected_target))
+    assert getattr(md, expected_target) == snapshot(exclude=paths("0.row_id"))
 
 
 IMPORT_ROWS_SO = [
@@ -579,7 +580,7 @@ def test_record_loading_so(
     dossier = dossier_loader._load_dossier(dossier_row_sparse)
     writer.write_fields(camac_instance, dossier)
     md = MasterData(camac_instance.case)
-    snapshot.assert_match(getattr(md, expected_target))
+    assert getattr(md, expected_target) == snapshot(exclude=paths("0.row_id"))
 
 
 IMPORT_ROWS_SZ = [
