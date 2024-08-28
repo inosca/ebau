@@ -8,7 +8,7 @@ documents:
     nachforderung: "Richiesta di precisazioni"
 
     descriptions:
-      prefix: "## Informazioni supplementari\n I documenti devono essere caricati in formato PDF. Il nome dei file deve essere breve e descrittivo. Evitare di indicare numeri o designazioni di progetto per la sua archiviazione interna.\n\n\n"
+      prefix: "## Informazioni supplementari\n I documenti devono essere caricati in formato PDF. Il nome dei file deve essere breve e descrittivo. Evitare di indicare numeri o designazioni di progetto che usa per la sua archiviazione interna.\n\n\n"
 
   download: "Scarica file"
 

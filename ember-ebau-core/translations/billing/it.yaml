@@ -1,6 +1,6 @@
 billing:
   info: |-
-    Nel menu «Tasse» è possibile registrare le tasse che risultano in relazione al dossier. Le voci registrate non vengono però trasmesse automaticamente ai servizi di fatturazione dell'organizzazione. Come avvenuto finora ogni organizzazione coinvolta deve provvedere alla fatturazione.
+    Nel menu «Tasse» è possibile registrare le tasse che risultano in relazione al dossier. Le voci registrate non vengono però trasmesse automaticamente ai servizi di fatturazione dell'organizzazione. La fatturazione deve avvenire come finora da parte di ogni organizzazione coinvolta.
   position: Posizione
   legal-basis: Base giuridica
   cost-center: Centro di costo

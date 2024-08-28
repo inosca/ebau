@@ -1,0 +1,3 @@
+keycloak-profile-apply-button:
+  apply: "Riprendi dati dal mio profilo"
+  success: "I dati sono stati ripresi"

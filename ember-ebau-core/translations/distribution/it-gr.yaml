@@ -1,3 +1,3 @@
 distribution:
   inquiry-deadline-input:
-    disabled-hint: "Se l'Ufficio per lo sviluppo del territorio o un'organizzazione ambientalista vengono invitati a partecipare alla circolazione non è possibile impostare una scadenza manuale, vengono invece usate le scadenze proposte dal sistema."
+    disabled-hint: "Se l'Ufficio per lo sviluppo del territorio o un'altra organizzazione ambientalista vengono invitati a partecipare alla circolazione non è possibile impostare una scadenza manuale, vengono invece usate le scadenze proposte dal sistema."

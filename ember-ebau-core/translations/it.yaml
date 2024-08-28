@@ -3,3 +3,5 @@ global:
   yes: "sì"
   no: "no"
   loadingPrompt: "Sto caricando i risultati..."
+  cancel: "Annulla"
+  back: "Indietro"

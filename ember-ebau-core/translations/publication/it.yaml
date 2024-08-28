@@ -3,7 +3,7 @@ publication:
   new: "Nuova pubblicazione"
   published: "Approvata"
   draft: "Bozza"
-  canceled: "Annullato"
+  canceled: "Annullata"
   loadingError: "Errore nel tentativo di caricare"
   cancelError: "Errore nel tentativo di annullare"
   active: "Attivo"

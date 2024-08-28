@@ -2,7 +2,7 @@ workItems:
   instance: "Dossier"
   type: "Tipo di domanda"
   task: "Compito"
-  deadline: "Termine"
+  deadline: "Scadenza"
   created: "Creato"
   responsible: "Responsabile"
   service: "Servizio"
@@ -32,7 +32,7 @@ workItems:
   completeFormLabel: "Modulo per la conclusione di un compito"
 
   actions:
-    title: "Azioni"
+    title: "Operazioni"
     highlight: "Demarcazione"
 
     markAsRead: "Segna come letto"
@@ -54,9 +54,9 @@ workItems:
     own: "Propri"
     unread: "Non letti"
     open: "In corso"
-    closed: "Conclusi"
+    closed: "Concluso"
     suspended: "In sospeso"
     active: "Attivo"
     control: "Controlling"
-    urgent: "Urgenti"
-    new: "Nuovi"
+    urgent: "Urgente"
+    new: "Nuovo"

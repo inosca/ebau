@@ -2,7 +2,7 @@ service-permissions:
   address: "Indirizzo"
   city: "Luogo"
   created-at: "Data di creazione"
-  created-by: "Creato da:"
+  created-by: "Creato da"
   email: "E-mail"
   email-hint: "È possibile indicare più indirizzi e-mail (separati da virgole)."
   group: "Gruppo"
@@ -16,8 +16,8 @@ service-permissions:
   website-hint: "Il sito web deve essere inserito nel formato seguente: https://gr.ch"
   website-validation-error: Il formato del testo inserito nel campo «Sito web» non è valido.
   zip: "NPA"
-  notification: "Ricevere notifiche"
-  responsibility-construction-control: "Assumere la competenza del controllo dei lavori"
+  notification: "Ricevi notifiche"
+  responsibility-construction-control: "Assumi la competenza del controllo dei lavori"
   disabled: "Disattivato"
   select-group: "Seleziona gruppo"
 
