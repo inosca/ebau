@@ -1,0 +1,18 @@
+<div class="uk-width-1-1 uk-flex-inline" {{did-insert this.registerTextarea}}>
+  <CfField::Input::Textarea
+    @field={{@field}}
+    @onSave={{@onSave}}
+    @disabled={{@disabled}}
+  />
+
+  <div class="uk-flex uk-flex-center uk-flex-middle">
+    <UkButton
+      @color="link"
+      @onClick={{this.collectResults}}
+      class="uk-margin-small-left"
+      {{uk-tooltip (t "exam-results-textarea.collect")}}
+    >
+      <UkIcon @icon="pull" />
+    </UkButton>
+  </div>
+</div>
