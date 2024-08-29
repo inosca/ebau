@@ -1503,14 +1503,23 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             return []
 
         key = work_item.task.pk if work_item else case.workflow.pk
-        service_ids = settings.CONSTRUCTION_MONITORING.get(
+        notification_recipients_config = settings.CONSTRUCTION_MONITORING.get(
             "NOTIFICATION_RECIPIENTS", {}
-        ).get(key)
+        ).get(key, [])
+
+        notify_service_ids = [
+            config["service_id"]
+            for config in notification_recipients_config
+            # Notification should *not* be sent if an involvement is required
+            # but the service has no inquiry. Otherwise, send it.
+            if not config["require_involvement"]
+            or instance.has_inquiry(config["service_id"])
+        ]
 
         return flatten(
             [
                 self._get_responsible(instance, service)
-                for service in Service.objects.filter(pk__in=service_ids)
+                for service in Service.objects.filter(pk__in=notify_service_ids)
             ]
         )
 
