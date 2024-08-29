@@ -78,7 +78,7 @@ services:
       - DOCUMENT_MERGE_SERVICE_URL=http://document-merge-service:8000/document-merge-service/api/v1/
     networks:
       - ebau.local
-    command: ./manage.py runserver 0.0.0.0:80 --pythonpath /app/$APPLICATION
+    command: devserver
 
   ember-caluma-portal:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
