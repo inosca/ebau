@@ -221,6 +221,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     objections = serializers.SerializerMethodField()
     bauverwaltung = serializers.SerializerMethodField()
     responsible_person = serializers.SerializerMethodField()
+    schlussabnahme_uhrzeit = serializers.SerializerMethodField()
+    schlussabnahme_datum = serializers.SerializerMethodField()
 
     vorhaben = serializers.SerializerMethodField()
     parzelle = serializers.SerializerMethodField()
@@ -864,6 +866,44 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             language=language,
         )
 
+    def get_schlussabnahme_uhrzeit(self, instance):
+        if (
+            not self.work_item
+            or not self.work_item.case
+            or not settings.CONSTRUCTION_MONITORING
+        ):
+            return None
+
+        # Do not use instance.case here because construction monitoring has nested cases
+        if schlussabnahme_planing_work_item := self.work_item.case.work_items.filter(
+            task_id=settings.CONSTRUCTION_MONITORING[
+                "CONSTRUCTION_STEP_PLAN_SCHLUSSABNAHME_PROJEKT_TASK"
+            ]
+        ).first():
+            if answer := schlussabnahme_planing_work_item.document.answers.filter(
+                question_id="construction-step-schlussabnahme-projekt-planen-zeit-der-abnahme"
+            ).first():
+                return answer.value
+
+    def get_schlussabnahme_datum(self, instance):
+        if (
+            not self.work_item
+            or not self.work_item.case
+            or not settings.CONSTRUCTION_MONITORING
+        ):
+            return None
+
+        # Do not use instance.case here because construction monitoring has nested cases
+        if schlussabnahme_planing_work_item := self.work_item.case.work_items.filter(
+            task_id=settings.CONSTRUCTION_MONITORING[
+                "CONSTRUCTION_STEP_PLAN_SCHLUSSABNAHME_PROJEKT_TASK"
+            ]
+        ).first():
+            if answer := schlussabnahme_planing_work_item.document.answers.filter(
+                question_id="construction-step-schlussabnahme-projekt-planen-datum-der-abnahme"
+            ).first():
+                return answer.date.strftime("%d.%m.%Y")
+
     def to_representation(self, instance):
         ret = super().to_representation(instance)
 
@@ -1462,6 +1502,33 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                 for service in Service.objects.filter(pk__in=service_ids)
             ]
         )
+
+    def _get_recipients_invited_to_schlussabnhame_projekt(self, instance):
+        work_item = self.validated_data.get("work_item")
+        case = work_item.case
+        if not settings.CONSTRUCTION_MONITORING or (
+            not work_item and not case
+        ):  # pragma: no cover
+            return []
+
+        if planning_work_item := case.work_items.filter(
+            task_id=settings.CONSTRUCTION_MONITORING[
+                "CONSTRUCTION_STEP_PLAN_SCHLUSSABNAHME_PROJEKT_TASK"
+            ]
+        ).first():
+            service_ids = flatten(
+                planning_work_item.document.answers.filter(
+                    question_id="construction-step-schlussabnahme-projekt-planen-fachstellen"
+                ).values_list("value", flat=True)
+                or []
+            )
+
+            return flatten(
+                [
+                    self._get_responsible(instance, service)
+                    for service in Service.objects.filter(pk__in=service_ids)
+                ]
+            )
 
     def _get_recipients_tax_administration(self, instance):
         service = Service.objects.filter(

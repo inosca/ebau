@@ -9,6 +9,7 @@ CONSTRUCTION_MONITORING = {
         "COMPLETE_INSTANCE_TASK": "complete-instance",
         "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK": "construction-step-plan-construction-stage",
         "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_FORM": "construction-step-plan-construction-stage",
+        "CONSTRUCTION_STEP_PLAN_SCHLUSSABNAHME_PROJEKT_TASK": "construction-step-schlussabnahme-projekt-planen",
     },
     "kt_schwyz": {
         "ENABLED": True,
