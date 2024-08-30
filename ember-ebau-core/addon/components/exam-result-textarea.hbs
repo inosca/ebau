@@ -5,14 +5,16 @@
     @disabled={{@disabled}}
   />
 
-  <div class="uk-flex uk-flex-center uk-flex-middle">
-    <UkButton
-      @color="link"
-      @onClick={{this.collectResults}}
-      class="uk-margin-small-left"
-      {{uk-tooltip (t "exam-results-textarea.collect")}}
-    >
-      <UkIcon @icon="pull" />
-    </UkButton>
-  </div>
+  {{#unless @disabled}}
+    <div class="uk-flex uk-flex-center uk-flex-middle">
+      <UkButton
+        @color="link"
+        @onClick={{this.collectResults}}
+        class="uk-margin-small-left"
+        {{uk-tooltip (t "exam-results-textarea.collect")}}
+      >
+        <UkIcon @icon="pull" />
+      </UkButton>
+    </div>
+  {{/unless}}
 </div>
