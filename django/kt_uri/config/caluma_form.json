@@ -1526,12 +1526,30 @@
     "pk": "review-building-commission",
     "fields": {
       "created_at": "2024-08-12T12:31:30.893Z",
-      "modified_at": "2024-08-12T12:31:30.893Z",
+      "modified_at": "2024-08-29T13:24:14.956Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Aufgabe f\\u00fcr Baukommission\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "review-building-commission-comments",
+    "fields": {
+      "created_at": "2024-08-29T13:24:39.005Z",
+      "modified_at": "2024-08-29T13:24:39.005Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"review-building-commission\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Aufgabe Baukommission Tabelle Komentare\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
@@ -12999,17 +13017,47 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "review-building-commission.review-building-commission-complete",
+    "pk": "review-building-commission-comments.kommentar",
     "fields": {
-      "created_at": "2024-08-12T12:32:06.228Z",
-      "modified_at": "2024-08-12T12:32:06.228Z",
+      "created_at": "2024-08-29T13:25:41.573Z",
+      "modified_at": "2024-08-29T13:25:41.573Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "review-building-commission-comments",
+      "question": "kommentar",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "review-building-commission-comments.verfasser",
+    "fields": {
+      "created_at": "2024-08-29T13:25:01.419Z",
+      "modified_at": "2024-08-29T13:25:01.419Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "review-building-commission-comments",
+      "question": "verfasser",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "review-building-commission.review-building-commission-comments",
+    "fields": {
+      "created_at": "2024-08-29T13:26:11.420Z",
+      "modified_at": "2024-08-29T13:26:11.420Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "review-building-commission",
-      "question": "review-building-commission-complete",
-      "sort": 1
+      "question": "review-building-commission-comments",
+      "sort": 2
     }
   },
   {
@@ -13024,7 +13072,7 @@
       "modified_by_group": null,
       "form": "review-building-commission",
       "question": "review-building-commission-remarks",
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -51357,6 +51405,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "kommentar",
+    "fields": {
+      "created_at": "2024-08-29T13:25:41.447Z",
+      "modified_at": "2024-08-29T13:25:41.447Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kommentar\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "kompakte-flaeche",
     "fields": {
       "created_at": "2020-10-21T12:24:24.072Z",
@@ -57148,6 +57230,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "review-building-commission-comments",
+    "fields": {
+      "created_at": "2024-08-29T13:26:11.294Z",
+      "modified_at": "2024-08-29T13:28:54.798Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kommentare / Bemerkungen der BK Mitglieder\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": ["verfasser", "kommentar"]
+      },
+      "data_source": null,
+      "row_form": "review-building-commission-comments",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "review-building-commission-complete",
     "fields": {
       "created_at": "2024-08-12T12:32:06.013Z",
@@ -61248,6 +61363,40 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "verfasser",
+    "fields": {
+      "created_at": "2024-08-29T13:25:01.291Z",
+      "modified_at": "2024-08-29T13:25:01.291Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verfasser\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
