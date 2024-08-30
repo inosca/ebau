@@ -107,32 +107,32 @@ export default class InstanceAclModel extends Model {
       case "USER":
         return {
           label: this.intl.t("permissions.entities.user"),
-          color: "default",
+          color: "muted",
         };
       case "SERVICE":
         return {
           label: this.intl.t("permissions.entities.service"),
-          color: "default",
+          color: "muted",
         };
       case "AUTHENTICATED-PUBLIC":
         return {
           label: this.intl.t("permissions.entities.public-registered"),
-          color: "danger",
+          color: "warning",
         };
       case "ANONYMOUS-PUBLIC":
         return {
           label: this.intl.t("permissions.entities.public-anonymous"),
-          color: "danger",
+          color: "warning",
         };
       case "TOKEN":
         return {
           label: this.intl.t("permissions.entities.token"),
-          color: "danger",
+          color: "warning",
         };
       case "ROLE":
         return {
           label: this.intl.t("permissions.entities.role"),
-          color: "default",
+          color: "muted",
         };
       default:
         return null;

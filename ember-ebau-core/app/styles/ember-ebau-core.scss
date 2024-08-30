@@ -1,3 +1,6 @@
+$custom-muted-color-dark: #{darken($global-muted-background, 15%)};
+$custom-muted-color-light: #{darken($global-muted-background, 5%)};
+
 .multi-line-text {
   overflow-wrap: break-word;
   white-space: pre-line;
@@ -14,6 +17,11 @@ tr[role="link"] {
 .uk-table .uk-icon {
   min-height: 16px;
   min-width: 16px;
+}
+
+.uk-label.uk-label-muted {
+  background-color: $custom-muted-color-light;
+  color: $text-muted-color;
 }
 
 @import "modules/dossier-import";
