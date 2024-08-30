@@ -137,6 +137,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("permissions-read-any", MODULE_PERMISSIONS),
             ("permissions-read", MODULE_PERMISSIONS),
             ("publication-read", MODULE_PUBLICATION),
+            ("permissions-revoke-read", MODULE_PERMISSIONS),
             ("rejection-read", MODULE_REJECTION),
             ("related-gwr-projects-read", MODULE_RELATED_GWR_PROJECTS),
             ("responsible-read", MODULE_RESPONSIBLE),

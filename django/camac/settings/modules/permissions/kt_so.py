@@ -244,6 +244,7 @@ SO_PERMISSIONS_SETTINGS = {
             ("permissions-grant-read", MODULE_PERMISSIONS),
             ("permissions-read-any", MODULE_PERMISSIONS),
             ("permissions-read", MODULE_PERMISSIONS),
+            ("permissions-revoke-read", MODULE_PERMISSIONS),
             ("publication-read", MODULE_PUBLICATION),
             ("rejection-read", MODULE_REJECTION),
             ("related-gwr-projects-read", MODULE_RELATED_GWR_PROJECTS),
