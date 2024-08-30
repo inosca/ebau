@@ -454,6 +454,36 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "construction-monitoring-update-gwr-state-complete.gwr-status-nachfuehren-complete",
+    "fields": {
+      "created_at": "2024-08-30T10:34:03.835Z",
+      "modified_at": "2024-08-30T10:34:03.835Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-monitoring-update-gwr-state-complete",
+      "question": "gwr-status-nachfuehren-complete",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-monitoring-update-gwr-state-complete.hinweis-gwr-status-nachfuehren",
+    "fields": {
+      "created_at": "2024-08-30T10:33:21.372Z",
+      "modified_at": "2024-08-30T10:33:21.372Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-monitoring-update-gwr-state-complete",
+      "question": "hinweis-gwr-status-nachfuehren",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "construction-monitoring-update-gwr-state.gwr-dossier-verknuepft",
     "fields": {
       "created_at": "2024-07-05T09:01:04.925Z",
@@ -469,21 +499,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "construction-monitoring-update-gwr-state.gwr-status-complete",
-    "fields": {
-      "created_at": "2024-08-02T08:42:35.650Z",
-      "modified_at": "2024-08-02T08:42:35.650Z",
-      "created_by_user": "stephan.hug@adfinis.com",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "construction-monitoring-update-gwr-state",
-      "question": "gwr-status-complete",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "construction-monitoring-update-gwr-state.gwr-status-nachfuehren",
     "fields": {
       "created_at": "2024-07-05T09:02:03.223Z",
@@ -495,21 +510,6 @@
       "form": "construction-monitoring-update-gwr-state",
       "question": "gwr-status-nachfuehren",
       "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "construction-monitoring-update-gwr-state.gwr-status-nachfuehren-titel",
-    "fields": {
-      "created_at": "2024-07-04T11:10:31.464Z",
-      "modified_at": "2024-07-04T11:10:31.464Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "construction-monitoring-update-gwr-state",
-      "question": "gwr-status-nachfuehren-titel",
-      "sort": 5
     }
   },
   {
@@ -1752,6 +1752,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "construction-step-update-gwr-state-begin",
+    "fields": {
+      "created_at": "2024-08-29T11:59:23.494Z",
+      "modified_at": "2024-08-29T13:13:24.808Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"GWR Status nachf\\u00fchren (Baubeginn)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-update-gwr-state-completion",
+    "fields": {
+      "created_at": "2024-08-29T12:01:48.961Z",
+      "modified_at": "2024-08-29T13:13:24.805Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"GWR Status nachf\\u00fchren (Gesamtprojekt)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "construction-step-zwischenkontrolle",
     "fields": {
       "created_at": "2024-01-29T16:59:42.279Z",
@@ -1857,12 +1891,29 @@
     "pk": "gwr-status-nachfuehren-bauende",
     "fields": {
       "created_at": "2024-07-05T09:02:02.914Z",
-      "modified_at": "2024-07-05T09:02:02.914Z",
+      "modified_at": "2024-08-30T10:31:54.395Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauende wurde im GWR nachgef\\u00fchrt\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gwr-status-nachfuehren-complete-projektabschluss-wurde-im-gwr-nachgefuehrt",
+    "fields": {
+      "created_at": "2024-08-30T10:34:03.607Z",
+      "modified_at": "2024-08-30T10:34:03.607Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Bauende wurde im GWR nachgef\\u00fchrt\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Projektabschluss wurde im GWR nachgef\\u00fchrt\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -3440,46 +3491,10 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "gwr-status-complete",
-    "fields": {
-      "created_at": "2024-08-02T08:42:35.589Z",
-      "modified_at": "2024-08-02T08:42:35.589Z",
-      "created_by_user": "stephan.hug@adfinis.com",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Abschliessen\", \"fr\": null, \"it\": null}",
-      "type": "action_button",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "color": "primary",
-        "action": "complete",
-        "show_validation": false,
-        "validate_on_enter": false
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "gwr-status-nachfuehren",
     "fields": {
       "created_at": "2024-07-05T09:02:03.069Z",
-      "modified_at": "2024-07-05T09:02:03.069Z",
+      "modified_at": "2024-08-30T10:31:54.545Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
@@ -3507,23 +3522,23 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "gwr-status-nachfuehren-titel",
+    "pk": "gwr-status-nachfuehren-complete",
     "fields": {
-      "created_at": "2024-07-04T11:10:31.298Z",
-      "modified_at": "2024-07-04T11:15:42.432Z",
+      "created_at": "2024-08-30T10:34:03.710Z",
+      "modified_at": "2024-08-30T10:34:03.710Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"GWR Status nachf\\u00fchren Titel\", \"fr\": null, \"it\": null}",
-      "type": "static",
+      "label": "{\"de\": \"GWR Status nachf\\u00fchren\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"## GWR Status nachf\\u00fchren\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -3554,7 +3569,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-width-1-2\\\">\\n\\tBitte wechseln Sie zum Menu <b>Verkn\\u00fcpfte GWR-Bauprojekte</b> und aktualisieren Sie im GWR den Status des Projekts von <b>bewilligt</b> in <b>baubegonnen</b> (falls Sie das URec Dossier noch nicht mit dem GWR verkn\\u00fcpft haben, bitten wir Sie, das jetzt zu tun.\\n\\t<br><br>\\n\\tDer GWR Status muss anschliessend von <b>beantragt</b> auf <b>bewilligt</b> und dann auf <b>baubegonnen</b> gesetzt werden).\\n\\n</div>\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\">\\n\\tBitte wechseln Sie zum Menu <b>Verkn\\u00fcpfte GWR-Bauprojekte</b> und aktualisieren Sie im GWR den Status des Projekts von <b>bewilligt</b> in <b>baubegonnen</b> (falls Sie das URec Dossier noch nicht mit dem GWR verkn\\u00fcpft haben, bitten wir Sie, das jetzt zu tun.\\n\\t<br><br>\\n\\tDer GWR Status muss anschliessend von <b>beantragt</b> auf <b>bewilligt</b> und dann auf <b>baubegonnen</b> gesetzt werden).\\n\\n</div>\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -4015,7 +4030,7 @@
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-baubeginn",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -4030,7 +4045,7 @@
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-baufreigabe",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -4045,7 +4060,7 @@
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-kanalisationsabnahme",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -4060,7 +4075,7 @@
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-rohbauabnahme",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -4075,7 +4090,7 @@
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-schlussabnahme-gebaeude",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -4090,7 +4105,7 @@
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-schlussabnahme-projekt",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -4105,7 +4120,37 @@
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-schnurgeruestabnahme",
-      "sort": 6
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-steps.construction-step-update-gwr-state-begin",
+    "fields": {
+      "created_at": "2024-08-29T13:13:25.144Z",
+      "modified_at": "2024-08-29T13:13:25.144Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "construction-steps",
+      "option": "construction-step-update-gwr-state-begin",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-steps.construction-step-update-gwr-state-completion",
+    "fields": {
+      "created_at": "2024-08-29T13:13:25.104Z",
+      "modified_at": "2024-08-29T13:13:25.104Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "construction-steps",
+      "option": "construction-step-update-gwr-state-completion",
+      "sort": 1
     }
   },
   {
@@ -4120,7 +4165,7 @@
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-zwischenkontrolle",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -4180,6 +4225,21 @@
       "modified_by_group": null,
       "question": "gwr-dossier-verknuepft",
       "option": "gwr-dossier-verknuepft-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gwr-status-nachfuehren-complete.gwr-status-nachfuehren-complete-projektabschluss-wurde-im-gwr-nachgefuehrt",
+    "fields": {
+      "created_at": "2024-08-30T10:34:03.719Z",
+      "modified_at": "2024-08-30T10:34:03.719Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "gwr-status-nachfuehren-complete",
+      "option": "gwr-status-nachfuehren-complete-projektabschluss-wurde-im-gwr-nachgefuehrt",
       "sort": 1
     }
   },

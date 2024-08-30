@@ -3,6 +3,10 @@ construction-monitoring:
     construction-step-schnurgeruestabnahme-melden-complete: "Meldung abschliessen"
     construction-step-schnurgeruestabnahme-planen-complete: "Planung abschliessen"
     construction-step-schnurgeruest-kontrollieren-complete: "Kontrolle abschliessen"
+    construction-step-update-gwr-state-begin: "GWR Status aktualisieren (Baubeginn)"
+    construction-monitoring-update-gwr-state-complete: "GWR Statusaktualisierung abschliessen"
+    construction-step-update-gwr-state-completion: "GWR Status aktualisieren (Projektabschluss)"
+    construction-monitoring-update-gwr-state-complete-complete: "GWR Statusaktualisierung abschliessen"
 
     work-item:
       addressed-to-applicant: Standardmässig durch die Gesuchstellenden/Fachstellen auszufüllen
