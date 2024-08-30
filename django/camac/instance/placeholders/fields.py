@@ -956,12 +956,12 @@ class AlexandriaDocumentField(AliasedMixin, serializers.ReadOnlyField):
             timezone = get_current_timezone()
             data.append(
                 {
-                    "NAME": document.title.de,
+                    "NAME": document.title,
                     "ORIGINAL_NAME": document.files.filter(variant="original")
                     .order_by("-created_at")
                     .first()
                     .name,
-                    "DESCRIPTION": document.description.de,
+                    "DESCRIPTION": document.description,
                     "CREATED_AT": document.created_at.astimezone(timezone).strftime(
                         "%d.%m.%Y %H:%M"
                     ),
@@ -989,7 +989,7 @@ class AlexandriaSimpleDocumentField(AlexandriaDocumentField):
                     "%(title)s (submitted as %(original_title)s on %(date)s at %(time)s)"
                 )
                 % {
-                    "title": document.title[get_language()],
+                    "title": document.title,
                     "original_title": document.files.filter(variant="original")
                     .order_by("-created_at")
                     .first()
