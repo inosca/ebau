@@ -131,7 +131,9 @@ def test_instance_permissions_be(
 
 
 @pytest.mark.parametrize("instance__user", [lf("admin_user")])
-@pytest.mark.parametrize("role__name", ["Coordination", "Support"])
+@pytest.mark.parametrize(
+    "role__name", ["Coordination", "Support", "building_commission"]
+)
 @pytest.mark.parametrize("instance_state__name", ["ext", "circ", "redac"])
 def test_instance_permissions_ur(
     admin_client,
