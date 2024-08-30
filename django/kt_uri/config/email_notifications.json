@@ -514,5 +514,17 @@
       "service": null,
       "type": "email"
     }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1471,
+    "fields": {
+      "slug": "einladung-abnahme",
+      "purpose": "8.3 Info an Fachstellen - Einladung zur Abnahme",
+      "subject": "Dossier ID {{INSTANCE_ID}} Einladung zur Abnahme",
+      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nEINLADUNG ZUR ENDABNAHME\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID Nr. {{INSTANCE_ID}} findet am {{SCHLUSSABNAHME_DATUM}} um {{SCHLUSSABNAHME_UHRZEIT}} Uhr vor Ort die Endabnahme statt.\r\n\r\nFreundliche Grüsse",
+      "service": null,
+      "type": "email"
+    }
   }
 ]
