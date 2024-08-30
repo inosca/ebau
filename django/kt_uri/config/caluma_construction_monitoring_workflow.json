@@ -48,7 +48,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['after-construction-step', 'construction-monitoring-update-gwr-state']|tasks"
+      "next": "['after-construction-step']|tasks"
     }
   },
   {
@@ -152,7 +152,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['complete-instance', 'construction-monitoring-update-gwr-state-complete', 'after-complete-construction-monitoring-ur']|tasks"
+      "next": "['complete-instance', 'after-complete-construction-monitoring-ur']|tasks"
     }
   },
   {
@@ -178,7 +178,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['after-construction-step', 'construction-monitoring-update-gwr-state']|tasks"
+      "next": "['after-construction-step']|tasks"
     }
   },
   {
@@ -331,7 +331,14 @@
       "name": "{\"de\": \"GWR Status nachf\\u00fchren\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
-      "meta": {},
+      "meta": {
+        "construction-step": {
+          "next": [],
+          "index": 0,
+          "total": 1
+        },
+        "construction-step-id": "construction-step-update-gwr-state-begin"
+      },
       "address_groups": "['municipality']|groups",
       "control_groups": "['municipality']|groups",
       "is_archived": false,
@@ -354,7 +361,14 @@
       "name": "{\"de\": \"GWR Status nachf\\u00fchren (Projektabschluss)\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
-      "meta": {},
+      "meta": {
+        "construction-step": {
+          "next": [],
+          "index": 0,
+          "total": 1
+        },
+        "construction-step-id": "construction-step-update-gwr-state-completion"
+      },
       "address_groups": "['municipality']|groups",
       "control_groups": "['municipality']|groups",
       "is_archived": false,
@@ -561,7 +575,11 @@
       "type": "complete_task_form",
       "meta": {
         "construction-step": {
-          "next": ["construction-step-baufreigabe"],
+          "next": [
+            "construction-step-baufreigabe",
+            "construction-step-update-gwr-state-begin",
+            "construction-step-update-gwr-state-completion"
+          ],
           "index": 0,
           "total": 1
         },
