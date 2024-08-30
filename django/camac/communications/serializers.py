@@ -5,7 +5,6 @@ from alexandria.core.api import create_document_file as create_alexandria_docume
 from django.conf import settings
 from django.core.cache import cache
 from django.db import transaction
-from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext
 from django_clamd.validators import validate_file_infection
@@ -383,16 +382,7 @@ class CommunicationsAttachmentSerializer(serializers.ModelSerializer):
     file_attachment = serializers.FileField(required=False)
 
     def get_download_url(self, attachment):
-        if (
-            attachment.file_attachment
-            and settings.STORAGES["default"]["BACKEND"]
-            == "storages.backends.s3.S3Storage"
-        ):
-            return attachment.file_attachment.url
-        elif attachment.alexandria_file:
-            return attachment.alexandria_file.get_download_url(self.context["request"])
-
-        return reverse("communications-attachment-download", args=[attachment.pk])
+        return attachment.get_download_url(self.context["request"])
 
     class Meta:
         model = models.CommunicationsAttachment
