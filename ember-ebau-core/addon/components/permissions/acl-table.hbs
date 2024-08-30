@@ -75,10 +75,9 @@
                   >{{acl.entityName}}</a>
                 </td>
                 <td>
-                  <UkLabel
-                    @label={{acl.entityType.label}}
-                    @color={{acl.entityType.color}}
-                  />
+                  <span class="uk-label uk-label-{{acl.entityType.color}}">
+                    {{acl.entityType.label}}
+                  </span>
                 </td>
                 <td>{{acl.accessLevel.name}}</td>
                 <td>{{or (format-date acl.startTime format="date") "-"}}</td>
@@ -88,7 +87,7 @@
                       "uk-label "
                       (if (eq acl.status "active") "uk-label-success")
                       (if (eq acl.status "scheduled") "uk-label-warning")
-                      (if (eq acl.status "expired") "background-expired ")
+                      (if (eq acl.status "expired") "uk-label-muted")
                     }}
                   >{{t (concat "permissions.status." acl.status)}}</span></td>
                 <td class="uk-table-shrink uk-text-center">

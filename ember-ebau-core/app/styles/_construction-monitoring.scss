@@ -1,8 +1,5 @@
 @import "ember-uikit/variables-theme";
 
-$custom-muted-color-dark: #{darken($global-muted-background, 15%)};
-$custom-muted-color-light: #{darken($global-muted-background, 5%)};
-
 #construction-monitoring {
   .construction-monitoring__index-icon-background {
     width: 60px;
@@ -30,21 +27,12 @@ $custom-muted-color-light: #{darken($global-muted-background, 5%)};
   padding-right: 40px !important;
 }
 
-.construction-stage {
-  &__header-label {
-    &--muted {
-      background-color: $custom-muted-color-light;
-      color: $text-muted-color;
-    }
-  }
-}
-
 .construction-step__work-item__header {
     border-left: 4px solid $custom-muted-color-dark;
     padding-left: 40px;
     margin-left: -40px;
     margin-top: -5px;
-    padding-top: 5px; 
+    padding-top: 5px;
     margin-bottom: -10px;
     padding-bottom: 10px;
 
@@ -63,7 +51,7 @@ $custom-muted-color-light: #{darken($global-muted-background, 5%)};
 
 $size: 36px;
 $iconSize: $size * 0.6;
-$sizeCompleted: $size - 2; 
+$sizeCompleted: $size - 2;
 $sizeSmall: 32px;
 $iconSizeSmall: $sizeSmall * 0.6;
 $colors: (
@@ -81,14 +69,14 @@ $colors: (
 
   &__connector {
     @extend .uk-margin-auto;
-    
+
     height: 10px;
     width: 2px;
   }
-  
+
   &__icon {
     @extend .uk-flex, .uk-flex-center, .uk-flex-middle, .uk-margin-auto;
-    
+
     width: $size;
     height: $size;
     border-radius: 50%;
@@ -103,7 +91,7 @@ $colors: (
         height: $sizeCompleted;
     }
   }
-  
+
   @each $colorName, $color in $colors {
     &.uk-text-#{$colorName} {
       > .construction-step__work-item-divider__icon {
