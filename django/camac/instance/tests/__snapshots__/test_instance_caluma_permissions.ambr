@@ -7995,6 +7995,9 @@
       'read',
       'write',
     ]),
+    'review-building-commission': list([
+      'read',
+    ]),
   })
 # ---
 # name: test_instance_permissions_ur[circ-Support-admin_user]
@@ -8012,6 +8015,31 @@
       'write',
     ]),
     'main': list([
+      'read',
+      'write',
+    ]),
+    'review-building-commission': list([
+      'read',
+    ]),
+  })
+# ---
+# name: test_instance_permissions_ur[circ-building_commission-admin_user]
+  dict({
+    'case-meta': list([
+      'read',
+    ]),
+    'inquiry': list([
+      'read',
+      'write',
+    ]),
+    'inquiry-answer': list([
+      'read',
+      'write',
+    ]),
+    'main': list([
+      'read',
+    ]),
+    'review-building-commission': list([
       'read',
       'write',
     ]),
@@ -8034,6 +8062,9 @@
       'read',
       'write',
     ]),
+    'review-building-commission': list([
+      'read',
+    ]),
   })
 # ---
 # name: test_instance_permissions_ur[ext-Support-admin_user]
@@ -8054,6 +8085,30 @@
       'read',
       'write',
     ]),
+    'review-building-commission': list([
+      'read',
+    ]),
+  })
+# ---
+# name: test_instance_permissions_ur[ext-building_commission-admin_user]
+  dict({
+    'case-meta': list([
+      'read',
+    ]),
+    'inquiry': list([
+      'read',
+      'write',
+    ]),
+    'inquiry-answer': list([
+      'read',
+      'write',
+    ]),
+    'main': list([
+      'read',
+    ]),
+    'review-building-commission': list([
+      'read',
+    ]),
   })
 # ---
 # name: test_instance_permissions_ur[redac-Coordination-admin_user]
@@ -8072,6 +8127,9 @@
     'main': list([
       'read',
       'write',
+    ]),
+    'review-building-commission': list([
+      'read',
     ]),
   })
 # ---
@@ -8092,6 +8150,30 @@
     'main': list([
       'read',
       'write',
+    ]),
+    'review-building-commission': list([
+      'read',
+    ]),
+  })
+# ---
+# name: test_instance_permissions_ur[redac-building_commission-admin_user]
+  dict({
+    'case-meta': list([
+      'read',
+    ]),
+    'inquiry': list([
+      'read',
+      'write',
+    ]),
+    'inquiry-answer': list([
+      'read',
+      'write',
+    ]),
+    'main': list([
+      'read',
+    ]),
+    'review-building-commission': list([
+      'read',
     ]),
   })
 # ---
