@@ -1747,3 +1747,105 @@ def test_notifications_without_receivers_sz(
         sz_instance, "test subject", "test body", [], "applicant", admin_user
     )
     assert HistoryEntry.objects.all().count() == 0
+
+
+def test_get_schlussabnahme_uhrzeit(
+    db,
+    instance_factory,
+    work_item_factory,
+    construction_monitoring_settings,
+    document_factory,
+    answer_factory,
+):
+    instance = instance_factory()
+    work_item = work_item_factory(
+        task__slug=construction_monitoring_settings[
+            "CONSTRUCTION_STEP_PLAN_SCHLUSSABNAHME_PROJEKT_TASK"
+        ],
+        document=document_factory(),
+    )
+    answer_factory(
+        document=work_item.document,
+        question__slug="construction-step-schlussabnahme-projekt-planen-zeit-der-abnahme",
+        value="09:00",
+    )
+
+    serializer = serializers.InstanceMergeSerializer(
+        instance=instance,
+        work_item=work_item,
+    )
+    assert serializer.get_schlussabnahme_uhrzeit(instance) == "09:00"
+
+
+def test_get_schlussabnahme_datum(
+    db,
+    instance_factory,
+    work_item_factory,
+    construction_monitoring_settings,
+    document_factory,
+    answer_factory,
+):
+    instance = instance_factory()
+    work_item = work_item_factory(
+        task__slug=construction_monitoring_settings[
+            "CONSTRUCTION_STEP_PLAN_SCHLUSSABNAHME_PROJEKT_TASK"
+        ],
+        document=document_factory(),
+    )
+    answer_factory(
+        document=work_item.document,
+        question__slug="construction-step-schlussabnahme-projekt-planen-datum-der-abnahme",
+        date="2024-01-01",
+    )
+
+    serializer = serializers.InstanceMergeSerializer(
+        instance=instance,
+        work_item=work_item,
+    )
+    assert serializer.get_schlussabnahme_datum(instance) == "01.01.2024"
+
+
+def test_get_recipients_invited_to_schlussabnhame_projekt(
+    db,
+    notification_template,
+    instance_factory,
+    work_item_factory,
+    construction_monitoring_settings,
+    document_factory,
+    answer_factory,
+    service_factory,
+    case_factory,
+):
+    instance = instance_factory(case=case_factory())
+    service = service_factory()
+    work_item = work_item_factory(
+        task__slug=construction_monitoring_settings[
+            "CONSTRUCTION_STEP_PLAN_SCHLUSSABNAHME_PROJEKT_TASK"
+        ],
+        document=document_factory(),
+    )
+    answer_factory(
+        document=work_item.document,
+        question__slug="construction-step-schlussabnahme-projekt-planen-fachstellen",
+        value=[service.pk],
+    )
+
+    serializer = serializers.PermissionlessNotificationTemplateSendmailSerializer(
+        data={
+            "instance": {"type": "instances", "id": instance.pk},
+            "notification_template": {
+                "type": "notification-templates",
+                "id": notification_template.pk,
+            },
+            "recipient_types": ["schnurgeruestabnahme_uri"],
+            "subject": "test",
+            "work_item": {
+                "type": "work-items",
+                "id": work_item.pk,
+            },
+        }
+    )
+    serializer.is_valid()
+    assert serializer._get_recipients_invited_to_schlussabnhame_projekt(instance) == [
+        {"to": service.email}
+    ]
