@@ -997,6 +997,17 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         # TODO: Are the form permissions too lenient?
         return set(["read", "write"])
 
+    @permission_aware
+    def _get_review_building_commission_form_permissions(self, instance):
+        return set(["read"])
+
+    def _get_review_building_commission_form_permissions_for_building_commission(
+        self, instance
+    ):
+        if instance.instance_state.name in ["comm", "circ"]:
+            return set(["read", "write"])
+        return set(["read"])
+
     @permission_switching_method
     @permission_aware
     def get_permissions(self, instance):

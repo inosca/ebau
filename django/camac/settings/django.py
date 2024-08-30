@@ -1142,7 +1142,12 @@ APPLICATIONS = {
         "DOCUMENTS_SKIP_CONTEXT_VALIDATION": True,
         "CALUMA": {
             "COMPLETE_CHECK_TASK": "complete-check",
-            "FORM_PERMISSIONS": ["main", "inquiry", "inquiry-answer"],
+            "FORM_PERMISSIONS": [
+                "main",
+                "inquiry",
+                "inquiry-answer",
+                "review-building-commission",
+            ],
             "FILL_PUBLICATION_TASK": None,
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,
