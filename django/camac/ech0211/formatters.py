@@ -168,7 +168,7 @@ def get_alexandria_documents(documents):
     return [
         ns_nachrichten_t0.documentType(
             uuid=str(doc.pk),
-            titles=pyxb.BIND(title=[doc.title.translate()]),
+            titles=pyxb.BIND(title=[doc.title]),
             status="undefined",  # ech0039 documentStatusType
             documentKind=doc.category.name.translate(),
             keywords=[
