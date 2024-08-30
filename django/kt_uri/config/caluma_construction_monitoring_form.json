@@ -974,7 +974,7 @@
       "modified_by_group": null,
       "form": "construction-step-schlussabnahme-projekt-planen",
       "question": "construction-step-schlussabnahme-projekt-planen-datum-der-abnahme",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -990,6 +990,21 @@
       "form": "construction-step-schlussabnahme-projekt-planen",
       "question": "construction-step-schlussabnahme-projekt-planen-fachstellen",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-schlussabnahme-projekt-planen.construction-step-schlussabnahme-projekt-planen-zeit-der-abnahme",
+    "fields": {
+      "created_at": "2024-08-28T15:27:47.832Z",
+      "modified_at": "2024-08-28T15:27:47.832Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-schlussabnahme-projekt-planen",
+      "question": "construction-step-schlussabnahme-projekt-planen-zeit-der-abnahme",
+      "sort": 3
     }
   },
   {
@@ -3038,6 +3053,40 @@
       "configuration": {},
       "meta": {},
       "data_source": "ServicesForFinalReport",
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-schlussabnahme-projekt-planen-zeit-der-abnahme",
+    "fields": {
+      "created_at": "2024-08-28T13:21:51.311Z",
+      "modified_at": "2024-08-28T15:27:56.060Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zeit\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
       "row_form": null,
       "sub_form": null,
       "source": null,

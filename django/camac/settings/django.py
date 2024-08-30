@@ -270,6 +270,7 @@ APPLICATIONS = {
             "responsible_koor",
             "abwasser_uri",
             "schnurgeruestabnahme_uri",
+            "invited_to_schlussabnhame_projekt",
             # GR
             "aib",
             "gvg",
@@ -1136,6 +1137,7 @@ APPLICATIONS = {
             "responsible_koor",
             "abwasser_uri",
             "schnurgeruestabnahme_uri",
+            "invited_to_schlussabnhame_projekt",
         ],
         "DOCUMENTS_SKIP_CONTEXT_VALIDATION": True,
         "CALUMA": {
@@ -1336,6 +1338,15 @@ APPLICATIONS = {
                         "notification": {
                             "template_slug": "construction-monitoring-new-task",
                             "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-schlussabnahme-projekt-planen": [
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "einladung-abnahme",
+                            "recipient_types": ["invited_to_schlussabnhame_projekt"],
                         },
                     }
                 ],
