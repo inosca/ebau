@@ -1,6 +1,7 @@
 from caluma.caluma_data_source.data_sources import BaseDataSource
 from caluma.caluma_data_source.utils import data_source_cache
 from caluma.caluma_form.models import Document
+from caluma.caluma_workflow.models import Case
 from django.conf import settings
 from django.core.cache import cache
 from django.utils.translation import gettext as _, gettext_noop, override
@@ -8,7 +9,9 @@ from django.utils.translation import gettext as _, gettext_noop, override
 from camac.caluma.utils import find_answer
 from camac.core.models import Authority
 from camac.document.models import Attachment
+from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
+from camac.instance.placeholders.utils import get_person_name
 from camac.user.models import Location, Service
 
 from .countries import COUNTRIES
@@ -287,36 +290,15 @@ class Landowners(BaseDataSource):
         if not context:  # pragma: no cover
             return []
 
-        instance_id = context.get("instanceId")
+        case = Case.objects.get(instance__pk=context.get("instanceId"))
+        master_data = MasterData(case)
 
-        document = Document.objects.get(case__instance__pk=instance_id)
-        rows = find_answer(document, "personalien-grundeigentumerin")
+        people = master_data.landowners
 
-        if not rows:  # pragma: no cover
-            return []
+        if settings.APPLICATION_NAME == "kt_so":
+            people = master_data.applicants + people
 
-        landowner_data = []
-        for row in rows:
-            is_juristic = (
-                find_answer(
-                    row, "juristische-person-grundeigentuemerin", raw_value=True
-                )
-                == "juristische-person-grundeigentuemerin-ja"
-            )
-
-            if is_juristic:
-                label = find_answer(row, "name-juristische-person-grundeigentuemerin")
-            else:
-                label = " ".join(
-                    [
-                        find_answer(row, "vorname-grundeigentuemerin"),
-                        find_answer(row, "name-grundeigentuemerin"),
-                    ]
-                )
-
-            landowner_data.append((row.pk, label))
-
-        return landowner_data
+        return [(person["row_id"], get_person_name(person)) for person in people]
 
 
 class PreliminaryClarificationTargets(BaseDataSource):
