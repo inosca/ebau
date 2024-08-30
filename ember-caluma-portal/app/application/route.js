@@ -12,6 +12,7 @@ import DecisionInfoMissingGeometerInvolvementComponent from "ember-ebau-core/com
 import DecisionSubmitButtonComponent from "ember-ebau-core/components/decision/submit-button";
 import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
 import DynamicMaxDateInputComponent from "ember-ebau-core/components/dynamic-max-date-input";
+import ExamResultTextareaComponent from "ember-ebau-core/components/exam-result-textarea";
 import GrGisComponent from "ember-ebau-core/components/gr-gis";
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
 import InquiryDeadlineInputComponent from "ember-ebau-core/components/inquiry-deadline-input";
@@ -234,6 +235,11 @@ export default class ApplicationRoute extends Route {
       label: "Nachforderungsdateien Camac (Kt. UR)",
       component: "camac-additional-demand-files",
       componentClass: CamacAdditionalDemandFilesComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Textfeld Prüfungsergebnis",
+      component: "exam-result-textarea",
+      componentClass: ExamResultTextareaComponent,
     });
   }
 }

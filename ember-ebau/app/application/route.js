@@ -7,6 +7,7 @@ import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/a
 import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
 import DecisionSubmitButtonComponent from "ember-ebau-core/components/decision/submit-button";
 import DynamicMaxDateInputComponent from "ember-ebau-core/components/dynamic-max-date-input";
+import ExamResultTextareaComponent from "ember-ebau-core/components/exam-result-textarea";
 import GrGisComponent from "ember-ebau-core/components/gr-gis";
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
 import InquiryDeadlineInputComponent from "ember-ebau-core/components/inquiry-deadline-input";
@@ -94,6 +95,11 @@ export default class ApplicationRoute extends Route {
       label: "Koordinaten Platzhalter",
       component: "coordinates-placeholder",
       componentClass: CoordinatesPlaceholderComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Textfeld Prüfungsergebnis",
+      component: "exam-result-textarea",
+      componentClass: ExamResultTextareaComponent,
     });
   }
 }
