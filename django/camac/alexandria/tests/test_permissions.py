@@ -33,7 +33,7 @@ def document_post_data(category_id, instance_id, metainfo={}):
         "data": io.BytesIO(
             json.dumps(
                 {
-                    "title": {"en": "Test", "de": "Important"},
+                    "title": "Important",
                     "category": category_id,
                     "metainfo": {"camac-instance-id": instance_id, **metainfo},
                 }
@@ -254,7 +254,7 @@ def test_document_permission(
                 "id": doc.pk,
                 "type": "documents",
                 "attributes": {
-                    "title": {"de": "Important"},
+                    "title": "Important",
                     "metainfo": {"camac-instance-id": instance.pk},
                 },
                 "relationships": {
@@ -278,7 +278,7 @@ def test_document_permission(
 
     if method == "post" and status_code == HTTP_201_CREATED:
         result = response.json()
-        assert result["data"]["attributes"]["title"]["de"] == "Important"
+        assert result["data"]["attributes"]["title"] == "Important"
 
 
 @pytest.mark.parametrize(
@@ -570,14 +570,14 @@ def test_nested_permission(db, role, applicant_factory, admin_client, instance):
     assert response.status_code == HTTP_201_CREATED
 
     result = response.json()
-    assert result["data"]["attributes"]["title"]["de"] == "Important"
+    assert result["data"]["attributes"]["title"] == "Important"
 
     data = {
         "data": {
             "id": result["data"]["id"],
             "type": "documents",
             "attributes": {
-                "title": {"de": "More important"},
+                "title": "More important",
                 "metainfo": {"camac-instance-id": instance.pk},
             },
             "relationships": {
@@ -597,7 +597,7 @@ def test_nested_permission(db, role, applicant_factory, admin_client, instance):
     assert patch_response.status_code == HTTP_200_OK
 
     patch_result = patch_response.json()
-    assert patch_result["data"]["attributes"]["title"]["de"] == "More important"
+    assert patch_result["data"]["attributes"]["title"] == "More important"
 
 
 @pytest.mark.parametrize("role__name", ["applicant"])
@@ -676,8 +676,8 @@ def test_patch_fields(
             "type": "documents",
             "id": document.pk,
             "attributes": {
-                "title": {"de": "Important"},
-                "description": {"de": "Important"},
+                "title": "Important",
+                "description": "Important",
                 "metainfo": metainfo,
                 "date": date.isoformat(),
             },
@@ -828,7 +828,7 @@ def test_marks(
             "id": doc.pk,
             "type": "documents",
             "attributes": {
-                "title": {"de": "Important"},
+                "title": "Important",
                 "metainfo": {"camac-instance-id": instance.pk},
             },
             "relationships": {
@@ -915,7 +915,7 @@ def test_scope_service(
             "type": "documents",
             "id": document.pk,
             "attributes": {
-                "title": {"de": "Important"},
+                "title": "Important",
             },
         },
     }
@@ -1016,7 +1016,7 @@ def test_scope_service_and_subservice(
             "type": "documents",
             "id": document.pk,
             "attributes": {
-                "title": {"de": "Important"},
+                "title": "Important",
             },
         },
     }
@@ -1339,7 +1339,7 @@ def test_condition_instance_state(
         "data": {
             "type": "documents",
             "attributes": {
-                "title": {"de": "Important"},
+                "title": "Important",
                 "metainfo": {"camac-instance-id": gr_instance.pk},
             },
             "relationships": {
@@ -1519,7 +1519,7 @@ def test_condition_paper_instance(
                 "id": doc.pk,
                 "type": "documents",
                 "attributes": {
-                    "title": {"de": "Important"},
+                    "title": "Important",
                     "metainfo": {"camac-instance-id": gr_instance.pk},
                 },
                 "relationships": {
@@ -1887,7 +1887,7 @@ def test_condition_migrated_instance(
                 "id": document.pk,
                 "type": "documents",
                 "attributes": {
-                    "title": {"de": "Important"},
+                    "title": "Important",
                 },
             },
         },
@@ -1950,7 +1950,7 @@ def test_condition_bab_instance(
                 "id": document.pk,
                 "type": "documents",
                 "attributes": {
-                    "title": {"de": "Important"},
+                    "title": "Important",
                 },
             },
         },
@@ -2013,7 +2013,7 @@ def test_condition_bab_service(
                 "id": document.pk,
                 "type": "documents",
                 "attributes": {
-                    "title": {"de": "Important"},
+                    "title": "Important",
                 },
             },
         },
@@ -2071,7 +2071,7 @@ def test_specific_mark_permissions(
                 "id": document.pk,
                 "type": "documents",
                 "attributes": {
-                    "title": {"de": "Important"},
+                    "title": "Important",
                 },
                 "relationships": {
                     "marks": {
@@ -2148,7 +2148,7 @@ def test_base_permission(
         "data": {
             "id": document.pk,
             "type": "documents",
-            "attributes": {"title": {"de": "Change not allowed"}},
+            "attributes": {"title": "Change not allowed"},
         },
     }
 

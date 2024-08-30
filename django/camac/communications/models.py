@@ -123,7 +123,7 @@ class CommunicationsAttachment(models.Model):
         if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
             return self.document_attachment.context.get("displayName", self.filename)
 
-        return self.alexandria_file.document.title.translate()
+        return self.alexandria_file.document.title
 
     @property
     def is_replaced(self):

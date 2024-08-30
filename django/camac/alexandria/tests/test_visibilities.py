@@ -177,7 +177,7 @@ def test_document_and_file_visibility(
     json = response.json()
     assert set(
         [
-            obj["attributes"]["title"]["de"]
+            obj["attributes"]["title"]
             for obj in json["included" if type == "file" else "data"]
         ]
     ) == set(expected)

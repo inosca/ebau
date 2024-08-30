@@ -863,7 +863,7 @@ class DossierWriter:
             Message(
                 level=Severity.INFO.value,
                 code=MessageCodes.ATTACHMENT_CREATED.value,
-                detail=f"{doc.title.translate()} ({doc.get_latest_original().mime_type}) in section {category.name.translate()}",
+                detail=f"{doc.title} ({doc.get_latest_original().mime_type}) in section {category.name.translate()}",
             )
         )
         return messages

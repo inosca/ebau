@@ -62,7 +62,7 @@
     "@projectcaluma/ember-testing": "13.0.2",
     "broccoli-asset-rev": "3.0.0",
     "broccoli-stew": "3.0.0",
-    "ember-alexandria": "9.0.1",
+    "ember-alexandria": "10.0.0",
     "ember-apollo-client": "4.0.2",
     "ember-auto-import": "2.7.4",
     "ember-autoresize-modifier": "0.7.0",
