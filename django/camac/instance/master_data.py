@@ -68,7 +68,9 @@ class MasterData(object):
     def _get_cell_value(self, row, lookup_config):
         options = {}
 
-        if isinstance(lookup_config, tuple):
+        if lookup_config == "pk":
+            return str(row.pk)
+        elif isinstance(lookup_config, tuple):
             lookup, options = lookup_config
         else:
             lookup = lookup_config

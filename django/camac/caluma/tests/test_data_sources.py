@@ -5,6 +5,8 @@ from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_form.factories import QuestionFactory
 from django.core.cache import cache
 
+from camac.tests.data import so_personal_row_factory
+
 from ..extensions.countries import COUNTRIES
 from ..extensions.data_sources import (
     Attachments,
@@ -214,7 +216,14 @@ def test_attachments(
     assert len(data) == expected_count
 
 
-def test_landowners(db, caluma_admin_user, be_instance, utils):
+def test_landowners_be(
+    db,
+    caluma_admin_user,
+    be_instance,
+    utils,
+    be_master_data_settings,
+    master_data_is_visible_mock,
+):
     question = QuestionFactory(
         slug="personalien-grundeigentumerin",
         type=caluma_form_models.Question.TYPE_TABLE,
@@ -244,6 +253,39 @@ def test_landowners(db, caluma_admin_user, be_instance, utils):
     assert len(data) == 2
     assert "Foobar AG" in names
     assert "Foo Bar" in names
+
+
+def test_landowners_so(
+    db,
+    caluma_admin_user,
+    so_instance,
+    utils,
+    so_master_data_settings,
+    master_data_is_visible_mock,
+    snapshot,
+    settings,
+):
+    settings.APPLICATION_NAME = "kt_so"
+
+    utils.add_table_answer(
+        so_instance.case.document,
+        "bauherrin",
+        [so_personal_row_factory(True), so_personal_row_factory(False)],
+    )
+    utils.add_table_answer(
+        so_instance.case.document,
+        "grundeigentuemerin",
+        [so_personal_row_factory(True), so_personal_row_factory(False)],
+    )
+
+    data = Landowners().get_data(
+        caluma_admin_user, None, {"instanceId": so_instance.pk}
+    )
+
+    names = [item[1] for item in data]
+
+    assert len(names) == 4
+    assert names == snapshot
 
 
 def test_municipalities_so(db, service_factory, service_t_factory):
