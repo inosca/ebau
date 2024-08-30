@@ -199,6 +199,6 @@ def test_upload(
             # make sure file was scanned by clamav
             clamav.assert_called()
 
-            assert document.title.translate() == "multiple-pages.pdf"
+            assert document.title == "multiple-pages.pdf"
             assert document.files.filter(variant=File.Variant.ORIGINAL).count() == 1
             assert document.files.filter(variant=File.Variant.THUMBNAIL).count() == 1

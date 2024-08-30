@@ -127,7 +127,7 @@ def test_mark_sensitive_validation(
                 "id": document.pk,
                 "type": "documents",
                 "attributes": {
-                    "title": {"de": "Important"},
+                    "title": "Important",
                 },
                 "relationships": {
                     "marks": {

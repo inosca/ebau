@@ -1,7 +1,7 @@
 Babel==2.16.0
 boto3==1.34.158
 caluma==10.3.1
-caluma-alexandria==5.1.1
+caluma-alexandria==6.0.0
 cryptography==43.0.0
 dataclasses-json==0.6.7
 deepmerge==1.1.1

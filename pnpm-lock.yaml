@@ -402,8 +402,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0
       ember-alexandria:
-        specifier: 9.0.1
-        version: 9.0.1(@ember-data/adapter@4.12.8)(@ember-data/model@4.12.8)(@ember-data/serializer@4.12.8)(@ember-data/store@4.12.8)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-data@4.12.8)(ember-engines@0.11.0)(ember-resources@7.0.2)(ember-source@4.12.4)(webpack@5.93.0)
+        specifier: 10.0.0
+        version: 10.0.0(@ember-data/adapter@4.12.8)(@ember-data/model@4.12.8)(@ember-data/serializer@4.12.8)(@ember-data/store@4.12.8)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-data@4.12.8)(ember-engines@0.11.0)(ember-resources@7.0.2)(ember-source@4.12.4)(webpack@5.93.0)
       ember-apollo-client:
         specifier: 4.0.2
         version: 4.0.2(@glint/template@1.4.0)(graphql@15.9.0)(webpack@5.93.0)
@@ -990,8 +990,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0
       ember-alexandria:
-        specifier: 9.0.1
-        version: 9.0.1(@ember-data/adapter@4.12.8)(@ember-data/model@4.12.8)(@ember-data/serializer@4.12.8)(@ember-data/store@4.12.8)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-data@4.12.8)(ember-engines@0.11.0)(ember-resources@7.0.2)(ember-source@4.12.4)(webpack@5.93.0)
+        specifier: 10.0.0
+        version: 10.0.0(@ember-data/adapter@4.12.8)(@ember-data/model@4.12.8)(@ember-data/serializer@4.12.8)(@ember-data/store@4.12.8)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-data@4.12.8)(ember-engines@0.11.0)(ember-resources@7.0.2)(ember-source@4.12.4)(webpack@5.93.0)
       ember-apollo-client:
         specifier: 4.0.2
         version: 4.0.2(@glint/template@1.4.0)(graphql@15.9.0)(webpack@5.93.0)
@@ -1215,8 +1215,8 @@ importers:
         specifier: 13.0.2
         version: 13.0.2(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.8)(ember-resources@7.0.2)(ember-source@4.12.4)(webpack@5.93.0)
       ember-alexandria:
-        specifier: 9.0.1
-        version: 9.0.1(@ember-data/adapter@4.12.8)(@ember-data/model@4.12.8)(@ember-data/serializer@4.12.8)(@ember-data/store@4.12.8)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-data@4.12.8)(ember-engines@0.11.0)(ember-resources@7.0.2)(ember-source@4.12.4)(webpack@5.93.0)
+        specifier: 10.0.0
+        version: 10.0.0(@ember-data/adapter@4.12.8)(@ember-data/model@4.12.8)(@ember-data/serializer@4.12.8)(@ember-data/store@4.12.8)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-data@4.12.8)(ember-engines@0.11.0)(ember-resources@7.0.2)(ember-source@4.12.4)(webpack@5.93.0)
       ember-apollo-client:
         specifier: 4.0.2
         version: 4.0.2(@glint/template@1.4.0)(graphql@15.9.0)(webpack@5.93.0)
@@ -7164,8 +7164,8 @@ packages:
   /electron-to-chromium@1.5.5:
     resolution: {integrity: sha512-QR7/A7ZkMS8tZuoftC/jfqNkZLQO779SSW3YuZHP4eXpj3EffGLFcB/Xu9AAZQzLccTiCV+EmUo3ha4mQ9wnlA==}
 
-  /ember-alexandria@9.0.1(@ember-data/adapter@4.12.8)(@ember-data/model@4.12.8)(@ember-data/serializer@4.12.8)(@ember-data/store@4.12.8)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-data@4.12.8)(ember-engines@0.11.0)(ember-resources@7.0.2)(ember-source@4.12.4)(webpack@5.93.0):
-    resolution: {integrity: sha512-ra8x1jmJJU2xpJ9PJ3lnvYcKceQGzctK934FyJ2EXTh7l/bLGafc6YoCtOw7S8SXVsJ4iPZ3pO/IA70j4BV8hA==}
+  /ember-alexandria@10.0.0(@ember-data/adapter@4.12.8)(@ember-data/model@4.12.8)(@ember-data/serializer@4.12.8)(@ember-data/store@4.12.8)(@ember/test-waiters@3.1.0)(@glint/template@1.4.0)(ember-data@4.12.8)(ember-engines@0.11.0)(ember-resources@7.0.2)(ember-source@4.12.4)(webpack@5.93.0):
+    resolution: {integrity: sha512-5M4PukeU9ZUl6ccA/8OTbDjKwf11iMF5MRZeElUmJnj+mef17zIQkvzFLKFDP373z+lsjYuC7XJDpUYE4OjfFA==}
     engines: {node: '>= 18'}
     peerDependencies:
       '@ember-data/model': ~4.12.8 || >= 5.0.0

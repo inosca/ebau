@@ -6,7 +6,6 @@ from alexandria.core.models import BaseModel, Category, Document, File, Mark, Ta
 from django.conf import settings
 from django.core.validators import EMPTY_VALUES
 from generic_permissions.permissions import object_permission_for, permission_for
-from localized_fields.value import LocalizedStringValue
 
 from camac.alexandria.extensions.common import get_role
 from camac.alexandria.extensions.permissions import conditions, scopes
@@ -77,11 +76,8 @@ class CustomPermission:
             old_value = getattr(document, key)
             new_value = request.parsed_data.get(key)
 
-            # LocalizedTextField
-            if isinstance(old_value, LocalizedStringValue):
-                new_value = LocalizedStringValue(new_value)
             # DateField
-            elif isinstance(old_value, datetime.date):
+            if isinstance(old_value, datetime.date):
                 new_value = datetime.datetime.fromisoformat(new_value).date()
             # ForeignKey
             elif isinstance(old_value, Category):
