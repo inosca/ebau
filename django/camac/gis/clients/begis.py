@@ -233,8 +233,9 @@ class BeGisClient(GISBaseClient):
             values = layer_data
             if property_config.get("mapper"):
                 question = property_config["question"]
+                values_mapping = property_config.get("values_mapping")
                 values = getattr(self, f"map_{property_config['mapper']}")(
-                    layer_data, intermediate_result, question
+                    layer_data, intermediate_result, question, values_mapping
                 )
                 if values and not isinstance(values, list):
                     values = [values]
@@ -244,14 +245,8 @@ class BeGisClient(GISBaseClient):
 
         return result
 
-    def map_gewaesserschutzbereich_v2(self, values, intermediate_result, question):
+    def map_options(self, values, intermediate_result, question, values_mapping):
         previous_value = intermediate_result.get(question, [])
-
-        values_mapping = {
-            "übriger Bereich üB": "ueb",
-            "Gewässerschutzbereich Ao": "ao",
-            "Gewässerschutzbereich Au": "au",
-        }
 
         values_to_add = [
             values_mapping[key] for key in values if key in values_mapping.keys()
@@ -263,43 +258,26 @@ class BeGisClient(GISBaseClient):
             else previous_value
         )
 
-    def map_grundwasserschutzzonen_v2(self, values, intermediate_result, question):
-        previous_value = intermediate_result.get(question, [])
-
-        values_mapping = {
-            "Grundwasserschutzzone S1": "s1",
-            "Grundwasserschutzzone S2": "s2",
-            "Grundwasserschutzzone S3": "s3-s3zu",
-            "Grundwasserschutzzone S3Zu": "s3-s3zu",
-            "Grundwasserschutzzone Sh": "sh",
-            "Grundwasserschutzzone Sm": "sm",
-            "Grundwasserschutzzone SA1": "sa",
-            "Grundwasserschutzzone SA2": "sa",
-            "Grundwasserschutzzone SA3": "sa",
-            "Grundwasserschutzzone SBW": "sbw",
-        }
-        values_to_add = [
-            values_mapping[key] for key in values if key in values_mapping.keys()
-        ]
-
-        return (
-            sorted(set(previous_value + values_to_add))
-            if values_to_add
-            else previous_value
-        )
-
-    def map_boolean(self, values, intermediate_result, question):
+    def map_boolean(self, values, intermediate_result, question, values_mapping):
         return "ja" if values else "nein"
 
-    def map_nutzungszone(self, values, intermediate_result, question):
+    def map_text(self, values, intermediate_result, question, values_mapping):
         previous_value = intermediate_result.get(question, [])
 
         return sorted(set(previous_value + values)) if values else previous_value
 
-    def map_ueberbauungsordnung(self, values, intermediate_result, question):
+    def map_naturgefahren(self, values, intermediate_result, question, values_mapping):
         previous_value = intermediate_result.get(question, [])
+        sorted_naturgefahren = (
+            sorted(set(previous_value + values)) if values else previous_value
+        )
 
-        return sorted(set(previous_value + values)) if values else previous_value
+        for element in sorted_naturgefahren:
+            # default is "ja" to cover any values not captured in config values_mapping.
+            if values_mapping.get(element, "ja") == "ja":
+                return "ja"
+
+        return "nein"
 
     def get_config_layers(self, layers_dict):
         boolean_layers = [
