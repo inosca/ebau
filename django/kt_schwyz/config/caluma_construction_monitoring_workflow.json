@@ -310,10 +310,10 @@
       "type": "complete_task_form",
       "meta": {},
       "address_groups": "['municipality']|groups",
-      "control_groups": null,
+      "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "complete-instance",
-      "lead_time": 2592000,
+      "lead_time": 5184000,
       "is_multiple_instance": false,
       "continue_async": false
     }
