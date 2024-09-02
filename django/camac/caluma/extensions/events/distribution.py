@@ -34,6 +34,7 @@ from camac.caluma.utils import (
     sync_inquiry_deadline,
 )
 from camac.constants import kt_bern as bern_constants
+from camac.constants.kt_uri import KOOR_SERVICE_IDS as URI_KOOR_SERVICE_IDS
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import (
     accompanying_report_send,
@@ -500,6 +501,10 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
             inquiry=work_item,
             attachments=context.get("attachments") if context else None,
         )
+
+    if settings.APPLICATION_NAME == "kt_uri":  # pragma: no cover
+        if int(work_item.addressed_groups[0]) in URI_KOOR_SERVICE_IDS:
+            send_inquiry_notification("KOOR_INQUIRY_ANSWERED", work_item, user)
 
 
 @on(pre_complete_work_item, raise_exception=True)

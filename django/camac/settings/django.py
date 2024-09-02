@@ -1188,13 +1188,6 @@ APPLICATIONS = {
                             "recipient_types": ["applicant"],
                         },
                     },
-                    {
-                        "event": "completed",
-                        "notification": {
-                            "template_slug": "zirkulation-gestartet",
-                            "recipient_types": ["involved_in_distribution"],
-                        },
-                    },
                 ],
                 "complete-distribution": [
                     {
