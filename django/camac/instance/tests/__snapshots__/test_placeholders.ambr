@@ -9042,5 +9042,6 @@
 # name: test_dms_placeholders_ur[Municipality]
   dict({
     'GEMEINDE': 'Rebecca Gonzalez',
+    'ZONE': 'Zone 123, Wasserzone, Altes Haus',
   })
 # ---

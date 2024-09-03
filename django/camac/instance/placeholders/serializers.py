@@ -1831,3 +1831,18 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             # number for the user
             "zustaendig_phone",
         ]
+
+
+class UrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
+    land_use = fields.AliasedMethodField(
+        aliases=[_("ZONE")],
+        description=_("Zone"),
+    )
+
+    def get_land_use(self, instance):
+        return clean_join(
+            instance._master_data.land_use,
+            instance._master_data.overlayed_land_use,
+            instance._master_data.protected,
+            separator=", ",
+        )
