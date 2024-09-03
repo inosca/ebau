@@ -7,4 +7,7 @@ export default {
   },
   constructionMonitoring: true,
   additionalDemands: true,
+  workItems: {
+    showDocument: true,
+  },
 };

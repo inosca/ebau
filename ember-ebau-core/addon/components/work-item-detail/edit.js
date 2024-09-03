@@ -1,3 +1,4 @@
+import { action } from "@ember/object";
 import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
@@ -95,5 +96,10 @@ export default class WorkItemDetailEditComponent extends Component {
       console.error(error);
       this.notification.danger(this.intl.t("workItems.saveError"));
     }
+  }
+
+  @action
+  redirectToWorkItems() {
+    this.router.transitionTo(`${this.args.baseRoute}.index`);
   }
 }
