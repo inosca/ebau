@@ -717,6 +717,10 @@ DISTRIBUTION = {
                 "template_slug": "gemeindezirkulation-gestartet",
                 "recipient_types": ["inquiry_addressed"],
             },
+            "KOOR_INQUIRY_ANSWERED": {
+                "template_slug": "kantonale-bearbeitung-abgeschlossen",
+                "recipient_types": ["inquiry_controlling"],
+            },
         },
         "DEFAULT_SUGGESTIONS": [1],  # KOOR BG
         "SUGGESTIONS": {
