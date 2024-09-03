@@ -1419,6 +1419,10 @@ def ur_master_data_case(
         ],
     )
 
+    utils.add_answer(document, "grundnutzung", "Zone 123")
+    utils.add_answer(document, "ueberlagerte-nutzungen", "Wasserzone")
+    utils.add_answer(document, "schutzobjekte", "Altes Haus")
+
     return ur_instance.case
 
 
