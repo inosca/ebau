@@ -835,3 +835,65 @@ def test_dynamic_task_after_formal_exam(
         result.sort()
 
     assert result == expected_tasks
+
+
+@pytest.mark.parametrize(
+    "expected_value,answer",
+    [
+        (
+            ["construction-control"],
+            "complete-instance-ac-verfahren-abgeschlossen-auflagenkontrolle-notwendig",
+        ),
+        ([], "some-other-answer"),
+    ],
+)
+def test_after_complete_instance(
+    db,
+    caluma_admin_user,
+    work_item_factory,
+    document_factory,
+    answer_factory,
+    #
+    expected_value,
+    answer,
+):
+    work_item = work_item_factory(document=document_factory())
+    answer_factory(
+        document=work_item.document, question__slug="complete-instance-ac", value=answer
+    )
+    result = CustomDynamicTasks().after_complete_instance(
+        None, caluma_admin_user, work_item, None
+    )
+    assert result == expected_value
+
+
+@pytest.mark.parametrize(
+    "expected_value,answer",
+    [
+        (
+            ["construction-control"],
+            "construction-control-control-control-performed-further-control",
+        ),
+        ([], "some-other-answer"),
+    ],
+)
+def test_construction_control(
+    db,
+    caluma_admin_user,
+    work_item_factory,
+    document_factory,
+    answer_factory,
+    #
+    expected_value,
+    answer,
+):
+    work_item = work_item_factory(document=document_factory())
+    answer_factory(
+        document=work_item.document,
+        question__slug="construction-control-control",
+        value=answer,
+    )
+    result = CustomDynamicTasks().after_construction_control(
+        None, caluma_admin_user, work_item, None
+    )
+    assert result == expected_value
