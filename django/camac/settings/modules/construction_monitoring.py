@@ -81,16 +81,12 @@ CONSTRUCTION_MONITORING = {
     },
     "kt_uri": {
         "ENABLED": True,
+        "CONSTRUCTION_CONTROL_TASK": "construction-control",
         "PREVIOUS_INSTANCE_STATE": "done",
+        "AFTER_INSTANCE_STATE": "arch",
         "CONSTRUCTION_MONITORING_INSTANCE_STATE": "control",
         "NOTIFICATIONS": {},
         "NOTIFICATION_RECIPIENTS": {},
-        "ALLOW_CALUMA_FORMS": [
-            "building-permit",
-            "commercial-permit",
-            "solar-declaration",
-            "technische-bewilligung",
-        ],
     },
     "kt_so": {
         "ENABLED": True,

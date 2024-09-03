@@ -426,3 +426,24 @@ class CustomDynamicTasks(BaseDynamicTasks):
         ) and case.document.form.slug not in ["bauanzeige", "vorlaeufige-beurteilung"]:
             return settings.PUBLICATION["AFTER_FORMAL_EXAM_PUBLICATION_TASKS"]
         return [settings.DISTRIBUTION["DISTRIBUTION_TASK"]]
+
+    @register_dynamic_task("after-complete-instance")
+    def after_complete_instance(self, case, user, prev_work_item, context):
+        if prev_work_item.document.answers.filter(
+            question_id="complete-instance-ac",
+            value="complete-instance-ac-verfahren-abgeschlossen-auflagenkontrolle-notwendig",
+        ).exists():
+            return ["construction-control"]
+
+        return []
+
+    @register_dynamic_task("after-construction-control")
+    def after_construction_control(self, case, user, prev_work_item, context):
+        if prev_work_item.document.answers.filter(
+            question_id="construction-control-control",
+            value="construction-control-control-control-performed-further-control",
+        ).exists():
+            # a further control is required so we start a new item
+            return ["construction-control"]
+
+        return []

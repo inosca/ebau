@@ -1391,9 +1391,6 @@ APPLICATIONS = {
                 "decision": {
                     "next_instance_state": "control",
                 },
-                "complete-instance": {
-                    "next_instance_state": "arch",
-                },
             },
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "BAB_MUNICIPALITY_MAPPING": {

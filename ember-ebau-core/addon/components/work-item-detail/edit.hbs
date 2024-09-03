@@ -3,47 +3,67 @@
     <UkSpinner @ratio="2" />
   </div>
 {{else if this.workItem}}
-  <h2 class="uk-margin-remove-top">{{this.workItem.name}}</h2>
+  <div class="work-item-infos">
+    <h2 class="uk-margin-remove-top">{{this.workItem.name}}</h2>
 
-  <p class="uk-text-italic white-space-pre-wrap">{{or
-      this.workItem.description
-      "-"
-    }}</p>
+    <p class="uk-text-italic white-space-pre-wrap">{{or
+        this.workItem.description
+        "-"
+      }}</p>
 
-  <div class="uk-grid-small uk-child-width-1-5" uk-grid>
-    <div>
-      <p class="uk-text-bold uk-margin-remove">{{t "workItems.responsible"}}</p>
-      {{this.workItem.addressedService.name}}
+    <div class="uk-grid-small uk-child-width-1-5" uk-grid>
+      <div>
+        <p class="uk-text-bold uk-margin-remove">{{t
+            "workItems.responsible"
+          }}</p>
+        {{this.workItem.addressedService.name}}
+      </div>
+      <div>
+        <p class="uk-text-bold uk-margin-remove">{{t "workItems.deadline"}}</p>
+        {{format-date this.workItem.deadline format="date"}}
+      </div>
+      {{#if (eq this.workItem.task.slug "create-manual-workitems")}}
+        <div>
+          <p class="uk-text-bold uk-margin-remove">{{t
+              "workItems.createdBy"
+            }}</p>
+          {{this.workItem.createdByUser.fullName}}
+        </div>
+      {{/if}}
+      <div>
+        <p class="uk-text-bold uk-margin-remove">{{t "workItems.createdAt"}}</p>
+        {{format-date this.workItem.createdAt format="datetime"}}
+      </div>
+      {{#if this.workItem.isCompleted}}
+        <div>
+          <p class="uk-text-bold uk-margin-remove">{{t
+              "workItems.closedBy"
+            }}</p>
+          {{this.workItem.closedByUser.fullName}}
+        </div>
+        <div>
+          <p class="uk-text-bold uk-margin-remove">{{t
+              "workItems.closedAt"
+            }}</p>
+          {{format-date this.workItem.raw.closedAt format="datetime"}}
+        </div>
+        <div>
+          <p class="uk-text-bold uk-margin-remove">{{t "workItems.comment"}}</p>
+          {{or this.workItem.meta.completion-comment "-"}}
+        </div>
+      {{/if}}
     </div>
-    <div>
-      <p class="uk-text-bold uk-margin-remove">{{t "workItems.deadline"}}</p>
-      {{format-date this.workItem.deadline format="date"}}
-    </div>
-    {{#if (eq this.workItem.task.slug "create-manual-workitems")}}
-      <div>
-        <p class="uk-text-bold uk-margin-remove">{{t "workItems.createdBy"}}</p>
-        {{this.workItem.createdByUser.fullName}}
-      </div>
-    {{/if}}
-    <div>
-      <p class="uk-text-bold uk-margin-remove">{{t "workItems.createdAt"}}</p>
-      {{format-date this.workItem.createdAt format="datetime"}}
-    </div>
-    {{#if this.workItem.isCompleted}}
-      <div>
-        <p class="uk-text-bold uk-margin-remove">{{t "workItems.closedBy"}}</p>
-        {{this.workItem.closedByUser.fullName}}
-      </div>
-      <div>
-        <p class="uk-text-bold uk-margin-remove">{{t "workItems.closedAt"}}</p>
-        {{format-date this.workItem.raw.closedAt format="datetime"}}
-      </div>
-      <div>
-        <p class="uk-text-bold uk-margin-remove">{{t "workItems.comment"}}</p>
-        {{or this.workItem.meta.completion-comment "-"}}
-      </div>
-    {{/if}}
   </div>
+
+  {{#if (has-feature "workItems.showDocument")}}
+    <div class="uk-margin-top">
+      <CfContent
+        @documentId={{decode-id this.workItem.document.id}}
+        @disabled={{await (cannot "edit work-item" this.workItem)}}
+        @context={{hash actionButtonOnSuccess=this.redirectToWorkItems}}
+      />
+    </div>
+  {{/if}}
 
   {{#if this.workItem.isCompleted}}
     <LinkTo

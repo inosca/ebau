@@ -8,6 +8,7 @@ import { queryManager } from "ember-apollo-client";
 import CustomCaseModel from "ember-ebau-core/caluma-query/models/case";
 import mainConfig from "ember-ebau-core/config/main";
 import saveWorkItemMutation from "ember-ebau-core/gql/mutations/save-workitem.graphql";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
 const QUESTIONS = JSON.stringify(mainConfig.intentSlugs);
 
@@ -388,6 +389,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
       slug
       meta
     }
+    ${hasFeature("workItems.showDocument") ? "document { id }" : ""}
     case {
       id
       meta

@@ -15,7 +15,7 @@ from django.db import transaction
 from django.utils.translation import gettext as _
 
 from camac.caluma.utils import filter_by_task_base, filter_by_workflow_base
-from camac.core.utils import create_history_entry
+from camac.core.utils import canton_aware, create_history_entry
 from camac.ech0211.signals import construction_monitoring_started
 from camac.notification.utils import send_mail_without_request
 from camac.user.models import User
@@ -67,6 +67,7 @@ def construction_step_can_continue(work_item):
     return answer_is_approved == construction_step_is_approved
 
 
+@canton_aware
 def can_perform_construction_monitoring(instance):
     if not settings.CONSTRUCTION_MONITORING:  # pragma: no cover  TODO: cover
         return False
@@ -84,6 +85,18 @@ def can_perform_construction_monitoring(instance):
 
     form_family = instance.form.family
     return form_family and form_family.name in allow_forms
+
+
+def can_perform_construction_monitoring_ur(instance):
+    # in Uri we need to check the "complete-check" work item because not all forms always require a construction monitoring process
+    return (
+        instance.case.work_items.get(task_id="complete-check")
+        .document.answers.filter(
+            question_id="complete-check-baubewilligungspflichtig",
+            value="complete-check-baubewilligungspflichtig-baubewilligungspflichtig",
+        )
+        .exists()
+    )
 
 
 CONSTRUCTION_STEP_TRANSLATIONS = {
@@ -289,6 +302,20 @@ def post_complete_instance(
         work_item.task.pk, []
     )
 
+    if settings.APPLICATION_NAME == "kt_uri":
+        if (
+            work_item
+            and work_item.document.answers.filter(
+                question_id="complete-instance-ac",
+                value="complete-instance-ac-verfahren-abgeschlossen-dossier-wird-archiviert",
+            ).exists()
+        ):
+            camac_user = User.objects.get(username=user.username)
+            instance.set_instance_state(
+                settings.CONSTRUCTION_MONITORING["AFTER_INSTANCE_STATE"],
+                camac_user,
+            )
+
     if (
         work_item
         and work_item.document.answers.filter(
@@ -313,4 +340,57 @@ def post_complete_instance(
             recipient_types=config["recipient_types"],
             instance={"id": instance.pk, "type": "instances"},
             work_item={"id": work_item.pk, "type": "work-items"},
+        )
+
+
+@on(post_create_work_item, raise_exception=True)
+@filter_by_task(["CONSTRUCTION_CONTROL_TASK"])
+@transaction.atomic
+def post_create_construction_control(sender, work_item, user, context, **kwargs):
+    instance = get_instance(work_item)
+    previous_construction_control_work_item = (
+        instance.case.work_items.filter(
+            task_id="construction-control", status=WorkItem.STATUS_COMPLETED
+        )
+        .order_by("-closed_at")
+        .first()
+    )
+
+    if previous_construction_control_work_item:
+        date_answer = (
+            previous_construction_control_work_item.document.answers.filter(
+                question_id="construction-control-date"
+            )
+            .values_list("date", flat=True)
+            .first()
+        )
+
+        if date_answer:
+            date_string = date_answer.strftime("%d.%m.%Y")
+
+            work_item.name = f"{work_item.name} (Kontrolle vom: {date_string})"
+            work_item.deadline = pytz.utc.localize(
+                datetime.combine(
+                    date_answer + timedelta(seconds=864000), datetime.min.time()
+                )
+            )
+            work_item.save(update_fields=["name", "deadline"])
+
+
+@on(post_complete_work_item, raise_exception=True)
+@filter_by_task(["CONSTRUCTION_CONTROL_TASK"])
+@transaction.atomic
+def post_complete_construction_control(sender, work_item, user, context, **kwargs):
+    instance = get_instance(work_item)
+    if (
+        work_item
+        and work_item.document.answers.filter(
+            question_id="construction-control-control",
+            value="construction-control-control-control-performed-no-more-controls",
+        ).exists()
+    ):
+        camac_user = User.objects.get(username=user.username)
+        instance.set_instance_state(
+            settings.CONSTRUCTION_MONITORING["AFTER_INSTANCE_STATE"],
+            camac_user,
         )
