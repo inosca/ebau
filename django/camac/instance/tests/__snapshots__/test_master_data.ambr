@@ -925,6 +925,7 @@
       'form-type-oereb',
     ]),
     'joined_street_and_number': False,
+    'land_use': 'Zone 123',
     'legal_state': list([
       'typ-des-verfahrens-genehmigung',
     ]),
@@ -938,6 +939,7 @@
     'oereb_topic': list([
       'oereb-thema-knp',
     ]),
+    'overlayed_land_use': 'Wasserzone',
     'plot_data': list([
       dict({
         'coordinates_east': 2690970.9,
@@ -948,6 +950,7 @@
       }),
     ]),
     'proposal': 'Grosses Haus',
+    'protected': 'Altes Haus',
     'street': 'Musterstrasse',
     'street_number': 4,
     'submit_date': datetime.datetime(2021, 7, 16, 8, 0, 6, tzinfo=datetime.timezone.utc),

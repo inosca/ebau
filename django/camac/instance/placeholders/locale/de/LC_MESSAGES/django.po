@@ -1962,3 +1962,11 @@ msgstr "RECHNUNGSEMPFAENGER_NAME_ADRESSE"
 #: camac/instance/placeholders/serializers.py:1811
 msgid "Name and address of the first invoice recipient"
 msgstr "Name und Adresse des/r ersten Rechnungsempfänger/in"
+
+#: camac/instance/placeholders/serializers.py:1838
+msgid "ZONE"
+msgstr "ZONE"
+
+#: camac/instance/placeholders/serializers.py:1839
+msgid "Zone"
+msgstr "Zusammenzug von  Grundnutzung, überlagerte Nutzungen und Schutzobjekte"

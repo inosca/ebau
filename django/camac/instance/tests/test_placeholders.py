@@ -939,7 +939,6 @@ def test_get_tel_and_email():
 
 @pytest.mark.freeze_time("2024-01-18 13:37", tick=True)
 @pytest.mark.parametrize("role__name", ["Municipality"])
-# @pytest.mark.parametrize("location__communal_federal_number", ["1"])
 def test_dms_placeholders_ur(
     db,
     snapshot,
@@ -953,6 +952,7 @@ def test_dms_placeholders_ur(
     group_factory,
     location_factory,
     ur_master_data_case,
+    question_factory,
 ):
     # Municipality
     municipality = service_factory(
@@ -976,9 +976,7 @@ def test_dms_placeholders_ur(
 
     assert response.status_code == status.HTTP_200_OK
 
-    checked_keys = [
-        "GEMEINDE",
-    ]
+    checked_keys = ["GEMEINDE", "ZONE"]
 
     assert {
         key: value for key, value in response.json().items() if key in checked_keys

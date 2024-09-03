@@ -1483,6 +1483,9 @@ MASTER_DATA = {
                     }
                 },
             ),
+            "land_use": ("answer", "grundnutzung"),
+            "overlayed_land_use": ("answer", "ueberlagerte-nutzungen"),
+            "protected": ("answer", "schutzobjekte"),
         },
     },
     "demo": {

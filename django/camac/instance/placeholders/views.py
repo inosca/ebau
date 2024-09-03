@@ -13,6 +13,7 @@ from camac.instance.placeholders.serializers import (
     DMSPlaceholdersSerializer,
     GrDMSPlaceholdersSerializer,
     SoDMSPlaceholdersSerializer,
+    UrDMSPlaceholdersSerializer,
 )
 
 
@@ -26,6 +27,8 @@ class DMSPlaceholdersDocsView(RetrieveAPIView):
             return GrDMSPlaceholdersSerializer
         elif settings.APPLICATION_NAME == "kt_so":  # pragma: todo cover
             return SoDMSPlaceholdersSerializer
+        elif settings.APPLICATION_NAME == "kt_uri":  # pragma: todo cover
+            return UrDMSPlaceholdersSerializer
 
         return DMSPlaceholdersSerializer  # pragma: no cover
 

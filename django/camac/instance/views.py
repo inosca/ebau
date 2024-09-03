@@ -72,6 +72,7 @@ from .placeholders.serializers import (
     DMSPlaceholdersSerializer,
     GrDMSPlaceholdersSerializer,
     SoDMSPlaceholdersSerializer,
+    UrDMSPlaceholdersSerializer,
 )
 
 
@@ -192,6 +193,7 @@ class InstanceView(
                     "kt_bern": BeDMSPlaceholdersSerializer,
                     "kt_gr": GrDMSPlaceholdersSerializer,
                     "kt_so": SoDMSPlaceholdersSerializer,
+                    "kt_uri": UrDMSPlaceholdersSerializer,
                     "default": DMSPlaceholdersSerializer,
                 },
                 "milestones": {

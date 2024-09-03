@@ -8,5 +8,25 @@
       "engine": "docx-template",
       "meta": {}
     }
+  },
+  {
+    "model": "api.template",
+    "pk": "stellungnahme-240807",
+    "fields": {
+      "description": "Stellungnahme (Durch eigene Gemeinde / Fachstelle zu ergänzen)",
+      "template": "stellungnahme_240807.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "verfuegung-240807",
+    "fields": {
+      "description": "Verfügungsvorlage (Durch eigene Gemeinde / Fachstelle zu ergänzen)",
+      "template": "verfuegung_240807.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
   }
 ]
