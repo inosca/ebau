@@ -28,5 +28,15 @@
       "engine": "docx-template",
       "meta": {}
     }
+  },
+  {
+    "model": "api.template",
+    "pk": "vorlage-baubewilligung",
+    "fields": {
+      "description": "Verfügungsvorlage (Durch eigene Gemeinde / Fachstelle zu ergänzen)",
+      "template": "vorlage_baubewilligung.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
   }
 ]
