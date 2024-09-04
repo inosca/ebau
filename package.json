@@ -20,7 +20,7 @@
     }
   },
   "devDependencies": {
-    "syncpack": "12.4.0"
+    "syncpack": "13.0.0"
   },
   "scripts": {
     "lint-dependencies": "pnpm dedupe --check && pnpm syncpack lint"
