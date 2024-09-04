@@ -132,12 +132,13 @@
       )
     )
     (await (can "extend validity of instance" this.editController.instance))
+    (await (can "manage applicants of instance" this.editController.instance))
+    (await (can "download receipt of instance" this.editController.instance))
     (await (can "delete instance" this.editController.instance))
     (await (can "withdraw instance" this.editController.instance))
     (await
       (can "convert to building permit instance" this.editController.instance)
     )
-    (await (can "download receipt of instance" this.editController.instance))
     this.showSubmitTechnischeBewilligung
   )
 }}
