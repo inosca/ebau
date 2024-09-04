@@ -1230,20 +1230,14 @@ msgid "All %(total)d inquries were received."
 msgstr "Sono pervenute tutte le %(total)d prese di posizione."
 
 #: camac/notification/serializers.py:1597
-#, fuzzy, python-format
-#| msgid ""
-#| "Notification sent to %(receiver_emails)s (%(receiver_type)s) (%(subject)s)"
+#, python-format
 msgid "Notification sent to %(receiver_emails)s%(receiver_type)s (%(subject)s)"
-msgstr ""
-"Notifica inviata a %(receiver_emails)s (%(receiver_type)s) (%(subject)s)"
+msgstr "Notifica inviata a %(receiver_emails)s%(receiver_type)s (%(subject)s)"
 
 #: camac/notification/serializers.py:1601
-#, fuzzy, python-format
-#| msgid ""
-#| "Notification sent to %(receiver_emails)s (%(receiver_type)s) (%(subject)s)"
+#, python-format
 msgid "Notification sent to no receivers%(receiver_type)s (%(subject)s)"
-msgstr ""
-"Notifica inviata a %(receiver_emails)s (%(receiver_type)s) (%(subject)s)"
+msgstr "Notifica inviata a nessun destinatario%(receiver_type)s (%(subject)s)"
 
 #: camac/notification/views.py:138
 msgid "update_purposes has not been provided with the required parameters"
