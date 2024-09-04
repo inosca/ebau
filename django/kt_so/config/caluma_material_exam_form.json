@@ -3843,9 +3843,7 @@
         "max_length": null,
         "min_length": null
       },
-      "meta": {
-        "widgetOverride": "exam-result-textarea"
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
