@@ -1688,6 +1688,16 @@
     }
   },
   {
+    "model": "core.instanceresourcet",
+    "pk": 21000001,
+    "fields": {
+      "instance_resource": 12000017,
+      "language": "it",
+      "name": "Dossier collegati",
+      "description": null
+    }
+  },
+  {
     "model": "core.irpage",
     "pk": 2000001,
     "fields": {
@@ -6647,6 +6657,16 @@
       "resource": 14000007,
       "language": "it",
       "name": "Comunicazione",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 2000009,
+    "fields": {
+      "resource": 14000008,
+      "language": "it",
+      "name": "Documenti",
       "description": null
     }
   },
