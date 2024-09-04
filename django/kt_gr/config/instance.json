@@ -203,5 +203,75 @@
       "name": "Zurückgewiesen",
       "description": ""
     }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120042,
+    "fields": {
+      "instance_state": 1,
+      "language": "it",
+      "name": "Nuovo",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120043,
+    "fields": {
+      "instance_state": 120004,
+      "language": "it",
+      "name": "Trasmessa",
+      "description": "Inoltrati al comune"
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120044,
+    "fields": {
+      "instance_state": 120005,
+      "language": "it",
+      "name": "Circolazione",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120045,
+    "fields": {
+      "instance_state": 120006,
+      "language": "it",
+      "name": "Conclusi",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120046,
+    "fields": {
+      "instance_state": 120009,
+      "language": "it",
+      "name": "Avvia circolazione",
+      "description": ""
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120047,
+    "fields": {
+      "instance_state": 120010,
+      "language": "it",
+      "name": "Collaudo",
+      "description": ""
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120048,
+    "fields": {
+      "instance_state": 120011,
+      "language": "it",
+      "name": "Respinta",
+      "description": ""
+    }
   }
 ]
