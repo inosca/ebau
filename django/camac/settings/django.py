@@ -547,6 +547,143 @@ APPLICATIONS = {
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": False,
             "PUBLICATION_TASK_SLUG": "publication",
             "CREATE_IN_PROCESS": True,
+            "CALUMA_WORKFLOW_NOTIFICATIONS": {
+                "construction-step-baufreigabe-beantragen": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-step-notify-baufreigabe-beantragen",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-baufreigabe": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-step-notify-baufreigabe",
+                            "recipient_types": ["leitbehoerde"],
+                        },
+                    }
+                ],
+                "construction-step-baubeginn-melden": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-step-notify-baubeginn-melden",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-kanalisationsabnahme-melden": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-step-notify-kanalisationsabnahme-melden",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-kanalisation-kontrollieren": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-step-notify-kanalisation-kontrollieren",
+                            "recipient_types": ["leitbehoerde"],
+                        },
+                    }
+                ],
+                "construction-step-schnurgeruestabnahme-melden": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-step-notify-schnurgeruestabnahme-melden",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-schnurgeruestabnahme-planen": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-step-notify-schnurgeruestabnahme-planen",
+                            "recipient_types": ["leitbehoerde"],
+                        },
+                    }
+                ],
+                "construction-step-rohbauabnahme-melden": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-step-notify-rohbauabnahme-melden",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-rohbau-kontrollieren": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-step-notify-rohbau-kontrollieren",
+                            "recipient_types": ["leitbehoerde"],
+                        },
+                    }
+                ],
+                "construction-step-zwischenkontrolle-melden": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-step-notify-zwischenkontrolle-melden",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-zwischenkontrolle": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-step-notify-zwischenkontrolle",
+                            "recipient_types": ["leitbehoerde"],
+                        },
+                    }
+                ],
+                "construction-step-schlussabnahme-gebaeude-melden": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-step-notify-schlussabnahme-gebaeude-melden",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-schlussabnahme-gebaeude": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-step-notify-schlussabnahme-gebaeude",
+                            "recipient_types": ["leitbehoerde"],
+                        },
+                    }
+                ],
+                "construction-step-schlussabnahme-projekt-melden": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-step-notify-schlussabnahme-projekt-melden",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-schlussabnahme-projekt-planen": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "construction-step-notify-schlussabnahme-projekt-planen",
+                            "recipient_types": ["leitbehoerde"],
+                        },
+                    }
+                ],
+            },
             "SIMPLE_WORKFLOW": {
                 "formal-addition": {
                     "next_instance_state": "subm",

@@ -48,12 +48,17 @@ def test_init_construction_monitoring(
     db,
     sz_instance,
     sz_construction_monitoring_settings,
+    application_settings,
     construction_monitoring_case_sz,
     caluma_admin_schema_executor,
     service,
     skip,
 ):
     case = sz_instance.case
+
+    # Prevent creation of construction monitoring work item to fail because of
+    # missing notification templates in the test:
+    application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"] = {}
 
     init_construction_monitoring = case.work_items.get(
         task_id=sz_construction_monitoring_settings[
