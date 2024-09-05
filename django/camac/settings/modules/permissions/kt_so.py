@@ -268,6 +268,7 @@ SO_PERMISSIONS_SETTINGS = {
             ("documents-read", Always()),
             ("documents-write", Always()),
             ("form-read", Always()),
+            ("form-write", Always()),
             ("history-read", Always()),
             ("instance-delete", RequireInstanceState(["new"])),
             ("permissions-read-any", Always()),
