@@ -359,7 +359,12 @@ def test_dms_placeholders_so(
     utils.add_answer(
         so_instance.case.document,
         "nutzungsplanung-grundnutzung",
-        "Zone für öffentliche Bauten und Anlagen",
+        "Wohnzone 3 - AZ 0.6",
+    )
+    utils.add_answer(
+        so_instance.case.document,
+        "nutzungsplanung-grundnutzung-kanton",
+        "N112_Wohnzone_3_G",
     )
 
     # Billing
@@ -551,6 +556,7 @@ def test_dms_placeholders_so(
         "LEITBEHOERDE_WEBSEITE",
         "MEINE_ORGANISATION_WEBSEITE",
         "NUTZUNGSPLANUNG_GRUNDNUTZUNG",
+        "NUTZUNGSPLANUNG_GRUNDNUTZUNG_KANTON",
         "PUBLIKATION_AMTSBLATT",
         "PUBLIKATION_ANZEIGER",
         "PUBLIKATION_ENDE",

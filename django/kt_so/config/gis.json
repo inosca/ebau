@@ -54,12 +54,11 @@
         "properties": [
           {
             "question": "nutzungsplanung-grundnutzung",
-            "template": "{value} (Gemeinde)",
             "propertyName": "typ_bezeichnung"
           },
           {
-            "question": "nutzungsplanung-grundnutzung",
-            "template": "{value} (Kanton)",
+            "hidden": true,
+            "question": "nutzungsplanung-grundnutzung-kanton",
             "propertyName": "typ_kt"
           }
         ]

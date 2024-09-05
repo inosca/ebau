@@ -6331,6 +6331,18 @@
       'nested_aliases': dict({
       }),
     }),
+    'NUTZUNGSPLANUNG_GRUNDNUTZUNG_KANTON': dict({
+      'aliases': list([
+        dict({
+          'de': 'NUTZUNGSPLANUNG_GRUNDNUTZUNG_KANTON',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Nutzungsplanung (Grundnutzung) (Kanton)',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'PARZELLE': dict({
       'aliases': list([
         dict({
@@ -7957,6 +7969,7 @@
     'NEBENBESTIMMUNGEN_MAPPED[].FACHSTELLE',
     'NEBENBESTIMMUNGEN_MAPPED[].TEXT',
     'NUTZUNGSPLANUNG_GRUNDNUTZUNG',
+    'NUTZUNGSPLANUNG_GRUNDNUTZUNG_KANTON',
     'PARZELLE',
     'PROJEKTVERFASSER',
     'PROJEKTVERFASSER_ADDRESS_1',
@@ -8799,28 +8812,28 @@
 # ---
 # name: test_dms_placeholders_so[Municipality]
   dict({
-    'ALLE_GESUCHSTELLER_VERTRETER': 'Justin Mccoy, Little-Adams, Sandra Rodriguez',
-    'ALLE_GESUCHSTELLER_VERTRETER_NAME_ADRESSE': 'Justin Mccoy, Paul Walk 7142, 1917 Gonzalezville, Little-Adams, Sandra Rodriguez, Peters Radial 2779, 5028 North Andrew',
-    'ALLE_RECHNUNGSEMPFAENGER': 'Steven Henderson, Miller, Walker and Jones, Michael King',
-    'ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Steven Henderson, Chelsea Manors 45362, 6200 West Crystal, Miller, Walker and Jones, Michael King, Patricia Village 92092, 7620 Williamburgh',
+    'ALLE_GESUCHSTELLER_VERTRETER': 'Leah Juarez, Hale, Patterson and Johnson, Anna Johnson',
+    'ALLE_GESUCHSTELLER_VERTRETER_NAME_ADRESSE': 'Leah Juarez, Williams Village 14229, 1338 New Johnfurt, Hale, Patterson and Johnson, Anna Johnson, Laura Drive 44508, 2748 Saraberg',
+    'ALLE_RECHNUNGSEMPFAENGER': 'Sandra Ford, Scott, Smith and Potter, Shannon Roy',
+    'ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Sandra Ford, White Summit 78823, 3852 New Andrew, Scott, Smith and Potter, Shannon Roy, Day Pine 984, 6907 Patriciachester',
     'ANGEMELDET_EMAIL': 'admin@example.com',
     'ANGEMELDET_NAME': 'Admin User',
     'BAUENTSCHEID_DATUM': '18. April 2024',
     'EIGENE_GEBUEHREN': list([
       dict({
-        'BETRAG': '467.56',
-        'KOSTENSTELLE': '122344013',
-        'POSITION': 'they',
-        'RECHTSGRUNDLAGE': 'agency',
+        'BETRAG': '142.40',
+        'KOSTENSTELLE': '067647723',
+        'POSITION': 'country',
+        'RECHTSGRUNDLAGE': 'impact',
       }),
       dict({
-        'BETRAG': '63.45',
-        'KOSTENSTELLE': '122022995',
-        'POSITION': 'marriage',
-        'RECHTSGRUNDLAGE': 'show',
+        'BETRAG': '616.67',
+        'KOSTENSTELLE': '118583765',
+        'POSITION': 'major',
+        'RECHTSGRUNDLAGE': 'simple',
       }),
     ]),
-    'EIGENE_GEBUEHREN_TOTAL': '531.01',
+    'EIGENE_GEBUEHREN_TOTAL': '759.07',
     'EINGEREICHTE_PLAENE': list([
       dict({
         'BESCHREIBUNG': '''
@@ -8919,33 +8932,33 @@
       dict({
         'ALLE_EINSPRECHENDEN': list([
           dict({
-            'ADRESSE': 'Nicole Groves 0538, 2640 North Richard',
+            'ADRESSE': 'Harris Locks 2834, 5181 Heatherville',
             'ANREDE': 'Herr',
-            'NAME': 'Michael Conway',
+            'NAME': 'Charles Brennan',
           }),
           dict({
-            'ADRESSE': 'Stuart Viaduct 1360, 7898 Jacksonstad',
+            'ADRESSE': 'Sarah Via 477, 1627 Bruceport',
             'ANREDE': 'Herr',
-            'NAME': 'Tyler Jordan',
+            'NAME': 'Eric Osborn',
           }),
         ]),
         'DATUM_POSTSTEMPEL': '12.12.2023',
-        'EINSPRECHER_ADRESSE': 'Nicole Groves 0538, 2640 North Richard',
+        'EINSPRECHER_ADRESSE': 'Harris Locks 2834, 5181 Heatherville',
         'EINSPRECHER_ANREDE': 'Herr',
-        'EINSPRECHER_NAME': 'Michael Conway',
+        'EINSPRECHER_NAME': 'Charles Brennan',
       }),
       dict({
         'ALLE_EINSPRECHENDEN': list([
           dict({
-            'ADRESSE': 'Li Village 7475, 9499 Markside',
-            'ANREDE': 'Frau',
-            'NAME': 'Anderson-Thomas, Maria Macias',
+            'ADRESSE': 'Holland Rest 028, 8490 Evanview',
+            'ANREDE': 'Herr',
+            'NAME': 'Vazquez, Stevens and Stone, Gerald Dunn',
           }),
         ]),
         'DATUM_POSTSTEMPEL': '22.12.2023',
-        'EINSPRECHER_ADRESSE': 'Li Village 7475, 9499 Markside',
-        'EINSPRECHER_ANREDE': 'Frau',
-        'EINSPRECHER_NAME': 'Anderson-Thomas, Maria Macias',
+        'EINSPRECHER_ADRESSE': 'Holland Rest 028, 8490 Evanview',
+        'EINSPRECHER_ANREDE': 'Herr',
+        'EINSPRECHER_NAME': 'Vazquez, Stevens and Stone, Gerald Dunn',
       }),
     ]),
     'ENTSCHEIDDOKUMENTE': list([
@@ -8984,41 +8997,42 @@
     ]),
     'GEBUEHREN': list([
       dict({
-        'BETRAG': '467.56',
-        'KOSTENSTELLE': '122344013',
-        'POSITION': 'they',
-        'RECHTSGRUNDLAGE': 'agency',
+        'BETRAG': '142.40',
+        'KOSTENSTELLE': '067647723',
+        'POSITION': 'country',
+        'RECHTSGRUNDLAGE': 'impact',
       }),
       dict({
-        'BETRAG': '63.45',
-        'KOSTENSTELLE': '122022995',
-        'POSITION': 'marriage',
-        'RECHTSGRUNDLAGE': 'show',
+        'BETRAG': '616.67',
+        'KOSTENSTELLE': '118583765',
+        'POSITION': 'major',
+        'RECHTSGRUNDLAGE': 'simple',
       }),
       dict({
-        'BETRAG': '156.17',
+        'BETRAG': '423.26',
         'KOSTENSTELLE': '',
-        'POSITION': 'cultural',
+        'POSITION': 'ask',
         'RECHTSGRUNDLAGE': '',
       }),
       dict({
-        'BETRAG': '432.23',
+        'BETRAG': '790.66',
         'KOSTENSTELLE': '',
-        'POSITION': 'during',
+        'POSITION': 'scientist',
         'RECHTSGRUNDLAGE': '',
       }),
     ]),
-    'GEBUEHREN_TOTAL': '1’119.41',
+    'GEBUEHREN_TOTAL': '1’972.99',
     'GEMEINDE_WEBSEITE': 'https://gemeinde.ch',
     'GESUCHSTELLER_ANREDE': 'Herr',
-    'GESUCHSTELLER_VERTRETER': 'Justin Mccoy',
-    'GESUCHSTELLER_VERTRETER_ADRESSE_1': 'Paul Walk 7142',
-    'GESUCHSTELLER_VERTRETER_ADRESSE_2': '1917 Gonzalezville',
-    'GESUCHSTELLER_VERTRETER_NAME_ADRESSE': 'Justin Mccoy, Paul Walk 7142, 1917 Gonzalezville',
+    'GESUCHSTELLER_VERTRETER': 'Leah Juarez',
+    'GESUCHSTELLER_VERTRETER_ADRESSE_1': 'Williams Village 14229',
+    'GESUCHSTELLER_VERTRETER_ADRESSE_2': '1338 New Johnfurt',
+    'GESUCHSTELLER_VERTRETER_NAME_ADRESSE': 'Leah Juarez, Williams Village 14229, 1338 New Johnfurt',
     'LEITBEHOERDE_NAME_ADRESSE': 'Test Leitbehörde, Teststrasse 13, 3000 Musterhausen',
     'LEITBEHOERDE_WEBSEITE': 'https://leitbehoerde.ch',
     'MEINE_ORGANISATION_WEBSEITE': 'https://meine-organisation.ch',
-    'NUTZUNGSPLANUNG_GRUNDNUTZUNG': 'Zone für öffentliche Bauten und Anlagen',
+    'NUTZUNGSPLANUNG_GRUNDNUTZUNG': 'Wohnzone 3 - AZ 0.6',
+    'NUTZUNGSPLANUNG_GRUNDNUTZUNG_KANTON': 'N112_Wohnzone_3_G',
     'PUBLIKATION_AMTSBLATT': '29. November 2023',
     'PUBLIKATION_ANZEIGER': '28. November 2023',
     'PUBLIKATION_ENDE': '15. Dezember 2023',
@@ -9033,10 +9047,10 @@
       }),
     ]),
     'PUBLIKATION_START': '1. Dezember 2023',
-    'RECHNUNGSEMPFAENGER': 'Steven Henderson',
-    'RECHNUNGSEMPFAENGER_ADRESSE_1': 'Chelsea Manors 45362',
-    'RECHNUNGSEMPFAENGER_ADRESSE_2': '6200 West Crystal',
-    'RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Steven Henderson, Chelsea Manors 45362, 6200 West Crystal',
+    'RECHNUNGSEMPFAENGER': 'Sandra Ford',
+    'RECHNUNGSEMPFAENGER_ADRESSE_1': 'White Summit 78823',
+    'RECHNUNGSEMPFAENGER_ADRESSE_2': '3852 New Andrew',
+    'RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Sandra Ford, White Summit 78823, 3852 New Andrew',
   })
 # ---
 # name: test_dms_placeholders_ur[Municipality]

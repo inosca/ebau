@@ -540,7 +540,8 @@
     'is_bab_temporary': False,
     'is_paper': False,
     'joined_street_and_number': False,
-    'land_use_planning_land_use': 'Wohnzone 3',
+    'land_use_planning_land_use': 'Wohnzone 3 - AZ 0.6',
+    'land_use_planning_land_use_canton': 'N112_Wohnzone_3_G',
     'landowners': list([
       dict({
         'country': 'Schweiz',
@@ -637,7 +638,7 @@
       }),
     ]),
     'usage_type': 'Wohnen',
-    'usage_zone': 'Wohnzone 3',
+    'usage_zone': 'Wohnzone 3 - AZ 0.6',
     'zip': None,
   })
 # ---
