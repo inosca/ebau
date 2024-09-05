@@ -1,12 +1,12 @@
-import reversion
 from caluma.caluma_core.events import filter_events, on
+from caluma.caluma_form.api import save_answer
+from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.events import post_complete_work_item
 from django.conf import settings
 from django.db import transaction
 
 from camac.caluma.extensions.events.simple_workflow import send_notification
 from camac.constants import kt_uri as uri_constants
-from camac.user.models import User
 
 
 @on(post_complete_work_item, raise_exception=True)
@@ -35,15 +35,18 @@ def convert_instance_ur(sender, work_item, user, context=None, **kwargs):
         ]
         and requires_building_permit
     ):
-        form_type_answer = work_item.case.document.answers.get(question_id="form-type")
-        form_type_answer.value = "form-type-baubewilligungsverfahren"
-        form_type_answer.save()
-
-        with reversion.create_revision():
-            camac_user = User.objects.get(username=user.username)
-            reversion.set_user(camac_user)
-            work_item.case.instance.form_id = uri_constants.FORM_BAUGESUCH
-            work_item.case.instance.save()
+        save_answer(
+            document=work_item.case.document,
+            question=Question.objects.get(
+                slug=uri_constants.CALUMA_SPECIAL_FORM_QUESTION_VALUE_MAP[
+                    work_item.case.instance.form_id
+                ]["question"]
+            ),
+            value=uri_constants.CALUMA_SPECIAL_FORM_QUESTION_VALUE_MAP[
+                work_item.case.instance.form_id
+            ]["value"],
+            user=user,
+        )
 
 
 @on(post_complete_work_item, raise_exception=True)
