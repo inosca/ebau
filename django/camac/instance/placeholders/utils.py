@@ -1,5 +1,5 @@
 from datetime import date, datetime
-from typing import Union
+from typing import List, Union
 
 from babel.dates import format_date
 from caluma.caluma_form.models import Document
@@ -164,3 +164,29 @@ def row_to_person(document: Document) -> dict:
         "zip": find_answer(document, mapping["ZIP"]),
         "town": find_answer(document, mapping["TOWN"]),
     }
+
+
+def parse_person_row(row: dict, keys: List[str]) -> dict:
+    data = {}
+    initial_data = {
+        "NAME": get_person_name(row),
+        "ADDRESS": clean_join(
+            get_person_address_1(row),
+            get_person_address_2(row),
+            separator=", ",
+        ),
+        "REPRESENTATIVE_NAME": get_person_name(row, use_representative=True),
+        "REPRESENTATIVE_ADDRESS": clean_join(
+            get_person_address_1(row, use_representative=True),
+            get_person_address_2(row, use_representative=True),
+            separator=", ",
+        ),
+    }
+
+    for key in keys:
+        if key in initial_data:
+            data[key] = initial_data.get(key)
+        else:
+            data[key] = row.get(key.lower())
+
+    return data

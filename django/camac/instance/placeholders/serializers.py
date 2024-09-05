@@ -1820,6 +1820,26 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("DECISION_DATE")],
         description=_("Decision date"),
     )
+    alle_gesuchsteller_liste = fields.MasterDataPersonObjectField(
+        source="applicants",
+        aliases=[_("ALL_APPLICANTS_LIST")],
+        description=_("All applicants as list"),
+    )
+    alle_grundeigentuemer_liste = fields.MasterDataPersonObjectField(
+        source="landowners",
+        aliases=[_("ALL_LANDOWNERS_LIST")],
+        description=_("All landowners as list"),
+    )
+    alle_projektverfasser_liste = fields.MasterDataPersonObjectField(
+        source="project_authors",
+        aliases=[_("ALL_PROJECT_AUTHORS_LIST")],
+        description=_("All project authors as list"),
+    )
+    alle_rechnungsempfaenger_liste = fields.MasterDataPersonObjectField(
+        source="invoice_recipients",
+        aliases=[_("ALL_INVOICE_RECIPIENTS_LIST")],
+        description=_("All invoice recipients as list"),
+    )
 
     class Meta:
         exclude = [
