@@ -47517,7 +47517,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Gesamth\\u00f6he gem\\u00e4ss IVHB (m)\", \"fr\": null, \"it\": null}",
-      "type": "integer",
+      "type": "float",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "!(\n\t\"art-der-bauwerke-hochbaute\" in \"art-der-bauwerke\"|answer &&\n\t\"einfache-hochbaute\"|answer != \"einfache-hochbaute-ja\"\n)",
       "is_archived": false,
