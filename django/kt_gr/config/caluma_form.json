@@ -22462,6 +22462,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "bestaetigung-fks-richtlinie-ja",
+    "fields": {
+      "created_at": "2024-08-14T16:01:55.341Z",
+      "modified_at": "2024-08-14T16:02:21.453Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die gesuchstellende Person best\\u00e4tigt, dass die Anforderungen gem\\u00e4ss der FKS-Richtlinie f\\u00fcr Feuerwehrzufahrten, Bewegungs- und Stellfl\\u00e4chen sowie der VKF-Brandschutzrichtlinie 14-15 \\\"Verwendung von Baustoffen\\\" eingehalten werden\", \"fr\": null, \"it\": \"La persona richiedente conferma che sono rispettati i requisiti conformemente alla direttiva CSP concernente le vie di accesso, le superfici di manovra e di appoggio per i mezzi dei pompieri nonch\\u00e9 alla direttiva della protezione antincendio AICAA 14-15 \\u00abUtilizzo di materiali da costruzione\\u00bb\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "bestaetigung-radon-ja",
     "fields": {
       "created_at": "2023-05-17T14:13:02.026Z",
@@ -82739,16 +82756,16 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "bestaetigung-fks-richtlinie.ja",
+    "pk": "bestaetigung-fks-richtlinie.bestaetigung-fks-richtlinie-ja",
     "fields": {
-      "created_at": "2024-06-21T13:51:52.543Z",
-      "modified_at": "2024-06-21T13:51:52.543Z",
+      "created_at": "2024-08-14T16:02:21.505Z",
+      "modified_at": "2024-08-14T16:02:21.505Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "bestaetigung-fks-richtlinie",
-      "option": "ja",
+      "option": "bestaetigung-fks-richtlinie-ja",
       "sort": 1
     }
   },
