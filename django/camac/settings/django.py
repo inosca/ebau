@@ -1893,12 +1893,12 @@ APPLICATIONS = {
                     "recipient_types": ["applicant"],
                 },
                 {
-                    "template_slug": "entscheid-behoerden",
-                    "recipient_types": ["leitbehoerde"],
+                    "template_slug": "decision-completed-baubewilligung-solaranlage",
+                    "recipient_types": ["gvg"],
                 },
                 {
-                    "template_slug": "entscheid-behoerden",
-                    "recipient_types": ["gvg"],
+                    "template_slug": "decision-completed-baubewilligung-solaranlage",
+                    "recipient_types": ["involved_in_distribution_except_gvg"],
                 },
             ],
             "NON_BUILDING_PERMIT_DECISION": [
@@ -1907,8 +1907,8 @@ APPLICATIONS = {
                     "recipient_types": ["applicant"],
                 },
                 {
-                    "template_slug": "beurteilung-behoerden",
-                    "recipient_types": ["leitbehoerde"],
+                    "template_slug": "decision-completed-bauanzeige-vorlaeufige-beurteilung",
+                    "recipient_types": ["involved_in_distribution"],
                 },
             ],
             "CONSTRUCTION_ACCEPTANCE": [

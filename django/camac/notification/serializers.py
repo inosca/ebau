@@ -78,6 +78,9 @@ RECIPIENT_TYPE_NAMES = {
     "inquiry_addressed": translation.gettext_noop("Addressed service of inquiry"),
     "inquiry_controlling": translation.gettext_noop("Controlling service of inquiry"),
     "involved_in_distribution": translation.gettext_noop("Involved services"),
+    "involved_in_districution_except_gvg": translation.gettext_noop(
+        "Involved services"
+    ),
     "leitbehoerde": translation.gettext_noop("Authority"),
     "municipality": translation.gettext_noop("Municipality"),
     "unanswered_inquiries": translation.gettext_noop(
@@ -1095,6 +1098,8 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             "work_item_controlling",
             "additional_demand_inviter",
             "acl_authorized",
+            # GR specific
+            "involved_in_distribution_except_gvg",
             *settings.APPLICATION.get("CUSTOM_NOTIFICATION_TYPES", []),
         )
     )
@@ -1352,6 +1357,12 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                 )
             ]
         )
+
+    def _get_recipients_involved_in_distribution_except_gvg(self, instance):
+        recipients = self._get_recipients_involved_in_distribution(instance)
+        return [
+            recipient for recipient in recipients if "@gvg.ch" not in recipient["to"]
+        ]
 
     def _get_recipients_unanswered_inquiries(self, instance):
         if not settings.DISTRIBUTION:  # pragma: no cover

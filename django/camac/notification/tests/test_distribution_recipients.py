@@ -138,3 +138,66 @@ def test_recipient_involved_in_distribution(
 
     assert involved_service.email in recipients
     assert not_involved_service.email not in recipients
+
+
+@pytest.mark.parametrize("role__name", ["support"])
+def test_recipient_involved_in_distribution_except_gvg(
+    db,
+    active_inquiry_factory,
+    be_instance,
+    distribution_settings,
+    service_factory,
+    notification_template,
+    system_operation_user,
+):
+    status_question = QuestionFactory(type=Question.TYPE_CHOICE)
+
+    involved_option = QuestionOptionFactory(question=status_question).option
+    not_involved_option = QuestionOptionFactory(question=status_question).option
+
+    distribution_settings["QUESTIONS"]["STATUS"] = status_question
+    distribution_settings["ANSWERS"]["STATUS"] = {
+        "NOT_INVOLVED": not_involved_option.pk
+    }
+
+    involved_service = service_factory()
+    gvg_service = service_factory(email="test@gvg.ch")
+
+    not_involved_service = service_factory()
+
+    for inquiry, option in [
+        (active_inquiry_factory(addressed_service=involved_service), involved_option),
+        (active_inquiry_factory(addressed_service=gvg_service), involved_option),
+        (
+            active_inquiry_factory(addressed_service=not_involved_service),
+            not_involved_option,
+        ),
+    ]:
+        answer = AnswerFactory(value=option.slug, question=status_question)
+
+        inquiry.child_case = CaseFactory(document=answer.document)
+        inquiry.save()
+
+    serializer = PermissionlessNotificationTemplateSendmailSerializer(
+        data={
+            "recipient_types": ["involved_in_distribution_except_gvg"],
+            "instance": {"type": "instances", "id": be_instance.pk},
+            "notification_template": {
+                "type": "notification-templates",
+                "id": notification_template.pk,
+            },
+        }
+    )
+    serializer.is_valid(raise_exception=True)
+    serializer.save()
+
+    recipients = [
+        rec["to"]
+        for rec in serializer._get_recipients_involved_in_distribution_except_gvg(
+            be_instance
+        )
+    ]
+
+    assert involved_service.email in recipients
+    assert gvg_service.email not in recipients
+    assert not_involved_service.email not in recipients
