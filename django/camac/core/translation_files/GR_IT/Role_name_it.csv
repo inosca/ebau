@@ -1,8 +1,8 @@
-﻿id,name,
+id,name,
 1,Admin,
 2,Guest,
-3,Sachbearbeitung Leitbehörde,Servizi specializzati autorità direttiva
-4,Sachbearbeitung Fachstelle,Servizi specializzati servizio
+3,Sachbearbeitung Leitbehörde,Evasione autorità direttiva
+4,Sachbearbeitung Fachstelle,Evasione servizio
 5,Administration Leitbehörde,Amministrazione autorità direttiva
 6,Administration Fachstelle,Amministrazione servizio
 10000,Support,Supporto
