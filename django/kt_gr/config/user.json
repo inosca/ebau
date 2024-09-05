@@ -225,8 +225,8 @@
     "fields": {
       "role": 3,
       "language": "it",
-      "name": "Servizi specializzati autorità direttiva",
-      "group_prefix": "Servizi specializzati"
+      "name": "Evasione autorità direttiva",
+      "group_prefix": "Evasione"
     }
   },
   {
@@ -235,8 +235,8 @@
     "fields": {
       "role": 4,
       "language": "it",
-      "name": "Servizi specializzati servizio",
-      "group_prefix": "Servizi specializzati"
+      "name": "Evasione servizio",
+      "group_prefix": "Evasione"
     }
   },
   {
