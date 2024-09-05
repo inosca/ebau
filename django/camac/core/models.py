@@ -4284,6 +4284,10 @@ class ServiceContent(models.Model):
     service = models.ForeignKey(
         "user.Service", models.DO_NOTHING, related_name="+", verbose_name=_("Service")
     )
+    forms = models.ManyToManyField(
+        "caluma_form.Form",
+        verbose_name=_("Forms"),
+    )
     content = LocalizedTextField(verbose_name=_("Content"))
 
     class Meta:
