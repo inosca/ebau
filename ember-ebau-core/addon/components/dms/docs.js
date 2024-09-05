@@ -60,7 +60,7 @@ function parseNested(item, aliases, locale) {
   return Object.entries(item).reduce((prev, [key, value]) => {
     const alias = aliases[key]?.[0]?.[locale];
 
-    const doubleNestedRe = new RegExp(`^${key}.`);
+    const doubleNestedRe = new RegExp(`^${key}\\.`);
     const doubleNested = Object.entries(aliases).reduce(
       (_prev, [nestedKey, nestedAliases]) => {
         if (nestedKey.search(doubleNestedRe) < 0) {
