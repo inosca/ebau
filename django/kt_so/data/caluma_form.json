@@ -1450,7 +1450,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "gesamthoehe-gemaess-ivhb",
-      "value": 11,
+      "value": 11.0,
       "meta": {},
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
       "date": null
@@ -1520,7 +1520,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "gesamthoehe-gemaess-ivhb",
-      "value": 9,
+      "value": 9.0,
       "meta": {},
       "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
       "date": null
