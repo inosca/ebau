@@ -2416,6 +2416,7 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.IsAuthenticated",
         "camac.user.permissions.IsGroupMember",
         "camac.user.permissions.ViewPermissions",
+        "camac.token_exchange.permissions.RequireLoT",
     ),
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "camac.user.authentication.JSONWebTokenKeycloakAuthentication",
@@ -2516,7 +2517,13 @@ TOKEN_EXCHANGE_JWT_SYNC_PROPERTIES = env.dict(
         "name": "lastName",
         "email": "email",
         "organisationName": "organisationName",
+        "lot": "lot",
     },
+)
+TOKEN_EXCHANGE_LOT_MAPPING = env.dict(
+    "TOKEN_EXCHANGE_LOT_MAPPING",
+    cast={"value": int},
+    default={"public": 0, "applicant": 1},
 )
 
 # JWT token claim used as the username for newly created Camac users. (This is

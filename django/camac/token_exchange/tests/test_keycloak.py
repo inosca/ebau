@@ -14,6 +14,7 @@ def test_keycloak_client(snapshot):
         "name": "User",
         "email": "email@example.com",
         "organisationName": "",
+        "lot": "1",
     }
 
     # first call should create a new user

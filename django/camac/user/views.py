@@ -24,6 +24,7 @@ from rest_framework_json_api.views import (
 from camac.caluma.extensions.permissions import CustomPermission
 from camac.core.views import MultilangMixin
 from camac.swagger.utils import get_operation_description, group_param
+from camac.token_exchange.permissions import RequireLoT
 from camac.user.permissions import permission_aware
 
 from . import filters, models, serializers
@@ -173,7 +174,7 @@ class MeView(
 
     model = get_user_model()
     serializer_class = serializers.CurrentUserSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated & RequireLoT]
 
     @classmethod
     def include_in_swagger(cls):
@@ -249,7 +250,7 @@ class GroupView(MultilangMixin, ReadOnlyModelViewSet):
 class PublicGroupView(MultilangMixin, ReadOnlyModelViewSet):
     filterset_class = filters.PublicGroupFilterSet
     serializer_class = serializers.PublicGroupSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated & RequireLoT]
     queryset = models.Group.objects.filter(disabled=False)
 
     def get_queryset(self):

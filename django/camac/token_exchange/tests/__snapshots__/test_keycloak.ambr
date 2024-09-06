@@ -8,14 +8,19 @@
       'mapRoles': True,
       'view': True,
     }),
-    'createdTimestamp': 1716558964799,
+    'attributes': dict({
+      'lot': list([
+        '1',
+      ]),
+    }),
+    'createdTimestamp': 1726139446128,
     'disableableCredentialTypes': list([
     ]),
     'email': 'email@example.com',
     'emailVerified': True,
     'enabled': True,
     'firstName': 'Test',
-    'id': '1d12aeee-164f-4208-8afb-5acf89963bd4',
+    'id': 'fb36bee2-e06c-436d-ad40-bddcadacdf0c',
     'lastName': 'User',
     'notBefore': 0,
     'requiredActions': list([
@@ -33,13 +38,18 @@
       'mapRoles': True,
       'view': True,
     }),
-    'createdTimestamp': 1716558964799,
+    'attributes': dict({
+      'lot': list([
+        '1',
+      ]),
+    }),
+    'createdTimestamp': 1726139446128,
     'disableableCredentialTypes': list([
     ]),
     'email': 'email@example.com',
     'emailVerified': True,
     'enabled': True,
-    'id': '1d12aeee-164f-4208-8afb-5acf89963bd4',
+    'id': 'fb36bee2-e06c-436d-ad40-bddcadacdf0c',
     'lastName': 'ACME Inc.',
     'notBefore': 0,
     'requiredActions': list([
@@ -50,14 +60,14 @@
 # ---
 # name: test_keycloak_client.2
   dict({
-    'access_token': 'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3WHJ1di0wLWo2RUdRNlpRTS13OHpDekFYTC1TSExLQ0RlLWExc1VKMGJNIn0.eyJleHAiOjE3MTY1NjA3NjUsImlhdCI6MTcxNjU1ODk2NSwianRpIjoiZjFmYTk0NjctZGRiZC00MTNlLThjNzYtZjBhNTZiYjI0NTM5IiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6WyJwb3J0YWwiLCJhY2NvdW50Il0sInN1YiI6ImVnb3Y6MTIzIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoidG9rZW4tZXhjaGFuZ2UiLCJzZXNzaW9uX3N0YXRlIjoiYzQyZDQ0MDgtYjc3Mi00NzEwLWI0YTYtNjc4OGM3YzlmMzU3IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vZWdvdi5sb2NhbCJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJkZWZhdWx0LXJvbGVzLWViYXUiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIGVtYWlsIHByb2ZpbGUiLCJzaWQiOiJjNDJkNDQwOC1iNzcyLTQ3MTAtYjRhNi02Nzg4YzdjOWYzNTciLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmFtZSI6IkFDTUUgSW5jLiIsInByZWZlcnJlZF91c2VybmFtZSI6ImVnb3Y6MTIzIiwiZmFtaWx5X25hbWUiOiJBQ01FIEluYy4iLCJlbWFpbCI6ImVtYWlsQGV4YW1wbGUuY29tIn0.IHV5eRIf8PtBeLXH6AEhyEWBJMInO7HaD7XBrKxOyVOgKAlS0wNK19MmqPJm_XbEZA9umIbwzZ-hE6oM8gC3-qyRq8JLRqvw6E9fW1batKFp9EYuN5EIoDUrOIxFELyvkkHhnyebWKqt5hlBxt440wrXYhqpXtY2wP1O_odzdx4e62n0oiFRPTRfBepWu6LBFvRzr-nuk95tfZjQsqbtexofHrlEOpcKWf5fJhp4QlXVXYakduEsoYYwCydyE9ODdvTJgOIQJuY93XzmmZfLGWXA6T753rhylG-_cFTeJN2DkadKV5LecySXHrP9BA0xD6xiVbRzreAsS2eaN-u6yg',
+    'access_token': 'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3WHJ1di0wLWo2RUdRNlpRTS13OHpDekFYTC1TSExLQ0RlLWExc1VKMGJNIn0.eyJleHAiOjE3MjYxNDEyNDYsImlhdCI6MTcyNjEzOTQ0NiwianRpIjoiNDU4YmJhMTItNDhhMy00ZDRiLWJlMjMtMTZjYThlNzQyYWJlIiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6WyJwb3J0YWwiLCJhY2NvdW50Il0sInN1YiI6ImVnb3Y6MTIzIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoidG9rZW4tZXhjaGFuZ2UiLCJzaWQiOiJlMGI3YzQwNi1kNjBmLTQxMWItYjFiMy0zYTA5NmE0YzVlZjIiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9lZ292LmxvY2FsIiwiaHR0cDovL2xvY2FsaG9zdDo0MjAwIiwiaHR0cDovL2ViYXUtcG9ydGFsLmxvY2FsIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtZWJhdSIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiQUNNRSBJbmMuIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiZWdvdjoxMjMiLCJmYW1pbHlfbmFtZSI6IkFDTUUgSW5jLiIsImVtYWlsIjoiZW1haWxAZXhhbXBsZS5jb20ifQ.Hph2EFp-UbdAtLjQiunW3qaRNUtBCtpkomtyo4-qR5TB7w-Axy_k1j4geSd1FjnjmRuGzNJoxdPl9kYjVb5f5hcKg-H0lvQwJJSqvWNZGe9bSQm-c4Ykzyn36trOGxGVzLIL2UEMLjguJQYKUqdhttWK4cfEO--OSdvYA6s8UjhVbTRUGv65gXFxAV1qbT4Xrqxi95DK07P7fxXwhI9g1O5lwvJKORjSDZIo8chvrgzwYjFs1leR8jyh5YNheXQqQ-siZ2BONDptYctiq6OjwH4nvOL5WXGuEHQeMztV6HAGjDbj4Fiz5Uk20p2NA3QkCphsH1mVKYqXq-fy2e_d_g',
     'expires_in': 1800,
-    'id_token': 'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3WHJ1di0wLWo2RUdRNlpRTS13OHpDekFYTC1TSExLQ0RlLWExc1VKMGJNIn0.eyJleHAiOjE3MTY1NjA3NjUsImlhdCI6MTcxNjU1ODk2NSwiYXV0aF90aW1lIjowLCJqdGkiOiI4YWMyYjJkZS03NzA3LTRhYWMtYmM1OS1kOWJkNmFhY2RiOTUiLCJpc3MiOiJodHRwOi8vZWJhdS1rZXljbG9hay5sb2NhbC9hdXRoL3JlYWxtcy9lYmF1IiwiYXVkIjoidG9rZW4tZXhjaGFuZ2UiLCJzdWIiOiJlZ292OjEyMyIsInR5cCI6IklEIiwiYXpwIjoidG9rZW4tZXhjaGFuZ2UiLCJzZXNzaW9uX3N0YXRlIjoiYzQyZDQ0MDgtYjc3Mi00NzEwLWI0YTYtNjc4OGM3YzlmMzU3IiwiYXRfaGFzaCI6IkRmUllSdUVWTlFoa3ZSa1ZQN3ZYeHciLCJhY3IiOiIxIiwic2lkIjoiYzQyZDQ0MDgtYjc3Mi00NzEwLWI0YTYtNjc4OGM3YzlmMzU3IiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJBQ01FIEluYy4iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJlZ292OjEyMyIsImZhbWlseV9uYW1lIjoiQUNNRSBJbmMuIiwiZW1haWwiOiJlbWFpbEBleGFtcGxlLmNvbSJ9.ZqCvmAZxXQFc_JOJJIoRZc4Ebu48k0zTXowSHkgkYAzKrIMqYfE22faHEws9O5g_iCIxVmk8lXENGcdF_fOwwtG5N69X3r4uW3nhEXoqV1wKF0y-c4hg1-h7ibl7CglfiEe0rARi6Kg96gninkT_bX1L2KH2E5yOZao6jG5rKdfDGIP_sU8OlRVXRMpdiA7izLEoZRhqOAiGytTwD2AtbUjvb5c1tdGPbrhssmDMm_8iogHWzKec2HV67tOMk98SQU6j4bVI9SuD5vLO9bxtdMGU1Ddn-aeBWhfvix1kqjdvszdbe4f--Sq19l1TdWmSpFgMqGuOAUN7V5LxPyAzWQ',
+    'id_token': 'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3WHJ1di0wLWo2RUdRNlpRTS13OHpDekFYTC1TSExLQ0RlLWExc1VKMGJNIn0.eyJleHAiOjE3MjYxNDEyNDYsImlhdCI6MTcyNjEzOTQ0NiwianRpIjoiZmVlNjJmZDUtYjQzOS00OWFmLWE0ZjQtZGYxNWUxN2Q1MzAzIiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6InRva2VuLWV4Y2hhbmdlIiwic3ViIjoiZWdvdjoxMjMiLCJ0eXAiOiJJRCIsImF6cCI6InRva2VuLWV4Y2hhbmdlIiwic2lkIjoiZTBiN2M0MDYtZDYwZi00MTFiLWIxYjMtM2EwOTZhNGM1ZWYyIiwiYXRfaGFzaCI6Ik5kMTdfTzZhQkRwUWdrNGpqel9iUlEiLCJhY3IiOiIxIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJBQ01FIEluYy4iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJlZ292OjEyMyIsImZhbWlseV9uYW1lIjoiQUNNRSBJbmMuIiwiZW1haWwiOiJlbWFpbEBleGFtcGxlLmNvbSJ9.dwmKloeuGilpBZ6lROVJ_3tupVapDh8vr7K6Kx2BCRYG54lE-tOoSvuprkC1gUu5rBkMZuQQLY0zP1QTXaEGiAKBavsoK6SVWCx4BbcsHJr76Yf4BRanJz5knaehetREf5wbUc-Za8r5IWolJwVuUfMG7gvcCMb00DGvWqTqtyIYF_x_tKf-pcV-lVD_co4xt1RwFI0WBEshZhytRycADmdH8Fb6qWXygwNhgsJ33MtpLsntXa1BQkpH8FFtz2EDHl5BNDzgu80D3v4m9a89u2F9VPxae1_sjjW5NZpYKURFdgJVnzFnFnaQS5O0tc8NgZTyNjx1jK1stS0Dmqjnrg',
     'not-before-policy': 0,
     'refresh_expires_in': 18000,
-    'refresh_token': 'eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJlNDJkOTc3NS01NjE3LTQ4ZTUtODFlOC1jMjk3NDEwNDg4ODkifQ.eyJleHAiOjE3MTY1NzY5NjUsImlhdCI6MTcxNjU1ODk2NSwianRpIjoiNTMwOWQ2ZmEtY2EyNC00NThiLTllYWEtY2QxOTY5ZGU3ZmExIiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6Imh0dHA6Ly9lYmF1LWtleWNsb2FrLmxvY2FsL2F1dGgvcmVhbG1zL2ViYXUiLCJzdWIiOiJlZ292OjEyMyIsInR5cCI6IlJlZnJlc2giLCJhenAiOiJ0b2tlbi1leGNoYW5nZSIsInNlc3Npb25fc3RhdGUiOiJjNDJkNDQwOC1iNzcyLTQ3MTAtYjRhNi02Nzg4YzdjOWYzNTciLCJzY29wZSI6Im9wZW5pZCBlbWFpbCBwcm9maWxlIiwic2lkIjoiYzQyZDQ0MDgtYjc3Mi00NzEwLWI0YTYtNjc4OGM3YzlmMzU3In0.KEn7ECcRzhXbzXL4NRQBs3WrAmo9eT1ZVb6eptNeOpugi8UxzbsXUkldVITUopJ1VOp147qXBcuiYNWrCKbwOQ',
+    'refresh_token': 'eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJlNDJkOTc3NS01NjE3LTQ4ZTUtODFlOC1jMjk3NDEwNDg4ODkifQ.eyJleHAiOjE3MjYxNTc0NDYsImlhdCI6MTcyNjEzOTQ0NiwianRpIjoiMzc2ZmVlZWItNTczYS00OTE3LTg3NzMtYjQwYmRiYTgwMTY5IiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6Imh0dHA6Ly9lYmF1LWtleWNsb2FrLmxvY2FsL2F1dGgvcmVhbG1zL2ViYXUiLCJzdWIiOiJlZ292OjEyMyIsInR5cCI6IlJlZnJlc2giLCJhenAiOiJ0b2tlbi1leGNoYW5nZSIsInNpZCI6ImUwYjdjNDA2LWQ2MGYtNDExYi1iMWIzLTNhMDk2YTRjNWVmMiIsInNjb3BlIjoib3BlbmlkIHJvbGVzIGVtYWlsIGFjciB3ZWItb3JpZ2lucyBwcm9maWxlIGJhc2ljIn0.Rlj1nBXibBS7w2O1J7k8-mB4ObFhL5T-OwC1svGqjJu-aqRH32jxqCJF1lMv7xIKuqmtkpGrkL2u5oCpBd1i2w',
     'scope': 'openid email profile',
-    'session_state': 'c42d4408-b772-4710-b4a6-6788c7c9f357',
+    'session_state': 'e0b7c406-d60f-411b-b1b3-3a096a4c5ef2',
     'token_type': 'Bearer',
   })
 # ---
@@ -66,6 +76,8 @@
     'acr': '1',
     'allowed-origins': list([
       'http://egov.local',
+      'http://localhost:4200',
+      'http://ebau-portal.local',
     ]),
     'aud': list([
       'portal',
@@ -74,11 +86,11 @@
     'azp': 'token-exchange',
     'email': 'email@example.com',
     'email_verified': True,
-    'exp': 1716560765,
+    'exp': 1726141246,
     'family_name': 'ACME Inc.',
-    'iat': 1716558965,
+    'iat': 1726139446,
     'iss': 'http://ebau-keycloak.local/auth/realms/ebau',
-    'jti': 'f1fa9467-ddbd-413e-8c76-f0a56bb24539',
+    'jti': '458bba12-48a3-4d4b-be23-16ca8e742abe',
     'name': 'ACME Inc.',
     'preferred_username': 'egov:123',
     'realm_access': dict({
@@ -98,8 +110,7 @@
       }),
     }),
     'scope': 'openid email profile',
-    'session_state': 'c42d4408-b772-4710-b4a6-6788c7c9f357',
-    'sid': 'c42d4408-b772-4710-b4a6-6788c7c9f357',
+    'sid': 'e0b7c406-d60f-411b-b1b3-3a096a4c5ef2',
     'sub': 'egov:123',
     'typ': 'Bearer',
   })
