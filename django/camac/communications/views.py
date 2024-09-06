@@ -1,12 +1,13 @@
-import json
-
+from alexandria.core.api import verify_signed_components
 from django.conf import settings
 from django.db import transaction
 from django.db.models import Exists, OuterRef
+from django.http import FileResponse
+from django.urls import reverse
 from django.utils.translation import gettext
-from rest_framework import response, status
+from rest_framework import response
 from rest_framework.decorators import action
-from rest_framework.exceptions import ValidationError
+from rest_framework.exceptions import NotFound, PermissionDenied, ValidationError
 from rest_framework.mixins import CreateModelMixin, ListModelMixin, RetrieveModelMixin
 from rest_framework.viewsets import GenericViewSet
 from rest_framework_json_api.views import (
@@ -16,7 +17,7 @@ from rest_framework_json_api.views import (
     RelatedMixin,
 )
 
-from camac.core.views import HttpResponse, SendfileHttpResponse
+from camac.core.views import SendfileHttpResponse
 from camac.instance.mixins import InstanceQuerysetMixin
 
 from . import filters, models, serializers
@@ -178,35 +179,42 @@ class AttachmentView(
         involved_entities = attachment.message.topic.involved_entities
         return my_entity in involved_entities
 
-    @action(methods=["get"], detail=True)
-    def download(self, request, pk):
+    @action(methods=["get"], detail=True, permission_classes=[])
+    def download(self, request, pk=None):
+        if not (token_sig := request.query_params.get("signature")):
+            raise PermissionDenied(
+                gettext("For downloading a file use the presigned download URL.")
+            )
+        verify_signed_components(
+            pk,
+            request.get_host(),
+            expires=int(request.query_params.get("expires")),
+            scheme=request.META.get("wsgi.url_scheme", "http"),
+            token_sig=token_sig,
+            download_path=reverse("communications-attachment-download", args=[pk]),
+        )
         obj = self.get_object()
 
-        if obj.document_attachment_id:
-            attachment = obj.document_attachment
-            # TODO: should we create a history entry analog to
-            # camac.document.views.AttachmentDownloadView.retrieve()?
-            # Also, are the side effects from the same function also
-            # required?
+        if obj.document_attachment:
+            file = obj.document_attachment.path.file
+            file_path = f"/{obj.document_attachment.path}"
+        elif obj.file_attachment:
+            file = obj.file_attachment.file
+            file_path = f"/{obj.file_attachment}"
+        else:
+            raise NotFound()
 
+        if (
+            settings.STORAGES["default"]["BACKEND"]
+            == "django.core.files.storage.FileSystemStorage"
+        ):
             return SendfileHttpResponse(
-                content_type=attachment.mime_type,
-                filename=obj.display_name,
-                base_path=settings.MEDIA_ROOT,
-                file_path=f"/{attachment.path}",
-            )
-        elif obj.file_attachment.name:
-            return SendfileHttpResponse(
-                content_type=obj.file_type,
+                content_type=obj.content_type,
                 filename=obj.filename,
                 base_path=settings.MEDIA_ROOT,
-                file_path=f"/{obj.file_attachment}",
+                file_path=file_path,
             )
-        else:
-            return HttpResponse(
-                json.dumps({"error": "Attachment exists, but no file uploaded"}),
-                status=status.HTTP_404_NOT_FOUND,
-            )
+        return FileResponse(file, as_attachment=False, filename=obj.display_name)
 
     class Meta:
         model = models.CommunicationsAttachment

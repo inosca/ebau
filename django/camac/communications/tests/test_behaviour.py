@@ -459,10 +459,6 @@ def test_convert_attachment_to_document(
         "data": {
             "attributes": {
                 "filename": "foo.txt",
-                "download-url": reverse(
-                    "communications-attachment-download",
-                    args=[communications_attachment.pk],
-                ),
             },
             "id": str(communications_attachment.pk),
             "relationships": {
@@ -477,4 +473,6 @@ def test_convert_attachment_to_document(
             "type": "communications-attachments",
         }
     }
-    assert resp.json() == expected_json
+    json = resp.json()
+    json["data"]["attributes"].pop("download-url", None)
+    assert json == expected_json
