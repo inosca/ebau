@@ -3,15 +3,17 @@ set -euf
 
 do_setup() {
   wait-for-it $DATABASE_HOST:$DATABASE_PORT
-  # migrate may fail in concurrent startup, thus we're not 
-  # taking this as a failure here
-  ./manage.py migrate || true
+  if [ "${1:-migrate}" != "no-migrate" ]; then
+    # migrate may fail in concurrent startup, thus we're not
+    # taking this as a failure here
+    ./manage.py migrate || true
+  fi
   ./manage.py collectstatic --noinput
   ./manage.py compilemessages
 }
 
 loadconfig() {
-  ./manage.py camac_load 
+  ./manage.py camac_load
 }
 
 # Default command is "uwsgi". This implies production mode
@@ -40,7 +42,7 @@ case "$1" in
     exec python manage.py runserver 0:80 --pythonpath /app/$APPLICATION
     ;;
   qcluster )
-    do_setup
+    do_setup no-migrate
     exec python manage.py qcluster --pythonpath /app/$APPLICATION
     ;;
   * )
