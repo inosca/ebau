@@ -28,7 +28,11 @@ def test_s3_attachment_download_url(
 
     data = response.json()["data"]["attributes"]
 
-    assert communications_attachment.file_attachment.name in data["download-url"]
+    assert data["download-url"].startswith(
+        f"http://testserver/api/v1/communications-attachments/{communications_attachment.pk}/download?expires="
+    )
+    resp = admin_client.get(data["download-url"])
+    assert resp.status_code == status.HTTP_200_OK
 
 
 @pytest.mark.parametrize(
