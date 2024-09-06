@@ -38,7 +38,9 @@ def _upload_data(data):
                 service = ServiceT.objects.filter(name=row["de_name"]).first()
 
                 if not service:
-                    print(f"Service {row['de_name']} not found", )
+                    print(
+                        f"Service {row['de_name']} not found",
+                    )
                     continue
 
                 _, created = ServiceT.objects.update_or_create(

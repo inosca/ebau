@@ -11,7 +11,7 @@
       "phone": null,
       "disabled": 0,
       "language": "de",
-      "last_login": "2024-08-16T08:41:55.374Z",
+      "last_login": "2024-09-06T13:00:16.853Z",
       "address": null,
       "city": null,
       "zip": null
@@ -10769,6 +10769,1348 @@
       "name": "Unterfachstelle Test (Gemeinde Chur)",
       "description": "Unterfachstelle Test (Gemeinde Chur)",
       "city": ""
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 167,
+    "fields": {
+      "service": 2,
+      "language": "it",
+      "name": "Comune di Albula/Alvra",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 168,
+    "fields": {
+      "service": 104,
+      "language": "it",
+      "name": "Ufficio per l'industria, arti e mestieri e lavoro (UCIAML)",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 169,
+    "fields": {
+      "service": 107,
+      "language": "it",
+      "name": "Ufficio per l'agricoltura e la geoinformazione 2 (UAG2)",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 170,
+    "fields": {
+      "service": 111,
+      "language": "it",
+      "name": "Ufficio per la sicurezza delle derrate alimentari e la salute degli animali (USDA)",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 171,
+    "fields": {
+      "service": 111,
+      "language": "it",
+      "name": "Ufficio foreste e pericoli naturali (UFP)",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 172,
+    "fields": {
+      "service": 112,
+      "language": "it",
+      "name": "Servizio archeologico dei Grigioni",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 173,
+    "fields": {
+      "service": 114,
+      "language": "it",
+      "name": "Ufficio federale delle strade / USTRA",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 174,
+    "fields": {
+      "service": 122,
+      "language": "it",
+      "name": "Ufficio federale dell'ambiente / Biodiversità e paesaggio",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 175,
+    "fields": {
+      "service": 120,
+      "language": "it",
+      "name": "Ferrovia Retica",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 176,
+    "fields": {
+      "service": 121,
+      "language": "it",
+      "name": "FFS SA",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 177,
+    "fields": {
+      "service": 124,
+      "language": "it",
+      "name": "Ufficio per le valutazioni immobiliari (UVI)",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 178,
+    "fields": {
+      "service": 129,
+      "language": "it",
+      "name": "Assicurazione fabbricati dei Grigioni, assicurazione",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 179,
+    "fields": {
+      "service": 104,
+      "language": "it",
+      "name": "Ufficio dell'energia e dei trasporti (UEnTr)",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 180,
+    "fields": {
+      "service": 106,
+      "language": "it",
+      "name": "Ufficio per l'agricoltura e la geoinformazione (UAG)",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 181,
+    "fields": {
+      "service": 107,
+      "language": "it",
+      "name": "Ufficio per la caccia e la pesca (UCP)",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 182,
+    "fields": {
+      "service": 1,
+      "language": "it",
+      "name": "Ufficio per lo sviluppo del territorio (UST-GR)",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 183,
+    "fields": {
+      "service": 116,
+      "language": "it",
+      "name": "Servizio monumenti dei Grigioni",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 184,
+    "fields": {
+      "service": 110,
+      "language": "it",
+      "name": "Ufficio per la natura e l'ambiente (UNA)",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 185,
+    "fields": {
+      "service": 130,
+      "language": "it",
+      "name": "Assicurazione fabbricati dei Grigioni, prevenzione danni elementari",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 186,
+    "fields": {
+      "service": 122,
+      "language": "it",
+      "name": "Ufficio tecnico (UT)",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 187,
+    "fields": {
+      "service": 113,
+      "language": "it",
+      "name": "Ufficio federale delle strade (USTRA)",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 188,
+    "fields": {
+      "service": 109,
+      "language": "it",
+      "name": "Ufficio del militare e della protezione civile (UMPC)",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 189,
+    "fields": {
+      "service": 3,
+      "language": "it",
+      "name": "Comune di Andeer",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 190,
+    "fields": {
+      "service": 4,
+      "language": "it",
+      "name": "Comune di Arosa",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 191,
+    "fields": {
+      "service": 5,
+      "language": "it",
+      "name": "Comune di Avers",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 192,
+    "fields": {
+      "service": 6,
+      "language": "it",
+      "name": "Comune di Bergün Filisur",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 193,
+    "fields": {
+      "service": 22,
+      "language": "it",
+      "name": "Comune di Disentis/Mustér",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 194,
+    "fields": {
+      "service": 84,
+      "language": "it",
+      "name": "Comune di Surses",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 195,
+    "fields": {
+      "service": 7,
+      "language": "it",
+      "name": "Comune di Bever",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 196,
+    "fields": {
+      "service": 8,
+      "language": "it",
+      "name": "Comune di Bonaduz",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 197,
+    "fields": {
+      "service": 9,
+      "language": "it",
+      "name": "Comune di Bregaglia",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 198,
+    "fields": {
+      "service": 10,
+      "language": "it",
+      "name": "Comune di Breil/Brigels",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 199,
+    "fields": {
+      "service": 11,
+      "language": "it",
+      "name": "Comune di Brusio",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 200,
+    "fields": {
+      "service": 12,
+      "language": "it",
+      "name": "Comune di Buseno",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 201,
+    "fields": {
+      "service": 13,
+      "language": "it",
+      "name": "Comune di Calanca",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 202,
+    "fields": {
+      "service": 14,
+      "language": "it",
+      "name": "Comune di Cama",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 203,
+    "fields": {
+      "service": 15,
+      "language": "it",
+      "name": "Comune di Castaneda",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 204,
+    "fields": {
+      "service": 16,
+      "language": "it",
+      "name": "Comune di Cazis",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 205,
+    "fields": {
+      "service": 17,
+      "language": "it",
+      "name": "Comune di Celerina / Schlarigna",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 206,
+    "fields": {
+      "service": 18,
+      "language": "it",
+      "name": "Comune di Coira",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 207,
+    "fields": {
+      "service": 19,
+      "language": "it",
+      "name": "Comune di Churwalden",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 208,
+    "fields": {
+      "service": 20,
+      "language": "it",
+      "name": "Comune di Conters im Prättigau",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 209,
+    "fields": {
+      "service": 21,
+      "language": "it",
+      "name": "Comune di Davos",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 210,
+    "fields": {
+      "service": 23,
+      "language": "it",
+      "name": "Comune di Domat/Ems",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 211,
+    "fields": {
+      "service": 25,
+      "language": "it",
+      "name": "Comune di Falera",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 212,
+    "fields": {
+      "service": 26,
+      "language": "it",
+      "name": "Comune di Felsberg",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 213,
+    "fields": {
+      "service": 27,
+      "language": "it",
+      "name": "Comune di Ferrera",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 214,
+    "fields": {
+      "service": 28,
+      "language": "it",
+      "name": "Comune di Fideris",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 215,
+    "fields": {
+      "service": 29,
+      "language": "it",
+      "name": "Comune di Fläsch",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 216,
+    "fields": {
+      "service": 30,
+      "language": "it",
+      "name": "Comune di Flerden",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 217,
+    "fields": {
+      "service": 31,
+      "language": "it",
+      "name": "Comune di Flims",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 218,
+    "fields": {
+      "service": 32,
+      "language": "it",
+      "name": "Comune di Furna",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 219,
+    "fields": {
+      "service": 33,
+      "language": "it",
+      "name": "Comune di Fürstenau",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 220,
+    "fields": {
+      "service": 34,
+      "language": "it",
+      "name": "Comune di Grono",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 221,
+    "fields": {
+      "service": 35,
+      "language": "it",
+      "name": "Comune di Grüsch",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 222,
+    "fields": {
+      "service": 36,
+      "language": "it",
+      "name": "Comune di Ilanz/Glion",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 223,
+    "fields": {
+      "service": 37,
+      "language": "it",
+      "name": "Comune di Jenaz",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 224,
+    "fields": {
+      "service": 38,
+      "language": "it",
+      "name": "Comune di Jenins",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 225,
+    "fields": {
+      "service": 39,
+      "language": "it",
+      "name": "Comune di Klosters",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 226,
+    "fields": {
+      "service": 40,
+      "language": "it",
+      "name": "Comune di Küblis",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 227,
+    "fields": {
+      "service": 41,
+      "language": "it",
+      "name": "Comune di La Punt Chamues-ch",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 228,
+    "fields": {
+      "service": 42,
+      "language": "it",
+      "name": "Comune di Laax",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 229,
+    "fields": {
+      "service": 43,
+      "language": "it",
+      "name": "Comune di Landquart",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 230,
+    "fields": {
+      "service": 44,
+      "language": "it",
+      "name": "Comune di Lantsch/Lenz",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 231,
+    "fields": {
+      "service": 45,
+      "language": "it",
+      "name": "Comune di Lostallo",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 232,
+    "fields": {
+      "service": 46,
+      "language": "it",
+      "name": "Comune di Lumnezia",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 233,
+    "fields": {
+      "service": 47,
+      "language": "it",
+      "name": "Comune di Luzein",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 234,
+    "fields": {
+      "service": 48,
+      "language": "it",
+      "name": "Comune di Madulain",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 235,
+    "fields": {
+      "service": 49,
+      "language": "it",
+      "name": "Comune di Maienfeld",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 236,
+    "fields": {
+      "service": 50,
+      "language": "it",
+      "name": "Comune di Malans",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 237,
+    "fields": {
+      "service": 51,
+      "language": "it",
+      "name": "Comune di Masein",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 238,
+    "fields": {
+      "service": 52,
+      "language": "it",
+      "name": "Comune di Medel (Lucmagn)",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 239,
+    "fields": {
+      "service": 53,
+      "language": "it",
+      "name": "Comune di Mesocco",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 240,
+    "fields": {
+      "service": 54,
+      "language": "it",
+      "name": "Comune di Muntogna da Schons",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 241,
+    "fields": {
+      "service": 55,
+      "language": "it",
+      "name": "Comune di Obersaxen Mundaun",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 242,
+    "fields": {
+      "service": 56,
+      "language": "it",
+      "name": "Comune di Pontresina",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 243,
+    "fields": {
+      "service": 57,
+      "language": "it",
+      "name": "Comune di Poschiavo",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 244,
+    "fields": {
+      "service": 58,
+      "language": "it",
+      "name": "Comune di Rhäzüns",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 245,
+    "fields": {
+      "service": 59,
+      "language": "it",
+      "name": "Comune di Rheinwald",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 246,
+    "fields": {
+      "service": 60,
+      "language": "it",
+      "name": "Comune di Rongellen",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 247,
+    "fields": {
+      "service": 61,
+      "language": "it",
+      "name": "Comune di Rossa",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 248,
+    "fields": {
+      "service": 62,
+      "language": "it",
+      "name": "Comune di Rothenbrunnen",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 249,
+    "fields": {
+      "service": 63,
+      "language": "it",
+      "name": "Comune di Roveredo (GR)",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 250,
+    "fields": {
+      "service": 64,
+      "language": "it",
+      "name": "Comune di Safiental",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 251,
+    "fields": {
+      "service": 65,
+      "language": "it",
+      "name": "Comune di Sagogn",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 252,
+    "fields": {
+      "service": 66,
+      "language": "it",
+      "name": "Comune di Samedan",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 253,
+    "fields": {
+      "service": 67,
+      "language": "it",
+      "name": "Comune di Samnaun",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 254,
+    "fields": {
+      "service": 68,
+      "language": "it",
+      "name": "Comune di San Vittore",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 255,
+    "fields": {
+      "service": 69,
+      "language": "it",
+      "name": "Comune di S-chanf",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 256,
+    "fields": {
+      "service": 70,
+      "language": "it",
+      "name": "Comune di Scharans",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 257,
+    "fields": {
+      "service": 71,
+      "language": "it",
+      "name": "Comune di Schiers",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 258,
+    "fields": {
+      "service": 72,
+      "language": "it",
+      "name": "Comune di Schluein",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 259,
+    "fields": {
+      "service": 73,
+      "language": "it",
+      "name": "Comune di Schmitten (GR)",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 260,
+    "fields": {
+      "service": 74,
+      "language": "it",
+      "name": "Comune di Scuol",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 261,
+    "fields": {
+      "service": 75,
+      "language": "it",
+      "name": "Comune di Seewis im Prättigau",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 262,
+    "fields": {
+      "service": 76,
+      "language": "it",
+      "name": "Comune di Sils im Domleschg",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 263,
+    "fields": {
+      "service": 77,
+      "language": "it",
+      "name": "Comune di Sils im Engadin/Segl",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 264,
+    "fields": {
+      "service": 78,
+      "language": "it",
+      "name": "Comune di Silvaplana",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 265,
+    "fields": {
+      "service": 79,
+      "language": "it",
+      "name": "Comune di Soazza",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 266,
+    "fields": {
+      "service": 80,
+      "language": "it",
+      "name": "Comune di St. Moritz",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 267,
+    "fields": {
+      "service": 81,
+      "language": "it",
+      "name": "Comune di Santa Maria in Calanca",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 268,
+    "fields": {
+      "service": 82,
+      "language": "it",
+      "name": "Comune di Sufers",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 269,
+    "fields": {
+      "service": 83,
+      "language": "it",
+      "name": "Comune di Sumvitg",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 270,
+    "fields": {
+      "service": 24,
+      "language": "it",
+      "name": "Comune di Domleschg",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 271,
+    "fields": {
+      "service": 85,
+      "language": "it",
+      "name": "Comune di Tamins",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 272,
+    "fields": {
+      "service": 86,
+      "language": "it",
+      "name": "Comune di Thusis",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 273,
+    "fields": {
+      "service": 87,
+      "language": "it",
+      "name": "Comune di Trimmis",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 274,
+    "fields": {
+      "service": 88,
+      "language": "it",
+      "name": "Comune di Trin",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 275,
+    "fields": {
+      "service": 89,
+      "language": "it",
+      "name": "Comune di Trun",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 276,
+    "fields": {
+      "service": 90,
+      "language": "it",
+      "name": "Comune di Tschappina",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 277,
+    "fields": {
+      "service": 91,
+      "language": "it",
+      "name": "Comune di Tschiertschen-Praden",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 278,
+    "fields": {
+      "service": 92,
+      "language": "it",
+      "name": "Comune di Tujetsch",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 279,
+    "fields": {
+      "service": 93,
+      "language": "it",
+      "name": "Comune di Untervaz",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 280,
+    "fields": {
+      "service": 94,
+      "language": "it",
+      "name": "Comune di Urmein",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 281,
+    "fields": {
+      "service": 95,
+      "language": "it",
+      "name": "Comune di Val Müstair",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 282,
+    "fields": {
+      "service": 96,
+      "language": "it",
+      "name": "Comune di Vals",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 283,
+    "fields": {
+      "service": 97,
+      "language": "it",
+      "name": "Comune di Valsot",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 284,
+    "fields": {
+      "service": 98,
+      "language": "it",
+      "name": "Comune di Vaz/Obervaz",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 285,
+    "fields": {
+      "service": 99,
+      "language": "it",
+      "name": "Comune di Zernez",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 286,
+    "fields": {
+      "service": 100,
+      "language": "it",
+      "name": "Comune di Zillis-Reischen",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 287,
+    "fields": {
+      "service": 101,
+      "language": "it",
+      "name": "Comune di Zizers",
+      "description": null,
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 288,
+    "fields": {
+      "service": 102,
+      "language": "it",
+      "name": "Comune di Zuoz",
+      "description": null,
+      "city": null
     }
   }
 ]
