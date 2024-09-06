@@ -3,7 +3,7 @@ import csv
 import magic
 from django.core.management.base import BaseCommand
 
-from camac.user.models import ServiceT
+from camac.user.models import GroupT, ServiceT
 
 
 def _load_csv():
@@ -31,9 +31,14 @@ def _upload_data(data):
     for row in data:
         try:
             if ServiceT.objects.filter(service_id=row["pk"]).exists():
-                _, created = ServiceT.objects.update_or_create(
+                service_t, created = ServiceT.objects.update_or_create(
                     language="it", name=row["translation"], service_id=row["pk"]
                 )
+                for group in service_t.service.groups.all():
+                    translated_name = f"{group.role.trans.get(language='it').group_prefix} {service_t.name}"
+                    _, created = GroupT.objects.update_or_create(
+                        language="it", name=translated_name, group_id=group.pk
+                    )
             else:
                 service = ServiceT.objects.filter(name=row["de_name"]).first()
 
@@ -43,9 +48,14 @@ def _upload_data(data):
                     )
                     continue
 
-                _, created = ServiceT.objects.update_or_create(
+                service_t, created = ServiceT.objects.update_or_create(
                     language="it", name=row["translation"], service_id=service.pk
                 )
+                for group in service_t.service.groups.all():
+                    translated_name = f"{group.role.trans.get(language='it').group_prefix} {service_t.name}"
+                    _, created = GroupT.objects.update_or_create(
+                        language="it", name=translated_name, group_id=group.pk
+                    )
             if created:
                 print(f"ServiceT({row['pk']}) was created: {row}")
 
