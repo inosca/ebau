@@ -103,3 +103,11 @@ class SoGisClient(GISBaseClient):
             if not cast_to or cast_to == "string"
             else raw_value
         )
+
+    @staticmethod
+    def get_hidden_questions(config: dict):
+        return [
+            property_config["question"]
+            for property_config in config.get("properties", [])
+            if property_config.get("hidden")
+        ]

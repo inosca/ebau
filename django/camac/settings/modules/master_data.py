@@ -2237,6 +2237,10 @@ MASTER_DATA = {
                 },
             ),
             "land_use_planning_land_use": ("answer", "nutzungsplanung-grundnutzung"),
+            "land_use_planning_land_use_canton": (
+                "answer",
+                "nutzungsplanung-grundnutzung-kanton",
+            ),
             "decision_date": (
                 "answer",
                 "entscheid-datum",

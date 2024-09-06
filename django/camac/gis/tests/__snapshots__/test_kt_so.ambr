@@ -15,11 +15,16 @@
     'nutzungsplanung-grundnutzung': dict({
       'hidden': False,
       'label': 'Tülay Rörricht',
-      'value': '4-geschossige Mischzone, ZR § 6 und 17 (Gemeinde), N133_Gewerbezone_mit_Wohnen_Mischzone_4_G_und_groesser (Kanton)',
+      'value': '4-geschossige Mischzone, ZR § 6 und 17',
+    }),
+    'nutzungsplanung-grundnutzung-kanton': dict({
+      'hidden': True,
+      'label': 'Sinaida Siering-Christoph',
+      'value': 'N133_Gewerbezone_mit_Wohnen_Mischzone_4_G_und_groesser',
     }),
     'nutzungsplanung-weitere-festlegungen': dict({
       'hidden': False,
-      'label': 'Sinaida Siering-Christoph',
+      'label': 'Rainer Ullmann',
       'value': 'Erschliessungsplan (Linie): Baulinie Strasse, Erschliessungsplan (Linie): Strassenbaulinie für 1-geschossige Bauten, Erschliessungsplan (Linie): Gestaltungsbaulinie, Erschliessungsplan (Linie): min. Abstand gem. § 46 kant. Bauverordnung entlang Gemeindestrasse (5.0m), Fläche: Archäologische Fundstellen',
     }),
     'ort': dict({
@@ -97,7 +102,7 @@
   dict({
     'weitere-gis-informationen': dict({
       'hidden': False,
-      'label': 'Rainer Ullmann',
+      'label': 'Kay-Uwe Wagner',
       'value': 'Bodenbedeckung: geschlossener_Wald, Bodenbedeckung: fliessendes Gewaesser',
     }),
   })
@@ -106,7 +111,7 @@
   dict({
     'fruchtfolgeflaeche': dict({
       'hidden': False,
-      'label': 'Kay-Uwe Wagner',
+      'label': 'Herr Michail Säuberlich B.Eng.',
       'value': 'Fruchtfolgeflächen-Qualität: geeignet',
     }),
   })
@@ -115,7 +120,7 @@
   dict({
     'naturgefahren-gis': dict({
       'hidden': False,
-      'label': 'Herr Michail Säuberlich B.Eng.',
+      'label': 'Ayten Sölzer',
       'value': 'Gefahrenstufe: mittel, Charakterisierung: U6',
     }),
   })
@@ -128,7 +133,7 @@
   dict({
     'gewaesserschutz': dict({
       'hidden': False,
-      'label': 'Dipl.-Ing. Nelli Rogge',
+      'label': 'Erhard Oestrovsky',
       'value': 'Schutzzone: S1',
     }),
   })
@@ -137,7 +142,7 @@
   dict({
     'denkmalschutz': dict({
       'hidden': False,
-      'label': 'Erhard Oestrovsky',
+      'label': 'Janos Pohl',
       'value': 'Denkmalschutzobjekt: Buristurm, Denkmalschutz Schutzstufe: geschützt',
     }),
   })
@@ -146,7 +151,7 @@
   dict({
     'archaeologie': dict({
       'hidden': False,
-      'label': 'Janos Pohl',
+      'label': 'Patrik Müller MBA.',
       'value': 'Röm. Münze und versch. Einzelfunde, Neuzeitliche Schanze',
     }),
   })
@@ -155,7 +160,7 @@
   dict({
     'bundesinventare': dict({
       'hidden': False,
-      'label': 'Patrik Müller MBA.',
+      'label': 'Matthias Hauffer',
       'value': 'IVS Regional und Lokal: Lohn/Rütifeld - Lüsslingen, Nr. des IVS Regional und Lokal: SO 563',
     }),
   })
@@ -164,7 +169,7 @@
   dict({
     'bundesinventare': dict({
       'hidden': False,
-      'label': 'Patrik Müller MBA.',
+      'label': 'Matthias Hauffer',
       'value': 'IVS National: Buechrain - Lohn, Nr. des IVS National: SO 6.1.2',
     }),
   })
@@ -173,7 +178,7 @@
   dict({
     'bundesinventare': dict({
       'hidden': False,
-      'label': 'Patrik Müller MBA.',
+      'label': 'Matthias Hauffer',
       'value': 'BLN: Weissenstein, Nr. des BLN: 1010',
     }),
   })
@@ -182,7 +187,7 @@
   dict({
     'bundesinventare': dict({
       'hidden': False,
-      'label': 'Patrik Müller MBA.',
+      'label': 'Matthias Hauffer',
       'value': 'Trockenwiesen und -weiden (TWW): Bützen',
     }),
   })
@@ -191,7 +196,7 @@
   dict({
     'bundesinventare': dict({
       'hidden': False,
-      'label': 'Patrik Müller MBA.',
+      'label': 'Matthias Hauffer',
       'value': 'Hochmoore: Chlepfimoos/Burgmoos, BLN: Steineberg – Steinhof – Burgäschisee, Nr. des BLN: 1313',
     }),
   })
@@ -200,7 +205,7 @@
   dict({
     'bundesinventare': dict({
       'hidden': False,
-      'label': 'Patrik Müller MBA.',
+      'label': 'Matthias Hauffer',
       'value': 'Amphibien Ortsfeste Objekte: Grenchner Witi, Wasser- und Zugvogelreservate: Witi (BE,SO)',
     }),
   })
@@ -209,7 +214,7 @@
   dict({
     'bundesinventare': dict({
       'hidden': False,
-      'label': 'Patrik Müller MBA.',
+      'label': 'Matthias Hauffer',
       'value': 'Auengebiete: Aare bei Altreu',
     }),
   })
