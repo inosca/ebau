@@ -90,6 +90,24 @@
     }
   },
   {
+    "model": "instance.instance",
+    "pk": 6,
+    "fields": {
+      "instance_state": 1,
+      "form": 1,
+      "user": 1,
+      "group": 2,
+      "creation_date": "2024-09-06T08:13:00.946Z",
+      "modification_date": "2024-09-06T08:13:00.946Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": null,
+      "case": "3a99a9e2-8f6a-4305-b22e-d9ff1cdbfa1f",
+      "instance_group": null,
+      "rejection_feedback": null
+    }
+  },
+  {
     "model": "instance.historyentry",
     "pk": 1,
     "fields": {
@@ -204,6 +222,32 @@
       "title": null,
       "body": null,
       "history_type": "status-change"
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 10,
+    "fields": {
+      "instance": 6,
+      "service": null,
+      "user": 1,
+      "created_at": "2024-09-06T08:25:38.203Z",
+      "title": null,
+      "body": null,
+      "history_type": "notification"
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 11,
+    "fields": {
+      "instance": 6,
+      "service": null,
+      "user": 1,
+      "created_at": "2024-09-06T08:25:45.827Z",
+      "title": null,
+      "body": null,
+      "history_type": "notification"
     }
   },
   {
@@ -473,6 +517,66 @@
       "title": "Zirkulation gestartet",
       "body": "",
       "history_entry": 9,
+      "language": "it"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 28,
+    "fields": {
+      "title": "Notifikation gesendet an editor@example.com ([eBau Test]: Einsicht respektive Mitarbeit (Dossier Nr. -))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben Zugriff auf das Dossier-Nr. - erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\n\nhttp://ebau-portal.local/instances/6\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
+      "history_entry": 10,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 29,
+    "fields": {
+      "title": "Notification envoyée à editor@example.com ([eBau Test]: Einsicht respektive Mitarbeit (Dossier Nr. -))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben Zugriff auf das Dossier-Nr. - erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\n\nhttp://ebau-portal.local/instances/6\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
+      "history_entry": 10,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 30,
+    "fields": {
+      "title": "Notifica inviata a editor@example.com ([eBau Test]: Einsicht respektive Mitarbeit (Dossier Nr. -))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben Zugriff auf das Dossier-Nr. - erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\n\nhttp://ebau-portal.local/instances/6\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
+      "history_entry": 10,
+      "language": "it"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 31,
+    "fields": {
+      "title": "Notifikation gesendet an readonly@example.com ([eBau Test]: Einsicht respektive Mitarbeit (Dossier Nr. -))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben Zugriff auf das Dossier-Nr. - erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\n\nhttp://ebau-portal.local/instances/6\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
+      "history_entry": 11,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 32,
+    "fields": {
+      "title": "Notification envoyée à readonly@example.com ([eBau Test]: Einsicht respektive Mitarbeit (Dossier Nr. -))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben Zugriff auf das Dossier-Nr. - erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\n\nhttp://ebau-portal.local/instances/6\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
+      "history_entry": 11,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 33,
+    "fields": {
+      "title": "Notifica inviata a readonly@example.com ([eBau Test]: Einsicht respektive Mitarbeit (Dossier Nr. -))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben Zugriff auf das Dossier-Nr. - erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\n\nhttp://ebau-portal.local/instances/6\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
+      "history_entry": 11,
       "language": "it"
     }
   }

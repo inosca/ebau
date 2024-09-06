@@ -83,7 +83,7 @@ export default class CustomField extends Field {
           "entscheid-entscheid-beschwerde-geaendert",
           "entscheid-entscheid-beschwerde-zurueckgewiesen",
         ];
-      } else if (["voranfrage", "meldung"].includes(form)) {
+      } else if (["voranfrage", "meldung", "meldung-pv"].includes(form)) {
         return [
           "entscheid-entscheid-positiv",
           "entscheid-entscheid-negativ",

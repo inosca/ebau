@@ -77,7 +77,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
             # If the decision comes from a withdrawal, the workflow is finished
             return []
 
-        if case.document.form_id in ["voranfrage", "meldung"]:
+        if case.document.form_id in ["voranfrage", "meldung", "meldung-pv"]:
             # Preliminary clarifications and construction notifications are
             # always finished after the decision
             return []
@@ -300,7 +300,15 @@ class CustomDynamicTasks(BaseDynamicTasks):
         if prev_work_item.task_id == "formal-exam":
             return ["material-exam"]
         elif prev_work_item.task_id == "material-exam":
-            tasks = ["distribution", "publication", "fill-publication", "objections"]
+            if prev_work_item.case.document.form_id == "meldung-pv":
+                tasks = ["distribution"]
+            else:
+                tasks = [
+                    "distribution",
+                    "publication",
+                    "fill-publication",
+                    "objections",
+                ]
 
             if prev_work_item.case.meta.get("is-bab"):
                 tasks.append("material-exam-bab")

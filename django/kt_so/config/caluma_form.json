@@ -258,6 +258,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "dokumente-pv",
+    "fields": {
+      "created_at": "2024-09-06T07:38:08.082Z",
+      "modified_at": "2024-09-06T07:38:08.082Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dokumente (PV)\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "dokumente"
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "dokumente-voranfrage",
     "fields": {
       "created_at": "2024-04-30T10:17:57.529Z",
@@ -351,7 +369,7 @@
     "pk": "erdwaermesonden",
     "fields": {
       "created_at": "2023-11-02T07:35:08.109Z",
-      "modified_at": "2024-04-30T10:10:17.911Z",
+      "modified_at": "2024-09-06T07:56:19.082Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -359,7 +377,7 @@
       "name": "{\"de\": \"Erdw\\u00e4rmesonden (EWS)\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {
-        "order": 2,
+        "order": 3,
         "category": "special-procedure",
         "is-creatable": true,
         "is-main-form": true
@@ -552,6 +570,29 @@
       "is_published": true,
       "is_archived": false,
       "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "meldung-pv",
+    "fields": {
+      "created_at": "2024-09-06T07:34:40.981Z",
+      "modified_at": "2024-09-06T07:56:08.533Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Meldung PV-Anlage\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {
+        "order": 2,
+        "category": "special-procedure",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": "meldung"
     }
   },
   {
@@ -830,6 +871,24 @@
       "is_published": false,
       "is_archived": false,
       "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "vorhaben-pv",
+    "fields": {
+      "created_at": "2024-09-06T07:35:01.936Z",
+      "modified_at": "2024-09-06T07:35:01.936Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Vorhaben (PV)\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "vorhaben"
     }
   },
   {
@@ -7347,6 +7406,66 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "dokumente-pv.baubeschrieb-pv",
+    "fields": {
+      "created_at": "2024-09-06T07:40:26.710Z",
+      "modified_at": "2024-09-06T07:40:26.710Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-pv",
+      "question": "baubeschrieb-pv",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-pv.bemerkungen-dokumente",
+    "fields": {
+      "created_at": "2024-09-06T07:38:08.105Z",
+      "modified_at": "2024-09-06T07:38:08.105Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "dokumente-pv",
+      "question": "bemerkungen-dokumente",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-pv.fassadenplan-pv",
+    "fields": {
+      "created_at": "2024-09-06T07:41:08.177Z",
+      "modified_at": "2024-09-06T07:41:08.177Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-pv",
+      "question": "fassadenplan-pv",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-pv.situationsplan-pv",
+    "fields": {
+      "created_at": "2024-09-06T07:40:46.006Z",
+      "modified_at": "2024-09-06T07:40:46.006Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-pv",
+      "question": "situationsplan-pv",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "dokumente.querprofile",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -7867,7 +7986,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "formulardownload-pdf",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -7882,7 +8001,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "hinweis-gesuch",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -7902,6 +8021,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "einreichen.hinweis-meldung-pv",
+    "fields": {
+      "created_at": "2024-09-06T08:02:28.203Z",
+      "modified_at": "2024-09-06T08:02:28.203Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "einreichen",
+      "question": "hinweis-meldung-pv",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "einreichen.hinweis-voranfrage",
     "fields": {
       "created_at": "2024-05-31T09:24:10.013Z",
@@ -7912,7 +8046,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "hinweis-voranfrage",
-      "sort": 7
+      "sort": 6
     }
   },
   {
@@ -7942,7 +8076,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "unterschriftenblatt-hinweis",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -7957,7 +8091,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "unterschriftenblatt-pdf",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -13167,6 +13301,96 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "meldung-pv.allgemeine-informationen",
+    "fields": {
+      "created_at": "2024-09-06T07:34:41Z",
+      "modified_at": "2024-09-06T07:34:41Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "meldung-pv",
+      "question": "allgemeine-informationen",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "meldung-pv.dokumente-pv",
+    "fields": {
+      "created_at": "2024-09-06T07:38:33.547Z",
+      "modified_at": "2024-09-06T07:38:33.547Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "meldung-pv",
+      "question": "dokumente-pv",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "meldung-pv.einreichen",
+    "fields": {
+      "created_at": "2024-09-06T07:34:41.043Z",
+      "modified_at": "2024-09-06T07:34:41.043Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "meldung-pv",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "meldung-pv.lokalisierung",
+    "fields": {
+      "created_at": "2024-09-06T07:34:41.020Z",
+      "modified_at": "2024-09-06T07:34:41.020Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "meldung-pv",
+      "question": "lokalisierung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "meldung-pv.personalien",
+    "fields": {
+      "created_at": "2024-09-06T07:34:41.011Z",
+      "modified_at": "2024-09-06T07:34:41.011Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "meldung-pv",
+      "question": "personalien",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "meldung-pv.vorhaben-pv",
+    "fields": {
+      "created_at": "2024-09-06T07:35:20.257Z",
+      "modified_at": "2024-09-06T07:35:20.257Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "meldung-pv",
+      "question": "vorhaben-pv",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "meldung.vorhaben",
     "fields": {
       "created_at": "2024-04-30T10:27:00.676Z",
@@ -16917,6 +17141,111 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "vorhaben-pv.abklaerungen-netzbetreiber",
+    "fields": {
+      "created_at": "2024-09-06T07:36:39.982Z",
+      "modified_at": "2024-09-06T07:36:39.982Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorhaben-pv",
+      "question": "abklaerungen-netzbetreiber",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorhaben-pv.anlageart",
+    "fields": {
+      "created_at": "2024-09-06T07:36:12.134Z",
+      "modified_at": "2024-09-06T07:36:12.134Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorhaben-pv",
+      "question": "anlageart",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorhaben-pv.bemerkungen",
+    "fields": {
+      "created_at": "2024-09-06T07:35:01.969Z",
+      "modified_at": "2024-09-06T07:35:01.969Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorhaben-pv",
+      "question": "bemerkungen",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorhaben-pv.gesamtkosten",
+    "fields": {
+      "created_at": "2024-09-06T07:36:46.281Z",
+      "modified_at": "2024-09-06T07:36:46.281Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorhaben-pv",
+      "question": "gesamtkosten",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorhaben-pv.infotext-pv",
+    "fields": {
+      "created_at": "2024-09-06T07:37:22.764Z",
+      "modified_at": "2024-09-06T07:37:22.764Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorhaben-pv",
+      "question": "infotext-pv",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorhaben-pv.umschreibung-bauprojekt",
+    "fields": {
+      "created_at": "2024-09-06T07:35:01.960Z",
+      "modified_at": "2024-09-06T07:35:01.960Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorhaben-pv",
+      "question": "umschreibung-bauprojekt",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorhaben-pv.vorhaben-titel",
+    "fields": {
+      "created_at": "2024-09-06T07:35:01.950Z",
+      "modified_at": "2024-09-06T07:35:01.950Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorhaben-pv",
+      "question": "vorhaben-titel",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "vorhaben.umschreibung-bauprojekt",
     "fields": {
       "created_at": "2024-04-30T10:23:24.801Z",
@@ -18251,6 +18580,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "abklaerungen-netzbetreiber-ja",
+    "fields": {
+      "created_at": "2024-09-06T07:36:39.801Z",
+      "modified_at": "2024-09-06T07:36:39.801Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "abklaerungen-netzbetreiber-nein",
+    "fields": {
+      "created_at": "2024-09-06T07:36:39.811Z",
+      "modified_at": "2024-09-06T07:36:39.811Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "ableitung-des-pumpwassers-kanalisation",
     "fields": {
       "created_at": "2024-02-22T08:04:07.767Z",
@@ -18634,6 +18997,40 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Angaben zur Wiederbepflanzung der Hecke (vermasster Situationsplan [inkl. Heckengrenze und neue Fl\\u00e4che in m\\u00b2] und Ansicht)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlageart-solarstromanlage-photovoltaikanlage",
+    "fields": {
+      "created_at": "2024-09-06T07:36:11.952Z",
+      "modified_at": "2024-09-06T07:36:11.952Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Solarstromanlage / Photovoltaikanlage\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlageart-solarwaermeanlage",
+    "fields": {
+      "created_at": "2024-09-06T07:36:11.942Z",
+      "modified_at": "2024-09-06T07:36:11.942Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Solarw\\u00e4rmeanlage\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -20317,6 +20714,23 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "baubeschrieb-pv-ja",
+    "fields": {
+      "created_at": "2024-09-06T07:40:26.486Z",
+      "modified_at": "2024-09-06T07:40:26.486Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baubeschrieb\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -22935,6 +23349,23 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Fassadenpl\\u00e4ne\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "fassadenplan-pv-ja",
+    "fields": {
+      "created_at": "2024-09-06T07:41:07.989Z",
+      "modified_at": "2024-09-06T07:41:07.989Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fassadenplan\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -28154,6 +28585,23 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Situationsplan mit vermasster Einz\\u00e4unung der Weidefl\\u00e4che\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "situationsplan-pv-ja",
+    "fields": {
+      "created_at": "2024-09-06T07:40:45.833Z",
+      "modified_at": "2024-09-06T07:40:45.833Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situationsplan\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -33516,6 +33964,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "abklaerungen-netzbetreiber",
+    "fields": {
+      "created_at": "2024-09-06T07:36:39.887Z",
+      "modified_at": "2024-09-06T08:14:15.522Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Haben Abkl\\u00e4rungen mit dem Netzbetreiber ergeben, dass zus\\u00e4tzliche Leitungsbauprojekte oder Transformatorenstationen erforderlich sind?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "ableitung-des-pumpwassers",
     "fields": {
       "created_at": "2024-02-22T08:04:07.977Z",
@@ -34387,6 +34866,37 @@
       "meta": {
         "hideLabel": true
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anlageart",
+    "fields": {
+      "created_at": "2024-09-06T07:36:12.032Z",
+      "modified_at": "2024-09-06T08:14:11.049Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Um welche Anlageart handelt es sich?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -37078,6 +37588,39 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "baubeschrieb-pv",
+    "fields": {
+      "created_at": "2024-09-06T07:40:26.611Z",
+      "modified_at": "2024-09-06T07:40:30.936Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baubeschrieb\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -41153,6 +41696,45 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "dokumente-pv",
+    "fields": {
+      "created_at": "2024-09-06T07:38:33.463Z",
+      "modified_at": "2024-09-06T08:16:23.467Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "alexandria-documents-form",
+        "alexandria-categories": [
+          "beilagen-zum-gesuch-grundstuecksangaben",
+          "beilagen-zum-gesuch-gutachten-nachweise-begruendungen",
+          "beilagen-zum-gesuch-projektplaene-projektbeschrieb",
+          "beilagen-zum-gesuch-weitere-gesuchsunterlagen"
+        ]
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "dokumente-pv",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "dokumente-voranfrage",
     "fields": {
       "created_at": "2024-04-30T10:18:55.043Z",
@@ -45038,6 +45620,39 @@
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "!(\n\t[\n\t\t\"typ-des-bauwerks-einfamilienhaus\",\n\t\t\"typ-des-bauwerks-doppeleinfamilienhaus\",\n\t\t\"typ-des-bauwerks-mehrfamilienhaus\",\n\t\t\"typ-des-bauwerks-geschaftshaus\",\n\t\t\"typ-des-bauwerks-wohn-und-geschaftshaus\",\n\t\t\"typ-des-bauwerks-industrie\",\n\t\t\"typ-des-bauwerks-garage-oder-carport\",\n\t\t\"typ-des-bauwerks-parkhaus\",\n\t\t\"typ-des-bauwerks-bauten-und-anlagen-gastgewerbe\",\n\t\t\"typ-des-bauwerks-heim-mit-unterkunft\",\n\t\t\"typ-des-bauwerks-wohnheim-ohne-pflege\",\n\t\t\"typ-des-bauwerks-spital\",\n\t\t\"typ-des-bauwerks-schulen\",\n\t\t\"typ-des-bauwerks-sporthallen\",\n\t\t\"typ-des-bauwerks-tourismusanlagen\",\n\t\t\"typ-des-bauwerks-kirchen\",\n\t\t\"typ-des-bauwerks-kulturbauten\",\n\t\t\"typ-des-bauwerks-ekonomie-mit-tieren-mit-tieren\",\n\t\t\"typ-des-bauwerks-oekonomiegebaude\",\n\t\t\"typ-des-bauwerks-landwirtschaft-betrieb-wohnteil\",\n\t\t\"typ-des-bauwerks-forstwirtschaft\"\n\t]\n\tintersects \"gebaeude\"|answer([])|mapby(\"typ-des-bauwerks\") ||\n\t[\n\t\t\"nutzungszwecke-gewerbe\",\n\t\t\"nutzungszwecke-industrie\",\n\t\t\"nutzungszwecke-dienstleistung\",\n\t\t\"nutzungszwecke-gastgewerbe\"\n\t] intersects \"nutzungszwecke\"|answer([])\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "fassadenplan-pv",
+    "fields": {
+      "created_at": "2024-09-06T07:41:08.076Z",
+      "modified_at": "2024-09-06T07:41:16.342Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fassadenplan\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -50131,7 +50746,7 @@
     "pk": "hinweis-gesuch",
     "fields": {
       "created_at": "2024-05-31T09:26:18.393Z",
-      "modified_at": "2024-05-31T09:28:07.355Z",
+      "modified_at": "2024-09-06T08:18:11.999Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -50139,7 +50754,7 @@
       "label": "{\"de\": \"Hinweis Gesuch\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "info.root.form in [\"voranfrage\", \"meldung\"]",
+      "is_hidden": "info.root.form in [\"voranfrage\", \"meldung\", \"meldung-pv\"]",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -50581,6 +51196,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"Mit Klick auf die Schaltfl\\u00e4che \\\"Einreichen\\\" best\\u00e4tigen Sie, dass das Formular vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt wurde. Ihre Meldung (Anzeige) ist bei der zust\\u00e4ndigen Beh\\u00f6rde zur Pr\\u00fcfung eingereicht. Sie k\\u00f6nnen an den Formulareintr\\u00e4gen keine Ver\\u00e4nderungen mehr\\nvornehmen.\\n\\n<p class=\\\"uk-margin-remove-bottom\\\">Bei Bedarf k\\u00f6nnen Sie das Formular herunterladen:</p>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-meldung-pv",
+    "fields": {
+      "created_at": "2024-09-06T08:02:28.114Z",
+      "modified_at": "2024-09-06T08:02:36.416Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Meldung (PV)\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "info.root.form != \"meldung-pv\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Mit Klick auf die Schaltfl\\u00e4che \\\"Einreichen\\\" best\\u00e4tigen Sie, dass das Formular vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt wurde. Ihre Meldung PV-Anlage ist bei der zust\\u00e4ndigen Beh\\u00f6rde zur Pr\\u00fcfung eingereicht. Sie k\\u00f6nnen an den Formulareintr\\u00e4gen keine Ver\\u00e4nderungen mehr\\nvornehmen.\\n\\n<p class=\\\"uk-margin-remove-bottom\\\">Bei Bedarf k\\u00f6nnen Sie das Formular herunterladen:</p>\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -52437,6 +53083,37 @@
       "info_text": "{\"de\": \"**Abk\\u00fcrzungen**\\n\\n**HGW**: h\\u00f6chster Grundwasserspiegel\\n\\n**MGW**: mittlerer Grundwasserspiegel\\n\\n**TGW**: tiefster Grundwasserspiegel\\n\\n**AfU**: Amt f\\u00fcr Umwelt\\n\\n**GW**: Grundwasser\\n\\n**GWBA**: Gesetz \\u00fcber Wasser, Boden und Abfall (BGS; 712.15)\\n\\n**GT**: Kantonaler Geb\\u00fchrentarif (BGS; 615.11)\\n\\n**KBV**: Kantonale Bauverordnung (BGS; 711.61)\\n\\n**VWBA**: Verordnung \\u00fcber Wasser, Boden und Abfall (BGS; 712.16)\\n\\n**UVP**: Umweltvertr\\u00e4glichkeitspr\\u00fcfung\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"**Einzureichende Unterlagen**\\n\\n* Situationsplan\\n* Grundriss Untergeschoss\\n* Pfahlplan (nur bei Pf\\u00e4hlungen)\\n* Querschnitt mit Baugrund, Einbaukoten und Grundwasserspiegel (HGW, MGW, TGW)\\n* Hydrogeologisches Gutachten\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "infotext-pv",
+    "fields": {
+      "created_at": "2024-09-06T07:37:22.690Z",
+      "modified_at": "2024-09-06T07:37:22.690Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Infotext PV\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Die \\u00f6rtliche Baubeh\\u00f6rde pr\\u00fcft, ob es sich um eine bewilligungs- oder meldepflichtige Anlage handelt. Wenn bewilligungspflichtig, wird sie das ordentliche Baugesuchsverfahren einleiten (Anlagen ausserhalb der Bauzone brauchen zus\\u00e4tzlich die Zustimmung durch das Bau- und Justizdepartement). Wenn meldepflichtig, wird sie die Bauherrschaft, die Solothurnische Geb\\u00e4udeversicherung und evtl. andere Instanzen wie Feuerwehr etc. dar\\u00fcber informieren.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -60347,6 +61024,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "situationsplan-pv",
+    "fields": {
+      "created_at": "2024-09-06T07:40:45.915Z",
+      "modified_at": "2024-09-06T07:40:45.915Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situationsplan\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "situationsplan-strasse",
     "fields": {
       "created_at": "2023-11-09T15:58:17.561Z",
@@ -64227,6 +64937,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "vorhaben-pv",
+    "fields": {
+      "created_at": "2024-09-06T07:35:20.176Z",
+      "modified_at": "2024-09-06T07:35:20.176Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorhaben\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "vorhaben-pv",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "vorhaben-titel",
     "fields": {
       "created_at": "2024-04-30T10:23:13.189Z",
@@ -66080,6 +66821,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "abklaerungen-netzbetreiber.abklaerungen-netzbetreiber-ja",
+    "fields": {
+      "created_at": "2024-09-06T08:14:15.539Z",
+      "modified_at": "2024-09-06T08:14:15.539Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "abklaerungen-netzbetreiber",
+      "option": "abklaerungen-netzbetreiber-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "abklaerungen-netzbetreiber.abklaerungen-netzbetreiber-nein",
+    "fields": {
+      "created_at": "2024-09-06T08:14:15.533Z",
+      "modified_at": "2024-09-06T08:14:15.533Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "abklaerungen-netzbetreiber",
+      "option": "abklaerungen-netzbetreiber-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "ableitung-des-pumpwassers.ableitung-des-pumpwassers-kanalisation",
     "fields": {
       "created_at": "2024-02-22T08:05:56.716Z",
@@ -66421,6 +67192,36 @@
       "question": "angaben-zur-wiederbepflanzung-der-hecke",
       "option": "angaben-zur-wiederbepflanzung-der-hecke-ja",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlageart.anlageart-solarstromanlage-photovoltaikanlage",
+    "fields": {
+      "created_at": "2024-09-06T08:14:11.060Z",
+      "modified_at": "2024-09-06T08:14:11.060Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlageart",
+      "option": "anlageart-solarstromanlage-photovoltaikanlage",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlageart.anlageart-solarwaermeanlage",
+    "fields": {
+      "created_at": "2024-09-06T08:14:11.066Z",
+      "modified_at": "2024-09-06T08:14:11.067Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlageart",
+      "option": "anlageart-solarwaermeanlage",
+      "sort": 2
     }
   },
   {
@@ -67875,6 +68676,21 @@
       "modified_by_group": null,
       "question": "bauabstand-unterschritten",
       "option": "bauabstand-unterschritten-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "baubeschrieb-pv.baubeschrieb-pv-ja",
+    "fields": {
+      "created_at": "2024-09-06T07:40:30.948Z",
+      "modified_at": "2024-09-06T07:40:30.948Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "baubeschrieb-pv",
+      "option": "baubeschrieb-pv-ja",
       "sort": 1
     }
   },
@@ -70275,6 +71091,21 @@
       "modified_by_group": null,
       "question": "fassadenplaene",
       "option": "fassadenplaene-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "fassadenplan-pv.fassadenplan-pv-ja",
+    "fields": {
+      "created_at": "2024-09-06T07:41:16.350Z",
+      "modified_at": "2024-09-06T07:41:16.350Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "fassadenplan-pv",
+      "option": "fassadenplan-pv-ja",
       "sort": 1
     }
   },
@@ -74865,6 +75696,21 @@
       "modified_by_group": null,
       "question": "situationsplan-mit-vermasster-einzaeunung-der-weideflaeche",
       "option": "situationsplan-mit-vermasster-einzaeunung-der-weideflaeche-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "situationsplan-pv.situationsplan-pv-ja",
+    "fields": {
+      "created_at": "2024-09-06T07:40:45.924Z",
+      "modified_at": "2024-09-06T07:40:45.924Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "situationsplan-pv",
+      "option": "situationsplan-pv-ja",
       "sort": 1
     }
   },

@@ -136,7 +136,8 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
         history_text = settings.WITHDRAWAL["HISTORY_ENTRIES"]["CONFIRMED"]
     elif workflow == "building-permit" and (
         not settings.APPLICATION_NAME == "kt_so"
-        or work_item.case.document.form_id not in ["voranfrage", "meldung"]
+        or work_item.case.document.form_id
+        not in ["voranfrage", "meldung", "meldung-pv"]
     ):
         history_text = gettext_noop("Decision decreed")
 
@@ -155,7 +156,7 @@ def rename_decision_work_item(sender, work_item, user, context, **kwargs):
     if work_item.case.meta.get("is-appeal"):
         work_item.name = _("Confirm decision of appeal authority")
         work_item.save()
-    elif work_item.case.document.form_id in ["voranfrage", "meldung"]:
+    elif work_item.case.document.form_id in ["voranfrage", "meldung", "meldung-pv"]:
         form_name = work_item.case.document.form.name.translate()
         work_item.name = _("Evaluate %(form_name)s") % {"form_name": form_name}
         work_item.save()
