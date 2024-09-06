@@ -47,7 +47,8 @@ class DecisionLogic:
             )
         elif (
             settings.APPLICATION_NAME == "kt_so"
-            and instance.case.document.form_id in ["voranfrage", "meldung"]
+            and instance.case.document.form_id
+            in ["voranfrage", "meldung", "meldung-pv"]
         ):
             cls.cancel_manual_work_items(instance, user)
             instance.set_instance_state("finished", camac_user)

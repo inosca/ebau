@@ -287,6 +287,7 @@ DMS = {
                     "migriertes-dossier",
                     "voranfrage",
                     "meldung",
+                    "meldung-pv",
                 ],
                 "template": "form",
                 "personalien": "personalien",

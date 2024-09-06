@@ -326,6 +326,11 @@ def test_dynamic_task_after_ebau_number(
             "meldung",
             {"create-manual-workitems", "decision"},
         ),
+        (
+            False,
+            "meldung-pv",
+            {"create-manual-workitems", "formal-exam", "init-additional-demand"},
+        ),
     ],
 )
 def test_dynamic_task_after_submit(
@@ -425,18 +430,20 @@ def test_dynamic_task_after_create_inquiry(
 
 
 @pytest.mark.parametrize(
-    "task_id,has_rejection_answer,is_bab,expected_tasks",
+    "root_form,task_id,has_rejection_answer,is_bab,expected_tasks",
     [
-        ("formal-exam", True, False, ["reject"]),
-        ("material-exam", True, False, ["reject"]),
-        ("formal-exam", False, False, ["material-exam"]),
+        ("main-form", "formal-exam", True, False, ["reject"]),
+        ("main-form", "material-exam", True, False, ["reject"]),
+        ("main-form", "formal-exam", False, False, ["material-exam"]),
         (
+            "main-form",
             "material-exam",
             False,
             False,
             ["distribution", "publication", "fill-publication", "objections"],
         ),
         (
+            "main-form",
             "material-exam",
             False,
             True,
@@ -448,6 +455,13 @@ def test_dynamic_task_after_create_inquiry(
                 "material-exam-bab",
             ],
         ),
+        (
+            "meldung-pv",
+            "material-exam",
+            False,
+            False,
+            ["distribution"],
+        ),
     ],
 )
 def test_dynamic_task_after_exam(
@@ -456,6 +470,7 @@ def test_dynamic_task_after_exam(
     expected_tasks,
     has_rejection_answer,
     is_bab,
+    root_form,
     so_instance,
     so_rejection_settings,
     task_id,
@@ -473,6 +488,9 @@ def test_dynamic_task_after_exam(
     if is_bab:
         work_item.case.meta.update({"is-bab": True})
         work_item.case.save()
+
+    work_item.case.document.form_id = root_form
+    work_item.case.document.save()
 
     assert (
         CustomDynamicTasks().resolve_after_exam(so_instance.case, None, work_item, None)
