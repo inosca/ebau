@@ -249,15 +249,15 @@
         'country': dict({
           'countryNameShort': 'ch',
         }),
-        'houseNumber': '166',
-        'street': 'Blackburn Canyon',
-        'swissZipCode': 7736,
-        'town': 'Lake Bethton',
+        'houseNumber': '339',
+        'street': 'Riddle Ranch',
+        'swissZipCode': 8564,
+        'town': 'Port Heatherchester',
       }),
       'identification': dict({
         'isOrganisation': True,
         'organisationIdentification': dict({
-          'organisationName': 'Wilson-Brewer',
+          'organisationName': 'Stephens Group',
         }),
         'personIdentification': None,
       }),

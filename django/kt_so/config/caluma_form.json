@@ -12862,7 +12862,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "gemeinde",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -12877,7 +12877,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "gemeindenummer-bfs",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -12907,7 +12907,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "gis-karte",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -12922,7 +12922,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "hinweis-lokalisierung",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -12937,7 +12937,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "lokalisierung-titel",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -12967,6 +12967,21 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "nutzungsplanung-grundnutzung",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lokalisierung.nutzungsplanung-grundnutzung-kanton",
+    "fields": {
+      "created_at": "2024-09-05T11:48:27.228Z",
+      "modified_at": "2024-09-05T11:48:27.228Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lokalisierung",
+      "question": "nutzungsplanung-grundnutzung-kanton",
       "sort": 10
     }
   },
@@ -12997,7 +13012,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "ort",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -13012,7 +13027,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "parzellen",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -13027,7 +13042,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "plz",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -13042,7 +13057,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "strasse-flurname",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -13057,7 +13072,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "strasse-nummer",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -57859,6 +57874,42 @@
       },
       "meta": {
         "gis-layers": ["ch.so.arp.nutzungsplanung.grundnutzung"]
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "nutzungsplanung-grundnutzung-kanton",
+    "fields": {
+      "created_at": "2024-09-05T11:48:27.157Z",
+      "modified_at": "2024-09-05T11:48:27.157Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nutzungsplanung (Grundnutzung) (Kanton)\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/hidden"
       },
       "data_source": null,
       "row_form": null,

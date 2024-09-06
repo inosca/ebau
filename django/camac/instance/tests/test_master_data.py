@@ -508,7 +508,10 @@ def so_master_data_case(
     utils.add_answer(document, "strasse-nummer", 4)
     utils.add_answer(document, "gesamtkosten", 129000)
     utils.add_answer(document, "ort", "Musterdorf")
-    utils.add_answer(document, "nutzungsplanung-grundnutzung", "Wohnzone 3")
+    utils.add_answer(document, "nutzungsplanung-grundnutzung", "Wohnzone 3 - AZ 0.6")
+    utils.add_answer(
+        document, "nutzungsplanung-grundnutzung-kanton", "N112_Wohnzone_3_G"
+    )
     utils.add_answer(
         document, "nutzungszwecke", "nutzungszwecke-wohnen", label="Wohnen"
     )

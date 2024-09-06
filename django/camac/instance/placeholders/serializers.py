@@ -1688,6 +1688,11 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("LAND_USE_PLANNING_LAND_USE")],
         description=_("Land use planning (land use)"),
     )
+    nutzungsplanung_grundnutzung_kanton = fields.MasterDataField(
+        source="land_use_planning_land_use_canton",
+        aliases=[_("LAND_USE_PLANNING_LAND_USE_CANTON")],
+        description=_("Land use planning (land use) (canton)"),
+    )
     publikation_organ = fields.PublicationField(
         source="publikation-organ",
         value_key="selected_options",
