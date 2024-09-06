@@ -64,7 +64,7 @@ class KeycloakClient:
 
         response.raise_for_status()
 
-    def update_user(self, user_id: str, data: dict) -> None:
+    def update_user(self, username: str, user_id: str, data: dict) -> None:
         response = requests.put(
             build_url(
                 settings.KEYCLOAK_URL,
@@ -73,7 +73,10 @@ class KeycloakClient:
                 "users",
                 user_id,
             ),
-            json=extract_sync_data(data),
+            json={
+                "username": username,
+                **extract_sync_data(data),
+            },
             headers={
                 "authorization": f"Bearer {self.token}",
                 "content-type": "application/json",
@@ -86,7 +89,7 @@ class KeycloakClient:
         user = self.get_user(username)
 
         if user:
-            self.update_user(user["id"], data)
+            self.update_user(username, user["id"], data)
         else:
             self.create_user(username, data)
 

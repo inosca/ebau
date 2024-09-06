@@ -5,7 +5,7 @@
     <title>eGov Demo</title>
   </head>
   <body>
-    <strong>Login als natürliche Person</strong>
+    <strong>Login als natürliche Person (LoT 1)</strong>
     <br />
     <a href="/prestation/1?redirectUrl=http://localhost:4200/login">eBauSO</a>
     <br />
@@ -19,6 +19,15 @@
     <a href="/prestation/3?redirectUrl=http://localhost:4200/login">eBauSO </a>
     <br />
     <a href="/prestation/4?redirectUrl=http://localhost:4200/login">
+      eBauSO - öffentliche Planauflage
+    </a>
+    <br />
+    <br />
+    <strong>Login als natürliche Person (LoT 0 - nur Planauflage)</strong>
+    <br />
+    <a href="/prestation/5?redirectUrl=http://localhost:4200/login">eBauSO</a>
+    <br />
+    <a href="/prestation/6?redirectUrl=http://localhost:4200/login">
       eBauSO - öffentliche Planauflage
     </a>
 
@@ -37,15 +46,19 @@
       // file, run the command and copy the new tokens from the output file into
       // the variables below.
       const userToken =
-        "eyJhbGciOiJkaXIiLCJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwidHlwIjoiSldUIn0..YWvwGFtR81eFptZllKe1kA.EBDpbs5OfnufCGEuqJl3cbjX-IzegU8TXFhNFzw1ds9CvjncTXLX7Yk8wghBVyXatI9Hes23ECreoP9zKaSu3PjL51AkkjBasWpAGXtCuQegpHs9DAdRoOTft2IuxDPjWq5_5NZVJQaYXbuMkRZf1QGFvbDzXLXGizYbVjHCgSU5T7VxLN2rt4rmN_zmVGENKfIeA-J8vJcZxx8fJQBRcy73zl0aQ3Qqu-M0J4y6cbguYppzMe9EhWPsimtyhocieoMhBNumUTVUksWPtuHOBlWh4q_g7WAABaSmBrDRKijgsKzeMntMaPCdCILIpgDyVSspWZu0r5B1vLVBtVPbhE3eAszVIoP3NPjQcgpFau5Ejv8LRW_mFf1Aae4h2UKKHpMdj6VEjId6gPlMMmLD8xJ_z8Cak0PZMOQL-fKvUJY9F2HkzC5CH-WFB2Nf16hp.DG1vTXXWImP6XoCGLecCtK9EIre9b-je9QYm-577Okg"
+        "eyJhbGciOiJkaXIiLCJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwidHlwIjoiSldUIn0..sWVFFGNdTEwXb4UCqbXZeA.bB8B-ldDSfzbD6FTY9tif_xLbRH48hqeVozAIQwmWvG-S6Btv9JMdVScdp1uWNum7lyb_uux8x9LnhUNVHvRuyZj7O8bofZUPiPCFQGyLuMT98gAUp-kyj2W9I08gK0xAJpv-NcOqS0wGj7p6WmVRA4rgKqqb_VzVZlx2jk2HUsR2Ed_Nlc0WwuWMRoQ7gvJLY9hLmXFm5Yfg0jmZbL1PS41qELHEsQQr4108D813zXoiGgku7yonOWFSsW09BcMhMEahMrUGVV8SnA0Wn_FlOMJfwIqJyCq-D7fPxfxuMFr1V8rPN-UM32o6tKDjx34fVfcvLEQ3Bb7tqli7cNiqwUJnn5MuAwBOvDVya7PEoJwnp282tSn0RU70b-WC1pvPmDGYP3chUy3xgqftYr881VXBgFUuKeOfW0E2q3aqCBRcmKnCjOOeYZf-_wSmo3K.LniiIijPG2uRcu5YBYPh3DNYjay55gbXuGuWNIyDxNs";
       const companyToken =
-        "eyJhbGciOiJkaXIiLCJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwidHlwIjoiSldUIn0..cDOHdmn_xLL2i7hDQ5IUPQ.K7fkzT9qolcThNC9C2VHlRhfJ7JKSTObSInO2MfYo-kF2MpeDJ6KsVGnB9e0EthKlTKtIzlVBz4qq_WAfiO-WryO2GA8R-DHTxHeRLVaGx9nM-lpsMBplF-i5VQoNxdlRx365d_qVA5Bc0zbaQ-ZZrRJc6dQH12P2DR0vvqlinwHRKyArmsaTj1xzRaqbn70QH7zvjSxNZGWHaFudOoY0eVA2rBkGi2srDOhOOUplB6JxBZsx5uH44WIEn_9F11xZbzhSbweqbjHBOISMO1kRK4gAKja5nb3TjUqGjTRB13SOqdWNa8tsPxYY3sRnVuyXC763JFuydsXty42E8zyfzfDm192uNg_cYJS_93cq-fzbCVn6WgDKf9UvVN2QZBm4KUYkhBXLCMp34T_IqpbW6yi8Ug4QgoQmWC0rLMggrdasHbJJcqDhkOzAaUhRo6X.v8Oi_5-MI05F0g31rWO2DaXsU-M6DGq6J-v3Kx3RFRc"
+        "eyJhbGciOiJkaXIiLCJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwidHlwIjoiSldUIn0..AnXGNjViixbsfSLG2DN3Yw.Iec_6mI7sMjR7LUoDrv8s_eItirdZXqNPTZKysblK_1CuAbynFuYnKZmbXrDGS8QSzZUT8BJ58nXHgi_phi3aHYE-CNb0INg42ohpuWYav2-v0XaDTuNe8eoffrcoGQXnitz1QmnNBQGBAP-5eDSuWAXBPv-h6uMWN_9kGqyj5VV2d1ckpX9VvuAiT1Sc-9TQkUTOD8l9phzuO8P1zAY4kuf2lXYCvl7mqRbpv6l_HGZrcGRzhyq4tuDy-Znt_wd9zxN3usSlzUBW61TqYpjkJL0M6vDJW8NYDjFOA14hPL-jb5CkfTtES4eBbD8dKLKQbnEpmkJbyK_NM38rE6n3cFQxAJ4A19C-9kvAx3AVzKOLY0_4WjVx9UVdV9DBChIuZ4OUqd16QEHCJc-KhWgUMWWRubHFyFwmq7yu7pEibljXO1jnp8jhs0HbM5VtIkryBZaroE2N3b6X9ZM-1qgXQ.uukxJNabWVyHIkVjgokobmBWOtUj6GUHK_Own9_eefw";
+      const userTokenLoT0 =
+        "eyJhbGciOiJkaXIiLCJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwidHlwIjoiSldUIn0..oYP0NlPJzIHFJMzWcNbRPw.n29fp2e5U3ZFJ9gJBXc3EBrgv4fAAs4WJwuXMJEzI0HlGp5LaXRQqmrsCjsiwAb2An3CQNU-rsAfm4sdlfNR5CgWxd_sLc28WZjRUCLZr08TspY_mitIaJ4BPlvGJ7UDMU6jk6ZfyE3pI9ceOzyqZe7a4BSXuvtB6igmUXT4hTNCObdAdXB42BvKThmA7MnrYQy-qHhUznSrrIARaMiPdRGeCQdLGMSW3jSCJiao6SmlPdzQYqk0PRZpLPxSLofTNXtA7FGm6kvLm8ZxSgTLvexEEIeQ_5VggeAd_MXEDzUFExF0ObrRJwzq2q6M4I3eOS0W3nSdjbZ4Z9zA0dm-QRIWKK-B0limjbpdNZULK8-ohpkHiPcynjVQlqFLusJWyNVQbHXnE_XLzEotRkNaxMBcQ2BrRt7CjmDxalyw1m0gQ4wielo2DG293c2gdfGb.az6MBX27jegMGWasd2dWsH6FRuLObL_wjLOr1Sao3ac";
 
       const mapping = {
         1: (url) => `${url}?token=${userToken}`,
         2: (url) => `${url}?nextURL=/public-instances&token=${userToken}`,
         3: (url) => `${url}?token=${companyToken}`,
         4: (url) => `${url}?nextURL=/public-instances&token=${companyToken}`,
+        5: (url) => `${url}?token=${userTokenLoT0}`,
+        6: (url) => `${url}?nextURL=/public-instances&token=${userTokenLoT0}`,
       };
 
       try {

@@ -83,6 +83,8 @@ def extract_sync_data(jwt_data: dict) -> dict:
         data["firstName"] = ""
         data["lastName"] = organisationName
 
+    data["attributes"] = {"lot": data.pop("lot")}
+
     return data
 
 

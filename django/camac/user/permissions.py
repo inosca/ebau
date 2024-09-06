@@ -4,6 +4,7 @@ from django.conf import settings
 from rest_framework import permissions
 
 from camac.request import get_request
+from camac.token_exchange.permissions import RequireLoT
 
 
 def get_group(obj):
@@ -163,7 +164,7 @@ class IsPublicAccess(permissions.BasePermission):
 
 DefaultPermission = (
     # identical to DEFAULT_PERMISSION_CLASSES
-    permissions.IsAuthenticated & IsGroupMember & ViewPermissions
+    permissions.IsAuthenticated & IsGroupMember & ViewPermissions & RequireLoT
 )
 
 
@@ -192,7 +193,9 @@ def IsView(*views):
 PublicationBE = IsApplication("kt_bern") & permissions.IsAuthenticated & ReadOnly
 PublicationSZ = IsApplication("kt_schwyz") & permissions.IsAuthenticated & ReadOnly
 PublicationGR = IsApplication("kt_gr") & permissions.IsAuthenticated & ReadOnly
-PublicationSO = IsApplication("kt_so") & permissions.IsAuthenticated & ReadOnly
+PublicationSO = (
+    IsApplication("kt_so") & permissions.IsAuthenticated & ReadOnly & RequireLoT
+)
 PublicationUR = IsApplication("kt_uri") & ReadOnly
 PublicationTest = IsApplication("test") & ReadOnly
 

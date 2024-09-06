@@ -54,6 +54,7 @@ def jwt_token_data(settings):
         "iss": settings.TOKEN_EXCHANGE_JWT_ISSUER,
         "iat": now - 1,
         "nbf": now,
+        "lot": "1",
     }
 
 

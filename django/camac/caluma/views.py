@@ -3,9 +3,12 @@ from collections import namedtuple
 from caluma.caluma_user.models import AnonymousUser, OIDCUser
 from caluma.caluma_user.views import AuthenticationGraphQLView, HttpResponseUnauthorized
 from django.conf import settings
+from django.http.response import HttpResponse
 from graphene_django.views import HttpError
+from rest_framework import status
 
 from camac.caluma.utils import CamacRequest, extend_user
+from camac.token_exchange.permissions import has_required_lot
 from camac.user.models import User
 
 
@@ -34,5 +37,8 @@ class CamacAuthenticatedGraphQLView(AuthenticationGraphQLView):
         except User.DoesNotExist:
             # Raise a 401 error if the user was not found in the CAMAC database
             raise HttpError(HttpResponseUnauthorized())
+
+        if not has_required_lot(request.camac_request):
+            raise HttpError(HttpResponse(status=status.HTTP_403_FORBIDDEN))
 
         return oidc_user

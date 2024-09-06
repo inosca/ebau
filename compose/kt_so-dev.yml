@@ -166,7 +166,7 @@ services:
       KC_HOSTNAME: ebau-keycloak.local
       KC_FEATURES: token-exchange,admin-fine-grained-authz
       KEYCLOAK_ADMIN: admin
-      KEYCLOAK_ADMIN_PASSWORD: camac
+      KEYCLOAK_ADMIN_PASSWORD: admin
     networks:
       - ebau.local
     command:
