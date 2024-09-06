@@ -5,7 +5,7 @@ corrections:
     title: "Correggi dossier"
     description: "Questa funzione permette di apportare piccole correzioni al modulo di domanda (ad es. precisazione della descrizione dell'opera)."
     button: "Correggi dossier"
-    description-finish: "Per correggere il dossier cliccare sul menu <a href={link}>modulo</a>. Non dimenticare di salvare le correzioni prima di chiudere il modulo."
+    description-finish: "Per correggere il dossier cliccare sul menu <a href={link}>Modulo</a>. Non dimenticare di salvare le correzioni prima di chiudere il modulo."
     button-finish: "Termina correzione"
 
     confirm: "Si prega di osservare che la funzione di correzione del dossier è pensata solo per modifiche minori (ad es. correzione delle informazioni di contatto, precisazione della descrizione dell'opera). Eventualmente occorre informare le persone richiedenti in merito alle modifiche. <br><br>Se sono necessarie modifiche più importanti valutare se non sia piuttosto opportuno respingere il dossier."
