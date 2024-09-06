@@ -6548,6 +6548,2446 @@
     }
   },
   {
+    "model": "user.groupt",
+    "pk": 27231,
+    "fields": {
+      "group": 10003,
+      "language": "it",
+      "name": "Evasione Comune di Albula/Alvra",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27232,
+    "fields": {
+      "group": 10004,
+      "language": "it",
+      "name": "Amministrazione Comune di Albula/Alvra",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27233,
+    "fields": {
+      "group": 10207,
+      "language": "it",
+      "name": "Evasione Ufficio per l'industria, arti e mestieri e lavoro (UCIAML)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27234,
+    "fields": {
+      "group": 10208,
+      "language": "it",
+      "name": "Amministrazione Ufficio per l'industria, arti e mestieri e lavoro (UCIAML)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27235,
+    "fields": {
+      "group": 10213,
+      "language": "it",
+      "name": "Evasione Ufficio per l'agricoltura e la geoinformazione 2 (UAG2)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27236,
+    "fields": {
+      "group": 10214,
+      "language": "it",
+      "name": "Amministrazione Ufficio per l'agricoltura e la geoinformazione 2 (UAG2)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27237,
+    "fields": {
+      "group": 10221,
+      "language": "it",
+      "name": "Evasione Ufficio per la sicurezza delle derrate alimentari e la salute degli animali (USDA)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27238,
+    "fields": {
+      "group": 10222,
+      "language": "it",
+      "name": "Amministrazione Ufficio per la sicurezza delle derrate alimentari e la salute degli animali (USDA)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27239,
+    "fields": {
+      "group": 10221,
+      "language": "it",
+      "name": "Evasione Ufficio foreste e pericoli naturali (UFP)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27240,
+    "fields": {
+      "group": 10222,
+      "language": "it",
+      "name": "Amministrazione Ufficio foreste e pericoli naturali (UFP)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27241,
+    "fields": {
+      "group": 10223,
+      "language": "it",
+      "name": "Evasione Servizio archeologico dei Grigioni",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27242,
+    "fields": {
+      "group": 10224,
+      "language": "it",
+      "name": "Amministrazione Servizio archeologico dei Grigioni",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27243,
+    "fields": {
+      "group": 10227,
+      "language": "it",
+      "name": "Evasione Ufficio federale delle strade / USTRA",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27244,
+    "fields": {
+      "group": 10228,
+      "language": "it",
+      "name": "Amministrazione Ufficio federale delle strade / USTRA",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27245,
+    "fields": {
+      "group": 10243,
+      "language": "it",
+      "name": "Evasione Ufficio federale dell'ambiente / Biodiversità e paesaggio",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27246,
+    "fields": {
+      "group": 10244,
+      "language": "it",
+      "name": "Amministrazione Ufficio federale dell'ambiente / Biodiversità e paesaggio",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27247,
+    "fields": {
+      "group": 10239,
+      "language": "it",
+      "name": "Evasione Ferrovia Retica",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27248,
+    "fields": {
+      "group": 10240,
+      "language": "it",
+      "name": "Amministrazione Ferrovia Retica",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27249,
+    "fields": {
+      "group": 10241,
+      "language": "it",
+      "name": "Evasione FFS SA",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27250,
+    "fields": {
+      "group": 10242,
+      "language": "it",
+      "name": "Amministrazione FFS SA",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27251,
+    "fields": {
+      "group": 10247,
+      "language": "it",
+      "name": "Evasione Ufficio per le valutazioni immobiliari (UVI)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27252,
+    "fields": {
+      "group": 10248,
+      "language": "it",
+      "name": "Amministrazione Ufficio per le valutazioni immobiliari (UVI)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27253,
+    "fields": {
+      "group": 10257,
+      "language": "it",
+      "name": "Evasione Assicurazione fabbricati dei Grigioni, assicurazione",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27254,
+    "fields": {
+      "group": 10258,
+      "language": "it",
+      "name": "Amministrazione Assicurazione fabbricati dei Grigioni, assicurazione",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27255,
+    "fields": {
+      "group": 10207,
+      "language": "it",
+      "name": "Evasione Ufficio dell'energia e dei trasporti (UEnTr)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27256,
+    "fields": {
+      "group": 10208,
+      "language": "it",
+      "name": "Amministrazione Ufficio dell'energia e dei trasporti (UEnTr)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27257,
+    "fields": {
+      "group": 10211,
+      "language": "it",
+      "name": "Evasione Ufficio per l'agricoltura e la geoinformazione (UAG)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27258,
+    "fields": {
+      "group": 10212,
+      "language": "it",
+      "name": "Amministrazione Ufficio per l'agricoltura e la geoinformazione (UAG)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27259,
+    "fields": {
+      "group": 10213,
+      "language": "it",
+      "name": "Evasione Ufficio per la caccia e la pesca (UCP)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27260,
+    "fields": {
+      "group": 10214,
+      "language": "it",
+      "name": "Amministrazione Ufficio per la caccia e la pesca (UCP)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27261,
+    "fields": {
+      "group": 10001,
+      "language": "it",
+      "name": "Evasione Ufficio per lo sviluppo del territorio (UST-GR)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27262,
+    "fields": {
+      "group": 10002,
+      "language": "it",
+      "name": "Amministrazione Ufficio per lo sviluppo del territorio (UST-GR)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27263,
+    "fields": {
+      "group": 10231,
+      "language": "it",
+      "name": "Evasione Servizio monumenti dei Grigioni",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27264,
+    "fields": {
+      "group": 10232,
+      "language": "it",
+      "name": "Amministrazione Servizio monumenti dei Grigioni",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27265,
+    "fields": {
+      "group": 10219,
+      "language": "it",
+      "name": "Evasione Ufficio per la natura e l'ambiente (UNA)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27266,
+    "fields": {
+      "group": 10220,
+      "language": "it",
+      "name": "Amministrazione Ufficio per la natura e l'ambiente (UNA)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27267,
+    "fields": {
+      "group": 10259,
+      "language": "it",
+      "name": "Evasione Assicurazione fabbricati dei Grigioni, prevenzione danni elementari",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27268,
+    "fields": {
+      "group": 10260,
+      "language": "it",
+      "name": "Amministrazione Assicurazione fabbricati dei Grigioni, prevenzione danni elementari",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27269,
+    "fields": {
+      "group": 10243,
+      "language": "it",
+      "name": "Evasione Ufficio tecnico (UT)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27270,
+    "fields": {
+      "group": 10244,
+      "language": "it",
+      "name": "Amministrazione Ufficio tecnico (UT)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27271,
+    "fields": {
+      "group": 10225,
+      "language": "it",
+      "name": "Evasione Ufficio federale delle strade (USTRA)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27272,
+    "fields": {
+      "group": 10226,
+      "language": "it",
+      "name": "Amministrazione Ufficio federale delle strade (USTRA)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27273,
+    "fields": {
+      "group": 10217,
+      "language": "it",
+      "name": "Evasione Ufficio del militare e della protezione civile (UMPC)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27274,
+    "fields": {
+      "group": 10218,
+      "language": "it",
+      "name": "Amministrazione Ufficio del militare e della protezione civile (UMPC)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27275,
+    "fields": {
+      "group": 10005,
+      "language": "it",
+      "name": "Evasione Comune di Andeer",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27276,
+    "fields": {
+      "group": 10006,
+      "language": "it",
+      "name": "Amministrazione Comune di Andeer",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27277,
+    "fields": {
+      "group": 10007,
+      "language": "it",
+      "name": "Evasione Comune di Arosa",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27278,
+    "fields": {
+      "group": 10008,
+      "language": "it",
+      "name": "Amministrazione Comune di Arosa",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27279,
+    "fields": {
+      "group": 10009,
+      "language": "it",
+      "name": "Evasione Comune di Avers",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27280,
+    "fields": {
+      "group": 10010,
+      "language": "it",
+      "name": "Amministrazione Comune di Avers",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27281,
+    "fields": {
+      "group": 10011,
+      "language": "it",
+      "name": "Evasione Comune di Bergün Filisur",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27282,
+    "fields": {
+      "group": 10012,
+      "language": "it",
+      "name": "Amministrazione Comune di Bergün Filisur",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27283,
+    "fields": {
+      "group": 10043,
+      "language": "it",
+      "name": "Evasione Comune di Disentis/Mustér",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27284,
+    "fields": {
+      "group": 10044,
+      "language": "it",
+      "name": "Amministrazione Comune di Disentis/Mustér",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27285,
+    "fields": {
+      "group": 10167,
+      "language": "it",
+      "name": "Evasione Comune di Surses",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27286,
+    "fields": {
+      "group": 10168,
+      "language": "it",
+      "name": "Amministrazione Comune di Surses",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27287,
+    "fields": {
+      "group": 10013,
+      "language": "it",
+      "name": "Evasione Comune di Bever",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27288,
+    "fields": {
+      "group": 10014,
+      "language": "it",
+      "name": "Amministrazione Comune di Bever",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27289,
+    "fields": {
+      "group": 10015,
+      "language": "it",
+      "name": "Evasione Comune di Bonaduz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27290,
+    "fields": {
+      "group": 10016,
+      "language": "it",
+      "name": "Amministrazione Comune di Bonaduz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27291,
+    "fields": {
+      "group": 10017,
+      "language": "it",
+      "name": "Evasione Comune di Bregaglia",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27292,
+    "fields": {
+      "group": 10018,
+      "language": "it",
+      "name": "Amministrazione Comune di Bregaglia",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27293,
+    "fields": {
+      "group": 10019,
+      "language": "it",
+      "name": "Evasione Comune di Breil/Brigels",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27294,
+    "fields": {
+      "group": 10020,
+      "language": "it",
+      "name": "Amministrazione Comune di Breil/Brigels",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27295,
+    "fields": {
+      "group": 10021,
+      "language": "it",
+      "name": "Evasione Comune di Brusio",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27296,
+    "fields": {
+      "group": 10022,
+      "language": "it",
+      "name": "Amministrazione Comune di Brusio",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27297,
+    "fields": {
+      "group": 10023,
+      "language": "it",
+      "name": "Evasione Comune di Buseno",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27298,
+    "fields": {
+      "group": 10024,
+      "language": "it",
+      "name": "Amministrazione Comune di Buseno",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27299,
+    "fields": {
+      "group": 10025,
+      "language": "it",
+      "name": "Evasione Comune di Calanca",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27300,
+    "fields": {
+      "group": 10026,
+      "language": "it",
+      "name": "Amministrazione Comune di Calanca",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27301,
+    "fields": {
+      "group": 10027,
+      "language": "it",
+      "name": "Evasione Comune di Cama",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27302,
+    "fields": {
+      "group": 10028,
+      "language": "it",
+      "name": "Amministrazione Comune di Cama",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27303,
+    "fields": {
+      "group": 10029,
+      "language": "it",
+      "name": "Evasione Comune di Castaneda",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27304,
+    "fields": {
+      "group": 10030,
+      "language": "it",
+      "name": "Amministrazione Comune di Castaneda",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27305,
+    "fields": {
+      "group": 10031,
+      "language": "it",
+      "name": "Evasione Comune di Cazis",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27306,
+    "fields": {
+      "group": 10032,
+      "language": "it",
+      "name": "Amministrazione Comune di Cazis",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27307,
+    "fields": {
+      "group": 10033,
+      "language": "it",
+      "name": "Evasione Comune di Celerina / Schlarigna",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27308,
+    "fields": {
+      "group": 10034,
+      "language": "it",
+      "name": "Amministrazione Comune di Celerina / Schlarigna",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27309,
+    "fields": {
+      "group": 10035,
+      "language": "it",
+      "name": "Evasione Comune di Coira",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27310,
+    "fields": {
+      "group": 10036,
+      "language": "it",
+      "name": "Amministrazione Comune di Coira",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27311,
+    "fields": {
+      "group": 10037,
+      "language": "it",
+      "name": "Evasione Comune di Churwalden",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27312,
+    "fields": {
+      "group": 10038,
+      "language": "it",
+      "name": "Amministrazione Comune di Churwalden",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27313,
+    "fields": {
+      "group": 10039,
+      "language": "it",
+      "name": "Evasione Comune di Conters im Prättigau",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27314,
+    "fields": {
+      "group": 10040,
+      "language": "it",
+      "name": "Amministrazione Comune di Conters im Prättigau",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27315,
+    "fields": {
+      "group": 10041,
+      "language": "it",
+      "name": "Evasione Comune di Davos",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27316,
+    "fields": {
+      "group": 10042,
+      "language": "it",
+      "name": "Amministrazione Comune di Davos",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27317,
+    "fields": {
+      "group": 10045,
+      "language": "it",
+      "name": "Evasione Comune di Domat/Ems",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27318,
+    "fields": {
+      "group": 10046,
+      "language": "it",
+      "name": "Amministrazione Comune di Domat/Ems",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27319,
+    "fields": {
+      "group": 10049,
+      "language": "it",
+      "name": "Evasione Comune di Falera",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27320,
+    "fields": {
+      "group": 10050,
+      "language": "it",
+      "name": "Amministrazione Comune di Falera",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27321,
+    "fields": {
+      "group": 10051,
+      "language": "it",
+      "name": "Evasione Comune di Felsberg",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27322,
+    "fields": {
+      "group": 10052,
+      "language": "it",
+      "name": "Amministrazione Comune di Felsberg",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27323,
+    "fields": {
+      "group": 10053,
+      "language": "it",
+      "name": "Evasione Comune di Ferrera",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27324,
+    "fields": {
+      "group": 10054,
+      "language": "it",
+      "name": "Amministrazione Comune di Ferrera",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27325,
+    "fields": {
+      "group": 10055,
+      "language": "it",
+      "name": "Evasione Comune di Fideris",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27326,
+    "fields": {
+      "group": 10056,
+      "language": "it",
+      "name": "Amministrazione Comune di Fideris",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27327,
+    "fields": {
+      "group": 10057,
+      "language": "it",
+      "name": "Evasione Comune di Fläsch",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27328,
+    "fields": {
+      "group": 10058,
+      "language": "it",
+      "name": "Amministrazione Comune di Fläsch",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27329,
+    "fields": {
+      "group": 10059,
+      "language": "it",
+      "name": "Evasione Comune di Flerden",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27330,
+    "fields": {
+      "group": 10060,
+      "language": "it",
+      "name": "Amministrazione Comune di Flerden",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27331,
+    "fields": {
+      "group": 10061,
+      "language": "it",
+      "name": "Evasione Comune di Flims",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27332,
+    "fields": {
+      "group": 10062,
+      "language": "it",
+      "name": "Amministrazione Comune di Flims",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27333,
+    "fields": {
+      "group": 10063,
+      "language": "it",
+      "name": "Evasione Comune di Furna",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27334,
+    "fields": {
+      "group": 10064,
+      "language": "it",
+      "name": "Amministrazione Comune di Furna",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27335,
+    "fields": {
+      "group": 10065,
+      "language": "it",
+      "name": "Evasione Comune di Fürstenau",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27336,
+    "fields": {
+      "group": 10066,
+      "language": "it",
+      "name": "Amministrazione Comune di Fürstenau",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27337,
+    "fields": {
+      "group": 10067,
+      "language": "it",
+      "name": "Evasione Comune di Grono",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27338,
+    "fields": {
+      "group": 10068,
+      "language": "it",
+      "name": "Amministrazione Comune di Grono",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27339,
+    "fields": {
+      "group": 10069,
+      "language": "it",
+      "name": "Evasione Comune di Grüsch",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27340,
+    "fields": {
+      "group": 10070,
+      "language": "it",
+      "name": "Amministrazione Comune di Grüsch",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27341,
+    "fields": {
+      "group": 10071,
+      "language": "it",
+      "name": "Evasione Comune di Ilanz/Glion",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27342,
+    "fields": {
+      "group": 10072,
+      "language": "it",
+      "name": "Amministrazione Comune di Ilanz/Glion",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27343,
+    "fields": {
+      "group": 10073,
+      "language": "it",
+      "name": "Evasione Comune di Jenaz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27344,
+    "fields": {
+      "group": 10074,
+      "language": "it",
+      "name": "Amministrazione Comune di Jenaz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27345,
+    "fields": {
+      "group": 10075,
+      "language": "it",
+      "name": "Evasione Comune di Jenins",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27346,
+    "fields": {
+      "group": 10076,
+      "language": "it",
+      "name": "Amministrazione Comune di Jenins",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27347,
+    "fields": {
+      "group": 10077,
+      "language": "it",
+      "name": "Evasione Comune di Klosters",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27348,
+    "fields": {
+      "group": 10078,
+      "language": "it",
+      "name": "Amministrazione Comune di Klosters",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27349,
+    "fields": {
+      "group": 10079,
+      "language": "it",
+      "name": "Evasione Comune di Küblis",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27350,
+    "fields": {
+      "group": 10080,
+      "language": "it",
+      "name": "Amministrazione Comune di Küblis",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27351,
+    "fields": {
+      "group": 10081,
+      "language": "it",
+      "name": "Evasione Comune di La Punt Chamues-ch",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27352,
+    "fields": {
+      "group": 10082,
+      "language": "it",
+      "name": "Amministrazione Comune di La Punt Chamues-ch",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27353,
+    "fields": {
+      "group": 10083,
+      "language": "it",
+      "name": "Evasione Comune di Laax",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27354,
+    "fields": {
+      "group": 10084,
+      "language": "it",
+      "name": "Amministrazione Comune di Laax",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27355,
+    "fields": {
+      "group": 10085,
+      "language": "it",
+      "name": "Evasione Comune di Landquart",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27356,
+    "fields": {
+      "group": 10086,
+      "language": "it",
+      "name": "Amministrazione Comune di Landquart",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27357,
+    "fields": {
+      "group": 10087,
+      "language": "it",
+      "name": "Evasione Comune di Lantsch/Lenz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27358,
+    "fields": {
+      "group": 10088,
+      "language": "it",
+      "name": "Amministrazione Comune di Lantsch/Lenz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27359,
+    "fields": {
+      "group": 10089,
+      "language": "it",
+      "name": "Evasione Comune di Lostallo",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27360,
+    "fields": {
+      "group": 10090,
+      "language": "it",
+      "name": "Amministrazione Comune di Lostallo",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27361,
+    "fields": {
+      "group": 10091,
+      "language": "it",
+      "name": "Evasione Comune di Lumnezia",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27362,
+    "fields": {
+      "group": 10092,
+      "language": "it",
+      "name": "Amministrazione Comune di Lumnezia",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27363,
+    "fields": {
+      "group": 10093,
+      "language": "it",
+      "name": "Evasione Comune di Luzein",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27364,
+    "fields": {
+      "group": 10094,
+      "language": "it",
+      "name": "Amministrazione Comune di Luzein",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27365,
+    "fields": {
+      "group": 10095,
+      "language": "it",
+      "name": "Evasione Comune di Madulain",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27366,
+    "fields": {
+      "group": 10096,
+      "language": "it",
+      "name": "Amministrazione Comune di Madulain",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27367,
+    "fields": {
+      "group": 10097,
+      "language": "it",
+      "name": "Evasione Comune di Maienfeld",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27368,
+    "fields": {
+      "group": 10098,
+      "language": "it",
+      "name": "Amministrazione Comune di Maienfeld",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27369,
+    "fields": {
+      "group": 10099,
+      "language": "it",
+      "name": "Evasione Comune di Malans",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27370,
+    "fields": {
+      "group": 10100,
+      "language": "it",
+      "name": "Amministrazione Comune di Malans",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27371,
+    "fields": {
+      "group": 10101,
+      "language": "it",
+      "name": "Evasione Comune di Masein",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27372,
+    "fields": {
+      "group": 10102,
+      "language": "it",
+      "name": "Amministrazione Comune di Masein",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27373,
+    "fields": {
+      "group": 10103,
+      "language": "it",
+      "name": "Evasione Comune di Medel (Lucmagn)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27374,
+    "fields": {
+      "group": 10104,
+      "language": "it",
+      "name": "Amministrazione Comune di Medel (Lucmagn)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27375,
+    "fields": {
+      "group": 10105,
+      "language": "it",
+      "name": "Evasione Comune di Mesocco",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27376,
+    "fields": {
+      "group": 10106,
+      "language": "it",
+      "name": "Amministrazione Comune di Mesocco",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27377,
+    "fields": {
+      "group": 10107,
+      "language": "it",
+      "name": "Evasione Comune di Muntogna da Schons",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27378,
+    "fields": {
+      "group": 10108,
+      "language": "it",
+      "name": "Amministrazione Comune di Muntogna da Schons",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27379,
+    "fields": {
+      "group": 10109,
+      "language": "it",
+      "name": "Evasione Comune di Obersaxen Mundaun",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27380,
+    "fields": {
+      "group": 10110,
+      "language": "it",
+      "name": "Amministrazione Comune di Obersaxen Mundaun",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27381,
+    "fields": {
+      "group": 10111,
+      "language": "it",
+      "name": "Evasione Comune di Pontresina",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27382,
+    "fields": {
+      "group": 10112,
+      "language": "it",
+      "name": "Amministrazione Comune di Pontresina",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27383,
+    "fields": {
+      "group": 10113,
+      "language": "it",
+      "name": "Evasione Comune di Poschiavo",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27384,
+    "fields": {
+      "group": 10114,
+      "language": "it",
+      "name": "Amministrazione Comune di Poschiavo",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27385,
+    "fields": {
+      "group": 10115,
+      "language": "it",
+      "name": "Evasione Comune di Rhäzüns",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27386,
+    "fields": {
+      "group": 10116,
+      "language": "it",
+      "name": "Amministrazione Comune di Rhäzüns",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27387,
+    "fields": {
+      "group": 10117,
+      "language": "it",
+      "name": "Evasione Comune di Rheinwald",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27388,
+    "fields": {
+      "group": 10118,
+      "language": "it",
+      "name": "Amministrazione Comune di Rheinwald",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27389,
+    "fields": {
+      "group": 10119,
+      "language": "it",
+      "name": "Evasione Comune di Rongellen",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27390,
+    "fields": {
+      "group": 10120,
+      "language": "it",
+      "name": "Amministrazione Comune di Rongellen",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27391,
+    "fields": {
+      "group": 10121,
+      "language": "it",
+      "name": "Evasione Comune di Rossa",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27392,
+    "fields": {
+      "group": 10122,
+      "language": "it",
+      "name": "Amministrazione Comune di Rossa",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27393,
+    "fields": {
+      "group": 10123,
+      "language": "it",
+      "name": "Evasione Comune di Rothenbrunnen",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27394,
+    "fields": {
+      "group": 10124,
+      "language": "it",
+      "name": "Amministrazione Comune di Rothenbrunnen",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27395,
+    "fields": {
+      "group": 10125,
+      "language": "it",
+      "name": "Evasione Comune di Roveredo (GR)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27396,
+    "fields": {
+      "group": 10126,
+      "language": "it",
+      "name": "Amministrazione Comune di Roveredo (GR)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27397,
+    "fields": {
+      "group": 10127,
+      "language": "it",
+      "name": "Evasione Comune di Safiental",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27398,
+    "fields": {
+      "group": 10128,
+      "language": "it",
+      "name": "Amministrazione Comune di Safiental",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27399,
+    "fields": {
+      "group": 10129,
+      "language": "it",
+      "name": "Evasione Comune di Sagogn",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27400,
+    "fields": {
+      "group": 10130,
+      "language": "it",
+      "name": "Amministrazione Comune di Sagogn",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27401,
+    "fields": {
+      "group": 10131,
+      "language": "it",
+      "name": "Evasione Comune di Samedan",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27402,
+    "fields": {
+      "group": 10132,
+      "language": "it",
+      "name": "Amministrazione Comune di Samedan",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27403,
+    "fields": {
+      "group": 10133,
+      "language": "it",
+      "name": "Evasione Comune di Samnaun",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27404,
+    "fields": {
+      "group": 10134,
+      "language": "it",
+      "name": "Amministrazione Comune di Samnaun",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27405,
+    "fields": {
+      "group": 10135,
+      "language": "it",
+      "name": "Evasione Comune di San Vittore",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27406,
+    "fields": {
+      "group": 10136,
+      "language": "it",
+      "name": "Amministrazione Comune di San Vittore",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27407,
+    "fields": {
+      "group": 10137,
+      "language": "it",
+      "name": "Evasione Comune di S-chanf",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27408,
+    "fields": {
+      "group": 10138,
+      "language": "it",
+      "name": "Amministrazione Comune di S-chanf",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27409,
+    "fields": {
+      "group": 10139,
+      "language": "it",
+      "name": "Evasione Comune di Scharans",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27410,
+    "fields": {
+      "group": 10140,
+      "language": "it",
+      "name": "Amministrazione Comune di Scharans",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27411,
+    "fields": {
+      "group": 10141,
+      "language": "it",
+      "name": "Evasione Comune di Schiers",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27412,
+    "fields": {
+      "group": 10142,
+      "language": "it",
+      "name": "Amministrazione Comune di Schiers",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27413,
+    "fields": {
+      "group": 10143,
+      "language": "it",
+      "name": "Evasione Comune di Schluein",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27414,
+    "fields": {
+      "group": 10144,
+      "language": "it",
+      "name": "Amministrazione Comune di Schluein",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27415,
+    "fields": {
+      "group": 10145,
+      "language": "it",
+      "name": "Evasione Comune di Schmitten (GR)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27416,
+    "fields": {
+      "group": 10146,
+      "language": "it",
+      "name": "Amministrazione Comune di Schmitten (GR)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27417,
+    "fields": {
+      "group": 10147,
+      "language": "it",
+      "name": "Evasione Comune di Scuol",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27418,
+    "fields": {
+      "group": 10148,
+      "language": "it",
+      "name": "Amministrazione Comune di Scuol",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27419,
+    "fields": {
+      "group": 10149,
+      "language": "it",
+      "name": "Evasione Comune di Seewis im Prättigau",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27420,
+    "fields": {
+      "group": 10150,
+      "language": "it",
+      "name": "Amministrazione Comune di Seewis im Prättigau",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27421,
+    "fields": {
+      "group": 10151,
+      "language": "it",
+      "name": "Evasione Comune di Sils im Domleschg",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27422,
+    "fields": {
+      "group": 10152,
+      "language": "it",
+      "name": "Amministrazione Comune di Sils im Domleschg",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27423,
+    "fields": {
+      "group": 10153,
+      "language": "it",
+      "name": "Evasione Comune di Sils im Engadin/Segl",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27424,
+    "fields": {
+      "group": 10154,
+      "language": "it",
+      "name": "Amministrazione Comune di Sils im Engadin/Segl",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27425,
+    "fields": {
+      "group": 10155,
+      "language": "it",
+      "name": "Evasione Comune di Silvaplana",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27426,
+    "fields": {
+      "group": 10156,
+      "language": "it",
+      "name": "Amministrazione Comune di Silvaplana",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27427,
+    "fields": {
+      "group": 10157,
+      "language": "it",
+      "name": "Evasione Comune di Soazza",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27428,
+    "fields": {
+      "group": 10158,
+      "language": "it",
+      "name": "Amministrazione Comune di Soazza",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27429,
+    "fields": {
+      "group": 10159,
+      "language": "it",
+      "name": "Evasione Comune di St. Moritz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27430,
+    "fields": {
+      "group": 10160,
+      "language": "it",
+      "name": "Amministrazione Comune di St. Moritz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27431,
+    "fields": {
+      "group": 10161,
+      "language": "it",
+      "name": "Evasione Comune di Santa Maria in Calanca",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27432,
+    "fields": {
+      "group": 10162,
+      "language": "it",
+      "name": "Amministrazione Comune di Santa Maria in Calanca",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27433,
+    "fields": {
+      "group": 10163,
+      "language": "it",
+      "name": "Evasione Comune di Sufers",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27434,
+    "fields": {
+      "group": 10164,
+      "language": "it",
+      "name": "Amministrazione Comune di Sufers",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27435,
+    "fields": {
+      "group": 10165,
+      "language": "it",
+      "name": "Evasione Comune di Sumvitg",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27436,
+    "fields": {
+      "group": 10166,
+      "language": "it",
+      "name": "Amministrazione Comune di Sumvitg",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27437,
+    "fields": {
+      "group": 10047,
+      "language": "it",
+      "name": "Evasione Comune di Domleschg",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27438,
+    "fields": {
+      "group": 10048,
+      "language": "it",
+      "name": "Amministrazione Comune di Domleschg",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27439,
+    "fields": {
+      "group": 10169,
+      "language": "it",
+      "name": "Evasione Comune di Tamins",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27440,
+    "fields": {
+      "group": 10170,
+      "language": "it",
+      "name": "Amministrazione Comune di Tamins",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27441,
+    "fields": {
+      "group": 10171,
+      "language": "it",
+      "name": "Evasione Comune di Thusis",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27442,
+    "fields": {
+      "group": 10172,
+      "language": "it",
+      "name": "Amministrazione Comune di Thusis",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27443,
+    "fields": {
+      "group": 10173,
+      "language": "it",
+      "name": "Evasione Comune di Trimmis",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27444,
+    "fields": {
+      "group": 10174,
+      "language": "it",
+      "name": "Amministrazione Comune di Trimmis",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27445,
+    "fields": {
+      "group": 10175,
+      "language": "it",
+      "name": "Evasione Comune di Trin",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27446,
+    "fields": {
+      "group": 10176,
+      "language": "it",
+      "name": "Amministrazione Comune di Trin",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27447,
+    "fields": {
+      "group": 10177,
+      "language": "it",
+      "name": "Evasione Comune di Trun",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27448,
+    "fields": {
+      "group": 10178,
+      "language": "it",
+      "name": "Amministrazione Comune di Trun",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27449,
+    "fields": {
+      "group": 10179,
+      "language": "it",
+      "name": "Evasione Comune di Tschappina",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27450,
+    "fields": {
+      "group": 10180,
+      "language": "it",
+      "name": "Amministrazione Comune di Tschappina",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27451,
+    "fields": {
+      "group": 10181,
+      "language": "it",
+      "name": "Evasione Comune di Tschiertschen-Praden",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27452,
+    "fields": {
+      "group": 10182,
+      "language": "it",
+      "name": "Amministrazione Comune di Tschiertschen-Praden",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27453,
+    "fields": {
+      "group": 10183,
+      "language": "it",
+      "name": "Evasione Comune di Tujetsch",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27454,
+    "fields": {
+      "group": 10184,
+      "language": "it",
+      "name": "Amministrazione Comune di Tujetsch",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27455,
+    "fields": {
+      "group": 10185,
+      "language": "it",
+      "name": "Evasione Comune di Untervaz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27456,
+    "fields": {
+      "group": 10186,
+      "language": "it",
+      "name": "Amministrazione Comune di Untervaz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27457,
+    "fields": {
+      "group": 10187,
+      "language": "it",
+      "name": "Evasione Comune di Urmein",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27458,
+    "fields": {
+      "group": 10188,
+      "language": "it",
+      "name": "Amministrazione Comune di Urmein",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27459,
+    "fields": {
+      "group": 10189,
+      "language": "it",
+      "name": "Evasione Comune di Val Müstair",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27460,
+    "fields": {
+      "group": 10190,
+      "language": "it",
+      "name": "Amministrazione Comune di Val Müstair",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27461,
+    "fields": {
+      "group": 10191,
+      "language": "it",
+      "name": "Evasione Comune di Vals",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27462,
+    "fields": {
+      "group": 10192,
+      "language": "it",
+      "name": "Amministrazione Comune di Vals",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27463,
+    "fields": {
+      "group": 10193,
+      "language": "it",
+      "name": "Evasione Comune di Valsot",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27464,
+    "fields": {
+      "group": 10194,
+      "language": "it",
+      "name": "Amministrazione Comune di Valsot",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27465,
+    "fields": {
+      "group": 10195,
+      "language": "it",
+      "name": "Evasione Comune di Vaz/Obervaz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27466,
+    "fields": {
+      "group": 10196,
+      "language": "it",
+      "name": "Amministrazione Comune di Vaz/Obervaz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27467,
+    "fields": {
+      "group": 10197,
+      "language": "it",
+      "name": "Evasione Comune di Zernez",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27468,
+    "fields": {
+      "group": 10198,
+      "language": "it",
+      "name": "Amministrazione Comune di Zernez",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27469,
+    "fields": {
+      "group": 10199,
+      "language": "it",
+      "name": "Evasione Comune di Zillis-Reischen",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27470,
+    "fields": {
+      "group": 10200,
+      "language": "it",
+      "name": "Amministrazione Comune di Zillis-Reischen",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27471,
+    "fields": {
+      "group": 10201,
+      "language": "it",
+      "name": "Evasione Comune di Zizers",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27472,
+    "fields": {
+      "group": 10202,
+      "language": "it",
+      "name": "Amministrazione Comune di Zizers",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27473,
+    "fields": {
+      "group": 10203,
+      "language": "it",
+      "name": "Evasione Comune di Zuoz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27474,
+    "fields": {
+      "group": 10204,
+      "language": "it",
+      "name": "Amministrazione Comune di Zuoz",
+      "city": null
+    }
+  },
+  {
     "model": "user.usergroup",
     "pk": 1,
     "fields": {
