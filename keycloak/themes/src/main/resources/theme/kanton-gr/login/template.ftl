@@ -47,9 +47,9 @@
       <#if client.clientId != "eeba">
         <div class="footer-content">
           <div class="uk-container uk-container-small uk-flex uk-flex-right">
-            <a class="uk-margin-right" href="https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/ebau/Datenschutzerklärung_eBau_GR_DE.pdf">Datenschutzerklärung</a>
-            <a class="uk-margin-right" href="https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/ebau/Disclaimer_eBau_GR_IT.pdf">Disclaimer</a>
-            <a href="https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/projekte/Seiten/Elektronisches-Baubewilligungsverfahren-(eBBV).aspx">Informationen zu eBau</a>
+            <a class="uk-margin-right" href=${msg("privacyPolicyLink")}>${msg("privacyPolicy")}</a>
+            <a class="uk-margin-right" href=${msg("disclaimerLink")}>${msg("disclaimer")}</a>
+            <a href=${msg("informationAboutEbauLink")}>${msg("informationAboutEbau")}</a>
           </div>
         </div>
       </#if>
