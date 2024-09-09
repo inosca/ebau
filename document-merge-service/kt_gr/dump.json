@@ -43,8 +43,18 @@
     "model": "api.template",
     "pk": "publikationsformular-baugesuch",
     "fields": {
-      "description": "Publikationsformular Baugesuch",
+      "description": "DE Publikationsformular Baugesuch",
       "template": "publikationsformular_baugesuch.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "publikationsformular-baugesuch-it",
+    "fields": {
+      "description": "IT Modulo di pubblicazione della domanda di costruzione",
+      "template": "publikationsformular_baugesuch_it.docx",
       "engine": "docx-template",
       "meta": {}
     }
