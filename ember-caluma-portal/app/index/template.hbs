@@ -3,7 +3,11 @@
     {{t "index.welcome"}}
   </h1>
 
-  <BeDashboard class="uk-padding uk-background-muted" @page="portal-inhalt" />
+  {{#if (has-feature "dashboard.useLegacy")}}
+    <BeDashboard class="uk-padding uk-background-muted" @page="portal-inhalt" />
+  {{else}}
+    <StaticContent class="uk-padding uk-background-muted" @type="portal-news" />
+  {{/if}}
 
   <p
     class="uk-text-center uk-text-large uk-margin-medium-top uk-margin-medium-bottom"

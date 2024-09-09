@@ -37,4 +37,7 @@ export default {
   portal: {
     stateInfoButton: true,
   },
+  dashboard: {
+    useLegacy: true,
+  },
 };

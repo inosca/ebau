@@ -1,3 +1,9 @@
 static-content:
+  edit: "Bearbeiten"
+  content: "Inhalt"
   saveError: "Inhalt konnte nicht gespeichert werden"
   loadError: "Inhalt konnte nicht geladen werden"
+  not-found:
+    case:
+      title: "Das gewünschte Dossier wurde nicht gefunden, oder Sie haben keinen Zugriff darauf."
+      action: "Zurück zur Dossierliste"

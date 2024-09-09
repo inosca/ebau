@@ -28,7 +28,7 @@ export default class StaticContentComponent extends Component {
       });
 
       return (
-        response.firstObject ||
+        response[0] ??
         this.store.createRecord("static-content", {
           slug: this.args.type,
         })
