@@ -631,6 +631,7 @@ DISTRIBUTION = {
         "QUESTIONS": {
             "STATEMENT": "inquiry-answer-positive-assessments",
             "ANCILLARY_CLAUSES": "inquiry-answer-notices-for-authority",
+            "DIRECT": "inquiry-direct",
         },
         "ANSWERS": {
             "STATUS": {
@@ -639,6 +640,10 @@ DISTRIBUTION = {
                 "CLAIM": "inquiry-answer-status-additional-demand",
                 "NO_COMMENT": "inquiry-answer-status-no-comment",
                 "UNKNOWN": "inquiry-answer-status-unknown",
+                "DIRECT": "inquiry-answer-status-direct",
+            },
+            "DIRECT": {
+                "YES": "inquiry-direct-yes",
             },
         },
         "NOTIFICATIONS": {
