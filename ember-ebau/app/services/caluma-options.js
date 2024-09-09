@@ -102,6 +102,14 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     "inquiry-answer-status-additional-demand": INQUIRY_STATUS.NEEDS_INTERACTION,
     "inquiry-answer-status-rejection": INQUIRY_STATUS.NEGATIVE,
     "inquiry-answer-status-no-comment": INQUIRY_STATUS.POSITIVE,
+    "inquiry-answer-status-unknown": {
+      icon: "question",
+      color: "emphasis",
+    },
+    "inquiry-answer-status-direct": {
+      icon: "question",
+      color: "emphasis",
+    },
   };
 
   @cantonAware
