@@ -11,7 +11,7 @@ publicInstances:
 publicInstancesDetail:
   documents: "Documenti"
   form: "Modulo"
-  fileName: "Nome del file"
+  fileName: "Nome file"
   size: "Dimensione"
   date: "Data"
   download: "Scarica documento"
