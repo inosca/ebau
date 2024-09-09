@@ -42,12 +42,20 @@
     </div>
     <div>
       <ul>
-        <li><a href={{macroGetConfig "ember-ebau-core" "eGovPortalURL"}}>{{t
-              "so-footer.leave"
-            }}</a></li>
-        <li><a href="https://so.ch/ebau" title={{t "nav.faq"}}><FaIcon
-              @icon="question-circle"
-            /></a></li>
+        <li>
+          <a href={{macroGetConfig "ember-ebau-core" "eGovPortalURL"}}>
+            {{t "so-footer.leave"}}
+          </a>
+        </li>
+        <li>
+          <LinkTo
+            @route="static-content"
+            @model="portal-faq"
+            title={{t "nav.faq"}}
+          >
+            <FaIcon @icon="question-circle" />
+          </LinkTo>
+        </li>
         {{#if (and this.session.isAuthenticated this.session.user)}}
           <li>
             <a href="#">

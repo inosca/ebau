@@ -1,3 +1,9 @@
 static-content:
+  edit: ""
+  content: ""
   saveError: ""
-  ladError: ""
+  loadError: ""
+  not-found:
+    case:
+      title: ""
+      action: ""

@@ -101,6 +101,7 @@
     "ember-qunit": "8.1.0",
     "ember-resolver": "12.0.1",
     "ember-router-scroll": "4.1.2",
+    "ember-set-helper": "3.0.1",
     "ember-simple-auth-oidc": "7.0.1",
     "ember-source": "4.12.4",
     "ember-template-lint": "6.0.0",
