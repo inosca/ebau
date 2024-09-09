@@ -13,15 +13,15 @@ global:
   save: "Salva"
   ok: "Ok"
   urec: "URec"
-  yes: "sì"
-  no: "no"
+  yes: "Sì"
+  no: "No"
 
 nav:
   form: "Modulo"
   feedback: "Riscontri"
   decision: "Documenti della decisione"
   objection: "Documenti dell'opposizione"
-  index: "Pagina iniziale"
+  index: "pagina iniziale"
   support: "Supporto"
   public-instance: "Pubblicazione / esposizione"
   logout: "Logout"
@@ -41,7 +41,7 @@ nav:
   construction-monitoring: "Accompagnamento dei lavori"
 
 feedback:
-  info: "Al momento non ci sono riscontri. Non appena inoltrato il dossier, qui saranno visualizzati eventuali riscontri da parte di autorità direttiva o servizi."
+  info: "Al momento non ci sono riscontri. Non appena il dossier sarà stato inoltrato, qui saranno visibili eventuali riscontri da parte di autorità direttiva o servizi."
 
 documents:
   deleteSuccess: "Il file è stato eliminato con successo."
@@ -108,10 +108,12 @@ gis:
 support:
   type: "Ha domande relative alla procedura o al modulo?"
   technical: |-
-    In caso di problemi tecnici con eBau contattare il <b>supporto tecnico (24/7)</b> chiamando il numero:<br><a href="tel:+41 31 636 99 97">+41 31 636 99 97</a>
+    In caso di problemi tecnici con eBau contattare il <b>supporto
+    tecnico (24/7)</b> chiamando il numero:<br><a href="tel:+41 31 636 99
+    97">+41 31 636 99 97</a>
   professional: |-
     In caso di domande specifiche relative alla procedura o al modulo 
-    <b>contattare l'autorità competente</b> o usare la funzione di aiuto
+    <b>occorre contattare l'autorità competente</b> o usare la funzione di aiuto
     <b>«Supporto in merito alla procedura<span uk-icon="question"></span>»</b> nel
     relativo dossier.
 
@@ -122,7 +124,7 @@ index:
 instances:
   title: "I miei dossier"
   logo: "Logo {service}"
-  instance-id: "N. dossier:"
+  instance-id: "N. dossier"
   special-id: "N. eBau"
   type: "Tipo di domanda"
   submitDate: "Data di inoltro"
@@ -135,10 +137,10 @@ instances:
   parcel: "Numero della particella / numero dell'immobile"
   filter: "Filtro"
   reset: "Ripristina"
-  pageInfo: "Dossier '<strong'>1 - {length}'</strong'> su {total}"
+  pageInfo: "Dossiers '<strong'>1 - {length}'</strong'> su {total}"
   emptyTitle: "Non ha ancora domande!"
   emptyText: "Crea la prima domanda con pochi clic. È possibile interrompere in qualsiasi momento e riprendere più tardi."
-  edit: "Elabora il dossier"
+  edit: "Elabora un dossier"
   print: "Visualizzazione stampa"
   orderBy: "Ordina per"
   desc: "ordine decrescente"
@@ -149,8 +151,8 @@ instances:
   actions: "Operazioni"
   activateFurtherPersons: "Autorizzare un accesso per altre persone"
   activateFurtherPersonsText: "Nel menu «Diritti» è possibile autorizzare l'accesso affinché anche altre persone possano elaborare questo dossier."
-  downloadReceipt: "Scarica la ricevuta dell'inoltro"
-  downloadReceiptText: "Qui è possibile scaricare di nuovo la ricevuta dell'inoltro."
+  downloadReceipt: "Scarica la ricevuta"
+  downloadReceiptText: "Qui è possibile scaricare di nuovo la ricevuta."
   managePermissions: "Amministra i diritti"
   furtherProcessingOfForm: "Continua l'elaborazione del modulo"
   furtherProcessingOfFormText: "Qui è possibile continuare l'elaborazione del modulo e procedere con l'inoltro."
@@ -196,8 +198,8 @@ instances:
     all: "Tutti"
     pending: "In corso"
     sb: "Autocertificazione"
-    decided: "Decisi"
-    done: "Conclusi"
+    decided: "Decisa"
+    done: "Conclusa"
     notSubmitted: "Nuovo"
     submitted: "Trasmessa"
 
@@ -221,13 +223,14 @@ instances:
 
     internal-procedure-canton:
       title: "Procedure cantonali interne"
-      info: "La presente procedura riassume le domande seguenti:\n\n<ul><li>Procedura di approvazione interna</li>\n\n <li>Procedura di corapporto interna</li>\n\n <li>Procedura di corapporto/ PAP per edifici militari</li>\n\n <li>Procedura di corapporto / PAP in base alla legge federale sulla navigazione aerea</li>\n\n <li>Procedura di corapporto interna UCP</li>\n\n <li>Internes Mitberichtsverfahren ALA</li>\n\n <li>Internes Mitberichtsverfahren ALA (Korporationsstrassen mit Subventionierung)</li>\n\n <li>Procedura di corapporto interna UET</li>\n\n <li>Konzessionsverfahren Regierungsrat für Anlagen bis 1000 kW (Artikel 18 GNG)</li>\n\n <li>Konzessionsverfahren Landrat für Anlagen ab 1000 kW (Artikel 18 GNG)</li>\n\n <li>Konzessionsverfahren Baudirektion für Wärmeentnahmen (Artikel 40 GNG)</li>\n\n <li>Konzessionsverfahren Korporationsgewässer mit Genehmigung durch Regierungsrat (Artikel 15 GNG)</li>\n\n <li>Internes Mitberichtsverfahren SD AfKP</li>\n\n <li>Internes Mitberichtsverfahren SD</li>\n\n <li>PGV Kantonsstrasse (Artikel 30 StrG)</li>\n\n <li>PGV Gemeindestrasse (Artikel 30 StrG)</li>\n\n <li>PGV Korporationsstrasse (Artikel 30 StrG)</li>\n\n <li>PGV vereinfachtes Verfahren (Artikel 31 StrG)</li>\n\n <li>PGV öffentliche Gewässer (Artikel 12 WBG)</li>\n\n <li>PGV private Gewässer (Artikel 19 WBG)</li>\n\n <li>Mitberichtsverfahren / PGV nach Starkstromverordnung (EleG)</li>\n\n <li>Mitberichtsverfahren / PGV nach Nationalstrassengesetz (NSG)</li>\n\n <li>Konzessionsverfahren Baudirektion Beanspruchung Kantonsgewässer bis 500 m2 (Artikel 3 ORR)</li>\n\n <li>Internes Mitberichtsverfahren BD</li>\n\n <li>Acquisizione di fondi e diritti</li>\n\n <li>Internes Mitberichtsverfahren AfU</li>\n\n <li>Procedura di corapporto interna secondo l'articolo 30 della legge sulla protezione dell'ambiente</li>\n\n <li>Procedura di corapporto interna / procedura di approvazione in base all'EIA</li></ul>"
+      info: "La presente procedura riassume le domande seguenti:\n\n<ul><li>Procedura di approvazione interna</li>\n\n <li>Procedura di corapporto interna</li>\n\n <li>Procedura di corapporto/ PAP per edifici militari</li>\n\n <li>Procedura di corapporto / PAP in base alla legge federale sulla navigazione aerea</li>\n\n <li>Procedura di corapporto interna UCP</li>\n\n <li>Internes Mitberichtsverfahren ALA</li>\n\n <li>Internes Mitberichtsverfahren ALA (Korporationsstrassen mit Subventionierung)</li>\n\n <li>Procedura di corapporto interna UET</li>\n\n <li>Konzessionsverfahren Regierungsrat für Anlagen bis 1000 kW (Artikel 18 GNG)</li>\n\n <li>Konzessionsverfahren Landrat für Anlagen ab 1000 kW (Artikel 18 GNG)</li>\n\n <li>Konzessionsverfahren Baudirektion für Wärmeentnahmen (Artikel 40 GNG)</li>\n\n <li>Konzessionsverfahren Korporationsgewässer mit Genehmigung durch Regierungsrat (Artikel 15 GNG)</li>\n\n <li>Internes Mitberichtsverfahren SD AfKP</li>\n\n <li>Internes Mitberichtsverfahren SD</li>\n\n <li>PGV Kantonsstrasse (Artikel 30 StrG)</li>\n\n <li>PGV Gemeindestrasse (Artikel 30 StrG)</li>\n\n <li>PGV Korporationsstrasse (Artikel 30 StrG)</li>\n\n <li>PGV vereinfachtes Verfahren (Artikel 31 StrG)</li>\n\n <li>PGV öffentliche Gewässer (Artikel 12 WBG)</li>\n\n <li>PGV private Gewässer (Artikel 19 WBG)</li>\n\n <li>Mitberichtsverfahren / PGV nach Starkstromverordnung (EleG)</li>\n\n <li>Mitberichtsverfahren / PGV nach Nationalstrassengesetz (NSG)</li>\n\n <li>Konzessionsverfahren Baudirektion Beanspruchung Kantonsgewässer bis 500 m² (Artikel 3 ORR)</li>\n\n <li>Internes Mitberichtsverfahren BD</li>\n\n <li>Acquisizione di fondi e diritti</li>\n\n <li>Internes Mitberichtsverfahren AfU</li>\n\n <li>Procedura di corapporto interna secondo l'articolo 30 della legge sulla protezione dell'ambiente</li>\n\n <li>Procedura di corapporto interna / procedura di approvazione in base all'EIA</li></ul>"
 
     others:
-      title: "Altri"
+      title: "Altro"
 
   status:
     title: "Stato"
+    modal-title: "Spiegazione relativa allo stato"
 
     # BE
     creation: "Nuovo"
@@ -245,11 +248,11 @@ instances:
     ext: "Elaborazione ufficio di coordinamento"
     circ: "In circolazione"
     redac: "Circolazione presso il comune"
-    arch: "Archiviata"
-    del: "Eliminata"
-    new: "Nuova creazione"
-    nfd: "Documenti della richiesta di precisazioni"
-    subm: "Inoltrati al comune"
+    arch: "Archiviato"
+    del: "Eliminato"
+    new: "Nuova realizzazione"
+    nfd: "Documenti da richiesta di precisazioni"
+    subm: "Inoltrato al comune"
     ext_gem: "Dossier rimane presso l'autorità edilizia comunale"
     old: "Dossier archiviato"
     control: "Decisione edilizia e su opposizione inviata"
@@ -257,20 +260,21 @@ instances:
     # GR
     circulation: "In circolazione"
     inProcedure: "In procedura"
-    submitted: "Trasmessa"
+    submitted: "Trasmesso"
     constructionAcceptance: "Accompagnamento dei lavori"
 
     # SO
-    withdrawn: "Ritirata"
+    withdrawn: "Ritirato"
     constructionMonitoring: "Accompagnamento dei lavori"
-    decided: "Decisi"
+    decided: "Deciso"
 
     # Shared
-    done: "Conclusa"
+    done: "Concluso"
 
   forms:
     nfd: "Richieste di precisazioni"
     sb1: "Autocertificazione 1"
+    sb1-v2: "Autocertificazione 1"
     sb2: "Autocertificazione 2"
 
   applicants:
@@ -279,7 +283,7 @@ instances:
     municipality-info-empty: "Attualmente non ha selezionato alcun comune. Seleziona uno dei comuni per concedere i relativi diritti."
     period: "Periodo"
     municipality: "Comune"
-    authorize: "Autorizza il comune"
+    authorize: "Conferisci diritto al comune"
     revoke: "Elimina diritto"
     now: "Ora"
 
@@ -335,12 +339,12 @@ notfound:
   title: "Non dispone dei diritti per accedere a questo dossier."
   subtitle: 'Verifichi che il n. del dossier coincida e che nel menu «Diritti» le siano stati attribuiti i relativi diritti di accesso.'
   link: "Torna alla"
-  home: "pagina iniziale"
+  home: "Pagina iniziale"
 
 paper:
-  type: "Carta"
+  type: "Su carta"
   noteTitle: "Nota:"
-  noteBody: 'sta per creare un dossier che nel suo comune è stato inoltrato in forma cartacea (dossier cartaceo). Per creare un dossier normale in veste di persona richiedente selezionare «Richiedente» nel menu di gruppo in alto a destra.'
+  noteBody: 'sta per creare un dossier che nel suo comune è stato inoltrato in forma cartacea (dossier cartaceo). Per creare un dossier normale in veste di persona richiedente selezionare «Richiedente» nel menu in alto a destra dove sono indicati i vari ruoli.'
 
 modification:
   type: "Modifica del progetto"
@@ -354,3 +358,5 @@ dashboard:
 
 logo-gr:
   title: "Cantone dei Grigioni"
+
+token-exchange-login-error: "Login non riuscito. Riprova"
