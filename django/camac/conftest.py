@@ -179,6 +179,7 @@ CALUMA_FORM_TYPES_SLUGS = [
     "building-permit",
     "solaranlagen-meldung",
     "heat-generator",
+    "heat-generator-v2",
 ]
 
 

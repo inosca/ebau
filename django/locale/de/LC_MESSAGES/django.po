@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-13 16:34+0200\n"
-"PO-Revision-Date: 2024-08-05 17:30+0200\n"
+"PO-Revision-Date: 2024-08-22 07:56+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -1121,6 +1121,10 @@ msgstr "Geometer (via Berechtigungsmodul)"
 #: camac/notification/serializers.py:93
 msgid "Authorized entity (via permissions module)"
 msgstr "Autorisierte Entität (via Berechtigungsmodul)"
+
+#: camac/notification/serializers.py:94
+msgid "Office for Environment and Energy of the Canton of Bern: Immission control"
+msgstr "Amt für Umwelt und Energie des Kantons Bern: Immissionsschutz"
 
 #: camac/notification/serializers.py:445
 #, python-format

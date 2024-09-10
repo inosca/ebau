@@ -39,6 +39,7 @@ def caluma_form_fixture(db):
         "config/caluma_ebau_number_form.json",
         "config/caluma_solar_plants_form.json",
         "config/caluma_heat_generator_form.json",
+        "config/caluma_heat_generator_form_v2.json",
         "config/caluma_decision_form.json",
         "config/caluma_distribution.json",
         "config/caluma_workflow.json",

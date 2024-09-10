@@ -9,6 +9,7 @@ mutation CreatePreliminaryClarificationWorkflow {
         "klaerung-baubewilligungspflicht"
         "solaranlagen-meldung"
         "heat-generator"
+        "heat-generator-v2"
         "vorabklaerung-einfach"
         "vorabklaerung-einfach-v4"
         "vorabklaerung-vollstaendig"

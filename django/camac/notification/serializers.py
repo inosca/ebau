@@ -99,6 +99,9 @@ RECIPIENT_TYPE_NAMES = {
     "acl_authorized": translation.gettext_noop(
         "Authorized entity (via permissions module)"
     ),
+    "immissionsschutz": translation.gettext_noop(
+        "Office for Environment and Energy of the Canton of Bern: Immission control"
+    ),
 }
 
 
@@ -1564,6 +1567,12 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
 
     def _get_recipients_abwasser_uri(self, instance):
         service = Service.objects.filter(name="AWU").first()
+        if service:
+            return [{"to": service.email}]
+        return []  # pragma: no cover
+
+    def _get_recipients_immissionsschutz_be(self, instance):
+        service = Service.objects.filter(email="info.luft@be.ch").first()
         if service:
             return [{"to": service.email}]
         return []  # pragma: no cover

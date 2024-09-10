@@ -13,6 +13,7 @@ from caluma.caluma_workflow import api as workflow_api, models as caluma_workflo
 from django.core import mail
 from django.urls import reverse
 from django.utils.timezone import make_aware
+from mock import call
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
@@ -3154,3 +3155,49 @@ def test_copy_instance_modification(
     )
 
     assert response.status_code == expected_status
+
+
+@pytest.mark.parametrize("allow_notification", [True, False])
+def test_send_notifications(
+    db,
+    application_settings,
+    instance,
+    case_factory,
+    answer_factory,
+    document_factory,
+    notification_template,
+    mocker,
+    allow_notification,
+):
+    send_notification_mock = mocker.patch(
+        "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification",
+        return_value=None,
+    )
+    config_1 = [
+        {"template_slug": notification_template.slug, "recipient_types": ["test_a"]}
+    ]
+    config_2 = [
+        {"template_slug": notification_template.slug, "recipient_types": ["test_b"]}
+    ]
+    application_settings["NOTIFICATIONS"]["SUBMIT_HEAT_GENERATOR_IMMISSIONSSCHUTZ"] = (
+        config_1
+    )
+    application_settings["NOTIFICATIONS"]["SUBMIT_HEAT_GENERATOR"] = config_2
+    case_factory(
+        instance=instance, document=document_factory(form__slug="heat-generator-v2")
+    )
+
+    if allow_notification:
+        answer_factory(
+            question__slug="heat-generator-combustion-database-v2",
+            value="heat-generator-combustion-database-v2-ja",
+            document=instance.case.document,
+        )
+
+    serializers = CalumaInstanceSubmitSerializer(instance)
+    serializers._send_notifications(instance.case)
+
+    calls = [call(**config_2[0])]
+    if allow_notification:
+        calls = [call(**config_1[0])] + calls
+    send_notification_mock.assert_has_calls(calls)
