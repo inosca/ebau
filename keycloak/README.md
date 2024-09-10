@@ -25,7 +25,7 @@ yarn build # builds css once
 yarn watch # builds css on file change
 ```
 
-## Message of the day (MOTD)
+## Message of the day (MOTD) (only Kt. UR and Kt. GR)
 
 You can show a notice on the login screen by setting the `HTML Display name` property of your realm under Configure > Realm Settings.
 
