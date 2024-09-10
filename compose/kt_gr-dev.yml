@@ -50,7 +50,7 @@ services:
     networks:
       - ebau.local
 
-  django:
+  django: &django
     image: acr.run/camac-ng/camac-ng/django:master
     depends_on:
       - db
@@ -89,6 +89,9 @@ services:
       - GWR_HOUSING_STAT_BASE_URI=https://www-r.housing-stat.ch/regbl/api/ech0216/2
       # GIS
       - GR_GIS_BASE_URL=https://wps-test.geo.gr.ch
+      # celery
+      - CELERY_RDB_HOST=0.0.0.0. # to be able to telnet from outside the container
+      - PYTHONUNBUFFERED=1
     networks:
       - ebau.local
     tty: true
@@ -215,6 +218,17 @@ services:
   tika:
     networks:
       - ebau.local
+
+  redis:
+    networks:
+      - ebau.local
+    environment:
+      - REDIS_PASSWORD=redis
+
+  celery:
+    <<: *django
+    ports:
+      - "6900-7000:6900-7000"
 
 networks:
   ebau.local:
