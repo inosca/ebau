@@ -1562,6 +1562,15 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             self._set_authority(koor_afj_instance)
             self._send_notifications(koor_afj_instance.case)
 
+    def _send_heat_generator_notifications(self, case):
+        if CalumaApi().get_answer_value(
+            "heat-generator-combustion-database-v2", case.instance
+        ):
+            for notification_config in settings.APPLICATION["NOTIFICATIONS"][
+                "SUBMIT_HEAT_GENERATOR_IMMISSIONSSCHUTZ"
+            ]:
+                self._send_notification(**notification_config)
+
     def _send_notifications(self, case):
         notification_key = "SUBMIT"
         if case.workflow_id == "preliminary-clarification":  # pragma: no cover
@@ -1571,7 +1580,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 notification_key = "SUBMIT_KOOR_SD"
             else:
                 notification_key = "SUBMIT_KOOR_BD"
-        if case.document.form_id == "heat-generator":  # pragma: no cover
+        if case.document.form_id in [
+            "heat-generator",
+            "heat-generator-v2",
+        ]:
+            self._send_heat_generator_notifications(case)
             notification_key = "SUBMIT_HEAT_GENERATOR"
         if case.document.form_id in [
             "konzession-waermeentnahme",

@@ -712,6 +712,7 @@ APPLICATIONS = {
         "CUSTOM_NOTIFICATION_TYPES": [
             "inactive_municipality",
             "geometer_acl_services",
+            "immissionsschutz_be",
         ],
         "CIRCULATION_STATE_END": "DONE",
         "CIRCULATION_ANSWER_UNINVOLVED": "not_concerned",
@@ -759,6 +760,12 @@ APPLICATIONS = {
                 {
                     "template_slug": "00-empfang-meldung-waermeerzeugerersatz-behoerden",
                     "recipient_types": ["leitbehoerde"],
+                },
+            ],
+            "SUBMIT_HEAT_GENERATOR_IMMISSIONSSCHUTZ": [
+                {
+                    "template_slug": "00-empfang-meldung-waermeerzeugerersatz-immissionsschutz",
+                    "recipient_types": ["immissionsschutz_be"],
                 },
             ],
             "REPORT": [
@@ -2633,6 +2640,7 @@ ECH_EXCLUDED_FORMS = [
     "zutrittsermaechtigung",
     "solaranlagen-meldung",
     "heat-generator",
+    "heat-generator-v2",
 ]
 ECH_THROTTLING_RATE = env.str("DJANGO_ECH_THROTTLING_RATE", default="1/min")
 

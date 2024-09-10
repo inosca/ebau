@@ -99,7 +99,10 @@ DISTRIBUTION = {
             },
         },
         "SUGGESTIONS": {
-            "FORM": {"heat-generator": [20046]},
+            "FORM": {
+                "heat-generator": [20046],
+                "heat-generator-v2": [20046],
+            },
             "QUESTIONS": {
                 (
                     "art-versickerung-dach",
