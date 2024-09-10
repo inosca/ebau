@@ -499,6 +499,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
           label: "distribution.cantonal-services",
           type: "serviceGroup",
           value: [
+            "Fachstellen Baudirektion",
             "Fachstellen Justizdirektion",
             "Fachstellen Gesundheits- Sozial- und Umweltdirektion",
             "Fachstellen Sicherheitsdirektion",
