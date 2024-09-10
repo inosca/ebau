@@ -193,7 +193,7 @@ class AttachmentView(
             token_sig=token_sig,
             download_path=reverse("communications-attachment-download", args=[pk]),
         )
-        obj = self.get_object()
+        obj = models.CommunicationsAttachment.objects.get(pk=pk)
 
         if obj.document_attachment:
             file = obj.document_attachment.path.file
