@@ -923,6 +923,17 @@ APPLICATIONS = {
                     "history_text": _("Procedure completed"),
                 },
             },
+            "CALUMA_WORKFLOW_NOTIFICATIONS": {
+                "cadastral-survey": [
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "complete-cadastral-survey",
+                            "recipient_types": ["work_item_controlling"],
+                        },
+                    }
+                ],
+            },
             "INTERNAL_FORMS": [
                 "baupolizeiliches-verfahren",
                 "zutrittsermaechtigung",
@@ -980,6 +991,7 @@ APPLICATIONS = {
                         "create-publication",
                         "fill-publication",
                         "geometer",
+                        "cadastral-survey",
                     ],
                 },
             },
