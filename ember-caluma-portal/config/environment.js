@@ -440,7 +440,13 @@ module.exports = function (environment) {
       formCreationPermissions: [
         {
           roles: ["public", "internal"],
-          forms: ["baugesuch", "erdwaermesonden", "voranfrage", "meldung"],
+          forms: [
+            "baugesuch",
+            "erdwaermesonden",
+            "voranfrage",
+            "meldung",
+            "meldung-pv",
+          ],
         },
       ],
     },

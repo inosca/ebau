@@ -532,7 +532,7 @@ def test_complete_decision_appeal_so(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
-@pytest.mark.parametrize("form_slug", ["voranfrage", "meldung"])
+@pytest.mark.parametrize("form_slug", ["voranfrage", "meldung", "meldung-pv"])
 def test_complete_decision_simplified_workflow_so(
     db,
     application_settings,
@@ -591,6 +591,11 @@ def test_complete_decision_simplified_workflow_so(
     [
         (False, "voranfrage", "Voranfrage beurteilen"),
         (False, "meldung", "Meldung (Anzeige) beurteilen"),
+        (
+            False,
+            "meldung-pv",
+            "Meldung PV-Anlage beurteilen",
+        ),
         (True, "main-form", "Entscheid der Beschwerdeinstanz bestätigen"),
     ],
 )
@@ -608,6 +613,7 @@ def test_decision_work_item_name(
 
     Form.objects.filter(pk="voranfrage").update(name={"de": "Voranfrage"})
     Form.objects.filter(pk="meldung").update(name={"de": "Meldung (Anzeige)"})
+    Form.objects.filter(pk="meldung-pv").update(name={"de": "Meldung PV-Anlage"})
 
     work_item = work_item_factory(
         task_id=so_decision_settings["TASK"], case=so_instance.case

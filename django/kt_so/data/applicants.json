@@ -178,5 +178,41 @@
       "email": "readonly@example.com",
       "role": "READ_ONLY"
     }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 16,
+    "fields": {
+      "instance": 6,
+      "user": 1,
+      "invitee": 1,
+      "created": "2024-09-06T08:13:00.963Z",
+      "email": "admin@example.com",
+      "role": "ADMIN"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 17,
+    "fields": {
+      "instance": 6,
+      "user": 1,
+      "invitee": 3,
+      "created": "2024-09-06T08:25:38.159Z",
+      "email": "editor@example.com",
+      "role": "EDITOR"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 18,
+    "fields": {
+      "instance": 6,
+      "user": 1,
+      "invitee": 4,
+      "created": "2024-09-06T08:25:45.794Z",
+      "email": "readonly@example.com",
+      "role": "READ_ONLY"
+    }
   }
 ]
