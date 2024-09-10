@@ -15,7 +15,7 @@ from django.db import transaction
 from django.utils.translation import gettext as _
 
 from camac.caluma.utils import filter_by_task_base, filter_by_workflow_base
-from camac.core.utils import canton_aware, create_history_entry
+from camac.core.utils import create_history_entry
 from camac.ech0211.signals import construction_monitoring_started
 from camac.notification.utils import send_mail_without_request
 from camac.user.models import User
@@ -67,10 +67,20 @@ def construction_step_can_continue(work_item):
     return answer_is_approved == construction_step_is_approved
 
 
-@canton_aware
 def can_perform_construction_monitoring(instance):
     if not settings.CONSTRUCTION_MONITORING:  # pragma: no cover  TODO: cover
         return False
+
+    if settings.APPLICATION_NAME == "kt_uri":
+        # in Uri we need to check the "complete-check" work item because not all forms always require a construction monitoring process
+        return (
+            instance.case.work_items.get(task_id="complete-check")
+            .document.answers.filter(
+                question_id="complete-check-baubewilligungspflichtig",
+                value="complete-check-baubewilligungspflichtig-baubewilligungspflichtig",
+            )
+            .exists()
+        )
 
     if allowed_caluma_forms := settings.CONSTRUCTION_MONITORING.get(
         "ALLOW_CALUMA_FORMS"
@@ -85,18 +95,6 @@ def can_perform_construction_monitoring(instance):
 
     form_family = instance.form.family
     return form_family and form_family.name in allow_forms
-
-
-def can_perform_construction_monitoring_ur(instance):
-    # in Uri we need to check the "complete-check" work item because not all forms always require a construction monitoring process
-    return (
-        instance.case.work_items.get(task_id="complete-check")
-        .document.answers.filter(
-            question_id="complete-check-baubewilligungspflichtig",
-            value="complete-check-baubewilligungspflichtig-baubewilligungspflichtig",
-        )
-        .exists()
-    )
 
 
 CONSTRUCTION_STEP_TRANSLATIONS = {
