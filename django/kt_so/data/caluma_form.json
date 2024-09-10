@@ -273,6 +273,22 @@
   },
   {
     "model": "caluma_form.document",
+    "pk": "6ecbaf96-051d-433c-927a-507c1febcc0c",
+    "fields": {
+      "created_at": "2024-09-06T08:13:00.983Z",
+      "modified_at": "2024-09-06T08:13:01.037Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "family": "6ecbaf96-051d-433c-927a-507c1febcc0c",
+      "form": "meldung-pv",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
     "pk": "6f71f67d-6837-4588-b585-6a2febed54b7",
     "fields": {
       "created_at": "2024-05-31T10:27:59.117Z",
@@ -379,6 +395,22 @@
       "modified_by_group": null,
       "family": "88fb4b7d-10c7-4f36-9be6-dd068e0cc2e2",
       "form": "voranfrage",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "8f05675e-8b2b-4576-9cd4-eb701c8a5990",
+    "fields": {
+      "created_at": "2024-09-06T08:16:50.175Z",
+      "modified_at": "2024-09-06T08:17:20.379Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "family": "6ecbaf96-051d-433c-927a-507c1febcc0c",
+      "form": "personalien-tabelle",
       "source": null,
       "meta": {}
     }
@@ -507,6 +539,22 @@
       "modified_by_group": null,
       "family": "d266a39b-5377-4668-9b88-db7010a789c0",
       "form": "meldung",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "d2c95ead-027f-47be-92c2-d2c48ce40109",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.117Z",
+      "modified_at": "2024-09-06T08:17:36.301Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "family": "6ecbaf96-051d-433c-927a-507c1febcc0c",
+      "form": "parzelle-tabelle",
       "source": null,
       "meta": {}
     }
@@ -872,6 +920,23 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "0dfa9d09-f6a7-4d76-8778-6e533732ee0a",
+    "fields": {
+      "created_at": "2024-09-06T08:16:49.633Z",
+      "modified_at": "2024-09-06T08:16:49.633Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rechnungsempfaengerin-abweichend",
+      "value": "rechnungsempfaengerin-abweichend-nein",
+      "meta": {},
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "0e890ddb-a049-428b-9936-cdb09835e881",
     "fields": {
       "created_at": "2024-05-22T15:16:50.166Z",
@@ -993,6 +1058,23 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "1059256b-cd2f-4430-a9ab-770facc05753",
+    "fields": {
+      "created_at": "2024-09-06T08:16:57.895Z",
+      "modified_at": "2024-09-06T08:16:57.895Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nachname",
+      "value": "Mustermann",
+      "meta": {},
+      "document": "8f05675e-8b2b-4576-9cd4-eb701c8a5990",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "10a2d76c-9607-49a9-8d41-c1c0f51ae0dc",
     "fields": {
       "created_at": "2023-11-27T09:22:49.705Z",
@@ -1022,6 +1104,23 @@
       "value": "Bern",
       "meta": {},
       "document": "0f785b8e-17f2-455e-af79-afd9517d51d7",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "115ce6f2-8c3f-4f40-b0e4-2ff552eeb6d3",
+    "fields": {
+      "created_at": "2024-09-06T08:16:53.487Z",
+      "modified_at": "2024-09-06T08:16:53.487Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "juristische-person",
+      "value": "juristische-person-nein",
+      "meta": {},
+      "document": "8f05675e-8b2b-4576-9cd4-eb701c8a5990",
       "date": null
     }
   },
@@ -1254,6 +1353,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "187b3427-484f-4bdb-b7dd-c8bac41b5ed3",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.215Z",
+      "modified_at": "2024-09-06T08:17:36.215Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "flaeche-m",
+      "value": 773,
+      "meta": {
+        "gis-value": 773
+      },
+      "document": "d2c95ead-027f-47be-92c2-d2c48ce40109",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "19118e15-a2ae-4be6-ac72-53756333c306",
     "fields": {
       "created_at": "2024-05-31T10:30:18.623Z",
@@ -1356,6 +1474,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "1db0c454-e4b7-44b8-b0e8-88995113222c",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.198Z",
+      "modified_at": "2024-09-06T08:17:36.198Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "grundstueckart",
+      "value": "Liegenschaft",
+      "meta": {
+        "gis-value": "Liegenschaft"
+      },
+      "document": "d2c95ead-027f-47be-92c2-d2c48ce40109",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "1def3f8c-19a7-46d1-bf1d-d44e3b7ef711",
     "fields": {
       "created_at": "2023-11-27T09:23:29.485Z",
@@ -1385,6 +1522,40 @@
       "value": 500,
       "meta": {},
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "1f8843d4-6b06-4e2d-9bed-46c78047bc02",
+    "fields": {
+      "created_at": "2024-09-06T08:17:06.789Z",
+      "modified_at": "2024-09-06T08:17:06.789Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "plz",
+      "value": "4500",
+      "meta": {},
+      "document": "8f05675e-8b2b-4576-9cd4-eb701c8a5990",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "20154189-8c31-42ee-9e35-b82980c8af57",
+    "fields": {
+      "created_at": "2024-09-06T08:17:08.670Z",
+      "modified_at": "2024-09-06T08:17:08.670Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ort",
+      "value": "Solothurn",
+      "meta": {},
+      "document": "8f05675e-8b2b-4576-9cd4-eb701c8a5990",
       "date": null
     }
   },
@@ -1424,6 +1595,59 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "226ff4ca-7161-4118-9231-520b01eac6bb",
+    "fields": {
+      "created_at": "2024-09-06T08:14:52.969Z",
+      "modified_at": "2024-09-06T08:14:52.969Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "umschreibung-bauprojekt",
+      "value": "Solarwärmeanlage auf Dach",
+      "meta": {},
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "22c1e17a-a015-4466-b8ac-abb684f3c10a",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.453Z",
+      "modified_at": "2024-09-06T08:17:36.453Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "plz",
+      "value": "4500",
+      "meta": {
+        "gis-value": "4500"
+      },
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "238f31ce-def8-431c-826c-22cd035ed1eb",
+    "fields": {
+      "created_at": "2024-09-06T08:14:44.608Z",
+      "modified_at": "2024-09-06T08:14:44.608Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "abklaerungen-netzbetreiber",
+      "value": "abklaerungen-netzbetreiber-nein",
+      "meta": {},
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "23dc0d72-ed27-4f64-b116-ae68f4062be2",
     "fields": {
       "created_at": "2023-07-07T07:34:44.297Z",
@@ -1436,6 +1660,44 @@
       "value": "test@test.ch",
       "meta": {},
       "document": "2b450a93-28b6-4cd8-a0e9-48708a66eca9",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "24a9544c-0789-492b-81bc-7d6ab6c2981f",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.275Z",
+      "modified_at": "2024-09-06T08:17:36.275Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "parzellen",
+      "value": null,
+      "meta": {
+        "gis-value": ["d2c95ead-027f-47be-92c2-d2c48ce40109"]
+      },
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "24ee4ee8-d209-4ece-be98-efc181e8c80e",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.414Z",
+      "modified_at": "2024-09-06T08:17:36.414Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "strasse-nummer",
+      "value": "7",
+      "meta": {
+        "gis-value": "7"
+      },
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
       "date": null
     }
   },
@@ -1506,6 +1768,23 @@
       "value": "rechnungsempfaengerin-abweichend-nein",
       "meta": {},
       "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "26382496-8f42-4fce-9103-51c36ac17917",
+    "fields": {
+      "created_at": "2024-09-06T08:13:01.168Z",
+      "modified_at": "2024-09-06T08:13:01.168Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "is-paper",
+      "value": "is-paper-no",
+      "meta": {},
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
       "date": null
     }
   },
@@ -1855,6 +2134,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "315c5f5a-137e-4666-8665-89ef1bf02bd2",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.246Z",
+      "modified_at": "2024-09-06T08:17:36.246Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "amtschreiberei",
+      "value": "Amtschreiberei Region Solothurn",
+      "meta": {
+        "gis-value": "Amtschreiberei Region Solothurn"
+      },
+      "document": "d2c95ead-027f-47be-92c2-d2c48ce40109",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "31c7cc91-c9d9-43ba-b509-10f17d5874b7",
     "fields": {
       "created_at": "2023-07-07T07:41:05.933Z",
@@ -1884,6 +2182,25 @@
       "value": ["nachweis-keine-terrainveraenderungen-ja"],
       "meta": {},
       "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "32fd72e5-857b-400f-b0f6-e19676c71080",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.392Z",
+      "modified_at": "2024-09-06T08:17:36.392Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "strasse-flurname",
+      "value": "Brunnmattstrasse",
+      "meta": {
+        "gis-value": "Brunnmattstrasse"
+      },
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
       "date": null
     }
   },
@@ -1952,6 +2269,42 @@
       "value": "Strasse",
       "meta": {},
       "document": "aa1a8ef3-3b06-4f61-9710-0f0a224d8453",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "35140e78-30ad-420c-a862-7368cdca5b7f",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.231Z",
+      "modified_at": "2024-09-06T08:17:36.231Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "grundbuchkreis",
+      "value": "Solothurn",
+      "meta": {
+        "gis-value": "Solothurn"
+      },
+      "document": "d2c95ead-027f-47be-92c2-d2c48ce40109",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "36321e19-8e1a-47f8-8be9-1d13b0a2582b",
+    "fields": {
+      "created_at": "2024-09-06T08:16:48.272Z",
+      "modified_at": "2024-09-06T08:16:48.272Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "grundeigentuemerin-abweichend",
+      "value": "grundeigentuemerin-abweichend-nein",
+      "meta": {},
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
       "date": null
     }
   },
@@ -2131,6 +2484,23 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "3a3ad144-39ce-4ef5-8985-6bae1a5d40b6",
+    "fields": {
+      "created_at": "2024-09-06T08:16:56.128Z",
+      "modified_at": "2024-09-06T08:16:56.128Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorname",
+      "value": "Max",
+      "meta": {},
+      "document": "8f05675e-8b2b-4576-9cd4-eb701c8a5990",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "3b14da83-fbe1-4f5a-8635-c7332b5200a9",
     "fields": {
       "created_at": "2024-05-22T15:18:48.239Z",
@@ -2177,6 +2547,23 @@
       "value": null,
       "meta": {},
       "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "3c031637-0305-4451-a2f2-92bd09d1d041",
+    "fields": {
+      "created_at": "2024-09-06T08:16:52.596Z",
+      "modified_at": "2024-09-06T08:16:52.596Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anrede",
+      "value": "anrede-herr",
+      "meta": {},
+      "document": "8f05675e-8b2b-4576-9cd4-eb701c8a5990",
       "date": null
     }
   },
@@ -2301,6 +2688,44 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "42373ff8-81ed-4ea7-a84e-60e42d602b2f",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.152Z",
+      "modified_at": "2024-09-06T08:17:36.152Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lagekoordinaten-nord",
+      "value": 1228249.2010065883,
+      "meta": {
+        "gis-value": 1228249.2010065883
+      },
+      "document": "d2c95ead-027f-47be-92c2-d2c48ce40109",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "431267a9-5ab5-4e4e-ab2e-51b64a5f785d",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.495Z",
+      "modified_at": "2024-09-06T08:17:36.495Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "fruchtfolgeflaeche",
+      "value": null,
+      "meta": {
+        "gis-value": null
+      },
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "43154659-c9d5-43c2-a7d8-69e0934e890e",
     "fields": {
       "created_at": "2024-05-31T10:29:37.423Z",
@@ -2368,6 +2793,23 @@
       "value": "wurden-vorabklaerungen-durchgefuehrt-nein",
       "meta": {},
       "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "45318daa-69cb-42f7-af49-ecd6748e1c65",
+    "fields": {
+      "created_at": "2024-09-06T08:16:49.012Z",
+      "modified_at": "2024-09-06T08:16:49.012Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "projektverfasserin-abweichend",
+      "value": "projektverfasserin-abweichend-nein",
+      "meta": {},
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
       "date": null
     }
   },
@@ -2453,6 +2895,25 @@
       "value": "juristische-person-nein",
       "meta": {},
       "document": "0f785b8e-17f2-455e-af79-afd9517d51d7",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "48bb4742-eaa8-40d5-b750-872c395b18db",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.607Z",
+      "modified_at": "2024-09-06T08:17:36.607Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "weitere-gis-informationen",
+      "value": null,
+      "meta": {
+        "gis-value": null
+      },
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
       "date": null
     }
   },
@@ -2594,6 +3055,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "4f2971c8-e3ea-4a43-aae8-c37085579e1e",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.474Z",
+      "modified_at": "2024-09-06T08:17:36.474Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nutzungsplanung-grundnutzung",
+      "value": "3-geschossige Wohnzone a, ZR § 6 und 20 (Gemeinde), N112_Wohnzone_3_G (Kanton)",
+      "meta": {
+        "gis-value": "3-geschossige Wohnzone a, ZR § 6 und 20 (Gemeinde), N112_Wohnzone_3_G (Kanton)"
+      },
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "4ff0fd66-83a1-4941-86b3-db08419615ea",
     "fields": {
       "created_at": "2024-05-22T15:15:39.503Z",
@@ -2708,6 +3188,23 @@
       "value": "Sandra",
       "meta": {},
       "document": "aa1a8ef3-3b06-4f61-9710-0f0a224d8453",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "548daa1e-0fef-4fcc-961f-2ed3ff9263e6",
+    "fields": {
+      "created_at": "2024-09-06T08:17:20.353Z",
+      "modified_at": "2024-09-06T08:17:20.353Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bauherrin",
+      "value": null,
+      "meta": {},
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
       "date": null
     }
   },
@@ -2846,6 +3343,25 @@
       "value": "anrede-herr",
       "meta": {},
       "document": "0f785b8e-17f2-455e-af79-afd9517d51d7",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "59030828-1e9c-4572-956b-13f058cd903f",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.549Z",
+      "modified_at": "2024-09-06T08:17:36.549Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "denkmalschutz",
+      "value": null,
+      "meta": {
+        "gis-value": null
+      },
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
       "date": null
     }
   },
@@ -3229,6 +3745,23 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "65affdfd-49ab-453d-b496-35d26c05bcc1",
+    "fields": {
+      "created_at": "2024-09-06T08:14:48.543Z",
+      "modified_at": "2024-09-06T08:14:48.543Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlageart",
+      "value": "anlageart-solarwaermeanlage",
+      "meta": {},
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "67929bc8-e0a0-46ec-a316-d48903bd1fc1",
     "fields": {
       "created_at": "2023-09-08T17:01:36.613Z",
@@ -3241,6 +3774,25 @@
       "value": "haustechnische-anlagen-erstellt-nein",
       "meta": {},
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "67c8dc62-1da1-428c-8308-e3dc92b9109c",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.512Z",
+      "modified_at": "2024-09-06T08:17:36.512Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "naturgefahren-gis",
+      "value": null,
+      "meta": {
+        "gis-value": null
+      },
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
       "date": null
     }
   },
@@ -3275,6 +3827,23 @@
       "value": ["art-der-bauwerke-tiefbaute"],
       "meta": {},
       "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "6b318c13-7176-4a82-9b5e-82dba55fea44",
+    "fields": {
+      "created_at": "2024-09-06T08:17:03.999Z",
+      "modified_at": "2024-09-06T08:17:03.999Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "strasse-nummer",
+      "value": "33",
+      "meta": {},
+      "document": "8f05675e-8b2b-4576-9cd4-eb701c8a5990",
       "date": null
     }
   },
@@ -3399,6 +3968,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "71d5ffbd-6f94-4bee-b1d3-5ab45dfa02f2",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.435Z",
+      "modified_at": "2024-09-06T08:17:36.435Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ort",
+      "value": "Solothurn",
+      "meta": {
+        "gis-value": "Solothurn"
+      },
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "72ebe65f-3c14-414a-a640-7cad57af0731",
     "fields": {
       "created_at": "2023-10-05T08:58:09.120Z",
@@ -3445,6 +4033,23 @@
       "value": "kuenstliche-lueftung-relevant-nein",
       "meta": {},
       "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "73c6b2b4-f0ae-447a-8930-4d8e39f9ba00",
+    "fields": {
+      "created_at": "2024-09-06T08:16:07.057Z",
+      "modified_at": "2024-09-06T08:16:07.057Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "situationsplan-pv",
+      "value": ["situationsplan-pv-ja"],
+      "meta": {},
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
       "date": null
     }
   },
@@ -3690,6 +4295,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "7c557cd9-31d5-4347-995d-d705110a9e24",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.571Z",
+      "modified_at": "2024-09-06T08:17:36.571Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "archaeologie",
+      "value": null,
+      "meta": {
+        "gis-value": null
+      },
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "7c686ea6-572d-4e31-9ed9-c8bdd6132044",
     "fields": {
       "created_at": "2023-10-05T09:00:13.269Z",
@@ -3879,6 +4503,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "82db0d85-b61c-4188-9718-589ae59043c6",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.370Z",
+      "modified_at": "2024-09-06T08:17:36.371Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gemeindenummer-bfs",
+      "value": 2601,
+      "meta": {
+        "gis-value": 2601
+      },
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "842ded8e-0199-4ff2-bd9e-79c22f56b89c",
     "fields": {
       "created_at": "2023-07-07T07:36:30.903Z",
@@ -3908,6 +4551,25 @@
       "value": "Schweiz",
       "meta": {},
       "document": "2b450a93-28b6-4cd8-a0e9-48708a66eca9",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "845c7f7e-b677-416e-b6c5-e10576e098cb",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.349Z",
+      "modified_at": "2024-09-06T08:17:36.349Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gemeinde",
+      "value": "1",
+      "meta": {
+        "gis-value": "1"
+      },
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
       "date": null
     }
   },
@@ -4080,6 +4742,23 @@
       "value": 1000,
       "meta": {},
       "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "8c0a3e85-5f3f-4fc9-8f9e-da50430bc538",
+    "fields": {
+      "created_at": "2024-09-06T08:13:01.192Z",
+      "modified_at": "2024-09-06T08:13:01.192Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "projektaenderung",
+      "value": "projektaenderung-nein",
+      "meta": {},
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
       "date": null
     }
   },
@@ -5021,6 +5700,23 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "afa1227e-ccac-4769-ac6f-2d3764b57afd",
+    "fields": {
+      "created_at": "2024-09-06T08:16:07.773Z",
+      "modified_at": "2024-09-06T08:16:07.773Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "fassadenplan-pv",
+      "value": ["fassadenplan-pv-ja"],
+      "meta": {},
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "afc3187e-a195-42e5-98f6-e781da409266",
     "fields": {
       "created_at": "2023-09-18T15:07:35.631Z",
@@ -5118,6 +5814,25 @@
       "value": ["nachweis-erstellung-bodenschutz-ja"],
       "meta": {},
       "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "b1d693b7-c5e4-4d6e-b032-90dc7604a23a",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.167Z",
+      "modified_at": "2024-09-06T08:17:36.167Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "e-grid",
+      "value": "CH367032062207",
+      "meta": {
+        "gis-value": "CH367032062207"
+      },
+      "document": "d2c95ead-027f-47be-92c2-d2c48ce40109",
       "date": null
     }
   },
@@ -5244,6 +5959,23 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "b6cbb439-e5f1-4094-93dc-f7b9ad68fdbb",
+    "fields": {
+      "created_at": "2024-09-06T08:14:46.929Z",
+      "modified_at": "2024-09-06T08:14:46.929Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gesamtkosten",
+      "value": 20000,
+      "meta": {},
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "b7bed7d9-1fd3-45be-be61-0d4ae452b329",
     "fields": {
       "created_at": "2024-06-19T15:53:49.022Z",
@@ -5273,6 +6005,25 @@
       "value": "grundeigentuemerin-abweichend-nein",
       "meta": {},
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "b82f1a3e-6cf4-4c6b-96df-a791e4c8ebd8",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.629Z",
+      "modified_at": "2024-09-06T08:17:36.629Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bundesinventare",
+      "value": null,
+      "meta": {
+        "gis-value": null
+      },
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
       "date": null
     }
   },
@@ -5481,6 +6232,23 @@
         "gis-value": null
       },
       "document": "88fb4b7d-10c7-4f36-9be6-dd068e0cc2e2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "bfd6129f-4796-4870-8180-32e4443780af",
+    "fields": {
+      "created_at": "2024-09-06T08:17:47.219Z",
+      "modified_at": "2024-09-06T08:17:47.219Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "grundeigentuemerinnen",
+      "value": ["8f05675e-8b2b-4576-9cd4-eb701c8a5990"],
+      "meta": {},
+      "document": "d2c95ead-027f-47be-92c2-d2c48ce40109",
       "date": null
     }
   },
@@ -5723,6 +6491,23 @@
       "value": "Mustermann",
       "meta": {},
       "document": "2b450a93-28b6-4cd8-a0e9-48708a66eca9",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "cac91173-447d-4f35-82fd-bcb1b83cf013",
+    "fields": {
+      "created_at": "2024-09-06T08:17:13.421Z",
+      "modified_at": "2024-09-06T08:17:13.421Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "telefon",
+      "value": "0123123123",
+      "meta": {},
+      "document": "8f05675e-8b2b-4576-9cd4-eb701c8a5990",
       "date": null
     }
   },
@@ -6238,6 +7023,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "defa9a3d-3c5c-44e4-b23f-9d4c49192a47",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.527Z",
+      "modified_at": "2024-09-06T08:17:36.527Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gewaesserschutz",
+      "value": null,
+      "meta": {
+        "gis-value": null
+      },
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "df6eca57-fa86-41c9-8a78-597883d0b7ee",
     "fields": {
       "created_at": "2023-11-27T09:20:45.927Z",
@@ -6303,6 +7107,25 @@
         "gis-value": 2601
       },
       "document": "88fb4b7d-10c7-4f36-9be6-dd068e0cc2e2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "e26e5a61-c0f8-44bd-9f8c-35c802c9182c",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.136Z",
+      "modified_at": "2024-09-06T08:17:36.136Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lagekoordinaten-ost",
+      "value": 2606294.9387503555,
+      "meta": {
+        "gis-value": 2606294.9387503555
+      },
+      "document": "d2c95ead-027f-47be-92c2-d2c48ce40109",
       "date": null
     }
   },
@@ -6376,6 +7199,23 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "e61c5a8c-d194-4249-b751-3d8000f24774",
+    "fields": {
+      "created_at": "2024-09-06T08:17:10.801Z",
+      "modified_at": "2024-09-06T08:17:10.801Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "land",
+      "value": "Schweiz",
+      "meta": {},
+      "document": "8f05675e-8b2b-4576-9cd4-eb701c8a5990",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "e62547b0-dcc6-4ae4-92a8-0bc0efa52297",
     "fields": {
       "created_at": "2023-09-08T17:01:41.545Z",
@@ -6388,6 +7228,25 @@
       "value": "aushub-erforderlich-nein",
       "meta": {},
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "e6bcb68f-e996-48e0-a3e5-1ea3a4385d1f",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.183Z",
+      "modified_at": "2024-09-06T08:17:36.183Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "parzellennummer",
+      "value": "3019",
+      "meta": {
+        "gis-value": "3019"
+      },
+      "document": "d2c95ead-027f-47be-92c2-d2c48ce40109",
       "date": null
     }
   },
@@ -6461,6 +7320,23 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "ea0505b4-34bf-4cd6-9626-9b81d3802053",
+    "fields": {
+      "created_at": "2024-09-06T08:16:58.951Z",
+      "modified_at": "2024-09-06T08:17:03.149Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "strasse",
+      "value": "Solarstrasse",
+      "meta": {},
+      "document": "8f05675e-8b2b-4576-9cd4-eb701c8a5990",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "ea86d509-f740-47fe-b631-5c4582f3919f",
     "fields": {
       "created_at": "2023-11-27T09:23:11.473Z",
@@ -6490,6 +7366,23 @@
       "value": "1 / 2",
       "meta": {},
       "document": "76b87161-271a-4389-9252-ad3b638ed0cf",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "ec46ef05-a1d7-4cc7-a3af-fd378b06df54",
+    "fields": {
+      "created_at": "2024-09-06T09:26:48.349Z",
+      "modified_at": "2024-09-06T09:26:48.350Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "e-mail",
+      "value": "test@test.ch",
+      "meta": {},
+      "document": "8f05675e-8b2b-4576-9cd4-eb701c8a5990",
       "date": null
     }
   },
@@ -6541,6 +7434,23 @@
       "value": null,
       "meta": {},
       "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "ed54d21b-b38a-4f66-8569-ae5aac543325",
+    "fields": {
+      "created_at": "2024-09-06T08:16:06.415Z",
+      "modified_at": "2024-09-06T08:16:06.415Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "baubeschrieb-pv",
+      "value": ["baubeschrieb-pv-ja"],
+      "meta": {},
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
       "date": null
     }
   },
@@ -6786,6 +7696,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "fb9ba34e-71b9-434a-9bbf-6e43dc65afc0",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.591Z",
+      "modified_at": "2024-09-06T08:17:36.591Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nutzungsplanung-weitere-festlegungen",
+      "value": "Erschliessungsplan (Linie): Baulinie Strasse, Erschliessungsplan (Linie): min. Abstand gem. § 46 kant. Bauverordnung entlang Gemeindestrasse (5.0m), Fläche: Bauweise in Zeilen, ZR6",
+      "meta": {
+        "gis-value": "Erschliessungsplan (Linie): Baulinie Strasse, Erschliessungsplan (Linie): min. Abstand gem. § 46 kant. Bauverordnung entlang Gemeindestrasse (5.0m), Fläche: Bauweise in Zeilen, ZR6"
+      },
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "fc43b797-ab74-4680-a3a1-2bd3fdfb4d71",
     "fields": {
       "created_at": "2023-10-05T08:57:07.750Z",
@@ -6949,6 +7878,21 @@
       "modified_by_group": null,
       "answer": "4ccd0c36-60b7-4603-9d39-2ca49a74cbf1",
       "document": "76b87161-271a-4389-9252-ad3b638ed0cf",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.answerdocument",
+    "pk": "0ac6e690-3927-44a0-9e76-59b5d2346f10",
+    "fields": {
+      "created_at": "2024-09-06T08:17:20.368Z",
+      "modified_at": "2024-09-06T08:17:20.368Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "answer": "548daa1e-0fef-4fcc-961f-2ed3ff9263e6",
+      "document": "8f05675e-8b2b-4576-9cd4-eb701c8a5990",
       "sort": 1
     }
   },
@@ -7119,6 +8063,21 @@
   },
   {
     "model": "caluma_form.answerdocument",
+    "pk": "bd08a638-3897-4320-ba03-3e2480a6c159",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.289Z",
+      "modified_at": "2024-09-06T08:17:36.289Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "answer": "24a9544c-0789-492b-81bc-7d6ab6c2981f",
+      "document": "d2c95ead-027f-47be-92c2-d2c48ce40109",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.answerdocument",
     "pk": "c1c5673a-2ee8-4ca1-ae60-bdc1413c54b7",
     "fields": {
       "created_at": "2023-10-05T08:59:17.248Z",
@@ -7257,6 +8216,22 @@
   },
   {
     "model": "caluma_form.dynamicoption",
+    "pk": "3a3c7c05-aa73-4f95-8291-7d77baaf49d7",
+    "fields": {
+      "created_at": "2024-09-06T08:17:47.208Z",
+      "modified_at": "2024-09-06T08:17:47.209Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "slug": "8f05675e-8b2b-4576-9cd4-eb701c8a5990",
+      "label": "{\"de\": \"Max Mustermann\", \"fr\": null, \"it\": null}",
+      "document": "d2c95ead-027f-47be-92c2-d2c48ce40109",
+      "question": "grundeigentuemerinnen"
+    }
+  },
+  {
+    "model": "caluma_form.dynamicoption",
     "pk": "434606e8-22b0-4690-a6fc-44dc1e96cd3b",
     "fields": {
       "created_at": "2024-05-31T10:29:37.706Z",
@@ -7381,6 +8356,38 @@
       "label": "{\"de\": \"Solothurn\", \"fr\": \"Solothurn\", \"it\": null}",
       "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
       "question": "gemeinde"
+    }
+  },
+  {
+    "model": "caluma_form.dynamicoption",
+    "pk": "c4639589-8073-43ce-abe9-552f07aae6f2",
+    "fields": {
+      "created_at": "2024-09-06T08:17:36.335Z",
+      "modified_at": "2024-09-06T08:17:36.335Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "slug": "1",
+      "label": "{\"de\": \"Solothurn\", \"fr\": \"Solothurn\", \"it\": \"Solothurn\"}",
+      "document": "6ecbaf96-051d-433c-927a-507c1febcc0c",
+      "question": "gemeinde"
+    }
+  },
+  {
+    "model": "caluma_form.dynamicoption",
+    "pk": "cfd02839-4d0e-479c-9785-40b8cadb6b01",
+    "fields": {
+      "created_at": "2024-09-06T08:17:10.786Z",
+      "modified_at": "2024-09-06T08:17:10.786Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "slug": "Schweiz",
+      "label": "{\"de\": \"Schweiz\", \"fr\": null, \"it\": null}",
+      "document": "8f05675e-8b2b-4576-9cd4-eb701c8a5990",
+      "question": "land"
     }
   },
   {

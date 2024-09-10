@@ -73,6 +73,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "materielle-pruefung-pv-anlage",
+    "fields": {
+      "created_at": "2024-09-06T09:31:01.123Z",
+      "modified_at": "2024-09-06T09:31:01.123Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Materielle Pr\\u00fcfung PV-Anlage\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "materielle-pruefung-richtlinie-der-gemeinde",
     "fields": {
       "created_at": "2023-10-05T09:02:44.208Z",
@@ -1166,7 +1184,7 @@
       "modified_by_group": null,
       "form": "materielle-pruefung",
       "question": "materielle-pruefung-ausnahmen",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -1181,7 +1199,7 @@
       "modified_by_group": null,
       "form": "materielle-pruefung",
       "question": "materielle-pruefung-bauvorschriften",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -1201,6 +1219,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung.materielle-pruefung-pv-anlage",
+    "fields": {
+      "created_at": "2024-09-06T09:31:43.105Z",
+      "modified_at": "2024-09-06T09:31:43.105Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung",
+      "question": "materielle-pruefung-pv-anlage",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "materielle-pruefung.materielle-pruefung-richtlinie-der-gemeinde",
     "fields": {
       "created_at": "2023-10-05T09:07:08.764Z",
@@ -1211,7 +1244,67 @@
       "modified_by_group": null,
       "form": "materielle-pruefung",
       "question": "materielle-pruefung-richtlinie-der-gemeinde",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-pv-anlage.erfuellt-die-anlage-die-vorschriften-gemaess-art-32a-abs-1-oder-abs-1bis-rpv",
+    "fields": {
+      "created_at": "2024-09-06T09:33:57.701Z",
+      "modified_at": "2024-09-06T09:33:57.701Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-pv-anlage",
+      "question": "erfuellt-die-anlage-die-vorschriften-gemaess-art-32a-abs-1-oder-abs-1bis-rpv",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-pv-anlage.liegt-die-anlage-auf-einem-kulturdenkmal-von-kantonaler-bedeutung",
+    "fields": {
+      "created_at": "2024-09-06T09:32:53.029Z",
+      "modified_at": "2024-09-06T09:32:53.030Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-pv-anlage",
+      "question": "liegt-die-anlage-auf-einem-kulturdenkmal-von-kantonaler-bedeutung",
       "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-pv-anlage.liegt-die-anlage-in-der-juraschutzzone",
+    "fields": {
+      "created_at": "2024-09-06T09:33:34.939Z",
+      "modified_at": "2024-09-06T09:33:34.939Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-pv-anlage",
+      "question": "liegt-die-anlage-in-der-juraschutzzone",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-pv-anlage.liegt-die-anlage-in-einer-ortsbildschutzzone",
+    "fields": {
+      "created_at": "2024-09-06T09:33:18.604Z",
+      "modified_at": "2024-09-06T09:33:18.604Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-pv-anlage",
+      "question": "liegt-die-anlage-in-einer-ortsbildschutzzone",
+      "sort": 3
     }
   },
   {
@@ -1608,6 +1701,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "erfuellt-die-anlage-die-vorschriften-gemaess-art-32a-abs-1-oder-abs-1bis-rpv-ja",
+    "fields": {
+      "created_at": "2024-09-06T09:33:57.106Z",
+      "modified_at": "2024-09-06T09:33:57.106Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "erfuellt-die-anlage-die-vorschriften-gemaess-art-32a-abs-1-oder-abs-1bis-rpv-nein",
+    "fields": {
+      "created_at": "2024-09-06T09:33:57.139Z",
+      "modified_at": "2024-09-06T09:33:57.140Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "gebaeudehoehe-betroffen",
     "fields": {
       "created_at": "2023-10-05T10:07:56.143Z",
@@ -1804,6 +1931,108 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Zul\\u00e4ssig\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "liegt-die-anlage-auf-einem-kulturdenkmal-von-kantonaler-bedeutung-ja",
+    "fields": {
+      "created_at": "2024-09-06T09:32:52.646Z",
+      "modified_at": "2024-09-06T09:32:52.647Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "liegt-die-anlage-auf-einem-kulturdenkmal-von-kantonaler-bedeutung-nein",
+    "fields": {
+      "created_at": "2024-09-06T09:32:52.659Z",
+      "modified_at": "2024-09-06T09:32:52.659Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "liegt-die-anlage-in-der-juraschutzzone-ja",
+    "fields": {
+      "created_at": "2024-09-06T09:33:34.577Z",
+      "modified_at": "2024-09-06T09:33:34.578Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "liegt-die-anlage-in-der-juraschutzzone-nein",
+    "fields": {
+      "created_at": "2024-09-06T09:33:34.591Z",
+      "modified_at": "2024-09-06T09:33:34.591Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "liegt-die-anlage-in-einer-ortsbildschutzzone-ja",
+    "fields": {
+      "created_at": "2024-09-06T09:33:18.278Z",
+      "modified_at": "2024-09-06T09:33:18.278Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "liegt-die-anlage-in-einer-ortsbildschutzzone-nein",
+    "fields": {
+      "created_at": "2024-09-06T09:33:18.282Z",
+      "modified_at": "2024-09-06T09:33:18.282Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -3822,6 +4051,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "erfuellt-die-anlage-die-vorschriften-gemaess-art-32a-abs-1-oder-abs-1bis-rpv",
+    "fields": {
+      "created_at": "2024-09-06T09:33:57.401Z",
+      "modified_at": "2024-09-09T13:24:29.260Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erf\\u00fcllt die Anlage die Vorschriften gem\\u00e4ss Art. 32a Abs. 1 oder Abs. 1bis RPV?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "ergebnis-der-materiellen-pruefung",
     "fields": {
       "created_at": "2023-10-05T09:11:18.139Z",
@@ -4197,6 +4457,99 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "liegt-die-anlage-auf-einem-kulturdenkmal-von-kantonaler-bedeutung",
+    "fields": {
+      "created_at": "2024-09-06T09:32:52.818Z",
+      "modified_at": "2024-09-09T13:24:22.026Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Liegt die Anlage auf einem Kulturdenkmal von kantonaler Bedeutung?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "liegt-die-anlage-in-der-juraschutzzone",
+    "fields": {
+      "created_at": "2024-09-06T09:33:34.745Z",
+      "modified_at": "2024-09-09T13:24:27.003Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Liegt die Anlage in der Juraschutzzone?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "liegt-die-anlage-in-einer-ortsbildschutzzone",
+    "fields": {
+      "created_at": "2024-09-06T09:33:18.427Z",
+      "modified_at": "2024-09-09T13:24:24.570Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Liegt die Anlage in einer Ortsbildschutzzone?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "materielle-pruefung-abschliessen",
     "fields": {
       "created_at": "2023-10-02T06:39:51.121Z",
@@ -4236,18 +4589,18 @@
     "pk": "materielle-pruefung-ausnahmen",
     "fields": {
       "created_at": "2023-10-05T10:46:43.699Z",
-      "modified_at": "2023-10-05T10:46:43.699Z",
+      "modified_at": "2024-09-06T09:36:57.483Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Ausnahmen\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "info.case.root.form == \"meldung-pv\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -4267,18 +4620,18 @@
     "pk": "materielle-pruefung-bauvorschriften",
     "fields": {
       "created_at": "2023-10-05T10:04:40.442Z",
-      "modified_at": "2023-10-05T10:04:40.442Z",
+      "modified_at": "2024-09-06T09:37:01.249Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Bauvorschriften\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "info.case.root.form == \"meldung-pv\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -4357,6 +4710,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "materielle-pruefung-pv-anlage",
+    "fields": {
+      "created_at": "2024-09-06T09:31:42.961Z",
+      "modified_at": "2024-09-06T09:36:50.985Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"PV-Anlage\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "info.case.root.form != \"meldung-pv\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "materielle-pruefung-pv-anlage",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "materielle-pruefung-resultat",
     "fields": {
       "created_at": "2023-11-01T07:44:37.978Z",
@@ -4391,18 +4775,18 @@
     "pk": "materielle-pruefung-richtlinie-der-gemeinde",
     "fields": {
       "created_at": "2023-10-05T09:07:08.575Z",
-      "modified_at": "2023-10-05T09:07:08.575Z",
+      "modified_at": "2024-09-06T09:37:04.960Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Richtlinie der Gemeinde\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "info.case.root.form == \"meldung-pv\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -5310,6 +5694,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "erfuellt-die-anlage-die-vorschriften-gemaess-art-32a-abs-1-oder-abs-1bis-rpv.erfuellt-die-anlage-die-vorschriften-gemaess-art-32a-abs-1-oder-abs-1bis-rpv-ja",
+    "fields": {
+      "created_at": "2024-09-09T13:24:29.268Z",
+      "modified_at": "2024-09-09T13:24:29.268Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "erfuellt-die-anlage-die-vorschriften-gemaess-art-32a-abs-1-oder-abs-1bis-rpv",
+      "option": "erfuellt-die-anlage-die-vorschriften-gemaess-art-32a-abs-1-oder-abs-1bis-rpv-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "erfuellt-die-anlage-die-vorschriften-gemaess-art-32a-abs-1-oder-abs-1bis-rpv.erfuellt-die-anlage-die-vorschriften-gemaess-art-32a-abs-1-oder-abs-1bis-rpv-nein",
+    "fields": {
+      "created_at": "2024-09-09T13:24:29.266Z",
+      "modified_at": "2024-09-09T13:24:29.266Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "erfuellt-die-anlage-die-vorschriften-gemaess-art-32a-abs-1-oder-abs-1bis-rpv",
+      "option": "erfuellt-die-anlage-die-vorschriften-gemaess-art-32a-abs-1-oder-abs-1bis-rpv-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "gebaeudehoehe.gebaeudehoehe-betroffen",
     "fields": {
       "created_at": "2023-10-05T10:07:56.364Z",
@@ -5485,6 +5899,96 @@
       "modified_by_group": null,
       "question": "grenz-und-gebaeudeabstand",
       "option": "grenz-und-gebaeudeabstand-zulaessig",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "liegt-die-anlage-auf-einem-kulturdenkmal-von-kantonaler-bedeutung.liegt-die-anlage-auf-einem-kulturdenkmal-von-kantonaler-bedeutung-ja",
+    "fields": {
+      "created_at": "2024-09-09T13:24:22.037Z",
+      "modified_at": "2024-09-09T13:24:22.037Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "liegt-die-anlage-auf-einem-kulturdenkmal-von-kantonaler-bedeutung",
+      "option": "liegt-die-anlage-auf-einem-kulturdenkmal-von-kantonaler-bedeutung-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "liegt-die-anlage-auf-einem-kulturdenkmal-von-kantonaler-bedeutung.liegt-die-anlage-auf-einem-kulturdenkmal-von-kantonaler-bedeutung-nein",
+    "fields": {
+      "created_at": "2024-09-09T13:24:22.033Z",
+      "modified_at": "2024-09-09T13:24:22.033Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "liegt-die-anlage-auf-einem-kulturdenkmal-von-kantonaler-bedeutung",
+      "option": "liegt-die-anlage-auf-einem-kulturdenkmal-von-kantonaler-bedeutung-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "liegt-die-anlage-in-der-juraschutzzone.liegt-die-anlage-in-der-juraschutzzone-ja",
+    "fields": {
+      "created_at": "2024-09-09T13:24:27.012Z",
+      "modified_at": "2024-09-09T13:24:27.012Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "liegt-die-anlage-in-der-juraschutzzone",
+      "option": "liegt-die-anlage-in-der-juraschutzzone-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "liegt-die-anlage-in-der-juraschutzzone.liegt-die-anlage-in-der-juraschutzzone-nein",
+    "fields": {
+      "created_at": "2024-09-09T13:24:27.009Z",
+      "modified_at": "2024-09-09T13:24:27.009Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "liegt-die-anlage-in-der-juraschutzzone",
+      "option": "liegt-die-anlage-in-der-juraschutzzone-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "liegt-die-anlage-in-einer-ortsbildschutzzone.liegt-die-anlage-in-einer-ortsbildschutzzone-ja",
+    "fields": {
+      "created_at": "2024-09-09T13:24:24.579Z",
+      "modified_at": "2024-09-09T13:24:24.580Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "liegt-die-anlage-in-einer-ortsbildschutzzone",
+      "option": "liegt-die-anlage-in-einer-ortsbildschutzzone-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "liegt-die-anlage-in-einer-ortsbildschutzzone.liegt-die-anlage-in-einer-ortsbildschutzzone-nein",
+    "fields": {
+      "created_at": "2024-09-09T13:24:24.576Z",
+      "modified_at": "2024-09-09T13:24:24.576Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "liegt-die-anlage-in-einer-ortsbildschutzzone",
+      "option": "liegt-die-anlage-in-einer-ortsbildschutzzone-nein",
       "sort": 1
     }
   },

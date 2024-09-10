@@ -2925,6 +2925,11 @@ def test_inquiry_and_decision_data(
             "decision",
             {"create-manual-workitems", "decision"},
         ),
+        (
+            "meldung-pv",
+            "subm",
+            {"create-manual-workitems", "formal-exam", "init-additional-demand"},
+        ),
     ],
 )
 def test_instance_submit_so(

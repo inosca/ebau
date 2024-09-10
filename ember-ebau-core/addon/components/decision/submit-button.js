@@ -52,7 +52,9 @@ export default class DecisionSubmitButtonComponent extends CfFieldInputActionBut
 
   get isPreliminaryClarification() {
     if (macroCondition(getOwnConfig().application === "so")) {
-      return ["voranfrage", "meldung"].includes(this.caseInfo.value?.form);
+      return ["voranfrage", "meldung", "meldung-pv"].includes(
+        this.caseInfo.value?.form,
+      );
     }
 
     try {

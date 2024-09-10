@@ -10,6 +10,7 @@ mutation CreateBuildingPermitWorkflow {
         "migriertes-dossier"
         "voranfrage"
         "meldung"
+        "meldung-pv"
       ]
       isPublished: true
     }
