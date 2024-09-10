@@ -117,6 +117,7 @@ DMS = {
                     "vorabklaerung-vollstaendig-v4",
                     "solaranlagen-meldung",
                     "heat-generator",
+                    "heat-generator-v2",
                 ],
                 "template": "form",
                 "personalien": "personalien",

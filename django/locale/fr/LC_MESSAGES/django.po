@@ -1133,6 +1133,10 @@ msgstr ""
 "Entité autorisée (par l'intermédiaire du module permettant l'octroi "
 "d'autorisations)"
 
+#: camac/notification/serializers.py:94
+msgid "Office for Environment and Energy of the Canton of Bern: Immission control"
+msgstr "Office de l'environnement et de lénergie du canton de Berne: Protection contre les immissions"
+
 #: camac/notification/serializers.py:445
 #, python-format
 msgid "%(pending)d of %(total)d inquries are still pending."
