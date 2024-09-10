@@ -19,6 +19,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "publikation.dokumente-identisch",
+    "fields": {
+      "created_at": "2024-04-25T07:56:05.866Z",
+      "modified_at": "2024-04-25T07:56:05.866Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "publikation",
+      "question": "dokumente-identisch",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "publikation.publikation-1-publikation-anzeiger",
     "fields": {
       "created_at": "2020-11-20T13:17:57.477Z",
@@ -29,7 +44,7 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "publikation-1-publikation-anzeiger",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -44,7 +59,7 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "publikation-2-publikation-anzeiger",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -59,7 +74,7 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "publikation-ablaufdatum",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -74,7 +89,7 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "publikation-amtsblatt",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -89,7 +104,7 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "publikation-anzeiger-von",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -119,7 +134,7 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "publikation-startdatum",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -134,7 +149,57 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "publikation-text",
-      "sort": 2
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "dokumente-identisch-ja",
+    "fields": {
+      "created_at": "2024-04-25T07:56:05.398Z",
+      "modified_at": "2024-06-17T12:38:35.403Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die physischen und digitalen Dokumente f\\u00fcr die Publikation sind identisch.\", \"fr\": \"Les documents physiques et num\\u00e9riques pour la publication sont identiques.\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dokumente-identisch",
+    "fields": {
+      "created_at": "2024-04-25T07:56:05.617Z",
+      "modified_at": "2024-06-17T12:38:35.732Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die physischen und digitalen Dokumente f\\u00fcr die Publikation sind identisch.\", \"fr\": \"Les documents physiques et num\\u00e9riques pour la publication sont identiques.\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
     }
   },
   {
@@ -394,6 +459,21 @@
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "dokumente-identisch.dokumente-identisch-ja",
+    "fields": {
+      "created_at": "2024-06-17T12:38:35.745Z",
+      "modified_at": "2024-06-17T12:38:35.745Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "dokumente-identisch",
+      "option": "dokumente-identisch-ja",
+      "sort": 1
     }
   }
 ]
