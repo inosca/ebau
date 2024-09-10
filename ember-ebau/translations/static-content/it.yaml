@@ -1,7 +1,0 @@
-static-content:
-  edit: "Modifica"
-  content: "Contenuto"
-  not-found:
-    case:
-      title: "Non è stato possibile trovare il dossier desiderato oppure non dispone dei diritti necessari."
-      action: "Torna all'elenco dei dossier"

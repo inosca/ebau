@@ -10,4 +10,7 @@ export default {
   workItems: {
     showDocument: true,
   },
+  dashboard: {
+    useLegacy: true,
+  },
 };
