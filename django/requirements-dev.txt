@@ -8,8 +8,6 @@ mock==5.1.0
 pdbpp==0.10.3
 pre-commit==3.8.0
 pydocstyle==6.3.0
-# Pytest v8.0.0 doesn't work with pytest-lazy-fixture therefore we keep v7.4.4
-# until this is fixed https://github.com/TvoroG/pytest-lazy-fixture/issues/65
 pytest==8.3.2
 pytest-cov==5.0.0
 pytest-django==4.8.0
@@ -24,6 +22,7 @@ pytest-xdist==3.6.1
 remote-pdb==2.1.0
 requests-mock==1.12.1
 syrupy==4.7.1
+watchdog==5.0.2
 web-pdb==1.6.2
 Werkzeug==3.0.4
 # needs an update in django-hurricane to allow v6

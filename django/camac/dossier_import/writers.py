@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any, List, Optional
 
 import magic
+from alexandria.core.tasks import make_checksum
 from caluma.caluma_form import api as form_api
 from caluma.caluma_form.models import Answer, AnswerDocument, Document, Question
 from caluma.caluma_user.models import BaseUser
@@ -824,7 +825,7 @@ class DossierWriter:
             title=filename, **{"metainfo__camac-instance-id": str(instance.pk)}
         ).first():
             original = document.get_latest_original()
-            if original.checksum == original.make_checksum(content.read()):
+            if original.checksum == make_checksum(content.read()):
                 return messages
             content.seek(0)
             create_file(
