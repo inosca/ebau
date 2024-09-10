@@ -25,6 +25,10 @@ yarn build # builds css once
 yarn watch # builds css on file change
 ```
 
+## Message of the day (MOTD)
+
+You can show a notice on the login screen by setting the `HTML Display name` property of your realm under Configure > Realm Settings.
+
 ## Custom authenticator
 
 We're implementing two internal SPIs to support 2FA auth via SMS:
@@ -37,15 +41,14 @@ We're implementing two internal SPIs to support 2FA auth via SMS:
 It is possible to debug the SPI code using VScode with the following settings on the `keycloak` container:
 
 ```yaml
-  environment:
-    - DEBUG_MODE=true
-    - DEBUG_PORT="*:8787"
-  ports:
-    - 8080:8080
-    - 8787:8787
-  command:
-    [
-      ...
-      "--debug",
-    ]
+environment:
+  - DEBUG_MODE=true
+  - DEBUG_PORT="*:8787"
+ports:
+  - 8080:8080
+  - 8787:8787
+command: [
+    ...
+    "--debug",
+  ]
 ```
