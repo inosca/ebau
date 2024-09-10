@@ -31,6 +31,7 @@ from .utils import (
     get_person_last_name,
     get_person_name,
     human_readable_date,
+    parse_person_row,
     row_to_person,
 )
 
@@ -487,9 +488,10 @@ class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
                 "EINSPRECHER_ADRESSE": [_("OPPOSING_ADDRESS")],
                 "EINSPRECHER_ANREDE": [_("OPPOSING_SALUTATION")],
                 "ALLE_EINSPRECHENDEN": [_("ALL_OPPOSING")],
-                "ALLE_EINSPRECHENDEN.NAME": [_("NAME")],
-                "ALLE_EINSPRECHENDEN.ADRESSE": [_("ADDRESS")],
-                "ALLE_EINSPRECHENDEN.ANREDE": [_("SALUTATION")],
+                **{
+                    f"ALLE_EINSPRECHENDEN.{k}": v
+                    for k, v in MasterDataPersonObjectField.nested_aliases.items()
+                },
             }
 
         nested_aliases = {
@@ -551,15 +553,10 @@ class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
                     if len(legal_claimants)
                     else None,
                     "ALLE_EINSPRECHENDEN": [
-                        {
-                            "NAME": get_person_name(person),
-                            "ADRESSE": clean_join(
-                                get_person_address_1(person),
-                                get_person_address_2(person),
-                                separator=", ",
-                            ),
-                            "ANREDE": person.get("salutation"),
-                        }
+                        parse_person_row(
+                            person,
+                            MasterDataPersonObjectField.nested_aliases.keys(),
+                        )
                         for person in legal_claimants
                     ],
                 }
@@ -746,6 +743,42 @@ class MasterDataPersonField(MasterDataField):
         value = super().get_attribute(instance)
 
         return value[:1] if self.only_first and value else value
+
+
+class MasterDataPersonObjectField(MasterDataField):
+    nested_aliases = {
+        "NAME": [_("NAME")],
+        "ADDRESS": [_("ADDRESS")],
+        "JURISTIC_NAME": [_("NAME_JURISTIC_PERSON")],
+        "SALUTATION": [_("SALUTATION")],
+        "TITLE": [_("TITLE")],
+        "FIRST_NAME": [_("FIRST_NAME")],
+        "LAST_NAME": [_("LAST_NAME")],
+        "STREET": [_("STREET")],
+        "STREET_NUMBER": [_("STREET_NUMBER")],
+        "PO_BOX": [_("PO_BOX")],
+        "ZIP": [_("ZIP")],
+        "TOWN": [_("TOWN")],
+        "TEL": [_("PHONE")],
+        "EMAIL": [_("EMAIL")],
+        "REPRESENTATIVE_NAME": [_("REPRESENTATIVE_NAME")],
+        "REPRESENTATIVE_ADDRESS": [_("REPRESENTATIVE_ADDRESS")],
+        "REPRESENTATIVE_JURISTIC_NAME": [_("REPRESENTATIVE_NAME_JURISTIC_PERSON")],
+        "REPRESENTATIVE_SALUTATION": [_("REPRESENTATIVE_SALUTATION")],
+        "REPRESENTATIVE_TITLE": [_("REPRESENTATIVE_TITLE")],
+        "REPRESENTATIVE_FIRST_NAME": [_("REPRESENTATIVE_FIRST_NAME")],
+        "REPRESENTATIVE_LAST_NAME": [_("REPRESENTATIVE_LAST_NAME")],
+        "REPRESENTATIVE_STREET": [_("REPRESENTATIVE_STREET")],
+        "REPRESENTATIVE_STREET_NUMBER": [_("REPRESENTATIVE_STREET_NUMBER")],
+        "REPRESENTATIVE_PO_BOX": [_("REPRESENTATIVE_PO_BOX")],
+        "REPRESENTATIVE_ZIP": [_("REPRESENTATIVE_ZIP")],
+        "REPRESENTATIVE_TOWN": [_("REPRESENTATIVE_TOWN")],
+        "REPRESENTATIVE_TEL": [_("REPRESENTATIVE_PHONE")],
+        "REPRESENTATIVE_EMAIL": [_("REPRESENTATIVE_EMAIL")],
+    }
+
+    def to_representation(self, value):
+        return [parse_person_row(row, self.nested_aliases.keys()) for row in value]
 
 
 class InformationOfNeighborsField(AliasedMixin, serializers.ReadOnlyField):

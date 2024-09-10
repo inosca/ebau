@@ -18,6 +18,7 @@ def so_personal_row_factory(
                 ("anrede-frau", "Frau"),
             ],
         },
+        "titel": fake.prefix_male() if is_male else fake.prefix_female(),
         "vorname": fake.first_name_male() if is_male else fake.first_name_female(),
         "nachname": fake.last_name_male() if is_male else fake.last_name_female(),
         "strasse": fake.street_name(),
@@ -27,6 +28,7 @@ def so_personal_row_factory(
         "land": "Schweiz",
         "e-mail": fake.email(),
         "telefon": fake.phone_number(),
+        "postfach": str(fake.pyint()),
         "vertretung": "vertretung-nein",
     }
 
@@ -54,6 +56,9 @@ def so_personal_row_factory(
                         ("vertretung-anrede-frau", "Frau"),
                     ],
                 },
+                "vertretung-titel": fake.prefix_male()
+                if is_male
+                else fake.prefix_female(),
                 "vertretung-vorname": fake.first_name_male()
                 if is_male
                 else fake.first_name_female(),
@@ -67,6 +72,7 @@ def so_personal_row_factory(
                 "vertretung-land": "Schweiz",
                 "vertretung-e-mail": fake.email(),
                 "vertretung-telefon": fake.phone_number(),
+                "vertretung-postfach": str(fake.pyint()),
             }
         )
 
