@@ -14,6 +14,7 @@ from django_filters.rest_framework import (
     NumberFilter,
 )
 
+from camac.constants import kt_uri as uri_constants
 from camac.filters import CharMultiValueFilter, NumberMultiValueFilter
 from camac.instance import utils as instance_utils
 from camac.instance.models import Instance
@@ -55,31 +56,7 @@ class PublicServiceFilterSet(FilterSet):
         method="filter_provider_for_instance_municipality"
     )
 
-    @permission_aware
-    def _available_in_distribution(self, queryset, name, value):
-        if not value:
-            return queryset  # pragma: no cover
-
-        return queryset.none()
-
-    def _available_in_distribution_for_service(self, queryset, name, value):
-        if not value:
-            return queryset  # pragma: no cover
-
-        group = self.request.group.pk
-        service_group_mapping = settings.APPLICATION.get(
-            "SERVICE_GROUPS_FOR_DISTRIBUTION", {}
-        )
-        if group in service_group_mapping.get("groups", {}):
-            return self._available_in_distribution_for_municipality(
-                queryset, name, value
-            )
-
-        # Services can invite subservices
-        service = self.request.group.service
-        return queryset.filter(service_parent=service)
-
-    def _available_in_distribution_for_municipality(self, queryset, name, value):
+    def _get_public_services_base(self, queryset, name, value):
         if not value:
             return queryset  # pragma: no cover
 
@@ -104,28 +81,52 @@ class PublicServiceFilterSet(FilterSet):
             else:
                 filters.append(Q(service_group__pk=config["id"]))
 
-        queryset = (
+        return (
             queryset.filter(reduce(lambda a, b: a | b, filters)).distinct()
             if len(filters) > 0
             else queryset
         )
 
-        if (
-            settings.APPLICATION_NAME == "kt_uri"
-            and self.request.group.role.name != "Coordination"
-        ):
-            # If we are querying for a Koordinationsstelle, we need to filter out all KOORs
-            # except KOOR BG and KOOR NP
+    @permission_aware
+    def _available_in_distribution(self, queryset, name, value):
+        if not value:
+            return queryset  # pragma: no cover
+
+        return queryset.none()
+
+    def _available_in_distribution_for_service(self, queryset, name, value):
+        if not value:
+            return queryset  # pragma: no cover
+
+        group = self.request.group.pk
+        service_group_mapping = settings.APPLICATION.get(
+            "SERVICE_GROUPS_FOR_DISTRIBUTION", {}
+        )
+        if group in service_group_mapping.get("groups", {}):
+            return self._get_public_services_base(queryset, name, value)
+
+        # Services can invite subservices
+        service = self.request.group.service
+        return queryset.filter(service_parent=service)
+
+    def _available_in_distribution_for_municipality(self, queryset, name, value):
+        queryset = self._get_public_services_base(queryset, name, value)
+
+        if settings.APPLICATION_NAME == "kt_uri":
             queryset = queryset.filter(
-                Q(name__in=["ARE KOOR BG", "ARE KOOR NP"])
+                Q(
+                    pk__in=[
+                        uri_constants.KOOR_BG_SERVICE_ID,
+                        uri_constants.KOOR_NP_SERVICE_ID,
+                    ]
+                )
                 | ~Q(service_group__name="Koordinationsstellen")
             )
 
         return queryset
 
     def _available_in_distribution_for_coordination(self, queryset, name, value):
-        # Required because the base method returns an empty queryset
-        return self._available_in_distribution_for_municipality(queryset, name, value)
+        return self._get_public_services_base(queryset, name, value)
 
     def filter_available_in_distribution_for_instance(self, queryset, name, value):
         if not settings.BAB:  # pragma: no cover

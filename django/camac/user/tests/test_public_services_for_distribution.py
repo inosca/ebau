@@ -77,22 +77,41 @@ def test_public_services_for_distribution_list(
 @pytest.mark.parametrize(
     "role__name",
     [
-        ("Municipality"),
-        ("Coordination"),
+        ("Sekretariat der Gemeindebaubehörde"),
+        ("Koordinationsstelle Baudirektion BD"),
     ],
 )
 def test_ur_municipality_coordination_suggestions(
     admin_client,
     role,
     service_factory,
-    settings,
+    service_group_factory,
+    set_application_ur,
+    mocker,
+    application_settings,
 ):
-    # In Kt. Uri only the ARE KOOR BG and ARE KOOR NP services should be visible
-    # for municipalities. For coordinations all others KOORs should be visible.
-    settings.APPLICATION_NAME = "kt_uri"
-    service_factory(name="ARE KOOR BG", service_group__name="Koordinationsstellen")
-    service_factory(name="ARE KOOR NP", service_group__name="Koordinationsstellen")
-    service_factory(name="ARE KOOR BD", service_group__name="Koordinationsstellen")
+    koor_service_group = service_group_factory(name="Koordinationsstellen")
+
+    koor_bg = service_factory(name="ARE KOOR BG", service_group=koor_service_group)
+    koor_np = service_factory(name="ARE KOOR NP", service_group=koor_service_group)
+    koor_bd = service_factory(name="ARE KOOR BD", service_group=koor_service_group)
+
+    application_settings["SERVICE_GROUPS_FOR_DISTRIBUTION"]["roles"][
+        "Sekretariat der Gemeindebaubehörde"
+    ] = [{"id": koor_service_group.pk, "localized": False}]
+
+    mocker.patch(
+        "camac.user.filters.uri_constants.KOOR_SERVICE_IDS",
+        [koor_bg.pk, koor_np.pk, koor_bd.pk],
+    )
+    mocker.patch(
+        "camac.user.filters.uri_constants.KOOR_BG_SERVICE_ID",
+        koor_bg.pk,
+    )
+    mocker.patch(
+        "camac.user.filters.uri_constants.KOOR_NP_SERVICE_ID",
+        koor_np.pk,
+    )
 
     response = admin_client.get(
         reverse("publicservice-list"),
@@ -104,7 +123,7 @@ def test_ur_municipality_coordination_suggestions(
 
     data = response.json()["data"]
 
-    if role.name == "Municipality":
+    if role.name == "Sekretariat der Gemeindebaubehörde":
         assert any(
             item["attributes"]["name"] == "ARE KOOR BG" for item in data
         ), "ARE KOOR BG should be visible for municipalities"
@@ -115,7 +134,7 @@ def test_ur_municipality_coordination_suggestions(
             item["attributes"]["name"] == "ARE KOOR BD" for item in data
         ), "ARE KOOR BD should not be visible for municipalities"
 
-    if role.name == "Coordination":
+    if role.name == "Koordinationsstelle Baudirektion BD":
         assert any(
             item["attributes"]["name"] == "ARE KOOR BG" for item in data
         ), "ARE KOOR BG should always be visible for KOORS"
