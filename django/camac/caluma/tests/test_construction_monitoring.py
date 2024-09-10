@@ -7,7 +7,6 @@ from django.core import mail
 
 from camac.caluma.extensions.events.construction_monitoring import (
     can_perform_construction_monitoring,
-    can_perform_construction_monitoring_ur,
     post_complete_construction_control,
     post_create_construction_control,
 )
@@ -472,7 +471,7 @@ def test_can_perform_construction_monitoring_ur(
         question__slug="complete-check-baubewilligungspflichtig",
         value=decision_answer,
     )
-    assert expected_value == can_perform_construction_monitoring_ur(instance)
+    assert expected_value == can_perform_construction_monitoring(instance)
 
 
 def test_post_create_construction_control(
