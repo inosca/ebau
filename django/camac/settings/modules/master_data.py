@@ -1,6 +1,7 @@
 SO_PERSONAL_DATA_MAPPING = {
     "row_id": "pk",
     "salutation": ("anrede", {"value_parser": "option", "prop": "label"}),
+    "title": "titel",
     "last_name": "nachname",
     "first_name": "vorname",
     "street": "strasse",
@@ -10,6 +11,7 @@ SO_PERSONAL_DATA_MAPPING = {
     "country": "land",
     "email": "e-mail",
     "tel": "telefon",
+    "po_box": "postfach",
     "is_juristic_person": (
         "juristische-person",
         {
@@ -58,6 +60,7 @@ SO_PERSONAL_DATA_MAPPING = {
         "vertretung-anrede",
         {"value_parser": "option", "prop": "label"},
     ),
+    "representative_title": "vertretung-titel",
     "representative_last_name": "vertretung-nachname",
     "representative_first_name": "vertretung-vorname",
     "representative_street": "vertretung-strasse",
@@ -67,6 +70,7 @@ SO_PERSONAL_DATA_MAPPING = {
     "representative_country": "vertretung-land",
     "representative_email": "vertretung-e-mail",
     "representative_tel": "vertretung-telefon",
+    "representative_po_box": "vertretung-postfach",
 }
 
 

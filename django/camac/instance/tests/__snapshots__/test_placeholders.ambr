@@ -5235,6 +5235,158 @@
       'nested_aliases': dict({
       }),
     }),
+    'ALLE_GESUCHSTELLER_LISTE': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_GESUCHSTELLER_LISTE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Alle Gesuchsteller/innen als Liste',
+      }),
+      'nested_aliases': dict({
+        'ADDRESS': list([
+          dict({
+            'de': 'ADRESSE',
+          }),
+        ]),
+        'EMAIL': list([
+          dict({
+            'de': 'EMAIL',
+          }),
+        ]),
+        'FIRST_NAME': list([
+          dict({
+            'de': 'VORNAME',
+          }),
+        ]),
+        'JURISTIC_NAME': list([
+          dict({
+            'de': 'NAME_JURISTISCHE_PERSON',
+          }),
+        ]),
+        'LAST_NAME': list([
+          dict({
+            'de': 'NACHNAME',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'NAME',
+          }),
+        ]),
+        'PO_BOX': list([
+          dict({
+            'de': 'POSTFACH',
+          }),
+        ]),
+        'REPRESENTATIVE_ADDRESS': list([
+          dict({
+            'de': 'VERTRETER_ADRESSE',
+          }),
+        ]),
+        'REPRESENTATIVE_EMAIL': list([
+          dict({
+            'de': 'VERTRETER_EMAIL',
+          }),
+        ]),
+        'REPRESENTATIVE_FIRST_NAME': list([
+          dict({
+            'de': 'VERTRETER_VORNAME',
+          }),
+        ]),
+        'REPRESENTATIVE_JURISTIC_NAME': list([
+          dict({
+            'de': 'VERTRETER_NAME_JURISTISCHE_PERSON',
+          }),
+        ]),
+        'REPRESENTATIVE_LAST_NAME': list([
+          dict({
+            'de': 'VERTRETER_NACHNAME',
+          }),
+        ]),
+        'REPRESENTATIVE_NAME': list([
+          dict({
+            'de': 'VERTRETER_NAME',
+          }),
+        ]),
+        'REPRESENTATIVE_PO_BOX': list([
+          dict({
+            'de': 'VERTRETER_POSTFACH',
+          }),
+        ]),
+        'REPRESENTATIVE_SALUTATION': list([
+          dict({
+            'de': 'VERTRETER_ANREDE',
+          }),
+        ]),
+        'REPRESENTATIVE_STREET': list([
+          dict({
+            'de': 'VERTRETER_STRASSE',
+          }),
+        ]),
+        'REPRESENTATIVE_STREET_NUMBER': list([
+          dict({
+            'de': 'VERTRETER_HAUSNUMMER',
+          }),
+        ]),
+        'REPRESENTATIVE_TEL': list([
+          dict({
+            'de': 'VERTRETER_TELEFON',
+          }),
+        ]),
+        'REPRESENTATIVE_TITLE': list([
+          dict({
+            'de': 'VERTRETER_TITEL',
+          }),
+        ]),
+        'REPRESENTATIVE_TOWN': list([
+          dict({
+            'de': 'VERTRETER_ORTSCHAFT',
+          }),
+        ]),
+        'REPRESENTATIVE_ZIP': list([
+          dict({
+            'de': 'VERTRETER_PLZ',
+          }),
+        ]),
+        'SALUTATION': list([
+          dict({
+            'de': 'ANREDE',
+          }),
+        ]),
+        'STREET': list([
+          dict({
+            'de': 'STRASSE',
+          }),
+        ]),
+        'STREET_NUMBER': list([
+          dict({
+            'de': 'HAUSNUMMER',
+          }),
+        ]),
+        'TEL': list([
+          dict({
+            'de': 'TELEFON',
+          }),
+        ]),
+        'TITLE': list([
+          dict({
+            'de': 'TITEL',
+          }),
+        ]),
+        'TOWN': list([
+          dict({
+            'de': 'ORTSCHAFT',
+          }),
+        ]),
+        'ZIP': list([
+          dict({
+            'de': 'PLZ',
+          }),
+        ]),
+      }),
+    }),
     'ALLE_GESUCHSTELLER_NAME_ADDRESS': dict({
       'aliases': list([
         dict({
@@ -5283,6 +5435,158 @@
       'nested_aliases': dict({
       }),
     }),
+    'ALLE_GRUNDEIGENTUEMER_LISTE': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_GRUNDEIGENTUEMER_LISTE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Alle Grundeigentümer/innen als Liste',
+      }),
+      'nested_aliases': dict({
+        'ADDRESS': list([
+          dict({
+            'de': 'ADRESSE',
+          }),
+        ]),
+        'EMAIL': list([
+          dict({
+            'de': 'EMAIL',
+          }),
+        ]),
+        'FIRST_NAME': list([
+          dict({
+            'de': 'VORNAME',
+          }),
+        ]),
+        'JURISTIC_NAME': list([
+          dict({
+            'de': 'NAME_JURISTISCHE_PERSON',
+          }),
+        ]),
+        'LAST_NAME': list([
+          dict({
+            'de': 'NACHNAME',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'NAME',
+          }),
+        ]),
+        'PO_BOX': list([
+          dict({
+            'de': 'POSTFACH',
+          }),
+        ]),
+        'REPRESENTATIVE_ADDRESS': list([
+          dict({
+            'de': 'VERTRETER_ADRESSE',
+          }),
+        ]),
+        'REPRESENTATIVE_EMAIL': list([
+          dict({
+            'de': 'VERTRETER_EMAIL',
+          }),
+        ]),
+        'REPRESENTATIVE_FIRST_NAME': list([
+          dict({
+            'de': 'VERTRETER_VORNAME',
+          }),
+        ]),
+        'REPRESENTATIVE_JURISTIC_NAME': list([
+          dict({
+            'de': 'VERTRETER_NAME_JURISTISCHE_PERSON',
+          }),
+        ]),
+        'REPRESENTATIVE_LAST_NAME': list([
+          dict({
+            'de': 'VERTRETER_NACHNAME',
+          }),
+        ]),
+        'REPRESENTATIVE_NAME': list([
+          dict({
+            'de': 'VERTRETER_NAME',
+          }),
+        ]),
+        'REPRESENTATIVE_PO_BOX': list([
+          dict({
+            'de': 'VERTRETER_POSTFACH',
+          }),
+        ]),
+        'REPRESENTATIVE_SALUTATION': list([
+          dict({
+            'de': 'VERTRETER_ANREDE',
+          }),
+        ]),
+        'REPRESENTATIVE_STREET': list([
+          dict({
+            'de': 'VERTRETER_STRASSE',
+          }),
+        ]),
+        'REPRESENTATIVE_STREET_NUMBER': list([
+          dict({
+            'de': 'VERTRETER_HAUSNUMMER',
+          }),
+        ]),
+        'REPRESENTATIVE_TEL': list([
+          dict({
+            'de': 'VERTRETER_TELEFON',
+          }),
+        ]),
+        'REPRESENTATIVE_TITLE': list([
+          dict({
+            'de': 'VERTRETER_TITEL',
+          }),
+        ]),
+        'REPRESENTATIVE_TOWN': list([
+          dict({
+            'de': 'VERTRETER_ORTSCHAFT',
+          }),
+        ]),
+        'REPRESENTATIVE_ZIP': list([
+          dict({
+            'de': 'VERTRETER_PLZ',
+          }),
+        ]),
+        'SALUTATION': list([
+          dict({
+            'de': 'ANREDE',
+          }),
+        ]),
+        'STREET': list([
+          dict({
+            'de': 'STRASSE',
+          }),
+        ]),
+        'STREET_NUMBER': list([
+          dict({
+            'de': 'HAUSNUMMER',
+          }),
+        ]),
+        'TEL': list([
+          dict({
+            'de': 'TELEFON',
+          }),
+        ]),
+        'TITLE': list([
+          dict({
+            'de': 'TITEL',
+          }),
+        ]),
+        'TOWN': list([
+          dict({
+            'de': 'ORTSCHAFT',
+          }),
+        ]),
+        'ZIP': list([
+          dict({
+            'de': 'PLZ',
+          }),
+        ]),
+      }),
+    }),
     'ALLE_GRUNDEIGENTUEMER_NAME_ADDRESS': dict({
       'aliases': list([
         dict({
@@ -5307,6 +5611,158 @@
       'nested_aliases': dict({
       }),
     }),
+    'ALLE_PROJEKTVERFASSER_LISTE': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_PROJEKTVERFASSER_LISTE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Alle Projektverfasser/innen als Liste',
+      }),
+      'nested_aliases': dict({
+        'ADDRESS': list([
+          dict({
+            'de': 'ADRESSE',
+          }),
+        ]),
+        'EMAIL': list([
+          dict({
+            'de': 'EMAIL',
+          }),
+        ]),
+        'FIRST_NAME': list([
+          dict({
+            'de': 'VORNAME',
+          }),
+        ]),
+        'JURISTIC_NAME': list([
+          dict({
+            'de': 'NAME_JURISTISCHE_PERSON',
+          }),
+        ]),
+        'LAST_NAME': list([
+          dict({
+            'de': 'NACHNAME',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'NAME',
+          }),
+        ]),
+        'PO_BOX': list([
+          dict({
+            'de': 'POSTFACH',
+          }),
+        ]),
+        'REPRESENTATIVE_ADDRESS': list([
+          dict({
+            'de': 'VERTRETER_ADRESSE',
+          }),
+        ]),
+        'REPRESENTATIVE_EMAIL': list([
+          dict({
+            'de': 'VERTRETER_EMAIL',
+          }),
+        ]),
+        'REPRESENTATIVE_FIRST_NAME': list([
+          dict({
+            'de': 'VERTRETER_VORNAME',
+          }),
+        ]),
+        'REPRESENTATIVE_JURISTIC_NAME': list([
+          dict({
+            'de': 'VERTRETER_NAME_JURISTISCHE_PERSON',
+          }),
+        ]),
+        'REPRESENTATIVE_LAST_NAME': list([
+          dict({
+            'de': 'VERTRETER_NACHNAME',
+          }),
+        ]),
+        'REPRESENTATIVE_NAME': list([
+          dict({
+            'de': 'VERTRETER_NAME',
+          }),
+        ]),
+        'REPRESENTATIVE_PO_BOX': list([
+          dict({
+            'de': 'VERTRETER_POSTFACH',
+          }),
+        ]),
+        'REPRESENTATIVE_SALUTATION': list([
+          dict({
+            'de': 'VERTRETER_ANREDE',
+          }),
+        ]),
+        'REPRESENTATIVE_STREET': list([
+          dict({
+            'de': 'VERTRETER_STRASSE',
+          }),
+        ]),
+        'REPRESENTATIVE_STREET_NUMBER': list([
+          dict({
+            'de': 'VERTRETER_HAUSNUMMER',
+          }),
+        ]),
+        'REPRESENTATIVE_TEL': list([
+          dict({
+            'de': 'VERTRETER_TELEFON',
+          }),
+        ]),
+        'REPRESENTATIVE_TITLE': list([
+          dict({
+            'de': 'VERTRETER_TITEL',
+          }),
+        ]),
+        'REPRESENTATIVE_TOWN': list([
+          dict({
+            'de': 'VERTRETER_ORTSCHAFT',
+          }),
+        ]),
+        'REPRESENTATIVE_ZIP': list([
+          dict({
+            'de': 'VERTRETER_PLZ',
+          }),
+        ]),
+        'SALUTATION': list([
+          dict({
+            'de': 'ANREDE',
+          }),
+        ]),
+        'STREET': list([
+          dict({
+            'de': 'STRASSE',
+          }),
+        ]),
+        'STREET_NUMBER': list([
+          dict({
+            'de': 'HAUSNUMMER',
+          }),
+        ]),
+        'TEL': list([
+          dict({
+            'de': 'TELEFON',
+          }),
+        ]),
+        'TITLE': list([
+          dict({
+            'de': 'TITEL',
+          }),
+        ]),
+        'TOWN': list([
+          dict({
+            'de': 'ORTSCHAFT',
+          }),
+        ]),
+        'ZIP': list([
+          dict({
+            'de': 'PLZ',
+          }),
+        ]),
+      }),
+    }),
     'ALLE_PROJEKTVERFASSER_NAME_ADDRESS': dict({
       'aliases': list([
         dict({
@@ -5329,6 +5785,158 @@
         'de': 'Namen aller Rechnungsempfänger/innen',
       }),
       'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_RECHNUNGSEMPFAENGER_LISTE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Alle Rechnungsempfänger/innen als Liste',
+      }),
+      'nested_aliases': dict({
+        'ADDRESS': list([
+          dict({
+            'de': 'ADRESSE',
+          }),
+        ]),
+        'EMAIL': list([
+          dict({
+            'de': 'EMAIL',
+          }),
+        ]),
+        'FIRST_NAME': list([
+          dict({
+            'de': 'VORNAME',
+          }),
+        ]),
+        'JURISTIC_NAME': list([
+          dict({
+            'de': 'NAME_JURISTISCHE_PERSON',
+          }),
+        ]),
+        'LAST_NAME': list([
+          dict({
+            'de': 'NACHNAME',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'NAME',
+          }),
+        ]),
+        'PO_BOX': list([
+          dict({
+            'de': 'POSTFACH',
+          }),
+        ]),
+        'REPRESENTATIVE_ADDRESS': list([
+          dict({
+            'de': 'VERTRETER_ADRESSE',
+          }),
+        ]),
+        'REPRESENTATIVE_EMAIL': list([
+          dict({
+            'de': 'VERTRETER_EMAIL',
+          }),
+        ]),
+        'REPRESENTATIVE_FIRST_NAME': list([
+          dict({
+            'de': 'VERTRETER_VORNAME',
+          }),
+        ]),
+        'REPRESENTATIVE_JURISTIC_NAME': list([
+          dict({
+            'de': 'VERTRETER_NAME_JURISTISCHE_PERSON',
+          }),
+        ]),
+        'REPRESENTATIVE_LAST_NAME': list([
+          dict({
+            'de': 'VERTRETER_NACHNAME',
+          }),
+        ]),
+        'REPRESENTATIVE_NAME': list([
+          dict({
+            'de': 'VERTRETER_NAME',
+          }),
+        ]),
+        'REPRESENTATIVE_PO_BOX': list([
+          dict({
+            'de': 'VERTRETER_POSTFACH',
+          }),
+        ]),
+        'REPRESENTATIVE_SALUTATION': list([
+          dict({
+            'de': 'VERTRETER_ANREDE',
+          }),
+        ]),
+        'REPRESENTATIVE_STREET': list([
+          dict({
+            'de': 'VERTRETER_STRASSE',
+          }),
+        ]),
+        'REPRESENTATIVE_STREET_NUMBER': list([
+          dict({
+            'de': 'VERTRETER_HAUSNUMMER',
+          }),
+        ]),
+        'REPRESENTATIVE_TEL': list([
+          dict({
+            'de': 'VERTRETER_TELEFON',
+          }),
+        ]),
+        'REPRESENTATIVE_TITLE': list([
+          dict({
+            'de': 'VERTRETER_TITEL',
+          }),
+        ]),
+        'REPRESENTATIVE_TOWN': list([
+          dict({
+            'de': 'VERTRETER_ORTSCHAFT',
+          }),
+        ]),
+        'REPRESENTATIVE_ZIP': list([
+          dict({
+            'de': 'VERTRETER_PLZ',
+          }),
+        ]),
+        'SALUTATION': list([
+          dict({
+            'de': 'ANREDE',
+          }),
+        ]),
+        'STREET': list([
+          dict({
+            'de': 'STRASSE',
+          }),
+        ]),
+        'STREET_NUMBER': list([
+          dict({
+            'de': 'HAUSNUMMER',
+          }),
+        ]),
+        'TEL': list([
+          dict({
+            'de': 'TELEFON',
+          }),
+        ]),
+        'TITLE': list([
+          dict({
+            'de': 'TITEL',
+          }),
+        ]),
+        'TOWN': list([
+          dict({
+            'de': 'ORTSCHAFT',
+          }),
+        ]),
+        'ZIP': list([
+          dict({
+            'de': 'PLZ',
+          }),
+        ]),
       }),
     }),
     'ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE': dict({
@@ -5610,19 +6218,144 @@
             'de': 'ALLE_EINSPRECHENDEN',
           }),
         ]),
-        'ALLE_EINSPRECHENDEN.ADRESSE': list([
+        'ALLE_EINSPRECHENDEN.ADDRESS': list([
           dict({
             'de': 'ADRESSE',
           }),
         ]),
-        'ALLE_EINSPRECHENDEN.ANREDE': list([
+        'ALLE_EINSPRECHENDEN.EMAIL': list([
           dict({
-            'de': 'ANREDE',
+            'de': 'EMAIL',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.FIRST_NAME': list([
+          dict({
+            'de': 'VORNAME',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.JURISTIC_NAME': list([
+          dict({
+            'de': 'NAME_JURISTISCHE_PERSON',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.LAST_NAME': list([
+          dict({
+            'de': 'NACHNAME',
           }),
         ]),
         'ALLE_EINSPRECHENDEN.NAME': list([
           dict({
             'de': 'NAME',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.PO_BOX': list([
+          dict({
+            'de': 'POSTFACH',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.REPRESENTATIVE_ADDRESS': list([
+          dict({
+            'de': 'VERTRETER_ADRESSE',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.REPRESENTATIVE_EMAIL': list([
+          dict({
+            'de': 'VERTRETER_EMAIL',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.REPRESENTATIVE_FIRST_NAME': list([
+          dict({
+            'de': 'VERTRETER_VORNAME',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.REPRESENTATIVE_JURISTIC_NAME': list([
+          dict({
+            'de': 'VERTRETER_NAME_JURISTISCHE_PERSON',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.REPRESENTATIVE_LAST_NAME': list([
+          dict({
+            'de': 'VERTRETER_NACHNAME',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.REPRESENTATIVE_NAME': list([
+          dict({
+            'de': 'VERTRETER_NAME',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.REPRESENTATIVE_PO_BOX': list([
+          dict({
+            'de': 'VERTRETER_POSTFACH',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.REPRESENTATIVE_SALUTATION': list([
+          dict({
+            'de': 'VERTRETER_ANREDE',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.REPRESENTATIVE_STREET': list([
+          dict({
+            'de': 'VERTRETER_STRASSE',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.REPRESENTATIVE_STREET_NUMBER': list([
+          dict({
+            'de': 'VERTRETER_HAUSNUMMER',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.REPRESENTATIVE_TEL': list([
+          dict({
+            'de': 'VERTRETER_TELEFON',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.REPRESENTATIVE_TITLE': list([
+          dict({
+            'de': 'VERTRETER_TITEL',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.REPRESENTATIVE_TOWN': list([
+          dict({
+            'de': 'VERTRETER_ORTSCHAFT',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.REPRESENTATIVE_ZIP': list([
+          dict({
+            'de': 'VERTRETER_PLZ',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.SALUTATION': list([
+          dict({
+            'de': 'ANREDE',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.STREET': list([
+          dict({
+            'de': 'STRASSE',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.STREET_NUMBER': list([
+          dict({
+            'de': 'HAUSNUMMER',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.TEL': list([
+          dict({
+            'de': 'TELEFON',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.TITLE': list([
+          dict({
+            'de': 'TITEL',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.TOWN': list([
+          dict({
+            'de': 'ORTSCHAFT',
+          }),
+        ]),
+        'ALLE_EINSPRECHENDEN.ZIP': list([
+          dict({
+            'de': 'PLZ',
           }),
         ]),
         'DATUM_POSTSTEMPEL': list([
@@ -7792,17 +8525,241 @@
     'ADDRESS',
     'ADRESSE',
     'ALLE_GESUCHSTELLER',
+    'ALLE_GESUCHSTELLER_LISTE',
+    'ALLE_GESUCHSTELLER_LISTE[]',
+    'ALLE_GESUCHSTELLER_LISTE[].ADDRESS',
+    'ALLE_GESUCHSTELLER_LISTE[].ADRESSE',
+    'ALLE_GESUCHSTELLER_LISTE[].ANREDE',
+    'ALLE_GESUCHSTELLER_LISTE[].EMAIL',
+    'ALLE_GESUCHSTELLER_LISTE[].FIRST_NAME',
+    'ALLE_GESUCHSTELLER_LISTE[].HAUSNUMMER',
+    'ALLE_GESUCHSTELLER_LISTE[].JURISTIC_NAME',
+    'ALLE_GESUCHSTELLER_LISTE[].LAST_NAME',
+    'ALLE_GESUCHSTELLER_LISTE[].NACHNAME',
+    'ALLE_GESUCHSTELLER_LISTE[].NAME',
+    'ALLE_GESUCHSTELLER_LISTE[].NAME_JURISTISCHE_PERSON',
+    'ALLE_GESUCHSTELLER_LISTE[].ORTSCHAFT',
+    'ALLE_GESUCHSTELLER_LISTE[].PLZ',
+    'ALLE_GESUCHSTELLER_LISTE[].POSTFACH',
+    'ALLE_GESUCHSTELLER_LISTE[].PO_BOX',
+    'ALLE_GESUCHSTELLER_LISTE[].REPRESENTATIVE_ADDRESS',
+    'ALLE_GESUCHSTELLER_LISTE[].REPRESENTATIVE_EMAIL',
+    'ALLE_GESUCHSTELLER_LISTE[].REPRESENTATIVE_FIRST_NAME',
+    'ALLE_GESUCHSTELLER_LISTE[].REPRESENTATIVE_JURISTIC_NAME',
+    'ALLE_GESUCHSTELLER_LISTE[].REPRESENTATIVE_LAST_NAME',
+    'ALLE_GESUCHSTELLER_LISTE[].REPRESENTATIVE_NAME',
+    'ALLE_GESUCHSTELLER_LISTE[].REPRESENTATIVE_PO_BOX',
+    'ALLE_GESUCHSTELLER_LISTE[].REPRESENTATIVE_SALUTATION',
+    'ALLE_GESUCHSTELLER_LISTE[].REPRESENTATIVE_STREET',
+    'ALLE_GESUCHSTELLER_LISTE[].REPRESENTATIVE_STREET_NUMBER',
+    'ALLE_GESUCHSTELLER_LISTE[].REPRESENTATIVE_TEL',
+    'ALLE_GESUCHSTELLER_LISTE[].REPRESENTATIVE_TITLE',
+    'ALLE_GESUCHSTELLER_LISTE[].REPRESENTATIVE_TOWN',
+    'ALLE_GESUCHSTELLER_LISTE[].REPRESENTATIVE_ZIP',
+    'ALLE_GESUCHSTELLER_LISTE[].SALUTATION',
+    'ALLE_GESUCHSTELLER_LISTE[].STRASSE',
+    'ALLE_GESUCHSTELLER_LISTE[].STREET',
+    'ALLE_GESUCHSTELLER_LISTE[].STREET_NUMBER',
+    'ALLE_GESUCHSTELLER_LISTE[].TEL',
+    'ALLE_GESUCHSTELLER_LISTE[].TELEFON',
+    'ALLE_GESUCHSTELLER_LISTE[].TITEL',
+    'ALLE_GESUCHSTELLER_LISTE[].TITLE',
+    'ALLE_GESUCHSTELLER_LISTE[].TOWN',
+    'ALLE_GESUCHSTELLER_LISTE[].VERTRETER_ADRESSE',
+    'ALLE_GESUCHSTELLER_LISTE[].VERTRETER_ANREDE',
+    'ALLE_GESUCHSTELLER_LISTE[].VERTRETER_EMAIL',
+    'ALLE_GESUCHSTELLER_LISTE[].VERTRETER_HAUSNUMMER',
+    'ALLE_GESUCHSTELLER_LISTE[].VERTRETER_NACHNAME',
+    'ALLE_GESUCHSTELLER_LISTE[].VERTRETER_NAME',
+    'ALLE_GESUCHSTELLER_LISTE[].VERTRETER_NAME_JURISTISCHE_PERSON',
+    'ALLE_GESUCHSTELLER_LISTE[].VERTRETER_ORTSCHAFT',
+    'ALLE_GESUCHSTELLER_LISTE[].VERTRETER_PLZ',
+    'ALLE_GESUCHSTELLER_LISTE[].VERTRETER_POSTFACH',
+    'ALLE_GESUCHSTELLER_LISTE[].VERTRETER_STRASSE',
+    'ALLE_GESUCHSTELLER_LISTE[].VERTRETER_TELEFON',
+    'ALLE_GESUCHSTELLER_LISTE[].VERTRETER_TITEL',
+    'ALLE_GESUCHSTELLER_LISTE[].VERTRETER_VORNAME',
+    'ALLE_GESUCHSTELLER_LISTE[].VORNAME',
+    'ALLE_GESUCHSTELLER_LISTE[].ZIP',
     'ALLE_GESUCHSTELLER_NAME_ADDRESS',
     'ALLE_GESUCHSTELLER_NAME_ADRESSE',
     'ALLE_GESUCHSTELLER_VERTRETER',
     'ALLE_GESUCHSTELLER_VERTRETER_NAME_ADRESSE',
     'ALLE_GRUNDEIGENTUEMER',
+    'ALLE_GRUNDEIGENTUEMER_LISTE',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[]',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].ADDRESS',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].ADRESSE',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].ANREDE',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].EMAIL',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].FIRST_NAME',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].HAUSNUMMER',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].JURISTIC_NAME',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].LAST_NAME',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].NACHNAME',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].NAME',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].NAME_JURISTISCHE_PERSON',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].ORTSCHAFT',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].PLZ',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].POSTFACH',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].PO_BOX',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].REPRESENTATIVE_ADDRESS',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].REPRESENTATIVE_EMAIL',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].REPRESENTATIVE_FIRST_NAME',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].REPRESENTATIVE_JURISTIC_NAME',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].REPRESENTATIVE_LAST_NAME',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].REPRESENTATIVE_NAME',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].REPRESENTATIVE_PO_BOX',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].REPRESENTATIVE_SALUTATION',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].REPRESENTATIVE_STREET',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].REPRESENTATIVE_STREET_NUMBER',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].REPRESENTATIVE_TEL',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].REPRESENTATIVE_TITLE',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].REPRESENTATIVE_TOWN',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].REPRESENTATIVE_ZIP',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].SALUTATION',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].STRASSE',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].STREET',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].STREET_NUMBER',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].TEL',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].TELEFON',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].TITEL',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].TITLE',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].TOWN',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].VERTRETER_ADRESSE',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].VERTRETER_ANREDE',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].VERTRETER_EMAIL',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].VERTRETER_HAUSNUMMER',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].VERTRETER_NACHNAME',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].VERTRETER_NAME',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].VERTRETER_NAME_JURISTISCHE_PERSON',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].VERTRETER_ORTSCHAFT',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].VERTRETER_PLZ',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].VERTRETER_POSTFACH',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].VERTRETER_STRASSE',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].VERTRETER_TELEFON',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].VERTRETER_TITEL',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].VERTRETER_VORNAME',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].VORNAME',
+    'ALLE_GRUNDEIGENTUEMER_LISTE[].ZIP',
     'ALLE_GRUNDEIGENTUEMER_NAME_ADDRESS',
     'ALLE_GRUNDEIGENTUEMER_NAME_ADRESSE',
     'ALLE_PROJEKTVERFASSER',
+    'ALLE_PROJEKTVERFASSER_LISTE',
+    'ALLE_PROJEKTVERFASSER_LISTE[]',
+    'ALLE_PROJEKTVERFASSER_LISTE[].ADDRESS',
+    'ALLE_PROJEKTVERFASSER_LISTE[].ADRESSE',
+    'ALLE_PROJEKTVERFASSER_LISTE[].ANREDE',
+    'ALLE_PROJEKTVERFASSER_LISTE[].EMAIL',
+    'ALLE_PROJEKTVERFASSER_LISTE[].FIRST_NAME',
+    'ALLE_PROJEKTVERFASSER_LISTE[].HAUSNUMMER',
+    'ALLE_PROJEKTVERFASSER_LISTE[].JURISTIC_NAME',
+    'ALLE_PROJEKTVERFASSER_LISTE[].LAST_NAME',
+    'ALLE_PROJEKTVERFASSER_LISTE[].NACHNAME',
+    'ALLE_PROJEKTVERFASSER_LISTE[].NAME',
+    'ALLE_PROJEKTVERFASSER_LISTE[].NAME_JURISTISCHE_PERSON',
+    'ALLE_PROJEKTVERFASSER_LISTE[].ORTSCHAFT',
+    'ALLE_PROJEKTVERFASSER_LISTE[].PLZ',
+    'ALLE_PROJEKTVERFASSER_LISTE[].POSTFACH',
+    'ALLE_PROJEKTVERFASSER_LISTE[].PO_BOX',
+    'ALLE_PROJEKTVERFASSER_LISTE[].REPRESENTATIVE_ADDRESS',
+    'ALLE_PROJEKTVERFASSER_LISTE[].REPRESENTATIVE_EMAIL',
+    'ALLE_PROJEKTVERFASSER_LISTE[].REPRESENTATIVE_FIRST_NAME',
+    'ALLE_PROJEKTVERFASSER_LISTE[].REPRESENTATIVE_JURISTIC_NAME',
+    'ALLE_PROJEKTVERFASSER_LISTE[].REPRESENTATIVE_LAST_NAME',
+    'ALLE_PROJEKTVERFASSER_LISTE[].REPRESENTATIVE_NAME',
+    'ALLE_PROJEKTVERFASSER_LISTE[].REPRESENTATIVE_PO_BOX',
+    'ALLE_PROJEKTVERFASSER_LISTE[].REPRESENTATIVE_SALUTATION',
+    'ALLE_PROJEKTVERFASSER_LISTE[].REPRESENTATIVE_STREET',
+    'ALLE_PROJEKTVERFASSER_LISTE[].REPRESENTATIVE_STREET_NUMBER',
+    'ALLE_PROJEKTVERFASSER_LISTE[].REPRESENTATIVE_TEL',
+    'ALLE_PROJEKTVERFASSER_LISTE[].REPRESENTATIVE_TITLE',
+    'ALLE_PROJEKTVERFASSER_LISTE[].REPRESENTATIVE_TOWN',
+    'ALLE_PROJEKTVERFASSER_LISTE[].REPRESENTATIVE_ZIP',
+    'ALLE_PROJEKTVERFASSER_LISTE[].SALUTATION',
+    'ALLE_PROJEKTVERFASSER_LISTE[].STRASSE',
+    'ALLE_PROJEKTVERFASSER_LISTE[].STREET',
+    'ALLE_PROJEKTVERFASSER_LISTE[].STREET_NUMBER',
+    'ALLE_PROJEKTVERFASSER_LISTE[].TEL',
+    'ALLE_PROJEKTVERFASSER_LISTE[].TELEFON',
+    'ALLE_PROJEKTVERFASSER_LISTE[].TITEL',
+    'ALLE_PROJEKTVERFASSER_LISTE[].TITLE',
+    'ALLE_PROJEKTVERFASSER_LISTE[].TOWN',
+    'ALLE_PROJEKTVERFASSER_LISTE[].VERTRETER_ADRESSE',
+    'ALLE_PROJEKTVERFASSER_LISTE[].VERTRETER_ANREDE',
+    'ALLE_PROJEKTVERFASSER_LISTE[].VERTRETER_EMAIL',
+    'ALLE_PROJEKTVERFASSER_LISTE[].VERTRETER_HAUSNUMMER',
+    'ALLE_PROJEKTVERFASSER_LISTE[].VERTRETER_NACHNAME',
+    'ALLE_PROJEKTVERFASSER_LISTE[].VERTRETER_NAME',
+    'ALLE_PROJEKTVERFASSER_LISTE[].VERTRETER_NAME_JURISTISCHE_PERSON',
+    'ALLE_PROJEKTVERFASSER_LISTE[].VERTRETER_ORTSCHAFT',
+    'ALLE_PROJEKTVERFASSER_LISTE[].VERTRETER_PLZ',
+    'ALLE_PROJEKTVERFASSER_LISTE[].VERTRETER_POSTFACH',
+    'ALLE_PROJEKTVERFASSER_LISTE[].VERTRETER_STRASSE',
+    'ALLE_PROJEKTVERFASSER_LISTE[].VERTRETER_TELEFON',
+    'ALLE_PROJEKTVERFASSER_LISTE[].VERTRETER_TITEL',
+    'ALLE_PROJEKTVERFASSER_LISTE[].VERTRETER_VORNAME',
+    'ALLE_PROJEKTVERFASSER_LISTE[].VORNAME',
+    'ALLE_PROJEKTVERFASSER_LISTE[].ZIP',
     'ALLE_PROJEKTVERFASSER_NAME_ADDRESS',
     'ALLE_PROJEKTVERFASSER_NAME_ADRESSE',
     'ALLE_RECHNUNGSEMPFAENGER',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[]',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].ADDRESS',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].ADRESSE',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].ANREDE',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].EMAIL',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].FIRST_NAME',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].HAUSNUMMER',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].JURISTIC_NAME',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].LAST_NAME',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].NACHNAME',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].NAME',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].NAME_JURISTISCHE_PERSON',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].ORTSCHAFT',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].PLZ',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].POSTFACH',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].PO_BOX',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].REPRESENTATIVE_ADDRESS',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].REPRESENTATIVE_EMAIL',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].REPRESENTATIVE_FIRST_NAME',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].REPRESENTATIVE_JURISTIC_NAME',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].REPRESENTATIVE_LAST_NAME',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].REPRESENTATIVE_NAME',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].REPRESENTATIVE_PO_BOX',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].REPRESENTATIVE_SALUTATION',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].REPRESENTATIVE_STREET',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].REPRESENTATIVE_STREET_NUMBER',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].REPRESENTATIVE_TEL',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].REPRESENTATIVE_TITLE',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].REPRESENTATIVE_TOWN',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].REPRESENTATIVE_ZIP',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].SALUTATION',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].STRASSE',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].STREET',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].STREET_NUMBER',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].TEL',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].TELEFON',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].TITEL',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].TITLE',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].TOWN',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].VERTRETER_ADRESSE',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].VERTRETER_ANREDE',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].VERTRETER_EMAIL',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].VERTRETER_HAUSNUMMER',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].VERTRETER_NACHNAME',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].VERTRETER_NAME',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].VERTRETER_NAME_JURISTISCHE_PERSON',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].VERTRETER_ORTSCHAFT',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].VERTRETER_PLZ',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].VERTRETER_POSTFACH',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].VERTRETER_STRASSE',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].VERTRETER_TELEFON',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].VERTRETER_TITEL',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].VERTRETER_VORNAME',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].VORNAME',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE[].ZIP',
     'ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE',
     'ANGEMELDET_EMAIL',
     'ANGEMELDET_NAME',
@@ -7865,9 +8822,60 @@
     'EINSPRACHEN[]',
     'EINSPRACHEN[].ALLE_EINSPRECHENDEN',
     'EINSPRACHEN[].ALLE_EINSPRECHENDEN[]',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].ADDRESS',
     'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].ADRESSE',
     'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].ANREDE',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].EMAIL',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].FIRST_NAME',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].HAUSNUMMER',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].JURISTIC_NAME',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].LAST_NAME',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].NACHNAME',
     'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].NAME',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].NAME_JURISTISCHE_PERSON',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].ORTSCHAFT',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].PLZ',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].POSTFACH',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].PO_BOX',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].REPRESENTATIVE_ADDRESS',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].REPRESENTATIVE_EMAIL',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].REPRESENTATIVE_FIRST_NAME',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].REPRESENTATIVE_JURISTIC_NAME',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].REPRESENTATIVE_LAST_NAME',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].REPRESENTATIVE_NAME',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].REPRESENTATIVE_PO_BOX',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].REPRESENTATIVE_SALUTATION',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].REPRESENTATIVE_STREET',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].REPRESENTATIVE_STREET_NUMBER',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].REPRESENTATIVE_TEL',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].REPRESENTATIVE_TITLE',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].REPRESENTATIVE_TOWN',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].REPRESENTATIVE_ZIP',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].SALUTATION',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].STRASSE',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].STREET',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].STREET_NUMBER',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].TEL',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].TELEFON',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].TITEL',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].TITLE',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].TOWN',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].VERTRETER_ADRESSE',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].VERTRETER_ANREDE',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].VERTRETER_EMAIL',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].VERTRETER_HAUSNUMMER',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].VERTRETER_NACHNAME',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].VERTRETER_NAME',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].VERTRETER_NAME_JURISTISCHE_PERSON',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].VERTRETER_ORTSCHAFT',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].VERTRETER_PLZ',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].VERTRETER_POSTFACH',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].VERTRETER_STRASSE',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].VERTRETER_TELEFON',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].VERTRETER_TITEL',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].VERTRETER_VORNAME',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].VORNAME',
+    'EINSPRACHEN[].ALLE_EINSPRECHENDEN[].ZIP',
     'EINSPRACHEN[].DATUM_POSTSTEMPEL',
     'EINSPRACHEN[].EINSPRECHER_ADRESSE',
     'EINSPRACHEN[].EINSPRECHER_ANREDE',
@@ -8812,10 +9820,298 @@
 # ---
 # name: test_dms_placeholders_so[Municipality]
   dict({
-    'ALLE_GESUCHSTELLER_VERTRETER': 'Leah Juarez, Hale, Patterson and Johnson, Anna Johnson',
-    'ALLE_GESUCHSTELLER_VERTRETER_NAME_ADRESSE': 'Leah Juarez, Williams Village 14229, 1338 New Johnfurt, Hale, Patterson and Johnson, Anna Johnson, Laura Drive 44508, 2748 Saraberg',
-    'ALLE_RECHNUNGSEMPFAENGER': 'Sandra Ford, Scott, Smith and Potter, Shannon Roy',
-    'ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Sandra Ford, White Summit 78823, 3852 New Andrew, Scott, Smith and Potter, Shannon Roy, Day Pine 984, 6907 Patriciachester',
+    'ALLE_GESUCHSTELLER_LISTE': list([
+      dict({
+        'ADDRESS': 'Hardy Crescent 55827, 9740 Marshallborough',
+        'ADRESSE': 'Hardy Crescent 55827, 9740 Marshallborough',
+        'ANREDE': 'Herr',
+        'EMAIL': 'fisherpaul@example.net',
+        'FIRST_NAME': 'Sean',
+        'HAUSNUMMER': '55827',
+        'JURISTIC_NAME': '',
+        'LAST_NAME': 'Turner',
+        'NACHNAME': 'Turner',
+        'NAME': 'Sean Turner',
+        'NAME_JURISTISCHE_PERSON': '',
+        'ORTSCHAFT': 'Marshallborough',
+        'PLZ': 9740,
+        'POSTFACH': '640',
+        'PO_BOX': '640',
+        'REPRESENTATIVE_ADDRESS': 'Jacob Brooks 93866, 1515 Joshuaborough',
+        'REPRESENTATIVE_EMAIL': 'zachary49@example.org',
+        'REPRESENTATIVE_FIRST_NAME': 'Sierra',
+        'REPRESENTATIVE_JURISTIC_NAME': '',
+        'REPRESENTATIVE_LAST_NAME': 'Case',
+        'REPRESENTATIVE_NAME': 'Sierra Case',
+        'REPRESENTATIVE_PO_BOX': '6096',
+        'REPRESENTATIVE_SALUTATION': 'Frau',
+        'REPRESENTATIVE_STREET': 'Jacob Brooks',
+        'REPRESENTATIVE_STREET_NUMBER': '93866',
+        'REPRESENTATIVE_TEL': '001-835-423-2738x086',
+        'REPRESENTATIVE_TITLE': 'Dr.',
+        'REPRESENTATIVE_TOWN': 'Joshuaborough',
+        'REPRESENTATIVE_ZIP': 1515,
+        'SALUTATION': 'Herr',
+        'STRASSE': 'Hardy Crescent',
+        'STREET': 'Hardy Crescent',
+        'STREET_NUMBER': '55827',
+        'TEL': '+1-414-991-4493',
+        'TELEFON': '+1-414-991-4493',
+        'TITEL': 'Dr.',
+        'TITLE': 'Dr.',
+        'TOWN': 'Marshallborough',
+        'VERTRETER_ADRESSE': 'Jacob Brooks 93866, 1515 Joshuaborough',
+        'VERTRETER_ANREDE': 'Frau',
+        'VERTRETER_EMAIL': 'zachary49@example.org',
+        'VERTRETER_HAUSNUMMER': '93866',
+        'VERTRETER_NACHNAME': 'Case',
+        'VERTRETER_NAME': 'Sierra Case',
+        'VERTRETER_NAME_JURISTISCHE_PERSON': '',
+        'VERTRETER_ORTSCHAFT': 'Joshuaborough',
+        'VERTRETER_PLZ': 1515,
+        'VERTRETER_POSTFACH': '6096',
+        'VERTRETER_STRASSE': 'Jacob Brooks',
+        'VERTRETER_TELEFON': '001-835-423-2738x086',
+        'VERTRETER_TITEL': 'Dr.',
+        'VERTRETER_VORNAME': 'Sierra',
+        'VORNAME': 'Sean',
+        'ZIP': 9740,
+      }),
+      dict({
+        'ADDRESS': 'Hannah Expressway 067, 7015 Port Crystal',
+        'ADRESSE': 'Hannah Expressway 067, 7015 Port Crystal',
+        'ANREDE': 'Frau',
+        'EMAIL': 'smithgary@example.com',
+        'FIRST_NAME': 'Barbara',
+        'HAUSNUMMER': '067',
+        'JURISTIC_NAME': 'Gonzalez-Yoder',
+        'LAST_NAME': 'Rose',
+        'NACHNAME': 'Rose',
+        'NAME': 'Gonzalez-Yoder, Barbara Rose',
+        'NAME_JURISTISCHE_PERSON': 'Gonzalez-Yoder',
+        'ORTSCHAFT': 'Port Crystal',
+        'PLZ': 7015,
+        'POSTFACH': '917',
+        'PO_BOX': '917',
+        'REPRESENTATIVE_ADDRESS': '',
+        'REPRESENTATIVE_EMAIL': '',
+        'REPRESENTATIVE_FIRST_NAME': '',
+        'REPRESENTATIVE_JURISTIC_NAME': '',
+        'REPRESENTATIVE_LAST_NAME': '',
+        'REPRESENTATIVE_NAME': '',
+        'REPRESENTATIVE_PO_BOX': '',
+        'REPRESENTATIVE_SALUTATION': '',
+        'REPRESENTATIVE_STREET': '',
+        'REPRESENTATIVE_STREET_NUMBER': '',
+        'REPRESENTATIVE_TEL': '',
+        'REPRESENTATIVE_TITLE': '',
+        'REPRESENTATIVE_TOWN': '',
+        'REPRESENTATIVE_ZIP': '',
+        'SALUTATION': 'Frau',
+        'STRASSE': 'Hannah Expressway',
+        'STREET': 'Hannah Expressway',
+        'STREET_NUMBER': '067',
+        'TEL': '+1-604-454-4861x60771',
+        'TELEFON': '+1-604-454-4861x60771',
+        'TITEL': 'Ms.',
+        'TITLE': 'Ms.',
+        'TOWN': 'Port Crystal',
+        'VERTRETER_ADRESSE': '',
+        'VERTRETER_ANREDE': '',
+        'VERTRETER_EMAIL': '',
+        'VERTRETER_HAUSNUMMER': '',
+        'VERTRETER_NACHNAME': '',
+        'VERTRETER_NAME': '',
+        'VERTRETER_NAME_JURISTISCHE_PERSON': '',
+        'VERTRETER_ORTSCHAFT': '',
+        'VERTRETER_PLZ': '',
+        'VERTRETER_POSTFACH': '',
+        'VERTRETER_STRASSE': '',
+        'VERTRETER_TELEFON': '',
+        'VERTRETER_TITEL': '',
+        'VERTRETER_VORNAME': '',
+        'VORNAME': 'Barbara',
+        'ZIP': 7015,
+      }),
+      dict({
+        'ADDRESS': 'Brady Mount 76558, 8797 West Christopherton',
+        'ADRESSE': 'Brady Mount 76558, 8797 West Christopherton',
+        'ANREDE': 'Herr',
+        'EMAIL': 'donaldhuff@example.org',
+        'FIRST_NAME': 'Cameron',
+        'HAUSNUMMER': '76558',
+        'JURISTIC_NAME': '',
+        'LAST_NAME': 'Turner',
+        'NACHNAME': 'Turner',
+        'NAME': 'Cameron Turner',
+        'NAME_JURISTISCHE_PERSON': '',
+        'ORTSCHAFT': 'West Christopherton',
+        'PLZ': 8797,
+        'POSTFACH': '5286',
+        'PO_BOX': '5286',
+        'REPRESENTATIVE_ADDRESS': 'Ayala Throughway 778, 5993 Sandybury',
+        'REPRESENTATIVE_EMAIL': 'paul55@example.net',
+        'REPRESENTATIVE_FIRST_NAME': 'Stephanie',
+        'REPRESENTATIVE_JURISTIC_NAME': 'Green, Stanley and Guerrero',
+        'REPRESENTATIVE_LAST_NAME': 'Esparza',
+        'REPRESENTATIVE_NAME': 'Green, Stanley and Guerrero, Stephanie Esparza',
+        'REPRESENTATIVE_PO_BOX': '884',
+        'REPRESENTATIVE_SALUTATION': 'Frau',
+        'REPRESENTATIVE_STREET': 'Ayala Throughway',
+        'REPRESENTATIVE_STREET_NUMBER': '778',
+        'REPRESENTATIVE_TEL': '(969)946-1011x0035',
+        'REPRESENTATIVE_TITLE': 'Dr.',
+        'REPRESENTATIVE_TOWN': 'Sandybury',
+        'REPRESENTATIVE_ZIP': 5993,
+        'SALUTATION': 'Herr',
+        'STRASSE': 'Brady Mount',
+        'STREET': 'Brady Mount',
+        'STREET_NUMBER': '76558',
+        'TEL': '001-804-421-2244x50815',
+        'TELEFON': '001-804-421-2244x50815',
+        'TITEL': 'Mr.',
+        'TITLE': 'Mr.',
+        'TOWN': 'West Christopherton',
+        'VERTRETER_ADRESSE': 'Ayala Throughway 778, 5993 Sandybury',
+        'VERTRETER_ANREDE': 'Frau',
+        'VERTRETER_EMAIL': 'paul55@example.net',
+        'VERTRETER_HAUSNUMMER': '778',
+        'VERTRETER_NACHNAME': 'Esparza',
+        'VERTRETER_NAME': 'Green, Stanley and Guerrero, Stephanie Esparza',
+        'VERTRETER_NAME_JURISTISCHE_PERSON': 'Green, Stanley and Guerrero',
+        'VERTRETER_ORTSCHAFT': 'Sandybury',
+        'VERTRETER_PLZ': 5993,
+        'VERTRETER_POSTFACH': '884',
+        'VERTRETER_STRASSE': 'Ayala Throughway',
+        'VERTRETER_TELEFON': '(969)946-1011x0035',
+        'VERTRETER_TITEL': 'Dr.',
+        'VERTRETER_VORNAME': 'Stephanie',
+        'VORNAME': 'Cameron',
+        'ZIP': 8797,
+      }),
+    ]),
+    'ALLE_GESUCHSTELLER_VERTRETER': 'Sierra Case, Green, Stanley and Guerrero, Stephanie Esparza',
+    'ALLE_GESUCHSTELLER_VERTRETER_NAME_ADRESSE': 'Sierra Case, Jacob Brooks 93866, 1515 Joshuaborough, Green, Stanley and Guerrero, Stephanie Esparza, Ayala Throughway 778, 5993 Sandybury',
+    'ALLE_GRUNDEIGENTUEMER_LISTE': list([
+    ]),
+    'ALLE_PROJEKTVERFASSER_LISTE': list([
+    ]),
+    'ALLE_RECHNUNGSEMPFAENGER': 'Jacqueline Atkinson, Schneider, Knight and Fuentes, Andrea Evans',
+    'ALLE_RECHNUNGSEMPFAENGER_LISTE': list([
+      dict({
+        'ADDRESS': 'Kerri Stream 209, 3059 Turnerburgh',
+        'ADRESSE': 'Kerri Stream 209, 3059 Turnerburgh',
+        'ANREDE': 'Frau',
+        'EMAIL': 'rayarthur@example.com',
+        'FIRST_NAME': 'Jacqueline',
+        'HAUSNUMMER': '209',
+        'JURISTIC_NAME': '',
+        'LAST_NAME': 'Atkinson',
+        'NACHNAME': 'Atkinson',
+        'NAME': 'Jacqueline Atkinson',
+        'NAME_JURISTISCHE_PERSON': '',
+        'ORTSCHAFT': 'Turnerburgh',
+        'PLZ': 3059,
+        'POSTFACH': '1353',
+        'PO_BOX': '1353',
+        'REPRESENTATIVE_ADDRESS': '',
+        'REPRESENTATIVE_EMAIL': '',
+        'REPRESENTATIVE_FIRST_NAME': '',
+        'REPRESENTATIVE_JURISTIC_NAME': '',
+        'REPRESENTATIVE_LAST_NAME': '',
+        'REPRESENTATIVE_NAME': '',
+        'REPRESENTATIVE_PO_BOX': '',
+        'REPRESENTATIVE_SALUTATION': '',
+        'REPRESENTATIVE_STREET': '',
+        'REPRESENTATIVE_STREET_NUMBER': '',
+        'REPRESENTATIVE_TEL': '',
+        'REPRESENTATIVE_TITLE': '',
+        'REPRESENTATIVE_TOWN': '',
+        'REPRESENTATIVE_ZIP': '',
+        'SALUTATION': 'Frau',
+        'STRASSE': 'Kerri Stream',
+        'STREET': 'Kerri Stream',
+        'STREET_NUMBER': '209',
+        'TEL': '865-524-7901',
+        'TELEFON': '865-524-7901',
+        'TITEL': 'Mrs.',
+        'TITLE': 'Mrs.',
+        'TOWN': 'Turnerburgh',
+        'VERTRETER_ADRESSE': '',
+        'VERTRETER_ANREDE': '',
+        'VERTRETER_EMAIL': '',
+        'VERTRETER_HAUSNUMMER': '',
+        'VERTRETER_NACHNAME': '',
+        'VERTRETER_NAME': '',
+        'VERTRETER_NAME_JURISTISCHE_PERSON': '',
+        'VERTRETER_ORTSCHAFT': '',
+        'VERTRETER_PLZ': '',
+        'VERTRETER_POSTFACH': '',
+        'VERTRETER_STRASSE': '',
+        'VERTRETER_TELEFON': '',
+        'VERTRETER_TITEL': '',
+        'VERTRETER_VORNAME': '',
+        'VORNAME': 'Jacqueline',
+        'ZIP': 3059,
+      }),
+      dict({
+        'ADDRESS': 'Williams Light 7039, 4486 Martinezchester',
+        'ADRESSE': 'Williams Light 7039, 4486 Martinezchester',
+        'ANREDE': 'Frau',
+        'EMAIL': 'adam21@example.org',
+        'FIRST_NAME': 'Andrea',
+        'HAUSNUMMER': '7039',
+        'JURISTIC_NAME': 'Schneider, Knight and Fuentes',
+        'LAST_NAME': 'Evans',
+        'NACHNAME': 'Evans',
+        'NAME': 'Schneider, Knight and Fuentes, Andrea Evans',
+        'NAME_JURISTISCHE_PERSON': 'Schneider, Knight and Fuentes',
+        'ORTSCHAFT': 'Martinezchester',
+        'PLZ': 4486,
+        'POSTFACH': '8311',
+        'PO_BOX': '8311',
+        'REPRESENTATIVE_ADDRESS': '',
+        'REPRESENTATIVE_EMAIL': '',
+        'REPRESENTATIVE_FIRST_NAME': '',
+        'REPRESENTATIVE_JURISTIC_NAME': '',
+        'REPRESENTATIVE_LAST_NAME': '',
+        'REPRESENTATIVE_NAME': '',
+        'REPRESENTATIVE_PO_BOX': '',
+        'REPRESENTATIVE_SALUTATION': '',
+        'REPRESENTATIVE_STREET': '',
+        'REPRESENTATIVE_STREET_NUMBER': '',
+        'REPRESENTATIVE_TEL': '',
+        'REPRESENTATIVE_TITLE': '',
+        'REPRESENTATIVE_TOWN': '',
+        'REPRESENTATIVE_ZIP': '',
+        'SALUTATION': 'Frau',
+        'STRASSE': 'Williams Light',
+        'STREET': 'Williams Light',
+        'STREET_NUMBER': '7039',
+        'TEL': '001-413-919-9552x71497',
+        'TELEFON': '001-413-919-9552x71497',
+        'TITEL': 'Mrs.',
+        'TITLE': 'Mrs.',
+        'TOWN': 'Martinezchester',
+        'VERTRETER_ADRESSE': '',
+        'VERTRETER_ANREDE': '',
+        'VERTRETER_EMAIL': '',
+        'VERTRETER_HAUSNUMMER': '',
+        'VERTRETER_NACHNAME': '',
+        'VERTRETER_NAME': '',
+        'VERTRETER_NAME_JURISTISCHE_PERSON': '',
+        'VERTRETER_ORTSCHAFT': '',
+        'VERTRETER_PLZ': '',
+        'VERTRETER_POSTFACH': '',
+        'VERTRETER_STRASSE': '',
+        'VERTRETER_TELEFON': '',
+        'VERTRETER_TITEL': '',
+        'VERTRETER_VORNAME': '',
+        'VORNAME': 'Andrea',
+        'ZIP': 4486,
+      }),
+    ]),
+    'ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Jacqueline Atkinson, Kerri Stream 209, 3059 Turnerburgh, Schneider, Knight and Fuentes, Andrea Evans, Williams Light 7039, 4486 Martinezchester',
     'ANGEMELDET_EMAIL': 'admin@example.com',
     'ANGEMELDET_NAME': 'Admin User',
     'BAUENTSCHEID_DATUM': '18. April 2024',
@@ -8932,33 +10228,186 @@
       dict({
         'ALLE_EINSPRECHENDEN': list([
           dict({
-            'ADRESSE': 'Harris Locks 2834, 5181 Heatherville',
-            'ANREDE': 'Herr',
-            'NAME': 'Charles Brennan',
+            'ADDRESS': 'Anthony Trail 2355, 4105 Lake Andreaside',
+            'ADRESSE': 'Anthony Trail 2355, 4105 Lake Andreaside',
+            'ANREDE': 'Frau',
+            'EMAIL': '',
+            'FIRST_NAME': 'Cynthia',
+            'HAUSNUMMER': '2355',
+            'JURISTIC_NAME': '',
+            'LAST_NAME': 'Brown',
+            'NACHNAME': 'Brown',
+            'NAME': 'Cynthia Brown',
+            'NAME_JURISTISCHE_PERSON': '',
+            'ORTSCHAFT': 'Lake Andreaside',
+            'PLZ': 4105,
+            'POSTFACH': '',
+            'PO_BOX': '',
+            'REPRESENTATIVE_ADDRESS': '',
+            'REPRESENTATIVE_EMAIL': '',
+            'REPRESENTATIVE_FIRST_NAME': '',
+            'REPRESENTATIVE_JURISTIC_NAME': '',
+            'REPRESENTATIVE_LAST_NAME': '',
+            'REPRESENTATIVE_NAME': '',
+            'REPRESENTATIVE_PO_BOX': '',
+            'REPRESENTATIVE_SALUTATION': '',
+            'REPRESENTATIVE_STREET': '',
+            'REPRESENTATIVE_STREET_NUMBER': '',
+            'REPRESENTATIVE_TEL': '',
+            'REPRESENTATIVE_TITLE': '',
+            'REPRESENTATIVE_TOWN': '',
+            'REPRESENTATIVE_ZIP': '',
+            'SALUTATION': 'Frau',
+            'STRASSE': 'Anthony Trail',
+            'STREET': 'Anthony Trail',
+            'STREET_NUMBER': '2355',
+            'TEL': '',
+            'TELEFON': '',
+            'TITEL': '',
+            'TITLE': '',
+            'TOWN': 'Lake Andreaside',
+            'VERTRETER_ADRESSE': '',
+            'VERTRETER_ANREDE': '',
+            'VERTRETER_EMAIL': '',
+            'VERTRETER_HAUSNUMMER': '',
+            'VERTRETER_NACHNAME': '',
+            'VERTRETER_NAME': '',
+            'VERTRETER_NAME_JURISTISCHE_PERSON': '',
+            'VERTRETER_ORTSCHAFT': '',
+            'VERTRETER_PLZ': '',
+            'VERTRETER_POSTFACH': '',
+            'VERTRETER_STRASSE': '',
+            'VERTRETER_TELEFON': '',
+            'VERTRETER_TITEL': '',
+            'VERTRETER_VORNAME': '',
+            'VORNAME': 'Cynthia',
+            'ZIP': 4105,
           }),
           dict({
-            'ADRESSE': 'Sarah Via 477, 1627 Bruceport',
+            'ADDRESS': 'Stephen Circles 97687, 8382 South Melissa',
+            'ADRESSE': 'Stephen Circles 97687, 8382 South Melissa',
             'ANREDE': 'Herr',
-            'NAME': 'Eric Osborn',
+            'EMAIL': '',
+            'FIRST_NAME': 'John',
+            'HAUSNUMMER': '97687',
+            'JURISTIC_NAME': '',
+            'LAST_NAME': 'Hernandez',
+            'NACHNAME': 'Hernandez',
+            'NAME': 'John Hernandez',
+            'NAME_JURISTISCHE_PERSON': '',
+            'ORTSCHAFT': 'South Melissa',
+            'PLZ': 8382,
+            'POSTFACH': '',
+            'PO_BOX': '',
+            'REPRESENTATIVE_ADDRESS': '',
+            'REPRESENTATIVE_EMAIL': '',
+            'REPRESENTATIVE_FIRST_NAME': '',
+            'REPRESENTATIVE_JURISTIC_NAME': '',
+            'REPRESENTATIVE_LAST_NAME': '',
+            'REPRESENTATIVE_NAME': '',
+            'REPRESENTATIVE_PO_BOX': '',
+            'REPRESENTATIVE_SALUTATION': '',
+            'REPRESENTATIVE_STREET': '',
+            'REPRESENTATIVE_STREET_NUMBER': '',
+            'REPRESENTATIVE_TEL': '',
+            'REPRESENTATIVE_TITLE': '',
+            'REPRESENTATIVE_TOWN': '',
+            'REPRESENTATIVE_ZIP': '',
+            'SALUTATION': 'Herr',
+            'STRASSE': 'Stephen Circles',
+            'STREET': 'Stephen Circles',
+            'STREET_NUMBER': '97687',
+            'TEL': '',
+            'TELEFON': '',
+            'TITEL': '',
+            'TITLE': '',
+            'TOWN': 'South Melissa',
+            'VERTRETER_ADRESSE': '',
+            'VERTRETER_ANREDE': '',
+            'VERTRETER_EMAIL': '',
+            'VERTRETER_HAUSNUMMER': '',
+            'VERTRETER_NACHNAME': '',
+            'VERTRETER_NAME': '',
+            'VERTRETER_NAME_JURISTISCHE_PERSON': '',
+            'VERTRETER_ORTSCHAFT': '',
+            'VERTRETER_PLZ': '',
+            'VERTRETER_POSTFACH': '',
+            'VERTRETER_STRASSE': '',
+            'VERTRETER_TELEFON': '',
+            'VERTRETER_TITEL': '',
+            'VERTRETER_VORNAME': '',
+            'VORNAME': 'John',
+            'ZIP': 8382,
           }),
         ]),
         'DATUM_POSTSTEMPEL': '12.12.2023',
-        'EINSPRECHER_ADRESSE': 'Harris Locks 2834, 5181 Heatherville',
-        'EINSPRECHER_ANREDE': 'Herr',
-        'EINSPRECHER_NAME': 'Charles Brennan',
+        'EINSPRECHER_ADRESSE': 'Anthony Trail 2355, 4105 Lake Andreaside',
+        'EINSPRECHER_ANREDE': 'Frau',
+        'EINSPRECHER_NAME': 'Cynthia Brown',
       }),
       dict({
         'ALLE_EINSPRECHENDEN': list([
           dict({
-            'ADRESSE': 'Holland Rest 028, 8490 Evanview',
-            'ANREDE': 'Herr',
-            'NAME': 'Vazquez, Stevens and Stone, Gerald Dunn',
+            'ADDRESS': 'Kevin Street 32670, 1447 North Nataliefurt',
+            'ADRESSE': 'Kevin Street 32670, 1447 North Nataliefurt',
+            'ANREDE': 'Frau',
+            'EMAIL': '',
+            'FIRST_NAME': 'Marissa',
+            'HAUSNUMMER': '32670',
+            'JURISTIC_NAME': 'Clark, Haley and Trevino',
+            'LAST_NAME': 'Mitchell',
+            'NACHNAME': 'Mitchell',
+            'NAME': 'Clark, Haley and Trevino, Marissa Mitchell',
+            'NAME_JURISTISCHE_PERSON': 'Clark, Haley and Trevino',
+            'ORTSCHAFT': 'North Nataliefurt',
+            'PLZ': 1447,
+            'POSTFACH': '',
+            'PO_BOX': '',
+            'REPRESENTATIVE_ADDRESS': '',
+            'REPRESENTATIVE_EMAIL': '',
+            'REPRESENTATIVE_FIRST_NAME': '',
+            'REPRESENTATIVE_JURISTIC_NAME': '',
+            'REPRESENTATIVE_LAST_NAME': '',
+            'REPRESENTATIVE_NAME': '',
+            'REPRESENTATIVE_PO_BOX': '',
+            'REPRESENTATIVE_SALUTATION': '',
+            'REPRESENTATIVE_STREET': '',
+            'REPRESENTATIVE_STREET_NUMBER': '',
+            'REPRESENTATIVE_TEL': '',
+            'REPRESENTATIVE_TITLE': '',
+            'REPRESENTATIVE_TOWN': '',
+            'REPRESENTATIVE_ZIP': '',
+            'SALUTATION': 'Frau',
+            'STRASSE': 'Kevin Street',
+            'STREET': 'Kevin Street',
+            'STREET_NUMBER': '32670',
+            'TEL': '',
+            'TELEFON': '',
+            'TITEL': '',
+            'TITLE': '',
+            'TOWN': 'North Nataliefurt',
+            'VERTRETER_ADRESSE': '',
+            'VERTRETER_ANREDE': '',
+            'VERTRETER_EMAIL': '',
+            'VERTRETER_HAUSNUMMER': '',
+            'VERTRETER_NACHNAME': '',
+            'VERTRETER_NAME': '',
+            'VERTRETER_NAME_JURISTISCHE_PERSON': '',
+            'VERTRETER_ORTSCHAFT': '',
+            'VERTRETER_PLZ': '',
+            'VERTRETER_POSTFACH': '',
+            'VERTRETER_STRASSE': '',
+            'VERTRETER_TELEFON': '',
+            'VERTRETER_TITEL': '',
+            'VERTRETER_VORNAME': '',
+            'VORNAME': 'Marissa',
+            'ZIP': 1447,
           }),
         ]),
         'DATUM_POSTSTEMPEL': '22.12.2023',
-        'EINSPRECHER_ADRESSE': 'Holland Rest 028, 8490 Evanview',
-        'EINSPRECHER_ANREDE': 'Herr',
-        'EINSPRECHER_NAME': 'Vazquez, Stevens and Stone, Gerald Dunn',
+        'EINSPRECHER_ADRESSE': 'Kevin Street 32670, 1447 North Nataliefurt',
+        'EINSPRECHER_ANREDE': 'Frau',
+        'EINSPRECHER_NAME': 'Clark, Haley and Trevino, Marissa Mitchell',
       }),
     ]),
     'ENTSCHEIDDOKUMENTE': list([
@@ -9024,10 +10473,10 @@
     'GEBUEHREN_TOTAL': '1’972.99',
     'GEMEINDE_WEBSEITE': 'https://gemeinde.ch',
     'GESUCHSTELLER_ANREDE': 'Herr',
-    'GESUCHSTELLER_VERTRETER': 'Leah Juarez',
-    'GESUCHSTELLER_VERTRETER_ADRESSE_1': 'Williams Village 14229',
-    'GESUCHSTELLER_VERTRETER_ADRESSE_2': '1338 New Johnfurt',
-    'GESUCHSTELLER_VERTRETER_NAME_ADRESSE': 'Leah Juarez, Williams Village 14229, 1338 New Johnfurt',
+    'GESUCHSTELLER_VERTRETER': 'Sierra Case',
+    'GESUCHSTELLER_VERTRETER_ADRESSE_1': 'Jacob Brooks 93866',
+    'GESUCHSTELLER_VERTRETER_ADRESSE_2': '1515 Joshuaborough',
+    'GESUCHSTELLER_VERTRETER_NAME_ADRESSE': 'Sierra Case, Jacob Brooks 93866, 1515 Joshuaborough',
     'LEITBEHOERDE_NAME_ADRESSE': 'Test Leitbehörde, Teststrasse 13, 3000 Musterhausen',
     'LEITBEHOERDE_WEBSEITE': 'https://leitbehoerde.ch',
     'MEINE_ORGANISATION_WEBSEITE': 'https://meine-organisation.ch',
@@ -9047,10 +10496,10 @@
       }),
     ]),
     'PUBLIKATION_START': '1. Dezember 2023',
-    'RECHNUNGSEMPFAENGER': 'Sandra Ford',
-    'RECHNUNGSEMPFAENGER_ADRESSE_1': 'White Summit 78823',
-    'RECHNUNGSEMPFAENGER_ADRESSE_2': '3852 New Andrew',
-    'RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Sandra Ford, White Summit 78823, 3852 New Andrew',
+    'RECHNUNGSEMPFAENGER': 'Jacqueline Atkinson',
+    'RECHNUNGSEMPFAENGER_ADRESSE_1': 'Kerri Stream 209',
+    'RECHNUNGSEMPFAENGER_ADRESSE_2': '3059 Turnerburgh',
+    'RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Jacqueline Atkinson, Kerri Stream 209, 3059 Turnerburgh',
   })
 # ---
 # name: test_dms_placeholders_ur[Municipality]

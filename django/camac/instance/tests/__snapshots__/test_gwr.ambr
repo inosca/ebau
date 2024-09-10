@@ -249,15 +249,15 @@
         'country': dict({
           'countryNameShort': 'ch',
         }),
-        'houseNumber': '339',
-        'street': 'Riddle Ranch',
+        'houseNumber': '399',
+        'street': 'Caitlin Flats',
         'swissZipCode': 8564,
         'town': 'Port Heatherchester',
       }),
       'identification': dict({
         'isOrganisation': True,
         'organisationIdentification': dict({
-          'organisationName': 'Stephens Group',
+          'organisationName': 'Stewart, Ellis and Evans',
         }),
         'personIdentification': None,
       }),
