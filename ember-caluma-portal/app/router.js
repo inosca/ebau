@@ -4,6 +4,7 @@ import registerAdditionalDemand from "ember-ebau-core/modules/additional-demand"
 import registerCommunications from "ember-ebau-core/modules/communications";
 import registerCommunicationsGlobal from "ember-ebau-core/modules/communications-global";
 import registerConstructionMonitoring from "ember-ebau-core/modules/construction-monitoring";
+import registerStaticContent from "ember-ebau-core/modules/static-content";
 
 import config from "caluma-portal/config/environment";
 
@@ -64,4 +65,6 @@ Router.map(function () {
       this.route("documents");
     });
   });
+
+  registerStaticContent(this, { resetNamespace });
 });

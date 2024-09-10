@@ -518,6 +518,9 @@ importers:
       ember-router-scroll:
         specifier: 4.1.2
         version: 4.1.2(@babel/core@7.25.2)
+      ember-set-helper:
+        specifier: 3.0.1
+        version: 3.0.1(@babel/core@7.25.2)
       ember-simple-auth-oidc:
         specifier: 7.0.1
         version: 7.0.1(@ember-data/adapter@4.12.8)(@ember/test-helpers@3.3.1)(@glimmer/tracking@1.1.2)(@glint/template@1.4.0)(ember-data@4.12.8)(ember-source@4.12.4)(graphql@15.9.0)(webpack@5.94.0)

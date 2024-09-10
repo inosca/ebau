@@ -590,19 +590,6 @@ DUMP = {
                         group__role__name__in=["admin", "applicant", "support"]
                     ),
                 },
-                # Dashboard
-                "caluma_dashboard_form": {
-                    **generate_form_dump_config(regex=r"^dashboard?$"),
-                    "caluma_form.Document": Q(form="dashboard"),
-                    # Static content
-                    "caluma_form.Answer": Q(
-                        question_id__in=[
-                            "portal-inhalt-de",
-                            "portal-faq-inhalt-de",
-                            "portal-terms-inhalt-de",
-                        ]
-                    ),
-                },
                 "caluma_bab_exam_form": generate_form_dump_config(
                     regex=r"^(materielle-pruefung-bab|mp-bab)"
                 ),
@@ -620,6 +607,9 @@ DUMP = {
                     regex=r"^einsprache(n)?"
                 ),
                 "caluma_appeal_form": generate_form_dump_config(regex=r"^beschwerde"),
+                "static_content": {
+                    "core.StaticContent": Q(pk__in=["portal-faq", "portal-news"]),
+                },
                 **DISTRIBUTION_DUMP_CONFIG,
                 **ADDITIONAL_DEMAND_DUMP_CONFIG,
                 **CONSTRUCTION_MONITORING_DUMP_CONFIG,
