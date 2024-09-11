@@ -150,13 +150,6 @@
   },
   {
     "model": "core.aphp",
-    "pk": 13000021,
-    "fields": {
-      "php_class": "ChangeDossierName"
-    }
-  },
-  {
-    "model": "core.aphp",
     "pk": 13000027,
     "fields": {
       "php_class": "CheckDecisionDocuments"
@@ -743,20 +736,6 @@
       "available_action": "php",
       "button": 13000012,
       "name": "Dossier Typ Wechseln",
-      "description": null,
-      "success_message": "Dossier erfolgreich umgewandelt",
-      "error_message": "Dossier konnte nicht umgewandelt werden!",
-      "execute_always": 1,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 13000021,
-    "fields": {
-      "available_action": "php",
-      "button": 13000013,
-      "name": "Dossier Name wechseln",
       "description": null,
       "success_message": "Dossier erfolgreich umgewandelt",
       "error_message": "Dossier konnte nicht umgewandelt werden!",
@@ -8673,33 +8652,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 12000157,
-    "fields": {
-      "button": 13000013,
-      "role": 6,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000158,
-    "fields": {
-      "button": 13000013,
-      "role": 6,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000159,
-    "fields": {
-      "button": 13000013,
-      "role": 6,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 12000160,
     "fields": {
       "button": 13000006,
@@ -10129,18 +10081,6 @@
       "class_field": "in_form_group:221 change_form_title",
       "hidden": 0,
       "sort": 23
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 13000013,
-    "fields": {
-      "instance_resource": 14000009,
-      "name": "Umwandeln in Baugesuch",
-      "description": "Solar / Gebäudetechnik - Baugesuch",
-      "class_field": "in_form_group:12000002 change_form_title",
-      "hidden": 0,
-      "sort": 24
     }
   },
   {
