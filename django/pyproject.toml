@@ -135,6 +135,7 @@ omit = [
     "form_json_helper.py",
     "camac/settings/modules/*.py",
     "camac/wsgi.py",
+    "camac/core/management/commands/makemessages.py",
     # TODO: write tests for the following"
     "camac/core/dataimport.py",
     "camac/core/management/commands/snapdb.py",
