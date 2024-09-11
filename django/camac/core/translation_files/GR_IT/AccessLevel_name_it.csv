@@ -1,2 +1,7 @@
-id,name,name
+id,name,
+applicant,Gesuchsteller/in,Richiedente
+distribution-service,Fachstelle,Servizio
+lead-authority,Gemeinde,Comune
 read,Leseberechtigung,Autorizzazione di lettura
+support,Support,Supporto
+uso,USO,Organizzazione ambientalista
