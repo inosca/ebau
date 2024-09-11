@@ -1,0 +1,218 @@
+﻿id,purpose,,body
+1,Empfang Baugesuch (Gesuchsteller),Ricezione domanda di costruzione (persona richiedente),"Guten Tag
+
+Ihr Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}})  wurde erfolgreich übermittelt. Bitte beachten Sie, dass das Verfahren erst eingeleitet wird, wenn die Eingabequittung ausgedruckt und unterzeichnet bei der Standortgemeinde eingereicht wurde. 
+
+{{PUBLIC_DOSSIER_LINK}}
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
+Freundliche Grüsse
+{{LEITBEHOERDE_NAME_DE}}"
+2,Empfang Baugesuch (Behörden),Ricezione domanda di costruzione (autorità),"Guten Tag
+
+Im eBau gibt es einen neuen Eingang mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).
+
+{{INTERNAL_DOSSIER_LINK}}
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
+Freundliche Grüsse
+eBau"
+3,"Gesuchsbearbeitungs Einladung, Bestehend","Invito a evadere la domanda, esistente","Guten Tag
+
+Sie haben von {{GESUCHSTELLER}} den Zugriff auf das Dossier-Nr. {{ DOSSIER_NR }} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}, {{ PUBLIC_DOSSIER_LINK }}) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
+Freundliche Grüsse
+eBau"
+4,"Gesuchsbearbeitungs Einladung, Neu","Invito a evadere la domanda, nuovo","Guten Tag
+
+Sie haben von {{GESUCHSTELLER}} den Zugriff auf das Dossier-Nr. {{ DOSSIER_NR }} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}, {{ PUBLIC_DOSSIER_LINK }}) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.
+
+Um das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Graubünden erforderlich.
+
+Unter folgendem Link können Sie sich registrieren: {{ REGISTRATION_LINK }}
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
+Freundliche Grüsse
+eBau"
+5,Verfahrensablauf (Fachstelle),Procedura (servizio),"Guten Tag
+
+Sie erhalten das Dossier mit der Dossier-Nr. {{DOSSIER_NR}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) zur Ausarbeitung einer Stellungnahme, eines Amts-/ Fachberichtes oder einer Verfügung.
+
+Bemerkung: {{INQUIRY_REMARK}}
+
+{{INQUIRY_LINK}}
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
+Freundliche Grüsse
+{{CURRENT_SERVICE_DE}}"
+6,Vernehmlassung abgeschlossen,Procedura di consultazione conclusa,"Guten Tag
+
+Für das Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurden die gemäss Leitverfahren eingeforderten
+Stellungnahmen, Amts- und Fachberichte und Verfügungen erstellt: {{ INQUIRY_ANSWER_DE }}.
+
+{{INQUIRY_LINK}}
+
+{{DISTRIBUTION_STATUS_DE}}
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
+Freundliche Grüsse
+{{CURRENT_SERVICE_DE}}"
+7,Entscheid (Gesuchsteller),Decisione (persona richiedente),"Guten Tag
+
+Der Bauentscheid ({{DECISION_DE}}) zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:
+
+{{PUBLIC_DOSSIER_LINK}}/feedback
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
+Freundliche Grüsse
+{{LEITBEHOERDE_NAME_DE}}"
+8,Entscheid (Behörden),Decisione (autorità),"Guten Tag
+
+Der Bauentscheid zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:
+
+{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
+{{LEITBEHOERDE_NAME_DE}}"
+9,"Nachforderung, Neu","Richiesta di precisazioni, nuovo","Guten Tag
+
+Im eBau gibt es eine neue Nachforderung im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).
+
+{{PUBLIC_DOSSIER_LINK}}/additional-demand
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
+eBau"
+10,Nachforderung beantwortet,Risposta a richiesta di precisazioni,"Guten Tag
+
+Im eBau wurde die Nachforderung beantwortet im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).
+
+{{INTERNAL_DOSSIER_LINK}}/additional-demand
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
+Freundliche Grüsse
+eBau"
+11,Nachforderung geprüft positiv,"Richiesta di precisazioni esaminata, esito positivo","Guten Tag
+
+Im eBau wurde die Nachforderung angeschlossen im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).
+
+{{INTERNAL_DOSSIER_LINK}}/additional-demand
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
+Freundliche Grüsse
+eBau"
+12,Nachforderung geprüft negativ,"Richiesta di precisazioni esaminata, esito negativo","Guten Tag
+
+Im eBau wurde ihre Nachforderung abgelehnt im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).
+
+{{PUBLIC_DOSSIER_LINK}}/additional-demand
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
+Freundliche Grüsse
+eBau"
+13,"Beurteilung Vorabklärung, Bauanzeige, Solaranlage (Gesuchsteller)","Valutazione esame preliminare, annuncio di costruzione, impianto solare (persona richiedente)","Guten Tag
+
+Die Beurteilung ({{DECISION_DE}}) zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen. Sie finden die Dokumente unter folgendem Link: 
+
+{{PUBLIC_DOSSIER_LINK}}/feedback
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
+Freundliche Grüsse
+{{LEITBEHOERDE_NAME_DE}}"
+14,"Beurteilung Vorabklärung, Bauanzeige, Solaranlage (Behörden)","Valutazione esame preliminare, annuncio di costruzione, impianto solare (autorità)","Guten Tag
+
+Die Beurteilung zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen. Sie finden die Dokumente unter folgendem Link:
+
+{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
+Freundliche Grüsse
+{{LEITBEHOERDE_NAME_DE}}"
+15,"Bauabnahme (GVG, AEV, Geometer)","Collaudo (AFG, UEnTr, geometra)","Guten Tag
+
+Die Bauabnahme zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen.
+
+{{INTERNAL_DOSSIER_LINK}}
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
+Freundliche Grüsse
+{{LEITBEHOERDE_NAME_DE}}"
+16,Rückweisung (Gesuchsteller),Respingimento (persona richiedente),"Guten Tag
+
+Die Baubewilligungsbehörde ({{LEITBEHOERDE_NAME_DE}}) hat das Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) zurückgewiesen. Das Dossier kann nun angepasst und erneut eingereicht werden.
+
+{{PUBLIC_DOSSIER_LINK}}
+
+Mitteilung der Baubewilligungsbehörde:
+
+{{REJECTION_FEEDBACK}}
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf."
+17,Verfahrensablauf (USO),Procedura (associazioni ambientaliste),"Guten Tag
+
+Sie erhalten das Dossier mit der Dossier-Nr. {{DOSSIER_NR}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).
+
+Bemerkung: {{INQUIRY_REMARK}}
+
+{{INQUIRY_LINK}}
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
+Freundliche Grüsse
+{{CURRENT_SERVICE_DE}}"
+18,Neue Nachricht (Gesuchsteller),Nuovo messaggio (persona richiedente),"Guten Tag
+
+Sie haben eine neue Nachricht auf dem Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) erhalten.
+
+{{ PUBLIC_DOSSIER_LINK }}/communications
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
+Freundliche Grüsse
+eBau"
+19,Neue Nachricht (Behörden),Nuovo messaggio (autorità),"Guten Tag
+
+Sie haben eine neue Nachricht auf dem Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) erhalten.
+
+{{ INTERNAL_DOSSIER_LINK }}/communications
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
+Freundliche Grüsse
+eBau"
+20,Meldung Fristüberschreitung (Fachstelle),Notifica superamento termine (servizio),"Guten Tag 
+
+Die gesetzte Frist im Baubewilligungsverfahren für das Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) ist abgelaufen. Fehlende Stellungnahmen, Amts- und Fachberichte, Verfügungen sind bei betroffenen Stellen nachzufordern.
+
+{{INQUIRY_LINK}}
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
+{{LEITBEHOERDE_NAME_DE}}"
+21,Bauabnahme (Gesuchsteller),Collaudo (persona richiedente),"Guten Tag
+
+Die Bauabnahme zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen.
+
+Die Dokumente finden Sie unter folgendem Link:
+
+{{INTERNAL_DOSSIER_LINK}}
+
+Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
+
+Freundliche Grüsse
+{{LEITBEHOERDE_NAME_DE}}"

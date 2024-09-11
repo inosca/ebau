@@ -1,18 +1,26 @@
-﻿id,label,label
+﻿id,label,
+begruend,Begründ,Motivazione
+geologiebuero,Geologiebüro,Studio di geologia
+fundationsart,Fundationsart,Tipo di fondazione
+decision-date,Datum,Data
+bemerkungen-bauabstaende,Bemerkungen,Osservazioni
+decision-decision,Entscheid / Beurteilung,Decisione / valutazione
+bemerkungen-baubegleitung,Bemerkungen,Osservazioni
+bemerkungen-brandschutz-haustechnik,Bemerkungen,Osservazioni
+bemerkungen-brauchwasser,Bemerkungen,Osservazioni
+bemerkungen-gebaeudehoehen,Bemerkungen,Osservazioni
+bemerkungen-kommentare,Bemerkungen / Kommentare,Osservazioni / commenti
 additional-demand-comment,Bemerkung,Osservazione
 additional-demand-comment-fill,Bemerkung,Osservazione
-additional-demand-complete,Nachforderung senden,Inviare richiesta di precisazioni?
-additional-demand-complete-check,Prüfung abschliessen,Concludere l'esame
+additional-demand-complete,Nachforderung senden,Invia richiesta di precisazioni
+additional-demand-complete-check,Prüfung abschliessen,Concludi esame
 additional-demand-deadline,Frist,Scadenza
 additional-demand-decision,Prüfergebnis,Esito dell'esame
 additional-demand-files,Dateien,File
-decision-date,Datum,Data
-decision-decision,Entscheid / Beurteilung,Decisione / valutazione
 decision-description,Beschreibung,Descrizione
 decision-remarks,Bemerkungen,Osservazioni
-decision-submit,Entscheid verfügen,Disporre la decisione
+decision-submit,Entscheid verfügen,Disponi decisione
 fuer-gvg-freigeben,Dossier für Gebäudeversicherung (GVG) freigeben,Rilasciare il dossier per l'Assicurazione fabbricati (AFG)
-abfallcode-text,Abfallcode,Codice di rifiuto
 info-gvg,Info GVG,Info AFG
 inquiry-answer-ancillary-clauses,Nebenbestimmungen,Disposizioni accessorie
 inquiry-answer-assessment,Beurteilung,Valutazione
@@ -24,6 +32,7 @@ inquiry-remark,Bemerkungen,Osservazioni
 stellungnahme-bemerkungen,Bemerkungen,Osservazioni
 stellungnahme-in-dokumentanablage,Stellungnahme in Dokumentenablage,Presa di posizione nell'archivio dei documenti
 100-prozent-volumen,100% Volumen (Liter),100% volume (litri)
+anlage-prozess,Art der Anlage / des Prozesses,Tipo di impianto/di processo
 24d-rpg,Betrifft die Anlage eine schützenswerte Baute gemäss Art. 24d RPG oder Art. 39 Abs. 2 RPV?,L'impianto concerne un edificio degno di protezione conformemente all'art. 24d LPT o all'art. 39 cpv. 2 OPT?
 abblaseleitung,Abblaseleitung,Linea di sfogo
 abfaelle-und-erzeugnisse-der-landwirtschaft,Abfälle und Erzeugnisse der Landwirtschaft,Rifiuti e prodotti agricoli
@@ -32,6 +41,7 @@ abfallanlage,Abfallanlage,Impianto per i rifiuti
 abfallanlage-titel,Abfallanlage Titel,Impianto per i rifiuti titolo
 abfallbeschreibung,Abfallbeschreibung,Descrizione dei rifiuti
 abfallcodes,Beantragte Abfallcodes,Codici di rifiuto richiesti
+abfallcode-text,Abfallcode,Codice di rifiuto
 abgasanlagen,Abgasanlagen,Dispositivi di evacuazione dei gas di scarico
 abgasemission-titel,Abgasemission Titel,Emissione di gas di scarico titolo
 abgaskatalysator-bhkw,Abgaskatalysator,Convertitore catalitico
@@ -39,6 +49,7 @@ abgas-luft-menge,Abgas/ -luft Menge (m³/h),Quantità di gas/aria di scarico (m�
 abgas-luft-temperatur,Abgas / -luft Temperatur (°C),Temperatura di gas/aria di scarico (°C)
 abgasstufe,Abgasstufe,Classe di emissione
 abgasvolumen-bhkw,Abgasvolumen (Nm³/h),Volume di gas di scarico (Nm³/h)
+anzahl-module,Anzahl der Module,Numero di moduli
 abgasvolumen-nmh,Abgasvolumen (Nm³/h),Volume di gas di scarico (Nm³/h)
 abgehaengte-decken-in-fluchtwegen,Abgehängte Decken in Fluchtwegen,Controsoffitti delle vie di fuga
 abgenommen,Abgenommen,Collaudo superato
@@ -46,7 +57,6 @@ ablaufdatum,Ablaufdatum,Data di scadenza
 ablaufleitung-fuer-fluessiggas,Besteht eine Ablaufleitung für Flüssiggas?,Esiste uno scarico per gas liquefatti?
 ableitung-der-abgase-titel,Ableitung der Abgase Titel,Evacuazione dei gas di scarico titolo
 ableitung-des-gepumpten-gereinigten-wassers-in,Ableitung des gepumpten / gereinigten Wassers in,Evacuazione delle acque pompate/depurate in
-abwasser-verfahren-geraet,Verfahren / Gerät,Procedura / dispositivo
 ableitung-des-gereinigten-bohrabwassers,Ableitung des gereinigten Bohrabwassers in,Evacuazione delle acque di scarico depurate prodotte durante le trivellazioni in
 ableitung-nach,Ableitung nach,Evacuazione in
 ableitung-von-industrie-und-gewerbeabwasser,Industrie- und Gewerbeabwasser,Acque di scarico industriali e artigianali
@@ -63,14 +73,16 @@ abwasser,Entsteht Abwasser?,Vengono prodotte acque di scarico?
 abwasseranfall-titel,Abwasseranfall Titel,Produzione di acque di scarico titolo
 abwasser-art-der-kontrolle,Art der Kontrolle,Tipo di controllo
 abwasser-haeufigkeit,Häufigkeit,Frequenza
+abwasser-verfahren-geraet,Verfahren / Gerät,Procedura / dispositivo
 additional-demand-comment-check,Bemerkung,Osservazione
 additional-demand-deadline-check,Frist,Scadenza
 administrative-angaben-titel,Administrative Angaben Titel,Dati amministrativi titolo
 aenderungen-zur-vorherigen-bewilligung,Wesentliche Änderungen zur vorherigen Bewilligung?,Vi sono modifiche sostanziali rispetto all'autorizzazione precedente?
-allgemeine-angaben,Lage des Vorhabens,Posizione del progetto
+allgemeine-angaben,Lage des Vorhabens,Ubicazione del progetto
 allgemeine-angaben-zum-betrieb-titel,Allgemeine Angaben zum Betrieb Titel,Indicazioni generali relative all'esercizio titolo
 allgemeine-informationen,Allgemeine Informationen,Informazioni generali
 alter-der-feuerungsanlage,Alter der Feuerungsanlage,Età dell'impianto di combustione
+auskleidungs-produkt,Auskleidungs-Produkt,Prodotto del manto
 ammoniak-bhkw,Ammoniak (NH₃),Ammoniaca (NH₃)
 amtliche-gebaeudenummer,Gebäudeversicherungsnummer,Numero Assicurazione fabbricati
 andere-loeschwasserversorgungen,Andere Löschwasserversorgungen,Altri punti di rifornimento di acque di spegnimento
@@ -81,7 +93,6 @@ angaben-zum-motorenbetrieb,Angaben zum Motorenbetrieb,Indicazioni relative al mo
 angaben-zum-saisonbetrieb,Angaben zum Saisonbetrieb,Indicazioni relative all'esercizio stagionale
 angaben-zum-saisonbetrieb-feuerungsbetrieb,Angaben zum Saisonbetrieb,Indicazioni relative all'esercizio stagionale
 angaben-zur-anlage,Angaben zur Anlage,Indicazioni relative all'impianto
-art-der-einzelfeuerung,Art der Einzelfeuerung,Tipo di impianto di combustione singolo
 angaben-zur-bewaesserung-titel,Angaben zur Bewässerung Titel,Indicazioni relative all'irrigazione titolo
 anlageart,Anlageart,Tipo di impianto
 anlagedaten-bhkw-titel,Anlagedaten Titel,Dati dell'impianto titolo
@@ -91,7 +102,6 @@ anlagedaten-titel,Anlagedaten Titel,Dati dell'impianto titolo
 anlagen-prozesse,Anlagen/Prozesse,Impianti/processi
 anlagenprozesse-titel,Anlagen/Prozesse Titel,Impianti/processi titolo
 anlagen-titel,Anlagen Titel,Impianti titolo
-anlage-prozess,Art der Anlage / des Prozesses,Tipo di impianto/di processo
 anlage-ragt-nicht-ueber-dachflaeche-hinaus,Liegt die Anlage von oben gesehen vollständig innerhalb der Dachfläche?,"Visto dall'alto, l'impianto si trova completamente all'interno della superficie del tetto?"
 anlagetyp,Anlagetyp,Tipo di impianto
 anlagetyp-beschreibung,Beschreibung,Descrizione
@@ -105,8 +115,8 @@ anzahl-hydranten,Anzahl Hydranten,Numero di idranti
 anzahl-kammern,Anzahl Kammern,Numero di camere
 anzahl-lkw-waschungen-pro-jahr,Anzahl LKW Waschungen pro Jahr ca.,Numero di lavaggi di autocarri all'anno ca.
 anzahl-mitarbeitende,Anzahl Mitarbeitende (Total),Numero collab. (totale)
+anzahl-mitarbeitende-gewerbe,Anzahl Mitarbeitende,Numero di collaboratori
 anzahl-mitarbeitende-produktion,Anzahl Mitarbeitende (im Produktionsbereich),Numero collab. (nel settore di produzione)
-anzahl-module,Anzahl der Module,Numero di moduli
 anzahl-personen,Beherbergungsbetriebe: Anzahl beherbergte Personen,Esercizi ricettivi: numero di persone ospitate
 anzahl-personen-dauerhaft-im-wohnhaus,Wie viele Personen wohnen dauerhaft im Wohnhaus?,Quante persone vivono in modo permanente nell'abitazione?
 anzahl-pw-waschungen-pro-jahr,Anzahl PW Waschungen pro Jahr ca.,Numero di lavaggi di automobili all'anno ca.
@@ -120,6 +130,7 @@ anzahl-starts-auf-display-holzfeuerung,Anzahl Starts auf Display,Numero di accen
 anzahl-starts-auf-display-oel-gasfeuerung,Anzahl Starts auf Display,Numero di accensioni sul display
 anzahl-starts-auf-display-rauchgasbehandlung,Anzahl Starts auf Display,Numero di accensioni sul display
 anzahl-tanksaeulen,Anzahl Tanksäulen,Numero di colonne
+auskleidungs-produkt-2,Auskleidungs-Produkt,Prodotto del manto
 anzahl-tanksaeulen-ableitung-der-abgase,Anzahl Tanksäulen,Numero di colonne
 anzahl-wohnungen,Mehrfamilienhaus: Anzahl Wohnungen,Casa plurifamiliare: numero di abitazioni
 arbeitsauslastung-der-anlage-im-winter,Arbeitsauslastung der Anlage im Winter in % (Anfang Oktober - Ende März),Grado di sfruttamento dell'impianto in inverno in % (inizio ottobre - fine marzo)
@@ -129,11 +140,12 @@ art-der-anlage,Art der Anlage,Tipo di impianto
 art-der-anlage-behaelter,Art der Anlage / Behälter,Tipo di impianto/contenitore
 art-der-anlage-feuerungsbetrieb,Art der Anlage,Tipo di impianto
 art-der-automatischen-waschanlage,Art der automatischen Waschanlage,Tipo di impianto di lavaggio automatico
+art-der-einzelfeuerung,Art der Einzelfeuerung,Tipo di impianto di combustione singolo
 art-der-entfernung,Art der Entfernung,Tipo di rimozione
 art-der-entwaesserung,Art der Entwässerung,Tipo di smaltimento delle acque
 art-der-festen-brennstoffe,Art der festen Brennstoffe,Tipo di combustibili solidi
 art-der-installation,Art der Installation,Tipo di installazione
-art-der-karosseriereinigungen,Art der Karosseriereinigungen,Tipo di pulizie di carrozzerie
+art-der-karosseriereinigungen,Art der Karosseriereinigungen,Tipo di pulizia di carrozzerie
 art-der-kontrolle,Art der Kontrolle,Tipo di controllo
 art-der-massnahme,Art der Massnahme,Tipo di misura
 art-der-massnahme-gegen-ausbreitung-fluessiggas,Art der Massnahme,Tipo di misura
@@ -146,7 +158,6 @@ art-der-waermequelle,Art der Wärmequelle,Tipo di fonte di calore
 art-der-zentralheizung,Art der Zentralheizung,Tipo di riscaldamento centrale
 art-des-belags,Art des Belags,Tipo di pavimentazione
 art-des-betriebs,Art des Betriebs,Tipo di esercizio
-bauabhnahme-durchgefuehrt,Bauabnahme durchgeführt,Collaudo svolto
 art-des-betriebs-titel,Art des Betriebs Titel,Tipo di esercizio titolo
 art-des-bypassbetriebs,Art des Bypassbetriebs,Tipo di funzionamento in modalità bypass
 art-des-gebaeude,Art des Gebäudes,Tipo di edificio
@@ -172,8 +183,6 @@ ausbildungsnachweis-vorhanden,Ausbildungsnachweis vorhanden?,È disponibile un a
 ausfuehrungsart,Ausführungsart,Tipo di esecuzione
 ausfuehrungsart-der-produkteleitung,Ausführungsart der Produkteleitung,Tipo di esecuzione della condotta del prodotto
 aushubmaterial,Aushubmaterial (m³ oder t),Materiale di scavo (m³ o t)
-auskleidungs-produkt,Auskleidungs-Produkt,Prodotto del manto
-auskleidungs-produkt-2,Auskleidungs-Produkt,Prodotto del manto
 ausnuetzungsziffer-titel,Nutzungsziffer Titel,Indice di utilizzazione titolo
 aussenwaende,Aussenwände (Konstruktion),Pareti esterne (costruzione)
 ausserhalb-bauzone,Bauvorhaben (teilweise) ausserhalb Bauzone,Progetto di costruzione (parzialmente) fuori dalle zone edificabili
@@ -181,6 +190,7 @@ bab-baujahr,Baujahr,Anno di costruzione
 bab-begruendung,Begründung,Motivazione
 bab-beschrieb,Beschrieb,Descrizione
 bab-weitere-angaben,Weitere Angaben,Altre indicazioni
+bauabhnahme-durchgefuehrt,Bauabnahme durchgeführt,Collaudo svolto
 bauabnahme,Datum Bauabnahme,Data del collaudo
 bauabnahme-abgeschlossen,Bauabnahme abgeschlossen,Collaudo concluso
 bauabstaende-mehrlaengen-titel,Bauabstände / Mehrlängen Titel,Distanze / maggiore lunghezza titolo
@@ -188,9 +198,10 @@ bauanzeige-bauvorhaben-betrifft,Bauvorhaben betrifft,Progetto di costruzione con
 bauanzeige-haustechnische-anlagen-brandschutz,Ist das Bauvorhaben feuerpolizeilich bewilligungspflichtig?,Il progetto di costruzione è soggetto al permesso di polizia del fuoco?
 bauart,Bauart,Tipo di costruzione
 baubeginn,Baubeginn,Inizio dei lavori
+begruendung-ausname-solarpflicht,Begründung,Motivazione
 baubegleitung-abschliessen,Bauabnahme erfolgt,Collaudo avvenuto
 baugespann,Baugespann,Modine
-baugespann-erstellt-am,Erstellt am,Data di realizzazione
+baugespann-erstellt-am,Erstellt am,Data di creazione
 baujahr,Baujahr,Anno di costruzione
 baujahr-bhkw,Baujahr,Anno di costruzione
 baujahr-der-anlage,Baujahr der Anlage,Anno di costruzione dell'impianto
@@ -208,7 +219,6 @@ bauliche-veraenderungen-brennstofflagerung,Finden bauliche Veränderungen statt 
 bauten-ausserhalb-bauzone,Bauten ausserhalb Bauzone,Edifici fuori dalle zone edificabili
 bauten-titel,Bauten Titel,Edifici titolo
 bauten-und-anlagen-ausserhalb-bauzone-titel,Bauten und Anlagen ausserhalb Bauzone Titel,Edifici e impianti fuori dalle zone edificabili titolo
-begruendung-keine-abluft,Begründung,Motivazione
 baute-oder-anlage,Handelt es sich um eine Baute oder um eine Anlage?,Si tratta di un edificio o di un impianto?
 bau-und-werkstoff,Bau- und Werkstoff,Materiale di costruzione e di produzione
 bauvorhaben,Vorhaben,Progetto
@@ -216,13 +226,12 @@ bauvorhaben-feuerpolizeilich-bewilligungspflichtig,Ist das Bauvorhaben feuerpoli
 bauvorhaben-mit-gewerbenutzung,Bauvorhaben mit Gewerbenutzung / Industrienutzung / landwirtschaftlichem Gewerbe,Progetto di costruzione con utilizzazione a scopi artigianali / industriali / per azienda agricola
 beanspruchte-flaeche,Beanspruchte Fläche (m²),Superficie utilizzata (m²)
 bedachung,Bedachung (Wärmedämmschicht),Copertura (strato di isolamento termico)
-begruend,Begründ,Motivazione
-begruendung-ausname-solarpflicht,Begründung,Motivazione
 begruendung-energie-waermequelle-heizung,Begründung,Motivazione
 begruendung-energie-waermequelle-warmwasser,Begründung,Motivazione
 begruendung-fuer-die-entfernung-hecke,Begründung für die Entfernung der Hecke / des Feldgehölzes (Standortgebundenheit),Spiegare per quale motivo è necessario rimuovere la siepe / il boschetto campestre (ubicazione vincolata)
 begruendung-kein-abwasser,Begründung,Motivazione
 begruendung-kein-ausbildungsnachweis,Begründung,Motivazione
+begruendung-keine-abluft,Begründung,Motivazione
 begruendung-keine-aenderungen-zur-vorherigen-bewilligung,Begründung,Motivazione
 begruendung-keine-eingangskontrolle,Begründung,Motivazione
 begruendung-keine-feststoffabfaelle,Begründung,Motivazione
@@ -233,17 +242,10 @@ behaelterfabrikant,Behälterfabrikant,Produttore del serbatoio
 beleuchtung,Beleuchtung,Illuminazione
 bemerkungen,Bemerkungen,Osservazioni
 bemerkungen-ausnuetzungsziffer,Bemerkungen,Osservazioni
-bemerkungen-bauabstaende,Bemerkungen,Osservazioni
-bemerkungen-baubegleitung,Bemerkungen,Osservazioni
-bemerkungen-brandschutz-haustechnik,Bemerkungen,Osservazioni
-bemerkungen-brauchwasser,Bemerkungen,Osservazioni
-bemerkungen-gebaeudehoehen,Bemerkungen,Osservazioni
-bemerkungen-kommentare,Bemerkungen / Kommentare,Osservazioni / commenti
 bemerkungen-motorenbetrieb,Bemerkungen,Osservazioni
 bemerkungen-schutzplaetze,Bemerkungen,Osservazioni
 bemerkungen-weitere-materielle-pruefung,Bemerkungen,Osservazioni
 bemerkungen-zonenkonformitaet,Bemerkungen,Osservazioni
-beschreibung-aussenwaende,Beschreibung,Descrizione
 bemerkungen-zum-betrieb,Bemerkungen zum Betrieb,Osservazioni relative all'esercizio
 berechnungsergebnisse-titel,Berechnungsergebnisse Titel,Risultati del calcolo titolo
 berechnungsgrundlagen-statischer-text,Berechnungsgrundlagen statischer Text,Basi di calcolo testo statico
@@ -259,6 +261,7 @@ beschreibung-art-der-waermequelle,Beschreibung,Descrizione
 beschreibung-art-des-betriebs,Beschreibung,Descrizione
 beschreibung-art-des-gebaeude,Beschreibung,Descrizione
 beschreibung-art-und-menge-des-abwassers,Beschreibung,Descrizione
+beschreibung-aussenwaende,Beschreibung,Descrizione
 beschreibung-baugewerbe,Beschreibung,Descrizione
 beschreibung-bauvorhaben,Titel des Vorhabens,Titolo del progetto
 beschreibung-bauvorhaben-details,Beschreibung,Descrizione
@@ -268,6 +271,7 @@ beschreibung-brennstoff,Beschreibung,Descrizione
 beschreibung-brennstofftyp,Beschreibung,Descrizione
 beschreibung-bypassbetrieb,Beschreibung,Descrizione
 beschreibung-der-anlage-des-prozesses,Beschreibung der Anlage / des Prozesses,Descrizione dell'impianto / del processo
+betriebsleiter-weitere-adressen,Weitere Adressen,Altri indirizzi
 beschreibung-der-anlagen,Bauvorhaben mit folgenden Anlagen,Progetto di costruzione con i seguenti impianti
 beschreibung-der-landwirtschaftlichen-bauten,Beschreibung der landwirtschaftlichen Bauten,Descrizione degli edifici rurali
 beschreibung-der-nutzung,Beschreibung der Nutzung,Descrizione dell'utilizzazione
@@ -280,6 +284,7 @@ beschreibung-einzelfeuerung,Beschreibung Einzelfeuerung,Descrizione dell'impiant
 beschreibung-farbton-absorberflaeche,Beschreibung,Descrizione
 beschreibung-farbton-einfassungen,Beschreibung,Descrizione
 beschreibung-fossiler-brennstoff,Beschreibung,Descrizione
+fabrikat-typ-der-anlage,"Fabrikat, Typ der Anlage","Modello, tipo di impianto"
 beschreibung-gebaeudeart,Beschreibung,Descrizione
 beschreibung-grossviehstall,Beschreibung Grossviehstall,Descrizione della stalla per bestiame grosso
 beschreibung-hecken,Beschreibung,Descrizione
@@ -308,6 +313,8 @@ besitzverhaeltnis,Besitzverhältnis,Rapporti di proprietà
 besondere-bedingungen,Besondere Bedingungen,Condizioni particolari
 bestaetigung,Bestätigung,Conferma
 bestaetigung-berechtigung,"Die gesuchstellende Person bestätigt, dass sie die Berechtigung auf das eBau Dossier hat. Sofern das Baugesuch nicht durch die gesuchstellende Person selbst, sondern durch eine Drittperson (z.B. Vertretung, Architekt(in), Projektverfasser(in) etc.) in eBau erfasst wurde, bestätigt diese Drittperson, welche das Baugesuch ausgefüllt hat, dass sie der gesuchstellenden Person bzw. der Bauherrschaft die Berechtigung (via Tab «Berechtigungen») auf das eBau Dossier erteilt hat.","La persona richiedente conferma di essere autorizzata ad accedere al dossier eBau. Se la domanda di costruzione non viene registrata in eBau dalla persona richiedente, bensì da una terza persona (ad es. rappresentante, architetta/o, progettista, ecc.), la terza persona che ha compilato la domanda di costruzione conferma di aver concesso alla persona richiedente o alla committenza i diritti per accedere al dossier in eBau (nella scheda «Diritti»)."
+betriebsleiter-baujahr,Baujahr,Anno di costruzione
+betriebsleiter-bemerkungen,Bemerkungen,Osservazioni
 bestaetigung-energienachweise,"Der/die Gesuchsteller/in nimmt zur Kenntnis, dass je nach Bauvorhaben Energienachweise einzureichen sind (für Formular, Gesetze und Protokolle siehe Info-Button).","La persona richiedente prende atto che, a seconda del progetto di costruzione, dovranno essere inoltrati i certificati energetici (per consultare modulo, leggi e protocolli cliccare sul pulsante Info)."
 bestaetigung-fks-richtlinie,Bestätigung Anforderung gemäss FKS-Richtlinie,Conferma requisito conformemente alla direttiva CSP
 bestaetigung-radon,"Die Bauherrschaft bestätigt, dass die erforderlichen Massnahmen zum Schutz vor erhöhten Radongaskonzentrationen nach den anerkannten Regeln der Baukunde getroffen werden (siehe Info-Button). Die Bauherrschaft hat zur Kenntnis genommen, dass die Bauabnahme grundsätzlich auch eine Radonmessung umfassen kann.",La committenza conferma che sono state adottate le misure necessarie secondo le regole riconosciute dell'arte di costruire per la protezione da concentrazioni elevate di radon (vedi pulsante Info). La committenza ha preso atto che di principio il collaudo può comprendere anche una misurazione del radon.
@@ -318,10 +325,7 @@ bestehender-abflussloser-sammelschacht,"Gibt es einen bestehenden abflusslosen S
 besteht-eine-vorabklaerungspflicht-kantonsstrasse-gefahrenzone-altlasten-etc,"Besteht eine Vorabklärungspflicht (Kantonsstrasse, Gefahrenzone, Altlasten etc.)?","È necessario un chiarimento in via preliminare (strada cantonale, zona di pericolo, siti contaminati, ecc.)?"
 betonabbruch,Betonabbruch (m³ oder t),Calcestruzzo da demolizione (m³ o t)
 betriebsbewilligung-nr,Betriebsbewilligung Nr.,Autorizzazione d'esercizio n.
-betriebsleiter-anzahl-wohnungen,Anzahl Wohnungen,Numero di abitazioni
-betriebsleiter-baujahr,Baujahr,Anno di costruzione
-betriebsleiter-bemerkungen,Bemerkungen,Osservazioni
-betriebsleiter-weitere-adressen,Weitere Adressen,Altri indirizzi
+betriebsleiter-anzahl-wohnungen,Anzahl Wohnungen,numero di abitazioni
 betriebsleiterwohnhaus,Betriebsleiterwohnhaus,Abitazione del gestore dell'azienda
 betriebsleiterwohnhaus-titel,Betriebsleiterwohnhaus Titel,Abitazione del gestore dell'azienda titolo
 betriebsstunden-auf-display,Betriebsstunden auf Display,Ore in servizio sul display
@@ -329,7 +333,6 @@ betriebsstunden-auf-display-holzfeuerung,Betriebsstunden auf Display,Ore in serv
 betriebsstunden-auf-display-oel-gasfeuerung,Betriebsstunden auf Display,Ore in servizio sul display
 betriebsstunden-auf-display-rauchgasbehandlung,Betriebsstunden auf Display,Ore in servizio sul display
 betriebsstunden-hjahr,Betriebsstunden (h/Jahr),Ore in servizio (h/anno)
-dachtyp,Dachtyp,Tipo di tetto
 betriebsstunden-pro-jahr,Betriebsstunden pro Jahr,Ore in servizio all'anno
 betroffene-gehoelzarten,Betroffene Gehölzarten,Specie legnose interessate
 bewilligung-gefaehrdete-bereiche,Liegt eine Bewilligung für Bohrungen in besonders gefährdeten Bereichen vor?,È disponibile un'autorizzazione per perforazioni in settori particolarmente minacciati?
@@ -344,7 +347,6 @@ bisherige-abfallrechtliche-bewilligungen-titel,Bisherige abfallrechtliche Bewill
 bis-jahr,Jahr des Umbaus,Anno della trasformazione
 bitte-das-geplante-system-genau-umschreiben,Bitte das geplante System genau umschreiben:,Si prega di descrivere in dettaglio il sistema previsto:
 blitzschutzanlage,"Sollte das Gebäude über eine pflichtige oder eine subventionierte Blitzschutzanlage verfügen, muss die PV- Anlage gemäss den Regeln der Technik an diese angeschlossen werden","Se l'edificio dispone di un parafulmine obbligatorio o sovvenzionato, l'impianto fotovoltaico deve esservi allacciato in conformità alle regole della tecnica."
-dachneigung-prozent,Dachneigung (%),Pendenza del tetto (%)
 blockheizkraftwerk-titel,Blockheizkraftwerk Titel,Centrale termoelettrica a blocco titolo
 bodenbelaege-aus-beton,Werden sämtliche Bodenbeläge und Seitenmauern aus Beton erstellt?,Tutti i rivestimenti e i muri laterali saranno in calcestruzzo?
 bodenbelaege-im-treppenhaus,Bodenbeläge im Treppenhaus,Rivestimenti del pavimento nella tromba delle scale
@@ -355,13 +357,13 @@ bodenkundliches-fachgutachten,Bodenkundliches Fachgutachten,Perizia pedologica
 bohrdurchmesser,Bohrdurchmesser (mm),Diametro della trivellazione (mm)
 bohrfirma,Bohrfirma,Azienda di trivellazione
 bohrfirma-brauchwasser,Bohrfirma,Azienda di trivellazione
+pruefung-gebaeudehoehen,Prüfung,Esame
 bohrfirma-gewaesserschutzbereich,Bohrfirma,Azienda di trivellazione
 bohrfirma-wasserfoerderung,Bohrfirma,Azienda di trivellazione
 bohrtiefe,Bohrtiefe (m),Profondità di trivellazione (m)
 bohrtiefe-der-erdwaermesonden,Bohrtiefe der Erdwärmesonden (m),Profondità di trivellazione delle sonde geotermiche (m)
-egid-nr,EGID-Nr,N. EGID
 bohrtiefe-pro-erdwaermesonde,Bohrtiefe pro Erdwärmesonde (m),Profondità di trivellazione per sonda geotermica (m)
-bohrungen-oder-grabarbeiten,Sind Bohrungen oder grössere Grabarbeiten (z.B. tiefer als ein Untergeschoss vorgesehen) oder Grabarbeiten bei bekannten hohen Grundwasserspiegel vorgesehen?,Sono previsti trivellazioni o lavori di scavo di grande entità (ad. es. la cui profondità supera un piano interrato) oppure lavori di scavo in prossimità di livelli di falda freatica elevati?
+bohrungen-oder-grabarbeiten,Sind Bohrungen oder grössere Grabarbeiten (z.B. tiefer als ein Untergeschoss vorgesehen) oder Grabarbeiten bei bekanntem hohen Grundwasserspiegel vorgesehen?,Sono previsti trivellazioni o lavori di scavo di grande entità (ad. es. la cui profondità supera un piano interrato) oppure lavori di scavo in prossimità di un livello di falda freatica elevato?
 bohrverfahren,Bohrverfahren,Procedimento di trivellazione
 branche,In welcher Branche werden die industriellen und gewerblichen Tätigkeiten ausgeführt?,In quale settore vengono svolte le attività industriali e artigianali?
 branche-gemaess-noga,Branche gemäss NOGA,Settore secondo NOGA
@@ -383,12 +385,15 @@ brennstoff-titel,Brennstoff Titel,Combustibile titolo
 brennstofftyp,Brennstofftyp,Tipo di combustibile
 brennstofftyp-feuerungsanlage,Brennstofftyp,Tipo di combustibile
 brennstoffverbrauch,Brennstoffverbrauch,Consumo di combustibile
+treppen,Treppen,Scale
 brennstoffverbrauch-holzfeuerung,Brennstoffverbrauch,Consumo di combustibile
 chemische-bodenbelastung,Wird Boden aus dem Bereich Prüfperimeter für chemische Bodenbelastungen (PBB) zugeführt?,Viene apportato suolo dal settore del perimetro d'esame per i carichi chimici del suolo (PBB)?
 complete-formal-exam,Formelle Prüfung korrekt und abgeschlossen,Verifica formale corretta e conclusa
 dachausrichtung,Dachausrichtung,Orientamento del tetto
 dach-material-und-farbe,Dach (Material und Farbe),Tetto (materiale e colore)
-das-bauvorhaben-befindet-sich-in,Das Bauvorhaben befindet sich in,Il progetto edilizio si trova a
+dachneigung-prozent,Dachneigung (%),Pendenza del tetto (%)
+dachtyp,Dachtyp,Tipo di tetto
+das-bauvorhaben-befindet-sich-in,Das Bauvorhaben befindet sich in,Il progetto edilizio si trova in
 das-ganze-jahr-in-betrieb,Ist die Anlage das ganze Jahr in Betrieb?,L'impianto è operativo tutto l'anno?
 datum-der-messung,Datum der Messung,Data della misurazione
 datum-ueberpruefung-neophyten,Datum,Data
@@ -404,7 +409,6 @@ dieselgetriebene-motoren-betriebsmittel-typ,"Dieselgetriebene Motoren, Betriebsm
 dieselgetriebene-motoren-titel,Dieselgetriebene Motoren Titel,Motori diesel titolo
 dieselruss,Dieselruss (mg/m³),Fuliggine di diesel (mg/m³)
 dieselruss-bhkw,Dieselruss (mg/m³),Fuliggine di diesel (mg/m³)
-entnahmebrunnen-rohrdurchmesser-brauchwasser,Entnahmebrunnen Rohrdurchmesser (mm),Diametro del tubo del pozzo di presa (mm)
 dispositionsplan-heizungsraum,Dispositionsplan Heizungsraum / Technikraum,Piano di disposizione del locale riscaldamento / locale tecnico
 distanz-des-hydranten,Distanz des Hydranten zum Gebäude (m),Distanza dell'idrante dall'edificio (m)
 divider,Titel Baukosten,Costi di costruzione titolo
@@ -413,11 +417,13 @@ dokumente-ohne-pflichtdokumente,Dokumente,Documenti
 dossiernummer-des-bewilligten-projekts,Dossiernummer des bewilligten Projekts,Numero del dossier del progetto approvato
 download-eingabequittung,Download Eingabequittung (PDF),Download ricevuta (PDF)
 druckentlastungsflaeche,Druckentlastungsfläche (m²),Superficie di decompressione (m²)
+pruefung-weitere-materielle-pruefung,Prüfung,Esame
 durchmesser,Durchmesser (mm),Diametro (mm)
 durchmesser-ablaufleitung-fuer-fluessiggas,Durchmesser der Ablaufleitung für Flüssiggas (cm),Diametro dello scarico per gas liquefatti (cm)
 durchmesser-guellesilo,Durchmesser (Güllesilo) (m),Diametro (deposito per il colaticcio) (m)
 durchschnittliche-betriebsdauer-der-anlage-titel,Durchschnittliche Betriebsdauer der Anlage Titel,Durata media di esercizio dell'impianto titolo
 egid,GWR-EGID,REA-EGID
+egid-nr,EGID-Nr,N. EGID
 eigenland,Eigenland (ha),Terreno proprio (ha)
 einbauart,Einbauart,Modalità di installazione
 einfache-brandschutzplaene,Einfache Brandschutzpläne,Piani antincendio semplici
@@ -427,6 +433,7 @@ eingabequittung-korrekt,"Eingabequittung erhalten, korrekt und unterschrieben?",
 eingangskontrolle,Erfolgt eine Eingangskontrolle,Viene effettuato un controllo in entrata
 eingesetzte-stoffe,Eingesetzte Stoffe,Sostanze impiegate
 eingriffe-in-gewaesserschutzbereichen,Eingriffe in den Gewässerschutzbereich,Interventi nel settore di protezione delle acque
+ist-ein-gewaesser-betroffen,Ist ein Gewässer betroffen?,È interessato un corpo d'acqua?
 einleitung-des-verfahrens,Bestätigung Eingabequittung,Conferma della ricevuta
 einleitungsbewilligung,Einleitungsbewilligung vorhanden?,È disponibile un'autorizzazione per l'immissione?
 einleitungsbewilligung-bewilligungs-nr,Bewilligungs-Nr.,N. autorizzazione
@@ -435,8 +442,7 @@ einreichen,Einreichen,Inoltra
 einreichen-button,Einreichen,Inoltra
 einsatz-des-grundwassers,Einsatz des Grundwassers für,Impiego delle acque sotterranee per
 einsatzort,Einsatzort,Luogo dell'impiego
-einverstaendnis-grundeigentuemerin-vorhanden,Einverständnis Grundeigentümer/in vorhanden,È disponibile il consenso della persona proprietaria del fondo
-treppen,Treppen,Scale
+einverstaendnis-grundeigentuemerin-vorhanden,Einverständnis Grundeigentümer/in vorhanden,È disponibile il consenso della persona proprietaria del fondo?
 elektrisch-kombiniert,Wäscher: Elektrisch kombiniert?,Gorgogliatore di lavaggio: a combinazione elettrica?
 emissionserklaerung,Emissionserklärung vorhanden?,È disponibile la dichiarazione delle emissioni?
 emissionserklaerung-bewilligungs-nr,Bewilligungs-Nr.,N. autorizzazione
@@ -445,18 +451,21 @@ emissionserklaerung-titel,Emissionserklärung Titel,Dichiarazione delle emission
 emissionsmessungen,Wurden bereits Emissionsmessungen an dieser Anlage durchgeführt?,In questo impianto sono già state svolte misurazioni delle emissioni?
 emissionsminderung-titel,Emissionsminderung Titel,Riduzione delle emissioni titolo
 energiebezugsflaeche,Energiebezugsfläche (m²),Superficie di riferimento energetico (m²)
+erdregister-titel,Erdregister Titel,Scambiatore geotermico titolo
 energie-waermequelle-heizung,Energie-/Wärmequelle Heizung,Fonte di energia/calore riscaldamento
 energie-waermequelle-warmwasser,Energie-/Wärmequelle Warmwasser,Fonte di energia/calore acqua calda
 entfernung-ufervegetation,"Müssen Ufervegetation, Hecken oder Feldgehölze entfernt werden?","È necessario rimuovere vegetazione riparia, siepi o boschetti campestri?"
 entfernung-von-hecken-feldgehoelzen-oder-ufervegetation,Entfernung von Hecken / Feldgehölzen oder Ufervegetation,Rimozione di siepi / boschetti campestri o vegetazione riparia
 entgegennahme-berechtigt,Empfänger zur Entgegennahme berechtigt?,La persona destinataria è autorizzata a ricevere i rifiuti?
-entnahme-bis,Bis,da
+entnahme-bis,Bis,a
 entnahmebrunnen-rohrdurchmesser,Entnahmebrunnen Rohrdurchmesser (mm),Diametro del tubo del pozzo di presa (mm)
+entnahmebrunnen-rohrdurchmesser-brauchwasser,Entnahmebrunnen Rohrdurchmesser (mm),Diametro del tubo del pozzo di presa (mm)
 entnahmebrunnen-tiefe,Entnahmebrunnen Tiefe (m),Profondità del pozzo di presa (m)
 entnahmebrunnen-tiefe-brauchwasser,Entnahmebrunnen Tiefe (m),Profondità del pozzo di presa (m)
-entnahme-von,Von,a
+entnahme-von,Von,da
 entsorgte-menge-chemikalienreste,Entsorgte Menge Chemikalienreste pro Jahr (kg),Quantità di resti di prodotti chimici smaltita all'anno (kg)
 entsorgte-menge-farb-lackabfaelle,Entsorgte Menge Farb-/Lackabfälle pro Jahr (kg),Quantità di rifiuti di colori/vernici smaltita all'anno (kg)
+plan-der-gefahrenkommission,Plan der Gefahrenkommission,Piano della commissione di pericolo
 entsorgte-menge-filtermatten-aus-spritzkabine,Entsorgte Menge Filtermatten aus Spritzkabine pro Jahr (kg),Quantità di stuoie filtranti dalla cabina di verniciatura smaltita all'anno (kg)
 entsorgte-menge-reinigungs-entfettungsmittel-verschmutzt-pro-jahr-kg,Entsorgte Menge Reinigungs-/Entfettungsmittel verschmutzt pro Jahr (kg),Quantità di detergenti/sgrassanti inquinati smaltita all'anno (kg)
 entsorgte-menge-weitere-sonderabfaelle,Entsorgte Menge weitere Sonderabfälle pro Jahr (kg),Quantità di altri rifiuti speciali smaltita all'anno (kg)
@@ -464,40 +473,38 @@ entsorgte-voc-menge,Entsorgte VOC-Menge (kg pro Jahr),Quantità di COV smaltiti 
 entsorgung-dachwasser,Entsorgung Dachwasser,Smaltimento dell'acqua proveniente dai tetti
 entsorgung-park-und-vorplatzwasser,Entsorgung Park- und Vorplatzwasser,Smaltimento dell'acqua proveniente da posteggi e piazzole
 entsorgungsfirma-firmenname-und-sitz,Entsorgungsfirma (Firmenname und -sitz),Ditta di smaltimento (nome e sede)
-fabrikat-einzelfeuerung,Fabrikat,Modello
 entsorgungsverfahren-text,Entsorgungsverfahren,Procedura di smaltimento
 entwaesserung-bemerkungen,Bemerkungen,Osservazioni
 entwaesserung-guellegrube,Wird das Abwasser des Milchzimmers in die Güllegrube entwässert?,Le acque di scarico del locale di trattamento del latte vengono smaltite nella fossa per il colaticcio?
 entwaesserung-guellegrube-warum-nicht,Warum nicht?,Perché no?
 entzugsleistung-aus-erdwaermesonde,Entzugsleistung aus Erdwärmesonde (kW),Potenza di estrazione dalla sonda geotermica (kW)
 erdregisterflaeche,Erdregisterfläche (m²),Superficie dello scambiatore geotermico (m²)
-erdregister-titel,Erdregister Titel,Scambiatore geotermico titolo
 erdwaermesonden-titel,Erdwärmesonden Titel,Sonde geotermiche titolo
 errichter-haustechnik,Errichter der Anlage,Costruttore dell'impianto
 errichtungsbewilligung-nr,Errichtungsbewilligung Nr.,Autorizzazione di costruzione n.
 ersatzbeitrag,Ersatzbeitrag (CHF),Contributo sostitutivo (CHF)
 ersatzbeitrag-spital,Ersatzbeitrag (CHF),Contributo sostitutivo (CHF)
-fabrikat-elektrofilter,Fabrikat Elektrofilter,Modello elettrofiltro
-fabrikat-entschwadungseinrichtung,Fabrikat Entschwadungseinrichtung,Modello dispositivo di dispersione del vapore
 ersatzbeitrag-wohnhaus,Ersatzbeitrag (CHF),Contributo sostitutivo (CHF)
-ersatz-hecke,Ersatz,Sostituzione
+ersatz-hecke,Ersatz,Compensazione
 erschliessungsanlagen,Typ der Anlage,Tipo di impianto
 erschliessungsanlagen-beschreibung,Beschreibung,Descrizione
 erschliessung-wasserversorgung,Erschliessung Wasserversorgung,Urbanizzazione approvvigionamento idrico
-erstellungskosten,Erstellungskosten (CHF inkl. MWST),Spese di realizzazione (CHF IVA incl.)
+erstellungskosten,Erstellungskosten (CHF inkl. MWST),"Spese di realizzazione (CHF, IVA incl.)"
 ertragswert-in-chf,Ertragswert in CHF,Valore di reddito in CHF
 erwartete-jahresleistung,Erwartete Jahresleistung (kWh/Jahr),Potenza annuale attesa (kWh/anno)
 ewid,EWID,EWID
 fabrikat,Fabrikat,Modello
 fabrikat-abgasanlage,Fabrikat,Modello
 fabrikat-absetzkammer,Fabrikat Absetzkammer,Modello bacino di decantazione
+fabrikat-einzelfeuerung,Fabrikat,Modello
+fabrikat-elektrofilter,Fabrikat Elektrofilter,Modello elettrofiltro
+fabrikat-entschwadungseinrichtung,Fabrikat Entschwadungseinrichtung,Modello dispositivo di dispersione del vapore
 fabrikat-entstickungseinrichtung,Fabrikat Entstickungseinrichtung,Modello dispositivo di denitrificazione
 fabrikat-gasmeldeanlage,Fabrikat,Modello
 fabrikat-gewerbefilter,Fabrikat Gewerbefilter,Modello filtro commerciale
 fabrikationsnummer,Fabrikationsnummer,Numero di fabbricazione
 fabrikat-marke,Fabrikat / Marke,Modello/marchio
 fabrikat-rekuperator,Fabrikat Rekuperator,Modello recuperatore
-fabrikat-typ-der-anlage,"Fabrikat, Typ der Anlage","Modello, tipo di impianto"
 fabrikat-waermepumpe,Fabrikat,Modello
 fabrikat-waescher,Fabrikat Wäscher,Modello gorgogliatore di lavaggio
 fabrikat-zyklonabscheider,Fabrikat Zyklonabscheider,Modello filtro a ciclone
@@ -505,7 +512,6 @@ fachservice-betriebsstundenintervall,Fachservice erfolgt nach welchem Betriebsst
 fachservice-durch-firma,Fachservice durch (Firma),Manutenzione ad opera di (ditta)
 fachservice-erfolgt-durch,Fachservice erfolgt durch (Firma),Manutenzione ad opera di (ditta)
 fackel-notbetrieb-vorgesehen,Fackel-Notbetrieb vorgesehen,È previsto un esercizio d'emergenza con torcia
-nutzungsbedingte-anforderungen-titel,Nutzungsbedingte Anforderungen Titel,Requisiti d'uso titolo
 fallen-emissionen-an,Fallen Emissionen an?,Risultano delle emissioni?
 farbton-absorberflaeche,Farbton Absorberfläche,Tonalità di colore della superficie assorbente
 farbton-einfassungen,Farbton Einfassungen,Tonalità di colore dei telai
@@ -513,6 +519,7 @@ fassade-material-und-farbe,Fassade (Material und Farbe),Facciata (materiale e co
 fassadenverkleidung,Fassadenverkleidung,Rivestimento delle facciate
 fassungstyp,Fassungstyp,Tipo di captazione
 festsoffe-bhkw,Feststoffe (mg/m³),Materiale solido (mg/m³)
+flaeche,Fläche (ha),Superficie (ha)
 feststellungsverfuegung,Feststellungsverfügung vom Grundbuchinspektorat und Handelsregister (Art. 84 BGBB),Decisione di accertamento dell'Ispettorato del registro fondiario e registro di commercio (art. 84 LDFR)
 feststoffabfaelle,Entstehen Feststoffabfälle?,Vengono prodotti rifiuti solidi?
 feststoffabfaelle-art-der-kontrolle,Art der Kontrolle,Tipo di controllo
@@ -521,7 +528,6 @@ feststoffabfaelle-verfahren-geraet,Verfahren / Gerät,Procedura / dispositivo
 feststoffe,Feststoffe (mg/m³),Materiale solido (mg/m³)
 feuerungsanlagen,Feuerungsanlagen,Impianti di combustione
 feuerungsanlagen-titel,Feuerungsanlagen Titel,Impianti a combustione titolo
-gesuchsbegruendung,Gesuchsbegründung,Motivazione della domanda
 feuerungswaermeleistung,Feuerungswärmeleistung (kW),Potenza termica (kW)
 feuerungswaermeleistung-bhkw,Feuerungswärmeleistung (kWFWL),Potenza termica (kWPT)
 feuerungswaermeleistung-holzfeuerung,Feuerungswärmeleistung (kWFWL),Potenza termica (kWPT)
@@ -530,28 +536,24 @@ feuerwehrzugaenglichkeit,Feuerwehrzugänglichkeit,Accessibilità per il corpo po
 feuerwehrzugaenglichkeit-titel,Feuerwehrzugänglichkeit Titel,Accessibilità per il corpo pompieri titolo
 findet-brennstofflagerung-statt,Findet eine Treib- bzw. Brennstofflagerung statt?,Vengono stoccati carburanti o combustibili?
 flachdach,Flachdach (oberste Schicht),Tetto piano (strato superiore)
-flaeche,Fläche (ha),Superficie (ha)
 flaeche-der-ersatzpflanzung,Fläche der Ersatzpflanzung (m²),Superficie della piantagione sostitutiva (m²)
 flaeche-hecken,Fläche (m²),Superficie (m²)
 flaeche-in-m2,Fläche,Superficie
 flaeche-projektierte-schutzraeume,Fläche (m²),Superficie (m²)
-gesuchsunterlagen-vollstaendig,Gesuchsunterlagen vollständig,Documentazione di domanda completa
 fluessiggasbehaelter-unter-20-tonnen,Wird ein ortsfester Flüssiggasbehälter mit einer Lagermenge unter 20 Tonnen installiert?,Viene installato un serbatoio fisso per gas liquefatto con una capacità di stoccaggio inferiore a 20 tonnellate?
 fluessiggasfirma,Flüssiggasfirma,Fornitore di gas liquefatto
 form-des-behaelters,Form des Behälters,Forma del serbatoio
 forstliche-baute,Handelt es sich um eine forstliche Baute oder Anlage?,Si tratta di un edificio o di un impianto forestale?
-frist-zur-maengelbehebung,Frist zur Mängelbehebung,Termine entro il quale devono essere eliminati i difetti
+frist-zur-maengelbehebung,Frist zur Mängelbehebung,Termine entro il quale devono essere colmate le lacune
 fuellmenge,Füllmenge (kg),Capienza (kg)
 fuellmenge-erdregister,Füllmenge (Liter),Capienza (litri)
 fuer-aib-freigeben,Dossier für Amt für Immobilienbewertung (AIB) freigeben,Rilascia il dossier per l'Ufficio per le valutazioni immobiliari (UVI)
-fundationsart,Fundationsart,Tipo di fondazione
 ganzes-jahr-in-betrieb-feuerungsbetrieb,Ist die Anlage über das ganze Jahr in Betrieb,L'impianto è operativo tutto l'anno?
 gas-absperrarmatur-ausserhalb-aufstellungsraumes,Automatische Gas-Absperrarmatur ausserhalb des Aufstellungsraumes?,Valvola automatica di intercettazione del gas fuori dal locale di installazione?
 gasmeldeanlage-erforderlich,Gasmeldeanlage erforderlich?,È necessario un rilevatore di gas?
 gasrueckfuehr-system,Gasrückführ-System,Sistema di recupero dei gas
 gebaeudeart,Gebäudeart,Tipo di edificio
 gebaeudeart-aufstellungsraum,Gebäudeart,Tipo di edificio
-gewaessername,Gewässername,Nome del corpo d'acqua
 gebaeudehoehe,"Gebäudehöhe gemäss VKF-Brandschutzrichtlinie 10-15 ""Begriffe und Definitionen"", Gesamthöhe (Seite 23 und 43)","Altezza dell'edificio in base alla direttiva della protezione antincendio AICAA 10-15 «Nozioni e definizioni», altezza complessiva (pagina 10 e 42)"
 gebaeudehoehen-titel,Gebäudehöhen Titel,Altezze degli edifici titolo
 gebaeudekategorie,Gebäudekategorie,Categoria di edificio
@@ -561,12 +563,10 @@ gebaeude-und-anlagen,Gebäude und Anlagen,Edifici e impianti
 gebaeudevolumen,Landwirtschaftliche Bauten: Gebäudevolumen (m³),Edifici rurali: Volume dell'edificio (m³)
 gebaeudevolumen-m,Gebäudevolumen nach SIA-416 (m³),Volume dell'edificio secondo SIA 416 (m³)
 gebaeudevolumen-nach-norm,Gebäudevolumen nach Norm,Volume dell'edificio secondo norma
-gefaehrdete-umliegende-objekte,Schutzbestände,Distanze di sicurezza
+gefaehrdete-umliegende-objekte,Schutzabstände,Distanze di sicurezza
 gemeindespezifischer-inhalt,Gemeindespezifischer Inhalt,Contenuto specifico del comune
-geologiebuero,Geologiebüro,Studio di geologia
 geplante-nutzung-installierte-pumpenleistung,Installierte Pumpenleistung (l/min),Potenza installata pompa (l/min)
 geplante-nutzung-maximale-foerdermenge,Maximale Fördermenge (l/min),Portata massima (l/min)
-projektplaene,Projektpläne,Piani di progetto
 geplante-nutzung-rueckgabe,Rückgabe,Restituzione
 geplante-nutzung-titel,Geplante Nutzung Titel,Utilizzo pianificato titolo
 geplanter-ausbau,Geplanter Ausbau (bei Eignung),Sviluppo pianificato (in caso di idoneità)
@@ -580,7 +580,9 @@ geschosszahl-ueber-terrain,Geschosszahl über Terrain,Numero di piani in superfi
 geschosszahl-unter-terrain,Geschosszahl unter Terrain,Numero di piani interrati
 gesetzliche-vorgaben,Gesetzliche Vorgaben,Presupposti legali
 gesuch-feuerpolizeiliche-bewilligung,Gesuch für feuerpolizeiliche Bewilligung,Domanda per un permesso di polizia del fuoco
-proposal,Art der Arbeiten,Tipo di lavori
+gesuchsbegruendung,Gesuchsbegründung,Motivazione della domanda
+gesuchsunterlagen-vollstaendig,Gesuchsunterlagen vollständig,Documentazione di domanda completa
+gewaessername,Gewässername,Nome del corpo d'acqua
 gewaesserschutzbereich,Gewässerschutzbereich,Settore di protezione delle acque
 gewaesserschutzbereich-bemerkungen,Bemerkungen,Osservazioni
 gewaesserschutzbereich-titel,Gewässerschutzbereich Titel,Settore di protezione delle acque titolo
@@ -588,15 +590,15 @@ gewerbebaute-beschreibung,Beschreibung,Descrizione
 gewerbefilter-aus-metall,Gewerbefilter aus Metall?,Filtro commerciale di metallo?
 gewinnung-von-kies,Materialgewinnung,Estrazione di materiali
 gewinnung-von-kies-titel,Gewinnung von Kies Titel,Estrazione di ghiaia titolo
-gleiche-reklamen,"Werden mehrere, inhaltlich identische und gleich grosse Reklamen installiert? Wenn ja, wieviele?","Vengono installati più dispositivi pubblicitari identici per contenuto e dimensione? Se sì, quanti?"
+gleiche-reklamen,"Werden mehrere, inhaltlich identische und gleich grosse Reklamen installiert? Wenn ja, wieviele?","Vengono installati più dispositivi pubblicitari identici per contenuto e dimensione? Se sì, quante?"
 groesse-der-reklame-cm,Grösse der Reklame (Breite - Höhe - Durchmesser in cm),Dimensione del dispositivo pubblicitario (larghezza - altezza - diametro in cm)
+leistung-elekrtisch,Leistung elektrisch (kWel / KVA),Potenza elettrica (kWel / kVA)
 grossviehstall-andere,Beschreibung,Descrizione
-grundflaeche-m,Parking: Brandabschnittsfläche (m²),Parcheggio: Superficie del compartimento tagliafuoco (m²)
+grundflaeche-m,Parking: Brandabschnittsfläche (m²),Parcheggio: superficie del compartimento tagliafuoco (m²)
 grundwasserentnahme-brauchwasser,Grundwasserentnahme Brauchwasser,Prelievo di acque sotterranee per uso come acqua non potabile
 grundwasserentnahme-brauchwasser-titel,Grundwasserentnahme Brauchwasser Titel,Prelievo di acque sotterranee per uso come acqua non potabile titolo
 grundwasserschutzzone,Grundwasserschutzzone,Zona di protezione delle acque sotterranee
 guellebehaelter-beschreibung-material,Beschreibung Material,Descrizione del materiale
-pruefung-ausnuetzungsziffer,Prüfung,Esame
 guellelager-bemerkungen-2,Bemerkungen,Osservazioni
 guellelager-beschreibung-material,Beschreibung Material,Descrizione del materiale
 guellelager-breite,Breite (m),Larghezza (m)
@@ -604,6 +606,7 @@ guellelager-hoehe,Höhe / Tiefe (m),Altezza / profondità (m)
 guellelager-laenge,Länge (m),Lunghezza (m)
 guellelager-neubau-oder-erweiterung,Handelt es sich um einen Neubau oder eine Erweiterung / Umbau einer bestehenden Baute?,Si tratta di una nuova costruzione oppure di un ampliamento / una trasformazione di un edificio esistente?
 guellelager-nutzvolumen,Wie gross ist das Nutzvolumen? (m³),A quanto ammonta il volume utile? (m³)
+hecken-feldgehoelze-und-ufervegetation,Entfernung von Ufervegetation / Hecken,Rimozione di vegetazione riparia/siepi
 guellelager-titel,Güllelager Titel,Serbatoio per il colaticcio titolo
 gva-nummer,GVA-Nummer,Numero AF
 gwr,Gebäude- und Wohnungsregister,Registro federale degli edifici e delle abitazioni
@@ -616,7 +619,7 @@ handelt-es-sich-um-einen-subventionierten-stall,Handelt es sich um einen subvent
 handfeuerloescher-standorte,Handfeuerlöscher Standorte,Estintori portatili ubicazioni
 handfeuerloescher-stueck,Handfeuerlöscher (Stück),Estintori portatili (numero)
 haustechnische-anlagen-brandschutz,Betrifft das Bauvorhaben ein Gebäude oder eine wärmetechnische Anlage (Feuerpolizeiliche Bewilligungspflicht)?,Il progetto di costruzione interessa un edificio o un impianto termotecnico (obbligo del permesso di polizia del fuoco)?
-hecken-feldgehoelze-und-ufervegetation,Entfernung von Ufervegetation / Hecken,Rimozione di vegetazione riparia/siepi
+montageart,Montageart,Tipo di montaggio
 hecken-feldgehoelze-und-ufervegetation-titel,"Hecken, Feldgehölze und Ufervegetation Titel","Siepi, boschetti campestri e vegetazione riparia titolo"
 heizleistung-waermepumpe-verdampfer,Heizleistung Wärmepumpe/ Verdampfer (kW),Potenza termica pompa termica / evaporatore (kW)
 heizleistung-waermepumpeverdampfer,Heizleistung Wärmepumpe/Verdampfer (kW),Potenza termica pompa termica / evaporatore (kW)
@@ -629,6 +632,7 @@ herkunft-material-weshalb-faellt-boden-oder-untergrundmaterial-an,Weshalb fällt
 hersteller-des-tanks,Hersteller des Tanks,Produttore del serbatoio
 hinweis-abmessung,Hinweis Abmessung,Nota dimensioni
 hinweis-auflistung,Hinweis Auflistung,Nota elenco
+hinweistext-dokumente,Hinweistext Dokumente,Nota documenti
 hinweis-ausfuehrungsplaene,Hinweis Ausführungspläne,Nota piani d'esecuzione
 hinweis-bafu-richtlinie,Hinweis BAFU-Richtlinie,Nota direttiva UFAM
 hinweis-baugesuch-noetig,Hinweis Baugesuch nötig,Nota domanda di costruzione necessaria
@@ -643,10 +647,12 @@ hinweis-einzelfeuerung,Hinweis Einzelfeuerung,Nota impianto di combustione singo
 hinweis-erfassung-solaranlage,Hinweis Erfassung Solaranlage unter Gebäudetechnik,Nota registrazione impianto solare alla voce impiantistica
 hinweis-erweiterung-guellelager,Hinweis Erweiterung Güllelager,Nota ampliamento serbatoio per il colaticcio
 hinweis-feuerwehrzugaenglichkeit,Hinweis Feuerwehrzugänglichkeit,Nota accessibilità per il corpo pompieri
+hinweis-gebuehren,Hinweis Gebühren,Nota tasse
 hinweis-gebuehrenpflicht,Hinweis Gebührenpflicht,Nota obbligo di pagare una tassa
 hinweis-gebuehrenpflicht-ersatzbeitrag,Hinweis Gebührenpflicht Ersatzbeitrag,Nota obbligo di pagare una tassa contributo sostitutivo
-integriert-zyklonabscheider,Zyklonabscheider integriert?,Filtro a ciclone integrato?
 hinweis-hindernisfreies-bauen,Hinweis Hindernisfreies Bauen,Nota costruzione senza ostacoli
+hinweis-oekonomiebauten,Hinweis Ökonomiebauten,Nota edifici a scopo di sfruttamento agricolo
+informationen-zur-solaranlage-titel,Informationen zur Solaranlage Titel,Informazioni relative all'impianto solare titolo
 hinweis-kantonales-brandschutzgesetz,Hinweis kantonales Brandschutzgesetz,Nota legge cantonale sulla protezione antincendio
 hinweis-kesselauswechslungen,Hinweis Kesselauswechslungen,Nota sostituzioni di caldaie
 hinweis-laermvorbelastetes-gebiet,Hinweis Lärmvorbelastetes Gebiet,Nota zona già esposta ai rumori
@@ -655,12 +661,9 @@ hinweis-luft-wasser-waermepumpe,Hinweis Luft-/Wasser Wärmepumpe,Nota pompa term
 hinweis-maengel,Hinweis Mängel,Nota lacune
 hinweis-mehrere-motoren,Hinweis mehrere Motoren,Nota più motori
 hinweis-nachforderung,Hinweis Nachforderung,Nota richiesta di precisazioni
-pruefung-bauabstaende,Prüfung,Esame
-hinweis-oekonomiebauten,Hinweis Ökonomiebauten,Nota edifici a scopo di sfruttamento agricolo
-hinweistext-dokumente,Hinweistext Dokumente,Nota documenti
 hinweis-vorabklaerungspflicht,Hinweis Vorabklärungspflicht,Nota chiarimento in via preliminare
 hinweis-vorpruefung-gvg,Hinweis Vorprüfung GVG,Nota esame preliminare AFG
-hinweis-waldabstandsbereich,Hinweis Waldabstandsbereich,Nota fascia di arretramento dalla foresta
+hinweis-waldabstandsbereich,Hinweis Waldabstandsbereich,Nota fascia di arretramento dal bosco
 hinweis-zustaendigkeit,Hinweis Zuständigkeit,Nota competenza
 hinweis-zustaendigkeit-amz,Hinweis Zuständigkeit AMZ,Nota competenza UMPC
 hinweis-zustaendigkeit-anu,Hinweis Zuständigkeit ANU,Nota competenza UNA
@@ -678,12 +681,10 @@ inbetriebnahme,Inbetriebnahme (Monat / Jahr),Messa in funzione (mese / anno)
 inbetriebnahme-geplant,Inbetriebnahme geplant,Messa in funzione prevista
 inbetriebnahme-geplant-jahr,Inbetriebnahme geplant (Jahr),Messa in funzione prevista (anno)
 inbetriebnahme-holzfeuerung,Inbetriebnahme,Messa in funzione
-laufhof-bemerkungen,Bemerkungen,Osservazioni
 industrie-und-gewerbeabwasser,Industrie- und Gewerbeabwasser,Acque di scarico industriali e artigianali
 industrie-und-gewerbeabwasser-titel,Industrie- und Gewerbeabwasser Titel,Acque di scarico industriali e artigianali titolo
 info-aib,Info AIB,Info UVI
-informationen-zur-solaranlage-titel,Informationen zur Solaranlage Titel,Informazioni relative all'impianto solare titolo
-inhalt-lagermenge,"Inhalt / Lagermenge (l, m³, oder kg)","Capacità/quantitativo depositato (l, m³ o kg)"
+inhalt-lagermenge,"Inhalt / Lagermenge (l, m³, oder kg)","Capacità/quantitativo stoccato (l, m³ o kg)"
 innenwaende,Innenwände,Pareti interne
 in-prozesskontrolle,Erfolgt eine In-Prozesskontrolle,Viene effettuato un controllo del processo in corso?
 in-prozesskontrolle-art-der-kontrolle,Art der Kontrolle,Tipo di controllo
@@ -694,10 +695,10 @@ installation-zur-rauchgasbehandlung-titel,Installation zur Rauchgasbehandlung Ti
 installierte-pumpenleistung,Installierte Pumpenleistung (l/min),Potenza installata pompa (l/min)
 installierte-pumpenleistung-brauchwasser,Installierte Pumpenleistung (l/min),Potenza installata pompa (l/min)
 integriert-elektrofilter,Elektrofilter integriert?,Elettrofiltro integrato?
+integriert-zyklonabscheider,Zyklonabscheider integriert?,Filtro a ciclone integrato?
 invasive-neophyten,"Befinden sich invasive Neophyten beim Standort, von welchem Material abgeführt wird?",Nell'ubicazione in cui si trova il materiale da rimuovere sono presenti neofite invasive?
 invasive-neophyten-hecken,Sind invasive Neophyten vorhanden?,Sono presenti neofite invasive?
 isos,Liegt die geplante Anlage in einem schützenswerten Ortsbild (ISOS Erhaltungsziel A)?,L'impianto previsto si trova in un sito caratteristico da proteggere (ISOS obiettivo di salvaguardia A)?
-ist-ein-gewaesser-betroffen,Ist ein Gewässer betroffen?,È interessato un corpo d'acqua?
 ist-ein-warmwasseranschluss-geplant,Ist ein Warmwasseranschluss geplant?,È previsto un allacciamento all'acqua calda?
 jahreslaufzeit-der-waermepumpe,Jahreslaufzeit der Wärmepumpe (h),Ore annuali di esercizio della pompa termica (h)
 jahresverbrauch-umschlag,Jahresverbrauch/Umschlag (Liter),Consumo annuale/trasbordo (litri)
@@ -711,7 +712,8 @@ kaminhoehe-ab-boden,Kaminhöhe ab Boden (a) (m),Altezza del camino da terra (a) 
 kaminhoehe-ab-boden-feuerungsanlagen,Kaminhöhe ab Boden (a) (m),Altezza del camino da terra (a) (m)
 kaminhoehe-ueber-giebel,Kaminhöhe über Giebel (b) (m),Altezza del camino dal colmo del tetto (b) (m)
 kaminhoehe-ueber-giebel-feuerungsanlagen,Kaminhöhe über Giebel (b) (m),Altezza del camino dal colmo del tetto (b) (m)
-kantonsstrassen,Bauvorhaben an Kantonsstrassen oder Strassenreklamen an National- oder Kantonsstrassen,Progetti di costruzione lungo strade cantonali o pubblicità stradali lungo strade nazionali o cantonali
+kantonsstrassen,Bauvorhaben an Kantonsstrassen oder Strassenreklamen an National- oder Kantonsstrassen,Progetto di costruzione lungo strade cantonali o pubblicità stradali lungo strade nazionali o cantonali
+pruefung-zonenkonformitaet,Prüfung,Esame
 kein-mistwasser-ueber-die-offene-seite-der-mistplatte,"Wie wird dafür gesorgt, dass kein Mistwasser über die offene Seite der Mistplatte (Bedienungsseite) in die Umgebung abfliesst?",Come si garantisce che non si verifichi un deflusso di percolato dal lato aperto della piattaforma del letame (lato di accesso) nell'ambiente circostante?
 kesselfabrikat-marke,Kesselfabrikat / Marke,Modello di caldaia/marchio
 kesselfabrikat-marke-holzfeuerung,Kesselfabrikat / Marke,Modello di caldaia/marchio
@@ -720,11 +722,11 @@ kesselnennleistung-holzfeuerung,Kesselnennleistung (kWNLW),Potenza nominale dell
 kleinviehstall-andere,Beschreibung,Descrizione
 kocheinrichtung,Kocheinrichtung,Fornelli
 kohlenmonoxid,Kohlenmonoxid (CO) (mg/m³),Monossido di carbonio (CO) (mg/m³)
-laufbreite-der-haupttreppe,Laufbreite der Haupttreppe (Treppe mit Fluchtwegfunktion) (m),Larghezza delle scale principali (scale con funzione di via di fuga) (m)
 kohlenmonoxid-bhkw,Kohlenmonoxid (CO) (mg/m³),Monossido di carbonio (CO) (mg/m³)
 kompakte-flaeche,"Wird die Anlage kompakt angeordnet? (die Unterteilung der Anlage in mehrere Flächen aufgrund von technischen Hindernissen wie Abluftrohre, Dachfenster und dgl. sind zulässig)","L'impianto sarà organizzato in modo compatto? (è ammesso suddividere l'impianto su diverse superfici a seguito di ostacoli tecnici come tubi dell'aria di scarico, abbaini e simili)"
 komplexe-erdwaermesonden,Komplexe Erdwärmesonden,Sonde geotermiche complesse
 komplexe-erdwaermesonden-anlage,Handelt es sich um eine komplexe Erdwärmesonden-Anlage nach SIA 384/6?,Si tratta di sonde geotermiche complesse conformemente a SIA 384/6?
+treppenform,Treppenform,Forma delle scale
 komplexe-erdwaermesonden-titel,Komplexe Erdwärmesonden Titel,Sonde geotermiche complesse titolo
 kontakt-ew-erfolgt,Kontakt EW erfolgt,Contatto con AE avvenuto
 kontrolle-der-prozesse-titel,Kontrolle der Prozesse Titel,Controllo dei processi titolo
@@ -735,11 +737,11 @@ kulturobjekt,Ist ein Kulturobjekt betroffen (Montage auf dem Dach eines Kulturob
 laenge,Länge (mm),Lunghezza (mm)
 laenge-der-ersatzpflanzung,Länge der Ersatzpflanzung (m),Lunghezza della piantagione sostitutiva (m)
 laenge-hecken,Länge (m),Lunghezza (m)
-materialaufbereitung,Materialaufbereitung,Trattamento del materiale
-lage,Lage,Posizione
-lage-abgasanlage,Lage,Posizione
+lage,Lage,Ubicazione
+lage-abgasanlage,Lage,Ubicazione
 lage-der-solaranlage,Lage der Solaranlage,Posizione dell'impianto solare
-lage-des-vorhabens-korrekt,Lage des Vorhabens korrekt?,Posizione del progetto corretta?
+lage-des-vorhabens-korrekt,Lage des Vorhabens korrekt?,Ubicazione del progetto corretta?
+waermedaemmung-der-aussenwand,Wärmedämmung der Aussenwand,Isolamento termico della parete esterna
 lagekoordinaten-nord,Lagekoordinaten - Nord,Coordinate planimetriche nord
 lagekoordinaten-ost,Lagekoordinaten - Ost,Coordinate planimetriche est
 lageranlagen-gewaesserschutzbereich,Gewässerschutzbereich,Settore di protezione delle acque
@@ -749,12 +751,13 @@ lageranlagen-titel,Lageranlagen Titel,Impianto di deposito titolo
 lagergut,Lagergut,Sostanza depositata
 lagergut-ableitung-der-abgase,Lagergut,Sostanza depositata
 landwirtschaftliches-vorhaben,Landwirtschaftliches Vorhaben,Progetto agricolo
-lastprofil-spezifische-sondenbelastung,Lastprofil: Spezifische Sondenbelastung (W/m),Profilo di carico: Carico specifico della sonda (W/m)
+lastprofil-spezifische-sondenbelastung,Lastprofil: Spezifische Sondenbelastung (W/m),Profilo di carico: carico specifico della sonda (W/m)
 lastvorgaben-genuegen,"Die Ausführung der Solaranlage und des Unterbaus genügen den Lastvorgaben der spezifischen Tragwerksnormen (SIA Norm 261), Richtlinien und Wegleitungen (VKF). Wobei mindestens Schnee- und Windeinwirkungen zu berücksichtigen sind.","L'esecuzione dell'impianto solare e della sottostruttura soddisfa le direttive sui carichi contenute nelle norme specifiche sulle strutture portanti (norma SIA 261), direttive e istruzioni (AICAA). Vanno considerati almeno gli effetti della neve e del vento."
+laufbreite-der-haupttreppe,Laufbreite der Haupttreppe (Treppe mit Fluchtwegfunktion) (m),Larghezza delle scale principali (scale con funzione di via di fuga) (m)
+laufhof-bemerkungen,Bemerkungen,Osservazioni
 laufhof-in-guellegrube-entwaessert,Wird der Laufhof in die Güllegrube entwässert?,Le acque dell'area di esercizio vengono smaltite nella fossa per il colaticcio?
 laufhof-laenger-als-2-stunden,"Handelt es sich um einen Laufhof, welcher täglich länger als 2 Stunden genutzt wird?",Si tratta di un'area di esercizio usata per più di 2 ore al giorno?
 laufhof-titel,Laufhof Titel,Area di esercizio titolo
-leistung-elekrtisch,Leistung elektrisch (kWel / KVA),Potenza elettrica (kWel / kVA)
 leistung-elektrisch,Leistung elektrisch (kWel / KVA),Potenza elettrica (kWel / kVA)
 leistung-elektrisch-kva,Leistung elektrisch (kVA),Potenza elettrica (kVA)
 leistung-elektrisch-kwel,Leistung elektrisch (kWel),Potenza elettrica (kWel)
@@ -765,7 +768,6 @@ letztes-betriebsjahr,Letztes Betriebsjahr,Ultimo anno d'esercizio
 lufttechnische-anlagen-titel,Lufttechnische Anlagen Titel,Impianti tecnici di ventilazione titolo
 luftwechselrate,Luftwechselrate (m³/h),Frequenza dei ricambi d'aria (m³/h)
 magermotor-bhkw,Magermotor,Motore a combustione magra
-material-aussenwaende,Aussenwände,Pareti esterne
 marke-fabrikat-bhwk,Marke / Fabrikat,Marchio / modello
 masse-guellegrube-titel,Masse der neuen Güllegrube Titel,Dimensioni della nuova fossa per il colaticcio titolo
 masse-titel,Masse Titel,Dimensioni titolo
@@ -779,6 +781,8 @@ materialablagerung-flaeche,Fläche (m²),Superficie (m²)
 materialablagerung-titel,Materialablagerung Titel,Deposito di materiale titolo
 materialablagerung-volumen,Volumen (m³),Volume (m³)
 material-ableitung-der-abgase,Material,Materiale
+materialaufbereitung,Materialaufbereitung,Trattamento del materiale
+material-aussenwaende,Aussenwände,Pareti esterne
 material-aussenwaende-ableitung-der-abgase,Material Aussenwände,Materiale delle pareti esterne
 material-boden,Boden,Pavimento
 material-boden-ableitung-der-abgase,Material Boden,Materiale del pavimento
@@ -810,6 +814,7 @@ mineralische-bauabfaelle,Mineralische Bauabfälle,Rifiuti edili minerali
 mineralische-bauabfaelle-titel,Mineralische Bauabfälle Titel,Rifiuti edili minerali titolo
 minimale-entnahme-temperatur,Minimale Entnahme-Temperatur (°C),Temperatura min. di captazione (°C)
 minimale-entnahme-temperatur-brauchwasser,Minimale Entnahme-Temperatur (°C),Temperatura min. di captazione (°C)
+neue-oder-bestehende-anlage,Neue oder bestehende Anlage?,Impianto nuovo o esistente?
 minimale-sondenruecklauftemperatur,Minimale Sondenrücklauftemperatur (°C),Temperatura min. di ritorno della sonda (°C)
 mischabbruch,Mischabbruch (m³ oder t),Materiale di demolizione non separato (m³ o t)
 mistlager-breite,Breite (m),Larghezza (m)
@@ -822,11 +827,9 @@ mistlager-ueberdacht,Ist / Wird das gesamte Mistlager überdacht?,Il letamaio è
 mistwasser-abfluss-bemerkungen,Bemerkungen,Osservazioni
 mistwasser-bemerkungen,Bemerkungen,Osservazioni
 mistwasser-laufhof-in-umgebung,"Wie wird dafür gesorgt, dass kein Mistwasser vom Laufhof in die Umgebung abfliesst?",Come si garantisce che non si verifichi un deflusso di percolato dell'area di esercizio nell'ambiente circostante?
-nummer-parzelle,Nummer,Numero
 model-typ,Model / Typ,Modello / tipo
 modeltyp,Model/Typ,Modello / tipo
 model-typ-abgasanlage,Model / Typ,Modello / tipo
-montageart,Montageart,Tipo di montaggio
 motoren-und-chassisreinigungen-mit-chemikalien,Motoren- und Chassisreinigungen mit Chemikalien?,Pulizia di motori e telai con prodotti chimici?
 muessen-ufervegetation-hecken-oder-feldgehoelze-entfernt-werden,"Müssen Ufervegetation, Hecken oder Feldgehölze entfernt werden?","È necessario rimuovere vegetazione riparia, siepi o boschetti campestri?"
 nachbarschaftsgefaehrdung,Nachbarschaftsgefährdung,Pericolo per il vicinato
@@ -837,14 +840,12 @@ name-stehendes-gewaesser,Name Gewässer,Nome corpo d'acqua
 name-unterschriftenberechtigung,Name,Nome
 neben-kulturobjekt,Wird die Anlage auf einem Gebäude unmittelbar neben einem Kulturobjekt realisiert?,L'impianto sarà realizzato su un edificio nelle immediate vicinanze di un oggetto culturale?
 nennleistung-kw,Nennleistung (kW),Potenza nominale (kW)
-nutzung-bauvorhaben,Triage,Domande di triage
-nennwaermeleistung,Nennwärmeleistung (kW),Potenza termica nominale (kW)
+nennwaermeleistung,Nennwärmeleistung (kw),Potenza termica nominale (kW)
 nennwaermeleistung-kw,Nennwärmeleistung (kW),Potenza termica nominale (kW)
 nennwaermeleistung-waermepumpe,Nennwärmeleistung (kW),Potenza termica nominale (kW)
 netzgebunden,Netzgebunden,Allacciato alla rete
-neue-oder-bestehende-anlage,Neue oder bestehende Anlage?,Impianto nuovo o esistente?
-neue-oder-bestehende-lagerung,Neue oder bestehende Lagerung?,Deposito nuovo o esistente?
-neuer-auslauf-beim-stall,Wird ein neuer Auslauf beim Stall erstellt / eingerichtet?,Viene realizzata / predisposta una nuova uscita vicino alla stalla?
+neue-oder-bestehende-lagerung,Neue oder bestehende Lagerung?,Stoccaggio nuovo o esistente?
+neuer-auslauf-beim-stall,Wird ein neuer Auslauf beim Stall erstellt / eingerichtet?,Viene realizzata / predisposta una nuova area di servizio / uscita vicino alla stalla?
 nicht-abgenommen-maengel,Nicht abgenommen / Mängel,Collaudo non superato/lacune
 nichtforstliche-kleinbaute,Handelt es sich um eine nichtforstliche Kleinbaute oder –anlage?,Si tratta di un piccolo edificio o di un piccolo impianto non forestale?
 noga-code,NOGA-Code des Betriebs,Codice NOGA dell'azienda
@@ -853,8 +854,12 @@ normierter-brennstoff,Normierter Brennstoff,Combustibile conforme alle norme vig
 normierter-fossiler-brennstof,Normierter fossiler Brennstoff,Combustibile fossile conforme alle norme vigenti
 normierter-fossiler-brennstoff,Normierter fossiler Brennstoff,Combustibile fossile conforme alle norme vigenti
 notstromanlage-titel,Notstromanlage Titel,Gruppo elettrogeno d'emergenza titolo
+nummer-parzelle,Nummer,Numero
+nutzung-bauvorhaben,Triage,Domande di triage
+nutzungsbedingte-anforderungen-titel,Nutzungsbedingte Anforderungen Titel,Requisiti d'uso titolo
 nutzungszweck-der-gewerblichen-baute,Nutzungszweck der gewerblichen Baute,Destinazione d'uso dell'edificio artigianale
 nutzungszweck-landwirtschaft,Nutzungszweck der Ökonomiebaute,Destinazione d'uso dell'edificio a scopo di sfruttamento agricolo
+pruefung-bauabstaende,Prüfung,Esame
 nutzvolumen-guellebehaelter,Wie gross ist das Nutzvolumen des Güllebehälters? (m³),A quanto ammonta il volume utile del serbatoio per il colaticcio? (m³)
 oberboden-auffuellhoehe,Oberboden Auffüllhöhe (cm),Altezza di riempimento strato attivo (cm)
 oberboden-menge,Oberboden Menge (m³),Quantità strato attivo (m³)
@@ -862,11 +867,10 @@ objektabstand,Objektabstand (m),Distanza dell'oggetto (m)
 objekt-der-denkmalpflege,Steht das Objekt unter kantonalem und/oder nationalem Denkmalschutz?,L'oggetto è sotto protezione dei monumenti cantonale e/o nazionale?
 oel-oder-gasfeuerung,Öl- oder Gasfeuerung,Impianti a combustione alimentati con olio o gas
 oel-oder-gasfeuerung-titel,Öl- oder Gasfeuerung Titel,Impianti a combustione alimentati con olio o gas titolo
-ort-der-entlueftung,Ort der Entlüftung,Luogo del dispositivo di scarico dell'aria
+ort-der-entlueftung,Ort der Entlüftung,Ubicazione del dispositivo di scarico dell'aria
 ort-parzelle,Ort,Luogo
 ortsfeste-fluessiggasbehaelter-titel,Ortsfeste Flüssiggasbehälter Titel,Serbatoi fissi per gas liquefatti titolo
 pachtland,Pachtland (ha),Terreno in affitto (ha)
-pruefung-gebaeudehoehen,Prüfung,Esame
 paechter,Pächter,Persona affittuaria
 partikelfilter,Partikelfilter,Filtri antiparticolato
 personalien,Personalien,Dati personali
@@ -886,9 +890,10 @@ produktionsmenge,"Produktionsmenge pro Jahr (kg, stk, l oder Artikel)","Quantita
 produktname,Produktname,Nome del prodotto
 projektierte-schutzraeume-infotext,Projektierte Schutzräume Infotext,Rifugi progettati testo informativo
 projektierte-schutzraeume-titel,Fläche und Volumen der projektierten Schutzräume Titel,Superficie e volume dei rifugi progettati titolo
-pruefung-weitere-materielle-pruefung,Prüfung,Esame
-pruefung-zonenkonformitaet,Prüfung,Esame
-pumpversuch-dauer-bis,Dauer bis,Durata a
+projektplaene,Projektpläne,Piani di progetto
+proposal,Art der Arbeiten,Tipo di lavori
+pruefung-ausnuetzungsziffer,Prüfung,Esame
+pumpversuch-dauer-bis,Dauer bis,Durata fino a
 pumpversuch-dauer-von,Dauer von,Durata da
 pumpversuch-maximale-foerdermenge,Maximale Fördermenge (l/min),Portata massima (l/min)
 pumpversuch-titel,Pumpversuch Titel,Prova di pompaggio titolo
@@ -899,8 +904,8 @@ qualitaetssicherungsstufe-qss,"Qualitätssicherungsstufe (QSS) gemäss VKF-Brand
 querschnitt-abgasanlage,Querschnitt (mm),Sezione (mm)
 querschnitt-ableitung-der-abgase,Querschnitt (mm),Sezione (mm)
 querschnitt-mm,Querschnitt (mm),Sezione (mm)
-solaranlage-baugesuch,Solaranlage,Impianto solare
 rauminhalt,Rauminhalt (m³),Volume (m³)
+zugehoerigkeit,Dazugehöriges Gebäude,Relativo edificio
 raumlueftung,Raumlüftung,Ventilazione del locale
 raumlueftung-ableitung-der-abgase,Raumlüftung (cm²),Ventilazione del locale (cm²)
 recyclingprodukt,Recyclingprodukt,Prodotto riciclato
@@ -912,7 +917,6 @@ restholz-aus-holzverarbeitung,Restholz aus Holzverarbeitung,Scarti di legno prov
 resultate-der-geforderten-bodenuntersuchung,Resultate der geforderten Bodenuntersuchung,Risultati dell'analisi del suolo richiesta
 rodung,Handelt es sich um eine Rodung (Zweckentfremdung von Waldboden)?,Si tratta di un dissodamento (cambiamento di destinazione del suolo boschivo)?
 rodungsgesuchsformular,Rodungsgesuchsformular BAFU,Domanda di dissodamento UFAM
-schalldaempfer,Schalldämpfer,Silenziatore
 rohrdurchmesser,Rohrdurchmesser (mm),Diametro del tubo (mm)
 rueckgabeart,Rückgabeart,Tipo di restituzione
 rueckgabebrunnen-rohrdurchmesser,Rückgabebrunnen Rohrdurchmesser (mm),Pozzo di resa diametro del tubo (mm)
@@ -930,8 +934,10 @@ russpartikelfilter-bhkw,Russpartikelfilter,Filtro antiparticolato
 russsack-abgasanlage,Russsack,Sacco per fuliggine
 russsack-ableitung-der-abgase,Russsack,Sacco per fuliggine
 saisonaler-unterschied,Besteht ein saisonaler Unterschied in der Auslastung der Anlage?,Esiste una differenza stagionale nel grado di sfruttamento dell'impianto?
+schalldaempfer,Schalldämpfer,Silenziatore
 schalldaempfer-bhkw,Schalldämpfer,Silenziatore
-schnitzel-und-spaenelager-entleerungsoeffnung,Für Schnitzel- und Spänelager Entleerungsöffnung ins Freie: Abmessung,Per deposito di cippato e trucioli apertura di svuotamento verso l'esterno: Dimensioni
+zweck-der-wasserentnahme,Zweck der Wasserentnahme,Scopo del prelievo di acqua
+schnitzel-und-spaenelager-entleerungsoeffnung,Für Schnitzel- und Spänelager Entleerungsöffnung ins Freie: Abmessung,Per deposito di cippato e trucioli apertura di svuotamento verso l'esterno: dimensioni
 schraegdach-tragwerksnormen,Die Ausführung der Schneerückhaltevorrichtungen bei Schrägdächern (zur Verhütung von Dachschneelawinen) genügt den Lastvorgaben der spezifischen Tragwerksnormen (SIA Norm 261),L'esecuzione dei dispositivi per impedire lo scivolamento della neve in caso di tetti inclinati (per prevenire che la neve si stacchi dai tetti) soddisfa le direttive sui carichi contenute nelle norme specifiche sulle strutture portanti (norma SIA 261)
 schuettmaterial-herkunft,Herkunft Schüttmaterial,Provenienza del materiale di riempimento
 schuettmaterial-volumen,Volumen Schüttmaterial (m³),Volume del materiale di riempimento (m³)
@@ -945,6 +951,7 @@ siedlungsabfaelle,Siedlungsabfälle,Rifiuti urbani
 sind-folgende-anlagen-betroffen,Was ist geplant?,Che cosa è previsto?
 sind-vertragsflaechen-gemaess-oeqv-betroffen,Sind Vertragsflächen gemäss Öko-Qualitätsverordnung (ÖQV) betroffen?,Sono interessate superfici oggetto di contratto conformemente all'ordinanza sulla qualità ecologica (OQE)?
 situation-genauer-beschreiben,Bitte die Situation genauer beschreiben und in einer Skizze eintragen,Si prega di descrivere più in dettaglio la situazione e di fare uno schizzo
+solaranlage-baugesuch,Solaranlage,Impianto solare
 solaranlage-leistung,Solaranlage Leistung (kWp),Impianto solare potenza (kWp)
 solaranlagen,Solaranlagen,Impianti solari
 solaranlagen-auf-kulturobjekten,"Solaranlagen auf oder neben Kulturobjekten und in Schutzgebieten (ISOS, Kernzonen usw.)","Impianti solari su oggetti culturali o accanto ad essi e in zone protette (ISOS, zone nucleo, ecc.)"
@@ -957,7 +964,7 @@ sondenaussendurchmesser-mm,Sondenaussendurchmesser (mm),Diametro esterno della s
 spezialformulare,Zusatzformulare,Moduli supplementari
 spezifikation,Spezifikation,Specifiche
 spezifikation-umschlageplatz-titel,Spezifikation Umschlageplatz Titel,Specifiche dell'area di trasbordo titolo
-spital-anzahl-betten,Anzahl Patientenbetten,Numero di letti per pazienti
+spital-anzahl-betten,Anzahl Patientenbetten,numero di letti per pazienti
 spital-oder-heim-titel,Spital oder Heim Titel,Ospedale o casa di cura titolo
 staendige-wasserfuehrung,Ständige Wasserführung,Deflusso permanente
 stallbau-und-hofduengerlager,Stallbau und Hofdüngerlager,Stalle e depositi di concimi aziendali
@@ -1000,14 +1007,14 @@ tankstelle-titel,Tankstelle Titel,Stazione di servizio titolo
 tank-typ,Tank-Typ,Tipo di serbatoio
 temparaturklasse-ableitung-der-abgase,Temparaturklasse T,Classe di temperatura T
 temperaturklasse-abgasanlage,Temperaturklasse,Classe di temperatura
+terminierung-titel,Terminierung Titel,Scadenza titolo
 terrainveraenderungen,Terrainveränderungen,Modifiche del terreno
 terrainveraenderungen-hecken,Sind Terrainveränderungen vorgesehen?,Sono previste modifiche del terreno?
 terrainveraenderungen-titel,Terrainveränderungen Titel,Modifiche del terreno titolo
 totalmenge-betriebliches-abwasser-text,Totalmenge betriebliches Abwasser ca. (m³/Woche),Quantità totale di acque di scarico artigianali ca. (m³/settimana)
 tragbarkeitsberechnung,Tragbarkeitsberechnungs- und Finanzierungsnachweis (berechnet vom Plantahof),Prova del calcolo della sostenibilità e del finanziamento (calcolo effettuato dal Plantahof)
 tragwerk,Tragwerk,Struttura portante
-trennlinie,Trennlinie,Trennlinie
-treppenform,Treppenform,Forma delle scale
+trennlinie,Trennlinie,Linea di separazione
 triage-brandschutz,Feuerpolizeiliche Bewilligungspflicht - Bauvorhaben betrifft,Obbligo del permesso di polizia del fuoco - progetto di costruzione concerne
 triage-titel,Triage Titel,Domande di triage titolo
 tuere,Türe,Porta
@@ -1024,7 +1031,6 @@ typenbezeichnung,Typenbezeichnung,Designazione del tipo
 typenbezeichnung-holzfeuerung,Typenbezeichnung,Designazione del tipo
 typenbezeichnung-oel-gasfeuerung,Typenbezeichnung,Designazione del tipo
 typ-russpartikelfilter,Typ,Tipo
-verursacher-emissionen,Was verursacht die Emissionen,Cosa provoca le emissioni
 typ-schalldaempfer,Typ,Tipo
 ueberdeckung-register,Überdeckung Register (m),Copertura dello scambiatore geotermico (m)
 ueber-dem-boden-m,Über dem Boden (m),In superficie (m)
@@ -1052,6 +1058,7 @@ vereinbarkeit-zweitwohnungsgesetz,Vereinbarkeit Zweitwohnungsgesetz,Conciliabili
 verfahren-geraet,Verfahren / Gerät,Procedura / dispositivo
 verfahren-produkte,"Verfahren, Produkte","Procedura, prodotti"
 verfahrensart,Verfahrensart,Tipo di procedura
+verursacher-emissionen,Was verursacht die Emissionen,Cosa provoca le emissioni
 verwendete-stoffe-und-produkte,Verwendete Stoffe und Produkte,Sostanze e prodotti usati
 verwendete-stoffe-und-produkte-titel,Verwendete Stoffe und Produkte Titel,Sostanze e prodotti usati titolo
 verwendungszweck-des-gases,Verwendungszweck des Gases,Scopo di utilizzazione del gas
@@ -1075,12 +1082,13 @@ vorabklaerungspflicht,"Besteht eine Vorabklärungspflicht (Kantonsstrasse, Gefah
 vorablaerungsbericht-tiefbauamt-fuer-strassenreklamen-art-52-abs-2-krvo,Vorabklärungsbericht Tiefbauamt für Strassenreklamen (Art. 52 Abs. 2 KRVO),Esame preliminare dell'Ufficio tecnico per pubblicità stradali (art. 52 cpv. 2 OPTC)
 vorablaerungsbericht-tiefbauamt-leitungen,Vorabklärungsbericht Tiefbauamt für Leitungen in und über Kantonsstrasse (Art. 52 Abs. 2 KRVO),Esame preliminare dell'Ufficio tecnico per condotte nella e sopra la strada cantonale (art. 52 cpv. 2 OPTC)
 vorablaerungsbericht-tiefbauamt-naeherbauten,"Vorabklärungsbericht Tiefbauamt für Näherbauten, Zufahrten, Zugänge, Parkplätze usw. (Art. 52 Abs. 2 KRVO)","Esame preliminare dell'Ufficio tecnico per costruzioni a distanze ridotte, accessi carrabili e pedonali, parcheggi, ecc. (art. 52 cpv. 2 OPTC)"
+vorhandene-brandschutztechnische-einrichtungen,"Vorhandene bzw. vorgesehene brandschutztechnische Einrichtungen (z.B. Sprinkler-, Brandmelde-, Blitzschutz-, Rauch- und Wärmeabzugsanlage, Sicherheitsbeleuchtung und dgl.)","Dispositivi di protezione antincendio presenti o previsti (ad es. impianti Sprinkler, rilevatori di incendio, parafulmini, rilevatori di fumo e dispositivi di evacuazione di calore, illuminazione di sicurezza e simili)"
 vorname-unterschriftenberechtigung,Vorname,Nome
-waermedaemmung-der-aussenwand,Wärmedämmung der Aussenwand,Isolamento termico della parete esterna
-waerme-der-dampferzeugung-feuerungsbetrieb,Wärme der Dampferzeugung,Calore della produzione di vapore
 vorablaerungsbericht-tiefbauamt-strassenreklamen,Vorabklärungsbericht Tiefbauamt für Strassenreklamen (Art. 52 Abs. 2 KRVO),Esame preliminare dell'Ufficio tecnico per pubblicità stradali (art. 52 cpv. 2 OPTC)
 voraussichtliche-bauvollendung,Voraussichtliche Bauvollendung,Ultimazione prevista dei lavori
 voraussichtliche-bauvollendung-text,Voraussichtliche Bauvollendung,Ultimazione prevista dei lavori
+voraussichtliche-fertigstellung,Voraussichtliche Fertigstellung,Ultimazione prevista
+voraussichtlicher-baubeginn,Voraussichtlicher Baubeginn,Inizio previsto dei lavori di costruzione
 vorgesehene-abwasserableitung,Vorgesehene Abwasserableitung,Evacuazione prevista delle acque di scarico
 vorgesehene-abwasserableitung-titel,Vorgesehene Abwasserableitung Titel,Evacuazione prevista delle acque di scarico titolo
 vorgesehene-abwasservorbehandlung,Vorgesehene Abwasservorbehandlung,Pretrattamento previsto delle acque di scarico
@@ -1089,7 +1097,7 @@ vorgesehene-entnahme-pro-jahr,Vorgesehene Entnahme pro Jahr (m³),Prelievi previ
 vorgesehener-einbautermin,Vorgesehener Einbautermin,Data prevista per l'impiego
 vorhaben,Vorhaben,Progetto
 vorhaben-titel,Vorhaben Titel,Progetto titolo
-vorhandene-brandschutztechnische-einrichtungen,"Vorhandene bzw. vorgesehene brandschutztechnische Einrichtungen (z.B. Sprinkler-, Brandmelde-, Blitzschutz-, Rauch- und Wärmeabzugsanlage, Sicherheitsbeleuchtung und dgl.)","Dispositivi di protezione antincendio presenti o previsti (ad es. impianti Sprinkler, rilevatori di incendio, parafulmini, rilevatori di fumo e dispositivi di evacuazione di calore, illuminazione di sicurezza e simili)"
+waerme-der-dampferzeugung-feuerungsbetrieb,Wärme der Dampferzeugung,Calore della produzione di vapore
 waermeentzug-aus-erdwaermesonde,Wärmeentzug aus Erdwärmesonde (kWh),Estrazione di calore dalla sonda geotermica (kWh)
 waermeerzeuger-heizung,Wärmeerzeuger Heizung,Generatore di calore riscaldamento
 waermeerzeuger-warmwasser,Wärmeerzeuger Warmwasser,Generatore di calore acqua calda
@@ -1101,7 +1109,7 @@ waermespeicher-holzfeuerung,Wärmespeicher,Accumulatore di calore
 waermetraegerfluessigkeit,Wärmeträgerflüssigkeit,Tipo di fluido termovettore
 waermetraegerfluessigkeit-erdregister,Wärmeträgerflüssigkeit,Tipo di fluido termovettore
 waermetraegertyp,Wärmeträgertyp,Tipo di vettore termico
-waldareal,Wald betroffen oder im Waldabstandsbereich,Foresta interessata o nella fascia di arretramento dalla foresta
+waldareal,Wald betroffen oder im Waldabstandsbereich,Bosco interessato o nella fascia di arretramento dalla bosco
 waschwasser-behandlung,Waschwasser-Behandlung,Trattamento dell'acqua di lavaggio
 waschwasserbezug,Waschwasserbezug,Prelievo dell'acqua di lavaggio
 was-fuer-eine-anlage-wird-erstellt,Was für eine Anlage wird erstellt?,Che tipo di impianto viene realizzato?
@@ -1121,7 +1129,6 @@ weitere-energie-waermequelle-heizung,Weitere Energie-/Wärmequelle Heizung,Altra
 weitere-energie-waermequelle-warmwasser,Weitere Energie-/Wärmequelle Warmwasser,Altra fonte di energia/calore acqua calda
 weitere-materielle-pruefung,Weitere materielle Prüfung Titel,Altro esame materiale titolo
 weitere-standorte-im-kanton,Weitere Standorte im Kanton,Ulteriori ubicazioni nel Cantone
-wird-boden-oder-untergrundmaterial-zugefuehrt,Wird Boden- oder Untergrundmaterial zugeführt?,Viene apportato suolo o materiale del sottosuolo?
 weitere-waermeerzeuger-heizung,Weitere Wärmeerzeuger Heizung,Ulteriore generatore di calore riscaldamento
 weitere-waermeerzeuger-warmwasser,Weitere Wärmeerzeuger Warmwasser,Ulteriore generatore di calore acqua calda
 welche-abfaelle-fallen-in-ihrem-betrieb-an,Welche Abfälle fallen in Ihrem Betrieb an?,Quali rifiuti risultano nella sua azienda?
@@ -1137,6 +1144,8 @@ wie-wird-die-prozessabluft-abgeleitet,Wie wird die Prozessabluft abgeleitet?,Com
 winkel-45-grad,Ist die Anlage von unten in einem Winkel von 45 Grad betrachtet sichtbar?,L'impianto è visibile dal basso con un'angolazione di 45 gradi?
 wird-abluft-abgeleitet,Wird die Abluft abgeleitet,L'aria di scarico viene evacuata?
 wird-boden-oder-untergrundmaterial-abgefuehrt,Wird Boden- oder Untergrundmaterial abgeführt?,Viene rimosso suolo o materiale del sottosuolo?
+zweck-der-waermeerzeugung-feuerungsbetrieb,Zweck der Wärmeerzeugung,Scopo della produzione di calore
+wird-boden-oder-untergrundmaterial-zugefuehrt,Wird Boden- oder Untergrundmaterial zugeführt?,Viene apportato suolo o materiale del sottosuolo?
 wird-ein-neues-guellelager-erstellt,Wird ein neues Güllelager erstellt?,Viene realizzato un nuovo serbatoio per il colaticcio?
 wird-ein-neues-mistlager-erstellt,Wird ein neues Mistlager erstellt?,Viene realizzato un nuovo letamaio?
 wird-material-vor-ort-aufbereitet,Wird Material vor Ort aufbereitet?,Viene trattato del materiale sul posto?
@@ -1150,22 +1159,19 @@ wohnungen,Wohnungen,Abitazioni
 wohnungsgroesse,Anzahl Zimmer,Numero di locali
 zeitpunkt-der-inbetriebnahme,Zeitpunkt der Inbetriebnahme,Momento della messa in esercizio
 zonenkonformitaet-titel,Zonenkonformität Titel,Conformità alla zona titolo
-zugehoerigkeit,Dazugehöriges Gebäude,Relativo edificio
 zulaessiger-betriebsueberdruck,Zulässiger Betriebsüberdruck (bar),Sovrapressione d'esercizio ammessa (bar)
 zulassung,Zulassung,Ammissione
 zulassung-2,Zulassung,Ammissione
 zulassung-auskleidung,Zulassung,Ammissione
-zusatzbewilligung-kantonsstrassen,Bauvorhaben an Kantonsstrassen:  Vorprüfungsbericht des Bezirkstiefbauamts,Progetti di costruzione lungo le strade cantonali:  Rapporto dell'esame preliminare dell'Ufficio tecnico di Circondario
+zusatzbewilligung-kantonsstrassen,Bauvorhaben an Kantonsstrassen:  Vorprüfungsbericht des Bezirkstiefbauamts,Progetti di costruzione lungo le strade cantonali:  rapporto dell'esame preliminare dell'Ufficio tecnico di Circondario
 zusatzbewilligung-kantonsstrassen-belasteter-standort,Zusatzbewilligung belasteter Standort (Art. 52 Abs. 2 KRVO),Autorizzazione supplementare sito contaminato (art. 52 cpv. 2 OPTC)
 zusatzbewilligung-naturgefahren,Naturgefahren: Vorprüfungsentscheid Prüfingenieur der Gebäudeversicherung Graubünden,Pericoli naturali: decisione relativa all'esame preliminare dell'ingegnere verificatore dell'Assicurazione fabbricati dei Grigioni
 zustaendige-person-abfallanlage,Zuständige Person,Persona responsabile
 zustaendigkeit-anu,Zuständigkeit ANU,Competenza UNA
 zustand,Zustand,Stato
-zweckaenderung-der-baute,Zweckänderung der Baute in,Cambiamento di destinazione della costruzione in
+zweckaenderung-der-baute,Zweckänderung der Baute in,Destinazione ad altro scopo della costruzione in
 zweck-der-bohrung,Zweck der Bohrung oder des Eingriffs,Scopo della trivellazione o dell'intervento
 zweck-der-strom-waermeerzeugung,Zweck der Strom- / Wärmeerzeugung,Scopo della produzione di elettricità/di calore
-zweck-der-waermeerzeugung-feuerungsbetrieb,Zweck der Wärmeerzeugung,Scopo della produzione di calore
-zweck-der-wasserentnahme,Zweck der Wasserentnahme,Scopo del prelievo di acqua
 zweitwohnungsgesetz,Kommt das Zweitwohnungsgesetz in der Standortgemeinde zur Anwendung?,Nel comune di ubicazione si applica la legge sulle abitazioni secondarie?
 zwg,Nutzungsbeschränkung ZWG,Limitazione d'uso LASec
 zwischendecken,Zwischendecken,Solette
@@ -1177,7 +1183,7 @@ e-grid-nr,E-GRID-Nr.,N. E-GRID
 e-mail-gesuchstellerin,E-Mail,E-mail
 folgeplanung,Folgeplanung,Pianificazione consecutiva
 gemeinde,Zuständige Gemeinde,Comune competente
-complete-material-exam,Vorläufige Prüfung abschliessen,Concludere esame preliminare
+plz-gesuchstellerin,PLZ,NPA
 genereller-erschliessungsplan,Genereller Erschliessungsplan,Piano generale di urbanizzazione
 genereller-gestaltungsplan,Genereller Gestaltungsplan,Piano generale delle strutture
 gis-map,Karte,Carta
@@ -1185,22 +1191,20 @@ hinweis-gis,Hinweis GIS,Nota SIG
 hinweis-personalien,Hinweis Gesuchsteller/in,Nota persona richiedente
 hinweis-pilotphase,Hinweis Pilotphase,Nota fase pilota
 is-paper,is-paper,is-paper
+personalien-rechnungsempfaenger,Abweichende(r) Rechnungsempfänger/in,Altra/o destinataria/o della fattura
 juristische-person-gesuchstellerin,Handelt es sich um eine juristische Person?,Si tratta di una persona giuridica?
-lage-des-vorhabens-titel,Lage des Vorhabens Titel,Posizione del progetto titolo
+lage-des-vorhabens-titel,Lage des Vorhabens Titel,Ubicazione del progetto titolo
 name-gesuchstellerin,Name,Nome
 name-juristische-person-gesuchstellerin,Name juristische Person,Nome della persona giuridica
 nummer-gesuchstellerin,Nummer,Numero
 ort-gesuchstellerin,Ort,Luogo
 ort-grundstueck,Ort,Luogo
 parzelle,Parzelle,Particella
-parzellennummer,Parzellennummer,Numero della parcella
+parzellennummer,Parzellennummer,Numero della particella
 personalien-gesuchstellerin,Bauherrschaft,Committenza
 personalien-grundeigentumerin,Grundeigentümer/in,Persona proprietaria del fondo
 personalien-projektverfasserin,Projektverfasser/in,Progettista
-materielle-pruefung-titel,Materielle Prüfung Titel,Esame materiale titolo
-personalien-rechnungsempfaenger,Abweichende(r) Rechnungsempfänger/in,Altra/o destinataria/o della fattura
 personalien-titel,Personalien Titel,Dati personali titolo
-plz-gesuchstellerin,PLZ,NPA
 profil-uebernehmen,Profil übernehmen,Riprendi profilo
 projektaenderung,Projektänderung,Modifica del progetto
 sachverhalt,Sachverhalt,Fattispecie
@@ -1212,10 +1216,12 @@ weitere-personen,Sind neben der Bauherrschaft weitere Personen beteiligt?,Oltre 
 zonenplan,Zonenplan,Piano delle zone
 materielle-vorpruefung,Materielle Vorprüfung,Esame preliminare materiale
 vollstaendigkeitspruefung,Vollständigkeitsprüfung,Esame di completezza
-beginn-publikation-kantonsamtsblatt,Beginn Publikation Kantonsamtsblatt,Inizio pubblicazione nel Foglio ufficiale cantonale
-beginn-publikationsorgan-gemeinde,Beginn Publikationsorgan der Gemeinde,Inizio organo di pubblicazione del Comune
-ende-publikation-kantonsamtsblatt,Ende Publikation Kantonsamtsblatt,Fine pubblicazione nel Foglio ufficiale cantonale
-ende-publikationsorgan-gemeinde,Ende Publikationsorgan der Gemeinde,Fine organo di pubblicazione del comune
+complete-material-exam,Vorläufige Prüfung abschliessen,Concludere esame preliminare
+materielle-pruefung-titel,Materielle Prüfung Titel,Esame materiale titolo
+beginn-publikation-kantonsamtsblatt,Beginn Publikation Kantonsamtsblatt,Inizio della pubblicazione nel Foglio ufficiale cantonale
+beginn-publikationsorgan-gemeinde,Beginn Publikationsorgan der Gemeinde,Inizio della pubblicazione nell'organo di pubblicazione del comune
+ende-publikation-kantonsamtsblatt,Ende Publikation Kantonsamtsblatt,Fine della pubblicazione nel Foglio ufficiale cantonale
+ende-publikationsorgan-gemeinde,Ende Publikationsorgan der Gemeinde,Fine della pubblicazione nell'organo di pubblicazione del comune
 hinweis-publikationsdokumente,Hinweis Publikationsdokumente,Nota documenti da pubblicare
 oeffentliche-auflage,Baugesuch inkl. Dokumente in eBau publizieren (während der Publikationsfrist von Gemeinde- und Kantonsamtsblatt),Pubblica in eBau la domanda di costruzione incl. documenti (durante il termine di pubblicazione del Foglio ufficiale comunale e cantonale)
 publikation-freigeben,Freigeben,Rilascia

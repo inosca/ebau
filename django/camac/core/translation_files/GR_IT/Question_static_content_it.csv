@@ -1,4 +1,4 @@
-﻿id,static_content,static_content
+﻿id,static_content,
 info-gvg,"**Bitte beachten**: Gemäss Art. 17 Ziffer 1 des Gesetzes über die Gebäudeversicherung im Kanton Graubünden (Gebäudeversicherungsgesetz, GebVG) orientieren die Gemeinden die Gebäudeversicherung Graubünden über die erteilte Baubewilligung.
 <style>[data-question-slug=""info-gvg""], [data-question-slug=""info-gvg""] p {margin-bottom: 0 !important;}</style>","**Attenzione**: conformemente all'art. 17 cpv. 1 della legge concernente l'Assicurazione fabbricati nel Cantone dei Grigioni (legge sull'Assicurazione fabbricati, LAFab), i comuni informano l'Assicurazione fabbricati dei Grigioni in merito al rilascio della licenza edilizia.
 <style>[data-question-slug=""info-gvg""], [data-question-slug=""info-gvg""] p {margin-bottom: 0 !important;}</style>"
@@ -145,9 +145,6 @@ erdregister-titel,"---
 erdwaermesonden-titel,"---
 #### Erdwärmesonden","---
 #### Sonde geotermiche"
-nutzungsbedingte-anforderungen-titel,"---
-#### Nutzungsbedingte Anforderungen","---
-#### Requisiti d'uso"
 feuerungsanlagen-titel,### Feuerungsanlagen,"---
 #### Impianti di combustione"
 feuerwehrzugaenglichkeit-titel,"---
@@ -162,7 +159,7 @@ geplante-nutzung-titel,"---
 gesetzliche-vorgaben,"---
 #### Bundesrecht - Gesetzliche Vorgaben für baubewilligungsbefreite Solaranlagen
 (Artikel 32a Raumplanungsverordnung RPV)","---
-#### Diritto federale - Presupposti legali per impianti solari non soggetti ad autorizzazione
+#### Diritto federale - presupposti legali per impianti solari non soggetti ad autorizzazione
 (articolo 32a ordinanza sulla pianificazione del territorio OPT)"
 gewaesserschutzbereich-titel,### Gesuch für Bohrungen und Eingriffe in besonders gefährdeten Gewässerschutzbereichen Aᵤ,### Domanda per trivellazioni e interventi in settori di protezione delle acque particolarmente minacciati Aᵤ
 gewinnung-von-kies-titel,"### Gewinnung von Kies, Sand und anderem Material","### Estrazione di ghiaia, sabbia e altro materiale"
@@ -175,8 +172,9 @@ hecken-feldgehoelze-und-ufervegetation-titel,### Entferunung von Hecken / Feldge
 herkunft-material-titel,"---
 #### Herkunft des Boden- oder Untergrundmaterials","---
 #### Provenienza del suolo o del materiale del sottosuolo"
-hinweis-abmessung,Für Schnitzel- und Spänelager Entleerungsöffnung ins Freie: Abmessung,Per deposito di cippato e trucioli apertura di svuotamento verso l'esterno: Dimensioni
+hinweis-abmessung,Für Schnitzel- und Spänelager Entleerungsöffnung ins Freie: Abmessung,Per deposito di cippato e trucioli apertura di svuotamento verso l'esterno: dimensioni
 hinweis-auflistung,"*Hinweis:* Bitte beachten Sie, dass die folgende Auflistung nicht vollständig ist. Konsultieren Sie das Baugesetz ihrer Gemeinde.",*Nota:* si prega di osservare che l'elenco seguente non è completo. Consultare la legge edilizia del relativo comune.
+hinweistext-dokumente,Hinweise für eine gute Plandarstellung finden Sie in der [Zeichenhilfe für Baugesuche](https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/BAB/Zeichenhilfe%20Baugesuche_web.pdf).,Indicazioni per una buona rappresentazione dei piani sono disponibili nella [Guida per disegnare i piani da allegare alle domande di costruzione](https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/BAB/Wegleitung%20Zeichenhilfe%20It%20web.pdf).
 hinweis-ausfuehrungsplaene,"Die Ausführungspläne und die Schutzraumstatik können nach der Projektgenehmigung direkt, spätestens vier Wochen vor Baubeginn, dem Amt für Militär und Zivilschutz eingereicht werden.","I piani d'esecuzione e la statica dei rifugi possono essere inoltrati direttamente all'Ufficio del militare e della protezione civile dopo l'approvazione del progetto, al più tardi quattro settimane prima dell'inizio dei lavori di costruzione."
 hinweis-bafu-richtlinie,Aufbereitung der Recyclingprodukte gem. BAFU-Richtlinie für die Verwertung mineralischer Bauabfälle:,Trattamento dei prodotti riciclati secondo la direttiva UFAM per il riciclaggio dei rifiuti edili minerali:
 hinweis-baugesuch-noetig,"**BITTE BEACHTEN** Die Voraussetzungen für die Befreiung von der Baubewilligungspflicht sind voraussichtlich nicht erfüllt. Es ist Ihnen freigestellt die geplante Solaranlage trotzdem vorerst der Gemeinde mit dem Formular ""Solaranlage"" zu melden. Wir möchten Sie darauf hinweisen, dass ein allfälliger Verfahrenswechsel mit einem zusätzlichen Zeitverlust verbunden ist.
@@ -189,7 +187,7 @@ hinweis-betriebsstunden,Die Betriebsstunden und Anzahl Starts sind nachzuweisen.
 hinweis-betriebsstunden-holzfeuerung,Die Betriebsstunden und Anzahl Starts sind nachzuweisen. Folgende Parameter sind ablesbar:,Occorre fornire prova delle ore in servizio e del numero di accensioni. I seguenti parametri sono indicati:
 hinweis-betriebsstunden-rauchgasbehandlung,"Die Betriebsstunden, Störungen und Bypassbetrieb sind nachzuweisen. Folgende Parameter sind ablesbar:","Occorre fornire prova delle ore in servizio, delle perturbazioni e del funzionamento in modalità bypass. I seguenti parametri sono indicati:"
 hinweis-betriebsstunden-und-anzahl-starts,Die Betriebsstunden und Anzahl Starts sind nachzuweisen. Folgende Parameter sind ablesbar:,Occorre fornire prova delle ore in servizio e del numero di accensioni. I seguenti parametri sono indicati:
-hinweis-denkmalpflege,"Es wird empfohlen, [die Bauberaterin / den Bauberater der kantonalen Denkmalpflege](https://www.gr.ch/DE/institutionen/verwaltung/ekud/afk/dpg/bereiche/bauberatung/Seiten/Bauberatung.aspx) zu kontaktieren. Kantonale oder nationale Schutzeinträge sind im Grundbuch eingetragen. Bei Umbauten oder Veränderungen ist eine Zusatzbewilligung der Denkmalpflege erforderlich.",Si raccomanda di contattare [la / il consulente edile del Servizio monumenti cantonale](https://www.gr.ch/IT/istituzioni/amministrazione/ekud/afk/dpg/bereiche/bauberatung/Seiten/Bauberatung.aspx). Le richieste di messa sotto protezione di Cantone o Confederazione devono essere iscritte nel registro fondiario. In caso di trasformazioni o modifiche è necessaria un'autorizzazione supplementare del Servizio monumenti.
+hinweis-denkmalpflege,Bei Umbauten oder Veränderungen von Schutzobjekten ist eine Zusatzbewilligung der Denkmalpflege erforderlich (Art. 29 KNHG). [Die zuständige Bauberaterin / Der zuständige Bauberater der kantonalen Denkmalpflege](https://www.gr.ch/DE/institutionen/verwaltung/ekud/afk/dpg/bereiche/bauberatung/Seiten/Bauberatung.aspx) ist frühzeitig zu kontaktieren.,In caso di trasformazioni o modifiche di oggetti messi sotto protezione è necessaria un'autorizzazione supplementare del Servizio monumenti (art. 29 LCNP). Occorre contattare con sufficiente anticipo [la / il competente consulente edile del Servizio monumenti cantonale](https://www.gr.ch/IT/istituzioni/amministrazione/ekud/afk/dpg/bereiche/bauberatung/Seiten/Bauberatung.aspx).
 hinweis-denkmalschutz,**Archäologie und Denkmalpflege:** Bitte nehmen Sie mit [der zuständigen Bauberaterin / dem zuständigen Bauberater](https://www.gr.ch/DE/institutionen/verwaltung/ekud/afk/dpg/DPGDokumentAblage/bauberatung_gebietszuteilung_d.pdf) Kontakt auf.,**Archeologia e conservazione dei monumenti storici:** Si prega di contattare [la / il competente consulente edile](https://www.gr.ch/DE/institutionen/verwaltung/ekud/afk/dpg/bereiche/administration/SiteAssets/IT_Bauberatung_Gebietszuteilung.pdf).
 hinweis-einzelfeuerung,"Für die Erstellung einer Einzelfeuerung für feste Brennstoffe oder Öl muss das Formular [Gesuch für eine Bewilligung sowie eine Einzelfeuerung für feste Brennstoffe oder Öl](https://gvg.gr.ch/gvg-download-bereich#Brandschutz+Formulare_und_Gesuche) der Gebäudeversicherung Graubünden, Brandschutz, vom Errichter der Anlage unterzeichnet, eingereicht werden.","Chi intende realizzare un impianto di combustione singolo per combustibili solidi oppure a olio deve firmare e inoltrare il modulo [Domanda per l'autorizzazione di un impianto di combustione singolo a combustibili solidi oppure a olio](https://gvg.gr.ch/it/gvg-area-download#Protezione_antincendio+Moduli) dell'Assicurazione fabbricati dei Grigioni, protezione antincendio."
 hinweis-erfassung-solaranlage,"*Bitte erfassen Sie die geplante Solaranlage mit der Tabelle ""Gebäudetechnik""*",*Rilevare l'impianto solare previsto usando la tabella «Impiantistica»*
@@ -197,9 +195,22 @@ hinweis-erweiterung-guellelager,Bei Erweiterungen/Umbauten bestehender Bauten bi
 hinweis-feuerwehrzugaenglichkeit,"Bei Neubauten sowie bei wesentlichen baulichen Veränderungen an Gebäuden oder der Umgebung, können Auflagen bezüglich der äusseren Zugänglichkeit für die Feuerwehr entstehen.
 Bauten und Anlagen müssen für den raschen und zweckmässigen Einsatz der Feuerwehr jederzeit zugänglich sein.","In caso di nuove costruzioni e importanti modifiche edilizie a edifici o agli ambienti circostanti è possibile che occorra osservare condizioni concernenti l'accessibilità agli spazi esterni per il corpo pompieri.
 Edifici e impianti devono essere accessibili in ogni momento per permettere l'intervento rapido e tempestivo dei pompieri."
+hinweis-gebuehren,"<div class=""uk-alert border-highlight uk-margin-remove"">
+	Es wird darauf hingewiesen, dass im Baubewilligungsverfahren und in weiteren baupolizeilichen Verfahren Gebühren anfallen können (Art. 96 KRG - Verfahrenskosten).
+</div>","<div class=""uk-alert border-highlight uk-margin-remove"">
+	Si rende attenti al fatto che durante la procedura per il rilascio della licenza edilizia e durante altre procedure di polizia edilizia possono derivare delle spese (art. 96 LPTC - spese di procedura).
+</div>"
 hinweis-gebuehrenpflicht,"Die Bauherrschaft wird gemäss Art. 15, Anhang 2 zur Verordnung zum Zivilschutzgesetz (BR 640.110-A2) für die Prüfung des Schutzraumbauprojektes gebührenpflichtig.","La committenza è tenuta a versare una tassa per l'esame di progetti di costruzione di rifugi conformemente all'art. 15, allegato 2 dell'ordinanza relativa alla legge sulla protezione civile (CSC 640.110-A2)."
 hinweis-gebuehrenpflicht-ersatzbeitrag,"Die Bauherrschaft wird gemäss Art. 15, Anhang 2 zur Verordnung zum Zivilschutzgesetz (BR 640.110-A2) für die Prüfung des Ersatzbeitragsgesuches gebührenpflichtig.","La committenza è tenuta a versare una tassa per l'esame della domanda di contributo sostitutivo conformemente all'art. 15, allegato 2 dell'ordinanza relativa alla legge sulla protezione civile (CSC 640.110-A2)."
 hinweis-hindernisfreies-bauen,Es sind die Empfehlungen der SIA 500 zu berücksichtigen.,Devono essere considerate le raccomandazioni SIA 500.
+hinweis-oekonomiebauten,"Für Ökonomiebauten ist dem Gesuch beizulegen:
+
+- Raumprogramm und Betriebskonzept
+- Berechnung der Mindestabstände gemäss [FAT-Bericht Nr. 476/95](https://www.blw.admin.ch/dam/blw/de/dokumente/Nachhaltige%20Produktion/Umwelt/Luft/Mindestabst%C3%A4nde%20von%20Tierhaltungsanlagen.pdf.download.pdf/Mindestabst%C3%A4nde%20von%20Tierhaltungsanlagen.pdf)","Per edifici a scopo di sfruttamento agricolo occorre allegare alla domanda:
+
+- Programma degli spazi e concetto d'esercizio
+- Calcolo delle distanze minime secondo [rapporto FAT n. 476/95, disponibile solo in tedesco](https://www.blw.admin.ch/dam/blw/de/dokumente/Nachhaltige%20Produktion/Umwelt/Luft/Mindestabst%C3%A4nde%20von%20Tierhaltungsanlagen.pdf.download.pdf/Mindestabst%C3%A4nde%20von%20Tierhaltungsanlagen.pdf)"
+informationen-zur-solaranlage-titel,#### Informationen zur Solaranlage,#### Informazioni relative all'impianto solare
 hinweis-kantonales-brandschutzgesetz,"Bitte beachten Sie, dass gemäss kantonalen Brandschutzgesetzes Art. 7 Abs. 1 folgende Vorhaben bewilligungspflichtig sind:
 
 1. Neu-, An-, Um- und Ausbauten sowie die Umnutzung von Gebäuden oder Gebäudeteilen;
@@ -220,14 +231,6 @@ hinweis-luft-wasser-waermepumpe,"Der ""Lärmschutznachweis für Luft / Wasser-W�
 hinweis-maengel,"Bitte beachten Sie, dass die Bauabnahme nicht abgeschlossen werden sollte, solange noch Mängel zu beheben sind.",Si prega di osservare che il collaudo non andrebbe concluso prima che tutte le lacune siano state colmate.
 hinweis-mehrere-motoren,Bei mehreren baugleichen Motoren: Anzahl und Motoren Nr. (z.B. 3 / M1-M3),In caso di più motori identici: numero e motori n. (ad es. 3 / M1-M3)
 hinweis-nachforderung,Nach Abschluss der vorläufigen Prüfung können Nachforderungen an die Gesuchstellenden ausgelöst werden.,Una volta concluso l'esame preliminare è possibile generare richieste di precisazioni destinate alle persone richiedenti.
-hinweis-oekonomiebauten,"Für Ökonomiebauten ist dem Gesuch beizulegen:
-
-- Raumprogramm und Betriebskonzept
-- Berechnung der Mindestabstände gemäss [FAT-Bericht Nr. 476/95](https://www.blw.admin.ch/dam/blw/de/dokumente/Nachhaltige%20Produktion/Umwelt/Luft/Mindestabst%C3%A4nde%20von%20Tierhaltungsanlagen.pdf.download.pdf/Mindestabst%C3%A4nde%20von%20Tierhaltungsanlagen.pdf)","Per edifici a scopo di sfruttamento agricolo occorre allegare alla domanda:
-
-- Programma degli spazi e concetto d'esercizio
-- Calcolo delle distanze minime secondo [rapporto FAT n. 476/95] (disponibile solo in tedesco) (https://www.blw.admin.ch/dam/blw/de/dokumente/Nachhaltige%20Produktion/Umwelt/Luft/Mindestabst%C3%A4nde%20von%20Tierhaltungsanlagen.pdf.download.pdf/Mindestabst%C3%A4nde%20von%20Tierhaltungsanlagen.pdf)"
-hinweistext-dokumente,Hinweise für eine gute Plandarstellung finden Sie in der [Zeichenhilfe für Baugesuche](https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/BAB/Zeichenhilfe%20Baugesuche_web.pdf).,Indicazioni per una buona rappresentazione dei piani sono disponibili nella [Guida per disegnare i piani da allegare alle domande di costruzione](https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/BAB/Wegleitung%20Zeichenhilfe%20It%20web.pdf).
 hinweis-vorabklaerungspflicht,"Bauvorhaben an Kantons- oder Nationalstrassen sind vorabklärungspflichtig (vgl. Art. 52 Abs. 2 der kantonalen Raumplanungsverordnung [KRVO]). Die Vorabklärung hat vor der Baueingabe zu erfolgen. Bitte informieren Sie sich auf der Homepage des Tiefbauamtes:
 
 * [Strassenreklamen - Bauen in Strassennähe (gr.ch)](https://www.gr.ch/DE/institutionen/verwaltung/diem/tba/Strassennetz/Bauen-in-Strassennaehe/Seiten/Strassenreklamen.aspx)
@@ -242,7 +245,8 @@ Bitte beachten Sie, dass der Vorabklärungsbericht des Tiefbauamtes bei der Einr
 
 Si prega di osservare che l'esame preliminare dell'Ufficio tecnico dovrà essere disponibile al momento dell'inoltro della domanda di costruzione."
 hinweis-vorpruefung-gvg,**Bitte beachten:** Bei Gefahrenzonen ist dem Gesuch ein [Vorprüfungsentscheid der Gebäudeversicherung Graubünden](https://gvg.gr.ch/gvg-elementarschadenpraevention-bauberatung-in-gefahrenzonen) beizulegen.,**Attenzione:** Alle domande che riguardano zone di pericolo deve essere allegata una [decisione dell'Assicurazione fabbricati del Cantone dei Grigioni relativa all'esame preliminare](https://gvg.gr.ch/it/gvg-prevenzione-consulenza-edile-nelle-zone-di-pericolo).
-hinweis-waldabstandsbereich,"Es ist frühzeitig Kontakt mit der zuständigen Waldregion des Amtes für Wald und Naturgefahren aufzunehmen. Siehe [Auskunftspersonen Amt für Wald und Naturgefahren](https://www.gr.ch/DE/institutionen/verwaltung/diem/awn/ueberuns/ansprechpartner/Seiten/1_1_Auskunftspersonen.aspx).",Occorre contattare tempestivamente la competente regione forestale dell'Ufficio foreste e pericoli naturali. Vedi [persone di riferimento dell'Ufficio foreste e pericoli naturali] (disponibile solo in tedesco) (https://www.gr.ch/DE/institutionen/verwaltung/diem/awn/ueberuns/ansprechpartner/Seiten/1_1_Auskunftspersonen.aspx).
+hinweis-waldabstandsbereich,"Es ist frühzeitig Kontakt mit der zuständigen Waldregion des Amtes
+für Wald und Naturgefahren aufzunehmen. Siehe [Auskunftspersonen Amt für Wald und Naturgefahren](https://www.gr.ch/DE/institutionen/verwaltung/diem/awn/ueberuns/ansprechpartner/Seiten/1_1_Auskunftspersonen.aspx).",Occorre contattare tempestivamente la competente regione forestale dell'Ufficio foreste e pericoli naturali. Vedi [persone di riferimento dell'Ufficio foreste e pericoli naturali] (https://www.gr.ch/DE/institutionen/verwaltung/diem/awn/ueberuns/ansprechpartner/Seiten/1_1_Auskunftspersonen.aspx).
 hinweis-zustaendigkeit,Bei fachlichen Fragen zum Baugesuch wenden Sie sich bitte an die zuständige kommunale Baubehörde.,In caso di domande specifiche relative alla domanda di costruzione occorre rivolgersi all'autorità edilizia comunale competente.
 hinweis-zustaendigkeit-amz,"Für dieses Fachthema ist das Amt für Militär und Zivilschutz (AMZ) zuständig.<br>
 Email: info@amz.gr.ch Telefon: 081 257 35 35","Per questo tema specifico è competente l'Ufficio del militare e della protezione civile (UMPC).<br>
@@ -276,7 +280,6 @@ E-mail: [info@anu.gr.ch](mailto:info@anu.gr.ch) Telefono: 081 257 29 46"
 info-aib,"**Bitte beachten:** nach Art. 4 Abs. 1 und 2 des Gesetzes über die amtlichen Immobilienbewertungen (IBG) haben Gemeinden das AIB über Bauabnahmen zu informieren.
 <style>[data-question-slug=""info-aib""], [data-question-slug=""info-aib""] p { margin-bottom: 0 !important;}</style>","**Si prega di osservare che** secondo l'art. 4 cpv. 1 e 2 della legge sulle valutazioni immobiliari ufficiali (LVI), i comuni devono informare l'UVI in merito a collaudi avvenuti.
 <style>[data-question-slug=""info-aib""], [data-question-slug=""info-aib""] p { margin-bottom: 0 !important;}</style>"
-informationen-zur-solaranlage-titel,#### Informationen zur Solaranlage,#### Informazioni relative all'impianto solare
 installation-zur-rauchgasbehandlung-titel,"----
 ### Installation zur Rauchgasbehandlung","----
 ### Dispositivo per il trattamento dei gas di combustione"
@@ -310,6 +313,9 @@ mistlager-titel,"---
 notstromanlage-titel,"----
 ### Notstromanlage","---
 ### Gruppo elettrogeno d'emergenza"
+nutzungsbedingte-anforderungen-titel,"---
+#### Nutzungsbedingte Anforderungen","---
+#### Requisiti d'uso"
 oel-oder-gasfeuerung-titel,"---
 #### Öl- oder Gasfeuerung","---
 #### Impianti a combustione alimentati con olio o gas"
@@ -341,9 +347,9 @@ Gemäss Artikel 45a EnG ist beim Bau neuer Gebäude mit einer anrechenbaren Geb�
 
 Gemäss Artikel 29a des Energiereglements (EnR) muss die Leistung der installierten Solaranlage mindestens 20 W pro m2 anrechenbarer Gebäudefläche betragen.","####Obbligo di sfruttamento dell'energia solare per gli edifici (edifici nuovi) conformemente alla legge sull'energia (LEne)
 
-Conformemente all'articolo 45a LEne, i tetti o le facciate degli edifici nuovi con una superficie determinante superiore a 300 m2 vanno dotati di impianti solari, in particolare fotovoltaici o termici. 
+Conformemente all'articolo 45a LEne, i tetti o le facciate degli edifici nuovi con una superficie determinante superiore a 300 m² vanno dotati di impianti solari, in particolare fotovoltaici o termici. 
 
-Conformemente all'articolo 29a del Regolamento sull'utilizzazione dell'energia (RUEn) la potenza dell'impianto solare installato deve ammontare almeno a 20 W per m2 di superficie determinante."
+Conformemente all'articolo 29a del Regolamento sull'utilizzazione dell'energia (RUEn) la potenza dell'impianto solare installato deve ammontare almeno a 20 W per m² di superficie determinante."
 solaranlagen-titel,### Selbstdeklaration über die korrekte Erstellung von Solaranlagen,### Autocertificazione relativa alla corretta installazione di impianti solari
 spezifikation-umschlageplatz-titel,"---
 #### Spezifikation Umschlageplatz","---
@@ -371,9 +377,14 @@ tankstellen-und-brennstofflager-titel,"---
 tankstelle-titel,"---
 #### Tankstelle","---
 #### Stazione di servizio"
+terminierung-titel,"---
+
+### Terminierung","---
+
+### Scadenza"
 terrainveraenderungen-titel,### Terrainveränderungen,### Modifiche del terreno
 trennlinie,---,---
-triage-titel,### Triage,### Cernita
+triage-titel,### Triage,### Triage
 verwendete-stoffe-und-produkte-titel,"---
 #### Verwendete Stoffe und Produkte Titel","---
 #### Sostanze e prodotti usati titolo"
@@ -413,7 +424,7 @@ Bitte tragen Sie die Adresse Ihres Bauvorhabens in die Zeile ein oder klicken Si
 
 Sie können einen Punkt, eine Linie oder eine Fläche in der Karte zeichnen.","#### Localizzazione
 
-Indicare l'indirizzo del progetto di costruzione nella riga o cliccare sulla cartina successiva per indicare la posizione esatta del progetto. 
+Indicare l'indirizzo del progetto di costruzione nell'apposita riga in basso o cliccare sulla cartina successiva per indicare la posizione esatta del progetto. 
 
 Sulla cartina è possibile disegnare un punto, una linea o una superficie."
 hinweis-personalien,"<div class=""uk-alert""><p>Wenn die hier erfasste Person zusätzlich Zugang zum Dossier erhalten und über dessen Bearbeitungsfortschritt informiert werden soll, erfassen Sie diese im Menü ""Berechtigungen"".</p>
@@ -487,7 +498,7 @@ table.columnwise tr td {
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
-</table>","**Attenzione:** al momento è possibile inoltrare in forma digitale solo le domande dei comuni seguenti:
+</table>","**Attenzione:** al momento è possibile inoltrare in forma digitale solo le domande relative ai comuni seguenti:
 
 <style>
 table.columnwise {
@@ -554,8 +565,8 @@ table.columnwise tr td {
     <td>&nbsp;</td>
   </tr>
 </table>"
-lage-des-vorhabens-titel,### Lage des Vorhabens,### Posizione del progetto
-materielle-pruefung-titel,### Materielle Prüfung,### Esame materiale
+lage-des-vorhabens-titel,### Lage des Vorhabens,### Ubicazione del progetto
 personalien-titel,### Personalien,### Dati personali
 profil-uebernehmen,-,-
+materielle-pruefung-titel,### Materielle Prüfung,### Esame materiale
 hinweis-publikationsdokumente,"**Bitte beachten Sie, dass die Dokumente, welche publiziert werden sollen, im Voraus als Publikationsdokumente in der Dokumentenablage markiert werden müssen.**",**Si prega di osservare che i documenti che devono essere pubblicati devono essere contrassegnati in precedenza come documenti da pubblicare nell'archivio di documenti.**

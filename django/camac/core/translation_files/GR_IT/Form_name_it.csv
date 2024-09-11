@@ -1,7 +1,7 @@
-﻿id,name,name
+﻿id,name,
 check-additional-demand,Nachforderung prüfen,Verifica richiesta di precisazioni
 fill-additional-demand,Nachforderung,Richiesta di precisazioni
-send-additional-demand,Nachforderung erstellen,Crea richiesta di precisazioni
+send-additional-demand,Nachforderung erstellen,Creare richiesta di precisazioni
 decision,Entscheid,Decisione
 distribution,Zirkulation,Circolazione
 inquiry,Anfrage zur Stellungnahme,Richiesta di prendere posizione
