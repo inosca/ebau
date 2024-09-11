@@ -298,7 +298,7 @@
       "modified_by_group": null,
       "label": "{\"de\": \"R\\u00fcckweisung\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -568,7 +568,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"R\\u00fcckweisung / Nachforderung\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Nachforderung\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
       "is_hidden": "false",
@@ -608,7 +608,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"- **Zustimmung** = alle Unterfachstellen / Fachstellen sagen ja (evtl. mit Auflagen)  \\n- **Ablehnung** = eine Unterfachstelle / Fachstelle mit ***Killer*** gen\\u00fcgt f\\u00fcr Ablehnung  \\n- ***R\\u00fcckweisung = Beurteilung f\\u00fcr eine Unterfachstelle / Fachstelle nicht m\\u00f6glich gen\\u00fcgt, aber evtl. Teilzustimmung oder Teilablehnung zus\\u00e4tzlich m\\u00f6glich (andere Unterfachstellen / Fachstellen)***  \\n- **Keine Bemerkungen** = Unterfachstelle / Fachstelle nicht betroffen\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"- **Zustimmung** = alle Unterfachstellen / Fachstellen sagen ja (evtl. mit Auflagen)\\n- **Ablehnung** = eine Unterfachstelle / Fachstelle mit ***Killer*** gen\\u00fcgt f\\u00fcr Ablehnung\\n- **Keine Bemerkungen** = Unterfachstelle / Fachstelle nicht betroffen\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},

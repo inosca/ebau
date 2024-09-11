@@ -637,7 +637,6 @@ DISTRIBUTION = {
                 "POSITIVE": "inquiry-answer-status-positive",
                 "NEGATIVE": "inquiry-answer-status-negative",
                 "CLAIM": "inquiry-answer-status-additional-demand",
-                "REJECTION": "inquiry-answer-status-rejection",
                 "NO_COMMENT": "inquiry-answer-status-no-comment",
                 "UNKNOWN": "inquiry-answer-status-unknown",
             },
