@@ -133,6 +133,7 @@ def instance_for_appeal_so(
             {
                 "dossier-number": "2023-123",
                 "submit-date": "2024-04-30T20:04:00.000Z",
+                "is-bab": True,
             }
         )
         so_instance.case.save()
@@ -391,16 +392,9 @@ def test_instance_appeal_so(
         assert (
             new_instance.case.meta["submit-date"] == instance.case.meta["submit-date"]
         )
+        assert new_instance.case.meta["is-bab"] is True
 
-        assert new_instance.instance_state.name == "decision"
-
-        decision_work_item = new_instance.case.work_items.get(task_id="decision")
-
-        assert decision_work_item.status == WorkItem.STATUS_READY
-        assert (
-            decision_work_item.name["de"]
-            == "Entscheid der Beschwerdeinstanz bestätigen"
-        )
+        assert new_instance.instance_state.name == "init-distribution"
 
         assert len(mailoutbox) == 1
         assert notification_template.subject in mailoutbox[0].subject

@@ -48,9 +48,19 @@ MODULE_ADDITIONAL_DEMANDS = (
     # We need to check the form here because the work item will exists in
     # preliminary clarification as we allow a distribution. However, only a
     # distribution is allowed but no additional demands.
-    RequireWorkItem("init-additional-demand") & ~IsForm(["voranfrage"])
+    RequireWorkItem("init-additional-demand") & ~IsForm(["voranfrage"]) & ~IsAppeal()
 )
-MODULE_APPEAL = RequireWorkItem("appeal") & ROLES_NO_READONLY
+MODULE_APPEAL = RequireWorkItem("appeal") & (
+    ROLES_MUNICIPALITY
+    | (
+        Callback(
+            lambda instance, userinfo: instance.case.meta.get("is-bab", False)
+            and userinfo.service.service_group.name == "service-bab",
+            allow_caching=True,
+            name="is_bab_instance_and_service",
+        )
+    )
+)
 MODULE_BILLING = STATES_ALL & ROLES_NO_READONLY
 MODULE_COMMUNICATIONS = STATES_ALL & ROLES_NO_READONLY
 MODULE_COMPLETE_INSTANCE = (
@@ -101,6 +111,7 @@ MODULE_RELATED_GWR_PROJECTS = (
     )
     & IsForm(["baugesuch"])
     & ROLES_MUNICIPALITY
+    & ~IsAppeal()
 )
 MODULE_RESPONSIBLE = STATES_ALL & ROLES_NO_READONLY
 MODULE_WORK_ITEMS = STATES_ALL & ROLES_NO_READONLY
@@ -193,6 +204,7 @@ SO_PERMISSIONS_SETTINGS = {
         "distribution-service": [
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
             ("additional-demands-write", MODULE_ADDITIONAL_DEMANDS),
+            ("appeal-read", MODULE_APPEAL),
             ("billing-read", MODULE_BILLING),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),

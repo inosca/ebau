@@ -314,7 +314,7 @@ def test_dynamic_task_after_ebau_number(
         (
             True,
             "main-form",
-            {"create-manual-workitems", "appeal", "decision"},
+            {"create-manual-workitems", "appeal", "distribution"},
         ),
         (
             False,

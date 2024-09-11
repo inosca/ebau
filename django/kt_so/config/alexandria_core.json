@@ -218,6 +218,22 @@
             "visibility": "all",
             "permissions": [
               {
+                "condition": {
+                  "BaBService": true,
+                  "BaBInstance": true
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "files"],
+                "condition": {
+                  "BaBService": true,
+                  "BaBInstance": true
+                },
+                "permission": "update"
+              },
+              {
                 "scope": "All",
                 "fields": ["tags"],
                 "permission": "update"

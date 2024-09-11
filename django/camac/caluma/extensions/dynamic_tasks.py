@@ -237,7 +237,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
     @register_dynamic_task("after-submit")
     def resolve_after_submit(self, case, user, prev_work_item, context):
         if case.meta.get("is-appeal"):
-            return ["create-manual-workitems", "appeal", "decision"]
+            return ["create-manual-workitems", "appeal", "distribution"]
         elif case.document.form_id == "voranfrage":
             return ["create-manual-workitems", "distribution"]
         elif case.document.form_id == "meldung":
