@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-29 13:32+0200\n"
+"POT-Creation-Date: 2024-09-11 17:25+0200\n"
 "PO-Revision-Date: 2024-08-29 13:33+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -18,81 +18,78 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#: camac/instance/milestones/serializers.py:132
+#: camac/instance/milestones/serializers.py
 msgid "regular process"
 msgstr "Ordentliches Verfahren"
 
-#: camac/instance/milestones/serializers.py:135
+#: camac/instance/milestones/serializers.py
 msgid "instance submitted"
 msgstr "Dossier erfasst"
 
-#: camac/instance/milestones/serializers.py:138
+#: camac/instance/milestones/serializers.py
 msgid "Paper submission"
 msgstr "Eingang Post"
 
-#: camac/instance/milestones/serializers.py:142
+#: camac/instance/milestones/serializers.py
 msgid "Additional demand"
 msgstr "Nachforderung Gemeindebaubehörde"
 
-#: camac/instance/milestones/serializers.py:149
+#: camac/instance/milestones/serializers.py
 msgid "Check completed"
 msgstr "Vollständigkeitsprüfung abgeschlossen"
 
-#: camac/instance/milestones/serializers.py:154
+#: camac/instance/milestones/serializers.py
 msgid "Instance complete"
 msgstr "Dossier vollständig"
 
-#: camac/instance/milestones/serializers.py:158
+#: camac/instance/milestones/serializers.py
 msgid "Review building commission"
 msgstr "Prüfung durch Gemeinde"
 
-#: camac/instance/milestones/serializers.py:166
+#: camac/instance/milestones/serializers.py
 msgid "Puclication date"
 msgstr "Publikationsdatum"
 
-#: camac/instance/milestones/serializers.py:170
+#: camac/instance/milestones/serializers.py
 msgid "Receipt of objections"
 msgstr "Eingang von Einsprachen"
 
-#: camac/instance/milestones/serializers.py:176
+#: camac/instance/milestones/serializers.py
 msgid "Forwarding to KOOR"
 msgstr "Weiterleitung an KOOR"
 
-#: camac/instance/milestones/serializers.py:183
+#: camac/instance/milestones/serializers.py
 msgid "Start circulation"
 msgstr "Start Zirkulation"
 
-#: camac/instance/milestones/serializers.py:193
+#: camac/instance/milestones/serializers.py
 msgid "Distribution completed"
 msgstr "Zirkulation beendet"
 
-#: camac/instance/milestones/serializers.py:203
+#: camac/instance/milestones/serializers.py
 msgid "Statement - preliminary decision"
 msgstr "Stellungnahme - Vorentscheid"
 
-#: camac/instance/milestones/serializers.py:207
+#: camac/instance/milestones/serializers.py
 msgid "Building decision"
 msgstr "Bau- und Einspracheentscheid"
 
-#: camac/instance/milestones/serializers.py:211
+#: camac/instance/milestones/serializers.py
 msgid "notice to geometer"
 msgstr "Meldung Baubewilligung an Geometer"
 
-#: camac/instance/milestones/serializers.py:217
+#: camac/instance/milestones/serializers.py
 msgid "Receipt confirmation of decision documents"
 msgstr "Empfangsbestätigung Entscheiddokumente"
 
-#: camac/instance/milestones/serializers.py:221
+#: camac/instance/milestones/serializers.py
 msgid "Receipt confirmation of preliminary decision"
 msgstr "Empfangsbestätigung Vorentscheid"
 
-#: camac/instance/milestones/serializers.py:225
+#: camac/instance/milestones/serializers.py
 msgid "notice to gebaeudeschaetzung"
 msgstr "Meldung Baubewilligung an Gebäudeschätzung"
 
-#: camac/instance/milestones/serializers.py:231
+#: camac/instance/milestones/serializers.py
 msgid "Building permit valid until"
 msgstr "Baubewilligung gültig bis"
-
-#~ msgid "Returned to municipality"
-#~ msgstr "Rückgabe an Gemeinde"

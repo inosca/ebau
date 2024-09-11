@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-07 14:55+0200\n"
+"POT-Creation-Date: 2024-09-11 17:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,62 +18,78 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: camac/instance/milestones/serializers.py:75
+#: camac/instance/milestones/serializers.py
 msgid "regular process"
 msgstr ""
 
-#: camac/instance/milestones/serializers.py:78
+#: camac/instance/milestones/serializers.py
 msgid "instance submitted"
 msgstr ""
 
-#: camac/instance/milestones/serializers.py:81
+#: camac/instance/milestones/serializers.py
 msgid "Paper submission"
 msgstr ""
 
-#: camac/instance/milestones/serializers.py:85
+#: camac/instance/milestones/serializers.py
 msgid "Additional demand"
 msgstr ""
 
-#: camac/instance/milestones/serializers.py:91
-msgid "Instance complete"
-msgstr ""
-
-#: camac/instance/milestones/serializers.py:95
-msgid "Review building commission"
-msgstr ""
-
-#: camac/instance/milestones/serializers.py:104
-msgid "Start circulation"
-msgstr ""
-
-#: camac/instance/milestones/serializers.py:114
-msgid "Distribution completed"
-msgstr ""
-
-#: camac/instance/milestones/serializers.py:124
-msgid "Decision made"
-msgstr ""
-
-#: camac/instance/milestones/serializers.py:131
-msgid "notice to geometer"
-msgstr ""
-
-#: camac/instance/milestones/serializers.py:137
-msgid "notice to gebaeudeschaetzung"
-msgstr ""
-
-#: camac/instance/milestones/serializers.py:145
-msgid "is paper"
-msgstr ""
-
-#: camac/instance/milestones/serializers.py:149
+#: camac/instance/milestones/serializers.py
 msgid "Check completed"
 msgstr ""
 
-#: camac/instance/milestones/serializers.py:155
-msgid "Returned to municipality"
+#: camac/instance/milestones/serializers.py
+msgid "Instance complete"
 msgstr ""
 
-#: camac/instance/milestones/serializers.py:163
+#: camac/instance/milestones/serializers.py
+msgid "Review building commission"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py
+msgid "Puclication date"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py
+msgid "Receipt of objections"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py
+msgid "Forwarding to KOOR"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py
+msgid "Start circulation"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py
+msgid "Distribution completed"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py
+msgid "Statement - preliminary decision"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py
+msgid "Building decision"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py
+msgid "notice to geometer"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py
+msgid "Receipt confirmation of decision documents"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py
+msgid "Receipt confirmation of preliminary decision"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py
+msgid "notice to gebaeudeschaetzung"
+msgstr ""
+
+#: camac/instance/milestones/serializers.py
 msgid "Building permit valid until"
 msgstr ""
