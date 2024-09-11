@@ -7,13 +7,56 @@ from rest_framework import status
 
 
 @pytest.mark.parametrize(
-    "is_bab,is_bab_service,has_completed_publication,has_running_publication,expected_services",
+    "is_bab,is_bab_service,has_completed_publication,has_running_publication,is_appeal,expected_services",
     [
-        (False, False, False, False, {"excluded", "not-excluded", "bab-service"}),
-        (True, False, False, False, {"not-excluded"}),
-        (True, False, True, False, {"not-excluded", "bab-service"}),
-        (True, False, True, True, {"not-excluded"}),
-        (True, True, False, False, {"not-excluded", "excluded"}),
+        (
+            False,
+            False,
+            False,
+            False,
+            False,
+            {"excluded", "not-excluded", "bab-service"},
+        ),
+        (
+            True,
+            False,
+            False,
+            False,
+            False,
+            {"not-excluded"},
+        ),
+        (
+            True,
+            False,
+            True,
+            False,
+            False,
+            {"not-excluded", "bab-service"},
+        ),
+        (
+            True,
+            False,
+            True,
+            True,
+            False,
+            {"not-excluded"},
+        ),
+        (
+            True,
+            True,
+            False,
+            False,
+            False,
+            {"not-excluded", "excluded"},
+        ),
+        (
+            True,
+            False,
+            False,
+            False,
+            True,
+            {"not-excluded", "bab-service"},
+        ),
     ],
 )
 def test_public_services_available_in_distribution_for_instance(
@@ -27,12 +70,17 @@ def test_public_services_available_in_distribution_for_instance(
     so_instance,
     bab_settings,
     is_bab,
+    is_appeal,
     so_publication_settings,
     work_item_factory,
     utils,
 ):
     if is_bab:
         so_instance.case.meta["is-bab"] = True
+        so_instance.case.save()
+
+    if is_appeal:
+        so_instance.case.meta["is-appeal"] = True
         so_instance.case.save()
 
     if is_bab_service:
