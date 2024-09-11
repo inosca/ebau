@@ -162,3 +162,18 @@ REJECTION_FEEDBACK_QUESTION_ID = 12000000
 
 GEOMETER_SERVICE_ID = 181
 FGS_SERVICE_ID = 400  # Fachstelle für Gebäudeschätzung
+
+CALUMA_SPECIAL_FORM_QUESTION_VALUE_MAP = {
+    141: {
+        "question": "solaranlage-art-des-gesuchs",
+        "value": "solaranlage-art-des-gesuchs-solaranlage-baubewilligungspflichtig",
+    },
+    121: {
+        "question": "reklame-art-des-gesuchs",
+        "value": "reklame-art-des-gesuchs-reklamegesuch-baubewilligungspflichtig",
+    },
+    297: {
+        "question": "gebaeudetechnik-art-des-gesuchs",
+        "value": "gebaeudetechnik-art-des-gesuchs-gebaeudetechnik-baubewilligungspflichtig",
+    },
+}

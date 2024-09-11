@@ -863,31 +863,48 @@ def test_post_create_reject_work_item(
     )
 
 
-def test_convert_solar_instance_to_construction_permit_ur(
+@pytest.mark.parametrize(
+    "question_slug,value, form_id",
+    [
+        (
+            "solaranlage-art-des-gesuchs",
+            "solaranlage-art-des-gesuchs-solaranlage-baubewilligungspflichtig",
+            uri_constants.FORM_MELDUNG_SOLARANLAGE,
+        ),
+        (
+            "reklame-art-des-gesuchs",
+            "reklame-art-des-gesuchs-reklamegesuch-baubewilligungspflichtig",
+            uri_constants.FORM_REKLAME,
+        ),
+        (
+            "gebaeudetechnik-art-des-gesuchs",
+            "gebaeudetechnik-art-des-gesuchs-gebaeudetechnik-baubewilligungspflichtig",
+            uri_constants.FORM_MELDUNG_GEBAEUDETECHNIK,
+        ),
+    ],
+)
+def test_convert_special_form_to_construction_permit_ur(
     db,
-    task_factory,
     work_item_factory,
     question_factory,
     answer_factory,
     document_factory,
-    case_factory,
     ur_instance,
     caluma_admin_user,
     form_factory,
-    mocker,
     set_application_ur,
+    question_slug,
+    value,
+    form_id,
     instance_state_factory,
     notification_template_factory,
 ):
     notification_template_factory(slug="dossier-angenommen")
-    solar_form = form_factory()
-    construction_form = form_factory()
+    form_factory(form_id=form_id)
     instance_state_factory(name="comm")
-    mocker.patch("camac.constants.kt_uri.FORM_MELDUNG_SOLARANLAGE", solar_form.pk)
-    mocker.patch("camac.constants.kt_uri.FORM_BAUGESUCH", construction_form.pk)
 
     complete_check_document = document_factory()
-    ur_instance.form_id = uri_constants.FORM_MELDUNG_SOLARANLAGE
+    ur_instance.form_id = form_id
     ur_instance.save()
     answer_factory(
         document=complete_check_document,
@@ -898,6 +915,10 @@ def test_convert_solar_instance_to_construction_permit_ur(
         document=ur_instance.case.document,
         question_id="form-type",
         value="form-type-building-permit-canton",
+    )
+    question_factory(
+        slug=question_slug,
+        type=caluma_form_models.Question.TYPE_TEXT,
     )
     complete_check_work_item = work_item_factory(
         task_id="complete-check",
@@ -912,7 +933,9 @@ def test_convert_solar_instance_to_construction_permit_ur(
         context={},
     )
     ur_instance.refresh_from_db()
-    assert ur_instance.form_id == uri_constants.FORM_BAUGESUCH
+    assert (
+        ur_instance.case.document.answers.get(question_id=question_slug).value == value
+    )
 
 
 @pytest.mark.parametrize(
