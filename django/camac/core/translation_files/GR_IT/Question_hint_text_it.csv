@@ -1,9 +1,10 @@
-﻿id,hint_text,hint_text
+﻿id,hint_text,
 anzahl-schutzplaetze-spital,1 Schutzplatz pro Patientenbett,1 posto protetto per ogni letto per pazienti
 anzahl-schutzplaetze-wohnhaus,2 Schutzplätze pro 3 Zimmer,2 posti protetti ogni 3 locali
 bauanzeige-haustechnische-anlagen-brandschutz,"Bitte beachten: Die Befreiung von der Baubewilligungspflicht entbindet nicht von der Einhaltung der Vorschriften des materiellen Rechts (z.B. Grenzabstand bei Kleinbauten) und der Einholung anderer Bewilligungen (z.B. Gastwirtschaftsbewilligungen).    Bestehen Anzeichen dafür, dass durch ein bewilligungsfreies Bauvorhaben Vorschriften des materiellen Rechts verletzt sein könnten, leitet die kommunale Baubehörde von Amtes wegen, auf Ersuchen der Fachstelle oder auf Hinweis von Dritten hin das Baubewilligungsverfahren ein (vgl. Art. 40 Abs. 3 der kantonalen Raumplanungsverordnung [KRVO])","Attenzione: l'esenzione dall'obbligo della licenza edilizia non esonera dall'osservanza delle prescrizioni del diritto materiale (ad es. distanza dal confine in caso di piccole costruzioni) e dalla richiesta di altre autorizzazioni (ad es. patenti d'esercizio pubblico).    Qualora vi fossero indizi che con un progetto di costruzione che non necessita di una licenza potrebbero venire lese prescrizioni di diritto materiale, l'autorità edilizia comunale avvia d'ufficio, su richiesta del Servizio o su indicazione di terzi, la procedura per il rilascio della licenza edilizia (cfr. art. 40 cpv. 3 dell'ordinanza cantonale sulla pianificazione territoriale [OPTC])"
-baugespann,Hinweis: Das Baugespann muss zum Zeitpunkt der Baueingabe erstellt sein (vgl. Art. 43 der kantonalen Raumplanungsverordnung [KRVO]).,Nota: Le modine devono essere posate al momento dell'inoltro della domanda di costruzione (cfr. art. 43 dell'ordinanza cantonale sulla pianificazione territoriale [OPTC]).
+baugespann,Hinweis: Das Baugespann muss zum Zeitpunkt der Baueingabe erstellt sein (vgl. Art. 43 der kantonalen Raumplanungsverordnung [KRVO]).,Nota: le modine devono essere posate al momento dell'inoltro della domanda di costruzione (cfr. art. 43 dell'ordinanza cantonale sulla pianificazione territoriale [OPTC]).
 bemerkungen-zum-betrieb,"z.B. bivalentes System, Solareintrag, Nah- oder Fernwärmeverbund etc.","ad es. sistema bivalente, apporto solare, rete di teleriscaldamento, ecc."
+fabrikat-typ-der-anlage,evtl. Prospekt beilegen,ev. allegare opuscolo
 beschreibung-lagergut,Sicherheitsdatenblatt beilegen,Allegare la scheda di dati di sicurezza
 beschreibung-minderungseinrichtung,"Fabrikat, Typ, Lieferant, Wirkungsgrad; evtl. Prospekt beilegen","Modello, tipo, fornitore, rendimento; ev. allegare opuscolo"
 betriebsstunden-pro-jahr,Einzel / Gesamt,Singolo / Complessivo
@@ -11,7 +12,6 @@ brennstoffverbrauch,In kg/h oder m³/h,In kg/h o m³/h
 brennstoffverbrauch-holzfeuerung,In kg/h oder m³/h,In kg/h o m³/h
 chemische-bodenbelastung,"Wenn ja, bitte Resultate der geforderten Bodenuntersuchung beilegen","Se sì, si prega di allegare i risultati dell'analisi del suolo richiesta"
 datum-der-messung,Kopie Messbericht beilegen,Allegare copia del rapporto di misurazione
-fabrikat-typ-der-anlage,evtl. Prospekt beilegen,ev. allegare opuscolo
 gebaeudehoehe,Gesamthöhe nach Interkantonale Vereinbarung über die Harmonisierung der Baubegriffe (IVHB),Altezza complessiva secondo il Concordato intercantonale sull'armonizzazione delle definizioni edilizie (CIAE)
 heizleistung-waermepumpe-verdampfer,nach SN EN 14511-1 B0W35,secondo SN EN 14511-1 B0W35
 heizleistung-waermepumpeverdampfer,nach SN EN 14511-1 B0W35,secondo SN EN 14511-1 B0W35

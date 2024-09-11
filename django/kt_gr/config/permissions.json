@@ -3,7 +3,7 @@
     "model": "permissions.accesslevel",
     "pk": "applicant",
     "fields": {
-      "name": "{\"de\": \"Gesuchsteller/in\", \"fr\": \"\", \"it\": \"\"}",
+      "name": "{\"de\": \"Gesuchsteller/in\", \"fr\": \"\", \"it\": \"Richiedente\"}",
       "description": "{\"de\": \"Gesuchsteller/in\", \"fr\": \"\", \"it\": \"\"}",
       "required_grant_type": "USER",
       "applicable_area": "APPLICANT"
@@ -13,7 +13,7 @@
     "model": "permissions.accesslevel",
     "pk": "distribution-service",
     "fields": {
-      "name": "{\"de\": \"Fachstelle\", \"fr\": \"\", \"it\": \"\"}",
+      "name": "{\"de\": \"Fachstelle\", \"fr\": \"\", \"it\": \"Servizio\"}",
       "description": "{\"de\": \"Fachstelle\", \"fr\": \"\", \"it\": \"\"}",
       "required_grant_type": "SERVICE",
       "applicable_area": "INTERNAL"
@@ -23,7 +23,7 @@
     "model": "permissions.accesslevel",
     "pk": "lead-authority",
     "fields": {
-      "name": "{\"de\": \"Gemeinde\", \"fr\": \"\", \"it\": \"\"}",
+      "name": "{\"de\": \"Gemeinde\", \"fr\": \"\", \"it\": \"Comune\"}",
       "description": "{\"de\": \"Gemeinde\", \"fr\": \"\", \"it\": \"\"}",
       "required_grant_type": "SERVICE",
       "applicable_area": "INTERNAL"
@@ -43,7 +43,7 @@
     "model": "permissions.accesslevel",
     "pk": "support",
     "fields": {
-      "name": "{\"de\": \"Support\", \"fr\": \"\", \"it\": \"\"}",
+      "name": "{\"de\": \"Support\", \"fr\": \"\", \"it\": \"Supporto\"}",
       "description": "{\"de\": \"Support\", \"fr\": \"\", \"it\": \"\"}",
       "required_grant_type": "ROLE",
       "applicable_area": "ANY"
@@ -53,7 +53,7 @@
     "model": "permissions.accesslevel",
     "pk": "uso",
     "fields": {
-      "name": "{\"de\": \"USO\", \"fr\": \"\", \"it\": \"\"}",
+      "name": "{\"de\": \"USO\", \"fr\": \"\", \"it\": \"Organizzazione ambientalista\"}",
       "description": "{\"de\": \"Umweltschutzorganisation\", \"fr\": \"\", \"it\": \"\"}",
       "required_grant_type": "SERVICE",
       "applicable_area": "INTERNAL"
