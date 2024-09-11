@@ -137,10 +137,14 @@ class TopicSerializer(serializers.ModelSerializer):
         )
 
     def _validate_entity(self, value):
-        if value.isnumeric() and user_models.Service.objects.filter(pk=value).exists():
-            return str(value)
-        elif value == "APPLICANT":
-            return value
+        if value is not None:
+            if (
+                value.isnumeric()
+                and user_models.Service.objects.filter(pk=value).exists()
+            ):
+                return str(value)
+            elif value == "APPLICANT":
+                return value
 
         raise ValidationError(
             gettext("Involved entity must be either 'APPLICANT' or a valid service ID")
@@ -182,19 +186,21 @@ class TopicSerializer(serializers.ModelSerializer):
         validated_entities = [self._validate_entity(v) for v in value]
 
         if my_entity == "APPLICANT":
-            # FIXME: instead of validating the involved entities, we could
-            # also just hard-code applicant + active service, since our UI
-            # doesn't allow choosing involved entities in the first place.
-
             # Ensure the only other entity, if any, is LB (Municipality)
             # The LB is the active service on the instance
-            active_service = (
-                Instance.objects.get(pk=self.initial_data["instance"]["id"])
-                .responsible_service(filter_type="municipality")
-                .pk
-            )
+            active_service = Instance.objects.get(
+                pk=self.initial_data["instance"]["id"]
+            ).responsible_service(filter_type="municipality")
 
-            acceptable_entities = set(["APPLICANT", str(active_service)])
+            if not active_service:
+                # We've got nobody to talk to, makes no sense to start a topic
+                # at this point in time (I'm applicant and there's no
+                # responsible service)
+                raise ValidationError(
+                    gettext("There is no active service for this instance")
+                )
+
+            acceptable_entities = set(["APPLICANT", str(active_service.pk)])
             inacceptable_entities = set(validated_entities) - acceptable_entities
 
             if inacceptable_entities:

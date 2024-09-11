@@ -121,6 +121,61 @@ def test_rejected_create_topic(db, be_instance, admin_client, role):
     )
 
 
+@pytest.mark.parametrize("forge_entity", [False, True])
+def test_rejected_create_topic_on_unsubmitted_instance(
+    db,
+    applicant_factory,
+    instance_factory,
+    service_factory,
+    admin_client,
+    forge_entity,
+):
+    """Test whether we can create a topic on an unsubmitted instance."""
+    portal_group = admin_client.user.groups.first()
+    portal_group.service = None
+    portal_group.save()
+    i = instance_factory(group=portal_group)
+    applicant_factory(invitee=admin_client.user, instance=i)
+
+    if forge_entity:
+        # Scenario where the applicant attempts to fake an assigned service:
+        s = service_factory()
+        entities = [{"id": str(s.pk), "name": s.name}]
+        errormsg = "There is no active service for this instance"
+    else:
+        # Normal behaviour of frontend on unsubmitted instance:
+        entities = [{"id": None}]
+        errormsg = "Involved entity must be either 'APPLICANT' or a valid service ID"
+
+    url = reverse("communications-topic-list")
+    resp = admin_client.post(
+        url,
+        {
+            "data": {
+                "type": "communications-topics",
+                "attributes": {
+                    "subject": "hello",
+                    "involved-entities": entities,
+                },
+                "relationships": {
+                    "instance": {
+                        "data": {"type": "instances", "id": str(i.pk)},
+                    }
+                },
+            }
+        },
+    )
+    assert resp.status_code == status.HTTP_400_BAD_REQUEST
+    assert resp.json()["errors"] == [
+        {
+            "detail": errormsg,
+            "status": "400",
+            "source": {"pointer": "/data/attributes/involved-entities"},
+            "code": "invalid",
+        },
+    ]
+
+
 @pytest.mark.parametrize("role__name", ["Municipality", "Applicant"])
 def test_rejected_create_message(
     db, be_instance, admin_client, role, communications_topic
