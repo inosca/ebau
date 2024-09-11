@@ -1,7 +1,8 @@
-﻿id,name,name
-alle-beteiligten,Alle Beteiligten,Tutti parti coinvolte
+﻿id,name,
+alle-beteiligten,Alle Beteiligten,Tutte le parti coinvolte
 alle-kanton,Alle Kanton,Tutti Cantone
 bauabnahme,Bauabnahme,Collaudo
+umweltschutzorganisationen,Umweltschutzorganisationen,Organizzazioni ambientaliste
 beilagen-zum-gesuch,Beilagen zum Gesuch,Allegati alla domanda
 beilagen-zum-gesuch-brandschutz,Brandschutz (Feuerpolizei),Protezione antincendio (polizia del fuoco)
 beilagen-zum-gesuch-grundstuecksangaben,"Grundstücksangaben, Projektpläne und -beschrieb","Indicazioni relative al fondo, piani di progetto e descrizione del progetto"
@@ -12,4 +13,3 @@ intern,Intern,A uso interno
 intern-mit-unterfachstellen,Intern (mit Unterfachstellen),A uso interno (con servizi di rango inferiore)
 nachforderung,Nachforderung,Richiesta di precisazioni
 stellungnahmen-are,Stellungnahmen ans ARE,Prese di posizione all'UST-GR
-umweltschutzorganisationen,Umweltschutzorganisationen,Organizzazioni ambientaliste

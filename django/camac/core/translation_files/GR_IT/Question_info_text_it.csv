@@ -1,4 +1,4 @@
-﻿id,info_text,info_text
+﻿id,info_text,
 additional-demand-decision,"Sofern die Nachforderung vollständig beantwortet wurde, wird die aktuelle Nachforderungs-Anfrage abgeschlossen. Wenn noch zusätzliche oder weitere Unterlagen notwendig sind, kann die Nachforderung als unvollständig beantwortet und eine weitere Nachforderung an den Gesuchsteller formuliert werden.","Se sono state fornite integralmente le precisazioni richieste, l'attuale richiesta di precisazioni è conclusa. Se sono necessari documenti supplementari o ulteriore documentazione, la richiesta di precisazioni è considerata incompleta ed è possibile inviare una nuova richiesta di precisazioni alla persona richiedente."
 decision-submit,"Haben Sie den Entscheid im Menü ""Dokumente"" unter der Kategorie “alle Beteiligten” hochgeladen und möchten Sie den Entscheid jetzt verfügen? Dieser Schritt kann nicht rückgängig gemacht werden.
 <br><br>
@@ -47,19 +47,26 @@ beschreibung-der-anlage-des-prozesses,"Feuerungsanlagen zur Erzeugung der (Raum)
 beschreibung-einzelfeuerung,"Berechtigung zur Ausführung von Arbeiten an Flüssiggasanlagen: Es dürfen nur solche Berufs- oder Fachleute Flüssiggasanlagen erstellen, ändern oder instand halten, die über geprüftes Fachwissen im Bereich Flüssiggas und Installationstechnik verfügen. Diese Person ist verantwortlich für die sachgemässe und sicherheitsgerechte Ausführung nach den Regeln der Technik. Als Installateur Flüssiggasanlagen gelten Personen, welche die Anforderungen gemäss Prüfungsreglement des Vereins Arbeitskreis LPG [58a] erfüllen.","Autorizzazione a eseguire lavori su impianti a gas liquefatto: gli impianti a gas liquefatto possono essere costruiti, modificati o sottoposti a manutenzione solo da professionisti o esperti in possesso di comprovate conoscenze specialistiche nel settore dei gas liquefatti e delle tecniche d'installazione. Queste persone sono responsabili di un'esecuzione corretta e sicura, secondo le regole della tecnica. Per installatori di impianti a gas liquefatto si intendono persone che soddisfano i requisiti del regolamento d'esame dell'Associazione Circolo di lavoro GPL [58a]."
 bestaetigung-energienachweise,"Alle gültigen Formulare, Gesetze und Protokolle sind unter [energienachweis.gr.ch](http://www.energienachweis.gr.ch/) zu finden.
 
-Im Rahmen der «Privaten Kontrolle» prüfen akkreditierte Fachleute für die Fachbereiche Wärmedämmung, Heizungsanlagen sowie Klima- und Belüftungsanlagen, ob ein Bauvorhaben den gesetzlichen Bestimmungen entspricht und nach den bewilligten Plänen ausgeführt wurde. Die Formulare «Energienachweise» und «Ausführungskontrolle» müssen beim Bauamt eingereicht werden.","Moduli, leggi e protocolli validi si possono trovare all'indirizzo [energienachweis.gr.ch](http://www.energienachweis.gr.ch/).
+Im Rahmen der «Privaten Kontrolle» prüfen akkreditierte Fachleute für die Fachbereiche Wärmedämmung, Heizungsanlagen sowie Klima- und Belüftungsanlagen, ob ein Bauvorhaben den gesetzlichen Bestimmungen entspricht und nach den bewilligten Plänen ausgeführt wurde. Die Formulare «Energienachweise» und «Ausführungskontrolle» müssen beim Bauamt eingereicht werden.","Moduli, leggi e protocolli validi si possono trovare all'indirizzo [energienachweis.gr.ch](https://www.gr.ch/IT/istituzioni/amministrazione/diem/aev/energieeffizienz/vollzug/energienachweis/Seiten/default.aspx).
 
 Nel quadro del «Controllo privato» specialiste e specialisti accreditati dei settori isolamento termico, impianti di riscaldamento nonché impianti di climatizzazione e di ventilazione verificano se un progetto edilizio è conforme alle disposizioni di legge ed è stato realizzato secondo i piani autorizzati. I moduli «Certificati energetici» e «Controllo dell'esecuzione» devono essere trasmessi all'ufficio edile."
 bestaetigung-fks-richtlinie,"[FKS-Richtlinie für Feuerwehrzufahrten, Bewegungs- und Stellflächen](https://www.feukos.ch/de/unterlagen)","[Direttiva CSP concernente le vie di accesso, le superfici di manovra e di appoggio per i mezzi dei pompieri] (https://www.feukos.ch/it/documenti/)"
-bestaetigung-radon,"Seit dem 01. Januar 2018 ist die neue Strahlenschutzverordnung in Kraft, die darauf abzielt, die Bevölkerung besser vor den Auswirkungen von Radon zu schützen. In Wohn- und Aufenthaltsräumen ist der Referenzwert auf 300 Bq/m3 festgelegt worden (Art. 155 Abs. 2 StSV). Bei Neu- oder Umbauten solcher Räume sind dem Stand der Technik entsprechende präventive bauliche Massnahmen umzusetzen (Art. 163 Abs. 2 StSV). Der Stand der Technik wird in der Norm SIA 108:2014 (Wärmeschutz, Feuchteschutz und Raumklima in Gebäuden) beschrieben.
+bestaetigung-radon,"Seit dem 01. Januar 2018 ist die neue Strahlenschutzverordnung in
+Kraft, die darauf abzielt, die Bevölkerung besser vor den Auswirkungen
+von Radon zu schützen. In Wohn- und Aufenthaltsräumen ist der Referenzwert auf 300 Bq/m3 festgelegt worden (Art. 155 Abs. 2 StSV). Bei
+Neu- oder Umbauten solcher Räume sind dem Stand der Technik entsprechende präventive bauliche Massnahmen umzusetzen (Art. 163
+Abs. 2 StSV). Der Stand der Technik wird in der Norm SIA 108:2014 (Wärmeschutz, Feuchteschutz und Raumklima in Gebäuden) beschrieben.
 
-Die Bauherrschaft ist verpflichtet, dem Stand der Technik entsprechende präventive bauliche Massnahmen zu treffen, um in Räumen, in denen sich Personen regelmässig, während mehrerer Stunden pro Tag aufhalten, den Radonreferenzwert von 300 Bq/m3 nicht zu überschreiten.
+Die Bauherrschaft ist verpflichtet, dem Stand der Technik entsprechende
+präventive bauliche Massnahmen zu treffen, um in Räumen, in denen
+sich Personen regelmässig, während mehrerer Stunden pro Tag aufhalten, den Radonreferenzwert von 300 Bq/m3 nicht zu überschreiten.
 
-Mit der Unterschrift auf dem Hauptformular bestätigt die Bauherrschaft die obengenannten Ausführungen zur Kenntnis genommen zu haben und bei der Umsetzung des Bauvorhabens die erforderlichen Massnahmen zur Minimierung der Radonkonzentration zu ergreifen.
+Mit der Unterschrift auf dem Hauptformular bestätigt die Bauherrschaft
+die obengenannten Ausführungen zur Kenntnis genommen zu haben und bei der Umsetzung des Bauvorhabens die erforderlichen Massnahmen zur Minimierung der Radonkonzentration zu ergreifen.
 
-Fragen können an das Amt für Lebensmittelsicherheit und Tiergesundheit gerichtet werden.","Il 1° gennaio 2018 è entrata in vigore l'ordinanza sulla radioprotezione, che ha lo scopo di proteggere meglio la popolazione dagli effetti del radon. Il livello di riferimento nei locali abitativi e di soggiorno è stato stabilito a 300 Bq/m3 (art. 155 cpv. 2 ORaP). In caso di nuove costruzioni o ristrutturazioni di tali locali occorre adottare misure edili di prevenzione conformi allo stato della tecnica (art. 163 cpv. 2 ORaP). Lo stato della tecnica viene descritto nella norma SIA 108:2014 (Isolamento termico, protezione contro l'umidità e clima interno degli edifici).
+Fragen können an das Amt für Lebensmittelsicherheit und Tiergesundheit gerichtet werden.","Il 1° gennaio 2018 è entrata in vigore l'ordinanza sulla radioprotezione, che ha lo scopo di proteggere meglio la popolazione dagli effetti del radon. Il livello di riferimento nei locali abitativi e di soggiorno è stato stabilito a 300 Bq/m³ (art. 155 cpv. 2 ORaP). In caso di nuove costruzioni o ristrutturazioni di tali locali occorre adottare misure edili di prevenzione conformi allo stato della tecnica (art. 163 cpv. 2 ORaP). Lo stato della tecnica viene descritto nella norma SIA 108:2014 (Isolamento termico, protezione contro l'umidità e clima interno degli edifici).
 
-La committenza è tenuta ad attuare corrispondenti misure edili di prevenzione per evitare il superamento del livello di riferimento del radon pari a 300 Bq/m3 nei locali in cui le persone si trattengono regolarmente per diverse ore al giorno.
+La committenza è tenuta ad attuare corrispondenti misure edili di prevenzione per evitare il superamento del livello di riferimento del radon pari a 300 Bq/m³ nei locali in cui le persone si trattengono regolarmente per diverse ore al giorno.
 
 Firmando il modulo principale la committenza conferma di aver preso atto delle spiegazioni di cui sopra e di adottare i provvedimenti necessari per ridurre al minimo la concentrazione di radon al momento dell'attuazione del progetto di costruzione.
 
@@ -84,7 +91,7 @@ entsorgungsverfahren-text,"[Verordnung des UVEK über Listen zum Verkehr mit Abf
 ertragswert-in-chf,Der Ertragswert ist der amtlichen Bewertung (Schätzungseröffnung) zu entnehmen.,Il valore di reddito è riportato nella valutazione ufficiale (notifica di stima).
 ewid,"####INFO
 
-EWID ist die eidgenössische Wohnungsidentifikationsnummer im Gebäude - und Wohnungsregister des Bundesamtes für Statistik (BFS).
+EWID ist die eidgenössische Wohnungsidentifikationsnummer im Gebäude - und Wohnungsregister des Bundesamtes für Statistik (BfS).
 
 Diese Nummer wird im Rahmen der Nachführung des GWR automatisch ausgefüllt.","####INFO
 
@@ -99,7 +106,7 @@ Als Wohnungsfläche ist die Summe der Flächen sämtlicher Zimmer, Küchen, Koch
 
 Zusätzliche separate Wohnräume (z.B. Mansarden), offene Balkone und Terrassen sowie nicht bewohnbare Keller-und Dachgeschossräume fallen bei der Berechnung der Wohnungsfläche ausser Betracht.
 
-Wo keine genauen Flächen ermittelt werden können, sind Schätzwerte (Länge x Breite der Wohnung) erfasst. Wo Bruttowohnflächen verfügbar sind, sind die Bruttowerte anzugeben.","####INFO
+Wo keine genauen Flächen ermittelt werden können, sind Schätzwerte (Länge x Breite der Wohnung) erfasst.Wo Bruttowohnflächen verfügbar sind, sind die Bruttowerte anzugeben.","####INFO
 
 Superficie dell'abitazione
 
@@ -107,7 +114,7 @@ La superficie dell'abitazione registrata equivale alla somma delle superfici di 
 
 Non sono presi in considerazione nel calcolo della superficie dell'abitazione: i locali abitabili indipendenti (ad es. le mansarde), i balconi aperti e le terrazze, nonché i locali non abitabili situati in cantina o nei solai.
 
-La superficie è stimata (lunghezza per larghezza dell'abitazione) quando non può essere determinata in maniera precisa. Indicare la superficie abitabile lorda se questa informazione è disponibile."
+La superficie è stimata (lunghezza per larghezza dell'abitazione) quando non può essere determinata in maniera precisa.Indicare la superficie abitabile lorda se questa informazione è disponibile."
 forstliche-baute,"Forstliche Kleinbauten und Kleinanlagen sind namentlich Begehungswege, kleine Einrichtungen für die Waldschulung und Waldökologie, Rückewege, Wildschutzzäune, Verbauungen aus Holz und Stein sowie Holzlagerplätze.","Piccole costruzioni e piccoli impianti forestali sono segnatamente sentieri, piccole strutture per la formazione forestale e per l'ecologia forestale, piste d'esbosco, recinzioni per la protezione dalla selvaggina, strutture di protezione in legno e pietra nonché depositi di legname."
 gebaeudehoehe,Für weitere Informationen siehe [Schweizerische Brandschutzvorschriften](https://www.bsvonline.ch/de/vorschriften/#c-richtlinien).,Per maggiori informazioni vedi [Prescrizioni svizzere della protezione antincendio](https://www.bsvonline.ch/it/prescrizione-della-protezione-antincendio/prescrizioni-2015#c-direttive).
 gefaehrdete-umliegende-objekte,[EKAS Richtlinie](https://www.ekas.admin.ch/download.php?id=7471),[Direttiva CFSL ](https://www.ekas.admin.ch/download.php?id=7472)
@@ -134,16 +141,16 @@ Art. 32a Impianti solari non soggetti ad autorizzazione
 
 1 Un impianto solare è sufficientemente adattato a un tetto (art. 18a cpv. 1 LPT), se:
 
-a. sporge ortogonalmente di al massimo 20 cm dalla superficie del tetto;
-b. visto dall'alto non sporge dalla superficie del tetto;
-c. in base allo stato della tecnica, presenta un basso grado di riflessione; e
-d. le varie parti sono disposte in modo compatto; sono ammessi spazi lasciati vuoti per motivi tecnici o una disposizione sfalsata dovuta alla superficie disponibile.
+\\n\\n a. sporge ortogonalmente di al massimo 20 cm dalla superficie del tetto;
+\\n\\n b. visto dall'alto non sporge dalla superficie del tetto;
+\\n\\n c. in base allo stato della tecnica, presenta un basso grado di riflessione; e
+\\n\\n d. le varie parti sono disposte in modo compatto; sono ammessi spazi lasciati vuoti per motivi tecnici o una disposizione sfalsata dovuta alla superficie disponibile.
 
-1bis Un impianto solare è sufficientemente adattato anche a un tetto piano, se anziché rispettare le condizioni di cui al capoverso 1:
+1ᵇⁱˢ Un impianto solare è sufficientemente adattato anche a un tetto piano, se anziché rispettare le condizioni di cui al capoverso 1:
 
-a. sporge dal bordo superiore del tetto al massimo di un metro
-b. è arretrato rispetto allo spigolo del tetto al punto da non essere visibile se guardato dal basso con un angolo di 45 gradi; e
-c. in base allo stato della tecnica, presenta un basso grado di riflessione.
+\\n\\n a. sporge dal bordo superiore del tetto al massimo di un metro
+\\n\\n b. è arretrato rispetto allo spigolo del tetto al punto da non essere visibile se guardato dal basso con un angolo di 45 gradi; e
+\\n\\n c. in base allo stato della tecnica, presenta un basso grado di riflessione.
 
 2 Concrete prescrizioni edilizie fondate sul diritto cantonale sono applicabili se sono proporzionali a giustificate esigenze di protezione e se non limitano lo sfruttamento dell'energia solare in misura superiore a quanto previsto al capoverso 1.
 
@@ -152,7 +159,9 @@ guellelager-titel,"Bezüglich Güllegruben sind folgende Angaben bekannt zu gebe
 - Wo befinden sich die bestehenden Güllelagerräume?
 - Wo wird ein neues Güllelager erstellt?
 
-Beim Einbau eines vorproduzierten Gülletanks muss dem Baugesuch eine detaillierte Produktespezifikation beigelegt werden. Daraus muss ersichtlich sein, dass der Tank für die Lagerung von Gülle geeignet ist (Garantie des Herstellers).","In merito alle fosse per il colaticcio devono essere fornite le indicazioni seguenti:
+Beim Einbau eines vorproduzierten Gülletanks muss dem Baugesuch
+eine detaillierte Produktespezifikation beigelegt werden. Daraus muss
+ersichtlich sein, dass der Tank für die Lagerung von Gülle geeignet ist (Garantie des Herstellers).","In merito alle fosse per il colaticcio devono essere fornite le indicazioni seguenti:
 - Dove si trovano i serbatoi per il colaticcio esistenti?
 - Dove viene realizzato un nuovo serbatoio per il colaticcio?
 
@@ -177,7 +186,8 @@ Secondo l'art. 7 cpv. 1 della legge cantonale sulla protezione antincendio son
 1. manifestazioni con particolare pericolo per persone, animali od oggetti;<br>
 1. l'accensione di pezzi pirotecnici per scopi di svago (fuochi d'artificio) e a scopo commerciale.<br>"
 heizleistung-waermepumpe-verdampfer,"B0W35 bedeutet, dass eine Sole-Wasser-Wärmepumpe mit einer Soletemperatur von 0 °C und einer Vorlauftemperatur von 35 °C arbeitet.",B0W35 significa che una pompa di calore acqua glicolata-acqua lavora con una temperatura dell'acqua glicolata pari a 0 °C e una temperatura di mandata pari a 35 °C.
-hinweis-hindernisfreies-bauen,"Art. 80 KRG definiert den Geltungsbereich und die Anforderungen an das behindertengerechte Bauen. Die fachliche Beurteilung nach SIA 500 erfolgt durch die Pro Infirmis.
+hinweis-hindernisfreies-bauen,"Art. 80 KRG definiert den Geltungsbereich und die Anforderungen an das
+behindertengerechte Bauen. Die fachliche Beurteilung nach SIA 500 erfolgt durch die Pro Infirmis.
 
 Zur Beurteilung des Bauvorhabens werden folgende Unterlagen benötigt:
 
@@ -185,7 +195,9 @@ Zur Beurteilung des Bauvorhabens werden folgende Unterlagen benötigt:
 - Grundrisse aller Geschosse / Schnitte / Fassaden (Mst. 1:100 / 200)
 - bei komplexen Baugesuchen ist ein Konzept (stufenlose Erschliessung / Toiletten / Parkplätze) zum hindernisfreien Bauen einzureichen
 
-Wird die Umsetzung von behindertengerechten Massnahmen von der Bauherrschaft als unverhältnismässig beurteilt (> 20 % der Bausumme), hat sie dies mit einem detaillierten Nachweis im Baubewilligungsverfahren zu belegen.","L'art. 80 LPTC definisce il campo d'applicazione e i requisiti per l'edificazione adatta ai disabili. La valutazione specialistica secondo SIA 500 viene svolta da Pro Infirmis.
+Wird die Umsetzung von behindertengerechten Massnahmen von der
+Bauherrschaft als unverhältnismässig beurteilt (> 20 % der Bausumme),
+hat sie dies mit einem detaillierten Nachweis im Baubewilligungsverfahren zu belegen.","L'art. 80 LPTC definisce il campo d'applicazione e i requisiti per l'edificazione adatta ai disabili. La valutazione specialistica secondo SIA 500 viene svolta da Pro Infirmis.
 
 Per la valutazione del progetto di costruzione è necessaria la documentazione seguente:
 
@@ -214,7 +226,7 @@ komplexe-erdwaermesonden-anlage,"Komplexe Anlagen sind Anlagen mit mehr als 4 Er
 kulturobjekt,"#### INFO
 Die Installation einer Solaranlage auf dem Dach eines Kulturobjekts ist nicht grundsätzlich ausgeschlossen. Ein entsprechendes Vorhaben muss jedoch zwingend im Rahmen eines ordentlichen Baubewilligungsverfahren durch die kantonale Denkmalpflege geprüft werden.
 
-Als Kulturobjekte gelten Kulturgüter von internationaler, nationaler oder regionaler Bedeutung gemäss Artikel 2 Buchstaben a–c der Kulturgüterschutzverordnung vom 17. Oktober 1984; (siehe www.kgs.admin.ch > KGS-Inventar A-Objekte [national] und B-Objekte [regional].
+Als Kulturobjekte gelten Kulturgüter von nationaler, regionaler oder lokaler Bedeutung gemäss Artikel 2 Buchstaben a–c der Kulturgüterschutzverordnung vom 17. Oktober 1984; (siehe www.kgs.admin.ch > KGS-Inventar A-Objekte [national] und B-Objekte [regional].
 
 Kulturgüter von nationaler oder regionaler Bedeutung, die in einem anderen Inventar verzeichnet sind, das der Bund gestützt auf das Bundesgesetz vom 1. Juli 1966 über den Natur- und Heimatschutz (NHG) beschlossen hat; (siehe Inventar der erhaltenswerten ehemaligen Kampf- und Führungsbauten ADAB, Inventar der militärischen Hochbauten HOBIM, das Inventar der historischen Bahnhöfe SBB und das Schweizer Seilbahninventar).
 
@@ -280,6 +292,7 @@ neben-kulturobjekt,"#### INFO
 Wenn die geplante Solaranlage auf dem Dach eines Gebäudes welches unmittelbar neben einem Kulturobjekt (Beschreibung Kulturobjekt siehe INFO Kulturobjekt) oder in direkter Nachbarschaft zu einem Kulturobjekt steht, realisiert wird, muss das Vorhaben zwingend durch die kantonale Denkmalpflege geprüft werden. Falls die technischen Anforderungen erfüllt sind und das Vorhaben auch mit den Anliegen der Denkmalpflege vereinbar ist, kann die zuständige Gemeindebaubehörde auf die Durchführung eines ordentlichen Baubewilligungsverfahren verzichten.","#### INFO
 Se l'impianto solare previsto viene realizzato sul tetto di un edificio che si trova proprio accanto a un bene culturale (per la descrizione di bene culturale vedi INFO bene culturale) o nelle immediate vicinanze di un bene culturale, il progetto deve essere necessariamente esaminato dal Servizio monumenti cantonale. Se i requisiti tecnici sono soddisfatti e il progetto è conciliabile anche con le esigenze del Servizio monumenti, la competente autorità edilizia comunale può rinunciare a svolgere una procedura ordinaria per il rilascio della licenza edilizia."
 nichtforstliche-kleinbaute,"Nichtforstliche Kleinbauten und Kleinanlagen sind insbesondere Anbauten, Masten, Feuerstellen, Sport- und Lehrpfade, erdverlegte Leitungen, Passhütten, Bienenhäuser, Niederhaltungen bei oberirdischen Leitungen sowie entlang von Strassen und Bahnen, Wildbachsperren und Geschiebesammler.","Sono considerate piccole costruzioni e impianti non forestali in particolare costruzioni annesse, tralicci, focolari, sentieri sportivi e didattici, condotte interrate, rifugi sui passi, alveari, dispositivi di fissaggio al suolo per le condotte in superficie, nonché lungo le strade e le linee ferroviarie, sbarramenti di torrenti e bacini di raccolta di materiale."
+objekt-der-denkmalpflege,"Kantonale und nationale Schutzeinträge sind im Grundbuch eingetragen, weitere Auskunft bei der Denkmalpflege Graubünden.",Le richieste di messa sotto protezione di Cantone o Confederazione devono essere iscritte nel registro fondiario. Per ulteriori informazioni contattare il Servizio monumenti dei Grigioni.
 qualitaetssicherungsstufe-qss,Für weitere Informationen siehe [Schweizerische Brandschutzvorschriften](https://www.bsvonline.ch/de/vorschriften/#c-richtlinien).,Per maggiori informazioni vedi [Prescrizioni svizzere della protezione antincendio](https://www.bsvonline.ch/it/prescrizione-della-protezione-antincendio/prescrizioni-2015#c-direttive).
 rodung,"Eine Rodung ist eine dauernde oder vorübergehende Zweckentfremdung von Waldareal für nichtforstliche Zwecke. Die gerodete Fläche ist nicht mehr Wald im Sinne des Waldgesetzes. Im Gegensatz zum Kahlschlag wird das Aufkommen der Waldbäume dauernd (definitiv) bzw. während einer gewissen Zeit (temporär) verhindert. Rodungen sind verboten, können aber, wenn wichtige Gründe vorliegen, ausnahmsweise bewilligt werden (vgl. Art. 5 des kantonalen Waldgesetzes (KWaG]).","Si considera dissodamento ogni cambiamento, durevole o temporaneo, delle finalità dell'area boschiva per scopi non forestali. La superficie dissodata non è più considerata bosco ai sensi della legge forestale. Contrariamente al taglio raso, il dissodamento impedisce la crescita degli alberi forestali in modo durevole o temporaneo. I dissodamenti sono vietati, vi è tuttavia la possibilità di concedere deroghe in presenza di gravi motivi (cfr. art. 5 della legge cantonale forestale (LCFo])."
 rodungsgesuchsformular,[Rodungen und Rodungsgesuch](https://www.bafu.admin.ch/bafu/de/home/themen/wald/fachinformationen/strategien-und-massnahmen-des-bundes/rodungen-und-rodungsgesuch.html),[Dissodamenti](https://www.bafu.admin.ch/bafu/it/home/temi/bosco/info-specialisti/strategie-e-misure-della-confederazione/dissodamenti.html)
@@ -314,21 +327,21 @@ Der **Abbruch/Teilabbruch** ist zu wählen, um ein komplettes Bauwerk oder Teile
 
 Sofern das Baugesuch bereits bewilligt wurde und weitere Änderungen geplant sind, ist die **Projektänderung einer bewilligten Baute/Anlage** zu wählen.
 
-Lässt sich das Vorhaben keiner vorgegebenen Kategorie zuordnen, ist **andere baulich Massnahme** zu wählen. Das Vorhaben ist präszise zu beschreiben.","La voce **nuova costruzione** deve essere selezionata in caso di nuove realizzazioni di edifici e impianti.
+Lässt sich das Vorhaben keiner vorgegebenen Kategorie zuordnen, ist **andere baulich Massnahme** zu wählen. Das Vorhaben ist präszise zu beschreiben.","La voce **Nuova costruzione** deve essere selezionata in caso di nuove realizzazioni di edifici e impianti.
 
-La voce **ampliamento** deve essere selezionato in caso di ingrandimento della superficie edificata o del volume dell'edificio (ad es. aggiunta o ampliamento).
+La voce **Ampliamento** deve essere selezionata in caso di ingrandimento della superficie edificata o del volume dell'edificio (ad es. aggiunta o ampliamento).
 
-La voce **trasformazione** deve essere selezionata in caso di misure edilizie all'interno dell'edificio (senza ingrandimento della superficie edificata o del volume dell'edificio).
+La voce **Trasformazione** deve essere selezionata in caso di misure edilizie all'interno dell'edificio (senza ingrandimento della superficie edificata o del volume dell'edificio).
 
-La voce **rinnovo** comprende misure edilizie che esulano dalla mera manutenzione e possono aumentare il valore. L'opera viene adeguata alle esigenze del tempo (modernizzazione).
+La voce **Rinnovo** comprende misure edilizie che superano la mera manutenzione e possono aumentare il valore. L'opera viene adeguata alle esigenze del tempo (modernizzazione).
 
-La voce **cambiamento di destinazione** deve essere selezionato nel caso in cui cambia l'utilizzo dell'edificio (ad es. da scopo commerciale a scopo abitativo).
+La voce **Destinazione ad altro scopo** deve essere selezionata nel caso in cui cambia l'utilizzo dell'edificio (ad es. da scopo commerciale a scopo abitativo).
 
-La voce **demolizione/demolizione parziale** deve essere selezionata nel caso in cui venga smantellata un'opera completa o parti di esse. 
+La voce **Demolizione / demolizione parziale** deve essere selezionata nel caso in cui venga smantellata un'opera completa o parti di essa. 
 
 Se la domanda di costruzione è già stata approvata e sono previste ulteriori modifiche occorre selezionare **Modifica del progetto di un edificio/impianto autorizzato**.
 
-Se non è possibile assegnare il progetto a una delle categorie indicate, selezionare **altra misura edilizia**. Il progetto deve essere descritto in modo dettagliato."
+Se non è possibile assegnare il progetto a una delle categorie indicate, selezionare **Altre misure edilizie**. Il progetto deve essere descritto in modo dettagliato."
 waermeerzeuger-heizung,"Der Wärmeerzeuger entspricht der Art der technischen Installation, die im Gebäude für die Heizung der Räume genutzt wird.",Il generatore di calore corrisponde al tipo di installazione tecnica utilizzata nell'edificio per il riscaldamento dei locali.
 waermeerzeuger-warmwasser,"Der Wärmeerzeuger entspricht der Art der technischen Installation, die im Gebäude für das Aufbereiten von Brauchwarmwasser genutzt wird. Kleinboiler sind dezentrale Installationen, die in der Regel Warmwasser für einen einzigen Wasserhahn oder eine einzige Dusche aufbereiten. Zentrale Gasboiler werden als Heizkessel erfasst.",Il generatore di calore corrisponde al tipo di installazione tecnica utilizzata nell'edificio per la produzione d'acqua calda. I piccoli boiler sono degli impianti decentralizzati che forniscono di regola acqua calda solamente a un solo rubinetto o a una sola doccia. I boiler a gas centrali devono essere registrati come caldaie.
 wohnhaus-anzahl-zimmer,Bei der Berechnung werden halbe Zimmer nicht mitgezählt. Küche und Wohnzimmer zählen zusammen als 1 Zimmer.,Ai fini del calcolo i mezzi locali non vengono presi in considerazione. Cucina e soggiorno contano insieme come 1 locale.
@@ -354,7 +367,7 @@ In den Gemeinden, in denen der Anteil von Zweitwohnungen gemäss ZWG mehr als 20
 
 Nei comuni in cui la quota di abitazioni secondarie conformemente alla LASec supera il 20%, le abitazioni devono essere classificate in base al loro utilizzo secondo la presente selezione con o senza limitazione d'uso iscritta a registro fondiario conformemente alla LASec."
 baurecht-nummer,"Informationsfenster
-Das Baurecht beinhaltet das Recht, Bauten auf fremdem Boden zu errichten und fortbestehen zu lassen. Das Baurecht durchbricht das sog. Akzessionsprinzip, wonach Bauten immer Bestandteil des Grundstückes bilden.","Finestra informativa
+Das Baurecht beinhaltet das Recht, Bauten auf fremdem Boden zu errichten und fortbestehen zu lassen. Das Baurecht durchbricht das sog. Akzessionsprinzip, wonach Bauten immer Bestandteil des Grundstückes bilden.","
 Il diritto di superficie comprende il diritto di realizzare e mantenere delle costruzioni su terreni di terzi. Il diritto di superficie prevale sul cosiddetto diritto dell'accessione secondo cui le costruzioni sono sempre parte integrante del fondo."
 e-grid-nr,Eidgenössische Grundstücksidentifikationsnummer,Identificatore federale dei fondi
 folgeplanung,"Im Zonenplan können Gebiete bezeichnet werden, in denen eine Folgeplanung (Arealplanung, Quartierplanung) durchgeführt wird. 
@@ -365,22 +378,22 @@ Diese Informationen werden direkt aus dem GIS abgefüllt.","Nel piano delle zone
 
 Per l'area interessata la determinazione di una pianificazione consecutiva ha gli effetti di una zona di pianificazione.
 
-Queste informazioni vengono inserire direttamente dal SIG."
+Queste informazioni vengono inserite direttamente dal SIG."
 genereller-erschliessungsplan,"Der Generelle Erschliessungsplan legt in den Grundzügen die Verkehrs-, Versorgungs- und Entsorgungsanlagen zur Erschliessung der Bauzonen und anderer Nutzungszonen fest. Er enthält mindestens die Anlagen der Grund- und Groberschliessung und kann auch Anlagen der Feinerschliessung umfassen.
 
-Diese Informationen werden direkt aus dem GIS abgefüllt.","Il piano generale di urbanizzazione definisce nei tratti fondamentali gli impianti per il traffico, di approvvigionamento e di smaltimento per l'urbanizzazione delle zone edificabili e di altre zone di utilizzazione. Esso contiene almeno gli impianti dell'urbanizzazione di base e generale e può anche comprendere gli impianti dell'urbanizzazione particolare.
+Diese Informationen werden direkt aus dem GIS abgefüllt.","Il piano generale di urbanizzazione definisce nei tratti fondamentali gli impianti per il traffico, di approvvigionamento e di smaltimento per l'urbanizzazione delle zone edificabili e di altre zone di utilizzazione. Contiene almeno gli impianti dell'urbanizzazione di base e generale e può anche comprendere gli impianti dell'urbanizzazione particolare.
 
-Queste informazioni vengono inserire direttamente dal SIG."
+Queste informazioni vengono inserite direttamente dal SIG."
 genereller-gestaltungsplan,"Der Generelle Gestaltungsplan ordnet in den Grundzügen die Gestaltung (Erhaltung, Erneuerung, Weiterentwicklung) der Siedlungen und der Landschaft.
 
 
 Diese Informationen werden direkt aus dem GIS abgefüllt.","Il piano generale delle strutture disciplina nei tratti fondamentali la strutturazione (conservazione, rinnovo, sviluppo ulteriore) degli insediamenti e del paesaggio.
 
 
-Queste informazioni vengono inserire direttamente dal SIG."
+Queste informazioni vengono inserite direttamente dal SIG."
 gis-map,"Bitte tragen Sie die Adresse Ihres Bauvorhabens in die Zeile ein oder klicken Sie in die nachfolgende Karte um die Lage des Bauvorhabens in der Karte zu verorten. 
 
-Sie können ein Punkt, eine Linie oder eine Fläche in der Karte zeichnen.","Indicare l'indirizzo del progetto di costruzione nella riga o cliccare sulla cartina successiva per indicare la posizione esatta del progetto. 
+Sie können ein Punkt, eine Linie oder eine Fläche in der Karte zeichnen.","Indicare l'indirizzo del progetto di costruzione nell'apposita riga in basso o cliccare sulla cartina successiva per indicare la posizione esatta del progetto. 
 
 Sulla cartina è possibile disegnare un punto, una linea o una superficie."
 juristische-person-gesuchstellerin,"In der Schweiz ist eine juristische Person eine rechtliche Entität, wie eine Firma, eine Stiftung oder eine Vereinigung, die vom Gesetz anerkannt ist und eigenständig Rechte und Pflichten wahrnehmen kann, unabhängig von den Personen, die sie gründen oder kontrollieren.","In Svizzera una persona giuridica è un'entità giuridica come una ditta, una fondazione o un'associazione riconosciuta dalla legge e in grado di assumere autonomamente diritti e doveri, indipendentemente dalle persone che le costituiscono e le controllano."
@@ -404,4 +417,4 @@ Diese Informationen werden direkt aus dem GIS abgefüllt.","Il piano delle zone 
 
 Le zone di utilizzazione di base determinano in modo generale l'utilizzazione ammissibile del territorio. Le zone di utilizzazione multipla contengono prescrizioni di utilizzazione complementari.
 
-Queste informazioni vengono inserire direttamente dal SIG."
+Queste informazioni vengono inserite direttamente dal SIG."
