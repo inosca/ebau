@@ -56,14 +56,6 @@
     }
   },
   {
-    "model": "core.aformtransition",
-    "pk": 13000008,
-    "fields": {
-      "current_instance_state": 34,
-      "next_instance_state": 26
-    }
-  },
-  {
     "model": "core.alocation",
     "pk": 1009,
     "fields": {}
@@ -102,15 +94,6 @@
       "template": "7-bau-und-einsprache-entscheid-bentzung-kantonsgebiet-versand-durch-dashboard",
       "recipient_type": "Notification_Manager_Applicant",
       "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.apageredirect",
-    "pk": 13000034,
-    "fields": {
-      "resource": 12000003,
-      "instance_resource": 14000009,
-      "air_action_name": null
     }
   },
   {
@@ -556,48 +539,6 @@
   },
   {
     "model": "core.action",
-    "pk": 13000005,
-    "fields": {
-      "available_action": "workitem",
-      "button": 13000003,
-      "name": "Aufgabe: check-permit",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 13000007,
-    "fields": {
-      "available_action": "workitem",
-      "button": 13000004,
-      "name": "Complete workitem: archive",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 13000008,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 13000004,
-      "name": "Set state to arch",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 13000010,
     "fields": {
       "available_action": "case",
@@ -933,20 +874,6 @@
     }
   },
   {
-    "model": "core.action",
-    "pk": 13000034,
-    "fields": {
-      "available_action": "pageredirect",
-      "button": 13000003,
-      "name": "Refresh page",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
     "model": "core.actioncase",
     "pk": 13000010,
     "fields": {
@@ -958,26 +885,6 @@
     "pk": 1375,
     "fields": {
       "tasks": "[\"reject\"]",
-      "process_type": "complete",
-      "process_all": false,
-      "fail_on_empty": false
-    }
-  },
-  {
-    "model": "core.actionworkitem",
-    "pk": 13000005,
-    "fields": {
-      "tasks": "[\"accept\"]",
-      "process_type": "complete",
-      "process_all": false,
-      "fail_on_empty": true
-    }
-  },
-  {
-    "model": "core.actionworkitem",
-    "pk": 13000007,
-    "fields": {
-      "tasks": "[\"archive\"]",
       "process_type": "complete",
       "process_all": false,
       "fail_on_empty": false
@@ -7566,6 +7473,33 @@
   },
   {
     "model": "core.broleacl",
+    "pk": 672,
+    "fields": {
+      "button": 12000001,
+      "role": 1061,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 673,
+    "fields": {
+      "button": 12000001,
+      "role": 1129,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 674,
+    "fields": {
+      "button": 12000001,
+      "role": 1127,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.broleacl",
     "pk": 12000000,
     "fields": {
       "button": 12000001,
@@ -8300,24 +8234,6 @@
       "button": 12000019,
       "role": 1131,
       "instance_state": 33
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000116,
-    "fields": {
-      "button": 13000003,
-      "role": 6,
-      "instance_state": 30
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000117,
-    "fields": {
-      "button": 13000004,
-      "role": 6,
-      "instance_state": 34
     }
   },
   {
@@ -9356,15 +9272,6 @@
     }
   },
   {
-    "model": "core.broleacl",
-    "pk": 12000241,
-    "fields": {
-      "button": 13000003,
-      "role": 6,
-      "instance_state": 21
-    }
-  },
-  {
     "model": "core.billingconfig",
     "pk": 1,
     "fields": {
@@ -10009,30 +9916,6 @@
       "class_field": null,
       "hidden": 0,
       "sort": 4
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 13000003,
-    "fields": {
-      "instance_resource": 14000009,
-      "name": "Dossier annehmen",
-      "description": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 13000004,
-    "fields": {
-      "instance_resource": 14000009,
-      "name": "Dossier archivieren",
-      "description": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 1
     }
   },
   {
@@ -19596,6 +19479,33 @@
       "instance_resource": 14000030,
       "role": 6,
       "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1270,
+    "fields": {
+      "instance_resource": 12000000,
+      "role": 1061,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1271,
+    "fields": {
+      "instance_resource": 12000000,
+      "role": 1129,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1272,
+    "fields": {
+      "instance_resource": 12000000,
+      "role": 1127,
+      "instance_state": 21
     }
   },
   {
@@ -34527,6 +34437,17 @@
   },
   {
     "model": "core.pageform",
+    "pk": 20004,
+    "fields": {
+      "page": 12000000,
+      "form": 300,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.pageform",
     "pk": 12000004,
     "fields": {
       "page": 12000000,
@@ -38569,6 +38490,54 @@
     "fields": {
       "resource": 12000004,
       "role": 1127
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 130011,
+    "fields": {
+      "resource": 12000004,
+      "role": 1101
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 130012,
+    "fields": {
+      "resource": 12000004,
+      "role": 1128
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 130013,
+    "fields": {
+      "resource": 12000004,
+      "role": 1107
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 130014,
+    "fields": {
+      "resource": 12000004,
+      "role": 1061
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 130015,
+    "fields": {
+      "resource": 12000004,
+      "role": 1129
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 130016,
+    "fields": {
+      "resource": 12000004,
+      "role": 1106
     }
   },
   {
