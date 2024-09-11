@@ -9,7 +9,6 @@ import { queryManager } from "ember-apollo-client";
 import { dropTask, enqueueTask, restartableTask } from "ember-concurrency";
 import fetch from "fetch";
 import html2canvas from "html2canvas";
-import { all } from "rsvp";
 
 import mainConfig from "ember-ebau-core/config/main";
 
@@ -379,7 +378,7 @@ export default class UrGisComponent extends Component {
 
   @dropTask
   *populateFields(parcels) {
-    yield all(
+    yield Promise.all(
       parcels.map(async (parcel) => {
         const fields = this.args.field.document.fields.filter((field) =>
           [...SIMPLE_FIELD_KEYS, ...CHOICE_FIELD_KEYS].includes(
@@ -387,7 +386,7 @@ export default class UrGisComponent extends Component {
           ),
         );
 
-        await all(
+        await Promise.all(
           fields.map(async (field) => {
             let value;
             if (CHOICE_FIELD_KEYS.includes(field.question.slug)) {
@@ -422,7 +421,7 @@ export default class UrGisComponent extends Component {
       variables: { input: { form: KEY_TABLE_FORM } },
     };
 
-    const rows = yield all(
+    const rows = yield Promise.all(
       parcels.map(async (parcel) => {
         const newDocumentRaw = await this.apollo.mutate(
           mutation,
@@ -444,7 +443,7 @@ export default class UrGisComponent extends Component {
           KEYS_TABLE.includes(field.question.slug),
         );
 
-        await all(
+        await Promise.all(
           fields.map(async (field) => {
             const { slug } = field.question;
             const value = parcel[slug];

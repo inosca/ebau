@@ -5,7 +5,6 @@ import { tracked } from "@glimmer/tracking";
 import { task, dropTask, restartableTask } from "ember-concurrency";
 import attachmentsConfig from "ember-ebau-core/config/attachments";
 import { DateTime } from "luxon";
-import { all } from "rsvp";
 
 export default class BeClaimsFormEditComponent extends Component {
   @service notification;
@@ -129,7 +128,7 @@ export default class BeClaimsFormEditComponent extends Component {
 
   @dropTask
   *uploadAttachments() {
-    yield all(
+    yield Promise.all(
       this.queue.map(async (attachment) => {
         const formData = new FormData();
 
@@ -165,7 +164,7 @@ export default class BeClaimsFormEditComponent extends Component {
     this.args.claim.status.answer.value = "nfd-tabelle-status-beantwortet";
     this.args.claim.answered.answer.value = DateTime.now().toISODate();
 
-    yield all(
+    yield Promise.all(
       [
         this.args.claim.answered,
         this.args.claim.status,

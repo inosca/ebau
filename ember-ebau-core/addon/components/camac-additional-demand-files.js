@@ -3,7 +3,6 @@ import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { task } from "ember-concurrency";
-import { all } from "rsvp";
 
 import additionalDemandsConfig from "ember-ebau-core/config/additional-demands";
 import mainConfig from "ember-ebau-core/config/main";
@@ -119,7 +118,7 @@ export default class CamacAdditionalDemandFilesComponent extends Component {
 
   uploadAttachments = task(async () => {
     try {
-      await all(
+      await Promise.all(
         this.queue.map(async (attachment) => {
           const formData = new FormData();
 
