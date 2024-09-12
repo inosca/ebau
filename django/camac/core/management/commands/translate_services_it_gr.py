@@ -30,32 +30,25 @@ def _load_csv():
 def _upload_data(data):
     for row in data:
         try:
-            if ServiceT.objects.filter(service_id=row["pk"]).exists():
-                service_t, created = ServiceT.objects.update_or_create(
-                    language="it", name=row["translation"], service_id=row["pk"]
-                )
-                for group in service_t.service.groups.all():
-                    translated_name = f"{group.role.trans.get(language='it').group_prefix} {service_t.name}"
-                    _, created = GroupT.objects.update_or_create(
-                        language="it", name=translated_name, group_id=group.pk
-                    )
-            else:
-                service = ServiceT.objects.filter(name=row["de_name"]).first()
+            service_t_de = ServiceT.objects.filter(service_id=row["pk"]).first()
+            if not service_t_de:
+                service_t_de = ServiceT.objects.filter(name=row["de_name"]).first()
 
-                if not service:
-                    print(
-                        f"Service {row['de_name']} not found",
-                    )
-                    continue
-
-                service_t, created = ServiceT.objects.update_or_create(
-                    language="it", name=row["translation"], service_id=service.pk
+            if not service_t_de:
+                print(
+                    f"Service {row['de_name']} not found",
                 )
-                for group in service_t.service.groups.all():
-                    translated_name = f"{group.role.trans.get(language='it').group_prefix} {service_t.name}"
-                    _, created = GroupT.objects.update_or_create(
-                        language="it", name=translated_name, group_id=group.pk
-                    )
+                continue
+
+            service_t_it, created = ServiceT.objects.update_or_create(
+                language="it", name=row["translation"], service_id=row["pk"]
+            )
+            for group in service_t_it.service.groups.all():
+                translated_name = f"{group.role.trans.get(language='it').group_prefix} {service_t_it.name}"
+                _, created = GroupT.objects.update_or_create(
+                    language="it", name=translated_name, group_id=group.pk
+                )
+
             if created:
                 print(f"ServiceT({row['pk']}) was created: {row}")
 
