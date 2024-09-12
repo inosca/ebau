@@ -24,7 +24,7 @@ msgstr "Autorità direttrice"
 
 #: camac/instance/placeholders/fields.py
 msgid "Municipality"
-msgstr "Comune"
+msgstr "Comune di"
 
 #: camac/instance/placeholders/fields.py
 msgid "District"
