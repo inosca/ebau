@@ -18,7 +18,7 @@ services:
     volumes:
       - djangomedia:/var/lib/camac/media:ro
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
-      - /home/adfinis/deploy/config/nginx-proxy.conf:/etc/nginx/conf.d/default.conf:ro
+      - /home/adfinis/deploy/config/proxy.conf:/etc/nginx/conf.d/default.conf:ro
     user: root:root
     environment:
       LETSENCRYPT_HOST: vm-adfch-devtest-test-westeurope-infra-01.tux42.ch,internal.vm-adfch-devtest-test-westeurope-infra-01.tux42.ch,portal.vm-adfch-devtest-test-westeurope-infra-01.tux42.ch
@@ -33,6 +33,7 @@ services:
       - certs:/etc/nginx/certs
       - html:/usr/share/nginx/html
       - /var/run/docker.sock:/tmp/docker.sock:ro
+      - /home/adfinis/deploy/config/nginx-proxy-options.conf:/etc/nginx/conf.d/proxy-http-options.conf:ro
     ports:
       - "80:80"
       - "443:443"
@@ -123,7 +124,6 @@ services:
       - ebau.local
     tty: true
     stdin_open: true
-    command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0:80 --pythonpath /app/$APPLICATION"
 
   django-q:
     <<: *django
