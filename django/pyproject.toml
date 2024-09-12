@@ -229,6 +229,7 @@ omit = [
     "camac/core/management/commands/translate_camac_it.py",
     "camac/core/management/commands/translate_extract.py",
     "camac/core/management/commands/translate_services_it_gr.py",
+    "camac/core/management/commands/translate_service_city_it.py",
     # Audit migration"
     "camac/core/management/commands/config/",
     "camac/core/management/commands/migrate_audit.py",
