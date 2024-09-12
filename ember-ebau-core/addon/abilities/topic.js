@@ -7,6 +7,7 @@ import mainConfig from "ember-ebau-core/config/main";
 export default class extends Ability {
   @service ebauModules;
   @service permissions;
+  @service session;
 
   get isActiveInstanceService() {
     return (
@@ -27,6 +28,13 @@ export default class extends Ability {
   }
 
   async canCreate() {
+    if (
+      this.ebauModules.applicationName === "caluma-portal" &&
+      this.session.isInternal
+    ) {
+      return false;
+    }
+
     if (this.permissions.fullyEnabled) {
       return await this.permissions.hasAll(
         this.instanceId,
