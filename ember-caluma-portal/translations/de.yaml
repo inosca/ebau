@@ -161,6 +161,7 @@ instances:
   processingOfFormSb2: "Selbstdeklaration 2 weiterbearbeiten"
   processingOfFormSb2Text: "Hier kann die Selbstdeklaration 2 weiter bearbeitet und eingereicht werden."
   deleteInstance: "Dossier löschen"
+  decision-documents-notice: ""
   deleteInstanceText: "Wenn Sie das Gesuch nicht mehr benötigen, können Sie es hier löschen."
   deleteInstanceModal: "Sind Sie sicher, dass Sie das Dossier löschen möchten?"
   deleteInstanceError: "Das Dossier konnte nicht gelöscht werden"
