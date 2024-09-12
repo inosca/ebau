@@ -86,13 +86,13 @@ dumpconfig-dms: ## Dump the DMS configuration
 loadconfig-keycloak: ## Load the keycloak configuration
 	@if [ ${APPLICATION_ENV} = "development" ]; then \
 		printf 'loading keycloak config... '; \
-		docker compose exec keycloak /opt/keycloak/bin/kc.sh import --override true --file /opt/keycloak/data/import/test-config.json >/dev/null 2>&1 || true; \
+		docker compose exec keycloak /opt/keycloak/bin/kc.sh import --http-management-port 9001 --override true --file /opt/keycloak/data/import/test-config.json >/dev/null 2>&1 || true; \
 		echo "done."; \
 	fi
 
 .PHONY: dumpconfig-keycloak
 dumpconfig-keycloak: ## Dump the keycloak configuration
-	docker compose exec keycloak /opt/keycloak/bin/kc.sh export --file /opt/keycloak/data/import/test-config.json
+	docker compose exec keycloak /opt/keycloak/bin/kc.sh export --http-management-port 9001 --file /opt/keycloak/data/import/test-config.json
 	@npx --yes prettier@3.0.3 --log-level silent --write "keycloak/config/${APPLICATION}-test-config.json"
 
 .PHONY: loadconfig
@@ -350,7 +350,7 @@ prettier-fix: # Fix formatting of yml and config files with prettier
 compare-dump: # Compares two given .json dump files
 	@pnpm -C tools -s install
 	@node tools/bin/compare-dumps.js $(PWD)/$(word 1,$^) $(PWD)/$(word 2,$^)
-	
+
 .PHONY: gr-extract-translations
 gr-extract-translations: # Export translation files
 	@mkdir -p "django/extracted_translations"
