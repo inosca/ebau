@@ -243,10 +243,10 @@ module.exports = function (environment) {
           30, // subm
           31, // rejected
           32, // ext_gem
-          34, // control
+          25, // done
         ],
         done: [
-          25, // done
+          34, // control
           26, // arch
           27, // del
           33, // old
