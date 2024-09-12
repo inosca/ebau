@@ -629,8 +629,18 @@ DISTRIBUTION = {
             "REOPEN_TASKS": ["fill-inquiry"],
         },
         "QUESTIONS": {
-            "STATEMENT": "inquiry-answer-assessment",
-            "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
+            "STATEMENT": "inquiry-answer-positive-assessments",
+            "ANCILLARY_CLAUSES": "inquiry-answer-notices-for-authority",
+        },
+        "ANSWERS": {
+            "STATUS": {
+                "POSITIVE": "inquiry-answer-status-positive",
+                "NEGATIVE": "inquiry-answer-status-negative",
+                "CLAIM": "inquiry-answer-status-additional-demand",
+                "REJECTION": "inquiry-answer-status-rejection",
+                "NO_COMMENT": "inquiry-answer-status-no-comment",
+                "UNKNOWN": "inquiry-answer-status-unknown",
+            },
         },
         "NOTIFICATIONS": {
             "INQUIRY_SENT": {
