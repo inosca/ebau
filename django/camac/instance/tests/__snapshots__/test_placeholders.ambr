@@ -4013,10 +4013,12 @@
       'aliases': list([
         dict({
           'de': 'ADRESSE',
+          'it': 'INDIRIZZO',
         }),
       ]),
       'description': dict({
         'de': 'Adresse des betroffenen Grundstückes',
+        'it': 'Indirizzo del fondo interessato',
       }),
       'nested_aliases': dict({
       }),
@@ -4025,10 +4027,12 @@
       'aliases': list([
         dict({
           'de': 'ALLE_GESUCHSTELLER',
+          'it': 'TUTTE_LE_PERSONE_RICHIEDENTI',
         }),
       ]),
       'description': dict({
         'de': 'Namen aller Gesuchsteller/innen',
+        'it': 'Nomi di tutte le persone richiedenti',
       }),
       'nested_aliases': dict({
       }),
@@ -4037,10 +4041,12 @@
       'aliases': list([
         dict({
           'de': 'ALLE_GESUCHSTELLER_NAME_ADRESSE',
+          'it': 'TUTTE_LE_PERSONE_RICHIEDENTI_NOME_INDIRIZZO',
         }),
       ]),
       'description': dict({
         'de': 'Namen und Adressen aller Gesuchsteller/innen',
+        'it': 'Nomi e indirizzi di tutte le persone richiedenti',
       }),
       'nested_aliases': dict({
       }),
@@ -4049,10 +4055,12 @@
       'aliases': list([
         dict({
           'de': 'ALLE_GRUNDEIGENTUEMER',
+          'it': 'TUTTE_LE_PERSONE_PROPRIETARIE_DI_UN_FONDO',
         }),
       ]),
       'description': dict({
         'de': 'Namen aller Grundeigentümer/innen',
+        'it': 'Nomi di tutte le persone proprietarie di un fondo',
       }),
       'nested_aliases': dict({
       }),
@@ -4061,10 +4069,12 @@
       'aliases': list([
         dict({
           'de': 'ALLE_GRUNDEIGENTUEMER_NAME_ADRESSE',
+          'it': 'TUTTE_LE_PERSONE_PROPRIETARIE_DI_UN_FONDO_NOME_INDIRIZZO',
         }),
       ]),
       'description': dict({
         'de': 'Namen und Adressen aller Grundeigentümer/innen',
+        'it': 'Nomi e indirizzi di tutte le persone proprietarie di un fondo',
       }),
       'nested_aliases': dict({
       }),
@@ -4073,10 +4083,12 @@
       'aliases': list([
         dict({
           'de': 'ALLE_PROJEKTVERFASSER',
+          'it': 'TUTTI_I_PROGETTISTI',
         }),
       ]),
       'description': dict({
         'de': 'Namen aller Projektverfasser/innen',
+        'it': 'Nomi di tutte le progettiste/tutti i progettisti',
       }),
       'nested_aliases': dict({
       }),
@@ -4085,10 +4097,12 @@
       'aliases': list([
         dict({
           'de': 'ALLE_PROJEKTVERFASSER_NAME_ADRESSE',
+          'it': 'TUTTI_I_PROGETTISTI_NOME_INDIRIZZO',
         }),
       ]),
       'description': dict({
         'de': 'Namen und Adressen aller Projektverfasser/innen',
+        'it': 'Nomi e indirizzi di tutte le progettiste/tutti i progettisti',
       }),
       'nested_aliases': dict({
       }),
@@ -4097,10 +4111,12 @@
       'aliases': list([
         dict({
           'de': 'AMZ_ANZAHL_SCHUTZPLAETZE',
+          'it': 'UMPC_NUMERO_DI_POSTI_PROTETTI',
         }),
       ]),
       'description': dict({
         'de': 'Anzahl Schutzplätze Wohn- oder Ferienhaus',
+        'it': 'Numero di posti protetti in abitazioni e case di vacanza',
       }),
       'nested_aliases': dict({
       }),
@@ -4109,10 +4125,12 @@
       'aliases': list([
         dict({
           'de': 'AMZ_ANZAHL_SPITALBETTEN',
+          'it': 'UMPC_NUMERO_DI_LETTI_DI_OSPEDALE',
         }),
       ]),
       'description': dict({
         'de': 'Anzahl Spitalbetten',
+        'it': 'Numero di letti di ospedale',
       }),
       'nested_aliases': dict({
       }),
@@ -4121,10 +4139,12 @@
       'aliases': list([
         dict({
           'de': 'AMZ_ANZAHL_RAEUME',
+          'it': 'NUMERO_LOCALI',
         }),
       ]),
       'description': dict({
         'de': 'Anzahl Räume',
+        'it': 'Numero di locali',
       }),
       'nested_aliases': dict({
       }),
@@ -4133,10 +4153,12 @@
       'aliases': list([
         dict({
           'de': 'EBAU_URL',
+          'it': 'EBAU_URL',
         }),
       ]),
       'description': dict({
         'de': 'Die URL vom eBau-System',
+        'it': 'URL del sistema eBau',
       }),
       'nested_aliases': dict({
       }),
@@ -4145,10 +4167,12 @@
       'aliases': list([
         dict({
           'de': 'BAUEINGABE_DATUM',
+          'it': 'DATA_PRESENTAZIONE',
         }),
       ]),
       'description': dict({
         'de': 'Datum an dem das Dossier eingereicht wurde',
+        'it': 'Data in cui è stato presentato il dossier',
       }),
       'nested_aliases': dict({
       }),
@@ -4157,10 +4181,12 @@
       'aliases': list([
         dict({
           'de': 'BAUENTSCHEID',
+          'it': 'DECISIONE EDILIZIA',
         }),
       ]),
       'description': dict({
         'de': 'Bauentscheid',
+        'it': 'Decisione edilizia',
       }),
       'nested_aliases': dict({
       }),
@@ -4169,10 +4195,12 @@
       'aliases': list([
         dict({
           'de': 'START_PUBLIKATION_GEMEINDE',
+          'it': 'INIZIO_PUBBLICAZIONE_COMUNE',
         }),
       ]),
       'description': dict({
         'de': 'Startdatum der Publikation im Publikationsorgan der Gemeinde',
+        'it': "Data di inizio della pubblicazione nell'organo di pubblicazione del comune",
       }),
       'nested_aliases': dict({
       }),
@@ -4181,10 +4209,12 @@
       'aliases': list([
         dict({
           'de': 'START_PUBLIKATION_KANTON',
+          'it': 'INIZIO_PUBBLICAZIONE_CANTONE',
         }),
       ]),
       'description': dict({
         'de': 'Startdatum der Publikation im Kantonsamtsblatt',
+        'it': 'Data di inizio della pubblicazione nel Foglio ufficiale cantonale',
       }),
       'nested_aliases': dict({
       }),
@@ -4193,10 +4223,12 @@
       'aliases': list([
         dict({
           'de': 'AMZ_SCHUTZPLATZ_BEMERKUNGEN',
+          'it': 'UMPC_OSSERVAZIONI_POSTI_PROTETTI',
         }),
       ]),
       'description': dict({
         'de': 'Bemerkungen zu den Schutzplätzen',
+        'it': 'Osservazioni relative ai posti protetti',
       }),
       'nested_aliases': dict({
       }),
@@ -4205,10 +4237,12 @@
       'aliases': list([
         dict({
           'de': 'BESCHREIBUNG_BAUVORHABEN',
+          'it': 'DESCRIZIONE_PROGETTO',
         }),
       ]),
       'description': dict({
         'de': 'Beschreibung des Bauvorhabens',
+        'it': 'Descrizione del progetto di costruzione',
       }),
       'nested_aliases': dict({
       }),
@@ -4217,10 +4251,12 @@
       'aliases': list([
         dict({
           'de': 'BAUENTSCHEID_DATUM',
+          'it': 'DATA_DECISIONE',
         }),
       ]),
       'description': dict({
         'de': 'Datum des Bauentscheids',
+        'it': 'Data della decisione edilizia',
       }),
       'nested_aliases': dict({
       }),
@@ -4229,10 +4265,12 @@
       'aliases': list([
         dict({
           'de': 'BESCHREIBUNG_PROJEKTAENDERUNG',
+          'it': 'DESCRIZIONE_MODIFICA',
         }),
       ]),
       'description': dict({
         'de': 'Projektänderung',
+        'it': 'Modifica del progetto',
       }),
       'nested_aliases': dict({
       }),
@@ -4241,60 +4279,72 @@
       'aliases': list([
         dict({
           'de': 'DOKUMENTE',
+          'it': 'DOCUMENTI',
         }),
       ]),
       'description': dict({
         'de': 'Dokumente mit Metadaten',
+        'it': 'Documenti con metadati',
       }),
       'nested_aliases': dict({
         'CATEGORY': list([
           dict({
             'de': 'KATEGORIE',
+            'it': 'CATEGORIA',
           }),
         ]),
         'CREATED_AT': list([
           dict({
             'de': 'ERSTELLT_AM',
+            'it': 'CREATO_IL',
           }),
         ]),
         'CREATED_BY': list([
           dict({
             'de': 'ERSTELLT_VON',
+            'it': 'CREATO_DA',
           }),
         ]),
         'DESCRIPTION': list([
           dict({
             'de': 'BESCHREIBUNG',
+            'it': 'DESCRIZIONE',
           }),
         ]),
         'MARKS': list([
           dict({
             'de': 'MARKIERUNGEN',
+            'it': 'DEMARCAZIONI',
           }),
         ]),
         'MODIFIED_AT': list([
           dict({
             'de': 'GEAENDERT_AM',
+            'it': 'MODIFICATO_IL',
           }),
         ]),
         'MODIFIED_BY': list([
           dict({
             'de': 'GEAENDERT_VON',
+            'it': 'MODIFICATO_DA',
           }),
         ]),
         'NAME': list([
           dict({
             'de': 'NAME',
+            'it': 'NOME',
           }),
         ]),
         'ORIGINAL_NAME': list([
           dict({
             'de': 'ORIGINAL_NAME',
+            'it': 'NOME_ORIGINALE',
           }),
         ]),
         'TAGS': list([
           dict({
             'de': 'STICHWORTE',
+            'it': 'PAROLE_CHIAVE',
           }),
         ]),
       }),
@@ -4303,10 +4353,12 @@
       'aliases': list([
         dict({
           'de': 'DOSSIER_NUMMER',
+          'it': 'DOSSIER_NUMERO',
         }),
       ]),
       'description': dict({
         'de': 'Die Nummer des Dossiers',
+        'it': 'Numero del dossier',
       }),
       'nested_aliases': dict({
       }),
@@ -4315,10 +4367,12 @@
       'aliases': list([
         dict({
           'de': 'EGID',
+          'it': 'EGID',
         }),
       ]),
       'description': dict({
         'de': 'Eidgenössische Gebäudeidentifikator (EGID)',
+        'it': "Identificatore federale dell'edificio (EGID)",
       }),
       'nested_aliases': dict({
       }),
@@ -4327,10 +4381,12 @@
       'aliases': list([
         dict({
           'de': 'EGRID',
+          'it': 'EGRID',
         }),
       ]),
       'description': dict({
         'de': 'Eidgenössische Grundstücksidentifikation (E-GRID)',
+        'it': 'Identificazione federale dei fondi (E-GRID)',
       }),
       'nested_aliases': dict({
       }),
@@ -4339,10 +4395,12 @@
       'aliases': list([
         dict({
           'de': 'ENDE_PUBLIKATION_GEMEINDE',
+          'it': 'FINE_PUBBLICAZIONE_COMUNE',
         }),
       ]),
       'description': dict({
         'de': 'Enddatum der Publikation im Publikationsorgan der Gemeinde',
+        'it': "Data della fine della pubblicazione nell'organo di pubblicazione del comune",
       }),
       'nested_aliases': dict({
       }),
@@ -4351,10 +4409,12 @@
       'aliases': list([
         dict({
           'de': 'ENDE_PUBLIKATION_KANTON',
+          'it': 'FINE_PUBBLICAZIONE_CANTONE',
         }),
       ]),
       'description': dict({
         'de': 'Enddatum der Publikation im Kantonsamtsblatt',
+        'it': 'Data della fine della pubblicazione nel Foglio ufficiale cantonale',
       }),
       'nested_aliases': dict({
       }),
@@ -4363,10 +4423,12 @@
       'aliases': list([
         dict({
           'de': 'ENTSCHEIDDOKUMENTE',
+          'it': 'DOCUMENTI_DECISIONE',
         }),
       ]),
       'description': dict({
         'de': 'Alle Dokumente die als Entscheiddokument markiert wurden',
+        'it': 'Tutti i documenti che sono stati indicati come documenti relativi alla decisione',
       }),
       'nested_aliases': dict({
       }),
@@ -4375,33 +4437,40 @@
       'aliases': list([
         dict({
           'de': 'ZIRKULATION_ALLE',
+          'it': 'CIRCOLAZIONE_TUTTI',
         }),
         dict({
           'de': 'FACHSTELLEN_KANTONAL',
+          'it': 'SERVIZI_CANTONALI',
         }),
       ]),
       'description': dict({
         'de': 'In Dossier involvierte Stellen',
+        'it': 'Servizi interessati dal dossier',
       }),
       'nested_aliases': dict({
         'BEANTWORTET': list([
           dict({
             'de': 'BEANTWORTET',
+            'it': 'RISPOSTO',
           }),
         ]),
         'ERSTELLT': list([
           dict({
             'de': 'ERSTELLT',
+            'it': 'CREATO',
           }),
         ]),
         'FRIST': list([
           dict({
             'de': 'FRIST',
+            'it': 'SCADENZA',
           }),
         ]),
         'NAME': list([
           dict({
             'de': 'NAME',
+            'it': 'NOME',
           }),
         ]),
       }),
@@ -4410,10 +4479,12 @@
       'aliases': list([
         dict({
           'de': 'AMZ_SCHUTZPLATZ_FLAECHE',
+          'it': 'UMPC_SUPERFICIE_POSTO_PROTETTO',
         }),
       ]),
       'description': dict({
         'de': 'Fläche des Schutzplatzes',
+        'it': 'Superficie del posto protetto',
       }),
       'nested_aliases': dict({
       }),
@@ -4422,10 +4493,12 @@
       'aliases': list([
         dict({
           'de': 'FOLGEPLANUNG',
+          'it': 'PIANIFICAZIONE_CONSECUTIVA',
         }),
       ]),
       'description': dict({
         'de': 'Folgeplanung',
+        'it': 'Pianificazione consecutiva',
       }),
       'nested_aliases': dict({
       }),
@@ -4434,10 +4507,12 @@
       'aliases': list([
         dict({
           'de': 'DOSSIER_TYP',
+          'it': 'TIPO_DOSSIER',
         }),
       ]),
       'description': dict({
         'de': 'Typ des Dossiers',
+        'it': 'Tipo di dossier',
       }),
       'nested_aliases': dict({
       }),
@@ -4446,10 +4521,12 @@
       'aliases': list([
         dict({
           'de': 'AMZ_GEBAEUDEART',
+          'it': 'UMPC_TIPO_DI_EDIFICIO',
         }),
       ]),
       'description': dict({
         'de': 'Gebäudeart des Schutzplatz Gebäudes',
+        'it': 'Tipo di edificio',
       }),
       'nested_aliases': dict({
       }),
@@ -4458,10 +4535,12 @@
       'aliases': list([
         dict({
           'de': 'GEBAEUDEVERSICHERUNGSNUMMER',
+          'it': 'NUMERO_ASSICURAZIONE_FABBRICATI',
         }),
       ]),
       'description': dict({
         'de': 'Gebäudeversicherungsnummer',
+        'it': "Numero dell'Assicurazione fabbricati",
       }),
       'nested_aliases': dict({
       }),
@@ -4470,10 +4549,12 @@
       'aliases': list([
         dict({
           'de': 'GEMEINDE_EMAIL',
+          'it': 'EMAIL_COMUNE',
         }),
       ]),
       'description': dict({
         'de': 'Email-Adresse der Gemeinde',
+        'it': 'Indirizzo e-mail del comune',
       }),
       'nested_aliases': dict({
       }),
@@ -4482,10 +4563,12 @@
       'aliases': list([
         dict({
           'de': 'GEMEINDE_NAME_ADRESSE',
+          'it': 'COMUNE_NOME_INDIRIZZO',
         }),
       ]),
       'description': dict({
         'de': 'Name und Adresse der Gemeinde',
+        'it': 'Nome e indirizzo del comune',
       }),
       'nested_aliases': dict({
       }),
@@ -4494,10 +4577,12 @@
       'aliases': list([
         dict({
           'de': 'GEMEINDE_ORT',
+          'it': 'COMUNE_LOCALITÀ',
         }),
       ]),
       'description': dict({
         'de': 'Ort der Gemeinde',
+        'it': 'Località del comune',
       }),
       'nested_aliases': dict({
       }),
@@ -4506,10 +4591,12 @@
       'aliases': list([
         dict({
           'de': 'GEMEINDE_TELEFON',
+          'it': 'COMUNE_TELEFONO',
         }),
       ]),
       'description': dict({
         'de': 'Telefonnummer der Gemeinde',
+        'it': 'Numero di telefono del comune',
       }),
       'nested_aliases': dict({
       }),
@@ -4518,10 +4605,12 @@
       'aliases': list([
         dict({
           'de': 'GENERELLER_ERSCHLIESSUNGSPLAN',
+          'it': 'PIANO_GENERALE_DI_URBANIZZAZIONE',
         }),
       ]),
       'description': dict({
         'de': 'Genereller Erschliessungsplan',
+        'it': 'Piano generale di urbanizzazione',
       }),
       'nested_aliases': dict({
       }),
@@ -4530,10 +4619,12 @@
       'aliases': list([
         dict({
           'de': 'GENERELLER_GESTALTUNGSPLAN',
+          'it': 'PIANO_GENERALE_DELLE_STRUTTURE',
         }),
       ]),
       'description': dict({
         'de': 'Genereller Gestaltungsplan',
+        'it': 'Piano generale delle strutture',
       }),
       'nested_aliases': dict({
       }),
@@ -4542,10 +4633,12 @@
       'aliases': list([
         dict({
           'de': 'GESUCHSTELLER',
+          'it': 'PERSONA_RICHIEDENTE',
         }),
       ]),
       'description': dict({
         'de': 'Name des/r ersten Gesuchsteller/in',
+        'it': 'Nome della persona richiedente',
       }),
       'nested_aliases': dict({
       }),
@@ -4554,10 +4647,12 @@
       'aliases': list([
         dict({
           'de': 'GESUCHSTELLER_ADRESSE_1',
+          'it': 'RICHIEDENTE_INDIRIZZO_1',
         }),
       ]),
       'description': dict({
         'de': 'Adresslinie 1 des/r ersten Gesuchsteller/in',
+        'it': "1ª riga dell'indirizzo della prima persona richiedente",
       }),
       'nested_aliases': dict({
       }),
@@ -4566,10 +4661,12 @@
       'aliases': list([
         dict({
           'de': 'GESUCHSTELLER_ADRESSE_2',
+          'it': 'RICHIEDENTE_INDIRIZZO_2',
         }),
       ]),
       'description': dict({
         'de': 'Adresslinie 2 des/r ersten Gesuchsteller/in',
+        'it': "2ª riga dell'indirizzo della prima persona richiedente",
       }),
       'nested_aliases': dict({
       }),
@@ -4578,10 +4675,12 @@
       'aliases': list([
         dict({
           'de': 'GESUCHSTELLER_NAME_ADRESSE',
+          'it': 'RICHIEDENTE_NOME_INDIRIZZO',
         }),
       ]),
       'description': dict({
         'de': 'Name und Adresse des/r ersten Gesuchsteller/in',
+        'it': 'Nome e indirizzo della persona richiedente',
       }),
       'nested_aliases': dict({
       }),
@@ -4590,10 +4689,12 @@
       'aliases': list([
         dict({
           'de': 'GRUNDEIGENTUEMER',
+          'it': 'PERSONA_PROPRIETARIA_DEL_FONDO',
         }),
       ]),
       'description': dict({
         'de': 'Name des/r Grundeigentümer/in',
+        'it': 'Nome della persona proprietaria del fondo',
       }),
       'nested_aliases': dict({
       }),
@@ -4602,10 +4703,12 @@
       'aliases': list([
         dict({
           'de': 'GRUNDEIGENTUEMER_ADRESSE_1',
+          'it': 'PROPRIETARIO_FONDIARIO_INDIRIZZO_1',
         }),
       ]),
       'description': dict({
         'de': 'Adresslinie 1 des/r ersten Grundeigentümer/in',
+        'it': "1ª riga dell'indirizzo della prima persona proprietaria del fondo",
       }),
       'nested_aliases': dict({
       }),
@@ -4614,10 +4717,12 @@
       'aliases': list([
         dict({
           'de': 'GRUNDEIGENTUEMER_ADRESSE_2',
+          'it': 'PROPRIETARIO_FONDIARIO_INDIRIZZO_2',
         }),
       ]),
       'description': dict({
         'de': 'Adresslinie 2 des/r ersten Grundeigentümer/in',
+        'it': "2ª riga dell'indirizzo della prima persona proprietaria del fondo",
       }),
       'nested_aliases': dict({
       }),
@@ -4626,10 +4731,12 @@
       'aliases': list([
         dict({
           'de': 'GRUNDEIGENTUEMER_NAME_ADRESSE',
+          'it': 'PROPRIETARIO_FONDIARIO_NOME_INDIRIZZO',
         }),
       ]),
       'description': dict({
         'de': 'Name und Adresse des/r Grundeigentümer/in',
+        'it': 'Nome e indirizzo della persona proprietaria del fondo',
       }),
       'nested_aliases': dict({
       }),
@@ -4638,10 +4745,12 @@
       'aliases': list([
         dict({
           'de': 'ID',
+          'it': 'ID',
         }),
       ]),
       'description': dict({
         'de': 'Die Nummer des Dossiers',
+        'it': 'ID del dossier',
       }),
       'nested_aliases': dict({
       }),
@@ -4650,10 +4759,12 @@
       'aliases': list([
         dict({
           'de': 'JURISTISCHER_NAME',
+          'it': 'DENOMINAZIONE_GIURIDICA',
         }),
       ]),
       'description': dict({
         'de': 'Juristischer Name des/r ersten Gesuchsteller/in',
+        'it': 'Denominazione giuridica della persona richiedente',
       }),
       'nested_aliases': dict({
       }),
@@ -4662,10 +4773,12 @@
       'aliases': list([
         dict({
           'de': 'KOORDINATEN',
+          'it': 'COORDINATE',
         }),
       ]),
       'description': dict({
         'de': 'Lagekoordinaten der Parzelle(n)',
+        'it': 'Coordinate della/e particella/e',
       }),
       'nested_aliases': dict({
       }),
@@ -4674,10 +4787,12 @@
       'aliases': list([
         dict({
           'de': 'SPRACHE',
+          'it': 'LINGUA',
         }),
       ]),
       'description': dict({
         'de': 'Die momentan ausgewählte Systemsprache',
+        'it': 'Lingua di sistema selezionata attualmente',
       }),
       'nested_aliases': dict({
       }),
@@ -4686,10 +4801,12 @@
       'aliases': list([
         dict({
           'de': 'LEITBEHOERDE_ADRESSE_1',
+          'it': 'AUTORITÀ_DIRETTRICE_INDIRIZZO_1',
         }),
       ]),
       'description': dict({
         'de': 'Adresslinie 1 der zuständigen Leitbehörde',
+        'it': "1ª riga dell'indirizzo dell'autorità direttrice competente",
       }),
       'nested_aliases': dict({
       }),
@@ -4698,10 +4815,12 @@
       'aliases': list([
         dict({
           'de': 'LEITBEHOERDE_ADRESSE_2',
+          'it': 'AUTORITÀ_DIRETTRICE_INDIRIZZO_2',
         }),
       ]),
       'description': dict({
         'de': 'Adresslinie 2 der zuständigen Leitbehörde',
+        'it': "2ª riga dell'indirizzo dell'autorità direttrice competente",
       }),
       'nested_aliases': dict({
       }),
@@ -4710,10 +4829,12 @@
       'aliases': list([
         dict({
           'de': 'LEITBEHOERDE_STADT',
+          'it': 'AUTORITÀ_DIRETTRICE_LOCALITÀ',
         }),
       ]),
       'description': dict({
         'de': 'Ort der zuständigen Leitbehörde',
+        'it': "Località dell'autorità direttrice competente",
       }),
       'nested_aliases': dict({
       }),
@@ -4722,10 +4843,12 @@
       'aliases': list([
         dict({
           'de': 'LEITBEHOERDE_EMAIL',
+          'it': 'AUTORITÀ_DIRETTRICE_EMAIL',
         }),
       ]),
       'description': dict({
         'de': 'Email-Adresse der zuständigen Leitbehörde',
+        'it': "Indirizzo e-mail dell'autorità direttrice competente",
       }),
       'nested_aliases': dict({
       }),
@@ -4734,10 +4857,12 @@
       'aliases': list([
         dict({
           'de': 'LEITBEHOERDE_NAME',
+          'it': 'AUTORITÀ_DIRETTRICE_NOME',
         }),
       ]),
       'description': dict({
         'de': 'Name der zuständigen Leitbehörde',
+        'it': "Nome dell'autorità direttrice competente",
       }),
       'nested_aliases': dict({
       }),
@@ -4746,10 +4871,12 @@
       'aliases': list([
         dict({
           'de': 'LEITBEHOERDE_NAME_KURZ',
+          'it': 'AUTORITÀ_DIRETTRICE_NOME_BREVE',
         }),
       ]),
       'description': dict({
         'de': 'Abgekürzter Name der zuständigen Leitbehörde',
+        'it': "Nome abbreviato dell'autorità direttrice competente",
       }),
       'nested_aliases': dict({
       }),
@@ -4758,10 +4885,12 @@
       'aliases': list([
         dict({
           'de': 'LEITBEHOERDE_TELEFON',
+          'it': 'AUTORITÀ_DIRETTRICE_TELEFONO',
         }),
       ]),
       'description': dict({
         'de': 'Telefonnummer der zuständigen Leitbehörde',
+        'it': "Numero di telefono dell'autorità direttrice competente",
       }),
       'nested_aliases': dict({
       }),
@@ -4770,10 +4899,12 @@
       'aliases': list([
         dict({
           'de': 'MEINE_ORGANISATION_ADRESSE_1',
+          'it': 'MIA_ORGANIZZAZIONE_INDIRIZZO_1',
         }),
       ]),
       'description': dict({
         'de': 'Adresslinie 1 der momentan ausgewählten Organisation',
+        'it': "1ª riga dell'indirizzo dell'organizzazione attualmente selezionata",
       }),
       'nested_aliases': dict({
       }),
@@ -4782,10 +4913,12 @@
       'aliases': list([
         dict({
           'de': 'MEINE_ORGANISATION_ADRESSE_2',
+          'it': 'MIA_ORGANIZZAZIONE_INDIRIZZO_2',
         }),
       ]),
       'description': dict({
         'de': 'Adresslinie 2 der momentan ausgewählten Organisation',
+        'it': "2ª riga dell'indirizzo dell'organizzazione attualmente selezionata",
       }),
       'nested_aliases': dict({
       }),
@@ -4794,10 +4927,12 @@
       'aliases': list([
         dict({
           'de': 'MEINE_ORGANISATION_EMAIL',
+          'it': 'MIA_ORGANIZZAZIONE_EMAIL',
         }),
       ]),
       'description': dict({
         'de': 'Email-Adresse der momentan ausgewählten Organisation',
+        'it': "Indirizzo e-mail dell'organizzazione attualmente selezionata",
       }),
       'nested_aliases': dict({
       }),
@@ -4806,10 +4941,12 @@
       'aliases': list([
         dict({
           'de': 'MEINE_ORGANISATION_NAME',
+          'it': 'MIA_ORGANIZZAZIONE_NOME',
         }),
       ]),
       'description': dict({
         'de': 'Name der momentan ausgewählten Organisation',
+        'it': "Nome dell'organizzazione attualmente selezionata",
       }),
       'nested_aliases': dict({
       }),
@@ -4818,10 +4955,12 @@
       'aliases': list([
         dict({
           'de': 'MEINE_ORGANISATION_NAME_ADRESSE',
+          'it': 'MIA_ORGANIZZAZIONE_NOME_INDIRIZZO',
         }),
       ]),
       'description': dict({
         'de': 'Name und Adresse der momentan ausgewählten Organisation',
+        'it': "Nome e indirizzo dell'organizzazione attualmente selezionata",
       }),
       'nested_aliases': dict({
       }),
@@ -4830,10 +4969,12 @@
       'aliases': list([
         dict({
           'de': 'MEINE_ORGANISATION_NAME_KURZ',
+          'it': 'MIA_ORGANIZZAZIONE_NOME_BREVE',
         }),
       ]),
       'description': dict({
         'de': 'Abgekürzter Name der momentan ausgewählten Organisation',
+        'it': "Nome abbreviato dell'organizzazione attualmente selezionata",
       }),
       'nested_aliases': dict({
       }),
@@ -4842,10 +4983,12 @@
       'aliases': list([
         dict({
           'de': 'MEINE_ORGANISATION_ORT',
+          'it': 'MIA_ORGANIZZAZIONE_LOCALITÀ',
         }),
       ]),
       'description': dict({
         'de': 'Ort der momentan ausgewählten Organisation',
+        'it': "Località dell'organizzazione attualmente selezionata",
       }),
       'nested_aliases': dict({
       }),
@@ -4854,10 +4997,12 @@
       'aliases': list([
         dict({
           'de': 'MEINE_ORGANISATION_TELEFON',
+          'it': 'MIA_ORGANIZZAZIONE_TELEFONO',
         }),
       ]),
       'description': dict({
         'de': 'Telefonnummer der momentan ausgewählten Organisation',
+        'it': "Numero di telefono dell'organizzazione attualmente selezionata",
       }),
       'nested_aliases': dict({
       }),
@@ -4866,10 +5011,12 @@
       'aliases': list([
         dict({
           'de': 'GEMEINDE',
+          'it': 'COMUNE',
         }),
       ]),
       'description': dict({
         'de': 'Die ausgewählte Gemeinde des/der Gesuchsteller/in',
+        'it': 'Nome del comune selezionato dalla persona richiedente',
       }),
       'nested_aliases': dict({
       }),
@@ -4878,10 +5025,12 @@
       'aliases': list([
         dict({
           'de': 'GEMEINDE_ADRESSE',
+          'it': 'COMUNE_INDIRIZZO',
         }),
       ]),
       'description': dict({
         'de': 'Die Adresse der ausgewählten Gemeinde des/der Gesuchsteller/in',
+        'it': 'Indirizzo del comune selezionato dalla persona richiedente',
       }),
       'nested_aliases': dict({
       }),
@@ -4897,13 +5046,16 @@
       'aliases': list([
         dict({
           'de': 'EIGENE_NEBENBESTIMMUNGEN',
+          'it': 'PROPRIE_DISPOSIZIONI_ACCESSORIE',
         }),
         dict({
           'de': 'NEBENBESTIMMUNGEN',
+          'it': 'DISPOSIZIONI_ACCESSORIE',
         }),
       ]),
       'description': dict({
         'de': 'Eigene Nebenbestimmungen',
+        'it': 'Proprie disposizioni accessorie',
       }),
       'nested_aliases': dict({
       }),
@@ -4912,6 +5064,7 @@
       'aliases': list([
         dict({
           'de': 'NEBENBESTIMMUNGEN_MAPPED',
+          'it': 'DISPOSIZIONI_ACCESSORIE_MAPPED',
         }),
       ]),
       'description': None,
@@ -4919,11 +5072,13 @@
         'FACHSTELLE': list([
           dict({
             'de': 'FACHSTELLE',
+            'it': 'SERVIZIO',
           }),
         ]),
         'TEXT': list([
           dict({
             'de': 'TEXT',
+            'it': 'TESTO',
           }),
         ]),
       }),
@@ -4932,10 +5087,12 @@
       'aliases': list([
         dict({
           'de': 'ORT',
+          'it': 'UBICAZIONE',
         }),
       ]),
       'description': dict({
         'de': 'Der Ort des Bauvorhabens',
+        'it': 'Ubicazione del progetto di costruzione',
       }),
       'nested_aliases': dict({
       }),
@@ -4944,10 +5101,12 @@
       'aliases': list([
         dict({
           'de': 'PARZELLE',
+          'it': 'PARTICELLA',
         }),
       ]),
       'description': dict({
         'de': 'Die ausgewählte Parzelle(n) des/der Gesuchsteller/in',
+        'it': 'Particella/e selezionata/e dalla persona richiedente',
       }),
       'nested_aliases': dict({
       }),
@@ -4956,10 +5115,12 @@
       'aliases': list([
         dict({
           'de': 'PROJEKTVERFASSER',
+          'it': 'PROGETTISTA',
         }),
       ]),
       'description': dict({
         'de': 'Name des/r Projektverfasser/in',
+        'it': 'Nome della/del progettista',
       }),
       'nested_aliases': dict({
       }),
@@ -4968,10 +5129,12 @@
       'aliases': list([
         dict({
           'de': 'PROJEKTVERFASSER_ADRESSE_1',
+          'it': 'PROGETTISTA_INDIRIZZO_1',
         }),
       ]),
       'description': dict({
         'de': 'Adresslinie 1 des/r ersten Projektverfasser/in',
+        'it': "1ª riga dell'indirizzo della prima progettista/del primo progettista",
       }),
       'nested_aliases': dict({
       }),
@@ -4980,10 +5143,12 @@
       'aliases': list([
         dict({
           'de': 'PROJEKTVERFASSER_ADRESSE_2',
+          'it': 'PROGETTISTA_INDIRIZZO_2',
         }),
       ]),
       'description': dict({
         'de': 'Adresslinie 2 des/r ersten Projektverfasser/in',
+        'it': "2ª riga dell'indirizzo della prima progettista/del primo progettista",
       }),
       'nested_aliases': dict({
       }),
@@ -4992,10 +5157,12 @@
       'aliases': list([
         dict({
           'de': 'PROJEKTVERFASSER_NAME_ADRESSE',
+          'it': 'PROGETTISTA_NOME_INDIRIZZO',
         }),
       ]),
       'description': dict({
         'de': 'Name und Adresse des/r Projektverfasser/in',
+        'it': 'Nome e indirizzo della/del progettista',
       }),
       'nested_aliases': dict({
       }),
@@ -5004,10 +5171,12 @@
       'aliases': list([
         dict({
           'de': 'PUBLIKATION_LINK',
+          'it': 'PUBBLICAZIONE_LINK',
         }),
       ]),
       'description': dict({
         'de': 'Link zur öffentlichen Auflage',
+        'it': "Link dell'esposizione pubblica",
       }),
       'nested_aliases': dict({
       }),
@@ -5016,10 +5185,12 @@
       'aliases': list([
         dict({
           'de': 'PUBLIKATION_TEXT',
+          'it': 'PUBBLICAZIONE_TESTO',
         }),
       ]),
       'description': dict({
         'de': 'Publikationstext des Dossiers',
+        'it': 'Testo della pubblicazione del dossier',
       }),
       'nested_aliases': dict({
       }),
@@ -5028,10 +5199,12 @@
       'aliases': list([
         dict({
           'de': 'STATUS',
+          'it': 'STATO',
         }),
       ]),
       'description': dict({
         'de': 'Momentaner Status des Dossiers',
+        'it': 'Stato attuale del dossier',
       }),
       'nested_aliases': dict({
       }),
@@ -5040,13 +5213,16 @@
       'aliases': list([
         dict({
           'de': 'EIGENE_STELLUNGNAHMEN',
+          'it': 'PROPRIE_PRESE_DI_POSIZIONE',
         }),
         dict({
           'de': 'STELLUNGNAHME',
+          'it': 'PRESE_DI_POSIZIONE',
         }),
       ]),
       'description': dict({
         'de': 'Eigene Stellungnahmen',
+        'it': 'Proprie prese di posizione',
       }),
       'nested_aliases': dict({
       }),
@@ -5055,10 +5231,12 @@
       'aliases': list([
         dict({
           'de': 'STRASSE',
+          'it': 'VIA',
         }),
       ]),
       'description': dict({
         'de': 'Die Strasse des Bauvorhabens',
+        'it': 'Via del progetto di costruzione',
       }),
       'nested_aliases': dict({
       }),
@@ -5067,10 +5245,12 @@
       'aliases': list([
         dict({
           'de': 'HEUTE',
+          'it': 'OGGI',
         }),
       ]),
       'description': dict({
         'de': 'Das heutige Datum',
+        'it': 'Data odierna',
       }),
       'nested_aliases': dict({
       }),
@@ -5079,10 +5259,12 @@
       'aliases': list([
         dict({
           'de': 'AMZ_SCHUTZPLATZ_VOLUMEN',
+          'it': 'UMPC_VOLUME_POSTO_PROTETTO',
         }),
       ]),
       'description': dict({
         'de': 'Volumen des Schutzplatzes',
+        'it': 'Volume del posto protetto',
       }),
       'nested_aliases': dict({
       }),
@@ -5091,30 +5273,36 @@
       'aliases': list([
         dict({
           'de': 'ZIRKULATION_FACHSTELLEN',
+          'it': 'CIRCOLAZIONE_SERVIZI',
         }),
       ]),
       'description': dict({
         'de': 'In Dossier involvierte Fachstellen',
+        'it': 'Servizi interessati dal dossier',
       }),
       'nested_aliases': dict({
         'BEANTWORTET': list([
           dict({
             'de': 'BEANTWORTET',
+            'it': 'RISPOSTO',
           }),
         ]),
         'ERSTELLT': list([
           dict({
             'de': 'ERSTELLT',
+            'it': 'CREATO',
           }),
         ]),
         'FRIST': list([
           dict({
             'de': 'FRIST',
+            'it': 'SCADENZA',
           }),
         ]),
         'NAME': list([
           dict({
             'de': 'NAME',
+            'it': 'NOME',
           }),
         ]),
       }),
@@ -5123,30 +5311,36 @@
       'aliases': list([
         dict({
           'de': 'ZIRKULATION_GEMEINDEN',
+          'it': 'CIRCOLAZIONE_COMUNI',
         }),
       ]),
       'description': dict({
         'de': 'In Dossier involvierte Gemeinden',
+        'it': 'Comuni interessati dal dossier',
       }),
       'nested_aliases': dict({
         'BEANTWORTET': list([
           dict({
             'de': 'BEANTWORTET',
+            'it': 'RISPOSTO',
           }),
         ]),
         'ERSTELLT': list([
           dict({
             'de': 'ERSTELLT',
+            'it': 'CREATO',
           }),
         ]),
         'FRIST': list([
           dict({
             'de': 'FRIST',
+            'it': 'SCADENZA',
           }),
         ]),
         'NAME': list([
           dict({
             'de': 'NAME',
+            'it': 'NOME',
           }),
         ]),
       }),
@@ -5155,30 +5349,36 @@
       'aliases': list([
         dict({
           'de': 'ZIRKULATION_RUECKMELDUNGEN',
+          'it': 'CIRCOLAZIONE_RISCONTRI',
         }),
       ]),
       'description': dict({
         'de': 'Stellungnahmen und Nebenbestimmungen der eingeladenen Fachstellen',
+        'it': 'Prese di posizione e disposizioni accessorie dei servizi invitati',
       }),
       'nested_aliases': dict({
         'ANTWORT': list([
           dict({
             'de': 'ANTWORT',
+            'it': 'RISPOSTA',
           }),
         ]),
         'NEBENBESTIMMUNGEN': list([
           dict({
             'de': 'NEBENBESTIMMUNGEN',
+            'it': 'DISPOSIZIONI_ACCESSORIE',
           }),
         ]),
         'STELLUNGNAHME': list([
           dict({
             'de': 'STELLUNGNAHME',
+            'it': 'PRESA_DI_POSIZIONE',
           }),
         ]),
         'VON': list([
           dict({
             'de': 'VON',
+            'it': 'DA',
           }),
         ]),
       }),
@@ -5187,10 +5387,12 @@
       'aliases': list([
         dict({
           'de': 'ZONENPLAN',
+          'it': 'PIANO_DELLE_ZONE',
         }),
       ]),
       'description': dict({
         'de': 'Zonenplan',
+        'it': 'Piano delle zone',
       }),
       'nested_aliases': dict({
       }),
@@ -5199,10 +5401,12 @@
       'aliases': list([
         dict({
           'de': 'ZUSTAENDIG_NAME',
+          'it': 'RESPONSABILE_NOME',
         }),
       ]),
       'description': dict({
         'de': 'Name des/r zuständigen/r Mitarbeiter/in',
+        'it': 'Nome della persona responsabile',
       }),
       'nested_aliases': dict({
       }),
@@ -8342,6 +8546,13 @@
     'ANZAHL_SCHUTZPLAETZE',
     'ANZAHL_SPITALBETTEN',
     'ANZAHL_ZIMMER',
+    'AUTORITÀ_DIRETTRICE_EMAIL',
+    'AUTORITÀ_DIRETTRICE_INDIRIZZO_1',
+    'AUTORITÀ_DIRETTRICE_INDIRIZZO_2',
+    'AUTORITÀ_DIRETTRICE_LOCALITÀ',
+    'AUTORITÀ_DIRETTRICE_NOME',
+    'AUTORITÀ_DIRETTRICE_NOME_BREVE',
+    'AUTORITÀ_DIRETTRICE_TELEFONO',
     'BASE_URL',
     'BAUEINGABE_DATUM',
     'BAUENTSCHEID',
@@ -8351,15 +8562,110 @@
     'BEMERKUNGEN_SCHUTZPLAETZE',
     'BESCHREIBUNG_BAUVORHABEN',
     'BESCHREIBUNG_PROJEKTAENDERUNG',
+    'CIRCOLAZIONE_COMUNI',
+    'CIRCOLAZIONE_COMUNI[]',
+    'CIRCOLAZIONE_COMUNI[].BEANTWORTET',
+    'CIRCOLAZIONE_COMUNI[].CREATO',
+    'CIRCOLAZIONE_COMUNI[].ERSTELLT',
+    'CIRCOLAZIONE_COMUNI[].FRIST',
+    'CIRCOLAZIONE_COMUNI[].NAME',
+    'CIRCOLAZIONE_COMUNI[].NOME',
+    'CIRCOLAZIONE_COMUNI[].RISPOSTO',
+    'CIRCOLAZIONE_COMUNI[].SCADENZA',
+    'CIRCOLAZIONE_RISCONTRI',
+    'CIRCOLAZIONE_RISCONTRI[]',
+    'CIRCOLAZIONE_RISCONTRI[].ANTWORT',
+    'CIRCOLAZIONE_RISCONTRI[].DA',
+    'CIRCOLAZIONE_RISCONTRI[].DISPOSIZIONI_ACCESSORIE',
+    'CIRCOLAZIONE_RISCONTRI[].NEBENBESTIMMUNGEN',
+    'CIRCOLAZIONE_RISCONTRI[].PRESA_DI_POSIZIONE',
+    'CIRCOLAZIONE_RISCONTRI[].RISPOSTA',
+    'CIRCOLAZIONE_RISCONTRI[].STELLUNGNAHME',
+    'CIRCOLAZIONE_RISCONTRI[].VON',
+    'CIRCOLAZIONE_SERVIZI',
+    'CIRCOLAZIONE_SERVIZI[]',
+    'CIRCOLAZIONE_SERVIZI[].BEANTWORTET',
+    'CIRCOLAZIONE_SERVIZI[].CREATO',
+    'CIRCOLAZIONE_SERVIZI[].ERSTELLT',
+    'CIRCOLAZIONE_SERVIZI[].FRIST',
+    'CIRCOLAZIONE_SERVIZI[].NAME',
+    'CIRCOLAZIONE_SERVIZI[].NOME',
+    'CIRCOLAZIONE_SERVIZI[].RISPOSTO',
+    'CIRCOLAZIONE_SERVIZI[].SCADENZA',
+    'CIRCOLAZIONE_TUTTI',
+    'CIRCOLAZIONE_TUTTI[]',
+    'CIRCOLAZIONE_TUTTI[].BEANTWORTET',
+    'CIRCOLAZIONE_TUTTI[].CREATO',
+    'CIRCOLAZIONE_TUTTI[].ERSTELLT',
+    'CIRCOLAZIONE_TUTTI[].FRIST',
+    'CIRCOLAZIONE_TUTTI[].NAME',
+    'CIRCOLAZIONE_TUTTI[].NOME',
+    'CIRCOLAZIONE_TUTTI[].RISPOSTO',
+    'CIRCOLAZIONE_TUTTI[].SCADENZA',
+    'COMUNE',
+    'COMUNE_INDIRIZZO',
+    'COMUNE_LOCALITÀ',
+    'COMUNE_NOME_INDIRIZZO',
+    'COMUNE_TELEFONO',
+    'COORDINATE',
+    'DATA_DECISIONE',
+    'DATA_PRESENTAZIONE',
+    'DECISIONE EDILIZIA',
     'DECISION_DATE',
+    'DENOMINAZIONE_GIURIDICA',
     'DESCRIPTION_MODIFICATION',
+    'DESCRIZIONE_MODIFICA',
+    'DESCRIZIONE_PROGETTO',
+    'DISPOSIZIONI_ACCESSORIE',
+    'DISPOSIZIONI_ACCESSORIE_MAPPED',
+    'DISPOSIZIONI_ACCESSORIE_MAPPED[]',
+    'DISPOSIZIONI_ACCESSORIE_MAPPED[].FACHSTELLE',
+    'DISPOSIZIONI_ACCESSORIE_MAPPED[].SERVIZIO',
+    'DISPOSIZIONI_ACCESSORIE_MAPPED[].TESTO',
+    'DISPOSIZIONI_ACCESSORIE_MAPPED[].TEXT',
+    'DOCUMENTI',
+    'DOCUMENTI[]',
+    'DOCUMENTI[].BESCHREIBUNG',
+    'DOCUMENTI[].CATEGORIA',
+    'DOCUMENTI[].CATEGORY',
+    'DOCUMENTI[].CREATED_AT',
+    'DOCUMENTI[].CREATED_BY',
+    'DOCUMENTI[].CREATO_DA',
+    'DOCUMENTI[].CREATO_IL',
+    'DOCUMENTI[].DEMARCAZIONI',
+    'DOCUMENTI[].DESCRIPTION',
+    'DOCUMENTI[].DESCRIZIONE',
+    'DOCUMENTI[].ERSTELLT_AM',
+    'DOCUMENTI[].ERSTELLT_VON',
+    'DOCUMENTI[].GEAENDERT_AM',
+    'DOCUMENTI[].GEAENDERT_VON',
+    'DOCUMENTI[].KATEGORIE',
+    'DOCUMENTI[].MARKIERUNGEN',
+    'DOCUMENTI[].MARKS',
+    'DOCUMENTI[].MODIFICATO_DA',
+    'DOCUMENTI[].MODIFICATO_IL',
+    'DOCUMENTI[].MODIFIED_AT',
+    'DOCUMENTI[].MODIFIED_BY',
+    'DOCUMENTI[].NAME',
+    'DOCUMENTI[].NOME',
+    'DOCUMENTI[].NOME_ORIGINALE',
+    'DOCUMENTI[].ORIGINAL_NAME',
+    'DOCUMENTI[].PAROLE_CHIAVE',
+    'DOCUMENTI[].STICHWORTE',
+    'DOCUMENTI[].TAGS',
+    'DOCUMENTI_DECISIONE',
     'DOCUMENTS',
     'DOCUMENTS[]',
     'DOCUMENTS[].BESCHREIBUNG',
+    'DOCUMENTS[].CATEGORIA',
     'DOCUMENTS[].CATEGORY',
     'DOCUMENTS[].CREATED_AT',
     'DOCUMENTS[].CREATED_BY',
+    'DOCUMENTS[].CREATO_DA',
+    'DOCUMENTS[].CREATO_IL',
+    'DOCUMENTS[].DEMARCAZIONI',
     'DOCUMENTS[].DESCRIPTION',
+    'DOCUMENTS[].DESCRIZIONE',
     'DOCUMENTS[].ERSTELLT_AM',
     'DOCUMENTS[].ERSTELLT_VON',
     'DOCUMENTS[].GEAENDERT_AM',
@@ -8367,19 +8673,29 @@
     'DOCUMENTS[].KATEGORIE',
     'DOCUMENTS[].MARKIERUNGEN',
     'DOCUMENTS[].MARKS',
+    'DOCUMENTS[].MODIFICATO_DA',
+    'DOCUMENTS[].MODIFICATO_IL',
     'DOCUMENTS[].MODIFIED_AT',
     'DOCUMENTS[].MODIFIED_BY',
     'DOCUMENTS[].NAME',
+    'DOCUMENTS[].NOME',
+    'DOCUMENTS[].NOME_ORIGINALE',
     'DOCUMENTS[].ORIGINAL_NAME',
+    'DOCUMENTS[].PAROLE_CHIAVE',
     'DOCUMENTS[].STICHWORTE',
     'DOCUMENTS[].TAGS',
     'DOKUMENTE',
     'DOKUMENTE[]',
     'DOKUMENTE[].BESCHREIBUNG',
+    'DOKUMENTE[].CATEGORIA',
     'DOKUMENTE[].CATEGORY',
     'DOKUMENTE[].CREATED_AT',
     'DOKUMENTE[].CREATED_BY',
+    'DOKUMENTE[].CREATO_DA',
+    'DOKUMENTE[].CREATO_IL',
+    'DOKUMENTE[].DEMARCAZIONI',
     'DOKUMENTE[].DESCRIPTION',
+    'DOKUMENTE[].DESCRIZIONE',
     'DOKUMENTE[].ERSTELLT_AM',
     'DOKUMENTE[].ERSTELLT_VON',
     'DOKUMENTE[].GEAENDERT_AM',
@@ -8387,13 +8703,19 @@
     'DOKUMENTE[].KATEGORIE',
     'DOKUMENTE[].MARKIERUNGEN',
     'DOKUMENTE[].MARKS',
+    'DOKUMENTE[].MODIFICATO_DA',
+    'DOKUMENTE[].MODIFICATO_IL',
     'DOKUMENTE[].MODIFIED_AT',
     'DOKUMENTE[].MODIFIED_BY',
     'DOKUMENTE[].NAME',
+    'DOKUMENTE[].NOME',
+    'DOKUMENTE[].NOME_ORIGINALE',
     'DOKUMENTE[].ORIGINAL_NAME',
+    'DOKUMENTE[].PAROLE_CHIAVE',
     'DOKUMENTE[].STICHWORTE',
     'DOKUMENTE[].TAGS',
     'DOSSIER_NUMBER',
+    'DOSSIER_NUMERO',
     'DOSSIER_NUMMER',
     'DOSSIER_TYP',
     'EBAU_URL',
@@ -8401,6 +8723,7 @@
     'EGRID',
     'EIGENE_NEBENBESTIMMUNGEN',
     'EIGENE_STELLUNGNAHMEN',
+    'EMAIL_COMUNE',
     'ENDE_PUBLIKATIONSORGAN_GEMEINDE',
     'ENDE_PUBLIKATION_GEMEINDE',
     'ENDE_PUBLIKATION_KANTON',
@@ -8409,9 +8732,15 @@
     'FACHSTELLEN_KANTONAL',
     'FACHSTELLEN_KANTONAL[]',
     'FACHSTELLEN_KANTONAL[].BEANTWORTET',
+    'FACHSTELLEN_KANTONAL[].CREATO',
     'FACHSTELLEN_KANTONAL[].ERSTELLT',
     'FACHSTELLEN_KANTONAL[].FRIST',
     'FACHSTELLEN_KANTONAL[].NAME',
+    'FACHSTELLEN_KANTONAL[].NOME',
+    'FACHSTELLEN_KANTONAL[].RISPOSTO',
+    'FACHSTELLEN_KANTONAL[].SCADENZA',
+    'FINE_PUBBLICAZIONE_CANTONE',
+    'FINE_PUBBLICAZIONE_COMUNE',
     'FLAECHE_SCHUTZPLAETZE',
     'FOLGEPLANUNG',
     'FORM_NAME',
@@ -8441,6 +8770,9 @@
     'GRUNDEIGENTUEMER_NAME_ADRESSE',
     'HEUTE',
     'ID',
+    'INDIRIZZO',
+    'INIZIO_PUBBLICAZIONE_CANTONE',
+    'INIZIO_PUBBLICAZIONE_COMUNE',
     'INSTANCE_ID',
     'JURISTIC_NAME',
     'JURISTISCHER_NAME',
@@ -8457,6 +8789,7 @@
     'LEITBEHOERDE_PHONE',
     'LEITBEHOERDE_STADT',
     'LEITBEHOERDE_TELEFON',
+    'LINGUA',
     'MEINE_ORGANISATION_ADRESSE_1',
     'MEINE_ORGANISATION_ADRESSE_2',
     'MEINE_ORGANISATION_EMAIL',
@@ -8465,6 +8798,14 @@
     'MEINE_ORGANISATION_NAME_KURZ',
     'MEINE_ORGANISATION_ORT',
     'MEINE_ORGANISATION_TELEFON',
+    'MIA_ORGANIZZAZIONE_EMAIL',
+    'MIA_ORGANIZZAZIONE_INDIRIZZO_1',
+    'MIA_ORGANIZZAZIONE_INDIRIZZO_2',
+    'MIA_ORGANIZZAZIONE_LOCALITÀ',
+    'MIA_ORGANIZZAZIONE_NOME',
+    'MIA_ORGANIZZAZIONE_NOME_BREVE',
+    'MIA_ORGANIZZAZIONE_NOME_INDIRIZZO',
+    'MIA_ORGANIZZAZIONE_TELEFONO',
     'MUNICIPALITY',
     'MUNICIPALITY_ADDRESS',
     'NAME',
@@ -8472,9 +8813,26 @@
     'NEBENBESTIMMUNGEN_MAPPED',
     'NEBENBESTIMMUNGEN_MAPPED[]',
     'NEBENBESTIMMUNGEN_MAPPED[].FACHSTELLE',
+    'NEBENBESTIMMUNGEN_MAPPED[].SERVIZIO',
+    'NEBENBESTIMMUNGEN_MAPPED[].TESTO',
     'NEBENBESTIMMUNGEN_MAPPED[].TEXT',
+    'NUMERO_ASSICURAZIONE_FABBRICATI',
+    'NUMERO_LOCALI',
+    'OGGI',
     'ORT',
+    'PARTICELLA',
     'PARZELLE',
+    'PERSONA_PROPRIETARIA_DEL_FONDO',
+    'PERSONA_RICHIEDENTE',
+    'PIANIFICAZIONE_CONSECUTIVA',
+    'PIANO_DELLE_ZONE',
+    'PIANO_GENERALE_DELLE_STRUTTURE',
+    'PIANO_GENERALE_DI_URBANIZZAZIONE',
+    'PRESE_DI_POSIZIONE',
+    'PROGETTISTA',
+    'PROGETTISTA_INDIRIZZO_1',
+    'PROGETTISTA_INDIRIZZO_2',
+    'PROGETTISTA_NOME_INDIRIZZO',
     'PROJEKTVERFASSER',
     'PROJEKTVERFASSER_ADDRESS_1',
     'PROJEKTVERFASSER_ADDRESS_2',
@@ -8482,38 +8840,91 @@
     'PROJEKTVERFASSER_ADRESSE_2',
     'PROJEKTVERFASSER_NAME_ADDRESS',
     'PROJEKTVERFASSER_NAME_ADRESSE',
+    'PROPRIETARIO_FONDIARIO_INDIRIZZO_1',
+    'PROPRIETARIO_FONDIARIO_INDIRIZZO_2',
+    'PROPRIETARIO_FONDIARIO_NOME_INDIRIZZO',
+    'PROPRIE_DISPOSIZIONI_ACCESSORIE',
+    'PROPRIE_PRESE_DI_POSIZIONE',
+    'PUBBLICAZIONE_LINK',
+    'PUBBLICAZIONE_TESTO',
     'PUBLIKATION_LINK',
     'PUBLIKATION_TEXT',
+    'RESPONSABILE_NOME',
+    'RICHIEDENTE_INDIRIZZO_1',
+    'RICHIEDENTE_INDIRIZZO_2',
+    'RICHIEDENTE_NOME_INDIRIZZO',
+    'SERVIZI_CANTONALI',
+    'SERVIZI_CANTONALI[]',
+    'SERVIZI_CANTONALI[].BEANTWORTET',
+    'SERVIZI_CANTONALI[].CREATO',
+    'SERVIZI_CANTONALI[].ERSTELLT',
+    'SERVIZI_CANTONALI[].FRIST',
+    'SERVIZI_CANTONALI[].NAME',
+    'SERVIZI_CANTONALI[].NOME',
+    'SERVIZI_CANTONALI[].RISPOSTO',
+    'SERVIZI_CANTONALI[].SCADENZA',
     'SPRACHE',
     'START_PUBLIKATION_GEMEINDE',
     'START_PUBLIKATION_KANTON',
+    'STATO',
     'STATUS',
     'STELLUNGNAHME',
     'STRASSE',
+    'TIPO_DOSSIER',
     'TODAY',
+    'TUTTE_LE_PERSONE_PROPRIETARIE_DI_UN_FONDO',
+    'TUTTE_LE_PERSONE_PROPRIETARIE_DI_UN_FONDO_NOME_INDIRIZZO',
+    'TUTTE_LE_PERSONE_RICHIEDENTI',
+    'TUTTE_LE_PERSONE_RICHIEDENTI_NOME_INDIRIZZO',
+    'TUTTI_I_PROGETTISTI',
+    'TUTTI_I_PROGETTISTI_NOME_INDIRIZZO',
+    'UBICAZIONE',
+    'UMPC_NUMERO_DI_LETTI_DI_OSPEDALE',
+    'UMPC_NUMERO_DI_POSTI_PROTETTI',
+    'UMPC_OSSERVAZIONI_POSTI_PROTETTI',
+    'UMPC_SUPERFICIE_POSTO_PROTETTO',
+    'UMPC_TIPO_DI_EDIFICIO',
+    'UMPC_VOLUME_POSTO_PROTETTO',
+    'VIA',
     'VOLUMEN_SCHUTZPLAETZE',
     'ZIRKULATION_ALLE',
     'ZIRKULATION_ALLE[]',
     'ZIRKULATION_ALLE[].BEANTWORTET',
+    'ZIRKULATION_ALLE[].CREATO',
     'ZIRKULATION_ALLE[].ERSTELLT',
     'ZIRKULATION_ALLE[].FRIST',
     'ZIRKULATION_ALLE[].NAME',
+    'ZIRKULATION_ALLE[].NOME',
+    'ZIRKULATION_ALLE[].RISPOSTO',
+    'ZIRKULATION_ALLE[].SCADENZA',
     'ZIRKULATION_FACHSTELLEN',
     'ZIRKULATION_FACHSTELLEN[]',
     'ZIRKULATION_FACHSTELLEN[].BEANTWORTET',
+    'ZIRKULATION_FACHSTELLEN[].CREATO',
     'ZIRKULATION_FACHSTELLEN[].ERSTELLT',
     'ZIRKULATION_FACHSTELLEN[].FRIST',
     'ZIRKULATION_FACHSTELLEN[].NAME',
+    'ZIRKULATION_FACHSTELLEN[].NOME',
+    'ZIRKULATION_FACHSTELLEN[].RISPOSTO',
+    'ZIRKULATION_FACHSTELLEN[].SCADENZA',
     'ZIRKULATION_GEMEINDEN',
     'ZIRKULATION_GEMEINDEN[]',
     'ZIRKULATION_GEMEINDEN[].BEANTWORTET',
+    'ZIRKULATION_GEMEINDEN[].CREATO',
     'ZIRKULATION_GEMEINDEN[].ERSTELLT',
     'ZIRKULATION_GEMEINDEN[].FRIST',
     'ZIRKULATION_GEMEINDEN[].NAME',
+    'ZIRKULATION_GEMEINDEN[].NOME',
+    'ZIRKULATION_GEMEINDEN[].RISPOSTO',
+    'ZIRKULATION_GEMEINDEN[].SCADENZA',
     'ZIRKULATION_RUECKMELDUNGEN',
     'ZIRKULATION_RUECKMELDUNGEN[]',
     'ZIRKULATION_RUECKMELDUNGEN[].ANTWORT',
+    'ZIRKULATION_RUECKMELDUNGEN[].DA',
+    'ZIRKULATION_RUECKMELDUNGEN[].DISPOSIZIONI_ACCESSORIE',
     'ZIRKULATION_RUECKMELDUNGEN[].NEBENBESTIMMUNGEN',
+    'ZIRKULATION_RUECKMELDUNGEN[].PRESA_DI_POSIZIONE',
+    'ZIRKULATION_RUECKMELDUNGEN[].RISPOSTA',
     'ZIRKULATION_RUECKMELDUNGEN[].STELLUNGNAHME',
     'ZIRKULATION_RUECKMELDUNGEN[].VON',
     'ZONENPLAN',
@@ -9534,6 +9945,13 @@
     'ANZAHL_SCHUTZPLAETZE': 50,
     'ANZAHL_SPITALBETTEN': 10,
     'ANZAHL_ZIMMER': 100,
+    'AUTORITÀ_DIRETTRICE_EMAIL': 'michelleboone@example.org',
+    'AUTORITÀ_DIRETTRICE_INDIRIZZO_1': 'Teststrasse 1, 1234 Testdorf',
+    'AUTORITÀ_DIRETTRICE_INDIRIZZO_2': '1234 Testdorf',
+    'AUTORITÀ_DIRETTRICE_LOCALITÀ': 'Testdorf',
+    'AUTORITÀ_DIRETTRICE_NOME': 'Alex Smith',
+    'AUTORITÀ_DIRETTRICE_NOME_BREVE': 'Alex Smith',
+    'AUTORITÀ_DIRETTRICE_TELEFONO': '032163546546',
     'BASE_URL': 'http://ember-ebau.local',
     'BAUEINGABE_DATUM': '31. März 2021',
     'BAUENTSCHEID': 'Bewilligt',
@@ -9543,15 +9961,165 @@
     'BEMERKUNGEN_SCHUTZPLAETZE': 'Foo bar baz',
     'BESCHREIBUNG_BAUVORHABEN': 'Einfamilienhaus',
     'BESCHREIBUNG_PROJEKTAENDERUNG': 'Projektänderung',
+    'CIRCOLAZIONE_COMUNI': list([
+      dict({
+        'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '27.01.2010',
+        'NAME': 'Brian Bates',
+        'NOME': 'Brian Bates',
+        'RISPOSTO': '',
+        'SCADENZA': '27.01.2010',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '22.05.1981',
+        'NAME': 'Christopher Smith',
+        'NOME': 'Christopher Smith',
+        'RISPOSTO': '',
+        'SCADENZA': '22.05.1981',
+      }),
+    ]),
+    'CIRCOLAZIONE_RISCONTRI': list([
+      dict({
+        'ANTWORT': '',
+        'DA': 'Juan Morales',
+        'DISPOSIZIONI_ACCESSORIE': 'Nebenbestimmungen 5',
+        'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 5',
+        'PRESA_DI_POSIZIONE': 'Stellungnahme 5',
+        'RISPOSTA': '',
+        'STELLUNGNAHME': 'Stellungnahme 5',
+        'VON': 'Juan Morales',
+      }),
+      dict({
+        'ANTWORT': '',
+        'DA': 'Jennifer Thornton',
+        'DISPOSIZIONI_ACCESSORIE': 'Nebenbestimmungen 6',
+        'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 6',
+        'PRESA_DI_POSIZIONE': 'Stellungnahme 6',
+        'RISPOSTA': '',
+        'STELLUNGNAHME': 'Stellungnahme 6',
+        'VON': 'Jennifer Thornton',
+      }),
+    ]),
+    'CIRCOLAZIONE_SERVIZI': list([
+      dict({
+        'BEANTWORTET': '02.01.2007',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '29.11.1980',
+        'NAME': 'Juan Morales',
+        'NOME': 'Juan Morales',
+        'RISPOSTO': '02.01.2007',
+        'SCADENZA': '29.11.1980',
+      }),
+      dict({
+        'BEANTWORTET': '27.02.1976',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '13.11.1972',
+        'NAME': 'Jennifer Thornton',
+        'NOME': 'Jennifer Thornton',
+        'RISPOSTO': '27.02.1976',
+        'SCADENZA': '13.11.1972',
+      }),
+    ]),
+    'CIRCOLAZIONE_TUTTI': list([
+      dict({
+        'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '18.06.1975',
+        'NAME': 'Patrick Baker',
+        'NOME': 'Patrick Baker',
+        'RISPOSTO': '',
+        'SCADENZA': '18.06.1975',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '10.04.2007',
+        'NAME': 'Vanessa Nguyen',
+        'NOME': 'Vanessa Nguyen',
+        'RISPOSTO': '',
+        'SCADENZA': '10.04.2007',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '27.01.2010',
+        'NAME': 'Brian Bates',
+        'NOME': 'Brian Bates',
+        'RISPOSTO': '',
+        'SCADENZA': '27.01.2010',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '22.05.1981',
+        'NAME': 'Christopher Smith',
+        'NOME': 'Christopher Smith',
+        'RISPOSTO': '',
+        'SCADENZA': '22.05.1981',
+      }),
+      dict({
+        'BEANTWORTET': '02.01.2007',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '29.11.1980',
+        'NAME': 'Juan Morales',
+        'NOME': 'Juan Morales',
+        'RISPOSTO': '02.01.2007',
+        'SCADENZA': '29.11.1980',
+      }),
+      dict({
+        'BEANTWORTET': '27.02.1976',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '13.11.1972',
+        'NAME': 'Jennifer Thornton',
+        'NOME': 'Jennifer Thornton',
+        'RISPOSTO': '27.02.1976',
+        'SCADENZA': '13.11.1972',
+      }),
+    ]),
+    'COMUNE': 'Patricia Shelton',
+    'COMUNE_INDIRIZZO': '',
+    'COMUNE_LOCALITÀ': '',
+    'COMUNE_NOME_INDIRIZZO': 'Gemeinde Patricia Shelton',
+    'COMUNE_TELEFONO': '',
+    'COORDINATE': '2’569’941 / 1’298’923; 2’609’995 / 1’271’340',
+    'DATA_DECISIONE': '30. August 2021',
+    'DATA_PRESENTAZIONE': '31. März 2021',
+    'DECISIONE EDILIZIA': 'Bewilligt',
     'DECISION_DATE': '30. August 2021',
+    'DENOMINAZIONE_GIURIDICA': 'Test AG',
     'DESCRIPTION_MODIFICATION': 'Projektänderung',
-    'DOCUMENTS': list([
+    'DESCRIZIONE_MODIFICA': 'Projektänderung',
+    'DESCRIZIONE_PROGETTO': 'Einfamilienhaus',
+    'DISPOSIZIONI_ACCESSORIE': '',
+    'DISPOSIZIONI_ACCESSORIE_MAPPED': list([
+    ]),
+    'DOCUMENTI': list([
       dict({
         'BESCHREIBUNG': 'South which general eight government build PM. Task believe oil unit itself close again affect.',
+        'CATEGORIA': 'general-service-buy',
         'CATEGORY': 'general-service-buy',
         'CREATED_AT': '30.08.2021 02:00',
         'CREATED_BY': 'Admin User',
+        'CREATO_DA': 'Admin User',
+        'CREATO_IL': '30.08.2021 02:00',
+        'DEMARCAZIONI': list([
+          'decision',
+        ]),
         'DESCRIPTION': 'South which general eight government build PM. Task believe oil unit itself close again affect.',
+        'DESCRIZIONE': 'South which general eight government build PM. Task believe oil unit itself close again affect.',
         'ERSTELLT_AM': '30.08.2021 02:00',
         'ERSTELLT_VON': 'Admin User',
         'GEAENDERT_AM': '30.08.2021 02:00',
@@ -9563,10 +10131,62 @@
         'MARKS': list([
           'decision',
         ]),
+        'MODIFICATO_DA': 'Admin User',
+        'MODIFICATO_IL': '30.08.2021 02:00',
         'MODIFIED_AT': '30.08.2021 02:00',
         'MODIFIED_BY': 'Admin User',
         'NAME': 'Grundriss',
+        'NOME': 'Grundriss',
+        'NOME_ORIGINALE': 'Situationsplan',
         'ORIGINAL_NAME': 'Situationsplan',
+        'PAROLE_CHIAVE': list([
+          'Secret',
+        ]),
+        'STICHWORTE': list([
+          'Secret',
+        ]),
+        'TAGS': list([
+          'Secret',
+        ]),
+      }),
+    ]),
+    'DOCUMENTI_DECISIONE': 'Grundriss (eingereicht als Situationsplan am 30.08.2021 um 02:00)',
+    'DOCUMENTS': list([
+      dict({
+        'BESCHREIBUNG': 'South which general eight government build PM. Task believe oil unit itself close again affect.',
+        'CATEGORIA': 'general-service-buy',
+        'CATEGORY': 'general-service-buy',
+        'CREATED_AT': '30.08.2021 02:00',
+        'CREATED_BY': 'Admin User',
+        'CREATO_DA': 'Admin User',
+        'CREATO_IL': '30.08.2021 02:00',
+        'DEMARCAZIONI': list([
+          'decision',
+        ]),
+        'DESCRIPTION': 'South which general eight government build PM. Task believe oil unit itself close again affect.',
+        'DESCRIZIONE': 'South which general eight government build PM. Task believe oil unit itself close again affect.',
+        'ERSTELLT_AM': '30.08.2021 02:00',
+        'ERSTELLT_VON': 'Admin User',
+        'GEAENDERT_AM': '30.08.2021 02:00',
+        'GEAENDERT_VON': 'Admin User',
+        'KATEGORIE': 'general-service-buy',
+        'MARKIERUNGEN': list([
+          'decision',
+        ]),
+        'MARKS': list([
+          'decision',
+        ]),
+        'MODIFICATO_DA': 'Admin User',
+        'MODIFICATO_IL': '30.08.2021 02:00',
+        'MODIFIED_AT': '30.08.2021 02:00',
+        'MODIFIED_BY': 'Admin User',
+        'NAME': 'Grundriss',
+        'NOME': 'Grundriss',
+        'NOME_ORIGINALE': 'Situationsplan',
+        'ORIGINAL_NAME': 'Situationsplan',
+        'PAROLE_CHIAVE': list([
+          'Secret',
+        ]),
         'STICHWORTE': list([
           'Secret',
         ]),
@@ -9578,10 +10198,17 @@
     'DOKUMENTE': list([
       dict({
         'BESCHREIBUNG': 'South which general eight government build PM. Task believe oil unit itself close again affect.',
+        'CATEGORIA': 'general-service-buy',
         'CATEGORY': 'general-service-buy',
         'CREATED_AT': '30.08.2021 02:00',
         'CREATED_BY': 'Admin User',
+        'CREATO_DA': 'Admin User',
+        'CREATO_IL': '30.08.2021 02:00',
+        'DEMARCAZIONI': list([
+          'decision',
+        ]),
         'DESCRIPTION': 'South which general eight government build PM. Task believe oil unit itself close again affect.',
+        'DESCRIZIONE': 'South which general eight government build PM. Task believe oil unit itself close again affect.',
         'ERSTELLT_AM': '30.08.2021 02:00',
         'ERSTELLT_VON': 'Admin User',
         'GEAENDERT_AM': '30.08.2021 02:00',
@@ -9593,10 +10220,17 @@
         'MARKS': list([
           'decision',
         ]),
+        'MODIFICATO_DA': 'Admin User',
+        'MODIFICATO_IL': '30.08.2021 02:00',
         'MODIFIED_AT': '30.08.2021 02:00',
         'MODIFIED_BY': 'Admin User',
         'NAME': 'Grundriss',
+        'NOME': 'Grundriss',
+        'NOME_ORIGINALE': 'Situationsplan',
         'ORIGINAL_NAME': 'Situationsplan',
+        'PAROLE_CHIAVE': list([
+          'Secret',
+        ]),
         'STICHWORTE': list([
           'Secret',
         ]),
@@ -9606,6 +10240,7 @@
       }),
     ]),
     'DOSSIER_NUMBER': '2023-1',
+    'DOSSIER_NUMERO': '2023-1',
     'DOSSIER_NUMMER': '2023-1',
     'DOSSIER_TYP': 'Baugesuch',
     'EBAU_URL': 'http://ember-ebau.local',
@@ -9613,6 +10248,7 @@
     'EGRID': 'CH334687150542, CH913545967614',
     'EIGENE_NEBENBESTIMMUNGEN': '',
     'EIGENE_STELLUNGNAHMEN': '',
+    'EMAIL_COMUNE': 'jameslong@example.net',
     'ENDE_PUBLIKATIONSORGAN_GEMEINDE': '21. August 2021',
     'ENDE_PUBLIKATION_GEMEINDE': '21. August 2021',
     'ENDE_PUBLIKATION_KANTON': '23. August 2021',
@@ -9621,41 +10257,67 @@
     'FACHSTELLEN_KANTONAL': list([
       dict({
         'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
         'ERSTELLT': '30.08.2021',
         'FRIST': '18.06.1975',
         'NAME': 'Patrick Baker',
+        'NOME': 'Patrick Baker',
+        'RISPOSTO': '',
+        'SCADENZA': '18.06.1975',
       }),
       dict({
         'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
         'ERSTELLT': '30.08.2021',
         'FRIST': '10.04.2007',
         'NAME': 'Vanessa Nguyen',
+        'NOME': 'Vanessa Nguyen',
+        'RISPOSTO': '',
+        'SCADENZA': '10.04.2007',
       }),
       dict({
         'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
         'ERSTELLT': '30.08.2021',
         'FRIST': '27.01.2010',
         'NAME': 'Brian Bates',
+        'NOME': 'Brian Bates',
+        'RISPOSTO': '',
+        'SCADENZA': '27.01.2010',
       }),
       dict({
         'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
         'ERSTELLT': '30.08.2021',
         'FRIST': '22.05.1981',
         'NAME': 'Christopher Smith',
+        'NOME': 'Christopher Smith',
+        'RISPOSTO': '',
+        'SCADENZA': '22.05.1981',
       }),
       dict({
         'BEANTWORTET': '02.01.2007',
+        'CREATO': '30.08.2021',
         'ERSTELLT': '30.08.2021',
         'FRIST': '29.11.1980',
         'NAME': 'Juan Morales',
+        'NOME': 'Juan Morales',
+        'RISPOSTO': '02.01.2007',
+        'SCADENZA': '29.11.1980',
       }),
       dict({
         'BEANTWORTET': '27.02.1976',
+        'CREATO': '30.08.2021',
         'ERSTELLT': '30.08.2021',
         'FRIST': '13.11.1972',
         'NAME': 'Jennifer Thornton',
+        'NOME': 'Jennifer Thornton',
+        'RISPOSTO': '27.02.1976',
+        'SCADENZA': '13.11.1972',
       }),
     ]),
+    'FINE_PUBBLICAZIONE_CANTONE': '23. August 2021',
+    'FINE_PUBBLICAZIONE_COMUNE': '21. August 2021',
     'FLAECHE_SCHUTZPLAETZE': 20,
     'FOLGEPLANUNG': 'Baulinie allgemein',
     'FORM_NAME': 'Baugesuch',
@@ -9685,6 +10347,9 @@
     'GRUNDEIGENTUEMER_NAME_ADRESSE': 'Sandra Beispiel, Beispielstrasse 16, 2222 Beispieldorf',
     'HEUTE': '30. August 2021',
     'ID': 1,
+    'INDIRIZZO': 'Teststrasse 12, Testhausen',
+    'INIZIO_PUBBLICAZIONE_CANTONE': '22. August 2021',
+    'INIZIO_PUBBLICAZIONE_COMUNE': '20. August 2021',
     'INSTANCE_ID': 1,
     'JURISTIC_NAME': 'Test AG',
     'JURISTISCHER_NAME': 'Test AG',
@@ -9701,6 +10366,7 @@
     'LEITBEHOERDE_PHONE': '032163546546',
     'LEITBEHOERDE_STADT': 'Testdorf',
     'LEITBEHOERDE_TELEFON': '032163546546',
+    'LINGUA': 'de',
     'MEINE_ORGANISATION_ADRESSE_1': 'Teststrasse 1, 1234 Testdorf',
     'MEINE_ORGANISATION_ADRESSE_2': '1234 Testdorf',
     'MEINE_ORGANISATION_EMAIL': 'michelleboone@example.org',
@@ -9709,14 +10375,37 @@
     'MEINE_ORGANISATION_NAME_KURZ': 'Alex Smith',
     'MEINE_ORGANISATION_ORT': 'Testdorf',
     'MEINE_ORGANISATION_TELEFON': '032163546546',
+    'MIA_ORGANIZZAZIONE_EMAIL': 'michelleboone@example.org',
+    'MIA_ORGANIZZAZIONE_INDIRIZZO_1': 'Teststrasse 1, 1234 Testdorf',
+    'MIA_ORGANIZZAZIONE_INDIRIZZO_2': '1234 Testdorf',
+    'MIA_ORGANIZZAZIONE_LOCALITÀ': 'Testdorf',
+    'MIA_ORGANIZZAZIONE_NOME': 'Alex Smith',
+    'MIA_ORGANIZZAZIONE_NOME_BREVE': 'Alex Smith',
+    'MIA_ORGANIZZAZIONE_NOME_INDIRIZZO': 'Alex Smith, Teststrasse 1, 1234 Testdorf, 1234 Testdorf',
+    'MIA_ORGANIZZAZIONE_TELEFONO': '032163546546',
     'MUNICIPALITY': 'Patricia Shelton',
     'MUNICIPALITY_ADDRESS': '',
     'NAME': '',
     'NEBENBESTIMMUNGEN': '',
     'NEBENBESTIMMUNGEN_MAPPED': list([
     ]),
+    'NUMERO_ASSICURAZIONE_FABBRICATI': '4-116',
+    'NUMERO_LOCALI': 100,
+    'OGGI': '30. August 2021',
     'ORT': 'Testhausen',
+    'PARTICELLA': '123465, 789876',
     'PARZELLE': '123465, 789876',
+    'PERSONA_PROPRIETARIA_DEL_FONDO': 'Sandra Beispiel',
+    'PERSONA_RICHIEDENTE': 'Test AG, Esther Tester',
+    'PIANIFICAZIONE_CONSECUTIVA': 'Baulinie allgemein',
+    'PIANO_DELLE_ZONE': 'Rebwirtschaftszone',
+    'PIANO_GENERALE_DELLE_STRUTTURE': 'Historischer Weg',
+    'PIANO_GENERALE_DI_URBANIZZAZIONE': 'Fuss- / Spazierweg, Parkierung Gebiete D',
+    'PRESE_DI_POSIZIONE': '',
+    'PROGETTISTA': 'Hans Muster',
+    'PROGETTISTA_INDIRIZZO_1': 'Bahnhofstrasse 3',
+    'PROGETTISTA_INDIRIZZO_2': '3600 Thun',
+    'PROGETTISTA_NOME_INDIRIZZO': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
     'PROJEKTVERFASSER': 'Hans Muster',
     'PROJEKTVERFASSER_ADDRESS_1': 'Bahnhofstrasse 3',
     'PROJEKTVERFASSER_ADDRESS_2': '3600 Thun',
@@ -9724,92 +10413,229 @@
     'PROJEKTVERFASSER_ADRESSE_2': '3600 Thun',
     'PROJEKTVERFASSER_NAME_ADDRESS': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
     'PROJEKTVERFASSER_NAME_ADRESSE': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
+    'PROPRIETARIO_FONDIARIO_INDIRIZZO_1': 'Beispielstrasse 16',
+    'PROPRIETARIO_FONDIARIO_INDIRIZZO_2': '2222 Beispieldorf',
+    'PROPRIETARIO_FONDIARIO_NOME_INDIRIZZO': 'Sandra Beispiel, Beispielstrasse 16, 2222 Beispieldorf',
+    'PROPRIE_DISPOSIZIONI_ACCESSORIE': '',
+    'PROPRIE_PRESE_DI_POSIZIONE': '',
+    'PUBBLICAZIONE_LINK': 'http://ebau-portal.local/public-instances/1',
+    'PUBBLICAZIONE_TESTO': 'Text',
     'PUBLIKATION_LINK': 'http://ebau-portal.local/public-instances/1',
     'PUBLIKATION_TEXT': 'Text',
+    'RESPONSABILE_NOME': 'Rebecca Gonzalez',
+    'RICHIEDENTE_INDIRIZZO_1': 'Testweg 321',
+    'RICHIEDENTE_INDIRIZZO_2': '4321 Testingen',
+    'RICHIEDENTE_NOME_INDIRIZZO': 'Test AG, Esther Tester, Testweg 321, 4321 Testingen',
+    'SERVIZI_CANTONALI': list([
+      dict({
+        'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '18.06.1975',
+        'NAME': 'Patrick Baker',
+        'NOME': 'Patrick Baker',
+        'RISPOSTO': '',
+        'SCADENZA': '18.06.1975',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '10.04.2007',
+        'NAME': 'Vanessa Nguyen',
+        'NOME': 'Vanessa Nguyen',
+        'RISPOSTO': '',
+        'SCADENZA': '10.04.2007',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '27.01.2010',
+        'NAME': 'Brian Bates',
+        'NOME': 'Brian Bates',
+        'RISPOSTO': '',
+        'SCADENZA': '27.01.2010',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '22.05.1981',
+        'NAME': 'Christopher Smith',
+        'NOME': 'Christopher Smith',
+        'RISPOSTO': '',
+        'SCADENZA': '22.05.1981',
+      }),
+      dict({
+        'BEANTWORTET': '02.01.2007',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '29.11.1980',
+        'NAME': 'Juan Morales',
+        'NOME': 'Juan Morales',
+        'RISPOSTO': '02.01.2007',
+        'SCADENZA': '29.11.1980',
+      }),
+      dict({
+        'BEANTWORTET': '27.02.1976',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '13.11.1972',
+        'NAME': 'Jennifer Thornton',
+        'NOME': 'Jennifer Thornton',
+        'RISPOSTO': '27.02.1976',
+        'SCADENZA': '13.11.1972',
+      }),
+    ]),
     'SPRACHE': 'de',
     'START_PUBLIKATION_GEMEINDE': '20. August 2021',
     'START_PUBLIKATION_KANTON': '22. August 2021',
+    'STATO': 'David Rangel',
     'STATUS': 'David Rangel',
     'STELLUNGNAHME': '',
     'STRASSE': 'Teststrasse 12',
+    'TIPO_DOSSIER': 'Baugesuch',
     'TODAY': '30. August 2021',
+    'TUTTE_LE_PERSONE_PROPRIETARIE_DI_UN_FONDO': 'Sandra Beispiel',
+    'TUTTE_LE_PERSONE_PROPRIETARIE_DI_UN_FONDO_NOME_INDIRIZZO': 'Sandra Beispiel, Beispielstrasse 16, 2222 Beispieldorf',
+    'TUTTE_LE_PERSONE_RICHIEDENTI': 'Test AG, Esther Tester',
+    'TUTTE_LE_PERSONE_RICHIEDENTI_NOME_INDIRIZZO': 'Test AG, Esther Tester, Testweg 321, 4321 Testingen',
+    'TUTTI_I_PROGETTISTI': 'Hans Muster',
+    'TUTTI_I_PROGETTISTI_NOME_INDIRIZZO': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
+    'UBICAZIONE': 'Testhausen',
+    'UMPC_NUMERO_DI_LETTI_DI_OSPEDALE': 10,
+    'UMPC_NUMERO_DI_POSTI_PROTETTI': 50,
+    'UMPC_OSSERVAZIONI_POSTI_PROTETTI': 'Foo bar baz',
+    'UMPC_SUPERFICIE_POSTO_PROTETTO': 20,
+    'UMPC_TIPO_DI_EDIFICIO': 'Wohn- oder Ferienhaus, Spital oder Heim, Andere',
+    'UMPC_VOLUME_POSTO_PROTETTO': 30,
+    'VIA': 'Teststrasse 12',
     'VOLUMEN_SCHUTZPLAETZE': 30,
     'ZIRKULATION_ALLE': list([
       dict({
         'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
         'ERSTELLT': '30.08.2021',
         'FRIST': '18.06.1975',
         'NAME': 'Patrick Baker',
+        'NOME': 'Patrick Baker',
+        'RISPOSTO': '',
+        'SCADENZA': '18.06.1975',
       }),
       dict({
         'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
         'ERSTELLT': '30.08.2021',
         'FRIST': '10.04.2007',
         'NAME': 'Vanessa Nguyen',
+        'NOME': 'Vanessa Nguyen',
+        'RISPOSTO': '',
+        'SCADENZA': '10.04.2007',
       }),
       dict({
         'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
         'ERSTELLT': '30.08.2021',
         'FRIST': '27.01.2010',
         'NAME': 'Brian Bates',
+        'NOME': 'Brian Bates',
+        'RISPOSTO': '',
+        'SCADENZA': '27.01.2010',
       }),
       dict({
         'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
         'ERSTELLT': '30.08.2021',
         'FRIST': '22.05.1981',
         'NAME': 'Christopher Smith',
+        'NOME': 'Christopher Smith',
+        'RISPOSTO': '',
+        'SCADENZA': '22.05.1981',
       }),
       dict({
         'BEANTWORTET': '02.01.2007',
+        'CREATO': '30.08.2021',
         'ERSTELLT': '30.08.2021',
         'FRIST': '29.11.1980',
         'NAME': 'Juan Morales',
+        'NOME': 'Juan Morales',
+        'RISPOSTO': '02.01.2007',
+        'SCADENZA': '29.11.1980',
       }),
       dict({
         'BEANTWORTET': '27.02.1976',
+        'CREATO': '30.08.2021',
         'ERSTELLT': '30.08.2021',
         'FRIST': '13.11.1972',
         'NAME': 'Jennifer Thornton',
+        'NOME': 'Jennifer Thornton',
+        'RISPOSTO': '27.02.1976',
+        'SCADENZA': '13.11.1972',
       }),
     ]),
     'ZIRKULATION_FACHSTELLEN': list([
       dict({
         'BEANTWORTET': '02.01.2007',
+        'CREATO': '30.08.2021',
         'ERSTELLT': '30.08.2021',
         'FRIST': '29.11.1980',
         'NAME': 'Juan Morales',
+        'NOME': 'Juan Morales',
+        'RISPOSTO': '02.01.2007',
+        'SCADENZA': '29.11.1980',
       }),
       dict({
         'BEANTWORTET': '27.02.1976',
+        'CREATO': '30.08.2021',
         'ERSTELLT': '30.08.2021',
         'FRIST': '13.11.1972',
         'NAME': 'Jennifer Thornton',
+        'NOME': 'Jennifer Thornton',
+        'RISPOSTO': '27.02.1976',
+        'SCADENZA': '13.11.1972',
       }),
     ]),
     'ZIRKULATION_GEMEINDEN': list([
       dict({
         'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
         'ERSTELLT': '30.08.2021',
         'FRIST': '27.01.2010',
         'NAME': 'Brian Bates',
+        'NOME': 'Brian Bates',
+        'RISPOSTO': '',
+        'SCADENZA': '27.01.2010',
       }),
       dict({
         'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
         'ERSTELLT': '30.08.2021',
         'FRIST': '22.05.1981',
         'NAME': 'Christopher Smith',
+        'NOME': 'Christopher Smith',
+        'RISPOSTO': '',
+        'SCADENZA': '22.05.1981',
       }),
     ]),
     'ZIRKULATION_RUECKMELDUNGEN': list([
       dict({
         'ANTWORT': '',
+        'DA': 'Juan Morales',
+        'DISPOSIZIONI_ACCESSORIE': 'Nebenbestimmungen 5',
         'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 5',
+        'PRESA_DI_POSIZIONE': 'Stellungnahme 5',
+        'RISPOSTA': '',
         'STELLUNGNAHME': 'Stellungnahme 5',
         'VON': 'Juan Morales',
       }),
       dict({
         'ANTWORT': '',
+        'DA': 'Jennifer Thornton',
+        'DISPOSIZIONI_ACCESSORIE': 'Nebenbestimmungen 6',
         'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 6',
+        'PRESA_DI_POSIZIONE': 'Stellungnahme 6',
+        'RISPOSTA': '',
         'STELLUNGNAHME': 'Stellungnahme 6',
         'VON': 'Jennifer Thornton',
       }),

@@ -511,7 +511,7 @@ msgstr "Nome e indirizzo della persona richiedente"
 
 #: camac/instance/placeholders/serializers.py
 msgid "APPLICANT"
-msgstr "PERSONA RICHIEDENTE"
+msgstr "PERSONA_RICHIEDENTE"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Name of the applicant"
