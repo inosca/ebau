@@ -467,6 +467,11 @@
       </h2>
     </div>
     <div class="uk-width-3-4 uk-width-2-3@m">
+      {{#if (t "instances.decision-documents-notice")}}
+        <div class="uk-alert uk-alert-danger">
+          {{t "instances.decision-documents-notice" htmlSafe=true}}
+        </div>
+      {{/if}}
       {{#if (eq (get-main-config "documentBackend") "camac")}}
         <BeAttachmentList @attachments={{this.editController.decision}} />
       {{else}}
