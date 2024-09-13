@@ -99,6 +99,14 @@ dumpconfig-keycloak: ## Dump the keycloak configuration
 loadconfig: loadconfig-camac loadconfig-dms loadconfig-keycloak ## Load all configuration
 	@printf '\033[32mConfiguration has been loaded successfully. Go ahead and login.🚀\033[0m\n'
 
+.PHONY: makemessages
+makemessages: ## run django "makemessages"
+	docker compose exec django /app/manage.py makemessages --all
+
+.PHONY: compilemessages
+compilemessages: ## Compile .po translation files to .mo
+	docker compose exec django /app/manage.py compilemessages
+
 .PHONY: dbshell
 dbshell: ## Start an interactive psql shell
 	@docker compose exec db psql -Ucamac ${APPLICATION}
