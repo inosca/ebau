@@ -148,16 +148,16 @@ class CustomDynamicGroups(BaseDynamicGroups):
 
     @register_dynamic_group("service-bab")
     def resolve_service_bab(self, task, case, user, prev_work_item, context, **kwargs):
-        return (
-            [
-                str(service.pk)
-                for service in Service.objects.filter(
-                    service_group__name=settings.BAB["SERVICE_GROUP"]
-                )[:1]
-            ]
-            if settings.BAB
-            else []
-        )
+        if not settings.BAB:  # pragma: no cover
+            return []
+
+        service = Service.objects.get(service_group__name=settings.BAB["SERVICE_GROUP"])
+        authority = case.instance.responsible_service()
+
+        if authority.service_group.name == "canton":
+            service = authority
+
+        return [str(service.pk)]
 
     @register_dynamic_group("service-bab-ur")
     def resolve_service_bab_ur(

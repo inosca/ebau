@@ -1,6 +1,7 @@
 from datetime import date
 
 import pytest
+from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.api import skip_work_item
 from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
@@ -72,10 +73,14 @@ def test_withdraw_instance(
     request,
     so_ech0211_settings,
     grant_all_permissions,
+    instance_service_factory,
 ):
     so_instance.involved_applicants.all().delete()
     applicant_factory(instance=so_instance, invitee=admin_user)
     instance_state_factory(name=so_withdrawal_settings["INSTANCE_STATE"])
+    instance_service_factory(
+        instance=so_instance, service__service_group__name="municipality", active=1
+    )
 
     # needed because completing distrubution-complete changes the instance state
     # to decision
@@ -84,6 +89,7 @@ def test_withdraw_instance(
     form_question_factory(
         form_id="entscheid",
         question__slug=so_decision_settings["QUESTIONS"]["DECISION"],
+        question__type=Question.TYPE_TEXT,
     )
 
     so_withdrawal_settings["NOTIFICATIONS"] = [

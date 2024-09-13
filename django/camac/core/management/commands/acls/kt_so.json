@@ -734,7 +734,7 @@
     }
   },
   "24": {
-    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Beurteilung BaB",
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Kantonale Prüfung",
     "acls": {
       "service-lead": [
         "construction-monitoring",
