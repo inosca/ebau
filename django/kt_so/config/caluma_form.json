@@ -39009,7 +39009,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Referenznummer\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
       "is_hidden": "false",
