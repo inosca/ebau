@@ -43,9 +43,7 @@ def be_dms_config(settings, be_placeholders_settings):
 def gr_dms_config(settings):
     original_languages = settings.LANGUAGES
     settings.LANGUAGES = [
-        (code, name)
-        for code, name in settings.LANGUAGES
-        if code in ["de"]  # TODO: add IT
+        (code, name) for code, name in settings.LANGUAGES if code in ["de", "it"]
     ]
     settings.APPLICATION_NAME = "kt_gr"
     settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
