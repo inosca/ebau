@@ -203,6 +203,14 @@
     }
   },
   {
+    "model": "user.servicegroup",
+    "pk": 5,
+    "fields": {
+      "name": "canton",
+      "sort": null
+    }
+  },
+  {
     "model": "user.servicegroupt",
     "pk": 1,
     "fields": {
@@ -236,6 +244,15 @@
       "service_group": 4,
       "language": "de",
       "name": "Fachstelle BaB"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 5,
+    "fields": {
+      "service_group": 5,
+      "language": "de",
+      "name": "Kanton"
     }
   }
 ]

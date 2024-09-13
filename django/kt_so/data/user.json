@@ -5544,6 +5544,54 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 572,
+    "fields": {
+      "role": 4,
+      "service": 123,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 573,
+    "fields": {
+      "role": 5,
+      "service": 123,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 574,
+    "fields": {
+      "role": 8,
+      "service": 123,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
     "model": "user.groupt",
     "pk": 4,
     "fields": {
@@ -8964,6 +9012,36 @@
     }
   },
   {
+    "model": "user.groupt",
+    "pk": 572,
+    "fields": {
+      "group": 572,
+      "language": "de",
+      "name": "Administration Kanton Solothurn",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 573,
+    "fields": {
+      "group": 573,
+      "language": "de",
+      "name": "Sachbearbeitung Kanton Solothurn",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 574,
+    "fields": {
+      "group": 574,
+      "language": "de",
+      "name": "Einsichtsberechtigte Gemeinde Solothurn",
+      "city": null
+    }
+  },
+  {
     "model": "user.usergroup",
     "pk": 1,
     "fields": {
@@ -9103,6 +9181,28 @@
       "group": 542,
       "default_group": 0,
       "created_at": "2024-06-05T07:55:29.749Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 15,
+    "fields": {
+      "user": 1,
+      "group": 572,
+      "default_group": 1,
+      "created_at": "2024-09-13T06:53:14.711Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 16,
+    "fields": {
+      "user": 1,
+      "group": 573,
+      "default_group": 0,
+      "created_at": "2024-09-13T06:53:14.712Z",
       "created_by": 1
     }
   },
@@ -11769,6 +11869,28 @@
     }
   },
   {
+    "model": "user.service",
+    "pk": 123,
+    "fields": {
+      "service_group": 5,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 8,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.com",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "external_identifier": null
+    }
+  },
+  {
     "model": "user.servicet",
     "pk": 1,
     "fields": {
@@ -13096,6 +13218,17 @@
       "language": "de",
       "name": "WBP; Wasserbau (Amt für Umwelt (AfU))",
       "description": "WBP; Wasserbau (Amt für Umwelt (AfU))",
+      "city": ""
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 123,
+    "fields": {
+      "service": 123,
+      "language": "de",
+      "name": "Kanton Solothurn",
+      "description": "Kanton Solothurn",
       "city": ""
     }
   }

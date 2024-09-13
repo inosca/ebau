@@ -2992,11 +2992,14 @@ def test_instance_submit_so_bab(
     so_bab_settings,
     so_instance,
     so_master_data_settings,
+    service_factory,
     utils,
 ):
     settings.APPLICATION_NAME = "kt_so"
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = False
+
+    service_factory(service_group__name=so_bab_settings["SERVICE_GROUP"])
 
     instance_state_factory(name="subm")
     mocker.patch(
@@ -3011,6 +3014,69 @@ def test_instance_submit_so_bab(
 
     assert response.status_code == status.HTTP_200_OK
     assert so_instance.case.meta.get("is-bab") is True
+
+
+@pytest.mark.parametrize(
+    "role__name,instance_state__name,instance__user",
+    [("Applicant", "new", lf("admin_user"))],
+)
+def test_instance_submit_so_canton(
+    admin_client,
+    application_settings,
+    disable_ech0211_settings,
+    dynamic_option_factory,
+    instance_state_factory,
+    master_data_is_visible_mock,
+    mock_generate_and_store_pdf,
+    mocker,
+    service_factory,
+    set_application_so,
+    settings,
+    so_bab_settings,
+    so_instance,
+    so_master_data_settings,
+    utils,
+):
+    settings.APPLICATION_NAME = "kt_so"
+    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
+    application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = False
+
+    municipality_service = service_factory(service_group__name="municipality")
+    canton_service = service_factory(service_group__name="canton")
+    service_factory(service_group__name="service-bab")
+
+    instance_state_factory(name="subm")
+    mocker.patch(
+        "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notifications"
+    )
+
+    dynamic_option_factory(
+        question_id="gemeinde",
+        document=so_instance.case.document,
+        slug=str(municipality_service.pk),
+        label={"de": municipality_service.name},
+    )
+    utils.add_answer(
+        so_instance.case.document, "gemeinde", str(municipality_service.pk)
+    )
+    utils.add_answer(
+        so_instance.case.document, "kanton-leitbehoerde", "kanton-leitbehoerde-ja"
+    )
+
+    response = admin_client.post(reverse("instance-submit", args=[so_instance.pk]))
+
+    so_instance.refresh_from_db()
+
+    assert response.status_code == status.HTTP_200_OK
+    assert so_instance.responsible_service() == canton_service
+    assert so_instance.case.meta["dossier-number"].startswith(
+        str(municipality_service.external_identifier)
+    )
+
+    bab_exam = so_instance.case.work_items.get(task_id="material-exam-bab")
+
+    assert bab_exam.status == caluma_workflow_models.WorkItem.STATUS_READY
+    assert bab_exam.addressed_groups == [str(canton_service.pk)]
 
 
 @pytest.mark.parametrize("instance_state__name", ["new"])

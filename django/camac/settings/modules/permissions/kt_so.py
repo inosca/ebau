@@ -97,9 +97,9 @@ MODULE_MATERIAL_EXAM = (
 ) | RequireWorkItem("material-exam", "completed")
 MODULE_MATERIAL_EXAM_BAB = RequireWorkItem("material-exam-bab") & Callback(
     lambda userinfo: userinfo.service.service_group.name
-    in ["service-bab", "service-cantonal"],
+    in ["service-bab", "service-cantonal", "canton"],
     allow_caching=True,
-    name="is_service_bab_or_cantonal",
+    name="is_cantonal_service",
 )
 MODULE_PERMISSIONS = STATES_ALL & HasRole(["municipality-lead"])
 MODULE_PUBLICATION = RequireWorkItem("fill-publication")
@@ -254,6 +254,7 @@ SO_PERMISSIONS_SETTINGS = {
             ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("material-exam-read", MODULE_MATERIAL_EXAM),
+            ("material-exam-bab-read", MODULE_MATERIAL_EXAM_BAB),
             ("permissions-grant-read", MODULE_PERMISSIONS),
             ("permissions-read-any", MODULE_PERMISSIONS),
             ("permissions-read", MODULE_PERMISSIONS),
