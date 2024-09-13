@@ -86,9 +86,10 @@ MODULE_MATERIAL_EXAM = (
     RequireWorkItem("material-exam") & ROLES_MUNICIPALITY
 ) | RequireWorkItem("material-exam", "completed")
 MODULE_MATERIAL_EXAM_BAB = RequireWorkItem("material-exam-bab") & Callback(
-    lambda userinfo: userinfo.service.service_group.name == "service-bab",
+    lambda userinfo: userinfo.service.service_group.name
+    in ["service-bab", "service-cantonal"],
     allow_caching=True,
-    name="is_service_bab",
+    name="is_service_bab_or_cantonal",
 )
 MODULE_PERMISSIONS = STATES_ALL & HasRole(["municipality-lead"])
 MODULE_PUBLICATION = RequireWorkItem("fill-publication")
