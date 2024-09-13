@@ -202,16 +202,20 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     dossier_nr = serializers.SerializerMethodField()
     leitbehoerde_name_de = serializers.SerializerMethodField()
     leitbehoerde_name_fr = serializers.SerializerMethodField()
+    leitbehoerde_name_it = serializers.SerializerMethodField()
     municipality_de = serializers.SerializerMethodField()
     municipality_fr = serializers.SerializerMethodField()
+    municipality_it = serializers.SerializerMethodField()
     form_name_de = serializers.SerializerMethodField()
     form_name_fr = serializers.SerializerMethodField()
+    form_name_it = serializers.SerializerMethodField()
     ebau_number = serializers.SerializerMethodField()
     base_url = serializers.SerializerMethodField()
     rejection_feedback = serializers.SerializerMethodField()
     current_service = serializers.SerializerMethodField()
     current_service_de = serializers.SerializerMethodField()
     current_service_fr = serializers.SerializerMethodField()
+    current_service_it = serializers.SerializerMethodField()
     current_service_description = serializers.SerializerMethodField()
     date_dossiervollstandig = serializers.SerializerMethodField()
     date_dossiereingang = serializers.SerializerMethodField()
@@ -244,6 +248,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     # some time in the future
     distribution_status_de = serializers.SerializerMethodField()
     distribution_status_fr = serializers.SerializerMethodField()
+    distribution_status_it = serializers.SerializerMethodField()
     inquiry_answer_de = serializers.SerializerMethodField()
     inquiry_answer_fr = serializers.SerializerMethodField()
     inquiry_remark = serializers.SerializerMethodField()
@@ -372,17 +377,22 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         return publications
 
-    def get_leitbehoerde_name_de(self, instance):
-        """Return current active service of the instance in german."""
+    def _get_leitbehoerde_name(self, instance, language):
         service = instance.responsible_service(filter_type="municipality")
 
-        return service.get_name("de") if service else "-"
+        return service.get_name(language) if service else "-"
+
+    def get_leitbehoerde_name_de(self, instance):
+        """Return current active service of the instance in german."""
+        return self._get_leitbehoerde_name(instance, "de")
 
     def get_leitbehoerde_name_fr(self, instance):
         """Return current active service of the instance in french."""
-        service = instance.responsible_service(filter_type="municipality")
+        return self._get_leitbehoerde_name(instance, "fr")
 
-        return service.get_name("fr") if service else "-"
+    def get_leitbehoerde_name_it(self, instance):
+        """Return current active service of the instance in italian."""
+        return self._get_leitbehoerde_name(instance, "it")
 
     def get_municipality_de(self, instance):
         """Return municipality in german."""
@@ -391,6 +401,10 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     def get_municipality_fr(self, instance):
         """Return municipality in french."""
         return self.get_municipality(instance, "fr")
+
+    def get_municipality_it(self, instance):
+        """Return municipality in italian."""
+        return self.get_municipality(instance, "it")
 
     def get_municipality(self, instance, language):
         try:
@@ -415,6 +429,10 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         """Return current service of the active user in french."""
         return self.service.get_name("fr") if self.service else "-"
 
+    def get_current_service_it(self, instance):
+        """Return current service of the active user in italian."""
+        return self.service.get_name("it") if self.service else "-"
+
     def get_current_service_description(self, instance):
         """Return description of the current service of the active user."""
         return (
@@ -428,6 +446,9 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     def get_distribution_status_fr(self, instance):
         return self._get_distribution_status(instance, "fr")
+
+    def get_distribution_status_it(self, instance):
+        return self._get_distribution_status(instance, "it")
 
     def _get_distribution_status(self, instance, language):
         if not settings.DISTRIBUTION or not self.inquiry:
@@ -520,6 +541,9 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     def get_form_name_fr(self, instance):
         return CalumaApi().get_form_name(instance).fr or ""
+
+    def get_form_name_it(self, instance):
+        return CalumaApi().get_form_name(instance).it or ""
 
     def get_ebau_number(self, instance):
         """Dossier number - Kanton Bern."""
