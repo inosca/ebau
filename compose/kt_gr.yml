@@ -107,9 +107,7 @@ services:
 
   celery:
     <<: *django
-    volumes:
-      - ../celery/entrypoint.sh:/entrypoint.sh
-    entrypoint: /entrypoint.sh
+    command: celery
 
 volumes:
   pgdata:

@@ -227,6 +227,7 @@ services:
 
   celery:
     <<: *django
+    command: celerydev
     ports:
       - "6900-7000:6900-7000"
 
