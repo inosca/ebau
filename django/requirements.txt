@@ -7,7 +7,7 @@ dataclasses-json==0.6.7
 deepmerge==2.0
 # check camac/admin.py MultilingualAdminMixin.get_search_result before updating
 Django==4.2.16
-django-admin-sortable2==2.2.2
+django-admin-sortable2==2.2.3
 django-clamd==1.0.0
 django-environ==0.11.2
 django-excel==0.0.10
