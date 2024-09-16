@@ -1,6 +1,5 @@
 import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
-import { hasMany } from "@ember-data/model";
 import DocumentModel from "ember-alexandria/models/document";
 import { dropTask } from "ember-concurrency";
 import { trackedFunction } from "reactiveweb/function";
@@ -32,10 +31,6 @@ export default class CustomDocumentModel extends DocumentModel {
   get displayNameOrReplaced() {
     return this.#displayName.value;
   }
-
-  // conflict with existing tag model in the ebau api,
-  // because we dont need it we can set it to null
-  @hasMany("tag", { inverse: null, async: true }) tags;
 
   @dropTask
   *download(event) {
