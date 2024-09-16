@@ -2,7 +2,11 @@ import pytest
 from caluma.caluma_core.events import send_event
 from caluma.caluma_form.factories import FormFactory
 from caluma.caluma_form.models import Form, Question
-from caluma.caluma_workflow.api import cancel_work_item, complete_work_item
+from caluma.caluma_workflow.api import (
+    cancel_work_item,
+    complete_work_item,
+    skip_work_item,
+)
 from caluma.caluma_workflow.events import post_complete_work_item, post_create_work_item
 from caluma.caluma_workflow.models import Case, Workflow, WorkItem
 from django.core.management import call_command
@@ -478,6 +482,7 @@ def test_complete_decision_appeal_so(
     instance_state_factory(name="finished")
     instance_state_factory(name="decision")
     instance_state_factory(name="decided")
+    instance_state_factory(name="init-distribution")
 
     # Prepare "normal" instance that got an appeal after the decision
     work_item_factory(task_id=so_decision_settings["TASK"], case=so_instance.case)
@@ -496,6 +501,11 @@ def test_complete_decision_appeal_so(
         user=admin_user,
         caluma_user=caluma_admin_user,
         new_meta={"dossier-number": "2024-1", "is-appeal": True},
+    )
+
+    # Skip distribution so we have a decision work item
+    skip_work_item(
+        instance.case.work_items.get(task_id="distribution"), caluma_admin_user
     )
 
     # Prepare and complete appeal decision
