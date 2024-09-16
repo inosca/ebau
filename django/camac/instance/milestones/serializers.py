@@ -325,7 +325,7 @@ class UrMilestonesSerializer(MilestonesSerializer):
             None,
         )
 
-        if decision_work_item:
+        if decision_work_item and decision_work_item.closed_at is not None:
             return decision_work_item.closed_at + relativedelta.relativedelta(years=1)
 
         return []  # pragma: no cover
