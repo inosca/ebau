@@ -1820,8 +1820,9 @@ APPLICATIONS = {
                     ],
                     "cancel": [
                         "create-publication",
+                        "init-additional-demand",
+                        "additional-demand",
                     ],
-                    "complete": ["additional-demand"],
                 },
                 "fill-publication": {"complete": ["publication"]},
                 "construction-acceptance": {"cancel": ["create-manual-workitems"]},
