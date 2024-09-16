@@ -547,8 +547,8 @@
       "template_slug": "zustaedigkeit-wechsel",
       "language": "de",
       "purpose": "Dossier-Zuständigkeit",
-      "subject": "Neue Zuständigkeit bei eBau-Dossier",
-      "body": "Guten Tag\r\n\r\nVon ihrer Organisation wurde Ihnen die Zuständigkeit für das Dossier-Nr. {{ DOSSIER_NR }} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) zugewiesen.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
+      "subject": "Neue Zuständigkeit bei eBau-Dossier / Nuova competenza assegnata nel dossier eBau",
+      "body": "Guten Tag\r\n\r\nVon ihrer Organisation wurde Ihnen die Zuständigkeit für das Dossier-Nr. {{ DOSSIER_NR }} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) zugewiesen.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau\r\n\r\n---\r\n\r\nBuongiorno \r\n\r\nLa Sua organizzazione le ha assegnato la competenza per il dossier n. {{ DOSSIER_NR }} ({{FORM_NAME_IT}}, {{MUNICIPALITY_IT}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\neBau"
     }
   },
   {
@@ -559,8 +559,8 @@
       "template_slug": "decision-completed-baubewilligung-solaranlage",
       "language": "de",
       "purpose": "Entscheid verfügt Baubewilligung und Solaranlage",
-      "subject": "Information über Entscheid (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\r\n\r\nDer Bauentscheid ({{DECISION_DE}}) zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde gefällt.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}"
+      "subject": "Information über Entscheid (Dossier-Nr. {{DOSSIER_NR}}) / Informazione relativa alla decisione (dossier n. {{DOSSIER_NR}})",
+      "body": "Guten Tag\r\n\r\nDer Bauentscheid ({{DECISION_DE}}) zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde gefällt.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n---\r\n\r\nBuongiorno\r\n\r\nLa decisione edilizia ({{DECISION_IT}}) relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_IT}}, {{MUNICIPALITY_IT}}) è stata presa.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\n{{LEITBEHOERDE_NAME_IT}}"
     }
   },
   {
@@ -571,8 +571,8 @@
       "template_slug": "decision-completed-bauanzeige-vorlaeufige-beurteilung",
       "language": "de",
       "purpose": "Entscheid verfügt Bauanzeige und vorläufige Beurteilung",
-      "subject": "Information über Entscheid (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\r\n\r\nDie Beurteilung ({{DECISION_DE}}) zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen. Sie finden die Dokumente unter folgendem Link:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}"
+      "subject": "Information über Entscheid (Dossier-Nr. {{DOSSIER_NR}}) / Informazione relativa alla decisione (dossier n. {{DOSSIER_NR}})",
+      "body": "Guten Tag\r\n\r\nDie Beurteilung ({{DECISION_DE}}) zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen. Sie finden die Dokumente unter folgendem Link:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n---\r\n\r\nBuongiorno\r\n\r\nLa valutazione ({{DECISION_IT}}) relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_IT}}, {{MUNICIPALITY_IT}}) è conclusa. I documenti sono disponibili al seguente link:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\n{{LEITBEHOERDE_NAME_IT}}"
     }
   }
 ]
