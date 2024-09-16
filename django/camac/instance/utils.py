@@ -229,6 +229,9 @@ def copy_instance(
             activation_date=now(),
         )
 
+    if instance.case.meta.get("is-bab"):
+        new_meta["is-bab"] = True
+
     if new_meta:
         # Update meta properties of new instance
         new_instance.case.meta.update(new_meta)

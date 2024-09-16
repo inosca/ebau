@@ -145,6 +145,9 @@ class PublicServiceFilterSet(FilterSet):
         # distribution of the BaB service
         queryset = queryset.exclude(pk__in=settings.BAB["EXCLUDED_IN_DISTRIBUTION"])
 
+        if case.meta.get("is-appeal"):
+            return queryset
+
         publication_work_items = WorkItem.objects.filter(
             **{
                 "case": case,

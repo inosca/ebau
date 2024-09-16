@@ -2771,7 +2771,7 @@ class CalumaInstanceAppealSerializer(serializers.Serializer):
                 identifier
             )
             new_instance.case.save()
-            new_instance.set_instance_state("decision", user)
+            new_instance.set_instance_state("init-distribution", user)
 
             instance.set_instance_state("finished", user)
 
