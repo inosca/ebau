@@ -2596,7 +2596,7 @@
     'descriptionHeaderLabel': 'Beschreibung',
     'documents': list([
       dict({
-        'checksum': 'sha256:6e94c5bf30f49e56597aa0cddc0ec3953fe0f9d8cfc71d32b96bcde0372a1bd9',
+        'checksum': 'sha256:a074d1b5ccf3c28de8ec2ff1355dddb645b7e52301aa3d92850c82176548a5c2',
         'date': '06.09.2022',
         'filename': 'Lageplan.pdf',
         'time': '15:37',

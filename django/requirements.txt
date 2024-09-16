@@ -1,7 +1,8 @@
 Babel==2.16.0
 boto3==1.35.11
 caluma==10.3.1
-caluma-alexandria==6.1.1
+caluma-alexandria==6.2.0
+celery==5.4.0
 cryptography==43.0.1
 dataclasses-json==0.6.7
 deepmerge==2.0
@@ -48,6 +49,7 @@ python-keycloak==4.3.0
 pymemcache==4.0.0
 PyXB-X==1.2.6.2
 qrcode==7.4.2
+redis==5.0.8
 requests==2.32.3
 requests-toolbelt==1.0.0
 setuptools==74.1.1

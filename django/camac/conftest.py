@@ -11,6 +11,7 @@ from pathlib import Path
 
 import faker
 import pytest
+from alexandria.core import tasks as alexandria_tasks
 from alexandria.storages.backends.s3 import SsecGlobalS3Storage
 from caluma.caluma_core.faker import MultilangProvider
 from caluma.caluma_core.relay import extract_global_id
@@ -1997,3 +1998,16 @@ def gr_access_levels(gr_permissions_settings, db, access_level_factory, role_fac
     for access_level in gr_permissions_settings["ACCESS_LEVELS"]:
         if not AccessLevel.objects.filter(slug=access_level).exists():
             access_level_factory(slug=access_level)
+
+
+@pytest.fixture(autouse=True)
+def mock_celery(mocker):
+    mocker.patch("django.db.transaction.on_commit", side_effect=lambda f: f())
+    mocker.patch(
+        "alexandria.core.tasks.set_checksum.delay",
+        side_effect=lambda id: alexandria_tasks.set_checksum(id),
+    )
+    mocker.patch(
+        "alexandria.core.tasks.set_content_vector.delay",
+        side_effect=lambda id: alexandria_tasks.set_content_vector(id),
+    )
