@@ -126,6 +126,16 @@ services:
     # command: /bin/sh -c "sleep inf"
     ports: []
 
+  celery:
+    <<: *django
+    build:
+      context: ../django
+      cache_from:
+        - acr.run/camac-ng/camac-ng/django:master
+    ports:
+      - "6900-7000:6900-7000"
+    command: celerydev
+
   ember-caluma-portal:
     user: nginx:nginx
     environment:
@@ -269,6 +279,15 @@ services:
     networks:
       - ebau.local
 
+  redis:
+    image: redis:7.4
+    volumes:
+      - redis_data:/redis/data
+    networks:
+      - ebau.local
+    environment:
+      - REDIS_PASSWORD=redis
+
 networks:
   ebau.local:
 
@@ -276,5 +295,6 @@ volumes:
   pg15data:
   djangomedia:
   djangotmpmedia:
+  redis_data:
   minio_data:
     driver: local
