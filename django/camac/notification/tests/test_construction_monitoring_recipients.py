@@ -93,6 +93,15 @@ def test_recipient_tax_administration(
 
 
 @pytest.mark.parametrize("role__name", ["support"])
+@pytest.mark.parametrize(
+    "require_involvement,has_inquiry,should_receive_email",
+    [
+        (False, False, True),
+        (False, True, True),
+        (True, False, False),
+        (True, True, True),
+    ],
+)
 def test_recipient_involved_in_construction_step(
     db,
     sz_instance,
@@ -100,10 +109,21 @@ def test_recipient_involved_in_construction_step(
     sz_construction_monitoring_settings,
     construction_monitoring_planned_case_sz,
     service,
+    mocker,
+    require_involvement,
+    has_inquiry,
+    should_receive_email,
 ):
     sz_construction_monitoring_settings["NOTIFICATION_RECIPIENTS"] = {
-        "construction-step-baubeginn-melden": [service.pk]
+        "construction-step-baubeginn-melden": [
+            {
+                "service_id": service.pk,
+                "require_involvement": require_involvement,
+            },
+        ],
     }
+    mocker.patch.object(sz_instance.__class__, "has_inquiry", return_value=has_inquiry)
+    expected = [{"to": service.email}] if should_receive_email else []
 
     serializer = PermissionlessNotificationTemplateSendmailSerializer(
         data={
@@ -126,6 +146,7 @@ def test_recipient_involved_in_construction_step(
     serializer.is_valid(raise_exception=True)
     serializer.save()
 
-    assert serializer._get_recipients_involved_in_construction_step(sz_instance) == [
-        {"to": service.email}
-    ]
+    assert (
+        serializer._get_recipients_involved_in_construction_step(sz_instance)
+        == expected
+    )

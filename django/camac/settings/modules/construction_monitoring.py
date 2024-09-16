@@ -40,7 +40,8 @@ CONSTRUCTION_MONITORING = {
                     "template_slug": "complete-construction-step-schlussabnahme",
                     "recipient_types": [
                         "involved_in_construction_step",
-                        # TODO: "localized_geometer",
+                        # TODO: "localized_geometer"
+                        # Always send notification regardless of involvement (?)
                     ],
                 },
             ],
@@ -49,33 +50,81 @@ CONSTRUCTION_MONITORING = {
                     "template_slug": "notify-complete-instance",
                     "recipient_types": [
                         "involved_in_construction_step",
-                        # TODO: "localized_geometer",
+                        # TODO: "localized_geometer"
+                        # Always send notification regardless of involvement (?)
                     ],
                 },
             ],
         },
         "NOTIFICATION_RECIPIENTS": {
             "construction-step-baufreigabe": [
-                10,  # Amt für Militär, Feuer- und Zivilschutz (Brandschutz)
-                79,  # Amt für Militär, Feuer- und Zivilschutz (Schutzbauten)
+                # Amt für Militär, Feuer- und Zivilschutz (Brandschutz)
+                {
+                    "service_id": 10,
+                    "require_involvement": True,
+                },
+                # Amt für Militär, Feuer- und Zivilschutz (Schutzbauten)
+                {
+                    "service_id": 79,
+                    "require_involvement": True,
+                },
             ],
             "construction-step-schnurgeruest-kontrollieren": [
-                10,  # Amt für Militär, Feuer- und Zivilschutz (Brandschutz)
-                79,  # Amt für Militär, Feuer- und Zivilschutz (Schutzbauten)
+                # Amt für Militär, Feuer- und Zivilschutz (Brandschutz)
+                {
+                    "service_id": 10,
+                    "require_involvement": True,
+                },
+                # Amt für Militär, Feuer- und Zivilschutz (Schutzbauten)
+                {
+                    "service_id": 79,
+                    "require_involvement": True,
+                },
             ],
             "construction-stage": [
-                10,  # Amt für Militär, Feuer- und Zivilschutz (Brandschutz)
-                79,  # Amt für Militär, Feuer- und Zivilschutz (Schutzbauten)
-                4,  # Amt für Arbeit
-                22,  # Laboratorium der Urkantone
+                # Amt für Militär, Feuer- und Zivilschutz (Brandschutz)
+                {
+                    "service_id": 10,
+                    "require_involvement": True,
+                },
+                # Amt für Militär, Feuer- und Zivilschutz (Schutzbauten)
+                {
+                    "service_id": 79,
+                    "require_involvement": True,
+                },
+                # Amt für Arbeit
+                {"service_id": 4, "require_involvement": True},
+                # Laboratorium der Urkantone
+                {
+                    "service_id": 22,
+                    "require_involvement": True,
+                },
                 # TODO: Amt für Finanzen (Gebäudeschatzer)?
+                # Always send notification regardless of involvement
             ],
             "complete-instance": [
-                10,  # Amt für Militär, Feuer- und Zivilschutz (Brandschutz)
-                79,  # Amt für Militär, Feuer- und Zivilschutz (Schutzbauten)
-                4,  # Amt für Arbeit
-                22,  # Laboratorium der Urkantone
+                # Amt für Militär, Feuer- und Zivilschutz (Brandschutz)
+                {
+                    "service_id": 10,
+                    "require_involvement": True,
+                },
+                # Amt für Militär, Feuer- und Zivilschutz (Schutzbauten)
+                {
+                    "service_id": 79,
+                    "require_involvement": True,
+                },
+                # Amt für Arbeit # Nur involviert in Zirkulation
+                {
+                    "service_id": 4,
+                    "require_involvement": True,
+                },
+                # Laboratorium der Urkantone
+                {
+                    "service_id": 22,
+                    "require_involvement": True,
+                },
                 # TODO: Amt für Finanzen (Gebäudeschatzer)?
+                # Always send notification regardless of involvement
             ],
         },
     },
