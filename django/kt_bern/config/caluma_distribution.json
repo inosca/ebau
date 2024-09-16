@@ -403,7 +403,7 @@
     "pk": "inquiry-document-info",
     "fields": {
       "created_at": "2022-10-25T12:53:40.593Z",
-      "modified_at": "2022-10-25T13:00:51.530Z",
+      "modified_at": "2024-09-16T14:17:18.053Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -416,7 +416,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-margin-remove\\\">Haben Sie den Fachbericht im Men\\u00fc \\\"Dokumente\\\" unter \\\"Beteiligte Beh\\u00f6rden\\\" hochgeladen und m\\u00f6chten Sie die Stellungnahme jetzt beantworten? Dieser Schritt kann nicht r\\u00fcckg\\u00e4ngig gemacht werden.</div>\", \"fr\": \"<div class=\\\"uk-alert uk-margin-remove\\\">Vous avez t\\u00e9l\\u00e9charg\\u00e9 le rapport technique dans le menu \\\"Documents\\\" sous \\\"Autorit\\u00e9s participantes\\\" et vous souhaitez maintenant soumettre et enregistrer votre pr\\u00e9avis ? Cette \\u00e9tape ne peut pas \\u00eatre annul\\u00e9e.</div>\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-margin-remove\\\">Haben Sie den Fachbericht im Men\\u00fc \\\"Dokumente\\\" unter \\\"Beteiligte Beh\\u00f6rden\\\" hochgeladen sowie die Geb\\u00fchr f\\u00fcr den Fachbericht im Men\\u00fc \\\"Geb\\u00fchren\\\" erfasst und m\\u00f6chten Sie die Stellungnahme jetzt beantworten? Dieser Schritt kann nicht r\\u00fcckg\\u00e4ngig gemacht werden.</div>\", \"fr\": \"<div class=\\\"uk-alert uk-margin-remove\\\">Vous avez t\\u00e9l\\u00e9charg\\u00e9 le rapport technique dans le menu \\u00ab Documents \\u00bb sous \\u00ab Autorit\\u00e9s concern\\u00e9es \\u00bb ainsi que saisi la taxe pour le rapport technique dans le menu \\u00ab Taxes \\u00bb et vous souhaitez maintenant r\\u00e9pondre \\u00e0 l'avis ? Cette \\u00e9tape ne peut pas \\u00eatre annul\\u00e9e.</div>\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
         "hideLabel": true
