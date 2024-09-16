@@ -5,7 +5,7 @@ services:
   proxy:
     image: nginx:1.27-alpine
 
-  django:
+  django: &django
     build:
       context: ../django
       cache_from:
@@ -100,7 +100,17 @@ services:
   tika:
     image: apache/tika:2.9.2.1-full
 
+  redis:
+    image: redis:7.4
+    volumes:
+      - redis_data:/redis/data
+
+  celery:
+    <<: *django
+    command: celery
+
 volumes:
   pgdata:
+  redis_data:
   djangomedia:
   djangotmpmedia:

@@ -2863,3 +2863,17 @@ GENERIC_PERMISSIONS_PERMISSION_CLASSES = [
 GENERIC_PERMISSIONS_VALIDATION_CLASSES = [
     "camac.alexandria.extensions.validations.CustomValidation"
 ]
+
+# Celery
+REDIS_HOST = env.str("REDIS_HOST", default="redis")
+REDIS_PORT = env.int("REDIS_PORT", default=6379)
+REDIS_PASSWORD = env.str("REDIS_PASSWORD", default="redis")
+CELERY_BROKER_URL = env.str(
+    "CELERY_BROKER_URL",
+    default=f"redis://default:{REDIS_PASSWORD}@{REDIS_HOST}:{REDIS_PORT}/0",  # gitleaks:allow
+)
+CELERY_TASK_ACKS_LATE = env.bool(
+    "CELERY_TASK_ACKS_LATE",
+    default=True,
+)
+CELERY_TASK_SOFT_TIME_LIMIT = env.int("CELERY_TASK_SOFT_TIME_LIMIT", default=60)

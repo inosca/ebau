@@ -23,6 +23,8 @@ if [ "$#" -lt 1 ]; then
   echo "Need to pass either one of these:"
   echo "   - uwsgi      to run the production server (load config)"
   echo "   - qcluster   to run the django-q service"
+  echo "   - celery     to run the celery service"
+  echo "   - celerydev to run the celery service in development mode"
   echo "   - devserver  to run the development server (takes additional args"
   echo  "    if needed)"
   echo ""
@@ -44,6 +46,16 @@ case "$1" in
   qcluster )
     do_setup no-migrate
     exec python manage.py qcluster --pythonpath /app/$APPLICATION
+    ;;
+  celery )
+    do_setup no-migrate
+    wait-for-it redis:6379
+    celery -A camac worker -l INFO -E -O fair;
+    ;;
+  celerydev )
+    do_setup no-migrate
+    wait-for-it redis:6379
+    watchmedo auto-restart -d . --recursive -p '*.py' -- celery -A camac worker -l INFO -E -O fair;
     ;;
   * )
     exec "$@"
