@@ -196,6 +196,7 @@ def test_complete_construction_stage(
     caluma_admin_schema_executor,
     caluma_admin_user,
     service,
+    distribution_settings,
     cancel,
     utils,
 ):
