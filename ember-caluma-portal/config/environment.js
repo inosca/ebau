@@ -157,6 +157,7 @@ module.exports = function (environment) {
         "vorabklaerung-vollstaendig-v2",
         "vorabklaerung-vollstaendig-v3",
         "vorabklaerung-vollstaendig-v4",
+        "vorabklaerung-vollstaendig-v5",
       ],
       selectableGroups: {
         roles: [
@@ -186,6 +187,7 @@ module.exports = function (environment) {
             "hecken-feldgehoelze-baeume",
             "solaranlagen-meldung",
             "heat-generator",
+            "reklamegesuch",
           ],
         },
         {

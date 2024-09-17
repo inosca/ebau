@@ -1200,11 +1200,14 @@
         "baugesuch-generell",
         "baugesuch-generell-v2",
         "baugesuch-generell-v3",
+        "baugesuch-generell-v5",
         "baugesuch-mit-uvp",
         "baugesuch-mit-uvp-v2",
         "baugesuch-mit-uvp-v3",
+        "baugesuch-mit-uvp-v5",
         "baugesuch-v2",
         "baugesuch-v3",
+        "baugesuch-v5",
         "migriertes-dossier",
         "verlaengerung-geltungsdauer"
       ]
@@ -1279,13 +1282,15 @@
         "hecken-feldgehoelze-baeume",
         "klaerung-baubewilligungspflicht",
         "migriertes-dossier",
+        "reklamegesuch",
         "solaranlagen-meldung",
         "vorabklaerung-einfach",
         "vorabklaerung-einfach-v4",
         "vorabklaerung-vollstaendig",
         "vorabklaerung-vollstaendig-v2",
         "vorabklaerung-vollstaendig-v3",
-        "vorabklaerung-vollstaendig-v4"
+        "vorabklaerung-vollstaendig-v4",
+        "vorabklaerung-vollstaendig-v5"
       ]
     }
   }

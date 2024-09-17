@@ -2660,6 +2660,7 @@ ECH_EXCLUDED_FORMS = [
     "solaranlagen-meldung",
     "heat-generator",
     "heat-generator-v2",
+    "reklamegesuch",
 ]
 ECH_THROTTLING_RATE = env.str("DJANGO_ECH_THROTTLING_RATE", default="1/min")
 

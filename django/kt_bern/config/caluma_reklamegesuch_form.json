@@ -1,0 +1,645 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "reklamegesuch",
+    "fields": {
+      "created_at": "2024-07-18T15:56:26.121Z",
+      "modified_at": "2024-09-10T13:06:53.583Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Reklame\", \"fr\": \"R\\u00e9clames\", \"it\": null}",
+      "description": "{\"de\": \"Reklamegesuch\", \"fr\": \"Reklamegesuch\", \"it\": null}",
+      "meta": {
+        "order": 7,
+        "category": "special-procedure",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": false,
+      "is_archived": false,
+      "source": "solaranlagen-meldung"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "reklamegesuch-bestaetigung",
+    "fields": {
+      "created_at": "2024-07-19T09:58:57.074Z",
+      "modified_at": "2024-07-19T09:59:17.414Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Best\\u00e4tigung\", \"fr\": \"Confirmation\", \"it\": null}",
+      "description": "{\"de\": \"Reklamegesuch > Best\\u00e4tigung\", \"fr\": \"Reklamegesuch > Best\\u00e4tigung\", \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "solaranlagen-bestaetigung"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "reklamegesuch-dokumente",
+    "fields": {
+      "created_at": "2024-07-19T09:56:12.754Z",
+      "modified_at": "2024-07-19T09:56:53.245Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dokumente\", \"fr\": \"Documents\", \"it\": null}",
+      "description": "{\"de\": \"Reklamegesuch > Dokumente\", \"fr\": \"Reklamegesuch > Dokumente\", \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "solaranlagen-dokumente"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "reklamegesuch-reklame",
+    "fields": {
+      "created_at": "2024-07-19T09:50:58.222Z",
+      "modified_at": "2024-07-19T09:51:11.747Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Reklame\", \"fr\": \"R\\u00e9clame\", \"it\": null}",
+      "description": "{\"de\": \"Reklamegesuch > Reklame\", \"fr\": \"Reklamegesuch > Reklame\", \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "reklame"
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklamegesuch.8-freigabequittung",
+    "fields": {
+      "created_at": "2024-07-18T15:56:26.143Z",
+      "modified_at": "2024-07-18T15:56:26.143Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "reklamegesuch",
+      "question": "8-freigabequittung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklamegesuch.allgemeine-angaben-kurz-formular",
+    "fields": {
+      "created_at": "2024-07-18T15:56:26.135Z",
+      "modified_at": "2024-07-18T15:56:26.135Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "reklamegesuch",
+      "question": "allgemeine-angaben-kurz-formular",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklamegesuch-bestaetigung.reklamegesuch-anforderungen-eingehalten",
+    "fields": {
+      "created_at": "2024-07-19T11:47:36.381Z",
+      "modified_at": "2024-07-19T11:47:36.381Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "reklamegesuch-bestaetigung",
+      "question": "reklamegesuch-anforderungen-eingehalten",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklamegesuch-bestaetigung.reklamegesuch-bestaetigung-berechtigung-bauherrschaft",
+    "fields": {
+      "created_at": "2024-07-19T11:53:35.289Z",
+      "modified_at": "2024-07-19T11:53:35.289Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "reklamegesuch-bestaetigung",
+      "question": "reklamegesuch-bestaetigung-berechtigung-bauherrschaft",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklamegesuch-bestaetigung.reklamegesuch-bestaetigung-gis",
+    "fields": {
+      "created_at": "2024-07-19T11:52:09.872Z",
+      "modified_at": "2024-07-19T11:52:09.872Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "reklamegesuch-bestaetigung",
+      "question": "reklamegesuch-bestaetigung-gis",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklamegesuch-bestaetigung.reklamegesuch-bestaetigung-mit-unterschrift",
+    "fields": {
+      "created_at": "2024-07-19T11:49:21.828Z",
+      "modified_at": "2024-07-19T11:49:21.828Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "reklamegesuch-bestaetigung",
+      "question": "reklamegesuch-bestaetigung-mit-unterschrift",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklamegesuch-dokumente.dokumente-platzhalter",
+    "fields": {
+      "created_at": "2024-07-19T09:56:12.761Z",
+      "modified_at": "2024-07-19T09:56:12.761Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "reklamegesuch-dokumente",
+      "question": "dokumente-platzhalter",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklamegesuch.personalien-kurz-formular",
+    "fields": {
+      "created_at": "2024-07-18T15:56:26.129Z",
+      "modified_at": "2024-07-18T15:56:26.129Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "reklamegesuch",
+      "question": "personalien-kurz-formular",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklamegesuch.reklamegesuch-bestaetigung",
+    "fields": {
+      "created_at": "2024-07-19T10:01:16.687Z",
+      "modified_at": "2024-07-19T10:01:16.687Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "reklamegesuch",
+      "question": "reklamegesuch-bestaetigung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklamegesuch.reklamegesuch-dokumente",
+    "fields": {
+      "created_at": "2024-07-19T09:58:14.799Z",
+      "modified_at": "2024-07-19T09:58:14.799Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "reklamegesuch",
+      "question": "reklamegesuch-dokumente",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklamegesuch.reklamegesuch-reklame",
+    "fields": {
+      "created_at": "2024-07-19T09:52:52.988Z",
+      "modified_at": "2024-07-19T09:52:52.988Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "reklamegesuch",
+      "question": "reklamegesuch-reklame",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklamegesuch-reklame.reklamegesuch-reklame-tabelle",
+    "fields": {
+      "created_at": "2024-07-19T09:51:55.009Z",
+      "modified_at": "2024-07-19T09:51:55.009Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "reklamegesuch-reklame",
+      "question": "reklamegesuch-reklame-tabelle",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "reklamegesuch-anforderungen-eingehalten-ja",
+    "fields": {
+      "created_at": "2024-07-19T11:47:36.237Z",
+      "modified_at": "2024-07-19T11:48:06.822Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Anforderungen sind gem\\u00e4ss Art. 11 \\u2013 15 BewD eingehalten.\", \"fr\": \"Les exigences \\u00e9nonc\\u00e9es aux articles 11 \\u00e0 15 DPC sont respect\\u00e9es.\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "reklamegesuch-bestaetigung-berechtigung-bauherrschaft-ja",
+    "fields": {
+      "created_at": "2024-07-19T11:53:35.166Z",
+      "modified_at": "2024-07-19T11:53:56.396Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die gesuchstellende Person best\\u00e4tigt, dass sie die Berechtigung auf das eBau Dossier hat. Sofern das Baugesuch nicht durch die gesuchstellende Person selbst, sondern durch eine Drittperson (z.B. Vertretung, Architekt(in), Projektverfasser(in) etc.) in eBau erfasst wurde, best\\u00e4tigt diese Drittperson, welche das Baugesuch ausgef\\u00fcllt hat, dass sie der gesuchstellenden Person bzw. der Bauherrschaft die Berechtigung (via Tab \\u00abBerechtigungen\\u00bb) auf das eBau Dossier erteilt hat.\", \"fr\": \"La personne requ\\u00e9rante confirme qu'elle a le droit d'acc\\u00e9der au dossier eBau. Dans la mesure o\\u00f9 la demande de permis de construire n'a pas \\u00e9t\\u00e9 saisie dans eBau par la personne requ\\u00e9rante elle-m\\u00eame, mais par une personne tierce (p. ex. repr\\u00e9sentant(e), architecte, auteur(e) de projet, etc.), cette personne tierce ayant rempli la demande de permis de construire confirme qu'elle a accord\\u00e9 \\u00e0 la personne requ\\u00e9rante ou au ma\\u00eetre d'ouvrage le droit (via l'onglet \\u00ab Autorisation \\u00bb) d'acc\\u00e9der au dossier eBau.\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "reklamegesuch-bestaetigung-gis-ja",
+    "fields": {
+      "created_at": "2024-07-19T11:52:09.694Z",
+      "modified_at": "2024-07-19T11:52:27.510Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass die vom GIS-System \\u00fcbernommen Daten mit den baurechtlichen Grundlagen \\u00fcbereinstimmen.\", \"fr\": \"Le/la requ\\u00e9rant/e confirme que les donn\\u00e9es reprises du SIG sont conformes \\u00e0 la r\\u00e9glementation fondamentale en mati\\u00e8re de construction.\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "reklamegesuch-bestaetigung-mit-unterschrift-ja",
+    "fields": {
+      "created_at": "2024-07-19T11:49:21.701Z",
+      "modified_at": "2024-07-19T11:49:54.610Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Der/die Gesuchsteller/in resp. die bevollm\\u00e4chtigte Vertretung best\\u00e4tigt mit rechtsg\\u00fcltiger Unterschrift, dass die elektronisch \\u00fcbermittelten Daten (inkl. dem unterzeichneten Situationsplan) vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt und eingereicht worden sind.\", \"fr\": \"Le ma\\u00eetre d'ouvrage ou son/sa repr\\u00e9sentant/e d\\u00fbment mandat\\u00e9/e confirme par sa signature l\\u00e9galement valable que les donn\\u00e9es transmises par la voie \\u00e9lectronique (y c. le plan de situation sign\\u00e9) sont compl\\u00e8tes et conformes \\u00e0 la v\\u00e9rit\\u00e9.\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "reklamegesuch-anforderungen-eingehalten",
+    "fields": {
+      "created_at": "2024-07-19T11:47:36.310Z",
+      "modified_at": "2024-07-19T11:48:06.894Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Anforderungen sind gem\\u00e4ss Art. 11 \\u2013 15 BewD eingehalten.\", \"fr\": \"Les exigences \\u00e9nonc\\u00e9es aux articles 11 \\u00e0 15 DPC sont respect\\u00e9es.\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "!('is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"[Baubewilligungsdekret](https://www.belex.sites.be.ch/frontend/versions/569)\", \"fr\": \"[Baubewilligungsdekret](https://www.belex.sites.be.ch/frontend/versions/569)\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "reklamegesuch-bestaetigung",
+    "fields": {
+      "created_at": "2024-07-19T10:01:16.631Z",
+      "modified_at": "2024-07-19T10:01:26.603Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Best\\u00e4tigung\", \"fr\": \"Confirmation\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "reklamegesuch-bestaetigung",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "reklamegesuch-bestaetigung-berechtigung-bauherrschaft",
+    "fields": {
+      "created_at": "2024-07-19T11:53:35.225Z",
+      "modified_at": "2024-07-19T11:53:56.478Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die gesuchstellende Person best\\u00e4tigt, dass sie die Berechtigung auf das eBau Dossier hat. Sofern das Baugesuch nicht durch die gesuchstellende Person selbst, sondern durch eine Drittperson (z.B. Vertretung, Architekt(in), Projektverfasser(in) etc.) in eBau erfasst wurde, best\\u00e4tigt diese Drittperson, welche das Baugesuch ausgef\\u00fcllt hat, dass sie der gesuchstellenden Person bzw. der Bauherrschaft die Berechtigung (via Tab \\u00abBerechtigungen\\u00bb) auf das eBau Dossier erteilt hat.\", \"fr\": \"La personne requ\\u00e9rante confirme qu'elle a le droit d'acc\\u00e9der au dossier eBau. Dans la mesure o\\u00f9 la demande de permis de construire n'a pas \\u00e9t\\u00e9 saisie dans eBau par la personne requ\\u00e9rante elle-m\\u00eame, mais par une personne tierce (p. ex. repr\\u00e9sentant(e), architecte, auteur(e) de projet, etc.), cette personne tierce ayant rempli la demande de permis de construire confirme qu'elle a accord\\u00e9 \\u00e0 la personne requ\\u00e9rante ou au ma\\u00eetre d'ouvrage le droit (via l'onglet \\u00ab Autorisation \\u00bb) d'acc\\u00e9der au dossier eBau.\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "!('is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "reklamegesuch-bestaetigung-gis",
+    "fields": {
+      "created_at": "2024-07-19T11:52:09.763Z",
+      "modified_at": "2024-07-19T11:52:27.578Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass die vom GIS-System \\u00fcbernommen Daten mit den baurechtlichen Grundlagen \\u00fcbereinstimmen.\", \"fr\": \"Le/la requ\\u00e9rant/e confirme que les donn\\u00e9es reprises du SIG sont conformes \\u00e0 la r\\u00e9glementation fondamentale en mati\\u00e8re de construction.\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "!('is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "'is-paper'|answer == 'is-paper-yes'",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "reklamegesuch-bestaetigung-mit-unterschrift",
+    "fields": {
+      "created_at": "2024-07-19T11:49:21.761Z",
+      "modified_at": "2024-07-19T11:49:54.684Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Der/die Gesuchsteller/in resp. die bevollm\\u00e4chtigte Vertretung best\\u00e4tigt mit rechtsg\\u00fcltiger Unterschrift, dass die elektronisch \\u00fcbermittelten Daten (inkl. dem unterzeichneten Situationsplan) vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt und eingereicht worden sind.\", \"fr\": \"Le ma\\u00eetre d'ouvrage ou son/sa repr\\u00e9sentant/e d\\u00fbment mandat\\u00e9/e confirme par sa signature l\\u00e9galement valable que les donn\\u00e9es transmises par la voie \\u00e9lectronique (y c. le plan de situation sign\\u00e9) sont compl\\u00e8tes et conformes \\u00e0 la v\\u00e9rit\\u00e9.\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "!('is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "reklamegesuch-dokumente",
+    "fields": {
+      "created_at": "2024-07-19T09:58:14.738Z",
+      "modified_at": "2024-07-19T09:58:33.378Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente\", \"fr\": \"Documents\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "be-documents-form"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "reklamegesuch-dokumente",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "reklamegesuch-reklame",
+    "fields": {
+      "created_at": "2024-07-19T09:52:52.927Z",
+      "modified_at": "2024-07-19T09:53:00.592Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Reklame\", \"fr\": \"R\\u00e9clame\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "reklamegesuch-reklame",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "reklamegesuch-reklame-tabelle",
+    "fields": {
+      "created_at": "2024-07-19T09:51:54.951Z",
+      "modified_at": "2024-07-19T12:38:57.946Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Reklame\", \"fr\": \"R\\u00e9clame\", \"it\": null}",
+      "type": "table",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": "reklame-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "reklamegesuch-anforderungen-eingehalten.reklamegesuch-anforderungen-eingehalten-ja",
+    "fields": {
+      "created_at": "2024-07-19T11:48:06.898Z",
+      "modified_at": "2024-07-19T11:48:06.898Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "reklamegesuch-anforderungen-eingehalten",
+      "option": "reklamegesuch-anforderungen-eingehalten-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "reklamegesuch-bestaetigung-berechtigung-bauherrschaft.reklamegesuch-bestaetigung-berechtigung-bauherrschaft-ja",
+    "fields": {
+      "created_at": "2024-07-19T11:53:56.483Z",
+      "modified_at": "2024-07-19T11:53:56.483Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "reklamegesuch-bestaetigung-berechtigung-bauherrschaft",
+      "option": "reklamegesuch-bestaetigung-berechtigung-bauherrschaft-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "reklamegesuch-bestaetigung-gis.reklamegesuch-bestaetigung-gis-ja",
+    "fields": {
+      "created_at": "2024-07-19T11:52:27.583Z",
+      "modified_at": "2024-07-19T11:52:27.583Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "reklamegesuch-bestaetigung-gis",
+      "option": "reklamegesuch-bestaetigung-gis-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "reklamegesuch-bestaetigung-mit-unterschrift.reklamegesuch-bestaetigung-mit-unterschrift-ja",
+    "fields": {
+      "created_at": "2024-07-19T11:49:54.688Z",
+      "modified_at": "2024-07-19T11:49:54.688Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "reklamegesuch-bestaetigung-mit-unterschrift",
+      "option": "reklamegesuch-bestaetigung-mit-unterschrift-ja",
+      "sort": 1
+    }
+  }
+]

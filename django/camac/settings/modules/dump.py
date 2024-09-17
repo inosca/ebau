@@ -392,6 +392,7 @@ DUMP = {
                 "caluma_form_v2": generate_form_dump_config(version=2),
                 "caluma_form_v3": generate_form_dump_config(version=3),
                 "caluma_form_v4": generate_form_dump_config(version=4),
+                "caluma_form_v5": generate_form_dump_config(version=5),
                 "caluma_dossier_import_form": generate_form_dump_config(
                     regex=r"^migriertes-dossier(-daten)?$"
                 ),
@@ -414,6 +415,9 @@ DUMP = {
                 ),
                 "caluma_heat_generator_form": generate_form_dump_config(
                     regex=r"^heat-generator"
+                ),
+                "caluma_reklamegesuch_form": generate_form_dump_config(
+                    regex=r"^reklamegesuch"
                 ),
                 "caluma_legal_submission_form": generate_form_dump_config(
                     r"^legal-submission"
