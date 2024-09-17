@@ -559,7 +559,7 @@
                 }),
                 dict({
                   'checked': False,
-                  'label': 'Andere (z.B. Tiefbauanlage, Reklamevorhaben, ...)',
+                  'label': 'Andere (z.B. Tiefbauanlage, Reklamevorhaben, Abbruchvorhaben ...)',
                 }),
               ]),
               'label': 'Für welche Nutzungsart dient das Bauvorhaben?',
