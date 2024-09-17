@@ -13,8 +13,8 @@
     "model": "api.template",
     "pk": "stellungnahme-240807",
     "fields": {
-      "description": "Stellungnahme (Durch eigene Gemeinde / Fachstelle zu ergänzen)",
-      "template": "stellungnahme_240807.docx",
+      "description": "Stellungnahme",
+      "template": "urec_systemvorlage_stellungnahme_240912.docx",
       "engine": "docx-template",
       "meta": {}
     }
@@ -23,8 +23,8 @@
     "model": "api.template",
     "pk": "verfuegung-240807",
     "fields": {
-      "description": "Verfügungsvorlage (Durch eigene Gemeinde / Fachstelle zu ergänzen)",
-      "template": "verfuegung_240807.docx",
+      "description": "Verfügungsvorlage",
+      "template": "urec_systemvorlage_verfuegung_240912.docx",
       "engine": "docx-template",
       "meta": {}
     }
@@ -33,8 +33,8 @@
     "model": "api.template",
     "pk": "vorlage-baubewilligung",
     "fields": {
-      "description": "Verfügungsvorlage (Durch eigene Gemeinde / Fachstelle zu ergänzen)",
-      "template": "vorlage_baubewilligung.docx",
+      "description": "Verfügungsvorlage",
+      "template": "urec_systemvorlage_baubewilligung_240912.docx",
       "engine": "docx-template",
       "meta": {}
     }
