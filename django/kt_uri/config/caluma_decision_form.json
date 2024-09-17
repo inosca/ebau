@@ -29,7 +29,7 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "beschwerderecht-bafu",
-      "sort": 3
+      "sort": 6
     }
   },
   {
@@ -44,7 +44,7 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "beschwerderecht-und-eroeffnung",
-      "sort": 5
+      "sort": 8
     }
   },
   {
@@ -59,7 +59,7 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "decision-abschliessen",
-      "sort": 1
+      "sort": 4
     }
   },
   {
@@ -74,7 +74,7 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "decision-task-baubegleitungsprozess",
-      "sort": 2
+      "sort": 5
     }
   },
   {
@@ -89,7 +89,7 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "decision-task-entscheid-beurteilung",
-      "sort": 13
+      "sort": 16
     }
   },
   {
@@ -104,7 +104,7 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "decision-task-entscheid-beurteilung-beschreibung",
-      "sort": 12
+      "sort": 15
     }
   },
   {
@@ -119,7 +119,7 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "decision-task-feedback-type",
-      "sort": 11
+      "sort": 14
     }
   },
   {
@@ -134,7 +134,7 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "decision-task-feedback-type-beschreibung",
-      "sort": 10
+      "sort": 13
     }
   },
   {
@@ -149,7 +149,7 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "decision-task-gebaudeschaetzung",
-      "sort": 8
+      "sort": 11
     }
   },
   {
@@ -164,7 +164,7 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "decision-task-nachfuehrungsgeometer",
-      "sort": 9
+      "sort": 12
     }
   },
   {
@@ -179,7 +179,7 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "meldungen-an-bundesstellen",
-      "sort": 7
+      "sort": 10
     }
   },
   {
@@ -194,7 +194,52 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "moorlandschaft-betroffen",
-      "sort": 4
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.ueberspringen",
+    "fields": {
+      "created_at": "2024-09-13T07:45:00.304Z",
+      "modified_at": "2024-09-13T07:45:00.304Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "ueberspringen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.ueberspringen-begruendung",
+    "fields": {
+      "created_at": "2024-09-13T07:44:24.697Z",
+      "modified_at": "2024-09-13T07:44:24.697Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "ueberspringen-begruendung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.ueberspringen-info",
+    "fields": {
+      "created_at": "2024-09-13T07:44:01.425Z",
+      "modified_at": "2024-09-13T07:44:01.425Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "ueberspringen-info",
+      "sort": 3
     }
   },
   {
@@ -209,7 +254,7 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "zwg-anwenden",
-      "sort": 6
+      "sort": 9
     }
   },
   {
@@ -977,6 +1022,107 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ueberspringen",
+    "fields": {
+      "created_at": "2024-09-13T07:45:00.241Z",
+      "modified_at": "2024-09-13T07:45:00.241Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00dcberspringen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "secondary",
+        "action": "skip",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ueberspringen-begruendung",
+    "fields": {
+      "created_at": "2024-09-13T07:44:24.604Z",
+      "modified_at": "2024-09-13T07:44:24.604Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00dcberspringen (Begr\\u00fcndung)\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ueberspringen-info",
+    "fields": {
+      "created_at": "2024-09-13T07:44:01.312Z",
+      "modified_at": "2024-09-13T07:44:01.312Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"ueberspringen-info\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-danger\\\"><strong>ACHTUNG:</strong> F\\u00fcr migrierte Dossiers kann mit dem Button \\\"\\u00dcberspringen\\\" diese Aufgabe \\u00fcbersprungen werden. Dadurch werden keine E-Mails an den Gesuchsteller gesendet.</div>\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
