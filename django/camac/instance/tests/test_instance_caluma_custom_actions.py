@@ -283,6 +283,7 @@ def test_archive(
         ("Support", "baugesuch", "baugesuch-v2", status.HTTP_400_BAD_REQUEST),
         ("Municipality", "baugesuch", "baugesuch-generell", status.HTTP_204_NO_CONTENT),
         ("Support", "baugesuch-v2", "baugesuch-v3", status.HTTP_400_BAD_REQUEST),
+        ("Support", "baugesuch-v3", "baugesuch-v5", status.HTTP_400_BAD_REQUEST),
         (
             "Support",
             "baugesuch-v3",
@@ -291,11 +292,24 @@ def test_archive(
         ),
         (
             "Support",
+            "baugesuch-v5",
+            "baugesuch-generell-v5",
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "Support",
             "baugesuch-generell-v3",
             "baugesuch-v3",
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "Support",
+            "baugesuch-generell-v5",
+            "baugesuch-v5",
             status.HTTP_204_NO_CONTENT,
         ),
         ("Support", "baugesuch-mit-uvp-v3", "baugesuch-v3", status.HTTP_204_NO_CONTENT),
+        ("Support", "baugesuch-mit-uvp-v5", "baugesuch-v5", status.HTTP_204_NO_CONTENT),
     ],
 )
 def test_change_form(

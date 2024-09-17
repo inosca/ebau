@@ -22,7 +22,7 @@
     "pk": "baugesuch-generell-v3",
     "fields": {
       "created_at": "2023-08-14T14:39:06.450Z",
-      "modified_at": "2023-12-11T13:35:32.385Z",
+      "modified_at": "2024-09-10T12:21:21.906Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -45,7 +45,7 @@
     "pk": "baugesuch-mit-uvp-v3",
     "fields": {
       "created_at": "2023-08-14T14:33:18.272Z",
-      "modified_at": "2023-12-11T13:34:48.863Z",
+      "modified_at": "2024-09-10T12:20:41.599Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -68,7 +68,7 @@
     "pk": "baugesuch-v3",
     "fields": {
       "created_at": "2023-08-10T13:35:29.139Z",
-      "modified_at": "2023-12-11T13:35:52.181Z",
+      "modified_at": "2024-09-10T12:21:01.420Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -4390,7 +4390,7 @@
       "modified_by_group": null,
       "form": "triage-v3",
       "question": "ableitung-in-guellegrube-v2",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -4405,7 +4405,7 @@
       "modified_by_group": null,
       "form": "triage-v3",
       "question": "aussenlaerm",
-      "sort": 25
+      "sort": 26
     }
   },
   {
@@ -4435,7 +4435,7 @@
       "modified_by_group": null,
       "form": "triage-v3",
       "question": "bauten-mit-mehr-als-30-grossvieheinheiten",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -4450,7 +4450,7 @@
       "modified_by_group": null,
       "form": "triage-v3",
       "question": "brandbelastung",
-      "sort": 29
+      "sort": 30
     }
   },
   {
@@ -4465,7 +4465,7 @@
       "modified_by_group": null,
       "form": "triage-v3",
       "question": "feuerungsanlagen",
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -4480,7 +4480,7 @@
       "modified_by_group": null,
       "form": "triage-v3",
       "question": "gefaehrliche-stoffe",
-      "sort": 27
+      "sort": 28
     }
   },
   {
@@ -4570,7 +4570,7 @@
       "modified_by_group": null,
       "form": "triage-v3",
       "question": "ist-ein-fumoir-betroffen",
-      "sort": 30
+      "sort": 31
     }
   },
   {
@@ -4600,7 +4600,7 @@
       "modified_by_group": null,
       "form": "triage-v3",
       "question": "maschinelle-arbeitsmittel",
-      "sort": 28
+      "sort": 29
     }
   },
   {
@@ -4615,7 +4615,7 @@
       "modified_by_group": null,
       "form": "triage-v3",
       "question": "maschinen-aus-den-folgenden-kategorien",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -4630,7 +4630,7 @@
       "modified_by_group": null,
       "form": "triage-v3",
       "question": "nutzungsart",
-      "sort": 34
+      "sort": 35
     }
   },
   {
@@ -4645,7 +4645,7 @@
       "modified_by_group": null,
       "form": "triage-v3",
       "question": "schutzraum-pflicht",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -4660,7 +4660,7 @@
       "modified_by_group": null,
       "form": "triage-v3",
       "question": "sind-belange-des-gewaesserschutzes-betroffen-v2",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -4691,6 +4691,21 @@
       "form": "triage-v3",
       "question": "triagefrage-bauvorhaben-in-konsultationsbereichen-v3",
       "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "triage-v3.triagefrage-biologische-sicherheit-titel-optional-v3",
+    "fields": {
+      "created_at": "2024-07-23T15:50:26.498Z",
+      "modified_at": "2024-07-23T15:50:26.498Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "triage-v3",
+      "question": "triagefrage-biologische-sicherheit-titel-optional-v3",
+      "sort": 13
     }
   },
   {
@@ -4735,7 +4750,7 @@
       "modified_by_group": null,
       "form": "triage-v3",
       "question": "triagefrage-stoerfallvorsorge-titel-v3",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -4750,7 +4765,7 @@
       "modified_by_group": null,
       "form": "triage-v3",
       "question": "triagefrage-stoerfallvorsorge-v3",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -4765,7 +4780,7 @@
       "modified_by_group": null,
       "form": "triage-v3",
       "question": "um-was-fuer-ein-gebaeude-handelt-es-sich",
-      "sort": 31
+      "sort": 32
     }
   },
   {
@@ -4780,7 +4795,7 @@
       "modified_by_group": null,
       "form": "triage-v3",
       "question": "verunreinigte-abluft",
-      "sort": 26
+      "sort": 27
     }
   },
   {
@@ -4795,7 +4810,7 @@
       "modified_by_group": null,
       "form": "triage-v3",
       "question": "was-fuer-ein-vorhaben",
-      "sort": 33
+      "sort": 34
     }
   },
   {
@@ -4810,7 +4825,7 @@
       "modified_by_group": null,
       "form": "triage-v3",
       "question": "wassergefaehrdende-explosive-stoffe",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -4825,7 +4840,7 @@
       "modified_by_group": null,
       "form": "triage-v3",
       "question": "weitere-vorhaben",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -4840,7 +4855,7 @@
       "modified_by_group": null,
       "form": "triage-v3",
       "question": "welche-art-vorhaben",
-      "sort": 32
+      "sort": 33
     }
   },
   {
@@ -4870,7 +4885,7 @@
       "modified_by_group": null,
       "form": "triage-v3",
       "question": "werden-neue-hofduengeranlagen-erstellt",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -4885,7 +4900,7 @@
       "modified_by_group": null,
       "form": "triage-v3",
       "question": "werden-siloanlagen-erstellt",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -10503,10 +10518,41 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "triagefrage-biologische-sicherheit-titel-optional-v3",
+    "fields": {
+      "created_at": "2024-07-23T15:48:41.858Z",
+      "modified_at": "2024-08-07T14:15:50.898Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Handelt es sich um eine Anlage (neue Anlage / bestehende Anlage nach Neu- oder Umbau), in der mit gentechnisch ver\\u00e4nderten, pathogenen oder einschliessungspflichtigen gebietsfremden Organismen eine T\\u00e4tigkeit durchgef\\u00fchrt wird, die nach der Einschliessungsverordnung (ESV) der Klasse 1, 2, 3 oder 4 zuzuordnen ist?\", \"fr\": \"S\\u2019agit-il d\\u2019une installation (nouvelle installation / installation existante, nouvelles constructions ou transformations incluses) utilisant des organismes g\\u00e9n\\u00e9tiquement modifi\\u00e9s ou pathog\\u00e8nes ou d\\u2019organismes exotiques soumis au confinement obligatoire pour une activit\\u00e9 attribu\\u00e9e \\u00e0 la classe 1, 2, 3 ou 4 selon l\\u2019ordonnance sur l\\u2019utilisation confin\\u00e9e (OUC)\\u00a0?\", \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n  'vorabklaerung' in form ||\n  'is-paper'|answer == 'is-paper-yes' ||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-erschliessungsanlagen\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-tiefbauanlage\"]'\n  ) ||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-reklamevorhaben\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-reklame\"]'\n  )\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<span class=\\\"uk-form-label\\\">Handelt es sich um eine <a href=\\\"#biologische-sicherheit-anlage-v3\\\" uk-toggle>Anlage (neue Anlage / bestehende Anlage <u>nach</u> Neu- oder Umbau)</a>, in der mit gentechnisch ver\\u00e4nderten, pathogenen oder einschliessungspflichtigen gebietsfremden Organismen eine T\\u00e4tigkeit durchgef\\u00fchrt wird, die nach der <a href=\\\"#stoerfallvorsorge-einschliessungsverordnung-v3\\\" uk-toggle>Einschliessungsverordnung (ESV)</a>  der Klasse 1, 2, 3 oder 4 zuzuordnen ist?</span><span class=\\\"uk-margin-small-left uk-text-muted uk-text-lowercase uk-text-normal\\\">(falls n\\u00f6tig)</span> \\n<style>\\n[data-question-slug=\\\"triagefrage-biologische-sicherheit-titel-optional-v3\\\"], [data-question-slug=\\\"triagefrage-biologische-sicherheit-titel-optional-v3\\\"] p {\\n    margin-bottom: 0 !important;\\n}\\n[data-question-slug=\\\"triagefrage-biologische-sicherheit-v3\\\"], [data-question-slug=\\\"triagefrage-biologische-sicherheit-titel-optional-v3\\\"] p {\\n    margin-top: 0 !important;\\n}\\n</style>\\n<div id=\\\"biologische-sicherheit-anlage-v3\\\" uk-modal>\\n    <div class=\\\"uk-modal-dialog\\\">\\n        <button class=\\\"uk-modal-close-default\\\" type=\\\"button\\\" uk-close></button>\\n        <div class=\\\"uk-modal-body\\\">\\n         \\t    <p>Die Frage bezieht sich auf den <u>Standort</u> der Anlage, f\\u00fcr welchen die Vorabkl\\u00e4rung&nbsp;/&nbsp;das Baugesuch eingereicht wird.</p>\\n        </div>\\n    </div>\\n</div>\", \"fr\": \"<span class=\\\"uk-form-label\\\">S\\u2019agit-il d\\u2019une <a href=\\\"#biologische-sicherheit-anlage-v3\\\" uk-toggle>installation (nouvelle installation / installation existante, nouvelles constructions ou transformations <u>incluses</u>)</a> utilisant des organismes g\\u00e9n\\u00e9tiquement modifi\\u00e9s ou pathog\\u00e8nes ou des organismes exotiques soumis au confinement obligatoire pour une activit\\u00e9 attribu\\u00e9e \\u00e0 la classe 1, 2, 3 ou 4 selon l\\u2019<a href=\\\"#stoerfallvorsorge-einschliessungsverordnung-v3\\\" uk-toggle>ordonnance sur l\\u2019utilisation confin\\u00e9e (OUC)</a>&nbsp;?</span><span class=\\\"uk-margin-small-left uk-text-muted uk-text-lowercase uk-text-normal\\\">(si n\\u00e9cessaire)</span>\\n<style>\\n[data-question-slug=\\\"triagefrage-biologische-sicherheit-titel-optional-v3\\\"], [data-question-slug=\\\"triagefrage-biologische-sicherheit-titel-optional-v3] p {\\n    margin-bottom: 0 !important;\\n}\\n[data-question-slug=\\\"triagefrage-biologische-sicherheit-v3\\\"], [data-question-slug=\\\"triagefrage-biologische-sicherheit-titel-optional-v3\\\"] p {\\n    margin-top: 0 !important;\\n}\\n</style>\\n<div id=\\\"biologische-sicherheit-anlage-v3\\\" uk-modal>\\n    <div class=\\\"uk-modal-dialog\\\">\\n        <button class=\\\"uk-modal-close-default\\\" type=\\\"button\\\" uk-close></button>\\n        <div class=\\\"uk-modal-body\\\">\\n         \\t    <p>La question se r\\u00e9f\\u00e8re au <u>site</u> de l\\u2019installation pour lequel la demande pr\\u00e9alable / la demande de permis de construire est soumise.</p>\\n        </div>\\n    </div>\\n</div>\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "triagefrage-biologische-sicherheit-titel-v3",
     "fields": {
       "created_at": "2023-10-09T13:06:26.693Z",
-      "modified_at": "2023-12-07T09:33:07.626Z",
+      "modified_at": "2024-08-07T14:16:13.739Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -10514,7 +10560,7 @@
       "label": "{\"de\": \"Handelt es sich um eine Anlage (neue Anlage / bestehende Anlage nach Neu- oder Umbau), in der mit gentechnisch ver\\u00e4nderten, pathogenen oder einschliessungspflichtigen gebietsfremden Organismen eine T\\u00e4tigkeit durchgef\\u00fchrt wird, die nach der Einschliessungsverordnung (ESV) der Klasse 1, 2, 3 oder 4 zuzuordnen ist?\", \"fr\": \"S\\u2019agit-il d\\u2019un projet de construction sur une/des parcelle(s) partiellement ou totalement recouverte(s) par un p\\u00e9rim\\u00e8tre de consultation ?\", \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "(\n  'vorabklaerung' in form ||\n  'is-paper'|answer == 'is-paper-yes' ||  \n    (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-erschliessungsanlagen\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-tiefbauanlage\"]'\n  ) ||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-reklamevorhaben\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-reklame\"]'\n  )\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
@@ -10537,14 +10583,14 @@
     "pk": "triagefrage-biologische-sicherheit-v3",
     "fields": {
       "created_at": "2023-10-03T12:42:36.417Z",
-      "modified_at": "2023-12-11T12:04:55.848Z",
+      "modified_at": "2024-08-07T14:15:24.185Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Handelt es sich um eine Anlage (neue Anlage / bestehende Anlage nach Neu- oder Umbau), in der mit gentechnisch ver\\u00e4nderten, pathogenen oder einschliessungspflichtigen gebietsfremden Organismen eine T\\u00e4tigkeit durchgef\\u00fchrt wird, die nach der Einschliessungsverordnung (ESV) der Klasse 1, 2, 3 oder 4 zuzuordnen ist?\", \"fr\": \"S\\u2019agit-il d\\u2019une installation (nouvelle installation / installation existante, nouvelles constructions ou transformations incluses) utilisant des organismes g\\u00e9n\\u00e9tiquement modifi\\u00e9s ou pathog\\u00e8nes ou d\\u2019organismes exotiques soumis au confinement obligatoire pour une activit\\u00e9 attribu\\u00e9e \\u00e0 la classe 1, 2, 3 ou 4 selon l\\u2019ordonnance sur l\\u2019utilisation confin\\u00e9e (OUC)\\u00a0?\", \"it\": null}",
       "type": "choice",
-      "is_required": "true",
+      "is_required": "!(\n  'vorabklaerung' in form ||\n  'is-paper'|answer == 'is-paper-yes' ||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-erschliessungsanlagen\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-tiefbauanlage\"]'\n  ) ||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-reklamevorhaben\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-reklame\"]'\n  )\n)",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -12256,8 +12302,8 @@
     "model": "caluma_form.questionoption",
     "pk": "triagefrage-biologische-sicherheit-v3.triagefrage-biologische-sicherheit-v3-ja",
     "fields": {
-      "created_at": "2023-12-11T12:04:55.853Z",
-      "modified_at": "2023-12-11T12:04:55.853Z",
+      "created_at": "2024-08-07T14:15:24.193Z",
+      "modified_at": "2024-08-07T14:15:24.193Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -12271,8 +12317,8 @@
     "model": "caluma_form.questionoption",
     "pk": "triagefrage-biologische-sicherheit-v3.triagefrage-biologische-sicherheit-v3-nein",
     "fields": {
-      "created_at": "2023-12-11T12:04:55.851Z",
-      "modified_at": "2023-12-11T12:04:55.851Z",
+      "created_at": "2024-08-07T14:15:24.190Z",
+      "modified_at": "2024-08-07T14:15:24.190Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
