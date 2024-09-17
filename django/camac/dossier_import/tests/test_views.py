@@ -232,8 +232,8 @@ def test_file_validation(
 ):
     # create an import case with an uploaded file using the REST endpoint (POST)
     mocker.patch(
-        f"{dossier_import_settings['WRITER_CLASS']}.existing_dossier",
-        lambda self, dossier_id: dossier_exists,
+        f"{dossier_import_settings['WRITER_CLASS']}.get_existing_dossier_ids",
+        lambda self, dossier_ids: dossier_ids if dossier_exists else [],
     )
     the_file = import_file and archive_file(import_file)
     resp = admin_client.post(

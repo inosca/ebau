@@ -4,7 +4,6 @@ from dataclasses import fields
 from enum import Enum
 from typing import Generator, Iterable, List, Optional, Tuple
 
-import openpyxl
 from django.conf import settings
 from django.utils.timezone import datetime
 from django.utils.translation import gettext as _
@@ -23,6 +22,7 @@ from camac.dossier_import.messages import (
     MessageCodes,
     Severity,
 )
+from camac.dossier_import.utils import get_worksheet_headings_and_rows
 
 
 def numbers(string):
@@ -354,23 +354,16 @@ class XlsxFileDossierLoader:
 
     def load_dossiers(self, archive: zipfile.ZipFile) -> Generator[Dossier, None, None]:
         data_file = archive.open("dossiers.xlsx")
+
         try:
-            work_book = openpyxl.load_workbook(data_file, data_only=True)
+            __, rows = get_worksheet_headings_and_rows(data_file)
         except zipfile.BadZipfile:
             raise InvalidImportDataError(
                 _("Meta data file in archive is corrupt or not a valid .xlsx file.")
             )
-        worksheet = work_book.worksheets[0]
-        headings = worksheet[1]
-        for row in worksheet.iter_rows(min_row=2):
-            dossier = self._load_dossier(
-                dict(
-                    zip(
-                        [heading.value for heading in headings],
-                        [cell.value for cell in row],
-                    )
-                )
-            )
+
+        for row in rows:
+            dossier = self._load_dossier(row)
             if dossier.id is None:  # pragma: no cover
                 continue
             dossier = self._load_attachments(dossier, archive)
