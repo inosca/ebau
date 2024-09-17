@@ -132,6 +132,8 @@ services:
       context: ../django
       cache_from:
         - acr.run/camac-ng/camac-ng/django:master
+      args:
+        REQUIREMENTS: requirements-dev.txt
     ports:
       - "6900-7000:6900-7000"
     command: celerydev
