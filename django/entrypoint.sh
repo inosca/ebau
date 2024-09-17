@@ -47,6 +47,10 @@ case "$1" in
     do_setup no-migrate
     exec python manage.py qcluster --pythonpath /app/$APPLICATION
     ;;
+  qclusterdev )
+    do_setup no-migrate
+    watchmedo auto-restart -d . --recursive -p '*.py' -- python manage.py qcluster --pythonpath /app/$APPLICATION
+    ;;
   celery )
     do_setup no-migrate
     wait-for-it redis:6379
