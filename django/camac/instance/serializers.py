@@ -79,6 +79,7 @@ COMPLETE_PRELIMINARY_CLARIFICATION_SLUGS_BE = [
     "vorabklaerung-vollstaendig-v2",
     "vorabklaerung-vollstaendig-v3",
     "vorabklaerung-vollstaendig-v4",
+    "vorabklaerung-vollstaendig-v5",
 ]
 
 request_logger = getLogger("django.request")
@@ -1953,6 +1954,7 @@ class CalumaInstanceChangeFormSerializer(serializers.Serializer):
         ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"],
         ["baugesuch-v2", "baugesuch-generell-v2", "baugesuch-mit-uvp-v2"],
         ["baugesuch-v3", "baugesuch-generell-v3", "baugesuch-mit-uvp-v3"],
+        ["baugesuch-v5", "baugesuch-generell-v5", "baugesuch-mit-uvp-v5"],
     ]
 
     form = serializers.CharField()
