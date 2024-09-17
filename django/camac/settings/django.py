@@ -1497,7 +1497,7 @@ APPLICATIONS = {
             "oereb_api": ["new", "new_portal", "del", "rejected"],
         },
         "INSTANCE_PERMISSIONS": {
-            "MUNICIPALITY_WRITE": ["comm", "ext_gem", "done", "old", "control"]
+            "MUNICIPALITY_WRITE": ["subm", "comm", "ext_gem", "done", "old", "control"]
         },
         "NOTIFICATIONS": {
             "SUBMIT": [
