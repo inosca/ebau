@@ -410,6 +410,9 @@ PERMISSIONS = {
                 12000008,
             ],
         },
+        "building_commission": {
+            ReadPermission: [12000000, 12000002, 12000003, 12000004]
+        },
     },
     "test": {"applicant": {AdminPermission: [250, 251]}},
 }
@@ -495,6 +498,7 @@ def rebuild_app_permissions(permissions, group, instance):
 def section_permissions(group, instance=None):
     role = group.role.name
     app_name = settings.APPLICATION_NAME
+    # breakpoint()
 
     if instance:
         instance = (
