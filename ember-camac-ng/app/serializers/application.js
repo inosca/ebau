@@ -5,7 +5,7 @@ export default class ApplicationSerializer extends JSONAPISerializer {
     const [, , payload] = args;
 
     // write the object's meta field to attributes
-    if (payload.data.attributes?.meta) {
+    if (payload.data?.meta) {
       payload.data.attributes.meta = payload.data.meta || {};
     }
 
