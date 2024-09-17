@@ -55,6 +55,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "inquiry-answer.inquiry-answer-applicant-message",
+    "fields": {
+      "created_at": "2024-09-17T08:20:12.973Z",
+      "modified_at": "2024-09-17T08:20:12.973Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "inquiry-answer",
+      "question": "inquiry-answer-applicant-message",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "inquiry-answer.inquiry-answer-description",
     "fields": {
       "created_at": "2023-09-29T06:37:16.069Z",
@@ -65,7 +80,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-description",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -80,7 +95,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-invite-service",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -95,7 +110,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-messages",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -110,7 +125,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-status",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -125,7 +140,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-works-decision",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -140,7 +155,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-internal-report",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -681,6 +696,40 @@
       "is_archived": false,
       "meta": {},
       "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "inquiry-answer-applicant-message",
+    "fields": {
+      "created_at": "2024-09-17T08:20:12.821Z",
+      "modified_at": "2024-09-17T08:20:12.821Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Mitteilungen an Gesuchsteller\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Bitte verwenden Sie bei neuen Dossiers f\\u00fcr Nachforderungen das neue \\\"Nachforderungs-Modul\\\". Bei migrierten Dossiers m\\u00fcssen die Nachforderungen wie bisher gemacht werden.\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
     }
   },
   {
