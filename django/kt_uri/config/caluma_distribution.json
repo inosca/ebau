@@ -1622,7 +1622,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['inquiry', 'create-inquiry']|tasks"
+      "next": "['after-create-inquiry']|tasks"
     }
   },
   {
@@ -1954,7 +1954,6 @@
       "start_tasks": [
         "complete-distribution",
         "create-inquiry",
-        "init-additional-demand",
         "init-distribution"
       ],
       "allow_forms": ["distribution"]
