@@ -451,7 +451,7 @@
       "description": "Altlasten",
       "client": "camac.gis.clients.sogis.SoGisClient",
       "config": {
-        "layer": "ch.so.afu.altlasten.standorte.data_v2",
+        "layer": "ch.so.afu.altlasten.standorte.ebau.data_v2",
         "properties": [
           {
             "question": "altlasten-gis",
@@ -459,7 +459,7 @@
           }
         ]
       },
-      "disabled": true,
+      "disabled": false,
       "sort": 7
     }
   },

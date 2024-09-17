@@ -50,13 +50,13 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Wed, 28 Aug 2024 11:39:18 GMT
+      - Tue, 17 Sep 2024 13:44:17 GMT
       Keep-Alive:
       - timeout=10, max=300
       Server:
       - Kanton Solothurn
       Set-Cookie:
-      - SCDID_S=z717f8Cup_e0r6iGhBheR0lrsHQJHlePs9SO7-zX9Leu4hosqLBfZw$$; path=/;
+      - SCDID_S=wtr9ZGT2zCFBx8MHYgKzYPSus5_49emAY1M2tH3BZY1GwxppyoE92g$$; path=/;
         Secure; HttpOnly
       access-control-allow-origin:
       - '*'
@@ -90,13 +90,13 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Wed, 28 Aug 2024 11:39:18 GMT
+      - Tue, 17 Sep 2024 13:44:17 GMT
       Keep-Alive:
       - timeout=10, max=300
       Server:
       - Kanton Solothurn
       Set-Cookie:
-      - SCDID_S=Ktb8fiCfIsxrlYnUNcEOl5FcPyInXHa_Yxay6HzSEfBsCIYCHZEkLA$$; path=/;
+      - SCDID_S=PYca97H_q9CkRZzvTaVmM3W7FTLfrlGgvNSMKsyCZOaJnP8RXgWnRQ$$; path=/;
         Secure; HttpOnly
       access-control-allow-origin:
       - '*'
@@ -295,13 +295,13 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Wed, 28 Aug 2024 11:39:18 GMT
+      - Tue, 17 Sep 2024 13:44:17 GMT
       Keep-Alive:
       - timeout=10, max=300
       Server:
       - Kanton Solothurn
       Set-Cookie:
-      - SCDID_S=5V61ZJQm2ab1kv-eqO5ebjqkM-6WzDALk6YWe4EquGbIoLI383U3IQ$$; path=/;
+      - SCDID_S=WUiZ5G3SDZESDpDSG5rOW2keaAnMEN3izWBRsntMjTyc4tKeOBNHpQ$$; path=/;
         Secure; HttpOnly
       access-control-allow-origin:
       - '*'
@@ -335,13 +335,13 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Wed, 28 Aug 2024 11:39:18 GMT
+      - Tue, 17 Sep 2024 13:44:17 GMT
       Keep-Alive:
       - timeout=10, max=300
       Server:
       - Kanton Solothurn
       Set-Cookie:
-      - SCDID_S=J5pMVdu1VmNpUD_yZJB_zYmyiGS6CtWD_dm0_hPuWBU11o2duMRMag$$; path=/;
+      - SCDID_S=1R-4YpSmAOoiuYNLnoHaXVmLgCi8GhVFYMkI6oVXWwtSwT0jYD_bsg$$; path=/;
         Secure; HttpOnly
       access-control-allow-origin:
       - '*'
@@ -375,13 +375,13 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Wed, 28 Aug 2024 11:39:19 GMT
+      - Tue, 17 Sep 2024 13:44:17 GMT
       Keep-Alive:
       - timeout=10, max=300
       Server:
       - Kanton Solothurn
       Set-Cookie:
-      - SCDID_S=-ttEISJf7WDE9kEq4XUJK5kfELMEZjerQrxnuCiq2-uR7gAQ8SWMGw$$; path=/;
+      - SCDID_S=Y8SKeVjK0oa8r__V4Lo_C_YcP5qfGIcLUeSWKLxSgXNZyU4sp5sBWg$$; path=/;
         Secure; HttpOnly
       access-control-allow-origin:
       - '*'
@@ -415,13 +415,53 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Wed, 28 Aug 2024 11:39:19 GMT
+      - Tue, 17 Sep 2024 13:44:18 GMT
       Keep-Alive:
       - timeout=10, max=300
       Server:
       - Kanton Solothurn
       Set-Cookie:
-      - SCDID_S=Z2-Ht8mFTgMoSo4GxdCGnDrsgPScUqjWvDjY5fXRguJDQz6tis9Rcg$$; path=/;
+      - SCDID_S=q37uOsO26RlCgFsOttZtt7tcAKdykRuOZ_p2n6VPb99JxwnWK96faw$$; path=/;
+        Secure; HttpOnly
+      access-control-allow-origin:
+      - '*'
+      content-length:
+      - '125'
+      content-type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://geo-i.so.ch/api/data/v1/ch.so.afu.altlasten.standorte.ebau.data_v2/?bbox=2605769.0,1224934.0,2605769.0,1224934.0
+  response:
+    body:
+      string: '{"type": "FeatureCollection", "features": [], "crs": {"type": "name",
+        "properties": {"name": "urn:ogc:def:crs:EPSG::2056"}}}
+
+        '
+    headers:
+      Connection:
+      - Keep-Alive
+      Date:
+      - Tue, 17 Sep 2024 13:44:18 GMT
+      Keep-Alive:
+      - timeout=10, max=300
+      Server:
+      - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=L9UaNO52AKAipiQSIyFx39WdHNGfrHNlQ0rbZk3Zk4tAqmjQbZ-bKw$$; path=/;
         Secure; HttpOnly
       access-control-allow-origin:
       - '*'
@@ -455,13 +495,13 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Wed, 28 Aug 2024 11:39:19 GMT
+      - Tue, 17 Sep 2024 13:44:18 GMT
       Keep-Alive:
       - timeout=10, max=300
       Server:
       - Kanton Solothurn
       Set-Cookie:
-      - SCDID_S=oNp0YCbx8w_821HnSe_S03kuceuVsqVuS04RviIcGaGyL_zNL3fdKA$$; path=/;
+      - SCDID_S=zBlHtrR9Uf9T67iJ4b0Vts0rkUP_LkSnsNs5YoGNB-AdVFP9Im52Bg$$; path=/;
         Secure; HttpOnly
       access-control-allow-origin:
       - '*'
@@ -495,13 +535,13 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Wed, 28 Aug 2024 11:39:19 GMT
+      - Tue, 17 Sep 2024 13:44:18 GMT
       Keep-Alive:
       - timeout=10, max=300
       Server:
       - Kanton Solothurn
       Set-Cookie:
-      - SCDID_S=YiszdGvfLvQ85kkuZX6vcJmoM9TDFadTWLIQoGdUNoWWvdvd2Dkwkw$$; path=/;
+      - SCDID_S=Q-H7tGbZKLrNjad2HooNsSmTeZFtipI1Jb8nYK7kNNwzM70haWJ11A$$; path=/;
         Secure; HttpOnly
       access-control-allow-origin:
       - '*'
@@ -535,13 +575,13 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Wed, 28 Aug 2024 11:39:19 GMT
+      - Tue, 17 Sep 2024 13:44:18 GMT
       Keep-Alive:
       - timeout=10, max=300
       Server:
       - Kanton Solothurn
       Set-Cookie:
-      - SCDID_S=OCGO7m4K2vSs5V9WEl9dpC4vuFcE9r1cP5ZlRjB_nb3JDSIQnvBULA$$; path=/;
+      - SCDID_S=Rdrjrsl3xiu8DBGErNf5qs1kZ2HxVTzYoFlA809asRaPp5DySx86MA$$; path=/;
         Secure; HttpOnly
       access-control-allow-origin:
       - '*'
@@ -575,13 +615,13 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Wed, 28 Aug 2024 11:39:19 GMT
+      - Tue, 17 Sep 2024 13:44:18 GMT
       Keep-Alive:
       - timeout=10, max=300
       Server:
       - Kanton Solothurn
       Set-Cookie:
-      - SCDID_S=lZh2jz-qEKa7qE23orQN4N9OIL63Sh43_NPMJ_Lowvwo0PicXEzGeQ$$; path=/;
+      - SCDID_S=hIoYYlJ2WAxwSj10WBdicHsV-8wLOiv6ylPQqfU9MctP7esDMODALw$$; path=/;
         Secure; HttpOnly
       access-control-allow-origin:
       - '*'
@@ -615,13 +655,13 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Wed, 28 Aug 2024 11:39:19 GMT
+      - Tue, 17 Sep 2024 13:44:18 GMT
       Keep-Alive:
       - timeout=10, max=300
       Server:
       - Kanton Solothurn
       Set-Cookie:
-      - SCDID_S=j3lERoAq1OH-cC5Bd3YjZa05Zslu_xr2uzWPW-XZpQhfyJjU62uI2w$$; path=/;
+      - SCDID_S=4yRBmOHLce5g3qzjYYdQYd7amxy4_9AWpfrMOg5ceGx3MgoTO7aJlQ$$; path=/;
         Secure; HttpOnly
       access-control-allow-origin:
       - '*'
@@ -655,13 +695,13 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Wed, 28 Aug 2024 11:39:19 GMT
+      - Tue, 17 Sep 2024 13:44:18 GMT
       Keep-Alive:
       - timeout=10, max=300
       Server:
       - Kanton Solothurn
       Set-Cookie:
-      - SCDID_S=aoGsaH4ciU6t0cZbSczvZ7yENKVv0IyVky_afv9WeH8uJ5mQrlxlvg$$; path=/;
+      - SCDID_S=Y13tNqotWT_BucpcdKdelv9eVDoUQSSm5wUBu2yM7z8zxaCY6GZd_Q$$; path=/;
         Secure; HttpOnly
       access-control-allow-origin:
       - '*'
@@ -695,13 +735,13 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Wed, 28 Aug 2024 11:39:19 GMT
+      - Tue, 17 Sep 2024 13:44:18 GMT
       Keep-Alive:
       - timeout=10, max=300
       Server:
       - Kanton Solothurn
       Set-Cookie:
-      - SCDID_S=mN6p83KYg6NJltszhyu6kOjdIA0AULqYjstxsytuAAx2hoMpdemF5A$$; path=/;
+      - SCDID_S=A8kpBBuR08I7tiOZ6BlLWO1nJnRdU_bQ8gxz5wqnkYSBUeBTmLIFtQ$$; path=/;
         Secure; HttpOnly
       access-control-allow-origin:
       - '*'
@@ -735,13 +775,13 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Wed, 28 Aug 2024 11:39:19 GMT
+      - Tue, 17 Sep 2024 13:44:18 GMT
       Keep-Alive:
       - timeout=10, max=300
       Server:
       - Kanton Solothurn
       Set-Cookie:
-      - SCDID_S=Ld6hYPvFPMGI93X-6FwF8lacmySErpr4nIbVauM4H4uz1PwnBtYTAg$$; path=/;
+      - SCDID_S=rYoySP0_1nyqw6LwAkUI_o_khlO4D882j7X8315hQQnAnedHypU5Tw$$; path=/;
         Secure; HttpOnly
       access-control-allow-origin:
       - '*'
@@ -775,13 +815,13 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Wed, 28 Aug 2024 11:39:20 GMT
+      - Tue, 17 Sep 2024 13:44:19 GMT
       Keep-Alive:
       - timeout=10, max=300
       Server:
       - Kanton Solothurn
       Set-Cookie:
-      - SCDID_S=J_W-AC3u0XU5vUDoy559vjcD_c8KQ2VwpoPvBZNM-DCJCZlxf99dxw$$; path=/;
+      - SCDID_S=olEGc236TiH8rQfTYTxSPpkwxKEEhc6ARdkec_rR-7PaUiAg8MTLfw$$; path=/;
         Secure; HttpOnly
       access-control-allow-origin:
       - '*'
@@ -815,13 +855,13 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Wed, 28 Aug 2024 11:39:20 GMT
+      - Tue, 17 Sep 2024 13:44:19 GMT
       Keep-Alive:
       - timeout=10, max=300
       Server:
       - Kanton Solothurn
       Set-Cookie:
-      - SCDID_S=UeEH02SGsPPU5A2f7pwS3FCi1qJ2trP5BX6q7QIgi0BwRDjo_wYDVw$$; path=/;
+      - SCDID_S=e8k5qNYzzR3TQXb07FIno_Nbhj20HddJCCGRt4V-LxKCs0QRNp2yJA$$; path=/;
         Secure; HttpOnly
       access-control-allow-origin:
       - '*'
@@ -1146,13 +1186,13 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Wed, 28 Aug 2024 11:39:20 GMT
+      - Tue, 17 Sep 2024 13:44:19 GMT
       Keep-Alive:
       - timeout=10, max=300
       Server:
       - Kanton Solothurn
       Set-Cookie:
-      - SCDID_S=aiYmIoRJhvSfrk22dtTwf-Rq5G8SsgNh-XB8RlWCXgfCDXiiFvnmBA$$; path=/;
+      - SCDID_S=Xwq5AAe1jryuikVJIRt-JrbRAAfT86AvUvZWbtYtDSzP9TAmkBHuMg$$; path=/;
         Secure; HttpOnly
       access-control-allow-origin:
       - '*'
@@ -1186,13 +1226,13 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Wed, 28 Aug 2024 11:39:20 GMT
+      - Tue, 17 Sep 2024 13:44:19 GMT
       Keep-Alive:
       - timeout=10, max=300
       Server:
       - Kanton Solothurn
       Set-Cookie:
-      - SCDID_S=-uz3fLWY-hf8b4JB8pYxKlquGlNqYNXyxbB1AuJOUcfEqnqmWfqSug$$; path=/;
+      - SCDID_S=FF4-amXvuR6ECJsQqU4rgSew99xQuYbWFuD3z6M5h9B2sZ47fEtpwA$$; path=/;
         Secure; HttpOnly
       access-control-allow-origin:
       - '*'
@@ -1226,8 +1266,6 @@ interactions:
       - GET, HEAD, OPTIONS
       Access-Control-Allow-Origin:
       - '*'
-      Age:
-      - '1549'
       Cache-Control:
       - max-age=1800, public
       Connection:
@@ -1237,17 +1275,17 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 28 Aug 2024 11:13:31 GMT
+      - Tue, 17 Sep 2024 13:44:19 GMT
       Server:
       - Apache/2.4.59 (Debian)
       Via:
-      - 1.1 3c2af29a416fc74eb3d104df3f808fdc.cloudfront.net (CloudFront)
+      - 1.1 f6d3d027dc70c7291c2f685efb187ab2.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - jd7O44J8eD80UXPXba3H-TfAaFg6Uwlc6Aq9bDTxIA2eI9SR3NtNtw==
+      - zNzTPal0rShOJQEFiDeXdEVCHnwj2Kme0ZOiUf8Yic37TLFdM4ELPw==
       X-Amz-Cf-Pop:
       - ZRH55-P1
       X-Cache:
-      - Hit from cloudfront
+      - Miss from cloudfront
       X-Ua-Compatible:
       - IE=Edge
     status:
@@ -1276,8 +1314,6 @@ interactions:
       - GET, HEAD, OPTIONS
       Access-Control-Allow-Origin:
       - '*'
-      Age:
-      - '1549'
       Cache-Control:
       - max-age=1800, public
       Connection:
@@ -1287,17 +1323,17 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 28 Aug 2024 11:13:31 GMT
+      - Tue, 17 Sep 2024 13:44:19 GMT
       Server:
       - Apache/2.4.59 (Debian)
       Via:
-      - 1.1 aca4cfc16ad0f84e78738cc400bfb7f4.cloudfront.net (CloudFront)
+      - 1.1 b50b0f4274b74414c7dcdb544e6090a2.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 1Pz-7Q5iqUkRVUw037vbfncAfIvq1DwXQB27-lkTC2F5JjI33qcaIw==
+      - iFwE2hKJq6VgZcprZwEQZd6eSd53KxmylPAG6FWvYO-7EfS_nj4Abg==
       X-Amz-Cf-Pop:
       - ZRH55-P1
       X-Cache:
-      - Hit from cloudfront
+      - Miss from cloudfront
       X-Ua-Compatible:
       - IE=Edge
     status:
@@ -1334,8 +1370,6 @@ interactions:
       - GET, HEAD, OPTIONS
       Access-Control-Allow-Origin:
       - '*'
-      Age:
-      - '1549'
       Cache-Control:
       - max-age=1800, public
       Connection:
@@ -1345,17 +1379,17 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 28 Aug 2024 11:13:31 GMT
+      - Tue, 17 Sep 2024 13:44:19 GMT
       Server:
       - Apache/2.4.59 (Debian)
       Via:
-      - 1.1 01c82f5226ffef5f7e654ffdbab24db6.cloudfront.net (CloudFront)
+      - 1.1 7eb9eadda041aaab1056a6a0f8080462.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 36c5LL0bfe8jP0Yw8rHa-MJzoqQ-GrqMw82CK7q8AA0ZRlehFXmpOQ==
+      - nuLYlK-cqs6pWwGZK_KOIno-wGjFZ4jmxvAtzL0a5uxkdDLhaE7h6A==
       X-Amz-Cf-Pop:
       - ZRH55-P1
       X-Cache:
-      - Hit from cloudfront
+      - Miss from cloudfront
       X-Ua-Compatible:
       - IE=Edge
     status:

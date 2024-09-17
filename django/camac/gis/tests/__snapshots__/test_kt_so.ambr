@@ -127,6 +127,11 @@
 # ---
 # name: test_sogis_client[scenario_05]
   dict({
+    'altlasten-gis': dict({
+      'hidden': False,
+      'label': 'Dipl.-Ing. Nelli Rogge',
+      'value': 'Belastet, sanierungsbedürftig',
+    }),
   })
 # ---
 # name: test_sogis_client[scenario_06]
