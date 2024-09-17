@@ -208,6 +208,7 @@ omit = [
     "camac/core/management/commands/migrate_legal_submissions.py",
     "camac/core/management/commands/migrate_value_of_question_ausnahmen_sz.py",
     "camac/circulation/management/commands/delete_dangling_inquiry_cases.py",
+    "camac/circulation/management/commands/migrate_activation_answers_ur.py",
     "camac/core/management/commands/migrate_oereb_question_values.py",
     "camac/core/management/commands/migrate_oereb_form_splitting.py",
     "camac/user/management/commands/migrate_user_group.py",
