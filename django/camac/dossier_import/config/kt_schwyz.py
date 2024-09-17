@@ -30,7 +30,7 @@ from camac.dossier_import.writers import (
     WorkflowEntryDateWriter,
 )
 from camac.instance.domain_logic import CreateInstanceLogic
-from camac.instance.models import Form, Instance, InstanceState
+from camac.instance.models import Form, FormField, Instance, InstanceState
 from camac.permissions import events as permissions_events
 from camac.user.models import Location
 
@@ -165,6 +165,15 @@ class KtSchwyzDossierWriter(DossierWriter):
         instance.save()
         permissions_events.Trigger.instance_submitted(None, instance)
         return instance
+
+    def get_existing_dossier_ids(self, dossier_ids):
+        return list(
+            FormField.objects.filter(
+                name="kommunale-gesuchsnummer",
+                value__in=dossier_ids,
+                instance__group_id=self._group.pk,
+            ).values_list("value", flat=True)
+        )
 
     def existing_dossier(self, dossier_id):
         return Instance.objects.filter(

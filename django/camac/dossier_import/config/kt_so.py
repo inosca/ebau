@@ -149,6 +149,13 @@ class KtSolothurnDossierWriter(DossierWriter):
         permissions_events.Trigger.instance_submitted(None, instance)
         return instance
 
+    def get_existing_dossier_ids(self, dossier_ids):
+        return list(
+            Keyword.objects.filter(
+                name__in=dossier_ids, service=self._group.service
+            ).values_list("name", flat=True)
+        )
+
     def existing_dossier(self, dossier_id):
         keyword = Keyword.objects.filter(
             name=dossier_id, service=self._group.service
