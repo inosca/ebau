@@ -106,10 +106,9 @@ services:
       context: ../django
       cache_from:
         - acr.run/camac-ng/camac-ng/django:master
-    command: qcluster
-    # to enable live reloading on file changes: comment above line, uncomment command below and run next line's command in the container
-    # find -wholename "**/*.py" | entr python manage.py qcluster --pythonpath /app/$APPLICATION
-    #command: /bin/sh -c "sleep inf"
+      args:
+        REQUIREMENTS: requirements-dev.txt
+    command: qclusterdev
     ports: []
 
   ember-camac-ng:
