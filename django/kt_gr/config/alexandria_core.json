@@ -1677,6 +1677,12 @@
               }
             ]
           },
+          "subservice": {
+            "visibility": "all"
+          },
+          "uso": {
+            "visibility": "all"
+          },
           "municipality-lead": {
             "visibility": "all",
             "permissions": [
