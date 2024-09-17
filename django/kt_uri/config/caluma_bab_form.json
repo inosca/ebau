@@ -1694,6 +1694,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "bab-stabilisierungsziel-altrechtlich-bestehend",
+    "fields": {
+      "created_at": "2024-09-17T10:56:02.545Z",
+      "modified_at": "2024-09-17T10:56:02.545Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht relevant (Bauten / Fl\\u00e4chen altrechtlich bestehend)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "bab-stabilisierungsziel-nicht-relevant",
     "fields": {
       "created_at": "2024-06-21T07:36:44.057Z",
@@ -2771,10 +2788,10 @@
     "pk": "bab-stabilisierungsziel",
     "fields": {
       "created_at": "2024-06-21T07:36:44.300Z",
-      "modified_at": "2024-06-21T07:36:44.300Z",
+      "modified_at": "2024-09-17T10:57:58.017Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Stabilisierungsziel\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -2782,8 +2799,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -4058,32 +4075,47 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "bab-stabilisierungsziel.bab-stabilisierungsziel-altrechtlich-bestehend",
+    "fields": {
+      "created_at": "2024-09-17T10:57:58.023Z",
+      "modified_at": "2024-09-17T10:57:58.023Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "bab-stabilisierungsziel",
+      "option": "bab-stabilisierungsziel-altrechtlich-bestehend",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "bab-stabilisierungsziel.bab-stabilisierungsziel-nicht-relevant",
     "fields": {
-      "created_at": "2024-06-21T07:36:44.318Z",
-      "modified_at": "2024-06-21T07:36:44.318Z",
-      "created_by_user": "admin",
+      "created_at": "2024-09-17T10:57:58.030Z",
+      "modified_at": "2024-09-17T10:57:58.030Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bab-stabilisierungsziel",
       "option": "bab-stabilisierungsziel-nicht-relevant",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "bab-stabilisierungsziel.bab-stabilisierungsziel-relevant",
     "fields": {
-      "created_at": "2024-06-21T07:36:44.311Z",
-      "modified_at": "2024-06-21T07:36:44.311Z",
-      "created_by_user": "admin",
+      "created_at": "2024-09-17T10:57:58.027Z",
+      "modified_at": "2024-09-17T10:57:58.027Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bab-stabilisierungsziel",
       "option": "bab-stabilisierungsziel-relevant",
-      "sort": 1
+      "sort": 2
     }
   },
   {

@@ -80,15 +80,6 @@
   },
   {
     "model": "core.anotification",
-    "pk": 13000012,
-    "fields": {
-      "template": "oreb-meldung",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_Lisag",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
-  },
-  {
-    "model": "core.anotification",
     "pk": 13000028,
     "fields": {
       "template": "7-bau-und-einsprache-entscheid-bentzung-kantonsgebiet-versand-durch-dashboard",
@@ -210,38 +201,10 @@
   },
   {
     "model": "core.action",
-    "pk": 1156,
-    "fields": {
-      "available_action": "docx",
-      "button": 775,
-      "name": "Rechnung generieren",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 1217,
     "fields": {
       "available_action": "docx",
       "button": 799,
-      "name": "Rechnung generieren",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1218,
-    "fields": {
-      "available_action": "docx",
-      "button": 800,
       "name": "Rechnung generieren",
       "description": "",
       "success_message": "",
@@ -266,20 +229,6 @@
   },
   {
     "model": "core.action",
-    "pk": 1242,
-    "fields": {
-      "available_action": "docx",
-      "button": 812,
-      "name": "Rechnung generieren",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 1291,
     "fields": {
       "available_action": "docx",
@@ -294,38 +243,10 @@
   },
   {
     "model": "core.action",
-    "pk": 1292,
-    "fields": {
-      "available_action": "docx",
-      "button": 832,
-      "name": "Rechnung generieren",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 1372,
     "fields": {
       "available_action": "docx",
       "button": 919,
-      "name": "Rechnung generieren",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1373,
-    "fields": {
-      "available_action": "docx",
-      "button": 920,
       "name": "Rechnung generieren",
       "description": null,
       "success_message": null,
@@ -560,34 +481,6 @@
   },
   {
     "model": "core.action",
-    "pk": 13000012,
-    "fields": {
-      "available_action": "notification",
-      "button": 13000006,
-      "name": "E-Mail an Lisag",
-      "description": null,
-      "success_message": "Ein E-Mail mit der ÖREB Meldung wurde versendet.",
-      "error_message": "Das E-Mail mit der ÖREB Meldung konnte nicht versendet werden.",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 13000013,
-    "fields": {
-      "available_action": "workflow",
-      "button": 13000006,
-      "name": "ÖREB Workflow-Datum setzen",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 13000014,
     "fields": {
       "available_action": "php",
@@ -596,62 +489,6 @@
       "description": "Erstellt eine Kopie des Dossiers",
       "success_message": "Das Dossier wurde erfolgreich kopiert",
       "error_message": "Beim Kopieren des Dossiers ist ein Fehler aufgetreten",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 13000015,
-    "fields": {
-      "available_action": "docx",
-      "button": 13000008,
-      "name": "Rechnung generieren",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 13000016,
-    "fields": {
-      "available_action": "activation",
-      "button": 13000009,
-      "name": "Kommentar bearbeiten und speichern",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 13000017,
-    "fields": {
-      "available_action": "pdf",
-      "button": 13000009,
-      "name": "Stellungnahme generieren",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 13000018,
-    "fields": {
-      "available_action": "docx",
-      "button": 13000010,
-      "name": "Rechnung generieren",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
       "execute_always": 0,
       "sort": 0
     }
@@ -681,76 +518,6 @@
       "success_message": "Dossier erfolgreich umgewandelt",
       "error_message": "Dossier konnte nicht umgewandelt werden!",
       "execute_always": 1,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 13000022,
-    "fields": {
-      "available_action": "docx",
-      "button": 13000014,
-      "name": "Brief generieren",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 13000023,
-    "fields": {
-      "available_action": "activation",
-      "button": 13000015,
-      "name": "Kommentar speichern",
-      "description": "Saveinstancecomment",
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 13000024,
-    "fields": {
-      "available_action": "pdf",
-      "button": 13000015,
-      "name": "Stellungnahme generieren",
-      "description": "Rückmeldung",
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 13000025,
-    "fields": {
-      "available_action": "docx",
-      "button": 13000016,
-      "name": "Rechnung generieren",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 13000026,
-    "fields": {
-      "available_action": "docx",
-      "button": 13000017,
-      "name": "Rechnung generieren",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
       "sort": 0
     }
   },
@@ -808,34 +575,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 13000031,
-    "fields": {
-      "available_action": "docx",
-      "button": 13000019,
-      "name": "Rechnung generieren",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 13000032,
-    "fields": {
-      "available_action": "docx",
-      "button": 13000020,
-      "name": "Rechnung generieren",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
     }
   },
   {
@@ -6930,15 +6669,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 221,
-    "fields": {
-      "button": 832,
-      "role": 1128,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 222,
     "fields": {
       "button": 799,
@@ -7002,29 +6732,11 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 274,
-    "fields": {
-      "button": 812,
-      "role": 1127,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 278,
     "fields": {
       "button": 827,
       "role": 1128,
       "instance_state": 22
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 280,
-    "fields": {
-      "button": 812,
-      "role": 1127,
-      "instance_state": 25
     }
   },
   {
@@ -7052,24 +6764,6 @@
       "button": 831,
       "role": 1128,
       "instance_state": 24
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 296,
-    "fields": {
-      "button": 800,
-      "role": 1107,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 298,
-    "fields": {
-      "button": 800,
-      "role": 1107,
-      "instance_state": 25
     }
   },
   {
@@ -7128,24 +6822,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 322,
-    "fields": {
-      "button": 775,
-      "role": 1106,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 329,
-    "fields": {
-      "button": 775,
-      "role": 1106,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 336,
     "fields": {
       "button": 811,
@@ -7169,15 +6845,6 @@
       "button": 799,
       "role": 1107,
       "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 351,
-    "fields": {
-      "button": 832,
-      "role": 1128,
-      "instance_state": 26
     }
   },
   {
@@ -7299,24 +6966,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 439,
-    "fields": {
-      "button": 920,
-      "role": 1129,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 440,
-    "fields": {
-      "button": 920,
-      "role": 1129,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 632,
     "fields": {
       "button": 714,
@@ -7353,37 +7002,10 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 641,
-    "fields": {
-      "button": 832,
-      "role": 1128,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 646,
-    "fields": {
-      "button": 812,
-      "role": 1127,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 647,
     "fields": {
       "button": 811,
       "role": 1127,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 648,
-    "fields": {
-      "button": 800,
-      "role": 1107,
       "instance_state": 34
     }
   },
@@ -7407,15 +7029,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 654,
-    "fields": {
-      "button": 775,
-      "role": 1106,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 656,
     "fields": {
       "button": 831,
@@ -7428,15 +7041,6 @@
     "pk": 669,
     "fields": {
       "button": 919,
-      "role": 1129,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 670,
-    "fields": {
-      "button": 920,
       "role": 1129,
       "instance_state": 34
     }
@@ -8244,60 +7848,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 12000121,
-    "fields": {
-      "button": 13000006,
-      "role": 1061,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000122,
-    "fields": {
-      "button": 13000006,
-      "role": 1061,
-      "instance_state": 32
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000123,
-    "fields": {
-      "button": 13000006,
-      "role": 1061,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000124,
-    "fields": {
-      "button": 13000006,
-      "role": 1061,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000125,
-    "fields": {
-      "button": 13000006,
-      "role": 1061,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000126,
-    "fields": {
-      "button": 13000006,
-      "role": 1061,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 12000127,
     "fields": {
       "button": 13000007,
@@ -8319,168 +7869,6 @@
     "pk": 12000129,
     "fields": {
       "button": 13000007,
-      "role": 1061,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000130,
-    "fields": {
-      "button": 13000008,
-      "role": 1061,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000131,
-    "fields": {
-      "button": 13000008,
-      "role": 1061,
-      "instance_state": 32
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000132,
-    "fields": {
-      "button": 13000008,
-      "role": 1061,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000133,
-    "fields": {
-      "button": 13000008,
-      "role": 1061,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000134,
-    "fields": {
-      "button": 13000008,
-      "role": 1061,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000135,
-    "fields": {
-      "button": 13000008,
-      "role": 1061,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000136,
-    "fields": {
-      "button": 13000008,
-      "role": 1061,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000137,
-    "fields": {
-      "button": 13000009,
-      "role": 1061,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000138,
-    "fields": {
-      "button": 13000009,
-      "role": 1061,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000139,
-    "fields": {
-      "button": 13000009,
-      "role": 1061,
-      "instance_state": 32
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000140,
-    "fields": {
-      "button": 13000009,
-      "role": 1061,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000141,
-    "fields": {
-      "button": 13000009,
-      "role": 1061,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000142,
-    "fields": {
-      "button": 13000009,
-      "role": 1061,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000143,
-    "fields": {
-      "button": 13000009,
-      "role": 1061,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000144,
-    "fields": {
-      "button": 13000009,
-      "role": 1061,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000145,
-    "fields": {
-      "button": 13000010,
-      "role": 1061,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000146,
-    "fields": {
-      "button": 13000010,
-      "role": 1061,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000147,
-    "fields": {
-      "button": 13000010,
       "role": 1061,
       "instance_state": 26
     }
@@ -8568,420 +7956,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 12000160,
-    "fields": {
-      "button": 13000006,
-      "role": 3,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000161,
-    "fields": {
-      "button": 13000006,
-      "role": 3,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000162,
-    "fields": {
-      "button": 13000006,
-      "role": 3,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000163,
-    "fields": {
-      "button": 13000006,
-      "role": 3,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000164,
-    "fields": {
-      "button": 13000006,
-      "role": 3,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000165,
-    "fields": {
-      "button": 13000006,
-      "role": 3,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000166,
-    "fields": {
-      "button": 13000014,
-      "role": 3,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000167,
-    "fields": {
-      "button": 13000014,
-      "role": 3,
-      "instance_state": 32
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000168,
-    "fields": {
-      "button": 13000014,
-      "role": 3,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000169,
-    "fields": {
-      "button": 13000014,
-      "role": 3,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000170,
-    "fields": {
-      "button": 13000014,
-      "role": 3,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000171,
-    "fields": {
-      "button": 13000014,
-      "role": 3,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000172,
-    "fields": {
-      "button": 13000014,
-      "role": 3,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000173,
-    "fields": {
-      "button": 13000014,
-      "role": 3,
-      "instance_state": 27
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000174,
-    "fields": {
-      "button": 13000015,
-      "role": 3,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000175,
-    "fields": {
-      "button": 13000015,
-      "role": 3,
-      "instance_state": 32
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000176,
-    "fields": {
-      "button": 13000015,
-      "role": 3,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000177,
-    "fields": {
-      "button": 13000015,
-      "role": 3,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000178,
-    "fields": {
-      "button": 13000015,
-      "role": 3,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000179,
-    "fields": {
-      "button": 13000015,
-      "role": 3,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000180,
-    "fields": {
-      "button": 13000015,
-      "role": 3,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000181,
-    "fields": {
-      "button": 13000015,
-      "role": 3,
-      "instance_state": 27
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000182,
-    "fields": {
-      "button": 13000016,
-      "role": 3,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000183,
-    "fields": {
-      "button": 13000016,
-      "role": 3,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000184,
-    "fields": {
-      "button": 13000016,
-      "role": 3,
-      "instance_state": 32
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000185,
-    "fields": {
-      "button": 13000016,
-      "role": 3,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000186,
-    "fields": {
-      "button": 13000016,
-      "role": 3,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000187,
-    "fields": {
-      "button": 13000016,
-      "role": 3,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000188,
-    "fields": {
-      "button": 13000016,
-      "role": 3,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000189,
-    "fields": {
-      "button": 13000016,
-      "role": 3,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000190,
-    "fields": {
-      "button": 13000016,
-      "role": 3,
-      "instance_state": 27
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000191,
-    "fields": {
-      "button": 13000017,
-      "role": 3,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000192,
-    "fields": {
-      "button": 13000017,
-      "role": 3,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000193,
-    "fields": {
-      "button": 13000017,
-      "role": 3,
-      "instance_state": 32
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000194,
-    "fields": {
-      "button": 13000017,
-      "role": 3,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000195,
-    "fields": {
-      "button": 13000017,
-      "role": 3,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000196,
-    "fields": {
-      "button": 13000017,
-      "role": 3,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000197,
-    "fields": {
-      "button": 13000017,
-      "role": 3,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000198,
-    "fields": {
-      "button": 13000017,
-      "role": 3,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000199,
-    "fields": {
-      "button": 13000006,
-      "role": 1101,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000200,
-    "fields": {
-      "button": 13000006,
-      "role": 1101,
-      "instance_state": 32
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000201,
-    "fields": {
-      "button": 13000006,
-      "role": 1101,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000202,
-    "fields": {
-      "button": 13000006,
-      "role": 1101,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000203,
-    "fields": {
-      "button": 13000006,
-      "role": 1101,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000204,
-    "fields": {
-      "button": 13000006,
-      "role": 1101,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000205,
-    "fields": {
-      "button": 13000006,
-      "role": 1101,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 12000206,
     "fields": {
       "button": 13000018,
@@ -9000,222 +7974,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 12000208,
-    "fields": {
-      "button": 13000020,
-      "role": 1101,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000209,
-    "fields": {
-      "button": 13000020,
-      "role": 1101,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000210,
-    "fields": {
-      "button": 13000020,
-      "role": 1101,
-      "instance_state": 32
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000211,
-    "fields": {
-      "button": 13000020,
-      "role": 1101,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000212,
-    "fields": {
-      "button": 13000020,
-      "role": 1101,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000213,
-    "fields": {
-      "button": 13000020,
-      "role": 1101,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000214,
-    "fields": {
-      "button": 13000020,
-      "role": 1101,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000215,
-    "fields": {
-      "button": 13000020,
-      "role": 1101,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000216,
-    "fields": {
-      "button": 13000019,
-      "role": 1101,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000217,
-    "fields": {
-      "button": 13000019,
-      "role": 1101,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000218,
-    "fields": {
-      "button": 13000019,
-      "role": 1101,
-      "instance_state": 32
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000219,
-    "fields": {
-      "button": 13000019,
-      "role": 1101,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000220,
-    "fields": {
-      "button": 13000019,
-      "role": 1101,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000221,
-    "fields": {
-      "button": 13000019,
-      "role": 1101,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000222,
-    "fields": {
-      "button": 13000019,
-      "role": 1101,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000223,
-    "fields": {
-      "button": 13000019,
-      "role": 1101,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000224,
-    "fields": {
-      "button": 13000006,
-      "role": 1106,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000225,
-    "fields": {
-      "button": 13000006,
-      "role": 1106,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000226,
-    "fields": {
-      "button": 13000006,
-      "role": 1106,
-      "instance_state": 32
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000227,
-    "fields": {
-      "button": 13000006,
-      "role": 1106,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000228,
-    "fields": {
-      "button": 13000006,
-      "role": 1106,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000229,
-    "fields": {
-      "button": 13000006,
-      "role": 1106,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000230,
-    "fields": {
-      "button": 13000006,
-      "role": 1106,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000231,
-    "fields": {
-      "button": 13000006,
-      "role": 1106,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 12000240,
     "fields": {
       "button": 13000012,
@@ -9228,7 +7986,7 @@
     "pk": 1,
     "fields": {
       "name": "hourly_rate",
-      "value": "100"
+      "value": "110"
     }
   },
   {
@@ -9644,18 +8402,6 @@
   },
   {
     "model": "core.button",
-    "pk": 775,
-    "fields": {
-      "instance_resource": 14000009,
-      "name": "Rechnung (Baubegleitung) generieren",
-      "description": "KOOR AfU",
-      "class_field": "downloady",
-      "hidden": 0,
-      "sort": 10
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 799,
     "fields": {
       "instance_resource": 14000009,
@@ -9668,18 +8414,6 @@
   },
   {
     "model": "core.button",
-    "pk": 800,
-    "fields": {
-      "instance_resource": 14000009,
-      "name": "Rechnung (Baubegleitung) generieren",
-      "description": "KOOR ALA",
-      "class_field": "downloady",
-      "hidden": 0,
-      "sort": 11
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 811,
     "fields": {
       "instance_resource": 14000009,
@@ -9688,18 +8422,6 @@
       "class_field": "downloady",
       "hidden": 0,
       "sort": 17
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 812,
-    "fields": {
-      "instance_resource": 14000009,
-      "name": "Rechnung (Baubegleitung) generieren",
-      "description": "KOOR AfE",
-      "class_field": "downloady",
-      "hidden": 0,
-      "sort": 12
     }
   },
   {
@@ -9728,18 +8450,6 @@
   },
   {
     "model": "core.button",
-    "pk": 832,
-    "fields": {
-      "instance_resource": 14000009,
-      "name": "Rechnung (Baubegleitung) generieren",
-      "description": "KOOR AFJ",
-      "class_field": "downloady",
-      "hidden": 0,
-      "sort": 13
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 919,
     "fields": {
       "instance_resource": 14000009,
@@ -9748,18 +8458,6 @@
       "class_field": "downloady",
       "hidden": 0,
       "sort": 19
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 920,
-    "fields": {
-      "instance_resource": 14000009,
-      "name": "Rechnung (Baubegleitung) generieren",
-      "description": "KOOR SD",
-      "class_field": "downloady",
-      "hidden": 0,
-      "sort": 14
     }
   },
   {
@@ -9884,18 +8582,6 @@
   },
   {
     "model": "core.button",
-    "pk": 13000006,
-    "fields": {
-      "instance_resource": 14000009,
-      "name": "ÖREB Meldung",
-      "description": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 13000007,
     "fields": {
       "instance_resource": 14000009,
@@ -9904,42 +8590,6 @@
       "class_field": null,
       "hidden": 0,
       "sort": 3
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 13000008,
-    "fields": {
-      "instance_resource": 14000009,
-      "name": "Rechnung (Baubewilligung) generieren",
-      "description": "KOOR NP",
-      "class_field": "downloady",
-      "hidden": 0,
-      "sort": 4
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 13000009,
-    "fields": {
-      "instance_resource": 14000009,
-      "name": "Entscheid / Stellungnahme öffnen",
-      "description": null,
-      "class_field": "downloady trigger-modal",
-      "hidden": 0,
-      "sort": 20
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 13000010,
-    "fields": {
-      "instance_resource": 14000009,
-      "name": "Rechnung (Baubegleitung) generieren",
-      "description": "KOOR NP",
-      "class_field": "downloady",
-      "hidden": 0,
-      "sort": 7
     }
   },
   {
@@ -9968,54 +8618,6 @@
   },
   {
     "model": "core.button",
-    "pk": 13000014,
-    "fields": {
-      "instance_resource": 14000009,
-      "name": "Brief an GesuchstellerIn",
-      "description": "KOOR BG",
-      "class_field": "downloady",
-      "hidden": 0,
-      "sort": 25
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 13000015,
-    "fields": {
-      "instance_resource": 14000009,
-      "name": "Entscheid / Stellungnahme öffnen",
-      "description": null,
-      "class_field": "downloady trigger-modal",
-      "hidden": 0,
-      "sort": 21
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 13000016,
-    "fields": {
-      "instance_resource": 14000009,
-      "name": "Rechnung (Baubewilligung) generieren",
-      "description": "KOOR BG",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 5
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 13000017,
-    "fields": {
-      "instance_resource": 14000009,
-      "name": "Rechnung (Baubegleitung) generieren",
-      "description": "KOOR BG",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 8
-    }
-  },
-  {
-    "model": "core.button",
     "pk": 13000018,
     "fields": {
       "instance_resource": 14000009,
@@ -10024,30 +8626,6 @@
       "class_field": null,
       "hidden": 0,
       "sort": 26
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 13000019,
-    "fields": {
-      "instance_resource": 14000009,
-      "name": "Rechnung (Baubewilligung) generieren",
-      "description": "KOOR BD",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 6
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 13000020,
-    "fields": {
-      "instance_resource": 14000009,
-      "name": "Rechnung (Baubegleitung) generieren",
-      "description": "KOOR BD",
-      "class_field": "downloady",
-      "hidden": 0,
-      "sort": 9
     }
   },
   {
@@ -10699,22 +9277,6 @@
     }
   },
   {
-    "model": "core.docgenactivationactionaction",
-    "pk": 10,
-    "fields": {
-      "docgen_activation_action": 21,
-      "action": 13000016
-    }
-  },
-  {
-    "model": "core.docgenactivationactionaction",
-    "pk": 11,
-    "fields": {
-      "docgen_activation_action": 21,
-      "action": 13000023
-    }
-  },
-  {
     "model": "core.docgendocxaction",
     "pk": 1296,
     "fields": {
@@ -10734,47 +9296,11 @@
   },
   {
     "model": "core.docgendocxaction",
-    "pk": 1302,
-    "fields": {
-      "docgen_template": 214,
-      "docgen_template_class": 225,
-      "action": 1292
-    }
-  },
-  {
-    "model": "core.docgendocxaction",
-    "pk": 1303,
-    "fields": {
-      "docgen_template": 212,
-      "docgen_template_class": 225,
-      "action": 1218
-    }
-  },
-  {
-    "model": "core.docgendocxaction",
     "pk": 1304,
     "fields": {
       "docgen_template": 211,
       "docgen_template_class": 208,
       "action": 1291
-    }
-  },
-  {
-    "model": "core.docgendocxaction",
-    "pk": 1305,
-    "fields": {
-      "docgen_template": 214,
-      "docgen_template_class": 225,
-      "action": 1156
-    }
-  },
-  {
-    "model": "core.docgendocxaction",
-    "pk": 1306,
-    "fields": {
-      "docgen_template": 213,
-      "docgen_template_class": 225,
-      "action": 1242
     }
   },
   {
@@ -10806,101 +9332,11 @@
   },
   {
     "model": "core.docgendocxaction",
-    "pk": 1310,
-    "fields": {
-      "docgen_template": 214,
-      "docgen_template_class": 225,
-      "action": 1373
-    }
-  },
-  {
-    "model": "core.docgendocxaction",
     "pk": 1311,
     "fields": {
       "docgen_template": 207,
       "docgen_template_class": 225,
       "action": 13000011
-    }
-  },
-  {
-    "model": "core.docgendocxaction",
-    "pk": 1312,
-    "fields": {
-      "docgen_template": 202,
-      "docgen_template_class": 208,
-      "action": 13000015
-    }
-  },
-  {
-    "model": "core.docgendocxaction",
-    "pk": 1313,
-    "fields": {
-      "docgen_template": 205,
-      "docgen_template_class": 225,
-      "action": 13000018
-    }
-  },
-  {
-    "model": "core.docgendocxaction",
-    "pk": 1314,
-    "fields": {
-      "docgen_template": 61,
-      "docgen_template_class": 62,
-      "action": 13000022
-    }
-  },
-  {
-    "model": "core.docgendocxaction",
-    "pk": 1315,
-    "fields": {
-      "docgen_template": 121,
-      "docgen_template_class": 208,
-      "action": 13000025
-    }
-  },
-  {
-    "model": "core.docgendocxaction",
-    "pk": 1316,
-    "fields": {
-      "docgen_template": 207,
-      "docgen_template_class": 225,
-      "action": 13000026
-    }
-  },
-  {
-    "model": "core.docgendocxaction",
-    "pk": 1317,
-    "fields": {
-      "docgen_template": 204,
-      "docgen_template_class": 208,
-      "action": 13000031
-    }
-  },
-  {
-    "model": "core.docgendocxaction",
-    "pk": 1318,
-    "fields": {
-      "docgen_template": 206,
-      "docgen_template_class": 225,
-      "action": 13000032
-    }
-  },
-  {
-    "model": "core.docgenpdfaction",
-    "pk": 10,
-    "fields": {
-      "docgen_template": 181,
-      "docgen_template_class": 84,
-      "action": 13000017
-    }
-  },
-  {
-    "model": "core.docgenpdfaction",
-    "pk": 11,
-    "fields": {
-      "docgen_template": 83,
-      "docgen_template_class": 84,
-      "action": 13000024
     }
   },
   {
@@ -14784,8 +13220,8 @@
     "fields": {
       "available_instance_resource": "bab",
       "resource": 12000003,
-      "name": "BaB Datenerfassung",
-      "description": "KOOR BG",
+      "name": "BaB Datenerfassung (alt)",
+      "description": null,
       "template": null,
       "class_field": null,
       "hidden": 0,
@@ -19581,6 +18017,384 @@
       "instance_resource": 2000003,
       "role": 1131,
       "instance_state": 33
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000050,
+    "fields": {
+      "instance_resource": 12000001,
+      "role": 4,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000051,
+    "fields": {
+      "instance_resource": 12000001,
+      "role": 4,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000052,
+    "fields": {
+      "instance_resource": 12000001,
+      "role": 4,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000053,
+    "fields": {
+      "instance_resource": 12000001,
+      "role": 4,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000054,
+    "fields": {
+      "instance_resource": 12000001,
+      "role": 4,
+      "instance_state": 29
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000055,
+    "fields": {
+      "instance_resource": 12000001,
+      "role": 4,
+      "instance_state": 30
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000056,
+    "fields": {
+      "instance_resource": 14000034,
+      "role": 1128,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000057,
+    "fields": {
+      "instance_resource": 14000034,
+      "role": 1061,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000060,
+    "fields": {
+      "instance_resource": 14000034,
+      "role": 1127,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000061,
+    "fields": {
+      "instance_resource": 14000013,
+      "role": 7,
+      "instance_state": 29
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000062,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 4,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000063,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 4,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000064,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 4,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000065,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 4,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000066,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 4,
+      "instance_state": 29
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000067,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 4,
+      "instance_state": 30
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000068,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 1021,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000069,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 1021,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000070,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 1021,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000071,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 1021,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000072,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 1107,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000073,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 1107,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000074,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 1107,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000075,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 1107,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000076,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 3,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000077,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 3,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000078,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 3,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000079,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 3,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000080,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 3,
+      "instance_state": 30
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000081,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 1127,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000082,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 1127,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000083,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 1127,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000084,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 1127,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000085,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 1127,
+      "instance_state": 30
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000086,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 1106,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000087,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 1106,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000088,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 1106,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000089,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 1106,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000090,
+    "fields": {
+      "instance_resource": 14000028,
+      "role": 1106,
+      "instance_state": 30
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000091,
+    "fields": {
+      "instance_resource": 14000010,
+      "role": 4,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000092,
+    "fields": {
+      "instance_resource": 14000010,
+      "role": 4,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000093,
+    "fields": {
+      "instance_resource": 14000010,
+      "role": 4,
+      "instance_state": 29
     }
   },
   {
@@ -28963,78 +27777,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 12001562,
-    "fields": {
-      "instance_resource": 14000025,
-      "role": 3,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12001563,
-    "fields": {
-      "instance_resource": 14000025,
-      "role": 3,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12001564,
-    "fields": {
-      "instance_resource": 14000025,
-      "role": 3,
-      "instance_state": 32
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12001565,
-    "fields": {
-      "instance_resource": 14000025,
-      "role": 3,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12001566,
-    "fields": {
-      "instance_resource": 14000025,
-      "role": 3,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12001567,
-    "fields": {
-      "instance_resource": 14000025,
-      "role": 3,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12001568,
-    "fields": {
-      "instance_resource": 14000025,
-      "role": 3,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12001569,
-    "fields": {
-      "instance_resource": 14000025,
-      "role": 3,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 12001570,
     "fields": {
       "instance_resource": 14000009,
@@ -31686,78 +30428,6 @@
       "instance_resource": 12000001,
       "role": 4,
       "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12001870,
-    "fields": {
-      "instance_resource": 12000001,
-      "role": 3,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12001871,
-    "fields": {
-      "instance_resource": 12000001,
-      "role": 3,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12001872,
-    "fields": {
-      "instance_resource": 12000001,
-      "role": 3,
-      "instance_state": 32
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12001873,
-    "fields": {
-      "instance_resource": 12000001,
-      "role": 3,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12001874,
-    "fields": {
-      "instance_resource": 12000001,
-      "role": 3,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12001875,
-    "fields": {
-      "instance_resource": 12000001,
-      "role": 3,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12001876,
-    "fields": {
-      "instance_resource": 12000001,
-      "role": 3,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12001877,
-    "fields": {
-      "instance_resource": 12000001,
-      "role": 3,
-      "instance_state": 26
     }
   },
   {
@@ -39473,14 +38143,6 @@
     "fields": {
       "workflow_item": 85,
       "multi_value": 1
-    }
-  },
-  {
-    "model": "core.workflowaction",
-    "pk": 13000013,
-    "fields": {
-      "workflow_item": 80,
-      "multi_value": 2
     }
   },
   {
