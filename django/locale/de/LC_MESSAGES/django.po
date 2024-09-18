@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-11 17:25+0200\n"
-"PO-Revision-Date: 2024-08-22 07:56+0200\n"
+"POT-Creation-Date: 2024-09-18 16:46+0200\n"
+"PO-Revision-Date: 2024-09-18 15:49+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -413,8 +413,8 @@ msgid ""
 "have an invalid value in date field. Please use the format \"DD.MM.YYYY\" (e."
 "g. \"13.04.2021\")"
 msgstr ""
-"haben ein ungültiges Datum. Datumsangaben bitte im Format \"DD.MM.YYYY\" (e."
-"g. \"13.04.2021\") machen"
+"haben ein ungültiges Datum. Datumsangaben bitte im Format \"DD.MM.YYYY\" (z."
+"B. \"13.04.2021\") machen"
 
 #: camac/dossier_import/messages.py
 msgid "have an invalid status"
@@ -454,8 +454,12 @@ msgstr "befinden sich in einem ungültigen Workflow-Zustand"
 
 #: camac/dossier_import/messages.py
 #, python-format
-msgid "%(count)i dossiers %(message)s. Affected dossiers:%(entries)s"
-msgstr "%(count)i Dossiers %(message)s. Betroffene Dossiers:%(entries)s"
+msgid ""
+"%(count)i dossiers %(message)s. Affected dossiers:\n"
+"%(entries)s"
+msgstr ""
+"%(count)i Dossiers %(message)s. Betroffene Dossiers:\n"
+"%(entries)s"
 
 #: camac/dossier_import/models.py
 #, python-format
@@ -502,8 +506,18 @@ msgid "%(count)i dossiers have no document folder."
 msgstr "%(count)i Dossiers ohne Dokumentenverzeichnis."
 
 #: camac/dossier_import/validation.py
-msgid "STATUS will be ignored when updating the dossier"
+#, python-format
+msgid ""
+"The value %(value)s will be ignored because deletion is not supported for "
+"new dossiers."
 msgstr ""
+"Der Wert %(value)s wird ignoriert, da Löschen bei neuen Dossiers nicht "
+"unterstützt wird."
+
+#: camac/dossier_import/validation.py
+#, python-format
+msgid "The value %(value)s will be ignored when updating the dossier."
+msgstr "Der Wert %(value)s wird beim Re-Import des Dossiers ignoriert."
 
 #: camac/dossier_import/validation.py
 #, python-format
@@ -517,11 +531,17 @@ msgstr ""
 #: camac/dossier_import/validation.py
 #, python-format
 msgid ""
-"Found unknown columns: %(extra)s. Those columns will be ignored while "
-"importing."
+"Found unknown columns which will be ignored while importing:\n"
+"%(extra)s"
 msgstr ""
-"Die folgenden Spalten wurden nicht erkannt und werden beim Import ignoriert: "
+"Die folgenden Spalten wurden nicht erkannt und werden beim Import "
+"ignoriert:\n"
 "%(extra)s."
+
+#: camac/dossier_import/validation.py
+#, python-format
+msgid "%(count)d rows with this ID will be ignored."
+msgstr "%(count)d Zeilen mit dieser ID werden ignoriert."
 
 #: camac/dossier_import/views.py
 msgid ""
