@@ -180,7 +180,7 @@
       'nutzungszone': dict({
         'hidden': False,
         'label': 'nutzungszone',
-        'value': 'Arbeitszone_A2, Grünzone_GrZ, Wohnzone 1 E1, Wohnzone 2 E2, Zone für öffentliche Nutzung ZöN 7, Zone_für_öffentliche_Nutzung, Zone_für_öffentliche_Nutzung_B, Zone_für_öffentliche_Nutzung_C, Zone_für_öffentliche_Nutzung_D',
+        'value': 'Arbeitszone_A2, Grünzone_GrZ, Zone für öffentliche Nutzung ZöN 7, Zone_für_öffentliche_Nutzung, Zone_für_öffentliche_Nutzung_B, Zone_für_öffentliche_Nutzung_C, Zone_für_öffentliche_Nutzung_D',
       }),
       'objekt-des-besonderen-landschaftsschutzes': dict({
         'displayValue': 'nein',
@@ -250,7 +250,7 @@
       'nutzungszone': dict({
         'hidden': False,
         'label': 'nutzungszone',
-        'value': 'Wohnzone 1 E1, Wohnzone 2 E2, Zone für öffentliche Nutzung ZöN 7',
+        'value': 'Zone für öffentliche Nutzung ZöN 7',
       }),
       'objekt-des-besonderen-landschaftsschutzes': dict({
         'displayValue': 'nein',
@@ -437,7 +437,7 @@
       'nutzungszone': dict({
         'hidden': False,
         'label': 'nutzungszone',
-        'value': 'Arbeitszone_A2, Grünzone_GrZ, Wohnzone 1 E1, Wohnzone 2 E2, Zone für öffentliche Nutzung ZöN 7, Zone_für_öffentliche_Nutzung, Zone_für_öffentliche_Nutzung_B, Zone_für_öffentliche_Nutzung_C, Zone_für_öffentliche_Nutzung_D',
+        'value': 'Arbeitszone_A2, Grünzone_GrZ, Zone für öffentliche Nutzung ZöN 7, Zone_für_öffentliche_Nutzung, Zone_für_öffentliche_Nutzung_B, Zone_für_öffentliche_Nutzung_C, Zone_für_öffentliche_Nutzung_D',
       }),
       'objekt-des-besonderen-landschaftsschutzes': dict({
         'displayValue': 'nein',
@@ -565,7 +565,7 @@
       'nutzungszone': dict({
         'hidden': False,
         'label': 'nutzungszone',
-        'value': 'Wohnzone 1 E1, Wohnzone 2 E2, Zone für öffentliche Nutzung ZöN 7',
+        'value': 'Zone für öffentliche Nutzung ZöN 7',
       }),
       'objekt-des-besonderen-landschaftsschutzes': dict({
         'displayValue': 'nein',

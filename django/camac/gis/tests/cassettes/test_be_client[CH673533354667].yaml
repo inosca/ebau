@@ -18,12 +18,12 @@ interactions:
         xmlns:wfs=\"http://www.opengis.net/wfs/2.0\" xmlns:gml=\"http://www.opengis.net/gml/3.2\"
         xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
         xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-        timeStamp=\"2024-08-26T11:17:41Z\" numberMatched=\"1\" numberReturned=\"1\"
+        timeStamp=\"2024-10-03T12:56:30Z\" numberMatched=\"1\" numberReturned=\"1\"
         xsi:schemaLocation=\"http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
         http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd
         https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer
         https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=wfs%26version=2.0.0%26request=DescribeFeatureType\"><wfs:member><of_planningcadastre01_de_ms_wfs:DIPANU_DIPANUF_VW_13541
-        gml:id=\"DIPANU_DIPANUF_VW_13541.8174430\"><of_planningcadastre01_de_ms_wfs:Object-Id>8174430</of_planningcadastre01_de_ms_wfs:Object-Id><of_planningcadastre01_de_ms_wfs:NBIDENT>BE0200000006</of_planningcadastre01_de_ms_wfs:NBIDENT><of_planningcadastre01_de_ms_wfs:BFSNR>301</of_planningcadastre01_de_ms_wfs:BFSNR><of_planningcadastre01_de_ms_wfs:GEMNAME>Aarberg</of_planningcadastre01_de_ms_wfs:GEMNAME><of_planningcadastre01_de_ms_wfs:GBKR>0</of_planningcadastre01_de_ms_wfs:GBKR><of_planningcadastre01_de_ms_wfs:EGRID>CH673533354667</of_planningcadastre01_de_ms_wfs:EGRID><of_planningcadastre01_de_ms_wfs:GSTNR>77</of_planningcadastre01_de_ms_wfs:GSTNR><of_planningcadastre01_de_ms_wfs:GSTART>0</of_planningcadastre01_de_ms_wfs:GSTART><of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_DE>Liegenschaft</of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_DE><of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_FR>Bien-fonds</of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_FR><of_planningcadastre01_de_ms_wfs:GSTBEZ>77</of_planningcadastre01_de_ms_wfs:GSTBEZ><of_planningcadastre01_de_ms_wfs:GBFLAE>86172</of_planningcadastre01_de_ms_wfs:GBFLAE><of_planningcadastre01_de_ms_wfs:TECHFLAE>86171.85600000</of_planningcadastre01_de_ms_wfs:TECHFLAE><of_planningcadastre01_de_ms_wfs:QV>1</of_planningcadastre01_de_ms_wfs:QV><of_planningcadastre01_de_ms_wfs:QVT_BEZ_DE>AV93</of_planningcadastre01_de_ms_wfs:QVT_BEZ_DE><of_planningcadastre01_de_ms_wfs:QVT_BEZ_FR>MO93</of_planningcadastre01_de_ms_wfs:QVT_BEZ_FR><of_planningcadastre01_de_ms_wfs:GZSTAT>0</of_planningcadastre01_de_ms_wfs:GZSTAT><of_planningcadastre01_de_ms_wfs:GZSTATT_BEZ_DE>Keine
+        gml:id=\"DIPANU_DIPANUF_VW_13541.10577258\"><of_planningcadastre01_de_ms_wfs:Object-Id>10577258</of_planningcadastre01_de_ms_wfs:Object-Id><of_planningcadastre01_de_ms_wfs:NBIDENT>BE0200000006</of_planningcadastre01_de_ms_wfs:NBIDENT><of_planningcadastre01_de_ms_wfs:BFSNR>301</of_planningcadastre01_de_ms_wfs:BFSNR><of_planningcadastre01_de_ms_wfs:GEMNAME>Aarberg</of_planningcadastre01_de_ms_wfs:GEMNAME><of_planningcadastre01_de_ms_wfs:GBKR>0</of_planningcadastre01_de_ms_wfs:GBKR><of_planningcadastre01_de_ms_wfs:EGRID>CH673533354667</of_planningcadastre01_de_ms_wfs:EGRID><of_planningcadastre01_de_ms_wfs:GSTNR>77</of_planningcadastre01_de_ms_wfs:GSTNR><of_planningcadastre01_de_ms_wfs:GSTART>0</of_planningcadastre01_de_ms_wfs:GSTART><of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_DE>Liegenschaft</of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_DE><of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_FR>Bien-fonds</of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_FR><of_planningcadastre01_de_ms_wfs:GSTBEZ>77</of_planningcadastre01_de_ms_wfs:GSTBEZ><of_planningcadastre01_de_ms_wfs:GBFLAE>86172</of_planningcadastre01_de_ms_wfs:GBFLAE><of_planningcadastre01_de_ms_wfs:TECHFLAE>86171.85600000</of_planningcadastre01_de_ms_wfs:TECHFLAE><of_planningcadastre01_de_ms_wfs:QV>1</of_planningcadastre01_de_ms_wfs:QV><of_planningcadastre01_de_ms_wfs:QVT_BEZ_DE>AV93</of_planningcadastre01_de_ms_wfs:QVT_BEZ_DE><of_planningcadastre01_de_ms_wfs:QVT_BEZ_FR>MO93</of_planningcadastre01_de_ms_wfs:QVT_BEZ_FR><of_planningcadastre01_de_ms_wfs:GZSTAT>0</of_planningcadastre01_de_ms_wfs:GZSTAT><of_planningcadastre01_de_ms_wfs:GZSTATT_BEZ_DE>Keine
         Land- oder Baulandumlegung in Bearbeitung</of_planningcadastre01_de_ms_wfs:GZSTATT_BEZ_DE><of_planningcadastre01_de_ms_wfs:GZSTATT_BEZ_FR>Pas
         d'am\xE9lioration fonci\xE8re ou de remaniement parcellaire de terrain \xE0
         b\xE2tir en traitement</of_planningcadastre01_de_ms_wfs:GZSTATT_BEZ_FR><of_planningcadastre01_de_ms_wfs:PROJSTAT>0</of_planningcadastre01_de_ms_wfs:PROJSTAT><of_planningcadastre01_de_ms_wfs:PROJSTAT_BEZ_DE>g\xFCltig</of_planningcadastre01_de_ms_wfs:PROJSTAT_BEZ_DE><of_planningcadastre01_de_ms_wfs:PROJSTAT_BEZ_FR>valable</of_planningcadastre01_de_ms_wfs:PROJSTAT_BEZ_FR><of_planningcadastre01_de_ms_wfs:MITGEOM>1</of_planningcadastre01_de_ms_wfs:MITGEOM><of_planningcadastre01_de_ms_wfs:MITGEOMT_BEZ_DE>Fl\xE4chengeometrie
@@ -31,8 +31,8 @@ interactions:
         de la surface disponible</of_planningcadastre01_de_ms_wfs:MITGEOMT_BEZ_FR><of_planningcadastre01_de_ms_wfs:SPRACHE>1</of_planningcadastre01_de_ms_wfs:SPRACHE><of_planningcadastre01_de_ms_wfs:SPRACHET_BEZ_DE>Deutsch</of_planningcadastre01_de_ms_wfs:SPRACHET_BEZ_DE><of_planningcadastre01_de_ms_wfs:SPRACHET_BEZ_FR>allemand</of_planningcadastre01_de_ms_wfs:SPRACHET_BEZ_FR><of_planningcadastre01_de_ms_wfs:UNVERBI>0</of_planningcadastre01_de_ms_wfs:UNVERBI><of_planningcadastre01_de_ms_wfs:UNVERBIT_BEZ_DE>Fl\xE4che
         verbindlich</of_planningcadastre01_de_ms_wfs:UNVERBIT_BEZ_DE><of_planningcadastre01_de_ms_wfs:UNVERBIT_BEZ_FR>Surface
         avec force obligatoire</of_planningcadastre01_de_ms_wfs:UNVERBIT_BEZ_FR><of_planningcadastre01_de_ms_wfs:LETZTEAEND>02.04.2015</of_planningcadastre01_de_ms_wfs:LETZTEAEND><of_planningcadastre01_de_ms_wfs:GENGBKRI>3010</of_planningcadastre01_de_ms_wfs:GENGBKRI><of_planningcadastre01_de_ms_wfs:GENGBKRN>Aarberg</of_planningcadastre01_de_ms_wfs:GENGBKRN><of_planningcadastre01_de_ms_wfs:SHAPE><gml:MultiSurface
-        gml:id=\"DIPANU_DIPANUF_VW_13541.8174430.pl\" srsName=\"urn:ogc:def:crs:EPSG::2056\"><gml:surfaceMember><gml:Polygon
-        gml:id=\"DIPANU_DIPANUF_VW_13541.8174430.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2587843.66300000
+        gml:id=\"DIPANU_DIPANUF_VW_13541.10577258.pl\" srsName=\"urn:ogc:def:crs:EPSG::2056\"><gml:surfaceMember><gml:Polygon
+        gml:id=\"DIPANU_DIPANUF_VW_13541.10577258.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2587843.66300000
         1211216.79200000 2587977.52500000 1211076.48900000 2587986.01700000 1211083.76900000
         2587989.03100000 1211080.60500000 2587980.41500000 1211073.45800000 2587901.02700000
         1211005.31500000 2587927.58800000 1210978.73200000 2587933.99400000 1210972.31700000
@@ -56,11 +56,11 @@ interactions:
       Connection:
       - Keep-Alive
       Content-Length:
-      - '6586'
+      - '6590'
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Mon, 26 Aug 2024 11:17:43 GMT
+      - Thu, 03 Oct 2024 12:56:30 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -82,9 +82,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - a70c9df2-5f7e-4336-a31c-797f0d55a1fc
+      - cc3b9b31-33d7-426d-89dd-72a2e47f2e40
       referrer:
-      - a70c9df2-5f7e-4336-a31c-797f0d55a1fc
+      - cc3b9b31-33d7-426d-89dd-72a2e47f2e40
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -106,7 +106,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8174430.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2587843.66300000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.10577258.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2587843.66300000
       1211216.79200000 2587977.52500000 1211076.48900000 2587986.01700000 1211083.76900000
       2587989.03100000 1211080.60500000 2587980.41500000 1211073.45800000 2587901.02700000
       1211005.31500000 2587927.58800000 1210978.73200000 2587933.99400000 1210972.31700000
@@ -134,7 +134,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '2658'
+      - '2659'
       User-Agent:
       - python-requests/2.32.3
     method: POST
@@ -164,7 +164,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Mon, 26 Aug 2024 11:17:44 GMT
+      - Thu, 03 Oct 2024 12:56:30 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -186,9 +186,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 5aa79dbb-17c5-4f60-946a-ac86e30fd4c5
+      - baa7cd8f-4e66-48f8-868a-0444c0dbd258
       referrer:
-      - 5aa79dbb-17c5-4f60-946a-ac86e30fd4c5
+      - baa7cd8f-4e66-48f8-868a-0444c0dbd258
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -210,7 +210,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8174430.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2587843.66300000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.10577258.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2587843.66300000
       1211216.79200000 2587977.52500000 1211076.48900000 2587986.01700000 1211083.76900000
       2587989.03100000 1211080.60500000 2587980.41500000 1211073.45800000 2587901.02700000
       1211005.31500000 2587927.58800000 1210978.73200000 2587933.99400000 1210972.31700000
@@ -238,7 +238,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '2712'
+      - '2713'
       User-Agent:
       - python-requests/2.32.3
     method: POST
@@ -557,7 +557,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Mon, 26 Aug 2024 11:17:45 GMT
+      - Thu, 03 Oct 2024 12:56:33 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -579,9 +579,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 96804357-0ab6-4444-ab39-0af997746a5b
+      - 002c5d3b-0606-4577-b10a-b5cf7f20bed8
       referrer:
-      - 96804357-0ab6-4444-ab39-0af997746a5b
+      - 002c5d3b-0606-4577-b10a-b5cf7f20bed8
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -603,7 +603,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8174430.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2587843.66300000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.10577258.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2587843.66300000
       1211216.79200000 2587977.52500000 1211076.48900000 2587986.01700000 1211083.76900000
       2587989.03100000 1211080.60500000 2587980.41500000 1211073.45800000 2587901.02700000
       1211005.31500000 2587927.58800000 1210978.73200000 2587933.99400000 1210972.31700000
@@ -631,7 +631,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '2664'
+      - '2665'
       User-Agent:
       - python-requests/2.32.3
     method: POST
@@ -657,7 +657,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Mon, 26 Aug 2024 11:17:46 GMT
+      - Thu, 03 Oct 2024 12:56:34 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -679,9 +679,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 4f351e0d-9399-4a08-aa8e-d9d671d8bf81
+      - 9a4e34a6-0587-4b30-8c12-13e1e28e0b7c
       referrer:
-      - 4f351e0d-9399-4a08-aa8e-d9d671d8bf81
+      - 9a4e34a6-0587-4b30-8c12-13e1e28e0b7c
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -703,7 +703,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8174430.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2587843.66300000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.10577258.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2587843.66300000
       1211216.79200000 2587977.52500000 1211076.48900000 2587986.01700000 1211083.76900000
       2587989.03100000 1211080.60500000 2587980.41500000 1211073.45800000 2587901.02700000
       1211005.31500000 2587927.58800000 1210978.73200000 2587933.99400000 1210972.31700000
@@ -731,7 +731,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '2667'
+      - '2668'
       User-Agent:
       - python-requests/2.32.3
     method: POST
@@ -807,7 +807,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Mon, 26 Aug 2024 11:17:46 GMT
+      - Thu, 03 Oct 2024 12:56:34 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -829,9 +829,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - e4543ce5-4681-4994-b415-8c361b5f6b1f
+      - a2576b77-307e-41a4-a9de-72949eb75948
       referrer:
-      - e4543ce5-4681-4994-b415-8c361b5f6b1f
+      - a2576b77-307e-41a4-a9de-72949eb75948
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -853,7 +853,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8174430.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2587843.66300000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.10577258.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2587843.66300000
       1211216.79200000 2587977.52500000 1211076.48900000 2587986.01700000 1211083.76900000
       2587989.03100000 1211080.60500000 2587980.41500000 1211073.45800000 2587901.02700000
       1211005.31500000 2587927.58800000 1210978.73200000 2587933.99400000 1210972.31700000
@@ -881,7 +881,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '2667'
+      - '2668'
       User-Agent:
       - python-requests/2.32.3
     method: POST
@@ -2296,7 +2296,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Mon, 26 Aug 2024 11:17:48 GMT
+      - Thu, 03 Oct 2024 12:56:35 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -2318,9 +2318,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 791167f9-184f-48b4-b753-5ccc3946ac22
+      - 2e749e46-be4e-4417-adc1-bf2a5322f22e
       referrer:
-      - 791167f9-184f-48b4-b753-5ccc3946ac22
+      - 2e749e46-be4e-4417-adc1-bf2a5322f22e
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -2342,7 +2342,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8174430.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2587843.66300000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.10577258.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2587843.66300000
       1211216.79200000 2587977.52500000 1211076.48900000 2587986.01700000 1211083.76900000
       2587989.03100000 1211080.60500000 2587980.41500000 1211073.45800000 2587901.02700000
       1211005.31500000 2587927.58800000 1210978.73200000 2587933.99400000 1210972.31700000
@@ -2370,7 +2370,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '2665'
+      - '2666'
       User-Agent:
       - python-requests/2.32.3
     method: POST
@@ -2396,7 +2396,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Mon, 26 Aug 2024 11:17:48 GMT
+      - Thu, 03 Oct 2024 12:56:36 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -2418,9 +2418,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 67add2bb-366b-47dd-be34-b8104091ea17
+      - 25d8894e-2764-44bb-9166-2532dbf98602
       referrer:
-      - 67add2bb-366b-47dd-be34-b8104091ea17
+      - 25d8894e-2764-44bb-9166-2532dbf98602
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -2442,7 +2442,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8174430.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2587843.66300000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.10577258.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2587843.66300000
       1211216.79200000 2587977.52500000 1211076.48900000 2587986.01700000 1211083.76900000
       2587989.03100000 1211080.60500000 2587980.41500000 1211073.45800000 2587901.02700000
       1211005.31500000 2587927.58800000 1210978.73200000 2587933.99400000 1210972.31700000
@@ -2467,7 +2467,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8174430.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2587843.66300000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.10577258.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2587843.66300000
       1211216.79200000 2587977.52500000 1211076.48900000 2587986.01700000 1211083.76900000
       2587989.03100000 1211080.60500000 2587980.41500000 1211073.45800000 2587901.02700000
       1211005.31500000 2587927.58800000 1210978.73200000 2587933.99400000 1210972.31700000
@@ -2492,7 +2492,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8174430.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2587843.66300000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.10577258.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2587843.66300000
       1211216.79200000 2587977.52500000 1211076.48900000 2587986.01700000 1211083.76900000
       2587989.03100000 1211080.60500000 2587980.41500000 1211073.45800000 2587901.02700000
       1211005.31500000 2587927.58800000 1210978.73200000 2587933.99400000 1210972.31700000
@@ -2520,7 +2520,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '7128'
+      - '7131'
       User-Agent:
       - python-requests/2.32.3
     method: POST
@@ -2744,7 +2744,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Mon, 26 Aug 2024 11:17:50 GMT
+      - Thu, 03 Oct 2024 12:56:36 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -2766,9 +2766,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - ede234e1-e7ed-4563-a018-f733cd690a5b
+      - 5130a0c0-c04e-4dbf-b5bc-daf2913e969e
       referrer:
-      - ede234e1-e7ed-4563-a018-f733cd690a5b
+      - 5130a0c0-c04e-4dbf-b5bc-daf2913e969e
       response_buffer_size:
       - '8192'
       response_character_encoding:
