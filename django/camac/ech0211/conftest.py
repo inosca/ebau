@@ -350,7 +350,14 @@ def mocked_request_object(admin_user, group, caluma_admin_user):
 
 
 @pytest.fixture
-def ech_instance_so(ech_instance, instance_with_case, caluma_workflow_config_so, utils):
+def ech_instance_so(
+    ech_instance,
+    instance_with_case,
+    caluma_workflow_config_so,
+    utils,
+    decision_factory_so,
+    work_item_factory,
+):
     ech_instance = instance_with_case(ech_instance)
     ech_instance.case.meta["dossier-number"] = "2106-2024-1"
 
@@ -410,5 +417,8 @@ def ech_instance_so(ech_instance, instance_with_case, caluma_workflow_config_so,
         name="Situationsplan.pdf",
         document=document,
     )
+
+    work_item_factory(task_id="decision", case=ech_instance.case, status="completed")
+    decision_factory_so(ech_instance)
 
     return ech_instance
