@@ -1769,6 +1769,25 @@
             "visibility": "all",
             "permissions": [
               {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
                 "scope": "All",
                 "fields": ["category", "tags", "marks"],
                 "condition": {
@@ -1779,6 +1798,17 @@
                   ]
                 },
                 "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
               }
             ]
           },
