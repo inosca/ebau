@@ -51,7 +51,7 @@ services:
     networks:
       - ebau.local
 
-  django:
+  django: &django
     image: acr.run/camac-ng/camac-ng/django:master
     build:
       args:
@@ -80,6 +80,10 @@ services:
     networks:
       - ebau.local
     command: devserver
+
+  django-webdav:
+    <<: *django
+    command: webdav
 
   ember-caluma-portal:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master

@@ -1,10 +1,18 @@
 services:
-  django:
+  django: &django
     image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_TAG:-master}
     build:
       context: ../django
       cache_from:
         - acr.run/camac-ng/camac-ng/django:${CI_COMMIT_TAG:-master}
+
+  django-webdav:
+    <<: *django
+    command: webdav
+
+  django-q:
+    <<: *django
+    command: qcluster
 
   ember-camac-ng:
     image: acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_TAG:-master}
