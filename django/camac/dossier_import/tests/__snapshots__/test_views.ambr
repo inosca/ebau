@@ -6,43 +6,43 @@
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'submit-date',
+          'field': 'SUBMIT-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'publication-date',
+          'field': 'PUBLICATION-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'decision-date',
+          'field': 'DECISION-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'construction-start-date',
+          'field': 'CONSTRUCTION-START-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'profile-approval-date',
+          'field': 'PROFILE-APPROVAL-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'final-approval-date',
+          'field': 'FINAL-APPROVAL-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'completion-date',
+          'field': 'COMPLETION-DATE',
           'level': 3,
         }),
       ]),
@@ -54,7 +54,7 @@
         dict({
           'code': 'status-choice-validation-error',
           'detail': 'DONKED',
-          'field': 'status',
+          'field': 'STATUS',
           'level': 3,
         }),
       ]),
@@ -66,7 +66,19 @@
         dict({
           'code': 'missing-required-field-error',
           'detail': None,
-          'field': 'submit-date',
+          'field': 'STATUS',
+          'level': 3,
+        }),
+      ]),
+      'dossier_id': '2017-87',
+      'status': 'success',
+    }),
+    dict({
+      'details': list([
+        dict({
+          'code': 'missing-required-field-error',
+          'detail': None,
+          'field': 'SUBMIT-DATE',
           'level': 3,
         }),
       ]),
@@ -79,16 +91,17 @@
   dict({
     'error': list([
       '''
-        1 Dossiers fehlt ein Wert in einem zwingenden Feld. Betroffene Dossiers:
-        9: submit-date
-      ''',
-      '''
-        1 Dossiers haben ein ungültiges Datum. Datumsangaben bitte im Format "DD.MM.YYYY" (e.g. "13.04.2021") machen. Betroffene Dossiers:
-        2017-84: 'not-a-date' (submit-date), 'not-a-date' (publication-date), 'not-a-date' (decision-date), 'not-a-date' (construction-start-date), 'not-a-date' (profile-approval-date), 'not-a-date' (final-approval-date), 'not-a-date' (completion-date)
+        1 Dossiers haben ein ungültiges Datum. Datumsangaben bitte im Format "DD.MM.YYYY" (z.B. "13.04.2021") machen. Betroffene Dossiers:
+        2017-84: not-a-date (SUBMIT-DATE), not-a-date (PUBLICATION-DATE), not-a-date (DECISION-DATE), not-a-date (CONSTRUCTION-START-DATE), not-a-date (PROFILE-APPROVAL-DATE), not-a-date (FINAL-APPROVAL-DATE), not-a-date (COMPLETION-DATE)
       ''',
       '''
         1 Dossiers haben einen ungültigen Status. Betroffene Dossiers:
-        2017-86: 'DONKED' (status)
+        2017-86: DONKED (STATUS)
+      ''',
+      '''
+        2 Dossiers fehlt ein Wert in einem zwingenden Feld. Betroffene Dossiers:
+        2017-87: STATUS
+        9: SUBMIT-DATE
       ''',
     ]),
     'stats': dict({
@@ -111,43 +124,43 @@
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'submit-date',
+          'field': 'SUBMIT-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'publication-date',
+          'field': 'PUBLICATION-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'decision-date',
+          'field': 'DECISION-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'construction-start-date',
+          'field': 'CONSTRUCTION-START-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'profile-approval-date',
+          'field': 'PROFILE-APPROVAL-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'final-approval-date',
+          'field': 'FINAL-APPROVAL-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'completion-date',
+          'field': 'COMPLETION-DATE',
           'level': 3,
         }),
       ]),
@@ -159,7 +172,7 @@
         dict({
           'code': 'status-choice-validation-error',
           'detail': 'DONKED',
-          'field': 'status',
+          'field': 'STATUS',
           'level': 3,
         }),
       ]),
@@ -171,7 +184,19 @@
         dict({
           'code': 'missing-required-field-error',
           'detail': None,
-          'field': 'submit-date',
+          'field': 'STATUS',
+          'level': 3,
+        }),
+      ]),
+      'dossier_id': '2017-87',
+      'status': 'success',
+    }),
+    dict({
+      'details': list([
+        dict({
+          'code': 'missing-required-field-error',
+          'detail': None,
+          'field': 'SUBMIT-DATE',
           'level': 3,
         }),
       ]),
@@ -184,16 +209,17 @@
   dict({
     'error': list([
       '''
-        1 Dossiers fehlt ein Wert in einem zwingenden Feld. Betroffene Dossiers:
-        9: submit-date
-      ''',
-      '''
-        1 Dossiers haben ein ungültiges Datum. Datumsangaben bitte im Format "DD.MM.YYYY" (e.g. "13.04.2021") machen. Betroffene Dossiers:
-        2017-84: 'not-a-date' (submit-date), 'not-a-date' (publication-date), 'not-a-date' (decision-date), 'not-a-date' (construction-start-date), 'not-a-date' (profile-approval-date), 'not-a-date' (final-approval-date), 'not-a-date' (completion-date)
+        1 Dossiers haben ein ungültiges Datum. Datumsangaben bitte im Format "DD.MM.YYYY" (z.B. "13.04.2021") machen. Betroffene Dossiers:
+        2017-84: not-a-date (SUBMIT-DATE), not-a-date (PUBLICATION-DATE), not-a-date (DECISION-DATE), not-a-date (CONSTRUCTION-START-DATE), not-a-date (PROFILE-APPROVAL-DATE), not-a-date (FINAL-APPROVAL-DATE), not-a-date (COMPLETION-DATE)
       ''',
       '''
         1 Dossiers haben einen ungültigen Status. Betroffene Dossiers:
-        2017-86: 'DONKED' (status)
+        2017-86: DONKED (STATUS)
+      ''',
+      '''
+        2 Dossiers fehlt ein Wert in einem zwingenden Feld. Betroffene Dossiers:
+        2017-87: STATUS
+        9: SUBMIT-DATE
       ''',
     ]),
     'stats': dict({
@@ -216,43 +242,43 @@
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'submit-date',
+          'field': 'SUBMIT-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'publication-date',
+          'field': 'PUBLICATION-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'decision-date',
+          'field': 'DECISION-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'construction-start-date',
+          'field': 'CONSTRUCTION-START-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'profile-approval-date',
+          'field': 'PROFILE-APPROVAL-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'final-approval-date',
+          'field': 'FINAL-APPROVAL-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'completion-date',
+          'field': 'COMPLETION-DATE',
           'level': 3,
         }),
       ]),
@@ -264,7 +290,7 @@
         dict({
           'code': 'status-choice-validation-error',
           'detail': 'DONKED',
-          'field': 'status',
+          'field': 'STATUS',
           'level': 3,
         }),
       ]),
@@ -276,7 +302,19 @@
         dict({
           'code': 'missing-required-field-error',
           'detail': None,
-          'field': 'submit-date',
+          'field': 'STATUS',
+          'level': 3,
+        }),
+      ]),
+      'dossier_id': '2017-87',
+      'status': 'success',
+    }),
+    dict({
+      'details': list([
+        dict({
+          'code': 'missing-required-field-error',
+          'detail': None,
+          'field': 'SUBMIT-DATE',
           'level': 3,
         }),
       ]),
@@ -289,16 +327,17 @@
   dict({
     'error': list([
       '''
-        1 Dossiers fehlt ein Wert in einem zwingenden Feld. Betroffene Dossiers:
-        9: submit-date
-      ''',
-      '''
-        1 Dossiers haben ein ungültiges Datum. Datumsangaben bitte im Format "DD.MM.YYYY" (e.g. "13.04.2021") machen. Betroffene Dossiers:
-        2017-84: 'not-a-date' (submit-date), 'not-a-date' (publication-date), 'not-a-date' (decision-date), 'not-a-date' (construction-start-date), 'not-a-date' (profile-approval-date), 'not-a-date' (final-approval-date), 'not-a-date' (completion-date)
+        1 Dossiers haben ein ungültiges Datum. Datumsangaben bitte im Format "DD.MM.YYYY" (z.B. "13.04.2021") machen. Betroffene Dossiers:
+        2017-84: not-a-date (SUBMIT-DATE), not-a-date (PUBLICATION-DATE), not-a-date (DECISION-DATE), not-a-date (CONSTRUCTION-START-DATE), not-a-date (PROFILE-APPROVAL-DATE), not-a-date (FINAL-APPROVAL-DATE), not-a-date (COMPLETION-DATE)
       ''',
       '''
         1 Dossiers haben einen ungültigen Status. Betroffene Dossiers:
-        2017-86: 'DONKED' (status)
+        2017-86: DONKED (STATUS)
+      ''',
+      '''
+        2 Dossiers fehlt ein Wert in einem zwingenden Feld. Betroffene Dossiers:
+        2017-87: STATUS
+        9: SUBMIT-DATE
       ''',
     ]),
     'stats': dict({
@@ -321,43 +360,43 @@
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'submit-date',
+          'field': 'SUBMIT-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'publication-date',
+          'field': 'PUBLICATION-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'decision-date',
+          'field': 'DECISION-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'construction-start-date',
+          'field': 'CONSTRUCTION-START-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'profile-approval-date',
+          'field': 'PROFILE-APPROVAL-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'final-approval-date',
+          'field': 'FINAL-APPROVAL-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'completion-date',
+          'field': 'COMPLETION-DATE',
           'level': 3,
         }),
       ]),
@@ -369,7 +408,7 @@
         dict({
           'code': 'status-choice-validation-error',
           'detail': 'DONKED',
-          'field': 'status',
+          'field': 'STATUS',
           'level': 3,
         }),
       ]),
@@ -381,7 +420,19 @@
         dict({
           'code': 'missing-required-field-error',
           'detail': None,
-          'field': 'submit-date',
+          'field': 'STATUS',
+          'level': 3,
+        }),
+      ]),
+      'dossier_id': '2017-87',
+      'status': 'success',
+    }),
+    dict({
+      'details': list([
+        dict({
+          'code': 'missing-required-field-error',
+          'detail': None,
+          'field': 'SUBMIT-DATE',
           'level': 3,
         }),
       ]),
@@ -394,16 +445,17 @@
   dict({
     'error': list([
       '''
-        1 Dossiers fehlt ein Wert in einem zwingenden Feld. Betroffene Dossiers:
-        9: submit-date
-      ''',
-      '''
-        1 Dossiers haben ein ungültiges Datum. Datumsangaben bitte im Format "DD.MM.YYYY" (e.g. "13.04.2021") machen. Betroffene Dossiers:
-        2017-84: 'not-a-date' (submit-date), 'not-a-date' (publication-date), 'not-a-date' (decision-date), 'not-a-date' (construction-start-date), 'not-a-date' (profile-approval-date), 'not-a-date' (final-approval-date), 'not-a-date' (completion-date)
+        1 Dossiers haben ein ungültiges Datum. Datumsangaben bitte im Format "DD.MM.YYYY" (z.B. "13.04.2021") machen. Betroffene Dossiers:
+        2017-84: not-a-date (SUBMIT-DATE), not-a-date (PUBLICATION-DATE), not-a-date (DECISION-DATE), not-a-date (CONSTRUCTION-START-DATE), not-a-date (PROFILE-APPROVAL-DATE), not-a-date (FINAL-APPROVAL-DATE), not-a-date (COMPLETION-DATE)
       ''',
       '''
         1 Dossiers haben einen ungültigen Status. Betroffene Dossiers:
-        2017-86: 'DONKED' (status)
+        2017-86: DONKED (STATUS)
+      ''',
+      '''
+        2 Dossiers fehlt ein Wert in einem zwingenden Feld. Betroffene Dossiers:
+        2017-87: STATUS
+        9: SUBMIT-DATE
       ''',
     ]),
     'stats': dict({
@@ -454,43 +506,43 @@
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'submit-date',
+          'field': 'SUBMIT-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'publication-date',
+          'field': 'PUBLICATION-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'decision-date',
+          'field': 'DECISION-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'construction-start-date',
+          'field': 'CONSTRUCTION-START-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'profile-approval-date',
+          'field': 'PROFILE-APPROVAL-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'final-approval-date',
+          'field': 'FINAL-APPROVAL-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'completion-date',
+          'field': 'COMPLETION-DATE',
           'level': 3,
         }),
       ]),
@@ -502,7 +554,7 @@
         dict({
           'code': 'status-choice-validation-error',
           'detail': 'DONKED',
-          'field': 'status',
+          'field': 'STATUS',
           'level': 3,
         }),
       ]),
@@ -514,7 +566,19 @@
         dict({
           'code': 'missing-required-field-error',
           'detail': None,
-          'field': 'submit-date',
+          'field': 'STATUS',
+          'level': 3,
+        }),
+      ]),
+      'dossier_id': '2017-87',
+      'status': 'success',
+    }),
+    dict({
+      'details': list([
+        dict({
+          'code': 'missing-required-field-error',
+          'detail': None,
+          'field': 'SUBMIT-DATE',
           'level': 3,
         }),
       ]),
@@ -527,16 +591,17 @@
   dict({
     'error': list([
       '''
-        1 Dossiers fehlt ein Wert in einem zwingenden Feld. Betroffene Dossiers:
-        9: submit-date
-      ''',
-      '''
-        1 Dossiers haben ein ungültiges Datum. Datumsangaben bitte im Format "DD.MM.YYYY" (e.g. "13.04.2021") machen. Betroffene Dossiers:
-        2017-84: 'not-a-date' (submit-date), 'not-a-date' (publication-date), 'not-a-date' (decision-date), 'not-a-date' (construction-start-date), 'not-a-date' (profile-approval-date), 'not-a-date' (final-approval-date), 'not-a-date' (completion-date)
+        1 Dossiers haben ein ungültiges Datum. Datumsangaben bitte im Format "DD.MM.YYYY" (z.B. "13.04.2021") machen. Betroffene Dossiers:
+        2017-84: not-a-date (SUBMIT-DATE), not-a-date (PUBLICATION-DATE), not-a-date (DECISION-DATE), not-a-date (CONSTRUCTION-START-DATE), not-a-date (PROFILE-APPROVAL-DATE), not-a-date (FINAL-APPROVAL-DATE), not-a-date (COMPLETION-DATE)
       ''',
       '''
         1 Dossiers haben einen ungültigen Status. Betroffene Dossiers:
-        2017-86: 'DONKED' (status)
+        2017-86: DONKED (STATUS)
+      ''',
+      '''
+        2 Dossiers fehlt ein Wert in einem zwingenden Feld. Betroffene Dossiers:
+        2017-87: STATUS
+        9: SUBMIT-DATE
       ''',
     ]),
     'stats': dict({
@@ -559,43 +624,43 @@
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'submit-date',
+          'field': 'SUBMIT-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'publication-date',
+          'field': 'PUBLICATION-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'decision-date',
+          'field': 'DECISION-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'construction-start-date',
+          'field': 'CONSTRUCTION-START-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'profile-approval-date',
+          'field': 'PROFILE-APPROVAL-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'final-approval-date',
+          'field': 'FINAL-APPROVAL-DATE',
           'level': 3,
         }),
         dict({
           'code': 'date-field-validation-error',
           'detail': 'not-a-date',
-          'field': 'completion-date',
+          'field': 'COMPLETION-DATE',
           'level': 3,
         }),
       ]),
@@ -607,7 +672,7 @@
         dict({
           'code': 'status-choice-validation-error',
           'detail': 'DONKED',
-          'field': 'status',
+          'field': 'STATUS',
           'level': 3,
         }),
       ]),
@@ -619,7 +684,19 @@
         dict({
           'code': 'missing-required-field-error',
           'detail': None,
-          'field': 'submit-date',
+          'field': 'STATUS',
+          'level': 3,
+        }),
+      ]),
+      'dossier_id': '2017-87',
+      'status': 'success',
+    }),
+    dict({
+      'details': list([
+        dict({
+          'code': 'missing-required-field-error',
+          'detail': None,
+          'field': 'SUBMIT-DATE',
           'level': 3,
         }),
       ]),
@@ -632,16 +709,17 @@
   dict({
     'error': list([
       '''
-        1 Dossiers fehlt ein Wert in einem zwingenden Feld. Betroffene Dossiers:
-        9: submit-date
-      ''',
-      '''
-        1 Dossiers haben ein ungültiges Datum. Datumsangaben bitte im Format "DD.MM.YYYY" (e.g. "13.04.2021") machen. Betroffene Dossiers:
-        2017-84: 'not-a-date' (submit-date), 'not-a-date' (publication-date), 'not-a-date' (decision-date), 'not-a-date' (construction-start-date), 'not-a-date' (profile-approval-date), 'not-a-date' (final-approval-date), 'not-a-date' (completion-date)
+        1 Dossiers haben ein ungültiges Datum. Datumsangaben bitte im Format "DD.MM.YYYY" (z.B. "13.04.2021") machen. Betroffene Dossiers:
+        2017-84: not-a-date (SUBMIT-DATE), not-a-date (PUBLICATION-DATE), not-a-date (DECISION-DATE), not-a-date (CONSTRUCTION-START-DATE), not-a-date (PROFILE-APPROVAL-DATE), not-a-date (FINAL-APPROVAL-DATE), not-a-date (COMPLETION-DATE)
       ''',
       '''
         1 Dossiers haben einen ungültigen Status. Betroffene Dossiers:
-        2017-86: 'DONKED' (status)
+        2017-86: DONKED (STATUS)
+      ''',
+      '''
+        2 Dossiers fehlt ein Wert in einem zwingenden Feld. Betroffene Dossiers:
+        2017-87: STATUS
+        9: SUBMIT-DATE
       ''',
     ]),
     'stats': dict({

@@ -136,7 +136,7 @@ def aggregate_messages_by_level(message_object: dict, level: str) -> list:
     affected dossier-ids. E. g.
     [
         ...
-        '2 Dossiers haben ein ungültiges Datum. Datumsangaben bitte im Format "DD.MM.YYYY" (e.g. "13.04.2021") machen. Betroffene Dossiers:\n2017-84: \'2-2-2\' (submit-date)',
+        '2 Dossiers haben ein ungültiges Datum. Datumsangaben bitte im Format "DD.MM.YYYY" (z.B. "13.04.2021") machen. Betroffene Dossiers:\n2017-84: \'2-2-2\' (submit-date)',
         '3 Dossiers ...',
         ...
     ]
@@ -204,7 +204,7 @@ def compile_message_for_code(code, filtered_summaries):
 
     def format_message(message):
         if message.get("detail") and message.get("field"):
-            return f"'{message['detail']}' ({message.get('field')})"
+            return f"{message['detail']} ({message.get('field')})"
         if message.get("detail"):
             return f"{message.get('detail')}"
         return message.get("field")
@@ -228,10 +228,10 @@ def compile_message_for_code(code, filtered_summaries):
         )
     ]
 
-    return _("%(count)i dossiers %(message)s. Affected dossiers:%(entries)s") % dict(
+    return _("%(count)i dossiers %(message)s. Affected dossiers:\n%(entries)s") % dict(
         count=len(filtered_summaries),
         message=messages.get(code, ""),
-        entries="\n" + ",\n".join(entries),
+        entries="\n".join(entries),
     )
 
 
