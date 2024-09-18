@@ -40,8 +40,8 @@ TEST_SCENARIOS = [
         "checked_questions": ["naturgefahren-gis"],
     },
     {
-        # Altlasten (does not work yet because the layer is private)
-        "coords": (2608132, 1229641),
+        # Altlasten
+        "coords": (2606257, 1227893),
         "checked_questions": ["altlasten-gis"],
     },
     {
