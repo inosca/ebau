@@ -2523,7 +2523,7 @@ TOKEN_EXCHANGE_JWT_SYNC_PROPERTIES = env.dict(
 TOKEN_EXCHANGE_LOT_MAPPING = env.dict(
     "TOKEN_EXCHANGE_LOT_MAPPING",
     cast={"value": int},
-    default={"public": 0, "applicant": 1},
+    default={"public": 1, "applicant": 2},
 )
 
 # JWT token claim used as the username for newly created Camac users. (This is
