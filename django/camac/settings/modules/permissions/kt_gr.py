@@ -211,6 +211,7 @@ GR_PERMISSIONS_SETTINGS = {
         "MUNICIPALITY": "lead-authority",
         "DISTRIBUTION_INVITEE": "distribution-service",
         "SUPPORT": "support",
+        "USO": "uso",
     },
     "ENABLE_CACHE": False,
     "PERMISSION_MODE": PERMISSION_MODE.OFF,
