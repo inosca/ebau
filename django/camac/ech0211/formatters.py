@@ -833,13 +833,18 @@ class CantonSpecific:
             .date
         )
         ruling = ""
-        if caluma_workflow_slug != "building-permit":
-            ruling = "VORABKLAERUNG"
-        if approval_type_question := settings.DECISION["QUESTIONS"].get(
-            "APPROVAL_TYPE"
-        ):
-            answer = answers.filter(question_id=approval_type_question).first()
-            ruling = answer.question.options.get(pk=answer.value).label
+
+        if settings.APPLICATION_NAME == "kt_bern":
+            if caluma_workflow_slug != "building-permit":
+                ruling = "VORABKLAERUNG"
+            if approval_type_question := settings.DECISION["QUESTIONS"].get(
+                "APPROVAL_TYPE"
+            ):
+                answer = answers.filter(question_id=approval_type_question).first()
+                ruling = answer.question.options.get(pk=answer.value).label
+        else:
+            answer = answers.get(question_id=settings.DECISION["QUESTIONS"]["DECISION"])
+            ruling = answer.selected_options[0].label.translate()
 
         return [
             ns_application.decisionRulingType(
@@ -848,7 +853,7 @@ class CantonSpecific:
                 ruling=ruling,
                 rulingAuthority=authority(
                     instance.responsible_service(filter_type="municipality"),
-                    organization_category="ebaube",
+                    organization_category=f"ebau{settings.APPLICATION['SHORT_NAME']}",
                 ),
             )
         ]

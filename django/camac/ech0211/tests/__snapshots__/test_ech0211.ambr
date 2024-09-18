@@ -630,7 +630,7 @@
 # name: test_generate_delivery[kt_so-set_application_so-ech_instance_so-so_master_data_settings]
   '''
   <?xml version="1.0" ?>
-  <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0044/4" xmlns:ns9="http://www.ech.ch/xmlns/eCH-0097/2">
+  <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0097/2" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns9="http://www.ech.ch/xmlns/eCH-0044/4">
   	<ns1:deliveryHeader>
   		<ns2:senderId>http://ember-ebau.local</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
@@ -717,23 +717,40 @@
   						<ns5:cantonAbbreviation>SO</ns5:cantonAbbreviation>
   					</ns1:municipality>
   				</ns1:constructionProjectInformation>
+  				<ns1:decisionRuling>
+  					<ns1:judgement>1</ns1:judgement>
+  					<ns1:ruling>Zustimmung</ns1:ruling>
+  					<ns1:date>2022-06-03</ns1:date>
+  					<ns1:rulingAuthority>
+  						<ns6:uid>
+  							<ns6:uidOrganisationIdCategorie>CHE</ns6:uidOrganisationIdCategorie>
+  							<ns6:uidOrganisationId>123123123</ns6:uidOrganisationId>
+  						</ns6:uid>
+  						<ns6:localOrganisationId>
+  							<ns6:organisationIdCategory>ebauso</ns6:organisationIdCategory>
+  							<ns6:organisationId><!-- ORGANISATION_ID --></ns6:organisationId>
+  						</ns6:localOrganisationId>
+  						<ns6:organisationName>Leitbehörde Burgdorf</ns6:organisationName>
+  						<ns6:legalForm>0223</ns6:legalForm>
+  					</ns1:rulingAuthority>
+  				</ns1:decisionRuling>
   				<ns1:document>
-  					<ns6:uuid>f8380740-d73a-4683-8909-2ced929ddbc5</ns6:uuid>
-  					<ns6:titles>
-  						<ns7:title>Situationsplan</ns7:title>
-  					</ns6:titles>
-  					<ns6:status>undefined</ns6:status>
-  					<ns6:files>
-  						<ns6:file>
-  							<ns6:pathFileName>http://ember-ebau.local/ech/v1/files/57a93396-454c-4a55-b48f-d114ad264df9</ns6:pathFileName>
-  							<ns6:mimeType>application/octet-stream</ns6:mimeType>
-  						</ns6:file>
-  					</ns6:files>
-  					<ns6:keywords>
-  						<ns7:keyword>Cheryl Foster</ns7:keyword>
-  						<ns7:keyword>Tammy White</ns7:keyword>
-  					</ns6:keywords>
-  					<ns6:documentKind>Beilagen zum Gesuch</ns6:documentKind>
+  					<ns7:uuid>f8380740-d73a-4683-8909-2ced929ddbc5</ns7:uuid>
+  					<ns7:titles>
+  						<ns8:title>Situationsplan</ns8:title>
+  					</ns7:titles>
+  					<ns7:status>undefined</ns7:status>
+  					<ns7:files>
+  						<ns7:file>
+  							<ns7:pathFileName>http://ember-ebau.local/ech/v1/files/57a93396-454c-4a55-b48f-d114ad264df9</ns7:pathFileName>
+  							<ns7:mimeType>application/octet-stream</ns7:mimeType>
+  						</ns7:file>
+  					</ns7:files>
+  					<ns7:keywords>
+  						<ns8:keyword>Alejandro Thompson</ns8:keyword>
+  						<ns8:keyword>Anthony Patton</ns8:keyword>
+  					</ns7:keywords>
+  					<ns7:documentKind>Beilagen zum Gesuch</ns7:documentKind>
   				</ns1:document>
   			</ns1:planningPermissionApplication>
   			<ns1:relationshipToPerson>
@@ -741,8 +758,8 @@
   				<ns1:person>
   					<ns3:identification>
   						<ns3:personIdentification>
-  							<ns8:officialName>Testname</ns8:officialName>
-  							<ns8:firstName>Testvorname</ns8:firstName>
+  							<ns9:officialName>Testname</ns9:officialName>
+  							<ns9:firstName>Testvorname</ns9:firstName>
   						</ns3:personIdentification>
   					</ns3:identification>
   					<ns3:address>
@@ -759,16 +776,16 @@
   			<ns1:decisionAuthority>
   				<ns1:decisionAuthority>
   					<ns3:buildingAuthorityIdentificationType>
-  						<ns9:uid>
-  							<ns9:uidOrganisationIdCategorie>CHE</ns9:uidOrganisationIdCategorie>
-  							<ns9:uidOrganisationId>123123123</ns9:uidOrganisationId>
-  						</ns9:uid>
-  						<ns9:localOrganisationId>
-  							<ns9:organisationIdCategory>ebauso</ns9:organisationIdCategory>
-  							<ns9:organisationId><!-- ORGANISATION_ID --></ns9:organisationId>
-  						</ns9:localOrganisationId>
-  						<ns9:organisationName>Leitbehörde Burgdorf</ns9:organisationName>
-  						<ns9:legalForm>0223</ns9:legalForm>
+  						<ns6:uid>
+  							<ns6:uidOrganisationIdCategorie>CHE</ns6:uidOrganisationIdCategorie>
+  							<ns6:uidOrganisationId>123123123</ns6:uidOrganisationId>
+  						</ns6:uid>
+  						<ns6:localOrganisationId>
+  							<ns6:organisationIdCategory>ebauso</ns6:organisationIdCategory>
+  							<ns6:organisationId><!-- ORGANISATION_ID --></ns6:organisationId>
+  						</ns6:localOrganisationId>
+  						<ns6:organisationName>Leitbehörde Burgdorf</ns6:organisationName>
+  						<ns6:legalForm>0223</ns6:legalForm>
   					</ns3:buildingAuthorityIdentificationType>
   					<ns3:address>
   						<ns4:street>Teststrasse 23</ns4:street>
@@ -782,16 +799,16 @@
   			</ns1:decisionAuthority>
   			<ns1:entryOffice>
   				<ns1:entryOfficeIdentification>
-  					<ns9:uid>
-  						<ns9:uidOrganisationIdCategorie>CHE</ns9:uidOrganisationIdCategorie>
-  						<ns9:uidOrganisationId>123123123</ns9:uidOrganisationId>
-  					</ns9:uid>
-  					<ns9:localOrganisationId>
-  						<ns9:organisationIdCategory>ebauso</ns9:organisationIdCategory>
-  						<ns9:organisationId><!-- ORGANISATION_ID --></ns9:organisationId>
-  					</ns9:localOrganisationId>
-  					<ns9:organisationName>Leitbehörde Burgdorf</ns9:organisationName>
-  					<ns9:legalForm>0223</ns9:legalForm>
+  					<ns6:uid>
+  						<ns6:uidOrganisationIdCategorie>CHE</ns6:uidOrganisationIdCategorie>
+  						<ns6:uidOrganisationId>123123123</ns6:uidOrganisationId>
+  					</ns6:uid>
+  					<ns6:localOrganisationId>
+  						<ns6:organisationIdCategory>ebauso</ns6:organisationIdCategory>
+  						<ns6:organisationId><!-- ORGANISATION_ID --></ns6:organisationId>
+  					</ns6:localOrganisationId>
+  					<ns6:organisationName>Leitbehörde Burgdorf</ns6:organisationName>
+  					<ns6:legalForm>0223</ns6:legalForm>
   				</ns1:entryOfficeIdentification>
   				<ns1:municipality>
   					<ns5:municipalityName>Burgdorf</ns5:municipalityName>
