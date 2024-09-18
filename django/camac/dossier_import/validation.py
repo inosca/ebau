@@ -128,7 +128,7 @@ def _validate_date_fields(
             # set separately.
             message_defaults = {
                 "dossier_id": dossier_id,
-                "field_name": date_column.lower(),
+                "field_name": date_column,
                 "messages": dossier_messages,
             }
 
@@ -144,10 +144,10 @@ def _validate_date_fields(
                 else:
                     messages.append_or_update_dossier_message(
                         code=MessageCodes.FIELD_VALIDATION_ERROR,
-                        detail=(
-                            f"Ignoring {date} for {date_column.lower()} because ",
-                            "Deletion is not supported for new dossiers",
-                        ),
+                        detail=_(
+                            "The value %(value)s will be ignored because deletion is not supported for new dossiers."
+                        )
+                        % {"value": date},
                         level=messages.Severity.WARNING.value,
                         **message_defaults,
                     )
@@ -181,11 +181,12 @@ def _validate_existing_dossier(dossier_id, dossier_msgs, headings, rows):
     )
     # reimporting does not require the "STATUS" column to be present, therefore
     # we ignore that column
-    if get_dossier_cell_by_column(dossier_id, "status", rows):
+    if status := get_dossier_cell_by_column(dossier_id, "status", rows):
         messages.append_or_update_dossier_message(
             dossier_id=dossier_id,
             field_name="STATUS",
-            detail=_("STATUS will be ignored when updating the dossier"),
+            detail=_("The value %(value)s will be ignored when updating the dossier.")
+            % {"value": status},
             code=MessageCodes.UPDATE_DOSSIER.value,
             messages=dossier_msgs,
             level=messages.Severity.INFO.value,
@@ -204,26 +205,36 @@ def _validate_new_dossier(dossier_id, dossier_msgs, headings, rows):
     )
     valid = True
     # check that status is not empty and also valid
-    if (
-        status := get_dossier_cell_by_column(dossier_id, "status", rows)
-    ) and status not in [e.value for e in TargetStatus]:
+    status = get_dossier_cell_by_column(dossier_id, "status", rows)
+    if not status:
         messages.append_or_update_dossier_message(
-            dossier_id,
-            "status",
-            status,
-            MessageCodes.STATUS_CHOICE_VALIDATION_ERROR.value,
-            dossier_msgs,
+            dossier_id=dossier_id,
+            field_name="STATUS",
+            detail=None,
+            code=MessageCodes.MISSING_REQUIRED_VALUE_ERROR.value,
+            messages=dossier_msgs,
             level=messages.Severity.ERROR.value,
         )
         valid = False
+    elif status not in [e.value for e in TargetStatus]:
+        messages.append_or_update_dossier_message(
+            dossier_id=dossier_id,
+            field_name="STATUS",
+            detail=status,
+            code=MessageCodes.STATUS_CHOICE_VALIDATION_ERROR.value,
+            messages=dossier_msgs,
+            level=messages.Severity.ERROR.value,
+        )
+        valid = False
+
     # check submit date exists in newly imported dossiers
     if not get_dossier_cell_by_column(dossier_id, "submit-date", rows):
         messages.append_or_update_dossier_message(
-            dossier_id,
-            "submit-date",
-            None,
-            MessageCodes.MISSING_REQUIRED_VALUE_ERROR.value,
-            dossier_msgs,
+            dossier_id=dossier_id,
+            field_name="SUBMIT-DATE",
+            detail=None,
+            code=MessageCodes.MISSING_REQUIRED_VALUE_ERROR.value,
+            messages=dossier_msgs,
             level=messages.Severity.ERROR.value,
         )
         valid = False
@@ -274,10 +285,8 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
     if extra := set(headings) - set([e.value for e in XlsxFileDossierLoader.Column]):
         sorted_missing_columns = [str(x) for x in (extra - set(["None", None]))]
         dossier_import.messages["validation"]["summary"]["warning"].append(
-            _(
-                "Found unknown columns: %(extra)s. Those columns will be ignored while importing."
-            )
-            % dict(extra="; ".join(sorted_missing_columns))
+            _("Found unknown columns which will be ignored while importing:\n%(extra)s")
+            % dict(extra="\n".join(sorted_missing_columns))
         )
 
     # collect all messages for every dossier in a list
@@ -293,8 +302,9 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
     for dupe in dupes:
         messages.append_or_update_dossier_message(
             dossier_id=dupe,
-            field_name="id",
-            detail=f"Multiple rows found with id {dupe}. Ignoring",
+            field_name="ID",
+            detail=_("%(count)d rows with this ID will be ignored.")
+            % {"count": dossier_ids.count(dupe)},
             code=MessageCodes.DUPLICATE_IDENTFIER_ERROR.value,
             messages=dossier_msgs,
         )

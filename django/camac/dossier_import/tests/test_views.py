@@ -188,10 +188,10 @@ def test_validation_errors(
             (status.HTTP_201_CREATED, status.HTTP_201_CREATED),
             {
                 "error": [
-                    "1 Dossiers haben einen ungültigen Status. Betroffene Dossiers:\n2017-86: 'DONKED' (status)",
-                    "1 Dossiers haben ein ungültiges Datum. Datumsangaben bitte im Format \"DD.MM.YYYY\" (e.g. \"13.04.2021\") machen. Betroffene Dossiers:\n2017-84: 'not-a-date' (submit-date), 'not-a-date' (publication-date), 'not-a-date' (decision-date), 'not-a-date' (construction-start-date), 'not-a-date' (profile-approval-date), 'not-a-date' (final-approval-date), 'not-a-date' (completion-date)",
-                    "2 Dossiers fehlt ein Wert in einem zwingenden Feld. Betroffene Dossiers:\n2017-87: status,\n9: submit_date",
-                    "1 Dossiers fehlt ein Wert in einem zwingenden Feld. Betroffene Dossiers:\n9: submit-date",
+                    "1 Dossiers haben einen ungültigen Status. Betroffene Dossiers:\n2017-86: DONKED (STATUS)",
+                    '1 Dossiers haben ein ungültiges Datum. Datumsangaben bitte im Format "DD.MM.YYYY" (z.B. "13.04.2021") machen. Betroffene Dossiers:\n2017-84: not-a-date (SUBMIT-DATE), not-a-date (PUBLICATION-DATE), not-a-date (DECISION-DATE), not-a-date (CONSTRUCTION-START-DATE), not-a-date (PROFILE-APPROVAL-DATE), not-a-date (FINAL-APPROVAL-DATE), not-a-date (COMPLETION-DATE)',
+                    "2 Dossiers fehlt ein Wert in einem zwingenden Feld. Betroffene Dossiers:\n2017-87: STATUS\n9: SUBMIT-DATE",
+                    "1 Dossiers fehlt ein Wert in einem zwingenden Feld. Betroffene Dossiers:\n9: SUBMIT-DATE",
                 ]
             },
         ),
@@ -202,7 +202,7 @@ def test_validation_errors(
                 "warning": [
                     "2 Dokumentenverzeichnisse haben keine Referenz in der Metadatendatei und werden nicht importiert:\n2017-11, 2017-22",
                     "2 Dossiers ohne Dokumentenverzeichnis.",
-                    "2 Dossiers gefunden und werden bei Re-Import aktualisiert. Betroffene Dossiers:\n2017-53: '2017-53' (ID),\n2017-84: '2017-84' (ID)",
+                    "2 Dossiers gefunden und werden bei Re-Import aktualisiert. Betroffene Dossiers:\n2017-53: 2017-53 (ID)\n2017-84: 2017-84 (ID)",
                 ]
             },
         ),
