@@ -30,6 +30,15 @@ module.exports = function (environment) {
       loginHintName: "kc_idp_hint",
       enablePkce: true,
     },
+    "ember-caluma": {
+      FLATPICKR_DATE_FORMAT: {
+        de: "d.m.Y",
+        fr: "d.m.Y",
+        it: "d.m.Y",
+        en: "m/d/Y",
+      },
+      FLATPICKR_DATE_FORMAT_DEFAULT: "d.m.Y",
+    },
     apollo: {
       apiURL: "/graphql/",
     },
