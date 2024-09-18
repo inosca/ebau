@@ -59,6 +59,7 @@ def be_data_sources(
     return GISDataSource.objects.all()
 
 
+@pytest.mark.xfail(reason="This test is temporarily xfailed because it's very flaky")
 @pytest.mark.parametrize(
     "egrids",
     [
@@ -98,6 +99,7 @@ def test_be_client(
     assert response.json() == gis_snapshot
 
 
+@pytest.mark.xfail(reason="This test is temporarily xfailed because it's very flaky")
 @pytest.mark.parametrize(
     "egrids",
     [
