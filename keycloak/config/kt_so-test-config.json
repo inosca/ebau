@@ -3397,7 +3397,7 @@
         "email": "john.doe@example.com",
         "emailVerified": true,
         "attributes": {
-          "lot": ["1"]
+          "lot": ["2"]
         },
         "createdTimestamp": 1706016134137,
         "enabled": true,
@@ -3417,7 +3417,7 @@
         "email": "jane.doe@acme.com",
         "emailVerified": true,
         "attributes": {
-          "lot": ["1"]
+          "lot": ["2"]
         },
         "createdTimestamp": 1715785990411,
         "enabled": true,
@@ -3437,7 +3437,7 @@
         "email": "joe.smith@example.com",
         "emailVerified": true,
         "attributes": {
-          "lot": ["0"]
+          "lot": ["1"]
         },
         "createdTimestamp": 1726131351156,
         "enabled": true,
