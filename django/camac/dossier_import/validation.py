@@ -2,7 +2,6 @@ import zipfile
 from enum import Enum
 from typing import List
 
-import openpyxl
 from django.conf import settings
 from django.utils import timezone
 from django.utils.module_loading import import_string
@@ -12,6 +11,7 @@ from rest_framework.exceptions import ValidationError
 from camac.dossier_import import messages
 from camac.dossier_import.loaders import InvalidImportDataError
 from camac.dossier_import.models import DossierImport
+from camac.dossier_import.utils import get_worksheet_headings_and_rows
 
 from .config.common import mimetypes
 from .loaders import XlsxFileDossierLoader
@@ -58,7 +58,7 @@ def verify_source_file(source_file: str) -> str:
             _("No metadata file 'dossiers.xlsx' found in uploaded archive.")
         )
     try:
-        openpyxl.load_workbook(metadata, data_only=True)
+        zipfile.ZipFile(metadata, "r")
     except zipfile.BadZipfile:
         raise ValidationError(
             _("Metadata file `dossiers.xlsx` is not a valid .xlsx file.")
@@ -102,58 +102,37 @@ def get_attachment_validation_stats(archive: zipfile.ZipFile, dossier_ids: List[
     )
 
 
-def find_cell_by_value(value, cells):
-    return next((cell for cell in cells if cell.value == value), None)
+def get_dossier_cell_by_column(dossier_id, col_name, rows):
+    row = next((row for row in rows if row.get("ID") == dossier_id), None)
 
+    if not row:  # pragma: no cover
+        return None
 
-def get_dossier_cell_by_column(dossier_id, col_name, worksheet):
-    cell = find_cell_by_value(
-        col_name.upper(),
-        worksheet[1],
-    )
-    if not cell:  # pragma: no cover
-        return
-    for row in worksheet.iter_rows(min_row=2):
-        match = find_cell_by_value(dossier_id, row)
-        if match:
-            # cells return their original row from the sheet.
-            # to get the accurate index the headings row has to be
-            # subtracted as well
-            return row[cell.col_idx - 1]
-
-
-def _get_first_row(worksheet):
-    return [heading for heading in list(worksheet.rows)[0]]
+    return row.get(col_name.upper(), None)
 
 
 def _validate_date_fields(
-    dossier_id, dossier_messages, worksheet, allow_delete=False
+    dossier_id, dossier_messages, headings, rows, allow_delete=False
 ) -> bool:
-    # openpyxl may provide data from cells based on the cell formatting.
+    # pyexcel-xlsx may provide data from cells based on the cell formatting.
     # Specs define that we accept values in the XlsxFileDossierLoader.date_format.
     # something similar to "03.04.2001".
     # Uplodaded documents can feature those columns formatted as datetime as well as
     # strings with correctly entered data. In that case we should try to parse that
     # value or return instructions.
     valid = True
-    for date_column in [
-        heading
-        for heading in _get_first_row(worksheet)
-        if heading.value and heading.value.endswith("-DATE")
-    ]:
-        if (
-            date := get_dossier_cell_by_column(dossier_id, date_column.value, worksheet)
-        ) and date.value:
+    for date_column in [heading for heading in headings if heading.endswith("-DATE")]:
+        if date := get_dossier_cell_by_column(dossier_id, date_column, rows):
             # We'll use these for handling messages below repeatedly.
             # Individual messages require `code`, `detail` and `level`
             # set separately.
             message_defaults = {
                 "dossier_id": dossier_id,
-                "field_name": date_column.value.lower(),
+                "field_name": date_column.lower(),
                 "messages": dossier_messages,
             }
 
-            if date.value == settings.DOSSIER_IMPORT["DELETE_KEYWORD"]:
+            if date == settings.DOSSIER_IMPORT["DELETE_KEYWORD"]:
                 if allow_delete:
                     messages.append_or_update_dossier_message(
                         code=MessageCodes.VALUE_DELETED,
@@ -166,7 +145,7 @@ def _validate_date_fields(
                     messages.append_or_update_dossier_message(
                         code=MessageCodes.FIELD_VALIDATION_ERROR,
                         detail=(
-                            f"Ignoring {date.value} for {date_column.value.lower()} because ",
+                            f"Ignoring {date} for {date_column.lower()} because ",
                             "Deletion is not supported for new dossiers",
                         ),
                         level=messages.Severity.WARNING.value,
@@ -175,14 +154,14 @@ def _validate_date_fields(
 
                 continue
 
-            if not isinstance(date.value, timezone.datetime):
+            if not isinstance(date, timezone.datetime):
                 try:
                     date = timezone.datetime.strptime(
-                        date.value, XlsxFileDossierLoader.date_format
+                        date, XlsxFileDossierLoader.date_format
                     )
                 except ValueError:
                     messages.append_or_update_dossier_message(
-                        detail=str(date.value),
+                        detail=str(date),
                         code=MessageCodes.DATE_FIELD_VALIDATION_ERROR.value,
                         level=messages.Severity.ERROR.value,
                         **message_defaults,
@@ -191,7 +170,7 @@ def _validate_date_fields(
     return valid
 
 
-def _validate_existing_dossier(dossier_id, dossier_msgs, worksheet):
+def _validate_existing_dossier(dossier_id, dossier_msgs, headings, rows):
     messages.append_or_update_dossier_message(
         dossier_id=dossier_id,
         field_name="ID",
@@ -201,10 +180,8 @@ def _validate_existing_dossier(dossier_id, dossier_msgs, worksheet):
         level=messages.Severity.WARNING.value,
     )
     # reimporting does not require the "STATUS" column to be present, therefore
-    # we do cannot ta
-    if (
-        status := get_dossier_cell_by_column(dossier_id, "status", worksheet)
-    ) and status.value:
+    # we ignore that column
+    if get_dossier_cell_by_column(dossier_id, "status", rows):
         messages.append_or_update_dossier_message(
             dossier_id=dossier_id,
             field_name="STATUS",
@@ -214,37 +191,33 @@ def _validate_existing_dossier(dossier_id, dossier_msgs, worksheet):
             level=messages.Severity.INFO.value,
         )
 
-    _validate_date_fields(dossier_id, dossier_msgs, worksheet, allow_delete=True)
+    _validate_date_fields(dossier_id, dossier_msgs, headings, rows, allow_delete=True)
     return True
 
 
-def _validate_new_dossier(dossier_id, dossier_msgs, worksheet):
+def _validate_new_dossier(dossier_id, dossier_msgs, headings, rows):
     # New dossiers require additional columns to the `ID` column.
     # If we encounter this we rather immediately raise to avoid complex
     # communication.
     _raise_for_missing_columns(
-        worksheet, *[col_name.upper() for col_name in REQUIRED_COLUMNS]
+        headings, *[col_name.upper() for col_name in REQUIRED_COLUMNS]
     )
     valid = True
     # check that status is not empty and also valid
     if (
-        (status := get_dossier_cell_by_column(dossier_id, "status", worksheet))
-        and status.value
-        and status.value not in [e.value for e in TargetStatus]
-    ):
+        status := get_dossier_cell_by_column(dossier_id, "status", rows)
+    ) and status not in [e.value for e in TargetStatus]:
         messages.append_or_update_dossier_message(
             dossier_id,
             "status",
-            status.value,
+            status,
             MessageCodes.STATUS_CHOICE_VALIDATION_ERROR.value,
             dossier_msgs,
             level=messages.Severity.ERROR.value,
         )
         valid = False
     # check submit date exists in newly imported dossiers
-    if (
-        cell := get_dossier_cell_by_column(dossier_id, "submit-date".upper(), worksheet)
-    ) and not cell.value:
+    if not get_dossier_cell_by_column(dossier_id, "submit-date", rows):
         messages.append_or_update_dossier_message(
             dossier_id,
             "submit-date",
@@ -255,21 +228,13 @@ def _validate_new_dossier(dossier_id, dossier_msgs, worksheet):
         )
         valid = False
     valid = _validate_date_fields(
-        dossier_id, dossier_msgs, worksheet, allow_delete=False
+        dossier_id, dossier_msgs, headings, rows, allow_delete=False
     )
     return valid
 
 
-def _raise_for_missing_columns(worksheet, *columns):
-    if any(
-        (
-            missing_columns := [
-                col
-                for col in columns
-                if find_cell_by_value(col, _get_first_row(worksheet)) is None
-            ]
-        )
-    ):
+def _raise_for_missing_columns(headings, *columns):
+    if any((missing_columns := [col for col in columns if col not in headings])):
         raise InvalidImportDataError(
             _(
                 "Meta data file in archive is missing required columns %(missing)s. Required columns %(required)s"
@@ -298,16 +263,15 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
 
     archive = dossier_import.get_archive()
     data_file = archive.open("dossiers.xlsx")
+
     try:
-        work_book = openpyxl.load_workbook(data_file, data_only=True)
+        headings, rows = get_worksheet_headings_and_rows(data_file)
     except zipfile.BadZipfile:
         raise InvalidImportDataError(
             _("Meta data file in archive is corrupt or not a valid .xlsx file.")
         )
-    worksheet = work_book.worksheets[0]
-    if extra := set([cell.value for cell in _get_first_row(worksheet)]) - set(
-        [e.value for e in XlsxFileDossierLoader.Column]
-    ):
+
+    if extra := set(headings) - set([e.value for e in XlsxFileDossierLoader.Column]):
         sorted_missing_columns = [str(x) for x in (extra - set(["None", None]))]
         dossier_import.messages["validation"]["summary"]["warning"].append(
             _(
@@ -319,15 +283,10 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
     # collect all messages for every dossier in a list
     dossier_msgs = []
 
-    _raise_for_missing_columns(worksheet, "ID")
+    _raise_for_missing_columns(headings, "ID")
 
     # get the list of IDs in the file
-    id_column = find_cell_by_value("ID", _get_first_row(worksheet)).col_idx - 1
-    dossier_ids = [
-        row[id_column].value
-        for row in list(worksheet.rows)[1:]
-        if row[id_column].value is not None
-    ]
+    dossier_ids = [row["ID"] for row in rows if row.get("ID")]
 
     # exclude and report duplicate IDs
     dupes = set([d for d in dossier_ids if dossier_ids.count(d) > 1])
@@ -345,21 +304,20 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
     # different criteria depending on the import status as a new or reimported
     # dossier.
     valid_dossier_ids = []
-    for dossier_id in set(dossier_ids):
-        valid = True
+    existing_dossier_ids = set(writer.get_existing_dossier_ids(dossier_ids))
+    new_dossier_ids = set(dossier_ids) - existing_dossier_ids
 
-        # NEW dossier: perform validations for a new dossier
-        if not writer.existing_dossier(dossier_id):
-            valid = _validate_new_dossier(dossier_id, dossier_msgs, worksheet)
-            if valid:
-                valid_dossier_ids.append(dossier_id)
-            continue
+    for dossier_id in new_dossier_ids:
+        valid = _validate_new_dossier(dossier_id, dossier_msgs, headings, rows)
+        if valid:
+            valid_dossier_ids.append(dossier_id)
 
-        # otherwise handle reimport
+    for dossier_id in existing_dossier_ids:
         valid = _validate_existing_dossier(
             dossier_id,
             dossier_msgs,
-            worksheet,
+            headings,
+            rows,
         )
         if valid:
             valid_dossier_ids.append(dossier_id)
