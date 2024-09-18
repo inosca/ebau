@@ -30,7 +30,6 @@ from ..instance.master_data import MasterData
 from .schema import (
     ech_0007_6_0,
     ech_0010_6_0 as ns_address,
-    ech_0039_2_0,
     ech_0044_4_1,
     ech_0058_5_0,
     ech_0097_2_0 as ns_company_identification,
@@ -171,11 +170,12 @@ def get_alexandria_documents(documents):
             titles=pyxb.BIND(title=[doc.title]),
             status="undefined",  # ech0039 documentStatusType
             documentKind=doc.category.name.translate(),
-            keywords=[
-                # TODO check visbility
-                ech_0039_2_0.keywordType(keyword=t.name.translate())
-                for t in doc.tags.all()
-            ]
+            keywords=pyxb.BIND(
+                keyword=list(
+                    # TODO check visibility
+                    doc.tags.values_list("name", flat=True)
+                )
+            )
             if doc.tags.exists()
             else None,
             files=ns_nachrichten_t0.filesType(

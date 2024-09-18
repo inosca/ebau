@@ -4,7 +4,7 @@ from collections import namedtuple
 from datetime import datetime
 
 import pytest
-from alexandria.core.factories import DocumentFactory, FileFactory
+from alexandria.core.factories import DocumentFactory, FileFactory, TagFactory
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_form.models import DynamicOption
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
@@ -163,16 +163,18 @@ def ech_instance_gr(ech_instance, instance_with_case, caluma_workflow_config_gr,
             }
         ],
     )
+    document = DocumentFactory(
+        pk="f8380740-d73a-4683-8909-2ced929ddbc5",
+        metainfo={"camac-instance-id": ech_instance.pk},
+        title="Situationsplan",
+        category__name="Beilagen zum Gesuch",
+    )
+    document.tags.set([TagFactory(), TagFactory()])
     FileFactory(
         pk="57a93396-454c-4a55-b48f-d114ad264df9",
         variant="original",
         name="Situationsplan.pdf",
-        document=DocumentFactory(
-            pk="f8380740-d73a-4683-8909-2ced929ddbc5",
-            metainfo={"camac-instance-id": ech_instance.pk},
-            title="Situationsplan",
-            category__name="Beilagen zum Gesuch",
-        ),
+        document=document,
     )
 
     return ech_instance
@@ -394,16 +396,19 @@ def ech_instance_so(ech_instance, instance_with_case, caluma_workflow_config_so,
             }
         ],
     )
+
+    document = DocumentFactory(
+        pk="f8380740-d73a-4683-8909-2ced929ddbc5",
+        metainfo={"camac-instance-id": ech_instance.pk},
+        title="Situationsplan",
+        category__name="Beilagen zum Gesuch",
+    )
+    document.tags.set([TagFactory(), TagFactory()])
     FileFactory(
         pk="57a93396-454c-4a55-b48f-d114ad264df9",
         variant="original",
         name="Situationsplan.pdf",
-        document=DocumentFactory(
-            pk="f8380740-d73a-4683-8909-2ced929ddbc5",
-            metainfo={"camac-instance-id": ech_instance.pk},
-            title="Situationsplan",
-            category__name="Beilagen zum Gesuch",
-        ),
+        document=document,
     )
 
     return ech_instance
