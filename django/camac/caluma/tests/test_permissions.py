@@ -11,6 +11,7 @@ from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.models import Case, WorkItem
 from django.utils.dateparse import parse_datetime
 from inflection import underscore
+from pytest_lazy_fixtures import lf
 
 from camac.caluma.extensions.permissions import CustomPermission
 from camac.permissions.switcher import PERMISSION_MODE
@@ -309,7 +310,7 @@ def test_distribution_permission_for_task(
 
 @pytest.mark.parametrize("is_permitted", [True, False])
 @pytest.mark.parametrize(
-    "role__name,mutation,distribution_form,question,value",
+    "role__name,mutation,distribution_form,question,value,_instance,_distribution_settings",
     [
         (
             "municipality-lead",
@@ -317,6 +318,17 @@ def test_distribution_permission_for_task(
             "INQUIRY_FORM",
             "DEADLINE",
             datetime.date.today(),
+            lf("be_instance"),
+            lf("be_distribution_settings"),
+        ),
+        (
+            "municipality-lead",
+            "saveDocumentDateAnswer",
+            "INQUIRY_FORM",
+            "DEADLINE",
+            datetime.date.today(),
+            lf("gr_instance"),
+            lf("gr_distribution_settings"),
         ),
         (
             "service-lead",
@@ -324,6 +336,8 @@ def test_distribution_permission_for_task(
             "INQUIRY_FORM",
             "REMARK",
             "Test",
+            lf("be_instance"),
+            lf("be_distribution_settings"),
         ),
         (
             "subservice",
@@ -331,6 +345,8 @@ def test_distribution_permission_for_task(
             "INQUIRY_FORM",
             "DEADLINE",
             datetime.date.today(),
+            lf("be_instance"),
+            lf("be_distribution_settings"),
         ),
         (
             "municipality-lead",
@@ -338,6 +354,8 @@ def test_distribution_permission_for_task(
             "INQUIRY_ANSWER_FORM",
             "STATUS",
             "CLAIM",
+            lf("be_instance"),
+            lf("be_distribution_settings"),
         ),
         (
             "service-lead",
@@ -345,6 +363,17 @@ def test_distribution_permission_for_task(
             "INQUIRY_ANSWER_FORM",
             "STATEMENT",
             "Test",
+            lf("be_instance"),
+            lf("be_distribution_settings"),
+        ),
+        (
+            "service-lead",
+            "saveDocumentStringAnswer",
+            "INQUIRY_ANSWER_FORM",
+            "STATEMENT",
+            "Test",
+            lf("gr_instance"),
+            lf("gr_distribution_settings"),
         ),
         (
             "subservice",
@@ -352,6 +381,8 @@ def test_distribution_permission_for_task(
             "INQUIRY_ANSWER_FORM",
             "ANCILLARY_CLAUSES",
             "Test",
+            lf("be_instance"),
+            lf("be_distribution_settings"),
         ),
     ],
 )
@@ -359,13 +390,13 @@ def test_distribution_permission_for_answer(
     db,
     role,
     service,
-    be_instance,
+    _instance,
     active_inquiry_factory,
     service_factory,
     caluma_admin_schema_executor,
     caluma_admin_user,
     work_item_factory,
-    be_distribution_settings,
+    _distribution_settings,
     mocker,
     mutation,
     distribution_form,
@@ -390,13 +421,13 @@ def test_distribution_permission_for_answer(
     # Services need to have an invitation to have the instance visibility
     if distribution_form == "INQUIRY_FORM" and "service" in role.name:
         active_inquiry_factory(
-            be_instance,
+            _instance,
             addressed_service=service,
             status=WorkItem.STATUS_READY,
         )
 
     inquiry = active_inquiry_factory(
-        be_instance,
+        _instance,
         controlling_service=(
             service
             if distribution_form == "INQUIRY_FORM" and is_permitted
@@ -420,8 +451,8 @@ def test_distribution_permission_for_answer(
         else inquiry.child_case.document
     )
 
-    question_slug = be_distribution_settings["QUESTIONS"][question]
-    value = be_distribution_settings["ANSWERS"].get(question, {}).get(value) or value
+    question_slug = _distribution_settings["QUESTIONS"][question]
+    value = _distribution_settings["ANSWERS"].get(question, {}).get(value) or value
 
     result = caluma_admin_schema_executor(
         """
