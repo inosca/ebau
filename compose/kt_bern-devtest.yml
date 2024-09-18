@@ -120,6 +120,7 @@ services:
       PERMISSION_CLASSES: camac.caluma.extensions.permissions.CustomPermission
       VALIDATION_CLASSES: camac.caluma.extensions.validations.CustomValidation
       VISIBILITY_CLASSES: camac.caluma.extensions.visibilities.CustomVisibilityBE
+      GIS_BASE_URL: https://www.geoservice.apps.be.ch
     networks:
       - ebau.local
     tty: true
@@ -143,7 +144,7 @@ services:
         - APP_ENV=development
         - KEYCLOAK_HOST=https://vm-adfch-devtest-test-westeurope-infra-01.tux42.ch/
         - KEYLCOAK_REALM
-        - PORTAL_URL
+        - PORTAL_URL=https://portal.vm-adfch-devtest-test-westeurope-infra-01.tux42.ch/
     networks:
       - ebau.local
 
@@ -156,8 +157,7 @@ services:
         - KEYCLOAK_HOST=https://vm-adfch-devtest-test-westeurope-infra-01.tux42.ch/
         - KEYCLOAK_REALM
         - INTERNAL_URL=https://internal.vm-adfch-devtest-test-westeurope-infra-01.tux42.ch/
-        # BE_GIS_URL defaults to the prod instance
-        - BE_GIS_URL=https://map2-test.apps.be.ch
+        - BE_GIS_URL=https://www.map.apps.be.ch
     networks:
       - ebau.local
 
