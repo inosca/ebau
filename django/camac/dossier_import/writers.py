@@ -742,6 +742,10 @@ class DossierWriter:
 
         return dossier_summary
 
+    def get_existing_dossier_ids(self, dossier_ids: List[str]) -> List[str]:
+        """Return all dossier IDs that already exist."""
+        raise DossierWriter.ConfigurationError  # pragma: no cover
+
     def existing_dossier(self, dossier_id: str) -> Optional[Instance]:
         """Return the instance identified by dossier_id.
 

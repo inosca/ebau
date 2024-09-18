@@ -233,6 +233,13 @@ class KtBernDossierWriter(DossierWriter):
             user=self._caluma_user,
         )
 
+    def get_existing_dossier_ids(self, dossier_ids):
+        return list(
+            Tags.objects.filter(
+                name__in=dossier_ids, service=self._group.service
+            ).values_list("name", flat=True)
+        )
+
     def existing_dossier(self, dossier_id):
         return (
             tag := Tags.objects.filter(

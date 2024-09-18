@@ -877,8 +877,8 @@ def test_validation(
     snapshot,
 ):
     mocker.patch(
-        f"{dossier_import_settings['WRITER_CLASS']}.existing_dossier",
-        lambda self, dossier_id: dossier_exists,
+        f"{dossier_import_settings['WRITER_CLASS']}.get_existing_dossier_ids",
+        lambda self, dossier_ids: dossier_ids if dossier_exists else [],
     )
     dossier_import.source_file = archive_file(input_file)
     dossier_import.save()
