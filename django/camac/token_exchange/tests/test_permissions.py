@@ -34,15 +34,15 @@ def test_get_lot(rf, has_token, has_lot, expected_value, mocker):
 @pytest.mark.parametrize(
     "role_name,lot,expected_status",
     [
-        ("public", 0, status.HTTP_200_OK),
         ("public", 1, status.HTTP_200_OK),
+        ("public", 2, status.HTTP_200_OK),
         ("public", None, status.HTTP_403_FORBIDDEN),
-        ("applicant", 0, status.HTTP_403_FORBIDDEN),
-        ("applicant", 1, status.HTTP_200_OK),
+        ("applicant", 1, status.HTTP_403_FORBIDDEN),
+        ("applicant", 2, status.HTTP_200_OK),
         ("applicant", None, status.HTTP_403_FORBIDDEN),
         # Role without LoT requirement
-        ("municipality", 0, status.HTTP_200_OK),
         ("municipality", 1, status.HTTP_200_OK),
+        ("municipality", 2, status.HTTP_200_OK),
         ("municipality", None, status.HTTP_200_OK),
     ],
 )
@@ -59,15 +59,15 @@ def test_require_lot_permission(
 @pytest.mark.parametrize(
     "role_name,lot,expect_error",
     [
-        ("public", 0, False),
         ("public", 1, False),
+        ("public", 2, False),
         ("public", None, True),
-        ("applicant", 0, True),
-        ("applicant", 1, False),
+        ("applicant", 1, True),
+        ("applicant", 2, False),
         ("applicant", None, True),
         # Role without LoT requirement
-        ("municipality", 0, False),
         ("municipality", 1, False),
+        ("municipality", 2, False),
         ("municipality", None, False),
     ],
 )

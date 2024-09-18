@@ -15,14 +15,14 @@ class Command(BaseCommand):
             "iss": settings.TOKEN_EXCHANGE_JWT_ISSUER,
         }
 
-        user_token_data = {
+        user_lot2_token_data = {
             **shared_data,
             "firstName": "John",
             "name": "Doe",
             "profileId": "1",
             "email": "john.doe@example.com",
             "organisationName": "",
-            "lot": 1,
+            "lot": 2,
         }
 
         company_token_data = {
@@ -32,21 +32,21 @@ class Command(BaseCommand):
             "profileId": "2",
             "email": "jane.doe@acme.com",
             "organisationName": "ACME Inc.",
-            "lot": 1,
+            "lot": 2,
         }
 
-        user_lot0_token_data = {
+        user_lot1_token_data = {
             **shared_data,
             "firstName": "Joe",
             "name": "Smith",
             "profileId": "3",
             "email": "joe.smith@example.com",
             "organisationName": "",
-            "lot": 0,
+            "lot": 1,
         }
 
-        user_token = encode_token(
-            user_token_data,
+        user_lot2_token = encode_token(
+            user_lot2_token_data,
             settings.TOKEN_EXCHANGE_JWT_SECRET,
             settings.TOKEN_EXCHANGE_JWE_SECRET,
         )
@@ -55,12 +55,12 @@ class Command(BaseCommand):
             settings.TOKEN_EXCHANGE_JWT_SECRET,
             settings.TOKEN_EXCHANGE_JWE_SECRET,
         )
-        user_lot0_token = encode_token(
-            user_lot0_token_data,
+        user_lot1_token = encode_token(
+            user_lot1_token_data,
             settings.TOKEN_EXCHANGE_JWT_SECRET,
             settings.TOKEN_EXCHANGE_JWE_SECRET,
         )
 
-        self.stdout.write(self.style.SUCCESS("User token: ") + user_token)
+        self.stdout.write(self.style.SUCCESS("User LoT 2 token: ") + user_lot2_token)
         self.stdout.write(self.style.SUCCESS("Company token: ") + company_token)
-        self.stdout.write(self.style.SUCCESS("User LoT 0 token: ") + user_lot0_token)
+        self.stdout.write(self.style.SUCCESS("User LoT 1 token: ") + user_lot1_token)
