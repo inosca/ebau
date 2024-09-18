@@ -298,6 +298,10 @@
   							<ns6:mimeType>application/octet-stream</ns6:mimeType>
   						</ns6:file>
   					</ns6:files>
+  					<ns6:keywords>
+  						<ns7:keyword>Cheryl Foster</ns7:keyword>
+  						<ns7:keyword>Tammy White</ns7:keyword>
+  					</ns6:keywords>
   					<ns6:documentKind>Beilagen zum Gesuch</ns6:documentKind>
   				</ns1:document>
   			</ns1:planningPermissionApplication>
@@ -725,6 +729,10 @@
   							<ns6:mimeType>application/octet-stream</ns6:mimeType>
   						</ns6:file>
   					</ns6:files>
+  					<ns6:keywords>
+  						<ns7:keyword>Cheryl Foster</ns7:keyword>
+  						<ns7:keyword>Tammy White</ns7:keyword>
+  					</ns6:keywords>
   					<ns6:documentKind>Beilagen zum Gesuch</ns6:documentKind>
   				</ns1:document>
   			</ns1:planningPermissionApplication>
