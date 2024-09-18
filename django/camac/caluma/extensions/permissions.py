@@ -565,6 +565,14 @@ class CustomPermission(BasePermission):
     def has_caluma_form_edit_permission_for_municipality(self, document, info):
         work_item = self._get_work_item(document)
 
+        if (
+            settings.DISTRIBUTION
+            and document.form_id == settings.DISTRIBUTION["INQUIRY_FORM"]
+        ):
+            return is_controlled_by_service(
+                work_item, get_current_service_id(info)
+            ) and work_item.status in [WorkItem.STATUS_READY, WorkItem.STATUS_SUSPENDED]
+
         return (
             is_addressed_to_service(work_item, get_current_service_id(info))
             and work_item.status == WorkItem.STATUS_READY
