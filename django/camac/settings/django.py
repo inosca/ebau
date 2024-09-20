@@ -2270,7 +2270,7 @@ if (
         ),
         "endpoint_url": env.str(
             "EBAU_S3_ENDPOINT_URL",
-            default=default("http://minio:9000", require_if(is_s3_storage)),
+            default=default("http://ember-ebau.local", require_if(is_s3_storage)),
         ),
         "bucket_name": env.str("EBAU_STORAGE_BUCKET_NAME", default="ebau-media"),
     }
