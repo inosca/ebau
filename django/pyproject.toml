@@ -196,6 +196,7 @@ omit = [
     "camac/core/management/commands/testsystem_cleanup_be.py",
     "camac/core/management/commands/migrate_municipality_answer_value.py",
     "camac/core/management/commands/migrate_uri_leitbehoerde.py",
+    "camac/core/management/commands/ur_fix_lead_authority_bgbb.py",
     "camac/core/management/commands/migrate_forms_and_form_types.py",
     "camac/core/management/commands/migrate_decision_form.py",
     "camac/user/management/commands/disable_obsolete_groups.py",
