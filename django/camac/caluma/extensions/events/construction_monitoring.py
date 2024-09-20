@@ -72,15 +72,20 @@ def can_perform_construction_monitoring(instance):
         return False
 
     if settings.APPLICATION_NAME == "kt_uri":
-        # in Uri we need to check the "complete-check" work item because not all forms always require a construction monitoring process
-        return (
-            instance.case.work_items.get(task_id="complete-check")
-            .document.answers.filter(
-                question_id="complete-check-baubewilligungspflichtig",
-                value="complete-check-baubewilligungspflichtig-baubewilligungspflichtig",
-            )
-            .exists()
+        complete_check_work_item = instance.case.work_items.get(
+            task_id="complete-check"
         )
+
+        if complete_check_work_item.meta.get("migrated"):  # pragma: no cover
+            # If an instance was migrated we don't know if the construction monitoring is required.
+            # In this case we always start the construction monitoring (which can be skipped if not required)
+            return True
+
+        # in Uri we need to check the "complete-check" work item because not all forms always require a construction monitoring process
+        return complete_check_work_item.document.answers.filter(
+            question_id="complete-check-baubewilligungspflichtig",
+            value="complete-check-baubewilligungspflichtig-baubewilligungspflichtig",
+        ).exists()
 
     if allowed_caluma_forms := settings.CONSTRUCTION_MONITORING.get(
         "ALLOW_CALUMA_FORMS"
