@@ -498,7 +498,6 @@ def rebuild_app_permissions(permissions, group, instance):
 def section_permissions(group, instance=None):
     role = group.role.name
     app_name = settings.APPLICATION_NAME
-    # breakpoint()
 
     if instance:
         instance = (
