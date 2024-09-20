@@ -2136,6 +2136,7 @@ APPLICATIONS = {
                 "FILTERS": {
                     "service__service_group__name__in": [
                         "municipality",
+                        "canton",
                     ]
                 },
                 "DEFAULT": True,

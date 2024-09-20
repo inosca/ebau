@@ -1685,6 +1685,15 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
             # FIXME: use master data instead!
             municipality = case.document.answers.get(question_id="gemeinde").value
+
+            if (
+                settings.APPLICATION_NAME == "kt_so"
+                and case.document.answers.filter(
+                    question_id="kanton-leitbehoerde", value="kanton-leitbehoerde-ja"
+                ).exists()
+            ):
+                municipality = Service.objects.get(service_group__name="canton").pk
+
             InstanceService.objects.create(
                 instance=self.instance,
                 service_id=int(municipality),

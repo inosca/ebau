@@ -1,6 +1,5 @@
 import pytest
 from caluma.caluma_form.api import save_answer
-from caluma.caluma_form.factories import FormFactory
 from caluma.caluma_form.models import DynamicOption, Question
 from caluma.caluma_workflow.api import complete_work_item, skip_work_item
 from caluma.caluma_workflow.models import Case, WorkItem
@@ -304,29 +303,51 @@ def test_dynamic_task_after_ebau_number(
 
 
 @pytest.mark.parametrize(
-    "is_appeal,form_slug,expected_tasks",
+    "is_appeal,is_bab,form_slug,expected_tasks",
     [
         (
+            False,
             False,
             "main-form",
             {"create-manual-workitems", "formal-exam", "init-additional-demand"},
         ),
         (
+            False,
             True,
+            "main-form",
+            {
+                "create-manual-workitems",
+                "formal-exam",
+                "init-additional-demand",
+                "material-exam-bab",
+            },
+        ),
+        (
+            True,
+            False,
             "main-form",
             {"create-manual-workitems", "appeal", "distribution"},
         ),
         (
+            True,
+            True,
+            "main-form",
+            {"create-manual-workitems", "appeal", "distribution", "material-exam-bab"},
+        ),
+        (
+            False,
             False,
             "voranfrage",
             {"create-manual-workitems", "distribution"},
         ),
         (
             False,
+            False,
             "meldung",
             {"create-manual-workitems", "decision"},
         ),
         (
+            False,
             False,
             "meldung-pv",
             {"create-manual-workitems", "formal-exam", "init-additional-demand"},
@@ -338,16 +359,28 @@ def test_dynamic_task_after_submit(
     caluma_admin_user,
     expected_tasks,
     is_appeal,
+    is_bab,
     case_factory,
     form_slug,
+    so_instance,
 ):
-    case = case_factory(
-        meta={"is-appeal": True} if is_appeal else {},
-        document__form=FormFactory(slug=form_slug),
-    )
+    meta = {}
+
+    if is_appeal:
+        meta["is-appeal"] = True
+
+    if is_bab:
+        meta["is-bab"] = True
+
+    so_instance.case.meta.update(meta)
+    so_instance.case.save()
+    so_instance.case.document.form_id = form_slug
+    so_instance.case.document.save()
 
     tasks = set(
-        CustomDynamicTasks().resolve_after_submit(case, caluma_admin_user, None, None)
+        CustomDynamicTasks().resolve_after_submit(
+            so_instance.case, caluma_admin_user, None, None
+        )
     )
 
     assert tasks == expected_tasks
@@ -430,38 +463,18 @@ def test_dynamic_task_after_create_inquiry(
 
 
 @pytest.mark.parametrize(
-    "root_form,task_id,has_rejection_answer,is_bab,expected_tasks",
+    "root_form,task_id,has_rejection_answer,expected_tasks",
     [
-        ("main-form", "formal-exam", True, False, ["reject"]),
-        ("main-form", "material-exam", True, False, ["reject"]),
-        ("main-form", "formal-exam", False, False, ["material-exam"]),
+        ("main-form", "formal-exam", True, ["reject"]),
+        ("main-form", "material-exam", True, ["reject"]),
+        ("main-form", "formal-exam", False, ["material-exam"]),
         (
             "main-form",
             "material-exam",
-            False,
             False,
             ["distribution", "publication", "fill-publication", "objections"],
         ),
-        (
-            "main-form",
-            "material-exam",
-            False,
-            True,
-            [
-                "distribution",
-                "publication",
-                "fill-publication",
-                "objections",
-                "material-exam-bab",
-            ],
-        ),
-        (
-            "meldung-pv",
-            "material-exam",
-            False,
-            False,
-            ["distribution"],
-        ),
+        ("meldung-pv", "material-exam", False, ["distribution"]),
     ],
 )
 def test_dynamic_task_after_exam(
@@ -469,7 +482,6 @@ def test_dynamic_task_after_exam(
     answer_factory,
     expected_tasks,
     has_rejection_answer,
-    is_bab,
     root_form,
     so_instance,
     so_rejection_settings,
@@ -484,10 +496,6 @@ def test_dynamic_task_after_exam(
             question__slug=so_rejection_settings["WORK_ITEM"]["ON_ANSWER"][task_id][0],
             value=so_rejection_settings["WORK_ITEM"]["ON_ANSWER"][task_id][1],
         )
-
-    if is_bab:
-        work_item.case.meta.update({"is-bab": True})
-        work_item.case.save()
 
     work_item.case.document.form_id = root_form
     work_item.case.document.save()

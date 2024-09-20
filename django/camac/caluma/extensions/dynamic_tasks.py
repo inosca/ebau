@@ -236,14 +236,24 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
     @register_dynamic_task("after-submit")
     def resolve_after_submit(self, case, user, prev_work_item, context):
-        if case.meta.get("is-appeal"):
-            return ["create-manual-workitems", "appeal", "distribution"]
-        elif case.document.form_id == "voranfrage":
-            return ["create-manual-workitems", "distribution"]
-        elif case.document.form_id == "meldung":
-            return ["create-manual-workitems", "decision"]
+        tasks = ["create-manual-workitems"]
 
-        return ["create-manual-workitems", "formal-exam", "init-additional-demand"]
+        if case.meta.get("is-appeal"):
+            tasks.extend(["appeal", "distribution"])
+        elif case.document.form_id == "voranfrage":
+            tasks.append("distribution")
+        elif case.document.form_id == "meldung":
+            tasks.append("decision")
+        else:
+            tasks.extend(["formal-exam", "init-additional-demand"])
+
+        if (
+            case.meta.get("is-bab")
+            or case.instance.responsible_service().service_group.name == "canton"
+        ):
+            tasks.append("material-exam-bab")
+
+        return tasks
 
     @register_dynamic_task("after-check-additional-demand")
     def resolve_after_check_additional_demand(
@@ -309,9 +319,6 @@ class CustomDynamicTasks(BaseDynamicTasks):
                     "fill-publication",
                     "objections",
                 ]
-
-            if prev_work_item.case.meta.get("is-bab"):
-                tasks.append("material-exam-bab")
 
             return tasks
 
