@@ -6,6 +6,7 @@ import CoordinatesPlaceholderComponent from "ember-ebau-core/components/coordina
 import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/appeal-button";
 import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
 import DecisionSubmitButtonComponent from "ember-ebau-core/components/decision/submit-button";
+import DirectInquiryCheckboxComponent from "ember-ebau-core/components/direct-inquiry-checkbox";
 import DynamicMaxDateInputComponent from "ember-ebau-core/components/dynamic-max-date-input";
 import ExamResultTextareaComponent from "ember-ebau-core/components/exam-result-textarea";
 import GrGisComponent from "ember-ebau-core/components/gr-gis";
@@ -100,6 +101,11 @@ export default class ApplicationRoute extends Route {
       label: "Textfeld Prüfungsergebnis",
       component: "exam-result-textarea",
       componentClass: ExamResultTextareaComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Checkbox direkte Erledigung",
+      component: "direct-inquiry-checkbox",
+      componentClass: DirectInquiryCheckboxComponent,
     });
   }
 }

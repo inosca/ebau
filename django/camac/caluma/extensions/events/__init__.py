@@ -10,6 +10,7 @@ from . import (  # noqa: F401
     construction_acceptance,
     construction_monitoring,
     decision,
+    direct_inquiry,
     distribution,
     ebau_number,
     general,
