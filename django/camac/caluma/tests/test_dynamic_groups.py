@@ -269,12 +269,35 @@ def test_dynamic_groups_ur(
     assert result == [str(expected_group_pk)]
 
 
-def test_dynamic_group_service_bab(db, service_factory, so_bab_settings, so_instance):
-    service = service_factory(service_group__name=so_bab_settings["SERVICE_GROUP"])
+def test_dynamic_group_service_bab(
+    db,
+    application_settings,
+    instance_service_factory,
+    service_factory,
+    settings,
+    so_bab_settings,
+    so_instance,
+):
+    application_settings["USE_INSTANCE_SERVICE"] = True
+    application_settings["ACTIVE_SERVICES"] = settings.APPLICATIONS["kt_so"][
+        "ACTIVE_SERVICES"
+    ]
+
+    service_bab = service_factory(service_group__name=so_bab_settings["SERVICE_GROUP"])
+    service_canton = service_factory(service_group__name="canton")
+
+    instance_service_factory(instance=so_instance, service=service_canton, active=1)
 
     assert CustomDynamicGroups().resolve("service-bab")(
         None, so_instance.case, None, None, None
-    ) == [str(service.pk)]
+    ) == [str(service_canton.pk)]
+
+    service_canton.service_group.name = "municipality"
+    service_canton.service_group.save()
+
+    assert CustomDynamicGroups().resolve("service-bab")(
+        None, so_instance.case, None, None, None
+    ) == [str(service_bab.pk)]
 
 
 @pytest.mark.parametrize(

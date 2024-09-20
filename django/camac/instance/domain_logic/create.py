@@ -25,6 +25,7 @@ from camac.core.utils import (
 )
 from camac.instance.models import Instance, InstanceGroup
 from camac.permissions.events import Trigger
+from camac.user.models import Service
 from camac.user.permissions import permission_aware
 
 from .. import models
@@ -293,6 +294,13 @@ class CreateInstanceLogic:
 
         if not authority:
             raise ValidationError("Instance does not have a responsible service")
+
+        if authority.service_group.name == "canton":
+            # If the canton is the authority, we use the external identifier of
+            # the selected municipality
+            authority = Service.objects.get(
+                pk=instance.case.document.answers.get(question_id="gemeinde").value
+            )
 
         if not authority.external_identifier:
             raise ValidationError(
