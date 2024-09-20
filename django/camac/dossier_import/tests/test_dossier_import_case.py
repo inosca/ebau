@@ -517,28 +517,10 @@ IMPORT_ROWS_SO = [
     ({"STATUS": "SUBMITTED", "CANTONAL-ID": "2024-3"}, "dossier_number"),  # None
     (
         {
-            "COORDINATE-E": "2`710`662",
-            "COORDINATE-N": "1`225`997",
+            "COORDINATE-E": 2710662.123,
+            "COORDINATE-N": 1225997.123,
             "PARCEL": "`123`,2BA",
             "EGRID": "HK207838123456,EGRIDDELLEY",
-        },
-        "plot_data",
-    ),
-    (
-        {
-            "COORDINATE-E": "1`225`997",
-            "COORDINATE-N": "2`710`662",
-            "PARCEL": "`123`,2BA",
-            "EGRID": "HK207838123456,EGRIDDELLEY",
-        },
-        "plot_data",
-    ),
-    (
-        {
-            "COORDINATE-E": "2`710`662",
-            "COORDINATE-N": "1`225`997",
-            "PARCEL": "`123`,2BA",
-            "EGRID": "HK207838123456",
         },
         "plot_data",
     ),

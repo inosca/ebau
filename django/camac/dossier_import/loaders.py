@@ -26,6 +26,9 @@ from camac.dossier_import.utils import get_worksheet_headings_and_rows
 
 
 def numbers(string):
+    if isinstance(string, float) or isinstance(string, int):
+        return string
+
     return int("".join(char for char in str(string) if char.isdigit()) or 0)
 
 
