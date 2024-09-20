@@ -47,7 +47,7 @@
     </div>
     <div>
       <div class="uk-text-bold">{{t "cases.tableHeaders.intent"}}</div>
-      {{or @case.intent "-"}}
+      <TruncatedText @content={{or @case.intent "-"}} />
     </div>
     <div class="uk-width-1-2">
       <div class="uk-text-bold">{{t "cases.header.keywords"}}</div>
