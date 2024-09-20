@@ -54,6 +54,7 @@ documents:
   hintMunicipalityForms: "gemeindespezifischen Formulare (5.0, 5.1, 5.2, 5.3 5.4, 5.5, 5.8)"
   linkMunicipalityForms: "https://www.bauen.dij.be.ch/de/start/baubewilligungsverfahren/eBau/formulare-fuer-baugesuchsteller"
   hint3: "falls benötigt, ausgefüllt und hochgeladen sind."
+  hint4: "Gemäss Art. 16 BewD müssen im Zeitpunkt der Baueingabe die Bauprofile gestellt sein und bis zum rechtskräftigen Bauentscheid stehen bleiben. Vor Rechtskraft der Baubewilligung darf mit den Bauarbeiten nicht begonnen werden."
 
   tags:
     beilagen-vorabklaerung: "Beilagen Vorabklärung"
