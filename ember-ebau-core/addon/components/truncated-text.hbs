@@ -1,0 +1,8 @@
+<span data-test-content>
+  {{this.truncatedContent}}{{#if this.isTruncated}}...
+    <a href="#" {{on "click" this.toggleModal}}>({{t "global.more"}})</a>
+  {{/if}}
+</span>
+<UkModal @visible={{this.modalVisible}} @onHide={{this.toggleModal}} as |Modal|>
+  <Modal.body>{{this.content}}</Modal.body>
+</UkModal>
