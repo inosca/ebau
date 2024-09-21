@@ -1382,7 +1382,7 @@ importers:
         version: 12.0.1(ember-source@4.12.4)
       ember-sinon-qunit:
         specifier: 7.5.0
-        version: 7.5.0(@babel/core@7.25.2)(ember-source@4.12.4)(qunit@2.22.0)(sinon@18.0.0)
+        version: 7.5.0(@babel/core@7.25.2)(ember-source@4.12.4)(qunit@2.22.0)(sinon@18.0.1)
       ember-source:
         specifier: 4.12.4
         version: 4.12.4(@babel/core@7.25.2)(@glimmer/component@1.1.2)(@glint/template@1.4.0)(webpack@5.94.0)
@@ -1441,8 +1441,8 @@ importers:
         specifier: 1.78.0
         version: 1.78.0
       sinon:
-        specifier: 18.0.0
-        version: 18.0.0
+        specifier: 18.0.1
+        version: 18.0.1
       testem-gitlab-reporter:
         specifier: 1.0.0
         version: 1.0.0
@@ -8966,7 +8966,7 @@ packages:
       - supports-color
     dev: true
 
-  /ember-sinon-qunit@7.5.0(@babel/core@7.25.2)(ember-source@4.12.4)(qunit@2.22.0)(sinon@18.0.0):
+  /ember-sinon-qunit@7.5.0(@babel/core@7.25.2)(ember-source@4.12.4)(qunit@2.22.0)(sinon@18.0.1):
     resolution: {integrity: sha512-wSoRqBbiytUtDFIE6DLPDZFYhoS4FH+kgHhr707HJMF5tUYpKPIruBusF9kWezj/yOrJLyLqoWFoaAJ2aG2FQw==}
     peerDependencies:
       ember-source: '>=3.28.0'
@@ -8978,7 +8978,7 @@ packages:
       decorator-transforms: 2.0.0(@babel/core@7.25.2)
       ember-source: 4.12.4(@babel/core@7.25.2)(@glimmer/component@1.1.2)(@glint/template@1.4.0)(webpack@5.94.0)
       qunit: 2.22.0
-      sinon: 18.0.0
+      sinon: 18.0.1
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
@@ -14312,8 +14312,8 @@ packages:
   /simple-html-tokenizer@0.5.11:
     resolution: {integrity: sha512-C2WEK/Z3HoSFbYq8tI7ni3eOo/NneSPRoPpcM7WdLjFOArFuyXEjAoCdOC3DgMfRyziZQ1hCNR4mrNdWEvD0og==}
 
-  /sinon@18.0.0:
-    resolution: {integrity: sha512-+dXDXzD1sBO6HlmZDd7mXZCR/y5ECiEiGCBSGuFD/kZ0bDTofPYc6JaeGmPSF+1j1MejGUWkORbYOLDyvqCWpA==}
+  /sinon@18.0.1:
+    resolution: {integrity: sha512-a2N2TDY1uGviajJ6r4D1CyRAkzE9NNVlYOV1wX5xQDuAk0ONgzgRl0EjCQuRCPxOwp13ghsMwt9Gdldujs39qw==}
     dependencies:
       '@sinonjs/commons': 3.0.1
       '@sinonjs/fake-timers': 11.2.2

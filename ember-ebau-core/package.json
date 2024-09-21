@@ -117,7 +117,7 @@
     "qunit": "2.22.0",
     "qunit-dom": "3.2.0",
     "sass": "1.78.0",
-    "sinon": "18.0.0",
+    "sinon": "18.0.1",
     "testem-gitlab-reporter": "1.0.0",
     "testem-multi-reporter": "1.2.0",
     "webpack": "5.94.0"
