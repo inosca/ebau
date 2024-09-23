@@ -22,6 +22,7 @@ from camac.instance.utils import get_construction_control, get_municipality
 from camac.permissions import models as permission_models
 from camac.permissions.api import PermissionManager
 from camac.permissions.exceptions import RevocationRejected
+from camac.user.models import Service
 from camac.user.utils import get_support_role
 
 log = getLogger(__name__)
@@ -45,6 +46,7 @@ class ACL:
     # to pass in additional data to be used during *creation*,
     # but are ignored when comparing ACLs
     start_time: Optional[datetime] = field(default=None)
+    end_time: Optional[datetime] = field(default=None)
     metainfo: Optional[dict] = field(default_factory=dict)
     created_by_event: Optional[str] = field(default=None)
 
@@ -256,8 +258,12 @@ class Command(BaseCommand):
                     lead_authority, inactive_lead_authority
                 )
             )
+        if uso := conf.get("USO"):
+            permissions.update(self._build_uso_permissions(uso))
         if invited_service := conf.get("DISTRIBUTION_INVITEE"):
-            permissions.update(self._build_distribution_permissions(invited_service))
+            permissions.update(
+                self._build_distribution_permissions(invited_service, bool(uso))
+            )
         if support_level := conf.get("SUPPORT"):
             permissions.update(self._build_support_permissions(support_level))
         if construction_control := conf.get("CONSTRUCTION_CONTROL"):
@@ -396,7 +402,7 @@ class Command(BaseCommand):
         for inst in inst_iter:
             yield support_acl(instance_id=inst.pk, start_time=inst.creation_date)
 
-    def _build_distribution_permissions(self, access_level):
+    def _build_distribution_permissions(self, access_level, ignore_uso=False):
         make_acl = partial(
             ACL,
             access_level=access_level,
@@ -424,10 +430,20 @@ class Command(BaseCommand):
             "case__family__instance",
         )
         log.info(f"    Checking {wi_iter.total} work items")
+
+        uso_ids = set(
+            map(
+                str,
+                Service.objects.filter(service_group__name="uso").values_list(
+                    "pk", flat=True
+                ),
+            )
+        )
         for workitem in wi_iter:
-            # Probably never multiple, but it's a list and we want to
-            # be clean
+            # Probably never multiple, but it's a list and we want to be clean
             for service_id in workitem.addressed_groups:
+                if ignore_uso and service_id in uso_ids:
+                    continue
                 yield make_acl(
                     instance_id=workitem.case.family.instance.pk,
                     service_id=service_id,
@@ -459,6 +475,67 @@ class Command(BaseCommand):
                 metainfo={"related-applicant-id": app.pk},
             )
 
+    def _build_uso_permissions(self, level):
+        make_acl = partial(
+            ACL,
+            access_level=level,
+            state=STATE_ACTIVE,
+            type=permission_models.GRANT_CHOICES.SERVICE.value,
+        )
+
+        wi_iter = self._iter_qs(
+            WorkItem.objects.filter(
+                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+            ).exclude(
+                status__in=[
+                    WorkItem.STATUS_SUSPENDED,
+                    WorkItem.STATUS_CANCELED,
+                ],
+            ),
+            "case__family__instance",
+        )
+        log.info(f"    Checking {wi_iter.total} work items")
+
+        uso_ids = set(
+            map(
+                str,
+                Service.objects.filter(service_group__name="uso").values_list(
+                    "pk", flat=True
+                ),
+            )
+        )
+        for workitem in wi_iter:
+            if not (
+                service_ids := set(workitem.addressed_groups).intersection(uso_ids)
+            ):
+                continue
+
+            # Probably never multiple, to be safe
+            for service_id in service_ids:
+                # default to completed inquiry
+                start_time = workitem.created_at
+                end_time = None
+                if workitem.status != WorkItem.STATUS_COMPLETED:
+                    # After invitation deadline
+                    end_time = start_time + timezone.timedelta(days=7)
+
+                    if "retrieved_by_uso" in workitem.meta:
+                        # After retrieval deadline
+                        retrieved = datetime.fromisoformat(
+                            workitem.meta["retrieved_by_uso"]
+                        )
+                        start_time = retrieved
+                        end_time = retrieved + timezone.timedelta(days=7)
+
+                yield make_acl(
+                    instance_id=workitem.case.family.instance.pk,
+                    service_id=service_id,
+                    #
+                    start_time=start_time,
+                    end_time=end_time,
+                    metainfo={"work-item-id": str(workitem.pk)},
+                )
+
     def _read_permissions_structure(self):
         # We exclude all manual ACLs. Those are granted/revoked by user and
         # therefore cannot, by definition, be derived from other structures /
@@ -482,6 +559,7 @@ class Command(BaseCommand):
                 user_id=acl.user_id,
                 service_id=acl.service_id,
                 start_time=acl.start_time,
+                end_time=acl.end_time,
                 metainfo=acl.metainfo,
             )
             self._existing_acls[virtual_acl] = acl
@@ -511,6 +589,7 @@ class Command(BaseCommand):
                 access_level_id=acl.access_level,
                 metainfo={**acl.metainfo, "migrated_at": timezone.now().isoformat()},
                 start_time=acl.start_time,
+                end_time=acl.end_time,
             )
             for acl in to_create
         )
