@@ -40,8 +40,8 @@ ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
 # 2. Form rules
 # 3. Role rules
 # 4. Other
-MODULE_ADDITIONAL_DEMANDS = (
-    STATES_ALL & ~RequireInstanceState(["subm"]) & ~IsForm(["vorlaeufige-beurteilung"])
+MODULE_ADDITIONAL_DEMANDS = STATES_ALL & ~IsForm(
+    ["vorlaeufige-beurteilung"]
 )  # TODO bauanzeige?
 MODULE_CONSTRUCTION_MONITORING = RequireWorkItem("construction-acceptance")
 MODULE_COMMUNICATIONS = STATES_ALL
