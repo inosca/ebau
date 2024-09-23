@@ -41,5 +41,6 @@ audit:
 
   forms:
     fp-form: "Formelle Prüfung"
+    fp-form-v2: "Formelle Prüfung"
     mp-form: "Materielle Prüfung"
     bab-form: "Bauen ausserhalb der Bauzone"

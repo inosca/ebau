@@ -410,6 +410,10 @@ DUMP = {
                 "caluma_audit_form": generate_form_dump_config(
                     regex=r"^(dossierpruefung|mp-|fp-|mp-|bab-)"
                 ),
+                "caluma_audit_form_v2": generate_form_dump_config(
+                    regex=r"^(dossierpruefung|mp-|fp-|mp-|bab-)",
+                    version=2,
+                ),
                 "caluma_publication_form": generate_form_dump_config(
                     regex=r"^publikation$"
                 ),

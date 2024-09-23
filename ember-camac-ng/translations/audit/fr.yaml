@@ -41,5 +41,6 @@ audit:
 
   forms:
     fp-form: "Examen formel"
+    fp-form-v2: "Examen formel"
     mp-form: "Examen matériel"
     bab-form: "Construction hors de la zone à bâtir"
