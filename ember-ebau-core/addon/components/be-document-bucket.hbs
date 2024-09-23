@@ -34,6 +34,13 @@
         <p class="uk-margin-right uk-margin-left">{{t
             (concat "documents.buckets." this.slug)
           }}</p>
+        {{#if this.documentBucketHint}}
+          <p
+            class="uk-margin-remove-top uk-margin-bottom uk-text-meta uk-text-bold uk-width-3-4"
+          >
+            {{this.documentBucketHint}}
+          </p>
+        {{/if}}
       </:header>
       <:footer>
         {{#if (or @loading @attachments.length)}}
