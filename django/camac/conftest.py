@@ -686,7 +686,11 @@ def caluma_audit(caluma_workflow_config_be):
     for slug in CALUMA_FORM_TYPES_SLUGS:
         caluma_form_models.Form.objects.create(slug=slug)
 
-    call_command("loaddata", settings.ROOT_DIR("kt_bern/config/caluma_audit_form.json"))
+    call_command(
+        "loaddata",
+        settings.ROOT_DIR("kt_bern/config/caluma_audit_form.json"),
+        settings.ROOT_DIR("kt_bern/config/caluma_audit_form_v2.json"),
+    )
     caluma_form_models.Form.objects.filter(pk__in=CALUMA_FORM_TYPES_SLUGS).delete()
 
 

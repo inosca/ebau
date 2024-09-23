@@ -160,7 +160,7 @@ DMS = {
                 ],
             },
             "regular-exams": {
-                "forms": ["fp-form", "bab-form"],
+                "forms": ["fp-form", "fp-form-v2", "bab-form"],
                 "template": "audit-form",
                 "exclude_slugs": [
                     "bab-01-07-1972-um-und-ausgebaut-meldung",
