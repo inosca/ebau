@@ -298,6 +298,6 @@ SO_PERMISSIONS_SETTINGS = {
     },
     "ENABLE_CACHE": env.bool("PERMISSION_MODULE_ENABLE_CACHE", default=True),
     "PERMISSION_MODE": getattr(
-        PERMISSION_MODE, env.bool("PERMISSION_MODULE_MODE", default="FULL")
+        PERMISSION_MODE, env.str("PERMISSION_MODULE_MODE", default="FULL")
     ),
 }
