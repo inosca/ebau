@@ -17,7 +17,7 @@ export default class AuditTableComponent extends Component {
   @queryManager apollo;
 
   get forms() {
-    return ["fp-form", "mp-form", "bab-form"];
+    return ["fp-form-v2", "mp-form", "bab-form"];
   }
 
   @dropTask
