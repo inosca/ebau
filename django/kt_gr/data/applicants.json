@@ -1,18 +1,6 @@
 [
   {
     "model": "applicants.applicant",
-    "pk": 4,
-    "fields": {
-      "instance": 4,
-      "user": 1,
-      "invitee": 1,
-      "created": "2023-10-27T08:50:33.083Z",
-      "email": "admin@example.com",
-      "role": "ADMIN"
-    }
-  },
-  {
-    "model": "applicants.applicant",
     "pk": 5,
     "fields": {
       "instance": 5,
@@ -21,30 +9,6 @@
       "created": "2023-10-27T08:54:10.511Z",
       "email": "admin@example.com",
       "role": "ADMIN"
-    }
-  },
-  {
-    "model": "applicants.applicant",
-    "pk": 6,
-    "fields": {
-      "instance": 4,
-      "user": 1,
-      "invitee": 2,
-      "created": "2024-08-16T08:42:29.384Z",
-      "email": "editor@example.com",
-      "role": "EDITOR"
-    }
-  },
-  {
-    "model": "applicants.applicant",
-    "pk": 7,
-    "fields": {
-      "instance": 4,
-      "user": 1,
-      "invitee": 3,
-      "created": "2024-08-16T08:42:44.810Z",
-      "email": "readonly@example.com",
-      "role": "READ_ONLY"
     }
   },
   {
@@ -69,6 +33,18 @@
       "created": "2024-08-16T08:42:44.830Z",
       "email": "readonly@example.com",
       "role": "READ_ONLY"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 10,
+    "fields": {
+      "instance": 6,
+      "user": 1,
+      "invitee": 1,
+      "created": "2024-09-23T11:46:59.993Z",
+      "email": "admin@example.com",
+      "role": "ADMIN"
     }
   }
 ]
