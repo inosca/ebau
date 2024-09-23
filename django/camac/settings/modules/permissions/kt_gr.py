@@ -4,7 +4,6 @@ from camac.permissions.conditions import (
     HasRole,
     IsForm,
     IsPaper,
-    Never,
     RequireInstanceState,
     RequireWorkItem,
 )
@@ -122,9 +121,8 @@ GR_PERMISSIONS_SETTINGS = {
             ("decision-read", MODULE_DECISION),
             ("distribution-read", MODULE_DISTRIBUTION),
             ("dms-generate-read", MODULE_DMS_GENERATE),
-            # TODO use MODULE_DOCUMENTS once permission module is enabled
-            ("documents-read", Never()),
-            ("documents-write", Never()),
+            ("documents-read", MODULE_DOCUMENTS),
+            ("documents-write", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
             (
                 "form-write",
@@ -154,9 +152,8 @@ GR_PERMISSIONS_SETTINGS = {
             ("decision-read", MODULE_DECISION),
             ("distribution-read", MODULE_DISTRIBUTION),
             ("dms-generate-read", MODULE_DMS_GENERATE),
-            # TODO use MODULE_DOCUMENTS once permission module is enabled
-            ("documents-read", Never()),
-            ("documents-write", Never()),
+            ("documents-read", MODULE_DOCUMENTS),
+            ("documents-write", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
             ("history-read", MODULE_HISTORY),
             ("journal-read", MODULE_JOURNAL),
@@ -196,9 +193,8 @@ GR_PERMISSIONS_SETTINGS = {
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
             ("distribution-read", MODULE_DISTRIBUTION),
-            # TODO use MODULE_DOCUMENTS once permission module is enabled
-            ("documents-read", Never()),
-            ("documents-write", Never()),
+            ("documents-read", MODULE_DOCUMENTS),
+            ("documents-write", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("work-items-read", MODULE_WORK_ITEMS),
