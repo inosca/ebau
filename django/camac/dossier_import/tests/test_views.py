@@ -1,6 +1,7 @@
 import mimetypes
 
 import pytest
+from django.http import FileResponse
 from django.utils import timezone
 from django_q.brokers import get_broker
 from django_q.signing import SignedPackage
@@ -8,6 +9,7 @@ from pytest_lazy_fixtures import lf
 from rest_framework import status
 from rest_framework.reverse import reverse
 
+from camac.core.views import SendfileHttpResponse
 from camac.utils import build_url
 
 from ...instance.serializers import CalumaInstanceSerializer
@@ -494,7 +496,24 @@ def test_failing_transmission(
 
 
 @pytest.mark.parametrize("role__name", ["Support"])
-def test_download_import(db, admin_client, archive_file, dossier_import_factory):
+@pytest.mark.parametrize(
+    "storage_backend,expected_response",
+    [
+        ("storages.backends.s3.S3Storage", FileResponse),
+        ("django.core.files.storage.FileSystemStorage", SendfileHttpResponse),
+    ],
+)
+def test_download_import(
+    db,
+    admin_client,
+    archive_file,
+    dossier_import_factory,
+    expected_response,
+    settings,
+    storage_backend,
+):
+    settings.STORAGES["default"]["BACKEND"] = storage_backend
+
     dossier_import = dossier_import_factory(
         source_file=archive_file("import-example.zip"),
         group=admin_client.user.groups.first(),
@@ -503,6 +522,7 @@ def test_download_import(db, admin_client, archive_file, dossier_import_factory)
         reverse("dossier-import-download", args=(dossier_import.pk,))
     )
     assert resp.status_code == status.HTTP_200_OK
+    assert isinstance(resp, expected_response)
 
 
 @pytest.mark.parametrize("role__name", ["Support"])

@@ -1,6 +1,7 @@
 from caluma.caluma_workflow.models import Case
 from django.conf import settings
 from django.core.mail import mail_admins, send_mail
+from django.http import FileResponse
 from django.utils.translation import gettext as _
 from django_q.tasks import async_task
 from rest_framework import status
@@ -168,11 +169,21 @@ class DossierImportView(ModelViewSet):
     def download(self, request, pk=None):
         dossier_import = self.get_object()
 
-        return SendfileHttpResponse(
-            content_type="application/zip",
+        if (
+            settings.STORAGES["default"]["BACKEND"]
+            == "django.core.files.storage.FileSystemStorage"
+        ):
+            return SendfileHttpResponse(
+                content_type="application/zip",
+                filename=dossier_import.filename(),
+                base_path=settings.MEDIA_ROOT,
+                file_path=f"/dossier_imports/files/{dossier_import.pk}/{dossier_import.filename()}",
+            )
+
+        return FileResponse(
+            dossier_import.source_file,
+            as_attachment=False,
             filename=dossier_import.filename(),
-            base_path=settings.MEDIA_ROOT,
-            file_path=f"/dossier_imports/files/{dossier_import.pk}/{dossier_import.filename()}",
         )
 
     @permission_aware
