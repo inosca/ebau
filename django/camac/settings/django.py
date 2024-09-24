@@ -1597,6 +1597,7 @@ APPLICATIONS = {
             "Koordinationsstelle Energie AfE": "coordination-lead",
             "Koordinationsstelle Forst und Jagd AFJ": "coordination-lead",
             "Koordinationsstelle Sicherheitsdirektion SD": "coordination-lead",
+            "Koordinationsstelle Amt für das Grundbuch AfG": "coordination-lead",
             "Portal User": "portal-user",
         },
         "USE_INSTANCE_SERVICE": True,
