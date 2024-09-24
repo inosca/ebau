@@ -16,6 +16,8 @@ dms:
   replace: "Vorlage ersetzen"
   system: "Systemvorlagen"
   template: "Vorlage"
+  modifiedAt: "Inhalt geändert"
+  modifiedBy: "Inhalt geändert von"
 
   delete-error: "Fehler beim Löschen der Vorlage"
   download-error: "Fehler beim Herunterladen der Vorlage"
