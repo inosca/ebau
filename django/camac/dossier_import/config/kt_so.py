@@ -152,7 +152,9 @@ class KtSolothurnDossierWriter(DossierWriter):
     def get_existing_dossier_ids(self, dossier_ids):
         return list(
             Keyword.objects.filter(
-                name__in=dossier_ids, service=self._group.service
+                name__in=dossier_ids,
+                service=self._group.service,
+                instances__isnull=False,
             ).values_list("name", flat=True)
         )
 
