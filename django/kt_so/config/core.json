@@ -6132,14 +6132,6 @@
   },
   {
     "model": "core.rroleacl",
-    "pk": 27,
-    "fields": {
-      "resource": 8,
-      "role": 4
-    }
-  },
-  {
-    "model": "core.rroleacl",
     "pk": 29,
     "fields": {
       "resource": 9,
