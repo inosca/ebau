@@ -16,6 +16,8 @@ dms:
   replace: "Sostituisci modello"
   system: "Modelli di sistema"
   template: "Modello"
+  modifiedAt: "Contenuto modificato"
+  modifiedBy: "Contenuto modificato da"
 
   delete-error: "Errore nel tentativo di eliminare il modello"
   download-error: "Errore nel tentativo di scaricare il modello"

@@ -1,3 +1,4 @@
+import { underscore } from "@ember/string";
 import JSONSerializer from "@ember-data/serializer/json";
 
 /*
@@ -14,6 +15,10 @@ export default class TemplateSerializer extends JSONSerializer {
 
   // Disable root key serialization since we want to send plain form data
   serializeIntoHash = null;
+
+  keyForAttribute(key) {
+    return underscore(key);
+  }
 
   serialize(snapshot) {
     const {
