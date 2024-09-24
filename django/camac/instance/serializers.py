@@ -1598,6 +1598,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             notification_key = "SUBMIT_KOOR_NP"
         if case.document.form_id == "mitbericht-kanton":
             return
+        if (
+            settings.APPLICATION_NAME == "kt_so"
+            and case.document.form_id != "baugesuch"
+        ):
+            notification_key = "SUBMIT_OTHERS"
 
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"][
