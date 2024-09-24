@@ -35,6 +35,11 @@ export default class DirectInquiryCheckboxComponent extends Component {
   });
 
   get isVisible() {
+    if (this.args.disabled && this.args.field.value?.length) {
+      // Needs to be visible if it's selected and readonly
+      return true;
+    }
+
     const hasPendingInquiry =
       this.distribution.navigation.value?.addressed.edges.find(
         ({ node }) => node.status === "READY",
