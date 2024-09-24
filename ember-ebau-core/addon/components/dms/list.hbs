@@ -18,6 +18,8 @@
       <tr>
         <th>{{t "dms.name"}}</th>
         <th>{{t "dms.category"}}</th>
+        <th>{{t "dms.modifiedAt"}}</th>
+        <th>{{t "dms.modifiedBy"}}</th>
         <th></th>
       </tr>
     </thead>
@@ -26,6 +28,8 @@
         <tr>
           <td>{{template.description}}</td>
           <td>{{or template.meta.category "-"}}</td>
+          <td>{{format-date template.modifiedAt format="datetime"}}</td>
+          <td>{{template.userFullName.value}}</td>
           <td class="uk-text-right">
             <LinkTo
               @route={{module-route "dms-admin" "edit"}}
@@ -47,7 +51,7 @@
         </tr>
       {{else}}
         <tr>
-          <td colspan="3" class="uk-text-center uk-text-italic">
+          <td colspan="5" class="uk-text-center uk-text-italic">
             {{t "dms.empty"}}
           </td>
         </tr>
