@@ -181,7 +181,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
     return this.case?.document.answers.edges
       .map((edge) =>
         mainConfig.intentSlugs.includes(edge.node.question.slug)
-          ? edge.node.value
+          ? edge.node.stringValue
           : null,
       )
       .filter(Boolean)
