@@ -25,5 +25,6 @@ documents:
   setConfidential: Als vertraulich markieren
   setNonConfidential: Vertraulich Markierung entfernen
   uploadError: Beim Hochladen der Datei ist etwas schief gelaufen
+  uploadErrorVirus: Die Datei konnte nicht hochgeladen werden, weil diese als schadhaft identifiziert wurde (Virus/Malware)
   uploadSuccess: Die Datei wurde erfolgreich hochgeladen
   wrongMimeType: Dieser Dateityp ist nicht erlaubt. Erlaubte Dateitypen sind PDF, PNG und JPEG.
