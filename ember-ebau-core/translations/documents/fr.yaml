@@ -25,5 +25,6 @@ documents:
   setConfidential: ""
   setNonConfidential: ""
   uploadError: Quelque chose a mal tourné en téléchargeant le fichier
+  uploadErrorVirus: Le fichier n'a pas pu être téléchargé car il a été identifié comme défectueux (virus/malware)
   uploadSuccess: Le fichier a été téléchargé avec succès
   wrongMimeType: Ce type de fichier n'est pas autorisé. Les types de fichiers autorisés sont PDF, PNG et JPEG.
