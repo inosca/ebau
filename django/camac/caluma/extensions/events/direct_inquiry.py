@@ -2,7 +2,7 @@ from caluma.caluma_core.events import on
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.api import complete_work_item
-from caluma.caluma_workflow.events import post_complete_work_item
+from caluma.caluma_workflow.events import post_complete_work_item, post_resume_work_item
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db import transaction
@@ -10,19 +10,26 @@ from django.db import transaction
 from .distribution import filter_by_task
 
 
-@on(post_complete_work_item, raise_exception=True)
+@on(post_resume_work_item, raise_exception=True)
 @filter_by_task("INQUIRY_TASK")
 @transaction.atomic
-def post_complete_direct_inquiry(sender, work_item, user, context=None, **kwargs):
+def send_direct_inquiry(sender, work_item, user, context=None, **kwargs):
     if not (direct_question := settings.DISTRIBUTION["QUESTIONS"].get("DIRECT")):
         return
 
-    is_direct = work_item.document.answers.filter(
+    if work_item.document.answers.filter(
         question_id=direct_question,
         value__contains=settings.DISTRIBUTION["ANSWERS"]["DIRECT"]["YES"],
-    ).exists()
+    ).exists():
+        work_item.meta["is-direct"] = True
+        work_item.save()
 
-    if not is_direct:
+
+@on(post_complete_work_item, raise_exception=True)
+@filter_by_task("INQUIRY_TASK")
+@transaction.atomic
+def complete_direct_inquiry(sender, work_item, user, context=None, **kwargs):
+    if not work_item.meta.get("is-direct"):
         return
 
     parent_inquiries = work_item.case.work_items.filter(
