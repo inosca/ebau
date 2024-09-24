@@ -107,7 +107,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       color: "emphasis",
     },
     "inquiry-answer-status-direct": {
-      icon: "question",
+      icon: "warning",
       color: "emphasis",
     },
   };
