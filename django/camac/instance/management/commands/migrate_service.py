@@ -107,7 +107,11 @@ class Command(BaseCommand):
 
         script = "\n".join(queries)
 
-        self.stdout.write(script)
+        if options["verbosity"] >= 2 or not options["exec"]:
+            # If verbosity is high enough, we'll show the SQL, and if
+            # we're not actually executing it, we'll show it as well (otherwise
+            # there is a command that doesn't do anything and shows nothing)
+            self.stdout.write(script)
 
         if options["exec"]:
             with connection.cursor() as cursor:
