@@ -1,11 +1,161 @@
 [
   {
     "model": "api.template",
+    "pk": "bab-begleitformular-kantonale-pruefung",
+    "fields": {
+      "description": "BaB - Begleitformular kantonale Prüfung",
+      "template": "bab-begleitformular-kantonale-pruefung.docx",
+      "engine": "docx-template",
+      "created_at": null,
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "bauentscheid",
+    "fields": {
+      "description": "Bauentscheid",
+      "template": "bauentscheid.docx",
+      "engine": "docx-template",
+      "created_at": null,
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "briefvorlage-an-gesuchstellerin",
+    "fields": {
+      "description": "Briefvorlage an GesuchstellerIn",
+      "template": "briefvorlage-an-gesuchstellerin.docx",
+      "engine": "docx-template",
+      "created_at": null,
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "eingangsbestaetigung-an-gesuchstellerin",
+    "fields": {
+      "description": "Eingangsbestätigung an GesuchstellerIn",
+      "template": "eingangsbestaetigung-an-gesuchstellerin.docx",
+      "engine": "docx-template",
+      "created_at": null,
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
     "pk": "form",
     "fields": {
       "description": "",
       "template": "form.docx",
       "engine": "docx-template",
+      "created_at": null,
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "inserat-amtsblatt",
+    "fields": {
+      "description": "Inserat Amtsblatt",
+      "template": "inserat-amtsblatt.docx",
+      "engine": "docx-template",
+      "created_at": null,
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "inserat-anzeiger",
+    "fields": {
+      "description": "Inserat Anzeiger",
+      "template": "inserat-anzeiger.docx",
+      "engine": "docx-template",
+      "created_at": null,
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "pruefung-kanalisationsanschluss",
+    "fields": {
+      "description": "Prüfung Kanalisationsanschluss und Versickerungsanlage",
+      "template": "pruefung-kanalisationsanschluss-und-versickerungsanlage.xlsx",
+      "engine": "xlsx-template",
+      "created_at": null,
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "pv-anlage-bestaetigung",
+    "fields": {
+      "description": "PV-Anlage - Bestätigung",
+      "template": "pv-anlage-bestaetigung.docx",
+      "engine": "docx-template",
+      "created_at": null,
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "selbstdeklaration-bauabschluss",
+    "fields": {
+      "description": "Selbstdeklaration Bauabschluss",
+      "template": "selbstdeklaration-bauabschluss.docx",
+      "engine": "docx-template",
+      "created_at": null,
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "meta": {}
     }
   },
@@ -16,6 +166,28 @@
       "description": "",
       "template": "signatures.docx",
       "engine": "docx-template",
+      "created_at": null,
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "vorpruefung-baugesuche",
+    "fields": {
+      "description": "Vorprüfung Baugesuche",
+      "template": "vorpruefung-baugesuche.xlsx",
+      "engine": "xlsx-template",
+      "created_at": null,
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
       "meta": {}
     }
   }
