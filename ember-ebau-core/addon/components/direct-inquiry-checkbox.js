@@ -35,11 +35,25 @@ export default class DirectInquiryCheckboxComponent extends Component {
   });
 
   get isVisible() {
+    if (this.args.disabled && this.args.field.value?.length) {
+      // Needs to be visible if it's selected and readonly
+      return true;
+    }
+
     const hasPendingInquiry =
       this.distribution.navigation.value?.addressed.edges.find(
         ({ node }) => node.status === "READY",
       );
 
     return hasPendingInquiry && this.#isSubservice.value;
+  }
+
+  get disabled() {
+    return (
+      this.args.disabled ||
+      // If the inquiry is already sent the checkbox must be disabled as the
+      // meta property used in the backend is written on send
+      (this.args.context?.inquiry?.status === "READY" ?? false)
+    );
   }
 }

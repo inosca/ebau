@@ -7,6 +7,7 @@ import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/a
 import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
 import DecisionSubmitButtonComponent from "ember-ebau-core/components/decision/submit-button";
 import DirectInquiryCheckboxComponent from "ember-ebau-core/components/direct-inquiry-checkbox";
+import DirectInquiryInfoComponent from "ember-ebau-core/components/direct-inquiry-info";
 import DynamicMaxDateInputComponent from "ember-ebau-core/components/dynamic-max-date-input";
 import ExamResultTextareaComponent from "ember-ebau-core/components/exam-result-textarea";
 import GrGisComponent from "ember-ebau-core/components/gr-gis";
@@ -106,6 +107,11 @@ export default class ApplicationRoute extends Route {
       label: "Checkbox direkte Erledigung",
       component: "direct-inquiry-checkbox",
       componentClass: DirectInquiryCheckboxComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Infotext direkte Erledigung",
+      component: "direct-inquiry-info",
+      componentClass: DirectInquiryInfoComponent,
     });
   }
 }

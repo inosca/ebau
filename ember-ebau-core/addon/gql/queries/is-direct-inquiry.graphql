@@ -1,0 +1,12 @@
+query IsDirectInquiry($documentId: ID!) {
+  allDocuments(
+    filter: [
+      { id: $documentId }
+      {
+        hasAnswer: { question: "inquiry-direct", value: ["inquiry-direct-yes"] }
+      }
+    ]
+  ) {
+    totalCount
+  }
+}
