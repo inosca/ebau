@@ -196,7 +196,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
             addressed_groups=prev_work_item.controlling_groups,
         )
 
-        if not check_inquiries.exists():
+        if not check_inquiries.exists() and not prev_work_item.meta.get("is-direct"):
             tasks.append(settings.DISTRIBUTION["INQUIRY_CHECK_TASK"])
 
         # If no check-distribution work-item exists addressed to

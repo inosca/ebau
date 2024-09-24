@@ -212,14 +212,8 @@ def visible_inquiries_expression(group: Group) -> Expression:
         )
 
     direct_inquiries_when = Value(False)
-    if direct_question := settings.DISTRIBUTION["QUESTIONS"].get("DIRECT"):
-        direct_inquiries_when = Exists(
-            Answer.objects.filter(
-                document__work_item=OuterRef("pk"),
-                question_id=direct_question,
-                value__contains=settings.DISTRIBUTION["ANSWERS"]["DIRECT"]["YES"],
-            )
-        )
+    if settings.DISTRIBUTION["QUESTIONS"].get("DIRECT"):
+        direct_inquiries_when = Q(**{"meta__is-direct": True})
 
     return Case(
         When(direct_inquiries_when, then=Value(True)),
