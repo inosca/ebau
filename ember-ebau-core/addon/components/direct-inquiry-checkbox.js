@@ -47,4 +47,13 @@ export default class DirectInquiryCheckboxComponent extends Component {
 
     return hasPendingInquiry && this.#isSubservice.value;
   }
+
+  get disabled() {
+    return (
+      this.args.disabled ||
+      // If the inquiry is already sent the checkbox must be disabled as the
+      // meta property used in the backend is written on send
+      (this.args.context?.inquiry?.status === "READY" ?? false)
+    );
+  }
 }

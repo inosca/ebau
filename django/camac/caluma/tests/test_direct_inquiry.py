@@ -2,7 +2,11 @@ import pytest
 from caluma.caluma_core.relay import extract_global_id
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Question
-from caluma.caluma_workflow.api import complete_work_item, skip_work_item
+from caluma.caluma_workflow.api import (
+    complete_work_item,
+    resume_work_item,
+    skip_work_item,
+)
 from caluma.caluma_workflow.models import WorkItem
 
 from camac.caluma.extensions.visibilities import CustomVisibility
@@ -63,21 +67,39 @@ def inquiry_factory_so(
         )
 
         if direct:
-            save_answer(
-                document=inquiry.document,
-                question=Question.objects.get(
-                    pk=so_distribution_settings["QUESTIONS"]["DIRECT"]
-                ),
-                value=[so_distribution_settings["ANSWERS"]["DIRECT"]["YES"]],
-                user=caluma_admin_user,
-            )
+            inquiry.meta["is-direct"] = True
+            inquiry.save()
 
         return inquiry
 
     return factory
 
 
-def test_direct_inquiry(
+def test_mark_direct_inquiry(
+    db,
+    caluma_admin_user,
+    inquiry_factory_so,
+    so_distribution_settings,
+):
+    inquiry = inquiry_factory_so()
+
+    save_answer(
+        document=inquiry.document,
+        question=Question.objects.get(
+            pk=so_distribution_settings["QUESTIONS"]["DIRECT"]
+        ),
+        value=[so_distribution_settings["ANSWERS"]["DIRECT"]["YES"]],
+        user=caluma_admin_user,
+    )
+
+    resume_work_item(work_item=inquiry, user=caluma_admin_user)
+
+    inquiry.refresh_from_db()
+
+    assert inquiry.meta["is-direct"] is True
+
+
+def test_complete_direct_inquiry(
     db,
     caluma_admin_user,
     inquiry_factory_so,
@@ -123,6 +145,12 @@ def test_direct_inquiry(
         ).value
         == so_distribution_settings["ANSWERS"]["STATUS"]["DIRECT"]
     )
+
+    assert not parent_inquiry.case.work_items.filter(
+        task_id=so_distribution_settings["INQUIRY_CHECK_TASK"],
+        status=WorkItem.STATUS_READY,
+        addressed_groups=[str(parent_service.pk)],
+    ).exists()
 
 
 def test_direct_inquiry_visibility(
