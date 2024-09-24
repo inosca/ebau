@@ -25,8 +25,9 @@ export default class CustomField extends Field {
     const workflow = response[0].node.case.workflow.slug;
     const form = response[0].node.case.document.form.slug;
     const isAppeal = response[0].node.case.meta["is-appeal"] ?? false;
+    const workItemStatus = response[0].node.status;
 
-    return { workflow, form, isAppeal };
+    return { workflow, form, isAppeal, workItemStatus };
   }
 
   get hidden() {
