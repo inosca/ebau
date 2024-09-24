@@ -3,6 +3,7 @@ query WorkItemCaseInformation($id: ID!) {
     edges {
       node {
         id
+        status
         case {
           id
           meta
