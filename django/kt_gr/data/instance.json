@@ -1,27 +1,9 @@
 [
   {
     "model": "instance.instance",
-    "pk": 4,
-    "fields": {
-      "instance_state": 120004,
-      "form": 1,
-      "user": 1,
-      "group": 3,
-      "creation_date": "2023-10-27T08:50:33.081Z",
-      "modification_date": "2023-10-27T08:50:33.081Z",
-      "previous_instance_state": 1,
-      "identifier": null,
-      "location": null,
-      "case": "1981f4cf-4940-4ca6-8582-064b54bbcf3b",
-      "instance_group": null,
-      "rejection_feedback": null
-    }
-  },
-  {
-    "model": "instance.instance",
     "pk": 5,
     "fields": {
-      "instance_state": 1,
+      "instance_state": 120004,
       "form": 1,
       "user": 1,
       "group": 3,
@@ -36,68 +18,21 @@
     }
   },
   {
-    "model": "instance.historyentry",
-    "pk": 7,
+    "model": "instance.instance",
+    "pk": 6,
     "fields": {
-      "instance": 4,
-      "service": null,
+      "instance_state": 1,
+      "form": 1,
       "user": 1,
-      "created_at": "2023-10-27T08:53:38.243Z",
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 8,
-    "fields": {
-      "instance": 4,
-      "service": null,
-      "user": 1,
-      "created_at": "2023-10-27T08:53:39.683Z",
-      "title": null,
-      "body": null,
-      "history_type": "notification"
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 9,
-    "fields": {
-      "instance": 4,
-      "service": null,
-      "user": 1,
-      "created_at": "2023-10-27T08:53:39.753Z",
-      "title": null,
-      "body": null,
-      "history_type": "notification"
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 10,
-    "fields": {
-      "instance": 4,
-      "service": null,
-      "user": 1,
-      "created_at": "2024-08-16T08:41:45.204Z",
-      "title": null,
-      "body": null,
-      "history_type": "notification"
-    }
-  },
-  {
-    "model": "instance.historyentry",
-    "pk": 11,
-    "fields": {
-      "instance": 4,
-      "service": null,
-      "user": 1,
-      "created_at": "2024-08-16T08:42:07.954Z",
-      "title": null,
-      "body": null,
-      "history_type": "notification"
+      "group": 3,
+      "creation_date": "2024-09-23T11:46:59.985Z",
+      "modification_date": "2024-09-23T11:46:59.985Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": null,
+      "case": "89c46022-a9d8-43d4-b18e-fdc6bc351ba9",
+      "instance_group": null,
+      "rejection_feedback": null
     }
   },
   {
@@ -127,153 +62,42 @@
     }
   },
   {
-    "model": "instance.historyentryt",
-    "pk": 21,
+    "model": "instance.historyentry",
+    "pk": 14,
     "fields": {
-      "title": "Dossier eingereicht",
-      "body": "",
-      "history_entry": 7,
-      "language": "de"
+      "instance": 5,
+      "service": null,
+      "user": 1,
+      "created_at": "2024-09-23T11:41:51.042Z",
+      "title": null,
+      "body": null,
+      "history_type": "status-change"
     }
   },
   {
-    "model": "instance.historyentryt",
-    "pk": 22,
+    "model": "instance.historyentry",
+    "pk": 15,
     "fields": {
-      "title": "Dossier envoyé",
-      "body": "",
-      "history_entry": 7,
-      "language": "fr"
+      "instance": 5,
+      "service": null,
+      "user": 1,
+      "created_at": "2024-09-23T11:41:52.103Z",
+      "title": null,
+      "body": null,
+      "history_type": "notification"
     }
   },
   {
-    "model": "instance.historyentryt",
-    "pk": 23,
+    "model": "instance.historyentry",
+    "pk": 16,
     "fields": {
-      "title": "Dossier eingereicht",
-      "body": "",
-      "history_entry": 7,
-      "language": "it"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 24,
-    "fields": {
-      "title": "Notifikation gesendet an admin@example.com (Gesuchsteller/in) ([eBau Test]: Erfolgreiche Einreichung)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 2023-2 (Baugesuch, Gemeinde Chur)  wurde erfolgreich übermittelt. Bitte beachten Sie, dass das Verfahren erst eingeleitet wird, wenn die Eingabequittung ausgedruckt und unterzeichnet bei der Standortgemeinde eingereicht wurde. \n\nhttp://ebau-portal.local/instances/4\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nLeitbehörde Chur",
-      "history_entry": 8,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 25,
-    "fields": {
-      "title": "Notification envoyée à admin@example.com (Requérant/e) ([eBau Test]: Erfolgreiche Einreichung)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 2023-2 (Baugesuch, Gemeinde Chur)  wurde erfolgreich übermittelt. Bitte beachten Sie, dass das Verfahren erst eingeleitet wird, wenn die Eingabequittung ausgedruckt und unterzeichnet bei der Standortgemeinde eingereicht wurde. \n\nhttp://ebau-portal.local/instances/4\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nLeitbehörde Chur",
-      "history_entry": 8,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 26,
-    "fields": {
-      "title": "Notifikation gesendet an admin@example.com (Gesuchsteller/in) ([eBau Test]: Erfolgreiche Einreichung)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 2023-2 (Baugesuch, Gemeinde Chur)  wurde erfolgreich übermittelt. Bitte beachten Sie, dass das Verfahren erst eingeleitet wird, wenn die Eingabequittung ausgedruckt und unterzeichnet bei der Standortgemeinde eingereicht wurde. \n\nhttp://ebau-portal.local/instances/4\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nLeitbehörde Chur",
-      "history_entry": 8,
-      "language": "it"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 27,
-    "fields": {
-      "title": "Notifikation gesendet an email@example.ch (Leitbehörde) ([eBau Test]: Neu eingegangen)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 2023-2 (Baugesuch, Gemeinde Chur).\n\nhttp://ember-ebau.local/index/redirect-to-instance-resource/instance-id/4\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
-      "history_entry": 9,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 28,
-    "fields": {
-      "title": "Notification envoyée à email@example.ch (Autorité directrice) ([eBau Test]: Neu eingegangen)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 2023-2 (Baugesuch, Gemeinde Chur).\n\nhttp://ember-ebau.local/index/redirect-to-instance-resource/instance-id/4\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
-      "history_entry": 9,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 29,
-    "fields": {
-      "title": "Notifikation gesendet an email@example.ch (Leitbehörde) ([eBau Test]: Neu eingegangen)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 2023-2 (Baugesuch, Gemeinde Chur).\n\nhttp://ember-ebau.local/index/redirect-to-instance-resource/instance-id/4\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
-      "history_entry": 9,
-      "language": "it"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 30,
-    "fields": {
-      "title": "Notifikation gesendet an editor@example.com ([eBau Test]: Einsicht respektive Mitarbeit in Dossier (Nr. 2023-2))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben von Fritz Tester, Teststrasse, 1234 Testhausen den Zugriff auf das Dossier-Nr. 2023-2 (Baugesuch, Gemeinde Chur, http://ebau-portal.local/instances/4) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\n\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Graubünden erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: http://ebau-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
-      "history_entry": 10,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 31,
-    "fields": {
-      "title": "Notification envoyée à editor@example.com ([eBau Test]: Einsicht respektive Mitarbeit in Dossier (Nr. 2023-2))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben von Fritz Tester, Teststrasse, 1234 Testhausen den Zugriff auf das Dossier-Nr. 2023-2 (Baugesuch, Gemeinde Chur, http://ebau-portal.local/instances/4) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\n\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Graubünden erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: http://ebau-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
-      "history_entry": 10,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 32,
-    "fields": {
-      "title": "Notifikation gesendet an editor@example.com ([eBau Test]: Einsicht respektive Mitarbeit in Dossier (Nr. 2023-2))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben von Fritz Tester, Teststrasse, 1234 Testhausen den Zugriff auf das Dossier-Nr. 2023-2 (Baugesuch, Gemeinde Chur, http://ebau-portal.local/instances/4) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\n\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Graubünden erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: http://ebau-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
-      "history_entry": 10,
-      "language": "it"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 33,
-    "fields": {
-      "title": "Notifikation gesendet an readonly@example.com ([eBau Test]: Einsicht respektive Mitarbeit in Dossier (Nr. 2023-2))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben von Fritz Tester, Teststrasse, 1234 Testhausen den Zugriff auf das Dossier-Nr. 2023-2 (Baugesuch, Gemeinde Chur, http://ebau-portal.local/instances/4) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\n\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Graubünden erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: http://ebau-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
-      "history_entry": 11,
-      "language": "de"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 34,
-    "fields": {
-      "title": "Notification envoyée à readonly@example.com ([eBau Test]: Einsicht respektive Mitarbeit in Dossier (Nr. 2023-2))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben von Fritz Tester, Teststrasse, 1234 Testhausen den Zugriff auf das Dossier-Nr. 2023-2 (Baugesuch, Gemeinde Chur, http://ebau-portal.local/instances/4) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\n\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Graubünden erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: http://ebau-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
-      "history_entry": 11,
-      "language": "fr"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 35,
-    "fields": {
-      "title": "Notifikation gesendet an readonly@example.com ([eBau Test]: Einsicht respektive Mitarbeit in Dossier (Nr. 2023-2))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben von Fritz Tester, Teststrasse, 1234 Testhausen den Zugriff auf das Dossier-Nr. 2023-2 (Baugesuch, Gemeinde Chur, http://ebau-portal.local/instances/4) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\n\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Graubünden erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: http://ebau-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
-      "history_entry": 11,
-      "language": "it"
+      "instance": 5,
+      "service": null,
+      "user": 1,
+      "created_at": "2024-09-23T11:41:52.132Z",
+      "title": null,
+      "body": null,
+      "history_type": "notification"
     }
   },
   {
@@ -333,6 +157,96 @@
       "title": "Notifikation gesendet an readonly@example.com ([eBau Test]: Einsicht respektive Mitarbeit in Dossier (Nr. -))",
       "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben von Max Muster, Musterstrasse, 1234 Musterdorf den Zugriff auf das Dossier-Nr. - (Baugesuch, Gemeinde Chur, http://ebau-portal.local/instances/5) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\n\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Graubünden erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: http://ebau-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
       "history_entry": 13,
+      "language": "it"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 42,
+    "fields": {
+      "title": "Dossier eingereicht",
+      "body": "",
+      "history_entry": 14,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 43,
+    "fields": {
+      "title": "Dossier envoyé",
+      "body": "",
+      "history_entry": 14,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 44,
+    "fields": {
+      "title": "Dossier inoltrato",
+      "body": "",
+      "history_entry": 14,
+      "language": "it"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 45,
+    "fields": {
+      "title": "Notifikation gesendet an admin@example.com, editor@example.com, readonly@example.com (Gesuchsteller/in) ([eBau Test]: Erfolgreiche Einreichung / Trasmissione avvenuta con successo)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 2024-1 (Baugesuch, Gemeinde Chur)  wurde erfolgreich übermittelt. Bitte beachten Sie, dass das Verfahren erst eingeleitet wird, wenn die Eingabequittung ausgedruckt und unterzeichnet bei der Standortgemeinde eingereicht wurde. \n\nhttp://ebau-portal.local/instances/5\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nGemeinde Chur\n\n---\n\nBuongiorno,\n\nil dossier n. 2024-1 (Domanda di costruzione, Comune di Coira) è stato trasmesso con successo. Si prega di osservare che la procedura viene avviata solo dopo che la ricevuta è stata stampata, firmata e trasmessa al comune di ubicazione. \n\nhttp://ebau-portal.local/instances/5\n\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\n\nCordiali saluti\nComune di Coira",
+      "history_entry": 15,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 46,
+    "fields": {
+      "title": "Notification envoyée à admin@example.com, editor@example.com, readonly@example.com (Requérant/e) ([eBau Test]: Erfolgreiche Einreichung / Trasmissione avvenuta con successo)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 2024-1 (Baugesuch, Gemeinde Chur)  wurde erfolgreich übermittelt. Bitte beachten Sie, dass das Verfahren erst eingeleitet wird, wenn die Eingabequittung ausgedruckt und unterzeichnet bei der Standortgemeinde eingereicht wurde. \n\nhttp://ebau-portal.local/instances/5\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nGemeinde Chur\n\n---\n\nBuongiorno,\n\nil dossier n. 2024-1 (Domanda di costruzione, Comune di Coira) è stato trasmesso con successo. Si prega di osservare che la procedura viene avviata solo dopo che la ricevuta è stata stampata, firmata e trasmessa al comune di ubicazione. \n\nhttp://ebau-portal.local/instances/5\n\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\n\nCordiali saluti\nComune di Coira",
+      "history_entry": 15,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 47,
+    "fields": {
+      "title": "Notifica inviata a admin@example.com, editor@example.com, readonly@example.com( (Persona richiedente)) ([eBau Test]: Erfolgreiche Einreichung / Trasmissione avvenuta con successo)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 2024-1 (Baugesuch, Gemeinde Chur)  wurde erfolgreich übermittelt. Bitte beachten Sie, dass das Verfahren erst eingeleitet wird, wenn die Eingabequittung ausgedruckt und unterzeichnet bei der Standortgemeinde eingereicht wurde. \n\nhttp://ebau-portal.local/instances/5\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nGemeinde Chur\n\n---\n\nBuongiorno,\n\nil dossier n. 2024-1 (Domanda di costruzione, Comune di Coira) è stato trasmesso con successo. Si prega di osservare che la procedura viene avviata solo dopo che la ricevuta è stata stampata, firmata e trasmessa al comune di ubicazione. \n\nhttp://ebau-portal.local/instances/5\n\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\n\nCordiali saluti\nComune di Coira",
+      "history_entry": 15,
+      "language": "it"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 48,
+    "fields": {
+      "title": "Notifikation gesendet an email@example.ch (Leitbehörde) ([eBau Test]: Neu eingegangen (Baugesuch) / Nuovi moduli pervenuti (Baugesuch))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 2024-1 (Baugesuch, Gemeinde Chur).\n\nhttp://ember-ebau.local/cases/5\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau\n\n---\n\nBuongiorno,\n\nin eBau è arrivato un nuovo dossier con il n. 2024-1 (Domanda di costruzione, Comune di Coira).\n\nhttp://ember-ebau.local/cases/5\n\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\n\nCordiali saluti\neBau",
+      "history_entry": 16,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 49,
+    "fields": {
+      "title": "Notification envoyée à email@example.ch (Autorité directrice) ([eBau Test]: Neu eingegangen (Baugesuch) / Nuovi moduli pervenuti (Baugesuch))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 2024-1 (Baugesuch, Gemeinde Chur).\n\nhttp://ember-ebau.local/cases/5\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau\n\n---\n\nBuongiorno,\n\nin eBau è arrivato un nuovo dossier con il n. 2024-1 (Domanda di costruzione, Comune di Coira).\n\nhttp://ember-ebau.local/cases/5\n\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\n\nCordiali saluti\neBau",
+      "history_entry": 16,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 50,
+    "fields": {
+      "title": "Notifica inviata a email@example.ch( (Autorità direttrice)) ([eBau Test]: Neu eingegangen (Baugesuch) / Nuovi moduli pervenuti (Baugesuch))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 2024-1 (Baugesuch, Gemeinde Chur).\n\nhttp://ember-ebau.local/cases/5\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau\n\n---\n\nBuongiorno,\n\nin eBau è arrivato un nuovo dossier con il n. 2024-1 (Domanda di costruzione, Comune di Coira).\n\nhttp://ember-ebau.local/cases/5\n\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\n\nCordiali saluti\neBau",
+      "history_entry": 16,
       "language": "it"
     }
   }
