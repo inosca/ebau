@@ -148,53 +148,12 @@ class InstanceQuerysetMixin(object):
         return self.get_base_queryset_acl()
 
     def get_queryset_for_coordination(self, group=None):
-        group = self._get_group(group)
+        # In Uri coordination services are allowed to see all instances.
+        # This is also partly a performance work-around as running this mixin
+        # with all the additional filters would be incredibly slow for KOOR BG (30-60 Sek)
+        # since they are invited to every single distribution.
         queryset = self.get_base_queryset()
-        instance_field = self._get_instance_filter_expr("pk", "in")
-        form_field = self._get_instance_filter_expr("form", "in")
-
-        instances_created_by_group = self._instances_created_by(group)
-        state_field = self._get_instance_filter_expr("instance_state__name")
-        service_group_field = self._get_instance_filter_expr(
-            "group__service__service_group"
-        )
-
-        # KOORs see self-created instances
-        # and they also see instances they are responsible for,
-        # as long as they have not been created by other KOOR
-        filter = Q(**{instance_field: instances_created_by_group}) | (
-            Q(**{form_field: uri_constants.RESPONSIBLE_KOORS.get(group.service_id, [])})
-            & ~Q(**{service_group_field: uri_constants.SERVICE_GROUP_KOOR})
-            & ~Q(**{state_field: "new"})
-        )
-
-        responsible_pgv_answer = {
-            uri_constants.ROLE_KOOR_BG: "mbv-bund-type-pgv-seilbahn",
-            uri_constants.ROLE_KOOR_BD: "mbv-bund-type-pgv-eisenbahn",
-        }.get(group.role.pk)
-
-        if responsible_pgv_answer:
-            # and they also see the form "Mitbericht Bundesstelle", if the
-            # selected "form type" matches their KOOR
-            pgv_instances = list(
-                Instance.objects.filter(
-                    case__document__answers__question_id="mbv-bund-type",
-                    case__document__answers__value=responsible_pgv_answer,
-                ).values_list("instance_id", flat=True)
-            )
-
-            filter = (
-                filter
-                | Q(
-                    **{
-                        form_field: [uri_constants.FORM_MITBERICHT_BUNDESSTELLE],
-                        instance_field: pgv_instances,
-                    }
-                )
-                | self.permissions_manager().get_q_object(self.instance_field)
-            )
-
-        return queryset.filter(filter)
+        return queryset
 
     @permission_switching_method
     def get_queryset_for_municipality(self, group=None):
@@ -443,9 +402,6 @@ class InstanceQuerysetMixin(object):
             return models.Instance.objects.none()
 
         return models.Instance.objects.filter(group__service=group.service)
-
-    def _instances_created_by(self, group):
-        return Instance.objects.filter(group=group).values("instance_id")
 
 
 class InstanceEditableMixin(AttributeMixin):
