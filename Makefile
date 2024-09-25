@@ -386,3 +386,8 @@ gr-extract-translations: # Export translation files
 	@mkdir -p "django/translations"
 	docker compose exec django python manage.py translate_extract
 	@cp -r django/translations/. django/extracted_translations/csv_files/
+
+.PHONY: scan-images
+scan-images: ## Scan docker images with trivy
+	@pnpm -C tools -s install
+	@node tools/bin/scan-images.js
