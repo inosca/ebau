@@ -65,7 +65,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-direct-info",
-      "sort": 1
+      "sort": 10
     }
   },
   {
@@ -80,7 +80,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-forward",
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -95,7 +95,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-negative-assessments",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -110,7 +110,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-notices-for-applicant",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -125,7 +125,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-notices-for-authority",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -140,7 +140,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-notices-for-authority-arp",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -155,7 +155,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-objections",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -170,7 +170,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-positive-assessments",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -185,7 +185,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-rejection-additional-demand",
-      "sort": 7
+      "sort": 6
     }
   },
   {
@@ -200,7 +200,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-status",
-      "sort": 10
+      "sort": 9
     }
   },
   {
