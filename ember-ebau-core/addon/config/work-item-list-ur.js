@@ -18,9 +18,11 @@ export default {
   },
   columns(status) {
     return [
+      "instanceId",
       "task",
-      "instance",
+      "type",
       "description",
+      "municipality",
       "applicants",
       ...(status === "COMPLETED"
         ? ["closedAt", "closedBy"]

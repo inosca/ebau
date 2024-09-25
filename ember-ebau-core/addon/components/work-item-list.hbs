@@ -7,11 +7,16 @@
         </th>
       {{/if}}
       {{#each @columns as |column|}}
-        <th class={{if (eq column "task") "uk-width-1-4"}}>{{t
-            (concat "workItems." column)
-          }}</th>
+        <th
+          class={{if
+            (not
+              (includes column (array "task" "instance" "type" "description"))
+            )
+            "uk-table-shrink"
+          }}
+        >{{t (concat "workItems." column)}}</th>
       {{/each}}
-      <th>
+      <th class="uk-table-shrink">
         <span hidden>{{t "workItems.actions.title"}}</span>
       </th>
     </tr>
