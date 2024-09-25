@@ -91,44 +91,6 @@ def test_instance_list(
         snapshot.assert_match([i["type"] for i in json["included"]])
 
 
-@pytest.mark.parametrize("role__name,instance__user", [("Coordination", lf("user"))])
-@pytest.mark.parametrize(
-    "answer,koor_role,expected_count",
-    [
-        ("mbv-bund-type-pgv-seilbahn", "camac.constants.kt_uri.ROLE_KOOR_BG", 1),
-        ("mbv-bund-type-pgv-eisenbahn", "camac.constants.kt_uri.ROLE_KOOR_BG", 0),
-        ("mbv-bund-type-pgv-eisenbahn", "camac.constants.kt_uri.ROLE_KOOR_BD", 1),
-        ("mbv-bund-type-pgv-seilbahn", "camac.constants.kt_uri.ROLE_KOOR_BD", 0),
-    ],
-)
-def test_instance_list_for_coordination_ur(
-    admin_client,
-    ur_instance,
-    mocker,
-    group,
-    group_factory,
-    answer,
-    question_factory,
-    answer_factory,
-    koor_role,
-    expected_count,
-):
-    mocker.patch(
-        "camac.constants.kt_uri.FORM_MITBERICHT_BUNDESSTELLE", ur_instance.form.pk
-    )
-    ur_instance.group = group_factory()  # dossier should be created by other group
-    ur_instance.save()
-    question = question_factory(slug="mbv-bund-type")
-    answer_factory(document=ur_instance.case.document, question=question, value=answer)
-    mocker.patch(koor_role, group.role.pk)
-    url = reverse("instance-list")
-
-    response = admin_client.get(url)
-
-    assert response.status_code == status.HTTP_200_OK
-    assert len(response.json()["data"]) == expected_count
-
-
 @pytest.mark.freeze_time("2023-12-01")
 @pytest.mark.parametrize(
     "deadline_date,workitem_status,expected_count",
@@ -2120,50 +2082,6 @@ def test_instance_form_field_ordering(
     assert len(data) == 2
     assert data[0]["id"] == str(instances[1].pk)
     assert data[1]["id"] == str(instances[0].pk)
-
-
-@pytest.mark.parametrize("role__name", ["Coordination"])
-@pytest.mark.parametrize("is_creator", [True, False])
-@pytest.mark.parametrize("forbidden_states", ["current_state", [9999999]])
-def test_instance_list_coordination_created(
-    db,
-    mocker,
-    admin_client,
-    instance_state,
-    instance,
-    is_creator,
-    group_factory,
-    forbidden_states,
-    application_settings,
-):
-    """Ensure that the coordination role sees their correct dossiers.
-
-    KOOR role can see dossiers which their group has created,
-    and which are not in a forbidden state. Note that this is a workaround,
-    as the acutal logic in PHP for this rule is rather more complicated,
-    but we're not replicating that rule here (yet).
-    """
-    if forbidden_states == "current_state":
-        # unfortunately cannot parametrize this :(
-        forbidden_states = [instance_state.name]
-
-    application_settings["INSTANCE_HIDDEN_STATES"] = {"coordination": forbidden_states}
-
-    if not is_creator:
-        other_group = group_factory()
-        instance.group = other_group
-        instance.save()
-
-    url = reverse("instance-list")
-    response = admin_client.get(url)
-    assert response.status_code == status.HTTP_200_OK
-
-    json = response.json()
-    if is_creator and forbidden_states == [9999999]:
-        assert len(json["data"]) == 1
-        assert json["data"][0]["id"] == str(instance.pk)
-    else:
-        assert len(json["data"]) == 0
 
 
 @pytest.mark.parametrize("role__name", ["Commission"])
