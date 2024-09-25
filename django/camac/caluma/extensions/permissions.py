@@ -127,7 +127,13 @@ def distribution_permission_for(
                     )
 
                     group = CamacRequest(info).request.group
-                    return permissions_predicate(group, value, mutation, info)
+
+                    try:
+                        return permissions_predicate(group, value, mutation, info)
+                    except Exception as e:  # pragma: no cover
+                        raise RuntimeError(
+                            f"Error in permission predicate: {type(e).__name__}: {e}"
+                        )
 
             return wrapped_has_permission
 
