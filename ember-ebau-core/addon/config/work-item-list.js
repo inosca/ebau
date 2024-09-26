@@ -15,4 +15,17 @@ if (macroCondition(getOwnConfig().application === "be")) {
   config = importSync("ember-ebau-core/config/work-item-list-test");
 }
 
-export default config.default;
+const sharedConfig = {
+  columns(status) {
+    return [
+      "task",
+      "instance",
+      "description",
+      ...(status === "COMPLETED"
+        ? ["closedAt", "closedBy"]
+        : ["deadline", "responsible"]),
+    ].filter((value) => value !== null);
+  },
+};
+
+export default { ...sharedConfig, ...config.default };

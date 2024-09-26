@@ -16,4 +16,17 @@ export default {
     services: {},
     default: [],
   },
+  columns(status) {
+    return [
+      "instanceId",
+      "task",
+      "type",
+      "description",
+      "municipality",
+      "applicants",
+      ...(status === "COMPLETED"
+        ? ["closedAt", "closedBy"]
+        : ["deadline", "responsible"]),
+    ].filter((value) => value !== null);
+  },
 };

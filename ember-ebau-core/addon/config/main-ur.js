@@ -54,6 +54,10 @@ export default {
       "waldfeststellung-mit-statischen-waldgrenzen-kanton",
     staticForestBoundaryMunicipality:
       "waldfeststellung-mit-statischen-waldgrenzen-gemeinde",
+    personalDataApplicant: "applicant",
+    firstNameApplicant: "first-name",
+    lastNameApplicant: "last-name",
+    juristicNameApplicant: "juristic-person-name",
   },
   personalSuggestions: {
     tableQuestions: [

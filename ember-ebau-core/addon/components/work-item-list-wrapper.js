@@ -18,6 +18,7 @@ export default class WorkItemListWrapperComponent extends Component {
   @service store;
   @service calumaOptions;
   @service intl;
+  @service ebauModules;
 
   workItemsQuery = useCalumaQuery(this, allWorkItems, () => ({
     options: {
@@ -31,14 +32,10 @@ export default class WorkItemListWrapperComponent extends Component {
   workItemListConfig = workItemListConfig;
 
   get columns() {
-    return [
-      "task",
-      "instance",
-      "description",
-      ...(this.args.status === "COMPLETED"
-        ? ["closedAt", "closedBy"]
-        : ["deadline", "responsible"]),
-    ];
+    return workItemListConfig.columns(
+      this.args.status,
+      this.ebauModules.baseRole,
+    );
   }
 
   async processNew(workItems) {
