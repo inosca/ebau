@@ -26,10 +26,12 @@ from camac.permissions import api as permissions_api
 
 
 def document_post_data(category_id, instance_id, metainfo={}):
+    content = io.BytesIO(
+        b"%PDF-1.\ntrailer<</Root<</Pages<</Kids[<</MediaBox[0 0 3 3]>>]>>>>>>"
+    )
+    content.name = "foo.pdf"
     return {
-        "content": io.BytesIO(
-            b"%PDF-1.\ntrailer<</Root<</Pages<</Kids[<</MediaBox[0 0 3 3]>>]>>>>>>"
-        ),
+        "content": content,
         "data": io.BytesIO(
             json.dumps(
                 {
