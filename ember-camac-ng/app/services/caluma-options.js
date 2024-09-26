@@ -401,6 +401,14 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       };
     } else if (macroCondition(getOwnConfig().application === "ur")) {
       // TODO: Enable when ember-caluma is bumped
+      const SERVICES_ALLOWED_TO_CREATE_SUB_CIRCULATIONS = {
+        61: "Fachstellen Justizdirektion",
+        62: "Fachstellen Gesundheits- Sozial- und Umweltdirektion",
+        63: "Fachstellen Sicherheitsdirektion",
+        64: "Fachstellen Volkswirtschaftsdirektion",
+        65: "Fachstellen Bildungs- und Kulturdirektion",
+        66: "Fachstellen Finanzdirektion",
+      };
       const config = {
         ui: { readonly: this.shoebox.isReadOnlyRole },
         inquiry: {
@@ -482,7 +490,11 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
           completeDistribution: () => true,
           reopenDistribution: () => true,
           createInquiry: () =>
-            this.shoebox.isCoordinationRole || this.shoebox.isLeadRole,
+            this.shoebox.isCoordinationRole ||
+            this.shoebox.isLeadRole ||
+            Object.keys(SERVICES_ALLOWED_TO_CREATE_SUB_CIRCULATIONS).includes(
+              this.shoebox.serviceGroupId.toString(),
+            ),
           editInquiry: () => true,
           sendInquiry: () => true,
           withdrawInquiry: () => true,
@@ -509,6 +521,32 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
           ].join(","),
         };
       }
+
+      if (
+        Object.keys(SERVICES_ALLOWED_TO_CREATE_SUB_CIRCULATIONS).includes(
+          this.shoebox.serviceGroupId.toString(),
+        )
+      ) {
+        config.new.types.externalServices.disabled = true;
+        config.new.types.coordinationServices.disabled = true;
+        config.new.types.subservice.disabled = true;
+
+        config.new.types.ownServices = {
+          label: "distribution.own-cantonal-services",
+          type: "serviceGroup",
+          value: [
+            SERVICES_ALLOWED_TO_CREATE_SUB_CIRCULATIONS[
+              this.shoebox.serviceGroupId
+            ],
+          ].join(", "),
+        };
+        config.new.types.nonCantonalServices = {
+          label: "distribution.non-cantonal-services",
+          type: "serviceGroup",
+          value: "Ausserkantonale Fachstellen",
+        };
+      }
+
       if (!this.shoebox.isCoordinationRole) {
         config.new.types.suggestions.disabled = true;
         config.new.defaultTypes = ["subservice"];

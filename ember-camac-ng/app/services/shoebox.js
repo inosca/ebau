@@ -14,6 +14,10 @@ export default class ShoeboxService extends Service {
     }
   }
 
+  get serviceGroupId() {
+    return this.content.serviceGroupId;
+  }
+
   get role() {
     const roleId = this.content.roleId;
     const roles = this.content.config?.roles;
