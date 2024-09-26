@@ -2020,3 +2020,7 @@ def mock_celery(mocker):
         "alexandria.core.tasks.set_content_vector.delay",
         side_effect=lambda id: alexandria_tasks.set_content_vector(id),
     )
+    mocker.patch(
+        "alexandria.core.tasks.create_thumbnail.delay",
+        side_effect=lambda id: alexandria_tasks.create_thumbnail(id),
+    )
