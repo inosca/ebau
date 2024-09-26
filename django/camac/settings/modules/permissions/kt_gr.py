@@ -95,6 +95,9 @@ MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE = (
 ACTION_INSTANCE_CREATE_MODIFICATION = (
     HasApplicantRole(["ADMIN"]) & ~RequireInstanceState(["new"]) & IsForm(["baugesuch"])
 ) | (ROLES_MUNICIPALITY & IsPaper())
+ACTION_INSTANCE_COPY_AFTER_REJECTION = RequireInstanceState(["rejected"]) & (
+    HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
+)
 
 ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & (
     HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
@@ -117,6 +120,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("documents-write", MODULE_PORTAL_DOCUMENTS_WRITE),
             ("form-read", MODULE_PORTAL_FORM_READ),
             ("form-write", MODULE_PORTAL_FORM_WRITE),
+            ("instance-copy-after-rejection", ACTION_INSTANCE_COPY_AFTER_REJECTION),
             ("instance-create-modification", ACTION_INSTANCE_CREATE_MODIFICATION),
             ("instance-delete", ACTION_INSTANCE_DELETE),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
@@ -158,6 +162,7 @@ GR_PERMISSIONS_SETTINGS = {
                 | (RequireInstanceState(["correction"]) & ROLES_MUNICIPALITY),
             ),
             ("history-read", MODULE_HISTORY),
+            ("instance-copy-after-rejection", ACTION_INSTANCE_COPY_AFTER_REJECTION),
             ("instance-create-modification", ACTION_INSTANCE_CREATE_MODIFICATION),
             ("instance-delete", ACTION_INSTANCE_DELETE),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
