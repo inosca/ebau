@@ -95,10 +95,17 @@ export default class InstanceAbility extends Ability {
       return await this.permissions.hasAll(this.model?.id, "applicant-read");
     }
 
+    const serviceId = parseInt(this.session.serviceId);
+    const instanceServices = (await this.model?.get("services")) || [];
+
     return (
-      this.canManageApplicants ||
-      parseInt(this.model?.activeService?.get("id")) ===
-        parseInt(this.session.group?.get("service.id"))
+      (await this.canManageApplicants()) ||
+      parseInt(this.model?.activeService?.get("id")) === serviceId ||
+      Boolean(
+        instanceServices?.find(
+          (service) => parseInt(service.get("id")) === serviceId,
+        ),
+      )
     );
   }
 
