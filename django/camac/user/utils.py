@@ -69,6 +69,19 @@ def get_group(request):
     return group
 
 
+def is_portal_client(request):
+    if not getattr(request, "auth"):
+        return False
+
+    portal_client = settings.KEYCLOAK_PORTAL_CLIENT
+
+    clients = request.auth.get("aud")
+    if not isinstance(clients, list):
+        clients = [clients]
+
+    return portal_client in clients
+
+
 def _get_group_for_portal(request):
     """
     Get group for portal users.
@@ -78,21 +91,9 @@ def _get_group_for_portal(request):
     "aud" (audience) claim, and programatically assign the correct group for
     them.
     """
-    if not settings.APPLICATION.get("PORTAL_GROUP", None):
-        return None
-
-    if not getattr(request, "auth", False):
-        return None
-
-    portal_client = settings.KEYCLOAK_PORTAL_CLIENT
-    if not portal_client:  # pragma: no cover
-        return None
-
-    clients = request.auth.get("aud")
-    if not isinstance(clients, list):
-        clients = [clients]
-
-    if portal_client not in clients:
+    if not settings.APPLICATION.get("PORTAL_GROUP", None) or not is_portal_client(
+        request
+    ):
         return None
 
     return models.Group.objects.select_related("role", "service").get(

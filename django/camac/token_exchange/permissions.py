@@ -15,10 +15,11 @@ def get_lot(request):
 
 
 def has_required_lot(request):
-    if not settings.ENABLE_TOKEN_EXCHANGE:
-        return True
-
     from camac.user.permissions import get_role_name
+    from camac.user.utils import is_portal_client
+
+    if not settings.ENABLE_TOKEN_EXCHANGE or not is_portal_client(request):
+        return True
 
     lot = get_lot(request)
     role = get_role_name(request.group)

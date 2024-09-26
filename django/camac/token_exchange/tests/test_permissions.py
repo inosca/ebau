@@ -50,6 +50,7 @@ def test_require_lot_permission(
     db, admin_client, expected_status, lot, mocker, role_name
 ):
     mocker.patch("camac.token_exchange.permissions.get_lot", return_value=lot)
+    mocker.patch("camac.user.utils.is_portal_client", return_value=True)
     mocker.patch("camac.user.permissions.get_role_name", return_value=role_name)
 
     response = admin_client.get(reverse("me"))
@@ -86,6 +87,7 @@ def test_require_lot_permission_graphql(
     )
     mocker.patch("camac.caluma.utils.jwt_decode")
     mocker.patch("camac.token_exchange.permissions.get_lot", return_value=lot)
+    mocker.patch("camac.user.utils.is_portal_client", return_value=True)
     mocker.patch("camac.user.permissions.get_role_name", return_value=role_name)
 
     settings.OIDC_USERINFO_ENDPOINT = "http://fake-endpoint.local"
