@@ -8,6 +8,7 @@ from camac.permissions.conditions import (
     RequireWorkItem,
 )
 from camac.permissions.switcher import PERMISSION_MODE
+from camac.settings.env import env
 
 # Instance state rules
 STATES_ALL = RequireInstanceState(
@@ -53,8 +54,14 @@ MODULE_DECISION = (ROLES_MUNICIPALITY & RequireWorkItem("decision")) | (
 )
 MODULE_DISTRIBUTION = RequireWorkItem("init-distribution")
 MODULE_DMS_GENERATE = STATES_ALL
-MODULE_DOCUMENTS = STATES_ALL
-MODULE_FORM = STATES_ALL | RequireInstanceState(["correction"])
+MODULE_DOCUMENTS = STATES_ALL | (
+    RequireInstanceState(["new"]) & ROLES_MUNICIPALITY & IsPaper()
+)
+MODULE_FORM = (
+    STATES_ALL
+    | RequireInstanceState(["correction"])
+    | (RequireInstanceState(["new"]) & ROLES_MUNICIPALITY & IsPaper())
+)
 MODULE_AUDIT = (ROLES_MUNICIPALITY & RequireWorkItem("formal-exam")) | (
     ~ROLES_MUNICIPALITY & RequireWorkItem("formal-exam", "completed")
 )
@@ -97,6 +104,7 @@ ACTION_INSTANCE_SUBMIT = RequireInstanceState(["new"]) & (
 )
 
 GR_PERMISSIONS_SETTINGS = {
+    "ENABLED": True,
     "ACCESS_LEVELS": {
         "applicant": [
             ("additional-demands-read", MODULE_PORTAL_ADDITIONAL_DEMANDS_READ),
@@ -113,36 +121,6 @@ GR_PERMISSIONS_SETTINGS = {
             ("instance-delete", ACTION_INSTANCE_DELETE),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
         ],
-        "lead-authority": [
-            ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
-            ("communications-read", MODULE_COMMUNICATIONS),
-            ("construction-monitoring-read", MODULE_CONSTRUCTION_MONITORING),
-            ("corrections-read", MODULE_CORRECTIONS),
-            ("decision-read", MODULE_DECISION),
-            ("distribution-read", MODULE_DISTRIBUTION),
-            ("dms-generate-read", MODULE_DMS_GENERATE),
-            ("documents-read", MODULE_DOCUMENTS),
-            ("documents-write", MODULE_DOCUMENTS),
-            ("form-read", MODULE_FORM),
-            (
-                "form-write",
-                MODULE_PORTAL_FORM_WRITE
-                | (RequireInstanceState(["correction"]) & ROLES_MUNICIPALITY),
-            ),
-            ("audit-read", MODULE_AUDIT),
-            ("history-read", MODULE_HISTORY),
-            ("journal-read", MODULE_JOURNAL),
-            ("linked-instances-read", MODULE_LINKED_INSTANCES),
-            ("permissions-grant-read", MODULE_PERMISSIONS),
-            ("permissions-read-any", MODULE_PERMISSIONS),
-            ("permissions-read", MODULE_PERMISSIONS),
-            ("publication-read", MODULE_PUBLICATION),
-            ("permissions-revoke-read", MODULE_PERMISSIONS),
-            ("rejection-read", MODULE_REJECTION),
-            ("related-gwr-projects-read", MODULE_RELATED_GWR_PROJECTS),
-            ("responsible-read", MODULE_RESPONSIBLE),
-            ("work-items-read", MODULE_WORK_ITEMS),
-        ],
         "distribution-service": [
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
             ("additional-demands-write", MODULE_ADDITIONAL_DEMANDS),
@@ -158,6 +136,40 @@ GR_PERMISSIONS_SETTINGS = {
             ("history-read", MODULE_HISTORY),
             ("journal-read", MODULE_JOURNAL),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
+            ("responsible-read", MODULE_RESPONSIBLE),
+            ("work-items-read", MODULE_WORK_ITEMS),
+        ],
+        "lead-authority": [
+            ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
+            ("audit-read", MODULE_AUDIT),
+            ("communications-read", MODULE_COMMUNICATIONS),
+            ("communications-write", MODULE_COMMUNICATIONS),
+            ("construction-monitoring-read", MODULE_CONSTRUCTION_MONITORING),
+            ("corrections-read", MODULE_CORRECTIONS),
+            ("decision-read", MODULE_DECISION),
+            ("distribution-read", MODULE_DISTRIBUTION),
+            ("dms-generate-read", MODULE_DMS_GENERATE),
+            ("documents-read", MODULE_DOCUMENTS),
+            ("documents-write", MODULE_DOCUMENTS),
+            ("form-read", MODULE_FORM),
+            (
+                "form-write",
+                MODULE_PORTAL_FORM_WRITE
+                | (RequireInstanceState(["correction"]) & ROLES_MUNICIPALITY),
+            ),
+            ("history-read", MODULE_HISTORY),
+            ("instance-create-modification", ACTION_INSTANCE_CREATE_MODIFICATION),
+            ("instance-delete", ACTION_INSTANCE_DELETE),
+            ("instance-submit", ACTION_INSTANCE_SUBMIT),
+            ("journal-read", MODULE_JOURNAL),
+            ("linked-instances-read", MODULE_LINKED_INSTANCES),
+            ("permissions-grant-read", MODULE_PERMISSIONS),
+            ("permissions-read-any", MODULE_PERMISSIONS),
+            ("permissions-read", MODULE_PERMISSIONS),
+            ("publication-read", MODULE_PUBLICATION),
+            ("permissions-revoke-read", MODULE_PERMISSIONS),
+            ("rejection-read", MODULE_REJECTION),
+            ("related-gwr-projects-read", MODULE_RELATED_GWR_PROJECTS),
             ("responsible-read", MODULE_RESPONSIBLE),
             ("work-items-read", MODULE_WORK_ITEMS),
         ],
@@ -201,7 +213,6 @@ GR_PERMISSIONS_SETTINGS = {
         ],
     },
     "EVENT_HANDLER": "camac.permissions.config.kt_gr.PermissionEventHandlerGR",
-    "ENABLED": True,
     "MIGRATION": {
         "APPLICANT": "applicant",
         "MUNICIPALITY": "lead-authority",
@@ -209,6 +220,6 @@ GR_PERMISSIONS_SETTINGS = {
         "SUPPORT": "support",
         "USO": "uso",
     },
-    "ENABLE_CACHE": False,
+    "ENABLE_CACHE": env.bool("PERMISSION_MODULE_ENABLE_CACHE", default=True),
     "PERMISSION_MODE": PERMISSION_MODE.FULL,
 }
