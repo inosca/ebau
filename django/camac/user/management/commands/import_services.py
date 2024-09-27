@@ -42,6 +42,7 @@ def get_type_map(canton):
                 2: ServiceGroup.objects.get(name="service-cantonal"),
                 3: ServiceGroup.objects.get(name="service-extra-cantonal"),
                 4: ServiceGroup.objects.get(name="service-bab"),
+                5: ServiceGroup.objects.get(name="canton"),
             },
             "ROLE": {
                 1: {
@@ -61,12 +62,18 @@ def get_type_map(canton):
                     "admin": Role.objects.get(name="service-admin"),
                     "lead": Role.objects.get(name="service-lead"),
                 },
+                5: {
+                    "admin": Role.objects.get(name="municipality-admin"),
+                    "lead": Role.objects.get(name="municipality-lead"),
+                    "read": Role.objects.get(name="municipality-read"),
+                },
             },
             "PREFIX": {
                 1: "Gemeinde",
                 2: None,
                 3: None,
                 4: None,
+                5: None,
             },
         }
 
@@ -112,12 +119,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         rows = pyexcel.get_array(file_name=options["source"])
 
-        services = []
-        skipped_services = []
-        service_ts = []
-        groups = []
-        group_ts = []
-
         for row in rows[1:]:
             if not row[0]:
                 continue
@@ -128,12 +129,7 @@ class Command(BaseCommand):
             raw_name = row[1].strip()
             name = f"{prefix} {raw_name}" if prefix else raw_name
 
-            if Service.objects.filter(trans__name=name).exists():
-                skipped_services.append(name)
-                continue
-
-            # Create service
-            service = Service(
+            service_data = dict(
                 service_parent=None,
                 service_group=service_group,
                 name=None,
@@ -146,9 +142,21 @@ class Command(BaseCommand):
                 website=scrub(row[7]),
                 notification=1,
                 responsibility_construction_control=0,
-                disabled=int(row[8]),
+                disabled=int(row[8] or 0),
+                external_identifier=row[9] or None,
             )
-            service_t = ServiceT(
+
+            existing = Service.objects.filter(trans__name=name).first()
+
+            if existing:
+                self.stdout.write(self.style.WARNING(f"Updating service {name}"))
+                Service.objects.filter(pk=existing.pk).update(**service_data)
+                service = existing
+            else:
+                self.stdout.write(self.style.SUCCESS(f"Creating service {name}"))
+                service = Service.objects.create(**service_data)
+
+            service_t_data = dict(
                 language="de",
                 service=service,
                 name=name,
@@ -156,15 +164,18 @@ class Command(BaseCommand):
                 city=scrub(row[4]),
             )
 
-            services.append(service)
-            service_ts.append(service_t)
+            if existing:
+                ServiceT.objects.filter(service_id=existing.pk).update(**service_t_data)
+            else:
+                ServiceT.objects.create(**service_t_data)
 
-            # Create groups
             for group_type, group_type_name in GROUP_TYPES.items():
                 if not roles.get(group_type):
                     continue
 
-                group = Group(
+                group_name = f"{group_type_name} {name}"
+
+                group_data = dict(
                     service=service,
                     role=roles[group_type],
                     name=None,
@@ -174,34 +185,25 @@ class Command(BaseCommand):
                     address=None,
                     phone=None,
                     website=None,
-                    disabled=int(row[8]),
+                    disabled=int(row[8] or 0),
                 )
-                group_t = GroupT(
+
+                existing = Group.objects.filter(trans__name=group_name).first()
+
+                if existing:
+                    Group.objects.filter(pk=existing.pk).update(**group_data)
+                    group = existing
+                else:
+                    group = Group.objects.create(**group_data)
+
+                group_t_data = dict(
                     language="de",
                     group=group,
-                    name=f"{group_type_name} {name}",
+                    name=group_name,
                     city=scrub(row[4]),
                 )
-                groups.append(group)
-                group_ts.append(group_t)
 
-        created_services = Service.objects.bulk_create(services)
-        created_service_ts = ServiceT.objects.bulk_create(service_ts)
-        created_groups = Group.objects.bulk_create(groups)
-        created_group_ts = GroupT.objects.bulk_create(group_ts)
-
-        print("Import finished.")
-        if skipped_services:
-            print(
-                f"Skipped {len(skipped_services)} Services because they already exist:"
-            )
-            for service in skipped_services[:10]:
-                print(f"- {service}")
-            if len(skipped_services) > 10:
-                print(f"- ... and {len(skipped_services) - 10} more")
-
-        print("Number of created objects:")
-        print(f"- {len(created_services)} Services")
-        print(f"- {len(created_service_ts)} Service Translations")
-        print(f"- {len(created_groups)} Groups")
-        print(f"- {len(created_group_ts)} Group Translations")
+                if existing:
+                    GroupT.objects.filter(group_id=existing.pk).update(**group_t_data)
+                else:
+                    GroupT.objects.create(**group_t_data)
