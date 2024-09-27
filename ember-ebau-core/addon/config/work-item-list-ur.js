@@ -18,9 +18,8 @@ export default {
   },
   columns(status) {
     return [
-      "instanceId",
       "task",
-      "type",
+      "instance",
       "description",
       "municipality",
       "applicants",
