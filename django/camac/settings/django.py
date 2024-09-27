@@ -1954,7 +1954,6 @@ APPLICATIONS = {
         "USE_CAMAC_ADMIN": False,
         "LOG_NOTIFICATIONS": True,
         "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
-        "ENABLE_PUBLIC_CALUMA": True,
         "LINK_INSTANCES_ON_COPY": True,
         "INCLUDE_STATIC_FILES": [("xml", "kt_bern/static/ech0211/xml")],
         # Mapping between camac role and instance permission.
