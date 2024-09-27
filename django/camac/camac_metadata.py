@@ -1,6 +1,6 @@
 __title__ = "camac"
 __author__ = "Adfinis AG"
-__version__ = "3.6.4-rc.1"
+__version__ = "3.6.4-rc.2"
 __email__ = "support@adfinis.com"
 __description__ = "Camac REST API"
 __url__ = "https://adfinis.com/"
