@@ -1,13 +1,16 @@
 <tr class={{if (and @highlight @workItem.notViewed) "uk-text-bold"}}>
   {{#if @highlight}}
     <td
-      class="uk-table-top uk-padding-remove-right {{this.highlightClasses}}"
+      class="uk-table-middle uk-padding-remove-right {{this.highlightClasses}}"
     ></td>
   {{/if}}
 
   {{#each @columns as |column|}}
     <td
-      class="uk-table-top"
+      class={{if
+        (includes column (array "task" "responsible" "description" "closedBy"))
+        "uk-text-truncate"
+      }}
       title="
         {{~if (eq column 'responsible') @workItem.responsible~}}
         {{~if (eq column 'description') @workItem.instanceDescription~}}
@@ -18,9 +21,7 @@
       ~}}
       "
     >
-      {{#if (eq column "instanceId")}}
-        {{@workItem.instanceId}}
-      {{else if (eq column "task")}}
+      {{#if (eq column "task")}}
         {{#if (and @useLinkTo @workItem.directLink)}}
           <LinkTo
             @route={{@workItem.directLink.route}}
@@ -33,8 +34,6 @@
         {{/if}}
       {{else if (eq column "instance")}}
         {{@workItem.instanceName}}
-      {{else if (eq column "type")}}
-        {{@workItem.type}}
       {{else if (eq column "deadline")}}
         {{date-from-now @workItem.deadline}}
       {{else if (eq column "responsible")}}
