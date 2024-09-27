@@ -144,26 +144,19 @@ export default class CustomWorkItemModel extends WorkItemModel {
     return this.store.peekRecord("instance", this.instanceId);
   }
 
-  get type() {
+  get instanceName() {
     const name = this.isCalumaBackend
       ? this.case?.document.form.name
       : this.instance?.name || this.instance?.form.get("description");
-    return `${name} ${this.suffix}`.trim();
-  }
-
-  get suffix() {
     const specialId =
       this.case?.meta[mainConfig.answerSlugs.specialId] ||
       this.instance?.identifier;
-    return specialId ? `(${specialId})` : "";
-  }
-
-  get instanceName() {
-    if (this.type) {
+    const suffix = specialId ? `(${specialId})` : "";
+    if (name) {
       const prefix = mainConfig.showInstanceIdAfterSubmission
         ? `${this.instanceId} - `
         : "";
-      return `${prefix}${this.type} ${this.suffix}`.trim();
+      return `${prefix}${name} ${suffix}`.trim();
     }
 
     return this.instanceId;

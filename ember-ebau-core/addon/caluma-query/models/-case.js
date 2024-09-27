@@ -126,7 +126,7 @@ export default class CustomCaseBaseModel extends CaseModel {
   }
 
   get applicants() {
-    return getApplicants(this.case.document);
+    return getApplicants(this.raw.document);
   }
 
   get municipalityId() {
