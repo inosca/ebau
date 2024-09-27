@@ -1,5 +1,4 @@
 workItems:
-  instanceId: "Id"
   filters:
     task:
       complete-check: 'Neues Dossier prüfen <span class="pending">({count})</span>'
