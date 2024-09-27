@@ -7,3 +7,4 @@ documents:
       Der Dateiname soll kurz und aussagekräftig sein.
       Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für
       Ihre interne Dokumentablage benötigen, bitte weg.\n\n\n"
+  wrongMimeType: "Dieser Dateityp ist nicht erlaubt. Erlaubte Dateitypen sind PDF, PNG, JPEG, GIF und DWG."
