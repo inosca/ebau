@@ -27,4 +27,4 @@ web-pdb==1.6.2
 Werkzeug==3.0.4
 # needs an update in django-hurricane to allow v6
 psutil==5.9.8
-ruff==0.6.4
+ruff==0.6.7

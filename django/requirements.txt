@@ -1,6 +1,6 @@
 Babel==2.16.0
-boto3==1.35.23
-caluma==10.3.1
+boto3==1.35.26
+caluma==10.4.0
 caluma-alexandria==6.4.0
 celery==5.4.0
 cryptography==43.0.1
@@ -18,7 +18,7 @@ django-generic-api-permissions==0.4.6
 django-hurricane==1.6.0
 django-json-widget==2.0.1
 # might be able to switch back to main fork https://github.com/Koed00/django-q/issues/735
-django-q2==1.6.2
+django-q2==1.7.2
 django-reversion==5.1.0
 # check camac/filter.py MultilingualSearchFilter.filter_queryset before updating
 djangorestframework==3.15.2
@@ -45,19 +45,19 @@ pypdf==4.3.1
 pyproj==3.6.1
 python-dateutil==2.9.0.post0
 python-docx==1.1.2
-python-keycloak==4.3.0
+python-keycloak==4.4.0
 pymemcache==4.0.0
 PyXB-X==1.2.6.2
 qrcode==7.4.2
 redis==5.0.8
 requests==2.32.3
 requests-toolbelt==1.0.0
-setuptools==74.1.1
-sorl-thumbnail==12.10.0
+setuptools==74.1.3
+sorl-thumbnail==12.11.0
 tabulate==0.9.0
 tqdm==4.66.5
-urllib3==2.2.2
+urllib3==2.2.3
 uWSGI==2.0.26
 WsgiDAV==4.3.3
 whitenoise==6.7.0
-xmlschema==3.3.2
+xmlschema==3.4.2
