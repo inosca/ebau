@@ -91,6 +91,7 @@ services:
       - GR_GIS_BASE_URL=https://wps-test.geo.gr.ch
       # celery
       - CELERY_RDB_HOST=0.0.0.0. # to be able to telnet from outside the container
+      - CELERY_WORKER_CONCURRENCY=1
       - PYTHONUNBUFFERED=1
     networks:
       - ebau.local

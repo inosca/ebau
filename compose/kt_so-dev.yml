@@ -108,6 +108,10 @@ services:
       ALEXANDRIA_ENABLE_CONTENT_SEARCH: true
       TIKA_CLIENT_ONLY: true
       TIKA_SERVER_ENDPOINT: "http://tika:9998"
+      # celery
+      CELERY_RDB_HOST: 0.0.0.0. # to be able to telnet from outside the container
+      CELERY_WORKER_CONCURRENCY: 1
+      PYTHONUNBUFFERED: 1
     networks:
       - ebau.local
     tty: true
