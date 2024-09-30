@@ -41,8 +41,6 @@
             >
               {{#if (eq tColumn.name "applicant")}}
                 {{get node (concat tColumn.name ".name")}}
-              {{else if (eq tColumn.name "processingDeadline")}}
-                {{date-from-now (get node tColumn.name)}}
               {{else}}
                 {{get node tColumn.name}}
               {{/if}}
