@@ -265,7 +265,7 @@ BE_PERMISSIONS_SETTINGS = {
             ("decision-read", POST_DECISION_STATES),
         ],
     },
-    "EVENT_HANDLER": "camac.permissions.config.kt_bern.PermissionEventHandlerBE",
+    "EVENT_HANDLER": "camac.permissions.config.kt_bern.GeometerPermissionEventHandlerBE",
     "ENABLED": True,
     # Map INTERNAL -> CANTON access level names. The INTERNAL ones
     # are directly referenced by the migration tooling and may differ from
