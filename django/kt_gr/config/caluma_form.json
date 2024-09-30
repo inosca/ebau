@@ -62339,7 +62339,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Ist ein Gew\\u00e4sser betroffen?\", \"fr\": null, \"it\": \"\\u00c8 interessato un corpo d'acqua?\"}",
+      "label": "{\"de\": \"Ist ein Gew\\u00e4sser betroffen?\", \"fr\": null, \"it\": \"\\u00c8 interessato un corso d'acqua?\"}",
       "type": "choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "false",
