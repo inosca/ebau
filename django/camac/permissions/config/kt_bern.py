@@ -16,13 +16,7 @@ from .common import (
 )
 
 
-class PermissionEventHandlerBE(
-    ApplicantsEventHandlerMixin,
-    InstanceSubmissionHandlerMixin,
-    ChangeResponsibleServiceHandlerMixin,
-    DistributionHandlerMixin,
-    InstanceCreationHandlerMixin,
-    InstanceCopyHandlerMixin,
+class GeometerPermissionEventHandlerBE(
     # EmptyEventHandler needs to be last!
     EmptyEventHandler,
 ):
@@ -41,7 +35,6 @@ class PermissionEventHandlerBE(
         ):  # pragma: no cover
             return
 
-        self._grant_construction_control(instance)
         self._grant_geometer_if_needed(decision, instance)
 
     def _grant_geometer_if_needed(self, decision, instance):
@@ -79,3 +72,19 @@ class PermissionEventHandlerBE(
             access_level="construction-control",
             service=construction_control,
         )
+
+
+class PermissionEventHandlerBE(
+    ApplicantsEventHandlerMixin,
+    InstanceSubmissionHandlerMixin,
+    ChangeResponsibleServiceHandlerMixin,
+    DistributionHandlerMixin,
+    InstanceCreationHandlerMixin,
+    InstanceCopyHandlerMixin,
+    GeometerPermissionEventHandlerBE,
+    # EmptyEventHandler needs to be last!
+    EmptyEventHandler,
+):
+    def decision_decreed(self, instance: Instance):
+        super().decision_decreed(instance)
+        self._grant_construction_control(instance)
