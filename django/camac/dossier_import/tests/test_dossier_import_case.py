@@ -61,11 +61,11 @@ def test_bad_file_format_dossier_xlsx(
 @pytest.mark.parametrize("location__communal_federal_number", ["1312"])
 @pytest.mark.parametrize("service__external_identifier", ["2601"])
 @pytest.mark.parametrize(
-    "config,camac_instance",
+    "config,camac_instance,perm_settings",
     [
-        ("kt_schwyz", lf("sz_instance_with_form")),
-        ("kt_bern", lf("be_instance")),
-        ("kt_so", lf("so_instance")),
+        ("kt_schwyz", lf("sz_instance_with_form"), None),
+        ("kt_bern", lf("be_instance"), lf("be_permissions_settings")),
+        ("kt_so", lf("so_instance"), None),
     ],
 )
 def test_create_instance_dossier_import_case(
@@ -78,7 +78,12 @@ def test_create_instance_dossier_import_case(
     admin_user,
     group,
     settings,
+    perm_settings,
 ):
+    if config == "kt_bern":
+        perm_settings["EVENT_HANDLER"] = (
+            "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+        )
     # The test import file features faulty lines
     # 7 lines total. duplicate IDs are ignored
     # - 3 lines with good data (2 without documents directory)
@@ -1002,7 +1007,11 @@ def test_set_workflow_state_be(
     ebau_number,
     expected_work_items_states,
     expected_case_status,
+    be_permissions_settings,
 ):
+    be_permissions_settings["EVENT_HANDLER"] = (
+        "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+    )
     # This test skips instance creation where the instance's instance_state is set to the correct
     # state.
     writer = setup_dossier_writer("kt_bern")

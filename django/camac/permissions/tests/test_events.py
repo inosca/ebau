@@ -98,7 +98,7 @@ def test_decision_event_handler_be(
     involve_geometer,
     geometer_relation_exists,
     expected_count,
-    permissions_settings,
+    be_permissions_settings,
     decision_factory,
     instance_state_factory,
     settings,
@@ -114,7 +114,7 @@ def test_decision_event_handler_be(
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
     instance_state_factory(name="sb1")
-    permissions_settings["EVENT_HANDLER"] = (
+    be_permissions_settings["EVENT_HANDLER"] = (
         "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
     )
 
@@ -341,7 +341,6 @@ def test_submit_create_acl_be(
     application_settings,
     be_access_levels,
     disable_ech0211_settings,
-    permissions_settings,
     is_paper,
     utils,
     caplog,
@@ -369,7 +368,7 @@ def test_submit_create_acl_be(
         utils.add_answer(be_instance.case.document, "is-paper", "is-paper-yes")
 
     # Event handler so we actually get the ACL
-    permissions_settings["EVENT_HANDLER"] = (
+    be_permissions_settings["EVENT_HANDLER"] = (
         "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
     )
 
@@ -431,9 +430,9 @@ def test_change_responsible_service(
     disable_ech0211_settings,
     be_access_levels,
     instance_acl_factory,
-    permissions_settings,
+    be_permissions_settings,
 ):
-    permissions_settings["EVENT_HANDLER"] = (
+    be_permissions_settings["EVENT_HANDLER"] = (
         "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
     )
     new_responsible = service_factory()
@@ -506,6 +505,9 @@ def test_create_instance_event_be(
     role,
     service_group,
 ):
+    be_permissions_settings["EVENT_HANDLER"] = (
+        "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+    )
     if is_paper:
         service_group.name = "municipality"
         service_group.save()
@@ -563,6 +565,9 @@ def test_send_inquiry(
     disable_ech0211_settings,
     mocker,
 ):
+    be_permissions_settings["EVENT_HANDLER"] = (
+        "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+    )
     mocker.patch(
         "camac.notification.management.commands.send_inquiry_reminders.TEMPLATE_REMINDER_CIRCULATION",
         notification_template.slug,
@@ -621,6 +626,9 @@ def test_copy_be(
     be_permissions_settings,
 ):
     be_permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
+    be_permissions_settings["EVENT_HANDLER"] = (
+        "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+    )
 
     # support role will get access to the new instance
     role_factory(name="Support")
