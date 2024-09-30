@@ -25,6 +25,10 @@ export default class FetchService extends Service {
       "content-type": CONTENT_TYPE,
       ...(init.headers || {}),
     });
+    const ignoreErrors = init.ignoreErrors;
+    if (Object.hasOwn(init, "ignoreErrors")) {
+      delete init.ignoreErrors;
+    }
 
     const response = await fetch(resource, init);
 
@@ -43,9 +47,11 @@ export default class FetchService extends Service {
       }
 
       // throw an error containing a human readable message
-      throw new Error(
-        `Fetch request to URL ${response.url} returned ${response.status} ${response.statusText}:\n\n${body}`,
-      );
+      if (!ignoreErrors?.includes(response.status)) {
+        throw new Error(
+          `Fetch request to URL ${response.url} returned ${response.status} ${response.statusText}:\n\n${body}`,
+        );
+      }
     }
 
     return response;

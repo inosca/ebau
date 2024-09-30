@@ -49,6 +49,7 @@ services:
       - db
       - document-merge-service
       - mailpit
+      - clamav
     build:
       args:
         REQUIREMENTS: requirements-dev.txt
@@ -68,7 +69,8 @@ services:
       DATABASE_PASSWORD: camac
       DATABASE_USER: camac
       DJANGO_CACHE_LOCATION: cache:11211
-      DJANGO_CLAMD_ENABLED: "false"
+      DJANGO_CLAMD_ENABLED: "true"
+      DJANGO_CLAMD_TCP_ADDR: clamav
       DJANGO_EMAIL_HOST: mailpit
       DJANGO_EMAIL_PORT: 1025
       DJANGO_MEDIA_ROOT: /var/lib/camac/media
@@ -173,6 +175,20 @@ services:
       - ebau.local
     environment:
       MP_WEBROOT: mailpit
+
+  clamav:
+    image: tiredofit/clamav:2.6.17
+    environment:
+      - CONCURRENT_DATABASE_RELOAD=false
+      - DEFINITIONS_UPDATE_FREQUENCY=1440
+      - DEFINITIONS_UPDATE_BEGIN=0300
+      - ENABLE_DEFINITIONS_UPDATE=false
+    profiles:
+      - full
+    ports:
+      - "3310:3310"
+    networks:
+      - ebau.local
 
   document-merge-service:
     image: acr.run/camac-ng/camac-ng/document-merge-service:master

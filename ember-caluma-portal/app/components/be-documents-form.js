@@ -130,6 +130,7 @@ export default class BeDocumentsFormComponent extends Component {
 
   @task
   *upload({ file, bucket }) {
+    let errorMessage = this.intl.t("documents.uploadError");
     try {
       const formData = new FormData();
 
@@ -142,11 +143,18 @@ export default class BeDocumentsFormComponent extends Component {
         method: "POST",
         body: formData,
         headers: { "content-type": undefined },
+        ignoreErrors: [400],
       });
 
-      if (!response.ok) throw new Error();
-
       const data = yield response.json();
+
+      if (!response.ok) {
+        const errorCode = data.errors?.[0].code;
+        if (errorCode === "infected") {
+          errorMessage = this.intl.t("documents.uploadErrorVirus");
+        }
+        throw new Error(errorMessage);
+      }
 
       this.store.pushPayload(data);
       this.uploadedAttachmentIds = [
@@ -156,7 +164,7 @@ export default class BeDocumentsFormComponent extends Component {
 
       this.notification.success(this.intl.t("documents.uploadSuccess"));
     } catch (error) {
-      this.notification.danger(this.intl.t("documents.uploadError"));
+      this.notification.danger(errorMessage);
     }
   }
 
