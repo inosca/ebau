@@ -21,7 +21,7 @@ services:
         KEYCLOAK_REALM: $$KEYCLOAK_REALM
         REPLACE_ENV: KEYCLOAK_HOST,KEYCLOAK_REALM,PORTAL_URL
         WORKSPACE: ember-camac-ng
-      target: prod-env
+      target: prod
 
   ember-caluma-portal:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_TAG:-master}
@@ -38,7 +38,7 @@ services:
         BE_GIS_URL: $$BE_GIS_URL
         REPLACE_ENV: KEYCLOAK_HOST,KEYCLOAK_REALM,INTERNAL_URL,BE_GIS_URL
         WORKSPACE: ember-caluma-portal
-      target: prod-env
+      target: prod
 
 
   document-merge-service:
