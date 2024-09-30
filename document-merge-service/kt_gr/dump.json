@@ -58,5 +58,15 @@
       "engine": "docx-template",
       "meta": {}
     }
+  },
+  {
+    "model": "api.template",
+    "pk": "eingabequittung-it",
+    "fields": {
+      "description": "IT ricevuta",
+      "template": "eingabequittung_it.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
   }
 ]
