@@ -1875,11 +1875,16 @@ def construction_monitoring_case_sz(
 
 @pytest.fixture
 def construction_monitoring_initialized_case_sz(
+    application_settings,
     construction_monitoring_case_sz,
     sz_instance,
     sz_construction_monitoring_settings,
     caluma_admin_user,
 ):
+    # Prevent creation of construction monitoring work item to fail because of
+    # missing notification templates in the test:
+    application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"] = {}
+
     case = sz_instance.case
     complete_work_item(
         work_item=case.work_items.get(
