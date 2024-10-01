@@ -58171,6 +58171,60 @@
     }
   },
   {
+    "model": "core.irroleacl",
+    "pk": 18000073,
+    "fields": {
+      "instance_resource": 15000011,
+      "role": 3,
+      "instance_state": 20005
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 18000074,
+    "fields": {
+      "instance_resource": 15000011,
+      "role": 3,
+      "instance_state": 20010
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 18000075,
+    "fields": {
+      "instance_resource": 15000011,
+      "role": 3,
+      "instance_state": 20011
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 18000076,
+    "fields": {
+      "instance_resource": 15000011,
+      "role": 3,
+      "instance_state": 20013
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 18000077,
+    "fields": {
+      "instance_resource": 15000011,
+      "role": 3,
+      "instance_state": 20014
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 18000078,
+    "fields": {
+      "instance_resource": 15000011,
+      "role": 3,
+      "instance_state": 120000
+    }
+  },
+  {
     "model": "core.irtaskform",
     "pk": 12000002,
     "fields": {
