@@ -30,7 +30,7 @@
     {{/if}}
   </p>
 
-  {{#each-in this.requiredTags as |title fields|}}
+  {{#each-in this.requiredTags key="pk" as |title fields|}}
     <p class="uk-margin">{{t (concat "documents.tags." title)}}</p>
     <div class="uk-margin-left">
       {{#each fields as |field|}}
