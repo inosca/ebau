@@ -237,24 +237,6 @@ class CustomPermission:
             ):
                 return False
 
-            # check visibility of the new category
-            if document.created_by_group != str(request.group.service_id):
-                category_permissions = resolve_permissions(
-                    category, request.caluma_info.context.user
-                )
-                new_category_permissions = resolve_permissions(
-                    new_category, request.caluma_info.context.user
-                )
-                visibility_specificity = ["all", "service-subservice", "service"]
-                if (
-                    visibility_specificity.index(category_permissions["visibility"])
-                    - visibility_specificity.index(
-                        new_category_permissions["visibility"]
-                    )
-                    < 0
-                ):
-                    return False
-
         # check if needed permissions are subset of available permissions
         return needed_permissions.issubset(available_permissions)
 
