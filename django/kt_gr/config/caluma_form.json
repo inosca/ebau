@@ -60183,7 +60183,7 @@
     "pk": "hinweis-auflistung",
     "fields": {
       "created_at": "2023-06-19T08:27:25.026Z",
-      "modified_at": "2024-09-11T14:58:40.457Z",
+      "modified_at": "2024-10-03T14:19:48.958Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -60196,7 +60196,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"*Hinweis:* Bitte beachten Sie, dass die folgende Auflistung nicht vollst\\u00e4ndig ist. Konsultieren Sie das Baugesetz ihrer Gemeinde.\", \"fr\": \"\", \"it\": \"*Nota:* si prega di osservare che l'elenco seguente non \\u00e8 completo. Consultare la legge edilizia del relativo comune.\"}",
+      "static_content": "{\"de\": \"*Hinweis:* Bitte beachten Sie, dass die folgende Auflistung nicht vollst\\u00e4ndig ist. Konsultieren Sie das Baugesetz Ihrer Gemeinde.\", \"fr\": \"\", \"it\": \"*Nota:* si prega di osservare che l'elenco seguente non \\u00e8 completo. Consultare la legge edilizia del relativo comune.\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
