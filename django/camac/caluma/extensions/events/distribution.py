@@ -607,6 +607,8 @@ def post_complete_inquiry_check(
     sender, work_item, user, context=None, **kwargs
 ):  # pragma: no cover
     if settings.ADDITIONAL_DEMAND:
+        if not work_item.previous_work_item:
+            return
         init_additional_demand = work_item.case.work_items.filter(
             task_id=settings.ADDITIONAL_DEMAND["CREATE_TASK"],
             status=WorkItem.STATUS_READY,
