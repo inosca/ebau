@@ -203,6 +203,14 @@ class UrMilestonesSerializer(MilestonesSerializer):
                         status=WorkItem.STATUS_COMPLETED,
                         field="closed_at",
                     ),
+                    fields.CamacWorkflowEntryField(
+                        slug="submission-to-koor",
+                        name="Weiterleitung an Koord",
+                        label=_("submission to koor (migrated)"),
+                    ),
+                    fields.MethodField(
+                        slug="start-circulation", label=_("Start circulation")
+                    ),
                     fields.WorkItemsField(
                         slug="distribution-completed",
                         label=_("Distribution completed"),
@@ -244,6 +252,77 @@ class UrMilestonesSerializer(MilestonesSerializer):
                     fields.MethodField(
                         slug="building-permit-valid-until",
                         label=_("Building permit valid until"),
+                    ),
+                    fields.CamacWorkflowEntryField(
+                        slug="objection-deadline",
+                        name="Einsprachefrist",
+                        label=_("Objection deadline (migrated)"),
+                    ),
+                    fields.CamacWorkflowEntryField(
+                        slug="dispatch-statement-preliminary-decision-by-post",
+                        name="Versand / Stellungnahme - Vorentscheid per Post",
+                        label=_(
+                            "Dispatch / statement - preliminary decision by post (migrated)"
+                        ),
+                    ),
+                    fields.CamacWorkflowEntryField(
+                        slug="dispatch-statement-preliminary-decision-by-email",
+                        name="Versand / Stellungnahme - Vorentscheid per Mail",
+                        label=_(
+                            "Dispatch / statement - preliminary decision by e-mail (migrated)"
+                        ),
+                    ),
+                    fields.CamacWorkflowEntryField(
+                        slug="dispatch-decision-documents-by-post",
+                        name="Versand Entscheiddokumente per Post",
+                        label=_("Dispatch of decision documents by post (migrated)"),
+                    ),
+                    fields.CamacWorkflowEntryField(
+                        slug="dispatch-decision-documents-by-portal",
+                        name="Versand Entscheiddokumente per Portal",
+                        label=_("Dispatch of decision documents by portal (migrated)"),
+                    ),
+                    fields.CamacWorkflowEntryField(
+                        slug="dispatch-decision-documents-by-email",
+                        name="Versand Entscheiddokumente per Mail",
+                        label=_("Dispatch of decision documents by e-mail (migrated)"),
+                    ),
+                    fields.CamacWorkflowEntryField(
+                        slug="notification-building-permit-to-surveyor",
+                        name="Meldung Baubewilligung an Geometer",
+                        label=_(
+                            "Notification of building permit to surveyor (migrated)"
+                        ),
+                    ),
+                    fields.CamacWorkflowEntryField(
+                        slug="start-of-construction",
+                        name="Baubeginn erfolgt",
+                        label=_("Start of construction (migrated)"),
+                    ),
+                    fields.CamacWorkflowEntryField(
+                        slug="acceptance-of-sectional-framework",
+                        name="Abnahme Schnurgerüst",
+                        label=_("Acceptance of sectional framework (migrated)"),
+                    ),
+                    fields.CamacWorkflowEntryField(
+                        slug="acceptance-of-shell-construction",
+                        name="Abnahme Rohbau",
+                        label=_("Acceptance of shell construction (migrated)"),
+                    ),
+                    fields.CamacWorkflowEntryField(
+                        slug="construction-finished",
+                        name="Bau beendet",
+                        label=_("Construction finished (migrated)"),
+                    ),
+                    fields.CamacWorkflowEntryField(
+                        slug="final-acceptance-completed",
+                        name="Endabnahme erfolgt",
+                        label=_("Final acceptance completed (migrated)"),
+                    ),
+                    fields.CamacWorkflowEntryField(
+                        slug="dossier-archived",
+                        name="Dossier archiviert",
+                        label=_("Dossier archived (migrated)"),
                     ),
                 ],
             ),
@@ -311,7 +390,10 @@ class UrMilestonesSerializer(MilestonesSerializer):
                             and wi.status == WorkItem.STATUS_COMPLETED
                         )
                     ]
-                    return max(completed_check_additional_demand_work_items_closed_at)
+                    if completed_check_additional_demand_work_items_closed_at:
+                        return max(
+                            completed_check_additional_demand_work_items_closed_at
+                        )
 
         return None  # pragma: no cover
 
@@ -360,3 +442,13 @@ class UrMilestonesSerializer(MilestonesSerializer):
             instance, "decision-task-feedback-type-bau-und-einspracheentscheid"
         ):
             return _get_decision_work_item_closed_at(instance)
+
+    def get_start_circulation(self, instance):
+        workitem = WorkItem.objects.filter(
+            case=instance.case,
+            task=settings.DISTRIBUTION["DISTRIBUTION_INIT_TASK"],
+            **{"meta__migrated-at__isnull": False},
+        ).first()
+        if workitem:
+            return workitem.closed_at
+        return ""  # pragma: no cover

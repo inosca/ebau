@@ -41,6 +41,7 @@ def test_milestones_ur(
     role,
     admin_client,
     ur_instance,
+    ur_distribution_settings,
     settings,
     application_settings,
     snapshot,
@@ -49,6 +50,8 @@ def test_milestones_ur(
     publication_entry_factory,
     attachment_factory,
     attachment_download_history_factory,
+    workflow_entry_factory,
+    workflow_item_factory,
     receipt_confirmation_of_decision_documents,
     set_application_ur,
     is_paper_answer,
@@ -91,6 +94,91 @@ def test_milestones_ur(
         case=ur_instance.case,
         closed_at=timezone.make_aware(datetime(2023, 1, 1, 20, 0, 0)),
         status=WorkItem.STATUS_COMPLETED,
+    )
+    WorkItemFactory(
+        task_id="init-distribution",
+        case=ur_instance.case,
+        meta={"migrated-at": "2024-9-27"},
+        status=WorkItem.STATUS_READY,
+        closed_at=timezone.make_aware(datetime(2024, 1, 1, 20, 0, 0)),
+    )
+
+    # migrated workflow entry dates
+    workflow_entry_factory(
+        workflow_item=workflow_item_factory(name="Einsprachefrist"),
+        workflow_date=timezone.make_aware(datetime(2024, 1, 1)),
+        instance=ur_instance,
+    )
+    workflow_entry_factory(
+        workflow_item=workflow_item_factory(
+            name="Versand / Stellungnahme - Vorentscheid per Post"
+        ),
+        workflow_date=timezone.make_aware(datetime(2024, 1, 1)),
+        instance=ur_instance,
+    )
+    workflow_entry_factory(
+        workflow_item=workflow_item_factory(
+            name="Versand / Stellungnahme - Vorentscheid per Mail"
+        ),
+        workflow_date=timezone.make_aware(datetime(2024, 1, 1)),
+        instance=ur_instance,
+    )
+    workflow_entry_factory(
+        workflow_item=workflow_item_factory(name="Versand Entscheiddokumente per Post"),
+        workflow_date=timezone.make_aware(datetime(2024, 1, 1)),
+        instance=ur_instance,
+    )
+    workflow_entry_factory(
+        workflow_item=workflow_item_factory(
+            name="Versand Entscheiddokumente per Portal"
+        ),
+        workflow_date=timezone.make_aware(datetime(2024, 1, 1)),
+        instance=ur_instance,
+    )
+    workflow_entry_factory(
+        workflow_item=workflow_item_factory(name="Versand Entscheiddokumente per Mail"),
+        workflow_date=timezone.make_aware(datetime(2024, 1, 1)),
+        instance=ur_instance,
+    )
+    workflow_entry_factory(
+        workflow_item=workflow_item_factory(name="Meldung Baubewilligung an Geometer"),
+        workflow_date=timezone.make_aware(datetime(2024, 1, 1)),
+        instance=ur_instance,
+    )
+    workflow_entry_factory(
+        workflow_item=workflow_item_factory(name="Weiterleitung an Koord"),
+        workflow_date=timezone.make_aware(datetime(2024, 1, 1)),
+        instance=ur_instance,
+    )
+    workflow_entry_factory(
+        workflow_item=workflow_item_factory(name="Baubeginn erfolgt"),
+        workflow_date=timezone.make_aware(datetime(2024, 1, 1)),
+        instance=ur_instance,
+    )
+    workflow_entry_factory(
+        workflow_item=workflow_item_factory(name="Abnahme Schnurgerüst"),
+        workflow_date=timezone.make_aware(datetime(2024, 1, 1)),
+        instance=ur_instance,
+    )
+    workflow_entry_factory(
+        workflow_item=workflow_item_factory(name="Abnahme Rohbau"),
+        workflow_date=timezone.make_aware(datetime(2024, 1, 1)),
+        instance=ur_instance,
+    )
+    workflow_entry_factory(
+        workflow_item=workflow_item_factory(name="Bau beendet"),
+        workflow_date=timezone.make_aware(datetime(2024, 1, 1)),
+        instance=ur_instance,
+    )
+    workflow_entry_factory(
+        workflow_item=workflow_item_factory(name="Endabnahme erfolgt"),
+        workflow_date=timezone.make_aware(datetime(2024, 1, 1)),
+        instance=ur_instance,
+    )
+    workflow_entry_factory(
+        workflow_item=workflow_item_factory(name="Dossier archiviert"),
+        workflow_date=timezone.make_aware(datetime(2024, 1, 1)),
+        instance=ur_instance,
     )
 
     # top level circulation (Gemeinde -> KOOR)
