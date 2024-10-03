@@ -4,6 +4,8 @@ from django.db.models import Q
 from django.utils.translation import gettext as _
 from rest_framework import serializers
 
+from camac.core.models import WorkflowEntry
+
 
 class WorkItemsField(serializers.ReadOnlyField):
     def __init__(
@@ -154,3 +156,22 @@ class MethodField(serializers.SerializerMethodField):
         self.slug = slug
         self.label = _(label)
         self.method_name = f"get_{slug.replace('-', '_')}"
+
+
+class CamacWorkflowEntryField(serializers.ReadOnlyField):
+    def __init__(self, slug="", name="", label="", *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.slug = slug
+        self.name = name
+        self.label = _(label)
+
+    def get_attribute(self, instance):
+        workflow_entry = WorkflowEntry.objects.filter(
+            instance_id=instance.pk,
+            workflow_item__name=self.name,
+        ).first()
+
+        if workflow_entry:
+            return workflow_entry.workflow_date
+        return None  # pragma: no cover
