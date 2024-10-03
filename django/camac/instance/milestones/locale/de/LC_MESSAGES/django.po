@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-11 17:25+0200\n"
-"PO-Revision-Date: 2024-08-29 13:33+0200\n"
+"POT-Creation-Date: 2024-09-27 14:47+0200\n"
+"PO-Revision-Date: 2024-09-27 14:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -63,6 +63,10 @@ msgid "Start circulation"
 msgstr "Start Zirkulation"
 
 #: camac/instance/milestones/serializers.py
+msgid "submission to koor (migrated)"
+msgstr "Weiterleitung an KOOR (migriert)"
+
+#: camac/instance/milestones/serializers.py
 msgid "Distribution completed"
 msgstr "Zirkulation beendet"
 
@@ -93,3 +97,55 @@ msgstr "Meldung Baubewilligung an Gebäudeschätzung"
 #: camac/instance/milestones/serializers.py
 msgid "Building permit valid until"
 msgstr "Baubewilligung gültig bis"
+
+#: camac/instance/milestones/serializers.py
+msgid "Objection deadline (migrated)"
+msgstr "Einsprachefrist (migriert)"
+
+#: camac/instance/milestones/serializers.py
+msgid "Dispatch / statement - preliminary decision by post (migrated)"
+msgstr "Versand / Stellungnahme - Vorentscheid per Post (migriert)"
+
+#: camac/instance/milestones/serializers.py
+msgid "Dispatch / statement - preliminary decision by e-mail (migrated)"
+msgstr "Versand / Stellungnahme - Vorentscheid per Mail (migriert)"
+
+#: camac/instance/milestones/serializers.py
+msgid "Dispatch of decision documents by post (migrated)"
+msgstr "Versand Entscheiddokumente per Post (migriert)"
+
+#: camac/instance/milestones/serializers.py
+msgid "Dispatch of decision documents by portal (migrated)"
+msgstr "Versand Entscheiddokumente per Portal (migriert)"
+
+#: camac/instance/milestones/serializers.py
+msgid "Dispatch of decision documents by e-mail (migrated)"
+msgstr "Versand Entscheiddokumente per Mail (migriert)"
+
+#: camac/instance/milestones/serializers.py
+msgid "Notification of building permit to surveyor (migrated)"
+msgstr "Meldung Baubewilligung an Geometer (migriert)"
+
+#: camac/instance/milestones/serializers.py
+msgid "Start of construction (migrated)"
+msgstr "Baubeginn erfolgt (migriert)"
+
+#: camac/instance/milestones/serializers.py
+msgid "Acceptance of sectional framework (migrated)"
+msgstr "Abnahme Schnurgerüst (migriert)"
+
+#: camac/instance/milestones/serializers.py
+msgid "Acceptance of shell construction (migrated)"
+msgstr "Abnahme Rohbau (migriert)"
+
+#: camac/instance/milestones/serializers.py
+msgid "Construction finished (migrated)"
+msgstr "Bau beendet (migriert)"
+
+#: camac/instance/milestones/serializers.py
+msgid "Final acceptance completed (migrated)"
+msgstr "Endabnahme erfolgt (migriert)"
+
+#: camac/instance/milestones/serializers.py
+msgid "Dossier archived (migrated)"
+msgstr "Dossier archiviert (migriert)"
