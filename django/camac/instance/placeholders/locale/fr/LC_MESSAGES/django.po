@@ -1393,19 +1393,19 @@ msgstr "Nom et adresse propriétaire immobilier/immobilière"
 
 #: camac/instance/placeholders/serializers.py
 msgid "BUILDING_OWNER_FIRST_NAME"
-msgstr "PROPRIETAIRE_IMMOB_PRÉNOM"
+msgstr "PROPRIETAIRE_BATIMENT_PRENOM"
 
 #: camac/instance/placeholders/serializers.py
 msgid "First name of the building owner"
-msgstr "Prénom propriétaire immobilier/immobilière"
+msgstr "Prénom du/de la propriétaire du bâtiment"
 
 #: camac/instance/placeholders/serializers.py
 msgid "BUILDING_OWNER_LAST_NAME"
-msgstr "PROPRIETAIRE_NOM_DE_FAMILLE"
+msgstr "PROPRIETAIRE_BATIMENT_NOM"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Last name of the building owner"
-msgstr "Nom de famille propriétaire immobilier/immobilière"
+msgstr "Nom de famille du/de la propriétaire du bâtiment"
 
 #: camac/instance/placeholders/serializers.py
 msgid "BUILDING_OWNER"
@@ -1437,15 +1437,15 @@ msgstr "REQUERANT_PRÉNOM"
 
 #: camac/instance/placeholders/serializers.py
 msgid "First name of the applicant"
-msgstr "Prénom requérant/e"
+msgstr "Prénom du/de la requérant(e)"
 
 #: camac/instance/placeholders/serializers.py
 msgid "APPLICANT_LAST_NAME"
-msgstr "REQUERANT_NOM_DE_FAMILLE"
+msgstr "REQUERANT_NOM"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Last name of the applicant"
-msgstr "Nom de famille requérant/e"
+msgstr "Nom de famille du/de la requérant(e)"
 
 #: camac/instance/placeholders/serializers.py
 msgid "WATER_PROTECTION_AREA"
@@ -1457,19 +1457,19 @@ msgstr "Secteur de protection des eaux"
 
 #: camac/instance/placeholders/serializers.py
 msgid "LANDOWNER_FIRST_NAME"
-msgstr "PROPRIETAIRE_PRÉNOM"
+msgstr "PROPRIETAIRE_FONCIER_PRENOM"
 
 #: camac/instance/placeholders/serializers.py
 msgid "First name of the landowner"
-msgstr "Prénom propriétaire foncier/foncière"
+msgstr "Prénom du/de la propriétaire foncier/foncière"
 
 #: camac/instance/placeholders/serializers.py
 msgid "LANDOWNER_LAST_NAME"
-msgstr "PROPRIETAIRE_NOM_DE_FAMILLE"
+msgstr "PROPRIETAIRE_FONCIER_NOM"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Last name of the landowner"
-msgstr "Nom de famille propriétaire foncier/foncière"
+msgstr "Nom de famille du/de la propriétaire foncier/foncière"
 
 #: camac/instance/placeholders/serializers.py
 msgid "INTERIOR_SEATING"
@@ -1577,7 +1577,7 @@ msgstr "Zone d'affectation actuelle de l'immeuble"
 
 #: camac/instance/placeholders/serializers.py
 msgid "PROJECT_AUTHOR_FIRST_NAME"
-msgstr "AUTEUR_PROJET_PRÉNOM"
+msgstr "AUTEUR_PROJET_PRENOM"
 
 #: camac/instance/placeholders/serializers.py
 msgid "First name of the project author"
@@ -1585,7 +1585,7 @@ msgstr "Prénom de l'auteur(e) du projet"
 
 #: camac/instance/placeholders/serializers.py
 msgid "PROJECT_AUTHOR_LAST_NAME"
-msgstr "AUTEUR_PROJET_NOM_DE_FAMILLE"
+msgstr "AUTEUR_PROJET_NOM"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Last name of the project author"
@@ -1733,19 +1733,19 @@ msgstr "Nom et adresse de la personne resprésentante"
 
 #: camac/instance/placeholders/serializers.py
 msgid "LEGAL_REPRESENTATIVE_FIRST_NAME"
-msgstr "REPRESENTANT_PRÉNOM"
+msgstr "REPRESENTANT_PRENOM"
 
 #: camac/instance/placeholders/serializers.py
 msgid "First name of the legal representative"
-msgstr "Prénom de la personne resprésentante"
+msgstr "Prénom du/de la représentant(e)"
 
 #: camac/instance/placeholders/serializers.py
 msgid "LEGAL_REPRESENTATIVE_LAST_NAME"
-msgstr "REPRESENTANT_NOM_DE_FAMILLE"
+msgstr "REPRESENTANT_NOM"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Last name of the legal representative"
-msgstr "Nom de famille de la personne resprésentante"
+msgstr "Nom de famille du/de la représentant(e)"
 
 #: camac/instance/placeholders/serializers.py
 msgid "LEGAL_REPRESENTATIVE"
