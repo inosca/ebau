@@ -1554,7 +1554,7 @@ def test_condition_paper_instance(
         (False, "source-category-1", "target-category-3", HTTP_200_OK),
         (True, "source-category-1", "target-category-1", HTTP_403_FORBIDDEN),
         (True, "source-category-1", "target-category-3", HTTP_200_OK),
-        (False, "source-category-1", "target-category-4", HTTP_403_FORBIDDEN),
+        (False, "source-category-1", "target-category-4", HTTP_200_OK),
         (False, "target-category-4", "source-category-1", HTTP_200_OK),
     ],
 )
@@ -1678,6 +1678,7 @@ def test_move_document(
         category_id=source_category,
         metainfo={"camac-instance-id": instance.pk},
         created_by_group=created_by_group,
+        modified_by_group=created_by_group,
     )
 
     if has_marks:

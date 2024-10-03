@@ -81,12 +81,14 @@ def alexandria_setup(
     DocumentFactory(
         category=service_category,
         created_by_group=str(service.pk),
+        modified_by_group=str(service.pk),
         metainfo={"camac-instance-id": instance.pk},
         title="service",
     )
     DocumentFactory(
         category=service_category,
         created_by_group=str(other_service.pk),
+        modified_by_group=str(other_service.pk),
         metainfo={"camac-instance-id": instance.pk},
         title="service 2",
     )
@@ -95,18 +97,21 @@ def alexandria_setup(
     DocumentFactory(
         category=service_and_subservice_category,
         created_by_group=str(parent_service.pk),
+        modified_by_group=str(parent_service.pk),
         metainfo={"camac-instance-id": instance.pk},
         title="subservice shared 1",
     )
     DocumentFactory(
         category=service_and_subservice_category,
         created_by_group=str(subservice_1.pk),
+        modified_by_group=str(subservice_1.pk),
         metainfo={"camac-instance-id": instance.pk},
         title="subservice shared 2",
     )
     DocumentFactory(
         category=service_and_subservice_category,
         created_by_group=str(subservice_2.pk),
+        modified_by_group=str(subservice_2.pk),
         metainfo={"camac-instance-id": instance.pk},
         title="subservice shared 3",
     )
@@ -128,7 +133,7 @@ def alexandria_setup(
     public.marks.add(MarkFactory(slug="publication"))
 
     for document in Document.objects.all():
-        FileFactory(document=document)
+        FileFactory(document=document, modified_by_group=document.modified_by_group)
 
 
 @pytest.mark.parametrize("type", ["document", "file"])
