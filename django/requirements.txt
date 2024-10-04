@@ -6,6 +6,7 @@ celery==5.4.0
 cryptography==43.0.1
 dataclasses-json==0.6.7
 deepmerge==2.0
+defusedxml==0.7.1
 # check camac/admin.py MultilingualAdminMixin.get_search_result before updating
 Django==4.2.16
 django-admin-sortable2==2.2.3
@@ -30,6 +31,7 @@ drf-yasg==1.21.7
 ebau-gwr==0.7.1
 Jinja2==3.1.4
 jwcrypto==1.5.6
+lxml==5.3.0
 manabi==1.4.0
 mozilla-django-oidc==4.0.1
 # openpyxl>3.0.10 is not compatible with pyexcel-xlsx 0.6.0
