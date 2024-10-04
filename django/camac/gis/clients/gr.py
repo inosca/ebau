@@ -4,9 +4,9 @@ import xml.etree.ElementTree as ET
 
 import requests
 from django.conf import settings
-from lxml import etree
 
 from camac.gis.clients.base import GISBaseClient
+from camac.patches import safe_lxml_fromstring
 from camac.utils import build_url
 
 
@@ -124,7 +124,7 @@ class GrGisClient(GISBaseClient):
     def get_xml(self, response_content, identifier):
         """Convert response text to xml object."""
         try:
-            root = etree.fromstring(response_content)
+            root = safe_lxml_fromstring(response_content)
             xml = (
                 root.find("wps:ProcessOutputs", root.nsmap)
                 .find(f"./wps:Output[ows:Identifier = '{identifier}']", root.nsmap)
@@ -139,7 +139,7 @@ class GrGisClient(GISBaseClient):
     def find_layers(self, response_content, layers_initial):
         """Find specific layers."""
         try:
-            root = etree.fromstring(response_content)
+            root = safe_lxml_fromstring(response_content)
             return [
                 layer[0].text
                 for layer in list(root.find("wps:ProcessOutputs", root.nsmap))

@@ -5,4 +5,5 @@ class Ech0211Config(AppConfig):
     name = "camac.ech0211"
 
     def ready(self):
+        import camac.patches  # noqa
         import camac.ech0211.event_handlers  # noqa
