@@ -46,7 +46,6 @@ export default {
         "intent",
         "street",
         "responsibility",
-        "processingDeadline",
       ],
       default: [
         "dossierNumber",
