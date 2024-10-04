@@ -43538,6 +43538,42 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "decision-task-skip",
+    "fields": {
+      "created_at": "2024-09-18T07:18:43.545Z",
+      "modified_at": "2024-09-18T07:18:43.546Z",
+      "created_by_user": "stephan.hug@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00dcberspringen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "secondary",
+        "action": "skip",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "denkmalpflege",
     "fields": {
       "created_at": "2020-11-04T18:23:02.502Z",
