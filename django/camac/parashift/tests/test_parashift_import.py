@@ -94,10 +94,17 @@ def test_command(
     application_settings,
     master_data_is_visible_mock,
     workflow_item_factory,
+    group_factory,
     bfs_nr,
     run_again,
     ur_master_data_settings,
+    settings,
 ):
+    koor_bg = group_factory()
+    gbb_seedorf = group_factory()
+    settings.PARASHIFT["1214"]["CAMAC_GROUP_ID"] = gbb_seedorf.pk
+    settings.PARASHIFT["KOOR_BG"]["CAMAC_GROUP_ID"] = koor_bg.pk
+
     workflow_item_factory(pk=uri_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
 
     client = ParashiftImporter(bfs_nr=bfs_nr)
