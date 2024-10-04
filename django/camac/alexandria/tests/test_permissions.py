@@ -248,6 +248,7 @@ def test_document_permission(
             category=alexandria_category,
             metainfo={"camac-instance-id": instance.pk},
             created_by_group=caluma_admin_user.group,
+            modified_by_group=caluma_admin_user.group,
         )
         url = reverse("document-detail", args=[doc.pk])
         data_format = None
@@ -453,6 +454,7 @@ def test_file_replace_permission(
         category=alexandria_category,
         metainfo={"camac-instance-id": instance.pk},
         created_by_group=service.pk,
+        modified_by_group=service.pk,
     )
     FileFactory(name="File", document=doc, variant="original")
     url = reverse("file-list")
@@ -641,6 +643,7 @@ def test_patch_fields(
         category=category,
         metainfo=metainfo,
         created_by_group=caluma_admin_user.group,
+        modified_by_group=caluma_admin_user.group,
         date=date,
     )
     tag = TagFactory()
@@ -822,6 +825,7 @@ def test_marks(
         category=alexandria_category,
         metainfo={"camac-instance-id": instance.pk},
         created_by_group=caluma_admin_user.group,
+        modified_by_group=caluma_admin_user.group,
     )
     url = reverse("document-detail", args=[doc.pk])
 
@@ -910,6 +914,7 @@ def test_scope_service(
         category=alexandria_category,
         metainfo={"camac-instance-id": instance.pk},
         created_by_group=str(services[created_by].pk),
+        modified_by_group=str(services[created_by].pk),
     )
 
     data = {
@@ -1011,6 +1016,7 @@ def test_scope_service_and_subservice(
         category=alexandria_category,
         metainfo={"camac-instance-id": instance.pk},
         created_by_group=str(services[created_by].pk),
+        modified_by_group=str(services[created_by].pk),
     )
 
     data = {
@@ -1758,6 +1764,7 @@ def test_document_convert(
         category=alexandria_category,
         metainfo={"camac-instance-id": instance.pk},
         created_by_group=caluma_admin_user.group,
+        modified_by_group=caluma_admin_user.group,
     )
     FileFactory(name="File", document=doc)
     url = reverse("document-convert", args=[doc.pk])
@@ -1823,6 +1830,7 @@ def test_document_webdav_url(
         category=alexandria_category,
         metainfo={"camac-instance-id": instance.pk},
         created_by_group=caluma_admin_user.group,
+        modified_by_group=caluma_admin_user.group,
     )
     FileFactory(
         name="File",
