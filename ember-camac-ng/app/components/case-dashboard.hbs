@@ -132,6 +132,12 @@
           </ul>
         </CaseDashboard::Column>
       </tr>
+      <tr>
+        <CaseDashboard::Column
+          @header={{t "cases.tableHeaders.processingDeadline"}}
+          @value={{this.models.caseModel.processingDeadline}}
+        />
+      </tr>
     </CaseDashboard::Section>
     <hr />
 

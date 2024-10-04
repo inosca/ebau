@@ -1,4 +1,6 @@
 import { service } from "@ember/service";
+import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
+import { allWorkItems } from "@projectcaluma/ember-core/caluma-query/queries";
 
 import CustomCaseBaseModel from "ember-ebau-core/caluma-query/models/-case";
 import mainConfig from "ember-ebau-core/config/main";
@@ -46,6 +48,23 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
   getPersonsCount(question) {
     return getAnswer(this.raw.document, question)?.node.value.length;
   }
+
+  workItems = useCalumaQuery(this, allWorkItems, () => ({
+    filter: [
+      {
+        rootCaseMetaValue: [
+          { key: "camac-instance-id", value: this.instanceId },
+        ],
+      },
+      { hasDeadline: true },
+      { addressedGroups: [this.ebauModules.serviceId.toString()] },
+      { status: "READY" },
+    ],
+    order: [{ attribute: "DEADLINE", direction: "ASC" }],
+    options: {
+      pageSize: 1,
+    },
+  }));
 
   get instanceFormDescription() {
     return this.instance?.form.get("description");
@@ -188,12 +207,10 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
   }
 
   get processingDeadline() {
-    const activations = this.store.peekAll("activation");
-    const activation = activations?.find(
-      (activation) =>
-        Number(activation.get("circulation.instance.id")) === this.instanceId,
-    );
-    return activation?.deadlineDate;
+    if ((this.workItems?.value ?? []).length) {
+      return this.workItems.value[0].deadline.toLocaleDateString("de-ch");
+    }
+    return "";
   }
 
   get responsibility() {
