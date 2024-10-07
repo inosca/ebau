@@ -1109,7 +1109,7 @@
                   'label': 'Nein',
                 }),
               ]),
-              'label': 'Gebiet mit bekannten oder vermuteten Naturgefahren',
+              'label': 'Gebiet mit bekannten/unbekannten oder vermuteten Naturgefahren',
               'slug': 'gebiet-mit-naturgefahren',
               'type': 'ChoiceQuestion',
             }),
