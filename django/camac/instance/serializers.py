@@ -48,6 +48,7 @@ from camac.ech0211.signals import (
 from camac.instance.domain_logic import link_instances
 from camac.instance.master_data import MasterData
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
+from camac.instance.models import Instance
 from camac.instance.utils import copy_instance, fill_ebau_number
 from camac.notification.utils import send_mail, send_mail_without_request
 from camac.permissions import api as permissions_api, events as permissions_events
@@ -97,6 +98,15 @@ def _is_sb1_form_version(instance, form_slug):
         instance.case.work_items.filter(task="sb1")
         .filter(document__form__slug=form_slug)
         .exists()
+    )
+
+
+def create_instance_service(instance: Instance, service_id: int):
+    InstanceService.objects.create(
+        instance=instance,
+        service_id=service_id,
+        active=1,
+        activation_date=None,
     )
 
 
@@ -1556,6 +1566,12 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             koor_afj_instance.instance_state = models.InstanceState.objects.get(
                 name="ext"
             )
+            service = Service.objects.get(pk=uri_constants.KOOR_AFJ_SERVICE_ID)
+            create_instance_service(koor_afj_instance, service.pk)
+            workflow_api.complete_work_item(
+                work_item=koor_afj_instance.case.work_items.get(task_id="submit"),
+                user=self.context["request"].caluma_info.context.user,
+            )
             self._update_instance_location(koor_afj_instance)
             koor_afj_instance.save()
             self._set_submit_date(koor_afj_instance.case, koor_afj_instance)
@@ -1680,12 +1696,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             if settings.APPLICATION_NAME == "kt_uri":
                 service = self._ur_get_responsible_service(instance)
 
-                InstanceService.objects.create(
-                    instance=self.instance,
-                    service=service,
-                    active=1,
-                    activation_date=None,
-                )
+                create_instance_service(instance, service.pk)
                 return
 
             # FIXME: use master data instead!
@@ -1699,12 +1710,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             ):
                 municipality = Service.objects.get(service_group__name="canton").pk
 
-            InstanceService.objects.create(
-                instance=self.instance,
-                service_id=int(municipality),
-                active=1,
-                activation_date=None,
-            )
+            create_instance_service(instance, int(municipality))
 
     @transaction.atomic
     def _generate_identifier(self, case, instance):
