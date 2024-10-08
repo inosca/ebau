@@ -47,11 +47,12 @@ def clean_version(full_version: str) -> str:
     """Remove prerelease info from version.
 
     This is needed because the eCH standard only allows a maximum of 10
-    characters in the version field.
+    characters in the version field. Further we want to strip canton pre-
+    fixes and additional suffixes.
     """
-    match = re.search(r"^\d+.\d+.\d+", full_version)
+    match = re.search(r"(?:[a-z]{0,2}-)?v?(\d+\.\d+\.\d+)", full_version)
 
-    return match.group(0) if match else full_version
+    return match.group(1) if match else full_version
 
 
 def handle_ja_nein_bool(value):
