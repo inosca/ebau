@@ -1687,6 +1687,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 ).municipality_slug
             )
             & Q(service_group__name="Sekretariate Gemeindebaubehörden")
+            & Q(disabled=False)
         ).first()
 
     def _set_instance_service(self, case, instance):
