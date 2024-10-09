@@ -105,6 +105,11 @@ def test_milestones_ur(
 
     # migrated workflow entry dates
     workflow_entry_factory(
+        workflow_item=workflow_item_factory(name="Bau- und Einspracheentscheid"),
+        workflow_date=timezone.make_aware(datetime(2024, 1, 1)),
+        instance=ur_instance,
+    )
+    workflow_entry_factory(
         workflow_item=workflow_item_factory(name="Einsprachefrist"),
         workflow_date=timezone.make_aware(datetime(2024, 1, 1)),
         instance=ur_instance,
