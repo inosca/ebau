@@ -346,6 +346,7 @@ class InstanceExportFilterBackendBE(InstanceExportFilterBackend):
                 "case__document__family",
                 "case__document__form",
                 "case__document__form__name",
+                "instance_state",
             )
         )
 
