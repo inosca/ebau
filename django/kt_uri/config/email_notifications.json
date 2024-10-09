@@ -538,5 +538,17 @@
       "service": null,
       "type": "email"
     }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1473,
+    "fields": {
+      "slug": "dossier-eingereicht-koor-afj",
+      "purpose": "Info an KOOR AFJ - Neues Dossier wurde online eingereicht",
+      "subject": "Neues Dossier wurde online eingereicht",
+      "body": "URec Info\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nNEUES DOSSIER\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm URec wurde ein neues Dossier mit der ID Nr. {{INSTANCE_ID}} erfasst bzw. eingereicht. Bitte prüfen Sie das Dossier auf Vollständigkeit. Falls zusätzliche Unterlagen notwendig sind, können diese im Rahmen der \"Vollständigkeitsprüfung\" nachgefordert werden. \r\n\r\nDer Gesuchsteller erhält eine entsprechende Meldung.\r\n\r\nFreundliche Grüsse",
+      "service": null,
+      "type": "email"
+    }
   }
 ]

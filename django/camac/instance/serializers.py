@@ -1588,7 +1588,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             ]:
                 self._send_notification(**notification_config)
 
-    def _send_notifications(self, case):
+    def _send_notifications(self, case):  # noqa: C901
         notification_key = "SUBMIT"
         if case.workflow_id == "preliminary-clarification":  # pragma: no cover
             notification_key = "SUBMIT_PRELIMINARY_CLARIFICATION"
@@ -1610,8 +1610,12 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             notification_key = "SUBMIT_KOOR_AFE"
         if case.document.form_id == "pgv-gemeindestrasse":
             notification_key = "SUBMIT_KOOR_BD"
-        if case.document.form_id == "oereb":
+
+        if case.meta.get("oereb_copy"):
+            notification_key = "SUBMIT_KOOR_AFJ"
+        elif case.document.form_id == "oereb":
             notification_key = "SUBMIT_KOOR_NP"
+
         if case.document.form_id == "mitbericht-kanton":
             return
         if (
