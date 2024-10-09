@@ -8,8 +8,60 @@ from django.urls import reverse
 from django.utils.timezone import make_aware
 from rest_framework import status
 
+from camac.instance.export.views import InstanceExportView
+from camac.instance.models import Instance
 
-@pytest.mark.parametrize("role__name", ["Municipality"])
+
+@pytest.mark.parametrize(
+    "role__name,method,has_access,expected_count",
+    [
+        ("Municipality", "get_queryset_for_municipality", True, 1),
+        ("Service", "get_queryset_for_service", True, 1),
+        ("Applicant", "_get_queryset_for_applicant", True, 0),
+        ("Public", "get_queryset_for_public", True, 0),
+        ("Municipality", "get_queryset_for_municipality", False, 0),
+        ("Service", "get_queryset_for_service", False, 0),
+        ("Applicant", "_get_queryset_for_applicant", False, 0),
+        ("Public", "get_queryset_for_public", False, 0),
+    ],
+)
+def test_caluma_export_visibilities(
+    db,
+    admin_client,
+    instance,
+    mocker,
+    role,
+    group,
+    method,
+    has_access,
+    expected_count,
+):
+    is_public = role.name == "Public"
+    mocker.patch(
+        "camac.user.permissions.get_group", return_value=None if is_public else group
+    )
+    mocker.patch(
+        f"camac.instance.mixins.InstanceQuerysetMixin.{method}",
+        return_value=Instance.objects.filter(pk=instance.pk)
+        if has_access
+        else Instance.objects.none(),
+    )
+
+    view = InstanceExportView()
+    assert view.get_queryset().count() == expected_count
+    if expected_count:
+        assert instance in view.get_queryset()
+
+
+@pytest.mark.parametrize(
+    "role__name,expected_status,expected_count,expected_num_queries",
+    [
+        ("Municipality", status.HTTP_200_OK, 1, 3),
+        ("Service", status.HTTP_200_OK, 0, 3),
+        ("Applicant", status.HTTP_200_OK, 0, 1),
+        ("Public", status.HTTP_403_FORBIDDEN, 0, 0),
+    ],
+)
 @pytest.mark.parametrize("service__name", ["Leitbehörde Burgdorf"])
 @pytest.mark.parametrize(
     "is_multilingual",
@@ -28,6 +80,10 @@ def test_caluma_export_be(
     settings,
     django_assert_num_queries,
     is_multilingual,
+    role,
+    expected_status,
+    expected_count,
+    expected_num_queries,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
@@ -71,16 +127,31 @@ def test_caluma_export_be(
 
     url = reverse("instance-export")
 
-    with django_assert_num_queries(2):
-        response = admin_client.get(url, {"instance_id": be_instance.pk})
+    with django_assert_num_queries(expected_num_queries):
+        if role.name == "Public":
+            response = admin_client.get(
+                url, {"instance_id": be_instance.pk}, HTTP_X_CAMAC_PUBLIC_ACCESS=True
+            )
+        else:
+            response = admin_client.get(url, {"instance_id": be_instance.pk})
 
-    assert response.status_code == status.HTTP_200_OK
-    book = pyexcel.get_book(file_content=response.content, file_type="xlsx")
-    assert be_instance.pk in book.get_dict()["pyexcel sheet"][1]
+    assert response.status_code == expected_status
+    if expected_status == status.HTTP_200_OK:
+        book = pyexcel.get_book(file_content=response.content, file_type="xlsx")
+        assert len(book.get_dict()["pyexcel sheet"]) - 1 == expected_count
+        if expected_count:
+            assert be_instance.pk in book.get_dict()["pyexcel sheet"][1]
 
 
-@pytest.mark.parametrize("role__name", ["Municipality"])
-@pytest.mark.parametrize("service__name", ["Gemeinde Schwyz"])
+@pytest.mark.parametrize(
+    "service__name,role__name,expected_status,expected_count,expected_num_queries",
+    [
+        ("Gemeinde Schwyz", "Municipality", status.HTTP_200_OK, 1, 3),
+        ("Gemeinde Schwyz", "Service", status.HTTP_200_OK, 1, 3),
+        (None, "Applicant", status.HTTP_200_OK, 0, 1),
+        (None, "Public", status.HTTP_403_FORBIDDEN, 0, 0),
+    ],
+)
 @pytest.mark.parametrize("has_overrides", [False, True])
 def test_caluma_export_sz(
     db,
@@ -98,6 +169,10 @@ def test_caluma_export_sz(
     document_factory,
     snapshot,
     has_overrides,
+    role,
+    expected_status,
+    expected_count,
+    expected_num_queries,
     settings,
     sz_distribution_settings,
     django_assert_num_queries,
@@ -202,15 +277,22 @@ def test_caluma_export_sz(
 
     url = reverse("instance-export")
 
-    with django_assert_num_queries(2):
-        response = admin_client.get(url, {"instance_id": sz_instance.pk})
+    with django_assert_num_queries(expected_num_queries):
+        if role.name == "Public":
+            response = admin_client.get(
+                url, {"instance_id": sz_instance.pk}, HTTP_X_CAMAC_PUBLIC_ACCESS=True
+            )
+        else:
+            response = admin_client.get(url, {"instance_id": sz_instance.pk})
 
-    assert response.status_code == status.HTTP_200_OK
-    book = pyexcel.get_book(file_content=response.content, file_type="xlsx")
-    data = book.get_dict()["pyexcel sheet"][1]
-    assert sz_instance.identifier in data
-
-    snapshot.assert_match(data)
+    assert response.status_code == expected_status
+    if expected_status == status.HTTP_200_OK:
+        book = pyexcel.get_book(file_content=response.content, file_type="xlsx")
+        assert len(book.get_dict()["pyexcel sheet"]) - 1 == expected_count
+        if expected_count:
+            data = book.get_dict()["pyexcel sheet"][1]
+            assert sz_instance.identifier in data
+            snapshot.assert_match(data)
 
 
 @pytest.mark.parametrize(
