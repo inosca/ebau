@@ -12,6 +12,8 @@ from camac.billing.utils import (
     calculate_final_rate,
     get_totals,
 )
+from camac.billing.views import BillingV2EntryViewset
+from camac.instance.models import Instance
 
 
 def test_calculate_final_rate():
@@ -111,19 +113,36 @@ def test_get_totals():
 
 
 @pytest.mark.parametrize(
-    "role__name,expected", [("Applicant", 0), ("Municipality", 5), ("Service", 5)]
+    "role__name,expected_status,expected_count",
+    [
+        ("Applicant", status.HTTP_200_OK, 0),
+        ("Municipality", status.HTTP_200_OK, 5),
+        ("Service", status.HTTP_200_OK, 5),
+        ("Public", status.HTTP_403_FORBIDDEN, 0),
+    ],
 )
 def test_billing_entry_list(
-    db, billing_v2_entry_factory, admin_client, instance, expected
+    db,
+    billing_v2_entry_factory,
+    admin_client,
+    instance,
+    role,
+    expected_status,
+    expected_count,
 ):
     billing_v2_entry_factory.create_batch(5, instance=instance)
     billing_v2_entry_factory.create_batch(5)
 
     url = reverse("billing-v2-entry-list")
-    response = admin_client.get(url, {"instance": instance.pk})
-
-    assert response.status_code == status.HTTP_200_OK
-    assert len(response.json()["data"]) == expected
+    if role.name == "Public":
+        response = admin_client.get(
+            url, {"instance": instance.pk}, HTTP_X_CAMAC_PUBLIC_ACCESS=True
+        )
+    else:
+        response = admin_client.get(url, {"instance": instance.pk})
+    assert response.status_code == expected_status
+    if response.status_code == status.HTTP_200_OK:
+        assert len(response.json()["data"]) == expected_count
 
 
 @pytest.mark.parametrize("role__name", [("Municipality")])
@@ -152,6 +171,49 @@ def test_billing_entry_create(db, admin_client, instance):
     result = response.json()
 
     assert result["data"]["attributes"]["final-rate"] == "1130.85"
+
+
+@pytest.mark.parametrize(
+    "role__name,method,has_access,expected_count",
+    [
+        ("Municipality", "get_queryset_for_municipality", True, 1),
+        ("Service", "get_queryset_for_service", True, 1),
+        ("Applicant", "_get_queryset_for_applicant", True, 0),
+        ("Public", "get_queryset_for_public", True, 0),
+        ("Municipality", "get_queryset_for_municipality", False, 0),
+        ("Service", "get_queryset_for_service", False, 0),
+        ("Applicant", "_get_queryset_for_applicant", False, 0),
+        ("Public", "get_queryset_for_public", False, 0),
+    ],
+)
+def test_billing_entry_visibilities(
+    db,
+    admin_client,
+    instance,
+    mocker,
+    billing_v2_entry_factory,
+    role,
+    group,
+    method,
+    expected_count,
+    has_access,
+):
+    is_public = role.name == "Public"
+    mocker.patch(
+        "camac.user.permissions.get_group", return_value=None if is_public else group
+    )
+    mocker.patch(
+        f"camac.instance.mixins.InstanceQuerysetMixin.{method}",
+        return_value=Instance.objects.filter(pk=instance.pk)
+        if has_access
+        else Instance.objects.none(),
+    )
+
+    billing_v2_entry_factory(instance=instance)
+    view = BillingV2EntryViewset()
+    assert view.get_queryset().count() == expected_count
+    if expected_count:
+        assert instance in view.get_queryset()
 
 
 @pytest.mark.freeze_time("2023-11-06")
