@@ -163,6 +163,49 @@ def row_to_person(document: Document) -> dict:
         "street_number": find_answer(document, mapping["STREET_NUMBER"]),
         "zip": find_answer(document, mapping["ZIP"]),
         "town": find_answer(document, mapping["TOWN"]),
+        "has_representative": find_answer(
+            document, mapping.get("HAS_REPRESENTATIVE"), raw_value=True
+        )
+        == mapping.get("HAS_REPRESENTATIVE_YES"),
+        "representative_is_juristic_person": find_answer(
+            document, mapping.get("IS_REPRESENTATIVE_JURISTIC"), raw_value=True
+        )
+        == mapping.get("IS_REPRESENTATIVE_JURISTIC_YES"),
+        "representative_juristic_name": find_answer(
+            document, mapping.get("REPRESENTATIVE_JURISTIC_NAME")
+        ),
+        "representative_salutation": find_answer(
+            document, mapping.get("REPRESENTATIVE_SALUTATION")
+        ),
+        "representative_title": find_answer(
+            document, mapping.get("REPRESENTATIVE_TITLE")
+        ),
+        "representative_last_name": find_answer(
+            document, mapping.get("REPRESENTATIVE_LAST_NAME")
+        ),
+        "representative_first_name": find_answer(
+            document, mapping.get("REPRESENTATIVE_FIRST_NAME")
+        ),
+        "representative_street": find_answer(
+            document, mapping.get("REPRESENTATIVE_STREET")
+        ),
+        "representative_street_number": find_answer(
+            document, mapping.get("REPRESENTATIVE_STREET_NUMBER")
+        ),
+        "representative_zip": find_answer(document, mapping.get("REPRESENTATIVE_ZIP")),
+        "representative_town": find_answer(
+            document, mapping.get("REPRESENTATIVE_TOWN")
+        ),
+        "representative_country": find_answer(
+            document, mapping.get("REPRESENTATIVE_COUNTRY")
+        ),
+        "representative_email": find_answer(
+            document, mapping.get("REPRESENTATIVE_EMAIL")
+        ),
+        "representative_tel": find_answer(document, mapping.get("REPRESENTATIVE_TEL")),
+        "representative_po_box": find_answer(
+            document, mapping.get("REPRESENTATIVE_PO_BOX")
+        ),
     }
 
 
