@@ -428,12 +428,20 @@ class AuthorityView(ReadOnlyModelViewSet):
     queryset = models.Authority.objects.all()
 
 
-class WorkflowEntryView(ReadOnlyModelViewSet, InstanceQuerysetMixin):
+class WorkflowEntryView(InstanceQuerysetMixin, ReadOnlyModelViewSet):
     """Only used in Kt. UR."""
 
     serializer_class = serializers.WorkflowEntrySerializer
     queryset = models.WorkflowEntry.objects.all()
     filterset_class = filters.WorkflowEntryFilterSet
+
+    # Queryset for internal role permissions are handled
+    # by InstanceQuerysetMixin
+    def get_queryset_for_applicant(self):
+        return self.queryset.none()
+
+    def get_queryset_for_public(self):
+        return self.queryset.none()
 
 
 class ResourceView(ReadOnlyModelViewSet):

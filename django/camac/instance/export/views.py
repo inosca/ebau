@@ -16,9 +16,17 @@ from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import Instance
 
 
-class InstanceExportView(ListAPIView, InstanceQuerysetMixin):
+class InstanceExportView(InstanceQuerysetMixin, ListAPIView):
     instance_field = None
     queryset = Instance.objects
+
+    # Queryset for internal role permissions are handled
+    # by InstanceQuerysetMixin
+    def get_queryset_for_applicant(self):
+        return self.queryset.none()
+
+    def get_queryset_for_public(self):
+        return self.queryset.none()
 
     def get_serializer_class(self):
         if settings.APPLICATION_NAME == "kt_bern":

@@ -8,23 +8,20 @@ from camac.billing.filters import BillingV2EntryFilterSet
 from camac.billing.models import BillingV2Entry
 from camac.billing.serializers import BillingV2EntrySerializer
 from camac.instance.mixins import InstanceQuerysetMixin
-from camac.user.permissions import permission_aware
 
 
-class BillingV2EntryViewset(ModelViewSet, InstanceQuerysetMixin):
+class BillingV2EntryViewset(InstanceQuerysetMixin, ModelViewSet):
     serializer_class = BillingV2EntrySerializer
     filterset_class = BillingV2EntryFilterSet
     queryset = BillingV2Entry.objects.all().order_by("organization", "pk")
 
-    @permission_aware
-    def get_queryset(self):
+    # Queryset for internal role permissions are handled
+    # by InstanceQuerysetMixin
+    def get_queryset_for_applicant(self):
         return self.queryset.none()
 
-    def get_queryset_for_municipality(self):
-        return super().get_queryset()
-
-    def get_queryset_for_service(self):
-        return super().get_queryset()
+    def get_queryset_for_public(self):
+        return self.queryset.none()
 
     def has_object_charge_permission(self, obj):
         return (
