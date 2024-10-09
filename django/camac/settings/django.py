@@ -267,6 +267,7 @@ APPLICATIONS = {
             "koor_bd_users",
             "koor_sd_users",
             "koor_afe_users",
+            "koor_afj_users",
             "responsible_koor",
             "abwasser_uri",
             "schnurgeruestabnahme_uri",
@@ -1290,6 +1291,7 @@ APPLICATIONS = {
             "koor_bd_users",
             "koor_sd_users",
             "koor_afe_users",
+            "koor_afj_users",
             "responsible_koor",
             "abwasser_uri",
             "schnurgeruestabnahme_uri",
@@ -1685,6 +1687,16 @@ APPLICATIONS = {
                 {
                     "template_slug": "dossier-eingereicht-koor-np",
                     "recipient_types": ["koor_np_users"],
+                },
+            ],
+            "SUBMIT_KOOR_AFJ": [
+                {
+                    "template_slug": "dossier-eingereicht-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "dossier-eingereicht-koor-afj",
+                    "recipient_types": ["koor_afj_users"],
                 },
             ],
             "APPLICANT": {
