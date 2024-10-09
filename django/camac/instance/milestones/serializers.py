@@ -229,6 +229,11 @@ class UrMilestonesSerializer(MilestonesSerializer):
                         slug="building-decision",
                         label=_("Building decision"),
                     ),
+                    fields.CamacWorkflowEntryField(
+                        slug="building-decision-migrated",
+                        name="Bau- und Einspracheentscheid",
+                        label=_("Building decision (migrated)"),
+                    ),
                     fields.WorkItemsField(
                         slug="notice-to-geometer",
                         label=_("notice to geometer"),
@@ -407,7 +412,11 @@ class UrMilestonesSerializer(MilestonesSerializer):
             None,
         )
 
-        if decision_work_item and decision_work_item.closed_at is not None:
+        if (
+            decision_work_item
+            and decision_work_item.closed_at is not None
+            and self.get_building_decision(instance)
+        ):
             return decision_work_item.closed_at + relativedelta.relativedelta(years=1)
 
         return []  # pragma: no cover

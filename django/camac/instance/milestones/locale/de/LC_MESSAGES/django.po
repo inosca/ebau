@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-27 14:47+0200\n"
-"PO-Revision-Date: 2024-09-27 14:48+0200\n"
+"POT-Creation-Date: 2024-10-09 12:56+0200\n"
+"PO-Revision-Date: 2024-10-09 12:56+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -77,6 +77,10 @@ msgstr "Stellungnahme - Vorentscheid"
 #: camac/instance/milestones/serializers.py
 msgid "Building decision"
 msgstr "Bau- und Einspracheentscheid"
+
+#: camac/instance/milestones/serializers.py
+msgid "Building decision (migrated)"
+msgstr "Bau- und Einspracheentscheid (migriert)"
 
 #: camac/instance/milestones/serializers.py
 msgid "notice to geometer"
