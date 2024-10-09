@@ -5,11 +5,13 @@ repos:
       stages: [commit]
       name: fix style and imports
       language: system
-      entry: bash -c 'cd django && ruff check --fix .'
+      entry: ruff check --fix
       types: [python]
+      pass_filenames: true
     - id: ruff-format
       stages: [commit]
       name: format code
       language: system
-      entry: bash -c 'cd django && ruff format'
+      entry: ruff format
       types: [python]
+      pass_filenames: true
