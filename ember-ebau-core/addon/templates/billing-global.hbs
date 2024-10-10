@@ -1,0 +1,23 @@
+<div class="uk-grid uk-grid-small" uk-grid>
+  <Filters::Date
+    @filterName="from"
+    @label={{t "billing.filters.createdAfter"}}
+    @value={{this.from}}
+    @maxDate={{this.to}}
+    @updateFilter={{fn this.updateFilter "from"}}
+  />
+  <Filters::Date
+    @filterName="to"
+    @label={{t "billing.filters.createdBefore"}}
+    @value={{this.to}}
+    @minDate={{this.from}}
+    @updateFilter={{fn this.updateFilter "to"}}
+  />
+</div>
+<div class="uk-height-1-1">
+  <BillingGlobalTable
+    @entries={{this.entries}}
+    @loadMore={{this.loadMore}}
+    @filters={{hash to=this.to from=this.from}}
+  />
+</div>

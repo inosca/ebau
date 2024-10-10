@@ -12,7 +12,14 @@
           value
           minimumFractionDigits=2
         }}</td>
-      <td colspan={{@colspanTotalFill}}></td>
+      {{#if (eq key "total")}}
+        <td
+          class="uk-text-right uk-text-italic billing-table__pagination"
+          colspan={{@colspanTotalFill}}
+        >{{yield to="pagination"}}</td>
+      {{else}}
+        <td colspan={{@colspanTotalFill}}></td>
+      {{/if}}
     </tr>
   {{/each-in}}
 {{/each-in}}

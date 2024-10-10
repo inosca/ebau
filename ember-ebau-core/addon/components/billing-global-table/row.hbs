@@ -1,0 +1,20 @@
+<tr>
+  <td data-test-entry-text>
+    {{@entry.text}}
+    {{#if (and (has-feature "billing.legalBasis") @entry.legalBasis)}}
+      <span class="uk-text-italic">({{@entry.legalBasis}})</span>
+    {{/if}}
+  </td>
+  {{#if (has-feature "billing.displayService")}}
+    <td data-test-entry-service>{{@entry.group.service.name}}</td>
+  {{else}}
+    <td data-test-entry-group>{{@entry.group.name}}</td>
+  {{/if}}
+  <td data-test-entry-user>{{@entry.user.fullName}}</td>
+  <td data-test-entry-amount>{{@entry.amount}}</td>
+  <td class="uk-text-right" data-test-entry-final-rate>
+    {{format-number @entry.finalRate minimumFractionDigits=2}}
+  </td>
+  <td data-test-entry-added>{{format-date @entry.dateAdded format="date"}}</td>
+  <td data-test-entry-dossier>{{@entry.instance.id}}</td>
+</tr>
