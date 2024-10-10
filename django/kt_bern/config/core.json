@@ -109284,6 +109284,13 @@
     }
   },
   {
+    "model": "core.rpage",
+    "pk": 18000001,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
     "model": "core.rroleacl",
     "pk": 10000,
     "fields": {
@@ -109980,6 +109987,62 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 18000025,
+    "fields": {
+      "resource": 18000001,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 18000027,
+    "fields": {
+      "resource": 18000001,
+      "role": 4
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 18000028,
+    "fields": {
+      "resource": 18000001,
+      "role": 20010
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 18000029,
+    "fields": {
+      "resource": 18000001,
+      "role": 20004
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 18000031,
+    "fields": {
+      "resource": 18000001,
+      "role": 20001
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 18000032,
+    "fields": {
+      "resource": 18000001,
+      "role": 20013
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 18000037,
+    "fields": {
+      "resource": 18000001,
+      "role": 20000
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 10000,
     "fields": {
@@ -110041,7 +110104,7 @@
       "template": "/ember-camac-ng/dms-admin.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -110080,7 +110143,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -110132,7 +110195,7 @@
       "template": "/ember-camac-ng/statistics.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -110171,7 +110234,7 @@
       "template": "/ember-camac-ng/service-permissions.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -110185,6 +110248,19 @@
       "class_field": "communications",
       "hidden": 0,
       "sort": 6
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 18000001,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/billing-global.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 7
     }
   },
   {
@@ -110504,6 +110580,26 @@
       "resource": 18000000,
       "language": "de",
       "name": "Kommunikation",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 18000001,
+    "fields": {
+      "resource": 18000001,
+      "language": "de",
+      "name": "Gebühren",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 18000002,
+    "fields": {
+      "resource": 18000001,
+      "language": "fr",
+      "name": "Emoluments",
       "description": null
     }
   },
