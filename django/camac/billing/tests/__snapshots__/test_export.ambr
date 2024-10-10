@@ -1,0 +1,106 @@
+# serializer version: 1
+# name: test_billing_export[Municipality-billing_params0-3-3-False]
+  list([
+    '06.11.2023',
+    'audience',
+    'Jeffrey Zhang',
+    'Rebecca Gonzalez',
+    '297.28 exklusive  7.7% MwSt',
+    '297.28',
+    '',
+    '',
+    '',
+    'Keine Koordinaten verfügbar',
+    'Alex Smith',
+  ])
+# ---
+# name: test_billing_export[Municipality-billing_params1-3-3-False]
+  list([
+    '06.11.2023',
+    'audience',
+    'Jeffrey Zhang',
+    'Rebecca Gonzalez',
+    '29.86 von 276.03 exklusive  7.7% MwSt',
+    '88.79',
+    '',
+    '',
+    '',
+    'Keine Koordinaten verfügbar',
+    'Alex Smith',
+  ])
+# ---
+# name: test_billing_export[Municipality-billing_params2-3-3-False]
+  list([
+    '06.11.2023',
+    'audience',
+    'Jeffrey Zhang',
+    'Rebecca Gonzalez',
+    '3.00 Std à 828.00 inklusive  7.7% MwSt',
+    '2484.00',
+    '',
+    '',
+    '',
+    'Keine Koordinaten verfügbar',
+    'Alex Smith',
+  ])
+# ---
+# name: test_billing_export[Municipality-billing_params3-3-3-False]
+  list([
+    '06.11.2023',
+    'audience',
+    'Jeffrey Zhang',
+    'Rebecca Gonzalez',
+    '276.03 nicht MwSt-pflichtig',
+    '276.03',
+    '',
+    '',
+    '',
+    'Keine Koordinaten verfügbar',
+    'Alex Smith',
+  ])
+# ---
+# name: test_billing_export[Service-billing_params6-3-3-False]
+  list([
+    '06.11.2023',
+    'audience',
+    'Jeffrey Zhang',
+    'Rebecca Gonzalez',
+    '297.28 exklusive  7.7% MwSt',
+    '297.28',
+    '',
+    '',
+    '',
+    'Keine Koordinaten verfügbar',
+    'Alex Smith',
+  ])
+# ---
+# name: test_billing_export[Service-billing_params7-3-1-True]
+  list([
+    '06.12.2023',
+    'audience',
+    'Jeffrey Zhang',
+    'Rebecca Gonzalez',
+    '297.28 exklusive  7.7% MwSt',
+    '297.28',
+    '',
+    '',
+    '',
+    'Keine Koordinaten verfügbar',
+    'Alex Smith',
+  ])
+# ---
+# name: test_billing_export[Support-billing_params5-3-3-False]
+  list([
+    '06.11.2023',
+    'audience',
+    'Jeffrey Zhang',
+    'Rebecca Gonzalez',
+    '297.28 exklusive  7.7% MwSt',
+    '297.28',
+    '',
+    '',
+    '',
+    'Keine Koordinaten verfügbar',
+    'Alex Smith',
+  ])
+# ---

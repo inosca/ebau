@@ -1,0 +1,57 @@
+.billing-global-table {
+
+  // the sum of those cols must ideally be 100% to match table widths
+  &>colgroup>col {
+
+    &:nth-child(1),
+    &:nth-child(7) {
+      width: 8%;
+    }
+
+    &:nth-child(5),
+    &:nth-child(6) {
+      width: 10%;
+    }
+
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4) {
+      width: 20%;
+    }
+  }
+
+  & thead {
+    background: white;
+    position: sticky;
+    top: 0;
+  }
+
+  tfoot {
+    .billing-table__divider:first-child {
+      display: none;
+    }
+
+    tr:not(:nth-child(2), .billing-table__divider) td {
+      padding-top: 0;
+    }
+
+    tr:not(:last-child, .billing-table__divider) td {
+      padding-bottom: 0;
+    }
+
+    tr:last-child td {
+      text-decoration-line: underline;
+      text-decoration-style: double;
+
+      &.billing-table__pagination {
+        text-decoration-line: none;
+        text-decoration-style: unset;
+      }
+    }
+  }
+}
+
+.table-container {
+  height: calc(100vh - 450px); // this is a magic number!
+  overflow-y: auto;
+}

@@ -2,6 +2,7 @@ import EmberRouter from "@ember/routing/router";
 import { service } from "@ember/service";
 import registerAdditionalDemand from "ember-ebau-core/modules/additional-demand";
 import registerBilling from "ember-ebau-core/modules/billing";
+import registerBillingGlobal from "ember-ebau-core/modules/billing-global";
 import registerCommunications from "ember-ebau-core/modules/communications";
 import registerCommunicationsGlobal from "ember-ebau-core/modules/communications-global";
 import registerConstructionMonitoring from "ember-ebau-core/modules/construction-monitoring";
@@ -92,6 +93,7 @@ Router.map(function () {
   registerAdditionalDemand(this);
   registerResponsible(this);
   registerBilling(this);
+  registerBillingGlobal(this);
   registerRejection(this);
   registerPermissions(this);
   registerConstructionMonitoring(this);
