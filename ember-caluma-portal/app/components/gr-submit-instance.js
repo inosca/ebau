@@ -70,7 +70,7 @@ export default class GrSubmitInstanceComponent extends DocumentValidityButtonCom
   *export() {
     try {
       yield this.dms.generatePdf(this.args.context.instanceId, {
-        template: "eingabequittung",
+        template: `eingabequittung-${this.intl.primaryLocale.split("-")[0]}`,
       });
     } catch (error) {
       this.notification.danger(this.intl.t("dms.downloadError"));

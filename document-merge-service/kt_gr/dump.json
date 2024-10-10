@@ -1,7 +1,7 @@
 [
   {
     "model": "api.template",
-    "pk": "eingabequittung",
+    "pk": "eingabequittung-de",
     "fields": {
       "description": "",
       "template": "eingabequittung.docx",
