@@ -1,9 +1,13 @@
 <DocumentValidity @document={{@field.document}} as |isValid validate|>
-  <UkButton
-    @color="primary"
-    @disabled={{or (not isValid) this.completeAssignEbauNumber.isRunning}}
-    @label={{@field.question.raw.label}}
-    @loading={{this.completeAssignEbauNumber.isRunning}}
-    @onClick={{fn (perform this.completeAssignEbauNumber) validate}}
-  />
+  {{#if this.showCompleteAssignEbauNumberButton}}
+    <UkButton
+      @color="primary"
+      @disabled={{or (not isValid) this.completeAssignEbauNumber.isRunning}}
+      @label={{@field.question.raw.label}}
+      @loading={{this.completeAssignEbauNumber.isRunning}}
+      @onClick={{fn (perform this.completeAssignEbauNumber) validate}}
+    />
+  {{else}}
+    <div class="uk-alert">{{t "ebauNumber.numberAlreadySet"}}</div>
+  {{/if}}
 </DocumentValidity>
