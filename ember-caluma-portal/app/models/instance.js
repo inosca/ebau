@@ -18,6 +18,7 @@ export default class Instance extends Model {
   @attr("boolean") isModification;
   @belongsTo("instance-state", { inverse: null, async: true }) instanceState;
   @belongsTo("public-service", { inverse: null, async: true }) activeService;
+  @hasMany("service", { inverse: null, async: true }) services;
   @hasMany("applicant", { inverse: "instance", async: false })
   involvedApplicants;
   @attr("string") rejectionFeedback;
