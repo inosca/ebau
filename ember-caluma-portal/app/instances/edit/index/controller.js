@@ -121,7 +121,7 @@ export default class InstancesEditIndexController extends Controller {
   *downloadReceipt() {
     try {
       yield this.dms.generatePdf(this.editController.instance.id, {
-        template: "eingabequittung",
+        template: `eingabequittung-${this.intl.primaryLocale.split("-")[0]}`,
       });
     } catch (e) {
       console.error(e);
