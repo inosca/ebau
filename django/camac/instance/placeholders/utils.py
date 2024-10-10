@@ -4,7 +4,7 @@ from typing import List, Union
 from babel.dates import format_date
 from caluma.caluma_form.models import Document
 from django.conf import settings
-from django.utils.translation import get_language
+from django.utils.translation import get_language, gettext_lazy as _
 
 from camac.caluma.utils import find_answer
 from camac.utils import clean_join
@@ -233,3 +233,10 @@ def parse_person_row(row: dict, keys: List[str]) -> dict:
             data[key] = row.get(key.lower())
 
     return data
+
+
+def get_yes_no(options: Union[List[bool], bool]) -> str:
+    if not isinstance(options, list):
+        options = [options]
+
+    return _("Yes") if any(options) else _("No")

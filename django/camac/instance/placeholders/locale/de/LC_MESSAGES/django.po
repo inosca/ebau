@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-11 17:25+0200\n"
-"PO-Revision-Date: 2024-07-11 09:40+0200\n"
+"POT-Creation-Date: 2024-10-02 15:39+0200\n"
+"PO-Revision-Date: 2024-10-09 13:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -924,8 +924,7 @@ msgid "START_PUBLICATION_MUNICIPALITY"
 msgstr "START_PUBLIKATION_GEMEINDE"
 
 #: camac/instance/placeholders/serializers.py
-msgid ""
-"Start date of the publication in the publication organ of the municipality"
+msgid "Start date of the publication in the publication organ of the municipality"
 msgstr "Startdatum der Publikation im Publikationsorgan der Gemeinde"
 
 #: camac/instance/placeholders/serializers.py
@@ -933,8 +932,7 @@ msgid "END_PUBLICATION_MUNICIPALITY"
 msgstr "ENDE_PUBLIKATION_GEMEINDE"
 
 #: camac/instance/placeholders/serializers.py
-msgid ""
-"End date of the publication in the publication organ of the municipality"
+msgid "End date of the publication in the publication organ of the municipality"
 msgstr "Enddatum der Publikation im Publikationsorgan der Gemeinde"
 
 #: camac/instance/placeholders/serializers.py
@@ -1778,20 +1776,44 @@ msgid "ENERGY_STORAGE_CAPACITY"
 msgstr "ENERGIE_SPEICHER_KAPAZITAET"
 
 #: camac/instance/placeholders/serializers.py
-msgid "STFV_SHORT_REPORT_DATE"
-msgstr "STFV_KURZ_BERICHT_DATUM"
+msgid "STFV_SHORT_REPORT"
+msgstr "STOERFALLVORSORGE_KURZBERICHT_GEMAESS_STFV"
 
 #: camac/instance/placeholders/serializers.py
-msgid "STFV short report date"
-msgstr "StfV Kurzbericht Datum"
+msgid "STFV short report"
+msgstr "STFV Kurzbericht vorhanden"
 
 #: camac/instance/placeholders/serializers.py
-msgid "STFV_CRITIAL_VALUE_EXCEEDED"
-msgstr "STFV_KRITISCHER_WERT_UEBERSCHRITTEN"
+msgid "STFV_SPECIAL_WASTE_EXCEEDED"
+msgstr "STOERFALLVORSORGE_MENGENSCHWELLE_STOFFE_ZUBEREITUNGEN_SONDERABFAELLE_UEBERSCHRITTEN"
 
 #: camac/instance/placeholders/serializers.py
-msgid "StfV critial value exceeded"
-msgstr "StfV kritischer Wert überschritten"
+msgid "STFV special waste exceeded"
+msgstr "STFV Mengenschwelle überschritten"
+
+#: camac/instance/placeholders/serializers.py
+msgid "STFV_RISK_ASSESSMENT"
+msgstr "STOERFALLVORSORGE_RISIKOERMITTLUNG_GEMAESS_STFV"
+
+#: camac/instance/placeholders/serializers.py
+msgid "STFV risk assessment"
+msgstr "STFV Risikoermittlung"
+
+#: camac/instance/placeholders/serializers.py
+msgid "STFV_REGULATION"
+msgstr "STOERFALLVORSORGE_VERORDNUNG_ART_1_ABS_3_STFV_UNTERSTELLT"
+
+#: camac/instance/placeholders/serializers.py
+msgid "STFV regulation"
+msgstr "Der STFV unterstellt"
+
+#: camac/instance/placeholders/serializers.py
+msgid "STFV_REGULATION_GENTECH"
+msgstr "STOERFALLVORSORGE_VERORDNUNG_ART_1_ABS_2_STFV_GENTECH"
+
+#: camac/instance/placeholders/serializers.py
+msgid "STFV regulation gentech"
+msgstr "STFV Gentech vorhanden"
 
 #: camac/instance/placeholders/serializers.py
 msgid "FIRE_PROTECTION_SYSTEMS"
@@ -2068,3 +2090,11 @@ msgstr "ZONE"
 #: camac/instance/placeholders/serializers.py
 msgid "Zone"
 msgstr "Zusammenzug von  Grundnutzung, überlagerte Nutzungen und Schutzobjekte"
+
+#: camac/instance/placeholders/utils.py
+msgid "Yes"
+msgstr "Ja"
+
+#: camac/instance/placeholders/utils.py
+msgid "No"
+msgstr "Nein"

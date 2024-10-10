@@ -1863,10 +1863,6 @@ msgid "ENERGY_STORAGE_CAPACITY"
 msgstr "CAPACITÀ_ACCUMULATORE_ENERGIA"
 
 #: camac/instance/placeholders/serializers.py
-msgid "STFV_SHORT_REPORT_DATE"
-msgstr "OPIR_RAPPORTO_BREVE_DATA"
-
-#: camac/instance/placeholders/serializers.py
 msgid "STFV short report date"
 msgstr "OPIR data rapporto breve"
 
