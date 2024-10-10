@@ -18,7 +18,11 @@ from camac.utils import build_url, clean_join
 
 from ..master_data import MasterData
 from . import fields
-from .utils import get_option_label, human_readable_date
+from .utils import (
+    get_option_label,
+    get_yes_no,
+    human_readable_date,
+)
 
 
 def sanitize_value(value):
@@ -1491,21 +1495,35 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             "new_or_existing": [_("NEW_OR_EXISTING")],
         },
     )
-    stfv_short_report_date = fields.MasterDataField(
-        aliases=[_("STFV_SHORT_REPORT_DATE")],
-        description=_("STFV short report date"),
-        parser=human_readable_date,
+    stfv_kurzbericht = fields.MasterDataField(
+        source="stfv_short_report",
+        aliases=[_("STFV_SHORT_REPORT")],
+        description=_("STFV short report"),
+        parser=get_yes_no,
     )
-    stfv_critial_value_exceeded = fields.MasterDataField(
-        aliases=[_("STFV_CRITIAL_VALUE_EXCEEDED")],
-        description=_("StfV critial value exceeded"),
-        parser=get_option_label,
-        join_by=", ",
+    stfv_mengenschwelle_sonderabfaelle = fields.MasterDataField(
+        source="stfv_special_waste_exceeded",
+        aliases=[_("STFV_SPECIAL_WASTE_EXCEEDED")],
+        description=_("STFV special waste exceeded"),
+        parser=get_yes_no,
     )
-    stfv_short_report_date = fields.MasterDataField(
-        aliases=[_("STFV_SHORT_REPORT_DATE")],
-        description=_("STFV short report date"),
-        parser=human_readable_date,
+    stfv_risikoermittlung = fields.MasterDataField(
+        source="stfv_risk_assessment",
+        aliases=[_("STFV_RISK_ASSESSMENT")],
+        description=_("STFV risk assessment"),
+        parser=get_yes_no,
+    )
+    stfv_verordnung_art_1_abs_3_unterstellt = fields.MasterDataField(
+        source="stfv_regulation",
+        aliases=[_("STFV_REGULATION")],
+        description=_("STFV regulation"),
+        parser=get_yes_no,
+    )
+    stfv_verordnung_gentech = fields.MasterDataField(
+        source="stfv_regulation_gentech",
+        aliases=[_("STFV_REGULATION_GENTECH")],
+        description=_("STFV regulation gentech"),
+        parser=get_yes_no,
     )
     fire_protection_systems = fields.MasterDataField(
         aliases=[_("FIRE_PROTECTION_SYSTEMS")],

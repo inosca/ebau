@@ -748,6 +748,11 @@
       - Andrea Melton
       - Catherine Parks
     ''',
+    'OPAM_ASSUJETTIE_ART_1_ABS_3': 'Ja',
+    'OPAM_EDTUE_RISQUE': 'Ja',
+    'OPAM_GENETIQUEMENT_ART_1_ABS_2': 'Ja',
+    'OPAM_QUANTITATIFS_SUBSTANCES_PREPARATIONS_DECHETS_DEPASSANT': 'Nein',
+    'OPAM_RAPPORT_SUCCINCT': 'Ja',
     'OPPOSANTS': list([
       dict({
         'ADDRESS': 'Beispielstrasse 1, 4321 Beispieldorf',
@@ -1002,13 +1007,17 @@
     'SPRACHE': 'de',
     'STATUS': 'Pamela Horton',
     'STELLUNGNAHME': 'Stellungnahme 1',
-    'STFV_CRITIAL_VALUE_EXCEEDED': '',
-    'STFV_DATE_DU_RAPPORT_COURT': '',
-    'STFV_KRITISCHER_WERT_UEBERSCHRITTEN': '',
-    'STFV_KURZ_BERICHT_DATUM': '',
-    'STFV_SHORT_REPORT_DATE': '',
-    'STFV_VALEUR_CRITIQUE_DEPASSEE': '',
+    'STFV_KURZBERICHT': 'Ja',
+    'STFV_MENGENSCHWELLE_SONDERABFAELLE': 'Nein',
+    'STFV_RISIKOERMITTLUNG': 'Ja',
+    'STFV_VERORDNUNG_ART_1_ABS_3_UNTERSTELLT': 'Ja',
+    'STFV_VERORDNUNG_GENTECH': 'Ja',
     'STICHWORTE': 'Bruce Carrillo, Michael Burton, Lori Sanders, Jasmine Miller, April Turner',
+    'STOERFALLVORSORGE_KURZBERICHT_GEMAESS_STFV': 'Ja',
+    'STOERFALLVORSORGE_MENGENSCHWELLE_STOFFE_ZUBEREITUNGEN_SONDERABFAELLE_UEBERSCHRITTEN': 'Nein',
+    'STOERFALLVORSORGE_RISIKOERMITTLUNG_GEMAESS_STFV': 'Ja',
+    'STOERFALLVORSORGE_VERORDNUNG_ART_1_ABS_2_STFV_GENTECH': 'Ja',
+    'STOERFALLVORSORGE_VERORDNUNG_ART_1_ABS_3_STFV_UNTERSTELLT': 'Ja',
     'SURFACE_DE_PLANCHER': '',
     'SYSTEMES_DE_VENTILATION': list([
     ]),
@@ -3619,30 +3628,72 @@
       'nested_aliases': dict({
       }),
     }),
-    'STFV_CRITIAL_VALUE_EXCEEDED': dict({
+    'STFV_KURZBERICHT': dict({
       'aliases': list([
         dict({
-          'de': 'STFV_KRITISCHER_WERT_UEBERSCHRITTEN',
-          'fr': 'STFV_VALEUR_CRITIQUE_DEPASSEE',
+          'de': 'STOERFALLVORSORGE_KURZBERICHT_GEMAESS_STFV',
+          'fr': 'OPAM_RAPPORT_SUCCINCT',
         }),
       ]),
       'description': dict({
-        'de': 'StfV kritischer Wert überschritten',
-        'fr': 'Dépassement de la valeur critique StfV',
+        'de': 'STFV Kurzbericht vorhanden',
+        'fr': 'OPAM Rapport Succinct existant',
       }),
       'nested_aliases': dict({
       }),
     }),
-    'STFV_SHORT_REPORT_DATE': dict({
+    'STFV_MENGENSCHWELLE_SONDERABFAELLE': dict({
       'aliases': list([
         dict({
-          'de': 'STFV_KURZ_BERICHT_DATUM',
-          'fr': 'STFV_DATE_DU_RAPPORT_COURT',
+          'de': 'STOERFALLVORSORGE_MENGENSCHWELLE_STOFFE_ZUBEREITUNGEN_SONDERABFAELLE_UEBERSCHRITTEN',
+          'fr': 'OPAM_QUANTITATIFS_SUBSTANCES_PREPARATIONS_DECHETS_DEPASSANT',
         }),
       ]),
       'description': dict({
-        'de': 'StfV Kurzbericht Datum',
-        'fr': 'StfV date du rapport court',
+        'de': 'STFV Mengenschwelle überschritten',
+        'fr': 'OPAM Qantitatives substances depassant',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'STFV_RISIKOERMITTLUNG': dict({
+      'aliases': list([
+        dict({
+          'de': 'STOERFALLVORSORGE_RISIKOERMITTLUNG_GEMAESS_STFV',
+          'fr': 'OPAM_EDTUE_RISQUE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'STFV Risikoermittlung',
+        'fr': 'OPAM édude Risque',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'STFV_VERORDNUNG_ART_1_ABS_3_UNTERSTELLT': dict({
+      'aliases': list([
+        dict({
+          'de': 'STOERFALLVORSORGE_VERORDNUNG_ART_1_ABS_3_STFV_UNTERSTELLT',
+          'fr': 'OPAM_ASSUJETTIE_ART_1_ABS_3',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Der STFV unterstellt',
+        'fr': 'OPAM assujettie',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'STFV_VERORDNUNG_GENTECH': dict({
+      'aliases': list([
+        dict({
+          'de': 'STOERFALLVORSORGE_VERORDNUNG_ART_1_ABS_2_STFV_GENTECH',
+          'fr': 'OPAM_GENETIQUEMENT_ART_1_ABS_2',
+        }),
+      ]),
+      'description': dict({
+        'de': 'STFV Gentech vorhanden',
+        'fr': 'OPAM Genetiquement',
       }),
       'nested_aliases': dict({
       }),
@@ -8154,6 +8205,11 @@
     'OFFICES_CANTONAUX[].NOM',
     'OFFICES_CANTONAUX[].REPONDU',
     'OFFICES_CANTONAUX_LISTE',
+    'OPAM_ASSUJETTIE_ART_1_ABS_3',
+    'OPAM_EDTUE_RISQUE',
+    'OPAM_GENETIQUEMENT_ART_1_ABS_2',
+    'OPAM_QUANTITATIFS_SUBSTANCES_PREPARATIONS_DECHETS_DEPASSANT',
+    'OPAM_RAPPORT_SUCCINCT',
     'OPPOSANTS',
     'OPPOSANTS[]',
     'OPPOSANTS[].ADDRESS',
@@ -8388,13 +8444,17 @@
     'SPRACHE',
     'STATUS',
     'STELLUNGNAHME',
-    'STFV_CRITIAL_VALUE_EXCEEDED',
-    'STFV_DATE_DU_RAPPORT_COURT',
-    'STFV_KRITISCHER_WERT_UEBERSCHRITTEN',
-    'STFV_KURZ_BERICHT_DATUM',
-    'STFV_SHORT_REPORT_DATE',
-    'STFV_VALEUR_CRITIQUE_DEPASSEE',
+    'STFV_KURZBERICHT',
+    'STFV_MENGENSCHWELLE_SONDERABFAELLE',
+    'STFV_RISIKOERMITTLUNG',
+    'STFV_VERORDNUNG_ART_1_ABS_3_UNTERSTELLT',
+    'STFV_VERORDNUNG_GENTECH',
     'STICHWORTE',
+    'STOERFALLVORSORGE_KURZBERICHT_GEMAESS_STFV',
+    'STOERFALLVORSORGE_MENGENSCHWELLE_STOFFE_ZUBEREITUNGEN_SONDERABFAELLE_UEBERSCHRITTEN',
+    'STOERFALLVORSORGE_RISIKOERMITTLUNG_GEMAESS_STFV',
+    'STOERFALLVORSORGE_VERORDNUNG_ART_1_ABS_2_STFV_GENTECH',
+    'STOERFALLVORSORGE_VERORDNUNG_ART_1_ABS_3_STFV_UNTERSTELLT',
     'SURFACE_DE_PLANCHER',
     'SYSTEMES_DE_VENTILATION',
     'SYSTEMES_DE_VENTILATION[]',
@@ -9747,6 +9807,11 @@
     'OFFICES_CANTONAUX': list([
     ]),
     'OFFICES_CANTONAUX_LISTE': '',
+    'OPAM_ASSUJETTIE_ART_1_ABS_3': '',
+    'OPAM_EDTUE_RISQUE': '',
+    'OPAM_GENETIQUEMENT_ART_1_ABS_2': '',
+    'OPAM_QUANTITATIFS_SUBSTANCES_PREPARATIONS_DECHETS_DEPASSANT': '',
+    'OPAM_RAPPORT_SUCCINCT': '',
     'OPPOSANTS': list([
     ]),
     'OPPOSING': list([
@@ -9873,13 +9938,17 @@
     'SPRACHE': 'de',
     'STATUS': 'David Rangel',
     'STELLUNGNAHME': '',
-    'STFV_CRITIAL_VALUE_EXCEEDED': '',
-    'STFV_DATE_DU_RAPPORT_COURT': '',
-    'STFV_KRITISCHER_WERT_UEBERSCHRITTEN': '',
-    'STFV_KURZ_BERICHT_DATUM': '',
-    'STFV_SHORT_REPORT_DATE': '',
-    'STFV_VALEUR_CRITIQUE_DEPASSEE': '',
+    'STFV_KURZBERICHT': '',
+    'STFV_MENGENSCHWELLE_SONDERABFAELLE': '',
+    'STFV_RISIKOERMITTLUNG': '',
+    'STFV_VERORDNUNG_ART_1_ABS_3_UNTERSTELLT': '',
+    'STFV_VERORDNUNG_GENTECH': '',
     'STICHWORTE': '',
+    'STOERFALLVORSORGE_KURZBERICHT_GEMAESS_STFV': '',
+    'STOERFALLVORSORGE_MENGENSCHWELLE_STOFFE_ZUBEREITUNGEN_SONDERABFAELLE_UEBERSCHRITTEN': '',
+    'STOERFALLVORSORGE_RISIKOERMITTLUNG_GEMAESS_STFV': '',
+    'STOERFALLVORSORGE_VERORDNUNG_ART_1_ABS_2_STFV_GENTECH': '',
+    'STOERFALLVORSORGE_VERORDNUNG_ART_1_ABS_3_STFV_UNTERSTELLT': '',
     'SURFACE_DE_PLANCHER': '',
     'SYSTEMES_DE_VENTILATION': list([
     ]),

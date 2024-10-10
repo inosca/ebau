@@ -21,7 +21,11 @@ from django.utils.translation import override
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
-from camac.instance.placeholders.utils import get_tel_and_email, human_readable_date
+from camac.instance.placeholders.utils import (
+    get_tel_and_email,
+    get_yes_no,
+    human_readable_date,
+)
 from camac.tests.data import so_personal_row_factory
 
 from .test_master_data import be_master_data_case, gr_master_data_case  # noqa
@@ -989,3 +993,16 @@ def test_dms_placeholders_ur(
     assert {
         key: value for key, value in response.json().items() if key in checked_keys
     } == snapshot
+
+
+@pytest.mark.parametrize(
+    "options,expected",
+    [
+        ([False, True], "Ja"),
+        ([False, False], "Nein"),
+        (True, "Ja"),
+        (False, "Nein"),
+    ],
+)
+def test_yes_no(options, expected):
+    assert get_yes_no(options) == expected
