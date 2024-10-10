@@ -1131,7 +1131,7 @@ msgstr ""
 
 #: camac/notification/serializers.py
 msgid "Unregistered Applicant"
-msgstr "Requérant/e non inscrit/e"
+msgstr "Requérant(e) non enregistré(e)"
 
 #: camac/notification/serializers.py
 msgid "Municipality (from Caluma)"
