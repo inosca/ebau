@@ -12,6 +12,7 @@ billing:
   total: Totale (CHF)
   created-at: Registrato il
   charged-at: Fatturato il
+  dossier: N. dossier
   organization: Tipo
   charge: Fatturare
   hide-charged: Nascondi le tasse fatturate
@@ -31,6 +32,7 @@ billing:
   add-error: Errore nel tentativo di aggiungere la tassa
   delete-error: Errore nel tentativo di eliminare la tassa
   charge-error: Errore nel tentativo di fatturare la tassa
+  paginationInfo: "<strong>{count}</strong> su {total}"
 
   organizations:
     cantonal: Cantonale
@@ -83,3 +85,7 @@ billing:
     by_authority: Da fatturare
     forwarded: Fattura da notificare
     direct: Fatturazione diretta
+
+  filters:
+    createdAfter:
+    createdBefore:

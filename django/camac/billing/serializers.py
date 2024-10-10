@@ -1,5 +1,7 @@
 from decimal import Decimal
 
+from django.conf import settings
+from django.utils.translation import gettext as _
 from rest_framework_json_api import serializers
 
 from camac.billing.models import BillingV2Entry
@@ -45,12 +47,17 @@ class BillingV2EntrySerializer(serializers.ModelSerializer):
     def get_root_meta(self, resource, many):
         """Calculate totals for the returned data.
 
-        Warning: If paginated, this will return the totals of the paginated
-        subset - not of all records in the unpaginated queryset.
+        Warning: This will calculate the totals for the whole filtered queryset
+        data. Every paginated request will include the totals for all un-paginated
+        results.
         """
 
         if many:
-            return {"totals": get_totals(resource)}
+            view = self.context.get("view")
+            filtered_results = view.filter_queryset(view.get_queryset())
+            ordered = list(filtered_results.values())
+
+            return {"totals": get_totals(ordered)}
 
         return {}
 
@@ -82,4 +89,111 @@ class BillingV2EntrySerializer(serializers.ModelSerializer):
             "final_rate",
             "group",
             "user",
+        )
+
+
+class BillingV2EntryExportSerializer(BillingV2EntrySerializer):
+    date_added = serializers.DateField(
+        format=settings.SHORT_DATE_FORMAT, label=_("Date added")
+    )
+    text = serializers.CharField(label=_("Position"))
+    group = serializers.CharField(label=_("Group"))
+    user = serializers.CharField(label=_("User"))
+    calculation_of_final_rate = serializers.SerializerMethodField(
+        label=_("Final Rate (CHF)")
+    )
+    final_rate = serializers.CharField(label=_("Total (CHF)"))
+    ebau_number = serializers.CharField(
+        source="instance.case.meta.ebau-number",
+        default=None,
+        label=_("eBau number"),
+    )
+    dossier_number = serializers.IntegerField(
+        source="instance_id", label=_("Instance number")
+    )
+    address = serializers.CharField(label=_("Address"))
+    parcels = serializers.CharField(label=_("Parcels"))
+    coordinates = serializers.SerializerMethodField(label=_("Coordinates"))
+    lead_authority = serializers.SerializerMethodField(label=_("Lead authority"))
+
+    def get_calculation_of_final_rate(self, model):
+        _tax_mode = (
+            _("inclusive")
+            if model.tax_mode == BillingV2Entry.TAX_MODE_INCLUSIVE
+            else _("exclusive")
+        )
+        tax = (
+            _("%(tax_mode)s  %(tax_rate)s%% VAT")
+            % {
+                "tax_mode": _tax_mode,
+                "tax_rate": model.tax_rate.quantize(Decimal("0.1")),
+            }
+            if model.tax_mode != BillingV2Entry.TAX_MODE_EXEMPT
+            else _("not subject to VAT")
+        )
+
+        if model.calculation == BillingV2Entry.CALCULATION_HOURLY:  # hourly
+            return _("%(hours)s hours at %(hourly_rate)s %(tax)s") % {
+                "hours": model.hours,
+                "hourly_rate": model.hourly_rate,
+                "tax": tax,
+            }
+
+        if model.calculation == BillingV2Entry.CALCULATION_PERCENTAGE:  # percentage
+            return _("%(percentage)s of %(total)s %(tax-suffix)s") % {
+                "percentage": model.percentage,
+                "total": model.total_cost,
+                "tax-suffix": tax,
+            }
+
+        # model.calculation == BillingV2Entry.CALCULATION_FLAT  # flat
+        return f"{model.final_rate} {tax}"
+
+    def get_lead_authority(self, model):
+        service = model.instance.responsible_service()
+        city = service.get_trans_attr("city")
+        return ", ".join(
+            str(attr)
+            for attr in [service.get_name(), service.address, service.zip, city]
+            if attr is not None
+        )
+
+    def get_coordinates(self, model):
+        if not model.coordinate_X or not model.coordinate_Y:
+            return _("No coordinates available")
+        else:  # pragma: no cover
+            x = int(float(model.coordinate_X))
+            y = int(float(model.coordinate_Y))
+            return f"{x:,} / {y:,}".replace(",", "’")
+
+    class Meta:
+        model = BillingV2Entry
+        # Define order of the fields
+        fields = (
+            "date_added",
+            "text",
+            "group",
+            "user",
+            "calculation_of_final_rate",
+            "final_rate",
+            "ebau_number",
+            "dossier_number",
+            "address",
+            "parcels",
+            "coordinates",
+            "lead_authority",
+        )
+        read_only_fields = (
+            "date_added",
+            "text",
+            "group",
+            "user",
+            "calculation_of_final_rate",
+            "final_rate",
+            "ebau_number",
+            "dossier_number",
+            "address",
+            "parcels",
+            "coordinates",
+            "lead_authority",
         )
