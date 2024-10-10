@@ -21,6 +21,7 @@ export class PaginatedQuery extends Resource {
   @service store;
 
   @tracked isResetting = false;
+  @tracked meta;
 
   get records() {
     return this.data?.records ?? [];
@@ -40,6 +41,10 @@ export class PaginatedQuery extends Resource {
 
   get isError() {
     return Boolean(this.error);
+  }
+
+  get pagination() {
+    return this.meta.pagination;
   }
 
   constructor(owner) {
@@ -74,6 +79,8 @@ export class PaginatedQuery extends Resource {
       this.isResetting = isResetting;
 
       const data = await this.store.query(model, query);
+
+      this.meta = data.meta;
 
       return {
         records: isResetting ? data : [...this.data.records, ...data],

@@ -16,6 +16,7 @@ billing:
   total: Total (CHF)
   created-at: Capturé sur
   charged-at: Facturé le
+  dossier: Dossier numéro
   organization: Type
   charge: Facturer
   hide-charged: Cacher les entrées de frais facturés
@@ -36,6 +37,7 @@ billing:
   add-error: Erreur lors de l'ajout de l'entrée de frais
   delete-error: Erreur lors de la suppression de l'entrée des frais
   charge-error: Erreur lors de la facturation de l'entrée des frais
+  paginationInfo: "<strong>{count}</strong> de {total}"
 
   organizations:
     cantonal: Cantonal
@@ -73,3 +75,7 @@ billing:
     by_authority:
     forwarded:
     direct:
+
+  filters:
+    createdAfter: Date de réception (par)
+    createdBefore: Date de réception (jusque)

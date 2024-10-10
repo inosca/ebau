@@ -1,0 +1,101 @@
+<div class="table-container uk-overflow-auto">
+  <table
+    class="uk-table uk-table-striped uk-table-middle billing-global-table"
+    data-test-billing-global-table
+  >
+    <colgroup>
+      <col />
+      <col />
+      <col />
+      <col />
+      <col />
+      <col />
+      <col />
+    </colgroup>
+    <thead>
+      <tr>
+        <th data-test-text>{{t "billing.position"}}</th>
+        {{#if (has-feature "billing.displayService")}}
+          <th data-test-service>{{t "billing.service"}}</th>
+        {{else}}
+          <th data-test-group>{{t "billing.group"}}</th>
+        {{/if}}
+        <th data-test-user>{{t "billing.user"}}</th>
+        <th data-test-amount>{{t "billing.amount"}}</th>
+        <th class="uk-text-right" data-test-final-rate>{{t
+            "billing.total"
+          }}</th>
+        <th data-test-added>{{t "billing.created-at"}}</th>
+        <th data-test-dossier>{{t "billing.dossier"}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.filteredEntries as |entry|}}
+        <BillingGlobalTable::Row
+          @entry={{entry}}
+          @selected={{includes entry.id @selectedRows}}
+          @onToggle={{@onToggleRow}}
+          @onRefresh={{@onRefresh}}
+        />
+      {{else}}{{#unless @entries.isLoading}}
+          <tr>
+            <td
+              class="uk-text-center uk-text-italic"
+              colspan={{this.fullColspan}}
+            >
+              {{t "global.empty"}}
+            </td>
+          </tr>
+        {{/unless}}{{/each}}
+      {{#if @entries.isLoading}}
+        <tr>
+          <td class="uk-text-center" colspan="99">
+            <UkSpinner @ratio="0.5" />
+          </td>
+        </tr>
+      {{else if @entries.hasMore}}
+        <tr {{in-viewport onEnter=@loadMore}}></tr>
+      {{/if}}
+    </tbody>
+  </table>
+</div>
+
+{{#if this.filteredEntries.length}}
+  <table class="uk-table uk-table-striped uk-table-middle billing-global-table">
+    <colgroup>
+      <col />
+      <col />
+      <col />
+      <col />
+      <col />
+      <col />
+      <col />
+    </colgroup>
+    <tfoot>
+      <BillingTable::Totals
+        @totals={{@entries.meta.totals}}
+        @colspanTotalLabel={{this.colspanTotalLabel}}
+        @colspanTotalFill={{this.colspanTotalFill}}
+      ><:pagination>{{t
+            "billing.paginationInfo"
+            htmlSafe=true
+            count=this.filteredEntries.length
+            total=@entries.pagination.count
+          }}</:pagination></BillingTable::Totals>
+    </tfoot>
+  </table>
+  <div>
+    <a
+      href=""
+      class="uk-link-text uk-margin-small-right"
+      {{on "click" (perform this.export)}}
+    >
+      {{#if this.export.isRunning}}
+        <UkSpinner @ratio="0.5" />
+      {{else}}
+        <UkIcon @icon="file-text" />
+      {{/if}}
+      {{t "cases.export.title"}}
+    </a>
+  </div>
+{{/if}}

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-11 17:25+0200\n"
-"PO-Revision-Date: 2024-07-25 11:05+0200\n"
+"POT-Creation-Date: 2024-09-24 12:06+0200\n"
+"PO-Revision-Date: 2024-09-12 16:24+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #: camac/admin.py
 msgid "eBau"
@@ -44,6 +44,88 @@ msgstr ""
 msgid "Email '%(email)s' has already access to instance %(instance)s"
 msgstr ""
 "L'utente con l'indirizzo '%(email)s' ha già accesso al dossier %(instance)s"
+
+#: camac/billing/serializers.py
+msgid "Date added"
+msgstr "Registrato il"
+
+#: camac/billing/serializers.py
+msgid "Position"
+msgstr "Position"
+
+#: camac/billing/serializers.py camac/user/admin/inlines.py
+#: camac/user/models.py
+msgid "Group"
+msgstr "Gruppo"
+
+#: camac/billing/serializers.py camac/user/admin/inlines.py
+#: camac/user/models.py
+msgid "User"
+msgstr "Utente"
+
+#: camac/billing/serializers.py
+msgid "Final Rate (CHF)"
+msgstr "Importo (CHF)"
+
+#: camac/billing/serializers.py
+msgid "Total (CHF)"
+msgstr "Totale (CHF)"
+
+#: camac/billing/serializers.py camac/instance/export/serializers.py
+msgid "eBau number"
+msgstr "N. eBau"
+
+#: camac/billing/serializers.py camac/instance/export/serializers.py
+msgid "Instance number"
+msgstr "N. dossier"
+
+#: camac/billing/serializers.py camac/instance/document_merge_service.py
+#: camac/instance/export/serializers.py camac/user/models.py
+msgid "Address"
+msgstr "Indirizzo"
+
+#: camac/billing/serializers.py camac/instance/export/serializers.py
+msgid "Parcels"
+msgstr "Particelle"
+
+#: camac/billing/serializers.py
+msgid "Coordinates"
+msgstr ""
+
+#: camac/billing/serializers.py camac/instance/export/serializers.py
+msgid "Lead authority"
+msgstr "Autorità direttrice"
+
+#: camac/billing/serializers.py
+msgid "inclusive"
+msgstr "inclusivo"
+
+#: camac/billing/serializers.py
+msgid "exclusive"
+msgstr "esclusivo"
+
+#: camac/billing/serializers.py
+#, python-format
+msgid "%(tax_mode)s  %(tax_rate)s%% VAT"
+msgstr "%(tax_mode)s  %(tax_rate)s%% IVA"
+
+#: camac/billing/serializers.py
+msgid "not subject to VAT"
+msgstr "non soggetto a IVA"
+
+#: camac/billing/serializers.py
+#, python-format
+msgid "%(hours)s hours at %(hourly_rate)s %(tax)s"
+msgstr "%(hours)s h a %(hourly_rate)s %(tax)s"
+
+#: camac/billing/serializers.py
+#, python-format
+msgid "%(percentage)s of %(total)s %(tax-suffix)s"
+msgstr "%(percentage)s su %(total)s %(tax-suffix)s"
+
+#: camac/billing/serializers.py
+msgid "No coordinates available"
+msgstr ""
 
 #: camac/caluma/extensions/data_sources.py
 #: camac/instance/document_merge_service.py camac/notification/serializers.py
@@ -651,11 +733,6 @@ msgid "Required parameter %(parameter)s was not passed"
 msgstr "Il parametro richiesto %(parameter)s non è stato trasmesso"
 
 #: camac/instance/document_merge_service.py
-#: camac/instance/export/serializers.py camac/user/models.py
-msgid "Address"
-msgstr "Indirizzo"
-
-#: camac/instance/document_merge_service.py
 msgid "Plots"
 msgstr "Particella/e"
 
@@ -768,20 +845,8 @@ msgid "Involved Departments"
 msgstr "Servizi interessati"
 
 #: camac/instance/export/serializers.py
-msgid "eBau number"
-msgstr "N. eBau"
-
-#: camac/instance/export/serializers.py
-msgid "Instance number"
-msgstr "N. dossier"
-
-#: camac/instance/export/serializers.py
 msgid "Application Type"
 msgstr "Tipo di domanda"
-
-#: camac/instance/export/serializers.py
-msgid "Parcels"
-msgstr "Particelle"
 
 #: camac/instance/export/serializers.py
 msgid "Submission Date"
@@ -832,10 +897,6 @@ msgstr "Progetto di costruzione"
 #: camac/instance/export/serializers.py
 msgid "Building permit type"
 msgstr "Procedura"
-
-#: camac/instance/export/serializers.py
-msgid "Lead authority"
-msgstr "Autorità direttrice"
 
 #: camac/instance/export/serializers.py
 msgid "Builder"
@@ -1325,10 +1386,6 @@ msgid "Receive notifications?"
 msgstr "Ricevi notifiche?"
 
 #: camac/user/admin/inlines.py camac/user/models.py
-msgid "Group"
-msgstr "Gruppo"
-
-#: camac/user/admin/inlines.py camac/user/models.py
 msgid "Groups"
 msgstr "Gruppi"
 
@@ -1339,10 +1396,6 @@ msgstr "Ubicazione"
 #: camac/user/admin/inlines.py camac/user/admin/views.py camac/user/models.py
 msgid "Locations"
 msgstr "Ubicazioni"
-
-#: camac/user/admin/inlines.py camac/user/models.py
-msgid "User"
-msgstr "Utente"
 
 #: camac/user/admin/inlines.py camac/user/models.py
 msgid "Users"
