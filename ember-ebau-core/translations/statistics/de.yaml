@@ -5,6 +5,8 @@ statistics:
   to: "Bis"
   dossier-number: "Dossier-Nr."
   procedure: "Verfahrensart"
+  type: "Gesuchstyp"
+  allFormTypes: "Alle Gesuchstypen"
   instance-count: "Anzahl Gesuche"
   claim-count: "Anzahl Nachforderungen"
   avg-process-time: "Durchschnittliche Bearbeitungszeit"

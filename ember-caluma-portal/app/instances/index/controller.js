@@ -9,6 +9,10 @@ import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import mainConfig from "ember-ebau-core/config/main";
+import {
+  getRecursiveSources,
+  groupFormsByCategories,
+} from "ember-ebau-core/utils/form-filters";
 import { DateTime } from "luxon";
 import { trackedTask } from "reactiveweb/ember-concurrency";
 import { cached } from "tracked-toolbox";
@@ -18,16 +22,6 @@ import trackedFilter from "caluma-portal/decorators/tracked-filter";
 import getRootFormsQuery from "caluma-portal/gql/queries/get-root-forms.graphql";
 
 const { answerSlugs } = mainConfig;
-
-const getRecursiveSources = (form, forms) => {
-  if (!form.source?.slug) {
-    return [];
-  }
-
-  const source = forms.find((edge) => edge.node.slug === form.source.slug);
-
-  return [source.node.slug, ...getRecursiveSources(source.node, forms)];
-};
 
 const dateFilter = {
   serialize(value) {
@@ -161,20 +155,12 @@ export default class InstancesIndexController extends Controller {
       "others",
     ];
 
-    return categories
-      .map((category) => {
-        const options = this.forms
-          .filter((form) => form.category === category)
-          .sort((a, b) => a.order - b.order);
-
-        return options.length
-          ? {
-              groupName: this.intl.t(`instances.new.${category}.title`),
-              options,
-            }
-          : null;
-      })
-      .filter(Boolean);
+    return groupFormsByCategories(
+      this.forms,
+      categories,
+      this.intl,
+      (category) => `instances.new.${category}.title`,
+    );
   }
 
   get forms() {
