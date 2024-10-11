@@ -28,6 +28,10 @@ import inquiryAnswersQuery from "ember-ebau-core/gql/queries/inquiry-answers.gra
 import municipalitiesQuery from "ember-ebau-core/gql/queries/municipalities.graphql";
 import oerebLegalStateAnswersQuery from "ember-ebau-core/gql/queries/oereb-legal-state-answers.graphql";
 import rootFormsQuery from "ember-ebau-core/gql/queries/root-forms.graphql";
+import {
+  getRecursiveSources,
+  groupFormsByCategories,
+} from "ember-ebau-core/utils/form-filters";
 
 const COMPONENT_MAPPING = {
   "async-select-multiple": AsyncSelectMultipleComponent,
@@ -36,16 +40,6 @@ const COMPONENT_MAPPING = {
   select: SelectComponent,
   "select-multiple": SelectMultipleComponent,
   "toggle-switch": ToggleSwitchComponent,
-};
-
-const getRecursiveSources = (form, forms) => {
-  if (!form.source?.slug) {
-    return [];
-  }
-
-  const source = forms.find((edge) => edge.node.slug === form.source.slug);
-
-  return [source.node.slug, ...getRecursiveSources(source.node, forms)];
 };
 
 export default class CaseFilterComponent extends Component {
@@ -211,20 +205,7 @@ export default class CaseFilterComponent extends Component {
         order: edge.node.meta.order,
       }));
 
-    return categories
-      .map((category) => {
-        const options = forms
-          .filter((form) => form.category === category)
-          .sort((a, b) => a.order - b.order);
-
-        return options.length
-          ? {
-              groupName: this.intl.t(`cases.formCategories.${category}`),
-              options,
-            }
-          : null;
-      })
-      .filter(Boolean);
+    return groupFormsByCategories(forms, categories, this.intl);
   });
 
   municipalitiesFromCaluma = trackedFunction(this, async () => {

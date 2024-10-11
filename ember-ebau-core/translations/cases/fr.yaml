@@ -155,6 +155,7 @@ cases:
     completed: "Terminé"
 
   formCategories:
+    all: "Tous les types de demandes"
     preliminary-clarification: "Demande préalable"
     building-permit: "Requête"
     special-procedure: "Procédure spéciale"

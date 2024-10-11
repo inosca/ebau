@@ -53,11 +53,13 @@ class ClaimSummaryFilterSet(InstanceSummaryFilterSet):
 
 class InstanceCycleTimeFilterSet(FilterSet):
     procedure = CharFilter(method="filter_procedure_types")
+    form = CharFilter(method="filter_form")
+
+    def filter_form(self, queryset, name, value):
+        if value:
+            return queryset.filter(case__document__form_id__in=value.split(","))
 
     def filter_procedure_types(self, queryset, name, value):
-        if value == "preliminary-clarification":
-            return queryset.filter(case__workflow_id="preliminary-clarification")
-
         return queryset.filter(
             Exists(
                 Answer.objects.filter(
@@ -69,4 +71,4 @@ class InstanceCycleTimeFilterSet(FilterSet):
         )
 
     class Meta:
-        fields = ("procedure",)
+        fields = ("procedure", "form")

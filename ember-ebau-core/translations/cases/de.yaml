@@ -166,6 +166,7 @@ cases:
     completed: "Abgeschlossen"
 
   formCategories:
+    all: "Alle Gesuchstypen"
     preliminary-clarification: "Vorabklärung"
     building-permit: "Gesuch"
     special-procedure: "Spezialverfahren"
