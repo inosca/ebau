@@ -5262,6 +5262,51 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "einreichen.begruendung-keine-weiteren-berechtigungen",
+    "fields": {
+      "created_at": "2024-10-11T09:30:07.539Z",
+      "modified_at": "2024-10-11T09:30:07.539Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "einreichen",
+      "question": "begruendung-keine-weiteren-berechtigungen",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "einreichen.berechtigung-gesuchsteller",
+    "fields": {
+      "created_at": "2024-10-11T09:27:36.652Z",
+      "modified_at": "2024-10-11T09:27:36.652Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "einreichen",
+      "question": "berechtigung-gesuchsteller",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "einreichen.berechtigung-gesuchsteller-titel",
+    "fields": {
+      "created_at": "2024-10-11T09:26:13.335Z",
+      "modified_at": "2024-10-11T09:26:13.335Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "einreichen",
+      "question": "berechtigung-gesuchsteller-titel",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "einreichen-bohrgesuch-konzession.einreichen-button",
     "fields": {
       "created_at": "2022-10-20T12:52:23.192Z",
@@ -5317,7 +5362,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "einreichen-button",
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -5332,6 +5377,21 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "formulardownload-pdf",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "einreichen.hinweis-berechtigung",
+    "fields": {
+      "created_at": "2024-10-11T09:28:19.861Z",
+      "modified_at": "2024-10-11T09:28:19.861Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "einreichen",
+      "question": "hinweis-berechtigung",
       "sort": 4
     }
   },
@@ -5347,7 +5407,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "hinweis-pdf-und-einreichen",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -5362,7 +5422,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "umfrage-externe",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -19386,6 +19446,57 @@
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "berechtigung-gesuchsteller-berechtigung-erfasst",
+    "fields": {
+      "created_at": "2024-10-11T09:27:35.972Z",
+      "modified_at": "2024-10-11T09:27:35.972Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Berechtigung f\\u00fcr den Gesuchsteller wurde erfasst\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "berechtigung-gesuchsteller-keine-weiteren-berechtigungen-notwendig",
+    "fields": {
+      "created_at": "2024-10-11T09:27:35.983Z",
+      "modified_at": "2024-10-11T09:27:35.983Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Keine weiteren Berechtigungen notwendig\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "berechtigung-gesuchsteller-vom-gesuchsteller-eingereicht",
+    "fields": {
+      "created_at": "2024-10-11T09:27:36.015Z",
+      "modified_at": "2024-10-11T09:27:36.015Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dieses Dossier wird vom Gesuchsteller eingereicht\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -39356,6 +39467,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "begruendung-keine-weiteren-berechtigungen",
+    "fields": {
+      "created_at": "2024-10-11T09:30:07.244Z",
+      "modified_at": "2024-10-11T09:30:07.244Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begr\\u00fcndung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\n  \"berechtigung-gesuchsteller-keine-weiteren-berechtigungen-notwendig\" == \"berechtigung-gesuchsteller\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "begruendung-plangenehmigungspflicht",
     "fields": {
       "created_at": "2020-11-11T10:58:41.778Z",
@@ -40409,6 +40554,70 @@
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "berechtigung-gesuchsteller",
+    "fields": {
+      "created_at": "2024-10-11T09:27:36.352Z",
+      "modified_at": "2024-10-11T09:27:36.352Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Berechtigung Gesuchsteller\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"#####Berechtigung Gesuchsteller\\n\\nSofern das Dossier im URec nicht durch die gesuchstellende Person selbst, sondern durch eine Drittperson (z.B. Gemeindebaube\\u00f6rde, Rechtsvertretung, Architekt(in), Projektverfasser(in) etc.) erfasst wurde, best\\u00e4tigt diese Drittperson, welche das Dossier erstellt hat, dass sie der gesuchstellenden Person bzw. der Bauherrschaft die Berechtigung (via Tab \\u00abBerechtigungen\\u00bb) auf das URec Dossier erteilt hat.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "berechtigung-gesuchsteller-titel",
+    "fields": {
+      "created_at": "2024-10-11T09:26:13.124Z",
+      "modified_at": "2024-10-11T09:26:13.124Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Berechtigung Gesuchsteller Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\\n#### Berechtigung Gesuchsteller\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -49377,6 +49586,39 @@
       "static_content": "{\"de\": \"**Projekt Energienachweis**\\nDie nachfolgenden Fragen entsprechen dem Inhalt des Formulars EN-UR. Bitte f\\u00fcllen Sie die entsprechenden Unterformulare aus und f\\u00fcgen Sie diese unter Beilagen dem Dossier hinzu. Die Links zu den EN Formularen weder entsprechend Ihrer Auswahl angezeigt.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-berechtigung",
+    "fields": {
+      "created_at": "2024-10-11T09:28:19.573Z",
+      "modified_at": "2024-10-11T09:28:43.454Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Berechtigung\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<p style=\\\"color:#FF0000\\\";>Bitte beachten Sie, dass die neue Person die Sie hiermit berechtigen, auf das Dossier zugreifen, s\\u00e4mtliche Funktionen im Dossier ausf\\u00fchren kann. Insbesondere kann sie die Entscheiddokumente im Portal downloaden und damit die Beschwerdefrist ausl\\u00f6sen. Bitte stellen Sie sicher, dass Letzteres zwischen den Berechtigen koordiniert wird.</p>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -66886,6 +67128,51 @@
       "question": "beratung-landschaftsbild",
       "option": "Beratung-Landschaftsbild-nein",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "berechtigung-gesuchsteller.berechtigung-gesuchsteller-berechtigung-erfasst",
+    "fields": {
+      "created_at": "2024-10-11T09:27:36.396Z",
+      "modified_at": "2024-10-11T09:27:36.396Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "berechtigung-gesuchsteller",
+      "option": "berechtigung-gesuchsteller-berechtigung-erfasst",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "berechtigung-gesuchsteller.berechtigung-gesuchsteller-keine-weiteren-berechtigungen-notwendig",
+    "fields": {
+      "created_at": "2024-10-11T09:27:36.377Z",
+      "modified_at": "2024-10-11T09:27:36.377Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "berechtigung-gesuchsteller",
+      "option": "berechtigung-gesuchsteller-keine-weiteren-berechtigungen-notwendig",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "berechtigung-gesuchsteller.berechtigung-gesuchsteller-vom-gesuchsteller-eingereicht",
+    "fields": {
+      "created_at": "2024-10-11T09:27:36.410Z",
+      "modified_at": "2024-10-11T09:27:36.410Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "berechtigung-gesuchsteller",
+      "option": "berechtigung-gesuchsteller-vom-gesuchsteller-eingereicht",
+      "sort": 3
     }
   },
   {
