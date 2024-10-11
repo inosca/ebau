@@ -182,7 +182,7 @@ class InstanceQuerysetMixin(object):
             | Q(**{instance_field: instances_for_activation})
             | Q(**{instance_field: instances_for_responsible_service})
             | self.permissions_manager().get_q_object(self.instance_field)
-        )
+        ).distinct()
 
     @permission_switching_method
     def get_queryset_for_service(self, group=None):
@@ -199,12 +199,11 @@ class InstanceQuerysetMixin(object):
         )
         instances_for_activation = self._instances_with_activation(group)
 
-        # use subquery to avoid duplicates
         return queryset.filter(
             Q(**{instance_field: instances_for_responsible_service})
             | Q(**{instance_field: instances_for_activation})
             | self.permissions_manager().get_q_object(self.instance_field)
-        )
+        ).distinct()
 
     def get_queryset_for_uso(self, group=None):
         # Ecology groups (USOs) have the same visibilities as services,
@@ -219,7 +218,7 @@ class InstanceQuerysetMixin(object):
         return queryset.filter(
             Q(**{instance_field: instances_for_activation})
             | self.permissions_manager().get_q_object(self.instance_field)
-        )
+        ).distinct()
 
     def get_queryset_for_trusted_service(self, group=None):
         # "Trusted" services see all submitted instances (Kt. UR)
@@ -255,7 +254,7 @@ class InstanceQuerysetMixin(object):
         return queryset.filter(
             Q(**{instance_field: instances_for_location})
             | self.permissions_manager().get_q_object(self.instance_field)
-        )
+        ).distinct()
 
     def get_queryset_for_commission(self, group=None):
         group = self._get_group(group)
@@ -268,7 +267,7 @@ class InstanceQuerysetMixin(object):
         return queryset.filter(
             Q(**{instance_field: instances_with_invite})
             | self.permissions_manager().get_q_object(self.instance_field)
-        )
+        ).distinct()
 
     def get_queryset_for_building_commission(self, group=None):
         return self.get_queryset_for_municipality(group)
