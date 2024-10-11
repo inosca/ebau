@@ -418,6 +418,7 @@ class CreateInstanceLogic:
                     "email": applicant.email,
                 },
             )
+            Trigger.applicant_added(request=None, instance=target, applicant=applicant)
 
     @staticmethod
     def copy_attachments(source, target, skip_exported_form_attachment=False):
