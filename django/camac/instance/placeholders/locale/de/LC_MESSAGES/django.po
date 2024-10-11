@@ -1777,7 +1777,7 @@ msgstr "ENERGIE_SPEICHER_KAPAZITAET"
 
 #: camac/instance/placeholders/serializers.py
 msgid "STFV_SHORT_REPORT"
-msgstr "STOERFALLVORSORGE_KURZBERICHT_GEMAESS_STFV"
+msgstr "STFV_KURZBERICHT_GEMAESS_STFV"
 
 #: camac/instance/placeholders/serializers.py
 msgid "STFV short report"
@@ -1785,7 +1785,7 @@ msgstr "STFV Kurzbericht vorhanden"
 
 #: camac/instance/placeholders/serializers.py
 msgid "STFV_SPECIAL_WASTE_EXCEEDED"
-msgstr "STOERFALLVORSORGE_MENGENSCHWELLE_STOFFE_ZUBEREITUNGEN_SONDERABFAELLE_UEBERSCHRITTEN"
+msgstr "STFV_MENGENSCHWELLE_STOFFE_ZUBEREITUNGEN_SONDERABFAELLE_UEBERSCHRITTEN"
 
 #: camac/instance/placeholders/serializers.py
 msgid "STFV special waste exceeded"
@@ -1793,7 +1793,7 @@ msgstr "STFV Mengenschwelle überschritten"
 
 #: camac/instance/placeholders/serializers.py
 msgid "STFV_RISK_ASSESSMENT"
-msgstr "STOERFALLVORSORGE_RISIKOERMITTLUNG_GEMAESS_STFV"
+msgstr "STFV_RISIKOERMITTLUNG_GEMAESS_STFV"
 
 #: camac/instance/placeholders/serializers.py
 msgid "STFV risk assessment"
@@ -1801,7 +1801,7 @@ msgstr "STFV Risikoermittlung"
 
 #: camac/instance/placeholders/serializers.py
 msgid "STFV_REGULATION"
-msgstr "STOERFALLVORSORGE_VERORDNUNG_ART_1_ABS_3_STFV_UNTERSTELLT"
+msgstr "STFV_VERORDNUNG_ART_1_ABS_3_STFV_UNTERSTELLT"
 
 #: camac/instance/placeholders/serializers.py
 msgid "STFV regulation"
@@ -1809,7 +1809,7 @@ msgstr "Der STFV unterstellt"
 
 #: camac/instance/placeholders/serializers.py
 msgid "STFV_REGULATION_GENTECH"
-msgstr "STOERFALLVORSORGE_VERORDNUNG_ART_1_ABS_2_STFV_GENTECH"
+msgstr "STFV_VERORDNUNG_ART_1_ABS_2_STFV_GENTECH"
 
 #: camac/instance/placeholders/serializers.py
 msgid "STFV regulation gentech"
