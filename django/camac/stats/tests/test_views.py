@@ -333,9 +333,7 @@ def test_instance_cycle_time_view(
     url = reverse("instances-cycle-times")
 
     for procedure in decision_types:
-        resp = admin_client.get(
-            url, {"procedure": procedure or "preliminary-clarification"}
-        ).json()
+        resp = admin_client.get(url, {"procedure": procedure or ""}).json()
         if has_access:
             assert resp.pop().get("count") is not None
         else:
@@ -354,5 +352,6 @@ def test_instance_cycle_time_view(
             )
             == set()
         )
+        assert len(admin_client.get(url, {"form": "main-form"}).json()) == 3
 
     assert len(admin_client.get(url, {"procedure": "something"}).json()) == 0
