@@ -1,5 +1,5 @@
 <form class="uk-margin">
-  <div class="uk-grid-small uk-width-1-4 uk-child-width-1-1" uk-grid>
+  <div class="uk-grid-small uk-width-1-2 uk-child-width-1-2" uk-grid>
     <div>
       <label class="uk-text-bold" for="procedure">{{t
           "statistics.procedure"
@@ -14,6 +14,24 @@
             value={{opt.slug}}
             selected={{eq opt.slug this.procedure}}
           >{{opt.label}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div>
+      <label class="uk-text-bold" for="form-type">{{t
+          "statistics.type"
+        }}</label>
+      <select class="uk-select" id="form-type" {{on "change" this.setForm}}>
+        <option selected value="">{{t "statistics.allFormTypes"}}</option>
+        {{#each this.forms.value as |group|}}
+          <optgroup label={{group.groupName}}>
+            {{#each group.options as |opt|}}
+              <option
+                value={{opt.value}}
+                selected={{eq opt.value this.form}}
+              >{{opt.name}}</option>
+            {{/each}}
+          </optgroup>
         {{/each}}
       </select>
     </div>

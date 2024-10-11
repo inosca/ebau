@@ -5,6 +5,8 @@ statistics:
   to: "Jusque"
   dossier-number: "Numéro de dossier"
   procedure: "Type de procédure"
+  type: "Type de demande"
+  allFormTypes: "Tous les types de demandes"
   instance-count: "Nombre de demandes"
   claim-count: "Nombre de demandes de complément"
   avg-process-time: "Durée moyenne de traitement"
