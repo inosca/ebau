@@ -1,8 +1,9 @@
 import { service } from "@ember/service";
 import Component from "@glimmer/component";
-import { dropTask } from "ember-concurrency";
+import { dropTask, restartableTask } from "ember-concurrency";
 import { findAll } from "ember-data-resources";
 import saveAs from "file-saver";
+import { trackedTask } from "reactiveweb/ember-concurrency";
 
 import {
   MIME_TYPE_TO_EXTENSION,
@@ -14,8 +15,40 @@ export default class DmsListComponent extends Component {
   @service ebauModules;
   @service fetch;
   @service intl;
+  @service store;
 
   templates = findAll(this, "template");
+
+  get userIds() {
+    if (!this.templates.records) return [];
+    return [
+      ...new Set(
+        this.templates.records
+          .map((template) => template.modifiedByUser)
+          .filter(Boolean),
+      ),
+    ];
+  }
+
+  userTask = trackedTask(this, this.fetchUsers, () => [this.userIds]);
+
+  @restartableTask
+  *fetchUsers(users) {
+    yield Promise.resolve();
+    if (!users.length) {
+      return [];
+    }
+
+    return [
+      ...(yield this.store.query("public-user", {
+        username: users.join(","),
+      }) ?? []),
+    ];
+  }
+
+  get users() {
+    return this.userTask.value ?? [];
+  }
 
   get systemTemplates() {
     return this.templates.records
