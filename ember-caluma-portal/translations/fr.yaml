@@ -302,23 +302,26 @@ instances:
 
     # BE
     creation: "Nouveau"
-    creation-description: ""
-    receiving: "Communauté d'accueil"
-    receiving-description: ""
-    communal: "Traitement communautaire"
-    communal-description: ""
+    creation-description: "Le dossier a été établi. Il est possible de poursuivre le traitement du dossier et de l'envoyer à l'autorité directrice (commune). Si vous n'avez plus besoin de la demande, vous pouvez également la supprimer dans l'état « Nouveau » sous la rubrique « Actions »."
+    receiving: "Réception commune"
+    receiving-description: "Le dossier a été définitivement soumis à l'autorité directrice (commune). Aucune modification ne peut être apportée à ce dossier et aucun document ne peut être téléchargé. Il n'est pas non plus possible de supprimer ce dossier. Si vous souhaitez encore compléter ou modifier des éléments, veuillez vous adresser directement à l’administration des constructions de la commune."
+    communal: "Traitement commune"
+    communal-description: "L'autorité directrice traite le dossier. Aucune action n'est nécessaire de la part des personnes requérantes."
     in-progress: "Programme de procédure"
-    in-progress-description: ""
+    in-progress-description: "Le déroulement de la procédure d'octroi du permis de construire est régi par le décret concernant la procédure d'octroi du permis de construire du canton de Berne. Les différentes étapes de la procédure y sont décrites. Celles-ci diffèrent selon le type de procédure et sont exécutées le cas échéant. Dans le statut programme de procédure, l'autorité directrice compétente (la commune ou la préfecture) examine en règle générale le dossier (examen formel provisoire, examen matériel), sollicite des rapports officiels et spécialisés, procède à la mise à l'enquête (publication dans la Feuille officielle/en ligne ou avis aux voisins concernés) et entame d'autres démarches nécessaires. Il est possible que l'autorité directrice vous envoie un programme de procédure. Si vous avez des questions concernant la procédure, veuillez vous adresser directement à l'autorité directrice compétente."
     sb1: "Déclaration spontanée 1"
-    sb1-description: ""
+    sb1-description: "Le formulaire Déclaration spontanée en matière de contrôle des constructions 1 (DC1) permet d'annoncer la personne responsable du chantier, le fait que les conditions pour bénéficier du permis de construire sont remplies et que les conditions pour le début des travaux/le banquetage (contrôle obligatoire a) sont remplies.
+Le formulaire DC1 doit impérativement être déposé auprès de la commune avant le début des travaux.
+L'autorité communale de police des constructions peut, en vertu de l'art. 46, al. 1 LC, ordonner l'arrêt des travaux de construction si le début des travaux a été effectué sans dépôt préalable du formulaire officiel. Si vous avez des questions concernant le formulaire DC1, veuillez vous adresser directement à l’administration des constructions de la commune."
     sb2: "Déclaration spontanée 2"
-    sb2-description: ""
+    sb2-description: "Le formulaire Déclaration spontanée en matière de contrôle des constructions 2 (DC2) permet d'annoncer l'achèvement complet des travaux et les éventuelles modifications s'écartant du permis de construire, le respect des conditions et des charges du permis de construire, le respect des prescriptions relatives à la sécurité, l'achèvement des annexes (p. ex. espace commun) et des travaux d'aménagement des abords ou au moins la date prévue d'achèvement. Si vous avez des questions concernant le formulaire DC2, n'hésitez pas à vous adresser directement à l’administration des constructions de la commune."
     finished: "Décision finalisé"
-    finisehd-description: ""
+    finished-description: "Le dossier a été clos par une décision ou une évaluation. Si vous avez des questions concernant la clôture /l'évaluation, veuillez vous adresser directement à l'autorité directrice compétente (la commune ou la préfecture)."
     rejected: "Repoussé"
-    rejected-description: ""
+    rejected-description: "L'autorité directrice (la commune ou la préfecture) vous a renvoyé le dossier pour que vous le révisiez et/ou le complétiez.
+Veuillez ouvrir le formulaire en cliquant sur « Soumettre à nouveau le dossier ». Vous pouvez alors modifier le dossier initialement déposé en fonction des remarques de l'autorité directrice (voir l'éventuel texte « Motif du renvoi ») et le soumettre à nouveau. Un nouveau numéro de dossier sera créé pour cette correction. Si vous avez des questions concernant le renvoi, veuillez vous adresser directement à l'autorité directrice compétente."
     archived: "Archivé"
-    archived-description: ""
+    archived-description: "L'autorité directrice (la commune ou la préfecture) a irrévocablement placé le dossier en statut « Archivé ». Aucune activité ne peut désormais être effectuée sur ce dossier."
 
     # UR
     comm: ""
