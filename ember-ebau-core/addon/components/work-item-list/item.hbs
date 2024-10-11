@@ -1,16 +1,17 @@
 <tr class={{if (and @highlight @workItem.notViewed) "uk-text-bold"}}>
   {{#if @highlight}}
-    <td
-      class="uk-table-middle uk-padding-remove-right {{this.highlightClasses}}"
-    ></td>
+    {{#if (has-feature "workItemList.useExperimentalLayout")}}
+      <td class="uk-padding-remove-right {{this.highlightClasses}}"></td>
+    {{else}}
+      <td
+        class="uk-table-middle uk-padding-remove-right
+          {{this.highlightClasses}}"
+      ></td>
+    {{/if}}
   {{/if}}
 
   {{#each @columns as |column|}}
     <td
-      class={{if
-        (includes column (array "task" "responsible" "description" "closedBy"))
-        "uk-text-truncate"
-      }}
       title="
         {{~if (eq column 'responsible') @workItem.responsible~}}
         {{~if (eq column 'description') @workItem.instanceDescription~}}
@@ -20,6 +21,7 @@
         (format-date @workItem.deadline format="date")
       ~}}
       "
+      class={{this.getClass column}}
     >
       {{#if (eq column "task")}}
         {{#if (and @useLinkTo @workItem.directLink)}}
@@ -34,6 +36,8 @@
         {{/if}}
       {{else if (eq column "instance")}}
         {{@workItem.instanceName}}
+      {{else if (eq column "instanceId")}}
+        {{@workItem.instanceId}}
       {{else if (eq column "deadline")}}
         {{date-from-now @workItem.deadline}}
       {{else if (eq column "responsible")}}
@@ -43,7 +47,11 @@
       {{else if (eq column "closedBy")}}
         {{if @workItem.closedByUser @workItem.closedByUser.fullName "-"}}
       {{else if (eq column "description")}}
-        {{@workItem.instanceDescription}}
+        {{#if (has-feature "workItemList.useExperimentalLayout")}}
+          {{truncate-text @workItem.instanceDescription 250}}
+        {{else}}
+          {{@workItem.instanceDescription}}
+        {{/if}}
       {{else if (eq column "municipality")}}
         {{@workItem.municipality}}
       {{else if (eq column "applicants")}}
