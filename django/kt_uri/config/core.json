@@ -35346,6 +35346,42 @@
     }
   },
   {
+    "model": "core.publicationsetting",
+    "pk": 12000009,
+    "fields": {
+      "key": "fromEmail",
+      "value": "urec@ur.ch",
+      "type": 12000008
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000010,
+    "fields": {
+      "key": "toEmail",
+      "value": "amtsblatt@ur.ch",
+      "type": 12000008
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000011,
+    "fields": {
+      "key": "fromEmail",
+      "value": "urec@ur.ch",
+      "type": 12000001
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000012,
+    "fields": {
+      "key": "toEmail",
+      "value": "amtsblatt@ur.ch",
+      "type": 12000001
+    }
+  },
+  {
     "model": "core.publicationtype",
     "pk": 1,
     "fields": {
