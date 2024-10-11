@@ -28,8 +28,14 @@
         <tr>
           <td>{{template.description}}</td>
           <td>{{or template.meta.category "-"}}</td>
-          <td>{{format-date template.modifiedAt format="datetime"}}</td>
-          <td>{{template.userFullName.value}}</td>
+          <td>{{if
+              template.modifiedByUser
+              (format-date template.modifiedAt format="datetime")
+            }}</td>
+          <td>{{get
+              (find-by "username" template.modifiedByUser this.users)
+              "fullName"
+            }}</td>
           <td class="uk-text-right">
             <LinkTo
               @route={{module-route "dms-admin" "edit"}}
