@@ -4,6 +4,8 @@ import { dropTask } from "ember-concurrency";
 import { performHelper } from "ember-concurrency/helpers/perform";
 import { DateTime } from "luxon";
 
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+
 export default class WorkItemListItemComponent extends Component {
   @service ebauModules;
   @service router;
@@ -119,5 +121,16 @@ export default class WorkItemListItemComponent extends Component {
       this.args.workItem.editLink.models[0],
       this.args.workItem.editLink.models[1],
     );
+  }
+
+  getClass(column) {
+    if (hasFeature("workItemList.useExperimentalLayout")) {
+      if (column === "task") return "uk-table-shrink";
+      if (column === "description") return "uk-table-expand";
+    } else {
+      if (["task", "responsible", "description", "closedBy"].includes(column)) {
+        return "uk-text-truncate";
+      }
+    }
   }
 }

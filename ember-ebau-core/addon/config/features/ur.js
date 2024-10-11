@@ -13,4 +13,7 @@ export default {
   dashboard: {
     useLegacy: true,
   },
+  workItemList: {
+    useExperimentalLayout: true,
+  },
 };
