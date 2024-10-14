@@ -107,6 +107,7 @@ class ServiceField(ABC, AliasedMixin, serializers.ReadOnlyField):
                 gettext("Authority"),
                 gettext("Municipality"),
                 gettext("District"),
+                gettext("GBB"),
             ]:
                 value = value.replace(prefix, "").strip()
 
