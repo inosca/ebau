@@ -54,14 +54,14 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
   resolveUser(id) {
     if (!id) return "-";
 
-    return this.store.peekRecord("user", id)?.fullName ?? "-";
+    return this.store.peekRecord("public-user", id)?.fullName ?? "-";
   }
 
   @action
   resolveGroup(id) {
     if (!id) return "-";
 
-    return this.store.peekRecord("service", id)?.name ?? "-";
+    return this.store.peekRecord("public-service", id)?.name ?? "-";
   }
 
   extractDocumentProperties(documents, key) {
@@ -79,12 +79,12 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
     const requests = [];
     if (users.length) {
       requests.push(
-        this.store.query("user", { filter: { id: users.join(",") } }),
+        this.store.query("public-user", { filter: { id: users.join(",") } }),
       );
     }
     if (groups.length) {
       requests.push(
-        await this.store.query("service", {
+        await this.store.query("public-service", {
           filter: { service_id: groups.join(",") },
         }),
       );
