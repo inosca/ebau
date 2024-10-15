@@ -37,6 +37,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "allgemeine-angaben-kurz-v5",
+    "fields": {
+      "created_at": "2024-10-07T08:46:30.510Z",
+      "modified_at": "2024-10-07T08:46:57.844Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Allgemeine Angaben\", \"fr\": \"Informations g\\u00e9n\\u00e9rales\", \"it\": null}",
+      "description": "{\"de\": \"Allgemeine Angaben (kurz, v5)\", \"fr\": \"Allgemeine Angaben (kurz, v5)\", \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "allgemeine-angaben-kurz-v4"
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "allgemeine-angaben-v5",
     "fields": {
       "created_at": "2024-09-05T09:41:39.992Z",
@@ -340,6 +358,29 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "vorabklaerung-einfach-v5",
+    "fields": {
+      "created_at": "2024-10-07T13:22:35.852Z",
+      "modified_at": "2024-10-07T13:25:38.362Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Einfache Vorabkl\\u00e4rung\", \"fr\": \"Demandes pr\\u00e9alables simples\", \"it\": null}",
+      "description": "{\"de\": \"Einfache Vorabkl\\u00e4rung (v5)\", \"fr\": \"Demandes pr\\u00e9alables simples (v5)\", \"it\": null}",
+      "meta": {
+        "order": 1,
+        "category": "preliminary-clarification",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": false,
+      "is_archived": false,
+      "source": "vorabklaerung-einfach-v4"
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "vorabklaerung-vollstaendig-v5",
     "fields": {
       "created_at": "2024-05-30T12:32:13.839Z",
@@ -530,6 +571,216 @@
       "form": "7-bestaetigung-vorabklaerung-v5",
       "question": "bestaetigung-kostenuebernahme-v4",
       "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v5.be-gid",
+    "fields": {
+      "created_at": "2024-10-07T08:46:30.536Z",
+      "modified_at": "2024-10-07T08:46:30.536Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v5",
+      "question": "be-gid",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v5.beschreibung-bauvorhaben",
+    "fields": {
+      "created_at": "2024-10-07T08:46:30.541Z",
+      "modified_at": "2024-10-07T08:46:30.541Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v5",
+      "question": "beschreibung-bauvorhaben",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v5.gemeinde",
+    "fields": {
+      "created_at": "2024-10-07T08:46:30.531Z",
+      "modified_at": "2024-10-07T08:46:30.531Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v5",
+      "question": "gemeinde",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v5.gwr-egid",
+    "fields": {
+      "created_at": "2024-10-07T08:46:30.537Z",
+      "modified_at": "2024-10-07T08:46:30.537Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v5",
+      "question": "gwr-egid",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v5.is-paper",
+    "fields": {
+      "created_at": "2024-10-07T08:46:30.550Z",
+      "modified_at": "2024-10-07T08:46:30.550Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v5",
+      "question": "is-paper",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v5.karte",
+    "fields": {
+      "created_at": "2024-10-07T08:46:30.519Z",
+      "modified_at": "2024-10-07T08:46:30.519Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v5",
+      "question": "karte",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v5.konkrete-fragen-der-vorabklaerung-anfrage-v4",
+    "fields": {
+      "created_at": "2024-10-07T08:46:30.545Z",
+      "modified_at": "2024-10-07T08:46:30.545Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v5",
+      "question": "konkrete-fragen-der-vorabklaerung-anfrage-v4",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v5.nr",
+    "fields": {
+      "created_at": "2024-10-07T08:46:30.525Z",
+      "modified_at": "2024-10-07T08:46:30.525Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v5",
+      "question": "nr",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v5.ort-grundstueck",
+    "fields": {
+      "created_at": "2024-10-07T08:46:30.528Z",
+      "modified_at": "2024-10-07T08:46:30.528Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v5",
+      "question": "ort-grundstueck",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v5.parzelle",
+    "fields": {
+      "created_at": "2024-10-07T08:46:30.533Z",
+      "modified_at": "2024-10-07T08:46:30.533Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v5",
+      "question": "parzelle",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v5.plz-grundstueck-v5",
+    "fields": {
+      "created_at": "2024-10-07T08:47:19.535Z",
+      "modified_at": "2024-10-07T08:47:19.535Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v5",
+      "question": "plz-grundstueck-v5",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v5.sachverhalt",
+    "fields": {
+      "created_at": "2024-10-07T08:46:30.548Z",
+      "modified_at": "2024-10-07T08:46:30.548Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v5",
+      "question": "sachverhalt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v5.standort-migriert",
+    "fields": {
+      "created_at": "2024-10-07T08:46:30.539Z",
+      "modified_at": "2024-10-07T08:46:30.539Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v5",
+      "question": "standort-migriert",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v5.strasse-flurname",
+    "fields": {
+      "created_at": "2024-10-07T08:46:30.522Z",
+      "modified_at": "2024-10-07T08:46:30.522Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v5",
+      "question": "strasse-flurname",
+      "sort": 13
     }
   },
   {
@@ -4239,6 +4490,81 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-einfach-v5.7-bestaetigung-vorabklaerung-v4",
+    "fields": {
+      "created_at": "2024-10-07T13:22:35.872Z",
+      "modified_at": "2024-10-07T13:22:35.872Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "vorabklaerung-einfach-v5",
+      "question": "7-bestaetigung-vorabklaerung-v4",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-einfach-v5.8-freigabequittung",
+    "fields": {
+      "created_at": "2024-10-07T13:22:35.875Z",
+      "modified_at": "2024-10-07T13:22:35.875Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "vorabklaerung-einfach-v5",
+      "question": "8-freigabequittung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-einfach-v5.allgemeine-angaben-kurz-formular-v5",
+    "fields": {
+      "created_at": "2024-10-07T13:25:59.179Z",
+      "modified_at": "2024-10-07T13:25:59.179Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorabklaerung-einfach-v5",
+      "question": "allgemeine-angaben-kurz-formular-v5",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-einfach-v5.dokumente-vorabklaerung-form",
+    "fields": {
+      "created_at": "2024-10-07T13:22:35.870Z",
+      "modified_at": "2024-10-07T13:22:35.870Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "vorabklaerung-einfach-v5",
+      "question": "dokumente-vorabklaerung-form",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-einfach-v5.personalien-kurz-formular",
+    "fields": {
+      "created_at": "2024-10-07T13:22:35.860Z",
+      "modified_at": "2024-10-07T13:22:35.860Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "vorabklaerung-einfach-v5",
+      "question": "personalien-kurz-formular",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "vorabklaerung-vollstaendig-v5.1-allgemeine-informationen-v5",
     "fields": {
       "created_at": "2024-09-06T14:28:34.655Z",
@@ -4974,6 +5300,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "allgemeine-angaben-kurz-formular-v5",
+    "fields": {
+      "created_at": "2024-10-07T12:56:32.091Z",
+      "modified_at": "2024-10-07T12:56:45.948Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Allgemeine Angaben\", \"fr\": \"Informations g\\u00e9n\\u00e9rales\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "allgemeine-angaben-kurz-v5",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -6084,7 +6441,7 @@
     "pk": "plz-grundstueck-v5",
     "fields": {
       "created_at": "2024-09-05T11:50:15.403Z",
-      "modified_at": "2024-09-05T13:13:29.564Z",
+      "modified_at": "2024-10-07T08:49:01.594Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -6099,8 +6456,8 @@
       "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
-        "max_value": null,
-        "min_value": null,
+        "max_value": 9999,
+        "min_value": 1000,
         "max_length": null,
         "min_length": null
       },
