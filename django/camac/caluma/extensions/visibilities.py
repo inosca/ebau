@@ -59,6 +59,13 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
     """
 
     instance_field = None
+    suppress_visibilities = [
+        "WorkItem.case",
+        "WorkItem.child_case",
+        "Case.document",
+        "Case.parent_work_item",
+        "Case.family",
+    ]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
