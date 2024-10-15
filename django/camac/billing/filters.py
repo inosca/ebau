@@ -60,9 +60,10 @@ class BillingV2EntryExportFilterBackend(BaseFilterBackend):
             Returns:
                 QuerySet: A queryset containing the string values of the answers.
             """
+            document_key = "document__family" if all_answers else "document_id"
             filter_kwargs = {
                 "question_id": slug,
-                "document__family" if all_answers else "document_id": OuterRef(ref),
+                document_key: OuterRef(ref),
             }
 
             queryset = (
