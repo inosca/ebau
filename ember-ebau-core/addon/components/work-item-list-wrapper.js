@@ -2,15 +2,151 @@ import { service } from "@ember/service";
 import { camelize } from "@ember/string";
 import Component from "@glimmer/component";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
-import { allWorkItems } from "@projectcaluma/ember-core/caluma-query/queries";
+import BaseQuery from "@projectcaluma/ember-core/caluma-query/queries/base";
 import { queryManager } from "ember-apollo-client";
 import { gql } from "graphql-tag";
 import { trackedFunction } from "reactiveweb/function";
 
+import mainConfig from "ember-ebau-core/config/main";
 import workItemListConfig from "ember-ebau-core/config/work-item-list";
 import getProcessData, {
-  processNewWorkItems,
+  fetchIfNotCached,
 } from "ember-ebau-core/utils/work-item";
+
+class WorkItemListQuery extends BaseQuery {
+  dataKey = "allWorkItems";
+  modelName = "work-item";
+
+  constructor(options) {
+    super(options);
+    this.columns = options.columns;
+  }
+
+  // Inlined version of ember-caluma's `allWorkItems`, allowing us
+  // to only fetch what is really needed for the work item list.
+  get query() {
+    const columnSlugs = {
+      description: mainConfig.intentSlugs,
+      municipality: mainConfig.answerSlugs.municipality,
+      applicants: mainConfig.answerSlugs.personalDataApplicant,
+    };
+    const questions = JSON.stringify(
+      this.columns
+        .map((col) => columnSlugs[col])
+        .filter(Boolean)
+        .flat(),
+    );
+    return `
+      query WorkItemListQuery(
+        $filter: [WorkItemFilterSetType]
+        $order: [WorkItemOrderSetType]
+        $cursor: String
+        $pageSize: Int
+      ) {
+        allWorkItems(
+          filter: $filter
+          order: $order
+          after: $cursor
+          first: $pageSize
+        ) {
+          ${this.pagination}
+          edges {
+            cursor
+            node {
+              id
+              __typename
+              ...WorkItemFragment
+            }
+          }
+        }
+      }
+
+      fragment WorkItemFragment on WorkItem {
+        closedAt
+        closedByUser
+        status
+        meta
+        addressedGroups
+        controllingGroups
+        assignedUsers
+        name
+        deadline
+        task {
+          slug
+          meta
+        }
+        case {
+          id
+          meta
+          family {
+            id
+            meta
+            document {
+              id
+              form {
+                name
+              }
+              answers(filter: [{ questions: ${questions} }]) {
+                edges {
+                  node {
+                    question {
+                      id
+                      slug
+                      ... on TableQuestion {
+                        rowForm {
+                          slug
+                        }
+                      }
+                    }
+                    ... on TableAnswer {
+                      value {
+                        answers {
+                          edges {
+                            node {
+                              question {
+                                slug
+                              }
+                              ... on StringAnswer {
+                                stringValue: value
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                    ... on StringAnswer {
+                      stringValue: value
+                      selectedOption {
+                        slug
+                        label
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          parentWorkItem {
+            id
+            meta
+            addressedGroups
+            controllingGroups
+            task {
+              slug
+              meta
+            }
+            case {
+              id
+            }
+            childCase {
+              id
+            }
+          }
+        }
+      }
+    `;
+  }
+}
 
 export default class WorkItemListWrapperComponent extends Component {
   @queryManager apollo;
@@ -20,14 +156,19 @@ export default class WorkItemListWrapperComponent extends Component {
   @service intl;
   @service ebauModules;
 
-  workItemsQuery = useCalumaQuery(this, allWorkItems, () => ({
-    options: {
-      pageSize: 20,
-      processNew: (workItems) => this.processNew(workItems),
-    },
-    filter: this.gqlFilter,
-    order: this.gqlOrder,
-  }));
+  workItemsQuery = useCalumaQuery(
+    this,
+    (options) => new WorkItemListQuery(options),
+    () => ({
+      options: {
+        pageSize: 20,
+        processNew: (workItems) => this.processNew(workItems),
+        columns: this.columns,
+      },
+      filter: this.gqlFilter,
+      order: this.gqlOrder,
+    }),
+  );
 
   workItemListConfig = workItemListConfig;
 
@@ -39,22 +180,37 @@ export default class WorkItemListWrapperComponent extends Component {
   }
 
   async processNew(workItems) {
-    const { usernames, instanceIds } = getProcessData(workItems);
-
-    await processNewWorkItems(this.store, workItems);
-
-    if (!usernames.includes(this.args.username)) {
-      await this.store.query("public-user", {
-        username: this.args.username,
-      });
-    }
+    const { usernames, serviceIds, instanceIds } = getProcessData(workItems);
 
     if (instanceIds.length && this.args.application === "kt_schwyz") {
-      await this.store.query("form-field", {
+      // only Kt. SZ needs to fetch instances for the global work item list!
+      // also, we don't wait before any of the requests to complete to get a
+      // faster first render. Only exception is the instance call (to avoid many more
+      // api calls being triggered by ember-data)
+      await fetchIfNotCached(
+        this.store,
+        "instance",
+        instanceIds,
+        "id",
+        "instance_id",
+        {
+          include: "form",
+        },
+      );
+      this.store.query("form-field", {
         instance: instanceIds.join(","),
         name: "bezeichnung,bezeichnung-override",
       });
     }
+    fetchIfNotCached(this.store, "service", serviceIds, "id", "service_id");
+    const allUsernames = [...new Set(usernames, this.args.username)];
+    fetchIfNotCached(
+      this.store,
+      "public-user",
+      allUsernames,
+      "username",
+      "username",
+    );
 
     return workItems;
   }
