@@ -1,6 +1,42 @@
 [
   {
     "model": "caluma_form.form",
+    "pk": "baeume-hecken",
+    "fields": {
+      "created_at": "2020-10-05T07:24:30.026Z",
+      "modified_at": "2020-12-10T12:48:50.132Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"B\\u00e4ume / Hecken\", \"fr\": \"Arbres / haies\", \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "dokumente-hecken-feldgehoelze-baeume",
+    "fields": {
+      "created_at": "2020-10-05T15:40:12.999Z",
+      "modified_at": "2020-10-05T15:40:12.999Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dokumente (Hecken / Feldgeh\\u00f6lze / B\\u00e4ume)\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "hecken-feldgehoelze-baeume",
     "fields": {
       "created_at": "2020-10-02T15:41:19.118Z",
@@ -20,6 +56,171 @@
       "is_published": false,
       "is_archived": false,
       "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baeume-hecken.beschreibung-der-ersatzpflanzung",
+    "fields": {
+      "created_at": "2020-10-05T07:51:17.905Z",
+      "modified_at": "2020-10-05T07:51:17.905Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baeume-hecken",
+      "question": "beschreibung-der-ersatzpflanzung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baeume-hecken.gesuchstyp",
+    "fields": {
+      "created_at": "2020-10-05T07:43:39.521Z",
+      "modified_at": "2020-10-05T07:43:39.521Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baeume-hecken",
+      "question": "gesuchstyp",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baeume-hecken.handelt-es-sich-um-einen-kranken-baum",
+    "fields": {
+      "created_at": "2020-10-05T07:49:37.168Z",
+      "modified_at": "2020-10-05T07:49:37.168Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baeume-hecken",
+      "question": "handelt-es-sich-um-einen-kranken-baum",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baeume-hecken.ist-eine-ersatzpflanzung-vorgesehen",
+    "fields": {
+      "created_at": "2020-10-05T07:47:55.135Z",
+      "modified_at": "2020-10-05T07:47:55.135Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baeume-hecken",
+      "question": "ist-eine-ersatzpflanzung-vorgesehen",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baeume-hecken.objekt-nummer-gemaess-inventar",
+    "fields": {
+      "created_at": "2020-10-05T07:44:39.644Z",
+      "modified_at": "2020-10-05T07:44:39.644Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baeume-hecken",
+      "question": "objekt-nummer-gemaess-inventar",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-hecken-feldgehoelze-baeume.baumfaellbegruendung-dokument",
+    "fields": {
+      "created_at": "2020-10-05T16:02:10.128Z",
+      "modified_at": "2020-10-05T16:02:10.128Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-hecken-feldgehoelze-baeume",
+      "question": "baumfaellbegruendung-dokument",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-hecken-feldgehoelze-baeume.baumfaellgutachten-dokument",
+    "fields": {
+      "created_at": "2020-10-05T16:01:46.770Z",
+      "modified_at": "2020-10-05T16:01:46.770Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-hecken-feldgehoelze-baeume",
+      "question": "baumfaellgutachten-dokument",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-hecken-feldgehoelze-baeume.dokumente-platzhalter",
+    "fields": {
+      "created_at": "2020-10-05T15:41:14.875Z",
+      "modified_at": "2020-10-05T15:41:14.875Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-hecken-feldgehoelze-baeume",
+      "question": "dokumente-platzhalter",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-hecken-feldgehoelze-baeume.entfernen-von-hecken-und-feldgehoelzen-dokument",
+    "fields": {
+      "created_at": "2020-10-05T16:03:08.499Z",
+      "modified_at": "2020-10-05T16:03:08.499Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-hecken-feldgehoelze-baeume",
+      "question": "entfernen-von-hecken-und-feldgehoelzen-dokument",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-hecken-feldgehoelze-baeume.situationsplan-ersatzpflanzung-und-rodung",
+    "fields": {
+      "created_at": "2020-10-05T16:02:32.638Z",
+      "modified_at": "2020-10-05T16:02:32.638Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-hecken-feldgehoelze-baeume",
+      "question": "situationsplan-ersatzpflanzung-und-rodung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-hecken-feldgehoelze-baeume.situationsplan-hecken-feldgehoelze-baeume-dokument",
+    "fields": {
+      "created_at": "2020-10-05T15:57:49.555Z",
+      "modified_at": "2020-10-05T15:57:49.555Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-hecken-feldgehoelze-baeume",
+      "question": "situationsplan-hecken-feldgehoelze-baeume-dokument",
+      "sort": 6
     }
   },
   {
@@ -98,6 +299,193 @@
     }
   },
   {
+    "model": "caluma_form.option",
+    "pk": "baumfaellbegruendung-dokument-ja",
+    "fields": {
+      "created_at": "2020-10-05T10:45:16.206Z",
+      "modified_at": "2020-10-12T08:10:19.464Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baumf\\u00e4llbegr\\u00fcndung\", \"fr\": \"Justification de l'abattage des arbres\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "baumfaellgutachten-dokument-ja",
+    "fields": {
+      "created_at": "2020-10-05T09:51:57.509Z",
+      "modified_at": "2020-10-12T08:09:32.778Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baumf\\u00e4llgutachten\", \"fr\": \"Rapports sur l'abattage des arbres\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entfernen-von-hecken-und-feldgehoelzen-dokument-ja",
+    "fields": {
+      "created_at": "2020-10-05T10:59:22.896Z",
+      "modified_at": "2020-10-12T08:10:42.678Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begr\\u00fcndung f\\u00fcr Entfernen von Hecken und Feldgeh\\u00f6lzen\", \"fr\": \"Raisons pour lesquelles il faut enlever les haies et les arbustes des champs\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gesuchstyp-baum",
+    "fields": {
+      "created_at": "2020-10-05T07:43:39.211Z",
+      "modified_at": "2020-10-05T07:48:09.858Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baum\", \"fr\": \"Arbre\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gesuchstyp-hecke-feldgehoelz",
+    "fields": {
+      "created_at": "2020-10-05T07:43:39.224Z",
+      "modified_at": "2020-12-10T12:48:27.896Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hecke / Feldgeh\\u00f6lz\", \"fr\": \"Haies / bosquets champ\\u00eatres\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "handelt-es-sich-um-einen-kranken-baum-ja",
+    "fields": {
+      "created_at": "2020-10-05T07:49:36.791Z",
+      "modified_at": "2020-10-05T08:20:12.137Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "handelt-es-sich-um-einen-kranken-baum-nein",
+    "fields": {
+      "created_at": "2020-10-05T07:49:36.805Z",
+      "modified_at": "2020-10-05T08:20:12.144Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-eine-ersatzpflanzung-vorgesehen-ja",
+    "fields": {
+      "created_at": "2020-10-05T07:47:54.826Z",
+      "modified_at": "2020-10-05T08:19:48.408Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-eine-ersatzpflanzung-vorgesehen-nein",
+    "fields": {
+      "created_at": "2020-10-05T07:47:54.840Z",
+      "modified_at": "2020-10-05T08:19:48.415Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "situationsplan-ersatzpflanzung-und-rodung-ja",
+    "fields": {
+      "created_at": "2020-10-05T10:48:50.458Z",
+      "modified_at": "2020-10-12T08:10:34.036Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situationsplan Ersatzpflanzung und Rodung\", \"fr\": \"Plan de sc\\u00e9nario pour les plantations de remplacement et l'arrachage\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "situationsplan-hecken-feldgehoelze-baeume-dokument-ja",
+    "fields": {
+      "created_at": "2020-10-05T15:57:49.291Z",
+      "modified_at": "2020-10-12T08:10:04.428Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situationsplan\", \"fr\": \"Plan de situation\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
     "model": "caluma_form.question",
     "pk": "baeume-hecken-formular",
     "fields": {
@@ -121,6 +509,106 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "baeume-hecken",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "baumfaellbegruendung-dokument",
+    "fields": {
+      "created_at": "2020-10-05T10:45:16.327Z",
+      "modified_at": "2020-12-10T12:45:40.262Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baumf\\u00e4llbegr\\u00fcndung\", \"fr\": \"Motif d'abbatage d'un arbre\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!('ist-eine-ersatzpflanzung-vorgesehen-nein' == 'ist-eine-ersatzpflanzung-vorgesehen'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "baumfaellgutachten-dokument",
+    "fields": {
+      "created_at": "2020-10-05T09:51:57.681Z",
+      "modified_at": "2020-12-10T12:45:32.631Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baumf\\u00e4llgutachten\", \"fr\": \"Rapport d'expert pour l'abattage d'un arbre\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!('ist-eine-ersatzpflanzung-vorgesehen-ja' == 'ist-eine-ersatzpflanzung-vorgesehen'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-der-ersatzpflanzung",
+    "fields": {
+      "created_at": "2020-10-05T07:51:17.726Z",
+      "modified_at": "2020-10-05T08:22:18.798Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung der Ersatzpflanzung\", \"fr\": \"Description de la plantation de remplacement\", \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "!('gesuchstyp-hecke-feldgehoelz' in 'gesuchstyp'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -160,6 +648,397 @@
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entfernen-von-hecken-und-feldgehoelzen-dokument",
+    "fields": {
+      "created_at": "2020-10-05T10:59:23.011Z",
+      "modified_at": "2020-12-10T12:46:07.773Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begr\\u00fcndung f\\u00fcr Entfernen von Hecken und Feldgeh\\u00f6lzen\", \"fr\": \"Motifs de la suppression de haies et de bosquets champ\\u00eatres\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!('gesuchstyp-hecke-feldgehoelz' == 'gesuchstyp'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gesuchstyp",
+    "fields": {
+      "created_at": "2020-10-05T07:43:39.384Z",
+      "modified_at": "2020-10-05T07:48:10.076Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gesuchstyp\", \"fr\": \"Type de demande\", \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "handelt-es-sich-um-einen-kranken-baum",
+    "fields": {
+      "created_at": "2020-10-05T07:49:36.998Z",
+      "modified_at": "2020-10-05T08:20:12.293Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Handelt es sich um einen kranken Baum?\", \"fr\": \"S'agit-il d'un arbre malade ?\", \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "!('gesuchstyp-baum' in 'gesuchstyp'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ist-eine-ersatzpflanzung-vorgesehen",
+    "fields": {
+      "created_at": "2020-10-05T07:47:54.989Z",
+      "modified_at": "2020-10-05T08:19:48.573Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist eine Ersatzpflanzung vorgesehen?\", \"fr\": \"Une plantation de remplacement est-elle pr\\u00e9vue ?\", \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "!('gesuchstyp-baum' in 'gesuchstyp'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "objekt-nummer-gemaess-inventar",
+    "fields": {
+      "created_at": "2020-10-05T07:44:39.520Z",
+      "modified_at": "2020-10-05T08:18:58.218Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Objekt-Nummer gem\\u00e4ss Inventar\", \"fr\": \"Num\\u00e9ro de l'objet selon l'inventaire\", \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!('gesuchstyp-baum' in 'gesuchstyp'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "situationsplan-ersatzpflanzung-und-rodung",
+    "fields": {
+      "created_at": "2020-10-05T10:48:50.594Z",
+      "modified_at": "2020-12-10T12:45:51.357Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situationsplan Ersatzpflanzung und Rodung\", \"fr\": \"Plan de situation pour les plantations de remplacement et le d\\u00e9frichement\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "'gesuchstyp-hecke-feldgehoelz' == 'gesuchstyp'|answer",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "situationsplan-hecken-feldgehoelze-baeume-dokument",
+    "fields": {
+      "created_at": "2020-10-05T15:57:49.418Z",
+      "modified_at": "2020-12-10T12:45:25.707Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situationsplan\", \"fr\": \"Plan de situation\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!('gesuchstyp-baum' == 'gesuchstyp'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "baumfaellbegruendung-dokument.baumfaellbegruendung-dokument-ja",
+    "fields": {
+      "created_at": "2020-10-12T08:10:19.575Z",
+      "modified_at": "2020-10-12T08:10:19.575Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "baumfaellbegruendung-dokument",
+      "option": "baumfaellbegruendung-dokument-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "baumfaellgutachten-dokument.baumfaellgutachten-dokument-ja",
+    "fields": {
+      "created_at": "2020-10-12T08:09:32.894Z",
+      "modified_at": "2020-10-12T08:09:32.894Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "baumfaellgutachten-dokument",
+      "option": "baumfaellgutachten-dokument-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entfernen-von-hecken-und-feldgehoelzen-dokument.entfernen-von-hecken-und-feldgehoelzen-dokument-ja",
+    "fields": {
+      "created_at": "2020-10-12T08:10:42.755Z",
+      "modified_at": "2020-10-12T08:10:42.755Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "entfernen-von-hecken-und-feldgehoelzen-dokument",
+      "option": "entfernen-von-hecken-und-feldgehoelzen-dokument-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gesuchstyp.gesuchstyp-baum",
+    "fields": {
+      "created_at": "2020-10-05T07:48:10.088Z",
+      "modified_at": "2020-10-05T07:48:10.088Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "gesuchstyp",
+      "option": "gesuchstyp-baum",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gesuchstyp.gesuchstyp-hecke-feldgehoelz",
+    "fields": {
+      "created_at": "2020-10-05T07:48:10.084Z",
+      "modified_at": "2020-10-05T07:48:10.084Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "gesuchstyp",
+      "option": "gesuchstyp-hecke-feldgehoelz",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "handelt-es-sich-um-einen-kranken-baum.handelt-es-sich-um-einen-kranken-baum-ja",
+    "fields": {
+      "created_at": "2020-10-05T08:20:12.305Z",
+      "modified_at": "2020-10-05T08:20:12.305Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "handelt-es-sich-um-einen-kranken-baum",
+      "option": "handelt-es-sich-um-einen-kranken-baum-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "handelt-es-sich-um-einen-kranken-baum.handelt-es-sich-um-einen-kranken-baum-nein",
+    "fields": {
+      "created_at": "2020-10-05T08:20:12.301Z",
+      "modified_at": "2020-10-05T08:20:12.301Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "handelt-es-sich-um-einen-kranken-baum",
+      "option": "handelt-es-sich-um-einen-kranken-baum-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-eine-ersatzpflanzung-vorgesehen.ist-eine-ersatzpflanzung-vorgesehen-ja",
+    "fields": {
+      "created_at": "2020-10-05T08:19:48.585Z",
+      "modified_at": "2020-10-05T08:19:48.585Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "ist-eine-ersatzpflanzung-vorgesehen",
+      "option": "ist-eine-ersatzpflanzung-vorgesehen-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-eine-ersatzpflanzung-vorgesehen.ist-eine-ersatzpflanzung-vorgesehen-nein",
+    "fields": {
+      "created_at": "2020-10-05T08:19:48.581Z",
+      "modified_at": "2020-10-05T08:19:48.581Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "ist-eine-ersatzpflanzung-vorgesehen",
+      "option": "ist-eine-ersatzpflanzung-vorgesehen-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "situationsplan-ersatzpflanzung-und-rodung.situationsplan-ersatzpflanzung-und-rodung-ja",
+    "fields": {
+      "created_at": "2020-10-12T08:10:34.131Z",
+      "modified_at": "2020-10-12T08:10:34.131Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "situationsplan-ersatzpflanzung-und-rodung",
+      "option": "situationsplan-ersatzpflanzung-und-rodung-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "situationsplan-hecken-feldgehoelze-baeume-dokument.situationsplan-hecken-feldgehoelze-baeume-dokument-ja",
+    "fields": {
+      "created_at": "2020-10-12T08:10:04.547Z",
+      "modified_at": "2020-10-12T08:10:04.547Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "situationsplan-hecken-feldgehoelze-baeume-dokument",
+      "option": "situationsplan-hecken-feldgehoelze-baeume-dokument-ja",
+      "sort": 1
     }
   }
 ]
