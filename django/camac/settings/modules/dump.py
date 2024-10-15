@@ -389,6 +389,14 @@ DUMP = {
                     regex=r"^heat-generator",
                     version=2,
                 ),
+                "caluma_solar_plants_form_v2": generate_form_dump_config(
+                    regex=r"^solaranlagen(-)?",
+                    version=2,
+                ),
+                "caluma_hecken_feldgehoelze_baeume_form_v2": generate_form_dump_config(
+                    regex=r"^hecken(-)?",
+                    version=2,
+                ),
                 "caluma_form_v2": generate_form_dump_config(version=2),
                 "caluma_form_v3": generate_form_dump_config(version=3),
                 "caluma_form_v4": generate_form_dump_config(version=4),
@@ -405,6 +413,9 @@ DUMP = {
                 ),
                 "caluma_solar_plants_form": generate_form_dump_config(
                     regex=r"^solaranlagen(-)?"
+                ),
+                "caluma_hecken_feldgehoelze_baeume_form": generate_form_dump_config(
+                    regex=r"^hecken(-)?"
                 ),
                 "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
                 "caluma_audit_form": generate_form_dump_config(

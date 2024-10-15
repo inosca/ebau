@@ -702,29 +702,6 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "hecken-feldgehoelze-baeume",
-    "fields": {
-      "created_at": "2020-10-02T15:41:19.118Z",
-      "modified_at": "2020-12-10T12:47:07.197Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Hecken / Feldgeh\\u00f6lze / B\\u00e4ume\", \"fr\": \"Haies / bosquets champ\\u00eatres / arbres\", \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
-      "meta": {
-        "order": 1,
-        "category": "special-procedure",
-        "is-creatable": true,
-        "is-main-form": true
-      },
-      "is_published": true,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
     "pk": "hindernisfreies-bauen",
     "fields": {
       "created_at": "2019-04-09T07:53:58.564Z",
@@ -7976,81 +7953,6 @@
       "form": "gewaesserschutz-wassergefaehrdende-fluessigkeiten",
       "question": "tanks-in-gewaesserschutzbereichen",
       "sort": 21
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "hecken-feldgehoelze-baeume.8-freigabequittung",
-    "fields": {
-      "created_at": "2020-10-06T06:10:43.705Z",
-      "modified_at": "2020-10-06T06:10:43.705Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "hecken-feldgehoelze-baeume",
-      "question": "8-freigabequittung",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "hecken-feldgehoelze-baeume.allgemeine-angaben-kurz-formular",
-    "fields": {
-      "created_at": "2020-10-05T08:31:56.558Z",
-      "modified_at": "2020-10-05T08:31:56.559Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "hecken-feldgehoelze-baeume",
-      "question": "allgemeine-angaben-kurz-formular",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "hecken-feldgehoelze-baeume.baeume-hecken-formular",
-    "fields": {
-      "created_at": "2020-10-05T08:12:03.915Z",
-      "modified_at": "2020-10-05T08:12:03.915Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "hecken-feldgehoelze-baeume",
-      "question": "baeume-hecken-formular",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "hecken-feldgehoelze-baeume.dokumente-kurz-formular",
-    "fields": {
-      "created_at": "2020-10-05T15:46:40.812Z",
-      "modified_at": "2020-10-05T15:46:40.812Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "hecken-feldgehoelze-baeume",
-      "question": "dokumente-kurz-formular",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "hecken-feldgehoelze-baeume.personalien-kurz-formular",
-    "fields": {
-      "created_at": "2020-10-05T08:53:30.984Z",
-      "modified_at": "2020-10-05T08:53:30.984Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "hecken-feldgehoelze-baeume",
-      "question": "personalien-kurz-formular",
-      "sort": 5
     }
   },
   {
@@ -26667,37 +26569,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "baeume-hecken-formular",
-    "fields": {
-      "created_at": "2020-10-05T08:12:03.776Z",
-      "modified_at": "2020-10-06T10:54:28.326Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"B\\u00e4ume / Hecken\", \"fr\": \"Arbres / haies\", \"it\": null}",
-      "type": "form",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": "baeume-hecken",
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "bar-buffet-im-fumoir",
     "fields": {
       "created_at": "2019-04-08T13:07:35.496Z",
@@ -29960,40 +29831,6 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "dokumente-kurz-formular",
-    "fields": {
-      "created_at": "2020-10-05T15:46:40.668Z",
-      "modified_at": "2020-10-06T10:54:52.084Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Dokumente\", \"fr\": \"Documents\", \"it\": null}",
-      "type": "form",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "widgetOverride": "be-documents-form",
-        "attachment-section": "'is-paper'|answer == 'is-paper-yes'? 13 : 1"
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": "dokumente-hecken-feldgehoelze-baeume",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
