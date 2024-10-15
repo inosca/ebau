@@ -1,5 +1,134 @@
 interactions:
 - request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=WFS&version=2.0.0&Request=GetFeature&typename=of_planningcadastre01_de_ms_wfs%3ADIPANU_DIPANUF_VW_13541&count=10&Filter=%3Cogc%3AFilter%3E%3Cogc%3APropertyIsEqualTo+matchCase%3D%22true%22%3E%3Cogc%3APropertyName%3EEGRID%3C%2Fogc%3APropertyName%3E%3Cogc%3ALiteral%3ECH643546955207%3C%2Fogc%3ALiteral%3E%3C%2Fogc%3APropertyIsEqualTo%3E%3C%2Fogc%3AFilter%3E
+  response:
+    body:
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\" ?><wfs:FeatureCollection xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"
+        xmlns:wfs=\"http://www.opengis.net/wfs/2.0\" xmlns:gml=\"http://www.opengis.net/gml/3.2\"
+        xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
+        xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
+        timeStamp=\"2024-10-03T12:57:20Z\" numberMatched=\"1\" numberReturned=\"1\"
+        xsi:schemaLocation=\"http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
+        http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd
+        https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer
+        https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=wfs%26version=2.0.0%26request=DescribeFeatureType\"><wfs:member><of_planningcadastre01_de_ms_wfs:DIPANU_DIPANUF_VW_13541
+        gml:id=\"DIPANU_DIPANUF_VW_13541.11018539\"><of_planningcadastre01_de_ms_wfs:Object-Id>11018539</of_planningcadastre01_de_ms_wfs:Object-Id><of_planningcadastre01_de_ms_wfs:NBIDENT>BE0200000366</of_planningcadastre01_de_ms_wfs:NBIDENT><of_planningcadastre01_de_ms_wfs:BFSNR>943</of_planningcadastre01_de_ms_wfs:BFSNR><of_planningcadastre01_de_ms_wfs:GEMNAME>Uebeschi</of_planningcadastre01_de_ms_wfs:GEMNAME><of_planningcadastre01_de_ms_wfs:GBKR>0</of_planningcadastre01_de_ms_wfs:GBKR><of_planningcadastre01_de_ms_wfs:EGRID>CH643546955207</of_planningcadastre01_de_ms_wfs:EGRID><of_planningcadastre01_de_ms_wfs:GSTNR>42</of_planningcadastre01_de_ms_wfs:GSTNR><of_planningcadastre01_de_ms_wfs:GSTART>0</of_planningcadastre01_de_ms_wfs:GSTART><of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_DE>Liegenschaft</of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_DE><of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_FR>Bien-fonds</of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_FR><of_planningcadastre01_de_ms_wfs:GSTBEZ>42</of_planningcadastre01_de_ms_wfs:GSTBEZ><of_planningcadastre01_de_ms_wfs:GBFLAE>194900</of_planningcadastre01_de_ms_wfs:GBFLAE><of_planningcadastre01_de_ms_wfs:TECHFLAE>194899.84500000</of_planningcadastre01_de_ms_wfs:TECHFLAE><of_planningcadastre01_de_ms_wfs:QV>1</of_planningcadastre01_de_ms_wfs:QV><of_planningcadastre01_de_ms_wfs:QVT_BEZ_DE>AV93</of_planningcadastre01_de_ms_wfs:QVT_BEZ_DE><of_planningcadastre01_de_ms_wfs:QVT_BEZ_FR>MO93</of_planningcadastre01_de_ms_wfs:QVT_BEZ_FR><of_planningcadastre01_de_ms_wfs:GZSTAT>0</of_planningcadastre01_de_ms_wfs:GZSTAT><of_planningcadastre01_de_ms_wfs:GZSTATT_BEZ_DE>Keine
+        Land- oder Baulandumlegung in Bearbeitung</of_planningcadastre01_de_ms_wfs:GZSTATT_BEZ_DE><of_planningcadastre01_de_ms_wfs:GZSTATT_BEZ_FR>Pas
+        d'am\xE9lioration fonci\xE8re ou de remaniement parcellaire de terrain \xE0
+        b\xE2tir en traitement</of_planningcadastre01_de_ms_wfs:GZSTATT_BEZ_FR><of_planningcadastre01_de_ms_wfs:PROJSTAT>0</of_planningcadastre01_de_ms_wfs:PROJSTAT><of_planningcadastre01_de_ms_wfs:PROJSTAT_BEZ_DE>g\xFCltig</of_planningcadastre01_de_ms_wfs:PROJSTAT_BEZ_DE><of_planningcadastre01_de_ms_wfs:PROJSTAT_BEZ_FR>valable</of_planningcadastre01_de_ms_wfs:PROJSTAT_BEZ_FR><of_planningcadastre01_de_ms_wfs:MITGEOM>1</of_planningcadastre01_de_ms_wfs:MITGEOM><of_planningcadastre01_de_ms_wfs:MITGEOMT_BEZ_DE>Fl\xE4chengeometrie
+        vorhanden</of_planningcadastre01_de_ms_wfs:MITGEOMT_BEZ_DE><of_planningcadastre01_de_ms_wfs:MITGEOMT_BEZ_FR>G\xE9om\xE9trie
+        de la surface disponible</of_planningcadastre01_de_ms_wfs:MITGEOMT_BEZ_FR><of_planningcadastre01_de_ms_wfs:SPRACHE>1</of_planningcadastre01_de_ms_wfs:SPRACHE><of_planningcadastre01_de_ms_wfs:SPRACHET_BEZ_DE>Deutsch</of_planningcadastre01_de_ms_wfs:SPRACHET_BEZ_DE><of_planningcadastre01_de_ms_wfs:SPRACHET_BEZ_FR>allemand</of_planningcadastre01_de_ms_wfs:SPRACHET_BEZ_FR><of_planningcadastre01_de_ms_wfs:UNVERBI>0</of_planningcadastre01_de_ms_wfs:UNVERBI><of_planningcadastre01_de_ms_wfs:UNVERBIT_BEZ_DE>Fl\xE4che
+        verbindlich</of_planningcadastre01_de_ms_wfs:UNVERBIT_BEZ_DE><of_planningcadastre01_de_ms_wfs:UNVERBIT_BEZ_FR>Surface
+        avec force obligatoire</of_planningcadastre01_de_ms_wfs:UNVERBIT_BEZ_FR><of_planningcadastre01_de_ms_wfs:LETZTEAEND>30.03.2015</of_planningcadastre01_de_ms_wfs:LETZTEAEND><of_planningcadastre01_de_ms_wfs:GENGBKRI>9430</of_planningcadastre01_de_ms_wfs:GENGBKRI><of_planningcadastre01_de_ms_wfs:GENGBKRN>Uebeschi</of_planningcadastre01_de_ms_wfs:GENGBKRN><of_planningcadastre01_de_ms_wfs:SHAPE><gml:MultiSurface
+        gml:id=\"DIPANU_DIPANUF_VW_13541.11018539.pl\" srsName=\"urn:ogc:def:crs:EPSG::2056\"><gml:surfaceMember><gml:Polygon
+        gml:id=\"DIPANU_DIPANUF_VW_13541.11018539.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
+        1176042.15200000 2609667.97400000 1176088.27700000 2609612.78000000 1176112.82200000
+        2609582.92900000 1176114.39900000 2609547.31000000 1176080.28100000 2609542.67800000
+        1176044.10400000 2609457.86100000 1175972.31300000 2609364.28000000 1176039.57200000
+        2609256.24900000 1175996.60500000 2609201.17900000 1175973.36400000 2609198.16800000
+        1175972.01800000 2609183.34600000 1175965.82900000 2609177.51100000 1175964.57000000
+        2609174.89200000 1175962.77000000 2609164.82200000 1175947.73500000 2609153.71300000
+        1175944.72500000 2609133.78100000 1175935.61300000 2609126.91900000 1175932.54200000
+        2609114.87300000 1175915.26600000 2609118.80300000 1175905.51600000 2609112.07300000
+        1175869.59300000 2609098.98800000 1175835.12900000 2609097.72000000 1175834.98300000
+        2609051.95900000 1175850.42700000 2609050.18300000 1175851.21200000 2609048.15300000
+        1175852.01100000 2609040.12100000 1175852.41500000 2609037.72800000 1175851.77900000
+        2609030.14400000 1175837.07000000 2609019.38400000 1175817.73200000 2609015.07400000
+        1175809.69900000 2609004.60400000 1175793.00500000 2608997.51400000 1175785.82700000
+        2608985.75900000 1175781.54800000 2608978.91600000 1175773.03100000 2608971.64000000
+        1175760.98300000 2608968.56500000 1175756.60800000 2608961.77000000 1175755.67000000
+        2608947.25200000 1175753.68600000 2608927.52200000 1175750.51200000 2608927.89300000
+        1175762.10900000 2608930.85500000 1175768.29900000 2608940.61900000 1175778.07100000
+        2608957.39900000 1175789.79000000 2608968.60100000 1175798.02800000 2608972.88500000
+        1175802.68800000 2608980.58600000 1175815.45900000 2608985.23400000 1175830.31200000
+        2608986.00500000 1175840.80100000 2608984.64400000 1175854.13300000 2608976.66200000
+        1175870.24900000 2608960.54200000 1175890.74500000 2608955.13900000 1175903.85200000
+        2608953.54200000 1175925.74200000 2608955.44100000 1175943.43500000 2608958.36700000
+        1175956.40000000 2608965.10100000 1175972.89800000 2608981.31100000 1175998.33500000
+        2608990.09700000 1176016.95900000 2608991.34700000 1176035.25800000 2608989.22000000
+        1176050.89300000 2608980.19300000 1176074.42600000 2608971.63000000 1176091.49100000
+        2608951.60900000 1176113.22400000 2608938.80600000 1176129.22200000 2608937.59800000
+        1176136.93000000 2608938.23100000 1176142.26000000 2608950.22500000 1176164.89300000
+        2608997.32800000 1176125.42400000 2609063.46000000 1176197.19100000 2609112.69400000
+        1176135.33000000 2609144.93700000 1176172.70500000 2609179.37400000 1176166.00600000
+        2609204.40200000 1176157.54300000 2609272.00000000 1176239.14200000 2609282.07100000
+        1176254.52000000 2609294.25100000 1176270.48100000 2609307.47300000 1176269.19200000
+        2609341.76700000 1176265.75300000 2609371.81800000 1176269.89600000 2609387.83800000
+        1176264.92700000 2609405.13100000 1176267.12800000 2609411.85700000 1176279.64000000
+        2609417.98300000 1176302.31300000 2609313.00700000 1176408.96100000 2609320.76300000
+        1176420.95700000 2609325.50700000 1176425.98900000 2609331.68700000 1176429.05800000
+        2609338.57700000 1176429.70400000 2609368.64200000 1176427.48100000 2609408.19000000
+        1176422.95700000 2609416.90300000 1176418.65400000 2609446.49300000 1176395.26600000
+        2609477.16200000 1176367.14000000 2609521.32900000 1176325.25100000 2609541.44200000
+        1176301.97900000 2609548.79500000 1176289.99800000 2609562.12500000 1176262.93600000
+        2609569.15800000 1176251.31900000 2609579.75800000 1176238.98000000 2609583.78300000
+        1176234.98000000 2609590.58300000 1176229.30500000 2609603.48300000 1176221.73800000
+        2609628.75700000 1176211.30100000 2609643.51900000 1176203.97000000 2609685.19300000
+        1176178.74400000 2609701.03600000 1176166.39200000 2609714.69400000 1176150.89700000
+        2609731.53200000 1176124.34400000 2609740.49300000 1176111.73700000 2609748.80200000
+        1176098.67200000 2609757.70100000 1176083.95500000 2609732.10400000 1176041.00100000
+        2609729.29500000 1176036.28700000 2609725.64300000 1176039.38300000 2609722.37700000
+        1176042.15200000</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon></gml:surfaceMember></gml:MultiSurface></of_planningcadastre01_de_ms_wfs:SHAPE><of_planningcadastre01_de_ms_wfs:SHAPE.AREA>194899.84469350</of_planningcadastre01_de_ms_wfs:SHAPE.AREA><of_planningcadastre01_de_ms_wfs:SHAPE.LEN>3002.63816003</of_planningcadastre01_de_ms_wfs:SHAPE.LEN></of_planningcadastre01_de_ms_wfs:DIPANU_DIPANUF_VW_13541></wfs:member></wfs:FeatureCollection>"
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '9145'
+      Content-Type:
+      - application/xml;charset=UTF-8
+      Date:
+      - Thu, 03 Oct 2024 12:57:19 GMT
+      Expires:
+      - '-1'
+      Keep-Alive:
+      - timeout=5, max=100
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      X-AspNet-Version:
+      - 4.0.30319
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - ASP.NET
+      X-XSS-Protection:
+      - 1; mode=block
+      accept:
+      - text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      host:
+      - x3012app994.infra.be.ch:6443
+      referer:
+      - d4c9303e-9d12-4a8f-a23c-4d48f1bd742f
+      referrer:
+      - d4c9303e-9d12-4a8f-a23c-4d48f1bd742f
+      response_buffer_size:
+      - '8192'
+      response_character_encoding:
+      - UTF-8
+      response_content_type:
+      - application/xml
+      response_status_code:
+      - '200'
+      user-agent:
+      - Java/11.0.11
+    status:
+      code: 200
+      message: OK
+- request:
     body: "<?xml version=\"1.0\"?>\n<GetFeature\n\txmlns=\"http://www.opengis.net/wfs\"\n\txmlns:of_society01_de_ms_wfs=\"https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_society01_de_ms_wfs/MapServer/WFSServer\"\n\txmlns:ogc=\"http://www.opengis.net/ogc\"\n\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n\txmlns:gml=\"http://www.opengis.net/gml\"\n\tservice=\"WFS\"\n\tversion=\"2.0.0\"\n\toutputFormat=\"GML2\"\n\tcount=\"100\"\n>\n
       \   \n            <Query typeName=\"of_society01_de_ms_wfs:ARCHINV_FUNDST_VW_14657\"
       srsName=\"EPSG:2056\">\n                <ogc:Filter>\n                    <ogc:Intersects>\n
@@ -7,7 +136,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8615491.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.11018539.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
       1176042.15200000 2609667.97400000 1176088.27700000 2609612.78000000 1176112.82200000
       2609582.92900000 1176114.39900000 2609547.31000000 1176080.28100000 2609542.67800000
       1176044.10400000 2609457.86100000 1175972.31300000 2609364.28000000 1176039.57200000
@@ -65,7 +194,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '5208'
+      - '5209'
       User-Agent:
       - python-requests/2.32.3
     method: POST
@@ -91,7 +220,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Mon, 26 Aug 2024 11:18:30 GMT
+      - Thu, 03 Oct 2024 12:57:19 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -113,9 +242,112 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 26495199-1850-4910-b516-d0ff428ae8b5
+      - 128d6e6a-b4f6-4f64-8886-033b0b1b9a58
       referrer:
-      - 26495199-1850-4910-b516-d0ff428ae8b5
+      - 128d6e6a-b4f6-4f64-8886-033b0b1b9a58
+      response_buffer_size:
+      - '8192'
+      response_character_encoding:
+      - UTF-8
+      response_content_type:
+      - application/xml
+      response_status_code:
+      - '200'
+      user-agent:
+      - Java/11.0.11
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=WFS&version=2.0.0&Request=GetFeature&typename=of_planningcadastre01_de_ms_wfs%3ADIPANU_DIPANUF_VW_13541&count=10&Filter=%3Cogc%3AFilter%3E%3Cogc%3APropertyIsEqualTo+matchCase%3D%22true%22%3E%3Cogc%3APropertyName%3EEGRID%3C%2Fogc%3APropertyName%3E%3Cogc%3ALiteral%3ECH851446093521%3C%2Fogc%3ALiteral%3E%3C%2Fogc%3APropertyIsEqualTo%3E%3C%2Fogc%3AFilter%3E
+  response:
+    body:
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\" ?><wfs:FeatureCollection xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"
+        xmlns:wfs=\"http://www.opengis.net/wfs/2.0\" xmlns:gml=\"http://www.opengis.net/gml/3.2\"
+        xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
+        xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
+        timeStamp=\"2024-10-03T12:57:21Z\" numberMatched=\"1\" numberReturned=\"1\"
+        xsi:schemaLocation=\"http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
+        http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd
+        https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer
+        https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=wfs%26version=2.0.0%26request=DescribeFeatureType\"><wfs:member><of_planningcadastre01_de_ms_wfs:DIPANU_DIPANUF_VW_13541
+        gml:id=\"DIPANU_DIPANUF_VW_13541.10994874\"><of_planningcadastre01_de_ms_wfs:Object-Id>10994874</of_planningcadastre01_de_ms_wfs:Object-Id><of_planningcadastre01_de_ms_wfs:NBIDENT>BE0200000351</of_planningcadastre01_de_ms_wfs:NBIDENT><of_planningcadastre01_de_ms_wfs:BFSNR>929</of_planningcadastre01_de_ms_wfs:BFSNR><of_planningcadastre01_de_ms_wfs:GEMNAME>Hilterfingen</of_planningcadastre01_de_ms_wfs:GEMNAME><of_planningcadastre01_de_ms_wfs:GBKR>0</of_planningcadastre01_de_ms_wfs:GBKR><of_planningcadastre01_de_ms_wfs:EGRID>CH851446093521</of_planningcadastre01_de_ms_wfs:EGRID><of_planningcadastre01_de_ms_wfs:GSTNR>268</of_planningcadastre01_de_ms_wfs:GSTNR><of_planningcadastre01_de_ms_wfs:GSTART>0</of_planningcadastre01_de_ms_wfs:GSTART><of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_DE>Liegenschaft</of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_DE><of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_FR>Bien-fonds</of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_FR><of_planningcadastre01_de_ms_wfs:GSTBEZ>268</of_planningcadastre01_de_ms_wfs:GSTBEZ><of_planningcadastre01_de_ms_wfs:GBFLAE>8328</of_planningcadastre01_de_ms_wfs:GBFLAE><of_planningcadastre01_de_ms_wfs:TECHFLAE>8327.81800000</of_planningcadastre01_de_ms_wfs:TECHFLAE><of_planningcadastre01_de_ms_wfs:QV>1</of_planningcadastre01_de_ms_wfs:QV><of_planningcadastre01_de_ms_wfs:QVT_BEZ_DE>AV93</of_planningcadastre01_de_ms_wfs:QVT_BEZ_DE><of_planningcadastre01_de_ms_wfs:QVT_BEZ_FR>MO93</of_planningcadastre01_de_ms_wfs:QVT_BEZ_FR><of_planningcadastre01_de_ms_wfs:GZSTAT>0</of_planningcadastre01_de_ms_wfs:GZSTAT><of_planningcadastre01_de_ms_wfs:GZSTATT_BEZ_DE>Keine
+        Land- oder Baulandumlegung in Bearbeitung</of_planningcadastre01_de_ms_wfs:GZSTATT_BEZ_DE><of_planningcadastre01_de_ms_wfs:GZSTATT_BEZ_FR>Pas
+        d'am\xE9lioration fonci\xE8re ou de remaniement parcellaire de terrain \xE0
+        b\xE2tir en traitement</of_planningcadastre01_de_ms_wfs:GZSTATT_BEZ_FR><of_planningcadastre01_de_ms_wfs:PROJSTAT>0</of_planningcadastre01_de_ms_wfs:PROJSTAT><of_planningcadastre01_de_ms_wfs:PROJSTAT_BEZ_DE>g\xFCltig</of_planningcadastre01_de_ms_wfs:PROJSTAT_BEZ_DE><of_planningcadastre01_de_ms_wfs:PROJSTAT_BEZ_FR>valable</of_planningcadastre01_de_ms_wfs:PROJSTAT_BEZ_FR><of_planningcadastre01_de_ms_wfs:MITGEOM>1</of_planningcadastre01_de_ms_wfs:MITGEOM><of_planningcadastre01_de_ms_wfs:MITGEOMT_BEZ_DE>Fl\xE4chengeometrie
+        vorhanden</of_planningcadastre01_de_ms_wfs:MITGEOMT_BEZ_DE><of_planningcadastre01_de_ms_wfs:MITGEOMT_BEZ_FR>G\xE9om\xE9trie
+        de la surface disponible</of_planningcadastre01_de_ms_wfs:MITGEOMT_BEZ_FR><of_planningcadastre01_de_ms_wfs:SPRACHE>1</of_planningcadastre01_de_ms_wfs:SPRACHE><of_planningcadastre01_de_ms_wfs:SPRACHET_BEZ_DE>Deutsch</of_planningcadastre01_de_ms_wfs:SPRACHET_BEZ_DE><of_planningcadastre01_de_ms_wfs:SPRACHET_BEZ_FR>allemand</of_planningcadastre01_de_ms_wfs:SPRACHET_BEZ_FR><of_planningcadastre01_de_ms_wfs:UNVERBI>0</of_planningcadastre01_de_ms_wfs:UNVERBI><of_planningcadastre01_de_ms_wfs:UNVERBIT_BEZ_DE>Fl\xE4che
+        verbindlich</of_planningcadastre01_de_ms_wfs:UNVERBIT_BEZ_DE><of_planningcadastre01_de_ms_wfs:UNVERBIT_BEZ_FR>Surface
+        avec force obligatoire</of_planningcadastre01_de_ms_wfs:UNVERBIT_BEZ_FR><of_planningcadastre01_de_ms_wfs:LETZTEAEND>10.11.2022</of_planningcadastre01_de_ms_wfs:LETZTEAEND><of_planningcadastre01_de_ms_wfs:GENGBKRI>9290</of_planningcadastre01_de_ms_wfs:GENGBKRI><of_planningcadastre01_de_ms_wfs:GENGBKRN>Hilterfingen</of_planningcadastre01_de_ms_wfs:GENGBKRN><of_planningcadastre01_de_ms_wfs:SHAPE><gml:MultiSurface
+        gml:id=\"DIPANU_DIPANUF_VW_13541.10994874.pl\" srsName=\"urn:ogc:def:crs:EPSG::2056\"><gml:surfaceMember><gml:Polygon
+        gml:id=\"DIPANU_DIPANUF_VW_13541.10994874.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2616248.84710000
+        1176879.89300000 2616245.73500000 1176879.59500000 2616240.66100000 1176879.68700000
+        2616235.65000000 1176880.48900000 2616231.27110000 1176881.68300000 2616227.03900000
+        1176883.32300000 2616223.05710000 1176885.35790000 2616219.30400000 1176887.78900000
+        2616215.64420000 1176890.36460000 2616212.31520000 1176893.35570000 2616209.36400000
+        1176896.72000000 2616206.93550000 1176900.23980000 2616204.92120000 1176904.01200000
+        2616203.34700000 1176907.98800000 2616201.92900000 1176912.71490000 2616201.02300000
+        1176917.56600000 2616200.63200000 1176922.91640000 2616200.86500000 1176928.27600000
+        2616201.72100000 1176933.40520000 2616203.02200000 1176938.44000000 2616205.15500000
+        1176944.30100000 2616207.02060000 1176948.31540000 2616209.26910000 1176952.12850000
+        2616211.87900000 1176955.70400000 2616215.64110000 1176959.81610000 2616219.87900000
+        1176963.43600000 2616222.96700000 1176966.02400000 2616226.44800000 1176968.55200000
+        2616233.06690000 1176972.65200000 2616239.89300000 1176976.39700000 2616246.89280000
+        1176979.77090000 2616254.06000000 1176982.77300000 2616273.16500000 1176990.03300000
+        2616281.49700000 1176993.31300000 2616288.06300000 1176990.23900000 2616289.50700000
+        1176982.48100000 2616299.14500000 1176923.34700000 2616299.40200000 1176919.70010000
+        2616299.29500000 1176916.04560000 2616298.82500000 1176912.42000000 2616297.98060000
+        1176908.80040000 2616296.77450000 1176905.28470000 2616295.21900000 1176901.90900000
+        2616293.51110000 1176898.82500000 2616291.36280000 1176896.02990000 2616288.82200000
+        1176893.58600000 2616286.54400000 1176891.92000000 2616284.08320000 1176890.53800000
+        2616281.47500000 1176889.46000000 2616269.82500000 1176885.33000000 2616260.28100000
+        1176882.55600000 2616251.92200000 1176880.45800000 2616248.84710000 1176879.89300000</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon></gml:surfaceMember></gml:MultiSurface></of_planningcadastre01_de_ms_wfs:SHAPE><of_planningcadastre01_de_ms_wfs:SHAPE.AREA>8319.77468533</of_planningcadastre01_de_ms_wfs:SHAPE.AREA><of_planningcadastre01_de_ms_wfs:SHAPE.LEN>338.31226107</of_planningcadastre01_de_ms_wfs:SHAPE.LEN></of_planningcadastre01_de_ms_wfs:DIPANU_DIPANUF_VW_13541></wfs:member></wfs:FeatureCollection>"
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '7006'
+      Content-Type:
+      - application/xml;charset=UTF-8
+      Date:
+      - Thu, 03 Oct 2024 12:57:20 GMT
+      Expires:
+      - '-1'
+      Keep-Alive:
+      - timeout=5, max=100
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      X-AspNet-Version:
+      - 4.0.30319
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - ASP.NET
+      X-XSS-Protection:
+      - 1; mode=block
+      accept:
+      - text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      host:
+      - x3012app994.infra.be.ch:6443
+      referer:
+      - 0e0815cb-e544-4b26-a14b-0c3dfd78f5a5
+      referrer:
+      - 0e0815cb-e544-4b26-a14b-0c3dfd78f5a5
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -137,35 +369,28 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8591638.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2616321.98500000
-      1177049.20900000 2616303.74100000 1177018.30900000 2616302.31200000 1177019.11900000
-      2616296.85100000 1177009.63100000 2616296.16260000 1177008.26800000 2616295.65930000
-      1177006.82630000 2616295.35000000 1177005.33100000 2616295.21490000 1177003.80990000
-      2616295.30550000 1177002.28540000 2616295.62000000 1177000.79100000 2616296.00400000
-      1176993.98900000 2616290.69900000 1176987.19800000 2616291.42200000 1176982.74200000
-      2616296.58100000 1176951.12300000 2616299.75600000 1176931.64500000 2616300.73400000
-      1176926.68900000 2616301.08600000 1176923.65900000 2616301.25200000 1176917.79970000
-      2616300.74600000 1176911.96000000 2616299.86380000 1176908.18140000 2616298.57950000
-      1176904.51980000 2616296.90800000 1176901.01800000 2616294.95650000 1176897.84140000
-      2616292.68700000 1176894.88350000 2616290.12400000 1176892.17600000 2616285.09100000
-      1176889.15000000 2616279.77200000 1176886.66100000 2616273.86000000 1176884.63100000
-      2616270.45800000 1176883.47500000 2616260.81300000 1176880.64000000 2616255.99060000
-      1176879.27290000 2616251.08400000 1176878.24800000 2616245.74200000 1176877.53400000
-      2616240.70390000 1176877.69000000 2616235.70700000 1176878.35200000 2616230.83820000
-      1176879.69390000 2616226.13000000 1176881.52100000 2616220.93720000 1176884.24080000
-      2616216.09840000 1176887.54970000 2616211.68010000 1176891.40200000 2616207.74300000
-      1176895.74500000 2616205.99600000 1176898.09300000 2616203.50900000 1176902.56400000
-      2616201.50400000 1176907.27100000 2616199.98010000 1176912.22950000 2616198.99200000
-      1176917.32200000 2616198.60800000 1176922.81760000 2616198.89700000 1176928.31900000
-      2616199.75200000 1176933.78500000 2616201.32100000 1176939.16100000 2616202.60690000
-      1176942.29070000 2616204.14000000 1176945.30700000 2616207.14860000 1176950.62840000
-      2616210.57020000 1176955.69420000 2616214.38300000 1176960.47250000 2616218.56300000
-      1176964.93300000 2616221.91400000 1176967.63100000 2616225.44000000 1176970.19800000
-      2616239.00300000 1176978.17900000 2616242.00900000 1176979.75300000 2616247.62690000
-      1176982.35900000 2616253.39500000 1176984.61300000 2616261.08300000 1176987.58600000
-      2616272.46500000 1176991.97800000 2616282.05400000 1176995.76500000 2616285.57300000
-      1177001.83700000 2616286.03300000 1177002.63000000 2616297.77200000 1177022.89600000
-      2616318.39700000 1177058.53200000 2616321.98500000 1177049.20900000</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>\n
+      gml:id=\"DIPANU_DIPANUF_VW_13541.10994874.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2616248.84710000
+      1176879.89300000 2616245.73500000 1176879.59500000 2616240.66100000 1176879.68700000
+      2616235.65000000 1176880.48900000 2616231.27110000 1176881.68300000 2616227.03900000
+      1176883.32300000 2616223.05710000 1176885.35790000 2616219.30400000 1176887.78900000
+      2616215.64420000 1176890.36460000 2616212.31520000 1176893.35570000 2616209.36400000
+      1176896.72000000 2616206.93550000 1176900.23980000 2616204.92120000 1176904.01200000
+      2616203.34700000 1176907.98800000 2616201.92900000 1176912.71490000 2616201.02300000
+      1176917.56600000 2616200.63200000 1176922.91640000 2616200.86500000 1176928.27600000
+      2616201.72100000 1176933.40520000 2616203.02200000 1176938.44000000 2616205.15500000
+      1176944.30100000 2616207.02060000 1176948.31540000 2616209.26910000 1176952.12850000
+      2616211.87900000 1176955.70400000 2616215.64110000 1176959.81610000 2616219.87900000
+      1176963.43600000 2616222.96700000 1176966.02400000 2616226.44800000 1176968.55200000
+      2616233.06690000 1176972.65200000 2616239.89300000 1176976.39700000 2616246.89280000
+      1176979.77090000 2616254.06000000 1176982.77300000 2616273.16500000 1176990.03300000
+      2616281.49700000 1176993.31300000 2616288.06300000 1176990.23900000 2616289.50700000
+      1176982.48100000 2616299.14500000 1176923.34700000 2616299.40200000 1176919.70010000
+      2616299.29500000 1176916.04560000 2616298.82500000 1176912.42000000 2616297.98060000
+      1176908.80040000 2616296.77450000 1176905.28470000 2616295.21900000 1176901.90900000
+      2616293.51110000 1176898.82500000 2616291.36280000 1176896.02990000 2616288.82200000
+      1176893.58600000 2616286.54400000 1176891.92000000 2616284.08320000 1176890.53800000
+      2616281.47500000 1176889.46000000 2616269.82500000 1176885.33000000 2616260.28100000
+      1176882.55600000 2616251.92200000 1176880.45800000 2616248.84710000 1176879.89300000</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>\n
       \                   </ogc:Intersects>\n                </ogc:Filter>\n            </Query>\n
       \       \n</GetFeature>\n"
     headers:
@@ -176,7 +401,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '3644'
+      - '3067'
       User-Agent:
       - python-requests/2.32.3
     method: POST
@@ -206,7 +431,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Mon, 26 Aug 2024 11:18:30 GMT
+      - Thu, 03 Oct 2024 12:57:20 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -228,9 +453,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - ec98fb9c-8cbb-4bff-b170-615aa4804b06
+      - 68d86d94-bd57-4b81-ac66-bfe8ca3def5c
       referrer:
-      - ec98fb9c-8cbb-4bff-b170-615aa4804b06
+      - 68d86d94-bd57-4b81-ac66-bfe8ca3def5c
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -252,7 +477,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8615491.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.11018539.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
       1176042.15200000 2609667.97400000 1176088.27700000 2609612.78000000 1176112.82200000
       2609582.92900000 1176114.39900000 2609547.31000000 1176080.28100000 2609542.67800000
       1176044.10400000 2609457.86100000 1175972.31300000 2609364.28000000 1176039.57200000
@@ -310,7 +535,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '5262'
+      - '5263'
       User-Agent:
       - python-requests/2.32.3
     method: POST
@@ -343,7 +568,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Mon, 26 Aug 2024 11:18:31 GMT
+      - Thu, 03 Oct 2024 12:57:21 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -365,9 +590,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 500598d6-e816-4dc6-a312-45d553382c2a
+      - e008ed59-add9-4c6c-846d-12b90f992427
       referrer:
-      - 500598d6-e816-4dc6-a312-45d553382c2a
+      - e008ed59-add9-4c6c-846d-12b90f992427
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -389,35 +614,28 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8591638.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2616321.98500000
-      1177049.20900000 2616303.74100000 1177018.30900000 2616302.31200000 1177019.11900000
-      2616296.85100000 1177009.63100000 2616296.16260000 1177008.26800000 2616295.65930000
-      1177006.82630000 2616295.35000000 1177005.33100000 2616295.21490000 1177003.80990000
-      2616295.30550000 1177002.28540000 2616295.62000000 1177000.79100000 2616296.00400000
-      1176993.98900000 2616290.69900000 1176987.19800000 2616291.42200000 1176982.74200000
-      2616296.58100000 1176951.12300000 2616299.75600000 1176931.64500000 2616300.73400000
-      1176926.68900000 2616301.08600000 1176923.65900000 2616301.25200000 1176917.79970000
-      2616300.74600000 1176911.96000000 2616299.86380000 1176908.18140000 2616298.57950000
-      1176904.51980000 2616296.90800000 1176901.01800000 2616294.95650000 1176897.84140000
-      2616292.68700000 1176894.88350000 2616290.12400000 1176892.17600000 2616285.09100000
-      1176889.15000000 2616279.77200000 1176886.66100000 2616273.86000000 1176884.63100000
-      2616270.45800000 1176883.47500000 2616260.81300000 1176880.64000000 2616255.99060000
-      1176879.27290000 2616251.08400000 1176878.24800000 2616245.74200000 1176877.53400000
-      2616240.70390000 1176877.69000000 2616235.70700000 1176878.35200000 2616230.83820000
-      1176879.69390000 2616226.13000000 1176881.52100000 2616220.93720000 1176884.24080000
-      2616216.09840000 1176887.54970000 2616211.68010000 1176891.40200000 2616207.74300000
-      1176895.74500000 2616205.99600000 1176898.09300000 2616203.50900000 1176902.56400000
-      2616201.50400000 1176907.27100000 2616199.98010000 1176912.22950000 2616198.99200000
-      1176917.32200000 2616198.60800000 1176922.81760000 2616198.89700000 1176928.31900000
-      2616199.75200000 1176933.78500000 2616201.32100000 1176939.16100000 2616202.60690000
-      1176942.29070000 2616204.14000000 1176945.30700000 2616207.14860000 1176950.62840000
-      2616210.57020000 1176955.69420000 2616214.38300000 1176960.47250000 2616218.56300000
-      1176964.93300000 2616221.91400000 1176967.63100000 2616225.44000000 1176970.19800000
-      2616239.00300000 1176978.17900000 2616242.00900000 1176979.75300000 2616247.62690000
-      1176982.35900000 2616253.39500000 1176984.61300000 2616261.08300000 1176987.58600000
-      2616272.46500000 1176991.97800000 2616282.05400000 1176995.76500000 2616285.57300000
-      1177001.83700000 2616286.03300000 1177002.63000000 2616297.77200000 1177022.89600000
-      2616318.39700000 1177058.53200000 2616321.98500000 1177049.20900000</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>\n
+      gml:id=\"DIPANU_DIPANUF_VW_13541.10994874.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2616248.84710000
+      1176879.89300000 2616245.73500000 1176879.59500000 2616240.66100000 1176879.68700000
+      2616235.65000000 1176880.48900000 2616231.27110000 1176881.68300000 2616227.03900000
+      1176883.32300000 2616223.05710000 1176885.35790000 2616219.30400000 1176887.78900000
+      2616215.64420000 1176890.36460000 2616212.31520000 1176893.35570000 2616209.36400000
+      1176896.72000000 2616206.93550000 1176900.23980000 2616204.92120000 1176904.01200000
+      2616203.34700000 1176907.98800000 2616201.92900000 1176912.71490000 2616201.02300000
+      1176917.56600000 2616200.63200000 1176922.91640000 2616200.86500000 1176928.27600000
+      2616201.72100000 1176933.40520000 2616203.02200000 1176938.44000000 2616205.15500000
+      1176944.30100000 2616207.02060000 1176948.31540000 2616209.26910000 1176952.12850000
+      2616211.87900000 1176955.70400000 2616215.64110000 1176959.81610000 2616219.87900000
+      1176963.43600000 2616222.96700000 1176966.02400000 2616226.44800000 1176968.55200000
+      2616233.06690000 1176972.65200000 2616239.89300000 1176976.39700000 2616246.89280000
+      1176979.77090000 2616254.06000000 1176982.77300000 2616273.16500000 1176990.03300000
+      2616281.49700000 1176993.31300000 2616288.06300000 1176990.23900000 2616289.50700000
+      1176982.48100000 2616299.14500000 1176923.34700000 2616299.40200000 1176919.70010000
+      2616299.29500000 1176916.04560000 2616298.82500000 1176912.42000000 2616297.98060000
+      1176908.80040000 2616296.77450000 1176905.28470000 2616295.21900000 1176901.90900000
+      2616293.51110000 1176898.82500000 2616291.36280000 1176896.02990000 2616288.82200000
+      1176893.58600000 2616286.54400000 1176891.92000000 2616284.08320000 1176890.53800000
+      2616281.47500000 1176889.46000000 2616269.82500000 1176885.33000000 2616260.28100000
+      1176882.55600000 2616251.92200000 1176880.45800000 2616248.84710000 1176879.89300000</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>\n
       \                   </ogc:Intersects>\n                </ogc:Filter>\n            </Query>\n
       \       \n</GetFeature>\n"
     headers:
@@ -428,7 +646,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '3698'
+      - '3121'
       User-Agent:
       - python-requests/2.32.3
     method: POST
@@ -598,7 +816,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Mon, 26 Aug 2024 11:18:32 GMT
+      - Thu, 03 Oct 2024 12:57:23 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -620,9 +838,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 46609f7f-1754-462a-9952-3b750971242b
+      - f8941d9f-d48e-4e54-a523-256fcf72d9f7
       referrer:
-      - 46609f7f-1754-462a-9952-3b750971242b
+      - f8941d9f-d48e-4e54-a523-256fcf72d9f7
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -644,7 +862,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8615491.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.11018539.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
       1176042.15200000 2609667.97400000 1176088.27700000 2609612.78000000 1176112.82200000
       2609582.92900000 1176114.39900000 2609547.31000000 1176080.28100000 2609542.67800000
       1176044.10400000 2609457.86100000 1175972.31300000 2609364.28000000 1176039.57200000
@@ -702,7 +920,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '5214'
+      - '5215'
       User-Agent:
       - python-requests/2.32.3
     method: POST
@@ -724,7 +942,7 @@ interactions:
         und \xDCbeschisee</of_environment01_de_ms_wfs:NSG_NAME><of_environment01_de_ms_wfs:NSG_NR>120</of_environment01_de_ms_wfs:NSG_NR><of_environment01_de_ms_wfs:PLAN_DATUM>2005-01-13T00:00:00</of_environment01_de_ms_wfs:PLAN_DATUM><of_environment01_de_ms_wfs:PLAN_MAS>1:5000</of_environment01_de_ms_wfs:PLAN_MAS><of_environment01_de_ms_wfs:SCHUTZ>Erhaltung
         der Seen mit Inseln und Verlandungszonen; Erhaltung der Flachmoore von nat.
         und reg. Bedeutung sowie der Umfelder; Erhaltung der Ufergeh\xF6lze und Sicherung
-        und F\xF6rderung der Vorkommen seltener Tier- und Pflanzenarten</of_environment01_de_ms_wfs:SCHUTZ><of_environment01_de_ms_wfs:URL_BESCHL>https://oerebfiles.apps.be.ch/9986/5062/120_Sb_Amsoldingen-Uebeschisee_2005.PDF</of_environment01_de_ms_wfs:URL_BESCHL><of_environment01_de_ms_wfs:URL_PLAN>https://oerebfiles.apps.be.ch/9986/plan/120_Schutzplan_Amsoldingen_Uebeschi_59x42.pdf</of_environment01_de_ms_wfs:URL_PLAN><of_environment01_de_ms_wfs:SHAPE><gml:MultiPolygon
+        und F\xF6rderung der Vorkommen seltener Tier- und Pflanzenarten</of_environment01_de_ms_wfs:SCHUTZ><of_environment01_de_ms_wfs:URL_BESCHL>https://oerebfiles.apps.be.ch/9986/5612/120_Sb_Amsoldingen-Uebeschisee_2005.PDF</of_environment01_de_ms_wfs:URL_BESCHL><of_environment01_de_ms_wfs:URL_PLAN>https://oerebfiles.apps.be.ch/9986/plan/120_Schutzplan_Amsoldingen_Uebeschi_59x42.pdf</of_environment01_de_ms_wfs:URL_PLAN><of_environment01_de_ms_wfs:SHAPE><gml:MultiPolygon
         srsName=\"EPSG:2056\"><gml:polygonMember><gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>2609487.21910000,1176217.86740000
         2609526.61960000,1176171.75940000 2609550.80980000,1176197.60820000 2609564.02280000,1176186.07460000
         2609638.63500000,1176118.92240000 2609694.34580000,1176088.57960000 2609738.11840000,1176055.25220000
@@ -780,7 +998,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Mon, 26 Aug 2024 11:18:32 GMT
+      - Thu, 03 Oct 2024 12:57:23 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -802,9 +1020,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - a7c0736f-509e-4510-9068-95648874a57c
+      - ee937701-8165-4e02-864e-f206c148e0b6
       referrer:
-      - a7c0736f-509e-4510-9068-95648874a57c
+      - ee937701-8165-4e02-864e-f206c148e0b6
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -826,35 +1044,28 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8591638.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2616321.98500000
-      1177049.20900000 2616303.74100000 1177018.30900000 2616302.31200000 1177019.11900000
-      2616296.85100000 1177009.63100000 2616296.16260000 1177008.26800000 2616295.65930000
-      1177006.82630000 2616295.35000000 1177005.33100000 2616295.21490000 1177003.80990000
-      2616295.30550000 1177002.28540000 2616295.62000000 1177000.79100000 2616296.00400000
-      1176993.98900000 2616290.69900000 1176987.19800000 2616291.42200000 1176982.74200000
-      2616296.58100000 1176951.12300000 2616299.75600000 1176931.64500000 2616300.73400000
-      1176926.68900000 2616301.08600000 1176923.65900000 2616301.25200000 1176917.79970000
-      2616300.74600000 1176911.96000000 2616299.86380000 1176908.18140000 2616298.57950000
-      1176904.51980000 2616296.90800000 1176901.01800000 2616294.95650000 1176897.84140000
-      2616292.68700000 1176894.88350000 2616290.12400000 1176892.17600000 2616285.09100000
-      1176889.15000000 2616279.77200000 1176886.66100000 2616273.86000000 1176884.63100000
-      2616270.45800000 1176883.47500000 2616260.81300000 1176880.64000000 2616255.99060000
-      1176879.27290000 2616251.08400000 1176878.24800000 2616245.74200000 1176877.53400000
-      2616240.70390000 1176877.69000000 2616235.70700000 1176878.35200000 2616230.83820000
-      1176879.69390000 2616226.13000000 1176881.52100000 2616220.93720000 1176884.24080000
-      2616216.09840000 1176887.54970000 2616211.68010000 1176891.40200000 2616207.74300000
-      1176895.74500000 2616205.99600000 1176898.09300000 2616203.50900000 1176902.56400000
-      2616201.50400000 1176907.27100000 2616199.98010000 1176912.22950000 2616198.99200000
-      1176917.32200000 2616198.60800000 1176922.81760000 2616198.89700000 1176928.31900000
-      2616199.75200000 1176933.78500000 2616201.32100000 1176939.16100000 2616202.60690000
-      1176942.29070000 2616204.14000000 1176945.30700000 2616207.14860000 1176950.62840000
-      2616210.57020000 1176955.69420000 2616214.38300000 1176960.47250000 2616218.56300000
-      1176964.93300000 2616221.91400000 1176967.63100000 2616225.44000000 1176970.19800000
-      2616239.00300000 1176978.17900000 2616242.00900000 1176979.75300000 2616247.62690000
-      1176982.35900000 2616253.39500000 1176984.61300000 2616261.08300000 1176987.58600000
-      2616272.46500000 1176991.97800000 2616282.05400000 1176995.76500000 2616285.57300000
-      1177001.83700000 2616286.03300000 1177002.63000000 2616297.77200000 1177022.89600000
-      2616318.39700000 1177058.53200000 2616321.98500000 1177049.20900000</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>\n
+      gml:id=\"DIPANU_DIPANUF_VW_13541.10994874.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2616248.84710000
+      1176879.89300000 2616245.73500000 1176879.59500000 2616240.66100000 1176879.68700000
+      2616235.65000000 1176880.48900000 2616231.27110000 1176881.68300000 2616227.03900000
+      1176883.32300000 2616223.05710000 1176885.35790000 2616219.30400000 1176887.78900000
+      2616215.64420000 1176890.36460000 2616212.31520000 1176893.35570000 2616209.36400000
+      1176896.72000000 2616206.93550000 1176900.23980000 2616204.92120000 1176904.01200000
+      2616203.34700000 1176907.98800000 2616201.92900000 1176912.71490000 2616201.02300000
+      1176917.56600000 2616200.63200000 1176922.91640000 2616200.86500000 1176928.27600000
+      2616201.72100000 1176933.40520000 2616203.02200000 1176938.44000000 2616205.15500000
+      1176944.30100000 2616207.02060000 1176948.31540000 2616209.26910000 1176952.12850000
+      2616211.87900000 1176955.70400000 2616215.64110000 1176959.81610000 2616219.87900000
+      1176963.43600000 2616222.96700000 1176966.02400000 2616226.44800000 1176968.55200000
+      2616233.06690000 1176972.65200000 2616239.89300000 1176976.39700000 2616246.89280000
+      1176979.77090000 2616254.06000000 1176982.77300000 2616273.16500000 1176990.03300000
+      2616281.49700000 1176993.31300000 2616288.06300000 1176990.23900000 2616289.50700000
+      1176982.48100000 2616299.14500000 1176923.34700000 2616299.40200000 1176919.70010000
+      2616299.29500000 1176916.04560000 2616298.82500000 1176912.42000000 2616297.98060000
+      1176908.80040000 2616296.77450000 1176905.28470000 2616295.21900000 1176901.90900000
+      2616293.51110000 1176898.82500000 2616291.36280000 1176896.02990000 2616288.82200000
+      1176893.58600000 2616286.54400000 1176891.92000000 2616284.08320000 1176890.53800000
+      2616281.47500000 1176889.46000000 2616269.82500000 1176885.33000000 2616260.28100000
+      1176882.55600000 2616251.92200000 1176880.45800000 2616248.84710000 1176879.89300000</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>\n
       \                   </ogc:Intersects>\n                </ogc:Filter>\n            </Query>\n
       \       \n</GetFeature>\n"
     headers:
@@ -865,7 +1076,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '3650'
+      - '3073'
       User-Agent:
       - python-requests/2.32.3
     method: POST
@@ -891,7 +1102,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Mon, 26 Aug 2024 11:18:32 GMT
+      - Thu, 03 Oct 2024 12:57:24 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -913,9 +1124,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 6a2b1025-a174-45d1-bbf4-1f43e015c196
+      - 5b29f0e2-583f-4e5e-b046-59a90c123a17
       referrer:
-      - 6a2b1025-a174-45d1-bbf4-1f43e015c196
+      - 5b29f0e2-583f-4e5e-b046-59a90c123a17
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -937,7 +1148,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8615491.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.11018539.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
       1176042.15200000 2609667.97400000 1176088.27700000 2609612.78000000 1176112.82200000
       2609582.92900000 1176114.39900000 2609547.31000000 1176080.28100000 2609542.67800000
       1176044.10400000 2609457.86100000 1175972.31300000 2609364.28000000 1176039.57200000
@@ -995,7 +1206,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '5217'
+      - '5218'
       User-Agent:
       - python-requests/2.32.3
     method: POST
@@ -1070,7 +1281,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Mon, 26 Aug 2024 11:18:33 GMT
+      - Thu, 03 Oct 2024 12:57:24 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -1092,9 +1303,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 5ff58961-997d-41f5-8a5d-d5981e806846
+      - ee88f276-4838-43a6-8ee6-202679c091ee
       referrer:
-      - 5ff58961-997d-41f5-8a5d-d5981e806846
+      - ee88f276-4838-43a6-8ee6-202679c091ee
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -1116,35 +1327,28 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8591638.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2616321.98500000
-      1177049.20900000 2616303.74100000 1177018.30900000 2616302.31200000 1177019.11900000
-      2616296.85100000 1177009.63100000 2616296.16260000 1177008.26800000 2616295.65930000
-      1177006.82630000 2616295.35000000 1177005.33100000 2616295.21490000 1177003.80990000
-      2616295.30550000 1177002.28540000 2616295.62000000 1177000.79100000 2616296.00400000
-      1176993.98900000 2616290.69900000 1176987.19800000 2616291.42200000 1176982.74200000
-      2616296.58100000 1176951.12300000 2616299.75600000 1176931.64500000 2616300.73400000
-      1176926.68900000 2616301.08600000 1176923.65900000 2616301.25200000 1176917.79970000
-      2616300.74600000 1176911.96000000 2616299.86380000 1176908.18140000 2616298.57950000
-      1176904.51980000 2616296.90800000 1176901.01800000 2616294.95650000 1176897.84140000
-      2616292.68700000 1176894.88350000 2616290.12400000 1176892.17600000 2616285.09100000
-      1176889.15000000 2616279.77200000 1176886.66100000 2616273.86000000 1176884.63100000
-      2616270.45800000 1176883.47500000 2616260.81300000 1176880.64000000 2616255.99060000
-      1176879.27290000 2616251.08400000 1176878.24800000 2616245.74200000 1176877.53400000
-      2616240.70390000 1176877.69000000 2616235.70700000 1176878.35200000 2616230.83820000
-      1176879.69390000 2616226.13000000 1176881.52100000 2616220.93720000 1176884.24080000
-      2616216.09840000 1176887.54970000 2616211.68010000 1176891.40200000 2616207.74300000
-      1176895.74500000 2616205.99600000 1176898.09300000 2616203.50900000 1176902.56400000
-      2616201.50400000 1176907.27100000 2616199.98010000 1176912.22950000 2616198.99200000
-      1176917.32200000 2616198.60800000 1176922.81760000 2616198.89700000 1176928.31900000
-      2616199.75200000 1176933.78500000 2616201.32100000 1176939.16100000 2616202.60690000
-      1176942.29070000 2616204.14000000 1176945.30700000 2616207.14860000 1176950.62840000
-      2616210.57020000 1176955.69420000 2616214.38300000 1176960.47250000 2616218.56300000
-      1176964.93300000 2616221.91400000 1176967.63100000 2616225.44000000 1176970.19800000
-      2616239.00300000 1176978.17900000 2616242.00900000 1176979.75300000 2616247.62690000
-      1176982.35900000 2616253.39500000 1176984.61300000 2616261.08300000 1176987.58600000
-      2616272.46500000 1176991.97800000 2616282.05400000 1176995.76500000 2616285.57300000
-      1177001.83700000 2616286.03300000 1177002.63000000 2616297.77200000 1177022.89600000
-      2616318.39700000 1177058.53200000 2616321.98500000 1177049.20900000</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>\n
+      gml:id=\"DIPANU_DIPANUF_VW_13541.10994874.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2616248.84710000
+      1176879.89300000 2616245.73500000 1176879.59500000 2616240.66100000 1176879.68700000
+      2616235.65000000 1176880.48900000 2616231.27110000 1176881.68300000 2616227.03900000
+      1176883.32300000 2616223.05710000 1176885.35790000 2616219.30400000 1176887.78900000
+      2616215.64420000 1176890.36460000 2616212.31520000 1176893.35570000 2616209.36400000
+      1176896.72000000 2616206.93550000 1176900.23980000 2616204.92120000 1176904.01200000
+      2616203.34700000 1176907.98800000 2616201.92900000 1176912.71490000 2616201.02300000
+      1176917.56600000 2616200.63200000 1176922.91640000 2616200.86500000 1176928.27600000
+      2616201.72100000 1176933.40520000 2616203.02200000 1176938.44000000 2616205.15500000
+      1176944.30100000 2616207.02060000 1176948.31540000 2616209.26910000 1176952.12850000
+      2616211.87900000 1176955.70400000 2616215.64110000 1176959.81610000 2616219.87900000
+      1176963.43600000 2616222.96700000 1176966.02400000 2616226.44800000 1176968.55200000
+      2616233.06690000 1176972.65200000 2616239.89300000 1176976.39700000 2616246.89280000
+      1176979.77090000 2616254.06000000 1176982.77300000 2616273.16500000 1176990.03300000
+      2616281.49700000 1176993.31300000 2616288.06300000 1176990.23900000 2616289.50700000
+      1176982.48100000 2616299.14500000 1176923.34700000 2616299.40200000 1176919.70010000
+      2616299.29500000 1176916.04560000 2616298.82500000 1176912.42000000 2616297.98060000
+      1176908.80040000 2616296.77450000 1176905.28470000 2616295.21900000 1176901.90900000
+      2616293.51110000 1176898.82500000 2616291.36280000 1176896.02990000 2616288.82200000
+      1176893.58600000 2616286.54400000 1176891.92000000 2616284.08320000 1176890.53800000
+      2616281.47500000 1176889.46000000 2616269.82500000 1176885.33000000 2616260.28100000
+      1176882.55600000 2616251.92200000 1176880.45800000 2616248.84710000 1176879.89300000</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>\n
       \                   </ogc:Intersects>\n                </ogc:Filter>\n            </Query>\n
       \       \n</GetFeature>\n"
     headers:
@@ -1155,7 +1359,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '3653'
+      - '3076'
       User-Agent:
       - python-requests/2.32.3
     method: POST
@@ -1181,7 +1385,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Mon, 26 Aug 2024 11:18:33 GMT
+      - Thu, 03 Oct 2024 12:57:24 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -1203,9 +1407,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - bdd4faec-1277-42a7-9ab3-c1ae7ea3b442
+      - e247d411-8795-4f73-a7c8-8f38650ed96b
       referrer:
-      - bdd4faec-1277-42a7-9ab3-c1ae7ea3b442
+      - e247d411-8795-4f73-a7c8-8f38650ed96b
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -1227,7 +1431,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8615491.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.11018539.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
       1176042.15200000 2609667.97400000 1176088.27700000 2609612.78000000 1176112.82200000
       2609582.92900000 1176114.39900000 2609547.31000000 1176080.28100000 2609542.67800000
       1176044.10400000 2609457.86100000 1175972.31300000 2609364.28000000 1176039.57200000
@@ -1285,7 +1489,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '5217'
+      - '5218'
       User-Agent:
       - python-requests/2.32.3
     method: POST
@@ -2279,7 +2483,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Mon, 26 Aug 2024 11:18:35 GMT
+      - Thu, 03 Oct 2024 12:57:25 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -2301,9 +2505,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 66b2d641-48f0-4a3c-8d40-6576246521a2
+      - d2419815-3bfa-4250-a754-f63e63fb6133
       referrer:
-      - 66b2d641-48f0-4a3c-8d40-6576246521a2
+      - d2419815-3bfa-4250-a754-f63e63fb6133
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -2325,35 +2529,28 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8591638.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2616321.98500000
-      1177049.20900000 2616303.74100000 1177018.30900000 2616302.31200000 1177019.11900000
-      2616296.85100000 1177009.63100000 2616296.16260000 1177008.26800000 2616295.65930000
-      1177006.82630000 2616295.35000000 1177005.33100000 2616295.21490000 1177003.80990000
-      2616295.30550000 1177002.28540000 2616295.62000000 1177000.79100000 2616296.00400000
-      1176993.98900000 2616290.69900000 1176987.19800000 2616291.42200000 1176982.74200000
-      2616296.58100000 1176951.12300000 2616299.75600000 1176931.64500000 2616300.73400000
-      1176926.68900000 2616301.08600000 1176923.65900000 2616301.25200000 1176917.79970000
-      2616300.74600000 1176911.96000000 2616299.86380000 1176908.18140000 2616298.57950000
-      1176904.51980000 2616296.90800000 1176901.01800000 2616294.95650000 1176897.84140000
-      2616292.68700000 1176894.88350000 2616290.12400000 1176892.17600000 2616285.09100000
-      1176889.15000000 2616279.77200000 1176886.66100000 2616273.86000000 1176884.63100000
-      2616270.45800000 1176883.47500000 2616260.81300000 1176880.64000000 2616255.99060000
-      1176879.27290000 2616251.08400000 1176878.24800000 2616245.74200000 1176877.53400000
-      2616240.70390000 1176877.69000000 2616235.70700000 1176878.35200000 2616230.83820000
-      1176879.69390000 2616226.13000000 1176881.52100000 2616220.93720000 1176884.24080000
-      2616216.09840000 1176887.54970000 2616211.68010000 1176891.40200000 2616207.74300000
-      1176895.74500000 2616205.99600000 1176898.09300000 2616203.50900000 1176902.56400000
-      2616201.50400000 1176907.27100000 2616199.98010000 1176912.22950000 2616198.99200000
-      1176917.32200000 2616198.60800000 1176922.81760000 2616198.89700000 1176928.31900000
-      2616199.75200000 1176933.78500000 2616201.32100000 1176939.16100000 2616202.60690000
-      1176942.29070000 2616204.14000000 1176945.30700000 2616207.14860000 1176950.62840000
-      2616210.57020000 1176955.69420000 2616214.38300000 1176960.47250000 2616218.56300000
-      1176964.93300000 2616221.91400000 1176967.63100000 2616225.44000000 1176970.19800000
-      2616239.00300000 1176978.17900000 2616242.00900000 1176979.75300000 2616247.62690000
-      1176982.35900000 2616253.39500000 1176984.61300000 2616261.08300000 1176987.58600000
-      2616272.46500000 1176991.97800000 2616282.05400000 1176995.76500000 2616285.57300000
-      1177001.83700000 2616286.03300000 1177002.63000000 2616297.77200000 1177022.89600000
-      2616318.39700000 1177058.53200000 2616321.98500000 1177049.20900000</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>\n
+      gml:id=\"DIPANU_DIPANUF_VW_13541.10994874.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2616248.84710000
+      1176879.89300000 2616245.73500000 1176879.59500000 2616240.66100000 1176879.68700000
+      2616235.65000000 1176880.48900000 2616231.27110000 1176881.68300000 2616227.03900000
+      1176883.32300000 2616223.05710000 1176885.35790000 2616219.30400000 1176887.78900000
+      2616215.64420000 1176890.36460000 2616212.31520000 1176893.35570000 2616209.36400000
+      1176896.72000000 2616206.93550000 1176900.23980000 2616204.92120000 1176904.01200000
+      2616203.34700000 1176907.98800000 2616201.92900000 1176912.71490000 2616201.02300000
+      1176917.56600000 2616200.63200000 1176922.91640000 2616200.86500000 1176928.27600000
+      2616201.72100000 1176933.40520000 2616203.02200000 1176938.44000000 2616205.15500000
+      1176944.30100000 2616207.02060000 1176948.31540000 2616209.26910000 1176952.12850000
+      2616211.87900000 1176955.70400000 2616215.64110000 1176959.81610000 2616219.87900000
+      1176963.43600000 2616222.96700000 1176966.02400000 2616226.44800000 1176968.55200000
+      2616233.06690000 1176972.65200000 2616239.89300000 1176976.39700000 2616246.89280000
+      1176979.77090000 2616254.06000000 1176982.77300000 2616273.16500000 1176990.03300000
+      2616281.49700000 1176993.31300000 2616288.06300000 1176990.23900000 2616289.50700000
+      1176982.48100000 2616299.14500000 1176923.34700000 2616299.40200000 1176919.70010000
+      2616299.29500000 1176916.04560000 2616298.82500000 1176912.42000000 2616297.98060000
+      1176908.80040000 2616296.77450000 1176905.28470000 2616295.21900000 1176901.90900000
+      2616293.51110000 1176898.82500000 2616291.36280000 1176896.02990000 2616288.82200000
+      1176893.58600000 2616286.54400000 1176891.92000000 2616284.08320000 1176890.53800000
+      2616281.47500000 1176889.46000000 2616269.82500000 1176885.33000000 2616260.28100000
+      1176882.55600000 2616251.92200000 1176880.45800000 2616248.84710000 1176879.89300000</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>\n
       \                   </ogc:Intersects>\n                </ogc:Filter>\n            </Query>\n
       \       \n</GetFeature>\n"
     headers:
@@ -2364,7 +2561,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '3653'
+      - '3076'
       User-Agent:
       - python-requests/2.32.3
     method: POST
@@ -31801,7 +31998,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Mon, 26 Aug 2024 11:18:38 GMT
+      - Thu, 03 Oct 2024 12:57:28 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -31823,9 +32020,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 0f774d21-46df-46c8-b73f-f4c813905d20
+      - 9722f717-3fe7-49e5-8ca3-3d16fd02ea73
       referrer:
-      - 0f774d21-46df-46c8-b73f-f4c813905d20
+      - 9722f717-3fe7-49e5-8ca3-3d16fd02ea73
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -31847,7 +32044,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8615491.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.11018539.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
       1176042.15200000 2609667.97400000 1176088.27700000 2609612.78000000 1176112.82200000
       2609582.92900000 1176114.39900000 2609547.31000000 1176080.28100000 2609542.67800000
       1176044.10400000 2609457.86100000 1175972.31300000 2609364.28000000 1176039.57200000
@@ -31905,7 +32102,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '5215'
+      - '5216'
       User-Agent:
       - python-requests/2.32.3
     method: POST
@@ -31951,7 +32148,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Mon, 26 Aug 2024 11:18:38 GMT
+      - Thu, 03 Oct 2024 12:57:29 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -31973,9 +32170,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 1f41868c-dbe7-444f-b8f6-5d8f74d42390
+      - d9b0248e-0086-48f3-8faa-f1b6bd90a082
       referrer:
-      - 1f41868c-dbe7-444f-b8f6-5d8f74d42390
+      - d9b0248e-0086-48f3-8faa-f1b6bd90a082
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -31997,35 +32194,28 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8591638.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2616321.98500000
-      1177049.20900000 2616303.74100000 1177018.30900000 2616302.31200000 1177019.11900000
-      2616296.85100000 1177009.63100000 2616296.16260000 1177008.26800000 2616295.65930000
-      1177006.82630000 2616295.35000000 1177005.33100000 2616295.21490000 1177003.80990000
-      2616295.30550000 1177002.28540000 2616295.62000000 1177000.79100000 2616296.00400000
-      1176993.98900000 2616290.69900000 1176987.19800000 2616291.42200000 1176982.74200000
-      2616296.58100000 1176951.12300000 2616299.75600000 1176931.64500000 2616300.73400000
-      1176926.68900000 2616301.08600000 1176923.65900000 2616301.25200000 1176917.79970000
-      2616300.74600000 1176911.96000000 2616299.86380000 1176908.18140000 2616298.57950000
-      1176904.51980000 2616296.90800000 1176901.01800000 2616294.95650000 1176897.84140000
-      2616292.68700000 1176894.88350000 2616290.12400000 1176892.17600000 2616285.09100000
-      1176889.15000000 2616279.77200000 1176886.66100000 2616273.86000000 1176884.63100000
-      2616270.45800000 1176883.47500000 2616260.81300000 1176880.64000000 2616255.99060000
-      1176879.27290000 2616251.08400000 1176878.24800000 2616245.74200000 1176877.53400000
-      2616240.70390000 1176877.69000000 2616235.70700000 1176878.35200000 2616230.83820000
-      1176879.69390000 2616226.13000000 1176881.52100000 2616220.93720000 1176884.24080000
-      2616216.09840000 1176887.54970000 2616211.68010000 1176891.40200000 2616207.74300000
-      1176895.74500000 2616205.99600000 1176898.09300000 2616203.50900000 1176902.56400000
-      2616201.50400000 1176907.27100000 2616199.98010000 1176912.22950000 2616198.99200000
-      1176917.32200000 2616198.60800000 1176922.81760000 2616198.89700000 1176928.31900000
-      2616199.75200000 1176933.78500000 2616201.32100000 1176939.16100000 2616202.60690000
-      1176942.29070000 2616204.14000000 1176945.30700000 2616207.14860000 1176950.62840000
-      2616210.57020000 1176955.69420000 2616214.38300000 1176960.47250000 2616218.56300000
-      1176964.93300000 2616221.91400000 1176967.63100000 2616225.44000000 1176970.19800000
-      2616239.00300000 1176978.17900000 2616242.00900000 1176979.75300000 2616247.62690000
-      1176982.35900000 2616253.39500000 1176984.61300000 2616261.08300000 1176987.58600000
-      2616272.46500000 1176991.97800000 2616282.05400000 1176995.76500000 2616285.57300000
-      1177001.83700000 2616286.03300000 1177002.63000000 2616297.77200000 1177022.89600000
-      2616318.39700000 1177058.53200000 2616321.98500000 1177049.20900000</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>\n
+      gml:id=\"DIPANU_DIPANUF_VW_13541.10994874.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2616248.84710000
+      1176879.89300000 2616245.73500000 1176879.59500000 2616240.66100000 1176879.68700000
+      2616235.65000000 1176880.48900000 2616231.27110000 1176881.68300000 2616227.03900000
+      1176883.32300000 2616223.05710000 1176885.35790000 2616219.30400000 1176887.78900000
+      2616215.64420000 1176890.36460000 2616212.31520000 1176893.35570000 2616209.36400000
+      1176896.72000000 2616206.93550000 1176900.23980000 2616204.92120000 1176904.01200000
+      2616203.34700000 1176907.98800000 2616201.92900000 1176912.71490000 2616201.02300000
+      1176917.56600000 2616200.63200000 1176922.91640000 2616200.86500000 1176928.27600000
+      2616201.72100000 1176933.40520000 2616203.02200000 1176938.44000000 2616205.15500000
+      1176944.30100000 2616207.02060000 1176948.31540000 2616209.26910000 1176952.12850000
+      2616211.87900000 1176955.70400000 2616215.64110000 1176959.81610000 2616219.87900000
+      1176963.43600000 2616222.96700000 1176966.02400000 2616226.44800000 1176968.55200000
+      2616233.06690000 1176972.65200000 2616239.89300000 1176976.39700000 2616246.89280000
+      1176979.77090000 2616254.06000000 1176982.77300000 2616273.16500000 1176990.03300000
+      2616281.49700000 1176993.31300000 2616288.06300000 1176990.23900000 2616289.50700000
+      1176982.48100000 2616299.14500000 1176923.34700000 2616299.40200000 1176919.70010000
+      2616299.29500000 1176916.04560000 2616298.82500000 1176912.42000000 2616297.98060000
+      1176908.80040000 2616296.77450000 1176905.28470000 2616295.21900000 1176901.90900000
+      2616293.51110000 1176898.82500000 2616291.36280000 1176896.02990000 2616288.82200000
+      1176893.58600000 2616286.54400000 1176891.92000000 2616284.08320000 1176890.53800000
+      2616281.47500000 1176889.46000000 2616269.82500000 1176885.33000000 2616260.28100000
+      1176882.55600000 2616251.92200000 1176880.45800000 2616248.84710000 1176879.89300000</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>\n
       \                   </ogc:Intersects>\n                </ogc:Filter>\n            </Query>\n
       \       \n</GetFeature>\n"
     headers:
@@ -32036,7 +32226,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '3651'
+      - '3074'
       User-Agent:
       - python-requests/2.32.3
     method: POST
@@ -32078,7 +32268,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Mon, 26 Aug 2024 11:18:38 GMT
+      - Thu, 03 Oct 2024 12:57:29 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -32100,9 +32290,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 2f13f927-7cda-4c78-868f-357d099bf34f
+      - d76b1d1f-6a8f-4cd6-a404-8b0cd7cbf6fa
       referrer:
-      - 2f13f927-7cda-4c78-868f-357d099bf34f
+      - d76b1d1f-6a8f-4cd6-a404-8b0cd7cbf6fa
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -32124,7 +32314,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8615491.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.11018539.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
       1176042.15200000 2609667.97400000 1176088.27700000 2609612.78000000 1176112.82200000
       2609582.92900000 1176114.39900000 2609547.31000000 1176080.28100000 2609542.67800000
       1176044.10400000 2609457.86100000 1175972.31300000 2609364.28000000 1176039.57200000
@@ -32179,7 +32369,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8615491.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.11018539.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
       1176042.15200000 2609667.97400000 1176088.27700000 2609612.78000000 1176112.82200000
       2609582.92900000 1176114.39900000 2609547.31000000 1176080.28100000 2609542.67800000
       1176044.10400000 2609457.86100000 1175972.31300000 2609364.28000000 1176039.57200000
@@ -32234,7 +32424,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8615491.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.11018539.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
       1176042.15200000 2609667.97400000 1176088.27700000 2609612.78000000 1176112.82200000
       2609582.92900000 1176114.39900000 2609547.31000000 1176080.28100000 2609542.67800000
       1176044.10400000 2609457.86100000 1175972.31300000 2609364.28000000 1176039.57200000
@@ -32292,7 +32482,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '14778'
+      - '14781'
       User-Agent:
       - python-requests/2.32.3
     method: POST
@@ -32318,7 +32508,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Mon, 26 Aug 2024 11:18:39 GMT
+      - Thu, 03 Oct 2024 12:57:30 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -32340,9 +32530,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 6448b3fd-af4d-4da7-8f57-1aaf075dcaf1
+      - 2a873463-033a-4ae1-8d6b-b77e0eb563d3
       referrer:
-      - 6448b3fd-af4d-4da7-8f57-1aaf075dcaf1
+      - 2a873463-033a-4ae1-8d6b-b77e0eb563d3
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -32364,35 +32554,28 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8591638.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2616321.98500000
-      1177049.20900000 2616303.74100000 1177018.30900000 2616302.31200000 1177019.11900000
-      2616296.85100000 1177009.63100000 2616296.16260000 1177008.26800000 2616295.65930000
-      1177006.82630000 2616295.35000000 1177005.33100000 2616295.21490000 1177003.80990000
-      2616295.30550000 1177002.28540000 2616295.62000000 1177000.79100000 2616296.00400000
-      1176993.98900000 2616290.69900000 1176987.19800000 2616291.42200000 1176982.74200000
-      2616296.58100000 1176951.12300000 2616299.75600000 1176931.64500000 2616300.73400000
-      1176926.68900000 2616301.08600000 1176923.65900000 2616301.25200000 1176917.79970000
-      2616300.74600000 1176911.96000000 2616299.86380000 1176908.18140000 2616298.57950000
-      1176904.51980000 2616296.90800000 1176901.01800000 2616294.95650000 1176897.84140000
-      2616292.68700000 1176894.88350000 2616290.12400000 1176892.17600000 2616285.09100000
-      1176889.15000000 2616279.77200000 1176886.66100000 2616273.86000000 1176884.63100000
-      2616270.45800000 1176883.47500000 2616260.81300000 1176880.64000000 2616255.99060000
-      1176879.27290000 2616251.08400000 1176878.24800000 2616245.74200000 1176877.53400000
-      2616240.70390000 1176877.69000000 2616235.70700000 1176878.35200000 2616230.83820000
-      1176879.69390000 2616226.13000000 1176881.52100000 2616220.93720000 1176884.24080000
-      2616216.09840000 1176887.54970000 2616211.68010000 1176891.40200000 2616207.74300000
-      1176895.74500000 2616205.99600000 1176898.09300000 2616203.50900000 1176902.56400000
-      2616201.50400000 1176907.27100000 2616199.98010000 1176912.22950000 2616198.99200000
-      1176917.32200000 2616198.60800000 1176922.81760000 2616198.89700000 1176928.31900000
-      2616199.75200000 1176933.78500000 2616201.32100000 1176939.16100000 2616202.60690000
-      1176942.29070000 2616204.14000000 1176945.30700000 2616207.14860000 1176950.62840000
-      2616210.57020000 1176955.69420000 2616214.38300000 1176960.47250000 2616218.56300000
-      1176964.93300000 2616221.91400000 1176967.63100000 2616225.44000000 1176970.19800000
-      2616239.00300000 1176978.17900000 2616242.00900000 1176979.75300000 2616247.62690000
-      1176982.35900000 2616253.39500000 1176984.61300000 2616261.08300000 1176987.58600000
-      2616272.46500000 1176991.97800000 2616282.05400000 1176995.76500000 2616285.57300000
-      1177001.83700000 2616286.03300000 1177002.63000000 2616297.77200000 1177022.89600000
-      2616318.39700000 1177058.53200000 2616321.98500000 1177049.20900000</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>\n
+      gml:id=\"DIPANU_DIPANUF_VW_13541.10994874.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2616248.84710000
+      1176879.89300000 2616245.73500000 1176879.59500000 2616240.66100000 1176879.68700000
+      2616235.65000000 1176880.48900000 2616231.27110000 1176881.68300000 2616227.03900000
+      1176883.32300000 2616223.05710000 1176885.35790000 2616219.30400000 1176887.78900000
+      2616215.64420000 1176890.36460000 2616212.31520000 1176893.35570000 2616209.36400000
+      1176896.72000000 2616206.93550000 1176900.23980000 2616204.92120000 1176904.01200000
+      2616203.34700000 1176907.98800000 2616201.92900000 1176912.71490000 2616201.02300000
+      1176917.56600000 2616200.63200000 1176922.91640000 2616200.86500000 1176928.27600000
+      2616201.72100000 1176933.40520000 2616203.02200000 1176938.44000000 2616205.15500000
+      1176944.30100000 2616207.02060000 1176948.31540000 2616209.26910000 1176952.12850000
+      2616211.87900000 1176955.70400000 2616215.64110000 1176959.81610000 2616219.87900000
+      1176963.43600000 2616222.96700000 1176966.02400000 2616226.44800000 1176968.55200000
+      2616233.06690000 1176972.65200000 2616239.89300000 1176976.39700000 2616246.89280000
+      1176979.77090000 2616254.06000000 1176982.77300000 2616273.16500000 1176990.03300000
+      2616281.49700000 1176993.31300000 2616288.06300000 1176990.23900000 2616289.50700000
+      1176982.48100000 2616299.14500000 1176923.34700000 2616299.40200000 1176919.70010000
+      2616299.29500000 1176916.04560000 2616298.82500000 1176912.42000000 2616297.98060000
+      1176908.80040000 2616296.77450000 1176905.28470000 2616295.21900000 1176901.90900000
+      2616293.51110000 1176898.82500000 2616291.36280000 1176896.02990000 2616288.82200000
+      1176893.58600000 2616286.54400000 1176891.92000000 2616284.08320000 1176890.53800000
+      2616281.47500000 1176889.46000000 2616269.82500000 1176885.33000000 2616260.28100000
+      1176882.55600000 2616251.92200000 1176880.45800000 2616248.84710000 1176879.89300000</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>\n
       \                   </ogc:Intersects>\n                </ogc:Filter>\n            </Query>\n
       \       \n            <Query typeName=\"of_planningcadastre01_de_ms_wfs:UZP_BAU_VW_13587\"
       srsName=\"EPSG:2056\">\n                <ogc:Filter>\n                    <ogc:Intersects>\n
@@ -32400,35 +32583,28 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8591638.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2616321.98500000
-      1177049.20900000 2616303.74100000 1177018.30900000 2616302.31200000 1177019.11900000
-      2616296.85100000 1177009.63100000 2616296.16260000 1177008.26800000 2616295.65930000
-      1177006.82630000 2616295.35000000 1177005.33100000 2616295.21490000 1177003.80990000
-      2616295.30550000 1177002.28540000 2616295.62000000 1177000.79100000 2616296.00400000
-      1176993.98900000 2616290.69900000 1176987.19800000 2616291.42200000 1176982.74200000
-      2616296.58100000 1176951.12300000 2616299.75600000 1176931.64500000 2616300.73400000
-      1176926.68900000 2616301.08600000 1176923.65900000 2616301.25200000 1176917.79970000
-      2616300.74600000 1176911.96000000 2616299.86380000 1176908.18140000 2616298.57950000
-      1176904.51980000 2616296.90800000 1176901.01800000 2616294.95650000 1176897.84140000
-      2616292.68700000 1176894.88350000 2616290.12400000 1176892.17600000 2616285.09100000
-      1176889.15000000 2616279.77200000 1176886.66100000 2616273.86000000 1176884.63100000
-      2616270.45800000 1176883.47500000 2616260.81300000 1176880.64000000 2616255.99060000
-      1176879.27290000 2616251.08400000 1176878.24800000 2616245.74200000 1176877.53400000
-      2616240.70390000 1176877.69000000 2616235.70700000 1176878.35200000 2616230.83820000
-      1176879.69390000 2616226.13000000 1176881.52100000 2616220.93720000 1176884.24080000
-      2616216.09840000 1176887.54970000 2616211.68010000 1176891.40200000 2616207.74300000
-      1176895.74500000 2616205.99600000 1176898.09300000 2616203.50900000 1176902.56400000
-      2616201.50400000 1176907.27100000 2616199.98010000 1176912.22950000 2616198.99200000
-      1176917.32200000 2616198.60800000 1176922.81760000 2616198.89700000 1176928.31900000
-      2616199.75200000 1176933.78500000 2616201.32100000 1176939.16100000 2616202.60690000
-      1176942.29070000 2616204.14000000 1176945.30700000 2616207.14860000 1176950.62840000
-      2616210.57020000 1176955.69420000 2616214.38300000 1176960.47250000 2616218.56300000
-      1176964.93300000 2616221.91400000 1176967.63100000 2616225.44000000 1176970.19800000
-      2616239.00300000 1176978.17900000 2616242.00900000 1176979.75300000 2616247.62690000
-      1176982.35900000 2616253.39500000 1176984.61300000 2616261.08300000 1176987.58600000
-      2616272.46500000 1176991.97800000 2616282.05400000 1176995.76500000 2616285.57300000
-      1177001.83700000 2616286.03300000 1177002.63000000 2616297.77200000 1177022.89600000
-      2616318.39700000 1177058.53200000 2616321.98500000 1177049.20900000</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>\n
+      gml:id=\"DIPANU_DIPANUF_VW_13541.10994874.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2616248.84710000
+      1176879.89300000 2616245.73500000 1176879.59500000 2616240.66100000 1176879.68700000
+      2616235.65000000 1176880.48900000 2616231.27110000 1176881.68300000 2616227.03900000
+      1176883.32300000 2616223.05710000 1176885.35790000 2616219.30400000 1176887.78900000
+      2616215.64420000 1176890.36460000 2616212.31520000 1176893.35570000 2616209.36400000
+      1176896.72000000 2616206.93550000 1176900.23980000 2616204.92120000 1176904.01200000
+      2616203.34700000 1176907.98800000 2616201.92900000 1176912.71490000 2616201.02300000
+      1176917.56600000 2616200.63200000 1176922.91640000 2616200.86500000 1176928.27600000
+      2616201.72100000 1176933.40520000 2616203.02200000 1176938.44000000 2616205.15500000
+      1176944.30100000 2616207.02060000 1176948.31540000 2616209.26910000 1176952.12850000
+      2616211.87900000 1176955.70400000 2616215.64110000 1176959.81610000 2616219.87900000
+      1176963.43600000 2616222.96700000 1176966.02400000 2616226.44800000 1176968.55200000
+      2616233.06690000 1176972.65200000 2616239.89300000 1176976.39700000 2616246.89280000
+      1176979.77090000 2616254.06000000 1176982.77300000 2616273.16500000 1176990.03300000
+      2616281.49700000 1176993.31300000 2616288.06300000 1176990.23900000 2616289.50700000
+      1176982.48100000 2616299.14500000 1176923.34700000 2616299.40200000 1176919.70010000
+      2616299.29500000 1176916.04560000 2616298.82500000 1176912.42000000 2616297.98060000
+      1176908.80040000 2616296.77450000 1176905.28470000 2616295.21900000 1176901.90900000
+      2616293.51110000 1176898.82500000 2616291.36280000 1176896.02990000 2616288.82200000
+      1176893.58600000 2616286.54400000 1176891.92000000 2616284.08320000 1176890.53800000
+      2616281.47500000 1176889.46000000 2616269.82500000 1176885.33000000 2616260.28100000
+      1176882.55600000 2616251.92200000 1176880.45800000 2616248.84710000 1176879.89300000</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>\n
       \                   </ogc:Intersects>\n                </ogc:Filter>\n            </Query>\n
       \       \n            <Query typeName=\"of_planningcadastre01_de_ms_wfs:UZP_UEO_VW_13678\"
       srsName=\"EPSG:2056\">\n                <ogc:Filter>\n                    <ogc:Intersects>\n
@@ -32436,35 +32612,28 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.8591638.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2616321.98500000
-      1177049.20900000 2616303.74100000 1177018.30900000 2616302.31200000 1177019.11900000
-      2616296.85100000 1177009.63100000 2616296.16260000 1177008.26800000 2616295.65930000
-      1177006.82630000 2616295.35000000 1177005.33100000 2616295.21490000 1177003.80990000
-      2616295.30550000 1177002.28540000 2616295.62000000 1177000.79100000 2616296.00400000
-      1176993.98900000 2616290.69900000 1176987.19800000 2616291.42200000 1176982.74200000
-      2616296.58100000 1176951.12300000 2616299.75600000 1176931.64500000 2616300.73400000
-      1176926.68900000 2616301.08600000 1176923.65900000 2616301.25200000 1176917.79970000
-      2616300.74600000 1176911.96000000 2616299.86380000 1176908.18140000 2616298.57950000
-      1176904.51980000 2616296.90800000 1176901.01800000 2616294.95650000 1176897.84140000
-      2616292.68700000 1176894.88350000 2616290.12400000 1176892.17600000 2616285.09100000
-      1176889.15000000 2616279.77200000 1176886.66100000 2616273.86000000 1176884.63100000
-      2616270.45800000 1176883.47500000 2616260.81300000 1176880.64000000 2616255.99060000
-      1176879.27290000 2616251.08400000 1176878.24800000 2616245.74200000 1176877.53400000
-      2616240.70390000 1176877.69000000 2616235.70700000 1176878.35200000 2616230.83820000
-      1176879.69390000 2616226.13000000 1176881.52100000 2616220.93720000 1176884.24080000
-      2616216.09840000 1176887.54970000 2616211.68010000 1176891.40200000 2616207.74300000
-      1176895.74500000 2616205.99600000 1176898.09300000 2616203.50900000 1176902.56400000
-      2616201.50400000 1176907.27100000 2616199.98010000 1176912.22950000 2616198.99200000
-      1176917.32200000 2616198.60800000 1176922.81760000 2616198.89700000 1176928.31900000
-      2616199.75200000 1176933.78500000 2616201.32100000 1176939.16100000 2616202.60690000
-      1176942.29070000 2616204.14000000 1176945.30700000 2616207.14860000 1176950.62840000
-      2616210.57020000 1176955.69420000 2616214.38300000 1176960.47250000 2616218.56300000
-      1176964.93300000 2616221.91400000 1176967.63100000 2616225.44000000 1176970.19800000
-      2616239.00300000 1176978.17900000 2616242.00900000 1176979.75300000 2616247.62690000
-      1176982.35900000 2616253.39500000 1176984.61300000 2616261.08300000 1176987.58600000
-      2616272.46500000 1176991.97800000 2616282.05400000 1176995.76500000 2616285.57300000
-      1177001.83700000 2616286.03300000 1177002.63000000 2616297.77200000 1177022.89600000
-      2616318.39700000 1177058.53200000 2616321.98500000 1177049.20900000</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>\n
+      gml:id=\"DIPANU_DIPANUF_VW_13541.10994874.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2616248.84710000
+      1176879.89300000 2616245.73500000 1176879.59500000 2616240.66100000 1176879.68700000
+      2616235.65000000 1176880.48900000 2616231.27110000 1176881.68300000 2616227.03900000
+      1176883.32300000 2616223.05710000 1176885.35790000 2616219.30400000 1176887.78900000
+      2616215.64420000 1176890.36460000 2616212.31520000 1176893.35570000 2616209.36400000
+      1176896.72000000 2616206.93550000 1176900.23980000 2616204.92120000 1176904.01200000
+      2616203.34700000 1176907.98800000 2616201.92900000 1176912.71490000 2616201.02300000
+      1176917.56600000 2616200.63200000 1176922.91640000 2616200.86500000 1176928.27600000
+      2616201.72100000 1176933.40520000 2616203.02200000 1176938.44000000 2616205.15500000
+      1176944.30100000 2616207.02060000 1176948.31540000 2616209.26910000 1176952.12850000
+      2616211.87900000 1176955.70400000 2616215.64110000 1176959.81610000 2616219.87900000
+      1176963.43600000 2616222.96700000 1176966.02400000 2616226.44800000 1176968.55200000
+      2616233.06690000 1176972.65200000 2616239.89300000 1176976.39700000 2616246.89280000
+      1176979.77090000 2616254.06000000 1176982.77300000 2616273.16500000 1176990.03300000
+      2616281.49700000 1176993.31300000 2616288.06300000 1176990.23900000 2616289.50700000
+      1176982.48100000 2616299.14500000 1176923.34700000 2616299.40200000 1176919.70010000
+      2616299.29500000 1176916.04560000 2616298.82500000 1176912.42000000 2616297.98060000
+      1176908.80040000 2616296.77450000 1176905.28470000 2616295.21900000 1176901.90900000
+      2616293.51110000 1176898.82500000 2616291.36280000 1176896.02990000 2616288.82200000
+      1176893.58600000 2616286.54400000 1176891.92000000 2616284.08320000 1176890.53800000
+      2616281.47500000 1176889.46000000 2616269.82500000 1176885.33000000 2616260.28100000
+      1176882.55600000 2616251.92200000 1176880.45800000 2616248.84710000 1176879.89300000</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>\n
       \                   </ogc:Intersects>\n                </ogc:Filter>\n            </Query>\n
       \       \n</GetFeature>\n"
     headers:
@@ -32475,7 +32644,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '10086'
+      - '8355'
       User-Agent:
       - python-requests/2.32.3
     method: POST
@@ -32492,47 +32661,6 @@ interactions:
         https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=wfs%26version=1.0.0%26request=DescribeFeatureType\"><gml:boundedBy><gml:Box
         srsName=\"EPSG:2056\"><gml:coordinates>0.00000000,0.00000000 0.00000000,0.00000000</gml:coordinates>
         \ </gml:Box></gml:boundedBy><gml:featureMember><of_planningcadastre01_de_ms_wfs:UZP_BAU_VW_13587
-        fid=\"UZP_BAU_VW_13587.15748\"><of_planningcadastre01_de_ms_wfs:Object-Id>15748</of_planningcadastre01_de_ms_wfs:Object-Id><of_planningcadastre01_de_ms_wfs:BFSNR>929</of_planningcadastre01_de_ms_wfs:BFSNR><of_planningcadastre01_de_ms_wfs:ZONE_LO>Wohnzone
-        1 E1</of_planningcadastre01_de_ms_wfs:ZONE_LO><of_planningcadastre01_de_ms_wfs:ZONENCODE>1</of_planningcadastre01_de_ms_wfs:ZONENCODE><of_planningcadastre01_de_ms_wfs:ZONET_ZONEBEZ_DE>Wohnzone,
-        1 Geschoss</of_planningcadastre01_de_ms_wfs:ZONET_ZONEBEZ_DE><of_planningcadastre01_de_ms_wfs:ZONET_ZONEBEZ_FR>Zone
-        d'habitation, 1 \xE9tage</of_planningcadastre01_de_ms_wfs:ZONET_ZONEBEZ_FR><of_planningcadastre01_de_ms_wfs:ZONET_BUNDESART>111</of_planningcadastre01_de_ms_wfs:ZONET_BUNDESART><of_planningcadastre01_de_ms_wfs:ZONENABKCD>1</of_planningcadastre01_de_ms_wfs:ZONENABKCD><of_planningcadastre01_de_ms_wfs:ZONEABKT_ZONEABK_DE>W1</of_planningcadastre01_de_ms_wfs:ZONEABKT_ZONEABK_DE><of_planningcadastre01_de_ms_wfs:ZONEABKT_ZONEABK_FR>H1</of_planningcadastre01_de_ms_wfs:ZONEABKT_ZONEABK_FR><of_planningcadastre01_de_ms_wfs:BUNDESART>111</of_planningcadastre01_de_ms_wfs:BUNDESART><of_planningcadastre01_de_ms_wfs:BUNDESAT_BUNDART_DE>Wohnzonen</of_planningcadastre01_de_ms_wfs:BUNDESAT_BUNDART_DE><of_planningcadastre01_de_ms_wfs:BUNDESAT_BUNDART_FR>Zones
-        d'habitation</of_planningcadastre01_de_ms_wfs:BUNDESAT_BUNDART_FR><of_planningcadastre01_de_ms_wfs:BAUZONE>1</of_planningcadastre01_de_ms_wfs:BAUZONE><of_planningcadastre01_de_ms_wfs:BAUZT_BAUZONE_DE>Bauzone</of_planningcadastre01_de_ms_wfs:BAUZT_BAUZONE_DE><of_planningcadastre01_de_ms_wfs:BAUZT_BAUZONE_FR>Zone
-        \xE0 b\xE2tir</of_planningcadastre01_de_ms_wfs:BAUZT_BAUZONE_FR><of_planningcadastre01_de_ms_wfs:BAUZAGG>1</of_planningcadastre01_de_ms_wfs:BAUZAGG><of_planningcadastre01_de_ms_wfs:BAUZAGGT_BAUZAGG_DE>Wohn-,
-        Misch- und Kernzonen</of_planningcadastre01_de_ms_wfs:BAUZAGGT_BAUZAGG_DE><of_planningcadastre01_de_ms_wfs:BAUZAGGT_BAUZAGG_FR>Zones
-        d'habitation, zones mixtes et zones centrales</of_planningcadastre01_de_ms_wfs:BAUZAGGT_BAUZAGG_FR><of_planningcadastre01_de_ms_wfs:SHAPE><gml:MultiPolygon
-        srsName=\"EPSG:2056\"><gml:polygonMember><gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>2616240.70390000,1176877.69000000
-        2616245.74200000,1176877.53400000 2616251.08400000,1176878.24800000 2616255.99060000,1176879.27290000
-        2616260.81300000,1176880.64000000 2616270.45800000,1176883.47500000 2616273.86000000,1176884.63100000
-        2616279.77200000,1176886.66100000 2616285.09100000,1176889.15000000 2616290.12400000,1176892.17600000
-        2616292.68760000,1176894.88300000 2616294.95700000,1176897.84100000 2616296.90800000,1176901.01800000
-        2616298.62500000,1176899.86600000 2616304.54100000,1176899.26100000 2616303.23700000,1176860.57800000
-        2616303.17000000,1176859.09400000 2616278.81600000,1176854.05000000 2616279.96700000,1176846.15300000
-        2616258.26300000,1176844.23500000 2616252.24000000,1176813.76600000 2616251.90600000,1176812.20200000
-        2616248.32500000,1176814.39600000 2616247.88500000,1176813.73500000 2616242.87800000,1176816.25900000
-        2616225.54900000,1176785.07700000 2616212.31600000,1176792.91000000 2616203.38060000,1176798.04920000
-        2616203.12700000,1176798.19500000 2616200.31600000,1176799.90300000 2616197.87500000,1176801.34500000
-        2616194.62200000,1176803.37100000 2616190.87100000,1176805.63600000 2616187.50000000,1176807.53900000
-        2616183.25270000,1176809.99740000 2616181.02800000,1176811.28500000 2616173.90400000,1176815.62100000
-        2616161.31100000,1176823.78000000 2616158.56800000,1176825.36600000 2616149.30300000,1176831.27900000
-        2616148.94330000,1176831.51440000 2616136.40700000,1176839.71800000 2616125.33600000,1176848.07720000
-        2616124.57600000,1176848.65100000 2616120.25100000,1176852.58400000 2616114.00200000,1176859.60000000
-        2616108.90500000,1176866.98700000 2616101.25800000,1176879.67000000 2616097.03800000,1176886.93300000
-        2616099.39820000,1176892.12090000 2616099.43600000,1176892.20400000 2616102.41600000,1176898.39600000
-        2616117.33000000,1176929.97400000 2616120.82500000,1176937.43100000 2616128.84900000,1176954.42500000
-        2616131.13300000,1176957.29400000 2616133.54000000,1176959.18600000 2616149.25800000,1176971.65100000
-        2616151.03000000,1176973.06030000 2616152.74500000,1176974.42410000 2616154.79700000,1176976.05630000
-        2616167.02300000,1176985.78000000 2616185.03290000,1177000.22230000 2616185.09500000,1177000.27210000
-        2616188.17500000,1177002.74200000 2616210.20900000,1177020.15000000 2616224.23500000,1177002.29600000
-        2616240.46000000,1176981.71900000 2616242.00900000,1176979.75300000 2616239.00300000,1176978.17900000
-        2616225.44000000,1176970.19800000 2616221.91400000,1176967.63100000 2616218.56300000,1176964.93300000
-        2616214.38300000,1176960.47250000 2616210.57020000,1176955.69420000 2616207.14860000,1176950.62840000
-        2616204.14000000,1176945.30700000 2616202.60690000,1176942.29070000 2616201.32100000,1176939.16100000
-        2616199.75200000,1176933.78500000 2616198.89700000,1176928.31900000 2616198.60800000,1176922.81760000
-        2616198.99200000,1176917.32200000 2616199.98010000,1176912.22950000 2616201.50400000,1176907.27100000
-        2616203.50900000,1176902.56400000 2616205.99600000,1176898.09300000 2616207.74300000,1176895.74500000
-        2616211.68010000,1176891.40200000 2616216.09840000,1176887.54970000 2616220.93720000,1176884.24080000
-        2616226.13000000,1176881.52100000 2616230.83820000,1176879.69390000 2616235.70700000,1176878.35200000
-        2616240.70390000,1176877.69000000</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></gml:polygonMember></gml:MultiPolygon></of_planningcadastre01_de_ms_wfs:SHAPE><of_planningcadastre01_de_ms_wfs:SHAPE.AREA>21521.60846420</of_planningcadastre01_de_ms_wfs:SHAPE.AREA><of_planningcadastre01_de_ms_wfs:SHAPE.LEN>785.88534777</of_planningcadastre01_de_ms_wfs:SHAPE.LEN></of_planningcadastre01_de_ms_wfs:UZP_BAU_VW_13587></gml:featureMember><gml:featureMember><of_planningcadastre01_de_ms_wfs:UZP_BAU_VW_13587
         fid=\"UZP_BAU_VW_13587.30701\"><of_planningcadastre01_de_ms_wfs:Object-Id>30701</of_planningcadastre01_de_ms_wfs:Object-Id><of_planningcadastre01_de_ms_wfs:BFSNR>929</of_planningcadastre01_de_ms_wfs:BFSNR><of_planningcadastre01_de_ms_wfs:ZONE_LO>Zone
         f\xFCr \xF6ffentliche Nutzung Z\xF6N 7</of_planningcadastre01_de_ms_wfs:ZONE_LO><of_planningcadastre01_de_ms_wfs:ZONENCODE>16</of_planningcadastre01_de_ms_wfs:ZONENCODE><of_planningcadastre01_de_ms_wfs:ZONET_ZONEBEZ_DE>Zone
         f\xFCr \xD6ffentliche Nutzungen</of_planningcadastre01_de_ms_wfs:ZONET_ZONEBEZ_DE><of_planningcadastre01_de_ms_wfs:ZONET_ZONEBEZ_FR>Zone
@@ -32581,70 +32709,18 @@ interactions:
         2616318.17840000,1177058.98080000 2616318.39700000,1177058.53200000 2616321.98500000,1177049.20900000
         2616322.30990000,1177048.96850000 2616325.25500000,1177046.78900000 2616329.85100000,1177035.03200000
         2616331.71350000,1177030.04320000 2616333.15800000,1177026.17500000 2616337.22800000,1177015.87900000
-        2616341.54500000,1177007.08100000 2616344.52800000,1177002.51100000</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></gml:polygonMember></gml:MultiPolygon></of_planningcadastre01_de_ms_wfs:SHAPE><of_planningcadastre01_de_ms_wfs:SHAPE.AREA>13719.15568499</of_planningcadastre01_de_ms_wfs:SHAPE.AREA><of_planningcadastre01_de_ms_wfs:SHAPE.LEN>672.13142875</of_planningcadastre01_de_ms_wfs:SHAPE.LEN></of_planningcadastre01_de_ms_wfs:UZP_BAU_VW_13587></gml:featureMember><gml:featureMember><of_planningcadastre01_de_ms_wfs:UZP_BAU_VW_13587
-        fid=\"UZP_BAU_VW_13587.32233\"><of_planningcadastre01_de_ms_wfs:Object-Id>32233</of_planningcadastre01_de_ms_wfs:Object-Id><of_planningcadastre01_de_ms_wfs:BFSNR>929</of_planningcadastre01_de_ms_wfs:BFSNR><of_planningcadastre01_de_ms_wfs:ZONE_LO>Wohnzone
-        2 E2</of_planningcadastre01_de_ms_wfs:ZONE_LO><of_planningcadastre01_de_ms_wfs:ZONENCODE>2</of_planningcadastre01_de_ms_wfs:ZONENCODE><of_planningcadastre01_de_ms_wfs:ZONET_ZONEBEZ_DE>Wohnzone,
-        2 Geschosse</of_planningcadastre01_de_ms_wfs:ZONET_ZONEBEZ_DE><of_planningcadastre01_de_ms_wfs:ZONET_ZONEBEZ_FR>Zone
-        d'habitation, 2 \xE9tages</of_planningcadastre01_de_ms_wfs:ZONET_ZONEBEZ_FR><of_planningcadastre01_de_ms_wfs:ZONET_BUNDESART>111</of_planningcadastre01_de_ms_wfs:ZONET_BUNDESART><of_planningcadastre01_de_ms_wfs:ZONENABKCD>2</of_planningcadastre01_de_ms_wfs:ZONENABKCD><of_planningcadastre01_de_ms_wfs:ZONEABKT_ZONEABK_DE>W2</of_planningcadastre01_de_ms_wfs:ZONEABKT_ZONEABK_DE><of_planningcadastre01_de_ms_wfs:ZONEABKT_ZONEABK_FR>H2</of_planningcadastre01_de_ms_wfs:ZONEABKT_ZONEABK_FR><of_planningcadastre01_de_ms_wfs:BUNDESART>111</of_planningcadastre01_de_ms_wfs:BUNDESART><of_planningcadastre01_de_ms_wfs:BUNDESAT_BUNDART_DE>Wohnzonen</of_planningcadastre01_de_ms_wfs:BUNDESAT_BUNDART_DE><of_planningcadastre01_de_ms_wfs:BUNDESAT_BUNDART_FR>Zones
-        d'habitation</of_planningcadastre01_de_ms_wfs:BUNDESAT_BUNDART_FR><of_planningcadastre01_de_ms_wfs:BAUZONE>1</of_planningcadastre01_de_ms_wfs:BAUZONE><of_planningcadastre01_de_ms_wfs:BAUZT_BAUZONE_DE>Bauzone</of_planningcadastre01_de_ms_wfs:BAUZT_BAUZONE_DE><of_planningcadastre01_de_ms_wfs:BAUZT_BAUZONE_FR>Zone
-        \xE0 b\xE2tir</of_planningcadastre01_de_ms_wfs:BAUZT_BAUZONE_FR><of_planningcadastre01_de_ms_wfs:BAUZAGG>1</of_planningcadastre01_de_ms_wfs:BAUZAGG><of_planningcadastre01_de_ms_wfs:BAUZAGGT_BAUZAGG_DE>Wohn-,
-        Misch- und Kernzonen</of_planningcadastre01_de_ms_wfs:BAUZAGGT_BAUZAGG_DE><of_planningcadastre01_de_ms_wfs:BAUZAGGT_BAUZAGG_FR>Zones
-        d'habitation, zones mixtes et zones centrales</of_planningcadastre01_de_ms_wfs:BAUZAGGT_BAUZAGG_FR><of_planningcadastre01_de_ms_wfs:SHAPE><gml:MultiPolygon
-        srsName=\"EPSG:2056\"><gml:polygonMember><gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>2616308.74700000,1176821.06700000
-        2616296.85700000,1176789.27300000 2616295.02400000,1176785.79600000 2616293.38700000,1176782.68600000
-        2616291.00640000,1176779.92140000 2616288.30800000,1176777.46600000 2616275.31100000,1176767.42500000
-        2616262.66200000,1176757.83100000 2616262.06280000,1176757.61250000 2616261.43650000,1176757.49200000
-        2616260.79910000,1176757.47250000 2616260.16660000,1176757.55470000 2616259.55520000,1176757.73630000
-        2616258.98050000,1176758.01270000 2616258.45700000,1176758.37700000 2616252.78400000,1176763.45400000
-        2616246.55500000,1176769.41200000 2616243.43490000,1176772.51210000 2616240.12800000,1176775.41200000
-        2616235.87000000,1176778.65400000 2616233.98490000,1176779.96480000 2616231.42400000,1176781.64200000
-        2616231.34350000,1176781.69250000 2616225.54900000,1176785.07700000 2616242.87800000,1176816.25900000
-        2616247.88500000,1176813.73500000 2616248.32500000,1176814.39600000 2616251.90600000,1176812.20200000
-        2616252.24000000,1176813.76600000 2616258.26300000,1176844.23500000 2616279.96700000,1176846.15300000
-        2616278.81600000,1176854.05000000 2616303.17000000,1176859.09400000 2616303.23700000,1176860.57800000
-        2616304.54100000,1176899.26100000 2616298.62500000,1176899.86600000 2616296.90800000,1176901.01800000
-        2616298.57950000,1176904.51980000 2616299.86380000,1176908.18140000 2616300.74600000,1176911.96000000
-        2616301.25200000,1176917.79970000 2616301.08600000,1176923.65900000 2616300.57890000,1176927.67830000
-        2616299.75600000,1176931.64500000 2616296.58100000,1176951.12300000 2616291.42200000,1176982.74200000
-        2616293.42200000,1176983.05200000 2616293.33410000,1176984.05000000 2616293.41640000,1176985.04860000
-        2616293.66630000,1176986.01880000 2616294.07680000,1176986.93280000 2616294.63600000,1176987.76410000
-        2616295.32770000,1176988.48890000 2616296.13210000,1176989.08620000 2616296.30800000,1176989.19100000
-        2616297.64480000,1176989.56430000 2616299.02590000,1176989.70100000 2616300.40990000,1176989.59690000
-        2616301.75510000,1176989.25510000 2616303.02100000,1176988.68600000 2616305.55920000,1176986.78980000
-        2616307.81200000,1176984.56200000 2616309.72980000,1176982.05430000 2616311.28500000,1176979.30700000
-        2616313.75430000,1176974.21180000 2616322.10000000,1176956.96100000 2616326.40300000,1176947.99200000
-        2616329.97990000,1176939.05030000 2616332.96500000,1176929.89400000 2616334.19350000,1176924.08200000
-        2616335.03800000,1176918.20190000 2616335.49500000,1176912.27900000 2616335.37000000,1176904.24420000
-        2616334.57400000,1176896.24800000 2616333.34280000,1176889.38000000 2616331.61640000,1176882.61940000
-        2616329.40400000,1176876.00200000 2616322.09000000,1176855.96100000 2616321.81520000,1176855.17180000
-        2616321.60400000,1176854.56500000 2616308.74700000,1176821.06700000</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></gml:polygonMember></gml:MultiPolygon></of_planningcadastre01_de_ms_wfs:SHAPE><of_planningcadastre01_de_ms_wfs:SHAPE.AREA>8799.15717183</of_planningcadastre01_de_ms_wfs:SHAPE.AREA><of_planningcadastre01_de_ms_wfs:SHAPE.LEN>589.39486297</of_planningcadastre01_de_ms_wfs:SHAPE.LEN></of_planningcadastre01_de_ms_wfs:UZP_BAU_VW_13587></gml:featureMember><gml:featureMember><of_planningcadastre01_de_ms_wfs:UZP_BAU_VW_13587
-        fid=\"UZP_BAU_VW_13587.32238\"><of_planningcadastre01_de_ms_wfs:Object-Id>32238</of_planningcadastre01_de_ms_wfs:Object-Id><of_planningcadastre01_de_ms_wfs:BFSNR>929</of_planningcadastre01_de_ms_wfs:BFSNR><of_planningcadastre01_de_ms_wfs:ZONE_LO>Wohnzone
-        2 E2</of_planningcadastre01_de_ms_wfs:ZONE_LO><of_planningcadastre01_de_ms_wfs:ZONENCODE>2</of_planningcadastre01_de_ms_wfs:ZONENCODE><of_planningcadastre01_de_ms_wfs:ZONET_ZONEBEZ_DE>Wohnzone,
-        2 Geschosse</of_planningcadastre01_de_ms_wfs:ZONET_ZONEBEZ_DE><of_planningcadastre01_de_ms_wfs:ZONET_ZONEBEZ_FR>Zone
-        d'habitation, 2 \xE9tages</of_planningcadastre01_de_ms_wfs:ZONET_ZONEBEZ_FR><of_planningcadastre01_de_ms_wfs:ZONET_BUNDESART>111</of_planningcadastre01_de_ms_wfs:ZONET_BUNDESART><of_planningcadastre01_de_ms_wfs:ZONENABKCD>2</of_planningcadastre01_de_ms_wfs:ZONENABKCD><of_planningcadastre01_de_ms_wfs:ZONEABKT_ZONEABK_DE>W2</of_planningcadastre01_de_ms_wfs:ZONEABKT_ZONEABK_DE><of_planningcadastre01_de_ms_wfs:ZONEABKT_ZONEABK_FR>H2</of_planningcadastre01_de_ms_wfs:ZONEABKT_ZONEABK_FR><of_planningcadastre01_de_ms_wfs:BUNDESART>111</of_planningcadastre01_de_ms_wfs:BUNDESART><of_planningcadastre01_de_ms_wfs:BUNDESAT_BUNDART_DE>Wohnzonen</of_planningcadastre01_de_ms_wfs:BUNDESAT_BUNDART_DE><of_planningcadastre01_de_ms_wfs:BUNDESAT_BUNDART_FR>Zones
-        d'habitation</of_planningcadastre01_de_ms_wfs:BUNDESAT_BUNDART_FR><of_planningcadastre01_de_ms_wfs:BAUZONE>1</of_planningcadastre01_de_ms_wfs:BAUZONE><of_planningcadastre01_de_ms_wfs:BAUZT_BAUZONE_DE>Bauzone</of_planningcadastre01_de_ms_wfs:BAUZT_BAUZONE_DE><of_planningcadastre01_de_ms_wfs:BAUZT_BAUZONE_FR>Zone
-        \xE0 b\xE2tir</of_planningcadastre01_de_ms_wfs:BAUZT_BAUZONE_FR><of_planningcadastre01_de_ms_wfs:BAUZAGG>1</of_planningcadastre01_de_ms_wfs:BAUZAGG><of_planningcadastre01_de_ms_wfs:BAUZAGGT_BAUZAGG_DE>Wohn-,
-        Misch- und Kernzonen</of_planningcadastre01_de_ms_wfs:BAUZAGGT_BAUZAGG_DE><of_planningcadastre01_de_ms_wfs:BAUZAGGT_BAUZAGG_FR>Zones
-        d'habitation, zones mixtes et zones centrales</of_planningcadastre01_de_ms_wfs:BAUZAGGT_BAUZAGG_FR><of_planningcadastre01_de_ms_wfs:SHAPE><gml:MultiPolygon
-        srsName=\"EPSG:2056\"><gml:polygonMember><gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>2616247.62690000,1176982.35900000
-        2616242.00900000,1176979.75300000 2616240.46000000,1176981.71900000 2616224.23500000,1177002.29600000
-        2616210.20900000,1177020.15000000 2616226.58100000,1177033.19500000 2616233.53370000,1177038.73350000
-        2616235.72900000,1177040.48210000 2616236.18410000,1177040.84480000 2616243.81600000,1177046.92400000
-        2616252.80410000,1177054.08390000 2616255.98800000,1177056.62010000 2616256.23150000,1177056.81410000
-        2616264.15500000,1177063.12600000 2616297.77200000,1177022.89600000 2616286.03300000,1177002.63000000
-        2616282.05400000,1176995.76500000 2616272.46500000,1176991.97800000 2616261.08300000,1176987.58600000
-        2616253.39500000,1176984.61300000 2616247.62690000,1176982.35900000</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></gml:polygonMember></gml:MultiPolygon></of_planningcadastre01_de_ms_wfs:SHAPE><of_planningcadastre01_de_ms_wfs:SHAPE.AREA>4031.25012909</of_planningcadastre01_de_ms_wfs:SHAPE.AREA><of_planningcadastre01_de_ms_wfs:SHAPE.LEN>247.30357630</of_planningcadastre01_de_ms_wfs:SHAPE.LEN></of_planningcadastre01_de_ms_wfs:UZP_BAU_VW_13587></gml:featureMember></wfs:FeatureCollection>"
+        2616341.54500000,1177007.08100000 2616344.52800000,1177002.51100000</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></gml:polygonMember></gml:MultiPolygon></of_planningcadastre01_de_ms_wfs:SHAPE><of_planningcadastre01_de_ms_wfs:SHAPE.AREA>13719.15568499</of_planningcadastre01_de_ms_wfs:SHAPE.AREA><of_planningcadastre01_de_ms_wfs:SHAPE.LEN>672.13142875</of_planningcadastre01_de_ms_wfs:SHAPE.LEN></of_planningcadastre01_de_ms_wfs:UZP_BAU_VW_13587></gml:featureMember></wfs:FeatureCollection>"
     headers:
       Cache-Control:
       - no-cache
       Connection:
       - Keep-Alive
       Content-Length:
-      - '22666'
+      - '7824'
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Mon, 26 Aug 2024 11:18:40 GMT
+      - Thu, 03 Oct 2024 12:57:30 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -32666,9 +32742,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 143a947a-36fe-4ff1-99ab-7ecc03b7c1f5
+      - a7791531-c079-49dc-805c-9f4c885d561a
       referrer:
-      - 143a947a-36fe-4ff1-99ab-7ecc03b7c1f5
+      - a7791531-c079-49dc-805c-9f4c885d561a
       response_buffer_size:
       - '8192'
       response_character_encoding:
