@@ -1,3 +1,5 @@
+from datetime import datetime
+
 import pytest
 from caluma.caluma_core.relay import extract_global_id
 from caluma.caluma_form import factories as caluma_form_factories
@@ -11,6 +13,7 @@ from caluma.caluma_workflow import (
 from caluma.caluma_workflow.api import skip_work_item
 from caluma.schema import schema
 from django.db.models import Q, Value
+from django.utils.timezone import make_aware
 from pytest_lazy_fixtures import lf
 
 from camac.caluma.extensions.visibilities import CustomVisibility, CustomVisibilitySZ
@@ -1171,11 +1174,12 @@ def test_work_item_filter_with_tasks(
     work_item_factory(
         task_id=ur_additional_demand_settings["CHECK_TASK"],
         case=ur_instance.case,
+        deadline=make_aware(datetime(2024, 10, 17)),
         addressed_groups=[str(admin_user.groups.first().service.pk)],
     )
 
     query = f"""
-        query {{
+        query WorkItemsForTasks {{
             allWorkItems(filter: {filter}) {{
                 edges {{
                     node {{
