@@ -1,5 +1,5 @@
 # serializer version: 1
-# name: test_billing_export[Municipality-billing_params0-3-3-False]
+# name: test_billing_export[Municipality-billing_params0-3-3-False-parcels0]
   list([
     '06.11.2023',
     'audience',
@@ -14,7 +14,37 @@
     'Alex Smith',
   ])
 # ---
-# name: test_billing_export[Municipality-billing_params1-3-3-False]
+# name: test_billing_export[Municipality-billing_params0-3-3-False-parcels1]
+  list([
+    '06.11.2023',
+    'audience',
+    'Jeffrey Zhang',
+    'Rebecca Gonzalez',
+    '297.28 exklusive  7.7% MwSt',
+    '297.28',
+    '',
+    '',
+    '134',
+    '2222/3333',
+    'Alex Smith',
+  ])
+# ---
+# name: test_billing_export[Municipality-billing_params0-3-3-False-parcels2]
+  list([
+    '06.11.2023',
+    'audience',
+    'Jeffrey Zhang',
+    'Rebecca Gonzalez',
+    '297.28 exklusive  7.7% MwSt',
+    '297.28',
+    '',
+    '',
+    '231, 232, 233',
+    '1111/2222, 4444/5555, 6666/7777',
+    'Alex Smith',
+  ])
+# ---
+# name: test_billing_export[Municipality-billing_params1-3-3-False-parcels0]
   list([
     '06.11.2023',
     'audience',
@@ -29,7 +59,37 @@
     'Alex Smith',
   ])
 # ---
-# name: test_billing_export[Municipality-billing_params2-3-3-False]
+# name: test_billing_export[Municipality-billing_params1-3-3-False-parcels1]
+  list([
+    '06.11.2023',
+    'audience',
+    'Jeffrey Zhang',
+    'Rebecca Gonzalez',
+    '29.86 von 276.03 exklusive  7.7% MwSt',
+    '88.79',
+    '',
+    '',
+    '134',
+    '2222/3333',
+    'Alex Smith',
+  ])
+# ---
+# name: test_billing_export[Municipality-billing_params1-3-3-False-parcels2]
+  list([
+    '06.11.2023',
+    'audience',
+    'Jeffrey Zhang',
+    'Rebecca Gonzalez',
+    '29.86 von 276.03 exklusive  7.7% MwSt',
+    '88.79',
+    '',
+    '',
+    '231, 232, 233',
+    '1111/2222, 4444/5555, 6666/7777',
+    'Alex Smith',
+  ])
+# ---
+# name: test_billing_export[Municipality-billing_params2-3-3-False-parcels0]
   list([
     '06.11.2023',
     'audience',
@@ -44,7 +104,37 @@
     'Alex Smith',
   ])
 # ---
-# name: test_billing_export[Municipality-billing_params3-3-3-False]
+# name: test_billing_export[Municipality-billing_params2-3-3-False-parcels1]
+  list([
+    '06.11.2023',
+    'audience',
+    'Jeffrey Zhang',
+    'Rebecca Gonzalez',
+    '3.00 Std à 828.00 inklusive  7.7% MwSt',
+    '2484.00',
+    '',
+    '',
+    '134',
+    '2222/3333',
+    'Alex Smith',
+  ])
+# ---
+# name: test_billing_export[Municipality-billing_params2-3-3-False-parcels2]
+  list([
+    '06.11.2023',
+    'audience',
+    'Jeffrey Zhang',
+    'Rebecca Gonzalez',
+    '3.00 Std à 828.00 inklusive  7.7% MwSt',
+    '2484.00',
+    '',
+    '',
+    '231, 232, 233',
+    '1111/2222, 4444/5555, 6666/7777',
+    'Alex Smith',
+  ])
+# ---
+# name: test_billing_export[Municipality-billing_params3-3-3-False-parcels0]
   list([
     '06.11.2023',
     'audience',
@@ -59,7 +149,37 @@
     'Alex Smith',
   ])
 # ---
-# name: test_billing_export[Service-billing_params6-3-3-False]
+# name: test_billing_export[Municipality-billing_params3-3-3-False-parcels1]
+  list([
+    '06.11.2023',
+    'audience',
+    'Jeffrey Zhang',
+    'Rebecca Gonzalez',
+    '276.03 nicht MwSt-pflichtig',
+    '276.03',
+    '',
+    '',
+    '134',
+    '2222/3333',
+    'Alex Smith',
+  ])
+# ---
+# name: test_billing_export[Municipality-billing_params3-3-3-False-parcels2]
+  list([
+    '06.11.2023',
+    'audience',
+    'Jeffrey Zhang',
+    'Rebecca Gonzalez',
+    '276.03 nicht MwSt-pflichtig',
+    '276.03',
+    '',
+    '',
+    '231, 232, 233',
+    '1111/2222, 4444/5555, 6666/7777',
+    'Alex Smith',
+  ])
+# ---
+# name: test_billing_export[Service-billing_params6-3-3-False-parcels0]
   list([
     '06.11.2023',
     'audience',
@@ -74,7 +194,37 @@
     'Alex Smith',
   ])
 # ---
-# name: test_billing_export[Service-billing_params7-3-1-True]
+# name: test_billing_export[Service-billing_params6-3-3-False-parcels1]
+  list([
+    '06.11.2023',
+    'audience',
+    'Jeffrey Zhang',
+    'Rebecca Gonzalez',
+    '297.28 exklusive  7.7% MwSt',
+    '297.28',
+    '',
+    '',
+    '134',
+    '2222/3333',
+    'Alex Smith',
+  ])
+# ---
+# name: test_billing_export[Service-billing_params6-3-3-False-parcels2]
+  list([
+    '06.11.2023',
+    'audience',
+    'Jeffrey Zhang',
+    'Rebecca Gonzalez',
+    '297.28 exklusive  7.7% MwSt',
+    '297.28',
+    '',
+    '',
+    '231, 232, 233',
+    '1111/2222, 4444/5555, 6666/7777',
+    'Alex Smith',
+  ])
+# ---
+# name: test_billing_export[Service-billing_params7-3-1-True-parcels0]
   list([
     '06.12.2023',
     'audience',
@@ -89,7 +239,37 @@
     'Alex Smith',
   ])
 # ---
-# name: test_billing_export[Support-billing_params5-3-3-False]
+# name: test_billing_export[Service-billing_params7-3-1-True-parcels1]
+  list([
+    '06.12.2023',
+    'audience',
+    'Jeffrey Zhang',
+    'Rebecca Gonzalez',
+    '297.28 exklusive  7.7% MwSt',
+    '297.28',
+    '',
+    '',
+    '134',
+    '2222/3333',
+    'Alex Smith',
+  ])
+# ---
+# name: test_billing_export[Service-billing_params7-3-1-True-parcels2]
+  list([
+    '06.12.2023',
+    'audience',
+    'Jeffrey Zhang',
+    'Rebecca Gonzalez',
+    '297.28 exklusive  7.7% MwSt',
+    '297.28',
+    '',
+    '',
+    '231, 232, 233',
+    '1111/2222, 4444/5555, 6666/7777',
+    'Alex Smith',
+  ])
+# ---
+# name: test_billing_export[Support-billing_params5-3-3-False-parcels0]
   list([
     '06.11.2023',
     'audience',
@@ -101,6 +281,36 @@
     '',
     '',
     'Keine Koordinaten verfügbar',
+    'Alex Smith',
+  ])
+# ---
+# name: test_billing_export[Support-billing_params5-3-3-False-parcels1]
+  list([
+    '06.11.2023',
+    'audience',
+    'Jeffrey Zhang',
+    'Rebecca Gonzalez',
+    '297.28 exklusive  7.7% MwSt',
+    '297.28',
+    '',
+    '',
+    '134',
+    '2222/3333',
+    'Alex Smith',
+  ])
+# ---
+# name: test_billing_export[Support-billing_params5-3-3-False-parcels2]
+  list([
+    '06.11.2023',
+    'audience',
+    'Jeffrey Zhang',
+    'Rebecca Gonzalez',
+    '297.28 exklusive  7.7% MwSt',
+    '297.28',
+    '',
+    '',
+    '231, 232, 233',
+    '1111/2222, 4444/5555, 6666/7777',
     'Alex Smith',
   ])
 # ---

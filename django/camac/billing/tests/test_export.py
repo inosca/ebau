@@ -1,3 +1,5 @@
+from functools import partial
+
 import pyexcel
 import pytest
 from dateutil.relativedelta import relativedelta
@@ -10,6 +12,24 @@ from camac.billing.models import BillingV2Entry
 
 
 @pytest.mark.freeze_time("2023-11-06")
+@pytest.mark.parametrize(
+    "parcels",
+    [
+        # List of number, X, Y coord
+        [  # No parcels in dossier
+        ],
+        [
+            # Single-parcel dossier
+            (134, 2222, 3333)
+        ],
+        [
+            # Multi-parcel dossier
+            (231, 1111, 2222),
+            (232, 4444, 5555),
+            (233, 6666, 7777),
+        ],
+    ],
+)
 @pytest.mark.parametrize(
     "role__name,billing_params,entries_count, expected_count, filter_date_added",
     [
@@ -51,16 +71,29 @@ def test_billing_export(
     admin_client,
     billing_v2_entry_factory,
     snapshot,
-    instance,
+    instance_with_document_for_billing,
     billing_params,
     entries_count,
     expected_count,
     filter_date_added,
+    parcels,
 ):
+    instance, parcel_ans = instance_with_document_for_billing
+
     billing_v2_entry_factory.create_batch(
         entries_count, **{**billing_params, "instance": instance}
     )
     query_params = {"instance": instance.pk}
+
+    for idx, (parcel_nr, coord_x, coord_y) in enumerate(parcels):
+        row_doc = parcel_ans.documents.create(
+            through_defaults={"sort": idx},
+            form=parcel_ans.question.row_form,
+            family_id=parcel_ans.document_id,
+        )
+        row_doc.answers.create(question_id="parzellennummer", value=parcel_nr)
+        row_doc.answers.create(question_id="lagekoordinaten-ost", value=coord_x)
+        row_doc.answers.create(question_id="lagekoordinaten-nord", value=coord_y)
 
     if filter_date_added:
         date_added = timezone.now()  # freezed
@@ -82,6 +115,30 @@ def test_billing_export(
         data.pop(7)  # remove ebau-Nr as it is not stable
 
         snapshot.assert_match(data)
+
+
+@pytest.fixture
+def instance_with_document_for_billing(
+    instance,
+    question_factory,
+    answer_factory,
+    form_factory,
+    case_factory,
+    form_question_factory,
+):
+    instance.case = case_factory()
+    instance.save()
+    parcel_table = question_factory(type="table")
+    parcel_field = partial(
+        form_question_factory, form=parcel_table.row_form, question__type="integer"
+    )
+    parcel_field(question__slug="parzellennummer")
+    parcel_field(question__slug="lagekoordinaten-ost")
+    parcel_field(question__slug="lagekoordinaten-nord")
+    instance.case.document.form.questions.add(parcel_table)
+
+    parcel_ans = answer_factory(document=instance.case.document, question=parcel_table)
+    return instance, parcel_ans
 
 
 @pytest.mark.parametrize(
