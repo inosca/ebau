@@ -46,7 +46,7 @@ module.exports = function (defaults) {
         : null;
 
   const app = new EmberApp(defaults, {
-    storeConfigInMeta: true,
+    storeConfigInMeta: ENV !== "be",
     "ember-simple-auth": {
       useSessionSetupMethod: true,
     },
