@@ -161,10 +161,12 @@ class BillingV2EntryExportSerializer(BillingV2EntrySerializer):
     def get_coordinates(self, model):
         if not model.coordinate_X or not model.coordinate_Y:
             return _("No coordinates available")
-        else:  # pragma: no cover
-            x = int(float(model.coordinate_X))
-            y = int(float(model.coordinate_Y))
-            return f"{x:,} / {y:,}".replace(",", "’")
+        else:
+            all_x = [val.strip() for val in model.coordinate_X.split(",")]
+            all_y = [val.strip() for val in model.coordinate_Y.split(",")]
+            coordinates = zip(all_x, all_y)
+            coordinates_str = ", ".join([f"{x}/{y}" for x, y in coordinates])
+            return coordinates_str
 
     class Meta:
         model = BillingV2Entry
