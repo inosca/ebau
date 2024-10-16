@@ -88,6 +88,7 @@ def get_dav():
             "hotfixes": {
                 "re_encode_path_info": False,
             },
+            "suppress_version_info": True,
         }
     )
 
