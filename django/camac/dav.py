@@ -114,6 +114,8 @@ def post_write_callback(token):
                 f"\n\tattachment_path={attachment.path}"
                 f"\n\tattachment_size={attachment.size} (after writing)"
                 f"\n\tuser={user.username}"
+                f"\n\tattachment_group={attachment.group.pk if attachment.group else '-'}"
+                f"\n\tattachment_instance={attachment.instance.pk}"
             )
             log.info(
                 f"--------------------- END DAV WRITE ATTACHMENT_ID {attachment.pk} ---------------------"
@@ -184,12 +186,16 @@ def pre_write_callback(token):
                 f"\n\tversion_path={new.path}"
                 f"\n\tversion_size={new.size} (before writing)"
                 f"\n\tuser={user.username}"
+                f"\n\tattachment_group={attachment.group.pk if attachment.group else '-'}"
+                f"\n\tattachment_instance={attachment.instance.pk}"
             )
     elif settings.LOG_FILE_WRITE_SIZES:
         log.info(
             f"pre_write_callback without new version -- ATTACHMENT_ID {attachment.pk}"
             f"\n\tattachment_size={attachment.size} (before writing)"
             f"\n\tuser={user.username}"
+            f"\n\tattachment_group={attachment.group.pk if attachment.group else '-'}"
+            f"\n\tattachment_instance={attachment.instance.pk}"
         )
 
     return True
