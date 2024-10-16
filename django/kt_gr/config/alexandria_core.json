@@ -37,14 +37,7 @@
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "metainfo", "files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -56,7 +49,7 @@
               },
               {
                 "scope": "All",
-                "fields": ["tags"],
+                "fields": ["tags", "category"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -316,14 +309,7 @@
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "metainfo", "files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -335,7 +321,7 @@
               },
               {
                 "scope": "All",
-                "fields": ["tags"],
+                "fields": ["tags", "category"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -901,14 +887,7 @@
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "metainfo", "files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -920,7 +899,7 @@
               },
               {
                 "scope": "All",
-                "fields": ["tags"],
+                "fields": ["tags", "category"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -1583,6 +1562,9 @@
               }
             ]
           },
+          "uso": {
+            "visibility": "all"
+          },
           "support": {
             "visibility": "all",
             "permissions": [
@@ -1627,6 +1609,9 @@
                 "permission": "delete"
               }
             ]
+          },
+          "subservice": {
+            "visibility": "all"
           },
           "service-lead": {
             "visibility": "all",
@@ -1676,12 +1661,6 @@
                 "permission": "delete"
               }
             ]
-          },
-          "subservice": {
-            "visibility": "all"
-          },
-          "uso": {
-            "visibility": "all"
           },
           "municipality-lead": {
             "visibility": "all",
@@ -1998,14 +1977,7 @@
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "metainfo", "files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -2017,7 +1989,7 @@
               },
               {
                 "scope": "All",
-                "fields": ["tags"],
+                "fields": ["tags", "category"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
