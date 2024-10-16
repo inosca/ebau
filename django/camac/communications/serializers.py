@@ -6,7 +6,7 @@ from django.conf import settings
 from django.core.cache import cache
 from django.db import transaction
 from django.utils import timezone
-from django.utils.translation import gettext
+from django.utils.translation import get_language, gettext
 from django_clamd.validators import validate_file_infection
 from rest_framework.exceptions import PermissionDenied, ValidationError
 from rest_framework_json_api import relations, serializers
@@ -39,7 +39,7 @@ class EntityNameMixin:
             return entity_service.get_name()
 
     def _entity_name(self, entity):
-        key = f"{self._cache_key_prefix}-{entity}"
+        key = f"{self._cache_key_prefix}-{entity}-{get_language()}"
         if key in cache:
             return cache.get(key)
         cache.set(key, self._uncached_entity_name(entity))
