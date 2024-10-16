@@ -256,6 +256,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     decision_de = serializers.SerializerMethodField()
     decision_fr = serializers.SerializerMethodField()
+    decision_it = serializers.SerializerMethodField()
 
     current_user_name = serializers.SerializerMethodField()
     work_item_name_de = serializers.SerializerMethodField()
@@ -874,6 +875,9 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     def get_decision_fr(self, instance):
         return self._get_decision(instance, "fr")
+
+    def get_decision_it(self, instance):
+        return self._get_decision(instance, "it")
 
     def _get_decision(self, instance, language):
         if not settings.DECISION:  # pragma: no cover

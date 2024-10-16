@@ -307,7 +307,7 @@
       "template_slug": "empfang-anfragebaugesuch-behorden",
       "language": "de",
       "purpose": "Empfang Baugesuch (Behörden)",
-      "subject": "Neu eingegangen ({{FORM_NAME_DE}}) / Nuovi moduli pervenuti ({{FORM_NAME_DE}})",
+      "subject": "Neu eingegangen ({{FORM_NAME_DE}}) / Nuovi moduli pervenuti ({{FORM_NAME_IT}})",
       "body": "Guten Tag\r\n\r\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nin eBau è arrivato un nuovo dossier con il n. {{DOSSIER_NR}} ({{FORM_NAME_IT}}, {{MUNICIPALITY_IT}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\neBau"
     }
   },
@@ -368,7 +368,7 @@
       "language": "de",
       "purpose": "Entscheid (Gesuchsteller)",
       "subject": "Information über Entscheid (Dossier-Nr. {{DOSSIER_NR}}) / Informazione relativa alla decisione (dossier n. {{DOSSIER_NR}})",
-      "body": "Guten Tag\r\n\r\nDer Bauentscheid ({{DECISION_DE}}) zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nla decisione edilizia ({{DECISION_DE}}) relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) è stata presa. È possibile trovare la decisione con i rimedi giuridici nei documenti in eBau:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\n{{LEITBEHOERDE_NAME_DE}}"
+      "body": "Guten Tag\r\n\r\nDer Bauentscheid ({{DECISION_DE}}) zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nla decisione edilizia ({{DECISION_IT}}) relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_IT}}, {{MUNICIPALITY_IT}}) è stata presa. È possibile trovare la decisione con i rimedi giuridici nei documenti in eBau:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\n{{LEITBEHOERDE_NAME_IT}}"
     }
   },
   {
@@ -380,7 +380,7 @@
       "language": "de",
       "purpose": "Entscheid (Behörden)",
       "subject": "Information über Entscheid (Dossier-Nr. {{DOSSIER_NR}}) / Informazione relativa alla decisione (dossier n. {{DOSSIER_NR}})",
-      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nla decisione edilizia relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) è stata presa. È possibile trovare la decisione con i rimedi giuridici nei documenti in eBau:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere."
+      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nla decisione edilizia relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_IT}}, {{MUNICIPALITY_IT}}) è stata presa. È possibile trovare la decisione con i rimedi giuridici nei documenti in eBau:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\n\r\n{{LEITBEHOERDE_NAME_IT}}"
     }
   },
   {
@@ -392,7 +392,7 @@
       "language": "de",
       "purpose": "Nachforderung, Neu",
       "subject": "Neue Nachforderung (Dossier-Nr. {{DOSSIER_NR}}) / Nuova richiesta di precisazioni (dossier n. {{DOSSIER_NR}})",
-      "body": "Guten Tag\r\n\r\nIm eBau gibt es eine neue Nachforderung im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\neBau\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nin eBau è arrivata una nuova richiesta di precisazioni relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere."
+      "body": "Guten Tag\r\n\r\nIm eBau gibt es eine neue Nachforderung im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\neBau\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nin eBau è arrivata una nuova richiesta di precisazioni relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_IT}}, {{MUNICIPALITY_IT}}).\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere."
     }
   },
   {
@@ -404,7 +404,7 @@
       "language": "de",
       "purpose": "Nachforderung beantwortet",
       "subject": "Nachforderung beantwortet (Dossier-Nr. {{DOSSIER_NR}}) / Risposta alla richiesta di precisazioni (dossier n. {{DOSSIER_NR}})",
-      "body": "Guten Tag\r\n\r\nIm eBau wurde die Nachforderung beantwortet im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nin eBau è arrivata la risposta alla richiesta di precisazioni relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\neBau"
+      "body": "Guten Tag\r\n\r\nIm eBau wurde die Nachforderung beantwortet im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nin eBau è arrivata la risposta alla richiesta di precisazioni relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_IT}}, {{MUNICIPALITY_IT}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\neBau"
     }
   },
   {
@@ -416,7 +416,7 @@
       "language": "de",
       "purpose": "Nachforderung geprüft positiv",
       "subject": "Nachforderung akzeptiert (Dossier-Nr. {{DOSSIER_NR}}) / Richiesta di precisazioni accettata (dossier n. {{DOSSIER_NR}})",
-      "body": "Guten Tag\r\n\r\nIm eBau wurde die Nachforderung angeschlossen im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nin eBau si è conclusa la richiesta di precisazioni relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\neBau"
+      "body": "Guten Tag\r\n\r\nIm eBau wurde die Nachforderung angeschlossen im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nin eBau si è conclusa la richiesta di precisazioni relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_IT}}, {{MUNICIPALITY_IT}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\neBau"
     }
   },
   {
@@ -428,7 +428,7 @@
       "language": "de",
       "purpose": "Nachforderung geprüft negativ",
       "subject": "Nachforderung abgelehnt (Dossier-Nr. {{DOSSIER_NR}}) / Richiesta di precisazioni respinta (dossier n. {{DOSSIER_NR}})",
-      "body": "Guten Tag\r\n\r\nIm eBau wurde ihre Nachforderung abgelehnt im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nin eBau la richiesta di precisazioni relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) è stata respinta.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\neBau"
+      "body": "Guten Tag\r\n\r\nIm eBau wurde ihre Nachforderung abgelehnt im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nin eBau la richiesta di precisazioni relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_IT}}, {{MUNICIPALITY_IT}}) è stata respinta.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\neBau"
     }
   },
   {
@@ -440,7 +440,7 @@
       "language": "de",
       "purpose": "Beurteilung Vorabklärung, Bauanzeige, Solaranlage (Gesuchsteller)",
       "subject": "Information über Beurteilung (Dossier-Nr. {{DOSSIER_NR}}) / Informazione relativa alla valutazione (dossier n. {{DOSSIER_NR}})",
-      "body": "Guten Tag\r\n\r\nDie Beurteilung ({{DECISION_DE}}) zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen. Sie finden die Dokumente unter folgendem Link: \r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nla valutazione ({{DECISION_DE}}) relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) è conclusa. I documenti sono disponibili al seguente link: \r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\n{{LEITBEHOERDE_NAME_DE}}"
+      "body": "Guten Tag\r\n\r\nDie Beurteilung ({{DECISION_DE}}) zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen. Sie finden die Dokumente unter folgendem Link: \r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nla valutazione ({{DECISION_IT}}) relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_IT}}, {{MUNICIPALITY_IT}}) è conclusa. I documenti sono disponibili al seguente link: \r\n\r\n{{PUBLIC_DOSSIER_LINK}}/feedback\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\n{{LEITBEHOERDE_NAME_IT}}"
     }
   },
   {
@@ -452,7 +452,7 @@
       "language": "de",
       "purpose": "Beurteilung Vorabklärung, Bauanzeige, Solaranlage (Behörden)",
       "subject": "Information über Beurteilung (Dossier-Nr. {{DOSSIER_NR}}) / Informazione relativa alla valutazione (dossier n. {{DOSSIER_NR}})",
-      "body": "Guten Tag\r\n\r\nDie Beurteilung zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen. Sie finden die Dokumente unter folgendem Link:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nla valutazione relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) è conclusa. I documenti sono disponibili al seguente link:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\n{{LEITBEHOERDE_NAME_DE}}"
+      "body": "Guten Tag\r\n\r\nDie Beurteilung zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen. Sie finden die Dokumente unter folgendem Link:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nla valutazione relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_IT}}, {{MUNICIPALITY_IT}}) è conclusa. I documenti sono disponibili al seguente link:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\n{{LEITBEHOERDE_NAME_IT}}"
     }
   },
   {
@@ -464,7 +464,7 @@
       "language": "de",
       "purpose": "Bauabnahme (GVG, AEV, Geometer)",
       "subject": "Information über Bauabnahme (Dossier-Nr. {{DOSSIER_NR}}) / Informazione relativa al collaudo (dossier n. {{DOSSIER_NR}})",
-      "body": "Guten Tag\r\n\r\nDie Bauabnahme zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nil collaudo relativo al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) è stato concluso.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\n{{LEITBEHOERDE_NAME_DE}}"
+      "body": "Guten Tag\r\n\r\nDie Bauabnahme zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nil collaudo relativo al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_IT}}, {{MUNICIPALITY_IT}}) è stato concluso.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\n{{LEITBEHOERDE_NAME_IT}}"
     }
   },
   {
