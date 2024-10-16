@@ -60,9 +60,10 @@ class BillingV2EntryExportFilterBackend(BaseFilterBackend):
             Returns:
                 QuerySet: A queryset containing the string values of the answers.
             """
+            document_key = "document__family" if all_answers else "document_id"
             filter_kwargs = {
                 "question_id": slug,
-                "document__family" if all_answers else "document_id": OuterRef(ref),
+                document_key: OuterRef(ref),
             }
 
             queryset = (
@@ -81,6 +82,11 @@ class BillingV2EntryExportFilterBackend(BaseFilterBackend):
                 )
                 .values("string_value")
             )
+
+            # We don't join to the answerdoc, but enforce explicit order by
+            # rowdocument's creation date. This is precise enough to ensure
+            # all columns in output will be sorted in the same way
+            queryset = queryset.order_by("document__created_at")
 
             return queryset if all_answers else queryset[:1]
 
