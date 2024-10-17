@@ -2,6 +2,8 @@ import { getOwner, setOwner } from "@ember/application";
 import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
+import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
+import { allWorkItems } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency";
 import CustomCaseModel from "ember-ebau-core/caluma-query/models/case";
@@ -28,8 +30,30 @@ export default class CaseDashboardComponent extends Component {
   @service store;
   @service shoebox;
   @service fetch;
+  @service ebauModules;
 
   @tracked totalJournalEntries;
+
+  mostRecentAddressedAndReadyWorkItem = useCalumaQuery(
+    this,
+    allWorkItems,
+    () => ({
+      filter: [
+        {
+          rootCaseMetaValue: [
+            { key: "camac-instance-id", value: this.args.instanceId },
+          ],
+        },
+        { hasDeadline: true },
+        { addressedGroups: [this.ebauModules.serviceId.toString()] },
+        { status: "READY" },
+      ],
+      order: [{ attribute: "DEADLINE", direction: "ASC" }],
+      options: {
+        pageSize: 1,
+      },
+    }),
+  );
 
   get isLoading() {
     return this.initialize.isRunning;
@@ -43,6 +67,15 @@ export default class CaseDashboardComponent extends Component {
     return mainConfig.instanceResourceRedirects.journal[
       this.shoebox.content.roleId
     ];
+  }
+
+  get processingDeadline() {
+    if ((this.mostRecentAddressedAndReadyWorkItem?.value ?? []).length) {
+      return this.mostRecentAddressedAndReadyWorkItem.value[0].deadline.toLocaleDateString(
+        "de-ch",
+      );
+    }
+    return "";
   }
 
   @dropTask
