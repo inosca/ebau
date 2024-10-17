@@ -79,3 +79,4 @@ billing:
   filters:
     createdAfter: Date de réception (par)
     createdBefore: Date de réception (jusque)
+    service: Organisation
