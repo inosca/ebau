@@ -142,7 +142,23 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
     @permission_aware
     @filter_queryset_for(workflow_schema.WorkItem)
     def filter_queryset_for_work_items(self, node, queryset, info):
-        filters = Q(case__family__instance__pk__in=self._all_visible_instances(info))
+        if getattr(info.operation.name, "value", None) in [
+            "WorkItemListQuery",
+            "WorkItemsForTasks",
+        ]:
+            # performance optimization for the global work item list:
+            # Only show work items with deadline where service is directly affected.
+            # This is more efficient than going through _all_visible_instances
+            # and returns a subset of those work items.
+            service_id = str(self.request.group.service_id)
+            filters = Q(deadline__isnull=False) & (
+                Q(addressed_groups__contains=[service_id])
+                | Q(controlling_groups__contains=[service_id])
+            )
+        else:
+            filters = Q(
+                case__family__instance__pk__in=self._all_visible_instances(info)
+            )
 
         # Limit visible work items based on the task slugs in the GQL query
         # Consider only work items that user is interested in
