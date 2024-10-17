@@ -12,7 +12,9 @@ export default class JournalEntryAbility extends Ability {
     return (
       this.canAdd &&
       parseInt(this.session.user?.id) ===
-        parseInt(this.model?.belongsTo("user").id())
+        parseInt(this.model?.belongsTo("user").id()) &&
+      parseInt(this.session.service?.id) ===
+        parseInt(this.model?.belongsTo("service").id())
     );
   }
 }
