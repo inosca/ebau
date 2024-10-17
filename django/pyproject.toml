@@ -100,7 +100,7 @@ filterwarnings = [
     # Deprecated usage of pkg_resources (from setuptools) in docxtpl
     "ignore:pkg_resources is deprecated as an API:DeprecationWarning",
     # Deprecated usage of pkg_resources.declare_namespace (from setuptools) in tika
-    "ignore:Deprecated call to `pkg_resources.declare_namespace:DeprecationWarning"
+    "ignore:Deprecated call to `pkg_resources.declare_namespace:DeprecationWarning",
 ]
 
 [tool.coverage.run]
@@ -237,6 +237,7 @@ omit = [
     "camac/core/management/commands/translate_service_city_it.py",
     "camac/core/management/commands/migrate_instance_services_ur.py",
     "camac/core/management/commands/change_instance_service_ur.py",
+    "camac/core/management/commands/kt_uri_statistic.py",
     # Audit migration"
     "camac/core/management/commands/config/",
     "camac/core/management/commands/migrate_audit.py",
