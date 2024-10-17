@@ -12,6 +12,7 @@ from manabi.auth import ManabiAuthenticator
 from manabi.filesystem import CallbackHookConfig, ManabiFileResource, ManabiProvider
 from manabi.lock import ManabiDbLockStorage
 from manabi.log import HeaderLogger, verbose_logging
+from wsgidav.dav_error import HTTP_BAD_REQUEST, DAVError
 from wsgidav.dir_browser import WsgiDavDirBrowser
 from wsgidav.error_printer import ErrorPrinter
 from wsgidav.mw.debug_filter import WsgiDavDebugFilter
@@ -31,6 +32,8 @@ class LoggedManabiFileResource(ManabiFileResource):
                 f"begin_write -- ATTACHMENT_ID {attachment_id}"
                 f"\n\tcontent_length={self.environ['CONTENT_LENGTH']} (file size from the request)"
             )
+        if int(self.environ["CONTENT_LENGTH"]) == 0:  # pragma: no cover
+            raise DAVError(HTTP_BAD_REQUEST)
         return super().begin_write(content_type=content_type)
 
 
