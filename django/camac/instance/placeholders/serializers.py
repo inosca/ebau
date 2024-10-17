@@ -1881,6 +1881,11 @@ class UrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("ZONE")],
         description=_("Zone"),
     )
+    gemeinde = fields.MasterDataField(
+        source="municipality_name",
+        aliases=[_("MUNICIPALITY")],
+        description=_("Name of the municipality selected by the applicant"),
+    )
 
     def get_land_use(self, instance):
         return clean_join(
@@ -1889,3 +1894,6 @@ class UrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             instance._master_data.protected,
             separator=", ",
         )
+
+    class Meta:
+        exclude = "municipality"
