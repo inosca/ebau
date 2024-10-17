@@ -5,6 +5,7 @@
     @value={{this.from}}
     @maxDate={{this.to}}
     @updateFilter={{fn this.updateFilter "from"}}
+    class="uk-width-1-4"
   />
   <Filters::Date
     @filterName="to"
@@ -12,12 +13,24 @@
     @value={{this.to}}
     @minDate={{this.from}}
     @updateFilter={{fn this.updateFilter "to"}}
+    class="uk-width-1-4"
+  />
+  <Filters::Select
+    @filterName="service"
+    @label={{t "billing.filters.service"}}
+    @options={{this.services.value}}
+    @selected={{this.selectedService}}
+    @onChange={{fn this.updateSelectFilter "serviceId"}}
+    @allowClear={{true}}
+    @searchEnabled={{true}}
+    @searchField="label"
+    class="uk-width-expand filters-select-large uk-margin-remove-top"
   />
 </div>
 <div class="uk-height-1-1">
   <BillingGlobalTable
     @entries={{this.entries}}
     @loadMore={{this.loadMore}}
-    @filters={{hash to=this.to from=this.from}}
+    @filters={{hash to=this.to from=this.from service=this.serviceId}}
   />
 </div>

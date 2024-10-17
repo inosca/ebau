@@ -12,12 +12,14 @@ from rest_framework.filters import BaseFilterBackend
 from rest_framework.serializers import ValidationError
 
 from camac.billing.models import BillingV2Entry
+from camac.filters import NumberMultiValueFilter
 from camac.instance.export.filters import ConcatWS, StringAggSubquery
 
 
 class BillingV2EntryFilterSet(FilterSet):
     date_added_before = DateFilter(field_name="date_added", lookup_expr="lte")
     date_added_after = DateFilter(field_name="date_added", lookup_expr="gte")
+    service = NumberMultiValueFilter(field_name="group__service")
 
     class Meta:
         model = BillingV2Entry
@@ -25,6 +27,7 @@ class BillingV2EntryFilterSet(FilterSet):
             "instance",
             "date_added_before",
             "date_added_after",
+            "service",
         ]
 
 

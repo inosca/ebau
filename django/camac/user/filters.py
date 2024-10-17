@@ -14,6 +14,7 @@ from django_filters.rest_framework import (
     NumberFilter,
 )
 
+from camac.billing.views import BillingV2EntryViewset
 from camac.constants import kt_uri as uri_constants
 from camac.filters import CharMultiValueFilter, NumberMultiValueFilter
 from camac.instance import utils as instance_utils
@@ -55,6 +56,8 @@ class PublicServiceFilterSet(FilterSet):
     provider_for_instance_municipality = CharFilter(
         method="filter_provider_for_instance_municipality"
     )
+
+    has_billing_entries = BooleanFilter(method="_filter_has_billing_entries")
 
     def _get_public_services_base(self, queryset, name, value):
         if not value:
@@ -234,6 +237,15 @@ class PublicServiceFilterSet(FilterSet):
         )
 
         return queryset.filter(pk__in=Subquery(providers.values("pk")))
+
+    def _filter_has_billing_entries(self, queryset, name, value):
+        if not value:
+            return queryset
+
+        view = BillingV2EntryViewset(request=self.request)
+        qs = view.get_queryset().filter(group__service=OuterRef("pk")).only("pk")
+
+        return queryset.filter(Exists(qs))
 
     class Meta:
         model = models.Service
