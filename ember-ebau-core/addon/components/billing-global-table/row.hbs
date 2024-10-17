@@ -1,4 +1,4 @@
-<tr>
+<tr role="link" {{on "click" (fn this.transitionToInstance @entry)}}>
   <td data-test-entry-text>
     {{@entry.text}}
     {{#if (and (has-feature "billing.legalBasis") @entry.legalBasis)}}
