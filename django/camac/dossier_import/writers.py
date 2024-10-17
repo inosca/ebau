@@ -994,7 +994,7 @@ class DossierWriter:
                 ),
             )
 
-            mimimi = magic.Magic(mime=True, uncompress=True)
+            mimimi = magic.Magic(mime=True)
             mime_type = mimimi.from_buffer(content.file.read())
             content.file.seek(0)
 
