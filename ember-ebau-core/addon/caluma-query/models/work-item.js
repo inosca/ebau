@@ -281,6 +281,8 @@ export default class CustomWorkItemModel extends WorkItemModel {
     };
   }
 
+  // TODO: Consider moving this logic to the backend, so that we don't have
+  // to always fetch parent work items.
   _getLinkPlaceholders() {
     const inquiryWorkItem = [this.raw, this.raw.case.parentWorkItem]
       .filter(Boolean)

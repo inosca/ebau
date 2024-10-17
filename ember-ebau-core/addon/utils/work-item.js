@@ -20,7 +20,7 @@ function serviceReductor(all, workItem) {
   ];
 }
 
-async function _fetchIfNotCached(
+export async function fetchIfNotCached(
   store,
   modelName,
   identifiers,
@@ -49,17 +49,17 @@ async function _fetchIfNotCached(
 export async function processNewWorkItems(store, workItems) {
   const { usernames, instanceIds, serviceIds } = getProcessData(workItems);
 
-  await _fetchIfNotCached(
+  await fetchIfNotCached(
     store,
     "public-user",
     usernames,
     "username",
     "username",
   );
-  await _fetchIfNotCached(store, "instance", instanceIds, "id", "instance_id", {
+  await fetchIfNotCached(store, "instance", instanceIds, "id", "instance_id", {
     include: "form",
   });
-  await _fetchIfNotCached(store, "service", serviceIds, "id", "service_id");
+  await fetchIfNotCached(store, "service", serviceIds, "id", "service_id");
 
   return workItems;
 }
