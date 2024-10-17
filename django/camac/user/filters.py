@@ -273,6 +273,7 @@ class ServiceFilterSet(FilterSet):
 
 
 class PublicUserFilterSet(FilterSet):
+    id = NumberMultiValueFilter()
     username = CharMultiValueFilter()
     service = NumberMultiValueFilter(field_name="groups__service")
     disabled = BooleanFilter()
