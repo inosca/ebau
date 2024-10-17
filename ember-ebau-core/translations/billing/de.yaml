@@ -91,3 +91,4 @@ billing:
   filters:
     createdAfter: Erstellung von
     createdBefore: Erstellung bis
+    service: Organisation

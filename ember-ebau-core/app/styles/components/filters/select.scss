@@ -8,3 +8,14 @@
     min-height: $button-small-line-height;
   }
 }
+
+.filters-select-large {
+  .ember-basic-dropdown {
+    width: 100%;
+  }
+
+  .ember-power-select-trigger {
+    line-height: $button-line-height;
+    min-height: $button-line-height;
+  }
+}
