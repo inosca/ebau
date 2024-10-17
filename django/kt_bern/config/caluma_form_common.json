@@ -2637,7 +2637,7 @@
       "modified_by_group": null,
       "label": "{\"de\": \"GWR-EGID\", \"fr\": \"N\\u00b0 RegBL-EGID\", \"it\": null}",
       "type": "integer",
-      "is_required": "form == 'heat-generator'",
+      "is_required": "form in ['heat-generator', 'heat-generator-v2']",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
