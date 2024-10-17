@@ -89,3 +89,4 @@ billing:
   filters:
     createdAfter:
     createdBefore:
+    service: Organizzazione

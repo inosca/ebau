@@ -202,3 +202,45 @@ def test_public_service_filter_provider_for_instance_municipality(
             response.json()["data"][0]["attributes"]["name"]
             == geometer_service.get_name()
         )
+
+
+@pytest.mark.parametrize(
+    "role__name,has_billing_entries,expected_count",
+    [("Municipality", True, 1), ("Muncipality", False, 3), ("Municipality", "", 3)],
+)
+def test_public_service_filter_has_billing_entries(
+    admin_client,
+    service_factory,
+    instance,
+    billing_v2_entry_factory,
+    group_factory,
+    instance_service_factory,
+    has_billing_entries,
+    expected_count,
+):
+    service_1 = service_factory(name="Test ABC")
+    service_2 = service_factory(name="Test DEF")
+    group_factory(service=service_1)
+    group_2 = group_factory(service=service_2)
+    instance_service_factory(instance=instance, service=service_1, active=1)
+    instance_service_factory(instance=instance, service=service_2, active=0)
+
+    billing_v2_entry_factory(instance=instance, group=group_2)
+
+    response = admin_client.get(
+        reverse("publicservice-list"), data={"has_billing_entries": has_billing_entries}
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    data = response.json()["data"]
+
+    assert len(data) == expected_count
+
+    service_ids = [str(rec["id"]) for rec in data]
+    if has_billing_entries:
+        assert str(service_2.pk) in service_ids
+        assert str(service_1.pk) not in service_ids
+    else:
+        assert str(service_2.pk) in service_ids
+        assert str(service_1.pk) in service_ids
