@@ -1612,10 +1612,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         return []  # pragma: no cover
 
     def _get_recipients_immissionsschutz_be(self, instance):
-        service = Service.objects.filter(email="info.luft@be.ch").first()
-        if service:
-            return [{"to": service.email}]
-        return []  # pragma: no cover
+        return [{"to": "info.luft@be.ch"}]
 
     def _get_recipients_schnurgeruestabnahme_uri(self, instance):
         work_item = self.validated_data.get("work_item")
