@@ -1,5 +1,5 @@
 import pytest
-from alexandria.core.factories import DocumentFactory, FileFactory
+from alexandria.core.factories import CategoryFactory, DocumentFactory, FileFactory
 from alexandria.core.models import Document, File
 from rest_framework.exceptions import ValidationError
 
@@ -9,8 +9,8 @@ from camac.instance.domain_logic.create import CreateInstanceLogic
 @pytest.mark.parametrize(
     "skip_exported_form_attachment,expected_copies",
     [
-        (False, 2),
-        (True, 1),
+        (False, 3),
+        (True, 2),
     ],
 )
 def test_copy_attachments(
@@ -26,13 +26,23 @@ def test_copy_attachments(
 
     source_instance = instance_with_case(instance_factory())
     target_instance = instance_with_case(instance_factory())
+    category = CategoryFactory(slug="beilagen-zum-gesuch")
     docs = [
+        DocumentFactory(
+            title="important-doc",
+            metainfo={
+                "camac-instance-id": str(source_instance.pk),
+                "caluma-document-id": str(source_instance.case.document.pk),
+            },
+            category=category,
+        ),
         DocumentFactory(
             title="some-doc",
             metainfo={
                 "camac-instance-id": str(source_instance.pk),
                 "caluma-document-id": str(source_instance.case.document.pk),
             },
+            category=CategoryFactory(parent=category),
         ),
         DocumentFactory(
             title="baugesuch",
@@ -40,21 +50,29 @@ def test_copy_attachments(
                 "camac-instance-id": str(source_instance.pk),
                 "system-generated": True,
             },
+            category=category,
+        ),
+        DocumentFactory(
+            title="other-doc",
+            metainfo={
+                "camac-instance-id": str(source_instance.pk),
+            },
         ),
     ]
     files = [FileFactory(document=doc) for doc in docs]
 
-    assert Document.objects.count() == 2
-    assert File.objects.filter(variant=File.Variant.ORIGINAL).count() == 2
+    total_docs = len(docs)
+    assert Document.objects.count() == total_docs
+    assert File.objects.filter(variant=File.Variant.ORIGINAL).count() == total_docs
 
     CreateInstanceLogic.copy_attachments(
         source_instance, target_instance, skip_exported_form_attachment
     )
 
-    assert Document.objects.count() == 2 + expected_copies
+    assert Document.objects.count() == total_docs + expected_copies
     assert (
         File.objects.filter(variant=File.Variant.ORIGINAL).count()
-        == 2 + expected_copies
+        == total_docs + expected_copies
     )
 
     new_document = (
