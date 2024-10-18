@@ -1317,23 +1317,15 @@ def test_recipient_geometer_acl_services(
     assert serializer._get_recipients_geometer_acl_services(be_instance) == expected
 
 
-@pytest.mark.parametrize(
-    "mail_to_immission_control,expected",
-    [(True, [{"to": "info.luft@be.ch"}]), (False, [])],
-)
 def test_recipient_immissionsschutz(
     db,
     be_instance,
-    mail_to_immission_control,
-    expected,
-    service_factory,
 ):
-    if mail_to_immission_control:
-        service_factory(email="info.luft@be.ch")
-
     serializer = serializers.NotificationTemplateSendmailSerializer()
 
-    assert serializer._get_recipients_immissionsschutz_be(be_instance) == expected
+    assert serializer._get_recipients_immissionsschutz_be(be_instance) == [
+        {"to": "info.luft@be.ch"}
+    ]
 
 
 @pytest.mark.parametrize("service__email", ["test@example.com"])
