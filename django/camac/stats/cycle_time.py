@@ -13,7 +13,7 @@ from camac.instance.models import Instance
 
 def _get_previously_rejected_instance(instance: Instance):
     return Instance.objects.filter(
-        case__document__source=instance.case.document,
+        case__document=instance.case.document.source,
         instance_state__name="finished",
         previous_instance_state__name="rejected",
     ).first()
@@ -43,8 +43,10 @@ def _get_rejected_instance_cycletime(rejected_instance: Instance) -> int:
         .order_by("-created_at")
         .first()
     )
-    start_date = rejected_instance.creation_date
-    return (end_date or 0) and (end_date.created_at - start_date).days
+    master_data = MasterData(rejected_instance.case)
+    submit_date = master_data.paper_submit_date or master_data.submit_date
+
+    return (end_date or 0) and (end_date.created_at - submit_date).days
 
 
 def _compute_total_idle_days(
