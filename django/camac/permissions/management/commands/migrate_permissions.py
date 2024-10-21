@@ -90,6 +90,9 @@ class Command(BaseCommand):
             "--commit", help="Do commit the changes", action="store_true"
         )
         parser.add_argument(
+            "--skip-revoke", help="Do not revoke existing acls", action="store_true"
+        )
+        parser.add_argument(
             "--check-only",
             help="Check mode: Log a warning if a required permission is missing",
             action="store_true",
@@ -142,7 +145,7 @@ class Command(BaseCommand):
                 "Check mode: No change will be written, but proposed changes are printed"
             )
 
-        self.run_migration()
+        self.run_migration(options)
 
         # Log (and commit/rollback transaction) after the run
         if do_commit:
@@ -174,16 +177,16 @@ class Command(BaseCommand):
 
         return errors
 
-    def run_migration(self):
+    def run_migration(self, options):
         log.info("Building expected permissions structure. This will take a while")
         expected_permissions = self._build_permissions_structure()
         log.info("Loading actual permission data. This may take a while as well")
         actual_permissions = set(self._read_permissions_structure())
 
         if self.do_check:
-            self._log_differences(expected_permissions, actual_permissions)
+            self._log_differences(expected_permissions, actual_permissions, options)
         else:
-            self._apply_changes(expected_permissions, actual_permissions)
+            self._apply_changes(expected_permissions, actual_permissions, options)
 
     def _iter_qs(self, qs, instance_prefix):
         """Turn given QS into progress-bar iterator, and optionally limit it.
@@ -211,10 +214,14 @@ class Command(BaseCommand):
             disable=self.verbosity > 1,
         )
 
-    def _log_differences(self, expected_permissions, actual_permissions):
+    def _log_differences(self, expected_permissions, actual_permissions, options):
         equal = expected_permissions.intersection(actual_permissions)
         to_create = expected_permissions - actual_permissions
-        to_delete = actual_permissions - expected_permissions
+
+        skip_revoke = options.get("skip_revoke")
+        to_delete = []
+        if not skip_revoke:
+            to_delete = actual_permissions - expected_permissions
 
         changes_by_instance = defaultdict(set)
 
@@ -565,9 +572,12 @@ class Command(BaseCommand):
             self._existing_acls[virtual_acl] = acl
             yield virtual_acl
 
-    def _apply_changes(self, expected_permissions, actual_permissions):
+    def _apply_changes(self, expected_permissions, actual_permissions, options):
         to_create = expected_permissions - actual_permissions
-        to_delete = actual_permissions - expected_permissions
+        skip_revoke = options.get("skip_revoke")
+        to_delete = []
+        if not skip_revoke:
+            to_delete = actual_permissions - expected_permissions
 
         # We create the instance ACLs in bulk, in batches of 500. This should
         # speed up things while also keeping memory usage at a sane level.
