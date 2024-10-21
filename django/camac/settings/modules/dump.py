@@ -641,6 +641,46 @@ DUMP = {
             ],
         },
     },
+    "kt_ag": {
+        "ENABLED": True,
+        "CONFIG": {
+            "GROUPS": {
+                "email_notifications": {
+                    "notification.NotificationTemplate": Q(type="email"),
+                    "notification.NotificationTemplateT": Q(template__type="email"),
+                },
+                # required by several form-questions
+                "caluma_form_common": {
+                    "caluma_form.Form": Q(pk__in=COMMON_FORM_SLUGS_BE),
+                    "caluma_form.FormQuestion": Q(form__pk__in=COMMON_FORM_SLUGS_BE),
+                    "caluma_form.Question": Q(forms__pk__in=COMMON_FORM_SLUGS_BE)
+                    | Q(pk__in=COMMON_QUESTION_SLUGS_BE),
+                    "caluma_form.QuestionOption": Q(
+                        question__forms__pk__in=COMMON_FORM_SLUGS_BE
+                    )
+                    | Q(question_id__in=COMMON_QUESTION_SLUGS_BE),
+                    "caluma_form.Option": Q(
+                        questions__forms__pk__in=COMMON_FORM_SLUGS_BE
+                    )
+                    | Q(questions__pk__in=COMMON_QUESTION_SLUGS_BE),
+                    "caluma_form.Answer": Q(
+                        document__isnull=True,
+                    ),
+                },
+                # Sync the "core" groups (admin, support, portal) between servers, the rest is treated as data
+                "user_core_groups": {
+                    "user.Group": Q(pk__lte=3),
+                    "user.GroupT": Q(pk__lte=3),
+                },
+            },
+            "EXCLUDED_MODELS": [
+                "user.Group",
+                "user.GroupT",
+                "user.Service",
+                "user.ServiceT",
+            ],
+        },
+    },
     "demo": {
         "ENABLED": True,
         "CONFIG": {

@@ -1,0 +1,207 @@
+[
+  {
+    "model": "instance.form",
+    "pk": 1,
+    "fields": {
+      "form_state": 1,
+      "name": null,
+      "description": null,
+      "family": null
+    }
+  },
+  {
+    "model": "instance.formstate",
+    "pk": 1,
+    "fields": {
+      "name": "Published"
+    }
+  },
+  {
+    "model": "instance.formstate",
+    "pk": 2,
+    "fields": {
+      "name": "Not published"
+    }
+  },
+  {
+    "model": "instance.formt",
+    "pk": 1,
+    "fields": {
+      "form": 1,
+      "language": "de",
+      "name": "Baugesuch",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 1,
+    "fields": {
+      "name": "new",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 120004,
+    "fields": {
+      "name": "subm",
+      "sort": 1,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 120005,
+    "fields": {
+      "name": "circulation",
+      "sort": 2,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 120006,
+    "fields": {
+      "name": "finished",
+      "sort": 3,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 120007,
+    "fields": {
+      "name": "decision",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 120008,
+    "fields": {
+      "name": "correction",
+      "sort": 4,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 120009,
+    "fields": {
+      "name": "init-distribution",
+      "sort": 5,
+      "description": ""
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 120010,
+    "fields": {
+      "name": "construction-acceptance",
+      "sort": 6,
+      "description": ""
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 120011,
+    "fields": {
+      "name": "rejected",
+      "sort": 7,
+      "description": ""
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 1,
+    "fields": {
+      "instance_state": 1,
+      "language": "de",
+      "name": "Neu",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120034,
+    "fields": {
+      "instance_state": 120004,
+      "language": "de",
+      "name": "Eingereicht",
+      "description": "Eingereicht bei Gemeinde"
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120035,
+    "fields": {
+      "instance_state": 120005,
+      "language": "de",
+      "name": "Zirkulation",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120036,
+    "fields": {
+      "instance_state": 120006,
+      "language": "de",
+      "name": "Abgeschlossen",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120037,
+    "fields": {
+      "instance_state": 120007,
+      "language": "de",
+      "name": "Entscheid ausstehend",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120038,
+    "fields": {
+      "instance_state": 120008,
+      "language": "de",
+      "name": "In Korrektur",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120039,
+    "fields": {
+      "instance_state": 120009,
+      "language": "de",
+      "name": "Zirkulation initialisieren",
+      "description": ""
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120040,
+    "fields": {
+      "instance_state": 120010,
+      "language": "de",
+      "name": "Bauabnahme",
+      "description": ""
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120041,
+    "fields": {
+      "instance_state": 120011,
+      "language": "de",
+      "name": "Zurückgewiesen",
+      "description": ""
+    }
+  }
+]

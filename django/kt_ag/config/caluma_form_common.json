@@ -1,0 +1,2198 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "allgemeine-angaben-kurz",
+    "fields": {
+      "created_at": "2020-10-07T13:30:11.211Z",
+      "modified_at": "2024-08-28T12:24:54.684Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Allgemeine Angaben\", \"fr\": null, \"it\": \"Indicazioni generali\"}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "parzelle-tabelle",
+    "fields": {
+      "created_at": "2019-03-28T14:11:40.223Z",
+      "modified_at": "2024-08-28T12:24:54.687Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Parzelle Tabelle\", \"fr\": \"parcelle\", \"it\": \"Tabella della particella\"}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "personalien",
+    "fields": {
+      "created_at": "2019-03-11T07:15:38.905Z",
+      "modified_at": "2024-08-28T12:24:54.689Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Personalien\", \"fr\": \"Donn\\u00e9es personnelles\", \"it\": \"Dati personali\"}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "personalien-tabelle",
+    "fields": {
+      "created_at": "2019-03-25T10:06:27.325Z",
+      "modified_at": "2024-08-28T12:24:54.692Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Personalien Tabelle\", \"fr\": \"Donn\\u00e9es personnelles\", \"it\": \"Tabella dei dati personali\"}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.beschreibung-projektaenderung",
+    "fields": {
+      "created_at": "2023-09-11T06:12:47.221Z",
+      "modified_at": "2023-09-11T06:12:47.221Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz",
+      "question": "beschreibung-projektaenderung",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.folgeplanung",
+    "fields": {
+      "created_at": "2023-10-03T11:47:19.038Z",
+      "modified_at": "2023-10-03T11:47:19.038Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz",
+      "question": "folgeplanung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.gemeinde",
+    "fields": {
+      "created_at": "2020-10-07T13:32:02.145Z",
+      "modified_at": "2020-10-07T13:32:02.145Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz",
+      "question": "gemeinde",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.genereller-erschliessungsplan",
+    "fields": {
+      "created_at": "2023-10-03T11:47:12.977Z",
+      "modified_at": "2023-10-03T11:47:12.977Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz",
+      "question": "genereller-erschliessungsplan",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.genereller-gestaltungsplan",
+    "fields": {
+      "created_at": "2023-10-03T11:46:58.091Z",
+      "modified_at": "2023-10-03T11:46:58.091Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz",
+      "question": "genereller-gestaltungsplan",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.gis-map",
+    "fields": {
+      "created_at": "2023-10-03T11:45:55.486Z",
+      "modified_at": "2023-10-03T11:45:55.486Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz",
+      "question": "gis-map",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.hinweis-gis",
+    "fields": {
+      "created_at": "2024-10-21T17:24:42.743Z",
+      "modified_at": "2024-10-21T17:24:42.743Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz",
+      "question": "hinweis-gis",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.is-paper",
+    "fields": {
+      "created_at": "2023-04-12T07:37:16.721Z",
+      "modified_at": "2023-04-12T07:37:16.721Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz",
+      "question": "is-paper",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.lage-des-vorhabens-titel",
+    "fields": {
+      "created_at": "2023-10-19T08:21:48.797Z",
+      "modified_at": "2023-10-19T08:21:48.797Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz",
+      "question": "lage-des-vorhabens-titel",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.ort-grundstueck",
+    "fields": {
+      "created_at": "2020-10-07T13:31:43.460Z",
+      "modified_at": "2020-10-07T13:31:43.460Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz",
+      "question": "ort-grundstueck",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.parzelle",
+    "fields": {
+      "created_at": "2020-10-07T13:32:31.598Z",
+      "modified_at": "2020-10-07T13:32:31.598Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz",
+      "question": "parzelle",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.plan-der-gefahrenkommission",
+    "fields": {
+      "created_at": "2024-08-22T12:38:56.094Z",
+      "modified_at": "2024-08-22T12:38:56.094Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz",
+      "question": "plan-der-gefahrenkommission",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.projektaenderung",
+    "fields": {
+      "created_at": "2023-05-01T14:09:45.392Z",
+      "modified_at": "2023-05-01T14:09:45.392Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz",
+      "question": "projektaenderung",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.street-and-housenumber",
+    "fields": {
+      "created_at": "2023-10-03T11:46:28.303Z",
+      "modified_at": "2023-10-03T11:46:28.303Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz",
+      "question": "street-and-housenumber",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.zonenplan",
+    "fields": {
+      "created_at": "2023-10-03T11:46:47.507Z",
+      "modified_at": "2023-10-03T11:46:47.507Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz",
+      "question": "zonenplan",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "parzelle-tabelle.baurecht-nummer",
+    "fields": {
+      "created_at": "2019-09-25T10:19:36.427Z",
+      "modified_at": "2019-09-25T10:19:36.427Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "parzelle-tabelle",
+      "question": "baurecht-nummer",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "parzelle-tabelle.e-grid-nr",
+    "fields": {
+      "created_at": "2019-09-25T10:19:37.086Z",
+      "modified_at": "2019-09-25T10:19:37.086Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "parzelle-tabelle",
+      "question": "e-grid-nr",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "parzelle-tabelle.parzellennummer",
+    "fields": {
+      "created_at": "2019-09-25T10:19:35.880Z",
+      "modified_at": "2019-09-25T10:19:35.880Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "parzelle-tabelle",
+      "question": "parzellennummer",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien.personalien-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-09-25T10:19:37.100Z",
+      "modified_at": "2019-09-25T10:19:37.100Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien",
+      "question": "personalien-gesuchstellerin",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien.personalien-grundeigentumerin",
+    "fields": {
+      "created_at": "2019-09-25T10:19:38.806Z",
+      "modified_at": "2019-09-25T10:19:38.806Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien",
+      "question": "personalien-grundeigentumerin",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien.personalien-projektverfasserin",
+    "fields": {
+      "created_at": "2019-09-25T10:19:39.384Z",
+      "modified_at": "2019-09-25T10:19:39.384Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien",
+      "question": "personalien-projektverfasserin",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien.personalien-rechnungsempfaenger",
+    "fields": {
+      "created_at": "2023-04-12T07:40:16.917Z",
+      "modified_at": "2023-04-12T07:40:16.917Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien",
+      "question": "personalien-rechnungsempfaenger",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien.personalien-titel",
+    "fields": {
+      "created_at": "2023-10-19T08:22:34.230Z",
+      "modified_at": "2023-10-19T08:22:34.230Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien",
+      "question": "personalien-titel",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.e-mail-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-09-25T10:19:39.462Z",
+      "modified_at": "2019-09-25T10:19:39.462Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "e-mail-gesuchstellerin",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.hinweis-personalien",
+    "fields": {
+      "created_at": "2020-11-12T15:15:05.374Z",
+      "modified_at": "2020-11-12T15:15:05.374Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "hinweis-personalien",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.juristische-person-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-09-25T10:19:35.563Z",
+      "modified_at": "2019-09-25T10:19:35.563Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "juristische-person-gesuchstellerin",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.name-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-09-25T10:19:36.624Z",
+      "modified_at": "2019-09-25T10:19:36.625Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "name-gesuchstellerin",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.name-juristische-person-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-09-25T10:19:35.724Z",
+      "modified_at": "2019-09-25T10:19:35.724Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "name-juristische-person-gesuchstellerin",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.nummer-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-09-25T10:19:37.486Z",
+      "modified_at": "2019-09-25T10:19:37.486Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "nummer-gesuchstellerin",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.ort-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-09-25T10:19:38.569Z",
+      "modified_at": "2019-09-25T10:19:38.569Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "ort-gesuchstellerin",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.plz-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-09-25T10:19:38.009Z",
+      "modified_at": "2019-09-25T10:19:38.009Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "plz-gesuchstellerin",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.profil-uebernehmen",
+    "fields": {
+      "created_at": "2024-07-02T12:57:49.981Z",
+      "modified_at": "2024-07-02T12:57:49.981Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "profil-uebernehmen",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.strasse-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-09-25T10:19:37.120Z",
+      "modified_at": "2019-09-25T10:19:37.120Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "strasse-gesuchstellerin",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.telefon-oder-mobile-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-09-25T10:19:38.991Z",
+      "modified_at": "2019-09-25T10:19:38.991Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "telefon-oder-mobile-gesuchstellerin",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.vorname-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-09-25T10:19:37.002Z",
+      "modified_at": "2019-09-25T10:19:37.002Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "vorname-gesuchstellerin",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien.weitere-personen",
+    "fields": {
+      "created_at": "2019-09-25T10:19:37.623Z",
+      "modified_at": "2019-09-25T10:19:37.623Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien",
+      "question": "weitere-personen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "is-paper-no",
+    "fields": {
+      "created_at": "2020-01-14T07:42:26.848Z",
+      "modified_at": "2024-09-11T14:58:59.289Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": \"No\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "is-paper-yes",
+    "fields": {
+      "created_at": "2020-01-14T07:42:26.842Z",
+      "modified_at": "2024-09-11T14:58:59.296Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": \"S\\u00ec\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "juristische-person-gesuchstellerin-ja",
+    "fields": {
+      "created_at": "2019-04-01T07:07:21.368Z",
+      "modified_at": "2024-09-11T14:58:59.302Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": \"S\\u00ec\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "juristische-person-gesuchstellerin-nein",
+    "fields": {
+      "created_at": "2019-04-01T07:07:21.381Z",
+      "modified_at": "2024-09-11T14:58:59.309Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": \"No\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "projektaenderung-ja",
+    "fields": {
+      "created_at": "2023-05-01T14:09:45.081Z",
+      "modified_at": "2024-09-11T14:58:59.316Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": \"S\\u00ec\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "projektaenderung-nein",
+    "fields": {
+      "created_at": "2023-05-01T14:09:45.080Z",
+      "modified_at": "2024-09-11T14:58:59.322Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": \"No\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "weitere-personen-abweichender-rechnungsempfaenger",
+    "fields": {
+      "created_at": "2023-04-12T05:39:19.048Z",
+      "modified_at": "2024-08-28T12:24:54.460Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abweichender Rechnungsempf\\u00e4nger\", \"fr\": null, \"it\": \"Altra/o destinataria/o della fattura\"}",
+      "is_hidden": "false",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "weitere-personen-grundeigentumerin",
+    "fields": {
+      "created_at": "2019-03-14T16:03:48.806Z",
+      "modified_at": "2024-08-28T12:24:54.463Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grundeigent\\u00fcmer/in\", \"fr\": \"Propri\\u00e9taire foncier/fonci\\u00e8re\", \"it\": \"Persona proprietaria del fondo\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "weitere-personen-projektverfasserin",
+    "fields": {
+      "created_at": "2019-03-14T16:03:48.822Z",
+      "modified_at": "2024-08-28T12:24:54.467Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Projektverfasser/in\", \"fr\": \"Auteur/e du projet\", \"it\": \"Progettista\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "weitere-personen-rechnungsempfaenger",
+    "fields": {
+      "created_at": "2023-04-12T07:41:03.707Z",
+      "modified_at": "2024-08-28T12:24:54.470Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abweichende(r) Rechnungsempf\\u00e4nger/in\", \"fr\": null, \"it\": \"Altra/o destinataria/o della fattura\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "baurecht-nummer",
+    "fields": {
+      "created_at": "2019-03-28T14:12:52.743Z",
+      "modified_at": "2024-08-28T12:24:50.318Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baurecht-Nummer\", \"fr\": \"Num\\u00e9ro du droit de superficie\", \"it\": \"Numero del diritto di superficie\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Informationsfenster\\nDas Baurecht beinhaltet das Recht, Bauten auf fremdem Boden zu errichten und fortbestehen zu lassen. Das Baurecht durchbricht das sog. Akzessionsprinzip, wonach Bauten immer Bestandteil des Grundst\\u00fcckes bilden.\", \"fr\": null, \"it\": \"\\nIl diritto di superficie comprende il diritto di realizzare e mantenere delle costruzioni su terreni di terzi. Il diritto di superficie prevale sul cosiddetto diritto dell'accessione secondo cui le costruzioni sono sempre parte integrante del fondo.\"}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-projektaenderung",
+    "fields": {
+      "created_at": "2023-09-11T06:12:47.054Z",
+      "modified_at": "2024-08-28T12:24:50.321Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung Projekt\\u00e4nderung\", \"fr\": null, \"it\": \"Descrizione della modifica del progetto\"}",
+      "type": "text",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "\"projektaenderung-ja\" != \"projektaenderung\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dokumente-platzhalter",
+    "fields": {
+      "created_at": "2023-08-10T13:33:37.730Z",
+      "modified_at": "2024-08-28T12:24:50.324Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente Platzhalter\", \"fr\": null, \"it\": \"Segnaposto documenti\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "e-grid-nr",
+    "fields": {
+      "created_at": "2019-03-28T14:13:11.177Z",
+      "modified_at": "2024-08-28T12:24:50.329Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"E-GRID-Nr.\", \"fr\": \"N\\u00b0 E-GRID\", \"it\": \"N.\\u00a0E-GRID\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Eidgen\\u00f6ssische Grundst\\u00fccksidentifikationsnummer\", \"fr\": \"Num\\u00e9ro d'identification f\\u00e9d\\u00e9ral du b\\u00e2timent\", \"it\": \"Identificatore federale dei fondi\"}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": 14
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "e-mail-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-04-04T07:56:23.894Z",
+      "modified_at": "2024-08-28T12:24:50.333Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"E-Mail\", \"fr\": \"Courriel\", \"it\": \"E-mail\"}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[\"email\"]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "folgeplanung",
+    "fields": {
+      "created_at": "2023-10-03T11:47:18.915Z",
+      "modified_at": "2024-08-28T12:24:50.339Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Folgeplanung\", \"fr\": null, \"it\": \"Pianificazione consecutiva\"}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Im Zonenplan k\\u00f6nnen Gebiete bezeichnet werden, in denen eine Folgeplanung (Arealplanung, Quartierplanung) durchgef\\u00fchrt wird. \\n\\nDie Festlegung einer Folgeplanung hat f\\u00fcr das betroffene Gebiet die Wirkung einer Planungszone.\\n\\nDiese Informationen werden direkt aus dem GIS abgef\\u00fcllt.\", \"fr\": null, \"it\": \"Nel piano delle zone si possono indicare delle aree in cui avviene una pianificazione consecutiva (piano di area, piano di quartiere). \\n\\nPer l'area interessata la determinazione di una pianificazione consecutiva ha gli effetti di una zona di pianificazione.\\n\\nQueste informazioni vengono inserite direttamente dal SIG.\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gemeinde",
+    "fields": {
+      "created_at": "2019-05-05T12:48:17.169Z",
+      "modified_at": "2024-08-28T12:24:50.343Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zust\\u00e4ndige Gemeinde\", \"fr\": \"Commune comp\\u00e9tente\", \"it\": \"Comune competente\"}",
+      "type": "dynamic_choice",
+      "is_required": "true",
+      "is_hidden": "form == 'verlaengerung-geltungsdauer'",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": "Municipalities",
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "genereller-erschliessungsplan",
+    "fields": {
+      "created_at": "2023-10-03T11:47:12.861Z",
+      "modified_at": "2024-08-28T12:24:50.353Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Genereller Erschliessungsplan\", \"fr\": null, \"it\": \"Piano generale di urbanizzazione\"}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Der Generelle Erschliessungsplan legt in den Grundz\\u00fcgen die Verkehrs-, Versorgungs- und Entsorgungsanlagen zur Erschliessung der Bauzonen und anderer Nutzungszonen fest. Er enth\\u00e4lt mindestens die Anlagen der Grund- und Groberschliessung und kann auch Anlagen der Feinerschliessung umfassen.\\n\\nDiese Informationen werden direkt aus dem GIS abgef\\u00fcllt.\", \"fr\": null, \"it\": \"Il piano generale di urbanizzazione definisce nei tratti fondamentali gli impianti per il traffico, di approvvigionamento e di smaltimento per l'urbanizzazione delle zone edificabili e di altre zone di utilizzazione. Contiene almeno gli impianti dell'urbanizzazione di base e generale e pu\\u00f2 anche comprendere gli impianti dell'urbanizzazione particolare.\\n\\nQueste informazioni vengono inserite direttamente dal SIG.\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "genereller-gestaltungsplan",
+    "fields": {
+      "created_at": "2023-10-03T11:46:57.972Z",
+      "modified_at": "2024-08-28T12:24:50.359Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Genereller Gestaltungsplan\", \"fr\": null, \"it\": \"Piano generale delle strutture\"}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Der Generelle Gestaltungsplan ordnet in den Grundz\\u00fcgen die Gestaltung (Erhaltung, Erneuerung, Weiterentwicklung) der Siedlungen und der Landschaft.\\n\\n\\nDiese Informationen werden direkt aus dem GIS abgef\\u00fcllt.\", \"fr\": null, \"it\": \"Il piano generale delle strutture disciplina nei tratti fondamentali la strutturazione (conservazione, rinnovo, sviluppo ulteriore) degli insediamenti e del paesaggio.\\n\\n\\nQueste informazioni vengono inserite direttamente dal SIG.\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gis-map",
+    "fields": {
+      "created_at": "2023-10-03T11:45:55.373Z",
+      "modified_at": "2024-08-28T12:24:50.366Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Karte\", \"fr\": null, \"it\": \"Carta\"}",
+      "type": "text",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Bitte tragen Sie die Adresse Ihres Bauvorhabens in die Zeile ein oder klicken Sie in die nachfolgende Karte um die Lage des Bauvorhabens in der Karte zu verorten. \\n\\nSie k\\u00f6nnen ein Punkt, eine Linie oder eine Fl\\u00e4che in der Karte zeichnen.\", \"fr\": null, \"it\": \"Indicare l'indirizzo del progetto di costruzione nell'apposita riga in basso o cliccare sulla cartina successiva per indicare la posizione esatta del progetto. \\n\\nSulla cartina \\u00e8 possibile disegnare un punto, una linea o una superficie.\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "gr-gis"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-gis",
+    "fields": {
+      "created_at": "2023-10-25T16:21:59.439Z",
+      "modified_at": "2024-08-28T12:24:50.372Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis GIS\", \"fr\": null, \"it\": \"Nota SIG\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"#### Lokalisierung\\n\\nBitte tragen Sie die Adresse Ihres Bauvorhabens in die Zeile ein oder klicken Sie in die nachfolgende Karte um die Lage des Bauvorhabens in der Karte zu verorten. \\n\\nSie k\\u00f6nnen einen Punkt, eine Linie oder eine Fl\\u00e4che in der Karte zeichnen.\", \"fr\": \"\", \"it\": \"#### Localizzazione\\n\\nIndicare l'indirizzo del progetto di costruzione nell'apposita riga in basso o cliccare sulla cartina successiva per indicare la posizione esatta del progetto. \\n\\nSulla cartina \\u00e8 possibile disegnare un punto, una linea o una superficie.\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-personalien",
+    "fields": {
+      "created_at": "2020-11-12T15:15:05.246Z",
+      "modified_at": "2024-08-28T12:24:50.379Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Gesuchsteller/in\", \"fr\": \"Hinweis Gesuchsteller/in\", \"it\": \"Nota persona richiedente\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "form == 'information-of-neighbors'",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\"><p>Wenn die hier erfasste Person zus\\u00e4tzlich Zugang zum Dossier erhalten und \\u00fcber dessen Bearbeitungsfortschritt informiert werden soll, erfassen Sie diese im Men\\u00fc \\\"Berechtigungen\\\".</p>\\n\\n<p>Um auf das Dossier zuzugreifen, muss die eingeladene Person auf dem eBau Portal registriert sein. Falls dies noch nicht der Fall ist, wird bei der Einladung automatisch eine E-Mail mit einem Link zur Registrierung versendet.</p></div>\", \"fr\": \"<div class=\\\"uk-alert\\\"><p>Si la personne saisie ici doit \\u00e9galement avoir acc\\u00e8s au dossier et \\u00eatre inform\\u00e9e de l'avancement du projet, saisissez cette personne dans le menu \\\"Autorisation\\\".</p> \\n\\n<p>Pour acc\\u00e9der au dossier, la personne invit\\u00e9e doit \\u00eatre enregistr\\u00e9e sur le portail eBau. Si ce n'est pas encore le cas, un e-mail contenant un lien vers l'enregistrement sera automatiquement envoy\\u00e9 avec l'invitation.</p></div>\", \"it\": \"<div class=\\\"uk-alert\\\"><p>Se la persona registrata deve avere accesso anche al dossier e deve essere informata in merito allo stato di avanzamento dell'evasione, pu\\u00f2 essere registrata al menu \\u00abDiritti\\u00bb.</p>\\n\\n<p>Per accedere al dossier la persona invitata deve essere registrata sul portale eBau. Se ci\\u00f2 non \\u00e8 ancora avvenuto, al momento dell'invito viene inviata automaticamente un'e-mail con un link che permetter\\u00e0 di procedere alla registrazione.</p></div>\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "is-paper",
+    "fields": {
+      "created_at": "2020-01-14T07:42:26.963Z",
+      "modified_at": "2024-08-28T12:24:50.390Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"is-paper\", \"fr\": null, \"it\": \"is-paper\"}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "'verlaengerung-geltungsdauer' == form || 'migriertes-dossier' == form",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "cf-field/input/hidden"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "juristische-person-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-04-01T07:07:21.499Z",
+      "modified_at": "2024-08-28T12:24:50.396Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Handelt es sich um eine juristische Person?\", \"fr\": \"S'agit-il d'une personne morale?\", \"it\": \"Si tratta di una persona giuridica?\"}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"In der Schweiz ist eine juristische Person eine rechtliche Entit\\u00e4t, wie eine Firma, eine Stiftung oder eine Vereinigung, die vom Gesetz anerkannt ist und eigenst\\u00e4ndig Rechte und Pflichten wahrnehmen kann, unabh\\u00e4ngig von den Personen, die sie gr\\u00fcnden oder kontrollieren.\", \"fr\": null, \"it\": \"In Svizzera una persona giuridica \\u00e8 un'entit\\u00e0 giuridica come una ditta, una fondazione o un'associazione riconosciuta dalla legge e in grado di assumere autonomamente diritti e doveri, indipendentemente dalle persone che le costituiscono e le controllano.\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "lage-des-vorhabens-titel",
+    "fields": {
+      "created_at": "2023-10-19T08:21:48.617Z",
+      "modified_at": "2024-09-11T14:58:47.498Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Lage des Vorhabens Titel\", \"fr\": null, \"it\": \"Ubicazione del progetto titolo\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Lage des Vorhabens\", \"fr\": \"\", \"it\": \"### Ubicazione del progetto\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "name-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-04-04T07:52:20.078Z",
+      "modified_at": "2024-08-28T12:24:50.406Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Name\", \"fr\": \"Nom\", \"it\": \"Cognome\"}",
+      "type": "text",
+      "is_required": "!(\"juristische-person-gesuchstellerin-ja\" == \"juristische-person-gesuchstellerin\"|answer)",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "name-juristische-person-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-04-04T07:48:51.263Z",
+      "modified_at": "2024-08-28T12:24:50.410Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Name juristische Person\", \"fr\": \"Nom de la personne morale\", \"it\": \"Nome della persona giuridica\"}",
+      "type": "text",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "!(\n  'juristische-person-gesuchstellerin-ja' == 'juristische-person-gesuchstellerin'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "nummer-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-04-04T07:53:45.186Z",
+      "modified_at": "2024-08-28T12:24:50.414Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nummer\", \"fr\": \"Num\\u00e9ro\", \"it\": \"Numero\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": 12,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ort-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-04-04T07:54:43.501Z",
+      "modified_at": "2024-08-28T12:24:50.417Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ort\", \"fr\": \"Localit\\u00e9\", \"it\": \"Luogo\"}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": 40,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ort-grundstueck",
+    "fields": {
+      "created_at": "2019-04-04T09:17:54.620Z",
+      "modified_at": "2024-08-28T12:24:50.421Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ort\", \"fr\": \"Localit\\u00e9\", \"it\": \"Luogo\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "form == 'verlaengerung-geltungsdauer'",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": 40,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "parzelle",
+    "fields": {
+      "created_at": "2019-03-28T14:16:48.858Z",
+      "modified_at": "2024-08-28T12:24:50.426Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Parzelle\", \"fr\": \"parcelle\", \"it\": \"Particella\"}",
+      "type": "table",
+      "is_required": "true",
+      "is_hidden": "form == 'verlaengerung-geltungsdauer'",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": ["parzellennummer", "baurecht-nummer", "e-grid-nr"]
+      },
+      "data_source": null,
+      "row_form": "parzelle-tabelle",
+      "sub_form": "parzelle-tabelle",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "parzellennummer",
+    "fields": {
+      "created_at": "2019-05-13T07:40:06.122Z",
+      "modified_at": "2024-09-04T11:09:01.410Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Parzellennummer\", \"fr\": \"n\\u00b0 de parcelle\", \"it\": \"Numero della particella\"}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "info_text": "{\"de\": \"Parzelle: Durch Vermessung festgelegtes Grundst\\u00fcck (bzw. Grundst\\u00fccksteil).\", \"fr\": null, \"it\": \"Particella: fondo (o parte di un fondo) determinato con la misurazione.\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null,
+        "max_length": 12,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "personalien-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-03-25T10:14:57.271Z",
+      "modified_at": "2024-08-28T12:24:50.441Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauherrschaft\", \"fr\": \"Requ\\u00e9rant/e\", \"it\": \"Committenza\"}",
+      "type": "table",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Nach Art. 89 Abs. 3 des kantonalen Raumplanungsgesetzes (KRG) ist das Baugesuch zwingend durch die Bauherrschaft zu unterzeichnen. \\n\\nIst die Bauherrschaft nicht Eigent\\u00fcmerin der Liegenschaft, ist das Baugesuch durch die Eigent\\u00fcmerin oder den Eigent\\u00fcmer mitzuunterzeichnen.\\n\\nDie Unterschriften werden am Schluss des Eingabeprozesses auf die  Eingabequittung, die auszudrucken ist, gesetzt.\", \"fr\": null, \"it\": \"Secondo l'art.\\u00a089 cpv.\\u00a03 della legge sulla pianificazione territoriale cantonale (LPTC) la committenza deve necessariamente firmare la domanda di costruzione. \\n\\nSe la committenza non \\u00e8 proprietaria dell'immobile, la domanda di costruzione deve essere controfirmata dalla persona proprietaria.\\n\\nLe firme vengono poste al termine del processo di inserimento sulla ricevuta che deve essere stampata.\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "e-mail-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin"
+        ]
+      },
+      "data_source": null,
+      "row_form": "personalien-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "personalien-grundeigentumerin",
+    "fields": {
+      "created_at": "2019-03-15T12:16:49.305Z",
+      "modified_at": "2024-08-28T12:24:50.445Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grundeigent\\u00fcmer/in\", \"fr\": \"propri\\u00e9taire foncier\", \"it\": \"Persona proprietaria del fondo\"}",
+      "type": "table",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "!(\n  'weitere-personen-grundeigentumerin' in 'weitere-personen'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "name-grundeigentuemerin",
+          "vorname-grundeigentuemerin",
+          "telefon-oder-mobile-grundeigentuemerin",
+          "e-mail-grundeigentuemerin",
+          "name-juristische-person-gesuchstellerin",
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin",
+          "e-mail-gesuchstellerin"
+        ]
+      },
+      "data_source": null,
+      "row_form": "personalien-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "personalien-projektverfasserin",
+    "fields": {
+      "created_at": "2019-03-15T12:15:48.393Z",
+      "modified_at": "2024-08-28T12:24:50.450Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Projektverfasser/in\", \"fr\": \"Auteur/e du projet\", \"it\": \"Progettista\"}",
+      "type": "table",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "!(\n  'weitere-personen-projektverfasserin' in 'weitere-personen'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "name-projektverfasserin",
+          "vorname-projektverfasserin",
+          "telefon-oder-mobile-projektverfasserin",
+          "e-mail-projektverfasserin",
+          "name-juristische-person-gesuchstellerin",
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin",
+          "e-mail-gesuchstellerin"
+        ]
+      },
+      "data_source": null,
+      "row_form": "personalien-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "personalien-rechnungsempfaenger",
+    "fields": {
+      "created_at": "2023-04-12T07:40:16.811Z",
+      "modified_at": "2024-08-28T12:24:50.461Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abweichende(r) Rechnungsempf\\u00e4nger/in\", \"fr\": null, \"it\": \"Altra/o destinataria/o della fattura\"}",
+      "type": "table",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "!(\n  'weitere-personen-rechnungsempfaenger' in 'weitere-personen'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin",
+          "e-mail-gesuchstellerin",
+          "name-juristische-person-gesuchstellerin"
+        ]
+      },
+      "data_source": null,
+      "row_form": "personalien-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "personalien-titel",
+    "fields": {
+      "created_at": "2023-10-19T08:22:34.060Z",
+      "modified_at": "2024-08-28T12:24:50.469Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Personalien Titel\", \"fr\": null, \"it\": \"Dati personali titolo\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Personalien\", \"fr\": \"\", \"it\": \"### Dati personali\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "plan-der-gefahrenkommission",
+    "fields": {
+      "created_at": "2024-08-22T12:38:55.930Z",
+      "modified_at": "2024-09-11T14:58:38.360Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Plan der Gefahrenkommission\", \"fr\": null, \"it\": \"Piano della commissione di pericolo\"}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Der Plan der Gefahrenkommission ist das Ergebnis der Gefahrenkarten zu den Prozessen Lawine, Wasser, Sturz und Rutschung. Im Plan der Gefahrenkommission werden die  resultierende Gefahrenzone 1 (Zone mit erheblicher Gefahr; rot) und die Gefahrenzone 2 (Zone mit mittlerer Gefahr; blau) prozessunabh\\u00e4ngig abgebildet.\\n\\nDie von den Gefahrenkommissionen ausgeschiedenen Gefahrenzonen sind f\\u00fcr die Beh\\u00f6rden rechtsverbindlich. Sie werden von den Gemeinden in ihren kommunalen Zonenpl\\u00e4nen als Gefahrenzonen festgelegt.\\n\\nDiese Informationen werden direkt aus dem GIS abgef\\u00fcllt.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "plz-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-04-04T07:54:11.762Z",
+      "modified_at": "2024-08-28T12:24:50.472Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"PLZ\", \"fr\": \"NPA\", \"it\": \"NPA\"}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "profil-uebernehmen",
+    "fields": {
+      "created_at": "2024-07-02T12:57:49.934Z",
+      "modified_at": "2024-08-28T12:24:50.482Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Profil \\u00fcbernehmen\", \"fr\": null, \"it\": \"Riprendi profilo\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Sie haben die M\\u00f6glichkeit, automatisch die Informationen aus ihrem [Benutzerprofil](/auth/realms/ebau/account?referrer=portal#/personal-info) ins Formular zu \\u00fcbernehmen.\", \"fr\": null, \"it\": \"Ha la possibilit\\u00e0 di riprendere automaticamente le informazioni del suo [profilo utente](/auth/realms/ebau/account?referrer=portal#/personal-info) nel modulo.\"}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"-\", \"fr\": \"\", \"it\": \"-\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "keycloak-profile-apply-button"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "projektaenderung",
+    "fields": {
+      "created_at": "2023-05-01T14:09:45.238Z",
+      "modified_at": "2024-08-28T12:24:50.485Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Projekt\\u00e4nderung\", \"fr\": null, \"it\": \"Modifica del progetto\"}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "cf-field/input/hidden"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "strasse-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-04-04T07:53:17.574Z",
+      "modified_at": "2024-08-28T12:24:50.492Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strasse\", \"fr\": \"Rue\", \"it\": \"Via\"}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": 60,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "street-and-housenumber",
+    "fields": {
+      "created_at": "2023-10-03T11:46:28.186Z",
+      "modified_at": "2024-08-28T12:24:50.496Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strasse/Flurname, Nr.\", \"fr\": null, \"it\": \"Via/toponimo, n.\"}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "telefon-oder-mobile-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-04-04T07:55:32.446Z",
+      "modified_at": "2024-08-28T12:24:50.500Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Telefon oder Mobile\", \"fr\": \"T\\u00e9l\\u00e9phone fixe ou mobile\", \"it\": \"Telefono o cellulare\"}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[\"phone-number\"]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vorname-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-04-04T07:51:39.379Z",
+      "modified_at": "2024-08-28T12:24:50.504Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorname\", \"fr\": \"Pr\\u00e9nom\", \"it\": \"Nome\"}",
+      "type": "text",
+      "is_required": "!(\"juristische-person-gesuchstellerin-ja\" == \"juristische-person-gesuchstellerin\"|answer)",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "weitere-personen",
+    "fields": {
+      "created_at": "2019-03-14T16:03:49.160Z",
+      "modified_at": "2024-08-28T12:24:50.513Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sind neben der Bauherrschaft weitere Personen beteiligt?\", \"fr\": \"Outre les requ\\u00e9rant/e/s, d'autres personnes participent-elles \\u00e0 la proc\\u00e9dure?\", \"it\": \"Oltre alla committenza sono coinvolte altre persone?\"}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Mit der Vollmacht handeln Sie in Stellvertretung f\\u00fcr Dritte. Hinweise \\u00fcber die Regelungen der Stellvertretung finden Sie in Art. 32-40 des eidg. Obligationenrecht (OR).\", \"fr\": \"Une procuration permet de repr\\u00e9senter des tiers. Les articles 32 \\u00e0 40 CO contiennent les dispositions relatives \\u00e0 la repr\\u00e9sentation.\", \"it\": \"La procura permette di agire in rappresentanza di terzi. Indicazioni relative alle regolamentazioni della rappresentanza si possono trovare negli art.\\u00a032-40 del diritto federale delle obbligazioni (CO).\"}",
+      "hint_text": "{\"de\": \"Bitte nur Personen erfassen, welche nicht identisch mit der Bauherrschaft sind.\", \"fr\": null, \"it\": \"Registrare solo le persone che non coincidono con la committenza.\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zonenplan",
+    "fields": {
+      "created_at": "2023-10-03T11:46:47.389Z",
+      "modified_at": "2024-08-28T12:24:50.519Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zonenplan\", \"fr\": null, \"it\": \"Piano delle zone\"}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Der Zonenplan unterteilt das Gemeindegebiet in verschiedene Nutzungszonen (Bauzonen, Landwirtschaftszonen, Schutzzonen und weitere Zonen). \\n\\nDie Zonen der Grundnutzung bestimmen allgemein die zul\\u00e4ssige Nutzung des Bodens. Die Zonen \\u00fcberlagerter Nutzung enthalten erg\\u00e4nzende Nutzungsvorschriften.\\n\\nDiese Informationen werden direkt aus dem GIS abgef\\u00fcllt.\", \"fr\": null, \"it\": \"Il piano delle zone suddivide il territorio comunale in diverse zone di utilizzazione (zone edificabili, zone agricole, zone di protezione e altre zone). \\n\\nLe zone di utilizzazione di base determinano in modo generale l'utilizzazione ammissibile del territorio. Le zone di utilizzazione multipla contengono prescrizioni di utilizzazione complementari.\\n\\nQueste informazioni vengono inserite direttamente dal SIG.\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "is-paper.is-paper-no",
+    "fields": {
+      "created_at": "2020-11-09T10:27:56.015Z",
+      "modified_at": "2020-11-09T10:27:56.015Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "is-paper",
+      "option": "is-paper-no",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "is-paper.is-paper-yes",
+    "fields": {
+      "created_at": "2020-11-09T10:27:56.023Z",
+      "modified_at": "2020-11-09T10:27:56.023Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "is-paper",
+      "option": "is-paper-yes",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "juristische-person-gesuchstellerin.juristische-person-gesuchstellerin-ja",
+    "fields": {
+      "created_at": "2024-03-22T14:36:30.947Z",
+      "modified_at": "2024-03-22T14:36:30.947Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "juristische-person-gesuchstellerin",
+      "option": "juristische-person-gesuchstellerin-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "juristische-person-gesuchstellerin.juristische-person-gesuchstellerin-nein",
+    "fields": {
+      "created_at": "2024-03-22T14:36:30.942Z",
+      "modified_at": "2024-03-22T14:36:30.942Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "juristische-person-gesuchstellerin",
+      "option": "juristische-person-gesuchstellerin-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "projektaenderung.projektaenderung-ja",
+    "fields": {
+      "created_at": "2023-05-03T13:33:29.893Z",
+      "modified_at": "2023-05-03T13:33:29.893Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "projektaenderung",
+      "option": "projektaenderung-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "projektaenderung.projektaenderung-nein",
+    "fields": {
+      "created_at": "2023-05-03T13:33:29.886Z",
+      "modified_at": "2023-05-03T13:33:29.886Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "projektaenderung",
+      "option": "projektaenderung-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "weitere-personen.weitere-personen-abweichender-rechnungsempfaenger",
+    "fields": {
+      "created_at": "2023-10-19T11:40:11.170Z",
+      "modified_at": "2023-10-19T11:40:11.170Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "weitere-personen",
+      "option": "weitere-personen-abweichender-rechnungsempfaenger",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "weitere-personen.weitere-personen-grundeigentumerin",
+    "fields": {
+      "created_at": "2023-10-19T11:40:11.182Z",
+      "modified_at": "2023-10-19T11:40:11.182Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "weitere-personen",
+      "option": "weitere-personen-grundeigentumerin",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "weitere-personen.weitere-personen-projektverfasserin",
+    "fields": {
+      "created_at": "2023-10-19T11:40:11.177Z",
+      "modified_at": "2023-10-19T11:40:11.177Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "weitere-personen",
+      "option": "weitere-personen-projektverfasserin",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "weitere-personen.weitere-personen-rechnungsempfaenger",
+    "fields": {
+      "created_at": "2023-10-19T11:40:11.164Z",
+      "modified_at": "2023-10-19T11:40:11.164Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "weitere-personen",
+      "option": "weitere-personen-rechnungsempfaenger",
+      "sort": 1
+    }
+  }
+]
