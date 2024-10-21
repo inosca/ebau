@@ -2322,6 +2322,110 @@ APPLICATIONS = {
             },
         },
     },
+    "kt_ag": {
+        "SHORT_NAME": "ag",
+        "INTERNAL_FRONTEND": "ebau",
+        "USE_CAMAC_ADMIN": False,
+        "INCLUDE_STATIC_FILES": [("xml", "kt_bern/static/ech0211/xml")],
+        "LOG_NOTIFICATIONS": True,
+        "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
+        # "STORE_PDF": {
+        #     "SECTION": {
+        #         "MAIN": {
+        #             "DEFAULT": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+        #             "PAPER": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+        #         }
+        #     },
+        # },
+        # Mapping between camac role and instance permission.
+        "ROLE_PERMISSIONS": {
+            "applicant": "applicant",
+            "municipality-lead": "municipality",
+            "municipality-admin": "municipality",
+            "service-lead": "service",
+            "service-admin": "service",
+            "subservice": "service",
+            "support": "support",
+        },
+        "ADMIN_GROUP": 1,
+        "IS_MULTILINGUAL": False,
+        "FORM_BACKEND": "caluma",
+        "THUMBNAIL_SIZE": "x300",
+        "PAPER": {
+            "ALLOWED_ROLES": {
+                "DEFAULT": [
+                    3,  # municipality-lead
+                ]
+            },
+            "ALLOWED_SERVICE_GROUPS": {
+                "DEFAULT": [
+                    2,  # municipality
+                ]
+            },
+        },
+        "GROUP_RENAME_ON_SERVICE_RENAME": True,
+        "SERVICE_UPDATE_ALLOWED_ROLES": [
+            "municipality-admin",
+            "service-admin",
+        ],  # if unset, all are allowed
+        # please also update django/Makefile command when changing apps here
+        "SEQUENCE_NAMESPACE_APPS": ["core", "responsible", "document"],
+        "NOTIFICATIONS_EXCLUDED_TASKS": [],
+        "OIDC_SYNC_USER_ATTRIBUTES": [
+            "language",
+            "email",
+            "username",
+            "name",
+            "surname",
+        ],
+        "PORTAL_GROUP": 3,
+        "CALUMA": {
+            "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
+            "SUBMIT_TASKS": ["submit"],
+            "FORM_PERMISSIONS": ["main"],
+            "HAS_PROJECT_CHANGE": True,
+            "CREATE_IN_PROCESS": False,
+            "GENERATE_IDENTIFIER": True,
+            "USE_LOCATION": False,
+            "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
+            "PRE_COMPLETE": {},
+            "SIMPLE_WORKFLOW": {},
+            "PUBLIC_STATUS": {
+                "USE_SLUGS": True,
+                "MAP": {
+                    "new": "creation",
+                    "subm": "submitted",
+                    "init-distribution": "inProcedure",
+                    "correction": "inProcedure",
+                    "circulation": "inProcedure",
+                    "construction-acceptance": "constructionAcceptance",
+                    "decision": "inProcedure",
+                    "finished": "done",
+                    "rejected": "rejected",
+                },
+                "DEFAULT": "inProcedure",
+            },
+        },
+        "INSTANCE_PERMISSIONS": {"MUNICIPALITY_WRITE": ["correction"]},
+        "USE_INSTANCE_SERVICE": True,
+        "ACTIVE_SERVICES": {
+            "MUNICIPALITY": {
+                "FILTERS": {
+                    "service__service_group__name__in": [
+                        "municipality",
+                    ]
+                },
+                "DEFAULT": True,
+            },
+        },
+        "SIDE_EFFECTS": {
+            "document_downloaded": "camac.document.side_effects.create_workflow_entry",
+        },
+        "CUSTOM_NOTIFICATION_TYPES": [],
+        "NOTIFICATIONS": {},
+        "SUBSERVICE_ROLES": ["subservice"],
+        "DOCUMENT_BACKEND": "alexandria",
+    },
 }
 
 APPLICATION = APPLICATIONS.get(APPLICATION_NAME, {})

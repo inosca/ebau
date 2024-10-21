@@ -6,6 +6,7 @@ const LOCALES_MAP = {
   kt_uri: ["de"],
   kt_gr: ["de"],
   kt_so: ["de"],
+  kt_ag: ["de"],
 };
 
 module.exports =

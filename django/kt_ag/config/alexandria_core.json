@@ -1,0 +1,2125 @@
+[
+  {
+    "model": "alexandria_core.category",
+    "pk": "alle-beteiligten",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.704Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2024-08-28T12:24:54.790Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 3,
+        "access": {
+          "are": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "marks",
+                  "files"
+                ],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "metainfo", "files"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags", "category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "uso": {
+            "visibility": "all"
+          },
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "applicant": {
+            "visibility": "all"
+          },
+          "subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "files"
+                ],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "files"
+                ],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Alle Beteiligten\", \"fr\": \"\", \"it\": \"Tutte le parti coinvolte\"}",
+      "description": "{\"de\": \"Hier werden von der Gemeinde Dokumente hochgeladen, welche f\\u00fcr alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Verfahrensprogramm, Bauentscheid). Gesuchstellenden werden diese Dokumente im eBau-Portal unter *R\\u00fcckmeldungen* angezeigt.\", \"fr\": \"\", \"it\": \"Qui il comune carica i documenti che devono essere consultabili per tutte le parti coinvolte (ad es. programma della procedura, decisione edilizia). Le persone richiedenti possono visualizzare questi documenti nel portale eBau al menu *Riscontri*.\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
+      "color": "#CB68C1",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "alle-kanton",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.690Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2024-08-28T12:24:54.793Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "are": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "marks",
+                  "files"
+                ],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "metainfo", "files"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags", "category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "files"
+                ],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Alle Kanton\", \"fr\": \"\", \"it\": \"Tutti Cantone\"}",
+      "description": "{\"de\": \"Diese Kategorie dient dem Dokumentenaustausch zwischen kantonalen Fachstellen. Alle kantonalen Fachstellen haben Zugriff auf hier hochgeladene Dokumente.\", \"fr\": \"\", \"it\": \"Questa categoria serve allo scambio di documenti tra i servizi cantonali. Tutti i servizi cantonali hanno accesso ai documenti caricati.\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
+      "color": "#66CFC9",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "bauabnahme",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.704Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2024-08-28T12:24:54.796Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 5,
+        "access": {
+          "are": {
+            "visibility": "all"
+          },
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "applicant": {
+            "visibility": "all"
+          },
+          "subservice": {
+            "visibility": "all"
+          },
+          "service-lead": {
+            "visibility": "all"
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "condition": {
+                  "InstanceState": ["construction-acceptance"]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "InstanceState": ["construction-acceptance"]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "InstanceState": ["construction-acceptance"]
+                },
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Bauabnahme\", \"fr\": \"\", \"it\": \"Collaudo\"}",
+      "description": "{\"de\": \"Hier werden von der Gemeinde Dokumente zur Bauabnahme hochgeladen, welche f\\u00fcr alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Bauabnahmeprotokoll). Gesuchstellenden werden diese Dokumente im eBau-Portal unter *R\\u00fcckmeldungen* angezeigt.\", \"fr\": \"\", \"it\": \"Qui il comune carica i documenti per il collaudo che devono essere consultabili per tutte le autorit\\u00e0 coinvolte (ad es. protocollo del collaudo). Le persone richiedenti possono visualizzare questi documenti nel portale eBau al menu *Riscontri*.\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
+      "color": "#CB68C1",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.677Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2024-08-28T12:24:54.800Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 1,
+        "access": {
+          "are": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["title", "description", "date", "tags", "marks"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "uso": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              }
+            ]
+          },
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "applicant": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": ["metainfo", "title", "category", "files"],
+                "condition": {
+                  "InstanceState": "new"
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "InstanceState": "new"
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              }
+            ]
+          },
+          "service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": ["title", "description", "date", "tags", "marks"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "PaperInstance": true,
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "InstanceState": "new",
+                  "PaperInstance": true
+                },
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Beilagen zum Gesuch\", \"fr\": \"\", \"it\": \"Allegati alla domanda\"}",
+      "description": "{\"de\": \"Diese Dokumente wurden vom Gesuchstellenden hochgeladen und sind f\\u00fcr alle am Verfahren beteiligten Beh\\u00f6rden einsehbar.\", \"fr\": \"\", \"it\": \"Questi documenti vengono caricati dalle persone richiedenti e possono essere consultati da tutte le autorit\\u00e0 coinvolte nella procedura.\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
+      "color": "#9CDD69",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch-brandschutz",
+    "fields": {
+      "created_at": "2024-04-12T15:10:45.367Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2024-08-28T12:24:54.803Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 3
+      },
+      "name": "{\"de\": \"Brandschutz (Feuerpolizei)\", \"fr\": \"\", \"it\": \"Protezione antincendio (polizia del fuoco)\"}",
+      "description": "{\"de\": \"Unter die Begriffe Brandschutz (Feuerpolizei) fallen alle f\\u00fcr die feuerpolizeiliche Bewilligung notwendigen Gesuchsunterlagen (Situationsplan, Brandschutzpl\\u00e4ne [Grundriss, Schnitte, Fassaden etc.], Brandschutzkonzept, evtl. VKF-Zulassungen, Leistungserkl\\u00e4rungen etc.).\", \"fr\": \"\", \"it\": \"Con \\u00abProtezione antincendio (polizia del fuoco)\\u00bb si intende tutta la documentazione di domanda necessaria per il permesso di polizia del fuoco (piano di situazione, piani antincendio [pianta, sezione, facciate, ecc.], strategia antincendio, ev. omologazioni AICAA, dichiarazioni di prestazione, ecc.).\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
+      "color": "#9CDD69",
+      "parent": "beilagen-zum-gesuch"
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch-grundstuecksangaben",
+    "fields": {
+      "created_at": "2023-08-23T13:17:14.214Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2024-08-28T12:24:54.806Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 1
+      },
+      "name": "{\"de\": \"Grundst\\u00fccksangaben, Projektpl\\u00e4ne und -beschrieb\", \"fr\": \"\", \"it\": \"Indicazioni relative al fondo, piani di progetto e descrizione del progetto\"}",
+      "description": "{\"de\": \"Unter die Begriffe Situationspl\\u00e4ne, Projektpl\\u00e4ne, Projektbeschrieb, Grundst\\u00fccksangaben fallen Gesuchsunterlagen wie z.B. Kartenausschnitt 1:25'000, Grundbuchauszug und Situationsplan 1:500 oder 1:1'000, Aufnahmepl\\u00e4ne (Grundrisse, Schnitte, Ansichten, L\\u00e4ngen- und Querprofile, Normalprofile) und fachgerechte Projektpl\\u00e4ne (Grundrisse, Schnitte, Ansichten, L\\u00e4ngen- und Querprofile, Normalprofile), Umgebungspl\\u00e4ne, Kanalisationsplan, Baubeschrieb etc.\", \"fr\": \"\", \"it\": \"Con \\u00abpiani di situazione\\u00bb, \\u00abpiani di progetto\\u00bb, \\u00abdescrizione del progetto\\u00bb, \\u00abindicazioni relative al fondo\\u00bb si intende la documentazione di domanda come ad es. l'estratto della carta in scala 1:25'000, l'estratto del registro fondiario e il piano di situazione in scala 1:500 o 1:1'000, i piani di rilievo (piante, sezioni, viste, profili longitudinali e trasversali, profili normali) e i piani di progetto professionali (piante, sezioni, viste, profili longitudinali e trasversali, profili normali), i piani delle aree circostanti, il piano delle canalizzazioni, la descrizione della costruzione, ecc.\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
+      "color": "#9CDD69",
+      "parent": "beilagen-zum-gesuch"
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch-gutachten-nachweise-begruendungen",
+    "fields": {
+      "created_at": "2023-08-23T13:17:37.288Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2024-08-28T12:24:54.808Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 2
+      },
+      "name": "{\"de\": \"Gutachten, Nachweise, Begr\\u00fcndungen\", \"fr\": \"\", \"it\": \"Perizie, prove, motivazioni\"}",
+      "description": "{\"de\": \"Unter die Begriffe \\\"Gutachten, Nachweise, Begr\\u00fcndungen\\\" fallen Gesuchsunterlagen wie z.B. Fotodokumentation der bestehenden Baute/Anlage, Formulare zu Zusatzgesuchen (Rodungsgesuch) etc.\", \"fr\": \"\", \"it\": \"Con \\u00abPerizie, prove, motivazioni\\u00bb si intende la documentazione di domanda come ad es. le fotografie delle costruzioni/degli impianti esistenti, i moduli relativi a domande supplementari (domanda di dissodamento), ecc.\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
+      "color": "#9CDD69",
+      "parent": "beilagen-zum-gesuch"
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+    "fields": {
+      "created_at": "2023-08-23T13:18:15.877Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2024-08-28T12:24:54.811Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 4
+      },
+      "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"Altra documentazione di domanda\"}",
+      "description": "{\"de\": \"Unter den Begriff \\\"weitere Gesuchsunterlagen\\\" fallen Gesuchsunterlagen wie z.B. detaillierte Berechnungen der anzuwenden Nutzungsziffern, L\\u00e4rmschutznachweise, Energienachweise, Bericht zur Umweltvert\\u00e4glichkeitspr\\u00fcfung (UVP), Bodenkundliches Fachgutachten, Vopr\\u00fcfungsentscheid der Geb\\u00e4udeversicherung.\", \"fr\": \"\", \"it\": \"Con \\u00abAltra documentazione di domanda\\u00bb si intende la documentazione di domanda come ad es. i calcoli dettagliati degli indici di utilizzazione che dovranno essere applicati, gli attestati di protezione fonica, i certificati energetici, il rapporto relativo all'esame dell'impatto sull'ambiente (EIA), la perizia pedologica, la decisione dell'Assicurazione fabbricati relativa all'esame preliminare.\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
+      "color": "#9CDD69",
+      "parent": "beilagen-zum-gesuch"
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beteiligte-behörden",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.699Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2024-08-28T12:24:54.815Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 4,
+        "access": {
+          "are": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "marks",
+                  "files"
+                ],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "metainfo", "files"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags", "category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "files"
+                ],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "files"
+                ],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Beteiligte Beh\\u00f6rden\", \"fr\": \"\", \"it\": \"Autorit\\u00e0 coinvolte\"}",
+      "description": "{\"de\": \"Hier werden die von den beteiligten Beh\\u00f6rden erfassten Dokumente (z.B. Verf\\u00fcgungen, Amts- und Fachberichte, Stellungnahmen) hochgeladen. Diese Dokumente sind nur f\\u00fcr die am Verfahren beteiligten Beh\\u00f6rden sichtbar, nicht aber f\\u00fcr die Gesuchstellenden.\", \"fr\": \"\", \"it\": \"Qui vengono caricati i documenti compilati dalle autorit\\u00e0 coinvolte (ad es. decisioni, rapporti ufficiali e tecnici, prese di posizione). Questi documenti sono visibili solo per le autorit\\u00e0 coinvolte nella procedura, ma non per le persone richiedenti.\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
+      "color": "#8791EC",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "intern",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.708Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2024-08-28T12:24:54.818Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 6,
+        "access": {
+          "are": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "marks",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "uso": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "subservice": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "service-lead": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Intern\", \"fr\": \"\", \"it\": \"A uso interno\"}",
+      "description": "{\"de\": \"Hier werden Dokumente hochgeladen, welche nur innerhalb der eigenen Organisation (ohne Unterfachstellen) sichtbar sein sollen. In diesem Ordner bestehen keine Einschr\\u00e4nkungen hinsichtlich der erlaubten Dateiformate.\", \"fr\": \"\", \"it\": \"Qui vengono caricati i documenti che devono essere visibili solo all'interno della propria organizzazione (senza servizi di rango inferiore). In questa cartella non vi sono limitazioni per quanto riguarda i formati di file ammessi.\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"image/vnd.dwg\", \".dwg\"]",
+      "color": "#DB8B72",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "intern-mit-unterfachstellen",
+    "fields": {
+      "created_at": "2023-11-13T00:00:00Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2024-08-28T12:24:54.821Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 7,
+        "access": {
+          "are": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "marks",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "permission": "delete"
+              }
+            ]
+          },
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "subservice": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "permission": "delete"
+              }
+            ]
+          },
+          "service-lead": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Intern (mit Unterfachstellen)\", \"fr\": \"\", \"it\": \"A uso interno (con servizi di rango inferiore)\"}",
+      "description": "{\"de\": \"Hier werden Dokumente hochgeladen, welche innerhalb der eigenen Organisation (mit Unterfachstellen) sichtbar sein sollen. In diesem Ordner bestehen keine Einschr\\u00e4nkungen hinsichtlich der erlaubten Dateiformate.\", \"fr\": \"\", \"it\": \"Qui vengono caricati i documenti che devono essere visibili all'interno della propria organizzazione (compresi i servizi di rango inferiore). In questa cartella non vi sono limitazioni per quanto riguarda i formati di file ammessi.\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"image/vnd.dwg\", \".dwg\"]",
+      "color": "#af6023",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "nachforderung",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.690Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2024-08-28T12:24:54.824Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 2,
+        "access": {
+          "are": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": ["title", "description", "date", "tags", "marks"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "uso": {
+            "visibility": "all"
+          },
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "applicant": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": ["metainfo", "title", "category", "files"],
+                "condition": {
+                  "ReadyWorkItem": "fill-additional-demand",
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "ReadyWorkItem": "fill-additional-demand",
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "subservice": {
+            "visibility": "all"
+          },
+          "service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "PaperInstance": true,
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["title", "description", "date", "tags", "marks"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Nachforderung\", \"fr\": \"\", \"it\": \"Richiesta di precisazioni\"}",
+      "description": "{\"de\": \"Diese Dokumente wurden vom Gesuchstellenden im Rahmen von Nachforderungen hochgeladen und sind f\\u00fcr alle am Verfahren beteiligten Beh\\u00f6rden einsehbar.\", \"fr\": \"\", \"it\": \"Questi documenti vengono caricati dalle persone richiedenti nel quadro delle richieste di precisazioni e possono essere consultati da tutte le autorit\\u00e0 coinvolte nella procedura.\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
+      "color": "#66CFC9",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "stellungnahmen-are",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.690Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2024-08-28T12:24:54.826Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "are": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": ["category", "tags", "marks"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "uso": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "files"
+                ],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "InstanceState": "circulation"
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "service-lead": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "files"
+                ],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "InstanceState": "circulation"
+                },
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Stellungnahmen ans ARE\", \"fr\": \"\", \"it\": \"Prese di posizione all'UST-GR\"}",
+      "description": "{\"de\": \"Hier werden Stellungnahmen, Verf\\u00fcgungen und weitere Dokumente zu Handen des Amts f\\u00fcr Raumentwicklung hochgeladen. Die Dokumente sind ausschliesslich f\\u00fcr das ARE sichtbar. Andere Fachstellen haben keinen Zugriff auf hier hochgeladene Dokumente.\", \"fr\": \"\", \"it\": \"Qui vengono caricati prese di posizione, decisioni e altri documenti all'attenzione dell'Ufficio per lo sviluppo del territorio (UST-GR). I documenti sono visibili esclusivamente per l'UST-GR. Gli altri servizi non hanno accesso ai documenti caricati in questa cartella.\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
+      "color": "#66CFC9",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "umweltschutzorganisationen",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.690Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2024-08-28T12:24:54.830Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "are": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "marks",
+                  "files"
+                ],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "metainfo", "files"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags", "category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "uso": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              }
+            ]
+          },
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Umweltschutzorganisationen\", \"fr\": \"\", \"it\": \"Organizzazioni ambientaliste\"}",
+      "description": "{\"de\": \"Hier werden Dokumente hochgeladen, welche Umweltschutzorganisationen zug\\u00e4nglich gemacht werden sollen. Dokumente in dieser Kategorie k\\u00f6nnen vom ARE hochgeladen und von USOs eingesehen werden.\", \"fr\": \"\", \"it\": \"Qui vengono caricati i documenti che devono essere accessibili per le organizzazioni ambientaliste. I documenti in questa categoria possono essere caricati dall'UST-GR ed essere consultati dalle organizzazioni ambientaliste.\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
+      "color": "#66CFC9",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.mark",
+    "pk": "decision",
+    "fields": {
+      "created_at": "2023-12-01T09:11:54.349Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-12-01T09:11:54.349Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 1
+      },
+      "name": "{\"de\": \"Entscheiddokument\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}"
+    }
+  },
+  {
+    "model": "alexandria_core.mark",
+    "pk": "publication",
+    "fields": {
+      "created_at": "2023-12-01T09:11:54.349Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-12-01T09:11:54.349Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 2
+      },
+      "name": "{\"de\": \"Publikationsdokument\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}"
+    }
+  },
+  {
+    "model": "alexandria_core.mark",
+    "pk": "sensitive",
+    "fields": {
+      "created_at": "2023-12-01T09:11:54.349Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-12-01T09:11:54.349Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 4
+      },
+      "name": "{\"de\": \"Vertraulich\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Dieses Dokument enth\\u00e4lt pers\\u00f6nliche Daten. Das Dokument kann nicht \\u00f6ffentlich publiziert werden.\", \"fr\": \"\", \"it\": \"\"}"
+    }
+  },
+  {
+    "model": "alexandria_core.mark",
+    "pk": "void",
+    "fields": {
+      "created_at": "2023-12-01T09:11:54.349Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-12-01T09:11:54.349Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 3
+      },
+      "name": "{\"de\": \"Ung\\u00fcltig\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}"
+    }
+  }
+]
