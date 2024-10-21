@@ -27,7 +27,7 @@ from camac.permissions.switcher import PERMISSION_MODE
                 "name": "Name change",
                 "description": "Creator changes",
                 "assignedUsers": ["3"],
-                "deadline": "2022-11-16T00:00:00Z",
+                "deadline": "2022-11-16T00:00:00+00:00",
                 "meta": json.dumps({"foo": "bar"}),
             },
             False,
@@ -45,7 +45,7 @@ from camac.permissions.switcher import PERMISSION_MODE
             {
                 "assignedUsers": ["3"],
                 # Millisecond change of deadline (same full second)
-                "deadline": "2022-11-10T00:00:00.15Z",
+                "deadline": "2022-11-10T00:00:00.150000+00:00",
             },
             False,
         ),
@@ -57,7 +57,7 @@ from camac.permissions.switcher import PERMISSION_MODE
             "controller",
             {
                 "description": "Controller changes",
-                "deadline": "2022-11-15T00:00:00Z",
+                "deadline": "2022-11-15T00:00:00+00:00",
                 "meta": json.dumps({"foo": "bar"}),
             },
             False,
@@ -686,7 +686,10 @@ def test_coordination_services(
     result = caluma_admin_schema_executor(
         mutation,
         variables={
-            "input": {"deadline": "2022-11-16T00:00:00Z", "workItem": str(work_item.pk)}
+            "input": {
+                "deadline": "2022-11-16T00:00:00+00:00",
+                "workItem": str(work_item.pk),
+            }
         },
     )
 
