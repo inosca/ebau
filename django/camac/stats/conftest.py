@@ -137,8 +137,10 @@ def rejected_application_factory(
                 ),
             }
         )
-        rejected_application.case.document.source = parent_application.case.document
-        rejected_application.case.document.save()
+        rejected_application.case.save()
+
+        parent_application.case.document.source = rejected_application.case.document
+        parent_application.case.document.save()
         return rejected_application
 
     return wrapper
