@@ -13,6 +13,7 @@ django-admin-sortable2==2.2.3
 django-clamd==1.0.0
 django-environ==0.11.2
 django-excel==0.0.10
+django-ipware==7.0.1
 drf-extra-fields==3.7.0
 django-filter==24.3
 django-generic-api-permissions==0.4.6

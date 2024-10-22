@@ -489,6 +489,7 @@ ECH0211 = {
                 ECH_STATUS_NOTIFICATION_ENTSCHIEDEN: {"disabled": True}
             },
         },
+        "GEOFENCE": {"ENABLE": True, "REGIONS": ["CH"]},
     },
     "kt_so": {
         "ENABLED": True,
