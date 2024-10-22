@@ -4,7 +4,7 @@ from typing import List, Union
 from babel.dates import format_date
 from caluma.caluma_form.models import Document
 from django.conf import settings
-from django.utils.translation import get_language, gettext_lazy as _
+from django.utils.translation import get_language, gettext as _
 
 from camac.caluma.utils import find_answer
 from camac.utils import clean_join
