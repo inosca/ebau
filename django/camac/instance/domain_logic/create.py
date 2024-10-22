@@ -410,15 +410,16 @@ class CreateInstanceLogic:
     @staticmethod
     def copy_applicants(source, target):
         for applicant in source.involved_applicants.all():
-            target.involved_applicants.update_or_create(
+            new_applicant = target.involved_applicants.create(
                 invitee=applicant.invitee,
-                defaults={
-                    "created": timezone.now(),
-                    "user": applicant.user,
-                    "email": applicant.email,
-                },
+                created=timezone.now(),
+                user=applicant.user,
+                email=applicant.email,
+                role=applicant.role,
             )
-            Trigger.applicant_added(request=None, instance=target, applicant=applicant)
+            Trigger.applicant_added(
+                request=None, instance=target, applicant=new_applicant
+            )
 
     @staticmethod
     def copy_attachments(source, target, skip_exported_form_attachment=False):
@@ -588,7 +589,7 @@ class CreateInstanceLogic:
 
         instance = Instance.objects.create(**data)
 
-        if not is_paper:
+        if not is_paper and not source_instance:
             new_applicant = instance.involved_applicants.create(
                 user=camac_user,
                 invitee=camac_user,

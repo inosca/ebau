@@ -82,23 +82,39 @@ def test_copy_applicants(
     access_level_factory,
     instance_with_case,
     user,
+    user_factory,
 ):
     access_level_factory(slug="applicant")
     source_instance = instance_with_case(instance_factory())
     target_instance = instance_with_case(instance_factory())
     target_instance.involved_applicants.all().delete()
-    applicant_factory(instance=source_instance, invitee=user)
-
-    assert target_instance.involved_applicants.count() == 0
-    assert target_instance.acls.filter(access_level="applicant").count() == 0
+    applicant_factory(instance=source_instance, invitee=user, role="EDITOR")
+    applicant_factory(
+        instance=source_instance, invitee=user_factory(), role="READ_ONLY"
+    )
+    applicant_factory(
+        instance=source_instance, invitee=None, email="1@test.test", role="READ_ONLY"
+    )
+    applicant_factory(
+        instance=source_instance, invitee=None, email="2@test.test", role="READ_ONLY"
+    )
 
     CreateInstanceLogic.copy_applicants(source_instance, target_instance)
 
+    assert (
+        target_instance.involved_applicants.count()
+        == source_instance.involved_applicants.count()
+    )
     for applicant in source_instance.involved_applicants.all():
-        assert target_instance.involved_applicants.filter(invitee=applicant.invitee)
-        assert target_instance.acls.filter(
-            access_level="applicant", user=applicant.invitee
-        ).exists()
+        if applicant.invitee:
+            copy = target_instance.involved_applicants.filter(invitee=applicant.invitee)
+            assert target_instance.acls.filter(
+                access_level="applicant", user=applicant.invitee
+            ).exists()
+        else:
+            copy = target_instance.involved_applicants.filter(email=applicant.email)
+        assert copy.exists()
+        assert copy.first().role == applicant.role
 
 
 @pytest.mark.parametrize("service__external_identifier", ["2601"])
