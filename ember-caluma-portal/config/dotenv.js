@@ -16,7 +16,6 @@ module.exports = function (environment) {
       "ENABLE_TOKEN_EXCHANGE",
       "ENABLE_WATERMARK",
       "WATERMARK",
-      "LOCALES",
     ],
     path: path.join(path.dirname(__dirname), "../.env"),
     enabled: environment !== "production",
