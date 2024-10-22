@@ -3762,6 +3762,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.aussenwaende",
+    "fields": {
+      "created_at": "2024-10-22T09:57:02.306Z",
+      "modified_at": "2024-10-22T09:57:02.306Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "aussenwaende",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "bauvorhaben.bauanzeige-haustechnische-anlagen-brandschutz",
     "fields": {
       "created_at": "2023-09-06T07:17:38.677Z",
@@ -3772,6 +3787,21 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "bauanzeige-haustechnische-anlagen-brandschutz",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.bauart-titel",
+    "fields": {
+      "created_at": "2024-10-22T09:53:51.830Z",
+      "modified_at": "2024-10-22T09:53:51.830Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "bauart-titel",
       "sort": 4
     }
   },
@@ -3787,7 +3817,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "baugespann",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -3802,7 +3832,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "baugespann-erstellt-am",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -3817,7 +3847,22 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "baukosten",
-      "sort": 7
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.beschreibung-aussenwaende",
+    "fields": {
+      "created_at": "2024-10-22T09:57:11.104Z",
+      "modified_at": "2024-10-22T09:57:11.104Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "beschreibung-aussenwaende",
+      "sort": 1
     }
   },
   {
@@ -3832,7 +3877,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "beschreibung-bauvorhaben",
-      "sort": 12
+      "sort": 14
     }
   },
   {
@@ -3847,7 +3892,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "beschreibung-bauvorhaben-details",
-      "sort": 11
+      "sort": 13
     }
   },
   {
@@ -3862,7 +3907,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "divider",
-      "sort": 10
+      "sort": 12
     }
   },
   {
@@ -3877,7 +3922,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "dossiernummer-des-bewilligten-projekts",
-      "sort": 13
+      "sort": 15
     }
   },
   {
@@ -3892,7 +3937,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "gebaeudekubatur",
-      "sort": 9
+      "sort": 11
     }
   },
   {
@@ -3907,7 +3952,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "hinweis-zustaendigkeit",
-      "sort": 15
+      "sort": 17
     }
   },
   {
@@ -3922,52 +3967,37 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "kosten-pro-m3",
-      "sort": 8
+      "sort": 10
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "bauvorhaben.terminierung-titel",
+    "pk": "bauvorhaben.material-aussenwaende",
     "fields": {
-      "created_at": "2024-08-21T09:34:00.738Z",
-      "modified_at": "2024-08-21T09:34:00.738Z",
+      "created_at": "2024-10-22T09:57:05.016Z",
+      "modified_at": "2024-10-22T09:57:05.016Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "bauvorhaben",
-      "question": "terminierung-titel",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bauvorhaben.voraussichtliche-fertigstellung",
-    "fields": {
-      "created_at": "2024-08-21T09:35:47.600Z",
-      "modified_at": "2024-08-21T09:35:47.600Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "bauvorhaben",
-      "question": "voraussichtliche-fertigstellung",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bauvorhaben.voraussichtlicher-baubeginn",
-    "fields": {
-      "created_at": "2024-08-21T09:34:58.520Z",
-      "modified_at": "2024-08-21T09:34:58.520Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "bauvorhaben",
-      "question": "voraussichtlicher-baubeginn",
+      "question": "material-aussenwaende",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.profilierung-titel",
+    "fields": {
+      "created_at": "2024-10-22T09:51:50.353Z",
+      "modified_at": "2024-10-22T09:51:50.353Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "profilierung-titel",
+      "sort": 8
     }
   },
   {
@@ -3982,7 +4012,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "vorhaben",
-      "sort": 14
+      "sort": 16
     }
   },
   {
@@ -3997,7 +4027,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "vorhaben-titel",
-      "sort": 16
+      "sort": 18
     }
   },
   {
@@ -20166,12 +20196,29 @@
     "pk": "aussenwaende-anderes",
     "fields": {
       "created_at": "2023-05-25T07:16:01.904Z",
-      "modified_at": "2024-08-28T12:24:51.236Z",
+      "modified_at": "2024-10-22T09:57:58.059Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Weitere\", \"fr\": null, \"it\": \"Altro\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "aussenwaende-fertigbau",
+    "fields": {
+      "created_at": "2024-10-22T09:57:58.069Z",
+      "modified_at": "2024-10-22T09:57:58.069Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Anderes\", \"fr\": null, \"it\": \"Altro\"}",
+      "label": "{\"de\": \"Fertigbau\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -20183,12 +20230,46 @@
     "pk": "aussenwaende-holzbau",
     "fields": {
       "created_at": "2023-05-25T07:16:01.857Z",
-      "modified_at": "2024-09-11T14:58:49.947Z",
+      "modified_at": "2024-10-22T09:57:58.078Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Holzbau\", \"fr\": null, \"it\": \"In legno\"}",
+      "is_hidden": "false",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "aussenwaende-leichtbau",
+    "fields": {
+      "created_at": "2024-10-22T09:57:58.242Z",
+      "modified_at": "2024-10-22T09:57:58.242Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Holzbau\", \"fr\": null, \"it\": \"In legno\"}",
+      "label": "{\"de\": \"Leichtbau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "aussenwaende-massivbau",
+    "fields": {
+      "created_at": "2024-10-22T09:57:58.049Z",
+      "modified_at": "2024-10-22T09:57:58.049Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Massivbau\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -20200,14 +20281,14 @@
     "pk": "aussenwaende-mauerwerk",
     "fields": {
       "created_at": "2023-05-25T07:16:01.863Z",
-      "modified_at": "2024-09-11T14:58:49.954Z",
+      "modified_at": "2024-10-22T09:57:58.057Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Mauerwerk/Beton\", \"fr\": null, \"it\": \"In muratura/calcestruzzo\"}",
       "is_hidden": "false",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -35228,14 +35309,14 @@
     "pk": "vorhaben-andere",
     "fields": {
       "created_at": "2023-04-05T10:41:47.660Z",
-      "modified_at": "2024-09-11T14:58:57.264Z",
+      "modified_at": "2024-10-22T09:39:07.374Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Andere bauliche Massnahmen\", \"fr\": null, \"it\": \"Altre misure edilizie\"}",
       "is_hidden": "false",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -35245,14 +35326,14 @@
     "pk": "vorhaben-erneuerung",
     "fields": {
       "created_at": "2023-10-19T08:25:28.801Z",
-      "modified_at": "2024-09-11T14:58:57.271Z",
+      "modified_at": "2024-10-22T09:39:07.371Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Erneuerung\", \"fr\": null, \"it\": \"Rinnovo\"}",
       "is_hidden": "false",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -35262,14 +35343,14 @@
     "pk": "vorhaben-erweiterung-anbau",
     "fields": {
       "created_at": "2023-06-15T13:13:36.649Z",
-      "modified_at": "2024-09-11T14:58:57.278Z",
+      "modified_at": "2024-10-22T09:39:07.355Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Erweiterung\", \"fr\": null, \"it\": \"Ampliamento\"}",
       "is_hidden": "false",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -35296,14 +35377,14 @@
     "pk": "vorhaben-projektaenderung-einer-bewilligten-baute-anlage",
     "fields": {
       "created_at": "2023-04-05T10:41:47.662Z",
-      "modified_at": "2024-09-11T14:58:57.295Z",
+      "modified_at": "2024-10-22T09:39:07.357Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Projekt\\u00e4nderung einer bewilligten Baute / Anlage\", \"fr\": null, \"it\": \"Modifica del progetto di un edificio/impianto autorizzato\"}",
       "is_hidden": "false",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -35330,12 +35411,12 @@
     "pk": "vorhaben-zweckaenderung",
     "fields": {
       "created_at": "2023-10-19T08:26:25.255Z",
-      "modified_at": "2024-09-11T14:58:57.311Z",
+      "modified_at": "2024-10-22T09:39:07.363Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Zweck\\u00e4nderung\", \"fr\": null, \"it\": \"Destinazione ad altro scopo\"}",
+      "label": "{\"de\": \"Nutzungs\\u00e4nderung\", \"fr\": null, \"it\": \"Destinazione ad altro scopo\"}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -44567,7 +44648,7 @@
     "pk": "aussenwaende",
     "fields": {
       "created_at": "2023-05-25T07:16:02.027Z",
-      "modified_at": "2024-09-11T14:58:34.907Z",
+      "modified_at": "2024-10-22T09:58:10.460Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -44981,6 +45062,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bauart-titel",
+    "fields": {
+      "created_at": "2024-10-22T09:53:51.682Z",
+      "modified_at": "2024-10-22T09:53:51.682Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauart Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\\n### Bauart\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "baubeginn",
     "fields": {
       "created_at": "2023-05-25T07:02:22.153Z",
@@ -45051,19 +45163,19 @@
     "pk": "baugespann",
     "fields": {
       "created_at": "2023-04-12T07:53:03.844Z",
-      "modified_at": "2024-09-11T14:58:35.126Z",
+      "modified_at": "2024-10-22T09:41:35.127Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Baugespann\", \"fr\": null, \"it\": \"Modine\"}",
+      "label": "{\"de\": \"Profilierung\", \"fr\": null, \"it\": \"Modine\"}",
       "type": "choice",
       "is_required": "!(\"vorlaeufige-beurteilung\" in form || \"is-paper-yes\" == \"is-paper\"|answer)",
       "is_hidden": "!(\"baugesuch\" in form)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Bei Bauvorhaben, die nach aussen in Erscheinung treten, ist ein Baugespann aufzustellen. \\n\\nEs ist in jedem Falle w\\u00e4hrend der Dauer der \\u00f6ffentlichen Auflage stehen zu lassen (vgl. Art. 43 der kantonalen Raumplanungsverordnung [KRVO]).\", \"fr\": null, \"it\": \"Per progetti di costruzione visibili dall'esterno devono essere posate modine. \\n\\nIn ogni caso esse devono essere lasciate sul posto per tutta la durata dell'esposizione pubblica (cfr. art.\\u00a043 dell'ordinanza cantonale sulla pianificazione territoriale [OPTC]).\"}",
-      "hint_text": "{\"de\": \"Hinweis: Das Baugespann muss zum Zeitpunkt der Baueingabe erstellt sein (vgl. Art. 43 der kantonalen Raumplanungsverordnung [KRVO]).\", \"fr\": null, \"it\": \"Nota: le modine devono essere posate al momento dell'inoltro della domanda di costruzione (cfr. art.\\u00a043 dell'ordinanza cantonale sulla pianificazione territoriale [OPTC]).\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"Nota: le modine devono essere posate al momento dell'inoltro della domanda di costruzione (cfr. art.\\u00a043 dell'ordinanza cantonale sulla pianificazione territoriale [OPTC]).\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -45082,12 +45194,12 @@
     "pk": "baugespann-erstellt-am",
     "fields": {
       "created_at": "2023-04-12T07:53:46.553Z",
-      "modified_at": "2024-09-11T14:58:35.134Z",
+      "modified_at": "2024-10-22T09:41:03.710Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Erstellt am\", \"fr\": null, \"it\": \"Data di creazione\"}",
+      "label": "{\"de\": \"Profilierungsdatum\", \"fr\": null, \"it\": \"Data di creazione\"}",
       "type": "date",
       "is_required": "!(\"vorlaeufige-beurteilung\" in form || \"is-paper-yes\" in \"is-paper\"|answer)",
       "is_hidden": "\"bauanzeige\" in form || \"solaranlage\" in form || !(\"baugespann-ja\" == \"baugespann\"|answer)",
@@ -45571,6 +45683,39 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "baurecht-nummer",
+    "fields": {
+      "created_at": "2019-03-28T14:12:52.743Z",
+      "modified_at": "2024-08-28T12:24:50.318Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baurecht-Nummer\", \"fr\": \"Num\\u00e9ro du droit de superficie\", \"it\": \"Numero del diritto di superficie\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Informationsfenster\\nDas Baurecht beinhaltet das Recht, Bauten auf fremdem Boden zu errichten und fortbestehen zu lassen. Das Baurecht durchbricht das sog. Akzessionsprinzip, wonach Bauten immer Bestandteil des Grundst\\u00fcckes bilden.\", \"fr\": null, \"it\": \"\\nIl diritto di superficie comprende il diritto di realizzare e mantenere delle costruzioni su terreni di terzi. Il diritto di superficie prevale sul cosiddetto diritto dell'accessione secondo cui le costruzioni sono sempre parte integrante del fondo.\"}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -52189,10 +52334,10 @@
     "pk": "divider",
     "fields": {
       "created_at": "2023-04-12T07:48:18.329Z",
-      "modified_at": "2024-09-11T14:58:37.665Z",
+      "modified_at": "2024-10-22T09:51:30.521Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Titel Baukosten\", \"fr\": null, \"it\": \"Costi di costruzione titolo\"}",
       "type": "static",
@@ -52202,7 +52347,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n\\n### Approximative Baukosten / Baugespann\", \"fr\": \"\", \"it\": \"---\\n\\n### Costi di costruzione approssimativi / modine\"}",
+      "static_content": "{\"de\": \"---\\n\\n### Approximative Baukosten\", \"fr\": \"\", \"it\": \"---\\n\\n### Costi di costruzione approssimativi / modine\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -56498,6 +56643,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "folgeplanung",
+    "fields": {
+      "created_at": "2023-10-03T11:47:18.915Z",
+      "modified_at": "2024-08-28T12:24:50.339Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Folgeplanung\", \"fr\": null, \"it\": \"Pianificazione consecutiva\"}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Im Zonenplan k\\u00f6nnen Gebiete bezeichnet werden, in denen eine Folgeplanung (Arealplanung, Quartierplanung) durchgef\\u00fchrt wird. \\n\\nDie Festlegung einer Folgeplanung hat f\\u00fcr das betroffene Gebiet die Wirkung einer Planungszone.\\n\\nDiese Informationen werden direkt aus dem GIS abgef\\u00fcllt.\", \"fr\": null, \"it\": \"Nel piano delle zone si possono indicare delle aree in cui avviene una pianificazione consecutiva (piano di area, piano di quartiere). \\n\\nPer l'area interessata la determinazione di una pianificazione consecutiva ha gli effetti di una zona di pianificazione.\\n\\nQueste informazioni vengono inserite direttamente dal SIG.\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "form-des-behaelters",
     "fields": {
       "created_at": "2023-04-20T07:55:32.838Z",
@@ -57263,6 +57442,74 @@
         "hideLabel": true,
         "widgetOverride": "service-content"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "genereller-erschliessungsplan",
+    "fields": {
+      "created_at": "2023-10-03T11:47:12.861Z",
+      "modified_at": "2024-08-28T12:24:50.353Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Genereller Erschliessungsplan\", \"fr\": null, \"it\": \"Piano generale di urbanizzazione\"}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Der Generelle Erschliessungsplan legt in den Grundz\\u00fcgen die Verkehrs-, Versorgungs- und Entsorgungsanlagen zur Erschliessung der Bauzonen und anderer Nutzungszonen fest. Er enth\\u00e4lt mindestens die Anlagen der Grund- und Groberschliessung und kann auch Anlagen der Feinerschliessung umfassen.\\n\\nDiese Informationen werden direkt aus dem GIS abgef\\u00fcllt.\", \"fr\": null, \"it\": \"Il piano generale di urbanizzazione definisce nei tratti fondamentali gli impianti per il traffico, di approvvigionamento e di smaltimento per l'urbanizzazione delle zone edificabili e di altre zone di utilizzazione. Contiene almeno gli impianti dell'urbanizzazione di base e generale e pu\\u00f2 anche comprendere gli impianti dell'urbanizzazione particolare.\\n\\nQueste informazioni vengono inserite direttamente dal SIG.\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "genereller-gestaltungsplan",
+    "fields": {
+      "created_at": "2023-10-03T11:46:57.972Z",
+      "modified_at": "2024-08-28T12:24:50.359Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Genereller Gestaltungsplan\", \"fr\": null, \"it\": \"Piano generale delle strutture\"}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Der Generelle Gestaltungsplan ordnet in den Grundz\\u00fcgen die Gestaltung (Erhaltung, Erneuerung, Weiterentwicklung) der Siedlungen und der Landschaft.\\n\\n\\nDiese Informationen werden direkt aus dem GIS abgef\\u00fcllt.\", \"fr\": null, \"it\": \"Il piano generale delle strutture disciplina nei tratti fondamentali la strutturazione (conservazione, rinnovo, sviluppo ulteriore) degli insediamenti e del paesaggio.\\n\\n\\nQueste informazioni vengono inserite direttamente dal SIG.\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -67862,6 +68109,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "profilierung-titel",
+    "fields": {
+      "created_at": "2024-10-22T09:51:50.218Z",
+      "modified_at": "2024-10-22T09:52:07.962Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Profilierung Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\\n### Profilierung\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "projektierte-schutzraeume-infotext",
     "fields": {
       "created_at": "2024-07-16T06:53:35.464Z",
@@ -74720,7 +74998,7 @@
     "pk": "vorhaben",
     "fields": {
       "created_at": "2023-04-05T10:41:47.866Z",
-      "modified_at": "2024-09-11T14:58:46.234Z",
+      "modified_at": "2024-10-22T09:39:08.084Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -80738,8 +81016,8 @@
     "model": "caluma_form.questionoption",
     "pk": "aussenwaende.aussenwaende-anderes",
     "fields": {
-      "created_at": "2023-10-25T08:50:52.028Z",
-      "modified_at": "2023-10-25T08:50:52.028Z",
+      "created_at": "2024-10-22T09:58:10.471Z",
+      "modified_at": "2024-10-22T09:58:10.471Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -80751,32 +81029,77 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "aussenwaende.aussenwaende-fertigbau",
+    "fields": {
+      "created_at": "2024-10-22T09:58:10.482Z",
+      "modified_at": "2024-10-22T09:58:10.482Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "aussenwaende",
+      "option": "aussenwaende-fertigbau",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "aussenwaende.aussenwaende-holzbau",
     "fields": {
-      "created_at": "2023-10-25T08:50:52.034Z",
-      "modified_at": "2023-10-25T08:50:52.034Z",
+      "created_at": "2024-10-22T09:58:10.495Z",
+      "modified_at": "2024-10-22T09:58:10.495Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "aussenwaende",
       "option": "aussenwaende-holzbau",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "aussenwaende.aussenwaende-leichtbau",
+    "fields": {
+      "created_at": "2024-10-22T09:58:10.477Z",
+      "modified_at": "2024-10-22T09:58:10.477Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "aussenwaende",
+      "option": "aussenwaende-leichtbau",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "aussenwaende.aussenwaende-massivbau",
+    "fields": {
+      "created_at": "2024-10-22T09:58:10.489Z",
+      "modified_at": "2024-10-22T09:58:10.489Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "aussenwaende",
+      "option": "aussenwaende-massivbau",
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "aussenwaende.aussenwaende-mauerwerk",
     "fields": {
-      "created_at": "2023-10-25T08:50:52.038Z",
-      "modified_at": "2023-10-25T08:50:52.038Z",
+      "created_at": "2024-10-22T09:58:10.500Z",
+      "modified_at": "2024-10-22T09:58:10.500Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "aussenwaende",
       "option": "aussenwaende-mauerwerk",
-      "sort": 3
+      "sort": 6
     }
   },
   {
@@ -80993,8 +81316,8 @@
     "model": "caluma_form.questionoption",
     "pk": "baugespann.baugespann-ja",
     "fields": {
-      "created_at": "2024-03-22T14:34:06.850Z",
-      "modified_at": "2024-03-22T14:34:06.850Z",
+      "created_at": "2024-10-22T09:41:35.149Z",
+      "modified_at": "2024-10-22T09:41:35.149Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -81008,8 +81331,8 @@
     "model": "caluma_form.questionoption",
     "pk": "baugespann.baugespann-nein",
     "fields": {
-      "created_at": "2024-03-22T14:34:06.844Z",
-      "modified_at": "2024-03-22T14:34:06.844Z",
+      "created_at": "2024-10-22T09:41:35.144Z",
+      "modified_at": "2024-10-22T09:41:35.144Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -93473,8 +93796,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-abbruch-teilabbruch",
     "fields": {
-      "created_at": "2023-10-25T16:27:44.715Z",
-      "modified_at": "2023-10-25T16:27:44.715Z",
+      "created_at": "2024-10-22T09:39:08.116Z",
+      "modified_at": "2024-10-22T09:39:08.116Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -93488,8 +93811,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-andere",
     "fields": {
-      "created_at": "2023-10-25T16:27:44.703Z",
-      "modified_at": "2023-10-25T16:27:44.703Z",
+      "created_at": "2024-10-22T09:39:08.100Z",
+      "modified_at": "2024-10-22T09:39:08.100Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -93503,8 +93826,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-erneuerung",
     "fields": {
-      "created_at": "2023-10-25T16:27:44.727Z",
-      "modified_at": "2023-10-25T16:27:44.727Z",
+      "created_at": "2024-10-22T09:39:08.128Z",
+      "modified_at": "2024-10-22T09:39:08.128Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -93518,8 +93841,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-erweiterung-anbau",
     "fields": {
-      "created_at": "2023-10-25T16:27:44.737Z",
-      "modified_at": "2023-10-25T16:27:44.737Z",
+      "created_at": "2024-10-22T09:39:08.140Z",
+      "modified_at": "2024-10-22T09:39:08.140Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -93533,8 +93856,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-neubau",
     "fields": {
-      "created_at": "2023-10-25T16:27:44.742Z",
-      "modified_at": "2023-10-25T16:27:44.742Z",
+      "created_at": "2024-10-22T09:39:08.146Z",
+      "modified_at": "2024-10-22T09:39:08.146Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -93548,8 +93871,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-projektaenderung-einer-bewilligten-baute-anlage",
     "fields": {
-      "created_at": "2023-10-25T16:27:44.709Z",
-      "modified_at": "2023-10-25T16:27:44.709Z",
+      "created_at": "2024-10-22T09:39:08.110Z",
+      "modified_at": "2024-10-22T09:39:08.110Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -93563,8 +93886,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-umbau-erweiterung-zweckaenderung",
     "fields": {
-      "created_at": "2023-10-25T16:27:44.732Z",
-      "modified_at": "2023-10-25T16:27:44.732Z",
+      "created_at": "2024-10-22T09:39:08.134Z",
+      "modified_at": "2024-10-22T09:39:08.134Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -93578,8 +93901,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-zweckaenderung",
     "fields": {
-      "created_at": "2023-10-25T16:27:44.721Z",
-      "modified_at": "2023-10-25T16:27:44.721Z",
+      "created_at": "2024-10-22T09:39:08.123Z",
+      "modified_at": "2024-10-22T09:39:08.123Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
