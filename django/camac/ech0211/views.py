@@ -5,6 +5,7 @@ from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import transaction
 from django.http import HttpResponse
+from django.utils.decorators import decorator_from_middleware
 from drf_yasg import openapi
 from drf_yasg.inspectors import SwaggerAutoSchema
 from drf_yasg.utils import swagger_auto_schema
@@ -34,6 +35,7 @@ from camac.swagger.utils import (
 )
 
 from . import event_handlers, formatters
+from .middleware import GeofenceMiddleware
 from .mixins import ECHInstanceQuerysetMixin
 from .parsers import ECHXMLParser
 from .send_handlers import SendHandlerException, get_send_handler
@@ -222,6 +224,10 @@ class SendView(ECHInstanceQuerysetMixin, GenericViewSet):
     def include_in_swagger(cls):
         return settings.ECH0211.get("API_LEVEL") == "full"
 
+    @decorator_from_middleware(GeofenceMiddleware)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
     @swagger_auto_schema(
         tags=["eCH-0211"],
         manual_parameters=[group_param],
@@ -282,6 +288,10 @@ class ECHFileView(
     @classmethod
     def include_in_swagger(cls):
         return settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria"
+
+    @decorator_from_middleware(GeofenceMiddleware)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
     def get_queryset(self):
         if getattr(self, "swagger_fake_view", False):  # pragma: no cover

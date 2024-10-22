@@ -1,0 +1,46 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: http://www.geoplugin.net/json.gp?ip=2a02:168:a856:0:618:9d26:5d4c:cc0c
+  response:
+    body:
+      string: "{\n  \"geoplugin_request\":\"2a02:168:a856:0:618:9d26:5d4c:cc0c\",\n
+        \ \"geoplugin_status\":200,\n  \"geoplugin_delay\":\"1ms\",\n  \"geoplugin_credit\":\"Some
+        of the returned data includes GeoLite2 data created by MaxMind, available
+        from <a href='https:\\/\\/www.maxmind.com'>https:\\/\\/www.maxmind.com<\\/a>.\",\n
+        \ \"geoplugin_city\":\"Bern\",\n  \"geoplugin_region\":\"Bern\",\n  \"geoplugin_regionCode\":\"BE\",\n
+        \ \"geoplugin_regionName\":\"Bern\",\n  \"geoplugin_areaCode\":\"\",\n  \"geoplugin_dmaCode\":\"\",\n
+        \ \"geoplugin_countryCode\":\"CH\",\n  \"geoplugin_countryName\":\"Switzerland\",\n
+        \ \"geoplugin_inEU\":0,\n  \"geoplugin_euVATrate\":false,\n  \"geoplugin_continentCode\":\"EU\",\n
+        \ \"geoplugin_continentName\":\"Europe\",\n  \"geoplugin_latitude\":\"46.9354\",\n
+        \ \"geoplugin_longitude\":\"7.4271\",\n  \"geoplugin_locationAccuracyRadius\":\"5\",\n
+        \ \"geoplugin_timezone\":\"Europe\\/Zurich\",\n  \"geoplugin_currencyCode\":\"CHF\",\n
+        \ \"geoplugin_currencySymbol\":\"CHF\",\n  \"geoplugin_currencySymbol_UTF8\":\"CHF\",\n
+        \ \"geoplugin_currencyConverter\":0.863\n}"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      cache-control:
+      - public, max-age=300
+      content-length:
+      - '963'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 15 Oct 2024 15:02:22 GMT
+      server:
+      - Apache
+    status:
+      code: 200
+      message: OK
+version: 1

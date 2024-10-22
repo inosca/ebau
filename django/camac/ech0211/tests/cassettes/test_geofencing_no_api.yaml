@@ -1,0 +1,34 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: http://www.geoplugin.net/json.gp?ip=85.195.233.243
+  response:
+    body:
+      string: ""
+    headers:
+      access-control-allow-origin:
+      - '*'
+      cache-control:
+      - public, max-age=300
+      content-length:
+      - '0'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 15 Oct 2024 15:56:34 GMT
+      server:
+      - Apache
+    status:
+      code: 500
+      message: OK
+version: 1
