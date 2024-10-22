@@ -114,6 +114,10 @@ export default class WorkItemDetailNewComponent extends Component {
         "allCases.edges",
       ))[0].node.id;
 
+      // Fix until caluma backend runs on python >3.10
+      const deadline = this.workItem.deadline
+        .toISOString()
+        .replace("Z", "+00:00");
       yield this.apollo.mutate({
         mutation: createWorkItem,
         variables: {
@@ -123,7 +127,7 @@ export default class WorkItemDetailNewComponent extends Component {
             name: this.workItem.title,
             description: this.workItem.description,
             addressedGroups: this.workItem.addressedGroups,
-            deadline: this.workItem.deadline,
+            deadline,
             meta: JSON.stringify({
               "notify-completed": this.workItem.notificationCompleted,
               "notify-deadline": this.workItem.notificationDeadline,

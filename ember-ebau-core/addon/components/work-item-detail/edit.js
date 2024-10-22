@@ -76,13 +76,17 @@ export default class WorkItemDetailEditComponent extends Component {
     }
 
     try {
+      // Fix until caluma backend runs on python >3.10
+      const deadline = this.workItem.deadline
+        .toISOString()
+        .replace("Z", "+00:00");
       yield this.apollo.mutate({
         mutation: saveWorkItem,
         variables: {
           input: {
             workItem: this.workItem.id,
             description: this.workItem.description,
-            deadline: this.workItem.deadline,
+            deadline,
             assignedUsers,
             meta: JSON.stringify(this.workItem.meta),
           },
