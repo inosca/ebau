@@ -1,5 +1,6 @@
-from xml.sax import SAXParseException
+import xml.sax
 
+from defusedxml.common import DefusedXmlException
 from pyxb.exceptions_ import PyXBException
 from rest_framework.exceptions import ParseError
 from rest_framework_xml.parsers import XMLParser
@@ -22,9 +23,11 @@ class ECHXMLParser(XMLParser):
         try:
             return CreateFromDocument(stream.read())
         except PyXBException as exc:
-            raise ParseError(f"eCH XML parse error - {str(exc)}")
-        except SAXParseException as exc:
-            raise ParseError(f"eCH: invalid xml - {str(exc)}")
+            raise ParseError(f"eCH: XML parse error - {str(exc)}")
+        except xml.sax.SAXParseException as exc:
+            raise ParseError(f"eCH: invalid XML - {str(exc)}")
+        except DefusedXmlException as exc:
+            raise ParseError(f"eCH: malicious XML - {str(exc)}")
 
 
 class ComplexSubmitMappings:

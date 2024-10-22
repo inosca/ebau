@@ -9,6 +9,7 @@ from django.core.cache import cache
 from lxml import etree
 
 from camac.gis.clients.base import GISBaseClient
+from camac.patches import safe_lxml_fromstring
 
 logger = logging.getLogger(__name__)
 
@@ -24,7 +25,7 @@ class BeGisClient(GISBaseClient):
         self.base_url = settings.GIS_BASE_URL
 
     def get_root(self, response):
-        return etree.fromstring(response.content)
+        return safe_lxml_fromstring(response.content)
 
     def _build_polygon_url(self, egrid):
         path = "/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer"

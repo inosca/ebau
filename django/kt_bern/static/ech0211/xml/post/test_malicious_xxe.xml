@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<!DOCTYPE foo [
+  <!ELEMENT foo ANY >
+  <!ENTITY xxe "http://www.attacker.test/text.txt" >]
+>
+<foo>&xxe;</foo>
