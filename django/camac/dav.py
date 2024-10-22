@@ -23,14 +23,24 @@ log = getLogger(__name__)
 
 class LoggedManabiFileResource(ManabiFileResource):
     def begin_write(self, *, content_type=None):
+        from camac.document.models import Attachment
+        from camac.user.models import User
+
         if settings.LOG_FILE_WRITE_SIZES:
-            _, attachment_id = self._token.payload
+            user_id, attachment_id = self._token.payload
+            user = User.objects.get(id=user_id)
+            attachment = Attachment.objects.get(attachment_id=attachment_id)
+
             log.info(
                 f"-------------------- START DAV WRITE ATTACHMENT_ID {attachment_id} --------------------"
             )
             log.info(
                 f"begin_write -- ATTACHMENT_ID {attachment_id}"
                 f"\n\tcontent_length={self.environ['CONTENT_LENGTH']} (file size from the request)"
+                f"\n\tattachment_size={attachment.size} (before writing)"
+                f"\n\tuser={user.username}"
+                f"\n\tattachment_group={attachment.group.pk if attachment.group else '-'}"
+                f"\n\tattachment_instance={attachment.instance.pk}"
             )
         if int(self.environ["CONTENT_LENGTH"]) == 0:  # pragma: no cover
             raise DAVError(HTTP_BAD_REQUEST)
