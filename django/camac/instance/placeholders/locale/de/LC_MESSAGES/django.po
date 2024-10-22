@@ -1785,7 +1785,7 @@ msgstr "STFV Kurzbericht vorhanden"
 
 #: camac/instance/placeholders/serializers.py
 msgid "STFV_SPECIAL_WASTE_EXCEEDED"
-msgstr "STFV_MENGENSCHWELLE_STOFFE_ZUBEREITUNGEN_SONDERABFAELLE_UEBERSCHRITTEN"
+msgstr "STFV_MENGENSCHW_STOFFE_ZUB_SONDERABF_UEBERSCHRITTEN"
 
 #: camac/instance/placeholders/serializers.py
 msgid "STFV special waste exceeded"

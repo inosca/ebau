@@ -1893,7 +1893,7 @@ msgstr "OPAM Rapport Succinct existant"
 
 #: camac/instance/placeholders/serializers.py
 msgid "STFV_SPECIAL_WASTE_EXCEEDED"
-msgstr "OPAM_QUANTITATIFS_SUBSTANCES_PREPARATIONS_DECHETS_DEPASSANT"
+msgstr "OPAM_QUATITAT_SUBSTAN_PREPAR_DECHETS_DEPASS"
 
 #: camac/instance/placeholders/serializers.py
 msgid "STFV special waste exceeded"
