@@ -23,6 +23,7 @@ module("Acceptance | journal", function (hooks) {
     await authenticateSession({ token: "sometoken" });
 
     this.instance = this.server.create("instance");
+    this.service = this.server.create("public-service");
   });
 
   test("it can list journal entires", async function (assert) {
@@ -54,10 +55,12 @@ module("Acceptance | journal", function (hooks) {
 
   test("it can edit a journal entry", async function (assert) {
     this.owner.register("service:shoebox", FakeShoebox);
+    this.owner.lookup("service:session").set("service", this.service);
 
     this.server.create("journal-entry", {
       instanceId: this.instance.id,
       userId: USER_ID,
+      service: this.service,
     });
 
     await visit(`/instances/${this.instance.id}/journal`);
