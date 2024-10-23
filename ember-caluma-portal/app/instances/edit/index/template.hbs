@@ -227,38 +227,31 @@
         </LinkTo>
       {{/if}}
 
-      {{#if
-        (or
+      {{#each (array "sb1" "sb1-v2") as |formSlug|}}
+        {{#if
           (await
             (can
               "write form of instance"
               this.editController.instance
-              form=(hash slug="sb1")
+              form=(hash slug=formSlug)
             )
           )
-          (await
-            (can
-              "write form of instance"
-              this.editController.instance
-              form=(hash slug="sb1-v2")
-            )
-          )
-        )
-      }}
-        <h3 class="instance-overview__action-title">
-          {{t "instances.processingOfFormSb1"}}
-        </h3>
-        <p>
-          {{t "instances.processingOfFormSb1Text"}}
-        </p>
-        <LinkTo
-          @route="instances.edit.form"
-          @model="sb1"
-          class="uk-button uk-button-default"
-        >
-          {{t "instances.processingOfFormSb1"}}
-        </LinkTo>
-      {{/if}}
+        }}
+          <h3 class="instance-overview__action-title">
+            {{t "instances.processingOfFormSb1"}}
+          </h3>
+          <p>
+            {{t "instances.processingOfFormSb1Text"}}
+          </p>
+          <LinkTo
+            @route="instances.edit.form"
+            @model={{formSlug}}
+            class="uk-button uk-button-default"
+          >
+            {{t "instances.processingOfFormSb1"}}
+          </LinkTo>
+        {{/if}}
+      {{/each}}
 
       {{#if
         (await
