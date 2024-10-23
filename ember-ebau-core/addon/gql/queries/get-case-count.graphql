@@ -1,0 +1,9 @@
+query GetCaseCount($hasAnswerFilter: [HasAnswerFilterType]) {
+  allCases(
+    filter: [
+      { hasAnswer: $hasAnswerFilter }
+    ]
+  ) {
+    totalCount
+  }
+}

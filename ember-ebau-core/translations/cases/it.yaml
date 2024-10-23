@@ -139,6 +139,9 @@ cases:
     modalTitle: "Tutti i dossier sulla particella"
     noLinkedInstances: "Non sono ancora collegati dei dossier."
     noInstancesOnSamePlot: "Non sono stati trovati dossier relativi a questa particella."
+    linkedInstancesText: "{count} {count, plural, one {dossier collegato} other {dossier collegati}}"
+    instancesOnSamePlotText: "{count} {count, plural, one {dossier sulla stessa particella} other {dossier sulla stessa particella}}"
+    fetchAmountOfInstancesOnSamePlotError: "Nel tentativo di consultare i dossier sulla stessa particella qualcosa è andato storto"
 
   new:
     title: "Crea nuova domanda"

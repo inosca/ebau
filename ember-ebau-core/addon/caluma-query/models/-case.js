@@ -169,6 +169,12 @@ export default class CustomCaseBaseModel extends CaseModel {
     });
   }
 
+  get linkedInstancesText() {
+    return this.intl.t("cases.miscellaneous.linkedInstancesText", {
+      count: this.instance.linkedInstances.length,
+    });
+  }
+
   static fragment = `{
     meta
     id
