@@ -46,7 +46,10 @@ def _get_rejected_instance_cycletime(rejected_instance: Instance) -> int:
     master_data = MasterData(rejected_instance.case)
     submit_date = master_data.paper_submit_date or master_data.submit_date
 
-    return (end_date or 0) and (end_date.created_at - submit_date).days
+    if not submit_date:  # pragma: no cover
+        return 0
+
+    return (end_date or 0) and (end_date.created_at.date() - submit_date.date()).days
 
 
 def _compute_total_idle_days(
