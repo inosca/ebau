@@ -46,6 +46,7 @@ communications:
     send: Senden
     fetchError: Die Daten konnten nicht geladen werden. Bitte versuchen Sie es erneut.
     saveError: Die Nachricht konnte nicht versendet werden. Bitte versuchen Sie es erneut.
+    uploadErrorVirus: Eine Datei konnte nicht hochgeladen werden, weil diese als schadhaft identifiziert wurde (Virus/Malware)
     applicant: Gesuchsteller/in
 
   message:
