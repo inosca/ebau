@@ -104,7 +104,13 @@ export default class CommunicationNewTopicComponent extends Component {
       );
     } catch (error) {
       console.error(error);
-      this.notification.danger(this.intl.t("communications.new.saveError"));
+      if (error.message === "infected") {
+        this.notification.danger(
+          this.intl.t("communications.new.uploadErrorVirus"),
+        );
+      } else {
+        this.notification.danger(this.intl.t("communications.new.saveError"));
+      }
     }
   });
 

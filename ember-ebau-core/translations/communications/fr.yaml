@@ -46,6 +46,7 @@ communications:
     send: Envoyer
     fetchError: Les données n'ont pas pu être chargées. Veuillez réessayer.
     saveError: Le message n'a pas pu être envoyé. Veuillez réessayer.
+    uploadErrorVirus: Un fichier n'a pas pu être téléchargé car il a été identifié comme défectueux (virus/malware)
     applicant: Requérant/e
 
   message:

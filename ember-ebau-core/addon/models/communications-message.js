@@ -7,6 +7,8 @@ export default class CommunicationMessageModel extends Model {
   @service store;
   @service("communications/unread-messages") unreadMessages;
   @service fetch;
+  @service notification;
+  @service intl;
 
   @attr body;
   @attr createdAt;
@@ -51,7 +53,7 @@ export default class CommunicationMessageModel extends Model {
         JSON.stringify({ id: documentAttachment }),
       );
     });
-    await this.fetch.fetch("/api/v1/communications-messages", {
+    const response = await this.fetch.fetch("/api/v1/communications-messages", {
       method: "POST",
       body: formData,
       // Reset the content-type as specified in the FormData documentation on MDN:
@@ -60,7 +62,14 @@ export default class CommunicationMessageModel extends Model {
       headers: {
         "content-type": null,
       },
+      ignoreErrors: [400],
     });
+    const data = await response.json();
+    if (!response.ok) {
+      const errorCode = data.errors?.[0].code;
+      throw new Error(errorCode);
+    }
+    return response;
   }
 
   async apiAction(action, method = "PATCH") {
