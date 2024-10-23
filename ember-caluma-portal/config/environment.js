@@ -498,9 +498,7 @@ module.exports = function (environment) {
       formCreationPermissions: [
         {
           roles: ["public", "internal"],
-          forms: [
-            "baugesuch",
-          ],
+          forms: ["baugesuch"],
         },
       ],
     },

@@ -320,6 +320,15 @@ def set_application_so(settings):
 
 
 @pytest.fixture
+def set_application_ag(settings):
+    application_dict = copy.deepcopy(settings.APPLICATIONS["kt_ag"])
+    settings.APPLICATION = application_dict
+    settings.APPLICATION_NAME = "kt_ag"
+    settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
+    return application_dict
+
+
+@pytest.fixture
 def set_application_test(settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["test"])
     settings.APPLICATION = application_dict
