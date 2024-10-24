@@ -2851,7 +2851,7 @@
     "pk": "heat-generator-temporary-solution-info-v2",
     "fields": {
       "created_at": "2024-05-31T13:02:37.158Z",
-      "modified_at": "2024-10-01T15:33:30.597Z",
+      "modified_at": "2024-10-24T09:24:03.836Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -2864,7 +2864,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-warning uk-margin-remove\\\">Werden keine weiteren Massnahmen umgesetzt, kann das Provisorium w\\u00e4hrend maximal eines Jahres gesetzeskonform betrieben werden. Bleibt das Provisorium l\\u00e4nger als ein Jahr bestehen, muss sp\\u00e4testens ein Jahr nach Eingabe der Meldung W\\u00e4rmeerzeugerersatz eine gesetzeskonforme L\\u00f6sung / Massnahme umgesetzt sein. Die gesetzeskonforme L\\u00f6sung / Massnahme (Bspw. Standardl\\u00f6sung 1 \\u2013 12, GEAK D Gesamtenergieeffizienz oder MINERGIE-Zertifikat) ist nachzuweisen. </div>\", \"fr\": \"<div class=\\\"uk-alert uk-alert-warning uk-margin-remove\\\">Si aucune autre mesure n\\u2019est mise en \\u0153uvre, la solution provisoire peut \\u00eatre exploit\\u00e9e pendant un an maximum de mani\\u00e8re conforme \\u00e0 la loi. Si la solution provisoire est conserv\\u00e9e pendant plus d\\u2019un an, une solution / mesure conforme \\u00e0 la loi doit \\u00eatre mise en \\u0153uvre au plus tard un an apr\\u00e8s le d\\u00e9p\\u00f4t de l\\u2019annonce de remplacement du g\\u00e9n\\u00e9rateur de chaleur. Il doit \\u00eatre prouv\\u00e9 que la solution / mesure est conforme \\u00e0 la loi (ex. solution standard 1 \\u2013 12, CECB D efficacit\\u00e9 \\u00e9nerg\\u00e9tique globale ou certificat MINERGIE).\\u00bb</div>\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-warning uk-margin-remove\\\">Werden keine weiteren Massnahmen umgesetzt, kann das Provisorium w\\u00e4hrend maximal eines Jahres gesetzeskonform betrieben werden. Bleibt das Provisorium l\\u00e4nger als ein Jahr bestehen, muss sp\\u00e4testens ein Jahr nach Eingabe der Meldung W\\u00e4rmeerzeugerersatz eine gesetzeskonforme L\\u00f6sung / Massnahme umgesetzt sein. Die gesetzeskonforme L\\u00f6sung / Massnahme (Bspw. Standardl\\u00f6sung 1 \\u2013 12, GEAK D Gesamtenergieeffizienz oder MINERGIE-Zertifikat) ist nachzuweisen. </div>\", \"fr\": \"<div class=\\\"uk-alert uk-alert-warning uk-margin-remove\\\">Si aucune autre mesure n\\u2019est mise en \\u0153uvre, la solution provisoire peut \\u00eatre exploit\\u00e9e pendant un an au maximum de mani\\u00e8re conforme \\u00e0 la loi. Si la solution provisoire est conserv\\u00e9e pendant plus d\\u2019un an, une solution / mesure conforme \\u00e0 la loi doit \\u00eatre mise en \\u0153uvre au plus tard un an apr\\u00e8s le d\\u00e9p\\u00f4t de l\\u2019annonce de remplacement du g\\u00e9n\\u00e9rateur de chaleur. Il doit \\u00eatre prouv\\u00e9 que la solution / mesure est conforme \\u00e0 la loi (p. ex. solution standard 1 \\u00e0 12, CECB D efficacit\\u00e9 \\u00e9nerg\\u00e9tique globale ou certificat MINERGIE).</div>\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
