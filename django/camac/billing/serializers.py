@@ -150,7 +150,8 @@ class BillingV2EntryExportSerializer(BillingV2EntrySerializer):
         return f"{model.final_rate} {tax}"
 
     def get_lead_authority(self, model):
-        service = model.instance.responsible_service()
+        service = model.instance.responsible_service(filter_type="municipality")
+
         city = service.get_trans_attr("city")
         return ", ".join(
             str(attr)
