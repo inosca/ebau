@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-24 12:05+0200\n"
+"POT-Creation-Date: 2024-10-28 13:42+0100\n"
 "PO-Revision-Date: 2024-09-12 15:00+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1188,6 +1188,10 @@ msgstr "Auslösende Stelle der Stellungnahme"
 #: camac/notification/serializers.py
 msgid "Involved services"
 msgstr "Involvierte Stellen"
+
+#: camac/notification/serializers.py
+msgid "Services which doesn't have completed their inquiries"
+msgstr "Stellen mit offenen Stellungnahmen"
 
 #: camac/notification/serializers.py
 msgid "Services with unanswered inquiries"

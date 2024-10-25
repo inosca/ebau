@@ -588,6 +588,7 @@ DISTRIBUTION = {
             "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
             "DEADLINE": "inquiry-deadline",
         },
+        "NOTIFY_ON_CANCELLATION": True,
         "NOTIFICATIONS": {
             "INQUIRY_SENT": {
                 "template_slug": "verfahrensablauf-fachstelle",
@@ -600,6 +601,10 @@ DISTRIBUTION = {
             "INQUIRY_ANSWERED": {
                 "template_slug": "bericht-erstellt",
                 "recipient_types": ["inquiry_controlling"],
+            },
+            "COMPLETE_DISTRIBUTION": {
+                "template_slug": "zirkulation-abgebrochen",
+                "recipient_types": ["services_with_incomplete_inquiries"],
             },
         },
         "INQUIRY_TASK": "inquiry",

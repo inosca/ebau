@@ -94,6 +94,10 @@ def distribution_case_gr(
     # this is needed so that simple workflow works
     notification_template_factory(slug="verfahrensablauf-fachstelle")
     notification_template_factory(slug="verfahrensablauf-uso")
+    notification_template_factory(
+        slug="zirkulation-abgebrochen",
+        subject="Information über vorzeitiger Abbruch der Stellungnahme",
+    )
     instance_state_factory(name="circulation")
     instance_state_factory(name="decision")
     instance_state_factory(
@@ -730,6 +734,46 @@ def test_complete_distribution(
 
     assert len(mailoutbox) == 1
     assert mailoutbox[0].to[0] == service.email
+
+
+def test_send_aborting_distribution_sends_notification(
+    db,
+    settings,
+    caluma_admin_user,
+    distribution_child_case_gr,
+    gr_distribution_settings,
+    mailoutbox,
+    service_factory,
+    work_item_factory,
+):
+    settings.DISTRIBUTION["NOTIFY_ON_CANCELLATION"] = True
+    service = service_factory()
+
+    inquiry_workitem = work_item_factory(
+        task_id=gr_distribution_settings["INQUIRY_TASK"],
+        case=distribution_child_case_gr,
+        status=WorkItem.STATUS_READY,
+        addressed_groups=[str(service.pk)],
+        controlling_groups=[str(service.pk)],
+    )
+
+    mailoutbox.clear()
+
+    complete_work_item(
+        work_item=distribution_child_case_gr.work_items.get(
+            task_id=gr_distribution_settings["DISTRIBUTION_COMPLETE_TASK"],
+            status=WorkItem.STATUS_READY,
+        ),
+        user=caluma_admin_user,
+    )
+
+    inquiry_workitem.refresh_from_db()
+
+    assert len(mailoutbox) == 1
+    assert (
+        mailoutbox[0].subject
+        == "[eBau Test]: Information über vorzeitiger Abbruch der Stellungnahme"
+    )
 
 
 @pytest.mark.parametrize("has_inquiries", [True, False])

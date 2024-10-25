@@ -6,7 +6,7 @@ from caluma.caluma_form.factories import (
 )
 from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.factories import CaseFactory
-from caluma.caluma_workflow.models import WorkItem
+from caluma.caluma_workflow.models import Task, WorkItem
 
 from camac.notification.serializers import (
     PermissionlessNotificationTemplateSendmailSerializer,
@@ -138,6 +138,61 @@ def test_recipient_involved_in_distribution(
 
     assert involved_service.email in recipients
     assert not_involved_service.email not in recipients
+
+
+@pytest.mark.parametrize("role__name", ["support"])
+def test_services_with_incomplete_inquiries(
+    db,
+    distribution_settings,
+    instance_factory,
+    service_factory,
+    case_factory,
+    work_item_factory,
+    notification_template,
+    system_operation_user,
+):
+    completed_case = case_factory()
+    skipped_case = case_factory()
+    parent_case = case_factory()
+    instance_factory(case=completed_case)
+    skipped_instance = instance_factory(case=skipped_case)
+    completed_service = service_factory(email="completed@example.com")
+    skipped_service = service_factory(email="skipped@example.com")
+
+    parent_work_item = work_item_factory(case=parent_case)
+    parent_work_item.child_case = skipped_case
+    parent_work_item.save()
+
+    work_item_factory(
+        task__slug=distribution_settings["INQUIRY_TASK"],
+        case=skipped_case,
+        status=WorkItem.STATUS_SKIPPED,
+        addressed_groups=[str(skipped_service.pk)],
+    )
+
+    work_item_factory(
+        task=Task.objects.get(pk=distribution_settings["INQUIRY_TASK"]),
+        case=completed_case,
+        status=WorkItem.STATUS_COMPLETED,
+        addressed_groups=[str(completed_service.pk)],
+    )
+
+    serializer = PermissionlessNotificationTemplateSendmailSerializer(
+        data={
+            "recipient_types": ["services_with_incomplete_inquiries"],
+            "instance": {"type": "instances", "id": skipped_instance.pk},
+            "notification_template": {
+                "type": "notification-templates",
+                "id": notification_template.pk,
+            },
+        }
+    )
+    serializer.is_valid(raise_exception=True)
+    serializer.save()
+
+    assert serializer._get_recipients_services_with_incomplete_inquiries(
+        skipped_instance
+    ) == [{"to": "skipped@example.com"}]
 
 
 @pytest.mark.parametrize("role__name", ["support"])
