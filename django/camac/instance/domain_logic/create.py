@@ -589,7 +589,7 @@ class CreateInstanceLogic:
 
         instance = Instance.objects.create(**data)
 
-        if not is_paper and not source_instance:
+        if not is_paper and (not source_instance or is_modification):
             new_applicant = instance.involved_applicants.create(
                 user=camac_user,
                 invitee=camac_user,
