@@ -1,0 +1,207 @@
+[
+  {
+    "model": "user.role",
+    "pk": 1,
+    "fields": {
+      "role_parent": null,
+      "name": "Admin",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 2,
+    "fields": {
+      "role_parent": null,
+      "name": "Guest",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 3,
+    "fields": {
+      "role_parent": null,
+      "name": "municipality-lead",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 4,
+    "fields": {
+      "role_parent": null,
+      "name": "service-lead",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 5,
+    "fields": {
+      "role_parent": null,
+      "name": "municipality-admin",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 6,
+    "fields": {
+      "role_parent": null,
+      "name": "service-admin",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 10000,
+    "fields": {
+      "role_parent": null,
+      "name": "support",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 10001,
+    "fields": {
+      "role_parent": null,
+      "name": "applicant",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 20000,
+    "fields": {
+      "role_parent": null,
+      "name": "subservice",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 1,
+    "fields": {
+      "role": 1,
+      "language": "de",
+      "name": "Admin",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 2,
+    "fields": {
+      "role": 2,
+      "language": "de",
+      "name": "Guest",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 5,
+    "fields": {
+      "role": 3,
+      "language": "de",
+      "name": "Sachbearbeitung Gemeinde",
+      "group_prefix": "Sachbearbeitung"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 6,
+    "fields": {
+      "role": 4,
+      "language": "de",
+      "name": "Sachbearbeitung Fachstelle",
+      "group_prefix": "Sachbearbeitung"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 7,
+    "fields": {
+      "role": 5,
+      "language": "de",
+      "name": "Administration Gemeinde",
+      "group_prefix": "Administration"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 8,
+    "fields": {
+      "role": 6,
+      "language": "de",
+      "name": "Administration Fachstelle",
+      "group_prefix": "Administration"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20000,
+    "fields": {
+      "role": 20000,
+      "language": "de",
+      "name": "Unterfachstelle",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20028,
+    "fields": {
+      "role": 10000,
+      "language": "de",
+      "name": "Support",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20030,
+    "fields": {
+      "role": 10001,
+      "language": "de",
+      "name": "Gesuchsteller",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 1,
+    "fields": {
+      "name": "service",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 2,
+    "fields": {
+      "name": "municipality",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20000,
+    "fields": {
+      "service_group": 1,
+      "language": "de",
+      "name": "Fachstelle"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20001,
+    "fields": {
+      "service_group": 2,
+      "language": "de",
+      "name": "Gemeinde"
+    }
+  }
+]

@@ -1,0 +1,18 @@
+// @import "fonts/agpn";
+
+// $global-font-family: "AGPN", "Arial", sans-serif;
+$global-font-family: "Arial", sans-serif;
+
+// Base colors
+$global-primary-background: #007ab8;
+$global-secondary-background: #262626;
+
+// Font colors
+$global-color: $global-secondary-background;
+$global-emphasis-color: $global-color;
+
+$global-muted-color: rgb(100, 100, 100);
+$global-link-color: $global-primary-background;
+$global-link-hover-color: #004774;
+
+$watermark-background-color: #f0506e;

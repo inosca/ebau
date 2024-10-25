@@ -225,6 +225,10 @@ kt_bern: ## Set APPLICATION to kt_bern
 kt_gr: ## Set APPLICATION to kt_gr
 	$(call set_app,kt_gr)
 
+.PHONY: kt_ag
+kt_ag: ## Set APPLICATION to kt_ag
+	$(call set_app,kt_ag)
+
 .PHONY: demo
 demo: ## Set APPLICATION to demo
 	$(call set_app,demo)

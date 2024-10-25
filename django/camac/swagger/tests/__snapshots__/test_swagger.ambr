@@ -3,6 +3,10 @@
   list([
   ])
 # ---
+# name: test_swagger_paths[kt_ag]
+  list([
+  ])
+# ---
 # name: test_swagger_paths[kt_bern]
   list([
     '/api/v1/attachment-sections',
