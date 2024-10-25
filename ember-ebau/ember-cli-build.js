@@ -9,6 +9,7 @@ const ENV_MAP = {
   kt_schwyz: "sz",
   kt_uri: "ur",
   kt_so: "so",
+  kt_ag: "ag",
 };
 
 const ENVS = Object.values(ENV_MAP);

@@ -6,6 +6,7 @@ const LOCALES_MAP = {
   kt_uri: ["de"],
   kt_gr: ["de", "it"],
   kt_so: ["de"],
+  kt_ag: ["de"],
 };
 
 module.exports = LOCALES_MAP[process.env.APPLICATION || "kt_bern"];

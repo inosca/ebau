@@ -56,6 +56,17 @@ module.exports = function (environment) {
     finished: 120006,
     rejected: 120011,
   };
+  const instanceStatesAg = {
+    new: 1,
+    subm: 120004,
+    circ: 120005,
+    decision: 120007,
+    inCorrection: 120008,
+    circulationInit: 120009,
+    constructionAcceptance: 120010,
+    finished: 120006,
+    rejected: 120011,
+  };
   const instanceStatesSo = {
     new: 1,
     subm: 2,
@@ -449,6 +460,45 @@ module.exports = function (environment) {
             "meldung",
             "meldung-pv",
           ],
+        },
+      ],
+    },
+    kt_ag: {
+      name: "ag",
+      realm: "ebau",
+      internalFrontend: "ebau",
+      supportGroups: [10000],
+      defaultInstanceStateCategory: "pending",
+      instanceStateCategories: {
+        pending: [
+          instanceStatesAg.new,
+          instanceStatesAg.subm,
+          instanceStatesAg.circulationInit,
+          instanceStatesAg.circ,
+          instanceStatesAg.inCorrection,
+          instanceStatesAg.decision,
+        ],
+        decided: [instanceStatesAg.constructionAcceptance],
+        done: [instanceStatesAg.finished, instanceStatesAg.rejected],
+      },
+      completePreliminaryClarificationSlugs: [],
+      selectableGroups: {
+        roles: [
+          3, // municipality
+          10000, // support
+        ],
+      },
+      documents: {
+        backend: "alexandria",
+        excludeFromDocuments: [],
+        feedbackSections: ["alle-beteiligten", "bauabnahme"],
+      },
+      instanceStates: instanceStatesAg,
+      // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
+      formCreationPermissions: [
+        {
+          roles: ["public", "internal"],
+          forms: ["baugesuch"],
         },
       ],
     },
