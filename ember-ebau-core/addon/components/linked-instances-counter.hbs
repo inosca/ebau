@@ -1,0 +1,12 @@
+{{#if this.amountOfInstancesOnSamePlot.isRunning}}
+  <div>
+    <UkSpinner @ratio={{1}} />
+  </div>
+{{else}}
+  <LinkTo @route="cases.detail.linked-instances" @model={{@case.instanceId}}>
+    {{or @case.linkedInstancesText "-"}}
+  </LinkTo>
+  <LinkTo @route="cases.detail.linked-instances" @model={{@case.instanceId}}>
+    {{or this.instancesOnSamePlotText "-"}}
+  </LinkTo>
+{{/if}}
