@@ -15,6 +15,9 @@ django-environ==0.11.2
 django-excel==0.0.10
 django-ipware==7.0.1
 drf-extra-fields==3.7.0
+# We need to ensure we have this bugfix
+# https://github.com/graphql-python/graphene/issues/1580
+graphene==3.4.1
 django-filter==24.3
 django-generic-api-permissions==0.4.6
 django-hurricane==1.6.0
