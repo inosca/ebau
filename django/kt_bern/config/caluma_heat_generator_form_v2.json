@@ -367,7 +367,7 @@
       "modified_by_group": null,
       "form": "heat-generator-form-v2",
       "question": "heat-generator-category-sublabel-v2",
-      "sort": 17
+      "sort": 16
     }
   },
   {
@@ -382,7 +382,7 @@
       "modified_by_group": null,
       "form": "heat-generator-form-v2",
       "question": "heat-generator-existing-v2",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -502,7 +502,7 @@
       "modified_by_group": null,
       "form": "heat-generator-form-v2",
       "question": "heat-generator-substitution-with-fossil",
-      "sort": 11
+      "sort": 10
     }
   },
   {
