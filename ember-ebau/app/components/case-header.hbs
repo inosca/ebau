@@ -57,6 +57,10 @@
         -
       {{/if}}
     </div>
+    <div class="uk-flex uk-flex-column">
+      <div class="uk-text-bold">{{t "cases.tableHeaders.linkedInstances"}}</div>
+      <LinkedInstancesCounter @case={{@case}} />
+    </div>
   </div>
 </div>
 
