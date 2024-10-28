@@ -37,7 +37,7 @@
               },
               {
                 "scope": "Service",
-                "fields": ["title", "description", "date", "metainfo", "files"],
+                "fields": ["title", "description", "date", "files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -118,14 +118,7 @@
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "category", "files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -184,14 +177,7 @@
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "category", "files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -241,6 +227,26 @@
               },
               {
                 "scope": "All",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "category",
+                  "tags",
+                  "marks"
+                ],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -308,8 +314,15 @@
                 "permission": "create"
               },
               {
-                "scope": "Service",
-                "fields": ["title", "description", "date", "metainfo", "files"],
+                "scope": "All",
+                "fields": [
+                  "tags",
+                  "category",
+                  "title",
+                  "description",
+                  "date",
+                  "files"
+                ],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -321,18 +334,6 @@
               },
               {
                 "scope": "All",
-                "fields": ["tags", "category"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -360,6 +361,9 @@
               }
             ]
           },
+          "subservice": {
+            "visibility": "all"
+          },
           "service-lead": {
             "visibility": "all",
             "permissions": [
@@ -385,14 +389,7 @@
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "category", "files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -656,7 +653,9 @@
                 "permission": "create"
               },
               {
+                "marks": ["void"],
                 "scope": "Service",
+                "fields": ["title", "description", "date", "marks"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -706,7 +705,15 @@
               },
               {
                 "scope": "All",
-                "fields": ["title", "description", "date", "tags", "marks"],
+                "fields": ["tags"],
+                "condition": {
+                  "~InstanceState": ["rejected", "finished"]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["title", "description", "date", "marks"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -887,7 +894,7 @@
               },
               {
                 "scope": "Service",
-                "fields": ["title", "description", "date", "metainfo", "files"],
+                "fields": ["title", "description", "date", "files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -962,14 +969,7 @@
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "category", "files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -1028,14 +1028,7 @@
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "category", "files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -1151,7 +1144,6 @@
                   "title",
                   "description",
                   "date",
-                  "metainfo",
                   "category",
                   "tags",
                   "files"
@@ -1185,7 +1177,6 @@
                   "title",
                   "description",
                   "date",
-                  "metainfo",
                   "category",
                   "tags",
                   "files"
@@ -1235,7 +1226,6 @@
                   "title",
                   "description",
                   "date",
-                  "metainfo",
                   "category",
                   "tags",
                   "files"
@@ -1269,7 +1259,6 @@
                   "title",
                   "description",
                   "date",
-                  "metainfo",
                   "category",
                   "tags",
                   "files"
@@ -1303,7 +1292,6 @@
                   "title",
                   "description",
                   "date",
-                  "metainfo",
                   "category",
                   "tags",
                   "files"
@@ -1360,7 +1348,6 @@
                   "title",
                   "description",
                   "date",
-                  "metainfo",
                   "category",
                   "tags",
                   "files"
@@ -1410,7 +1397,6 @@
                   "title",
                   "description",
                   "date",
-                  "metainfo",
                   "category",
                   "tags",
                   "files"
@@ -1444,7 +1430,6 @@
                   "title",
                   "description",
                   "date",
-                  "metainfo",
                   "category",
                   "tags",
                   "files"
@@ -1478,7 +1463,6 @@
                   "title",
                   "description",
                   "date",
-                  "metainfo",
                   "category",
                   "tags",
                   "files"
@@ -1563,7 +1547,21 @@
             ]
           },
           "uso": {
-            "visibility": "all"
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              }
+            ]
           },
           "support": {
             "visibility": "all",
@@ -1611,7 +1609,21 @@
             ]
           },
           "subservice": {
-            "visibility": "all"
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              }
+            ]
           },
           "service-lead": {
             "visibility": "all",
@@ -1779,6 +1791,11 @@
                 "permission": "update"
               },
               {
+                "scope": "All",
+                "fields": ["name", "description", "date"],
+                "permission": "update"
+              },
+              {
                 "scope": "Service",
                 "condition": {
                   "~InstanceState": [
@@ -1815,14 +1832,7 @@
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "category", "files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -1893,14 +1903,7 @@
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "category", "files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -1976,20 +1979,15 @@
                 "permission": "create"
               },
               {
-                "scope": "Service",
-                "fields": ["title", "description", "date", "metainfo", "files"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
                 "scope": "All",
-                "fields": ["tags", "category"],
+                "fields": [
+                  "tags",
+                  "category",
+                  "title",
+                  "description",
+                  "date",
+                  "marks"
+                ],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
