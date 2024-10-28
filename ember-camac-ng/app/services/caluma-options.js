@@ -522,6 +522,15 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
         };
       }
 
+      if (this.shoebox.isMunicipalityLeadRole) {
+        config.new.types.municipalities = {
+          label: "distribution.municipalities",
+          type: "serviceGroup",
+          availableInDistribution: false,
+          value: ["Gemeinderäte", "Sekretariate Gemeindebaubehörden"].join(","),
+        };
+      }
+
       if (
         Object.keys(SERVICES_ALLOWED_TO_CREATE_SUB_CIRCULATIONS).includes(
           this.shoebox.serviceGroupId.toString(),
