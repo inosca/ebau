@@ -18,7 +18,7 @@ workItems:
   notifyDeadline: "in caso di superamento del termine"
   comment: "Commento"
   municipality: "Comune"
-  applicants: "Diritti"
+  applicants: "Persona richiedente"
 
   current: "Compiti attuali"
   new: "Nuovo compito"
