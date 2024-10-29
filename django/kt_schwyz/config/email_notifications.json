@@ -289,18 +289,6 @@
   },
   {
     "model": "notification.notificationtemplate",
-    "pk": 43,
-    "fields": {
-      "slug": "construction-step-notify-schnurgeruest-kontrollieren",
-      "purpose": "Beginn Schnurgerüst kontrollieren",
-      "subject": "Gesuch {{identifier}}: Schnurgerüst kontrollieren",
-      "body": "Für das Gesuch {{identifier}}, {{location}} muss das Schnurgerüst kontrolliert werden.",
-      "service": null,
-      "type": "email"
-    }
-  },
-  {
-    "model": "notification.notificationtemplate",
     "pk": 44,
     "fields": {
       "slug": "construction-step-notify-rohbauabnahme-melden",
