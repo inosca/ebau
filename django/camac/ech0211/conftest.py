@@ -316,7 +316,7 @@ def ech_snapshot(snapshot):
                 r"\1<!-- VERSION -->\2",
             ),
             (
-                r"(<ns\d+:pathFileName>)(.*attachments=)\d+(</ns\d+:pathFileName>)",
+                r"(<ns\d+:pathFileName>)(.*attachments=|.+files/)[\w-]+(</ns\d+:pathFileName>)",
                 r"\1\2<!-- ATTACHMENT_ID -->\3",
             ),
         ]:

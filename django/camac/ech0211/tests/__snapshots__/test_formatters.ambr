@@ -1,4 +1,64 @@
 # serializer version: 1
+# name: test_get_alexandria_documents
+  '''
+  <?xml version="1.0" ?>
+  <doc xmlns:ns1="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0039/2">
+  	<ns1:uuid>394f53af-24bc-4324-986e-c3901c310263</ns1:uuid>
+  	<ns1:titles>
+  		<ns2:title>Jeffrey Santos</ns2:title>
+  	</ns1:titles>
+  	<ns1:status>created</ns1:status>
+  	<ns1:files>
+  		<ns1:file>
+  			<ns1:pathFileName>http://ebau.local/ech/v1/files/<!-- ATTACHMENT_ID --></ns1:pathFileName>
+  			<ns1:mimeType>application/octet-stream</ns1:mimeType>
+  		</ns1:file>
+  	</ns1:files>
+  	<ns1:documentKind>Susan Green</ns1:documentKind>
+  </doc>
+  
+  '''
+# ---
+# name: test_get_alexandria_documents.1
+  '''
+  <?xml version="1.0" ?>
+  <doc xmlns:ns1="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0039/2">
+  	<ns1:uuid>23daf554-c2f5-4aa2-b5f2-734a96ed84d8</ns1:uuid>
+  	<ns1:titles>
+  		<ns2:title>Nancy Delacruz</ns2:title>
+  	</ns1:titles>
+  	<ns1:status>approved</ns1:status>
+  	<ns1:files>
+  		<ns1:file>
+  			<ns1:pathFileName>http://ebau.local/ech/v1/files/<!-- ATTACHMENT_ID --></ns1:pathFileName>
+  			<ns1:mimeType>application/octet-stream</ns1:mimeType>
+  		</ns1:file>
+  	</ns1:files>
+  	<ns1:documentKind>Michelle Allen</ns1:documentKind>
+  </doc>
+  
+  '''
+# ---
+# name: test_get_alexandria_documents.2
+  '''
+  <?xml version="1.0" ?>
+  <doc xmlns:ns1="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0039/2">
+  	<ns1:uuid>7604864d-fada-4431-b63b-fc9f4915233d</ns1:uuid>
+  	<ns1:titles>
+  		<ns2:title>Aaron Davis</ns2:title>
+  	</ns1:titles>
+  	<ns1:status>invalidated</ns1:status>
+  	<ns1:files>
+  		<ns1:file>
+  			<ns1:pathFileName>http://ebau.local/ech/v1/files/<!-- ATTACHMENT_ID --></ns1:pathFileName>
+  			<ns1:mimeType>application/octet-stream</ns1:mimeType>
+  		</ns1:file>
+  	</ns1:files>
+  	<ns1:documentKind>Bryan Fields</ns1:documentKind>
+  </doc>
+  
+  '''
+# ---
 # name: test_get_documents[False-0]
   '''
   <?xml version="1.0" ?>
