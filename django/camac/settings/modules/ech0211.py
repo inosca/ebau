@@ -262,6 +262,11 @@ ECH0211 = {
                 },
             },
         },
+        "ALEXANDRIA_MARKS_STATUS_MAP": {
+            # order is precedence
+            "void": "invalidated",
+            "decision": "approved",
+        },
     },
     "test": {
         "ENABLED": True,
