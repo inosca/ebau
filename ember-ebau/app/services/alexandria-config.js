@@ -22,6 +22,7 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
   @service router;
 
   @tracked instanceId;
+  @tracked documentId;
 
   get modelMetaFilters() {
     return {
@@ -31,7 +32,10 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
 
   get defaultModelMeta() {
     return {
-      document: { "camac-instance-id": String(this.instanceId) },
+      document: {
+        "camac-instance-id": String(this.instanceId),
+        "caluma-document-id": this.documentId,
+      },
     };
   }
 
