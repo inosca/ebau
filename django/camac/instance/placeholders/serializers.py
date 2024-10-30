@@ -616,6 +616,11 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         aliases=[_("CIRCULATION_FEEDBACK")],
         description=_("Opinions and ancillary clauses of the invited services"),
     )
+    zirkulation_angefordert = fields.InquiriesField(
+        only_own_controlling=True,
+        aliases=[_("CIRCULATION_REQUESTED")],
+        description=_("Inquiries requested by own service only"),
+    )
     eigene_gebuehren_total = fields.BillingEntriesField(
         own=True,
         total=True,

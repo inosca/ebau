@@ -924,6 +924,14 @@ msgstr ""
 "circulation"
 
 #: camac/instance/placeholders/serializers.py
+msgid "CIRCULATION_REQUESTED"
+msgstr "CIRCULATION_DEMANDEE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Inquiries requested by own service only"
+msgstr "Tous les services impliqués dans le dossier et sollicités par ce service"
+
+#: camac/instance/placeholders/serializers.py
 msgid "OWN_BILLING_ENTRIES_TOTAL"
 msgstr "MES_EMOLUMENTS_TOTAL"
 
