@@ -18,6 +18,7 @@ ALEXANDRIA = {
             "files",
         },
         "TAG_VISIBILITY": "all",
+        "INSTANCE_COPY_CATEGORIES": ["beilagen-zum-gesuch", "nachforderung"],
     },
     "kt_gr": {
         "ENABLED": True,

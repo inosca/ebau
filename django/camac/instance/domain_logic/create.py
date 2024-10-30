@@ -424,8 +424,17 @@ class CreateInstanceLogic:
     @staticmethod
     def copy_attachments(source, target, skip_exported_form_attachment=False):
         if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
+            categories = settings.ALEXANDRIA.get("INSTANCE_COPY_CATEGORIES", [])
             alexandria_documents = Document.objects.filter(
-                **{"metainfo__camac-instance-id": str(source.pk)},
+                Q(
+                    **{
+                        "metainfo__camac-instance-id": str(source.pk),
+                    }
+                )
+                & (
+                    Q(category_id__in=categories)
+                    | Q(category__parent_id__in=categories)
+                )
             )
             if skip_exported_form_attachment:
                 alexandria_documents = alexandria_documents.exclude(
