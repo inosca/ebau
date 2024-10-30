@@ -19,7 +19,10 @@ from camac.alexandria.extensions.visibilities import (
     CustomVisibility as CustomAlexandriaVisibility,
 )
 from camac.billing.models import BillingV2Entry
-from camac.caluma.utils import find_answer, work_item_by_addressed_service_condition
+from camac.caluma.utils import (
+    find_answer,
+    work_item_by_addressed_service_condition,
+)
 from camac.user.models import Service, User
 from camac.utils import build_url, clean_join, get_dict_item
 
@@ -336,6 +339,7 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
     def __init__(
         self,
         only_own=False,
+        only_own_controlling=None,
         props=[
             ("service", "NAME"),
             ("deadline", "FRIST"),
@@ -372,6 +376,7 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
         self.props = props
         self.join_by = join_by
         self.service_group = service_group
+        self.only_own_controlling = only_own_controlling
         self.status = status
 
     def get_service(self, inquiry, type):
@@ -449,17 +454,25 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
                     WorkItem.STATUS_SKIPPED,
                 ]
             ),
-        ).filter(
-            work_item_by_addressed_service_condition(
-                Q(service_parent__isnull=True) | Q(service_parent_id=service.pk)
-            )
         )
 
         if self.only_own:
             queryset = queryset.exclude(status=WorkItem.STATUS_SUSPENDED).filter(
                 addressed_groups__contains=[str(service.pk)]
             )
-        elif self.service_group:
+        elif self.only_own_controlling:
+            queryset = queryset.filter(controlling_groups__contains=[str(service.pk)])
+        else:
+            # if we're not filtering based on addressed / controlling groups, make sure that addressed
+            # service exists
+            # TODO: do we really need this?!
+            queryset = queryset.filter(
+                work_item_by_addressed_service_condition(
+                    Q(service_parent__isnull=True) | Q(service_parent_id=service.pk)
+                )
+            )
+
+        if self.service_group:
             service_groups = self.service_group
 
             if not isinstance(service_groups, list):

@@ -878,6 +878,14 @@ msgid "Opinions and ancillary clauses of the invited services"
 msgstr "Prese di posizione e disposizioni accessorie dei servizi invitati"
 
 #: camac/instance/placeholders/serializers.py
+msgid "CIRCULATION_REQUESTED"
+msgstr "CIRCOLAZIONE_RICHIESTA"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Inquiries requested by own service only"
+msgstr "Servizi coinvolti nel dossier che sono stati richiesti da questo servizio"
+
+#: camac/instance/placeholders/serializers.py
 msgid "OWN_BILLING_ENTRIES_TOTAL"
 msgstr "TOTALE_TASSE_PROPRIE"
 
