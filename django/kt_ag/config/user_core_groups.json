@@ -46,35 +46,5 @@
       "email": null,
       "website": null
     }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 1,
-    "fields": {
-      "group": 1,
-      "language": "de",
-      "name": "Admin",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 2,
-    "fields": {
-      "group": 2,
-      "language": "de",
-      "name": "Guest",
-      "city": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 3,
-    "fields": {
-      "group": 3,
-      "language": "de",
-      "name": "Portal",
-      "city": null
-    }
   }
 ]
