@@ -18,7 +18,7 @@ const UNUSED_ENVS = ENVS.filter((e) => e !== ENV).join("|");
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
-    storeConfigInMeta: ENV !== "so",
+    storeConfigInMeta: !["so", "ag"].includes(ENV),
     "localized-model": {
       sanitizeLocale: true,
     },

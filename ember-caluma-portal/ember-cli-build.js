@@ -19,7 +19,7 @@ const UNUSED_ENVS = ENVS.filter((e) => e !== ENV).join("|");
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
-    storeConfigInMeta: !["so"].includes(ENV),
+    storeConfigInMeta: !["so", "ag"].includes(ENV),
     "@embroider/macros": {
       setOwnConfig: {
         application: ENV,
