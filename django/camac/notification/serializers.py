@@ -81,6 +81,9 @@ RECIPIENT_TYPE_NAMES = {
     "involved_in_districution_except_gvg": translation.gettext_noop(
         "Involved services"
     ),
+    "services_with_incomplete_inquiries": translation.gettext_noop(
+        "Services which have incomplete inquiries"
+    ),
     "leitbehoerde": translation.gettext_noop("Authority"),
     "municipality": translation.gettext_noop("Municipality"),
     "unanswered_inquiries": translation.gettext_noop(
@@ -198,6 +201,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     instance_id = serializers.IntegerField()
     public_dossier_link = serializers.SerializerMethodField()
     internal_dossier_link = serializers.SerializerMethodField()
+    distribution_link = serializers.SerializerMethodField()
     registration_link = serializers.SerializerMethodField()
     dossier_nr = serializers.SerializerMethodField()
     leitbehoerde_name_de = serializers.SerializerMethodField()
@@ -559,6 +563,12 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     def get_internal_dossier_link(self, instance):
         return instance.get_internal_url()
+
+    def get_distribution_link(self, instance):
+        return build_url(
+            instance.get_internal_url(),
+            "/distribution",
+        )
 
     def get_public_dossier_link(self, instance):
         return settings.PUBLIC_INSTANCE_URL_TEMPLATE.format(instance_id=instance.pk)
@@ -1131,6 +1141,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             "acl_authorized",
             # GR specific
             "involved_in_distribution_except_gvg",
+            "services_with_incomplete_inquiries",
             *settings.APPLICATION.get("CUSTOM_NOTIFICATION_TYPES", []),
         )
     )
@@ -1407,6 +1418,27 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             status=caluma_workflow_models.WorkItem.STATUS_SKIPPED,
             case__family__instance=instance,
         ).values_list("addressed_groups", flat=True)
+
+        return flatten(
+            [
+                self._get_responsible(instance, service)
+                for service in Service.objects.filter(
+                    pk__in=list(chain(*addressed_groups))
+                )
+            ]
+        )
+
+    def _get_recipients_services_with_incomplete_inquiries(self, instance):
+        if not settings.DISTRIBUTION:  # pragma: no cover
+            return []
+
+        inquiries = caluma_workflow_models.WorkItem.objects.filter(
+            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+            case__family__instance=instance,
+            status=caluma_workflow_models.WorkItem.STATUS_SKIPPED,
+        )
+
+        addressed_groups = inquiries.values_list("addressed_groups", flat=True)
 
         return flatten(
             [

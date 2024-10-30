@@ -288,6 +288,18 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 25,
+    "fields": {
+      "slug": "zirkulation-abgebrochen",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -573,6 +585,18 @@
       "purpose": "Entscheid verfügt Bauanzeige und vorläufige Beurteilung",
       "subject": "Information über Entscheid (Dossier-Nr. {{DOSSIER_NR}}) / Informazione relativa alla decisione (dossier n. {{DOSSIER_NR}})",
       "body": "Guten Tag\r\n\r\nDie Beurteilung ({{DECISION_DE}}) zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen. Sie finden die Dokumente unter folgendem Link:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n---\r\n\r\nBuongiorno\r\n\r\nLa valutazione ({{DECISION_IT}}) relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_IT}}, {{MUNICIPALITY_IT}}) è conclusa. I documenti sono disponibili al seguente link:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\n{{LEITBEHOERDE_NAME_IT}}"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 46,
+    "fields": {
+      "template": 25,
+      "template_slug": "zirkulation-abgebrochen",
+      "language": "de",
+      "purpose": "Zirkulation abgebrochen / Circolazione annullata",
+      "subject": "Information über vorzeitiger Abbruch der Stellungnahme (Dossier-Nr. {{DOSSIER_NR}}) / Informazione relativa all'annullamento anticipato della presa di posizione (n. dossier {{DOSSIER_NR}})",
+      "body": "Guten Tag\r\n\r\nDie Gemeinde {{MUNICIPALITY_DE}} hat die Anfrage zur Stellungnahme zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) vorzeitig beendet. Weitere Informationen finden Sie unter folgendem Link:\r\n\r\n{{DISTRIBUTION_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse \r\nGemeinde {{MUNICIPALITY_DE}}\r\n\r\n---\r\n\r\nBuongiorno\r\n\r\nIl Comune di {{MUNICIPALITY_IT}} ha annullato anticipatamente la richiesta di prendere\r\nposizione relativa al dossier con il numero {{DOSSIER_NR}} ({{FORM_NAME_IT}}, \r\n{{MUNICIPALITY_IT}}). Ulteriori informazioni sono disponibili al link seguente:\r\n\r\n{{DISTRIBUTION_LINK}}\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\nComune di {{MUNICIPALITY_IT}}"
     }
   }
 ]
