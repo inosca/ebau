@@ -140,7 +140,7 @@
     "pk": "baugesuch-v5",
     "fields": {
       "created_at": "2024-05-30T12:17:12.356Z",
-      "modified_at": "2024-09-10T12:21:10.067Z",
+      "modified_at": "2024-10-18T11:47:53.602Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -2325,7 +2325,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "anschluss-sammelkanaele-vorfluter-dokument-v2",
-      "sort": 53
+      "sort": 55
     }
   },
   {
@@ -2340,7 +2340,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "ausnahmegesuch-energie-dokument",
-      "sort": 17
+      "sort": 19
     }
   },
   {
@@ -2355,7 +2355,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "ausnuetzung-dokument",
-      "sort": 60
+      "sort": 62
     }
   },
   {
@@ -2370,7 +2370,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "auszug-konsultationsbereichskarte-stoerfallverordnung-kt-bern-v3",
-      "sort": 31
+      "sort": 33
     }
   },
   {
@@ -2385,7 +2385,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "baugrunduntersuchung-dokument",
-      "sort": 21
+      "sort": 23
     }
   },
   {
@@ -2400,7 +2400,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "berechnungen-abstellplaetze-dokument",
-      "sort": 61
+      "sort": 63
     }
   },
   {
@@ -2415,7 +2415,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "beschrieb-der-lueftung-dokument",
-      "sort": 39
+      "sort": 41
     }
   },
   {
@@ -2430,7 +2430,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "bestaetigung-hydrogeo-begleitung-dokument",
-      "sort": 24
+      "sort": 26
     }
   },
   {
@@ -2445,7 +2445,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "betriebskonzept-gastgewerbe-dokument",
-      "sort": 40
+      "sort": 42
     }
   },
   {
@@ -2460,7 +2460,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "bodenschutzkonzept-dokument-v2",
-      "sort": 12
+      "sort": 14
     }
   },
   {
@@ -2475,7 +2475,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "brandschutzkonzept-dokument",
-      "sort": 51
+      "sort": 53
     }
   },
   {
@@ -2490,7 +2490,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "brandschutzplan-dokument",
-      "sort": 50
+      "sort": 52
     }
   },
   {
@@ -2505,7 +2505,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "dokumente-platzhalter",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -2520,7 +2520,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "energiedokumente-dokument",
-      "sort": 19
+      "sort": 21
     }
   },
   {
@@ -2535,7 +2535,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "entsorgungskonzept-dokument",
-      "sort": 13
+      "sort": 15
     }
   },
   {
@@ -2550,7 +2550,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "entwaesserung-oberflaechengewaesser-dokument-v2",
-      "sort": 29
+      "sort": 31
     }
   },
   {
@@ -2565,7 +2565,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "entwaesserung-ueber-mischwasserkanal-dokument-v2",
-      "sort": 28
+      "sort": 30
     }
   },
   {
@@ -2580,7 +2580,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "entwaesserung-ueber-regenwasserkanal-dokument-v2",
-      "sort": 30
+      "sort": 32
     }
   },
   {
@@ -2595,7 +2595,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "erdwaermensondendimensionierung-dokument",
-      "sort": 45
+      "sort": 47
     }
   },
   {
@@ -2610,7 +2610,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "fassadenplan-reklamestandort-dokument",
-      "sort": 4
+      "sort": 6
     }
   },
   {
@@ -2625,7 +2625,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "formular-andere-thermoaktive-elemente-dokument",
-      "sort": 47
+      "sort": 49
     }
   },
   {
@@ -2640,7 +2640,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "gefahrengutachten-dokument",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -2655,7 +2655,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "geschossflaechen-dokument",
-      "sort": 57
+      "sort": 59
     }
   },
   {
@@ -2670,7 +2670,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "gesuch-ausnahmebewilligung-dokument-v2",
-      "sort": 20
+      "sort": 22
     }
   },
   {
@@ -2685,7 +2685,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "gesuch-erleichterung-waermeschutz-dokument",
-      "sort": 18
+      "sort": 20
     }
   },
   {
@@ -2700,7 +2700,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "gesuch-zur-ausnahme-dokument",
-      "sort": 16
+      "sort": 18
     }
   },
   {
@@ -2715,7 +2715,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "gewaesserschutz-landwirtschaft-dokument-v2",
-      "sort": 25
+      "sort": 27
     }
   },
   {
@@ -2730,7 +2730,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "gruenflaeche-dokument",
-      "sort": 59
+      "sort": 61
     }
   },
   {
@@ -2745,7 +2745,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "grundriss-angabe-bodenflaeche-dokument",
-      "sort": 38
+      "sort": 40
     }
   },
   {
@@ -2760,7 +2760,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "grundriss-dokument",
-      "sort": 34
+      "sort": 36
     }
   },
   {
@@ -2775,7 +2775,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "grundstuecksentwaesserungsplan-dokument-v2",
-      "sort": 65
+      "sort": 67
     }
   },
   {
@@ -2790,7 +2790,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "hydrogeo-gutachten-dokument",
-      "sort": 43
+      "sort": 45
     }
   },
   {
@@ -2805,7 +2805,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "hydrogeologische-begleitung-dokument",
-      "sort": 44
+      "sort": 46
     }
   },
   {
@@ -2820,7 +2820,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "inanspruchnahme-boden-dokument",
-      "sort": 54
+      "sort": 56
     }
   },
   {
@@ -2835,7 +2835,22 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "kanalisationskatasterplan-dokument-v2",
-      "sort": 27
+      "sort": 29
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v5.kataster-werkleitungsplaene-v5",
+    "fields": {
+      "created_at": "2024-10-18T11:43:40.416Z",
+      "modified_at": "2024-10-18T11:43:40.416Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-v5",
+      "question": "kataster-werkleitungsplaene-v5",
+      "sort": 2
     }
   },
   {
@@ -2850,7 +2865,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "kurzbericht-risikoermittlung-dokument-v3",
-      "sort": 32
+      "sort": 34
     }
   },
   {
@@ -2865,7 +2880,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "meldeblatt-fuer-terrainveraenderungen-dokument-v2",
-      "sort": 11
+      "sort": 13
     }
   },
   {
@@ -2880,7 +2895,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "nachweis-anforderungen-dokument",
-      "sort": 15
+      "sort": 17
     }
   },
   {
@@ -2895,7 +2910,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "nachweis-raumakustik-dokument-v5",
-      "sort": 2
+      "sort": 4
     }
   },
   {
@@ -2910,7 +2925,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "plaene-fumoir-dokument",
-      "sort": 36
+      "sort": 38
     }
   },
   {
@@ -2925,7 +2940,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "plaene-gewaesserschutz-dokument",
-      "sort": 22
+      "sort": 24
     }
   },
   {
@@ -2940,7 +2955,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "plane-gastgewerbebetrieb-dokument",
-      "sort": 37
+      "sort": 39
     }
   },
   {
@@ -2955,7 +2970,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "plan-temporaere-definitive-flaeche-dokument-v2",
-      "sort": 9
+      "sort": 11
     }
   },
   {
@@ -2970,7 +2985,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "qualitaetssicherungskonzept-dokument",
-      "sort": 49
+      "sort": 51
     }
   },
   {
@@ -2985,7 +3000,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "regierungsratsbeschluss-bauinventar-dokument",
-      "sort": 56
+      "sort": 58
     }
   },
   {
@@ -3000,7 +3015,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "rodungsgesuchsformular-bafu-dokument",
-      "sort": 8
+      "sort": 10
     }
   },
   {
@@ -3015,7 +3030,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "rodungs-und-ersatzaufforstungsplan-dokument",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -3030,7 +3045,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "rueckbau-checkliste-selbstdeklaration-dokument",
-      "sort": 14
+      "sort": 16
     }
   },
   {
@@ -3045,7 +3060,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "schnitt-dokument",
-      "sort": 33
+      "sort": 35
     }
   },
   {
@@ -3060,7 +3075,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "schnittplan-gewaesserschutz-dokument",
-      "sort": 23
+      "sort": 25
     }
   },
   {
@@ -3075,7 +3090,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "schutzraum-dokument",
-      "sort": 41
+      "sort": 43
     }
   },
   {
@@ -3090,7 +3105,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "sicherungsleistung-befreit-dokument",
-      "sort": 42
+      "sort": 44
     }
   },
   {
@@ -3105,7 +3120,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "sicherungsmassnahme-dokument",
-      "sort": 62
+      "sort": 64
     }
   },
   {
@@ -3120,7 +3135,22 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "situationsplan-dokument",
-      "sort": 35
+      "sort": 37
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v5.situationsplan-grabflaeche-strassenterrainflaeche-v5",
+    "fields": {
+      "created_at": "2024-10-18T11:45:40.570Z",
+      "modified_at": "2024-10-18T11:45:40.570Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-v5",
+      "question": "situationsplan-grabflaeche-strassenterrainflaeche-v5",
+      "sort": 1
     }
   },
   {
@@ -3135,7 +3165,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "skizze-der-reklame-mit-farbangaben-dokument",
-      "sort": 3
+      "sort": 5
     }
   },
   {
@@ -3150,7 +3180,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "sondenmodell-mit-datenblatt-dokument",
-      "sort": 46
+      "sort": 48
     }
   },
   {
@@ -3165,7 +3195,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "ueberbauung-dokument",
-      "sort": 58
+      "sort": 60
     }
   },
   {
@@ -3180,7 +3210,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "uebersichtsplan-dokument",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -3195,7 +3225,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "versickerungsanlagen-dokument-v2",
-      "sort": 26
+      "sort": 28
     }
   },
   {
@@ -3210,7 +3240,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "vertrag-zum-bauinventar-dokument",
-      "sort": 55
+      "sort": 57
     }
   },
   {
@@ -3225,7 +3255,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "verwertung-von-abgetragenem-boden-dokument-v2",
-      "sort": 10
+      "sort": 12
     }
   },
   {
@@ -3240,7 +3270,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "vollmacht-dokument",
-      "sort": 64
+      "sort": 66
     }
   },
   {
@@ -3255,7 +3285,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "vorabklaerung-dokument",
-      "sort": 63
+      "sort": 65
     }
   },
   {
@@ -3270,7 +3300,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "weitere-angaben-regeneration-ews-dokument",
-      "sort": 48
+      "sort": 50
     }
   },
   {
@@ -3285,7 +3315,7 @@
       "modified_by_group": null,
       "form": "dokumente-v5",
       "question": "zustimmung-der-anstoesser-dokument-v2",
-      "sort": 52
+      "sort": 54
     }
   },
   {
@@ -3975,7 +4005,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "ableitung-in-guellegrube-v2",
-      "sort": 24
+      "sort": 29
     }
   },
   {
@@ -3990,7 +4020,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "aussenlaerm",
-      "sort": 29
+      "sort": 34
     }
   },
   {
@@ -4005,7 +4035,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "bau-im-wald-oder-innerhalb-von-30-m-abstand",
-      "sort": 8
+      "sort": 16
     }
   },
   {
@@ -4020,7 +4050,82 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "bauten-mit-mehr-als-30-grossvieheinheiten",
-      "sort": 27
+      "sort": 32
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "triage-v5.betrifft-das-bauvorhaben-einen-telekommunikationsanschluss-v5",
+    "fields": {
+      "created_at": "2024-10-18T11:33:04.874Z",
+      "modified_at": "2024-10-18T11:33:04.874Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "triage-v5",
+      "question": "betrifft-das-bauvorhaben-einen-telekommunikationsanschluss-v5",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "triage-v5.betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5",
+    "fields": {
+      "created_at": "2024-10-18T11:37:32.566Z",
+      "modified_at": "2024-10-18T11:37:32.566Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "triage-v5",
+      "question": "betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "triage-v5.betrifft-das-bauvorhaben-elektroinstallationen-v5",
+    "fields": {
+      "created_at": "2024-10-18T11:31:09.290Z",
+      "modified_at": "2024-10-18T11:31:09.290Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "triage-v5",
+      "question": "betrifft-das-bauvorhaben-elektroinstallationen-v5",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "triage-v5.betrifft-das-bauvorhaben-gasinstallationen-v5",
+    "fields": {
+      "created_at": "2024-10-18T11:34:22.573Z",
+      "modified_at": "2024-10-18T11:34:22.573Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "triage-v5",
+      "question": "betrifft-das-bauvorhaben-gasinstallationen-v5",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "triage-v5.betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5",
+    "fields": {
+      "created_at": "2024-10-18T11:39:06.051Z",
+      "modified_at": "2024-10-18T11:39:06.051Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "triage-v5",
+      "question": "betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5",
+      "sort": 1
     }
   },
   {
@@ -4035,7 +4140,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "brandbelastung",
-      "sort": 33
+      "sort": 38
     }
   },
   {
@@ -4050,7 +4155,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "feuerungsanlagen",
-      "sort": 28
+      "sort": 33
     }
   },
   {
@@ -4065,7 +4170,22 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "gefaehrliche-stoffe",
-      "sort": 31
+      "sort": 36
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "triage-v5.gemeindespezifische-formulare-titel-v5",
+    "fields": {
+      "created_at": "2024-10-18T10:56:49.416Z",
+      "modified_at": "2024-10-18T10:56:49.416Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "triage-v5",
+      "question": "gemeindespezifische-formulare-titel-v5",
+      "sort": 8
     }
   },
   {
@@ -4080,7 +4200,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "geplante-anlagen",
-      "sort": 2
+      "sort": 10
     }
   },
   {
@@ -4095,7 +4215,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "gibt-es-bewilligungspflichtige-reklame",
-      "sort": 7
+      "sort": 15
     }
   },
   {
@@ -4110,7 +4230,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "handelt-es-sich-um-ein-sensibles-objekt",
-      "sort": 4
+      "sort": 12
     }
   },
   {
@@ -4125,7 +4245,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "ist-das-vorhaben-energierelevant",
-      "sort": 5
+      "sort": 13
     }
   },
   {
@@ -4140,7 +4260,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "ist-durch-das-bauvorhaben-boden-ober-unterboden-betroffen-v2",
-      "sort": 3
+      "sort": 11
     }
   },
   {
@@ -4155,7 +4275,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "ist-ein-fumoir-betroffen",
-      "sort": 34
+      "sort": 39
     }
   },
   {
@@ -4170,7 +4290,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "ist-mit-bauabfaellen-zu-rechnen",
-      "sort": 6
+      "sort": 14
     }
   },
   {
@@ -4185,7 +4305,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "maschinelle-arbeitsmittel",
-      "sort": 32
+      "sort": 37
     }
   },
   {
@@ -4200,7 +4320,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "maschinen-aus-den-folgenden-kategorien",
-      "sort": 23
+      "sort": 28
     }
   },
   {
@@ -4215,7 +4335,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "nutzungsart",
-      "sort": 38
+      "sort": 43
     }
   },
   {
@@ -4230,7 +4350,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "schutzraum-pflicht",
-      "sort": 19
+      "sort": 24
     }
   },
   {
@@ -4245,7 +4365,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "sind-belange-des-gewaesserschutzes-betroffen-v2",
-      "sort": 20
+      "sort": 25
     }
   },
   {
@@ -4260,7 +4380,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "triagefrage-bauvorhaben-in-konsultationsbereichen-titel-v3",
-      "sort": 10
+      "sort": 18
     }
   },
   {
@@ -4275,7 +4395,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "triagefrage-bauvorhaben-in-konsultationsbereichen-v3",
-      "sort": 9
+      "sort": 17
     }
   },
   {
@@ -4290,7 +4410,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "triagefrage-biologische-sicherheit-titel-optional-v3",
-      "sort": 15
+      "sort": 21
     }
   },
   {
@@ -4305,7 +4425,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "triagefrage-biologische-sicherheit-titel-v3",
-      "sort": 13
+      "sort": 20
     }
   },
   {
@@ -4320,7 +4440,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "triagefrage-biologische-sicherheit-v3",
-      "sort": 11
+      "sort": 19
     }
   },
   {
@@ -4335,7 +4455,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "triagefrage-stoerfallvorsorge-titel-v3",
-      "sort": 18
+      "sort": 23
     }
   },
   {
@@ -4350,7 +4470,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "triagefrage-stoerfallvorsorge-v3",
-      "sort": 17
+      "sort": 22
     }
   },
   {
@@ -4365,7 +4485,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "um-was-fuer-ein-gebaeude-handelt-es-sich",
-      "sort": 35
+      "sort": 40
     }
   },
   {
@@ -4380,7 +4500,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "verunreinigte-abluft",
-      "sort": 30
+      "sort": 35
     }
   },
   {
@@ -4395,7 +4515,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "was-fuer-ein-vorhaben",
-      "sort": 37
+      "sort": 42
     }
   },
   {
@@ -4410,7 +4530,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "wassergefaehrdende-explosive-stoffe",
-      "sort": 21
+      "sort": 26
     }
   },
   {
@@ -4425,7 +4545,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "weitere-vorhaben",
-      "sort": 22
+      "sort": 27
     }
   },
   {
@@ -4440,7 +4560,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "welche-art-vorhaben",
-      "sort": 36
+      "sort": 41
     }
   },
   {
@@ -4455,7 +4575,22 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "welche-waermepumpen",
-      "sort": 1
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "triage-v5.werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5",
+    "fields": {
+      "created_at": "2024-10-18T11:22:50.729Z",
+      "modified_at": "2024-10-18T11:22:50.729Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "triage-v5",
+      "question": "werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5",
+      "sort": 6
     }
   },
   {
@@ -4470,7 +4605,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "werden-neue-hofduengeranlagen-erstellt",
-      "sort": 26
+      "sort": 31
     }
   },
   {
@@ -4485,7 +4620,22 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "werden-siloanlagen-erstellt",
-      "sort": 25
+      "sort": 30
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "triage-v5.werden-strassen-radwege-gehwege-in-anspruch-genommen-v5",
+    "fields": {
+      "created_at": "2024-10-18T11:16:23.203Z",
+      "modified_at": "2024-10-18T11:16:23.203Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "triage-v5",
+      "question": "werden-strassen-radwege-gehwege-in-anspruch-genommen-v5",
+      "sort": 7
     }
   },
   {
@@ -5029,6 +5179,176 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "betrifft-das-bauvorhaben-einen-telekommunikationsanschluss-v5-ja",
+    "fields": {
+      "created_at": "2024-10-18T11:33:04.750Z",
+      "modified_at": "2024-10-18T11:40:48.202Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betrifft-das-bauvorhaben-einen-telekommunikationsanschluss-v5-nein",
+    "fields": {
+      "created_at": "2024-10-18T11:33:04.754Z",
+      "modified_at": "2024-10-18T11:40:48.208Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5-ja",
+    "fields": {
+      "created_at": "2024-10-18T11:37:32.431Z",
+      "modified_at": "2024-10-18T11:37:45.495Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5-nein",
+    "fields": {
+      "created_at": "2024-10-18T11:37:32.435Z",
+      "modified_at": "2024-10-18T11:37:45.491Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betrifft-das-bauvorhaben-elektroinstallationen-v5-ja",
+    "fields": {
+      "created_at": "2024-10-18T11:31:09.140Z",
+      "modified_at": "2024-10-18T11:32:07.306Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betrifft-das-bauvorhaben-elektroinstallationen-v5-nein",
+    "fields": {
+      "created_at": "2024-10-18T11:31:09.144Z",
+      "modified_at": "2024-10-18T11:32:07.302Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betrifft-das-bauvorhaben-gasinstallationen-v5-ja",
+    "fields": {
+      "created_at": "2024-10-18T11:34:22.441Z",
+      "modified_at": "2024-10-18T11:40:36.646Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betrifft-das-bauvorhaben-gasinstallationen-v5-nein",
+    "fields": {
+      "created_at": "2024-10-18T11:34:22.444Z",
+      "modified_at": "2024-10-18T11:40:36.645Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5-ja",
+    "fields": {
+      "created_at": "2024-10-18T11:39:05.937Z",
+      "modified_at": "2024-10-18T11:40:20.538Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5-nein",
+    "fields": {
+      "created_at": "2024-10-18T11:39:05.943Z",
+      "modified_at": "2024-10-18T11:40:20.533Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "ist-das-bauwerk-der-bauwerksklasse-ii-oder-iii-zugeteilt-v5-ja",
     "fields": {
       "created_at": "2024-08-14T08:30:59.715Z",
@@ -5131,6 +5451,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "kataster-werkleitungsplaene-v5-ja",
+    "fields": {
+      "created_at": "2024-10-18T11:43:40.302Z",
+      "modified_at": "2024-10-18T11:43:40.302Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kataster- und / oder Werkleitungspl\\u00e4ne\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "nachweis-raumakustik-dokument-v5-ja",
     "fields": {
       "created_at": "2024-07-16T17:39:21.308Z",
@@ -5140,6 +5477,23 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nachweis Raumakustik\", \"fr\": \"Attestation d\\u2019acoustique\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "situationsplan-grabflaeche-strassenterrainflaeche-v5-ja",
+    "fields": {
+      "created_at": "2024-10-18T11:45:40.456Z",
+      "modified_at": "2024-10-18T11:45:40.456Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situationsplan mit Vorschlag der Grabfl\\u00e4che / Terrain-Inanspruchnahme resp. der beanspruchten Strassenterrainfl\\u00e4che\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -5169,6 +5523,74 @@
     "fields": {
       "created_at": "2024-07-16T16:59:57.126Z",
       "modified_at": "2024-07-16T17:03:23.157Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5-ja",
+    "fields": {
+      "created_at": "2024-10-18T11:22:50.601Z",
+      "modified_at": "2024-10-18T11:23:19.816Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5-nein",
+    "fields": {
+      "created_at": "2024-10-18T11:22:50.607Z",
+      "modified_at": "2024-10-18T11:23:19.815Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werden-strassen-radwege-gehwege-in-anspruch-genommen-v5-ja",
+    "fields": {
+      "created_at": "2024-10-18T11:16:23.072Z",
+      "modified_at": "2024-10-18T11:23:08.223Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werden-strassen-radwege-gehwege-in-anspruch-genommen-v5-nein",
+    "fields": {
+      "created_at": "2024-10-18T11:16:23.075Z",
+      "modified_at": "2024-10-18T11:23:08.227Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -5899,6 +6321,161 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "betrifft-das-bauvorhaben-einen-telekommunikationsanschluss-v5",
+    "fields": {
+      "created_at": "2024-10-18T11:33:04.813Z",
+      "modified_at": "2024-10-18T11:40:48.273Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Betrifft das Bauvorhaben einen Telekommunikationsanschluss (Gemeinschaftsantenne / Fernmeldenetz)?\", \"fr\": \"Betrifft das Bauvorhaben einen Telekommunikationsanschluss (Gemeinschaftsantenne / Fernmeldenetz)?\", \"it\": null}",
+      "type": "choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5",
+    "fields": {
+      "created_at": "2024-10-18T11:37:32.499Z",
+      "modified_at": "2024-10-18T11:39:54.541Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Betrifft das Bauvorhaben eine Trinkwasserinstallation?\", \"fr\": \"betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5\", \"it\": null}",
+      "type": "choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "betrifft-das-bauvorhaben-elektroinstallationen-v5",
+    "fields": {
+      "created_at": "2024-10-18T11:31:09.225Z",
+      "modified_at": "2024-10-18T11:32:07.378Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Betrifft das Bauvorhaben Elektroinstallationen?\", \"fr\": \"Betrifft das Bauvorhaben Elektroinstallationen?\", \"it\": null}",
+      "type": "choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "betrifft-das-bauvorhaben-gasinstallationen-v5",
+    "fields": {
+      "created_at": "2024-10-18T11:34:22.510Z",
+      "modified_at": "2024-10-18T11:40:36.725Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Betrifft das Bauvorhaben Gasinstallationen?\", \"fr\": \"Betrifft das Bauvorhaben Gasinstallationen?\", \"it\": null}",
+      "type": "choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5",
+    "fields": {
+      "created_at": "2024-10-18T11:39:05.996Z",
+      "modified_at": "2024-10-18T11:40:20.619Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Betrifft das Bauvorhaben Wasser- oder Abwasserinstallationen?\", \"fr\": \"Betrifft das Bauvorhaben Wasser- oder Abwasserinstallationen?\", \"it\": null}",
+      "type": "choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "dokumente-v5",
     "fields": {
       "created_at": "2024-07-16T15:51:00.878Z",
@@ -5989,6 +6566,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "erdbebensicherheit-v5",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gemeindespezifische-formulare-titel-v5",
+    "fields": {
+      "created_at": "2024-10-18T10:56:49.353Z",
+      "modified_at": "2024-10-18T10:56:49.353Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gemeindespezifische Formulare\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"***\\n**Gemeindespezifische Formulare**\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -6186,6 +6794,40 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kataster-werkleitungsplaene-v5",
+    "fields": {
+      "created_at": "2024-10-18T11:43:40.364Z",
+      "modified_at": "2024-10-18T11:44:04.959Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kataster- und / oder Werkleitungspl\\u00e4ne\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!('werden-strassen-radwege-gehwege-in-anspruch-genommen-v5-ja' == 'werden-strassen-radwege-gehwege-in-anspruch-genommen-v5'|answer || 'werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5-ja' == 'werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5'|answer || 'betrifft-das-bauvorhaben-elektroinstallationen-v5-ja' == 'betrifft-das-bauvorhaben-elektroinstallationen-v5'|answer || 'betrifft-das-bauvorhaben-einen-telekommunikationsanschluss-v5-ja' == 'betrifft-das-bauvorhaben-einen-telekommunikationsanschluss-v5'|answer|| 'betrifft-das-bauvorhaben-gasinstallationen-v5-ja' == 'betrifft-das-bauvorhaben-gasinstallationen-v5'|answer|| 'betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5-ja' == 'betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5'|answer || 'betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5-ja' == 'betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "documentCategory": "plaene"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -6508,6 +7150,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "situationsplan-grabflaeche-strassenterrainflaeche-v5",
+    "fields": {
+      "created_at": "2024-10-18T11:45:40.519Z",
+      "modified_at": "2024-10-18T11:45:40.519Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situationsplan mit Vorschlag der Grabfl\\u00e4che / Terrain-Inanspruchnahme resp. der beanspruchten Strassenterrainfl\\u00e4che\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!('werden-strassen-radwege-gehwege-in-anspruch-genommen-v5-ja' == 'werden-strassen-radwege-gehwege-in-anspruch-genommen-v5'|answer || 'werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5-ja' == 'werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "documentCategory": "plaene"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "spezialformulare-v5",
     "fields": {
       "created_at": "2024-06-25T15:17:48.805Z",
@@ -6771,6 +7447,68 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5",
+    "fields": {
+      "created_at": "2024-10-18T11:22:50.668Z",
+      "modified_at": "2024-10-18T11:23:45.559Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Werden \\u00c4nderungen oder Grabarbeiten in Strassen, Radwegen oder Gehwegen vorgenommen?\", \"fr\": \"Werden \\u00c4nderungen oder Grabarbeiten in Strassen, Radwegen oder Gehwegen vorgenommen?  &nbsp;\", \"it\": null}",
+      "type": "choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Hinweis auf Artikel 68 Strassengesetz (SG)\", \"fr\": \"Hinweis auf Artikel 68 Strassengesetz (SG)\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werden-strassen-radwege-gehwege-in-anspruch-genommen-v5",
+    "fields": {
+      "created_at": "2024-10-18T11:16:23.143Z",
+      "modified_at": "2024-10-18T11:23:08.301Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Werden Strassen, Radwege oder Gehwege in Anspruch genommen?\", \"fr\": \"Werden Strassen, Radwege oder Gehwege in Anspruch genommen?\", \"it\": null}",
+      "type": "choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Hinweis auf Artikel 68 Strassengesetz (SG)\", \"fr\": \"Hinweis auf Artikel 68 Strassengesetz (SG)\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "wird-in-relevanter-weise-ins-tragwerk-eingegriffen-v5",
     "fields": {
       "created_at": "2024-08-14T08:32:41.430Z",
@@ -6977,6 +7715,156 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "betrifft-das-bauvorhaben-einen-telekommunikationsanschluss-v5.betrifft-das-bauvorhaben-einen-telekommunikationsanschluss-v5-ja",
+    "fields": {
+      "created_at": "2024-10-18T11:40:48.281Z",
+      "modified_at": "2024-10-18T11:40:48.281Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "betrifft-das-bauvorhaben-einen-telekommunikationsanschluss-v5",
+      "option": "betrifft-das-bauvorhaben-einen-telekommunikationsanschluss-v5-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betrifft-das-bauvorhaben-einen-telekommunikationsanschluss-v5.betrifft-das-bauvorhaben-einen-telekommunikationsanschluss-v5-nein",
+    "fields": {
+      "created_at": "2024-10-18T11:40:48.279Z",
+      "modified_at": "2024-10-18T11:40:48.279Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "betrifft-das-bauvorhaben-einen-telekommunikationsanschluss-v5",
+      "option": "betrifft-das-bauvorhaben-einen-telekommunikationsanschluss-v5-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5.betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5-ja",
+    "fields": {
+      "created_at": "2024-10-18T11:39:54.547Z",
+      "modified_at": "2024-10-18T11:39:54.547Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5",
+      "option": "betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5.betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5-nein",
+    "fields": {
+      "created_at": "2024-10-18T11:39:54.545Z",
+      "modified_at": "2024-10-18T11:39:54.545Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5",
+      "option": "betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betrifft-das-bauvorhaben-elektroinstallationen-v5.betrifft-das-bauvorhaben-elektroinstallationen-v5-ja",
+    "fields": {
+      "created_at": "2024-10-18T11:32:07.384Z",
+      "modified_at": "2024-10-18T11:32:07.384Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "betrifft-das-bauvorhaben-elektroinstallationen-v5",
+      "option": "betrifft-das-bauvorhaben-elektroinstallationen-v5-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betrifft-das-bauvorhaben-elektroinstallationen-v5.betrifft-das-bauvorhaben-elektroinstallationen-v5-nein",
+    "fields": {
+      "created_at": "2024-10-18T11:32:07.382Z",
+      "modified_at": "2024-10-18T11:32:07.382Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "betrifft-das-bauvorhaben-elektroinstallationen-v5",
+      "option": "betrifft-das-bauvorhaben-elektroinstallationen-v5-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betrifft-das-bauvorhaben-gasinstallationen-v5.betrifft-das-bauvorhaben-gasinstallationen-v5-ja",
+    "fields": {
+      "created_at": "2024-10-18T11:40:36.732Z",
+      "modified_at": "2024-10-18T11:40:36.732Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "betrifft-das-bauvorhaben-gasinstallationen-v5",
+      "option": "betrifft-das-bauvorhaben-gasinstallationen-v5-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betrifft-das-bauvorhaben-gasinstallationen-v5.betrifft-das-bauvorhaben-gasinstallationen-v5-nein",
+    "fields": {
+      "created_at": "2024-10-18T11:40:36.729Z",
+      "modified_at": "2024-10-18T11:40:36.729Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "betrifft-das-bauvorhaben-gasinstallationen-v5",
+      "option": "betrifft-das-bauvorhaben-gasinstallationen-v5-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5.betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5-ja",
+    "fields": {
+      "created_at": "2024-10-18T11:40:20.624Z",
+      "modified_at": "2024-10-18T11:40:20.624Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5",
+      "option": "betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5.betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5-nein",
+    "fields": {
+      "created_at": "2024-10-18T11:40:20.622Z",
+      "modified_at": "2024-10-18T11:40:20.622Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5",
+      "option": "betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "ist-das-bauwerk-der-bauwerksklasse-ii-oder-iii-zugeteilt-v5.ist-das-bauwerk-der-bauwerksklasse-ii-oder-iii-zugeteilt-v5-ja",
     "fields": {
       "created_at": "2024-08-14T08:31:41.708Z",
@@ -7067,6 +7955,21 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "kataster-werkleitungsplaene-v5.kataster-werkleitungsplaene-v5-ja",
+    "fields": {
+      "created_at": "2024-10-18T11:44:04.963Z",
+      "modified_at": "2024-10-18T11:44:04.963Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "kataster-werkleitungsplaene-v5",
+      "option": "kataster-werkleitungsplaene-v5-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "nachweis-raumakustik-dokument-v5.nachweis-raumakustik-dokument-v5-ja",
     "fields": {
       "created_at": "2024-07-16T17:40:31.404Z",
@@ -7077,6 +7980,21 @@
       "modified_by_group": null,
       "question": "nachweis-raumakustik-dokument-v5",
       "option": "nachweis-raumakustik-dokument-v5-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "situationsplan-grabflaeche-strassenterrainflaeche-v5.situationsplan-grabflaeche-strassenterrainflaeche-v5-ja",
+    "fields": {
+      "created_at": "2024-10-18T11:45:40.523Z",
+      "modified_at": "2024-10-18T11:45:40.523Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "situationsplan-grabflaeche-strassenterrainflaeche-v5",
+      "option": "situationsplan-grabflaeche-strassenterrainflaeche-v5-ja",
       "sort": 1
     }
   },
@@ -7107,6 +8025,66 @@
       "modified_by_group": null,
       "question": "staendige-arbeitsplaetze-vorhanden-v5",
       "option": "staendige-arbeitsplaetze-vorhanden-v5-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5.werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5-ja",
+    "fields": {
+      "created_at": "2024-10-18T11:23:45.566Z",
+      "modified_at": "2024-10-18T11:23:45.566Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5",
+      "option": "werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5.werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5-nein",
+    "fields": {
+      "created_at": "2024-10-18T11:23:45.564Z",
+      "modified_at": "2024-10-18T11:23:45.564Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5",
+      "option": "werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werden-strassen-radwege-gehwege-in-anspruch-genommen-v5.werden-strassen-radwege-gehwege-in-anspruch-genommen-v5-ja",
+    "fields": {
+      "created_at": "2024-10-18T11:23:08.310Z",
+      "modified_at": "2024-10-18T11:23:08.310Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "werden-strassen-radwege-gehwege-in-anspruch-genommen-v5",
+      "option": "werden-strassen-radwege-gehwege-in-anspruch-genommen-v5-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werden-strassen-radwege-gehwege-in-anspruch-genommen-v5.werden-strassen-radwege-gehwege-in-anspruch-genommen-v5-nein",
+    "fields": {
+      "created_at": "2024-10-18T11:23:08.307Z",
+      "modified_at": "2024-10-18T11:23:08.307Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "werden-strassen-radwege-gehwege-in-anspruch-genommen-v5",
+      "option": "werden-strassen-radwege-gehwege-in-anspruch-genommen-v5-nein",
       "sort": 1
     }
   },
