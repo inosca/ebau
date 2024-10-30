@@ -64599,7 +64599,7 @@
       "label": "{\"de\": \"Aussenw\\u00e4nde\", \"fr\": null, \"it\": \"Pareti esterne\"}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "\"bauliche-veraenderungen-aufstellungsraum-ja\" != \"bauliche-veraenderungen-aufstellungsraum\"|answer",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
