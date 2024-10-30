@@ -140,7 +140,7 @@
     "pk": "baugesuch-v5",
     "fields": {
       "created_at": "2024-05-30T12:17:12.356Z",
-      "modified_at": "2024-10-18T11:47:53.602Z",
+      "modified_at": "2024-10-30T16:04:12.186Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -196,6 +196,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "benuetzung-oeffentlichem-terrain-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:28:39.681Z",
+      "modified_at": "2024-10-30T15:29:01.998Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Ben\\u00fctzung von \\u00f6ffentlichem Terrain\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Ben\\u00fctzung von \\u00f6ffentlichem Terrain (v5)\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "erdbebensicherheit-v5"
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "bestaetigung-v5",
     "fields": {
       "created_at": "2024-07-08T13:58:02.021Z",
@@ -246,6 +264,24 @@
       "is_published": false,
       "is_archived": false,
       "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "gesteigerter-gemeingebrauch-strassen-tabelle-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:31:14.631Z",
+      "modified_at": "2024-10-30T15:32:38.828Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Gesteigerter Gemeingebrauch Strassen Tabelle\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Baugesuch > Spezialformulare > Ben\\u00fctzung von \\u00f6ffentlichem Terrain > Gesteigerter Gemeingebrauch Strassen Tabelle (v5)\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "beschreibung-der-prozessart-tabelle"
     }
   },
   {
@@ -400,6 +436,24 @@
       "is_published": false,
       "is_archived": false,
       "source": "vorabklaerung-vollstaendig-v4"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "werkleitungen-strassen-tabelle-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:43:05.390Z",
+      "modified_at": "2024-10-30T15:45:46.204Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Werkleitungen Strassen Tabelle\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Baugesuch > Spezialformulare > Ben\\u00fctzung von \\u00f6ffentlichem Terrain > Werkleitungen Strassen Tabelle (v5)\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "gesteigerter-gemeingebrauch-strassen-tabelle-v5"
     }
   },
   {
@@ -2075,6 +2129,141 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-v5.gesteigerter-gemeingebrauch-beschreibung-zweck-andere-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:41:43.992Z",
+      "modified_at": "2024-10-30T15:41:43.992Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-v5",
+      "question": "gesteigerter-gemeingebrauch-beschreibung-zweck-andere-v5",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-v5.gesteigerter-gemeingebrauch-strassen-tabelle-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:38:26.937Z",
+      "modified_at": "2024-10-30T15:38:26.937Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-v5",
+      "question": "gesteigerter-gemeingebrauch-strassen-tabelle-v5",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-v5.gesteigerter-gemeingebrauch-titel-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:30:06.280Z",
+      "modified_at": "2024-10-30T15:30:06.280Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-v5",
+      "question": "gesteigerter-gemeingebrauch-titel-v5",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-v5.gesteigerter-gemeingebrauch-zweck-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:40:02.128Z",
+      "modified_at": "2024-10-30T15:40:02.128Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-v5",
+      "question": "gesteigerter-gemeingebrauch-zweck-v5",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-v5.werkleitungen-beschreibung-zweck-andere-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:49:49.677Z",
+      "modified_at": "2024-10-30T15:49:49.677Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-v5",
+      "question": "werkleitungen-beschreibung-zweck-andere-v5",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-v5.werkleitungen-strassen-tabelle-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:46:31.636Z",
+      "modified_at": "2024-10-30T15:46:31.636Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-v5",
+      "question": "werkleitungen-strassen-tabelle-v5",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-v5.werkleitungen-titel-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:42:36.413Z",
+      "modified_at": "2024-10-30T15:42:36.413Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-v5",
+      "question": "werkleitungen-titel-v5",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-v5.werkleitungen-verfahren-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:57:53.283Z",
+      "modified_at": "2024-10-30T15:57:53.283Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-v5",
+      "question": "werkleitungen-verfahren-v5",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-v5.werkleitungen-zweck-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:48:55.513Z",
+      "modified_at": "2024-10-30T15:48:55.513Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-v5",
+      "question": "werkleitungen-zweck-v5",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "bestaetigung-v5.anforderungen-eingehalten",
     "fields": {
       "created_at": "2024-07-08T13:58:02.029Z",
@@ -3380,6 +3569,66 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "gesteigerter-gemeingebrauch-strassen-tabelle-v5.beanspruchte-flaeche-in-quadratmeter-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:36:10.188Z",
+      "modified_at": "2024-10-30T15:36:10.188Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gesteigerter-gemeingebrauch-strassen-tabelle-v5",
+      "question": "beanspruchte-flaeche-in-quadratmeter-v5",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gesteigerter-gemeingebrauch-strassen-tabelle-v5.dauer-der-inanspruchnahme-tage-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:37:07.584Z",
+      "modified_at": "2024-10-30T15:37:07.584Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gesteigerter-gemeingebrauch-strassen-tabelle-v5",
+      "question": "dauer-der-inanspruchnahme-tage-v5",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gesteigerter-gemeingebrauch-strassen-tabelle-v5.strasse-bezeichnung-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:34:38.072Z",
+      "modified_at": "2024-10-30T15:34:38.072Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gesteigerter-gemeingebrauch-strassen-tabelle-v5",
+      "question": "strasse-bezeichnung-v5",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gesteigerter-gemeingebrauch-strassen-tabelle-v5.um-welche-art-strasse-handelt-es-sich-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:33:50.193Z",
+      "modified_at": "2024-10-30T15:33:50.193Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gesteigerter-gemeingebrauch-strassen-tabelle-v5",
+      "question": "um-welche-art-strasse-handelt-es-sich-v5",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "grundstueck-v5.allgemeine-angaben-v5",
     "fields": {
       "created_at": "2024-09-05T10:01:36.168Z",
@@ -3525,7 +3774,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "allgemeine-angaben-zum-betrieb-v5",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -3540,7 +3789,22 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "bauvorhaben-in-konsultationsbereichen-v3",
-      "sort": 11
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.benuetzung-oeffentlichem-terrain-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:59:47.493Z",
+      "modified_at": "2024-10-30T15:59:47.493Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "benuetzung-oeffentlichem-terrain-v5",
+      "sort": 1
     }
   },
   {
@@ -3555,7 +3819,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "biologische-sicherheit-v3",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -3570,7 +3834,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "entsorgung",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -3585,7 +3849,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "erdbebensicherheit-v5",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -3630,7 +3894,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "hindernisfreies-bauen",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -3675,7 +3939,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "maschinen-und-anlagen",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -3690,7 +3954,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "naturgefahren",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -3705,7 +3969,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "personalien-betreiberin-der-anlage",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -3735,7 +3999,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "reklame",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -3750,7 +4014,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "solar-und-sendeanlagen-v3",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -3795,7 +4059,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "wald",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -4835,6 +5099,66 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "werkleitungen-strassen-tabelle-v5.beanspruchte-flaeche-in-quadratmeter-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:43:05.403Z",
+      "modified_at": "2024-10-30T15:43:05.403Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "werkleitungen-strassen-tabelle-v5",
+      "question": "beanspruchte-flaeche-in-quadratmeter-v5",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werkleitungen-strassen-tabelle-v5.dauer-der-grabarbeiten-tage-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:44:49.221Z",
+      "modified_at": "2024-10-30T15:44:49.221Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "werkleitungen-strassen-tabelle-v5",
+      "question": "dauer-der-grabarbeiten-tage-v5",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werkleitungen-strassen-tabelle-v5.strasse-bezeichnung-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:43:05.401Z",
+      "modified_at": "2024-10-30T15:43:05.401Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "werkleitungen-strassen-tabelle-v5",
+      "question": "strasse-bezeichnung-v5",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "werkleitungen-strassen-tabelle-v5.um-welche-art-strasse-handelt-es-sich-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:43:05.396Z",
+      "modified_at": "2024-10-30T15:43:05.396Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "werkleitungen-strassen-tabelle-v5",
+      "question": "um-welche-art-strasse-handelt-es-sich-v5",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "wohnen-tabelle-v5.anzahl-wohnungen-bestand-aktuell-v5",
     "fields": {
       "created_at": "2024-07-17T16:40:55.911Z",
@@ -5349,6 +5673,108 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "gesteigerter-gemeingebrauch-zweck-v5-andere",
+    "fields": {
+      "created_at": "2024-10-30T15:40:01.970Z",
+      "modified_at": "2024-10-30T15:40:01.970Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gesteigerter-gemeingebrauch-zweck-v5-bauplatzinstallation",
+    "fields": {
+      "created_at": "2024-10-30T15:40:02.008Z",
+      "modified_at": "2024-10-30T15:40:02.008Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauplatzinstallation\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gesteigerter-gemeingebrauch-zweck-v5-lagerplatz",
+    "fields": {
+      "created_at": "2024-10-30T15:40:01.988Z",
+      "modified_at": "2024-10-30T15:40:01.988Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Lagerplatz\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gesteigerter-gemeingebrauch-zweck-v5-oberirdische-leitung-neu",
+    "fields": {
+      "created_at": "2024-10-30T15:40:01.983Z",
+      "modified_at": "2024-10-30T15:40:01.983Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Oberirdische Leitung: neu\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gesteigerter-gemeingebrauch-zweck-v5-oberirdische-leitung-reparatur",
+    "fields": {
+      "created_at": "2024-10-30T15:40:01.978Z",
+      "modified_at": "2024-10-30T15:40:01.978Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Oberirdische Leitung: Reparatur\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gesteigerter-gemeingebrauch-zweck-v5-parkplatz",
+    "fields": {
+      "created_at": "2024-10-30T15:40:01.999Z",
+      "modified_at": "2024-10-30T15:40:01.999Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Parkplatz\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "ist-das-bauwerk-der-bauwerksklasse-ii-oder-iii-zugeteilt-v5-ja",
     "fields": {
       "created_at": "2024-08-14T08:30:59.715Z",
@@ -5536,6 +5962,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "um-welche-art-strasse-handelt-es-sich-v5-gemeindestrasse",
+    "fields": {
+      "created_at": "2024-10-30T15:33:50.071Z",
+      "modified_at": "2024-10-30T15:33:50.071Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gemeindestrasse\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "um-welche-art-strasse-handelt-es-sich-v5-kantonsstrasse",
+    "fields": {
+      "created_at": "2024-10-30T15:33:50.068Z",
+      "modified_at": "2024-10-30T15:33:50.068Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kantonsstrasse\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5-ja",
     "fields": {
       "created_at": "2024-10-18T11:22:50.601Z",
@@ -5596,6 +6056,261 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werkleitungen-verfahren-v5-andere",
+    "fields": {
+      "created_at": "2024-10-30T15:57:53.135Z",
+      "modified_at": "2024-10-30T15:57:53.135Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werkleitungen-verfahren-v5-bohrvortrieb",
+    "fields": {
+      "created_at": "2024-10-30T15:57:53.137Z",
+      "modified_at": "2024-10-30T15:57:53.137Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bohrvortrieb\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werkleitungen-verfahren-v5-grabenaufbruch",
+    "fields": {
+      "created_at": "2024-10-30T15:57:53.141Z",
+      "modified_at": "2024-10-30T15:57:53.141Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grabenaufbruch\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werkleitungen-verfahren-v5-schiessvortrieb",
+    "fields": {
+      "created_at": "2024-10-30T15:57:53.131Z",
+      "modified_at": "2024-10-30T15:57:53.131Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schiessvortrieb\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werkleitungen-verfahren-v5-spuelvortrieb",
+    "fields": {
+      "created_at": "2024-10-30T15:57:53.133Z",
+      "modified_at": "2024-10-30T15:57:53.133Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sp\\u00fclvortrieb\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werkleitungen-verfahren-v5-stossvortrieb",
+    "fields": {
+      "created_at": "2024-10-30T15:57:53.157Z",
+      "modified_at": "2024-10-30T15:57:53.157Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Stossvortrieb\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werkleitungen-zweck-v5-andere",
+    "fields": {
+      "created_at": "2024-10-30T15:48:55.418Z",
+      "modified_at": "2024-10-30T15:48:55.418Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werkleitungen-zweck-v5-elektrizitaet",
+    "fields": {
+      "created_at": "2024-10-30T15:48:55.344Z",
+      "modified_at": "2024-10-30T15:48:55.344Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Elektrizit\\u00e4t\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werkleitungen-zweck-v5-fernwaerme",
+    "fields": {
+      "created_at": "2024-10-30T15:48:55.415Z",
+      "modified_at": "2024-10-30T15:48:55.415Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fernw\\u00e4rme\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werkleitungen-zweck-v5-gas",
+    "fields": {
+      "created_at": "2024-10-30T15:48:55.371Z",
+      "modified_at": "2024-10-30T15:48:55.371Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gas\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werkleitungen-zweck-v5-gemeinschaftsantenne",
+    "fields": {
+      "created_at": "2024-10-30T15:48:55.326Z",
+      "modified_at": "2024-10-30T15:48:55.326Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gemeinschaftsantenne\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werkleitungen-zweck-v5-kanalisation-sauberwasser",
+    "fields": {
+      "created_at": "2024-10-30T15:48:55.342Z",
+      "modified_at": "2024-10-30T15:48:55.342Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kanalisation (Sauberwasser)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werkleitungen-zweck-v5-kanalisation-schmutzwasser",
+    "fields": {
+      "created_at": "2024-10-30T15:48:55.407Z",
+      "modified_at": "2024-10-30T15:48:55.407Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kanalisation (Schmutzwasser)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werkleitungen-zweck-v5-telefon",
+    "fields": {
+      "created_at": "2024-10-30T15:48:55.343Z",
+      "modified_at": "2024-10-30T15:48:55.343Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Telefon\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werkleitungen-zweck-v5-wasser",
+    "fields": {
+      "created_at": "2024-10-30T15:48:55.309Z",
+      "modified_at": "2024-10-30T15:48:55.309Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wasser\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -6056,6 +6771,71 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "beanspruchte-flaeche-in-quadratmeter-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:36:10.150Z",
+      "modified_at": "2024-10-30T15:36:10.150Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beanspruchte Fl\\u00e4che (m\\u00b2)\", \"fr\": null, \"it\": null}",
+      "type": "float",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "benuetzung-oeffentlichem-terrain-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:59:47.448Z",
+      "modified_at": "2024-10-30T15:59:47.448Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ben\\u00fctzung von \\u00f6ffentlichem Terrain\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!('werden-strassen-radwege-gehwege-in-anspruch-genommen-v5-ja' == 'werden-strassen-radwege-gehwege-in-anspruch-genommen-v5'|answer || 'werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5-ja' == 'werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "benuetzung-oeffentlichem-terrain-v5",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "beruf-tragwerksplanerin-v5",
     "fields": {
       "created_at": "2024-08-14T08:40:18.609Z",
@@ -6355,12 +7135,12 @@
     "pk": "betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5",
     "fields": {
       "created_at": "2024-10-18T11:37:32.499Z",
-      "modified_at": "2024-10-18T11:39:54.541Z",
+      "modified_at": "2024-10-30T16:05:09.924Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Betrifft das Bauvorhaben eine Trinkwasserinstallation?\", \"fr\": \"betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5\", \"it\": null}",
+      "label": "{\"de\": \"Betrifft das Bauvorhaben eine Trinkwasserinstallation?\", \"fr\": \"Betrifft das Bauvorhaben eine Trinkwasserinstallation?\", \"it\": null}",
       "type": "choice",
       "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
       "is_hidden": "false",
@@ -6463,6 +7243,74 @@
       "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dauer-der-grabarbeiten-tage-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:44:49.172Z",
+      "modified_at": "2024-10-30T15:44:49.172Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dauer der Grabarbeiten (Tage)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dauer-der-inanspruchnahme-tage-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:37:07.526Z",
+      "modified_at": "2024-10-30T15:45:04.724Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dauer der Inanspruchnahme (Tage)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -6592,6 +7440,140 @@
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"***\\n**Gemeindespezifische Formulare**\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gesteigerter-gemeingebrauch-beschreibung-zweck-andere-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:41:43.919Z",
+      "modified_at": "2024-10-30T15:54:57.098Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung Zweck\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "!('gesteigerter-gemeingebrauch-zweck-v5-andere' in 'gesteigerter-gemeingebrauch-zweck-v5'|answer )",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gesteigerter-gemeingebrauch-strassen-tabelle-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:38:26.884Z",
+      "modified_at": "2024-10-30T15:38:45.067Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strassen\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!(\n  'werden-strassen-radwege-gehwege-in-anspruch-genommen-v5-ja' == 'werden-strassen-radwege-gehwege-in-anspruch-genommen-v5'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "um-welche-art-strasse-handelt-es-sich-v5",
+          "strasse-bezeichnung-v5",
+          "beanspruchte-flaeche-in-quadratmeter-v5",
+          "dauer-der-inanspruchnahme-tage-v5"
+        ]
+      },
+      "data_source": null,
+      "row_form": "gesteigerter-gemeingebrauch-strassen-tabelle-v5",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gesteigerter-gemeingebrauch-titel-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:30:06.223Z",
+      "modified_at": "2024-10-30T15:30:06.223Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gesteigerter Gemeingebrauch\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n  'werden-strassen-radwege-gehwege-in-anspruch-genommen-v5-ja' == 'werden-strassen-radwege-gehwege-in-anspruch-genommen-v5'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"***\\n**Gesteigerter Gemeingebrauch**\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gesteigerter-gemeingebrauch-zweck-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:40:02.063Z",
+      "modified_at": "2024-10-30T15:40:02.063Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zweck\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!(\n  'werden-strassen-radwege-gehwege-in-anspruch-genommen-v5-ja' == 'werden-strassen-radwege-gehwege-in-anspruch-genommen-v5'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -7246,6 +8228,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "strasse-bezeichnung-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:34:38.011Z",
+      "modified_at": "2024-10-30T15:34:38.011Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strasse, Bezeichnung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "strasse-tragwerksplanerin-v5",
     "fields": {
       "created_at": "2024-08-14T08:41:07.434Z",
@@ -7336,6 +8352,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "triage-v5",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "um-welche-art-strasse-handelt-es-sich-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:33:50.139Z",
+      "modified_at": "2024-10-30T15:33:50.139Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Um welche Art Strasse handelt es sich?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -7494,6 +8541,171 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Hinweis auf Artikel 68 Strassengesetz (SG)\", \"fr\": \"Hinweis auf Artikel 68 Strassengesetz (SG)\", \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werkleitungen-beschreibung-zweck-andere-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:49:49.615Z",
+      "modified_at": "2024-10-30T15:55:05.004Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung Zweck\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "!('werkleitungen-zweck-v5-andere' in 'werkleitungen-zweck-v5'|answer )",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werkleitungen-strassen-tabelle-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:46:31.577Z",
+      "modified_at": "2024-10-30T15:47:14.075Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strassen\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "true",
+      "is_hidden": "!(\n  'werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5-ja' == 'werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "um-welche-art-strasse-handelt-es-sich-v5",
+          "strasse-bezeichnung-v5",
+          "beanspruchte-flaeche-in-quadratmeter-v5",
+          "dauer-der-grabarbeiten-tage-v5"
+        ]
+      },
+      "data_source": null,
+      "row_form": "werkleitungen-strassen-tabelle-v5",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werkleitungen-titel-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:42:36.359Z",
+      "modified_at": "2024-10-30T15:42:36.359Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Werkleitungen\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n  'werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5-ja' == 'werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"***\\n**Werkleitungen**\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werkleitungen-verfahren-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:57:53.220Z",
+      "modified_at": "2024-10-30T15:57:53.220Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verfahren\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!(\n  'werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5-ja' == 'werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werkleitungen-zweck-v5",
+    "fields": {
+      "created_at": "2024-10-30T15:48:55.466Z",
+      "modified_at": "2024-10-30T15:48:55.466Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zweck\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!(\n  'werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5-ja' == 'werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -7747,8 +8959,8 @@
     "model": "caluma_form.questionoption",
     "pk": "betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5.betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5-ja",
     "fields": {
-      "created_at": "2024-10-18T11:39:54.547Z",
-      "modified_at": "2024-10-18T11:39:54.547Z",
+      "created_at": "2024-10-30T16:05:09.931Z",
+      "modified_at": "2024-10-30T16:05:09.931Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -7762,8 +8974,8 @@
     "model": "caluma_form.questionoption",
     "pk": "betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5.betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5-nein",
     "fields": {
-      "created_at": "2024-10-18T11:39:54.545Z",
-      "modified_at": "2024-10-18T11:39:54.545Z",
+      "created_at": "2024-10-30T16:05:09.928Z",
+      "modified_at": "2024-10-30T16:05:09.928Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -7861,6 +9073,96 @@
       "question": "betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5",
       "option": "betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5-nein",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gesteigerter-gemeingebrauch-zweck-v5.gesteigerter-gemeingebrauch-zweck-v5-andere",
+    "fields": {
+      "created_at": "2024-10-30T15:40:02.068Z",
+      "modified_at": "2024-10-30T15:40:02.068Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "gesteigerter-gemeingebrauch-zweck-v5",
+      "option": "gesteigerter-gemeingebrauch-zweck-v5-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gesteigerter-gemeingebrauch-zweck-v5.gesteigerter-gemeingebrauch-zweck-v5-bauplatzinstallation",
+    "fields": {
+      "created_at": "2024-10-30T15:40:02.079Z",
+      "modified_at": "2024-10-30T15:40:02.079Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "gesteigerter-gemeingebrauch-zweck-v5",
+      "option": "gesteigerter-gemeingebrauch-zweck-v5-bauplatzinstallation",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gesteigerter-gemeingebrauch-zweck-v5.gesteigerter-gemeingebrauch-zweck-v5-lagerplatz",
+    "fields": {
+      "created_at": "2024-10-30T15:40:02.074Z",
+      "modified_at": "2024-10-30T15:40:02.074Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "gesteigerter-gemeingebrauch-zweck-v5",
+      "option": "gesteigerter-gemeingebrauch-zweck-v5-lagerplatz",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gesteigerter-gemeingebrauch-zweck-v5.gesteigerter-gemeingebrauch-zweck-v5-oberirdische-leitung-neu",
+    "fields": {
+      "created_at": "2024-10-30T15:40:02.077Z",
+      "modified_at": "2024-10-30T15:40:02.077Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "gesteigerter-gemeingebrauch-zweck-v5",
+      "option": "gesteigerter-gemeingebrauch-zweck-v5-oberirdische-leitung-neu",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gesteigerter-gemeingebrauch-zweck-v5.gesteigerter-gemeingebrauch-zweck-v5-oberirdische-leitung-reparatur",
+    "fields": {
+      "created_at": "2024-10-30T15:40:02.072Z",
+      "modified_at": "2024-10-30T15:40:02.072Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "gesteigerter-gemeingebrauch-zweck-v5",
+      "option": "gesteigerter-gemeingebrauch-zweck-v5-oberirdische-leitung-reparatur",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gesteigerter-gemeingebrauch-zweck-v5.gesteigerter-gemeingebrauch-zweck-v5-parkplatz",
+    "fields": {
+      "created_at": "2024-10-30T15:40:02.070Z",
+      "modified_at": "2024-10-30T15:40:02.070Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "gesteigerter-gemeingebrauch-zweck-v5",
+      "option": "gesteigerter-gemeingebrauch-zweck-v5-parkplatz",
+      "sort": 2
     }
   },
   {
@@ -8030,6 +9332,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "um-welche-art-strasse-handelt-es-sich-v5.um-welche-art-strasse-handelt-es-sich-v5-gemeindestrasse",
+    "fields": {
+      "created_at": "2024-10-30T15:33:50.143Z",
+      "modified_at": "2024-10-30T15:33:50.143Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "um-welche-art-strasse-handelt-es-sich-v5",
+      "option": "um-welche-art-strasse-handelt-es-sich-v5-gemeindestrasse",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "um-welche-art-strasse-handelt-es-sich-v5.um-welche-art-strasse-handelt-es-sich-v5-kantonsstrasse",
+    "fields": {
+      "created_at": "2024-10-30T15:33:50.146Z",
+      "modified_at": "2024-10-30T15:33:50.146Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "um-welche-art-strasse-handelt-es-sich-v5",
+      "option": "um-welche-art-strasse-handelt-es-sich-v5-kantonsstrasse",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5.werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5-ja",
     "fields": {
       "created_at": "2024-10-18T11:23:45.566Z",
@@ -8086,6 +9418,231 @@
       "question": "werden-strassen-radwege-gehwege-in-anspruch-genommen-v5",
       "option": "werden-strassen-radwege-gehwege-in-anspruch-genommen-v5-nein",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werkleitungen-verfahren-v5.werkleitungen-verfahren-v5-andere",
+    "fields": {
+      "created_at": "2024-10-30T15:57:53.226Z",
+      "modified_at": "2024-10-30T15:57:53.226Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "werkleitungen-verfahren-v5",
+      "option": "werkleitungen-verfahren-v5-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werkleitungen-verfahren-v5.werkleitungen-verfahren-v5-bohrvortrieb",
+    "fields": {
+      "created_at": "2024-10-30T15:57:53.236Z",
+      "modified_at": "2024-10-30T15:57:53.236Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "werkleitungen-verfahren-v5",
+      "option": "werkleitungen-verfahren-v5-bohrvortrieb",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werkleitungen-verfahren-v5.werkleitungen-verfahren-v5-grabenaufbruch",
+    "fields": {
+      "created_at": "2024-10-30T15:57:53.237Z",
+      "modified_at": "2024-10-30T15:57:53.237Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "werkleitungen-verfahren-v5",
+      "option": "werkleitungen-verfahren-v5-grabenaufbruch",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werkleitungen-verfahren-v5.werkleitungen-verfahren-v5-schiessvortrieb",
+    "fields": {
+      "created_at": "2024-10-30T15:57:53.230Z",
+      "modified_at": "2024-10-30T15:57:53.230Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "werkleitungen-verfahren-v5",
+      "option": "werkleitungen-verfahren-v5-schiessvortrieb",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werkleitungen-verfahren-v5.werkleitungen-verfahren-v5-spuelvortrieb",
+    "fields": {
+      "created_at": "2024-10-30T15:57:53.233Z",
+      "modified_at": "2024-10-30T15:57:53.233Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "werkleitungen-verfahren-v5",
+      "option": "werkleitungen-verfahren-v5-spuelvortrieb",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werkleitungen-verfahren-v5.werkleitungen-verfahren-v5-stossvortrieb",
+    "fields": {
+      "created_at": "2024-10-30T15:57:53.234Z",
+      "modified_at": "2024-10-30T15:57:53.234Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "werkleitungen-verfahren-v5",
+      "option": "werkleitungen-verfahren-v5-stossvortrieb",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werkleitungen-zweck-v5.werkleitungen-zweck-v5-andere",
+    "fields": {
+      "created_at": "2024-10-30T15:48:55.469Z",
+      "modified_at": "2024-10-30T15:48:55.470Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "werkleitungen-zweck-v5",
+      "option": "werkleitungen-zweck-v5-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werkleitungen-zweck-v5.werkleitungen-zweck-v5-elektrizitaet",
+    "fields": {
+      "created_at": "2024-10-30T15:48:55.476Z",
+      "modified_at": "2024-10-30T15:48:55.476Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "werkleitungen-zweck-v5",
+      "option": "werkleitungen-zweck-v5-elektrizitaet",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werkleitungen-zweck-v5.werkleitungen-zweck-v5-fernwaerme",
+    "fields": {
+      "created_at": "2024-10-30T15:48:55.473Z",
+      "modified_at": "2024-10-30T15:48:55.473Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "werkleitungen-zweck-v5",
+      "option": "werkleitungen-zweck-v5-fernwaerme",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werkleitungen-zweck-v5.werkleitungen-zweck-v5-gas",
+    "fields": {
+      "created_at": "2024-10-30T15:48:55.474Z",
+      "modified_at": "2024-10-30T15:48:55.474Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "werkleitungen-zweck-v5",
+      "option": "werkleitungen-zweck-v5-gas",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werkleitungen-zweck-v5.werkleitungen-zweck-v5-gemeinschaftsantenne",
+    "fields": {
+      "created_at": "2024-10-30T15:48:55.477Z",
+      "modified_at": "2024-10-30T15:48:55.477Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "werkleitungen-zweck-v5",
+      "option": "werkleitungen-zweck-v5-gemeinschaftsantenne",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werkleitungen-zweck-v5.werkleitungen-zweck-v5-kanalisation-sauberwasser",
+    "fields": {
+      "created_at": "2024-10-30T15:48:55.478Z",
+      "modified_at": "2024-10-30T15:48:55.478Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "werkleitungen-zweck-v5",
+      "option": "werkleitungen-zweck-v5-kanalisation-sauberwasser",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werkleitungen-zweck-v5.werkleitungen-zweck-v5-kanalisation-schmutzwasser",
+    "fields": {
+      "created_at": "2024-10-30T15:48:55.471Z",
+      "modified_at": "2024-10-30T15:48:55.471Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "werkleitungen-zweck-v5",
+      "option": "werkleitungen-zweck-v5-kanalisation-schmutzwasser",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werkleitungen-zweck-v5.werkleitungen-zweck-v5-telefon",
+    "fields": {
+      "created_at": "2024-10-30T15:48:55.475Z",
+      "modified_at": "2024-10-30T15:48:55.475Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "werkleitungen-zweck-v5",
+      "option": "werkleitungen-zweck-v5-telefon",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werkleitungen-zweck-v5.werkleitungen-zweck-v5-wasser",
+    "fields": {
+      "created_at": "2024-10-30T15:48:55.479Z",
+      "modified_at": "2024-10-30T15:48:55.479Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "werkleitungen-zweck-v5",
+      "option": "werkleitungen-zweck-v5-wasser",
+      "sort": 9
     }
   },
   {
