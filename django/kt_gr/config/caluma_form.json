@@ -883,13 +883,14 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Solaranlage\", \"fr\": null, \"it\": \"Impianto solare\"}",
-      "description": "{\"de\": \"Solaranlage\", \"fr\": null, \"it\": \"Impianto solare\"}",
+      "name": "{\"de\": \"Solaranlage (nur auf Dach)\", \"fr\": null, \"it\": \"Impianto solare (solo sul tetto)\"}",
+      "description": "{\"de\": \"Solaranlage (nur auf Dach)\", \"fr\": null, \"it\": \"Impianto solare (solo sul tetto)\"}",
       "meta": {
         "order": 2,
         "category": "special-procedure",
         "is-creatable": true,
-        "is-main-form": true
+        "is-main-form": true,
+        "onCreatePopup": true
       },
       "is_published": true,
       "is_archived": false,
