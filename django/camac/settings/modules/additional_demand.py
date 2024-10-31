@@ -77,14 +77,14 @@ ADDITIONAL_DEMAND = {
         "NOTIFICATIONS": {
             "ACCEPTED": [
                 {
-                    "recipient_types": ["additional_demand_inviter"],
-                    "template_slug": "additional-demand-decision-accept",
+                    "recipient_types": ["applicant"],
+                    "template_slug": "2-3-nachforderung-akzeptiert",
                 }
             ],
             "REJECTED": [
                 {
                     "recipient_types": ["applicant"],
-                    "template_slug": "additional-demand-decision-reject",
+                    "template_slug": "2-5-nachforderung-abgelehnt",
                 }
             ],
         },
