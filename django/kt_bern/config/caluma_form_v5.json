@@ -91,6 +91,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "anschluss-elektrizitaet-v5",
+    "fields": {
+      "created_at": "2024-10-31T14:23:22.126Z",
+      "modified_at": "2024-10-31T14:23:26.721Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Anschluss Elektrizit\\u00e4t\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Anschluss Elektrizit\\u00e4t (v5)\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "erdbebensicherheit-v5"
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "baugesuch-generell-v5",
     "fields": {
       "created_at": "2024-05-30T12:29:34.489Z",
@@ -140,7 +158,7 @@
     "pk": "baugesuch-v5",
     "fields": {
       "created_at": "2024-05-30T12:17:12.356Z",
-      "modified_at": "2024-10-30T16:04:12.186Z",
+      "modified_at": "2024-10-31T16:14:08.358Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1255,6 +1273,156 @@
       "form": "allgemeine-angaben-zum-betrieb-v5",
       "question": "staendige-arbeitsplaetze-vorhanden-v5",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-elektrizitaet-v5.anzahl-hauseingaenge-mfh-v5",
+    "fields": {
+      "created_at": "2024-10-31T15:59:44.100Z",
+      "modified_at": "2024-10-31T15:59:44.100Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-elektrizitaet-v5",
+      "question": "anzahl-hauseingaenge-mfh-v5",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-elektrizitaet-v5.anzahl-wohnungen-v5",
+    "fields": {
+      "created_at": "2024-10-31T15:58:09.327Z",
+      "modified_at": "2024-10-31T15:58:09.327Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-elektrizitaet-v5",
+      "question": "anzahl-wohnungen-v5",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-elektrizitaet-v5.energieerzeugungsanlage-v5",
+    "fields": {
+      "created_at": "2024-10-31T15:18:07.981Z",
+      "modified_at": "2024-10-31T15:18:07.981Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-elektrizitaet-v5",
+      "question": "energieerzeugungsanlage-v5",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-elektrizitaet-v5.erder-v5",
+    "fields": {
+      "created_at": "2024-10-31T15:46:57.688Z",
+      "modified_at": "2024-10-31T15:46:57.688Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-elektrizitaet-v5",
+      "question": "erder-v5",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-elektrizitaet-v5.erforderliche-anschlusssicherung-v5",
+    "fields": {
+      "created_at": "2024-10-31T15:15:27.610Z",
+      "modified_at": "2024-10-31T15:15:27.610Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-elektrizitaet-v5",
+      "question": "erforderliche-anschlusssicherung-v5",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-elektrizitaet-v5.hausanschlussleitung-v5",
+    "fields": {
+      "created_at": "2024-10-31T15:13:27.687Z",
+      "modified_at": "2024-10-31T15:13:27.687Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-elektrizitaet-v5",
+      "question": "hausanschlussleitung-v5",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-elektrizitaet-v5.kw-angabe-ew-netz-totale-leistung-kwp-v5",
+    "fields": {
+      "created_at": "2024-10-31T15:43:58.351Z",
+      "modified_at": "2024-10-31T15:43:58.352Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-elektrizitaet-v5",
+      "question": "kw-angabe-ew-netz-totale-leistung-kwp-v5",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-elektrizitaet-v5.kw-angabe-inselbetrieb-totale-leistung-kwp-v5",
+    "fields": {
+      "created_at": "2024-10-31T15:33:46.371Z",
+      "modified_at": "2024-10-31T15:33:46.371Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-elektrizitaet-v5",
+      "question": "kw-angabe-inselbetrieb-totale-leistung-kwp-v5",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-elektrizitaet-v5.um-was-fuer-einen-erder-handelt-es-sich-v5",
+    "fields": {
+      "created_at": "2024-10-31T15:50:17.223Z",
+      "modified_at": "2024-10-31T15:50:17.223Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-elektrizitaet-v5",
+      "question": "um-was-fuer-einen-erder-handelt-es-sich-v5",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-elektrizitaet-v5.um-welche-energieerzeugungsanlage-handelt-es-sich-v5",
+    "fields": {
+      "created_at": "2024-10-31T15:24:14.660Z",
+      "modified_at": "2024-10-31T15:24:14.660Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-elektrizitaet-v5",
+      "question": "um-welche-energieerzeugungsanlage-handelt-es-sich-v5",
+      "sort": 7
     }
   },
   {
@@ -3774,7 +3942,22 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "allgemeine-angaben-zum-betrieb-v5",
-      "sort": 6
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.anschluss-elektrizitaet-v5",
+    "fields": {
+      "created_at": "2024-10-31T15:07:53.736Z",
+      "modified_at": "2024-10-31T15:07:53.736Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "anschluss-elektrizitaet-v5",
+      "sort": 1
     }
   },
   {
@@ -3789,7 +3972,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "bauvorhaben-in-konsultationsbereichen-v3",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -3804,7 +3987,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "benuetzung-oeffentlichem-terrain-v5",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -3819,7 +4002,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "biologische-sicherheit-v3",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -3834,7 +4017,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "entsorgung",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -3849,7 +4032,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "erdbebensicherheit-v5",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -3864,7 +4047,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "gastgewerbe-allgemein",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -3879,7 +4062,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "gastgewerbe-fumoir",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -3894,7 +4077,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "hindernisfreies-bauen",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -3909,7 +4092,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "immissionsschutz",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -3924,7 +4107,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "immissionsschutz-laermschutz",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -3939,7 +4122,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "maschinen-und-anlagen",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -3954,7 +4137,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "naturgefahren",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -3969,7 +4152,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "personalien-betreiberin-der-anlage",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -3984,7 +4167,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "personalien-gastgewerbe",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -3999,7 +4182,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "reklame",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -4014,7 +4197,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "solar-und-sendeanlagen-v3",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -4029,7 +4212,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "stoerfallvorsorge-v3",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -4044,7 +4227,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "waermepumpen",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -4059,7 +4242,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "wald",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -4074,7 +4257,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "zivilschutz",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -5673,6 +5856,74 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "energieerzeugungsanlage-v5-ja",
+    "fields": {
+      "created_at": "2024-10-31T15:18:07.868Z",
+      "modified_at": "2024-10-31T15:18:07.868Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "energieerzeugungsanlage-v5-nein",
+    "fields": {
+      "created_at": "2024-10-31T15:18:07.864Z",
+      "modified_at": "2024-10-31T15:18:07.864Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "erder-v5-bestehend",
+    "fields": {
+      "created_at": "2024-10-31T15:46:57.563Z",
+      "modified_at": "2024-10-31T15:46:57.563Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bestehend\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "erder-v5-neu",
+    "fields": {
+      "created_at": "2024-10-31T15:46:57.562Z",
+      "modified_at": "2024-10-31T15:46:57.562Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neu\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "gesteigerter-gemeingebrauch-zweck-v5-andere",
     "fields": {
       "created_at": "2024-10-30T15:40:01.970Z",
@@ -5767,6 +6018,74 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Parkplatz\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "hausanschlussleitung-v5-aendernanpassen",
+    "fields": {
+      "created_at": "2024-10-31T15:13:27.535Z",
+      "modified_at": "2024-10-31T15:13:27.536Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00c4ndern/anpassen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "hausanschlussleitung-v5-keine-anpassung-notwendig",
+    "fields": {
+      "created_at": "2024-10-31T15:13:27.561Z",
+      "modified_at": "2024-10-31T15:13:27.561Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Keine Anpassung notwendig\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "hausanschlussleitung-v5-neu-verlegen",
+    "fields": {
+      "created_at": "2024-10-31T15:13:27.543Z",
+      "modified_at": "2024-10-31T15:13:27.543Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neu verlegen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "hausanschlussleitung-v5-verstaerken",
+    "fields": {
+      "created_at": "2024-10-31T15:13:27.533Z",
+      "modified_at": "2024-10-31T15:13:27.533Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verst\\u00e4rken\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -5962,6 +6281,74 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "um-was-fuer-einen-erder-handelt-es-sich-v5-anderer",
+    "fields": {
+      "created_at": "2024-10-31T15:50:17.072Z",
+      "modified_at": "2024-10-31T15:50:17.072Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anderer\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "um-was-fuer-einen-erder-handelt-es-sich-v5-banderder",
+    "fields": {
+      "created_at": "2024-10-31T15:50:17.088Z",
+      "modified_at": "2024-10-31T15:50:17.088Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Banderder\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "um-was-fuer-einen-erder-handelt-es-sich-v5-fundamenterder",
+    "fields": {
+      "created_at": "2024-10-31T15:50:17.068Z",
+      "modified_at": "2024-10-31T15:50:17.068Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fundamenterder\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "um-was-fuer-einen-erder-handelt-es-sich-v5-wasserleitung-bisher",
+    "fields": {
+      "created_at": "2024-10-31T15:50:17.080Z",
+      "modified_at": "2024-10-31T15:50:17.080Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wasserleitung (bisher)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "um-welche-art-strasse-handelt-es-sich-v5-gemeindestrasse",
     "fields": {
       "created_at": "2024-10-30T15:33:50.071Z",
@@ -5988,6 +6375,40 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kantonsstrasse\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "um-welche-energieerzeugungsanlage-handelt-es-sich-v5-gekoppelt-mit-ew-netz",
+    "fields": {
+      "created_at": "2024-10-31T15:24:14.545Z",
+      "modified_at": "2024-10-31T15:24:14.545Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gekoppelt mit EW-Netz\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "um-welche-energieerzeugungsanlage-handelt-es-sich-v5-inselbetrieb",
+    "fields": {
+      "created_at": "2024-10-31T15:24:14.530Z",
+      "modified_at": "2024-10-31T15:24:14.530Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Inselbetrieb\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -6573,6 +6994,71 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "anschluss-elektrizitaet-v5",
+    "fields": {
+      "created_at": "2024-10-31T15:07:53.671Z",
+      "modified_at": "2024-10-31T15:07:53.671Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anschluss Elektrizit\\u00e4t\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!('betrifft-das-bauvorhaben-elektroinstallationen-v5-ja' == 'betrifft-das-bauvorhaben-elektroinstallationen-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "anschluss-elektrizitaet-v5",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anzahl-hauseingaenge-mfh-v5",
+    "fields": {
+      "created_at": "2024-10-31T15:59:44.041Z",
+      "modified_at": "2024-10-31T15:59:44.041Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Hauseing\\u00e4nge MFH\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!('nutzungsart-wohnen' in 'nutzungsart'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "anzahl-wohnungen-bestand-aktuell-v5",
     "fields": {
       "created_at": "2024-07-17T16:40:55.846Z",
@@ -6623,6 +7109,40 @@
       "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anzahl-wohnungen-v5",
+    "fields": {
+      "created_at": "2024-10-31T15:58:09.264Z",
+      "modified_at": "2024-10-31T15:58:09.264Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Wohnungen\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!('nutzungsart-wohnen' in 'nutzungsart'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -7392,6 +7912,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "energieerzeugungsanlage-v5",
+    "fields": {
+      "created_at": "2024-10-31T15:18:07.922Z",
+      "modified_at": "2024-10-31T15:18:07.922Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Energieerzeugungsanlage\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "erdbebensicherheit-v5",
     "fields": {
       "created_at": "2024-07-15T13:55:22.798Z",
@@ -7414,6 +7965,71 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "erdbebensicherheit-v5",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "erder-v5",
+    "fields": {
+      "created_at": "2024-10-31T15:46:57.625Z",
+      "modified_at": "2024-10-31T15:46:57.625Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erder\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!('energieerzeugungsanlage-v5-nein' == 'energieerzeugungsanlage-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "erforderliche-anschlusssicherung-v5",
+    "fields": {
+      "created_at": "2024-10-31T15:15:27.551Z",
+      "modified_at": "2024-10-31T15:15:27.551Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erforderliche Anschlusssicherung (A)\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -7695,6 +8311,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hausanschlussleitung-v5",
+    "fields": {
+      "created_at": "2024-10-31T15:13:27.623Z",
+      "modified_at": "2024-10-31T15:13:27.623Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hausanschlussleitung\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "ist-das-bauwerk-der-bauwerksklasse-ii-oder-iii-zugeteilt-v5",
     "fields": {
       "created_at": "2024-08-14T08:30:59.799Z",
@@ -7810,6 +8457,74 @@
         "hideLabel": true,
         "documentCategory": "plaene"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kw-angabe-ew-netz-totale-leistung-kwp-v5",
+    "fields": {
+      "created_at": "2024-10-31T15:43:58.304Z",
+      "modified_at": "2024-10-31T16:00:23.998Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"kW-Angabe EW-Netz (Totale Leistung kWp)\", \"fr\": null, \"it\": null}",
+      "type": "float",
+      "is_required": "false",
+      "is_hidden": "!('um-welche-energieerzeugungsanlage-handelt-es-sich-v5-gekoppelt-mit-ew-netz' in 'um-welche-energieerzeugungsanlage-handelt-es-sich-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kw-angabe-inselbetrieb-totale-leistung-kwp-v5",
+    "fields": {
+      "created_at": "2024-10-31T15:33:46.312Z",
+      "modified_at": "2024-10-31T16:01:21.053Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"kW-Angabe Inselbetrieb (Totale Leistung kWp)\", \"fr\": null, \"it\": null}",
+      "type": "float",
+      "is_required": "false",
+      "is_hidden": "!('um-welche-energieerzeugungsanlage-handelt-es-sich-v5-inselbetrieb' in 'um-welche-energieerzeugungsanlage-handelt-es-sich-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -8361,6 +9076,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "um-was-fuer-einen-erder-handelt-es-sich-v5",
+    "fields": {
+      "created_at": "2024-10-31T15:50:17.161Z",
+      "modified_at": "2024-10-31T15:50:17.161Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Um was f\\u00fcr einen Erder handelt es sich?\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!('energieerzeugungsanlage-v5-nein' == 'energieerzeugungsanlage-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "um-welche-art-strasse-handelt-es-sich-v5",
     "fields": {
       "created_at": "2024-10-30T15:33:50.139Z",
@@ -8373,6 +9119,37 @@
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "um-welche-energieerzeugungsanlage-handelt-es-sich-v5",
+    "fields": {
+      "created_at": "2024-10-31T15:24:14.603Z",
+      "modified_at": "2024-10-31T15:24:14.603Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Um welche Energieerzeugungsanlage handelt es sich?\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!('energieerzeugungsanlage-v5-ja' == 'energieerzeugungsanlage-v5'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -9077,6 +9854,66 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "energieerzeugungsanlage-v5.energieerzeugungsanlage-v5-ja",
+    "fields": {
+      "created_at": "2024-10-31T15:18:07.928Z",
+      "modified_at": "2024-10-31T15:18:07.928Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "energieerzeugungsanlage-v5",
+      "option": "energieerzeugungsanlage-v5-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "energieerzeugungsanlage-v5.energieerzeugungsanlage-v5-nein",
+    "fields": {
+      "created_at": "2024-10-31T15:18:07.926Z",
+      "modified_at": "2024-10-31T15:18:07.926Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "energieerzeugungsanlage-v5",
+      "option": "energieerzeugungsanlage-v5-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "erder-v5.erder-v5-bestehend",
+    "fields": {
+      "created_at": "2024-10-31T15:46:57.628Z",
+      "modified_at": "2024-10-31T15:46:57.628Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "erder-v5",
+      "option": "erder-v5-bestehend",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "erder-v5.erder-v5-neu",
+    "fields": {
+      "created_at": "2024-10-31T15:46:57.633Z",
+      "modified_at": "2024-10-31T15:46:57.633Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "erder-v5",
+      "option": "erder-v5-neu",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "gesteigerter-gemeingebrauch-zweck-v5.gesteigerter-gemeingebrauch-zweck-v5-andere",
     "fields": {
       "created_at": "2024-10-30T15:40:02.068Z",
@@ -9162,6 +9999,66 @@
       "modified_by_group": null,
       "question": "gesteigerter-gemeingebrauch-zweck-v5",
       "option": "gesteigerter-gemeingebrauch-zweck-v5-parkplatz",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "hausanschlussleitung-v5.hausanschlussleitung-v5-aendernanpassen",
+    "fields": {
+      "created_at": "2024-10-31T15:13:27.632Z",
+      "modified_at": "2024-10-31T15:13:27.632Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "hausanschlussleitung-v5",
+      "option": "hausanschlussleitung-v5-aendernanpassen",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "hausanschlussleitung-v5.hausanschlussleitung-v5-keine-anpassung-notwendig",
+    "fields": {
+      "created_at": "2024-10-31T15:13:27.627Z",
+      "modified_at": "2024-10-31T15:13:27.627Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "hausanschlussleitung-v5",
+      "option": "hausanschlussleitung-v5-keine-anpassung-notwendig",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "hausanschlussleitung-v5.hausanschlussleitung-v5-neu-verlegen",
+    "fields": {
+      "created_at": "2024-10-31T15:13:27.634Z",
+      "modified_at": "2024-10-31T15:13:27.634Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "hausanschlussleitung-v5",
+      "option": "hausanschlussleitung-v5-neu-verlegen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "hausanschlussleitung-v5.hausanschlussleitung-v5-verstaerken",
+    "fields": {
+      "created_at": "2024-10-31T15:13:27.630Z",
+      "modified_at": "2024-10-31T15:13:27.630Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "hausanschlussleitung-v5",
+      "option": "hausanschlussleitung-v5-verstaerken",
       "sort": 2
     }
   },
@@ -9332,6 +10229,66 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "um-was-fuer-einen-erder-handelt-es-sich-v5.um-was-fuer-einen-erder-handelt-es-sich-v5-anderer",
+    "fields": {
+      "created_at": "2024-10-31T15:50:17.168Z",
+      "modified_at": "2024-10-31T15:50:17.168Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "um-was-fuer-einen-erder-handelt-es-sich-v5",
+      "option": "um-was-fuer-einen-erder-handelt-es-sich-v5-anderer",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "um-was-fuer-einen-erder-handelt-es-sich-v5.um-was-fuer-einen-erder-handelt-es-sich-v5-banderder",
+    "fields": {
+      "created_at": "2024-10-31T15:50:17.171Z",
+      "modified_at": "2024-10-31T15:50:17.171Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "um-was-fuer-einen-erder-handelt-es-sich-v5",
+      "option": "um-was-fuer-einen-erder-handelt-es-sich-v5-banderder",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "um-was-fuer-einen-erder-handelt-es-sich-v5.um-was-fuer-einen-erder-handelt-es-sich-v5-fundamenterder",
+    "fields": {
+      "created_at": "2024-10-31T15:50:17.173Z",
+      "modified_at": "2024-10-31T15:50:17.173Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "um-was-fuer-einen-erder-handelt-es-sich-v5",
+      "option": "um-was-fuer-einen-erder-handelt-es-sich-v5-fundamenterder",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "um-was-fuer-einen-erder-handelt-es-sich-v5.um-was-fuer-einen-erder-handelt-es-sich-v5-wasserleitung-bisher",
+    "fields": {
+      "created_at": "2024-10-31T15:50:17.172Z",
+      "modified_at": "2024-10-31T15:50:17.172Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "um-was-fuer-einen-erder-handelt-es-sich-v5",
+      "option": "um-was-fuer-einen-erder-handelt-es-sich-v5-wasserleitung-bisher",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "um-welche-art-strasse-handelt-es-sich-v5.um-welche-art-strasse-handelt-es-sich-v5-gemeindestrasse",
     "fields": {
       "created_at": "2024-10-30T15:33:50.143Z",
@@ -9357,6 +10314,36 @@
       "modified_by_group": null,
       "question": "um-welche-art-strasse-handelt-es-sich-v5",
       "option": "um-welche-art-strasse-handelt-es-sich-v5-kantonsstrasse",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "um-welche-energieerzeugungsanlage-handelt-es-sich-v5.um-welche-energieerzeugungsanlage-handelt-es-sich-v5-gekoppelt-mit-ew-netz",
+    "fields": {
+      "created_at": "2024-10-31T15:24:14.608Z",
+      "modified_at": "2024-10-31T15:24:14.608Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "um-welche-energieerzeugungsanlage-handelt-es-sich-v5",
+      "option": "um-welche-energieerzeugungsanlage-handelt-es-sich-v5-gekoppelt-mit-ew-netz",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "um-welche-energieerzeugungsanlage-handelt-es-sich-v5.um-welche-energieerzeugungsanlage-handelt-es-sich-v5-inselbetrieb",
+    "fields": {
+      "created_at": "2024-10-31T15:24:14.611Z",
+      "modified_at": "2024-10-31T15:24:14.611Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "um-welche-energieerzeugungsanlage-handelt-es-sich-v5",
+      "option": "um-welche-energieerzeugungsanlage-handelt-es-sich-v5-inselbetrieb",
       "sort": 2
     }
   },
