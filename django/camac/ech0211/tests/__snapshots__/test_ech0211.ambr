@@ -291,10 +291,10 @@
   					<ns6:titles>
   						<ns7:title>Situationsplan</ns7:title>
   					</ns6:titles>
-  					<ns6:status>undefined</ns6:status>
+  					<ns6:status>created</ns6:status>
   					<ns6:files>
   						<ns6:file>
-  							<ns6:pathFileName>http://ember-ebau.local/ech/v1/files/57a93396-454c-4a55-b48f-d114ad264df9</ns6:pathFileName>
+  							<ns6:pathFileName>http://ember-ebau.local/ech/v1/files/<!-- ATTACHMENT_ID --></ns6:pathFileName>
   							<ns6:mimeType>application/octet-stream</ns6:mimeType>
   						</ns6:file>
   					</ns6:files>
@@ -739,10 +739,10 @@
   					<ns7:titles>
   						<ns8:title>Situationsplan</ns8:title>
   					</ns7:titles>
-  					<ns7:status>undefined</ns7:status>
+  					<ns7:status>created</ns7:status>
   					<ns7:files>
   						<ns7:file>
-  							<ns7:pathFileName>http://ember-ebau.local/ech/v1/files/57a93396-454c-4a55-b48f-d114ad264df9</ns7:pathFileName>
+  							<ns7:pathFileName>http://ember-ebau.local/ech/v1/files/<!-- ATTACHMENT_ID --></ns7:pathFileName>
   							<ns7:mimeType>application/octet-stream</ns7:mimeType>
   						</ns7:file>
   					</ns7:files>
