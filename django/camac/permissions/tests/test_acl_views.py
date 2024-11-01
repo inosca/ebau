@@ -399,23 +399,24 @@ def test_get_access_levels(
 
 
 @pytest.mark.parametrize(
-    "do_filter,grant,permission_mode, role__name, expect_results",
+    "canton, do_filter,grant,permission_mode, role__name, expect_results",
     [
         # Permission mode is FULL: User can only see access levels that are
         # explicitly allowed to be assigned *on the given instance*
-        (True, "geometer", "FULL", "Municipality", 1),
-        (True, None, "FULL", "Municipality", 0),
-        (False, None, "FULL", "Municipality", "ALL"),
-        (False, "geometer", "FULL", "Municipality", "ALL"),
-        (True, "any", "FULL", "Municipality", "ALL"),
-        (False, "any", "FULL", "Municipality", "ALL"),
+        ("be", True, "geometer", "FULL", "Municipality", 1),
+        ("be", True, None, "FULL", "Municipality", 0),
+        ("be", False, None, "FULL", "Municipality", "ALL"),
+        ("be", False, "geometer", "FULL", "Municipality", "ALL"),
+        ("be", True, "any", "FULL", "Municipality", "ALL"),
+        ("be", False, "any", "FULL", "Municipality", "ALL"),
         # Permission mode is OFF: Old mode, can't filter except by role
-        (True, "geometer", "OFF", "Municipality", "ALL"),
-        (True, "geometer", "OFF", "Geometer", 0),
-        (False, "geometer", "OFF", "Municipality", "ALL"),
+        ("be", True, "geometer", "OFF", "Municipality", 1),  # BE muni: only geometer
+        ("be", True, "geometer", "OFF", "Geometer", 0),
+        ("be", False, "geometer", "OFF", "Municipality", "ALL"),
         # AccessLevelViewset.get_queryset() is @permission_aware, therefore
         # non-municipality users never see anything here (for now)
-        (False, "geometer", "OFF", "Geometer", 0),
+        ("be", False, "geometer", "OFF", "Geometer", 0),
+        ("so", True, "geometer", "OFF", "Municipality", "ALL_EXCEPT_ONE"),
     ],
 )
 def test_assignable_filter(
@@ -423,13 +424,16 @@ def test_assignable_filter(
     be_instance,
     admin_client,
     instance_acl_factory,
+    application_settings,
     be_permissions_settings,
     be_access_levels,
+    access_level_factory,
     # params
     permission_mode,
     do_filter,
     grant,
     expect_results,
+    canton,
 ):
     """
     Test the asssignable_in_instance filter on the access levels.
@@ -437,8 +441,17 @@ def test_assignable_filter(
     The filter is supposed to only return the access levels that the current
     user can assign to someone on the given instance.
     """
-    if expect_results == "ALL":
-        expect_results = AccessLevel.objects.all().count()
+
+    # We use BE instance and config, but wanna (simply) test the SO case as well
+    access_level_factory(slug="municipality-before-submission")
+
+    application_settings["SHORT_NAME"] = canton
+
+    lookup_result_count = {
+        "ALL": AccessLevel.objects.all().count(),
+        "ALL_EXCEPT_ONE": AccessLevel.objects.all().count() - 1,
+    }
+    expect_results = lookup_result_count.get(expect_results, expect_results)
 
     # Drop any configured "grant" permisisons, so we can test the exact
     # behaviour

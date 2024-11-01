@@ -87,7 +87,9 @@ class InstanceACLSerializer(serializers.ModelSerializer):
     def create_rbac_for_municipality(self, validated_data):
         inst = validated_data["instance"]
 
-        self.context["view"].enforce_change_permission(inst)
+        self.context["view"].enforce_change_permission(
+            inst, validated_data["access_level"].pk
+        )
         return self._do_create(validated_data)
 
     def _do_create(self, validated_data):
