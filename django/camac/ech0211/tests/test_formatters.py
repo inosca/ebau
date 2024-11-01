@@ -3,6 +3,8 @@ import os.path
 
 import pytest
 import xmlschema
+from alexandria.core.factories import DocumentFactory, FileFactory, MarkFactory
+from alexandria.core.models import Document
 from caluma.caluma_workflow.api import (
     cancel_work_item,
     complete_work_item,
@@ -95,6 +97,44 @@ def test_get_documents(
         )
 
     xml = formatters.get_documents(Attachment.objects.filter(uuid__in=uuids))
+
+    assert xml
+
+    for doc in xml:
+        try:
+            ech_snapshot(doc.toxml(element_name="doc"))
+        except (
+            IncompleteElementContentError,
+            UnprocessedElementContentError,
+        ) as e:  # pragma: no cover
+            logger.error(e.details())
+            raise
+
+
+def test_get_alexandria_documents(
+    db,
+    ech_snapshot,
+    settings,
+    application_settings,
+):
+    application_settings["DOCUMENT_BACKEND"] = "alexandria"
+    settings.INTERNAL_BASE_URL = "http://ebau.local"
+
+    void = MarkFactory(pk="void")
+    decision = MarkFactory(pk="decision")
+
+    d1 = DocumentFactory(pk="7604864d-fada-4431-b63b-fc9f4915233d")
+    d1.marks.add(void)
+    FileFactory(document=d1)
+    d2 = DocumentFactory(pk="23daf554-c2f5-4aa2-b5f2-734a96ed84d8")
+    FileFactory(document=d2)
+    d2.marks.add(decision)
+    d3 = DocumentFactory(pk="394f53af-24bc-4324-986e-c3901c310263")
+    FileFactory(document=d3)
+
+    xml = formatters.get_documents(
+        Document.objects.filter(pk__in=[d1.pk, d2.pk, d3.pk])
+    )
 
     assert xml
 

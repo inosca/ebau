@@ -163,12 +163,22 @@ def get_camac_documents(documents):
     ]
 
 
+def get_document_status_type(document):
+    """Map alexandria marks to ech0039 documentStatusType."""
+    marks = document.marks.values_list("pk", flat=True)
+    for k, v in settings.ECH0211.get("ALEXANDRIA_MARKS_STATUS_MAP", {}).items():
+        if k in marks:
+            return v
+
+    return "created"
+
+
 def get_alexandria_documents(documents):
     return [
         ns_nachrichten_t0.documentType(
             uuid=str(doc.pk),
             titles=pyxb.BIND(title=[doc.title]),
-            status="undefined",  # ech0039 documentStatusType
+            status=get_document_status_type(doc),
             documentKind=doc.category.name.translate(),
             keywords=pyxb.BIND(
                 keyword=list(
