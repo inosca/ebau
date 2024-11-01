@@ -127,7 +127,7 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
     @_revoke.register_old
     def _revoke_rbac(self, request, pk):
         acl: models.InstanceACL = self.get_object()
-        self.enforce_change_permission(acl.instance)
+        self.enforce_change_permission(acl.instance, acl.access_level_id)
         return self._do_revoke(request, acl)
 
     def _do_revoke(self, request, acl):
@@ -138,7 +138,9 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
         serializer = self.get_serializer(acl)
         return response.Response(serializer.data, status=status.HTTP_200_OK)
 
-    def enforce_change_permission(self, instance: instance_models.Instance):
+    def enforce_change_permission(
+        self, instance: instance_models.Instance, access_level_id
+    ):
         """Enforce change permission for ACLs on this instance.
 
         Checks whether the user is allowed, and raises an exception
@@ -153,6 +155,10 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
         start granting permissions, and needs to be fully rewritten once the
         permissions module becomes the sole "source-of-truth" for access rights
         """
+        # FIXME: Once we fully enable the permission module, this whole
+        # method can go away, and we can rely on the permissions only to
+        # check whether anccess level is assignable or not
+
         # Currently, create/revoke have the same permissions
         request_service_id = self.request.group.service.pk
 
@@ -166,7 +172,17 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
         else:
             has_permission = request_service_id == instance.group.service_id
 
-        if not has_permission:
+        if has_permission:
+            filt = filters.AccessLevelFilterset(
+                queryset=models.AccessLevel.objects, request=self.request
+            )
+            assignable = filt.filter_assignable_in_instance(
+                models.AccessLevel.objects.all().filter(pk=access_level_id),
+                name="assignable_in_instance",
+                value=instance.pk,
+            )
+            return assignable.exists()
+        else:
             # This is primarily already handled via visibility, but this will
             # change and then we'll need this check here as well
             raise ValidationError(
