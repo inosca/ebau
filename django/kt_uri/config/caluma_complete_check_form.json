@@ -19,6 +19,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "complete-check.begruendung-rueckweisung",
+    "fields": {
+      "created_at": "2024-10-25T08:48:20.939Z",
+      "modified_at": "2024-10-25T08:48:20.939Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-check",
+      "question": "begruendung-rueckweisung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "complete-check.complete-check-abschliessen",
     "fields": {
       "created_at": "2024-07-24T12:56:47.847Z",
@@ -44,7 +59,7 @@
       "modified_by_group": null,
       "form": "complete-check",
       "question": "complete-check-baubewilligungspflichtig",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -74,7 +89,7 @@
       "modified_by_group": null,
       "form": "complete-check",
       "question": "complete-check-vollstaendigkeitspruefung",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -89,7 +104,7 @@
       "modified_by_group": null,
       "form": "complete-check",
       "question": "profilierung",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -104,7 +119,7 @@
       "modified_by_group": null,
       "form": "complete-check",
       "question": "unterlagen-plaene",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -119,7 +134,7 @@
       "modified_by_group": null,
       "form": "complete-check",
       "question": "unterschriften",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -134,7 +149,7 @@
       "modified_by_group": null,
       "form": "complete-check",
       "question": "unterschriftenblatt-eingereicht",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -462,6 +477,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "begruendung-rueckweisung",
+    "fields": {
+      "created_at": "2024-10-25T08:48:20.775Z",
+      "modified_at": "2024-10-25T09:02:41.040Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begr\\u00fcndung R\\u00fcckweisung\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "!(\n  \"complete-check-vollstaendigkeitspruefung-reject\" == \"complete-check-vollstaendigkeitspruefung\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"z.B. Falsches Verfahren ausgew\\u00e4hlt, bitte reichen Sie ein Baugesuch ein.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"R\\u00fcckweisung von Dossiers\\n\\nWenn Dossiers zur\\u00fcckgewiesen werden, erh\\u00e4lt der/die Gesuchsteller/in eine entsprechende E-Mail \\\"Dossier zur\\u00fcckgewiesen\\\". Im Portal wird de/der Gesuchseller/in angezeigt, warum das Dossier zur\\u00fcckgewiesen wurde (Text Begr\\u00fcndung R\\u00fcckweisung))\\\". Der/die Gesuchsteller/in hat die M\\u00f6glichkeit, das Verfahren neu zustarten. Es wird in jedem Fall eine neue Dossiernummer erstellt.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Bitte beachten Sie, dass nur Dossiers zur\\u00fcckgewiesen werden, bei denen das Vorhaben v\\u00f6llig ungen\\u00fcgend dokumentiert ist, oder falls das Dossier offensichtlich versehentlich eingereicht wurde, oder wenn der Gesuchsteller allenfalls das falsche Verfahren ausgew\\u00e4hlt hat (z.B. Baumeldung anstatt Baugesuch). Bei Dossiers die grunds\\u00e4tzlich als bewilligungsf\\u00e4hig eingestuft werden, jedoch wesentliche Unterlagen zur Beurteilung fehlen, w\\u00e4hlen Sie bitte eine der Versionen \\\"Nachforderung\\\".\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "complete-check-abschliessen",
     "fields": {
       "created_at": "2023-12-05T12:43:26.927Z",
@@ -532,12 +581,12 @@
     "pk": "complete-check-begruendung",
     "fields": {
       "created_at": "2023-12-05T12:42:45.182Z",
-      "modified_at": "2024-08-02T08:57:04.835Z",
+      "modified_at": "2024-10-25T09:04:17.288Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Begr\\u00fcndung\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
       "is_hidden": "info.case.form in [\"cantonal-territory-usage\", \"konzession-waermeentnahme\", \"bohrbewilligung-waermeentnahme\", \"pgv-gemeindestrasse\", \"bgbb\", \"oereb\", \"oereb-verfahren-gemeinde\", \"verfahren-gemeinde\", \"mitbericht-kanton\"]",
