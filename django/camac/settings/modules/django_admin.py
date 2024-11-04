@@ -53,4 +53,5 @@ DJANGO_ADMIN = {
     },
     "kt_schwyz": {"ENABLED": True},
     "kt_uri": {"ENABLED": True},
+    "kt_ag": {"ENABLED": True},
 }
