@@ -536,7 +536,14 @@
               },
               {
                 "scope": "All",
-                "fields": ["title", "description", "date", "tags", "files"],
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "tags",
+                  "files",
+                  "category"
+                ],
                 "permission": "update"
               },
               {
