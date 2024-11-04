@@ -179,6 +179,10 @@ DMS = {
     "kt_gr": {
         "ENABLED": True,
         "USE_NUMBER_SEPARATOR": True,
+        "NUMBER_SEPARATOR_EXCEPTIONS": [
+            "plz-parzelle",
+            "plz-gesuchstellerin",
+        ],
         "FORM": {
             "_base": {
                 "people_sources": [

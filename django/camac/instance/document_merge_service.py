@@ -658,7 +658,11 @@ class DMSVisitor:
     def _visit_number_question(self, node, parent_doc=None, answer=None, **_):
         value = answer.value if answer else None
 
-        if value and settings.DMS.get("USE_NUMBER_SEPARATOR"):
+        if (
+            value
+            and settings.DMS.get("USE_NUMBER_SEPARATOR")
+            and (node.slug not in settings.DMS.get("NUMBER_SEPARATOR_EXCEPTIONS", []))
+        ):
             value = f"{value:n}"
 
         return {"value": value}
