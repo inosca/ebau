@@ -774,8 +774,8 @@ importers:
         specifier: workspace:*
         version: link:../ember-ebau-core
       ember-ebau-gwr:
-        specifier: 8.0.1
-        version: 8.0.1(@ember-data/model@4.12.8)(@ember/string@4.0.0)(@ember/test-helpers@3.3.1)(@ember/test-waiters@3.1.0)(@glint/template@1.2.1)(ember-data@4.12.8)(ember-engines@0.11.0)(ember-resources@7.0.2)(ember-source@4.12.4)(webpack@5.94.0)
+        specifier: 8.0.2
+        version: 8.0.2(@ember-data/model@4.12.8)(@ember/string@4.0.0)(@ember/test-helpers@3.3.1)(@ember/test-waiters@3.1.0)(@glint/template@1.2.1)(ember-data@4.12.8)(ember-engines@0.11.0)(ember-resources@7.0.2)(ember-source@4.12.4)(webpack@5.94.0)
       ember-engines:
         specifier: 0.11.0
         version: 0.11.0(@glint/template@1.2.1)(ember-engines-router-service@0.6.0)(ember-source@4.12.4)
@@ -1053,8 +1053,8 @@ importers:
         specifier: workspace:*
         version: link:../ember-ebau-core
       ember-ebau-gwr:
-        specifier: 8.0.1
-        version: 8.0.1(@ember-data/model@4.12.8)(@ember/string@4.0.0)(@ember/test-helpers@3.3.1)(@ember/test-waiters@3.1.0)(@glint/template@1.2.1)(ember-data@4.12.8)(ember-engines@0.11.0)(ember-resources@7.0.2)(ember-source@4.12.4)(webpack@5.94.0)
+        specifier: 8.0.2
+        version: 8.0.2(@ember-data/model@4.12.8)(@ember/string@4.0.0)(@ember/test-helpers@3.3.1)(@ember/test-waiters@3.1.0)(@glint/template@1.2.1)(ember-data@4.12.8)(ember-engines@0.11.0)(ember-resources@7.0.2)(ember-source@4.12.4)(webpack@5.94.0)
       ember-engines:
         specifier: 0.11.0
         version: 0.11.0(@glint/template@1.2.1)(ember-engines-router-service@0.6.0)(ember-source@4.12.4)
@@ -8245,8 +8245,8 @@ packages:
       - '@babel/core'
       - supports-color
 
-  /ember-ebau-gwr@8.0.1(@ember-data/model@4.12.8)(@ember/string@4.0.0)(@ember/test-helpers@3.3.1)(@ember/test-waiters@3.1.0)(@glint/template@1.2.1)(ember-data@4.12.8)(ember-engines@0.11.0)(ember-resources@7.0.2)(ember-source@4.12.4)(webpack@5.94.0):
-    resolution: {integrity: sha512-6NhapM/jH2hGU4UDswzcShjZZ1ziYNo+IS4LLqNdYnEthYYYGFIOgbC77JkO16OaicEYhjRxNtymUUm44FqdGw==}
+  /ember-ebau-gwr@8.0.2(@ember-data/model@4.12.8)(@ember/string@4.0.0)(@ember/test-helpers@3.3.1)(@ember/test-waiters@3.1.0)(@glint/template@1.2.1)(ember-data@4.12.8)(ember-engines@0.11.0)(ember-resources@7.0.2)(ember-source@4.12.4)(webpack@5.94.0):
+    resolution: {integrity: sha512-04jZNTV5sZT8aehUFcfThXJ5DOHWnjsX83i0ZV2Li5A6dvGc9nbgfjAIwDJpvfNjcktVIAt7EMTPSef9yk6xwQ==}
     engines: {node: '>= 18'}
     peerDependencies:
       '@ember-data/model': ~4.12.8 || >= 5.0.0
