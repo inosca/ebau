@@ -549,6 +549,15 @@ APPLICATIONS = {
             "PUBLICATION_TASK_SLUG": "publication",
             "CREATE_IN_PROCESS": True,
             "CALUMA_WORKFLOW_NOTIFICATIONS": {
+                "make-decision": [
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "complete-make-decision",
+                            "recipient_types": ["localized_geometer"],
+                        },
+                    }
+                ],
                 "construction-step-baufreigabe-beantragen": [
                     {
                         "event": "created",
