@@ -382,5 +382,17 @@
       "service": null,
       "type": "email"
     }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 52,
+    "fields": {
+      "slug": "complete-make-decision",
+      "purpose": "Gesuch entschieden",
+      "subject": "Gesuch {{identifier}}: Entscheidung Gesuch",
+      "body": "Im Gesuch {{identifier}}, {{field_bezeichnung}}, {{location}} hat die Gemeinde über das Gesuch entschieden (die Beschwerdefrist läuft noch).",
+      "service": null,
+      "type": "email"
+    }
   }
 ]
