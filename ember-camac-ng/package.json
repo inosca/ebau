@@ -86,7 +86,7 @@
     "ember-data": "4.12.8",
     "ember-data-resources": "5.2.1",
     "ember-ebau-core": "workspace:*",
-    "ember-ebau-gwr": "8.0.1",
+    "ember-ebau-gwr": "8.0.2",
     "ember-engines": "0.11.0",
     "ember-engines-router-service": "0.6.0",
     "ember-fetch": "8.1.2",
