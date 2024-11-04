@@ -2065,7 +2065,7 @@
       "metainfo": {
         "sort": 1
       },
-      "name": "{\"de\": \"Entscheiddokument\", \"fr\": \"\", \"it\": \"\"}",
+      "name": "{\"de\": \"Entscheiddokument\", \"fr\": \"\", \"it\": \"Documento relativo alla decisione\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}"
     }
   },
@@ -2082,7 +2082,7 @@
       "metainfo": {
         "sort": 2
       },
-      "name": "{\"de\": \"Publikationsdokument\", \"fr\": \"\", \"it\": \"\"}",
+      "name": "{\"de\": \"Publikationsdokument\", \"fr\": \"\", \"it\": \"Documento da pubblicare\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}"
     }
   },
@@ -2099,8 +2099,8 @@
       "metainfo": {
         "sort": 4
       },
-      "name": "{\"de\": \"Vertraulich\", \"fr\": \"\", \"it\": \"\"}",
-      "description": "{\"de\": \"Dieses Dokument enth\\u00e4lt pers\\u00f6nliche Daten. Das Dokument kann nicht \\u00f6ffentlich publiziert werden.\", \"fr\": \"\", \"it\": \"\"}"
+      "name": "{\"de\": \"Vertraulich\", \"fr\": \"\", \"it\": \"Confidenziale\"}",
+      "description": "{\"de\": \"Dieses Dokument enth\\u00e4lt pers\\u00f6nliche Daten. Das Dokument kann nicht \\u00f6ffentlich publiziert werden.\", \"fr\": \"\", \"it\": \"Questo documento contiene dati personali. Il documento non pu\\u00f2 essere pubblicato pubblicamente.\"}"
     }
   },
   {
@@ -2116,7 +2116,7 @@
       "metainfo": {
         "sort": 3
       },
-      "name": "{\"de\": \"Ung\\u00fcltig\", \"fr\": \"\", \"it\": \"\"}",
+      "name": "{\"de\": \"Ung\\u00fcltig\", \"fr\": \"\", \"it\": \"Non valido\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}"
     }
   }
