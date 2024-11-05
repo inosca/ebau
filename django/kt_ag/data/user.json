@@ -35,26 +35,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 24852,
-    "fields": {
-      "group": 1,
-      "language": "fr",
-      "name": "Admin",
-      "city": ""
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 24853,
-    "fields": {
-      "group": 2,
-      "language": "fr",
-      "name": "Guest",
-      "city": ""
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 26534,
     "fields": {
       "group": 10000,
