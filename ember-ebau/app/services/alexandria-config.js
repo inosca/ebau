@@ -3,6 +3,7 @@ import { service } from "@ember/service";
 import { getConfig } from "@embroider/macros";
 import { tracked } from "@glimmer/tracking";
 import AlexandriaConfigService from "ember-alexandria/services/alexandria-config";
+import fetchIfNotCached from "ember-ebau-core/utils/fetch-if-not-cached";
 
 const allowedWebDAVMimeTypes =
   getConfig("ember-ebau-core").allowedWebDAVMimeTypes;
@@ -51,16 +52,18 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
   }
 
   @action
-  resolveUser(id) {
+  async resolveUser(id) {
     if (!id) return "-";
 
+    await fetchIfNotCached("public-user", "id", [id], this.store);
     return this.store.peekRecord("public-user", id)?.fullName ?? "-";
   }
 
   @action
-  resolveGroup(id) {
+  async resolveGroup(id) {
     if (!id) return "-";
 
+    await fetchIfNotCached("public-service", "id", [id], this.store);
     return this.store.peekRecord("public-service", id)?.name ?? "-";
   }
 
