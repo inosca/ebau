@@ -3772,7 +3772,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "aussenwaende",
-      "sort": 3
+      "sort": 9
     }
   },
   {
@@ -3787,7 +3787,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "bauanzeige-haustechnische-anlagen-brandschutz",
-      "sort": 5
+      "sort": 11
     }
   },
   {
@@ -3802,7 +3802,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "bauart-titel",
-      "sort": 4
+      "sort": 10
     }
   },
   {
@@ -3817,7 +3817,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "baugespann",
-      "sort": 7
+      "sort": 13
     }
   },
   {
@@ -3832,7 +3832,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "baugespann-erstellt-am",
-      "sort": 6
+      "sort": 12
     }
   },
   {
@@ -3847,22 +3847,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "baukosten",
-      "sort": 9
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bauvorhaben.beschreibung-aussenwaende",
-    "fields": {
-      "created_at": "2024-10-22T09:57:11.104Z",
-      "modified_at": "2024-10-22T09:57:11.104Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "bauvorhaben",
-      "question": "beschreibung-aussenwaende",
-      "sort": 1
+      "sort": 15
     }
   },
   {
@@ -3877,7 +3862,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "beschreibung-bauvorhaben",
-      "sort": 14
+      "sort": 20
     }
   },
   {
@@ -3892,7 +3877,22 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "beschreibung-bauvorhaben-details",
-      "sort": 13
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.dacheindeckung-material-und-farbe",
+    "fields": {
+      "created_at": "2024-11-05T07:42:41.946Z",
+      "modified_at": "2024-11-05T07:42:41.946Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "dacheindeckung-material-und-farbe",
+      "sort": 8
     }
   },
   {
@@ -3907,7 +3907,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "divider",
-      "sort": 12
+      "sort": 18
     }
   },
   {
@@ -3922,7 +3922,52 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "dossiernummer-des-bewilligten-projekts",
-      "sort": 15
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.fahrraeder-anzahl-bestehend",
+    "fields": {
+      "created_at": "2024-11-05T07:45:49.820Z",
+      "modified_at": "2024-11-05T07:45:49.820Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "fahrraeder-anzahl-bestehend",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.fahrraeder-anzahl-neu",
+    "fields": {
+      "created_at": "2024-11-05T07:45:59.394Z",
+      "modified_at": "2024-11-05T07:45:59.394Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "fahrraeder-anzahl-neu",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.fassaden-material-und-farbe",
+    "fields": {
+      "created_at": "2024-11-05T07:42:54.682Z",
+      "modified_at": "2024-11-05T07:42:54.682Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "fassaden-material-und-farbe",
+      "sort": 7
     }
   },
   {
@@ -3937,7 +3982,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "gebaeudekubatur",
-      "sort": 11
+      "sort": 17
     }
   },
   {
@@ -3952,7 +3997,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "hinweis-zustaendigkeit",
-      "sort": 17
+      "sort": 23
     }
   },
   {
@@ -3967,22 +4012,67 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "kosten-pro-m3",
-      "sort": 10
+      "sort": 16
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "bauvorhaben.material-aussenwaende",
+    "pk": "bauvorhaben.motorfahrzeuge-anzahl-bestehend",
     "fields": {
-      "created_at": "2024-10-22T09:57:05.016Z",
-      "modified_at": "2024-10-22T09:57:05.016Z",
+      "created_at": "2024-11-05T07:44:47.408Z",
+      "modified_at": "2024-11-05T07:44:47.408Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "bauvorhaben",
-      "question": "material-aussenwaende",
-      "sort": 2
+      "question": "motorfahrzeuge-anzahl-bestehend",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.motorfahrzeuge-anzahl-neu",
+    "fields": {
+      "created_at": "2024-11-05T07:45:24.189Z",
+      "modified_at": "2024-11-05T07:45:24.189Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "motorfahrzeuge-anzahl-neu",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.parkplaetze-betroffen",
+    "fields": {
+      "created_at": "2024-11-05T07:44:03.623Z",
+      "modified_at": "2024-11-05T07:44:03.623Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "parkplaetze-betroffen",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.parkplaetze-titel",
+    "fields": {
+      "created_at": "2024-11-05T07:43:29.847Z",
+      "modified_at": "2024-11-05T07:43:29.847Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "parkplaetze-titel",
+      "sort": 6
     }
   },
   {
@@ -3997,7 +4087,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "profilierung-titel",
-      "sort": 8
+      "sort": 14
     }
   },
   {
@@ -4012,7 +4102,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "vorhaben",
-      "sort": 16
+      "sort": 22
     }
   },
   {
@@ -4027,7 +4117,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "vorhaben-titel",
-      "sort": 18
+      "sort": 24
     }
   },
   {
@@ -30410,6 +30500,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "parkplaetze-betroffen-ja",
+    "fields": {
+      "created_at": "2024-11-05T07:44:03.392Z",
+      "modified_at": "2024-11-05T07:44:03.392Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "parkplaetze-betroffen-nein",
+    "fields": {
+      "created_at": "2024-11-05T07:44:03.385Z",
+      "modified_at": "2024-11-05T07:44:03.385Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "partikelfilter-ja",
     "fields": {
       "created_at": "2023-06-14T11:46:12.051Z",
@@ -51643,6 +51767,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "dacheindeckung-material-und-farbe",
+    "fields": {
+      "created_at": "2024-11-05T07:42:41.840Z",
+      "modified_at": "2024-11-05T07:42:41.840Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dacheindeckung: Material und Farbe\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "dach-material-und-farbe",
     "fields": {
       "created_at": "2023-04-12T10:48:53.454Z",
@@ -55645,6 +55803,74 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "fahrraeder-anzahl-bestehend",
+    "fields": {
+      "created_at": "2024-11-05T07:45:49.720Z",
+      "modified_at": "2024-11-05T07:45:49.720Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fahrr\\u00e4der: Anzahl bestehend\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"parkplaetze-betroffen\"|answer == \"parkplaetze-betroffen-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "fahrraeder-anzahl-neu",
+    "fields": {
+      "created_at": "2024-11-05T07:45:59.276Z",
+      "modified_at": "2024-11-05T07:45:59.276Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fahrr\\u00e4der: Anzahl neu\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"parkplaetze-betroffen\"|answer == \"parkplaetze-betroffen-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "fallen-emissionen-an",
     "fields": {
       "created_at": "2023-07-05T06:40:48.851Z",
@@ -55754,6 +55980,40 @@
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "fassaden-material-und-farbe",
+    "fields": {
+      "created_at": "2024-11-05T07:42:54.466Z",
+      "modified_at": "2024-11-05T07:42:54.466Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fassaden: Material und Farbe\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -66230,6 +66490,74 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "motorfahrzeuge-anzahl-bestehend",
+    "fields": {
+      "created_at": "2024-11-05T07:44:47.311Z",
+      "modified_at": "2024-11-05T07:44:47.311Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Motorfahrzeuge: Anzahl bestehend\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"parkplaetze-betroffen\"|answer == \"parkplaetze-betroffen-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "motorfahrzeuge-anzahl-neu",
+    "fields": {
+      "created_at": "2024-11-05T07:45:24.092Z",
+      "modified_at": "2024-11-05T07:45:32.786Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Motorfahrzeuge: Anzahl neu\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"parkplaetze-betroffen\"|answer == \"parkplaetze-betroffen-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "muessen-ufervegetation-hecken-oder-feldgehoelze-entfernt-werden",
     "fields": {
       "created_at": "2023-07-05T07:36:37.200Z",
@@ -67569,6 +67897,68 @@
       },
       "data_source": null,
       "row_form": "personalien-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "parkplaetze-betroffen",
+    "fields": {
+      "created_at": "2024-11-05T07:44:03.512Z",
+      "modified_at": "2024-11-05T07:44:03.512Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Parkpl\\u00e4tze betroffen\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "parkplaetze-titel",
+    "fields": {
+      "created_at": "2024-11-05T07:43:29.754Z",
+      "modified_at": "2024-11-05T07:43:29.754Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Parkpl\\u00e4tze Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\\n### Parkpl\\u00e4tze\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -89454,6 +89844,36 @@
       "modified_by_group": null,
       "question": "ort-der-entlueftung",
       "option": "ort-der-entlueftung-unten",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "parkplaetze-betroffen.parkplaetze-betroffen-ja",
+    "fields": {
+      "created_at": "2024-11-05T07:44:03.524Z",
+      "modified_at": "2024-11-05T07:44:03.524Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "parkplaetze-betroffen",
+      "option": "parkplaetze-betroffen-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "parkplaetze-betroffen.parkplaetze-betroffen-nein",
+    "fields": {
+      "created_at": "2024-11-05T07:44:03.519Z",
+      "modified_at": "2024-11-05T07:44:03.519Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "parkplaetze-betroffen",
+      "option": "parkplaetze-betroffen-nein",
       "sort": 1
     }
   },
