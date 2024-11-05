@@ -3,8 +3,8 @@
     "model": "api.template",
     "pk": "bab-begleitformular-kantonale-pruefung",
     "fields": {
-      "description": "BaB - Begleitformular kantonale Prüfung",
-      "template": "bab-begleitformular-kantonale-pruefung.docx",
+      "description": "Übergabeformular zur kantonalen Prüfung gemäss § 38bis Abs. 1 PBG von Baugesuchen mit einem Standort ausserhalb der Bauzone",
+      "template": "bab-uebergabeformular-baugesuch.docx",
       "engine": "docx-template",
       "created_at": null,
       "created_by_user": null,
