@@ -2348,7 +2348,7 @@ APPLICATIONS = {
             "support": "support",
         },
         "ADMIN_GROUP": 1,
-        "IS_MULTILINGUAL": False,
+        "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
         "THUMBNAIL_SIZE": "x300",
         "PAPER": {
