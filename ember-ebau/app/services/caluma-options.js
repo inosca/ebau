@@ -3,6 +3,7 @@ import CalumaOptionsService from "@projectcaluma/ember-core/services/caluma-opti
 import { INQUIRY_STATUS } from "@projectcaluma/ember-distribution/config";
 import { cantonAware } from "ember-ebau-core/decorators";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+import fetchIfNotCached from "ember-ebau-core/utils/fetch-if-not-cached";
 import { cached } from "tracked-toolbox";
 
 export default class CustomCalumaOptionsService extends CalumaOptionsService {
@@ -34,30 +35,17 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     return authorityId === parseInt(this.currentGroupId);
   }
 
-  async _fetchIfNotCached(modelName, idFilter, identifiers) {
-    const cachedIdentifiers = this.store
-      .peekAll(modelName)
-      .map((model) => model.id);
-
-    const uncachedIdentifiers = identifiers.filter(
-      (identifier) => !cachedIdentifiers.includes(String(identifier)),
-    );
-
-    if (uncachedIdentifiers.length) {
-      await this.store.query(modelName, {
-        [idFilter]: String(uncachedIdentifiers),
-      });
-    }
-
-    return this.store.peekAll(modelName);
-  }
-
   resolveUsers(identifiers) {
-    return this._fetchIfNotCached("public-user", "username", identifiers);
+    return fetchIfNotCached("public-user", "username", identifiers, this.store);
   }
 
   resolveGroups(identifiers) {
-    return this._fetchIfNotCached("public-service", "service_id", identifiers);
+    return fetchIfNotCached(
+      "public-service",
+      "service_id",
+      identifiers,
+      this.store,
+    );
   }
 
   @cantonAware
