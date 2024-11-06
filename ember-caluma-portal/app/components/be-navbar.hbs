@@ -52,6 +52,14 @@
                 alt={{t "global.title"}}
               />
             {{/if}}
+            {{#if (is-application "gr")}}
+              <img
+                class="uk-margin-small-top"
+                src="/assets/images/logo-ebau-gr.svg"
+                alt={{t "global.title"}}
+              />
+            {{/if}}
+
             {{#if
               (and this.session.isAuthenticated this.session.groups.length)
             }}
