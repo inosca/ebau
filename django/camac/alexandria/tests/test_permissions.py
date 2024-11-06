@@ -1036,6 +1036,88 @@ def test_scope_service_and_subservice(
     assert response.status_code == status_code
 
 
+@pytest.mark.parametrize("role__name", ["applicant"])
+@pytest.mark.parametrize(
+    "method,created_by,status_code",
+    [
+        ("patch", "applicant-admin", HTTP_200_OK),
+        ("delete", "applicant-admin", HTTP_204_NO_CONTENT),
+        ("patch", "applicant-read", HTTP_403_FORBIDDEN),
+        ("delete", "applicant-read", HTTP_403_FORBIDDEN),
+        ("patch", "service", HTTP_403_FORBIDDEN),
+        ("delete", "service", HTTP_403_FORBIDDEN),
+    ],
+)
+def test_scope_applicant(
+    db,
+    admin_client,
+    created_by,
+    instance,
+    method,
+    mocker,
+    user_factory,
+    applicant_factory,
+    status_code,
+):
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
+        return_value=[instance.pk],
+    )
+
+    alexandria_category = CategoryFactory(
+        metainfo={
+            "access": {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "fields": ["title"],
+                            "scope": "Applicant",
+                        },
+                        {
+                            "permission": "delete",
+                            "scope": "Applicant",
+                        },
+                    ],
+                },
+            }
+        }
+    )
+
+    users = {
+        "applicant-admin": instance.involved_applicants.first().invitee,
+        "applicant-read": applicant_factory(
+            instance=instance, role="READ_ONLY"
+        ).invitee,
+        "service": user_factory(),
+    }
+
+    document = DocumentFactory(
+        title="Foo",
+        category=alexandria_category,
+        metainfo={"camac-instance-id": instance.pk},
+        created_by_user=str(users[created_by].pk),
+        modified_by_user=str(users[created_by].pk),
+    )
+
+    data = {
+        "data": {
+            "type": "documents",
+            "id": document.pk,
+            "attributes": {
+                "title": "Important",
+            },
+        },
+    }
+
+    url = reverse("document-detail", args=[document.pk])
+
+    response = getattr(admin_client, method)(url, data)
+
+    assert response.status_code == status_code
+
+
 @pytest.mark.parametrize("role__name", ["service"])
 @pytest.mark.parametrize(
     "work_item_status,status_code",
