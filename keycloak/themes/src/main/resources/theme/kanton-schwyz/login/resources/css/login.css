@@ -10039,6 +10039,10 @@ h1 {
 .kc-form-card.is-login-page {
   max-width: 1000px; }
 
+/* reduce height of containers on login page to what is needed for content */
+.kc-form-card.is-login-form {
+  height: 100%; }
+
 #kc-form-login h1 {
   padding-top: 32px;
   margin: 0; }
