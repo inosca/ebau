@@ -126,7 +126,7 @@
       "slug": "complete-construction-step-baufreigabe",
       "purpose": "Abschluss Baufreigabe Baubegleitung",
       "subject": "Gesuch {{identifier}}: Abschluss Baufreigabe",
-      "body": "Beim Gesuch {{ identifier }}, {{ location }} wurde die Baufreigabe erteilt.",
+      "body": "Im Gesuch {{ identifier }}, {{field_bezeichnung}}, {{ location }} wurde die Baufreigabe erteilt.",
       "service": null,
       "type": "email"
     }
@@ -138,7 +138,7 @@
       "slug": "complete-construction-step-schnurgeruestabnahme",
       "purpose": "Abschluss Schnurgeruestabnahme Baubegleitung",
       "subject": "Gesuch {{identifier}}: Abschluss Schnurgerüstabnahme",
-      "body": "Beim Gesuch {{ identifier }}, {{ location }} wurde die Schnurgerüstabnahme gemacht.",
+      "body": "Im Gesuch {{ identifier }}, {{field_bezeichnung}}, {{ location }} wurde die Schnurgerüstabnahme gemacht.",
       "service": null,
       "type": "email"
     }
@@ -150,7 +150,7 @@
       "slug": "complete-construction-step-schlussabnahme",
       "purpose": "Abschluss Schussabnahme Baubegleitung",
       "subject": "Gesuch {{identifier}}: Abschluss Schlussabnahme",
-      "body": "Beim Gesuch {{ identifier }}, {{ location }} wurde die Schlussabnahme gemacht.",
+      "body": "Im Gesuch {{ identifier }}, {{field_bezeichnung}}, {{ location }} wurde die Schlussabnahme gemacht.",
       "service": null,
       "type": "email"
     }
@@ -174,7 +174,7 @@
       "slug": "notify-complete-instance",
       "purpose": "Abschluss Verfahren",
       "subject": "Gesuch {{identifier}}: Abschluss Verfahren",
-      "body": "Beim Gesuch {{ identifier }}, {{ location }} wurde das Verfahren abgeschlossen.",
+      "body": "Beim Gesuch {{ identifier }}, {{field_bezeichnung}}, {{ location }} wurde das Verfahren abgeschlossen.",
       "service": null,
       "type": "email"
     }
@@ -186,7 +186,7 @@
       "slug": "communications-new-message",
       "purpose": "Neue Nachricht",
       "subject": "Neue Nachricht (eBau {{identifier}})",
-      "body": "Sie haben eine neue Nachricht auf dem Dossier {{identifier}}, {{location}} erhalten.\r\nSie können die Nachricht über das eBau Portal einsehen.",
+      "body": "Im Gesuch {{identifier}}, {{field_bezeichnung}}, {{location}} wurde über das Kommunikationsmodul eine Nachricht von der Gemeinde versandt.",
       "service": null,
       "type": "email"
     }
@@ -198,7 +198,7 @@
       "slug": "communications-new-message-internal",
       "purpose": "Neue Nachricht (Behörden)",
       "subject": "Neue Nachricht (eBau {{identifier}})",
-      "body": "Sie haben eine neue Nachricht auf dem Dossier {{identifier}}, {{location}} erhalten.\r\nSie können die Nachricht über das eBau Portal einsehen.",
+      "body": "Im Gesuch {{identifier}}, {{field_bezeichnung}}, {{location}} wurde über das Kommunikationsmodul eine Nachricht versandt.",
       "service": null,
       "type": "email"
     }
@@ -210,7 +210,7 @@
       "slug": "construction-step-notify-baufreigabe-beantragen",
       "purpose": "Beginn Baufreigabe beantragen",
       "subject": "Gesuch {{identifier}}: Baufreigabe beantragen",
-      "body": "Für das Gesuch {{identifier}}, {{location}} kann die Baufreigabe beantragt werden.",
+      "body": "Im Gesuch {{identifier}}, {{field_bezeichnung }}, {{location}} kann die Baufreigabe beantragt werden.",
       "service": null,
       "type": "email"
     }
@@ -222,7 +222,7 @@
       "slug": "construction-step-notify-baufreigabe",
       "purpose": "Beginn Baufreigabe",
       "subject": "Gesuch {{identifier}}: Baufreigabe erteilen",
-      "body": "Für das Gesuch {{identifier}}, {{location}} muss der Antrag der Baufreigabe überprüft werden.",
+      "body": "Im Gesuch {{identifier}}, {{field_bezeichnung}}, {{location}} wurde die Baufreigabe beantragt.",
       "service": null,
       "type": "email"
     }
@@ -234,7 +234,7 @@
       "slug": "construction-step-notify-baubeginn-melden",
       "purpose": "Beginn Baubeginn melden",
       "subject": "Gesuch {{identifier}}: Baubeginn melden",
-      "body": "Für das Gesuch {{identifier}}, {{location}} kann der Baubeginn gemeldet werden.",
+      "body": "Im Gesuch {{identifier}}, {{field_bezeichnung}}, {{location}} muss der Baubeginn gemeldet werden.",
       "service": null,
       "type": "email"
     }
@@ -246,7 +246,7 @@
       "slug": "construction-step-notify-kanalisationsabnahme-melden",
       "purpose": "Beginn Kanalisationsabnahme melden",
       "subject": "Gesuch {{identifier}}: Kanalisationsabnahme melden",
-      "body": "Für das Gesuch {{identifier}}, {{location}} kann die Kanalisationsabnahme beantragt werden.",
+      "body": "Im Gesuch {{identifier}}, {{field_bezeichnung}}, {{location}} kann die Kanalisationsabnahme beantragt werden.",
       "service": null,
       "type": "email"
     }
@@ -258,7 +258,7 @@
       "slug": "construction-step-notify-kanalisation-kontrollieren",
       "purpose": "Beginn Kanalisation kontrollieren",
       "subject": "Gesuch {{identifier}}: Kanalisation kontrollieren",
-      "body": "Für das Gesuch {{identifier}}, {{location}} muss die Kanalisation kontrolliert werden.",
+      "body": "Im Gesuch {{identifier}}, {{field_bezeichnung}}, {{location}} ist der Baubegleitungsschritt \"Bereit zur Kanalisationsabnahme\" erfolgt. Es kann die Abnahme geplant (Datum) und die Kontrolle durchgeführt werden.",
       "service": null,
       "type": "email"
     }
@@ -270,7 +270,7 @@
       "slug": "construction-step-notify-schnurgeruestabnahme-melden",
       "purpose": "Beginn Schnurgerüstabnahme melden",
       "subject": "Gesuch {{identifier}}: Schnurgerüstabnahme melden",
-      "body": "Für das Gesuch {{identifier}}, {{location}} kann die Schnurgerüstabnahme beantragt werden.",
+      "body": "Im Gesuch {{identifier}}, {{field_bezeichnung}}, {{location}} kann die Schnurgerüstabnahme beantragt werden.",
       "service": null,
       "type": "email"
     }
@@ -282,19 +282,7 @@
       "slug": "construction-step-notify-schnurgeruestabnahme-planen",
       "purpose": "Beginn Schnurgerüstabnahme planen",
       "subject": "Gesuch {{identifier}}: Schnurgerüstabnahme planen",
-      "body": "Für das Gesuch {{identifier}}, {{location}} muss die Schnurgerüstabnahme geplant werden.",
-      "service": null,
-      "type": "email"
-    }
-  },
-  {
-    "model": "notification.notificationtemplate",
-    "pk": 43,
-    "fields": {
-      "slug": "construction-step-notify-schnurgeruest-kontrollieren",
-      "purpose": "Beginn Schnurgerüst kontrollieren",
-      "subject": "Gesuch {{identifier}}: Schnurgerüst kontrollieren",
-      "body": "Für das Gesuch {{identifier}}, {{location}} muss das Schnurgerüst kontrolliert werden.",
+      "body": "Im Gesuch {{identifier}}, {{field_bezeichnung}}, {{location}} ist der Baubegleitungsschritt \"Bereit zur Schnurgerüstabnahme\" erfolgt. Es kann die Abnahme geplant (Datum) und die Kontrolle durchgeführt werden.",
       "service": null,
       "type": "email"
     }
@@ -306,7 +294,7 @@
       "slug": "construction-step-notify-rohbauabnahme-melden",
       "purpose": "Beginn Rohbauabnahme melden",
       "subject": "Gesuch {{identifier}}: Rohbauabnahme melden",
-      "body": "Für das Gesuch {{identifier}}, {{location}} kann die Rohbauabnahme beantragt werden.",
+      "body": "Im Gesuch {{identifier}}, {{field_bezeichnung}}, {{location}} kann die Rohbauabnahme beantragt werden.",
       "service": null,
       "type": "email"
     }
@@ -318,7 +306,7 @@
       "slug": "construction-step-notify-rohbau-kontrollieren",
       "purpose": "Beginn Rohbau kontrollieren",
       "subject": "Gesuch {{identifier}}: Rohbau kontrollieren",
-      "body": "Für das Gesuch {{identifier}}, {{location}} muss der Rohbau kontrolliert werden.",
+      "body": "Im Gesuch {{identifier}}, {{field_bezeichnung}}, {{location}} ist der Baubegleitungsschritt \"Bereit zur Rohbauabnahme\" erfolgt. Es kann die Abnahme geplant (Datum) und die Kontrolle durchgeführt werden.",
       "service": null,
       "type": "email"
     }
@@ -330,7 +318,7 @@
       "slug": "construction-step-notify-zwischenkontrolle-melden",
       "purpose": "Beginn Zwischenkontrolle melden",
       "subject": "Gesuch {{identifier}}: Zwischenkontrolle melden",
-      "body": "Für das Gesuch {{identifier}}, {{location}} kann die Zwischenkontrolle beantragt werden.",
+      "body": "Im Gesuch {{identifier}}, {{field_bezeichnung}}, {{location}} kann die Zwischenkontrolle beantragt werden.",
       "service": null,
       "type": "email"
     }
@@ -342,7 +330,7 @@
       "slug": "construction-step-notify-zwischenkontrolle",
       "purpose": "Beginn Zwischenkontrolle",
       "subject": "Gesuch {{identifier}}: Zwischenkontrolle",
-      "body": "Für das Gesuch {{identifier}}, {{location}} muss die Zwischenkontrolle erfolgen.",
+      "body": "Im Gesuch {{identifier}}, {{field_bezeichnung}}, {{location}} ist der Baubegleitungsschritt \"Bereit zur Zwischenkontrolle\" erfolgt. Es kann die Abnahme geplant (Datum) und die Kontrolle durchgeführt werden.",
       "service": null,
       "type": "email"
     }
@@ -354,7 +342,7 @@
       "slug": "construction-step-notify-schlussabnahme-gebaeude-melden",
       "purpose": "Beginn Schlussabnahme Gebäude melden",
       "subject": "Gesuch {{identifier}}: Schlussabnahme Gebäude melden",
-      "body": "Für das Gesuch {{identifier}}, {{location}} kann die Schlussabnahme des Gebäudes beantragt werden.",
+      "body": "Im Gesuch {{identifier}}, {{field_bezeichnung}}, {{location}} kann die Schlussabnahme des Gebäudes beantragt werden.",
       "service": null,
       "type": "email"
     }
@@ -366,7 +354,7 @@
       "slug": "construction-step-notify-schlussabnahme-gebaeude",
       "purpose": "Beginn Schlussabnahme Gebäude",
       "subject": "Gesuch {{identifier}}: Schlussabnahme Gebäude",
-      "body": "Für das Gesuch {{identifier}}, {{location}} muss die Schlussabnahme des Gebäudes erfolgen.",
+      "body": "Im Gesuch {{identifier}}, {{field_bezeichnung}}, {{location}} ist der Baubegleitungsschritt \"Bereit zur Schlussabnahme Gebäude\" erfolgt. Es kann die Abnahme geplant (Datum) und die Kontrolle durchgeführt werden.",
       "service": null,
       "type": "email"
     }
@@ -378,7 +366,7 @@
       "slug": "construction-step-notify-schlussabnahme-projekt-melden",
       "purpose": "Beginn Schlussabnahme Projekt melden",
       "subject": "Gesuch {{identifier}}: Schlussabnahme Projekt melden",
-      "body": "Für das Gesuch {{identifier}}, {{location}} kann die Schlussabnahme des Projekts beantragt werden.",
+      "body": "Im Gesuch {{identifier}}, {{field_bezeichnung}}, {{location}} kann die Schlussabnahme des Projekts beantragt werden.",
       "service": null,
       "type": "email"
     }
@@ -390,7 +378,19 @@
       "slug": "construction-step-notify-schlussabnahme-projekt-planen",
       "purpose": "Beginn Schlussabnahme Projekt planen",
       "subject": "Gesuch {{identifier}}: Schlussabnahme Projekt planen",
-      "body": "Für das Gesuch {{identifier}}, {{location}} muss die Schlussabnahme des Projekts geplant werden.",
+      "body": "Im Gesuch {{identifier}}, {{field_bezeichnung}}, {{location}} ist der Baubegleitungsschritt \"Bereit zur Schlussabnahme Teil-/Gesamtprojekt\" erfolgt. Es kann die Abnahme geplant (Datum) und die Kontrolle durchgeführt werden.",
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 52,
+    "fields": {
+      "slug": "complete-make-decision",
+      "purpose": "Gesuch entschieden",
+      "subject": "Gesuch {{identifier}}: Entscheidung Gesuch",
+      "body": "Im Gesuch {{identifier}}, {{field_bezeichnung}}, {{location}} hat die Gemeinde über das Gesuch entschieden (die Beschwerdefrist läuft noch).",
       "service": null,
       "type": "email"
     }
