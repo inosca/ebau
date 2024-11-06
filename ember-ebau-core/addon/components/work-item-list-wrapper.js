@@ -161,7 +161,7 @@ export default class WorkItemListWrapperComponent extends Component {
     (options) => new WorkItemListQuery(options),
     () => ({
       options: {
-        pageSize: 20,
+        pageSize: workItemListConfig.pageSize || 20,
         processNew: (workItems) => this.processNew(workItems),
         columns: this.columns,
       },
