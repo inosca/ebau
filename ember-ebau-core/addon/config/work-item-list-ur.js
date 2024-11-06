@@ -1,4 +1,5 @@
 export default {
+  pageSize: 50,
   showTaskFilter: true,
   availableTasks: {
     roles: {
