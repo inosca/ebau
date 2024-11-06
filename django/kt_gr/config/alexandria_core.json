@@ -1595,7 +1595,7 @@
                 "permission": "create"
               },
               {
-                "scope": "All",
+                "scope": "Applicant",
                 "condition": {
                   "ReadyWorkItem": "fill-additional-demand",
                   "~InstanceState": [
@@ -1738,7 +1738,7 @@
         }
       },
       "name": "{\"de\": \"Nachforderung\", \"fr\": \"\", \"it\": \"Richiesta di precisazioni\"}",
-      "description": "{\"de\": \"Diese Dokumente wurden vom Gesuchstellenden im Rahmen von Nachforderungen hochgeladen und sind f\\u00fcr alle am Verfahren beteiligten Beh\\u00f6rden einsehbar.\", \"fr\": \"\", \"it\": \"Questi documenti vengono caricati dalle persone richiedenti nel quadro delle richieste di precisazioni e possono essere consultati da tutte le autorit\\u00e0 coinvolte nella procedura.\"}",
+      "description": "{\"de\": \"Diese Dokumente wurden vom Gesuchstellenden und Beh\\u00f6rden im Rahmen von Nachforderungen hochgeladen und sind f\\u00fcr Gesuchsteller und alle am Verfahren beteiligten Beh\\u00f6rden einsehbar.\", \"fr\": \"\", \"it\": \"Questi documenti vengono caricati dalle persone richiedenti nel quadro delle richieste di precisazioni e possono essere consultati da tutte le autorit\\u00e0 coinvolte nella procedura.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#66CFC9",
       "parent": null

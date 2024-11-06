@@ -1,4 +1,5 @@
 from camac.alexandria.extensions.common import get_service_parent_and_children
+from camac.applicants.models import ROLE_CHOICES
 
 
 class Scope:
@@ -24,3 +25,16 @@ class ServiceAndSubservice(Scope):
         return self.document.modified_by_group in get_service_parent_and_children(
             self.user.group
         )
+
+
+class Applicant(Scope):
+    def evaluate(self) -> bool:
+        applicants = list(
+            map(
+                str,
+                self.document.instance_document.instance.involved_applicants.exclude(
+                    role=ROLE_CHOICES.READ_ONLY.value
+                ).values_list("invitee_id", flat=True),
+            )
+        )
+        return self.document.created_by_user in applicants
