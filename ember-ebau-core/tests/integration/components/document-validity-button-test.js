@@ -68,6 +68,7 @@ module("Integration | Component | document-validity-button", function (hooks) {
       hbs`<DocumentValidityButton @disabled={{true}} @field={{this.field}} />`,
     );
 
-    assert.dom("button").isDisabled();
+    assert.dom("button").doesNotExist();
+    assert.dom(".uk-alert.uk-alert-danger").doesNotExist();
   });
 });
