@@ -6,7 +6,11 @@
       {{t "documents.confirm" count=this.allRequiredTags.length}}
     {{/if}}
   </p>
-
+  {{#if (t "documents.uploadPlansIndividually")}}
+    <div class="uk-padding-small uk-margin-bottom border-highlight">
+      {{t "documents.uploadPlansIndividually"}}
+    </div>
+  {{/if}}
   {{#each-in this.requiredTags as |title fields|}}
     {{#if (gt this.amountOfCategories 1)}}
       <p class="uk-margin">{{t (concat "documents.tags." title)}}</p>
