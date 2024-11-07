@@ -1,3 +1,5 @@
+import { getOwnConfig, isDevelopingApp } from "@embroider/macros";
+
 export default {
   publication: {
     form: false,
@@ -16,4 +18,5 @@ export default {
   workItemList: {
     useExperimentalLayout: true,
   },
+  watermark: isDevelopingApp() || getOwnConfig().enableWatermark,
 };
