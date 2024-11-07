@@ -644,7 +644,7 @@ class DMSVisitor:
     ):  # pragma: no cover
         answers = answer.value if answer else []
         dynamic_options = [
-            do
+            str(do)
             for do in self._matching_dynamic_options(answers, parent_doc, node)
             if do is not False
         ]
