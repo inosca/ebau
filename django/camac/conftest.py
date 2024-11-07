@@ -1626,9 +1626,21 @@ def active_inquiry_factory(
 
 @pytest.fixture
 def master_data_is_visible_mock(mocker):
-    mocker.patch(
+    """
+    Mock the `_answer_is_visible()` call in the masterdata class.
+
+    Enhances speed and simplicity of test setup, as we don't need to run
+    the full visibility check in the tests.
+
+    Return the mock, and the original method as a tuple.
+    """
+    import camac.instance.master_data
+
+    orig = camac.instance.master_data.MasterData._answer_is_visible
+
+    return mocker.patch(
         "camac.instance.master_data.MasterData._answer_is_visible", return_value=True
-    )
+    ), orig
 
 
 @pytest.fixture

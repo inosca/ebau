@@ -16,6 +16,7 @@ class MasterData(object):
     case: object
     visible_questions: dict = field(default_factory=dict)
     validation_context: dict = field(default_factory=dict)
+    disable_answer_visibility: bool = field(default=False)
 
     def __getattr__(self, lookup_key):
         config = get_dict_item(
@@ -90,6 +91,8 @@ class MasterData(object):
         return self._parse_value(row.get(lookup), **options)
 
     def _answer_is_visible(self, answer):
+        if self.disable_answer_visibility:
+            return True
         visible_questions = self.visible_questions.get(answer.document.pk)
 
         if visible_questions is None:
