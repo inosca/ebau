@@ -923,6 +923,24 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
             ],
             17,
         ),
+        (
+            lf("so_master_data_settings"),
+            "de",
+            lf("so_master_data_case"),
+            ["document"],
+            [
+                "document__answers",
+                "document__answers__question__options",
+                "document__answers__answerdocument_set",
+                "document__answers__answerdocument_set__document__answers",
+                "document__answers__answerdocument_set__document__answers__question__options",
+                "document__dynamicoption_set",
+                "work_items__document__answers",
+                "work_items__document__answers__answerdocument_set",
+                "work_items__document__answers__answerdocument_set__document__answers",
+            ],
+            17,
+        ),
     ],
 )
 def test_master_data(
@@ -957,3 +975,20 @@ def test_master_data(
                 "project_authors.0.row_id",
             )
         )
+
+
+@pytest.mark.parametrize("disable_answer_visibility", [True, False])
+def test_disable_answer_visibility(
+    db, be_master_data_case, disable_answer_visibility, master_data_is_visible_mock
+):
+    vis_mock, vis_orig = master_data_is_visible_mock
+    # un-mock the method here for explicit testing
+    # This is a bit hacky, but less impact than changing the
+    # *_master_data_case fixtures everywhere to remain testable *and*
+    # keep checking the visibilities (that those other tests don't care about)
+    MasterData._answer_is_visible = vis_orig
+
+    md = MasterData(be_master_data_case)
+    md.disable_answer_visibility = disable_answer_visibility
+
+    assert md.municipality
