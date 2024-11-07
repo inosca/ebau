@@ -1525,12 +1525,22 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     def _get_recipients_work_item_addressed(self, instance):
         work_item = self.validated_data.get("work_item")
 
-        return flatten(
-            [
-                self._get_responsible(instance, service, work_item)
-                for service in Service.objects.filter(pk__in=work_item.addressed_groups)
-            ]
-        )
+        data = []
+        for group in work_item.addressed_groups:
+            if group == "applicant":
+                data.append(self._get_recipients_applicant(instance))
+            elif group == "municipality":
+                data.append(self._get_recipients_municipality(instance))
+            else:
+                data.append(
+                    flatten(
+                        [
+                            self._get_responsible(instance, service, work_item)
+                            for service in Service.objects.filter(pk=group)
+                        ]
+                    )
+                )
+        return flatten(data)
 
     def _get_recipients_additional_demand_inviter(self, instance):
         if not settings.ADDITIONAL_DEMAND:  # pragma: no cover
@@ -1589,7 +1599,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             ]
         )
 
-    def _get_recipients_invited_to_schlussabnhame_projekt(self, instance):
+    def _get_recipients_invited_to_schlussabnahme_projekt(self, instance):
         work_item = self.validated_data.get("work_item")
         case = work_item.case
         if not settings.CONSTRUCTION_MONITORING or (
@@ -1671,6 +1681,12 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             return []  # pragma: no cover
         else:
             return self._get_recipients_municipality(instance)
+
+    def _get_recipients_fgs_uri(self, instance):
+        service = Service.objects.filter(name="FGS").first()
+        if service:
+            return [{"to": service.email}]
+        return []  # pragma: no cover
 
     def _recipient_log(self, recipients):
         return ", ".join(

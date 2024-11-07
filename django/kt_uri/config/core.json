@@ -64,7 +64,7 @@
     "model": "core.anotification",
     "pk": 12000004,
     "fields": {
-      "template": "dossier-abgewiesen",
+      "template": "2-4-dossier-zurueckgewiesen",
       "recipient_type": "Notification_Manager_Applicant",
       "processor": "Notification_Processor_SendEmailAPI"
     }

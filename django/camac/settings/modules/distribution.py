@@ -736,11 +736,11 @@ DISTRIBUTION = {
         },
         "NOTIFICATIONS": {
             "INQUIRY_SENT": {
-                "template_slug": "gemeindezirkulation-gestartet",
+                "template_slug": "4-1-zirkulation-gemeinde-gestartet",
                 "recipient_types": ["inquiry_addressed"],
             },
             "KOOR_INQUIRY_ANSWERED": {
-                "template_slug": "kantonale-bearbeitung-abgeschlossen",
+                "template_slug": "4-2-kantonale-bearbeitung-abgeschlossen",
                 "recipient_types": ["inquiry_controlling"],
             },
         },
