@@ -617,6 +617,31 @@ def test_recipient_schnurgeruestabnahme_uri(
         ]
 
 
+def test_recipient_fgs_uri(
+    db,
+    ur_instance,
+    service_factory,
+    notification_template,
+):
+    service_factory(name="FGS", email="fgs@example.com")
+
+    serializer = serializers.PermissionlessNotificationTemplateSendmailSerializer(
+        data={
+            "instance": {"type": "instances", "id": ur_instance.pk},
+            "notification_template": {
+                "type": "notification-templates",
+                "id": notification_template.pk,
+            },
+            "recipient_types": ["fgs_uri"],
+            "subject": "test",
+        }
+    )
+    serializer.is_valid()
+    assert serializer._get_recipients_fgs_uri(ur_instance) == [
+        {"to": "fgs@example.com"}
+    ]
+
+
 @pytest.mark.parametrize(
     "user__email,service__email",
     [("user@example.com", "service@example.com, service2@example.com")],
@@ -1135,12 +1160,18 @@ def test_recipient_type_municipality_users(
         assert res == []
 
 
+@pytest.mark.parametrize("addressed_service", ["applicant", "municipality", None])
 def test_recipient_type_work_item_addressed(
-    db, be_instance, service, work_item_factory, notification_template, user_group
+    db,
+    be_instance,
+    service,
+    addressed_service,
+    work_item_factory,
+    notification_template,
+    user_group,
 ):
     work_item = work_item_factory(
-        addressed_groups=[str(service.pk)],
-        # controlling_groups=[str(service.pk)],
+        addressed_groups=[str(service.pk), addressed_service],
     )
     be_instance.responsible_services.create(
         service=service, responsible_user=user_group.user
@@ -1162,9 +1193,20 @@ def test_recipient_type_work_item_addressed(
     serializer.is_valid()
     assert not serializer.errors
 
-    assert serializer._get_recipients_work_item_addressed(be_instance) == [
-        {"cc": service.email, "to": user_group.user.email}
-    ]
+    if addressed_service == "applicant":
+        assert serializer._get_recipients_work_item_addressed(be_instance) == [
+            {"cc": service.email, "to": user_group.user.email},
+            {"to": user_group.user.email},
+        ]
+    elif addressed_service == "municipality":
+        assert serializer._get_recipients_work_item_addressed(be_instance) == [
+            {"to": user_group.user.email, "cc": service.email},
+            {"to": user_group.user.email, "cc": service.email},
+        ]
+    else:
+        assert serializer._get_recipients_work_item_addressed(be_instance) == [
+            {"cc": service.email, "to": user_group.user.email}
+        ]
 
 
 def test_recipient_type_work_item_controlling(
@@ -1816,7 +1858,7 @@ def test_get_schlussabnahme_datum(
     assert serializer.get_schlussabnahme_datum(instance) == "01.01.2024"
 
 
-def test_get_recipients_invited_to_schlussabnhame_projekt(
+def test_get_recipients_invited_to_schlussabnahme_projekt(
     db,
     notification_template,
     instance_factory,
@@ -1857,6 +1899,6 @@ def test_get_recipients_invited_to_schlussabnhame_projekt(
         }
     )
     serializer.is_valid()
-    assert serializer._get_recipients_invited_to_schlussabnhame_projekt(instance) == [
+    assert serializer._get_recipients_invited_to_schlussabnahme_projekt(instance) == [
         {"to": service.email}
     ]

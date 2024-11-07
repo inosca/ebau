@@ -74,7 +74,7 @@ def send_notification_after_complete_check(
 
         send_notification(
             notification={
-                "template_slug": "dossier-angenommen",
+                "template_slug": "3-1-dossier-angenommen",
                 "recipient_types": ["applicant"],
             },
             context=context,

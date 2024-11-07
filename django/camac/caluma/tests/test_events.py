@@ -899,7 +899,7 @@ def test_convert_special_form_to_construction_permit_ur(
     instance_state_factory,
     notification_template_factory,
 ):
-    notification_template_factory(slug="dossier-angenommen")
+    notification_template_factory(slug="3-1-dossier-angenommen")
     form_factory(form_id=form_id)
     instance_state_factory(name="comm")
 
@@ -1105,7 +1105,7 @@ def test_post_create_caluma_workflow_notifications(
             {
                 "event": "created",
                 "notification": {
-                    "template_slug": "send-additional-demand",
+                    "template_slug": "2-1-nachforderung-eingegangen",
                     "recipient_types": ["applicant"],
                 },
             }
@@ -1126,7 +1126,7 @@ def test_post_create_caluma_workflow_notifications(
     send_notification_mock.assert_called()
     assert (
         send_notification_mock.call_args[0][0]["template_slug"]
-        == "send-additional-demand"
+        == "2-1-nachforderung-eingegangen"
     )
     assert send_notification_mock.call_args[0][0]["recipient_types"] == ["applicant"]
 
@@ -1139,7 +1139,7 @@ def test_post_complete_caluma_workflow_notifications(
             {
                 "event": "completed",
                 "notification": {
-                    "template_slug": "zirkulation-abgeschlossen",
+                    "template_slug": "4-3-zirkulation-abgeschlossen",
                     "recipient_types": ["applicant"],
                 },
             }
@@ -1160,6 +1160,6 @@ def test_post_complete_caluma_workflow_notifications(
     send_notification_mock.assert_called()
     assert (
         send_notification_mock.call_args[0][0]["template_slug"]
-        == "zirkulation-abgeschlossen"
+        == "4-3-zirkulation-abgeschlossen"
     )
     assert send_notification_mock.call_args[0][0]["recipient_types"] == ["applicant"]

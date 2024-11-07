@@ -271,7 +271,7 @@ APPLICATIONS = {
             "responsible_koor",
             "abwasser_uri",
             "schnurgeruestabnahme_uri",
-            "invited_to_schlussabnhame_projekt",
+            "invited_to_schlussabnahme_projekt",
             # GR
             "aib",
             "gvg",
@@ -1304,7 +1304,8 @@ APPLICATIONS = {
             "responsible_koor",
             "abwasser_uri",
             "schnurgeruestabnahme_uri",
-            "invited_to_schlussabnhame_projekt",
+            "invited_to_schlussabnahme_projekt",
+            "fgs_uri",
         ],
         "DOCUMENTS_SKIP_CONTEXT_VALIDATION": True,
         "CALUMA": {
@@ -1333,7 +1334,7 @@ APPLICATIONS = {
                     {
                         "event": "completed",
                         "notification": {
-                            "template_slug": "send-additional-demand",
+                            "template_slug": "2-1-nachforderung-eingegangen",
                             "recipient_types": ["applicant"],
                         },
                     }
@@ -1342,7 +1343,7 @@ APPLICATIONS = {
                     {
                         "event": "completed",
                         "notification": {
-                            "template_slug": "fill-additional-demand",
+                            "template_slug": "2-2-nachforderung-beantwortet",
                             "recipient_types": ["work_item_controlling"],
                         },
                     },
@@ -1351,7 +1352,7 @@ APPLICATIONS = {
                     {
                         "event": "completed",
                         "notification": {
-                            "template_slug": "zirkulation-gestartet-gesuchsteller",
+                            "template_slug": "4-zirkulation-gestartet-gesuchsteller",
                             "recipient_types": ["applicant"],
                         },
                     },
@@ -1360,7 +1361,7 @@ APPLICATIONS = {
                     {
                         "event": "completed",
                         "notification": {
-                            "template_slug": "zirkulation-abgeschlossen",
+                            "template_slug": "4-3-zirkulation-abgeschlossen",
                             "recipient_types": ["applicant"],
                         },
                     }
@@ -1369,17 +1370,9 @@ APPLICATIONS = {
                     {
                         "event": "completed",
                         "notification": {
-                            "template_slug": "eroeffnung-stellungnahme-vorentscheid",
+                            "template_slug": "5-eroeffnung-stellungnahme-vorentscheid",
                             "recipient_types": [
                                 "applicant",
-                            ],
-                        },
-                    },
-                    {
-                        "event": "completed",
-                        "notification": {
-                            "template_slug": "eroeffnung-stellungnahme-vorentscheid-intern",
-                            "recipient_types": [
                                 "involved_in_distribution",
                             ],
                         },
@@ -1389,7 +1382,7 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "neue-aufgabe-intern",
+                            "template_slug": "5-1-av-projektiert-pruefen",
                             "recipient_types": [
                                 "work_item_addressed",
                             ],
@@ -1411,7 +1404,7 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task",
+                            "template_slug": "6-2-baubeginn-melden",
                             "recipient_types": ["applicant"],
                         },
                     }
@@ -1420,8 +1413,17 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task",
+                            "template_slug": "6-baufreigabe-beantragen",
                             "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-baufreigabe": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "6-1-baufreigabe-entscheiden",
+                            "recipient_types": ["work_item_addressed"],
                         },
                     }
                 ],
@@ -1429,7 +1431,7 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task-internal",
+                            "template_slug": "6-31-kanalisation-kontrollieren",
                             "recipient_types": ["abwasser_uri"],
                         },
                     }
@@ -1438,7 +1440,7 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task",
+                            "template_slug": "6-3-kanalisationsabnahme-melden",
                             "recipient_types": ["applicant"],
                         },
                     }
@@ -1447,8 +1449,17 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task",
+                            "template_slug": "6-5-rohbauabnahme-melden",
                             "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-rohbau-kontrollieren": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "6-51-rohbaukontrolle-durchfuehren",
+                            "recipient_types": ["work_item_addressed"],
                         },
                     }
                 ],
@@ -1456,7 +1467,7 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task",
+                            "template_slug": "6-7-schlussabnahme-melden",
                             "recipient_types": ["applicant"],
                         },
                     }
@@ -1465,16 +1476,39 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task",
+                            "template_slug": "6-71-schlussabnahme-projekt-melden",
+                            "recipient_types": ["work_item_addressed"],
+                        },
+                    },
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "7-1-av-definitiv-durchfuehren",
+                            "recipient_types": ["work_item_addressed"],
+                        },
+                    },
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "7-11-av-definitiv-nachfuehren",
                             "recipient_types": ["applicant"],
                         },
-                    }
+                    },
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "7-bau-beendet",
+                            "recipient_types": [
+                                "fgs_uri",
+                            ],
+                        },
+                    },
                 ],
                 "construction-step-schnurgeruestabnahme-melden": [
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task",
+                            "template_slug": "6-4-schnurgeruestabnahme-melden",
                             "recipient_types": ["applicant"],
                         },
                     }
@@ -1483,7 +1517,7 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task-internal",
+                            "template_slug": "6-41-schnurgeruestabnahme-planen",
                             "recipient_types": ["schnurgeruestabnahme_uri"],
                         },
                     }
@@ -1492,7 +1526,7 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task-internal",
+                            "template_slug": "6-42-schnurgeruest-kontrollieren",
                             "recipient_types": ["schnurgeruestabnahme_uri"],
                         },
                     }
@@ -1501,8 +1535,17 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task",
+                            "template_slug": "6-6-zwischenkontrolle-melden",
                             "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-zwischenkontrolle": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "6-61-zwischenkontrolle-durchfuehren",
+                            "recipient_types": ["work_item_addressed"],
                         },
                     }
                 ],
@@ -1510,8 +1553,8 @@ APPLICATIONS = {
                     {
                         "event": "completed",
                         "notification": {
-                            "template_slug": "einladung-abnahme",
-                            "recipient_types": ["invited_to_schlussabnhame_projekt"],
+                            "template_slug": "7-2-einladung-endabnahme",
+                            "recipient_types": ["invited_to_schlussabnahme_projekt"],
                         },
                     }
                 ],
@@ -1650,17 +1693,17 @@ APPLICATIONS = {
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {
-                    "template_slug": "dossier-eingereicht-gesuchsteller",
+                    "template_slug": "2-dossier-eingereicht-gesuchsteller",
                     "recipient_types": ["applicant"],
                 },
                 {
-                    "template_slug": "dossier-eingereicht-gemeinde",
+                    "template_slug": "3-dossier-eingereicht-gemeinde",
                     "recipient_types": ["municipality_users"],
                 },
             ],
             "SUBMIT_KOOR_SD": [
                 {
-                    "template_slug": "dossier-eingereicht-gesuchsteller",
+                    "template_slug": "2-dossier-eingereicht-gesuchsteller",
                     "recipient_types": ["applicant"],
                 },
                 {
@@ -1670,7 +1713,7 @@ APPLICATIONS = {
             ],
             "SUBMIT_KOOR_BD": [
                 {
-                    "template_slug": "dossier-eingereicht-gesuchsteller",
+                    "template_slug": "2-dossier-eingereicht-gesuchsteller",
                     "recipient_types": ["applicant"],
                 },
                 {
@@ -1680,7 +1723,7 @@ APPLICATIONS = {
             ],
             "SUBMIT_KOOR_AFE": [
                 {
-                    "template_slug": "dossier-eingereicht-gesuchsteller",
+                    "template_slug": "2-dossier-eingereicht-gesuchsteller",
                     "recipient_types": ["applicant"],
                 },
                 {
@@ -1690,7 +1733,7 @@ APPLICATIONS = {
             ],
             "SUBMIT_KOOR_NP": [
                 {
-                    "template_slug": "dossier-eingereicht-gesuchsteller",
+                    "template_slug": "2-dossier-eingereicht-gesuchsteller",
                     "recipient_types": ["applicant"],
                 },
                 {
@@ -1700,7 +1743,7 @@ APPLICATIONS = {
             ],
             "SUBMIT_KOOR_AFJ": [
                 {
-                    "template_slug": "dossier-eingereicht-gesuchsteller",
+                    "template_slug": "2-dossier-eingereicht-gesuchsteller",
                     "recipient_types": ["applicant"],
                 },
                 {
@@ -1709,8 +1752,8 @@ APPLICATIONS = {
                 },
             ],
             "APPLICANT": {
-                "NEW": "01-gesuchsbearbeitungs-einladung-neu",
-                "EXISTING": "02-gesuchsbearbeitungs-einladung-bestehend",
+                "NEW": "1-gesuchsbearbeitungs-einladung-neu",
+                "EXISTING": "1-1-gesuchsbearbeitungs-einladung-bestehend",
             },
         },
         "HAS_EBAU_NUMBER": False,
