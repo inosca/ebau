@@ -50,8 +50,7 @@ CONSTRUCTION_MONITORING = {
                     "template_slug": "notify-complete-instance",
                     "recipient_types": [
                         "involved_in_construction_step",
-                        # TODO: "localized_geometer"
-                        # Always send notification regardless of involvement (?)
+                        "localized_geometer",
                     ],
                 },
             ],
