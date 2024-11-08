@@ -116,24 +116,30 @@ h1 {
   margin: 0;
 }
 
-.kc-form-card:not(.is-login-page),
-#kc-registration {
-  background: $transparent-white;
-  padding: 32px;
-  padding-top: 0;
-  margin: 5rem auto;
+.is-login-page #kc-page-title {
+  display: none;
 }
 
 .kc-form-card:not(.is-login-page),
-#kc-form-login {
+.kc-form-card:not(.is-login-form),
+#kc-registration {
+  padding: 32px;
+  padding-top: 0;
+  margin: 5rem;
+}
+
+#kc-form-login,
+#kc-welcome-login {
   background: $transparent-white;
   padding: 32px;
   padding-top: 0;
+  margin: 0;
 }
 
 /* increase width of container on login page to lign up buttons with base design */
 .kc-form-card.is-login-page {
-  max-width: 1000px;
+  padding: 0;
+  max-width: 1250px;
 }
 
 /* reduce height of containers on login page to what is needed for content */
@@ -141,7 +147,7 @@ h1 {
   height: 100%;
 }
 
-#kc-form-login h1 {
+.kc-form-card h1 {
   padding-top: 32px;
   margin: 0;
 }
