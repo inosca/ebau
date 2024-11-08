@@ -602,7 +602,7 @@ DISTRIBUTION = {
                 "template_slug": "bericht-erstellt",
                 "recipient_types": ["inquiry_controlling"],
             },
-            "COMPLETE_DISTRIBUTION": {
+            "CANCELED_DISTRIBUTION": {
                 "template_slug": "zirkulation-abgebrochen",
                 "recipient_types": ["services_with_incomplete_inquiries"],
             },
