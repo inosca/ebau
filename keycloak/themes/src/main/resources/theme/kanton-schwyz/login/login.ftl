@@ -7,12 +7,11 @@
             <div id="kc-social-providers" class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}">
                 <ul class="${properties.kcFormSocialAccountListClass!}">
                     <#if realm.password>
-                        <div class="kc-form-card is-login-form uk-form-horizontal uk-width-xlarge uk-margin-small-right">
-                            <h2 class="uk-margin-top">
-                                ${msg("loginWelcomeHeader")}
-                            </h2>
+                        <div id="kc-welcome-login" class="kc-form-card is-login-form uk-form-horizontal uk-width-xlarge uk-margin-small-right">
+                            <h1>${msg("loginWelcomeHeader")}</h1>
                             ${msg("loginWelcomeText")?no_esc}
-                            <h3>Anleitungen</h3>
+
+                            <h2>Anleitungen</h2>
                             <p>
                                 Für Gesuchsteller, Planer und interessierte Dritte:
                                 <br /><a href="${url.resourcesPath}/pdf/Registrierung_Bürgerportal_eBau_v1.0-1.pdf">"Anleitung Registrierung auf Bürgerportal eBau"</a>
@@ -25,7 +24,7 @@
                                 <br /><a href="${url.resourcesPath}/pdf/Anleitung_eBau_Vorlagenerstellung_220706-1.pdf">"Anleitung zur Erstellung von Dokumentenvorlagen"</a>
                             </p>
                         </div>
-                        <form id="kc-form-login" class="kc-form-card is-login-form uk-form-horizontal uk-width-xlarge uk-margin-auto" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
+                        <form id="kc-form-login" class="kc-form-card is-login-form uk-form-horizontal uk-width-xlarge" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                             <h1>Anmeldung</h1>
                             <div class="${properties.kcFormGroupClass!}">
                                 <label for="username" class="${properties.kcLabelClass!}"><#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
