@@ -238,6 +238,7 @@ omit = [
     "camac/core/management/commands/migrate_instance_services_ur.py",
     "camac/core/management/commands/change_instance_service_ur.py",
     "camac/core/management/commands/kt_uri_statistic.py",
+    "camac/core/management/commands/correction_of_koor_dossiers_ur.py",
     # Audit migration"
     "camac/core/management/commands/config/",
     "camac/core/management/commands/migrate_audit.py",
