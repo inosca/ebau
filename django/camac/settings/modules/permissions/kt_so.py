@@ -30,6 +30,7 @@ STATES_ALL = RequireInstanceState(
         "rejected",
     ]
 )
+NO_CORRECTION = ~RequireInstanceState(["correction"])
 
 # Role rules
 ROLES_NO_READONLY = ~HasRole(["municipality-read", "service-read"])
@@ -44,20 +45,24 @@ ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
 # 2. Form rules
 # 3. Role rules
 # 4. Other
-MODULE_ADDITIONAL_DEMANDS = (
+MODULE_ADDITIONAL_DEMANDS = NO_CORRECTION & (
     # We need to check the form here because the work item will exists in
     # preliminary clarification as we allow a distribution. However, only a
     # distribution is allowed but no additional demands.
     RequireWorkItem("init-additional-demand") & ~IsForm(["voranfrage"]) & ~IsAppeal()
 )
-MODULE_APPEAL = RequireWorkItem("appeal") & (
-    ROLES_MUNICIPALITY
-    | (
-        Callback(
-            lambda instance, userinfo: instance.case.meta.get("is-bab", False)
-            and userinfo.service.service_group.name == "service-bab",
-            allow_caching=True,
-            name="is_bab_instance_and_service",
+MODULE_APPEAL = (
+    NO_CORRECTION
+    & RequireWorkItem("appeal")
+    & (
+        ROLES_MUNICIPALITY
+        | (
+            Callback(
+                lambda instance, userinfo: instance.case.meta.get("is-bab", False)
+                and userinfo.service.service_group.name == "service-bab",
+                allow_caching=True,
+                name="is_bab_instance_and_service",
+            )
         )
     )
 )
@@ -72,10 +77,11 @@ MODULE_CONSTRUCTION_MONITORING = (
 MODULE_CORRECTIONS = (
     STATES_ALL | RequireInstanceState(["correction"])
 ) & ROLES_NO_READONLY
-MODULE_DECISION = (RequireWorkItem("decision") & ROLES_MUNICIPALITY) | RequireWorkItem(
-    "decision", "completed"
+MODULE_DECISION = NO_CORRECTION & (
+    (RequireWorkItem("decision") & ROLES_MUNICIPALITY)
+    | RequireWorkItem("decision", "completed")
 )
-MODULE_DISTRIBUTION = RequireWorkItem("distribution")
+MODULE_DISTRIBUTION = NO_CORRECTION & RequireWorkItem("distribution")
 MODULE_DMS_GENERATE = STATES_ALL & ROLES_NO_READONLY
 MODULE_DOCUMENTS = STATES_ALL | (
     RequireInstanceState(["new"]) & ROLES_MUNICIPALITY & IsPaper()
@@ -85,24 +91,31 @@ MODULE_FORM = (
     | RequireInstanceState(["correction"])
     | (RequireInstanceState(["new"]) & ROLES_MUNICIPALITY & IsPaper())
 )
-MODULE_FORMAL_EXAM = (
-    RequireWorkItem("formal-exam") & ROLES_MUNICIPALITY
-) | RequireWorkItem("formal-exam", "completed")
+MODULE_FORMAL_EXAM = NO_CORRECTION & (
+    (RequireWorkItem("formal-exam") & ROLES_MUNICIPALITY)
+    | RequireWorkItem("formal-exam", "completed")
+)
 MODULE_HISTORY = STATES_ALL
 MODULE_JOURNAL = STATES_ALL
-MODULE_LEGAL_SUBMISSIONS = RequireWorkItem("objections")
+MODULE_LEGAL_SUBMISSIONS = NO_CORRECTION & RequireWorkItem("objections")
 MODULE_LINKED_INSTANCES = STATES_ALL
-MODULE_MATERIAL_EXAM = (
-    RequireWorkItem("material-exam") & ROLES_MUNICIPALITY
-) | RequireWorkItem("material-exam", "completed")
-MODULE_MATERIAL_EXAM_BAB = RequireWorkItem("material-exam-bab") & Callback(
-    lambda userinfo: userinfo.service.service_group.name
-    in ["service-bab", "service-cantonal", "canton"],
-    allow_caching=True,
-    name="is_cantonal_service",
+MODULE_MATERIAL_EXAM = NO_CORRECTION & (
+    (RequireWorkItem("material-exam") & ROLES_MUNICIPALITY)
+    | RequireWorkItem("material-exam", "completed")
 )
+MODULE_MATERIAL_EXAM_BAB = (
+    NO_CORRECTION
+    & RequireWorkItem("material-exam-bab")
+    & Callback(
+        lambda userinfo: userinfo.service.service_group.name
+        in ["service-bab", "service-cantonal", "canton"],
+        allow_caching=True,
+        name="is_cantonal_service",
+    )
+)
+
 MODULE_PERMISSIONS = STATES_ALL & HasRole(["municipality-lead"])
-MODULE_PUBLICATION = RequireWorkItem("fill-publication")
+MODULE_PUBLICATION = NO_CORRECTION & RequireWorkItem("fill-publication")
 MODULE_REJECTION = RequireWorkItem("reject") & ROLES_NO_READONLY
 MODULE_RELATED_GWR_PROJECTS = (
     (
