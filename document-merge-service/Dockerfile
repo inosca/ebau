@@ -26,4 +26,5 @@ COPY $APPLICATION /tmp/document-merge-service/
 CMD /bin/sh -c "poetry run python ./manage.py migrate \
   && poetry run python manage.py loaddata /tmp/document-merge-service/dump.json \
   && poetry run python manage.py upload_local_templates -s '/tmp/document-merge-service/templatefiles/*.docx' \
+  && poetry run python manage.py upload_local_templates -s '/tmp/document-merge-service/templatefiles/*.xlsx' \
   && poetry run uwsgi"
