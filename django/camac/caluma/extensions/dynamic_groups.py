@@ -151,7 +151,11 @@ class CustomDynamicGroups(BaseDynamicGroups):
         if not settings.BAB:  # pragma: no cover
             return []
 
-        service = Service.objects.get(service_group__name=settings.BAB["SERVICE_GROUP"])
+        # In case they mistakingly configure multiple BaB groups or have multiple BaB sub services
+        service = Service.objects.filter(
+            service_group__name=settings.BAB["SERVICE_GROUP"],
+            service_parent__isnull=True,
+        ).first()
         authority = case.instance.responsible_service()
 
         if authority.service_group.name == "canton":
