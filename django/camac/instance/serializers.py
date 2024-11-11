@@ -1592,29 +1592,15 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         notification_key = "SUBMIT"
         if case.workflow_id == "preliminary-clarification":  # pragma: no cover
             notification_key = "SUBMIT_PRELIMINARY_CLARIFICATION"
-        if case.document.form_id == "cantonal-territory-usage":
-            if case.instance.group_id == uri_constants.KOOR_SD_GROUP_ID:
-                notification_key = "SUBMIT_KOOR_SD"
-            else:
-                notification_key = "SUBMIT_KOOR_BD"
         if case.document.form_id in [
             "heat-generator",
             "heat-generator-v2",
         ]:
             self._send_heat_generator_notifications(case)
             notification_key = "SUBMIT_HEAT_GENERATOR"
-        if case.document.form_id in [
-            "konzession-waermeentnahme",
-            "bohrbewilligung-waermeentnahme",
-        ]:
-            notification_key = "SUBMIT_KOOR_AFE"
-        if case.document.form_id == "pgv-gemeindestrasse":
-            notification_key = "SUBMIT_KOOR_BD"
 
-        if case.meta.get("oereb_copy"):
-            notification_key = "SUBMIT_KOOR_AFJ"
-        elif case.document.form_id == "oereb":
-            notification_key = "SUBMIT_KOOR_NP"
+        if case.instance.group_id in uri_constants.KOOR_GROUP_IDS:
+            notification_key = "SUBMIT_KOOR"
 
         if case.document.form_id == "mitbericht-kanton":
             return
@@ -1682,6 +1668,8 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             form_slug == "bgbb" and instance.group_id == uri_constants.KOOR_AFG_GROUP_ID
         ):
             return Service.objects.get(pk=uri_constants.KOOR_AFG_SERVICE_ID)
+        elif form_slug == "mitbericht-bund":
+            return Service.objects.get(pk=instance.group.service.pk)
 
         # fallback default case
         return Service.objects.filter(
