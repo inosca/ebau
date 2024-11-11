@@ -364,6 +364,11 @@ class DMSHandler:
             ),
             template,
             self.get_files(instance),
+            add_headers=(
+                {"x-camac-group": str(request.group.service_id)}
+                if request.group.service_id
+                else {}
+            ),
         )
 
         _file = ContentFile(
