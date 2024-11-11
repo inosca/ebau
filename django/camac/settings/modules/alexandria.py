@@ -31,6 +31,7 @@ ALEXANDRIA = {
         "TAG_VISIBILITY": "service-subservice",
         "MARK_VISIBILITY": {
             "APPLICANT": ["objection"],
+            "SENSITIVE": ["sensitive"],
         },
     },
     "test": {
