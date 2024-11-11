@@ -517,6 +517,9 @@ def pre_complete_distribution(sender, work_item, user, context=None, **kwargs):
         # unanswered inquiries must be skipped
         skip_work_item(work_item=work_item, user=user, context=context)
 
+        if settings.DISTRIBUTION.get("NOTIFY_ON_CANCELLATION"):
+            send_inquiry_notification("CANCELED_DISTRIBUTION", work_item, user)
+
     check_distribution_work_item = work_item.case.work_items.filter(
         task_id=settings.DISTRIBUTION["DISTRIBUTION_CHECK_TASK"],
         status=WorkItem.STATUS_READY,
@@ -539,11 +542,11 @@ def pre_complete_distribution(sender, work_item, user, context=None, **kwargs):
 @filter_by_task("DISTRIBUTION_COMPLETE_TASK")
 @transaction.atomic
 def post_complete_distribution(sender, work_item, user, context=None, **kwargs):
-    inquiry_work_item = work_item.case.work_items.filter(
-        task_id=settings.DISTRIBUTION["INQUIRY_TASK"]
+    has_inquiries = (
+        work_item.case.work_items.filter(task_id=settings.DISTRIBUTION["INQUIRY_TASK"])
+        .exclude(status=WorkItem.STATUS_CANCELED)
+        .exists()
     )
-
-    has_inquiries = inquiry_work_item.exclude(status=WorkItem.STATUS_CANCELED).exists()
 
     text = (
         settings.DISTRIBUTION["HISTORY"].get("COMPLETE_DISTRIBUTION")
@@ -556,11 +559,6 @@ def post_complete_distribution(sender, work_item, user, context=None, **kwargs):
             work_item.case.family.instance,
             User.objects.get(username=user.username),
             text,
-        )
-
-    if settings.DISTRIBUTION.get("NOTIFY_ON_CANCELLATION"):
-        send_inquiry_notification(
-            "COMPLETE_DISTRIBUTION", inquiry_work_item.first(), user
         )
 
 
