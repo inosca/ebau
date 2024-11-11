@@ -50870,7 +50870,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"**Wichtiger Hinweis:** Bitte erfassen Sie alle geb\\u00e4udetechnischen Anlagen die neu erstellt oder ge\\u00e4ndert werden, wie Heizung, Photovoltaikanlagen usw. unter \\\"Hochbau\\\" (Tabelle \\\"Geb\\u00e4udetechnik\\\").\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"**Wichtiger Hinweis:** Bitte erfassen Sie alle geb\\u00e4udetechnischen Anlagen, die neu erstellt oder ge\\u00e4ndert werden, wie Heizung, Photovoltaikanlagen usw. unter \\\"Hochbau\\\" (Tabelle \\\"Geb\\u00e4udetechnik\\\").\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
