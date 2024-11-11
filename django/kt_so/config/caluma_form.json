@@ -64391,7 +64391,7 @@
       "is_required": "false",
       "is_hidden": "\"vertretung\"|answer != \"vertretung-ja\"",
       "is_archived": false,
-      "placeholder": "{\"de\": \"z.B. 041 875 24 24\", \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
