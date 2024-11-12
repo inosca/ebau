@@ -123,7 +123,7 @@ The migration to the new permissions module takes quite a while. During this per
 we need a way to ensure that switching to the permission module's logic does not break
 anything.
 
-For this, there is a permissions mode switcher. Migration *should* take place using this
+For this, there is a permission mode switcher. Migration *should* take place using this
 switcher, along with the [permissions migration script](./migration_script.md)
 
 The idea is that the permission switcher can not only switch between old and new permission
@@ -159,7 +159,10 @@ So, some permission switching part could look like this:
 
     def create_rbac_for_municipality(self, validated_data):
         inst = validated_data["instance"]
-        self.context["view"].enforce_change_permission(inst)
+        self.context["view"].enforce_change_permission(
+            inst,
+            validated_data['access_level'].pk
+        )
         return self._do_create(validated_data)
 ```
 

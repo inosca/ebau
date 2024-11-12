@@ -8,6 +8,7 @@ from django_filters.rest_framework import (
 )
 from rest_framework.exceptions import ValidationError
 
+from camac.core.utils import canton_aware
 from camac.permissions.switcher import permission_switching_method
 from camac.user.permissions import permission_aware
 
@@ -37,7 +38,18 @@ class AccessLevelFilterset(FilterSet):
     def filter_assignable_in_instance_rbac(self, qs, name, value):
         return qs.none()
 
+    @canton_aware
     def filter_assignable_in_instance_rbac_for_municipality(self, qs, name, value):
+        # By default, nobody gets to see anything - we want to allow
+        # assignability very specifically
+        return qs.none()
+
+    def filter_assignable_in_instance_rbac_for_municipality_be(self, qs, name, value):
+        # Bern currently only allows Geometer to be assigned by municipality
+        qs = qs.filter(pk="geometer")
+        return qs
+
+    def filter_assignable_in_instance_rbac_for_municipality_so(self, qs, name, value):
         # Permission for municipality before submission is never assignable
         # through the UI. TODO: Remove this in favor of a "permissions-grant-xy"
         # permission for the municipality as soon as Kt. SO has migrated the
