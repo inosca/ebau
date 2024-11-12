@@ -11,7 +11,10 @@ from rest_framework.exceptions import ValidationError
 from camac.dossier_import import messages
 from camac.dossier_import.loaders import InvalidImportDataError
 from camac.dossier_import.models import DossierImport
-from camac.dossier_import.utils import get_worksheet_headings_and_rows
+from camac.dossier_import.utils import (
+    get_similar_value,
+    get_worksheet_headings_and_rows,
+)
 
 from .config.common import mimetypes
 from .loaders import XlsxFileDossierLoader
@@ -206,6 +209,7 @@ def _validate_new_dossier(dossier_id, dossier_msgs, headings, rows):
     valid = True
     # check that status is not empty and also valid
     status = get_dossier_cell_by_column(dossier_id, "status", rows)
+    existing_status = [e.value for e in TargetStatus]
     if not status:
         messages.append_or_update_dossier_message(
             dossier_id=dossier_id,
@@ -216,11 +220,18 @@ def _validate_new_dossier(dossier_id, dossier_msgs, headings, rows):
             level=messages.Severity.ERROR.value,
         )
         valid = False
-    elif status not in [e.value for e in TargetStatus]:
+    elif status not in existing_status:
+        if similar := get_similar_value(status, existing_status):  # pragma: no cover
+            detail = _('%(original)s - did you mean "%(similar)s"?') % dict(
+                original=status, similar=similar
+            )
+        else:
+            detail = status
+
         messages.append_or_update_dossier_message(
             dossier_id=dossier_id,
             field_name="STATUS",
-            detail=status,
+            detail=detail,
             code=MessageCodes.STATUS_CHOICE_VALIDATION_ERROR.value,
             messages=dossier_msgs,
             level=messages.Severity.ERROR.value,
@@ -257,7 +268,28 @@ def _raise_for_missing_columns(headings, *columns):
         )
 
 
-def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierImport:
+def validate_extra_columns(headings):
+    existing_columns = set([e.value for e in XlsxFileDossierLoader.Column])
+
+    if extra := set(headings) - existing_columns:
+        sorted_extra_columns = sorted([str(x) for x in (extra - set(["None", None]))])
+        extra_text = []
+
+        for column in sorted_extra_columns:
+            if similar := get_similar_value(column, existing_columns):
+                extra_text.append(
+                    _('%(original)s - did you mean "%(similar)s"?')
+                    % dict(original=column, similar=similar)
+                )
+            else:
+                extra_text.append(column)
+
+        return _(
+            "Found unknown columns which will be ignored while importing:\n%(extra)s"
+        ) % dict(extra="\n".join(extra_text))
+
+
+def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierImport:  # noqa
     """
     ZIP archive validation.
 
@@ -282,11 +314,9 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
             _("Meta data file in archive is corrupt or not a valid .xlsx file.")
         )
 
-    if extra := set(headings) - set([e.value for e in XlsxFileDossierLoader.Column]):
-        sorted_missing_columns = [str(x) for x in (extra - set(["None", None]))]
+    if extra_columns_message := validate_extra_columns(headings):
         dossier_import.messages["validation"]["summary"]["warning"].append(
-            _("Found unknown columns which will be ignored while importing:\n%(extra)s")
-            % dict(extra="\n".join(sorted_missing_columns))
+            extra_columns_message
         )
 
     # collect all messages for every dossier in a list
