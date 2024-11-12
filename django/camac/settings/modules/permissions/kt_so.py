@@ -173,7 +173,7 @@ ACTION_INSTANCE_WITHDRAW = (
     & (HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper()))
     & ~IsAppeal()
 )
-ACTION_INSTANCE_CREATE_MODIFICATION = RequireWorkItem("construction-stage") & (
+ACTION_INSTANCE_CREATE_MODIFICATION = RequireWorkItem("construction-stage", "ready") & (
     HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
 
