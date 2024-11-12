@@ -9,7 +9,8 @@ def get_available_languages():
     if config := settings.APPLICATION.get("AVAILABLE_LANGUAGES"):
         available_languages = [
             (code, translation)
-            for code, translation in settings.LANGUAGES if code in config
+            for code, translation in settings.LANGUAGES
+            if code in config
         ]
 
     return available_languages

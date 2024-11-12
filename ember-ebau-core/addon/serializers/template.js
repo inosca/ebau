@@ -41,7 +41,10 @@ export default class TemplateSerializer extends JSONSerializer {
 
     if (template instanceof File) {
       formData.append("template", template);
-      formData.append("available_placeholders", JSON.stringify(availablePlaceholders));
+      formData.append(
+        "available_placeholders",
+        JSON.stringify(availablePlaceholders),
+      );
     }
 
     return formData;
