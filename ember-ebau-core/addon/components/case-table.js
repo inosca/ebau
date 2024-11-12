@@ -365,6 +365,7 @@ export default class CaseTableComponent extends Component {
     const excludeWorkflow = this.args.excludeWorkflow;
     return [
       { excludeChildCases: true },
+      { metaHasKey: "camac-instance-id" },
       ...searchFilters,
       ...(workflow ? [{ workflow }] : []),
       ...(excludeWorkflow ? [{ workflow: excludeWorkflow, invert: true }] : []),
