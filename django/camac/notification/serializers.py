@@ -1227,9 +1227,16 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         if not settings.APPLICATION.get("LOCALIZED_GEOMETER_SERVICE_MAPPING"):
             return []  # pragma: no cover
 
-        geometer_answer = instance.fields.filter(
-            name__in=settings.APPLICATION.get("GEOMETER_FORM_FIELDS", [])
-        ).values_list("value", flat=True)[0]
+        geometer_answer = (
+            instance.fields.filter(
+                name__in=settings.APPLICATION.get("GEOMETER_FORM_FIELDS", [])
+            )
+            .values_list("value", flat=True)
+            .first()
+        )
+
+        if not geometer_answer:
+            return []
 
         geometer_service_ids = settings.APPLICATION[
             "LOCALIZED_GEOMETER_SERVICE_MAPPING"
