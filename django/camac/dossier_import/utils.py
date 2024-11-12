@@ -1,7 +1,34 @@
 import re
-from typing import Any, List, Tuple
+from typing import Any, List, Tuple, Union
 
 import pyexcel_xlsx
+from rapidfuzz import fuzz
+
+
+def get_similar_value(
+    original_value: str,
+    expected_values: List[str],
+    similarity_score_threshold: int = 85,
+) -> Union[str, None]:
+    """Check if there's a similar expected value."""
+    similarity_scores = reversed(
+        sorted(
+            (
+                (expected_value, fuzz.ratio(original_value, expected_value))
+                for expected_value in expected_values
+            ),
+            key=lambda i: i[1],
+        )
+    )
+
+    return next(
+        (
+            expected_value
+            for expected_value, score in similarity_scores
+            if score >= similarity_score_threshold
+        ),
+        None,
+    )
 
 
 def clean_heading(value: str) -> str:
