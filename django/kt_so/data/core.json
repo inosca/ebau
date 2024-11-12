@@ -18,5 +18,12 @@
       "active": 1,
       "activation_date": null
     }
+  },
+  {
+    "model": "core.staticcontent",
+    "pk": "portal-contact",
+    "fields": {
+      "content": "{\"de\": \"# Support\\n\\n<iframe\\n  src=\\\"https://formulare-a.so.ch/bjdds_inter/start.do?event=view&generalid=Kontakt_eBauso&wfjs_enabled=true\\\"\\n  class=\\\"uk-width-1\\\"\\n  height=\\\"800\\\"\\n/>\", \"fr\": \"\", \"it\": \"\"}"
+    }
   }
 ]
