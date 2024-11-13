@@ -165,6 +165,7 @@ omit = [
     # Utility for code inspection
     "camac/tools/whichtest.py",
     # One off commands
+    "camac/core/management/commands/fix_incorrectly_created_geometer_workitems.py",
     "camac/dossier_import/management/commands/fix_identifiers_schuebelbach.py",
     "camac/dossier_import/management/commands/fix_addresses_schuebelbach.py",
     "camac/instance/management/commands/fix_work_items.py",
