@@ -301,6 +301,7 @@
   			<ns1:realestateInformation>
   				<ns1:realestate>
   					<ns3:realestateIdentification>
+  						<ns3:EGRID>unknown</ns3:EGRID>
   						<ns3:number>1586</ns3:number>
   					</ns3:realestateIdentification>
   					<ns3:realestateType>8</ns3:realestateType>
@@ -657,6 +658,7 @@
   			<ns1:realestateInformation>
   				<ns1:realestate>
   					<ns3:realestateIdentification>
+  						<ns3:EGRID>unknown</ns3:EGRID>
   						<ns3:number>1586</ns3:number>
   					</ns3:realestateIdentification>
   					<ns3:realestateType>8</ns3:realestateType>
