@@ -11,7 +11,7 @@
       "phone": null,
       "disabled": 0,
       "language": "de",
-      "last_login": "2024-04-17T13:54:18.369Z",
+      "last_login": "2024-11-13T08:55:54.005Z",
       "address": null,
       "city": null,
       "zip": null
@@ -5592,6 +5592,214 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 575,
+    "fields": {
+      "role": 10,
+      "service": 124,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 576,
+    "fields": {
+      "role": 9,
+      "service": 124,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 577,
+    "fields": {
+      "role": 10,
+      "service": 125,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 578,
+    "fields": {
+      "role": 9,
+      "service": 125,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 591,
+    "fields": {
+      "role": 8,
+      "service": 123,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 592,
+    "fields": {
+      "role": 10,
+      "service": 126,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 593,
+    "fields": {
+      "role": 9,
+      "service": 126,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 594,
+    "fields": {
+      "role": 10,
+      "service": 127,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 595,
+    "fields": {
+      "role": 9,
+      "service": 127,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 596,
+    "fields": {
+      "role": 10,
+      "service": 128,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 597,
+    "fields": {
+      "role": 9,
+      "service": 128,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 598,
+    "fields": {
+      "role": 10,
+      "service": 129,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 599,
+    "fields": {
+      "role": 9,
+      "service": 129,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
     "model": "user.groupt",
     "pk": 4,
     "fields": {
@@ -5617,7 +5825,7 @@
     "fields": {
       "group": 8,
       "language": "de",
-      "name": "Einsichtsberechtigt Gemeinde Solothurn",
+      "name": "Einsichtsberechtigte Gemeinde Solothurn",
       "city": null
     }
   },
@@ -9042,6 +9250,136 @@
     }
   },
   {
+    "model": "user.groupt",
+    "pk": 575,
+    "fields": {
+      "group": 575,
+      "language": "de",
+      "name": "Sachbearbeitung Amt für Landwirtschaft (ALW)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 576,
+    "fields": {
+      "group": 576,
+      "language": "de",
+      "name": "Administration Amt für Landwirtschaft (ALW)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 577,
+    "fields": {
+      "group": 577,
+      "language": "de",
+      "name": "Sachbearbeitung Amt für Verkehr und Tiefbau (AVT)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 578,
+    "fields": {
+      "group": 578,
+      "language": "de",
+      "name": "Administration Amt für Verkehr und Tiefbau (AVT)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 591,
+    "fields": {
+      "group": 591,
+      "language": "de",
+      "name": "Einsichtsberechtigte Kanton Solothurn",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 592,
+    "fields": {
+      "group": 592,
+      "language": "de",
+      "name": "Sachbearbeitung ARP, Fachstelle Naturschutz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 593,
+    "fields": {
+      "group": 593,
+      "language": "de",
+      "name": "Administration ARP, Fachstelle Naturschutz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 594,
+    "fields": {
+      "group": 594,
+      "language": "de",
+      "name": "Sachbearbeitung ARP, Fachstelle Fuss- und Wanderwege",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 595,
+    "fields": {
+      "group": 595,
+      "language": "de",
+      "name": "Administration ARP, Fachstelle Fuss- und Wanderwege",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 596,
+    "fields": {
+      "group": 596,
+      "language": "de",
+      "name": "Sachbearbeitung ARP, Fachstelle Heimatschutz (Landschafts- und Ortsbildschutz)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 597,
+    "fields": {
+      "group": 597,
+      "language": "de",
+      "name": "Administration ARP, Fachstelle Heimatschutz (Landschafts- und Ortsbildschutz)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 598,
+    "fields": {
+      "group": 598,
+      "language": "de",
+      "name": "Sachbearbeitung ARP, Abt. Nutzungsplanung - Kreisplanung",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 599,
+    "fields": {
+      "group": 599,
+      "language": "de",
+      "name": "Administration ARP, Abt. Nutzungsplanung - Kreisplanung",
+      "city": null
+    }
+  },
+  {
     "model": "user.usergroup",
     "pk": 1,
     "fields": {
@@ -11881,7 +12219,139 @@
       "zip": null,
       "city": null,
       "address": null,
-      "email": "email@example.com",
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 124,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 9,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 125,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 10,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 126,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 11,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 127,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 12,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 128,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 13,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 129,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 14,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
       "website": null,
       "logo": "",
       "disabled": 0,
@@ -13229,7 +13699,73 @@
       "language": "de",
       "name": "Kanton Solothurn",
       "description": "Kanton Solothurn",
-      "city": ""
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 124,
+    "fields": {
+      "service": 124,
+      "language": "de",
+      "name": "Amt für Landwirtschaft (ALW)",
+      "description": "Amt für Landwirtschaft (ALW)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 125,
+    "fields": {
+      "service": 125,
+      "language": "de",
+      "name": "Amt für Verkehr und Tiefbau (AVT)",
+      "description": "Amt für Verkehr und Tiefbau (AVT)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 126,
+    "fields": {
+      "service": 126,
+      "language": "de",
+      "name": "ARP, Fachstelle Naturschutz",
+      "description": "ARP, Fachstelle Naturschutz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 127,
+    "fields": {
+      "service": 127,
+      "language": "de",
+      "name": "ARP, Fachstelle Fuss- und Wanderwege",
+      "description": "ARP, Fachstelle Fuss- und Wanderwege",
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 128,
+    "fields": {
+      "service": 128,
+      "language": "de",
+      "name": "ARP, Fachstelle Heimatschutz (Landschafts- und Ortsbildschutz)",
+      "description": "ARP, Fachstelle Heimatschutz (Landschafts- und Ortsbildschutz)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 129,
+    "fields": {
+      "service": 129,
+      "language": "de",
+      "name": "ARP, Abt. Nutzungsplanung - Kreisplanung",
+      "description": "ARP, Abt. Nutzungsplanung - Kreisplanung",
+      "city": null
     }
   }
 ]
