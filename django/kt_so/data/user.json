@@ -11,7 +11,7 @@
       "phone": null,
       "disabled": 0,
       "language": "de",
-      "last_login": "2024-11-13T08:55:54.005Z",
+      "last_login": "2024-11-13T12:18:37.448Z",
       "address": null,
       "city": null,
       "zip": null
@@ -9365,7 +9365,7 @@
     "fields": {
       "group": 598,
       "language": "de",
-      "name": "Sachbearbeitung ARP, Abt. Nutzungsplanung - Kreisplanung",
+      "name": "Sachbearbeitung ARP, Fachstelle Nutzungsplanung - Kreisplanung",
       "city": null
     }
   },
@@ -9375,7 +9375,7 @@
     "fields": {
       "group": 599,
       "language": "de",
-      "name": "Administration ARP, Abt. Nutzungsplanung - Kreisplanung",
+      "name": "Administration ARP, Fachstelle Nutzungsplanung - Kreisplanung",
       "city": null
     }
   },
@@ -13763,8 +13763,8 @@
     "fields": {
       "service": 129,
       "language": "de",
-      "name": "ARP, Abt. Nutzungsplanung - Kreisplanung",
-      "description": "ARP, Abt. Nutzungsplanung - Kreisplanung",
+      "name": "ARP, Fachstelle Nutzungsplanung - Kreisplanung",
+      "description": "ARP, Fachstelle Nutzungsplanung - Kreisplanung",
       "city": null
     }
   }
