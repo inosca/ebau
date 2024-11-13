@@ -2800,6 +2800,19 @@ class CalumaInstanceAppealSerializer(serializers.Serializer):
             new_instance.case.save()
             new_instance.set_instance_state("init-distribution", user)
 
+            for task in [
+                settings.CONSTRUCTION_MONITORING["INIT_CONSTRUCTION_MONITORING_TASK"],
+                settings.CONSTRUCTION_MONITORING["COMPLETE_INSTANCE_TASK"],
+            ]:
+                work_item = instance.case.work_items.filter(task_id=task).first()
+
+                if work_item:
+                    workflow_api.complete_work_item(
+                        work_item=work_item,
+                        user=caluma_user,
+                        context={"skip": True},
+                    )
+
             instance.set_instance_state("finished", user)
 
         # Add history entry to source instance
