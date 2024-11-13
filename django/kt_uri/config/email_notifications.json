@@ -389,7 +389,7 @@
     "fields": {
       "slug": "6-7-schlussabnahme-melden",
       "purpose": "6.7 Schlussabnahme melden (Gesuchsteller)",
-      "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Meldung bereits zur Schlussabnahme",
+      "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Meldung bereit zur Schlussabnahme",
       "body": "URec System Info 6.7 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nMELDUNG BEREIT ZUR SCHLUSSABNAHME\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der  ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
