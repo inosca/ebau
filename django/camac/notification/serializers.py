@@ -467,6 +467,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             status__in=[
                 caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
                 caluma_workflow_models.WorkItem.STATUS_CANCELED,
+                caluma_workflow_models.WorkItem.STATUS_SKIPPED,
+                caluma_workflow_models.WorkItem.STATUS_REDO,
             ]
         )
         all_inquiries_count = all_inquiries.count()
