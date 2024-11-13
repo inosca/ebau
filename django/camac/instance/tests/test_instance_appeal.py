@@ -379,10 +379,7 @@ def test_instance_appeal_so(
     if response.status_code == status.HTTP_201_CREATED:
         new_instance = Instance.objects.get(pk=response.json()["data"]["id"])
 
-        # TODO: This should be completed when we implement the construction
-        # monitoring process. For now, this is kept open as we still have to
-        # work item to create manual work items.
-        # assert instance.case.status == Case.STATUS_COMPLETED
+        assert instance.case.status == Case.STATUS_COMPLETED
 
         assert new_instance.pk != instance.pk
         assert (
