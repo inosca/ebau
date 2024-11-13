@@ -82,6 +82,8 @@ services:
 
   ember-caluma-portal:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
+    environment:
+      ENABLE_WATERMARK: true
     networks:
       - ebau.local
 
