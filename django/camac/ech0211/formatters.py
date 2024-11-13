@@ -273,7 +273,9 @@ def application(instance: Instance):
         ns_application.realestateInformationType(
             realestate=ns_objektwesen.realestateType(  # eCH0129 4.8.1
                 realestateIdentification=ns_objektwesen.realestateIdentificationType(
-                    EGRID=plot.get("egrid_number", "unknown"),
+                    EGRID=assure_string_length(
+                        plot.get("egrid_number") or "unknown", max_length=14
+                    ),
                     number=str(plot.get("plot_number", "unknown")),
                 ),
                 realestateType="8",  # mentioned in swagger README
