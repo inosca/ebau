@@ -1,33 +1,37 @@
+import { isEmpty } from "@ember/utils";
+
 import mainConfig from "ember-ebau-core/config/main";
 import {
   getAnswer,
   getAnswerDisplayValue,
 } from "ember-ebau-core/utils/get-answer";
 
-const { answerSlugs } = mainConfig;
-
 export function getApplicants(document) {
   const applicants =
-    getAnswer(document, answerSlugs.personalDataApplicant)?.node.value ?? [];
+    getAnswer(document, mainConfig.answerSlugs.personalDataApplicant)?.node
+      .value ?? [];
 
   const applicantNames = applicants.map((row) => {
     const firstName = getAnswerDisplayValue(
       row,
-      answerSlugs.firstNameApplicant,
+      mainConfig.answerSlugs.firstNameApplicant,
     );
-    const lastName = getAnswerDisplayValue(row, answerSlugs.lastNameApplicant);
-    const juristicName = getAnswerDisplayValue(
+    const lastName = getAnswerDisplayValue(
       row,
-      answerSlugs.juristicNameApplicant,
+      mainConfig.answerSlugs.lastNameApplicant,
     );
+    const juristicName =
+      getAnswerDisplayValue(
+        row,
+        mainConfig.answerSlugs.juristicNameApplicant,
+      )?.trim() ?? null;
 
-    return (
-      juristicName?.trim() ??
-      [firstName, lastName]
-        .filter(Boolean)
-        .map((name) => name.trim())
-        .join(" ")
-    );
+    return isEmpty(juristicName)
+      ? [firstName, lastName]
+          .filter(Boolean)
+          .map((name) => name.trim())
+          .join(" ")
+      : juristicName;
   });
 
   return applicantNames.filter(Boolean).join(", ");
