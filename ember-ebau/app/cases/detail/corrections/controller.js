@@ -25,6 +25,12 @@ export default class CorrectionsController extends Controller {
   }
 
   @dropTask
+  @confirmTask("corrections.document.confirm-finish")
+  *finishCorrection() {
+    yield this.documentCorrection.perform();
+  }
+
+  @dropTask
   *documentCorrection() {
     try {
       yield this.fetch.fetch(`/api/v1/instances/${this.model.id}/correction`, {
