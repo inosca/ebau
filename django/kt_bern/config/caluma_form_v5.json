@@ -109,6 +109,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "anschluss-gemeinschaftsantenne-fernmeldenetz-v5",
+    "fields": {
+      "created_at": "2024-11-11T14:40:25.537Z",
+      "modified_at": "2024-11-11T14:40:25.537Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Anschluss Gemeinschaftsantenne / Fernmeldenetz\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Anschluss Gemeinschaftsantenne / Fernmeldenetz (v5)\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "baugesuch-generell-v5",
     "fields": {
       "created_at": "2024-05-30T12:29:34.489Z",
@@ -158,7 +176,7 @@
     "pk": "baugesuch-v5",
     "fields": {
       "created_at": "2024-05-30T12:17:12.356Z",
-      "modified_at": "2024-10-31T16:14:08.358Z",
+      "modified_at": "2024-11-11T15:54:07.794Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1423,6 +1441,96 @@
       "form": "anschluss-elektrizitaet-v5",
       "question": "um-welche-energieerzeugungsanlage-handelt-es-sich-v5",
       "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-gemeinschaftsantenne-fernmeldenetz-v5.anzahl-anschlussdosen-gewerbe-industrie-total-gemeinschaftsantenne-fernmeldenetz-v5",
+    "fields": {
+      "created_at": "2024-11-11T15:16:57.905Z",
+      "modified_at": "2024-11-11T15:16:57.905Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-gemeinschaftsantenne-fernmeldenetz-v5",
+      "question": "anzahl-anschlussdosen-gewerbe-industrie-total-gemeinschaftsantenne-fernmeldenetz-v5",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-gemeinschaftsantenne-fernmeldenetz-v5.anzahl-anschlussdosen-wohnen-total-gemeinschaftsantenne-fernmeldenetz-v5",
+    "fields": {
+      "created_at": "2024-11-11T15:15:37.752Z",
+      "modified_at": "2024-11-11T15:15:37.752Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-gemeinschaftsantenne-fernmeldenetz-v5",
+      "question": "anzahl-anschlussdosen-wohnen-total-gemeinschaftsantenne-fernmeldenetz-v5",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-gemeinschaftsantenne-fernmeldenetz-v5.anzahl-wohnungen-anschluss-gemeinschaftsantenne-fernmeldenetz-v5",
+    "fields": {
+      "created_at": "2024-11-11T15:14:42.889Z",
+      "modified_at": "2024-11-11T15:14:42.889Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-gemeinschaftsantenne-fernmeldenetz-v5",
+      "question": "anzahl-wohnungen-anschluss-gemeinschaftsantenne-fernmeldenetz-v5",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-gemeinschaftsantenne-fernmeldenetz-v5.anzahl-zu-erschliessende-wohnungen-gemeinschaftsantenne-fernmeldenetz-v5",
+    "fields": {
+      "created_at": "2024-11-11T15:15:08.606Z",
+      "modified_at": "2024-11-11T15:15:08.606Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-gemeinschaftsantenne-fernmeldenetz-v5",
+      "question": "anzahl-zu-erschliessende-wohnungen-gemeinschaftsantenne-fernmeldenetz-v5",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-gemeinschaftsantenne-fernmeldenetz-v5.folgender-anschluss-ist-betroffen-v5",
+    "fields": {
+      "created_at": "2024-11-11T14:57:36.993Z",
+      "modified_at": "2024-11-11T14:57:36.993Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-gemeinschaftsantenne-fernmeldenetz-v5",
+      "question": "folgender-anschluss-ist-betroffen-v5",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-gemeinschaftsantenne-fernmeldenetz-v5.hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5",
+    "fields": {
+      "created_at": "2024-11-11T14:48:13.627Z",
+      "modified_at": "2024-11-11T14:48:13.627Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-gemeinschaftsantenne-fernmeldenetz-v5",
+      "question": "hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5",
+      "sort": 6
     }
   },
   {
@@ -3942,7 +4050,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "allgemeine-angaben-zum-betrieb-v5",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -3957,6 +4065,21 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "anschluss-elektrizitaet-v5",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.anschluss-gemeinschaftsantenne-fernmeldenetz-v5",
+    "fields": {
+      "created_at": "2024-11-11T14:41:25.264Z",
+      "modified_at": "2024-11-11T14:41:25.264Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "anschluss-gemeinschaftsantenne-fernmeldenetz-v5",
       "sort": 1
     }
   },
@@ -3972,7 +4095,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "bauvorhaben-in-konsultationsbereichen-v3",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -3987,7 +4110,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "benuetzung-oeffentlichem-terrain-v5",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -4002,7 +4125,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "biologische-sicherheit-v3",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -4017,7 +4140,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "entsorgung",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -4032,7 +4155,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "erdbebensicherheit-v5",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -4047,7 +4170,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "gastgewerbe-allgemein",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -4062,7 +4185,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "gastgewerbe-fumoir",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -4077,7 +4200,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "hindernisfreies-bauen",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -4092,7 +4215,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "immissionsschutz",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -4107,7 +4230,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "immissionsschutz-laermschutz",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -4122,7 +4245,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "maschinen-und-anlagen",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -4137,7 +4260,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "naturgefahren",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -4152,7 +4275,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "personalien-betreiberin-der-anlage",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -4167,7 +4290,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "personalien-gastgewerbe",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -4182,7 +4305,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "reklame",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -4197,7 +4320,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "solar-und-sendeanlagen-v3",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -4212,7 +4335,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "stoerfallvorsorge-v3",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -4227,7 +4350,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "waermepumpen",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -4242,7 +4365,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "wald",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -4257,7 +4380,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "zivilschutz",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -5924,6 +6047,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "folgender-anschluss-ist-betroffen-v5-kabelnetz",
+    "fields": {
+      "created_at": "2024-11-11T14:57:36.813Z",
+      "modified_at": "2024-11-11T14:57:36.813Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kabelnetz\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "folgender-anschluss-ist-betroffen-v5-swisscom",
+    "fields": {
+      "created_at": "2024-11-11T14:57:36.817Z",
+      "modified_at": "2024-11-11T14:57:36.817Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Swisscom\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "gesteigerter-gemeingebrauch-zweck-v5-andere",
     "fields": {
       "created_at": "2024-10-30T15:40:01.970Z",
@@ -6086,6 +6243,57 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Verst\\u00e4rken\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5-aendern-anpassen",
+    "fields": {
+      "created_at": "2024-11-11T14:48:13.474Z",
+      "modified_at": "2024-11-11T14:48:13.474Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00c4ndern/anpassen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5-keine-anpassung-notwendig",
+    "fields": {
+      "created_at": "2024-11-11T14:48:13.475Z",
+      "modified_at": "2024-11-11T14:48:13.475Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Keine Anpassung notwendig\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5-neu-verlegen",
+    "fields": {
+      "created_at": "2024-11-11T14:48:13.473Z",
+      "modified_at": "2024-11-11T14:48:13.473Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neu verlegen\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -7025,6 +7233,105 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "anschluss-gemeinschaftsantenne-fernmeldenetz-v5",
+    "fields": {
+      "created_at": "2024-11-11T14:41:25.212Z",
+      "modified_at": "2024-11-11T14:41:25.212Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anschluss Gemeinschaftsantenne / Fernmeldenetz\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!('betrifft-das-bauvorhaben-einen-telekommunikationsanschluss-v5-ja' == 'betrifft-das-bauvorhaben-einen-telekommunikationsanschluss-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "anschluss-gemeinschaftsantenne-fernmeldenetz-v5",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anzahl-anschlussdosen-gewerbe-industrie-total-gemeinschaftsantenne-fernmeldenetz-v5",
+    "fields": {
+      "created_at": "2024-11-11T15:16:57.848Z",
+      "modified_at": "2024-11-11T15:16:57.848Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Anschlussdosen Gewerbe / Industrie total\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!([\n  'nutzungsart-industrie',\n  'nutzungsart-gewerbe'\n] intersects 'nutzungsart'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anzahl-anschlussdosen-wohnen-total-gemeinschaftsantenne-fernmeldenetz-v5",
+    "fields": {
+      "created_at": "2024-11-11T15:15:37.692Z",
+      "modified_at": "2024-11-11T15:15:37.692Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Anschlussdosen Wohnen total\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!('nutzungsart-wohnen' in 'nutzungsart'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "anzahl-hauseingaenge-mfh-v5",
     "fields": {
       "created_at": "2024-10-31T15:59:44.041Z",
@@ -7034,6 +7341,40 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Anzahl Hauseing\\u00e4nge MFH\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!('nutzungsart-wohnen' in 'nutzungsart'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anzahl-wohnungen-anschluss-gemeinschaftsantenne-fernmeldenetz-v5",
+    "fields": {
+      "created_at": "2024-11-11T15:14:42.834Z",
+      "modified_at": "2024-11-11T15:14:42.834Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Wohnungen\", \"fr\": null, \"it\": null}",
       "type": "integer",
       "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
       "is_hidden": "!('nutzungsart-wohnen' in 'nutzungsart'|answer)",
@@ -7211,6 +7552,40 @@
       "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anzahl-zu-erschliessende-wohnungen-gemeinschaftsantenne-fernmeldenetz-v5",
+    "fields": {
+      "created_at": "2024-11-11T15:15:08.539Z",
+      "modified_at": "2024-11-11T15:15:08.539Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl zu erschliessende Wohnungen\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!('nutzungsart-wohnen' in 'nutzungsart'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -8039,6 +8414,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "folgender-anschluss-ist-betroffen-v5",
+    "fields": {
+      "created_at": "2024-11-11T14:57:36.917Z",
+      "modified_at": "2024-11-11T14:57:55.184Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Folgender Anschluss ist betroffen\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!(['hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5-neu-verlengen',\n   'hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5-aendern-anpassen'] \n   intersects \n  'hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "gemeindespezifische-formulare-titel-v5",
     "fields": {
       "created_at": "2024-10-18T10:56:49.353Z",
@@ -8320,6 +8726,37 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Hausanschlussleitung\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5",
+    "fields": {
+      "created_at": "2024-11-11T14:48:13.560Z",
+      "modified_at": "2024-11-11T14:48:13.560Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hausinstallation\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
       "is_hidden": "false",
@@ -9914,6 +10351,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "folgender-anschluss-ist-betroffen-v5.folgender-anschluss-ist-betroffen-v5-kabelnetz",
+    "fields": {
+      "created_at": "2024-11-11T14:57:55.188Z",
+      "modified_at": "2024-11-11T14:57:55.188Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "folgender-anschluss-ist-betroffen-v5",
+      "option": "folgender-anschluss-ist-betroffen-v5-kabelnetz",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "folgender-anschluss-ist-betroffen-v5.folgender-anschluss-ist-betroffen-v5-swisscom",
+    "fields": {
+      "created_at": "2024-11-11T14:57:55.189Z",
+      "modified_at": "2024-11-11T14:57:55.189Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "folgender-anschluss-ist-betroffen-v5",
+      "option": "folgender-anschluss-ist-betroffen-v5-swisscom",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "gesteigerter-gemeingebrauch-zweck-v5.gesteigerter-gemeingebrauch-zweck-v5-andere",
     "fields": {
       "created_at": "2024-10-30T15:40:02.068Z",
@@ -10060,6 +10527,51 @@
       "question": "hausanschlussleitung-v5",
       "option": "hausanschlussleitung-v5-verstaerken",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5.hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5-aendern-anpassen",
+    "fields": {
+      "created_at": "2024-11-11T14:48:13.569Z",
+      "modified_at": "2024-11-11T14:48:13.569Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5",
+      "option": "hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5-aendern-anpassen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5.hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5-keine-anpassung-notwendig",
+    "fields": {
+      "created_at": "2024-11-11T14:48:13.565Z",
+      "modified_at": "2024-11-11T14:48:13.565Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5",
+      "option": "hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5-keine-anpassung-notwendig",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5.hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5-neu-verlegen",
+    "fields": {
+      "created_at": "2024-11-11T14:48:13.571Z",
+      "modified_at": "2024-11-11T14:48:13.571Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5",
+      "option": "hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5-neu-verlegen",
+      "sort": 3
     }
   },
   {
