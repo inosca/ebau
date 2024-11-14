@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-08 11:28+0100\n"
+"POT-Creation-Date: 2024-11-14 16:01+0100\n"
 "PO-Revision-Date: 2024-09-12 15:00+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -265,6 +265,10 @@ msgstr "Gesuchsteller/in"
 #: camac/communications/serializers.py
 msgid "Involved entity must be either 'APPLICANT' or a valid service ID"
 msgstr ""
+
+#: camac/communications/serializers.py
+msgid "There is no active service for this instance"
+msgstr "Es existiert keine zuständige Organisation für dieses Dossier"
 
 #: camac/communications/serializers.py
 msgid ""
@@ -697,22 +701,16 @@ msgid "Could not assign/update responsible: {detail}"
 msgstr "Konnte verantwortliche Person nicht schreiben: {detail}"
 
 #: camac/ech0211/send_handlers.py
-#, fuzzy
-#| msgid "Dossier submitted"
 msgid "ECH Dossier submitted"
-msgstr "Dossier eingereicht"
+msgstr "eCH Dossier eingereicht"
 
 #: camac/gis/admin.py
-#, fuzzy
-#| msgid "Disable selected services"
 msgid "Disable selected GIS data sources"
-msgstr "Ausgewählte Organisationen deaktivieren"
+msgstr "Ausgewählte GIS Datenquellen deaktivieren"
 
 #: camac/gis/admin.py
-#, fuzzy
-#| msgid "Enable selected services"
 msgid "Enable selected GIS data sources"
-msgstr "Ausgewählte Organisationen aktivieren"
+msgstr "Ausgewählte GIS Datenquellen aktivieren"
 
 #: camac/gis/clients/admin.py
 #, python-format
@@ -1452,6 +1450,14 @@ msgstr "Ausgewählte Organisationen deaktivieren"
 #: camac/user/admin/views.py
 msgid "Enable selected services"
 msgstr "Ausgewählte Organisationen aktivieren"
+
+#: camac/user/admin/views.py
+msgid "Disable notifications for selected services"
+msgstr "Notifikationen für ausgewählte Organisationen deaktivieren"
+
+#: camac/user/admin/views.py
+msgid "Enable notifications for selected services"
+msgstr "Notifikationen für ausgewählte Organisationen aktivieren"
 
 #: camac/user/apps.py
 msgid "User management"
