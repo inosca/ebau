@@ -141,7 +141,7 @@ def test_rejected_create_topic_on_unsubmitted_instance(
         # Scenario where the applicant attempts to fake an assigned service:
         s = service_factory()
         entities = [{"id": str(s.pk), "name": s.name}]
-        errormsg = "There is no active service for this instance"
+        errormsg = "Es existiert keine zuständige Organisation für dieses Dossier"
     else:
         # Normal behaviour of frontend on unsubmitted instance:
         entities = [{"id": None}]

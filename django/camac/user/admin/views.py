@@ -146,7 +146,7 @@ class ServiceAdmin(EbauAdminMixin, MultilingualAdminMixin, ModelAdmin):
     search_fields = ["name", "email", "pk"]
     search_fields_ml = ["trans__name", "email"]
     select_related = ["service_group"]
-    actions = ["disable", "enable"]
+    actions = ["disable", "enable", "disable_notifications", "enable_notifications"]
 
     @display(description=_("Name"))
     def get_name(self, obj):
@@ -171,6 +171,16 @@ class ServiceAdmin(EbauAdminMixin, MultilingualAdminMixin, ModelAdmin):
     def enable(self, request, queryset):
         queryset.update(disabled=0)
         Group.objects.filter(service__in=queryset).update(disabled=0)
+
+    @action(description=_("Disable notifications for selected services"))
+    @transaction.atomic
+    def disable_notifications(self, request, queryset):
+        queryset.update(notification=0)
+
+    @action(description=_("Enable notifications for selected services"))
+    @transaction.atomic
+    def enable_notifications(self, request, queryset):
+        queryset.update(notification=1)
 
 
 @register(Role)
