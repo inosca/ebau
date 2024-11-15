@@ -13,7 +13,7 @@
         <UkButton
           @color="primary"
           @label={{t "corrections.document.button-finish"}}
-          @onClick={{perform this.documentCorrection}}
+          @onClick={{perform this.finishCorrection}}
           @disabled={{this.documentCorrection.isRunning}}
         />
       {{else}}

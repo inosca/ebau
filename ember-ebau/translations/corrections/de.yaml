@@ -9,6 +9,7 @@ corrections:
     button-finish: "Korrektur abschliessen"
 
     confirm: "Bitte beachten Sie, dass die Dossierkorrektur nur für kleine Änderungen gedacht ist (z.B. Korrektur von Kontaktinformationen, Präzisierung Baubeschrieb). Gegebenenfalls sind die Gesuchstellenden über die Änderungen zu informieren.<br><br>Bitte prüfen Sie bei grösserem Änderungsbedarf, ob allenfalls eine Rückweisung angebracht wäre."
+    confirm-finish: "Bitte prüfen Sie bei relevanten Änderungen, ob allenfalls eine neue Eingabequittung angebracht wäre."
     error: "Fehler beim Korrigieren des Dossiers"
 
   withdraw:

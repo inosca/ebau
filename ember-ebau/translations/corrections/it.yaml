@@ -8,7 +8,8 @@ corrections:
     description-finish: "Per correggere il dossier cliccare sul menu <a href={link}>Modulo</a>. Non dimenticare di salvare le correzioni prima di chiudere il modulo."
     button-finish: "Termina correzione"
 
-    confirm: "Si prega di osservare che la funzione di correzione del dossier è pensata solo per modifiche minori (ad es. correzione delle informazioni di contatto, precisazione della descrizione dell'opera). Eventualmente occorre informare le persone richiedenti in merito alle modifiche. <br><br>Se sono necessarie modifiche più importanti valutare se non sia piuttosto opportuno respingere il dossier."
+    confirm: "Si prega di notare che la correzione del dossier è prevista solo per modifiche minori (ad esempio: correzione delle informazioni di contatto, chiarimento della descrizione del progetto edilizio). Se necessario, i richiedenti devono essere informati delle modifiche.<br><br>Se sono necessarie modifiche sostanziali, si prega di verificare se sia opportuno un rinvio ai richiedenti."
+    confirm-finish: "In caso di modifiche rilevanti, si prega di verificare se sia opportuno emettere una nuova ricevuta."
     error: "Errore nel tentativo di correggere il dossier"
 
   withdraw:
