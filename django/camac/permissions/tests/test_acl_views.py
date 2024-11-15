@@ -125,11 +125,16 @@ def test_list_acl_view_for_applicant(
 @pytest.mark.parametrize("set_end_time", [True, False])
 @pytest.mark.parametrize("set_start_time", [True, False])
 @pytest.mark.parametrize(
-    "role__name, responsible_for_instance, expect_success",
+    "role__name, responsible_for_instance, access_level_slug,expect_success",
     [
-        ("Municipality", True, True),
-        ("Support", True, False),
-        ("Municipality", False, False),
+        # municipality in "own" instance can assign
+        ("Municipality", True, "geometer", True),
+        # BE only allows geometer to be assigned
+        ("Municipality", True, "other", False),
+        # support cannot assign
+        ("Support", True, "geometer", False),
+        # unrelated instance, cannot assign
+        ("Municipality", False, "geometer", False),
     ],
 )
 def test_create_acl(
@@ -137,15 +142,20 @@ def test_create_acl(
     instance,
     admin_client,
     permissions_settings,
-    access_level,
+    access_level_factory,
     service,
     group_factory,
     expect_success,
     responsible_for_instance,
+    access_level_slug,
     set_start_time,
     set_end_time,
+    application_settings,
 ):
     url = reverse("instance-acls-list")
+
+    application_settings["SHORT_NAME"] = "be"
+    access_level = access_level_factory(slug=access_level_slug)
 
     tz = timezone.get_current_timezone()
     if set_start_time:
@@ -213,20 +223,22 @@ def test_create_acl(
 
 
 @pytest.mark.parametrize(
-    "role__name, end_time, is_responsible_service, expect_success",
+    "role__name, end_time, is_responsible_service, access_level_slug, expect_success",
     [
         # responsible service can revoke
-        ("Municipality", None, True, True),
+        ("Municipality", None, True, "geometer", True),
+        # cannot revoke, BE config only allows dealing with "geometer"
+        ("Municipality", None, True, "other", False),
         # non-responsible service cannot revoke
-        ("Municipality", None, False, False),
+        ("Municipality", None, False, "geometer", False),
         # non-municipality user cannot revoke
-        ("Support", None, True, False),
+        ("Support", None, True, "geometer", False),
         # just expired acl cannot be revoked again
-        ("Municipality", timezone.now(), True, False),
+        ("Municipality", timezone.now(), True, "geometer", False),
         # shortening = ok
-        ("Municipality", timezone.now() + timedelta(days=5), True, True),
+        ("Municipality", timezone.now() + timedelta(days=5), True, "geometer", True),
         # extending expired acl = not ok
-        ("Municipality", timezone.now() - timedelta(days=5), True, False),
+        ("Municipality", timezone.now() - timedelta(days=5), True, "geometer", False),
     ],
 )
 def test_revoke_acl(
@@ -234,14 +246,20 @@ def test_revoke_acl(
     instance,
     admin_client,
     permissions_settings,
-    access_level,
+    access_level_factory,
     service,
     group_factory,
     end_time,
     is_responsible_service,
+    access_level_slug,
     expect_success,
     use_instance_service,
+    application_settings,
 ):
+    # we use "be" here as they have a config that actually forbids
+    # granting/revoking of some access levels
+    application_settings["SHORT_NAME"] = "be"
+    access_level = access_level_factory(slug=access_level_slug)
     the_acl = InstanceACL.objects.create(
         instance=instance,
         grant_type=api.GRANT_CHOICES.USER.value,
