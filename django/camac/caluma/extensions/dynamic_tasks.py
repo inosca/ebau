@@ -1,3 +1,4 @@
+from copy import copy
 from itertools import chain
 from typing import List
 
@@ -33,7 +34,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         tasks = []
         if case.workflow_id == "building-permit":
-            tasks = settings.DECISION["TASKS_AFTER_BUILDING_PERMIT_DECISION"]
+            tasks = copy(settings.DECISION["TASKS_AFTER_BUILDING_PERMIT_DECISION"])
 
         involve_geometer = (
             prev_work_item.document.answers.filter(question_id="decision-geometer")
