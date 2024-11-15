@@ -291,7 +291,7 @@ class Landowners(BaseDataSource):
             return []
 
         case = Case.objects.get(instance__pk=context.get("instanceId"))
-        master_data = MasterData(case)
+        master_data = MasterData(case, disable_answer_visibility=True)
 
         people = master_data.landowners
 
