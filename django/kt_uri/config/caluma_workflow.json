@@ -345,7 +345,7 @@
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "name": "{\"de\": \"Gebauedeschatzungsaufgaben\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Geb\\u00e4udesch\\u00e4tzungsaufgaben\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {},

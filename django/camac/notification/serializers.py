@@ -1682,6 +1682,12 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         else:
             return self._get_recipients_municipality(instance)
 
+    def _get_recipients_geometer_uri(self, instance):
+        service = Service.objects.filter(name="AGO (Geometer)").first()
+        if service:
+            return [{"to": service.email}]
+        return []  # pragma: no cover
+
     def _get_recipients_fgs_uri(self, instance):
         service = Service.objects.filter(name="FGS").first()
         if service:

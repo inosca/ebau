@@ -642,6 +642,28 @@ def test_recipient_fgs_uri(
     ]
 
 
+def test_recipient_geometer_uri(
+    db, ur_instance, service_factory, notification_template
+):
+    service_factory(name="AGO (Geometer)", email="geometer@example.com")
+
+    serializer = serializers.PermissionlessNotificationTemplateSendmailSerializer(
+        data={
+            "instance": {"type": "instances", "id": ur_instance.pk},
+            "notification_template": {
+                "type": "notification-templates",
+                "id": notification_template.pk,
+            },
+            "recipient_types": ["geometer_uri"],
+            "subject": "test",
+        }
+    )
+    serializer.is_valid()
+    assert serializer._get_recipients_geometer_uri(ur_instance) == [
+        {"to": "geometer@example.com"}
+    ]
+
+
 @pytest.mark.parametrize(
     "user__email,service__email",
     [("user@example.com", "service@example.com, service2@example.com")],
