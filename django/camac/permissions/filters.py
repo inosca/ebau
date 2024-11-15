@@ -36,13 +36,13 @@ class AccessLevelFilterset(FilterSet):
     @filter_assignable_in_instance.register_old
     @permission_aware
     def filter_assignable_in_instance_rbac(self, qs, name, value):
-        return qs.none()
+        return qs.none()  # pragma: no cover
 
     @canton_aware
     def filter_assignable_in_instance_rbac_for_municipality(self, qs, name, value):
         # By default, nobody gets to see anything - we want to allow
         # assignability very specifically
-        return qs.none()
+        return qs.none()  # pragma: no cover
 
     def filter_assignable_in_instance_rbac_for_municipality_be(self, qs, name, value):
         # Bern currently only allows Geometer to be assigned by municipality
