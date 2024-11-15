@@ -173,6 +173,8 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
             has_permission = request_service_id == instance.group.service_id
 
         if has_permission:
+            # We have (general) permission, but are we allowed to assign
+            # this specific access level?
             filt = filters.AccessLevelFilterset(
                 queryset=models.AccessLevel.objects, request=self.request
             )
@@ -181,7 +183,9 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
                 name="assignable_in_instance",
                 value=instance.pk,
             )
-            return assignable.exists()
+            if not assignable.exists():
+                raise ValidationError("This access level cannot be assigned here")
+
         else:
             # This is primarily already handled via visibility, but this will
             # change and then we'll need this check here as well
