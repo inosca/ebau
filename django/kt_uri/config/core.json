@@ -33383,6 +33383,15 @@
     }
   },
   {
+    "model": "core.irroleacl",
+    "pk": 12002163,
+    "fields": {
+      "instance_resource": 14000034,
+      "role": 3,
+      "instance_state": 24
+    }
+  },
+  {
     "model": "core.irtaskform",
     "pk": 12000001,
     "fields": {
