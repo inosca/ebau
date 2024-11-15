@@ -833,6 +833,7 @@ APPLICATIONS = {
         "INCLUDE_STATIC_FILES": [("xml", "kt_bern/static/ech0211/xml")],
         "LOG_NOTIFICATIONS": True,
         "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
+        "AVAILABLE_LANGUAGES": ["de", "fr"],
         "SYSTEM_USER": "service-account-camac-admin",
         "ATTACHMENT_SECTION_INTERNAL": 4,
         "ROLE_PERMISSIONS": {

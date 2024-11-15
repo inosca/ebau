@@ -69,7 +69,7 @@ class DMSPlaceholdersDocsView(RetrieveAPIView):
         available_placeholders = set()
 
         for name, docs in docs.items():
-            names = set([name])
+            names = set()
 
             for alias in docs["aliases"]:
                 names.update(alias.values())
@@ -94,7 +94,6 @@ class DMSPlaceholdersDocsView(RetrieveAPIView):
                             [
                                 f"{base_prefix}.{alias}"
                                 for alias in [
-                                    nested_name,
                                     *chain(*[x.values() for x in nested_aliases_list]),
                                 ]
                             ]
