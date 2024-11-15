@@ -271,6 +271,7 @@ APPLICATIONS = {
             "responsible_koor",
             "abwasser_uri",
             "schnurgeruestabnahme_uri",
+            "geometer_uri",
             "invited_to_schlussabnahme_projekt",
             # GR
             "aib",
@@ -1304,6 +1305,7 @@ APPLICATIONS = {
             "responsible_koor",
             "abwasser_uri",
             "schnurgeruestabnahme_uri",
+            "geometer_uri",
             "invited_to_schlussabnahme_projekt",
             "fgs_uri",
         ],
@@ -1484,7 +1486,7 @@ APPLICATIONS = {
                         "event": "created",
                         "notification": {
                             "template_slug": "7-1-av-definitiv-durchfuehren",
-                            "recipient_types": ["work_item_addressed"],
+                            "recipient_types": ["geometer_uri"],
                         },
                     },
                     {
@@ -1492,15 +1494,6 @@ APPLICATIONS = {
                         "notification": {
                             "template_slug": "7-11-av-definitiv-nachfuehren",
                             "recipient_types": ["applicant"],
-                        },
-                    },
-                    {
-                        "event": "created",
-                        "notification": {
-                            "template_slug": "7-bau-beendet",
-                            "recipient_types": [
-                                "fgs_uri",
-                            ],
                         },
                     },
                 ],
@@ -1573,12 +1566,12 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "neue-aufgabe-intern",
+                            "template_slug": "7-bau-beendet",
                             "recipient_types": [
-                                "work_item_addressed",
+                                "fgs_uri",
                             ],
                         },
-                    }
+                    },
                 ],
             },
             "SIMPLE_WORKFLOW": {
