@@ -582,6 +582,7 @@ def caluma_workflow_config_ur(
     for slug in [
         *CALUMA_FORM_TYPES_SLUGS,
         "gebaeudeschaetzung",
+        "liegenschaftsschaetzung",
         "release-for-bk",
         "construction-control",
     ]:

@@ -1694,6 +1694,14 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             return [{"to": service.email}]
         return []  # pragma: no cover
 
+    def _get_recipients_liegenschaftsschaetzung_uri(self, instance):
+        service = Service.objects.filter(
+            pk=uri_constants.AMT_FUER_STEUERN_LIEGENSCHAFTSSCHAETZUNG_SERVICE_ID
+        ).first()
+        if service:
+            return [{"to": service.email}]
+        return []  # pragma: no cover
+
     def _recipient_log(self, recipients):
         return ", ".join(
             [

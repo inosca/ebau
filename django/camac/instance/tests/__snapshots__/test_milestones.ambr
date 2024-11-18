@@ -111,14 +111,20 @@
             'value': '2023-12-31T00:00:00Z',
           }),
           dict({
-            'label': 'Meldung Baubewilligung an Gebäudeschätzung',
+            'label': 'Meldung Bau beendet an Fachstelle für Gebäudeschätzung',
             'slug': 'notice-to-gebaeudeschaetzung',
             'value': list([
             ]),
           }),
           dict({
+            'label': 'Meldung Bau beendet an Amt für Steuern Liegenschaftsschätzung',
+            'slug': 'notice-to-liegenschaftsschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
             'label': 'Baubewilligung gültig bis',
-            'slug': 'building-permit-valid-until',
+            'slug': 'baubewilligung-gueltig-bis',
             'value': list([
             ]),
           }),
@@ -306,14 +312,20 @@
             'value': '2023-12-31T00:00:00Z',
           }),
           dict({
-            'label': 'Meldung Baubewilligung an Gebäudeschätzung',
+            'label': 'Meldung Bau beendet an Fachstelle für Gebäudeschätzung',
             'slug': 'notice-to-gebaeudeschaetzung',
             'value': list([
             ]),
           }),
           dict({
+            'label': 'Meldung Bau beendet an Amt für Steuern Liegenschaftsschätzung',
+            'slug': 'notice-to-liegenschaftsschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
             'label': 'Baubewilligung gültig bis',
-            'slug': 'building-permit-valid-until',
+            'slug': 'baubewilligung-gueltig-bis',
             'value': list([
             ]),
           }),
@@ -501,14 +513,20 @@
             'value': '2023-12-31T00:00:00Z',
           }),
           dict({
-            'label': 'Meldung Baubewilligung an Gebäudeschätzung',
+            'label': 'Meldung Bau beendet an Fachstelle für Gebäudeschätzung',
             'slug': 'notice-to-gebaeudeschaetzung',
             'value': list([
             ]),
           }),
           dict({
+            'label': 'Meldung Bau beendet an Amt für Steuern Liegenschaftsschätzung',
+            'slug': 'notice-to-liegenschaftsschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
             'label': 'Baubewilligung gültig bis',
-            'slug': 'building-permit-valid-until',
+            'slug': 'baubewilligung-gueltig-bis',
             'value': list([
             ]),
           }),
@@ -696,14 +714,20 @@
             'value': '2023-12-31T00:00:00Z',
           }),
           dict({
-            'label': 'Meldung Baubewilligung an Gebäudeschätzung',
+            'label': 'Meldung Bau beendet an Fachstelle für Gebäudeschätzung',
             'slug': 'notice-to-gebaeudeschaetzung',
             'value': list([
             ]),
           }),
           dict({
+            'label': 'Meldung Bau beendet an Amt für Steuern Liegenschaftsschätzung',
+            'slug': 'notice-to-liegenschaftsschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
             'label': 'Baubewilligung gültig bis',
-            'slug': 'building-permit-valid-until',
+            'slug': 'baubewilligung-gueltig-bis',
             'value': list([
             ]),
           }),
@@ -891,15 +915,22 @@
             'value': None,
           }),
           dict({
-            'label': 'Meldung Baubewilligung an Gebäudeschätzung',
+            'label': 'Meldung Bau beendet an Fachstelle für Gebäudeschätzung',
             'slug': 'notice-to-gebaeudeschaetzung',
             'value': list([
             ]),
           }),
           dict({
+            'label': 'Meldung Bau beendet an Amt für Steuern Liegenschaftsschätzung',
+            'slug': 'notice-to-liegenschaftsschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
             'label': 'Baubewilligung gültig bis',
-            'slug': 'building-permit-valid-until',
-            'value': '2024-01-01T19:00:00Z',
+            'slug': 'baubewilligung-gueltig-bis',
+            'value': list([
+            ]),
           }),
           dict({
             'label': 'Einsprachefrist (migriert)',
@@ -1085,15 +1116,22 @@
             'value': None,
           }),
           dict({
-            'label': 'Meldung Baubewilligung an Gebäudeschätzung',
+            'label': 'Meldung Bau beendet an Fachstelle für Gebäudeschätzung',
             'slug': 'notice-to-gebaeudeschaetzung',
             'value': list([
             ]),
           }),
           dict({
+            'label': 'Meldung Bau beendet an Amt für Steuern Liegenschaftsschätzung',
+            'slug': 'notice-to-liegenschaftsschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
             'label': 'Baubewilligung gültig bis',
-            'slug': 'building-permit-valid-until',
-            'value': '2024-01-01T19:00:00Z',
+            'slug': 'baubewilligung-gueltig-bis',
+            'value': list([
+            ]),
           }),
           dict({
             'label': 'Einsprachefrist (migriert)',
@@ -1279,15 +1317,22 @@
             'value': None,
           }),
           dict({
-            'label': 'Meldung Baubewilligung an Gebäudeschätzung',
+            'label': 'Meldung Bau beendet an Fachstelle für Gebäudeschätzung',
             'slug': 'notice-to-gebaeudeschaetzung',
             'value': list([
             ]),
           }),
           dict({
+            'label': 'Meldung Bau beendet an Amt für Steuern Liegenschaftsschätzung',
+            'slug': 'notice-to-liegenschaftsschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
             'label': 'Baubewilligung gültig bis',
-            'slug': 'building-permit-valid-until',
-            'value': '2024-01-01T19:00:00Z',
+            'slug': 'baubewilligung-gueltig-bis',
+            'value': list([
+            ]),
           }),
           dict({
             'label': 'Einsprachefrist (migriert)',
@@ -1473,15 +1518,22 @@
             'value': None,
           }),
           dict({
-            'label': 'Meldung Baubewilligung an Gebäudeschätzung',
+            'label': 'Meldung Bau beendet an Fachstelle für Gebäudeschätzung',
             'slug': 'notice-to-gebaeudeschaetzung',
             'value': list([
             ]),
           }),
           dict({
+            'label': 'Meldung Bau beendet an Amt für Steuern Liegenschaftsschätzung',
+            'slug': 'notice-to-liegenschaftsschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
             'label': 'Baubewilligung gültig bis',
-            'slug': 'building-permit-valid-until',
-            'value': '2024-01-01T19:00:00Z',
+            'slug': 'baubewilligung-gueltig-bis',
+            'value': list([
+            ]),
           }),
           dict({
             'label': 'Einsprachefrist (migriert)',

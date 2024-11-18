@@ -1,5 +1,4 @@
 from caluma.caluma_workflow.models import Case, WorkItem
-from dateutil import relativedelta
 from django.conf import settings
 from django.db.models import Q
 from django.utils.translation import gettext_noop as _
@@ -254,9 +253,16 @@ class UrMilestonesSerializer(MilestonesSerializer):
                         task="gebaeudeschaetzung",
                         field="created_at",
                     ),
-                    fields.MethodField(
-                        slug="building-permit-valid-until",
+                    fields.WorkItemsField(
+                        slug="notice-to-liegenschaftsschaetzung",
+                        label=_("notice to liegenschaftsschaetzung"),
+                        task="liegenschaftsschaetzung",
+                        field="created_at",
+                    ),
+                    fields.AnswerField(
+                        slug="baubewilligung-gueltig-bis",
                         label=_("Building permit valid until"),
+                        document="instance-management",
                     ),
                     fields.CamacWorkflowEntryField(
                         slug="objection-deadline",
@@ -401,25 +407,6 @@ class UrMilestonesSerializer(MilestonesSerializer):
                         )
 
         return None  # pragma: no cover
-
-    def get_building_permit_valid_until(self, instance):
-        decision_work_item = next(
-            (
-                wi
-                for wi in instance._work_items
-                if wi.task_id == "decision" and wi.status == WorkItem.STATUS_COMPLETED
-            ),
-            None,
-        )
-
-        if (
-            decision_work_item
-            and decision_work_item.closed_at is not None
-            and self.get_building_decision(instance)
-        ):
-            return decision_work_item.closed_at + relativedelta.relativedelta(years=1)
-
-        return []  # pragma: no cover
 
     def get_receipt_confirmation_of_decision_documents(self, instance):
         if _check_feedback_answer(
