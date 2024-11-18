@@ -61,11 +61,14 @@ def test_bad_file_format_dossier_xlsx(
 @pytest.mark.parametrize("location__communal_federal_number", ["1312"])
 @pytest.mark.parametrize("service__external_identifier", ["2601"])
 @pytest.mark.parametrize(
-    "config,camac_instance,perm_settings",
+    "config,camac_instance,perm_settings,expected_warnings",
     [
-        ("kt_schwyz", lf("sz_instance_with_form"), None),
-        ("kt_bern", lf("be_instance"), lf("be_permissions_settings")),
-        ("kt_so", lf("so_instance"), None),
+        ("kt_schwyz", lf("sz_instance_with_form"), None, 0),
+        # expected_warnings: BE has an invalid email in the repsonsible column.
+        # See test_writers.test_responsible_user_writer()
+        ("kt_bern", lf("be_instance"), lf("be_permissions_settings"), 1),
+        # expected_warnings: SO doesn't accept plain text files.
+        ("kt_so", lf("so_instance"), None, 1),
     ],
 )
 def test_create_instance_dossier_import_case(
@@ -79,6 +82,7 @@ def test_create_instance_dossier_import_case(
     group,
     settings,
     perm_settings,
+    expected_warnings,
 ):
     if config == "kt_bern":
         perm_settings["EVENT_HANDLER"] = (
@@ -100,10 +104,6 @@ def test_create_instance_dossier_import_case(
         dossier_import.messages["import"]["details"].append(message.to_dict())
     update_summary(dossier_import)
     assert dossier_import.messages["import"]["summary"]["stats"]["dossiers"] == 2
-
-    # bern has an invalid email in the repsonsible column.
-    # See test_writers.test_responsible_user_writer()
-    expected_warnings = 1 if config == "kt_bern" else 0
 
     assert (
         len(dossier_import.messages["import"]["summary"]["warning"])
@@ -1206,21 +1206,28 @@ def test_import_documents(dossier, setup_dossier_writer, camac_instance, config)
         Attachment(
             file_accessor=django_file("1MB.pdf").open(), name="pläne/Grundriss.pdf"
         ),
+        Attachment(
+            file_accessor=django_file("no-thumbnail.txt").open(), name="Test.txt"
+        ),
     ]
     writer._create_dossier_attachments(dossier, camac_instance)
 
     if config == "kt_so":
         camac_instance.alexandria_instance_documents.count() == len(dossier.attachments)
         for attachment in dossier.attachments:
-            if alexandria_doc := camac_instance.alexandria_instance_documents.filter(
+            alexandria_doc = camac_instance.alexandria_instance_documents.filter(
                 document__title=attachment.name
-            ).first():
+            ).first()
+
+            if attachment.file_accessor.name.endswith(".txt"):
+                assert not alexandria_doc
+            else:
+                assert alexandria_doc
                 attachment.file_accessor.seek(0)
                 assert (
                     attachment.file_accessor.read()
                     == alexandria_doc.document.get_latest_original().content.file.file.read()
                 )
-            assert alexandria_doc
     else:
         assert camac_instance.attachments.count() == len(dossier.attachments)
         for attachment in dossier.attachments:
