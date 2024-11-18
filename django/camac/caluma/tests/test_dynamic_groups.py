@@ -246,6 +246,10 @@ def test_dynamic_group_geometer_be(
     [
         ("geometer-ur", uri_constants.GEOMETER_SERVICE_ID),
         ("gebaeudeschaetzung-ur", uri_constants.FGS_SERVICE_ID),
+        (
+            "liegenschaftsschaetzung-ur",
+            uri_constants.AMT_FUER_STEUERN_LIEGENSCHAFTSSCHAETZUNG_SERVICE_ID,
+        ),
     ],
 )
 def test_dynamic_groups_ur(
