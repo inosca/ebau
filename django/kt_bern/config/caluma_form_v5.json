@@ -109,6 +109,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "anschluss-gas-v5",
+    "fields": {
+      "created_at": "2024-11-18T14:17:38.518Z",
+      "modified_at": "2024-11-18T14:17:38.518Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Anschluss Gas\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Anschluss Gas (v5)\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "anschluss-gemeinschaftsantenne-fernmeldenetz-v5",
     "fields": {
       "created_at": "2024-11-11T14:40:25.537Z",
@@ -1440,6 +1458,126 @@
       "modified_by_group": null,
       "form": "anschluss-elektrizitaet-v5",
       "question": "um-welche-energieerzeugungsanlage-handelt-es-sich-v5",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-gas-v5.gasbedarf-gewerbe-industrie-nennleistung-total-kw-anschluss-gas-v5",
+    "fields": {
+      "created_at": "2024-11-18T14:36:54.748Z",
+      "modified_at": "2024-11-18T14:36:54.748Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-gas-v5",
+      "question": "gasbedarf-gewerbe-industrie-nennleistung-total-kw-anschluss-gas-v5",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-gas-v5.gasbedarf-wohnen-nennleistung-total-kw-anschluss-gas-v5",
+    "fields": {
+      "created_at": "2024-11-18T14:28:19.119Z",
+      "modified_at": "2024-11-18T14:28:19.119Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-gas-v5",
+      "question": "gasbedarf-wohnen-nennleistung-total-kw-anschluss-gas-v5",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-gas-v5.haupt-verteillleitung-oeffentliche-leitung-v5",
+    "fields": {
+      "created_at": "2024-11-18T14:23:26.762Z",
+      "modified_at": "2024-11-18T14:23:26.762Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-gas-v5",
+      "question": "haupt-verteillleitung-oeffentliche-leitung-v5",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-gas-v5.laufzeiten-pro-jahr-stunden-anschluss-gas-v5",
+    "fields": {
+      "created_at": "2024-11-18T14:38:10.279Z",
+      "modified_at": "2024-11-18T14:38:10.279Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-gas-v5",
+      "question": "laufzeiten-pro-jahr-stunden-anschluss-gas-v5",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-gas-v5.verwendungszwecke-gewerbe-industrie-anschluss-gas-beschreibung-anderen-zwecke-v5",
+    "fields": {
+      "created_at": "2024-11-18T14:30:50.995Z",
+      "modified_at": "2024-11-18T14:30:50.995Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-gas-v5",
+      "question": "verwendungszwecke-gewerbe-industrie-anschluss-gas-beschreibung-anderen-zwecke-v5",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-gas-v5.verwendungszwecke-gewerbe-industrie-anschluss-gas-v5",
+    "fields": {
+      "created_at": "2024-11-18T14:29:37.583Z",
+      "modified_at": "2024-11-18T14:29:37.583Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-gas-v5",
+      "question": "verwendungszwecke-gewerbe-industrie-anschluss-gas-v5",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-gas-v5.verwendungszwecke-wohnen-anschluss-gas-beschreibung-anderen-zwecke-v5",
+    "fields": {
+      "created_at": "2024-11-18T14:27:25.095Z",
+      "modified_at": "2024-11-18T14:27:25.095Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-gas-v5",
+      "question": "verwendungszwecke-wohnen-anschluss-gas-beschreibung-anderen-zwecke-v5",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-gas-v5.verwendungszwecke-wohnen-anschluss-gas-v5",
+    "fields": {
+      "created_at": "2024-11-18T14:24:42.284Z",
+      "modified_at": "2024-11-18T14:24:42.284Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-gas-v5",
+      "question": "verwendungszwecke-wohnen-anschluss-gas-v5",
       "sort": 7
     }
   },
@@ -4050,7 +4188,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "allgemeine-angaben-zum-betrieb-v5",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -4065,7 +4203,22 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "anschluss-elektrizitaet-v5",
-      "sort": 2
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.anschluss-gas-v5",
+    "fields": {
+      "created_at": "2024-11-18T14:22:14.477Z",
+      "modified_at": "2024-11-18T14:22:14.477Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "anschluss-gas-v5",
+      "sort": 1
     }
   },
   {
@@ -4080,7 +4233,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "anschluss-gemeinschaftsantenne-fernmeldenetz-v5",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -4095,7 +4248,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "bauvorhaben-in-konsultationsbereichen-v3",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -4110,7 +4263,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "benuetzung-oeffentlichem-terrain-v5",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -4125,7 +4278,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "biologische-sicherheit-v3",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -4140,7 +4293,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "entsorgung",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -4155,7 +4308,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "erdbebensicherheit-v5",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -4170,7 +4323,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "gastgewerbe-allgemein",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -4185,7 +4338,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "gastgewerbe-fumoir",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -4200,7 +4353,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "hindernisfreies-bauen",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -4215,7 +4368,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "immissionsschutz",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -4230,7 +4383,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "immissionsschutz-laermschutz",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -4245,7 +4398,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "maschinen-und-anlagen",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -4260,7 +4413,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "naturgefahren",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -4275,7 +4428,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "personalien-betreiberin-der-anlage",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -4290,7 +4443,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "personalien-gastgewerbe",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -4305,7 +4458,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "reklame",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -4320,7 +4473,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "solar-und-sendeanlagen-v3",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -4335,7 +4488,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "stoerfallvorsorge-v3",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -4350,7 +4503,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "waermepumpen",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -4365,7 +4518,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "wald",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -4380,7 +4533,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "zivilschutz",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -6183,6 +6336,74 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "haupt-verteillleitung-oeffentliche-leitung-v5-abkappung",
+    "fields": {
+      "created_at": "2024-11-18T14:23:26.607Z",
+      "modified_at": "2024-11-18T14:23:53.401Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abkappung\", \"fr\": \"Coupure\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "haupt-verteillleitung-oeffentliche-leitung-v5-anpassung",
+    "fields": {
+      "created_at": "2024-11-18T14:23:26.608Z",
+      "modified_at": "2024-11-18T14:23:53.413Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anpassung\", \"fr\": \"Adaptation\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "haupt-verteillleitung-oeffentliche-leitung-v5-bestehend",
+    "fields": {
+      "created_at": "2024-11-18T14:23:26.604Z",
+      "modified_at": "2024-11-18T14:23:53.398Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bestehend\", \"fr\": \"Existante\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "haupt-verteillleitung-oeffentliche-leitung-v5-neu",
+    "fields": {
+      "created_at": "2024-11-18T14:23:26.597Z",
+      "modified_at": "2024-11-18T14:23:53.401Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neu\", \"fr\": \"Nouvelle\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "hausanschlussleitung-v5-aendernanpassen",
     "fields": {
       "created_at": "2024-10-31T15:13:27.535Z",
@@ -6617,6 +6838,125 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Inselbetrieb\", \"fr\": \"Exploitation propre\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "verwendungszwecke-gewerbe-industrie-anschluss-gas-v5-andere-zwecke",
+    "fields": {
+      "created_at": "2024-11-18T14:29:37.449Z",
+      "modified_at": "2024-11-18T14:30:11.766Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere Zwecke\", \"fr\": \"Autres utilisations\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "verwendungszwecke-gewerbe-industrie-anschluss-gas-v5-heizen",
+    "fields": {
+      "created_at": "2024-11-18T14:29:37.434Z",
+      "modified_at": "2024-11-18T14:30:11.757Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Heizen\", \"fr\": \"Chauffage\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "verwendungszwecke-gewerbe-industrie-anschluss-gas-v5-warmwasser",
+    "fields": {
+      "created_at": "2024-11-18T14:29:37.434Z",
+      "modified_at": "2024-11-18T14:30:11.759Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Warmwasser\", \"fr\": \"Eau chaude\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "verwendungszwecke-wohnen-anschluss-gas-v5-andere-zwecke",
+    "fields": {
+      "created_at": "2024-11-18T14:24:42.132Z",
+      "modified_at": "2024-11-18T14:26:37.763Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere Zwecke\", \"fr\": \"Autres utilisations\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "verwendungszwecke-wohnen-anschluss-gas-v5-heizen",
+    "fields": {
+      "created_at": "2024-11-18T14:24:42.127Z",
+      "modified_at": "2024-11-18T14:26:37.729Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Heizen\", \"fr\": \"Chauffage\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "verwendungszwecke-wohnen-anschluss-gas-v5-kochen",
+    "fields": {
+      "created_at": "2024-11-18T14:24:42.136Z",
+      "modified_at": "2024-11-18T14:26:37.750Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kochen\", \"fr\": \"Cuisiner\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "verwendungszwecke-wohnen-anschluss-gas-v5-warmwasser",
+    "fields": {
+      "created_at": "2024-11-18T14:24:42.127Z",
+      "modified_at": "2024-11-18T14:26:37.732Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Warmwasser\", \"fr\": \"Eau chaude\", \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -7224,6 +7564,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "anschluss-elektrizitaet-v5",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anschluss-gas-v5",
+    "fields": {
+      "created_at": "2024-11-18T14:22:14.417Z",
+      "modified_at": "2024-11-18T14:22:14.417Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anschluss Gas\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!('betrifft-das-bauvorhaben-gasinstallationen-v5-ja' == 'betrifft-das-bauvorhaben-gasinstallationen-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "anschluss-gas-v5",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -8513,6 +8884,74 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "gasbedarf-gewerbe-industrie-nennleistung-total-kw-anschluss-gas-v5",
+    "fields": {
+      "created_at": "2024-11-18T14:36:54.692Z",
+      "modified_at": "2024-11-18T14:37:14.653Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gasbedarf Gewerbe / Industrie Nennleistung Total (kW)\", \"fr\": \"Besoins en gaz artisanat/industrie puissance nominale totale (kW)\", \"it\": null}",
+      "type": "float",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!([\n  'nutzungsart-industrie',\n  'nutzungsart-gewerbe'\n] intersects 'nutzungsart'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gasbedarf-wohnen-nennleistung-total-kw-anschluss-gas-v5",
+    "fields": {
+      "created_at": "2024-11-18T14:28:19.060Z",
+      "modified_at": "2024-11-18T14:28:31.645Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gasbedarf Wohnen Nennleistung Total (kW)\", \"fr\": \"Besoins en gaz habitat puissance nominale totale (kW)\", \"it\": null}",
+      "type": "float",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!('nutzungsart-wohnen' in 'nutzungsart'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "gemeindespezifische-formulare-titel-v5",
     "fields": {
       "created_at": "2024-10-18T10:56:49.353Z",
@@ -8785,6 +9224,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "haupt-verteillleitung-oeffentliche-leitung-v5",
+    "fields": {
+      "created_at": "2024-11-18T14:23:26.700Z",
+      "modified_at": "2024-11-18T14:23:53.493Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Haupt-/Verteillleitung (\\u00f6ffentliche Leitung)\", \"fr\": \"Conduite principale / de raccordement (conduite publique)\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hausanschlussleitung-v5",
     "fields": {
       "created_at": "2024-10-31T15:13:27.623Z",
@@ -9024,6 +9494,40 @@
       "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "laufzeiten-pro-jahr-stunden-anschluss-gas-v5",
+    "fields": {
+      "created_at": "2024-11-18T14:38:10.221Z",
+      "modified_at": "2024-11-18T14:38:22.300Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Laufzeiten pro Jahr (h)\", \"fr\": \"Dur\\u00e9e de fonctionnement par an (h)\", \"it\": null}",
+      "type": "float",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!([\n  'nutzungsart-industrie',\n  'nutzungsart-gewerbe'\n] intersects 'nutzungsart'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -9729,6 +10233,136 @@
         "max_value": null,
         "min_value": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "verwendungszwecke-gewerbe-industrie-anschluss-gas-beschreibung-anderen-zwecke-v5",
+    "fields": {
+      "created_at": "2024-11-18T14:30:50.927Z",
+      "modified_at": "2024-11-18T14:31:11.137Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung der anderen Zwecke\", \"fr\": \"Description des autres utilisations\", \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "!('verwendungszwecke-gewerbe-industrie-anschluss-gas-v5-andere-zwecke' in 'verwendungszwecke-gewerbe-industrie-anschluss-gas-v5'|answer )",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "verwendungszwecke-gewerbe-industrie-anschluss-gas-v5",
+    "fields": {
+      "created_at": "2024-11-18T14:29:37.522Z",
+      "modified_at": "2024-11-18T14:30:11.854Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verwendungszwecke Gewerbe / Industrie\", \"fr\": \"Utilisations artisanat/industrie\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!([\n  'nutzungsart-industrie',\n  'nutzungsart-gewerbe'\n] intersects 'nutzungsart'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "verwendungszwecke-wohnen-anschluss-gas-beschreibung-anderen-zwecke-v5",
+    "fields": {
+      "created_at": "2024-11-18T14:27:25.035Z",
+      "modified_at": "2024-11-18T14:27:44.369Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung der anderen Zwecke\", \"fr\": \"Description des autres utilisations\", \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "!('verwendungszwecke-wohnen-anschluss-gas-v5-andere-zwecke' in 'verwendungszwecke-wohnen-anschluss-gas-v5'|answer )",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "verwendungszwecke-wohnen-anschluss-gas-v5",
+    "fields": {
+      "created_at": "2024-11-18T14:24:42.218Z",
+      "modified_at": "2024-11-18T14:26:37.843Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verwendungszwecke Wohnen\", \"fr\": \"Utilisations habitation\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!('nutzungsart-wohnen' in 'nutzungsart'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -10539,6 +11173,66 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "haupt-verteillleitung-oeffentliche-leitung-v5.haupt-verteillleitung-oeffentliche-leitung-v5-abkappung",
+    "fields": {
+      "created_at": "2024-11-18T14:23:53.501Z",
+      "modified_at": "2024-11-18T14:23:53.501Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "haupt-verteillleitung-oeffentliche-leitung-v5",
+      "option": "haupt-verteillleitung-oeffentliche-leitung-v5-abkappung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "haupt-verteillleitung-oeffentliche-leitung-v5.haupt-verteillleitung-oeffentliche-leitung-v5-anpassung",
+    "fields": {
+      "created_at": "2024-11-18T14:23:53.499Z",
+      "modified_at": "2024-11-18T14:23:53.499Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "haupt-verteillleitung-oeffentliche-leitung-v5",
+      "option": "haupt-verteillleitung-oeffentliche-leitung-v5-anpassung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "haupt-verteillleitung-oeffentliche-leitung-v5.haupt-verteillleitung-oeffentliche-leitung-v5-bestehend",
+    "fields": {
+      "created_at": "2024-11-18T14:23:53.503Z",
+      "modified_at": "2024-11-18T14:23:53.503Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "haupt-verteillleitung-oeffentliche-leitung-v5",
+      "option": "haupt-verteillleitung-oeffentliche-leitung-v5-bestehend",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "haupt-verteillleitung-oeffentliche-leitung-v5.haupt-verteillleitung-oeffentliche-leitung-v5-neu",
+    "fields": {
+      "created_at": "2024-11-18T14:23:53.506Z",
+      "modified_at": "2024-11-18T14:23:53.506Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "haupt-verteillleitung-oeffentliche-leitung-v5",
+      "option": "haupt-verteillleitung-oeffentliche-leitung-v5-neu",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "hausanschlussleitung-v5.hausanschlussleitung-v5-aendernanpassen",
     "fields": {
       "created_at": "2024-11-14T14:33:34.776Z",
@@ -10924,6 +11618,111 @@
       "modified_by_group": null,
       "question": "um-welche-energieerzeugungsanlage-handelt-es-sich-v5",
       "option": "um-welche-energieerzeugungsanlage-handelt-es-sich-v5-inselbetrieb",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "verwendungszwecke-gewerbe-industrie-anschluss-gas-v5.verwendungszwecke-gewerbe-industrie-anschluss-gas-v5-andere-zwecke",
+    "fields": {
+      "created_at": "2024-11-18T14:30:11.858Z",
+      "modified_at": "2024-11-18T14:30:11.858Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "verwendungszwecke-gewerbe-industrie-anschluss-gas-v5",
+      "option": "verwendungszwecke-gewerbe-industrie-anschluss-gas-v5-andere-zwecke",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "verwendungszwecke-gewerbe-industrie-anschluss-gas-v5.verwendungszwecke-gewerbe-industrie-anschluss-gas-v5-heizen",
+    "fields": {
+      "created_at": "2024-11-18T14:30:11.864Z",
+      "modified_at": "2024-11-18T14:30:11.864Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "verwendungszwecke-gewerbe-industrie-anschluss-gas-v5",
+      "option": "verwendungszwecke-gewerbe-industrie-anschluss-gas-v5-heizen",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "verwendungszwecke-gewerbe-industrie-anschluss-gas-v5.verwendungszwecke-gewerbe-industrie-anschluss-gas-v5-warmwasser",
+    "fields": {
+      "created_at": "2024-11-18T14:30:11.861Z",
+      "modified_at": "2024-11-18T14:30:11.861Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "verwendungszwecke-gewerbe-industrie-anschluss-gas-v5",
+      "option": "verwendungszwecke-gewerbe-industrie-anschluss-gas-v5-warmwasser",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "verwendungszwecke-wohnen-anschluss-gas-v5.verwendungszwecke-wohnen-anschluss-gas-v5-andere-zwecke",
+    "fields": {
+      "created_at": "2024-11-18T14:26:37.849Z",
+      "modified_at": "2024-11-18T14:26:37.849Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "verwendungszwecke-wohnen-anschluss-gas-v5",
+      "option": "verwendungszwecke-wohnen-anschluss-gas-v5-andere-zwecke",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "verwendungszwecke-wohnen-anschluss-gas-v5.verwendungszwecke-wohnen-anschluss-gas-v5-heizen",
+    "fields": {
+      "created_at": "2024-11-18T14:26:37.855Z",
+      "modified_at": "2024-11-18T14:26:37.855Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "verwendungszwecke-wohnen-anschluss-gas-v5",
+      "option": "verwendungszwecke-wohnen-anschluss-gas-v5-heizen",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "verwendungszwecke-wohnen-anschluss-gas-v5.verwendungszwecke-wohnen-anschluss-gas-v5-kochen",
+    "fields": {
+      "created_at": "2024-11-18T14:26:37.858Z",
+      "modified_at": "2024-11-18T14:26:37.858Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "verwendungszwecke-wohnen-anschluss-gas-v5",
+      "option": "verwendungszwecke-wohnen-anschluss-gas-v5-kochen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "verwendungszwecke-wohnen-anschluss-gas-v5.verwendungszwecke-wohnen-anschluss-gas-v5-warmwasser",
+    "fields": {
+      "created_at": "2024-11-18T14:26:37.853Z",
+      "modified_at": "2024-11-18T14:26:37.853Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "verwendungszwecke-wohnen-anschluss-gas-v5",
+      "option": "verwendungszwecke-wohnen-anschluss-gas-v5-warmwasser",
       "sort": 2
     }
   },
