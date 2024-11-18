@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-14 16:01+0100\n"
+"POT-Creation-Date: 2024-11-18 15:33+0100\n"
 "PO-Revision-Date: 2024-09-12 15:00+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -699,6 +699,15 @@ msgstr "Keinen Benutzer mit Mailadresse {value} gefunden"
 #, python-brace-format
 msgid "Could not assign/update responsible: {detail}"
 msgstr "Konnte verantwortliche Person nicht schreiben: {detail}"
+
+#: camac/dossier_import/writers.py
+#, python-format
+msgid ""
+"Unallowed mime type for file \"%(filename)s\" (%(mime_type)s) - the file was "
+"not imported"
+msgstr ""
+"Unerlaubter Dateityp der Datei \"%(filename)s\" (%(mime_type)s) - die Datei "
+"wurde nicht importiert"
 
 #: camac/ech0211/send_handlers.py
 msgid "ECH Dossier submitted"
