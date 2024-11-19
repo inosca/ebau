@@ -825,6 +825,25 @@ class DossierWriter:
         category = Category.objects.get(
             pk=settings.DOSSIER_IMPORT["ALEXANDRIA_CATEGORY"]
         )
+
+        if (
+            category.allowed_mime_types is not None
+            and len(category.allowed_mime_types)
+            and mime_type not in category.allowed_mime_types
+        ):
+            messages.append(
+                Message(
+                    level=Severity.WARNING.value,
+                    code=MessageCodes.MIME_TYPE_INVALID.value,
+                    detail=_(
+                        'Unallowed mime type for file "%(filename)s" (%(mime_type)s) - the file was not imported'
+                    )
+                    % dict(filename=filename, mime_type=mime_type),
+                )
+            )
+
+            return messages
+
         if document := AlexandriaDocument.objects.filter(
             title=filename, **{"metainfo__camac-instance-id": str(instance.pk)}
         ).first():
@@ -850,7 +869,7 @@ class DossierWriter:
                 )
             )
             return messages
-        doc, _ = create_document_file(
+        doc, _file = create_document_file(
             user=self._user.pk,
             group=self._group.service.pk,
             category=category,

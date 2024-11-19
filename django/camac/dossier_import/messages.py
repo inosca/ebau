@@ -89,6 +89,7 @@ class MessageCodes(str, Enum):
     DUPLICATE_IDENTFIER_ERROR = "duplicate-identifier-error"
     FIELD_VALIDATION_ERROR = "field-validation-error"
     MIME_TYPE_UNKNOWN = "mime-type-unknown"
+    MIME_TYPE_INVALID = "mime-type-invalid"
     WORKFLOW_SKIP_ITEM_FAILED = "skip-workitem-failed"  # not user-facing
     INCONSISTENT_WORKFLOW_STATE = "inconsistent-workflow-state"  # trying to write dates that should not exist at the current state of workflow
     WRITING_READ_ONLY_FIELD = (
