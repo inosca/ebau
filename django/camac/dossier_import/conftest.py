@@ -137,7 +137,9 @@ def load_fixtures_so(
         slug=str(service.pk), question_id="gemeinde", document=document_factory()
     )
 
-    so_dossier_import_settings["ALEXANDRIA_CATEGORY"] = CategoryFactory().pk
+    so_dossier_import_settings["ALEXANDRIA_CATEGORY"] = CategoryFactory(
+        allowed_mime_types=["application/pdf"]
+    ).pk
 
     yield service, extra_fixtures
 
