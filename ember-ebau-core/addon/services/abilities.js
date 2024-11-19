@@ -6,7 +6,12 @@ export default class AsyncAbilitiesService extends AbilitiesService {
     const { propertyName, abilityName } = this.parse(abilityString);
     const result = this.valueFor(propertyName, abilityName, model, properties);
 
-    if (result instanceof Promise) {
+    /* `Promise` might be an RSVP Promise here, so to match native JS promises
+     * (returned from async methods), we need some duck-typing.
+     * TODO: Remove the second clause again as soon as all remnants of RSVP are
+     * gone from the source code.
+     */
+    if (result instanceof Promise || typeof result?.then === "function") {
       return result
         .then((bool) => (invert ? !bool : !!bool))
         .catch((error) => {
