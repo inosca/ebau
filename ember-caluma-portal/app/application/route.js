@@ -25,6 +25,7 @@ import PublicationStartDateComponent from "ember-ebau-core/components/publicatio
 import ServiceContentComponent from "ember-ebau-core/components/service-content";
 import SoGisComponent from "ember-ebau-core/components/so-gis";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
 import BeClaimsFormComponent from "caluma-portal/components/be-claims-form";
 import BeDisabledInputComponent from "caluma-portal/components/be-disabled-input";
@@ -57,11 +58,25 @@ export default class ApplicationRoute extends Route {
       referrer,
     } = transition.to?.queryParams ?? {};
 
-    this.session.language = language ?? this.session.language;
-    this.session.groupId = groupId ?? this.session.groupId;
+    // Only write the values into the session if there is not transition. This
+    // means that the user explicitly clicked a link with those parameters. If
+    // we don't check this, the values will be set a second time after a
+    // successful login as the transition after the login still contains those
+    // query parameters.
+    if (transition.from === null) {
+      this.session.language = language ?? this.session.language;
+      this.session.groupId = groupId ?? this.session.groupId;
 
-    if (referrer) {
-      this.session.set("data.referrer", referrer);
+      if (hasFeature("login.tokenExchange") && referrer === "internal") {
+        this.session.set("data.referrer", referrer);
+
+        if (this.session.isAuthenticated && this.session.isTokenExchange) {
+          // If a referrer is set but we are currently logged in via token
+          // exchange, we must first invalidate the current session to allow a
+          // login via regular OIDC
+          this.session.invalidate();
+        }
+      }
     }
 
     if (language || groupId || referrer) {
