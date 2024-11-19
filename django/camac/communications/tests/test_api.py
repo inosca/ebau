@@ -13,6 +13,8 @@ import pytest
 from django.urls import reverse
 from rest_framework import status
 
+from camac.document.tests.data import django_file
+
 
 @pytest.mark.parametrize(
     "role__name, expect_status",
@@ -96,6 +98,7 @@ def test_create_message(
     communications_settings["NOTIFICATIONS"]["INTERNAL_INVOLVED_ENTITIES"][
         "template_slug"
     ] = notification_template.slug
+    communications_settings["ALLOWED_MIME_TYPES"] = ["text/plain"]
 
     attachments = []
     if with_file_attachments:
@@ -288,3 +291,43 @@ def test_notification_email(
         recipient_emails = [email.recipients()[0] for email in mailoutbox]
         assert other_service.email not in recipient_emails
         assert notification_template.subject in mailoutbox[0].subject
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("error_type", ["extension", "content", "unallowed"])
+def test_mime_type_validation(
+    db,
+    admin_client,
+    topic_with_admin_involved,
+    tmpdir,
+    communications_settings,
+    mocker,
+    error_type,
+):
+    mocker.patch("camac.notification.utils.send_mail")
+
+    communications_settings["ALLOWED_MIME_TYPES"] = ["text/plain"]
+    file = django_file("no-thumbnail.txt")
+
+    if error_type == "unallowed":
+        communications_settings["ALLOWED_MIME_TYPES"] = ["application/pdf"]
+    elif error_type == "extension":
+        file.name = "test.pdf"
+    elif error_type == "content":
+        file = django_file("test-thumbnail.jpg")
+
+    response = admin_client.post(
+        reverse("communications-message-list"),
+        data={
+            "body": "hello world",
+            "topic": json.dumps(
+                {
+                    "id": str(topic_with_admin_involved.pk),
+                    "type": "communications-topics",
+                }
+            ),
+            "attachments": [file],
+        },
+        format="multipart",
+    )
+    assert response.status_code == status.HTTP_400_BAD_REQUEST

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-18 15:33+0100\n"
+"POT-Creation-Date: 2024-11-19 15:58+0100\n"
 "PO-Revision-Date: 2024-09-12 15:00+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -291,6 +291,36 @@ msgstr ""
 #: camac/communications/serializers.py
 msgid "Invisible topic, cannot create or update message"
 msgstr ""
+
+#: camac/communications/serializers.py
+msgid "Missing Content-Type header"
+msgstr "Fehlender Content-Type Header"
+
+#: camac/communications/serializers.py
+msgid "Unknown file extension"
+msgstr "Unbekannte Dateiendung"
+
+#: camac/communications/serializers.py
+#, python-format
+msgid ""
+"Content-Type %(content_type)s does not match file extension %(extension)s."
+msgstr ""
+"Content-Type %(content_type)s stimmt nicht mit der Dateiendung %(extension)s "
+"überein."
+
+#: camac/communications/serializers.py
+#, python-format
+msgid ""
+"Content-Type %(content_type)s does not match detected file content "
+"%(file_content_type)s."
+msgstr ""
+"Content-Type %(content_type)s stimmt nicht mit dem erkannten Dateityp "
+"%(file_content_type)s überein."
+
+#: camac/communications/serializers.py
+#, python-format
+msgid "File type %(mime_type)s is not allowed."
+msgstr "Dateityp %(mime_type)s ist nicht erlaubt."
 
 #: camac/communications/serializers.py
 msgid "This attachment is already a document module attachment"
