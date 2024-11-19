@@ -1,5 +1,7 @@
 import json
+from mimetypes import guess_type
 
+import magic
 from alexandria.core import models as alexandria_models
 from alexandria.core.api import create_document_file as create_alexandria_document_file
 from django.conf import settings
@@ -359,7 +361,54 @@ class MessageSerializer(serializers.ModelSerializer):
             # only need to check "inline" uploaded files, not linked ones
             if attachment.file_attachment:
                 validate_file_infection(attachment.file_attachment)
+                self._validate_mime_type(attachment.file_attachment.file)
+
         return value
+
+    def _validate_mime_type(self, file):
+        content_type_header = file.content_type
+        extension_type, _ = guess_type(file.name)
+
+        if not content_type_header:  # pragma: no cover
+            raise ValidationError(gettext("Missing Content-Type header"))
+        if not extension_type:  # pragma: no cover
+            raise ValidationError(gettext("Unknown file extension"))
+
+        if content_type_header == "application/octet-stream":  # pragma: no cover
+            content_type_header = extension_type
+        if content_type_header != extension_type:  # pragma: no cover
+            raise ValidationError(
+                gettext(
+                    "Content-Type %(content_type)s does not match file extension %(extension)s."
+                    % {
+                        "content_type": content_type_header,
+                        "extension": extension_type,
+                    }
+                )
+            )
+
+        file.seek(0)
+        file_content_type = magic.from_buffer(file.read(), mime=True)
+        file.seek(0)
+
+        if file_content_type != content_type_header:
+            raise ValidationError(
+                gettext(
+                    "Content-Type %(content_type)s does not match detected file content %(file_content_type)s."
+                    % {
+                        "content_type": content_type_header,
+                        "file_content_type": file_content_type,
+                    }
+                )
+            )
+
+        if content_type_header not in settings.COMMUNICATIONS["ALLOWED_MIME_TYPES"]:
+            raise ValidationError(
+                gettext(
+                    "File type %(mime_type)s is not allowed."
+                    % {"mime_type": content_type_header}
+                )
+            )
 
     included_serializers = {
         "topic": TopicSerializer,
