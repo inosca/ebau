@@ -68,7 +68,10 @@ export default class LoginRoute extends OIDCAuthenticationRoute {
 
   async exchangeToken(token) {
     if (this.session.isAuthenticated) {
-      // make sure there is no active session before exchanging a token
+      // Reset group ID to avoid API errors after token exchange. We need to
+      // force this as the group ID sometimes survives a session invalidation.
+      this.session.groupId = null;
+      // Make sure there is no active session before exchanging a token
       await this.session.invalidate();
     }
 
