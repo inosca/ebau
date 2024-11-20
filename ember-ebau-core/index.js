@@ -51,6 +51,8 @@ module.exports = {
         enableTokenExchange: process.env.ENABLE_TOKEN_EXCHANGE ?? false,
         eGovPortalURL: process.env.EGOV_PORTAL_URL ?? "http://egov.local",
         eGovPrestationPath: process.env.EGOV_PRESTATION_PATH ?? "/prestation/1",
+        eGovPublicPrestationPath:
+          process.env.EGOV_PUBLIC_PRESTATION_PATH ?? "/prestation/5",
       },
     },
     babel: {
