@@ -11,10 +11,18 @@ from rest_framework import status
     "role__name,communications_message__topic",
     [("Municipality", lf("topic_with_admin_involved"))],
 )
+@pytest.mark.parametrize(
+    "communications_attachment__file_type,content_disposition",
+    [
+        ("application/pdf", "inline"),
+        ("text/plain", "attachment"),
+    ],
+)
 def test_s3_attachment_download_url(
     admin_client,
     communications_attachment,
     use_alexandria_backend,
+    content_disposition,
 ):
     communications_attachment.document_attachment = None
     communications_attachment.alexandria_file = None
@@ -33,6 +41,7 @@ def test_s3_attachment_download_url(
     )
     resp = admin_client.get(data["download-url"])
     assert resp.status_code == status.HTTP_200_OK
+    assert content_disposition in resp.headers["Content-Disposition"]
 
 
 @pytest.mark.parametrize(
