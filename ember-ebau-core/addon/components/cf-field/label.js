@@ -66,7 +66,7 @@ export default class CustomCfFieldLabelComponent extends Component {
         "bl=hintergrundkarte_sw",
         "s=1000",
         `l=${layers.join(",")}`,
-        x && y ? `&c=${x},${y}` : null,
+        x && y ? `c=${x},${y}` : null,
       ]
         .filter(Boolean)
         .join("&");
