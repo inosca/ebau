@@ -214,7 +214,15 @@ class AttachmentView(
                 base_path=settings.MEDIA_ROOT,
                 file_path=file_path,
             )
-        return FileResponse(file, as_attachment=False, filename=obj.display_name)
+
+        as_attachment = (
+            obj.content_type
+            not in settings.COMMUNICATIONS["SAFE_FOR_INLINE_DISPOSITION"]
+        )
+
+        return FileResponse(
+            file, as_attachment=as_attachment, filename=obj.display_name
+        )
 
     class Meta:
         model = models.CommunicationsAttachment

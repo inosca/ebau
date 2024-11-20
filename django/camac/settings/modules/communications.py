@@ -11,6 +11,7 @@ COMMUNICATIONS = {
         "DOSSIER_NUMBER_ANNOTATION": F("instance__case__meta__ebau-number"),
         "ROLES_WITH_APPLICANT_CONTACT": ["active_or_involved_lead_authority"],
         "ALLOWED_MIME_TYPES": ["application/pdf", "image/png", "image/jpeg"],
+        "SAFE_FOR_INLINE_DISPOSITION": ["application/pdf", "image/png", "image/jpeg"],
     },
     "kt_bern": {
         "ENABLED": True,
