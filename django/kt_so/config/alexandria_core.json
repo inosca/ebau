@@ -1076,7 +1076,6 @@
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}"
     }
   },
-
   {
     "model": "alexandria_core.mark",
     "pk": "sensitive",

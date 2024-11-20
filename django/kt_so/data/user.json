@@ -5800,6 +5800,38 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 600,
+    "fields": {
+      "role": 10,
+      "service": 130,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 601,
+    "fields": {
+      "role": 9,
+      "service": 130,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
     "model": "user.groupt",
     "pk": 4,
     "fields": {
@@ -9380,6 +9412,26 @@
     }
   },
   {
+    "model": "user.groupt",
+    "pk": 600,
+    "fields": {
+      "group": 600,
+      "language": "de",
+      "name": "Sachbearbeitung Amt für Militär und Bevölkerungsschutz (Zivilschutz, Bauwesen)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 601,
+    "fields": {
+      "group": 601,
+      "language": "de",
+      "name": "Administration Amt für Militär und Bevölkerungsschutz (Zivilschutz, Bauwesen)",
+      "city": null
+    }
+  },
+  {
     "model": "user.usergroup",
     "pk": 1,
     "fields": {
@@ -12361,6 +12413,28 @@
     }
   },
   {
+    "model": "user.service",
+    "pk": 130,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 15,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "external_identifier": null
+    }
+  },
+  {
     "model": "user.servicet",
     "pk": 1,
     "fields": {
@@ -13765,6 +13839,17 @@
       "language": "de",
       "name": "ARP, Fachstelle Nutzungsplanung - Kreisplanung",
       "description": "ARP, Fachstelle Nutzungsplanung - Kreisplanung",
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 130,
+    "fields": {
+      "service": 130,
+      "language": "de",
+      "name": "Amt für Militär und Bevölkerungsschutz (Zivilschutz, Bauwesen)",
+      "description": "Amt für Militär und Bevölkerungsschutz (Zivilschutz, Bauwesen)",
       "city": null
     }
   }
