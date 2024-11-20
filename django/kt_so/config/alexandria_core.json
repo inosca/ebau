@@ -1076,6 +1076,24 @@
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}"
     }
   },
+
+  {
+    "model": "alexandria_core.mark",
+    "pk": "sensitive",
+    "fields": {
+      "created_at": "2023-12-01T09:11:54.349Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-12-01T09:11:54.349Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 5
+      },
+      "name": "{\"de\": \"Vertraulich\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Dieses Dokument enth\\u00e4lt pers\\u00f6nliche Daten. Das Dokument kann nicht \\u00f6ffentlich publiziert werden.\", \"fr\": \"\", \"it\": \"\"}"
+    }
+  },
   {
     "model": "alexandria_core.mark",
     "pk": "void",
