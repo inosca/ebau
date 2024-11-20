@@ -36135,7 +36135,7 @@
       "meta": {
         "gis-layers": [
           "ch.so.ada.archaeologie.fundstellen_siedlungsgebiet",
-          "ch.so.ada.archaeologie.schutzbereich_innenstadt"
+          "ch.so.ada.archaeologie.schutzbereich_innenstadt[60]"
         ]
       },
       "data_source": null,

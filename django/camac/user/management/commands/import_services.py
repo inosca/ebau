@@ -114,9 +114,18 @@ class Command(BaseCommand):
             type=str,
             help="Path to excel file",
         )
+        parser.add_argument(
+            "--update-existing",
+            "-u",
+            dest="update",
+            action="store_true",
+            default=False,
+            help="Update existing services and groups",
+        )
 
     @transaction.atomic
-    def handle(self, *args, **options):
+    def handle(self, *args, **options):  # noqa: C901
+        update = options["update"]
         rows = pyexcel.get_array(file_name=options["source"])
 
         for row in rows[1:]:
@@ -149,8 +158,13 @@ class Command(BaseCommand):
             existing = Service.objects.filter(trans__name=name).first()
 
             if existing:
-                self.stdout.write(self.style.WARNING(f"Updating service {name}"))
-                Service.objects.filter(pk=existing.pk).update(**service_data)
+                if update:
+                    self.stdout.write(self.style.WARNING(f"Updating service {name}"))
+                    Service.objects.filter(pk=existing.pk).update(**service_data)
+                else:
+                    self.stdout.write(
+                        self.style.WARNING(f"Skipping existing service {name}")
+                    )
                 service = existing
             else:
                 self.stdout.write(self.style.SUCCESS(f"Creating service {name}"))
@@ -164,9 +178,9 @@ class Command(BaseCommand):
                 city=scrub(row[4]),
             )
 
-            if existing:
+            if existing and update:
                 ServiceT.objects.filter(service_id=existing.pk).update(**service_t_data)
-            else:
+            elif not existing:
                 ServiceT.objects.create(**service_t_data)
 
             for group_type, group_type_name in GROUP_TYPES.items():
@@ -191,7 +205,8 @@ class Command(BaseCommand):
                 existing = Group.objects.filter(trans__name=group_name).first()
 
                 if existing:
-                    Group.objects.filter(pk=existing.pk).update(**group_data)
+                    if update:
+                        Group.objects.filter(pk=existing.pk).update(**group_data)
                     group = existing
                 else:
                     group = Group.objects.create(**group_data)
@@ -203,7 +218,7 @@ class Command(BaseCommand):
                     city=scrub(row[4]),
                 )
 
-                if existing:
+                if existing and update:
                     GroupT.objects.filter(group_id=existing.pk).update(**group_t_data)
-                else:
+                elif not existing:
                     GroupT.objects.create(**group_t_data)
