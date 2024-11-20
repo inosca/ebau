@@ -1309,6 +1309,7 @@ APPLICATIONS = {
             "geometer_uri",
             "invited_to_schlussabnahme_projekt",
             "fgs_uri",
+            "liegenschaftsschaetzung_uri",
         ],
         "DOCUMENTS_SKIP_CONTEXT_VALIDATION": True,
         "CALUMA": {
@@ -1570,6 +1571,17 @@ APPLICATIONS = {
                             "template_slug": "7-bau-beendet",
                             "recipient_types": [
                                 "fgs_uri",
+                            ],
+                        },
+                    },
+                ],
+                "liegenschaftsschaetzung": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "7-bau-beendet",
+                            "recipient_types": [
+                                "liegenschaftsschaetzung_uri",
                             ],
                         },
                     },

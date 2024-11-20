@@ -96,7 +96,11 @@ msgstr "Empfangsbestätigung Vorentscheid"
 
 #: camac/instance/milestones/serializers.py
 msgid "notice to gebaeudeschaetzung"
-msgstr "Meldung Baubewilligung an Gebäudeschätzung"
+msgstr "Meldung Bau beendet an Fachstelle für Gebäudeschätzung"
+
+#: camac/instance/milestones/serializers.py
+msgid "notice to liegenschaftsschaetzung"
+msgstr "Meldung Bau beendet an Amt für Steuern Liegenschaftsschätzung"
 
 #: camac/instance/milestones/serializers.py
 msgid "Building permit valid until"
