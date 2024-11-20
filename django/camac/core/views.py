@@ -17,7 +17,11 @@ from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
 from camac.caluma.api import CalumaApi
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import FormField, Instance
-from camac.user.permissions import permission_aware
+from camac.user.permissions import (
+    DefaultPermission,
+    PublicationPermission,
+    permission_aware,
+)
 
 from . import filters, models, serializers
 
@@ -466,6 +470,7 @@ class InstanceResourceView(ReadOnlyModelViewSet):
 
 
 class StaticContentView(ModelViewSet):
+    permission_classes = [DefaultPermission | PublicationPermission]
     filterset_class = filters.StaticContentFilterSet
     queryset = models.StaticContent.objects.all()
     serializer_class = serializers.StaticContentSerializer

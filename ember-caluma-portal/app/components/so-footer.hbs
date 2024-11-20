@@ -14,12 +14,26 @@
   <div>
     <ul class="so-footer__nav">
       <li>
-        <LinkTo @route="static-content" @model="portal-faq">
+        <LinkTo
+          @route={{if
+            this.session.enforcePublicAccess
+            "public-instances.static-content"
+            "static-content"
+          }}
+          @model="portal-faq"
+        >
           {{t "nav.faq"}}
         </LinkTo>
       </li>
       <li>
-        <LinkTo @route="static-content" @model="portal-contact">
+        <LinkTo
+          @route={{if
+            this.session.enforcePublicAccess
+            "public-instances.static-content"
+            "static-content"
+          }}
+          @model="portal-contact"
+        >
           {{t "so-footer.contact"}}
         </LinkTo>
       </li>
