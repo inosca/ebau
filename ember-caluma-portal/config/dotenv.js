@@ -13,6 +13,7 @@ module.exports = function (environment) {
       "INTERNAL_URL",
       "EGOV_PORTAL_URL",
       "EGOV_PRESTATION_PATH",
+      "EGOV_PUBLIC_PRESTATION_PATH",
       "ENABLE_TOKEN_EXCHANGE",
       "ENABLE_WATERMARK",
       "WATERMARK",
