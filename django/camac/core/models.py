@@ -4293,3 +4293,23 @@ class ServiceContent(models.Model):
     class Meta:
         verbose_name = _("Service content")
         verbose_name_plural = _("Service contents")
+
+
+class PHPSession(models.Model):
+    """Model to store PHP sessions.
+
+    This model only exists to create a table that can be used to store our PHP
+    sessions in the database.
+
+    See `php/library/Zend/Session/SaveHandler/DbTable.php` for more information
+    about the implementation and `php/application/configs/application.ini` for
+    the configuration.
+    """
+
+    id = models.CharField(max_length=128, primary_key=True)
+    modified = models.IntegerField()
+    lifetime = models.IntegerField()
+    data = models.TextField()
+
+    class Meta:
+        db_table = "php_session"
