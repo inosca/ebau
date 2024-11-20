@@ -107,6 +107,78 @@
         'REPONDU': '',
       }),
     ]),
+    'CIRCULATION_DEMANDEE': list([
+      dict({
+        'BEANTWORTET': '',
+        'CREE': '30.08.2021',
+        'DELAI': '10.12.1978',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '10.12.1978',
+        'NAME': 'Catherine Parks',
+        'NOM': 'Catherine Parks',
+        'REPONDU': '',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'CREE': '30.08.2021',
+        'DELAI': '10.12.1996',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '10.12.1996',
+        'NAME': 'Diamond Serrano',
+        'NOM': 'Diamond Serrano',
+        'REPONDU': '',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'CREE': '30.08.2021',
+        'DELAI': '18.03.1977',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '18.03.1977',
+        'NAME': 'Thomas Chung',
+        'NOM': 'Thomas Chung',
+        'REPONDU': '',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'CREE': '30.08.2021',
+        'DELAI': '19.10.2004',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '19.10.2004',
+        'NAME': 'Morgan Hicks',
+        'NOM': 'Morgan Hicks',
+        'REPONDU': '',
+      }),
+      dict({
+        'BEANTWORTET': '23.10.2007',
+        'CREE': '30.08.2021',
+        'DELAI': '02.02.2012',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '02.02.2012',
+        'NAME': 'Jean Miller',
+        'NOM': 'Jean Miller',
+        'REPONDU': '23.10.2007',
+      }),
+      dict({
+        'BEANTWORTET': '12.09.2012',
+        'CREE': '30.08.2021',
+        'DELAI': '06.09.1995',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '06.09.1995',
+        'NAME': 'Andrea Melton',
+        'NOM': 'Andrea Melton',
+        'REPONDU': '12.09.2012',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'CREE': '30.08.2021',
+        'DELAI': '',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '',
+        'NAME': 'Catherine Parks',
+        'NOM': 'Catherine Parks',
+        'REPONDU': '',
+      }),
+    ]),
     'CIRCULATION_PREAVIS': list([
       dict({
         'ANTWORT': 'Baubewilligungspflichtig',
@@ -1055,6 +1127,78 @@
     'WAERMETECHNISCHE_ANLAGEN': list([
     ]),
     'ZIRKULATION_ALLE': list([
+      dict({
+        'BEANTWORTET': '',
+        'CREE': '30.08.2021',
+        'DELAI': '10.12.1978',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '10.12.1978',
+        'NAME': 'Catherine Parks',
+        'NOM': 'Catherine Parks',
+        'REPONDU': '',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'CREE': '30.08.2021',
+        'DELAI': '10.12.1996',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '10.12.1996',
+        'NAME': 'Diamond Serrano',
+        'NOM': 'Diamond Serrano',
+        'REPONDU': '',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'CREE': '30.08.2021',
+        'DELAI': '18.03.1977',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '18.03.1977',
+        'NAME': 'Thomas Chung',
+        'NOM': 'Thomas Chung',
+        'REPONDU': '',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'CREE': '30.08.2021',
+        'DELAI': '19.10.2004',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '19.10.2004',
+        'NAME': 'Morgan Hicks',
+        'NOM': 'Morgan Hicks',
+        'REPONDU': '',
+      }),
+      dict({
+        'BEANTWORTET': '23.10.2007',
+        'CREE': '30.08.2021',
+        'DELAI': '02.02.2012',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '02.02.2012',
+        'NAME': 'Jean Miller',
+        'NOM': 'Jean Miller',
+        'REPONDU': '23.10.2007',
+      }),
+      dict({
+        'BEANTWORTET': '12.09.2012',
+        'CREE': '30.08.2021',
+        'DELAI': '06.09.1995',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '06.09.1995',
+        'NAME': 'Andrea Melton',
+        'NOM': 'Andrea Melton',
+        'REPONDU': '12.09.2012',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'CREE': '30.08.2021',
+        'DELAI': '',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '',
+        'NAME': 'Catherine Parks',
+        'NOM': 'Catherine Parks',
+        'REPONDU': '',
+      }),
+    ]),
+    'ZIRKULATION_ANGEFORDERT': list([
       dict({
         'BEANTWORTET': '',
         'CREE': '30.08.2021',
@@ -3863,6 +4007,44 @@
       'nested_aliases': dict({
       }),
     }),
+    'ZIRKULATION_ANGEFORDERT': dict({
+      'aliases': list([
+        dict({
+          'de': 'ZIRKULATION_ANGEFORDERT',
+          'fr': 'CIRCULATION_DEMANDEE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'In Dossier involvierte Stellen, welche von dieser Stelle angefragt wurden',
+        'fr': 'Tous les services impliqués dans le dossier et sollicités par ce service',
+      }),
+      'nested_aliases': dict({
+        'BEANTWORTET': list([
+          dict({
+            'de': 'BEANTWORTET',
+            'fr': 'REPONDU',
+          }),
+        ]),
+        'ERSTELLT': list([
+          dict({
+            'de': 'ERSTELLT',
+            'fr': 'CREE',
+          }),
+        ]),
+        'FRIST': list([
+          dict({
+            'de': 'FRIST',
+            'fr': 'DELAI',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'NAME',
+            'fr': 'NOM',
+          }),
+        ]),
+      }),
+    }),
     'ZIRKULATION_FACHSTELLEN': dict({
       'aliases': list([
         dict({
@@ -5319,6 +5501,44 @@
         'it': 'Volume del posto protetto',
       }),
       'nested_aliases': dict({
+      }),
+    }),
+    'ZIRKULATION_ANGEFORDERT': dict({
+      'aliases': list([
+        dict({
+          'de': 'ZIRKULATION_ANGEFORDERT',
+          'it': 'CIRCOLAZIONE_RICHIESTA',
+        }),
+      ]),
+      'description': dict({
+        'de': 'In Dossier involvierte Stellen, welche von dieser Stelle angefragt wurden',
+        'it': 'Servizi coinvolti nel dossier che sono stati richiesti da questo servizio',
+      }),
+      'nested_aliases': dict({
+        'BEANTWORTET': list([
+          dict({
+            'de': 'BEANTWORTET',
+            'it': 'RISPOSTO',
+          }),
+        ]),
+        'ERSTELLT': list([
+          dict({
+            'de': 'ERSTELLT',
+            'it': 'CREATO',
+          }),
+        ]),
+        'FRIST': list([
+          dict({
+            'de': 'FRIST',
+            'it': 'SCADENZA',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'NAME',
+            'it': 'NOME',
+          }),
+        ]),
       }),
     }),
     'ZIRKULATION_FACHSTELLEN': dict({
@@ -7546,6 +7766,38 @@
       'nested_aliases': dict({
       }),
     }),
+    'ZIRKULATION_ANGEFORDERT': dict({
+      'aliases': list([
+        dict({
+          'de': 'ZIRKULATION_ANGEFORDERT',
+        }),
+      ]),
+      'description': dict({
+        'de': 'In Dossier involvierte Stellen, welche von dieser Stelle angefragt wurden',
+      }),
+      'nested_aliases': dict({
+        'BEANTWORTET': list([
+          dict({
+            'de': 'BEANTWORTET',
+          }),
+        ]),
+        'ERSTELLT': list([
+          dict({
+            'de': 'ERSTELLT',
+          }),
+        ]),
+        'FRIST': list([
+          dict({
+            'de': 'FRIST',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'NAME',
+          }),
+        ]),
+      }),
+    }),
     'ZIRKULATION_FACHSTELLEN': dict({
       'aliases': list([
         dict({
@@ -7728,6 +7980,16 @@
     'CIRCULATION_COMMUNES[].NAME',
     'CIRCULATION_COMMUNES[].NOM',
     'CIRCULATION_COMMUNES[].REPONDU',
+    'CIRCULATION_DEMANDEE',
+    'CIRCULATION_DEMANDEE[]',
+    'CIRCULATION_DEMANDEE[].BEANTWORTET',
+    'CIRCULATION_DEMANDEE[].CREE',
+    'CIRCULATION_DEMANDEE[].DELAI',
+    'CIRCULATION_DEMANDEE[].ERSTELLT',
+    'CIRCULATION_DEMANDEE[].FRIST',
+    'CIRCULATION_DEMANDEE[].NAME',
+    'CIRCULATION_DEMANDEE[].NOM',
+    'CIRCULATION_DEMANDEE[].REPONDU',
     'CIRCULATION_PREAVIS',
     'CIRCULATION_PREAVIS[]',
     'CIRCULATION_PREAVIS[].ANTWORT',
@@ -8273,6 +8535,16 @@
     'ZIRKULATION_ALLE[].NAME',
     'ZIRKULATION_ALLE[].NOM',
     'ZIRKULATION_ALLE[].REPONDU',
+    'ZIRKULATION_ANGEFORDERT',
+    'ZIRKULATION_ANGEFORDERT[]',
+    'ZIRKULATION_ANGEFORDERT[].BEANTWORTET',
+    'ZIRKULATION_ANGEFORDERT[].CREE',
+    'ZIRKULATION_ANGEFORDERT[].DELAI',
+    'ZIRKULATION_ANGEFORDERT[].ERSTELLT',
+    'ZIRKULATION_ANGEFORDERT[].FRIST',
+    'ZIRKULATION_ANGEFORDERT[].NAME',
+    'ZIRKULATION_ANGEFORDERT[].NOM',
+    'ZIRKULATION_ANGEFORDERT[].REPONDU',
     'ZIRKULATION_FACHSTELLEN',
     'ZIRKULATION_FACHSTELLEN[]',
     'ZIRKULATION_FACHSTELLEN[].BEANTWORTET',
@@ -8357,6 +8629,16 @@
     'CIRCOLAZIONE_COMUNI[].NOME',
     'CIRCOLAZIONE_COMUNI[].RISPOSTO',
     'CIRCOLAZIONE_COMUNI[].SCADENZA',
+    'CIRCOLAZIONE_RICHIESTA',
+    'CIRCOLAZIONE_RICHIESTA[]',
+    'CIRCOLAZIONE_RICHIESTA[].BEANTWORTET',
+    'CIRCOLAZIONE_RICHIESTA[].CREATO',
+    'CIRCOLAZIONE_RICHIESTA[].ERSTELLT',
+    'CIRCOLAZIONE_RICHIESTA[].FRIST',
+    'CIRCOLAZIONE_RICHIESTA[].NAME',
+    'CIRCOLAZIONE_RICHIESTA[].NOME',
+    'CIRCOLAZIONE_RICHIESTA[].RISPOSTO',
+    'CIRCOLAZIONE_RICHIESTA[].SCADENZA',
     'CIRCOLAZIONE_RISCONTRI',
     'CIRCOLAZIONE_RISCONTRI[]',
     'CIRCOLAZIONE_RISCONTRI[].ANTWORT',
@@ -8607,6 +8889,16 @@
     'ZIRKULATION_ALLE[].NOME',
     'ZIRKULATION_ALLE[].RISPOSTO',
     'ZIRKULATION_ALLE[].SCADENZA',
+    'ZIRKULATION_ANGEFORDERT',
+    'ZIRKULATION_ANGEFORDERT[]',
+    'ZIRKULATION_ANGEFORDERT[].BEANTWORTET',
+    'ZIRKULATION_ANGEFORDERT[].CREATO',
+    'ZIRKULATION_ANGEFORDERT[].ERSTELLT',
+    'ZIRKULATION_ANGEFORDERT[].FRIST',
+    'ZIRKULATION_ANGEFORDERT[].NAME',
+    'ZIRKULATION_ANGEFORDERT[].NOME',
+    'ZIRKULATION_ANGEFORDERT[].RISPOSTO',
+    'ZIRKULATION_ANGEFORDERT[].SCADENZA',
     'ZIRKULATION_FACHSTELLEN',
     'ZIRKULATION_FACHSTELLEN[]',
     'ZIRKULATION_FACHSTELLEN[].BEANTWORTET',
@@ -8947,6 +9239,12 @@
     'ZIRKULATION_ALLE[].ERSTELLT',
     'ZIRKULATION_ALLE[].FRIST',
     'ZIRKULATION_ALLE[].NAME',
+    'ZIRKULATION_ANGEFORDERT',
+    'ZIRKULATION_ANGEFORDERT[]',
+    'ZIRKULATION_ANGEFORDERT[].BEANTWORTET',
+    'ZIRKULATION_ANGEFORDERT[].ERSTELLT',
+    'ZIRKULATION_ANGEFORDERT[].FRIST',
+    'ZIRKULATION_ANGEFORDERT[].NAME',
     'ZIRKULATION_FACHSTELLEN',
     'ZIRKULATION_FACHSTELLEN[]',
     'ZIRKULATION_FACHSTELLEN[].BEANTWORTET',
@@ -9042,6 +9340,8 @@
     'CHAMBRES_AVEC_PLUS_DE_50_PERSONNES': list([
     ]),
     'CIRCULATION_COMMUNES': list([
+    ]),
+    'CIRCULATION_DEMANDEE': list([
     ]),
     'CIRCULATION_PREAVIS': list([
     ]),
@@ -9446,6 +9746,8 @@
     ]),
     'ZIRKULATION_ALLE': list([
     ]),
+    'ZIRKULATION_ANGEFORDERT': list([
+    ]),
     'ZIRKULATION_FACHSTELLEN': list([
     ]),
     'ZIRKULATION_GEMEINDEN': list([
@@ -9520,6 +9822,68 @@
         'NOME': 'Christopher Smith',
         'RISPOSTO': '',
         'SCADENZA': '22.05.1981',
+      }),
+    ]),
+    'CIRCOLAZIONE_RICHIESTA': list([
+      dict({
+        'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '18.06.1975',
+        'NAME': 'Patrick Baker',
+        'NOME': 'Patrick Baker',
+        'RISPOSTO': '',
+        'SCADENZA': '18.06.1975',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '10.04.2007',
+        'NAME': 'Vanessa Nguyen',
+        'NOME': 'Vanessa Nguyen',
+        'RISPOSTO': '',
+        'SCADENZA': '10.04.2007',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '27.01.2010',
+        'NAME': 'Brian Bates',
+        'NOME': 'Brian Bates',
+        'RISPOSTO': '',
+        'SCADENZA': '27.01.2010',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '22.05.1981',
+        'NAME': 'Christopher Smith',
+        'NOME': 'Christopher Smith',
+        'RISPOSTO': '',
+        'SCADENZA': '22.05.1981',
+      }),
+      dict({
+        'BEANTWORTET': '02.01.2007',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '29.11.1980',
+        'NAME': 'Juan Morales',
+        'NOME': 'Juan Morales',
+        'RISPOSTO': '02.01.2007',
+        'SCADENZA': '29.11.1980',
+      }),
+      dict({
+        'BEANTWORTET': '27.02.1976',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '13.11.1972',
+        'NAME': 'Jennifer Thornton',
+        'NOME': 'Jennifer Thornton',
+        'RISPOSTO': '27.02.1976',
+        'SCADENZA': '13.11.1972',
       }),
     ]),
     'CIRCOLAZIONE_RISCONTRI': list([
@@ -10052,6 +10416,68 @@
     'VIA': 'Teststrasse 12',
     'VOLUMEN_SCHUTZPLAETZE': 30,
     'ZIRKULATION_ALLE': list([
+      dict({
+        'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '18.06.1975',
+        'NAME': 'Patrick Baker',
+        'NOME': 'Patrick Baker',
+        'RISPOSTO': '',
+        'SCADENZA': '18.06.1975',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '10.04.2007',
+        'NAME': 'Vanessa Nguyen',
+        'NOME': 'Vanessa Nguyen',
+        'RISPOSTO': '',
+        'SCADENZA': '10.04.2007',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '27.01.2010',
+        'NAME': 'Brian Bates',
+        'NOME': 'Brian Bates',
+        'RISPOSTO': '',
+        'SCADENZA': '27.01.2010',
+      }),
+      dict({
+        'BEANTWORTET': '',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '22.05.1981',
+        'NAME': 'Christopher Smith',
+        'NOME': 'Christopher Smith',
+        'RISPOSTO': '',
+        'SCADENZA': '22.05.1981',
+      }),
+      dict({
+        'BEANTWORTET': '02.01.2007',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '29.11.1980',
+        'NAME': 'Juan Morales',
+        'NOME': 'Juan Morales',
+        'RISPOSTO': '02.01.2007',
+        'SCADENZA': '29.11.1980',
+      }),
+      dict({
+        'BEANTWORTET': '27.02.1976',
+        'CREATO': '30.08.2021',
+        'ERSTELLT': '30.08.2021',
+        'FRIST': '13.11.1972',
+        'NAME': 'Jennifer Thornton',
+        'NOME': 'Jennifer Thornton',
+        'RISPOSTO': '27.02.1976',
+        'SCADENZA': '13.11.1972',
+      }),
+    ]),
+    'ZIRKULATION_ANGEFORDERT': list([
       dict({
         'BEANTWORTET': '',
         'CREATO': '30.08.2021',

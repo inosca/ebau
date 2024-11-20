@@ -840,6 +840,14 @@ msgid "Opinions and ancillary clauses of the invited services"
 msgstr "Stellungnahmen und Nebenbestimmungen der eingeladenen Fachstellen"
 
 #: camac/instance/placeholders/serializers.py
+msgid "CIRCULATION_REQUESTED"
+msgstr "ZIRKULATION_ANGEFORDERT"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Inquiries requested by own service only"
+msgstr "In Dossier involvierte Stellen, welche von dieser Stelle angefragt wurden"
+
+#: camac/instance/placeholders/serializers.py
 msgid "OWN_BILLING_ENTRIES_TOTAL"
 msgstr "EIGENE_GEBUEHREN_TOTAL"
 
