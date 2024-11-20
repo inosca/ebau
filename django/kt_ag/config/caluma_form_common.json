@@ -1007,7 +1007,7 @@
       },
       "meta": {
         "hideLabel": true,
-        "widgetOverride": "gr-gis"
+        "widgetOverride": "ag-gis"
       },
       "data_source": null,
       "row_form": null,
