@@ -35,9 +35,10 @@
 }
 .reset-button {
   position: absolute;
-  top: 79%;
-  right: 10px;
   z-index: 1;
+  top: auto;
+  bottom: 10px;
+  right: 10px;
 }
 .reset-button button {
   background-color: #fff;
@@ -53,3 +54,10 @@
   position: absolute;
   right: 0;
 }
+
+.map-wrapper{
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+

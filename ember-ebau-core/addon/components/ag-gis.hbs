@@ -105,7 +105,7 @@
       {{/unless}}
     </LeafletMap>
     {{#unless @disabled}}
-      <div class="reset-button ag-gis-reset-button">
+      <div class="reset-button">
         {{#if this.showResetButton}}
           <UkButton @onClick={{this.resetMarkers}}><FaIcon
               @icon="rotate-left"
@@ -133,12 +133,12 @@
         <div class="uk-text-bolder">{{t "gis.centeredCoordinates"}}</div>
         <div>{{format-coordinate this.centerCoordinate}}
           <a
-            class="uk-link-text uk-text-nowrap"
+            class="uk-link-text uk-text-nowrap uk-padding-left-small"
             href={{this.centerCoordinateUrl}}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span uk-icon="icon: link-external; ratio:0.8"></span>
+            <span uk-icon="icon: link-external; ratio:0.75"></span>
             {{t "gis.openInAgisGR"}}
           </a>
         </div>
