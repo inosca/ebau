@@ -146,6 +146,18 @@ class CustomDynamicGroups(BaseDynamicGroups):
             str(Service.objects.get(pk=uri_constants.FGS_SERVICE_ID).pk)
         ]  # FGS Fachstelle für Gebäudeschätzung
 
+    @register_dynamic_group("liegenschaftsschaetzung-ur")
+    def resolve_liegenschaftsschaetzung_ur(
+        self, task, case, user, prev_work_item, context, **kwargs
+    ):
+        return [
+            str(
+                Service.objects.get(
+                    pk=uri_constants.AMT_FUER_STEUERN_LIEGENSCHAFTSSCHAETZUNG_SERVICE_ID
+                ).pk
+            )
+        ]
+
     @register_dynamic_group("service-bab")
     def resolve_service_bab(self, task, case, user, prev_work_item, context, **kwargs):
         if not settings.BAB:  # pragma: no cover

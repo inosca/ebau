@@ -642,6 +642,38 @@ def test_recipient_fgs_uri(
     ]
 
 
+def test_recipient_liegenschaftsschaetzung_uri(
+    db,
+    ur_instance,
+    service_factory,
+    notification_template,
+    mocker,
+):
+    liegenschaftsschaetzung_service = service_factory(
+        email="liegenschaftsschaetzung@example.com",
+    )
+    mocker.patch(
+        "camac.constants.kt_uri.AMT_FUER_STEUERN_LIEGENSCHAFTSSCHAETZUNG_SERVICE_ID",
+        liegenschaftsschaetzung_service.pk,
+    )
+
+    serializer = serializers.PermissionlessNotificationTemplateSendmailSerializer(
+        data={
+            "instance": {"type": "instances", "id": ur_instance.pk},
+            "notification_template": {
+                "type": "notification-templates",
+                "id": notification_template.pk,
+            },
+            "recipient_types": ["liegenschaftsschaetzung_uri"],
+            "subject": "test",
+        }
+    )
+    serializer.is_valid()
+    assert serializer._get_recipients_liegenschaftsschaetzung_uri(ur_instance) == [
+        {"to": "liegenschaftsschaetzung@example.com"}
+    ]
+
+
 def test_recipient_geometer_uri(
     db, ur_instance, service_factory, notification_template
 ):
