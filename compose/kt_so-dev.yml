@@ -150,6 +150,7 @@ services:
       INTERNAL_URL: http://ember-ebau.local
       EGOV_PORTAL_URL: ${EGOV_PORTAL_URL:-http://egov.local}
       EGOV_PRESTATION_PATH: ${EGOV_PRESTATION_PATH:-/prestation/1}
+      EGOV_PUBLIC_PRESTATION_PATH: ${EGOV_PUBLIC_PRESTATION_PATH:-/prestation/5}
       ENABLE_TOKEN_EXCHANGE: ${ENABLE_TOKEN_EXCHANGE:-false}
       ENABLE_WATERMARK: true
       WATERMARK: local
