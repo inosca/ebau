@@ -110,6 +110,8 @@ export default class InstancesNewController extends Controller {
 
     const { data } = yield response.json();
 
+    this.showInfoPopup = false;
+
     yield this.router.transitionTo(
       "instances.edit.form",
       data.id,
