@@ -98,7 +98,7 @@ export default class ApplicationRoute extends Route {
       componentClass: GrGisComponent,
     });
     this.calumaOptions.registerComponentOverride({
-      label: "GIS-Karte (CH)",
+      label: "GIS-Karte (Kt. AG)",
       component: "ag-gis",
       componentClass: AgGisComponent,
     });
