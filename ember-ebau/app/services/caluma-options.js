@@ -106,21 +106,41 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
   }
 
   get distributionServiceGroupsGR() {
-    return {
-      suggestions: { disabled: true },
-      "authority-bab": {
-        label: "distribution.authority-bab",
-      },
-      service: {
-        label: "distribution.services",
-      },
-      municipality: {
-        label: "distribution.municipalities",
-      },
-      subservice: {
-        label: "distribution.subservices",
-      },
-    };
+    if (this.ebauModules.instanceId) {
+      const instance = this.store.peekRecord(
+        "instance",
+        this.ebauModules.instanceId,
+      );
+
+      if (instance.calumaForm === "bauanzeige") {
+        return {
+          suggestions: { disabled: true },
+          municipality: {
+            label: "distribution.municipalities",
+          },
+          subservice: {
+            label: "distribution.subservices",
+          },
+        };
+      }
+
+      return {
+        suggestions: { disabled: true },
+        "authority-bab": {
+          label: "distribution.authority-bab",
+        },
+        service: {
+          label: "distribution.services",
+        },
+        municipality: {
+          label: "distribution.municipalities",
+        },
+        subservice: {
+          label: "distribution.subservices",
+        },
+      };
+    }
+    return {};
   }
 
   get distributionServiceGroupsSO() {
