@@ -57,10 +57,15 @@ export default class LoginRoute extends OIDCAuthenticationRoute {
       return await this.exchangeToken(token);
     }
 
+    const config = getConfig("ember-ebau-core");
+    const prestationPath = transition.from?.name.startsWith("public-instances")
+      ? config.eGovPublicPrestationPath
+      : config.eGovPrestationPath;
+
     location.replace(
       [
-        getConfig("ember-ebau-core").eGovPortalURL,
-        getConfig("ember-ebau-core").eGovPrestationPath,
+        config.eGovPortalURL,
+        prestationPath,
         `?redirectUrl=${this.redirectUri}`,
       ].join(""),
     );
