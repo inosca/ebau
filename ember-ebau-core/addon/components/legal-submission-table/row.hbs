@@ -24,7 +24,9 @@
         @model={{decode-id @legalSubmission.id}}
         class="uk-button uk-button-link"
       >
-        <UkIcon @icon="pencil" />
+        <UkIcon
+          @icon={{if (can "edit legal-submission" @workItem) "pencil" "eye"}}
+        />
       </LinkTo>
       {{#if (can "edit legal-submission" @workItem)}}
         <UkButton
