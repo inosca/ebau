@@ -832,7 +832,10 @@ def test_dynamic_task_after_construction_step(
     [
         ("bauanzeige", ["distribution"]),
         ("vorlaeufige-beurteilung", ["distribution"]),
-        ("baugesuch", ["distribution", "fill-publication", "publication"]),
+        (
+            "baugesuch",
+            ["distribution", "fill-publication", "publication"],
+        ),
     ],
 )
 def test_dynamic_task_after_formal_exam(

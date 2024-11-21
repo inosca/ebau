@@ -643,6 +643,7 @@ def caluma_workflow_config_gr(
         settings.ROOT_DIR("kt_gr/config/caluma_workflow.json"),
         settings.ROOT_DIR("kt_gr/config/caluma_distribution.json"),
         settings.ROOT_DIR("kt_gr/config/caluma_additional_demand.json"),
+        settings.ROOT_DIR("kt_gr/config/caluma_objection_form.json"),
     )
 
     workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
@@ -979,6 +980,7 @@ def caluma_forms_gr(settings):
     caluma_form_models.Form.objects.create(slug="material-exam")
     caluma_form_models.Form.objects.create(slug="publikation")
     caluma_form_models.Form.objects.create(slug="construction-monitoring")
+    caluma_form_models.Form.objects.create(slug="personalien-tabelle")
 
     # dynamic choice options get cached, so we clear them
     # to ensure the new "gemeinde" options will be valid

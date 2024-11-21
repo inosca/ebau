@@ -564,6 +564,9 @@ DUMP = {
                     ),
                 },
                 "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
+                "caluma_objection_form": generate_form_dump_config(
+                    regex=r"^einsprache(n)?"
+                ),
                 "caluma_formal_exam_form": generate_form_dump_config(
                     regex=r"^formal-exam$"
                 ),

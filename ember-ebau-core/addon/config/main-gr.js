@@ -99,6 +99,17 @@ export default {
       "decision-decision-retreat": "uk-alert-warning",
     },
   },
+  legalSubmission: {
+    task: "objections",
+    tableForm: "einsprache",
+    tableQuestion: "einsprachen",
+    orderQuestion: "einsprache-datum",
+    columns: {
+      date: "einsprache-datum",
+      "legal-claimants": "einsprache-einsprechende",
+      withdrawn: "einsprache-zurueckgezogen",
+    },
+  },
   rejection: {
     instanceState: "rejected",
     allowedInstanceStates: [

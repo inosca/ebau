@@ -653,5 +653,28 @@
       ],
       "uso": ["circulation", "construction-acceptance", "decision", "finished"]
     }
+  },
+  "12000018": {
+    "label": "Meine Dossiers (Dossier list (Caluma)) > Einsprachen",
+    "acls": {
+      "municipality-lead": [
+        "circulation",
+        "decision",
+        "finished",
+        "init-distribution",
+        "rejected"
+      ],
+      "support": [
+        "new",
+        "subm",
+        "circulation",
+        "finished",
+        "decision",
+        "correction",
+        "init-distribution",
+        "construction-acceptance",
+        "rejected"
+      ]
+    }
   }
 }
