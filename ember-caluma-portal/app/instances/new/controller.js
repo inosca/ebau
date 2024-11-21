@@ -28,6 +28,7 @@ export default class InstancesNewController extends Controller {
 
   @tracked selectedForm = null;
   @tracked convertFrom = null;
+  @tracked showInfoPopup = false;
 
   get columns() {
     return Object.keys(this.forms.value ?? {}).sort(

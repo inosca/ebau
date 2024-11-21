@@ -80,16 +80,59 @@
     {{/if}}
 
     <div class="uk-text-right">
-      <UkButton
-        @color="primary"
-        @label={{t "global.continue"}}
-        @disabled={{or (not this.selectedForm) this.save.isRunning}}
-        @loading={{or
-          this.save.isRunning
-          this.convertToBuildingPermit.isRunning
-        }}
-        @onClick={{perform this.save}}
-      />
+      {{#if this.selectedForm.meta.onCreatePopup}}
+        <UkButton
+          @color="primary"
+          @label={{t "global.continue"}}
+          @onClick={{fn (mut this.showInfoPopup) true}}
+        />
+      {{else}}
+        <UkButton
+          @color="primary"
+          @label={{t "global.continue"}}
+          @disabled={{or (not this.selectedForm) this.save.isRunning}}
+          @loading={{this.save.isRunning}}
+          @onClick={{perform this.save}}
+        />
+      {{/if}}
     </div>
   {{/let}}
 </LoadingOrNotfound>
+
+<UkModal
+  @visible={{this.showInfoPopup}}
+  @onHide={{fn (mut this.showInfoPopup) false}}
+  @stack={{true}}
+  as |modal|
+>
+  <modal.header>
+    <h2 class="uk-modal-title">
+      {{t "instances.new.modal-title"}}
+    </h2>
+  </modal.header>
+
+  <modal.body>
+    <MarkdownToHtml
+      @markdown={{t
+        (concat
+          "instances.new."
+          this.selectedForm.meta.category
+          "."
+          this.selectedForm.slug
+        )
+      }}
+    />
+  </modal.body>
+
+  <modal.footer class="uk-text-right">
+    <UkButton @label={{t "global.cancel"}} class="uk-modal-close" />
+
+    <UkButton
+      @color="primary"
+      @label={{t "global.continue"}}
+      @disabled={{this.save.isRunning}}
+      @loading={{this.save.isRunning}}
+      @onClick={{perform this.save}}
+    />
+  </modal.footer>
+</UkModal>
