@@ -64,6 +64,7 @@ Router.map(function () {
       this.route("form");
       this.route("documents");
     });
+    registerStaticContent(this, {}, "public-static-content");
   });
 
   registerStaticContent(this, { resetNamespace });

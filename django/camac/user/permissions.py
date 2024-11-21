@@ -228,6 +228,10 @@ PublicationPermission = IsPublicAccess & (
         IsView("FormConfigDownloadView", "FormFieldView")
         & (PublicationSZ | PublicationTest)
     )
+    | (
+        # Static content
+        IsView("StaticContentView") & (PublicationSO | PublicationTest)
+    )
 )
 
 ViewedPublicationCountPermissions = IsPublicAccess & (
