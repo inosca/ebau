@@ -1,5 +1,6 @@
 from camac.permissions.conditions import (
     Always,
+    Callback,
     HasApplicantRole,
     HasRole,
     IsForm,
@@ -67,6 +68,11 @@ MODULE_AUDIT = (ROLES_MUNICIPALITY & RequireWorkItem("formal-exam")) | (
 )
 MODULE_HISTORY = STATES_ALL
 MODULE_JOURNAL = STATES_ALL
+MODULE_LEGAL_SUBMISSIONS = RequireWorkItem("objections") | Callback(
+    lambda userinfo: userinfo.service.service_group.name in ["authority-bab"],
+    allow_caching=True,
+    name="is_cantonal_service",
+)
 MODULE_LINKED_INSTANCES = STATES_ALL
 MODULE_PERMISSIONS = STATES_ALL
 MODULE_PUBLICATION = RequireWorkItem("fill-publication")
@@ -139,6 +145,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("form-read", MODULE_FORM),
             ("history-read", MODULE_HISTORY),
             ("journal-read", MODULE_JOURNAL),
+            ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("responsible-read", MODULE_RESPONSIBLE),
             ("work-items-read", MODULE_WORK_ITEMS),
@@ -167,6 +174,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("instance-delete", ACTION_INSTANCE_DELETE),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
             ("journal-read", MODULE_JOURNAL),
+            ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("permissions-grant-read", MODULE_PERMISSIONS),
             ("permissions-read-any", MODULE_PERMISSIONS),
@@ -196,6 +204,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("documents-read", Always()),
             ("documents-write", Always()),
             ("form-read", Always()),
+            ("legal-submissions-read", Always()),
             ("history-read", Always()),
             ("instance-delete", RequireInstanceState(["new"])),
             ("permissions-read-any", Always()),

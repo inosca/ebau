@@ -1860,7 +1860,7 @@
     "pk": "profil-uebernehmen",
     "fields": {
       "created_at": "2024-07-02T12:57:49.934Z",
-      "modified_at": "2024-08-28T12:24:50.482Z",
+      "modified_at": "2024-11-21T08:39:23.032Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -1868,7 +1868,7 @@
       "label": "{\"de\": \"Profil \\u00fcbernehmen\", \"fr\": null, \"it\": \"Riprendi profilo\"}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "info.root.form == \"einsprache\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Sie haben die M\\u00f6glichkeit, automatisch die Informationen aus ihrem [Benutzerprofil](/auth/realms/ebau/account?referrer=portal#/personal-info) ins Formular zu \\u00fcbernehmen.\", \"fr\": null, \"it\": \"Ha la possibilit\\u00e0 di riprendere automaticamente le informazioni del suo [profilo utente](/auth/realms/ebau/account?referrer=portal#/personal-info) nel modulo.\"}",
