@@ -67,6 +67,10 @@ class MessageView(RetrieveModelMixin, GenericViewSet):
 
     throttle_classes = [ECHMessageThrottle]
 
+    @decorator_from_middleware(GeofenceMiddleware)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
     @classmethod
     def include_in_swagger(cls):
         return bool(settings.ECH0211)
@@ -114,6 +118,10 @@ class ApplicationView(ECHInstanceQuerysetMixin, RetrieveModelMixin, GenericViewS
     renderer_classes = (XMLRenderer,)
     instance_field = None
     queryset = Instance.objects
+
+    @decorator_from_middleware(GeofenceMiddleware)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
     @classmethod
     def include_in_swagger(cls):
@@ -163,6 +171,10 @@ class ApplicationsView(ECHInstanceQuerysetMixin, ListModelMixin, GenericViewSet)
     instance_field = None
     filter_backends = []
 
+    @decorator_from_middleware(GeofenceMiddleware)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
     @classmethod
     def include_in_swagger(cls):
         return bool(settings.ECH0211)
@@ -187,6 +199,10 @@ class EventView(ECHInstanceQuerysetMixin, GenericViewSet):
     queryset = Instance.objects
     parser_classes = (JSONParser,)
     serializer_class = Serializer
+
+    @decorator_from_middleware(GeofenceMiddleware)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
     def has_create_permission(self):
         return self.request.group.role.name == "support"
