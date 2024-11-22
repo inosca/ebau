@@ -309,7 +309,14 @@ class GrGisClient(GISBaseClient):
         return previous_value
 
     def map_grundwasserschutzzone(self, values, intermediate_result, question):
-        strict_levels = sorted([v.lower() for v in list(set(values))])
+        known_grundwasserschutzzonen = ("s1", "s2", "s3", "sh", "sm", "nicht-betroffen")
+        strict_levels = sorted(
+            [
+                v.lower()
+                for v in list(set(values))
+                if str.lower(v) in known_grundwasserschutzzonen
+            ]
+        )
         return strict_levels[0] if strict_levels else "nicht-betroffen"
 
     def map_archaeologiezone(
