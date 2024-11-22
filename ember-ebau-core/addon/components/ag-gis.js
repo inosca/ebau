@@ -103,11 +103,10 @@ export default class AgGisComponent extends Component {
       searchResults.results,
       ({ attrs }) => attrs.origin,
     );
-    const res = Object.keys(groupedResults).map((origin) => ({
+    return Object.keys(groupedResults).map((origin) => ({
       groupName: this.intl.t(`gis.groups.${origin}`),
       options: groupedResults[origin].map(addAndCleanLabel),
     }));
-    return res;
   }
 
   @action
