@@ -1281,7 +1281,7 @@ APPLICATIONS = {
         "INTERNAL_FRONTEND": "camac",
         "USE_CAMAC_ADMIN": True,
         "ENABLE_PUBLIC_CALUMA": True,
-        "LOG_NOTIFICATIONS": False,
+        "LOG_NOTIFICATIONS": True,
         "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
         "FORM_BACKEND": "caluma",
         "PUBLICATION_DURATION": timedelta(days=20),
