@@ -6,6 +6,7 @@ import { tracked } from "@glimmer/tracking";
 import { task, timeout } from "ember-concurrency";
 
 import {
+  boxToBounds,
   EPSG2056toLatLng,
   getCenter,
   LatLngToEPSG2056,
@@ -113,7 +114,7 @@ export default class AgGisComponent extends Component {
   selectSearchResult(feature) {
     this.selectedSearchResult = feature;
     const coords = { lat: feature.attrs.lat, lng: feature.attrs.lon };
-    this.map.setView(coords, 19);
+    this.map.fitBounds(boxToBounds(feature.attrs.geom_st_box2d));
     this.markers = [coords];
   }
 
