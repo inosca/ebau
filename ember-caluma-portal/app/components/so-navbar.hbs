@@ -49,7 +49,11 @@
         </li>
         <li>
           <LinkTo
-            @route="static-content"
+            @route={{if
+              this.session.enforcePublicAccess
+              "public-instances.static-content"
+              "static-content"
+            }}
             @model="portal-faq"
             title={{t "nav.faq"}}
           >
