@@ -3,7 +3,7 @@ from logging import getLogger
 
 import requests
 from django.conf import settings
-from django.core.exceptions import PermissionDenied
+from django.http import HttpResponseForbidden
 from ipware import get_client_ip
 from urllib3.util import Retry
 
@@ -11,38 +11,42 @@ log = getLogger(__name__)
 
 
 class GeofenceMiddleware:
-    """Middleware for IP Geofencing, only allowed regions can make requests."""
+    """
+    Middleware for IP Geofencing, only allowed regions can make requests.
 
-    def __init__(self, get_response=None):
-        self.get_response = get_response
+    Can only be used through @decorator_from_middleware.
+    """
 
-    def __call__(self, request):
+    def __init__(self, view, *args, **kwargs):
+        pass
+
+    def process_view(self, view, view_func, view_args, view_kwargs):
+        request = (
+            view.request
+        )  # first arg should be request not view, unsure why this happens
         geofence_settings = settings.ECH0211.get("GEOFENCE", {})
         if not geofence_settings.get("ENABLE"):
-            response = self.get_response(request)
-            return response
+            return None
 
         client_ip, is_routable = get_client_ip(request)
 
         if client_ip is None:
-            raise PermissionDenied("Unable to get the client's IP address")
+            return HttpResponseForbidden("Unable to get the client's IP address")
 
         # The client's IP address is publicly routable on the Internet
         if is_routable:
             try:
-                country = self.get_ip_region(client_ip)
+                country = GeofenceMiddleware.get_ip_region(client_ip)
             except requests.exceptions.RequestException as e:
                 log.warning(e)
-                response = self.get_response(request)
-                return response
+                return None
 
             if country not in geofence_settings["REGIONS"]:
-                raise PermissionDenied(
+                return HttpResponseForbidden(
                     f"Outside of allowed region, client's IP address: {client_ip}"
                 )
 
-        response = self.get_response(request)
-        return response
+        return None
 
     @staticmethod
     @lru_cache
