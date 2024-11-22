@@ -1,6 +1,7 @@
 import { getOwner } from "@ember/application";
 import Route from "@ember/routing/route";
 import { service } from "@ember/service";
+import AgGisComponent from "ember-ebau-core/components/ag-gis";
 import AlexandriaDocumentsFormComponent from "ember-ebau-core/components/alexandria-documents-form";
 import CalculatedPublicationDateComponent from "ember-ebau-core/components/calculated-publication-date";
 import CamacAdditionalDemandFilesComponent from "ember-ebau-core/components/camac-additional-demand-files";
@@ -110,6 +111,11 @@ export default class ApplicationRoute extends Route {
       label: "GIS-Karte (Kt. GR)",
       component: "gr-gis",
       componentClass: GrGisComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "GIS-Karte (Kt. AG)",
+      component: "ag-gis",
+      componentClass: AgGisComponent,
     });
     this.calumaOptions.registerComponentOverride({
       label: "Einreichen Button BE",

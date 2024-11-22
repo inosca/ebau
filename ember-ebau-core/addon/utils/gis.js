@@ -23,6 +23,16 @@ export function EPSG2056toLatLng([x, y]) {
   return L.CRS.EPSG2056.unproject(new L.point(x, y));
 }
 
+// convert a bounding box string like BOX(2749071.92 1202980.44,2760298.25 1211211.74) to a nested array of coordinates
+export function boxToBounds(boxString) {
+  return boxString
+    .replace("BOX(", "")
+    .replace(")", "")
+    .split(",")
+    .map((s) => s.split(" ").map(parseFloat))
+    .map(EPSG2056toLatLng);
+}
+
 export function getCenter(markers, geometry) {
   if (!markers || !markers.length) {
     return null;
