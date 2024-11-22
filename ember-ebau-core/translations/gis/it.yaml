@@ -14,7 +14,7 @@ gis:
   searchPlaceholder: "Cerca indirizzo..."
   centeredCoordinates: "Coordinate"
   coordinatesLink: "https://geogr.mapplus.ch/viewer/geogr/?lang=it&basemap=av&blop=1&x={x}&y={y}&zl=13&hl=0&layers=zp_gefahren|zp_nls|zp_waldgrenze|bauzonen|gs_zonen"
-  openInGeoGR: "apri in GeoGR"
+  openInGeoGR: "GeoGR"
   apply: Riprendi dati
   apply-error: Non è possibile consultare i dati SIG della particella.
   apply-answer-error: "Non è stato possibile riprendere i dati SIG relativi alla domanda \"{label}\"."
