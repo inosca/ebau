@@ -1,29 +1,39 @@
 documents:
   buckets:
     descriptions:
-      dokument-grundstucksangaben: "Con *Indicazioni relative al fondo e descrizione del progetto* si intende la documentazione di domanda come ad es. il piano catastale (ad es. Catasto RDPP), l'estratto del registro fondiario, servitù, la descrizione del progetto."
-      dokument-gutachten-nachweise-begrundungen: "Con *Perizie, prove, motivazioni, richieste di eccezioni* si intende la documentazione di domanda come ad es. procure, il consenso dei vicini, il calcolo dello sfruttamento, il giustificativo energetico, attestati di protezione fonica, prove antincendio."
-      dokument-projektplane-projektbeschrieb: "Con *Piani di progetto* si intende la documentazione di domanda come ad es. il piano di situazione (art. 12 e 13 BewD), piani di progetto (art. 14 BewD) come piante, piani di sezione e di facciata, piani di configurazione delle aree circostanti, piani delle canalizzazioni, piani di smaltimento delle acque urbane."
-      dokument-weitere-gesuchsunterlagen: "Con *Altra documentazione di domanda* si intende documentazione di domanda come ad es. moduli - allacciamento elettrico, allacciamento antenna collettiva, allacciamento gas, allacciamento acqua, installazioni idriche / per le acque di scarico e altra documentazione di domanda."
+      dokument-grundstucksangaben: Con *Indicazioni relative al fondo e descrizione del progetto* si intende la documentazione di domanda come ad es. il piano catastale (ad es. Catasto RDPP), l'estratto del registro fondiario, servitù, la descrizione del progetto.
+      dokument-gutachten-nachweise-begrundungen: Con *Perizie, prove, motivazioni, richieste di eccezioni* si intende la documentazione di domanda come ad es. procure, il consenso dei vicini, il calcolo dello sfruttamento, il giustificativo energetico, attestati di protezione fonica, prove antincendio.
+      dokument-projektplane-projektbeschrieb: Con *Piani di progetto* si intende la documentazione di domanda come ad es. il piano di situazione (art. 12 e 13 BewD), piani di progetto (art. 14 BewD) come piante, piani di sezione e di facciata, piani di configurazione delle aree circostanti, piani delle canalizzazioni, piani di smaltimento delle acque urbane.
+      dokument-weitere-gesuchsunterlagen: Con *Altra documentazione di domanda* si intende documentazione di domanda come ad es. moduli - allacciamento elettrico, allacciamento antenna collettiva, allacciamento gas, allacciamento acqua, installazioni idriche / per le acque di scarico e altra documentazione di domanda.
       prefix: |+
         ## Informazioni supplementari
-         I documenti devono essere caricati in formato pdf, png o jpeg. Il nome dei file deve essere breve e descrittivo. Evitare di indicare numeri o designazioni di progetto che usa per la sua archiviazione interna.
-
+        I documenti devono essere caricati in formato png, jpeg, gif, dwg o pdf.
+        Il nome dei file deve essere breve e descrittivo. Evitare di indicare
+        numeri o designazioni di progetto che usa per la sua archiviazione
+        interna.
 
     dokument-grundstucksangaben: Indicazioni relative al fondo e descrizione del progetto
-    dokument-gutachten-nachweise-begrundungen: "Perizie, prove, motivazioni, richieste di eccezioni"
+    dokument-gutachten-nachweise-begrundungen: Perizie, prove, motivazioni, richieste di eccezioni
+    dokument-projektplane-projektbeschrieb-hint:
     dokument-projektplane-projektbeschrieb: Piani di progetto
     dokument-weitere-gesuchsunterlagen: Altra documentazione di domanda
+    nachforderung: Richiesta di precisazioni
+
   confidential: (confidenziale)
-  confirm: "Con la presente confermo di aver caricato {count, plural, =1 {il seguente contenuto obbligatorio} other {i seguenti # contenuti obbligatori}}. Si prega di osservare che l'elenco dei documenti obbligatori indicati non è esaustivo. Al riguardo si prega di consultare la legge edilizia comunale."
   confirm-reduced: "Con la presente confermo di aver caricato i necessari contenuti obbligatori:"
-  date: "Caricato in data {date} alle {time}"
-  deleteInfo: "Cancella davvero il file \"{filename}\"?"
+  confirm: "Si prega di caricare {count, plural, =1 {il seguente contenuto obbligatorio} other {i seguenti contenuti # obbligatori}}. Si prega di osservare che l'elenco dei documenti obbligatori indicati non è esaustivo (al riguardo consultare la legge edilizia comunale). Le domande incomplete saranno respinte."
+  date: Caricato in data {date} alle {time}
+  deleteError: Durante l'eliminazione del file qualcosa è andato storto.
+  deleteInfo: Cancella davvero il file "{filename}"?
+  deleteSuccess: Il file è stato eliminato con successo.
   download: Scarica file
   downloadError: Durante il download del file qualcosa è andato storto.
   downloadSuccess: Il file è stato scaricato con successo.
   setConfidential: Indica come confidenziale
   setNonConfidential: Elimina «confidenziale»
   uploadError: Durante il caricamento del file qualcosa è andato storto.
+  uploadErrorVirus:
+  uploadPlansIndividually: Si prega di notare che è necessario presentare un documento separato per ogni documento/piano.
   uploadSuccess: Il file è stato caricato con successo.
   wrongMimeType: "Questo tipo di file non è ammesso. Tipi di file ammessi: PDF, PNG, JPEG."
+  wrongMimeTypeWithAllowed: "Questo tipo di file non è ammesso. Tipi di file ammessi: {allowed}."

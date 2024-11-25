@@ -20,6 +20,7 @@ class CategoryAdmin(EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin):
         "name",
         "description",
         "color",
+        "allowed_mime_types",
         "metainfo",
     ]
 
