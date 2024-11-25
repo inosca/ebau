@@ -7,18 +7,25 @@ documents:
       dokument-weitere-gesuchsunterlagen: Unter den Begriff *Weitere Gesuchsunterlagen* fallen Dokumentunterlagen wie z. B. Formulare - Anschluss Elektrizität, Anschluss Gemeinschaftsantenne, Anschluss Gas, Anschluss Wasser, Wasser- / Abwasserinstallationen und andere Gesuchsunterlagen.
       prefix: |+
         ## Zusätzliche Informationen
-         Die Unterlagen sind als pdf, png oder jpeg-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein. Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.
-
+        Die Unterlagen sind als pdf, png oder jpeg-Dokumente hochzuladen. Der
+        Dateiname soll kurz und aussagekräftig sein. Lassen Sie Projektnummern
+        resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage
+        benötigen, bitte weg.
 
     dokument-grundstucksangaben: Grundstücksangaben und Projektbeschrieb
     dokument-gutachten-nachweise-begrundungen: Gutachten, Nachweise, Begründungen, Ausnahmebegehren
+    dokument-projektplane-projektbeschrieb-hint: Bitte laden Sie die Projektpläne als separate Dokumente hoch
     dokument-projektplane-projektbeschrieb: Projektpläne
     dokument-weitere-gesuchsunterlagen: Weitere Gesuchsunterlagen
+    nachforderung: Nachforderung
+
   confidential: (vertraulich)
-  confirm: "Hiermit bestätige ich, dass ich {count, plural, =1 {den folgenden Pflichtinhalt} other {die folgenden # Pflichtinhalte}} hochgeladen habe. Bitte beachten Sie, dass die Liste der angegebenen Pflichtdokumente nicht abschliessend ist. Bitte konsultieren Sie das kommunale Baugesetz."
   confirm-reduced: "Hiermit bestätige ich, dass ich die benötigten Pflichtinhalte hochgeladen habe:"
+  confirm: "Hiermit bestätige ich, dass ich {count, plural, =1 {den folgenden Pflichtinhalt} other {die folgenden # Pflichtinhalte}} hochgeladen habe. Bitte beachten Sie, dass die Liste der angegebenen Pflichtdokumente nicht abschliessend ist. Bitte konsultieren Sie das kommunale Baugesetz."
   date: Hochgeladen am {date} um {time}
+  deleteError: Beim Löschen der Datei ist etwas schief gelaufen
   deleteInfo: Wollen Sie die Datei "{filename}" wirklich löschen?
+  deleteSuccess: Die Datei wurde erfolgreich gelöscht
   download: Datei herunterladen
   downloadError: Beim Herunterladen der Datei ist etwas schief gelaufen
   downloadSuccess: Die Datei wurde erfolgreich heruntergeladen
@@ -26,5 +33,7 @@ documents:
   setNonConfidential: Vertraulich Markierung entfernen
   uploadError: Beim Hochladen der Datei ist etwas schief gelaufen
   uploadErrorVirus: Die Datei konnte nicht hochgeladen werden, weil diese als schadhaft identifiziert wurde (Virus/Malware)
+  uploadPlansIndividually: Es wird darauf hingewiesen, dass für jedes Dokument / Plan ein eigenständiges Dokument eingereicht werden muss.
   uploadSuccess: Die Datei wurde erfolgreich hochgeladen
   wrongMimeType: Dieser Dateityp ist nicht erlaubt. Erlaubte Dateitypen sind PDF, PNG und JPEG.
+  wrongMimeTypeWithAllowed: "Dieser Dateityp ist nicht erlaubt. Erlaubte Dateitypen sind: {allowed}."

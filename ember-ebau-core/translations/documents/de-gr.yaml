@@ -1,0 +1,11 @@
+documents:
+  buckets:
+    descriptions:
+      prefix: |+
+        ## Zusätzliche Informationen
+        Die Unterlagen sind als png, jpeg, gif, dwg oder pdf-Dokumente
+        hochzuladen. Der Dateiname soll kurz und aussagekräftig sein. Lassen Sie
+        Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne
+        Dokumentablage benötigen, bitte weg.
+
+  confirm: "Bitte laden Sie {count, plural, =1 {den folgenden Pflichtinhalt} other { die folgenden # Pflichtinhalte}} hoch. Beachten Sie dabei, dass die Liste der angegebenen Pflichtdokumente nicht abschliessend ist (konsultieren Sie das kommunale Baugesetz). Ein unvollständiges Gesuch wird zurückgewiesen."
