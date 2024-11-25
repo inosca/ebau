@@ -15,6 +15,7 @@
                             <p>
                                 Für Gesuchsteller, Planer und interessierte Dritte:
                                 <br /><a href="${url.resourcesPath}/pdf/Registrierung_Bürgerportal_eBau_v1.0-1.pdf">"Anleitung Registrierung auf Bürgerportal eBau"</a>
+                                <br /><a href="${url.resourcesPath}/pdf/Anleitungen_für_Baugesuche_im_Grundwasserschutz_und_Erdwärmenutzung.pdf">"Anleitungen für Baugesuche im Grundwasserschutz und Erdwärmenutzung"</a>
                             </p>
                             <p>
                                 Für Behörden:
