@@ -1,4 +1,5 @@
 import Application from "@ember/application";
+import { extendResolver } from "ember-can";
 import loadInitializers from "ember-load-initializers";
 import Resolver from "ember-resolver";
 
@@ -8,7 +9,7 @@ import config from "ebau/config/environment";
 export default class App extends Application {
   modulePrefix = config.modulePrefix;
   podModulePrefix = config.podModulePrefix;
-  Resolver = Resolver;
+  Resolver = extendResolver(Resolver);
 
   engines = {
     "@projectcaluma/ember-distribution": {

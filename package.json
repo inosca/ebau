@@ -7,10 +7,14 @@
       "chain already use v4 but all @ember-data/* packages still use v3. If we",
       "do not consolidate this, ember-data will be installed twice which will",
       "break the application."
+    ],
+    "@ember/inflector": [
+      "This resolution is needed until we update ember-data"
     ]
   },
   "resolutions": {
-    "@ember/string": "4.0.0"
+    "@ember/string": "4.0.0",
+    "ember-inflector": "4.0.3"
   },
   "pnpm": {
     "peerDependencyRules": {
