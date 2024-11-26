@@ -435,6 +435,7 @@ def test_get_access_levels(
         # non-municipality users never see anything here (for now)
         ("be", False, "geometer", "OFF", "Geometer", 0),
         ("so", True, "geometer", "OFF", "Municipality", "ALL_EXCEPT_ONE"),
+        ("sz", True, "read", "OFF", "Municipality", 1),
     ],
 )
 def test_assignable_filter(

@@ -55,7 +55,11 @@ class AccessLevelFilterset(FilterSet):
         # permission for the municipality as soon as Kt. SO has migrated the
         # municipality permissions.
         qs = qs.exclude(pk="municipality-before-submission")
+        return qs
 
+    def filter_assignable_in_instance_rbac_for_municipality_sz(self, qs, name, value):
+        # Schwyz currently only allows "read" to be assigned by a municipality
+        qs = qs.filter(pk="read")
         return qs
 
 
