@@ -40,8 +40,8 @@ CONSTRUCTION_MONITORING = {
                     "template_slug": "complete-construction-step-schlussabnahme",
                     "recipient_types": [
                         "involved_in_construction_step",
-                        # TODO: "localized_geometer"
-                        # Always send notification regardless of involvement (?)
+                        "tax_administration",
+                        "localized_geometer",
                     ],
                 },
             ],
@@ -50,8 +50,7 @@ CONSTRUCTION_MONITORING = {
                     "template_slug": "notify-complete-instance",
                     "recipient_types": [
                         "involved_in_construction_step",
-                        # TODO: "localized_geometer"
-                        # Always send notification regardless of involvement (?)
+                        "localized_geometer",
                     ],
                 },
             ],
@@ -99,8 +98,6 @@ CONSTRUCTION_MONITORING = {
                     "service_id": 22,
                     "require_involvement": True,
                 },
-                # TODO: Amt für Finanzen (Gebäudeschatzer)?
-                # Always send notification regardless of involvement
             ],
             "complete-instance": [
                 # Amt für Militär, Feuer- und Zivilschutz (Brandschutz)
@@ -122,11 +119,6 @@ CONSTRUCTION_MONITORING = {
                 {
                     "service_id": 22,
                     "require_involvement": True,
-                },
-                # Liegenschaftenschätzung Steuerverwaltung
-                {
-                    "service_id": 585,
-                    "require_involvement": False,
                 },
             ],
         },
