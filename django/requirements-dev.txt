@@ -1,12 +1,12 @@
 -r requirements.txt
-debugpy==1.8.5
+debugpy==1.8.9
 django-extensions==3.2.3
-django-silk==5.2.0
-Faker==28.4.1
+django-silk==5.3.1
+Faker==33.0.0
 ipdb==0.13.13
 mock==5.1.0
 pdbpp==0.10.3
-pre-commit==3.8.0
+pre-commit==4.0.1
 # needs an update in django-hurricane to allow v6
 psutil==5.9.8
 pydocstyle==6.3.0
@@ -18,13 +18,13 @@ pytest-factoryboy==2.7.0
 pytest-freezer==0.4.8
 pytest-lazy-fixtures==1.1.1
 pytest-mock==3.14.0
-pytest-randomly==3.15.0
+pytest-randomly==3.16.0
 pytest-recording==0.13.2
 pytest-xdist==3.6.1
 remote-pdb==2.1.0
 requests-mock==1.12.1
-ruff==0.6.7
-syrupy==4.7.1
-watchdog==5.0.2
-web-pdb==1.6.2
-Werkzeug==3.0.4
+ruff==0.8.0
+syrupy==4.8.0
+watchdog==6.0.0
+web-pdb==1.6.3
+Werkzeug==3.1.3
