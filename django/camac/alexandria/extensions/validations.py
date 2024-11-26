@@ -8,7 +8,9 @@ from rest_framework.exceptions import ValidationError
 
 class CustomValidation(AlexandriaValidator):
     @validator_for(Document)
-    def validate_marks(self, data, context):
+    def validate_document(self, data, context):
+        data = super().validate_document(data, context)
+
         marks = data.get("marks", [])
         mark_ids = {mark.pk for mark in marks}
 
