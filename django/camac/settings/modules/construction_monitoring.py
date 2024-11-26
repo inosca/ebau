@@ -123,11 +123,6 @@ CONSTRUCTION_MONITORING = {
                     "service_id": 22,
                     "require_involvement": True,
                 },
-                # Liegenschaftenschätzung Steuerverwaltung
-                {
-                    "service_id": 585,
-                    "require_involvement": False,
-                },
             ],
         },
     },
