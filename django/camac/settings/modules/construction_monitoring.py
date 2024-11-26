@@ -123,8 +123,11 @@ CONSTRUCTION_MONITORING = {
                     "service_id": 22,
                     "require_involvement": True,
                 },
-                # TODO: Amt für Finanzen (Gebäudeschatzer)?
-                # Always send notification regardless of involvement
+                # Liegenschaftenschätzung Steuerverwaltung
+                {
+                    "service_id": 585,
+                    "require_involvement": False,
+                },
             ],
         },
     },
