@@ -33062,6 +33062,7 @@
     "model": "user.service",
     "pk": 3,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Centralschweizeriche Kraftwerke AG",
@@ -33084,6 +33085,7 @@
     "model": "user.service",
     "pk": 4,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "Amt für Arbeit",
@@ -33106,6 +33108,7 @@
     "model": "user.service",
     "pk": 5,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "Amt für Gesundheit und Soziales",
@@ -33128,6 +33131,7 @@
     "model": "user.service",
     "pk": 6,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Schwyz",
@@ -33150,6 +33154,7 @@
     "model": "user.service",
     "pk": 7,
     "fields": {
+      "slug": null,
       "service_group": 4,
       "service_parent": null,
       "name": "Baugesuchszentrale",
@@ -33172,6 +33177,7 @@
     "model": "user.service",
     "pk": 8,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "Amt für Kultur",
@@ -33194,6 +33200,7 @@
     "model": "user.service",
     "pk": 9,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "Amt für Landwirtschaft",
@@ -33216,6 +33223,7 @@
     "model": "user.service",
     "pk": 10,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "Amt für Militär, Feuer- und Zivilschutz (Brandschutz)",
@@ -33238,6 +33246,7 @@
     "model": "user.service",
     "pk": 11,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "Amt für Natur, Jagd und Fischerei",
@@ -33260,6 +33269,7 @@
     "model": "user.service",
     "pk": 12,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "Amt für Raumentwicklung (Ortsplanung)",
@@ -33282,6 +33292,7 @@
     "model": "user.service",
     "pk": 13,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "Amt für Umweltschutz",
@@ -33304,6 +33315,7 @@
     "model": "user.service",
     "pk": 14,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "Amt für Vermessung und Geoinformation",
@@ -33326,6 +33338,7 @@
     "model": "user.service",
     "pk": 15,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "Amt für Wald und Naturgefahren",
@@ -33348,6 +33361,7 @@
     "model": "user.service",
     "pk": 16,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "Amt für Gewässer",
@@ -33370,6 +33384,7 @@
     "model": "user.service",
     "pk": 17,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "Amt für öffentlichen Verkehr",
@@ -33392,6 +33407,7 @@
     "model": "user.service",
     "pk": 18,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "Fachdienst Verkehr Kantonspolizei Schwyz",
@@ -33414,6 +33430,7 @@
     "model": "user.service",
     "pk": 19,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "Hochbauamt des Kantons Schwyz",
@@ -33436,6 +33453,7 @@
     "model": "user.service",
     "pk": 20,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "Tiefbauamt des Kantons Schwyz",
@@ -33458,6 +33476,7 @@
     "model": "user.service",
     "pk": 21,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "Verkehrsamt Schwyz",
@@ -33480,6 +33499,7 @@
     "model": "user.service",
     "pk": 22,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "Laboratorium der Urkantone",
@@ -33502,6 +33522,7 @@
     "model": "user.service",
     "pk": 23,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Schweizerische Südostbahn AG",
@@ -33524,6 +33545,7 @@
     "model": "user.service",
     "pk": 24,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Schweizerische Bundesbahnen AG Zürich",
@@ -33546,6 +33568,7 @@
     "model": "user.service",
     "pk": 25,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Schweizerische Bundesbahnen AG Olten",
@@ -33568,6 +33591,7 @@
     "model": "user.service",
     "pk": 26,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Bundesamt für Strassen Winterthur",
@@ -33590,6 +33614,7 @@
     "model": "user.service",
     "pk": 27,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Bundesamt für Strassen Zofingen",
@@ -33612,6 +33637,7 @@
     "model": "user.service",
     "pk": 28,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Elektrizitätswerk Bezirk Schwyz",
@@ -33634,6 +33660,7 @@
     "model": "user.service",
     "pk": 29,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Elektrogenossenschaft Bisisthal",
@@ -33656,6 +33683,7 @@
     "model": "user.service",
     "pk": 30,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Elektrizitätswerke des Kantons Zürich",
@@ -33678,6 +33706,7 @@
     "model": "user.service",
     "pk": 31,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Elektrizitätswerk der Stadt Zürich",
@@ -33700,6 +33729,7 @@
     "model": "user.service",
     "pk": 32,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Elektrizitätswerk Schwyz AG",
@@ -33722,6 +33752,7 @@
     "model": "user.service",
     "pk": 33,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "AXPO Power AG",
@@ -33744,6 +33775,7 @@
     "model": "user.service",
     "pk": 34,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Elektrizitätswerk Altdorf",
@@ -33766,6 +33798,7 @@
     "model": "user.service",
     "pk": 35,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Swissgrid AG",
@@ -33788,6 +33821,7 @@
     "model": "user.service",
     "pk": 36,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Alpiq EnerTrans AG",
@@ -33810,6 +33844,7 @@
     "model": "user.service",
     "pk": 37,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Zürichsee Schifffahrtsgesellschaft",
@@ -33832,6 +33867,7 @@
     "model": "user.service",
     "pk": 38,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Schifffahrtsgesellschaft des Vierwaldstättersees",
@@ -33854,6 +33890,7 @@
     "model": "user.service",
     "pk": 39,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Schifffahrtsgesellschaft für den Zugersee AG",
@@ -33876,6 +33913,7 @@
     "model": "user.service",
     "pk": 40,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Bezirk Schwyz (Gewässer)",
@@ -33898,6 +33936,7 @@
     "model": "user.service",
     "pk": 41,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Bezirk Höfe",
@@ -33920,6 +33959,7 @@
     "model": "user.service",
     "pk": 42,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Bezirk March (Gewässer)",
@@ -33942,6 +33982,7 @@
     "model": "user.service",
     "pk": 43,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Schiessoffizier",
@@ -33964,6 +34005,7 @@
     "model": "user.service",
     "pk": 44,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Linthebene Melioration",
@@ -33986,6 +34028,7 @@
     "model": "user.service",
     "pk": 45,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Eidg. Starkstrominspektorat",
@@ -34008,6 +34051,7 @@
     "model": "user.service",
     "pk": 46,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Bundesamt für Umwelt",
@@ -34030,6 +34074,7 @@
     "model": "user.service",
     "pk": 47,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Bundesamt für Verkehr",
@@ -34052,6 +34097,7 @@
     "model": "user.service",
     "pk": 48,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Bezirk Einsiedeln",
@@ -34074,6 +34120,7 @@
     "model": "user.service",
     "pk": 49,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Bezirk Küssnacht",
@@ -34096,6 +34143,7 @@
     "model": "user.service",
     "pk": 50,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Bezirk Gersau",
@@ -34118,6 +34166,7 @@
     "model": "user.service",
     "pk": 51,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Altendorf",
@@ -34140,6 +34189,7 @@
     "model": "user.service",
     "pk": 52,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Alpthal",
@@ -34162,6 +34212,7 @@
     "model": "user.service",
     "pk": 53,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Arth",
@@ -34184,6 +34235,7 @@
     "model": "user.service",
     "pk": 54,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Feusisberg",
@@ -34206,6 +34258,7 @@
     "model": "user.service",
     "pk": 55,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Freienbach",
@@ -34228,6 +34281,7 @@
     "model": "user.service",
     "pk": 56,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Galgenen",
@@ -34250,6 +34304,7 @@
     "model": "user.service",
     "pk": 57,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Illgau",
@@ -34272,6 +34327,7 @@
     "model": "user.service",
     "pk": 58,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Ingenbohl",
@@ -34294,6 +34350,7 @@
     "model": "user.service",
     "pk": 59,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Innerthal",
@@ -34316,6 +34373,7 @@
     "model": "user.service",
     "pk": 60,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Lachen",
@@ -34338,6 +34396,7 @@
     "model": "user.service",
     "pk": 61,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Lauerz",
@@ -34360,6 +34419,7 @@
     "model": "user.service",
     "pk": 62,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Morschach",
@@ -34382,6 +34442,7 @@
     "model": "user.service",
     "pk": 63,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Muotathal",
@@ -34404,6 +34465,7 @@
     "model": "user.service",
     "pk": 64,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Oberiberg",
@@ -34426,6 +34488,7 @@
     "model": "user.service",
     "pk": 65,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Reichenburg",
@@ -34448,6 +34511,7 @@
     "model": "user.service",
     "pk": 66,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Riemenstalden",
@@ -34470,6 +34534,7 @@
     "model": "user.service",
     "pk": 67,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Rothenthurm",
@@ -34492,6 +34557,7 @@
     "model": "user.service",
     "pk": 68,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Schübelbach",
@@ -34514,6 +34580,7 @@
     "model": "user.service",
     "pk": 69,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Sattel",
@@ -34536,6 +34603,7 @@
     "model": "user.service",
     "pk": 70,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Steinen",
@@ -34558,6 +34626,7 @@
     "model": "user.service",
     "pk": 71,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Steinerberg",
@@ -34580,6 +34649,7 @@
     "model": "user.service",
     "pk": 72,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Tuggen",
@@ -34602,6 +34672,7 @@
     "model": "user.service",
     "pk": 73,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Unteriberg",
@@ -34624,6 +34695,7 @@
     "model": "user.service",
     "pk": 74,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Vorderthal",
@@ -34646,6 +34718,7 @@
     "model": "user.service",
     "pk": 75,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Wangen",
@@ -34668,6 +34741,7 @@
     "model": "user.service",
     "pk": 76,
     "fields": {
+      "slug": null,
       "service_group": 3,
       "service_parent": null,
       "name": "Gemeinde Wollerau",
@@ -34690,6 +34764,7 @@
     "model": "user.service",
     "pk": 77,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Tiefbau Altendorf",
@@ -34712,6 +34787,7 @@
     "model": "user.service",
     "pk": 78,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Wasserversorgung Altendorf",
@@ -34734,6 +34810,7 @@
     "model": "user.service",
     "pk": 79,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "Amt für Militär, Feuer- und Zivilschutz (Zivilschutz)",
@@ -34756,6 +34833,7 @@
     "model": "user.service",
     "pk": 80,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Bezirk Schwyz (Strassen)",
@@ -34778,6 +34856,7 @@
     "model": "user.service",
     "pk": 81,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 15,
       "name": "AWN (Naturgefahren)",
@@ -34800,6 +34879,7 @@
     "model": "user.service",
     "pk": 82,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 15,
       "name": "AWN (Forstrecht)",
@@ -34822,6 +34902,7 @@
     "model": "user.service",
     "pk": 83,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Bezirk March (Strassen)",
@@ -34844,6 +34925,7 @@
     "model": "user.service",
     "pk": 84,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 15,
       "name": "AWN (Langsamverkehr)",
@@ -34866,6 +34948,7 @@
     "model": "user.service",
     "pk": 85,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 22,
       "name": "LdU (Lebensmittel)",
@@ -34888,6 +34971,7 @@
     "model": "user.service",
     "pk": 86,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 22,
       "name": "LdU (Trinkwasser)",
@@ -34910,6 +34994,7 @@
     "model": "user.service",
     "pk": 87,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 22,
       "name": "LdU (Chemikalien)",
@@ -34932,6 +35017,7 @@
     "model": "user.service",
     "pk": 88,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 22,
       "name": "LdU (Kantonstierarzt)",
@@ -34954,6 +35040,7 @@
     "model": "user.service",
     "pk": 89,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 9,
       "name": "AFL (Agrarmassnahmen)",
@@ -34976,6 +35063,7 @@
     "model": "user.service",
     "pk": 90,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 9,
       "name": "AFL (Strukturverbesserungen)",
@@ -34998,6 +35086,7 @@
     "model": "user.service",
     "pk": 91,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 8,
       "name": "AFK (Denkmalpflege)",
@@ -35020,6 +35109,7 @@
     "model": "user.service",
     "pk": 92,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 8,
       "name": "AFK (Archäologie)",
@@ -35042,6 +35132,7 @@
     "model": "user.service",
     "pk": 93,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 20,
       "name": "TBA (Fachstelle Strassenmanagement)",
@@ -35064,6 +35155,7 @@
     "model": "user.service",
     "pk": 94,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 20,
       "name": "TBA (Planung)",
@@ -35086,6 +35178,7 @@
     "model": "user.service",
     "pk": 95,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 20,
       "name": "TBA (Kunstbauten)",
@@ -35108,6 +35201,7 @@
     "model": "user.service",
     "pk": 96,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 20,
       "name": "TBA (Betrieb)",
@@ -35130,6 +35224,7 @@
     "model": "user.service",
     "pk": 97,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 11,
       "name": "ANJF (Natur- und Landschaftsschutz)",
@@ -35152,6 +35247,7 @@
     "model": "user.service",
     "pk": 98,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 11,
       "name": "ANJF (Jagd)",
@@ -35174,6 +35270,7 @@
     "model": "user.service",
     "pk": 99,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 11,
       "name": "ANJF (Fischerei)",
@@ -35196,6 +35293,7 @@
     "model": "user.service",
     "pk": 100,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 13,
       "name": "AfU (Luftreinhaltung Emissionen)",
@@ -35218,6 +35316,7 @@
     "model": "user.service",
     "pk": 101,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 13,
       "name": "AfU (Störfallkoordination)",
@@ -35240,6 +35339,7 @@
     "model": "user.service",
     "pk": 102,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 13,
       "name": "AfU (Lärm)",
@@ -35262,6 +35362,7 @@
     "model": "user.service",
     "pk": 103,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 13,
       "name": "AfU (Nichtionisierende Strahlung)",
@@ -35284,6 +35385,7 @@
     "model": "user.service",
     "pk": 104,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Energienachweis Gersau",
@@ -35306,6 +35408,7 @@
     "model": "user.service",
     "pk": 105,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 13,
       "name": "AfU (Sonderabfälle)",
@@ -35328,6 +35431,7 @@
     "model": "user.service",
     "pk": 106,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 13,
       "name": "AfU (Abfälle)",
@@ -35350,6 +35454,7 @@
     "model": "user.service",
     "pk": 107,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 13,
       "name": "AfU (Abfallanlagen)",
@@ -35372,6 +35477,7 @@
     "model": "user.service",
     "pk": 108,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 13,
       "name": "AfU (Bodenschutz)",
@@ -35394,6 +35500,7 @@
     "model": "user.service",
     "pk": 109,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 13,
       "name": "AfU (Luftreinhaltung Immissionen)",
@@ -35416,6 +35523,7 @@
     "model": "user.service",
     "pk": 110,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 13,
       "name": "AfU (Licht)",
@@ -35438,6 +35546,7 @@
     "model": "user.service",
     "pk": 111,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 13,
       "name": "AfU (Verkehrsintensive Einrichtungen)",
@@ -35460,6 +35569,7 @@
     "model": "user.service",
     "pk": 112,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 13,
       "name": "AfU (Wasserversorgung)",
@@ -35482,6 +35592,7 @@
     "model": "user.service",
     "pk": 113,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 13,
       "name": "AfU (Wassergefährdende Flüssigkeiten)",
@@ -35504,6 +35615,7 @@
     "model": "user.service",
     "pk": 114,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 13,
       "name": "AfU (Pfählung, Bohrung)",
@@ -35526,6 +35638,7 @@
     "model": "user.service",
     "pk": 115,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 13,
       "name": "AfU (Bauen im Grundwasser)",
@@ -35548,6 +35661,7 @@
     "model": "user.service",
     "pk": 116,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 13,
       "name": "AfU (Deponien)",
@@ -35570,6 +35684,7 @@
     "model": "user.service",
     "pk": 117,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 13,
       "name": "AfU (Belastete Standorte)",
@@ -35592,6 +35707,7 @@
     "model": "user.service",
     "pk": 118,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 13,
       "name": "AfU (Abbaustellen)",
@@ -35614,6 +35730,7 @@
     "model": "user.service",
     "pk": 119,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 13,
       "name": "AfU (Neobiota)",
@@ -35636,6 +35753,7 @@
     "model": "user.service",
     "pk": 120,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 13,
       "name": "AfU (Industrie- und Gewerbeabwasser)",
@@ -35658,6 +35776,7 @@
     "model": "user.service",
     "pk": 121,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 13,
       "name": "AfU (Kläranlagen)",
@@ -35680,6 +35799,7 @@
     "model": "user.service",
     "pk": 122,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 13,
       "name": "AfU (Bauten in und an stehenden Gewässern)",
@@ -35702,6 +35822,7 @@
     "model": "user.service",
     "pk": 123,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 13,
       "name": "AfU (Entwässerung)",
@@ -35724,6 +35845,7 @@
     "model": "user.service",
     "pk": 124,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 13,
       "name": "AfU (Wasserentnahme und -rückgabe)",
@@ -35746,6 +35868,7 @@
     "model": "user.service",
     "pk": 125,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Wuhrkorporation Rütibach",
@@ -35768,6 +35891,7 @@
     "model": "user.service",
     "pk": 126,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "Amt für Raumentwicklung (Kantonale Planung)",
@@ -35790,6 +35914,7 @@
     "model": "user.service",
     "pk": 127,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Baukommission Altendorf",
@@ -35812,6 +35937,7 @@
     "model": "user.service",
     "pk": 128,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "EVA Altendorf",
@@ -35834,6 +35960,7 @@
     "model": "user.service",
     "pk": 129,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Geoterra AG (Geometer)",
@@ -35856,6 +35983,7 @@
     "model": "user.service",
     "pk": 130,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Keller und Bombana (Brandschutz)",
@@ -35878,6 +36006,7 @@
     "model": "user.service",
     "pk": 131,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Kuster und Hager (Abwasser)",
@@ -35900,6 +36029,7 @@
     "model": "user.service",
     "pk": 132,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "EW Höfe (Telecom, Strom)",
@@ -35922,6 +36052,7 @@
     "model": "user.service",
     "pk": 133,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Baukommission Illgau",
@@ -35944,6 +36075,7 @@
     "model": "user.service",
     "pk": 134,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Korporation Wollerau (Wasserversorgung)",
@@ -35966,6 +36098,7 @@
     "model": "user.service",
     "pk": 135,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Remund und Kuster (Raumplanung)",
@@ -35988,6 +36121,7 @@
     "model": "user.service",
     "pk": 136,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "EW Reichenburg",
@@ -36010,6 +36144,7 @@
     "model": "user.service",
     "pk": 137,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Brandschutz Wollerau",
@@ -36032,6 +36167,7 @@
     "model": "user.service",
     "pk": 138,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Baubehörde Wollerau",
@@ -36054,6 +36190,7 @@
     "model": "user.service",
     "pk": 139,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Hochbaukommission Lachen",
@@ -36076,6 +36213,7 @@
     "model": "user.service",
     "pk": 140,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Gemeinderat Lachen",
@@ -36098,6 +36236,7 @@
     "model": "user.service",
     "pk": 141,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Ingenieurbüro Marty AG",
@@ -36120,6 +36259,7 @@
     "model": "user.service",
     "pk": 142,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "EW Lachen AG",
@@ -36142,6 +36282,7 @@
     "model": "user.service",
     "pk": 143,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "ProCap",
@@ -36164,6 +36305,7 @@
     "model": "user.service",
     "pk": 144,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "geometrie plus ag (Gde_Bez Ingenieur)",
@@ -36186,6 +36328,7 @@
     "model": "user.service",
     "pk": 145,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Allgemeine Genossame Reichenburg",
@@ -36208,6 +36351,7 @@
     "model": "user.service",
     "pk": 146,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Energie ZürichseeLinth",
@@ -36230,6 +36374,7 @@
     "model": "user.service",
     "pk": 147,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Geoterra AG (Gde_Bez Ingenieur)",
@@ -36252,6 +36397,7 @@
     "model": "user.service",
     "pk": 148,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "HSK Ingenieur AG (Geometer)",
@@ -36274,6 +36420,7 @@
     "model": "user.service",
     "pk": 149,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "HSK Ingenieur AG (Gde_Bez Ingenieur)",
@@ -36296,6 +36443,7 @@
     "model": "user.service",
     "pk": 150,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Wild Ingenieure AG (Geometer)",
@@ -36318,6 +36466,7 @@
     "model": "user.service",
     "pk": 151,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Wild Ingenieure AG (Gde_Bez Ingenieur)",
@@ -36340,6 +36489,7 @@
     "model": "user.service",
     "pk": 152,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Trigonet AG (Geometer)",
@@ -36362,6 +36512,7 @@
     "model": "user.service",
     "pk": 153,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Lukas Domeisen AG (Geometer)",
@@ -36384,6 +36535,7 @@
     "model": "user.service",
     "pk": 154,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "geometrie plus ag (Geometer)",
@@ -36406,6 +36558,7 @@
     "model": "user.service",
     "pk": 155,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Sekretariat Küssnacht",
@@ -36428,6 +36581,7 @@
     "model": "user.service",
     "pk": 156,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Baukommission Küssnacht",
@@ -36450,6 +36604,7 @@
     "model": "user.service",
     "pk": 157,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Raumplaner Küssnacht",
@@ -36472,6 +36627,7 @@
     "model": "user.service",
     "pk": 158,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Ressort Infrastruktur Küssnacht",
@@ -36494,6 +36650,7 @@
     "model": "user.service",
     "pk": 159,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Gemeinderat Illgau",
@@ -36516,6 +36673,7 @@
     "model": "user.service",
     "pk": 160,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Energieberater Küssnacht",
@@ -36538,6 +36696,7 @@
     "model": "user.service",
     "pk": 161,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Baukommission Schwyz",
@@ -36560,6 +36719,7 @@
     "model": "user.service",
     "pk": 162,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Sekretariat Schwyz",
@@ -36582,6 +36742,7 @@
     "model": "user.service",
     "pk": 163,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Abteilung Tiefbau Schwyz",
@@ -36604,6 +36765,7 @@
     "model": "user.service",
     "pk": 164,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Abteilung Hochbau Schwyz",
@@ -36626,6 +36788,7 @@
     "model": "user.service",
     "pk": 165,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Raumplanung Schwyz",
@@ -36648,6 +36811,7 @@
     "model": "user.service",
     "pk": 166,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Kommunaler Brandschutz Schwyz",
@@ -36670,6 +36834,7 @@
     "model": "user.service",
     "pk": 167,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Umweltschutzbeauftragter Schwyz",
@@ -36692,6 +36857,7 @@
     "model": "user.service",
     "pk": 168,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Sachbearbeitung Objektwesen Schwyz",
@@ -36714,6 +36880,7 @@
     "model": "user.service",
     "pk": 169,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Abteilung Finanzen Schwyz",
@@ -36736,6 +36903,7 @@
     "model": "user.service",
     "pk": 170,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Einwohneramt Schwyz",
@@ -36758,6 +36926,7 @@
     "model": "user.service",
     "pk": 171,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Gemeindewerkhof Schwyz",
@@ -36780,6 +36949,7 @@
     "model": "user.service",
     "pk": 172,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Dorfgenossenschaft Schwyz",
@@ -36802,6 +36972,7 @@
     "model": "user.service",
     "pk": 173,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Wassergenossenschaft Ibach",
@@ -36824,6 +36995,7 @@
     "model": "user.service",
     "pk": 174,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Wasserversorgung Aufiberg",
@@ -36846,6 +37018,7 @@
     "model": "user.service",
     "pk": 175,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "bob Architektur und Beratung AG",
@@ -36868,6 +37041,7 @@
     "model": "user.service",
     "pk": 176,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Baukommission Arth",
@@ -36890,6 +37064,7 @@
     "model": "user.service",
     "pk": 177,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Hochbaukommission Ingenbohl",
@@ -36912,6 +37087,7 @@
     "model": "user.service",
     "pk": 178,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "protec-plan gmbh (Brandschutzexperte)",
@@ -36934,6 +37110,7 @@
     "model": "user.service",
     "pk": 179,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Gemeinderat Reichenburg",
@@ -36956,6 +37133,7 @@
     "model": "user.service",
     "pk": 180,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Bauko Tiefbau und Umwelt Reichenburg",
@@ -36978,6 +37156,7 @@
     "model": "user.service",
     "pk": 181,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Baukommission Morschach",
@@ -37000,6 +37179,7 @@
     "model": "user.service",
     "pk": 182,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Gemeinderat Lauerz",
@@ -37022,6 +37202,7 @@
     "model": "user.service",
     "pk": 183,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "CES Bauingenieur AG",
@@ -37044,6 +37225,7 @@
     "model": "user.service",
     "pk": 184,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Baukommission Reichenburg",
@@ -37066,6 +37248,7 @@
     "model": "user.service",
     "pk": 185,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Baukommission Steinen",
@@ -37088,6 +37271,7 @@
     "model": "user.service",
     "pk": 186,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Brandschutzexperte Horat Erwin",
@@ -37110,6 +37294,7 @@
     "model": "user.service",
     "pk": 187,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Baukommission Wangen",
@@ -37132,6 +37317,7 @@
     "model": "user.service",
     "pk": 188,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Brandschutzexperte Wangen",
@@ -37154,6 +37340,7 @@
     "model": "user.service",
     "pk": 189,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Kassieramt Wangen",
@@ -37176,6 +37363,7 @@
     "model": "user.service",
     "pk": 190,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "EW Wangen",
@@ -37198,6 +37386,7 @@
     "model": "user.service",
     "pk": 191,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Wasserversorgung Wangen",
@@ -37220,6 +37409,7 @@
     "model": "user.service",
     "pk": 192,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Bezirksrat Gersau",
@@ -37242,6 +37432,7 @@
     "model": "user.service",
     "pk": 193,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Baukommission Gersau",
@@ -37264,6 +37455,7 @@
     "model": "user.service",
     "pk": 194,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Baukommission Lauerz",
@@ -37286,6 +37478,7 @@
     "model": "user.service",
     "pk": 195,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "AF Toscano AG",
@@ -37308,6 +37501,7 @@
     "model": "user.service",
     "pk": 196,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Kantonale Steuerverwaltung",
@@ -37330,6 +37524,7 @@
     "model": "user.service",
     "pk": 197,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Wasserversorgung, Brunnenmeister Gersau",
@@ -37352,6 +37547,7 @@
     "model": "user.service",
     "pk": 198,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Energienachweis Steinen",
@@ -37374,6 +37570,7 @@
     "model": "user.service",
     "pk": 199,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Brandschutz Feusisberg",
@@ -37396,6 +37593,7 @@
     "model": "user.service",
     "pk": 200,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Fachbüro LWP Feusisberg",
@@ -37418,6 +37616,7 @@
     "model": "user.service",
     "pk": 201,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Baukommission Steinerberg",
@@ -37440,6 +37639,7 @@
     "model": "user.service",
     "pk": 202,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Einwohneramt Steinerberg",
@@ -37462,6 +37662,7 @@
     "model": "user.service",
     "pk": 203,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Kassieramt Steinerberg",
@@ -37484,6 +37685,7 @@
     "model": "user.service",
     "pk": 204,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Baupräsident Steinerberg",
@@ -37506,6 +37708,7 @@
     "model": "user.service",
     "pk": 205,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Brandschutzexperte Arnold Josef",
@@ -37528,6 +37731,7 @@
     "model": "user.service",
     "pk": 206,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Wassermeister Steinerberg",
@@ -37550,6 +37754,7 @@
     "model": "user.service",
     "pk": 207,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Baukommission Galgenen",
@@ -37572,6 +37777,7 @@
     "model": "user.service",
     "pk": 208,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Tiefbauamt Galgenen",
@@ -37594,6 +37800,7 @@
     "model": "user.service",
     "pk": 209,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Werksingenieur Galgenen",
@@ -37616,6 +37823,7 @@
     "model": "user.service",
     "pk": 210,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "EW Galgenen",
@@ -37638,6 +37846,7 @@
     "model": "user.service",
     "pk": 211,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Wasserversorgung Illgau",
@@ -37660,6 +37869,7 @@
     "model": "user.service",
     "pk": 212,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Gemeindeschreiber Galgenen",
@@ -37682,6 +37892,7 @@
     "model": "user.service",
     "pk": 213,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Gemeinderat Freienbach",
@@ -37704,6 +37915,7 @@
     "model": "user.service",
     "pk": 214,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Hochbaukommission Freienbach",
@@ -37726,6 +37938,7 @@
     "model": "user.service",
     "pk": 215,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Korporation Pfäffikon",
@@ -37748,6 +37961,7 @@
     "model": "user.service",
     "pk": 216,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Notariat Höfe",
@@ -37770,6 +37984,7 @@
     "model": "user.service",
     "pk": 217,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Baukommission Innerthal",
@@ -37792,6 +38007,7 @@
     "model": "user.service",
     "pk": 218,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Baukommission Vorderthal",
@@ -37814,6 +38030,7 @@
     "model": "user.service",
     "pk": 219,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Gemeinderat Vorderthal",
@@ -37836,6 +38053,7 @@
     "model": "user.service",
     "pk": 220,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Wasserversorgung Vorderthal",
@@ -37858,6 +38076,7 @@
     "model": "user.service",
     "pk": 221,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "EW Gemeindeingenieur Vorderthal",
@@ -37880,6 +38099,7 @@
     "model": "user.service",
     "pk": 222,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Umweltbeauftragter Schübelbach",
@@ -37902,6 +38122,7 @@
     "model": "user.service",
     "pk": 223,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Gemeindewerke Schübelbach",
@@ -37924,6 +38145,7 @@
     "model": "user.service",
     "pk": 224,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Feuerwehr Schübelbach",
@@ -37946,6 +38168,7 @@
     "model": "user.service",
     "pk": 225,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Albertin Partner Architekten",
@@ -37968,6 +38191,7 @@
     "model": "user.service",
     "pk": 226,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Baukommission Muotathal",
@@ -37990,6 +38214,7 @@
     "model": "user.service",
     "pk": 227,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Brandschutzexperte Föhn Bruno",
@@ -38012,6 +38237,7 @@
     "model": "user.service",
     "pk": 228,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Wasserversorgung Muotathal",
@@ -38034,6 +38260,7 @@
     "model": "user.service",
     "pk": 229,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "BG Ingenieure und Berater AG",
@@ -38056,6 +38283,7 @@
     "model": "user.service",
     "pk": 230,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Baukommission Oberiberg",
@@ -38078,6 +38306,7 @@
     "model": "user.service",
     "pk": 231,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Gemeindepräsident Oberiberg",
@@ -38100,6 +38329,7 @@
     "model": "user.service",
     "pk": 232,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "EW Tuggen",
@@ -38122,6 +38352,7 @@
     "model": "user.service",
     "pk": 233,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Gemeinderat Tuggen",
@@ -38144,6 +38375,7 @@
     "model": "user.service",
     "pk": 234,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Genossame Tuggen",
@@ -38166,6 +38398,7 @@
     "model": "user.service",
     "pk": 235,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Abwasserverband Obersee",
@@ -38188,6 +38421,7 @@
     "model": "user.service",
     "pk": 236,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Gemeinderat Alpthal",
@@ -38210,6 +38444,7 @@
     "model": "user.service",
     "pk": 237,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Externer Berater Alpthal",
@@ -38232,6 +38467,7 @@
     "model": "user.service",
     "pk": 238,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Brandschutzexperte Marty Josef",
@@ -38254,6 +38490,7 @@
     "model": "user.service",
     "pk": 239,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Baukommission Riemenstalden",
@@ -38276,6 +38513,7 @@
     "model": "user.service",
     "pk": 240,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Wasserversorgung Riemenstalden",
@@ -38298,6 +38536,7 @@
     "model": "user.service",
     "pk": 241,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Bezirksrat Einsiedeln",
@@ -38320,6 +38559,7 @@
     "model": "user.service",
     "pk": 242,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Planung und Gewässer Einsiedeln",
@@ -38342,6 +38582,7 @@
     "model": "user.service",
     "pk": 243,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Umwelt und Energie Einsiedeln",
@@ -38364,6 +38605,7 @@
     "model": "user.service",
     "pk": 244,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Sekretariat Einsiedeln",
@@ -38386,6 +38628,7 @@
     "model": "user.service",
     "pk": 245,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Ressort Infrastruktur Einsiedeln",
@@ -38408,6 +38651,7 @@
     "model": "user.service",
     "pk": 246,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Baubehörde Einsiedeln",
@@ -38430,6 +38674,7 @@
     "model": "user.service",
     "pk": 247,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Brandschutz Einsiedeln",
@@ -38452,6 +38697,7 @@
     "model": "user.service",
     "pk": 248,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Baubehörde Rothenthurm",
@@ -38474,6 +38720,7 @@
     "model": "user.service",
     "pk": 249,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Visplanum GmbH",
@@ -38496,6 +38743,7 @@
     "model": "user.service",
     "pk": 250,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Wasserversorgung Rothenthurm",
@@ -38518,6 +38766,7 @@
     "model": "user.service",
     "pk": 251,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Wuhrkorporation Biber",
@@ -38540,6 +38789,7 @@
     "model": "user.service",
     "pk": 252,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "ZKRI",
@@ -38562,6 +38812,7 @@
     "model": "user.service",
     "pk": 253,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Baukommission Sattel",
@@ -38584,6 +38835,7 @@
     "model": "user.service",
     "pk": 254,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Tiefbaukommission Sattel",
@@ -38606,6 +38858,7 @@
     "model": "user.service",
     "pk": 255,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Öffentliche Wasserversorgung Sattel",
@@ -38628,6 +38881,7 @@
     "model": "user.service",
     "pk": 256,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Gemeinderat Sattel",
@@ -38650,6 +38904,7 @@
     "model": "user.service",
     "pk": 257,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Strassengenossenschaft Sattel-Mostel",
@@ -38672,6 +38927,7 @@
     "model": "user.service",
     "pk": 258,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Wasserversorgungsgenossenschaft Eggried",
@@ -38694,6 +38950,7 @@
     "model": "user.service",
     "pk": 259,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Wasserversorgung Mostelberg AG",
@@ -38716,6 +38973,7 @@
     "model": "user.service",
     "pk": 260,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Wasserversorgung Mostelberg NORD",
@@ -38738,6 +38996,7 @@
     "model": "user.service",
     "pk": 261,
     "fields": {
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Wuhrkorporation Steineraa III",
@@ -38760,6 +39019,7 @@
     "model": "user.service",
     "pk": 262,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Bundesamt für Zivilluftfahrt (BAZL)",
@@ -38782,6 +39042,7 @@
     "model": "user.service",
     "pk": 263,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Rigi Bahnen AG",
@@ -38804,6 +39065,7 @@
     "model": "user.service",
     "pk": 264,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "IKSS",
@@ -38826,6 +39088,7 @@
     "model": "user.service",
     "pk": 265,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 20,
       "name": "TBA (Realisierung)",
@@ -38848,6 +39111,7 @@
     "model": "user.service",
     "pk": 301,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "Geoinfra Brunnen (Geometer)",
@@ -38870,6 +39134,7 @@
     "model": "user.service",
     "pk": 302,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "Geoinfra Brunnen (Gde_Bez Ingenieur)",
@@ -38892,6 +39157,7 @@
     "model": "user.service",
     "pk": 313,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "GEO Netz AG (Geometer)",

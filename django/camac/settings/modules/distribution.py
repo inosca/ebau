@@ -37,6 +37,7 @@ DISTRIBUTION = {
         },
         "ANSWERS": {},
         "NOTIFICATIONS": {},
+        # For the suggestions services ids or slugs can be used but they shouldn't be mixed.
         "SUGGESTIONS": [],
         "DEFAULT_SUGGESTIONS": [],
         "PERMISSIONS": {
@@ -98,6 +99,7 @@ DISTRIBUTION = {
                 "recipient_types": ["inquiry_controlling"],
             },
         },
+        # Service IDs or slugs can be used for the suggestions but they shouldn't be mixed.
         "SUGGESTIONS": {
             "FORM": {
                 "heat-generator": [20046],
@@ -533,6 +535,7 @@ DISTRIBUTION = {
             "HINT": "inquiry-answer-hint",
         },
         "DEFAULT_SUGGESTIONS": [7],  # Baugesuchszentrale
+        # Service IDs or slugs can be used for the suggestions but they shouldn't be mixed.
         "SUGGESTIONS": {
             "SUBMODULES": [
                 ("fachthemen.landwirtschaft", [9]),
@@ -661,6 +664,7 @@ DISTRIBUTION = {
                 "recipient_types": ["inquiry_controlling"],
             },
         },
+        # For the suggestions services ids or slugs can be used but they shouldn't be mixed.
         "SUGGESTIONS": {
             "QUESTIONS": {
                 (
@@ -745,6 +749,7 @@ DISTRIBUTION = {
             },
         },
         "DEFAULT_SUGGESTIONS": [1],  # KOOR BG
+        # For the suggestions services ids or slugs can be used but they shouldn't be mixed.
         "SUGGESTIONS": {
             "QUESTIONS": {
                 (

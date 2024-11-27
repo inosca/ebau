@@ -5005,6 +5005,7 @@
     "model": "user.service",
     "pk": 1,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "ARE KOOR BG",
@@ -5027,6 +5028,7 @@
     "model": "user.service",
     "pk": 2,
     "fields": {
+      "slug": null,
       "service_group": 63,
       "service_parent": null,
       "name": "AFJ",
@@ -5049,6 +5051,7 @@
     "model": "user.service",
     "pk": 3,
     "fields": {
+      "slug": null,
       "service_group": 64,
       "service_parent": null,
       "name": "AfAM",
@@ -5071,6 +5074,7 @@
     "model": "user.service",
     "pk": 21,
     "fields": {
+      "slug": null,
       "service_group": 62,
       "service_parent": null,
       "name": "AfU",
@@ -5093,6 +5097,7 @@
     "model": "user.service",
     "pk": 41,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "BD DS",
@@ -5115,6 +5120,7 @@
     "model": "user.service",
     "pk": 61,
     "fields": {
+      "slug": null,
       "service_group": 63,
       "service_parent": null,
       "name": "ABM ZS",
@@ -5137,6 +5143,7 @@
     "model": "user.service",
     "pk": 81,
     "fields": {
+      "slug": null,
       "service_group": 63,
       "service_parent": null,
       "name": "ABM BS",
@@ -5159,6 +5166,7 @@
     "model": "user.service",
     "pk": 82,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "Procap",
@@ -5181,6 +5189,7 @@
     "model": "user.service",
     "pk": 83,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "AWU",
@@ -5203,6 +5212,7 @@
     "model": "user.service",
     "pk": 84,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "LABT (Trinkwasserinspektorat, ausser Betrieb Umstrukturierung LAB)",
@@ -5225,6 +5235,7 @@
     "model": "user.service",
     "pk": 85,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "LABL (Lebensmittelinspektorat)",
@@ -5247,6 +5258,7 @@
     "model": "user.service",
     "pk": 86,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "LABV (Veterinärdienst der Urkantone)",
@@ -5269,6 +5281,7 @@
     "model": "user.service",
     "pk": 87,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "ARE KOOR NP",
@@ -5291,6 +5304,7 @@
     "model": "user.service",
     "pk": 88,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "ARE BaB Kreis 1",
@@ -5313,6 +5327,7 @@
     "model": "user.service",
     "pk": 89,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "TRA",
@@ -5335,6 +5350,7 @@
     "model": "user.service",
     "pk": 90,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "ARE NP",
@@ -5357,6 +5373,7 @@
     "model": "user.service",
     "pk": 91,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "ARE ARCH",
@@ -5379,6 +5396,7 @@
     "model": "user.service",
     "pk": 92,
     "fields": {
+      "slug": null,
       "service_group": 66,
       "service_parent": null,
       "name": "Amt für Steuern",
@@ -5401,6 +5419,7 @@
     "model": "user.service",
     "pk": 93,
     "fields": {
+      "slug": null,
       "service_group": 63,
       "service_parent": null,
       "name": "AfKP",
@@ -5423,6 +5442,7 @@
     "model": "user.service",
     "pk": 94,
     "fields": {
+      "slug": null,
       "service_group": 65,
       "service_parent": null,
       "name": "AfKS",
@@ -5445,6 +5465,7 @@
     "model": "user.service",
     "pk": 95,
     "fields": {
+      "slug": null,
       "service_group": 64,
       "service_parent": null,
       "name": "AfWoeV",
@@ -5467,6 +5488,7 @@
     "model": "user.service",
     "pk": 96,
     "fields": {
+      "slug": null,
       "service_group": 64,
       "service_parent": null,
       "name": "ALA",
@@ -5489,6 +5511,7 @@
     "model": "user.service",
     "pk": 97,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "Alpiq",
@@ -5511,6 +5534,7 @@
     "model": "user.service",
     "pk": 98,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "ARE NL",
@@ -5533,6 +5557,7 @@
     "model": "user.service",
     "pk": 99,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "ARE SU",
@@ -5555,6 +5580,7 @@
     "model": "user.service",
     "pk": 100,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "ARE WBF",
@@ -5577,6 +5603,7 @@
     "model": "user.service",
     "pk": 101,
     "fields": {
+      "slug": null,
       "service_group": 63,
       "service_parent": null,
       "name": "ASSV",
@@ -5599,6 +5626,7 @@
     "model": "user.service",
     "pk": 102,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Test",
@@ -5621,6 +5649,7 @@
     "model": "user.service",
     "pk": 103,
     "fields": {
+      "slug": null,
       "service_group": 71,
       "service_parent": null,
       "name": "SBB AG (Pendenz von Koordinationstelle)",
@@ -5643,6 +5672,7 @@
     "model": "user.service",
     "pk": 104,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "BeDi",
@@ -5665,6 +5695,7 @@
     "model": "user.service",
     "pk": 105,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "ReDi",
@@ -5687,6 +5718,7 @@
     "model": "user.service",
     "pk": 106,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "JD DS",
@@ -5709,6 +5741,7 @@
     "model": "user.service",
     "pk": 107,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "ARE BG",
@@ -5731,6 +5764,7 @@
     "model": "user.service",
     "pk": 108,
     "fields": {
+      "slug": null,
       "service_group": 74,
       "service_parent": null,
       "name": "LSSV (Landschaftsschutzverband Vierwaldstättersee)",
@@ -5753,6 +5787,7 @@
     "model": "user.service",
     "pk": 121,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "TEST KOORNP",
@@ -5775,6 +5810,7 @@
     "model": "user.service",
     "pk": 141,
     "fields": {
+      "slug": null,
       "service_group": 70,
       "service_parent": null,
       "name": "BAV",
@@ -5797,6 +5833,7 @@
     "model": "user.service",
     "pk": 161,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "ZAKU",
@@ -5819,6 +5856,7 @@
     "model": "user.service",
     "pk": 181,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "AGO (Geometer)",
@@ -5841,6 +5879,7 @@
     "model": "user.service",
     "pk": 201,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "Lisag",
@@ -5863,6 +5902,7 @@
     "model": "user.service",
     "pk": 221,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "ZUBI",
@@ -5885,6 +5925,7 @@
     "model": "user.service",
     "pk": 241,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "ARE DMP",
@@ -5907,6 +5948,7 @@
     "model": "user.service",
     "pk": 261,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "ARE BaB Kreis 2",
@@ -5929,6 +5971,7 @@
     "model": "user.service",
     "pk": 262,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "ARE BaB Kreis 3",
@@ -5951,6 +5994,7 @@
     "model": "user.service",
     "pk": 281,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Andermatt Pendenzen",
@@ -5973,6 +6017,7 @@
     "model": "user.service",
     "pk": 301,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Altdorf Pendenzen",
@@ -5995,6 +6040,7 @@
     "model": "user.service",
     "pk": 302,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "KOOR BD",
@@ -6017,6 +6063,7 @@
     "model": "user.service",
     "pk": 303,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "AfT Abteilung Infrastruktur",
@@ -6039,6 +6086,7 @@
     "model": "user.service",
     "pk": 304,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "AfT Abteilung Projekte",
@@ -6061,6 +6109,7 @@
     "model": "user.service",
     "pk": 305,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "BK",
@@ -6083,6 +6132,7 @@
     "model": "user.service",
     "pk": 306,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "AfE",
@@ -6105,6 +6155,7 @@
     "model": "user.service",
     "pk": 307,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "AfBN",
@@ -6127,6 +6178,7 @@
     "model": "user.service",
     "pk": 308,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "AfH",
@@ -6149,6 +6201,7 @@
     "model": "user.service",
     "pk": 309,
     "fields": {
+      "slug": null,
       "service_group": 70,
       "service_parent": null,
       "name": "ASTRA",
@@ -6171,6 +6224,7 @@
     "model": "user.service",
     "pk": 310,
     "fields": {
+      "slug": null,
       "service_group": 63,
       "service_parent": null,
       "name": "BVP",
@@ -6193,6 +6247,7 @@
     "model": "user.service",
     "pk": 321,
     "fields": {
+      "slug": null,
       "service_group": 64,
       "service_parent": null,
       "name": "BGBB",
@@ -6215,6 +6270,7 @@
     "model": "user.service",
     "pk": 322,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Attinghausen Pendenzen",
@@ -6237,6 +6293,7 @@
     "model": "user.service",
     "pk": 323,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Seedorf (Ortsteil Bauen) Pendenzen",
@@ -6259,6 +6316,7 @@
     "model": "user.service",
     "pk": 324,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Bürglen Pendenzen",
@@ -6281,6 +6339,7 @@
     "model": "user.service",
     "pk": 325,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Erstfeld Pendenzen",
@@ -6303,6 +6362,7 @@
     "model": "user.service",
     "pk": 326,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Flüelen Pendenzen",
@@ -6325,6 +6385,7 @@
     "model": "user.service",
     "pk": 327,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Göschenen Pendenzen",
@@ -6347,6 +6408,7 @@
     "model": "user.service",
     "pk": 328,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Gurtnellen Pendenzen",
@@ -6369,6 +6431,7 @@
     "model": "user.service",
     "pk": 329,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Hospental Pendenzen",
@@ -6391,6 +6454,7 @@
     "model": "user.service",
     "pk": 330,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Isenthal Pendenzen",
@@ -6413,6 +6477,7 @@
     "model": "user.service",
     "pk": 331,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Realp Pendenzen",
@@ -6435,6 +6500,7 @@
     "model": "user.service",
     "pk": 332,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Schattdorf Pendenzen",
@@ -6457,6 +6523,7 @@
     "model": "user.service",
     "pk": 333,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Seedorf Pendenzen",
@@ -6479,6 +6546,7 @@
     "model": "user.service",
     "pk": 334,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Seelisberg Pendenzen",
@@ -6501,6 +6569,7 @@
     "model": "user.service",
     "pk": 335,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Silenen Pendenzen",
@@ -6523,6 +6592,7 @@
     "model": "user.service",
     "pk": 336,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Sisikon Pendenzen",
@@ -6545,6 +6615,7 @@
     "model": "user.service",
     "pk": 337,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Spiringen Pendenzen",
@@ -6567,6 +6638,7 @@
     "model": "user.service",
     "pk": 338,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Unterschächen Pendenzen",
@@ -6589,6 +6661,7 @@
     "model": "user.service",
     "pk": 339,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Wassen Pendenzen",
@@ -6611,6 +6684,7 @@
     "model": "user.service",
     "pk": 340,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "ENHK (bitte keine direkte Zirkulation starten Dossierzuweisung nur via Fachstelle)",
@@ -6633,6 +6707,7 @@
     "model": "user.service",
     "pk": 341,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "NHSK (bitte keine direkte Zirkulation starten Dossierzuweisung nur via Fachstelle)",
@@ -6655,6 +6730,7 @@
     "model": "user.service",
     "pk": 342,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Altdorf",
@@ -6677,6 +6753,7 @@
     "model": "user.service",
     "pk": 343,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Urner Oberland",
@@ -6699,6 +6776,7 @@
     "model": "user.service",
     "pk": 344,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Andermatt",
@@ -6721,6 +6799,7 @@
     "model": "user.service",
     "pk": 345,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Miktglieder BK Attinghausen",
@@ -6743,6 +6822,7 @@
     "model": "user.service",
     "pk": 346,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Altdorf",
@@ -6765,6 +6845,7 @@
     "model": "user.service",
     "pk": 347,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Andermatt",
@@ -6787,6 +6868,7 @@
     "model": "user.service",
     "pk": 348,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Attinghausen",
@@ -6809,6 +6891,7 @@
     "model": "user.service",
     "pk": 349,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Bauen",
@@ -6831,6 +6914,7 @@
     "model": "user.service",
     "pk": 350,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Bürglen",
@@ -6853,6 +6937,7 @@
     "model": "user.service",
     "pk": 351,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Erstfeld",
@@ -6875,6 +6960,7 @@
     "model": "user.service",
     "pk": 352,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Flüelen",
@@ -6897,6 +6983,7 @@
     "model": "user.service",
     "pk": 353,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Urner Oberland",
@@ -6919,6 +7006,7 @@
     "model": "user.service",
     "pk": 354,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Hospental",
@@ -6941,6 +7029,7 @@
     "model": "user.service",
     "pk": 355,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Isenthal",
@@ -6963,6 +7052,7 @@
     "model": "user.service",
     "pk": 356,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Realp",
@@ -6985,6 +7075,7 @@
     "model": "user.service",
     "pk": 357,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Schattdorf",
@@ -7007,6 +7098,7 @@
     "model": "user.service",
     "pk": 358,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Seedorf",
@@ -7029,6 +7121,7 @@
     "model": "user.service",
     "pk": 359,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Seelisberg",
@@ -7051,6 +7144,7 @@
     "model": "user.service",
     "pk": 360,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Silenen",
@@ -7073,6 +7167,7 @@
     "model": "user.service",
     "pk": 361,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Sisikon",
@@ -7095,6 +7190,7 @@
     "model": "user.service",
     "pk": 362,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Spiringen",
@@ -7117,6 +7213,7 @@
     "model": "user.service",
     "pk": 363,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Unterschächen",
@@ -7139,6 +7236,7 @@
     "model": "user.service",
     "pk": 364,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Erstfeld",
@@ -7161,6 +7259,7 @@
     "model": "user.service",
     "pk": 365,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Schattdorf",
@@ -7183,6 +7282,7 @@
     "model": "user.service",
     "pk": 366,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "Qualinova (Dossierzuweisung nur via Fachstelle, Rubrik Dossier freischalten)",
@@ -7205,6 +7305,7 @@
     "model": "user.service",
     "pk": 367,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Bauen",
@@ -7227,6 +7328,7 @@
     "model": "user.service",
     "pk": 368,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Bürglen",
@@ -7249,6 +7351,7 @@
     "model": "user.service",
     "pk": 369,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Flüelen",
@@ -7271,6 +7374,7 @@
     "model": "user.service",
     "pk": 370,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Seedorf",
@@ -7293,6 +7397,7 @@
     "model": "user.service",
     "pk": 371,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Seelisberg",
@@ -7315,6 +7420,7 @@
     "model": "user.service",
     "pk": 372,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Silenen",
@@ -7337,6 +7443,7 @@
     "model": "user.service",
     "pk": 380,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Sisikon",
@@ -7359,6 +7466,7 @@
     "model": "user.service",
     "pk": 381,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Realp",
@@ -7381,6 +7489,7 @@
     "model": "user.service",
     "pk": 382,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Hospental",
@@ -7403,6 +7512,7 @@
     "model": "user.service",
     "pk": 383,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Isenthal",
@@ -7425,6 +7535,7 @@
     "model": "user.service",
     "pk": 384,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Spiringen",
@@ -7447,6 +7558,7 @@
     "model": "user.service",
     "pk": 385,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Unterschächen",
@@ -7469,6 +7581,7 @@
     "model": "user.service",
     "pk": 400,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "FGS",
@@ -7491,6 +7604,7 @@
     "model": "user.service",
     "pk": 420,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "AfdG",
@@ -7513,6 +7627,7 @@
     "model": "user.service",
     "pk": 440,
     "fields": {
+      "slug": null,
       "service_group": 63,
       "service_parent": null,
       "name": "ABM",
@@ -7535,6 +7650,7 @@
     "model": "user.service",
     "pk": 460,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "ARE",
@@ -7557,6 +7673,7 @@
     "model": "user.service",
     "pk": 461,
     "fields": {
+      "slug": null,
       "service_group": 70,
       "service_parent": null,
       "name": "BAFU (Service noch nicht in Betrieb)",
@@ -7579,6 +7696,7 @@
     "model": "user.service",
     "pk": 462,
     "fields": {
+      "slug": null,
       "service_group": 70,
       "service_parent": null,
       "name": "ARE Bern (Service noch nicht in Betrieb)",
@@ -7601,6 +7719,7 @@
     "model": "user.service",
     "pk": 481,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "Brandschutz TRA Andermatt",
@@ -7623,6 +7742,7 @@
     "model": "user.service",
     "pk": 501,
     "fields": {
+      "slug": null,
       "service_group": 65,
       "service_parent": null,
       "name": "BKD DS",
@@ -7645,6 +7765,7 @@
     "model": "user.service",
     "pk": 502,
     "fields": {
+      "slug": null,
       "service_group": 66,
       "service_parent": null,
       "name": "Fachstelle Statistik",
@@ -7667,6 +7788,7 @@
     "model": "user.service",
     "pk": 503,
     "fields": {
+      "slug": null,
       "service_group": 66,
       "service_parent": null,
       "name": "FD DS",
@@ -7689,6 +7811,7 @@
     "model": "user.service",
     "pk": 504,
     "fields": {
+      "slug": null,
       "service_group": 62,
       "service_parent": null,
       "name": "Amt für Soziales",
@@ -7711,6 +7834,7 @@
     "model": "user.service",
     "pk": 521,
     "fields": {
+      "slug": null,
       "service_group": 62,
       "service_parent": null,
       "name": "GSUD DS",
@@ -7733,6 +7857,7 @@
     "model": "user.service",
     "pk": 522,
     "fields": {
+      "slug": null,
       "service_group": 63,
       "service_parent": null,
       "name": "SID DS",
@@ -7755,6 +7880,7 @@
     "model": "user.service",
     "pk": 523,
     "fields": {
+      "slug": null,
       "service_group": 64,
       "service_parent": null,
       "name": "VD DS",
@@ -7777,6 +7903,7 @@
     "model": "user.service",
     "pk": 524,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "KOOR AfU",
@@ -7799,6 +7926,7 @@
     "model": "user.service",
     "pk": 525,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "KOOR ALA",
@@ -7821,6 +7949,7 @@
     "model": "user.service",
     "pk": 545,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "KOOR AfE",
@@ -7843,6 +7972,7 @@
     "model": "user.service",
     "pk": 546,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "KOOR AFJ",
@@ -7865,6 +7995,7 @@
     "model": "user.service",
     "pk": 547,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "LABB (Badewasserinspektorat)",
@@ -7887,6 +8018,7 @@
     "model": "user.service",
     "pk": 548,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "Korporation Uri (Service noch nicht in Betrieb)",
@@ -7909,6 +8041,7 @@
     "model": "user.service",
     "pk": 549,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "Korporation Ursern (Service noch nicht in Betrieb)",
@@ -7931,6 +8064,7 @@
     "model": "user.service",
     "pk": 567,
     "fields": {
+      "slug": null,
       "service_group": 62,
       "service_parent": null,
       "name": "AfU GS",
@@ -7953,6 +8087,7 @@
     "model": "user.service",
     "pk": 568,
     "fields": {
+      "slug": null,
       "service_group": 62,
       "service_parent": null,
       "name": "AfU IS",
@@ -7975,6 +8110,7 @@
     "model": "user.service",
     "pk": 587,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "AfBN Baupolizei",
@@ -7997,6 +8133,7 @@
     "model": "user.service",
     "pk": 588,
     "fields": {
+      "slug": null,
       "service_group": 62,
       "service_parent": null,
       "name": "AfU GS Wärmenutzung",
@@ -8019,6 +8156,7 @@
     "model": "user.service",
     "pk": 589,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "Monitron (Dossierzuweisung nur via Fachstelle, Rubrik Dossier freischalten)",
@@ -8041,6 +8179,7 @@
     "model": "user.service",
     "pk": 590,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "KOOR SD",
@@ -8063,6 +8202,7 @@
     "model": "user.service",
     "pk": 591,
     "fields": {
+      "slug": null,
       "service_group": 70,
       "service_parent": null,
       "name": "VBS Schiesswesen",
@@ -8085,6 +8225,7 @@
     "model": "user.service",
     "pk": 592,
     "fields": {
+      "slug": null,
       "service_group": 71,
       "service_parent": null,
       "name": "Swissgrid (Pendenz von Koordinationstelle)",
@@ -8107,6 +8248,7 @@
     "model": "user.service",
     "pk": 593,
     "fields": {
+      "slug": null,
       "service_group": 69,
       "service_parent": null,
       "name": "Gemeindewerke Erstfeld",
@@ -8129,6 +8271,7 @@
     "model": "user.service",
     "pk": 594,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "AfT",
@@ -8151,6 +8294,7 @@
     "model": "user.service",
     "pk": 595,
     "fields": {
+      "slug": null,
       "service_group": 69,
       "service_parent": null,
       "name": "Wasserkommission Altdorf",
@@ -8173,6 +8317,7 @@
     "model": "user.service",
     "pk": 596,
     "fields": {
+      "slug": null,
       "service_group": 71,
       "service_parent": null,
       "name": "MGB (Pendenz von Koordinationstelle)",
@@ -8195,6 +8340,7 @@
     "model": "user.service",
     "pk": 597,
     "fields": {
+      "slug": null,
       "service_group": 69,
       "service_parent": null,
       "name": "Bauabteilung Altdorf Ortsplanung",
@@ -8217,6 +8363,7 @@
     "model": "user.service",
     "pk": 598,
     "fields": {
+      "slug": null,
       "service_group": 69,
       "service_parent": null,
       "name": "Bauabteilung Altdorf Tiefbau",
@@ -8239,6 +8386,7 @@
     "model": "user.service",
     "pk": 599,
     "fields": {
+      "slug": null,
       "service_group": 69,
       "service_parent": null,
       "name": "Feuerwehr Altdorf",
@@ -8261,6 +8409,7 @@
     "model": "user.service",
     "pk": 600,
     "fields": {
+      "slug": null,
       "service_group": 69,
       "service_parent": null,
       "name": "Bauabteilung Altdorf Liegenschaften",
@@ -8283,6 +8432,7 @@
     "model": "user.service",
     "pk": 601,
     "fields": {
+      "slug": null,
       "service_group": 70,
       "service_parent": null,
       "name": "Armasuisse Immobilien",
@@ -8305,6 +8455,7 @@
     "model": "user.service",
     "pk": 602,
     "fields": {
+      "slug": null,
       "service_group": 70,
       "service_parent": null,
       "name": "BAZL",
@@ -8327,6 +8478,7 @@
     "model": "user.service",
     "pk": 603,
     "fields": {
+      "slug": null,
       "service_group": 74,
       "service_parent": null,
       "name": "VCS Uri",
@@ -8349,6 +8501,7 @@
     "model": "user.service",
     "pk": 604,
     "fields": {
+      "slug": null,
       "service_group": 72,
       "service_parent": null,
       "name": "Swissgrid (Pendenz von Gemeinde)",
@@ -8371,6 +8524,7 @@
     "model": "user.service",
     "pk": 605,
     "fields": {
+      "slug": null,
       "service_group": 72,
       "service_parent": null,
       "name": "MGB (Pendenz von Gemeinde)",
@@ -8393,6 +8547,7 @@
     "model": "user.service",
     "pk": 626,
     "fields": {
+      "slug": null,
       "service_group": 72,
       "service_parent": null,
       "name": "SBB AG (Pendenz von Gemeinde)",
@@ -8415,6 +8570,7 @@
     "model": "user.service",
     "pk": 627,
     "fields": {
+      "slug": null,
       "service_group": 74,
       "service_parent": null,
       "name": "WWF Uri",
@@ -8437,6 +8593,7 @@
     "model": "user.service",
     "pk": 628,
     "fields": {
+      "slug": null,
       "service_group": 74,
       "service_parent": null,
       "name": "Pro Natura Uri",
@@ -8459,6 +8616,7 @@
     "model": "user.service",
     "pk": 629,
     "fields": {
+      "slug": null,
       "service_group": 69,
       "service_parent": null,
       "name": "Wasserversorgungskommission Spiringen",
@@ -8481,6 +8639,7 @@
     "model": "user.service",
     "pk": 630,
     "fields": {
+      "slug": null,
       "service_group": 62,
       "service_parent": null,
       "name": "Amt für Gesundheit",
@@ -8503,6 +8662,7 @@
     "model": "user.service",
     "pk": 631,
     "fields": {
+      "slug": null,
       "service_group": 69,
       "service_parent": null,
       "name": "Wasserversorgungskommission Urnerboden",
@@ -8525,6 +8685,7 @@
     "model": "user.service",
     "pk": 632,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "Inventar Historische Verkehrswege IVS (Dossierzuweisung via Fachstelle)",
@@ -8547,6 +8708,7 @@
     "model": "user.service",
     "pk": 633,
     "fields": {
+      "slug": null,
       "service_group": 70,
       "service_parent": null,
       "name": "Armasuisse Wissenschaft und Technologie",
@@ -8569,6 +8731,7 @@
     "model": "user.service",
     "pk": 634,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "ARE Fachstelle Agglomerationsprogramm",
@@ -8591,6 +8754,7 @@
     "model": "user.service",
     "pk": 635,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "Fachstelle IKSS (Dossierzuweisung nur via Fachstelle, Rubrik Dossier freischalten)",
@@ -8613,6 +8777,7 @@
     "model": "user.service",
     "pk": 636,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "KOOR AfG",
