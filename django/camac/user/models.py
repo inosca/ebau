@@ -558,6 +558,7 @@ class Service(core_models.MultilingualModel, models.Model):
     service_id = models.AutoField(
         db_column="SERVICE_ID", primary_key=True, verbose_name=_("ID")
     )
+    slug = models.SlugField(unique=True, null=True, blank=True, default=None)
     service_group = models.ForeignKey(
         ServiceGroup,
         models.PROTECT,
