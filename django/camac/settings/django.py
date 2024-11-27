@@ -2080,6 +2080,8 @@ APPLICATIONS = {
                     "decision": "inProcedure",
                     "finished": "done",
                     "rejected": "rejected",
+                    "withdrawal": "withdrawn",
+                    "withdrawn": "withdrawn",
                 },
                 "DEFAULT": "inProcedure",
             },

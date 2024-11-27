@@ -21,6 +21,8 @@ STATES_ALL = RequireInstanceState(
         "construction-acceptance",
         "finished",
         # Special cases
+        "withdrawal",
+        "withdrawn",
         "rejected",
     ]
 )
@@ -112,6 +114,15 @@ ACTION_INSTANCE_SUBMIT = RequireInstanceState(["new"]) & (
     HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
 
+ACTION_INSTANCE_WITHDRAW = RequireInstanceState(
+    [
+        "subm",
+        "init-distribution",
+        "distribution",
+        "decision",
+    ]
+) & (HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper()))
+
 GR_PERMISSIONS_SETTINGS = {
     "ENABLED": True,
     "ACCESS_LEVELS": {
@@ -130,6 +141,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("instance-create-modification", ACTION_INSTANCE_CREATE_MODIFICATION),
             ("instance-delete", ACTION_INSTANCE_DELETE),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
+            ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
         ],
         "distribution-service": [
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
@@ -173,6 +185,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("instance-create-modification", ACTION_INSTANCE_CREATE_MODIFICATION),
             ("instance-delete", ACTION_INSTANCE_DELETE),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
+            ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
             ("journal-read", MODULE_JOURNAL),
             ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
