@@ -20,6 +20,9 @@ ALEXANDRIA = {
         "TAG_VISIBILITY": "all",
         "INSTANCE_COPY_CATEGORIES": ["beilagen-zum-gesuch", "nachforderung"],
     },
+    "kt_ag": {
+        "ENABLED": True,
+    },
     "kt_gr": {
         "ENABLED": True,
         "MARK_VISIBILITY": {
