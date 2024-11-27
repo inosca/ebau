@@ -792,9 +792,6 @@ def test_instance_submit_cantonal_territory_usage_ur(
     ur_master_data_case,
 ):
     settings.APPLICATION_NAME = "kt_uri"
-    application_settings["CALUMA"]["USE_LOCATION"] = True
-    application_settings["CALUMA"]["GENERATE_IDENTIFIER"] = False
-    application_settings["USE_INSTANCE_SERVICE"] = False
 
     caluma_form_factories.FormFactory(slug="personalien")
     ur_instance.case.document.form_id = "cantonal-territory-usage"
@@ -804,6 +801,7 @@ def test_instance_submit_cantonal_territory_usage_ur(
     mocker.patch(f"camac.constants.kt_uri.{submit_to}_SERVICE_ID", koor_service.pk)
     koor_group = group_factory(service=koor_service)
     mocker.patch(f"camac.constants.kt_uri.{submit_to}_GROUP_ID", koor_group.pk)
+    mocker.patch("camac.constants.kt_uri.KOOR_GROUP_IDS", [koor_group.pk])
     koor_email = koor_group.service.email
 
     veranstaltung = "umzug" if submit_to == "KOOR_BD" else "sportanlass"
@@ -813,16 +811,10 @@ def test_instance_submit_cantonal_territory_usage_ur(
     )
 
     application_settings["NOTIFICATIONS"] = {
-        "SUBMIT_KOOR_SD": [
+        "SUBMIT_KOOR": [
             {
                 "template_slug": notification_template.slug,
-                "recipient_types": ["koor_sd_users"],
-            },
-        ],
-        "SUBMIT_KOOR_BD": [
-            {
-                "template_slug": notification_template.slug,
-                "recipient_types": ["koor_bd_users"],
+                "recipient_types": ["municipality"],
             },
         ],
     }
@@ -846,6 +838,73 @@ def test_instance_submit_cantonal_territory_usage_ur(
     assert koor_email in mail.outbox[0].recipients()
 
     assert ur_instance.instance_state.name == "ext"
+    assert ur_instance.location_id == location.pk
+    assert ur_instance.group == koor_group
+
+
+@pytest.mark.parametrize("service_group__name", ["coordination"])
+@pytest.mark.parametrize("instance_state__name", ["new"])
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
+def test_instance_submit_mitbericht_bund_ur(
+    mocker,
+    admin_client,
+    settings,
+    ur_instance,
+    notification_template,
+    application_settings,
+    mock_generate_and_store_pdf,
+    location_factory,
+    group_factory,
+    instance_state_factory,
+    service_factory,
+    authority_location_factory,
+    caluma_workflow_config_ur,
+    disable_ech0211_settings,
+    ur_master_data_case,
+):
+    settings.APPLICATION_NAME = "kt_uri"
+
+    caluma_form_factories.FormFactory(slug="personalien")
+    ur_instance.case.document.form_id = "mitbericht-bund"
+    ur_instance.case.document.save()
+
+    koor_service = service_factory(email="koor-bg@example.com")
+    mocker.patch("camac.constants.kt_uri.KOOR_BG_SERVICE_ID", koor_service.pk)
+    koor_group = group_factory(service=koor_service)
+    mocker.patch("camac.constants.kt_uri.KOOR_BG_GROUP_ID", koor_group.pk)
+    mocker.patch("camac.constants.kt_uri.KOOR_GROUP_IDS", [koor_group.pk])
+    koor_email = koor_group.service.email
+
+    ur_instance.group = koor_group
+    ur_instance.save()
+
+    application_settings["NOTIFICATIONS"] = {
+        "SUBMIT_KOOR": [
+            {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["municipality"],
+            },
+        ],
+    }
+    application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
+    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
+
+    location = location_factory(communal_federal_number="1")
+
+    authority_location_factory(location=location)
+
+    instance_state_factory(name="ext")
+    instance_state_factory(name="subm")
+
+    response = admin_client.post(reverse("instance-submit", args=[ur_instance.pk]))
+
+    ur_instance.refresh_from_db()
+
+    assert response.status_code == status.HTTP_200_OK
+
+    assert len(mail.outbox) == 1
+    assert koor_email in mail.outbox[0].recipients()
+
     assert ur_instance.location_id == location.pk
     assert ur_instance.group == koor_group
 
@@ -879,9 +938,6 @@ def test_instance_submit_heat_extraction_ur(
     disable_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_uri"
-    application_settings["CALUMA"]["USE_LOCATION"] = True
-    application_settings["CALUMA"]["GENERATE_IDENTIFIER"] = False
-    application_settings["USE_INSTANCE_SERVICE"] = False
 
     ur_instance.case.document.form_id = form_slug
     ur_instance.case.document.save()
@@ -892,13 +948,14 @@ def test_instance_submit_heat_extraction_ur(
     mocker.patch("camac.constants.kt_uri.KOOR_AFE_SERVICE_ID", koor_service.pk)
     koor_group = group_factory(service=koor_service)
     mocker.patch("camac.constants.kt_uri.KOOR_AFE_GROUP_ID", koor_group.pk)
+    mocker.patch("camac.constants.kt_uri.KOOR_GROUP_IDS", [koor_group.pk])
     koor_email = koor_group.service.email
 
     application_settings["NOTIFICATIONS"] = {
-        "SUBMIT_KOOR_AFE": [
+        "SUBMIT_KOOR": [
             {
                 "template_slug": notification_template.slug,
-                "recipient_types": ["koor_afe_users"],
+                "recipient_types": ["municipality"],
             },
         ],
     }
@@ -972,9 +1029,6 @@ def test_instance_submit_pgv_gemeindestrasse_ur(
     disable_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_uri"
-    application_settings["CALUMA"]["USE_LOCATION"] = True
-    application_settings["CALUMA"]["GENERATE_IDENTIFIER"] = False
-    application_settings["USE_INSTANCE_SERVICE"] = False
 
     ur_instance.case.document.form_id = "pgv-gemeindestrasse"
     ur_instance.case.document.save()
@@ -983,13 +1037,14 @@ def test_instance_submit_pgv_gemeindestrasse_ur(
     mocker.patch("camac.constants.kt_uri.KOOR_BD_SERVICE_ID", koor_service.pk)
     koor_group = group_factory(service=koor_service)
     mocker.patch("camac.constants.kt_uri.KOOR_BD_GROUP_ID", koor_group.pk)
+    mocker.patch("camac.constants.kt_uri.KOOR_GROUP_IDS", [koor_group.pk])
     koor_email = koor_group.service.email
 
     application_settings["NOTIFICATIONS"] = {
-        "SUBMIT_KOOR_BD": [
+        "SUBMIT_KOOR": [
             {
                 "template_slug": notification_template.slug,
-                "recipient_types": ["koor_bd_users"],
+                "recipient_types": ["municipality"],
             },
         ],
     }
@@ -1205,6 +1260,7 @@ def test_oereb_instance_copy_for_koor_afj(
     mocker.patch("camac.constants.kt_uri.KOOR_AFJ_SERVICE_ID", koor_afj_service.pk)
     koor_afj_group = group_factory(service=koor_afj_service)
     mocker.patch("camac.constants.kt_uri.KOOR_AFJ_GROUP_ID", koor_afj_group.pk)
+    mocker.patch("camac.constants.kt_uri.KOOR_GROUP_IDS", [koor_afj_group.pk])
 
     koor_np_service = service_factory(email="KOOR_NP@example.com", name="KOOR NP")
     mocker.patch("camac.constants.kt_uri.KOOR_NP_SERVICE_ID", koor_np_service.pk)
@@ -1290,7 +1346,7 @@ def test_oereb_instance_copy_for_koor_afj(
     ur_instance.refresh_from_db()
 
     if form_slug == "oereb":
-        assert len(mail.outbox) == 4
+        assert len(mail.outbox) == 2
         assert email in list(itertools.chain(*[m.recipients() for m in mail.outbox]))
 
     assert ur_instance.instance_state.name == "subm"
