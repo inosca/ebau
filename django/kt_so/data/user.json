@@ -12406,6 +12406,7 @@
     "model": "user.service",
     "pk": 124,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -12428,6 +12429,7 @@
     "model": "user.service",
     "pk": 125,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -12450,6 +12452,7 @@
     "model": "user.service",
     "pk": 126,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -12472,6 +12475,7 @@
     "model": "user.service",
     "pk": 127,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -12494,6 +12498,7 @@
     "model": "user.service",
     "pk": 128,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -12516,6 +12521,7 @@
     "model": "user.service",
     "pk": 129,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -12538,6 +12544,7 @@
     "model": "user.service",
     "pk": 130,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
