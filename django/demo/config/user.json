@@ -403,6 +403,7 @@
     "model": "user.service",
     "pk": 2,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -425,6 +426,7 @@
     "model": "user.service",
     "pk": 20032,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": null,
