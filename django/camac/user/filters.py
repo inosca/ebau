@@ -202,9 +202,13 @@ class PublicServiceFilterSet(FilterSet):
         return queryset
 
     def filter_suggestion_for_instance(self, queryset, name, value):
-        return queryset.filter(
-            pk__in=get_service_suggestions(Instance.objects.get(pk=value))
+        suggested_service_ids_or_slugs = get_service_suggestions(
+            Instance.objects.get(pk=value)
         )
+
+        if all(isinstance(item, str) for item in list(suggested_service_ids_or_slugs)):
+            return queryset.filter(slug__in=suggested_service_ids_or_slugs)
+        return queryset.filter(pk__in=suggested_service_ids_or_slugs)
 
     def filter_exclude_own_service(self, queryset, name, value):
         if value and self.request.group.service_id:
