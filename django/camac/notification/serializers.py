@@ -1703,6 +1703,12 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             return [{"to": service.email}]
         return []  # pragma: no cover
 
+    def _get_recipients_abm_zs_uri(self, instance):
+        service = Service.objects.filter(name="ABM ZS").first()
+        if service:
+            return [{"to": service.email}]
+        return []  # pragma: no cover
+
     def _get_recipients_liegenschaftsschaetzung_uri(self, instance):
         service = Service.objects.filter(
             pk=uri_constants.AMT_FUER_STEUERN_LIEGENSCHAFTSSCHAETZUNG_SERVICE_ID

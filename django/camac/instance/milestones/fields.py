@@ -80,13 +80,7 @@ class AnswerField(serializers.ReadOnlyField):
         documents = Document.objects.filter(form__slug=self.document)
 
         if self.family_form_id:
-            documents = documents.filter(
-                (Q(case=instance.case) & Q(work_item__in=instance._all_work_items))
-                | (
-                    Q(family__form_id=self.family_form_id)
-                    & Q(case__instance__pk=instance.pk)
-                )
-            )
+            documents = documents.filter(family__form_id=self.family_form_id)
         else:
             documents = documents.filter(
                 (Q(case=instance.case) | Q(work_item__in=instance._all_work_items))

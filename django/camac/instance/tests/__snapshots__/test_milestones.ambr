@@ -5,18 +5,12 @@
       dict({
         'fields': list([
           dict({
-            'label': 'Dossier erfasst',
+            'label': 'Dossier eingereicht',
             'slug': 'instance-submitted',
             'value': '2023-01-01T19:00:00Z',
           }),
           dict({
-            'label': 'Eingang Post',
-            'slug': 'paper-submission',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Nachforderung Gemeindebaubehörde',
+            'label': 'Nachforderung Gemeinde',
             'slug': 'additional-demand',
             'value': list([
             ]),
@@ -34,19 +28,19 @@
             'value': '2023-01-01T19:00:00Z',
           }),
           dict({
-            'label': 'Prüfung durch Gemeinde',
-            'slug': 'review-building-commission',
-            'value': list([
-            ]),
-          }),
-          dict({
             'label': 'Publikationsdatum',
             'slug': 'publication-date',
             'value': '2023-12-31T00:00:00Z',
           }),
           dict({
-            'label': 'Eingang von Einsprachen',
+            'label': 'Eingang Einsprachen',
             'slug': 'einsprache',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Start Zirkulation',
+            'slug': 'start-circulation-new',
             'value': list([
             ]),
           }),
@@ -58,73 +52,46 @@
             ]),
           }),
           dict({
-            'label': 'Start Zirkulation',
-            'slug': 'start-circulation',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Weiterleitung an KOOR (migriert)',
-            'slug': 'submission-to-koor',
-            'value': '2023-12-31T23:00:00Z',
-          }),
-          dict({
-            'label': 'Start Zirkulation',
-            'slug': 'start-circulation',
-            'value': '2024-01-01T19:00:00Z',
-          }),
-          dict({
             'label': 'Zirkulation beendet',
             'slug': 'distribution-completed',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'Stellungnahme - Vorentscheid',
+            'label': 'Versand Stellungnahme Vorentscheid',
             'slug': 'statement-preliminary-decision',
             'value': '2023-01-01T19:00:00Z',
           }),
           dict({
-            'label': 'Bau- und Einspracheentscheid',
+            'label': 'Versand Bau- und Einspracheentscheid',
             'slug': 'building-decision',
             'value': None,
           }),
           dict({
-            'label': 'Bau- und Einspracheentscheid (migriert)',
-            'slug': 'building-decision-migrated',
-            'value': '2023-12-31T23:00:00Z',
-          }),
-          dict({
-            'label': 'Meldung Baubewilligung an Geometer',
-            'slug': 'notice-to-geometer',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Empfangsbestätigung Entscheiddokumente',
-            'slug': 'receipt-confirmation-of-decision-documents',
-            'value': None,
-          }),
-          dict({
-            'label': 'Empfangsbestätigung Vorentscheid',
+            'label': 'Empfangsbestätigung Stellungnahme Vorentscheid',
             'slug': 'receipt-confirmation-of-preliminary-decision',
             'value': '2023-12-31T00:00:00Z',
           }),
           dict({
-            'label': 'Meldung Bau beendet an Fachstelle für Gebäudeschätzung',
-            'slug': 'notice-to-gebaeudeschaetzung',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Meldung Bau beendet an Amt für Steuern Liegenschaftsschätzung',
-            'slug': 'notice-to-liegenschaftsschaetzung',
-            'value': list([
-            ]),
+            'label': 'Empfangsbestätigung Bau- und Einspracheentscheid',
+            'slug': 'receipt-confirmation-of-decision-documents',
+            'value': None,
           }),
           dict({
             'label': 'Baubewilligung gültig bis',
             'slug': 'baubewilligung-gueltig-bis',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Prüfung durch Gemeinde (migriert)',
+            'slug': 'review-building-commission',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Eingang Post (migriert)',
+            'slug': 'paper-submission',
             'value': list([
             ]),
           }),
@@ -134,7 +101,22 @@
             'value': '2023-12-31T23:00:00Z',
           }),
           dict({
-            'label': 'Versand / Stellungnahme - Vorentscheid per Post (migriert)',
+            'label': 'Weiterleitung an KOOR (migriert)',
+            'slug': 'submission-to-koor',
+            'value': '2023-12-31T23:00:00Z',
+          }),
+          dict({
+            'label': 'Start Zirkulation (migriert)',
+            'slug': 'start-circulation',
+            'value': '2024-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Bau- und Einspracheentscheid (migriert)',
+            'slug': 'building-decision-migrated',
+            'value': '2023-12-31T23:00:00Z',
+          }),
+          dict({
+            'label': 'Versand Stellungnahme Vorentscheid per Post (migriert)',
             'slug': 'dispatch-statement-preliminary-decision-by-post',
             'value': '2023-12-31T23:00:00Z',
           }),
@@ -149,19 +131,73 @@
             'value': '2023-12-31T23:00:00Z',
           }),
           dict({
-            'label': 'Versand Entscheiddokumente per Portal (migriert)',
-            'slug': 'dispatch-decision-documents-by-portal',
-            'value': '2023-12-31T23:00:00Z',
-          }),
-          dict({
             'label': 'Versand Entscheiddokumente per Mail (migriert)',
             'slug': 'dispatch-decision-documents-by-email',
             'value': '2023-12-31T23:00:00Z',
           }),
           dict({
+            'label': 'Versand Entscheiddokumente per Portal (migriert)',
+            'slug': 'dispatch-decision-documents-by-portal',
+            'value': '2023-12-31T23:00:00Z',
+          }),
+        ]),
+        'label': 'Ordentliches Verfahren',
+        'slug': 'regular-process',
+      }),
+      dict({
+        'fields': list([
+          dict({
+            'label': 'Meldung Bau- und Einspracheentscheid an Geometer',
+            'slug': 'notice-to-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
             'label': 'Meldung Baubewilligung an Geometer (migriert)',
             'slug': 'notification-building-permit-to-surveyor',
             'value': '2023-12-31T23:00:00Z',
+          }),
+        ]),
+        'label': 'Meldungen an Dritte ordentliches Verfahren',
+        'slug': 'reports-to-third-parties-regular-process',
+      }),
+      dict({
+        'fields': list([
+          dict({
+            'label': 'Meldung Gebäudeabbruch an Geometer',
+            'slug': 'meldung-gebaeudeabbruch-an-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Bau beendet an Geometer',
+            'slug': 'bauverwaltung-meldung-bau-beendet-an-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Bau beendet an Gebäudeschätzung FGS (Versicherung)',
+            'slug': 'notice-to-gebaeudeschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Bau beendet an Liegenschaftsschätzung (Steuern)',
+            'slug': 'notice-to-liegenschaftsschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung bereit zur Kanalisationsabnahme an Abwasser Uri',
+            'slug': 'meldung-bereit-zur-kanalisationsabnahme-an-abwasser-uri',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung bereit zur Schnurgerüstabnahme an Geometer',
+            'slug': 'meldung-bereit-zur-schnurgeruestabnahme-an-geometer',
+            'value': list([
+            ]),
           }),
           dict({
             'label': 'Baubeginn erfolgt (migriert)',
@@ -194,8 +230,8 @@
             'value': '2023-12-31T23:00:00Z',
           }),
         ]),
-        'label': 'Ordentliches Verfahren',
-        'slug': 'regular-process',
+        'label': 'Meldungen an Dritte Baubegleitungsprozess',
+        'slug': 'reports-to-third-parties-construction-monitoring',
       }),
     ]),
   })
@@ -206,18 +242,12 @@
       dict({
         'fields': list([
           dict({
-            'label': 'Dossier erfasst',
+            'label': 'Dossier eingereicht',
             'slug': 'instance-submitted',
             'value': '2023-01-01T19:00:00Z',
           }),
           dict({
-            'label': 'Eingang Post',
-            'slug': 'paper-submission',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Nachforderung Gemeindebaubehörde',
+            'label': 'Nachforderung Gemeinde',
             'slug': 'additional-demand',
             'value': list([
             ]),
@@ -235,19 +265,19 @@
             'value': '2023-01-01T19:00:00Z',
           }),
           dict({
-            'label': 'Prüfung durch Gemeinde',
-            'slug': 'review-building-commission',
-            'value': list([
-            ]),
-          }),
-          dict({
             'label': 'Publikationsdatum',
             'slug': 'publication-date',
             'value': '2023-12-31T00:00:00Z',
           }),
           dict({
-            'label': 'Eingang von Einsprachen',
+            'label': 'Eingang Einsprachen',
             'slug': 'einsprache',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Start Zirkulation',
+            'slug': 'start-circulation-new',
             'value': list([
             ]),
           }),
@@ -259,73 +289,46 @@
             ]),
           }),
           dict({
-            'label': 'Start Zirkulation',
-            'slug': 'start-circulation',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Weiterleitung an KOOR (migriert)',
-            'slug': 'submission-to-koor',
-            'value': '2023-12-31T23:00:00Z',
-          }),
-          dict({
-            'label': 'Start Zirkulation',
-            'slug': 'start-circulation',
-            'value': '2024-01-01T19:00:00Z',
-          }),
-          dict({
             'label': 'Zirkulation beendet',
             'slug': 'distribution-completed',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'Stellungnahme - Vorentscheid',
+            'label': 'Versand Stellungnahme Vorentscheid',
             'slug': 'statement-preliminary-decision',
             'value': '2023-01-01T19:00:00Z',
           }),
           dict({
-            'label': 'Bau- und Einspracheentscheid',
+            'label': 'Versand Bau- und Einspracheentscheid',
             'slug': 'building-decision',
             'value': None,
           }),
           dict({
-            'label': 'Bau- und Einspracheentscheid (migriert)',
-            'slug': 'building-decision-migrated',
-            'value': '2023-12-31T23:00:00Z',
-          }),
-          dict({
-            'label': 'Meldung Baubewilligung an Geometer',
-            'slug': 'notice-to-geometer',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Empfangsbestätigung Entscheiddokumente',
-            'slug': 'receipt-confirmation-of-decision-documents',
-            'value': None,
-          }),
-          dict({
-            'label': 'Empfangsbestätigung Vorentscheid',
+            'label': 'Empfangsbestätigung Stellungnahme Vorentscheid',
             'slug': 'receipt-confirmation-of-preliminary-decision',
             'value': '2023-12-31T00:00:00Z',
           }),
           dict({
-            'label': 'Meldung Bau beendet an Fachstelle für Gebäudeschätzung',
-            'slug': 'notice-to-gebaeudeschaetzung',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Meldung Bau beendet an Amt für Steuern Liegenschaftsschätzung',
-            'slug': 'notice-to-liegenschaftsschaetzung',
-            'value': list([
-            ]),
+            'label': 'Empfangsbestätigung Bau- und Einspracheentscheid',
+            'slug': 'receipt-confirmation-of-decision-documents',
+            'value': None,
           }),
           dict({
             'label': 'Baubewilligung gültig bis',
             'slug': 'baubewilligung-gueltig-bis',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Prüfung durch Gemeinde (migriert)',
+            'slug': 'review-building-commission',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Eingang Post (migriert)',
+            'slug': 'paper-submission',
             'value': list([
             ]),
           }),
@@ -335,7 +338,22 @@
             'value': '2023-12-31T23:00:00Z',
           }),
           dict({
-            'label': 'Versand / Stellungnahme - Vorentscheid per Post (migriert)',
+            'label': 'Weiterleitung an KOOR (migriert)',
+            'slug': 'submission-to-koor',
+            'value': '2023-12-31T23:00:00Z',
+          }),
+          dict({
+            'label': 'Start Zirkulation (migriert)',
+            'slug': 'start-circulation',
+            'value': '2024-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Bau- und Einspracheentscheid (migriert)',
+            'slug': 'building-decision-migrated',
+            'value': '2023-12-31T23:00:00Z',
+          }),
+          dict({
+            'label': 'Versand Stellungnahme Vorentscheid per Post (migriert)',
             'slug': 'dispatch-statement-preliminary-decision-by-post',
             'value': '2023-12-31T23:00:00Z',
           }),
@@ -350,19 +368,73 @@
             'value': '2023-12-31T23:00:00Z',
           }),
           dict({
-            'label': 'Versand Entscheiddokumente per Portal (migriert)',
-            'slug': 'dispatch-decision-documents-by-portal',
-            'value': '2023-12-31T23:00:00Z',
-          }),
-          dict({
             'label': 'Versand Entscheiddokumente per Mail (migriert)',
             'slug': 'dispatch-decision-documents-by-email',
             'value': '2023-12-31T23:00:00Z',
           }),
           dict({
+            'label': 'Versand Entscheiddokumente per Portal (migriert)',
+            'slug': 'dispatch-decision-documents-by-portal',
+            'value': '2023-12-31T23:00:00Z',
+          }),
+        ]),
+        'label': 'Ordentliches Verfahren',
+        'slug': 'regular-process',
+      }),
+      dict({
+        'fields': list([
+          dict({
+            'label': 'Meldung Bau- und Einspracheentscheid an Geometer',
+            'slug': 'notice-to-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
             'label': 'Meldung Baubewilligung an Geometer (migriert)',
             'slug': 'notification-building-permit-to-surveyor',
             'value': '2023-12-31T23:00:00Z',
+          }),
+        ]),
+        'label': 'Meldungen an Dritte ordentliches Verfahren',
+        'slug': 'reports-to-third-parties-regular-process',
+      }),
+      dict({
+        'fields': list([
+          dict({
+            'label': 'Meldung Gebäudeabbruch an Geometer',
+            'slug': 'meldung-gebaeudeabbruch-an-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Bau beendet an Geometer',
+            'slug': 'bauverwaltung-meldung-bau-beendet-an-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Bau beendet an Gebäudeschätzung FGS (Versicherung)',
+            'slug': 'notice-to-gebaeudeschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Bau beendet an Liegenschaftsschätzung (Steuern)',
+            'slug': 'notice-to-liegenschaftsschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung bereit zur Kanalisationsabnahme an Abwasser Uri',
+            'slug': 'meldung-bereit-zur-kanalisationsabnahme-an-abwasser-uri',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung bereit zur Schnurgerüstabnahme an Geometer',
+            'slug': 'meldung-bereit-zur-schnurgeruestabnahme-an-geometer',
+            'value': list([
+            ]),
           }),
           dict({
             'label': 'Baubeginn erfolgt (migriert)',
@@ -395,8 +467,8 @@
             'value': '2023-12-31T23:00:00Z',
           }),
         ]),
-        'label': 'Ordentliches Verfahren',
-        'slug': 'regular-process',
+        'label': 'Meldungen an Dritte Baubegleitungsprozess',
+        'slug': 'reports-to-third-parties-construction-monitoring',
       }),
     ]),
   })
@@ -407,18 +479,12 @@
       dict({
         'fields': list([
           dict({
-            'label': 'Dossier erfasst',
+            'label': 'Dossier eingereicht',
             'slug': 'instance-submitted',
             'value': '2023-01-01T19:00:00Z',
           }),
           dict({
-            'label': 'Eingang Post',
-            'slug': 'paper-submission',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Nachforderung Gemeindebaubehörde',
+            'label': 'Nachforderung Gemeinde',
             'slug': 'additional-demand',
             'value': list([
             ]),
@@ -436,19 +502,19 @@
             'value': None,
           }),
           dict({
-            'label': 'Prüfung durch Gemeinde',
-            'slug': 'review-building-commission',
-            'value': list([
-            ]),
-          }),
-          dict({
             'label': 'Publikationsdatum',
             'slug': 'publication-date',
             'value': '2023-12-31T00:00:00Z',
           }),
           dict({
-            'label': 'Eingang von Einsprachen',
+            'label': 'Eingang Einsprachen',
             'slug': 'einsprache',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Start Zirkulation',
+            'slug': 'start-circulation-new',
             'value': list([
             ]),
           }),
@@ -460,73 +526,46 @@
             ]),
           }),
           dict({
-            'label': 'Start Zirkulation',
-            'slug': 'start-circulation',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Weiterleitung an KOOR (migriert)',
-            'slug': 'submission-to-koor',
-            'value': '2023-12-31T23:00:00Z',
-          }),
-          dict({
-            'label': 'Start Zirkulation',
-            'slug': 'start-circulation',
-            'value': '2024-01-01T19:00:00Z',
-          }),
-          dict({
             'label': 'Zirkulation beendet',
             'slug': 'distribution-completed',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'Stellungnahme - Vorentscheid',
+            'label': 'Versand Stellungnahme Vorentscheid',
             'slug': 'statement-preliminary-decision',
             'value': '2023-01-01T19:00:00Z',
           }),
           dict({
-            'label': 'Bau- und Einspracheentscheid',
+            'label': 'Versand Bau- und Einspracheentscheid',
             'slug': 'building-decision',
             'value': None,
           }),
           dict({
-            'label': 'Bau- und Einspracheentscheid (migriert)',
-            'slug': 'building-decision-migrated',
-            'value': '2023-12-31T23:00:00Z',
-          }),
-          dict({
-            'label': 'Meldung Baubewilligung an Geometer',
-            'slug': 'notice-to-geometer',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Empfangsbestätigung Entscheiddokumente',
-            'slug': 'receipt-confirmation-of-decision-documents',
-            'value': None,
-          }),
-          dict({
-            'label': 'Empfangsbestätigung Vorentscheid',
+            'label': 'Empfangsbestätigung Stellungnahme Vorentscheid',
             'slug': 'receipt-confirmation-of-preliminary-decision',
             'value': '2023-12-31T00:00:00Z',
           }),
           dict({
-            'label': 'Meldung Bau beendet an Fachstelle für Gebäudeschätzung',
-            'slug': 'notice-to-gebaeudeschaetzung',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Meldung Bau beendet an Amt für Steuern Liegenschaftsschätzung',
-            'slug': 'notice-to-liegenschaftsschaetzung',
-            'value': list([
-            ]),
+            'label': 'Empfangsbestätigung Bau- und Einspracheentscheid',
+            'slug': 'receipt-confirmation-of-decision-documents',
+            'value': None,
           }),
           dict({
             'label': 'Baubewilligung gültig bis',
             'slug': 'baubewilligung-gueltig-bis',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Prüfung durch Gemeinde (migriert)',
+            'slug': 'review-building-commission',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Eingang Post (migriert)',
+            'slug': 'paper-submission',
             'value': list([
             ]),
           }),
@@ -536,7 +575,22 @@
             'value': '2023-12-31T23:00:00Z',
           }),
           dict({
-            'label': 'Versand / Stellungnahme - Vorentscheid per Post (migriert)',
+            'label': 'Weiterleitung an KOOR (migriert)',
+            'slug': 'submission-to-koor',
+            'value': '2023-12-31T23:00:00Z',
+          }),
+          dict({
+            'label': 'Start Zirkulation (migriert)',
+            'slug': 'start-circulation',
+            'value': '2024-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Bau- und Einspracheentscheid (migriert)',
+            'slug': 'building-decision-migrated',
+            'value': '2023-12-31T23:00:00Z',
+          }),
+          dict({
+            'label': 'Versand Stellungnahme Vorentscheid per Post (migriert)',
             'slug': 'dispatch-statement-preliminary-decision-by-post',
             'value': '2023-12-31T23:00:00Z',
           }),
@@ -551,19 +605,73 @@
             'value': '2023-12-31T23:00:00Z',
           }),
           dict({
-            'label': 'Versand Entscheiddokumente per Portal (migriert)',
-            'slug': 'dispatch-decision-documents-by-portal',
-            'value': '2023-12-31T23:00:00Z',
-          }),
-          dict({
             'label': 'Versand Entscheiddokumente per Mail (migriert)',
             'slug': 'dispatch-decision-documents-by-email',
             'value': '2023-12-31T23:00:00Z',
           }),
           dict({
+            'label': 'Versand Entscheiddokumente per Portal (migriert)',
+            'slug': 'dispatch-decision-documents-by-portal',
+            'value': '2023-12-31T23:00:00Z',
+          }),
+        ]),
+        'label': 'Ordentliches Verfahren',
+        'slug': 'regular-process',
+      }),
+      dict({
+        'fields': list([
+          dict({
+            'label': 'Meldung Bau- und Einspracheentscheid an Geometer',
+            'slug': 'notice-to-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
             'label': 'Meldung Baubewilligung an Geometer (migriert)',
             'slug': 'notification-building-permit-to-surveyor',
             'value': '2023-12-31T23:00:00Z',
+          }),
+        ]),
+        'label': 'Meldungen an Dritte ordentliches Verfahren',
+        'slug': 'reports-to-third-parties-regular-process',
+      }),
+      dict({
+        'fields': list([
+          dict({
+            'label': 'Meldung Gebäudeabbruch an Geometer',
+            'slug': 'meldung-gebaeudeabbruch-an-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Bau beendet an Geometer',
+            'slug': 'bauverwaltung-meldung-bau-beendet-an-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Bau beendet an Gebäudeschätzung FGS (Versicherung)',
+            'slug': 'notice-to-gebaeudeschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Bau beendet an Liegenschaftsschätzung (Steuern)',
+            'slug': 'notice-to-liegenschaftsschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung bereit zur Kanalisationsabnahme an Abwasser Uri',
+            'slug': 'meldung-bereit-zur-kanalisationsabnahme-an-abwasser-uri',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung bereit zur Schnurgerüstabnahme an Geometer',
+            'slug': 'meldung-bereit-zur-schnurgeruestabnahme-an-geometer',
+            'value': list([
+            ]),
           }),
           dict({
             'label': 'Baubeginn erfolgt (migriert)',
@@ -596,8 +704,8 @@
             'value': '2023-12-31T23:00:00Z',
           }),
         ]),
-        'label': 'Ordentliches Verfahren',
-        'slug': 'regular-process',
+        'label': 'Meldungen an Dritte Baubegleitungsprozess',
+        'slug': 'reports-to-third-parties-construction-monitoring',
       }),
     ]),
   })
@@ -608,18 +716,13 @@
       dict({
         'fields': list([
           dict({
-            'label': 'Dossier erfasst',
+            'label': 'Dossier eingereicht',
             'slug': 'instance-submitted',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'Eingang Post',
-            'slug': 'paper-submission',
-            'value': '2023-01-01T19:00:00Z',
-          }),
-          dict({
-            'label': 'Nachforderung Gemeindebaubehörde',
+            'label': 'Nachforderung Gemeinde',
             'slug': 'additional-demand',
             'value': list([
             ]),
@@ -637,19 +740,19 @@
             'value': '2023-01-01T19:00:00Z',
           }),
           dict({
-            'label': 'Prüfung durch Gemeinde',
-            'slug': 'review-building-commission',
-            'value': list([
-            ]),
-          }),
-          dict({
             'label': 'Publikationsdatum',
             'slug': 'publication-date',
             'value': '2023-12-31T00:00:00Z',
           }),
           dict({
-            'label': 'Eingang von Einsprachen',
+            'label': 'Eingang Einsprachen',
             'slug': 'einsprache',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Start Zirkulation',
+            'slug': 'start-circulation-new',
             'value': list([
             ]),
           }),
@@ -661,69 +764,30 @@
             ]),
           }),
           dict({
-            'label': 'Start Zirkulation',
-            'slug': 'start-circulation',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Weiterleitung an KOOR (migriert)',
-            'slug': 'submission-to-koor',
-            'value': '2023-12-31T23:00:00Z',
-          }),
-          dict({
-            'label': 'Start Zirkulation',
-            'slug': 'start-circulation',
-            'value': '2024-01-01T19:00:00Z',
-          }),
-          dict({
             'label': 'Zirkulation beendet',
             'slug': 'distribution-completed',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'Stellungnahme - Vorentscheid',
+            'label': 'Versand Stellungnahme Vorentscheid',
             'slug': 'statement-preliminary-decision',
             'value': '2023-01-01T19:00:00Z',
           }),
           dict({
-            'label': 'Bau- und Einspracheentscheid',
+            'label': 'Versand Bau- und Einspracheentscheid',
             'slug': 'building-decision',
             'value': None,
           }),
           dict({
-            'label': 'Bau- und Einspracheentscheid (migriert)',
-            'slug': 'building-decision-migrated',
-            'value': '2023-12-31T23:00:00Z',
-          }),
-          dict({
-            'label': 'Meldung Baubewilligung an Geometer',
-            'slug': 'notice-to-geometer',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Empfangsbestätigung Entscheiddokumente',
-            'slug': 'receipt-confirmation-of-decision-documents',
-            'value': None,
-          }),
-          dict({
-            'label': 'Empfangsbestätigung Vorentscheid',
+            'label': 'Empfangsbestätigung Stellungnahme Vorentscheid',
             'slug': 'receipt-confirmation-of-preliminary-decision',
             'value': '2023-12-31T00:00:00Z',
           }),
           dict({
-            'label': 'Meldung Bau beendet an Fachstelle für Gebäudeschätzung',
-            'slug': 'notice-to-gebaeudeschaetzung',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Meldung Bau beendet an Amt für Steuern Liegenschaftsschätzung',
-            'slug': 'notice-to-liegenschaftsschaetzung',
-            'value': list([
-            ]),
+            'label': 'Empfangsbestätigung Bau- und Einspracheentscheid',
+            'slug': 'receipt-confirmation-of-decision-documents',
+            'value': None,
           }),
           dict({
             'label': 'Baubewilligung gültig bis',
@@ -732,12 +796,38 @@
             ]),
           }),
           dict({
+            'label': 'Prüfung durch Gemeinde (migriert)',
+            'slug': 'review-building-commission',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Eingang Post (migriert)',
+            'slug': 'paper-submission',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
             'label': 'Einsprachefrist (migriert)',
             'slug': 'objection-deadline',
             'value': '2023-12-31T23:00:00Z',
           }),
           dict({
-            'label': 'Versand / Stellungnahme - Vorentscheid per Post (migriert)',
+            'label': 'Weiterleitung an KOOR (migriert)',
+            'slug': 'submission-to-koor',
+            'value': '2023-12-31T23:00:00Z',
+          }),
+          dict({
+            'label': 'Start Zirkulation (migriert)',
+            'slug': 'start-circulation',
+            'value': '2024-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Bau- und Einspracheentscheid (migriert)',
+            'slug': 'building-decision-migrated',
+            'value': '2023-12-31T23:00:00Z',
+          }),
+          dict({
+            'label': 'Versand Stellungnahme Vorentscheid per Post (migriert)',
             'slug': 'dispatch-statement-preliminary-decision-by-post',
             'value': '2023-12-31T23:00:00Z',
           }),
@@ -752,19 +842,73 @@
             'value': '2023-12-31T23:00:00Z',
           }),
           dict({
-            'label': 'Versand Entscheiddokumente per Portal (migriert)',
-            'slug': 'dispatch-decision-documents-by-portal',
-            'value': '2023-12-31T23:00:00Z',
-          }),
-          dict({
             'label': 'Versand Entscheiddokumente per Mail (migriert)',
             'slug': 'dispatch-decision-documents-by-email',
             'value': '2023-12-31T23:00:00Z',
           }),
           dict({
+            'label': 'Versand Entscheiddokumente per Portal (migriert)',
+            'slug': 'dispatch-decision-documents-by-portal',
+            'value': '2023-12-31T23:00:00Z',
+          }),
+        ]),
+        'label': 'Ordentliches Verfahren',
+        'slug': 'regular-process',
+      }),
+      dict({
+        'fields': list([
+          dict({
+            'label': 'Meldung Bau- und Einspracheentscheid an Geometer',
+            'slug': 'notice-to-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
             'label': 'Meldung Baubewilligung an Geometer (migriert)',
             'slug': 'notification-building-permit-to-surveyor',
             'value': '2023-12-31T23:00:00Z',
+          }),
+        ]),
+        'label': 'Meldungen an Dritte ordentliches Verfahren',
+        'slug': 'reports-to-third-parties-regular-process',
+      }),
+      dict({
+        'fields': list([
+          dict({
+            'label': 'Meldung Gebäudeabbruch an Geometer',
+            'slug': 'meldung-gebaeudeabbruch-an-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Bau beendet an Geometer',
+            'slug': 'bauverwaltung-meldung-bau-beendet-an-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Bau beendet an Gebäudeschätzung FGS (Versicherung)',
+            'slug': 'notice-to-gebaeudeschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Bau beendet an Liegenschaftsschätzung (Steuern)',
+            'slug': 'notice-to-liegenschaftsschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung bereit zur Kanalisationsabnahme an Abwasser Uri',
+            'slug': 'meldung-bereit-zur-kanalisationsabnahme-an-abwasser-uri',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung bereit zur Schnurgerüstabnahme an Geometer',
+            'slug': 'meldung-bereit-zur-schnurgeruestabnahme-an-geometer',
+            'value': list([
+            ]),
           }),
           dict({
             'label': 'Baubeginn erfolgt (migriert)',
@@ -797,8 +941,8 @@
             'value': '2023-12-31T23:00:00Z',
           }),
         ]),
-        'label': 'Ordentliches Verfahren',
-        'slug': 'regular-process',
+        'label': 'Meldungen an Dritte Baubegleitungsprozess',
+        'slug': 'reports-to-third-parties-construction-monitoring',
       }),
     ]),
   })
@@ -809,18 +953,12 @@
       dict({
         'fields': list([
           dict({
-            'label': 'Dossier erfasst',
+            'label': 'Dossier eingereicht',
             'slug': 'instance-submitted',
             'value': '2023-01-01T19:00:00Z',
           }),
           dict({
-            'label': 'Eingang Post',
-            'slug': 'paper-submission',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Nachforderung Gemeindebaubehörde',
+            'label': 'Nachforderung Gemeinde',
             'slug': 'additional-demand',
             'value': list([
             ]),
@@ -838,19 +976,19 @@
             'value': '2023-01-01T19:00:00Z',
           }),
           dict({
-            'label': 'Prüfung durch Gemeinde',
-            'slug': 'review-building-commission',
-            'value': list([
-            ]),
-          }),
-          dict({
             'label': 'Publikationsdatum',
             'slug': 'publication-date',
             'value': '2023-12-31T00:00:00Z',
           }),
           dict({
-            'label': 'Eingang von Einsprachen',
+            'label': 'Eingang Einsprachen',
             'slug': 'einsprache',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Start Zirkulation',
+            'slug': 'start-circulation-new',
             'value': list([
             ]),
           }),
@@ -862,73 +1000,46 @@
             ]),
           }),
           dict({
-            'label': 'Start Zirkulation',
-            'slug': 'start-circulation',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Weiterleitung an KOOR (migriert)',
-            'slug': 'submission-to-koor',
-            'value': '2023-12-31T23:00:00Z',
-          }),
-          dict({
-            'label': 'Start Zirkulation',
-            'slug': 'start-circulation',
-            'value': '2024-01-01T19:00:00Z',
-          }),
-          dict({
             'label': 'Zirkulation beendet',
             'slug': 'distribution-completed',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'Stellungnahme - Vorentscheid',
+            'label': 'Versand Stellungnahme Vorentscheid',
             'slug': 'statement-preliminary-decision',
             'value': None,
           }),
           dict({
-            'label': 'Bau- und Einspracheentscheid',
+            'label': 'Versand Bau- und Einspracheentscheid',
             'slug': 'building-decision',
             'value': '2023-01-01T19:00:00Z',
           }),
           dict({
-            'label': 'Bau- und Einspracheentscheid (migriert)',
-            'slug': 'building-decision-migrated',
-            'value': '2023-12-31T23:00:00Z',
-          }),
-          dict({
-            'label': 'Meldung Baubewilligung an Geometer',
-            'slug': 'notice-to-geometer',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Empfangsbestätigung Entscheiddokumente',
-            'slug': 'receipt-confirmation-of-decision-documents',
-            'value': '2023-12-31T00:00:00Z',
-          }),
-          dict({
-            'label': 'Empfangsbestätigung Vorentscheid',
+            'label': 'Empfangsbestätigung Stellungnahme Vorentscheid',
             'slug': 'receipt-confirmation-of-preliminary-decision',
             'value': None,
           }),
           dict({
-            'label': 'Meldung Bau beendet an Fachstelle für Gebäudeschätzung',
-            'slug': 'notice-to-gebaeudeschaetzung',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Meldung Bau beendet an Amt für Steuern Liegenschaftsschätzung',
-            'slug': 'notice-to-liegenschaftsschaetzung',
-            'value': list([
-            ]),
+            'label': 'Empfangsbestätigung Bau- und Einspracheentscheid',
+            'slug': 'receipt-confirmation-of-decision-documents',
+            'value': '2023-12-31T00:00:00Z',
           }),
           dict({
             'label': 'Baubewilligung gültig bis',
             'slug': 'baubewilligung-gueltig-bis',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Prüfung durch Gemeinde (migriert)',
+            'slug': 'review-building-commission',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Eingang Post (migriert)',
+            'slug': 'paper-submission',
             'value': list([
             ]),
           }),
@@ -938,7 +1049,22 @@
             'value': '2023-12-31T23:00:00Z',
           }),
           dict({
-            'label': 'Versand / Stellungnahme - Vorentscheid per Post (migriert)',
+            'label': 'Weiterleitung an KOOR (migriert)',
+            'slug': 'submission-to-koor',
+            'value': '2023-12-31T23:00:00Z',
+          }),
+          dict({
+            'label': 'Start Zirkulation (migriert)',
+            'slug': 'start-circulation',
+            'value': '2024-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Bau- und Einspracheentscheid (migriert)',
+            'slug': 'building-decision-migrated',
+            'value': '2023-12-31T23:00:00Z',
+          }),
+          dict({
+            'label': 'Versand Stellungnahme Vorentscheid per Post (migriert)',
             'slug': 'dispatch-statement-preliminary-decision-by-post',
             'value': '2023-12-31T23:00:00Z',
           }),
@@ -953,19 +1079,73 @@
             'value': '2023-12-31T23:00:00Z',
           }),
           dict({
-            'label': 'Versand Entscheiddokumente per Portal (migriert)',
-            'slug': 'dispatch-decision-documents-by-portal',
-            'value': '2023-12-31T23:00:00Z',
-          }),
-          dict({
             'label': 'Versand Entscheiddokumente per Mail (migriert)',
             'slug': 'dispatch-decision-documents-by-email',
             'value': '2023-12-31T23:00:00Z',
           }),
           dict({
+            'label': 'Versand Entscheiddokumente per Portal (migriert)',
+            'slug': 'dispatch-decision-documents-by-portal',
+            'value': '2023-12-31T23:00:00Z',
+          }),
+        ]),
+        'label': 'Ordentliches Verfahren',
+        'slug': 'regular-process',
+      }),
+      dict({
+        'fields': list([
+          dict({
+            'label': 'Meldung Bau- und Einspracheentscheid an Geometer',
+            'slug': 'notice-to-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
             'label': 'Meldung Baubewilligung an Geometer (migriert)',
             'slug': 'notification-building-permit-to-surveyor',
             'value': '2023-12-31T23:00:00Z',
+          }),
+        ]),
+        'label': 'Meldungen an Dritte ordentliches Verfahren',
+        'slug': 'reports-to-third-parties-regular-process',
+      }),
+      dict({
+        'fields': list([
+          dict({
+            'label': 'Meldung Gebäudeabbruch an Geometer',
+            'slug': 'meldung-gebaeudeabbruch-an-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Bau beendet an Geometer',
+            'slug': 'bauverwaltung-meldung-bau-beendet-an-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Bau beendet an Gebäudeschätzung FGS (Versicherung)',
+            'slug': 'notice-to-gebaeudeschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Bau beendet an Liegenschaftsschätzung (Steuern)',
+            'slug': 'notice-to-liegenschaftsschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung bereit zur Kanalisationsabnahme an Abwasser Uri',
+            'slug': 'meldung-bereit-zur-kanalisationsabnahme-an-abwasser-uri',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung bereit zur Schnurgerüstabnahme an Geometer',
+            'slug': 'meldung-bereit-zur-schnurgeruestabnahme-an-geometer',
+            'value': list([
+            ]),
           }),
           dict({
             'label': 'Baubeginn erfolgt (migriert)',
@@ -998,8 +1178,8 @@
             'value': '2023-12-31T23:00:00Z',
           }),
         ]),
-        'label': 'Ordentliches Verfahren',
-        'slug': 'regular-process',
+        'label': 'Meldungen an Dritte Baubegleitungsprozess',
+        'slug': 'reports-to-third-parties-construction-monitoring',
       }),
     ]),
   })
@@ -1010,18 +1190,12 @@
       dict({
         'fields': list([
           dict({
-            'label': 'Dossier erfasst',
+            'label': 'Dossier eingereicht',
             'slug': 'instance-submitted',
             'value': '2023-01-01T19:00:00Z',
           }),
           dict({
-            'label': 'Eingang Post',
-            'slug': 'paper-submission',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Nachforderung Gemeindebaubehörde',
+            'label': 'Nachforderung Gemeinde',
             'slug': 'additional-demand',
             'value': list([
             ]),
@@ -1039,19 +1213,19 @@
             'value': '2023-01-01T19:00:00Z',
           }),
           dict({
-            'label': 'Prüfung durch Gemeinde',
-            'slug': 'review-building-commission',
-            'value': list([
-            ]),
-          }),
-          dict({
             'label': 'Publikationsdatum',
             'slug': 'publication-date',
             'value': '2023-12-31T00:00:00Z',
           }),
           dict({
-            'label': 'Eingang von Einsprachen',
+            'label': 'Eingang Einsprachen',
             'slug': 'einsprache',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Start Zirkulation',
+            'slug': 'start-circulation-new',
             'value': list([
             ]),
           }),
@@ -1063,73 +1237,46 @@
             ]),
           }),
           dict({
-            'label': 'Start Zirkulation',
-            'slug': 'start-circulation',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Weiterleitung an KOOR (migriert)',
-            'slug': 'submission-to-koor',
-            'value': '2023-12-31T23:00:00Z',
-          }),
-          dict({
-            'label': 'Start Zirkulation',
-            'slug': 'start-circulation',
-            'value': '2024-01-01T19:00:00Z',
-          }),
-          dict({
             'label': 'Zirkulation beendet',
             'slug': 'distribution-completed',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'Stellungnahme - Vorentscheid',
+            'label': 'Versand Stellungnahme Vorentscheid',
             'slug': 'statement-preliminary-decision',
             'value': None,
           }),
           dict({
-            'label': 'Bau- und Einspracheentscheid',
+            'label': 'Versand Bau- und Einspracheentscheid',
             'slug': 'building-decision',
             'value': '2023-01-01T19:00:00Z',
           }),
           dict({
-            'label': 'Bau- und Einspracheentscheid (migriert)',
-            'slug': 'building-decision-migrated',
-            'value': '2023-12-31T23:00:00Z',
-          }),
-          dict({
-            'label': 'Meldung Baubewilligung an Geometer',
-            'slug': 'notice-to-geometer',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Empfangsbestätigung Entscheiddokumente',
-            'slug': 'receipt-confirmation-of-decision-documents',
-            'value': '2023-12-31T00:00:00Z',
-          }),
-          dict({
-            'label': 'Empfangsbestätigung Vorentscheid',
+            'label': 'Empfangsbestätigung Stellungnahme Vorentscheid',
             'slug': 'receipt-confirmation-of-preliminary-decision',
             'value': None,
           }),
           dict({
-            'label': 'Meldung Bau beendet an Fachstelle für Gebäudeschätzung',
-            'slug': 'notice-to-gebaeudeschaetzung',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Meldung Bau beendet an Amt für Steuern Liegenschaftsschätzung',
-            'slug': 'notice-to-liegenschaftsschaetzung',
-            'value': list([
-            ]),
+            'label': 'Empfangsbestätigung Bau- und Einspracheentscheid',
+            'slug': 'receipt-confirmation-of-decision-documents',
+            'value': '2023-12-31T00:00:00Z',
           }),
           dict({
             'label': 'Baubewilligung gültig bis',
             'slug': 'baubewilligung-gueltig-bis',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Prüfung durch Gemeinde (migriert)',
+            'slug': 'review-building-commission',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Eingang Post (migriert)',
+            'slug': 'paper-submission',
             'value': list([
             ]),
           }),
@@ -1139,7 +1286,22 @@
             'value': '2023-12-31T23:00:00Z',
           }),
           dict({
-            'label': 'Versand / Stellungnahme - Vorentscheid per Post (migriert)',
+            'label': 'Weiterleitung an KOOR (migriert)',
+            'slug': 'submission-to-koor',
+            'value': '2023-12-31T23:00:00Z',
+          }),
+          dict({
+            'label': 'Start Zirkulation (migriert)',
+            'slug': 'start-circulation',
+            'value': '2024-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Bau- und Einspracheentscheid (migriert)',
+            'slug': 'building-decision-migrated',
+            'value': '2023-12-31T23:00:00Z',
+          }),
+          dict({
+            'label': 'Versand Stellungnahme Vorentscheid per Post (migriert)',
             'slug': 'dispatch-statement-preliminary-decision-by-post',
             'value': '2023-12-31T23:00:00Z',
           }),
@@ -1154,19 +1316,73 @@
             'value': '2023-12-31T23:00:00Z',
           }),
           dict({
-            'label': 'Versand Entscheiddokumente per Portal (migriert)',
-            'slug': 'dispatch-decision-documents-by-portal',
-            'value': '2023-12-31T23:00:00Z',
-          }),
-          dict({
             'label': 'Versand Entscheiddokumente per Mail (migriert)',
             'slug': 'dispatch-decision-documents-by-email',
             'value': '2023-12-31T23:00:00Z',
           }),
           dict({
+            'label': 'Versand Entscheiddokumente per Portal (migriert)',
+            'slug': 'dispatch-decision-documents-by-portal',
+            'value': '2023-12-31T23:00:00Z',
+          }),
+        ]),
+        'label': 'Ordentliches Verfahren',
+        'slug': 'regular-process',
+      }),
+      dict({
+        'fields': list([
+          dict({
+            'label': 'Meldung Bau- und Einspracheentscheid an Geometer',
+            'slug': 'notice-to-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
             'label': 'Meldung Baubewilligung an Geometer (migriert)',
             'slug': 'notification-building-permit-to-surveyor',
             'value': '2023-12-31T23:00:00Z',
+          }),
+        ]),
+        'label': 'Meldungen an Dritte ordentliches Verfahren',
+        'slug': 'reports-to-third-parties-regular-process',
+      }),
+      dict({
+        'fields': list([
+          dict({
+            'label': 'Meldung Gebäudeabbruch an Geometer',
+            'slug': 'meldung-gebaeudeabbruch-an-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Bau beendet an Geometer',
+            'slug': 'bauverwaltung-meldung-bau-beendet-an-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Bau beendet an Gebäudeschätzung FGS (Versicherung)',
+            'slug': 'notice-to-gebaeudeschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Bau beendet an Liegenschaftsschätzung (Steuern)',
+            'slug': 'notice-to-liegenschaftsschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung bereit zur Kanalisationsabnahme an Abwasser Uri',
+            'slug': 'meldung-bereit-zur-kanalisationsabnahme-an-abwasser-uri',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung bereit zur Schnurgerüstabnahme an Geometer',
+            'slug': 'meldung-bereit-zur-schnurgeruestabnahme-an-geometer',
+            'value': list([
+            ]),
           }),
           dict({
             'label': 'Baubeginn erfolgt (migriert)',
@@ -1199,8 +1415,8 @@
             'value': '2023-12-31T23:00:00Z',
           }),
         ]),
-        'label': 'Ordentliches Verfahren',
-        'slug': 'regular-process',
+        'label': 'Meldungen an Dritte Baubegleitungsprozess',
+        'slug': 'reports-to-third-parties-construction-monitoring',
       }),
     ]),
   })
@@ -1211,18 +1427,12 @@
       dict({
         'fields': list([
           dict({
-            'label': 'Dossier erfasst',
+            'label': 'Dossier eingereicht',
             'slug': 'instance-submitted',
             'value': '2023-01-01T19:00:00Z',
           }),
           dict({
-            'label': 'Eingang Post',
-            'slug': 'paper-submission',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Nachforderung Gemeindebaubehörde',
+            'label': 'Nachforderung Gemeinde',
             'slug': 'additional-demand',
             'value': list([
             ]),
@@ -1240,19 +1450,19 @@
             'value': None,
           }),
           dict({
-            'label': 'Prüfung durch Gemeinde',
-            'slug': 'review-building-commission',
-            'value': list([
-            ]),
-          }),
-          dict({
             'label': 'Publikationsdatum',
             'slug': 'publication-date',
             'value': '2023-12-31T00:00:00Z',
           }),
           dict({
-            'label': 'Eingang von Einsprachen',
+            'label': 'Eingang Einsprachen',
             'slug': 'einsprache',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Start Zirkulation',
+            'slug': 'start-circulation-new',
             'value': list([
             ]),
           }),
@@ -1264,73 +1474,46 @@
             ]),
           }),
           dict({
-            'label': 'Start Zirkulation',
-            'slug': 'start-circulation',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Weiterleitung an KOOR (migriert)',
-            'slug': 'submission-to-koor',
-            'value': '2023-12-31T23:00:00Z',
-          }),
-          dict({
-            'label': 'Start Zirkulation',
-            'slug': 'start-circulation',
-            'value': '2024-01-01T19:00:00Z',
-          }),
-          dict({
             'label': 'Zirkulation beendet',
             'slug': 'distribution-completed',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'Stellungnahme - Vorentscheid',
+            'label': 'Versand Stellungnahme Vorentscheid',
             'slug': 'statement-preliminary-decision',
             'value': None,
           }),
           dict({
-            'label': 'Bau- und Einspracheentscheid',
+            'label': 'Versand Bau- und Einspracheentscheid',
             'slug': 'building-decision',
             'value': '2023-01-01T19:00:00Z',
           }),
           dict({
-            'label': 'Bau- und Einspracheentscheid (migriert)',
-            'slug': 'building-decision-migrated',
-            'value': '2023-12-31T23:00:00Z',
-          }),
-          dict({
-            'label': 'Meldung Baubewilligung an Geometer',
-            'slug': 'notice-to-geometer',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Empfangsbestätigung Entscheiddokumente',
-            'slug': 'receipt-confirmation-of-decision-documents',
-            'value': '2023-12-31T00:00:00Z',
-          }),
-          dict({
-            'label': 'Empfangsbestätigung Vorentscheid',
+            'label': 'Empfangsbestätigung Stellungnahme Vorentscheid',
             'slug': 'receipt-confirmation-of-preliminary-decision',
             'value': None,
           }),
           dict({
-            'label': 'Meldung Bau beendet an Fachstelle für Gebäudeschätzung',
-            'slug': 'notice-to-gebaeudeschaetzung',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Meldung Bau beendet an Amt für Steuern Liegenschaftsschätzung',
-            'slug': 'notice-to-liegenschaftsschaetzung',
-            'value': list([
-            ]),
+            'label': 'Empfangsbestätigung Bau- und Einspracheentscheid',
+            'slug': 'receipt-confirmation-of-decision-documents',
+            'value': '2023-12-31T00:00:00Z',
           }),
           dict({
             'label': 'Baubewilligung gültig bis',
             'slug': 'baubewilligung-gueltig-bis',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Prüfung durch Gemeinde (migriert)',
+            'slug': 'review-building-commission',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Eingang Post (migriert)',
+            'slug': 'paper-submission',
             'value': list([
             ]),
           }),
@@ -1340,7 +1523,22 @@
             'value': '2023-12-31T23:00:00Z',
           }),
           dict({
-            'label': 'Versand / Stellungnahme - Vorentscheid per Post (migriert)',
+            'label': 'Weiterleitung an KOOR (migriert)',
+            'slug': 'submission-to-koor',
+            'value': '2023-12-31T23:00:00Z',
+          }),
+          dict({
+            'label': 'Start Zirkulation (migriert)',
+            'slug': 'start-circulation',
+            'value': '2024-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Bau- und Einspracheentscheid (migriert)',
+            'slug': 'building-decision-migrated',
+            'value': '2023-12-31T23:00:00Z',
+          }),
+          dict({
+            'label': 'Versand Stellungnahme Vorentscheid per Post (migriert)',
             'slug': 'dispatch-statement-preliminary-decision-by-post',
             'value': '2023-12-31T23:00:00Z',
           }),
@@ -1355,19 +1553,73 @@
             'value': '2023-12-31T23:00:00Z',
           }),
           dict({
-            'label': 'Versand Entscheiddokumente per Portal (migriert)',
-            'slug': 'dispatch-decision-documents-by-portal',
-            'value': '2023-12-31T23:00:00Z',
-          }),
-          dict({
             'label': 'Versand Entscheiddokumente per Mail (migriert)',
             'slug': 'dispatch-decision-documents-by-email',
             'value': '2023-12-31T23:00:00Z',
           }),
           dict({
+            'label': 'Versand Entscheiddokumente per Portal (migriert)',
+            'slug': 'dispatch-decision-documents-by-portal',
+            'value': '2023-12-31T23:00:00Z',
+          }),
+        ]),
+        'label': 'Ordentliches Verfahren',
+        'slug': 'regular-process',
+      }),
+      dict({
+        'fields': list([
+          dict({
+            'label': 'Meldung Bau- und Einspracheentscheid an Geometer',
+            'slug': 'notice-to-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
             'label': 'Meldung Baubewilligung an Geometer (migriert)',
             'slug': 'notification-building-permit-to-surveyor',
             'value': '2023-12-31T23:00:00Z',
+          }),
+        ]),
+        'label': 'Meldungen an Dritte ordentliches Verfahren',
+        'slug': 'reports-to-third-parties-regular-process',
+      }),
+      dict({
+        'fields': list([
+          dict({
+            'label': 'Meldung Gebäudeabbruch an Geometer',
+            'slug': 'meldung-gebaeudeabbruch-an-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Bau beendet an Geometer',
+            'slug': 'bauverwaltung-meldung-bau-beendet-an-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Bau beendet an Gebäudeschätzung FGS (Versicherung)',
+            'slug': 'notice-to-gebaeudeschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Bau beendet an Liegenschaftsschätzung (Steuern)',
+            'slug': 'notice-to-liegenschaftsschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung bereit zur Kanalisationsabnahme an Abwasser Uri',
+            'slug': 'meldung-bereit-zur-kanalisationsabnahme-an-abwasser-uri',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung bereit zur Schnurgerüstabnahme an Geometer',
+            'slug': 'meldung-bereit-zur-schnurgeruestabnahme-an-geometer',
+            'value': list([
+            ]),
           }),
           dict({
             'label': 'Baubeginn erfolgt (migriert)',
@@ -1400,8 +1652,8 @@
             'value': '2023-12-31T23:00:00Z',
           }),
         ]),
-        'label': 'Ordentliches Verfahren',
-        'slug': 'regular-process',
+        'label': 'Meldungen an Dritte Baubegleitungsprozess',
+        'slug': 'reports-to-third-parties-construction-monitoring',
       }),
     ]),
   })
@@ -1412,18 +1664,13 @@
       dict({
         'fields': list([
           dict({
-            'label': 'Dossier erfasst',
+            'label': 'Dossier eingereicht',
             'slug': 'instance-submitted',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'Eingang Post',
-            'slug': 'paper-submission',
-            'value': '2023-01-01T19:00:00Z',
-          }),
-          dict({
-            'label': 'Nachforderung Gemeindebaubehörde',
+            'label': 'Nachforderung Gemeinde',
             'slug': 'additional-demand',
             'value': list([
             ]),
@@ -1441,19 +1688,19 @@
             'value': '2023-01-01T19:00:00Z',
           }),
           dict({
-            'label': 'Prüfung durch Gemeinde',
-            'slug': 'review-building-commission',
-            'value': list([
-            ]),
-          }),
-          dict({
             'label': 'Publikationsdatum',
             'slug': 'publication-date',
             'value': '2023-12-31T00:00:00Z',
           }),
           dict({
-            'label': 'Eingang von Einsprachen',
+            'label': 'Eingang Einsprachen',
             'slug': 'einsprache',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Start Zirkulation',
+            'slug': 'start-circulation-new',
             'value': list([
             ]),
           }),
@@ -1465,69 +1712,30 @@
             ]),
           }),
           dict({
-            'label': 'Start Zirkulation',
-            'slug': 'start-circulation',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Weiterleitung an KOOR (migriert)',
-            'slug': 'submission-to-koor',
-            'value': '2023-12-31T23:00:00Z',
-          }),
-          dict({
-            'label': 'Start Zirkulation',
-            'slug': 'start-circulation',
-            'value': '2024-01-01T19:00:00Z',
-          }),
-          dict({
             'label': 'Zirkulation beendet',
             'slug': 'distribution-completed',
             'value': list([
             ]),
           }),
           dict({
-            'label': 'Stellungnahme - Vorentscheid',
+            'label': 'Versand Stellungnahme Vorentscheid',
             'slug': 'statement-preliminary-decision',
             'value': None,
           }),
           dict({
-            'label': 'Bau- und Einspracheentscheid',
+            'label': 'Versand Bau- und Einspracheentscheid',
             'slug': 'building-decision',
             'value': '2023-01-01T19:00:00Z',
           }),
           dict({
-            'label': 'Bau- und Einspracheentscheid (migriert)',
-            'slug': 'building-decision-migrated',
-            'value': '2023-12-31T23:00:00Z',
-          }),
-          dict({
-            'label': 'Meldung Baubewilligung an Geometer',
-            'slug': 'notice-to-geometer',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Empfangsbestätigung Entscheiddokumente',
-            'slug': 'receipt-confirmation-of-decision-documents',
-            'value': '2023-12-31T00:00:00Z',
-          }),
-          dict({
-            'label': 'Empfangsbestätigung Vorentscheid',
+            'label': 'Empfangsbestätigung Stellungnahme Vorentscheid',
             'slug': 'receipt-confirmation-of-preliminary-decision',
             'value': None,
           }),
           dict({
-            'label': 'Meldung Bau beendet an Fachstelle für Gebäudeschätzung',
-            'slug': 'notice-to-gebaeudeschaetzung',
-            'value': list([
-            ]),
-          }),
-          dict({
-            'label': 'Meldung Bau beendet an Amt für Steuern Liegenschaftsschätzung',
-            'slug': 'notice-to-liegenschaftsschaetzung',
-            'value': list([
-            ]),
+            'label': 'Empfangsbestätigung Bau- und Einspracheentscheid',
+            'slug': 'receipt-confirmation-of-decision-documents',
+            'value': '2023-12-31T00:00:00Z',
           }),
           dict({
             'label': 'Baubewilligung gültig bis',
@@ -1536,12 +1744,38 @@
             ]),
           }),
           dict({
+            'label': 'Prüfung durch Gemeinde (migriert)',
+            'slug': 'review-building-commission',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Eingang Post (migriert)',
+            'slug': 'paper-submission',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
             'label': 'Einsprachefrist (migriert)',
             'slug': 'objection-deadline',
             'value': '2023-12-31T23:00:00Z',
           }),
           dict({
-            'label': 'Versand / Stellungnahme - Vorentscheid per Post (migriert)',
+            'label': 'Weiterleitung an KOOR (migriert)',
+            'slug': 'submission-to-koor',
+            'value': '2023-12-31T23:00:00Z',
+          }),
+          dict({
+            'label': 'Start Zirkulation (migriert)',
+            'slug': 'start-circulation',
+            'value': '2024-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Bau- und Einspracheentscheid (migriert)',
+            'slug': 'building-decision-migrated',
+            'value': '2023-12-31T23:00:00Z',
+          }),
+          dict({
+            'label': 'Versand Stellungnahme Vorentscheid per Post (migriert)',
             'slug': 'dispatch-statement-preliminary-decision-by-post',
             'value': '2023-12-31T23:00:00Z',
           }),
@@ -1556,19 +1790,73 @@
             'value': '2023-12-31T23:00:00Z',
           }),
           dict({
-            'label': 'Versand Entscheiddokumente per Portal (migriert)',
-            'slug': 'dispatch-decision-documents-by-portal',
-            'value': '2023-12-31T23:00:00Z',
-          }),
-          dict({
             'label': 'Versand Entscheiddokumente per Mail (migriert)',
             'slug': 'dispatch-decision-documents-by-email',
             'value': '2023-12-31T23:00:00Z',
           }),
           dict({
+            'label': 'Versand Entscheiddokumente per Portal (migriert)',
+            'slug': 'dispatch-decision-documents-by-portal',
+            'value': '2023-12-31T23:00:00Z',
+          }),
+        ]),
+        'label': 'Ordentliches Verfahren',
+        'slug': 'regular-process',
+      }),
+      dict({
+        'fields': list([
+          dict({
+            'label': 'Meldung Bau- und Einspracheentscheid an Geometer',
+            'slug': 'notice-to-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
             'label': 'Meldung Baubewilligung an Geometer (migriert)',
             'slug': 'notification-building-permit-to-surveyor',
             'value': '2023-12-31T23:00:00Z',
+          }),
+        ]),
+        'label': 'Meldungen an Dritte ordentliches Verfahren',
+        'slug': 'reports-to-third-parties-regular-process',
+      }),
+      dict({
+        'fields': list([
+          dict({
+            'label': 'Meldung Gebäudeabbruch an Geometer',
+            'slug': 'meldung-gebaeudeabbruch-an-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Bau beendet an Geometer',
+            'slug': 'bauverwaltung-meldung-bau-beendet-an-geometer',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Bau beendet an Gebäudeschätzung FGS (Versicherung)',
+            'slug': 'notice-to-gebaeudeschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung Bau beendet an Liegenschaftsschätzung (Steuern)',
+            'slug': 'notice-to-liegenschaftsschaetzung',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung bereit zur Kanalisationsabnahme an Abwasser Uri',
+            'slug': 'meldung-bereit-zur-kanalisationsabnahme-an-abwasser-uri',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Meldung bereit zur Schnurgerüstabnahme an Geometer',
+            'slug': 'meldung-bereit-zur-schnurgeruestabnahme-an-geometer',
+            'value': list([
+            ]),
           }),
           dict({
             'label': 'Baubeginn erfolgt (migriert)',
@@ -1601,8 +1889,8 @@
             'value': '2023-12-31T23:00:00Z',
           }),
         ]),
-        'label': 'Ordentliches Verfahren',
-        'slug': 'regular-process',
+        'label': 'Meldungen an Dritte Baubegleitungsprozess',
+        'slug': 'reports-to-third-parties-construction-monitoring',
       }),
     ]),
   })
