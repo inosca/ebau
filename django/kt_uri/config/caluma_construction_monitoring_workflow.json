@@ -243,7 +243,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['after-construction-step']|tasks"
+      "next": "['after-construction-step', 'after-schnurgeruestabnahme-kontrollieren']|tasks"
     }
   },
   {

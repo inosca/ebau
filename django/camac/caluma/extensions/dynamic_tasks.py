@@ -463,3 +463,18 @@ class CustomDynamicTasks(BaseDynamicTasks):
             return ["construction-control"]
 
         return []
+
+    @register_dynamic_task("after-schnurgeruestabnahme-kontrollieren")
+    def resolve_after_schnurgeruestabnahme_kontrollieren(
+        self, case, user, prev_work_item, context
+    ):
+        schutzraum_answer = case.family.document.answers.filter(
+            question_id="schutzraumrelevante-massnahmen"
+        ).first()
+
+        if (
+            schutzraum_answer
+            and schutzraum_answer.value == "schutzraumrelevante-massnahmen-ja"
+        ):
+            return ["zs-ersatzbeitrag-pruefen"]
+        return []

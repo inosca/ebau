@@ -420,3 +420,15 @@ def test_dynamic_group_building_commission(
     assert CustomDynamicGroups().resolve("building-commission")(
         None, ur_instance.case, None, None, None
     ) == [str(building_commission.pk)]
+
+
+def test_dynamic_group_abm_zs_uri(
+    db,
+    service_factory,
+    ur_instance,
+):
+    service_factory(pk=uri_constants.ABM_ZS_SERVICE_ID)
+
+    assert CustomDynamicGroups().resolve("abm-zs-uri")(
+        None, ur_instance.case, None, None, None
+    ) == [str(uri_constants.ABM_ZS_SERVICE_ID)]
