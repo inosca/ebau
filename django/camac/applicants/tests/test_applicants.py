@@ -3,6 +3,7 @@ from django.urls import reverse
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
+from camac.applicants.models import ROLE_CHOICES
 from camac.permissions.conditions import Always
 from camac.permissions.events import Trigger
 from camac.permissions.models import AccessLevel
@@ -311,3 +312,42 @@ def test_applicant_create_token_exchange(
     assert egov_user.pk == int(
         response.json()["data"]["relationships"]["invitee"]["data"]["id"]
     )
+
+
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
+def test_applicant_delete_validation(
+    admin_client,
+    instance,
+    applicant_factory,
+    admin_user,
+    request,
+    permissions_settings,
+    instance_acl_factory,
+):
+    instance.involved_applicants.all().delete()
+
+    confirmed_admin = applicant_factory(
+        instance=instance, role=ROLE_CHOICES.ADMIN.value, invitee=admin_user
+    )
+    unconfirmed_admin = applicant_factory(
+        instance=instance, role=ROLE_CHOICES.ADMIN.value, invitee=None
+    )
+
+    instance_acl_factory(
+        user=admin_user,
+        grant_type="USER",
+        access_level_id="applicant",
+        instance=instance,
+    )
+
+    request.getfixturevalue("applicant_permissions_module")
+    _sync_applicants(instance)
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
+
+    url1 = reverse("applicant-detail", args=[confirmed_admin.pk])
+    response1 = admin_client.delete(url1)
+    assert response1.status_code == status.HTTP_403_FORBIDDEN
+
+    url2 = reverse("applicant-detail", args=[unconfirmed_admin.pk])
+    response2 = admin_client.delete(url2)
+    assert response2.status_code == status.HTTP_204_NO_CONTENT
