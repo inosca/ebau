@@ -605,6 +605,7 @@ def caluma_workflow_config_ur(
         "bohrbewilligung-waermeentnahme",
         "bgbb",
         "mitbericht-kanton",
+        "mitbericht-bund",
         "cantonal-territory-usage",
     ]:
         form = caluma_form_factories.FormFactory(slug=form_slug)

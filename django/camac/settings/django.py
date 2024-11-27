@@ -264,10 +264,6 @@ APPLICATIONS = {
             "lisag",
             "koor_np_users",
             "koor_bg_users",
-            "koor_bd_users",
-            "koor_sd_users",
-            "koor_afe_users",
-            "koor_afj_users",
             "responsible_koor",
             "abwasser_uri",
             "schnurgeruestabnahme_uri",
@@ -1300,10 +1296,6 @@ APPLICATIONS = {
             "lisag",
             "koor_np_users",
             "koor_bg_users",
-            "koor_bd_users",
-            "koor_sd_users",
-            "koor_afe_users",
-            "koor_afj_users",
             "responsible_koor",
             "abwasser_uri",
             "schnurgeruestabnahme_uri",
@@ -1716,54 +1708,10 @@ APPLICATIONS = {
                     "recipient_types": ["municipality_users"],
                 },
             ],
-            "SUBMIT_KOOR_SD": [
+            "SUBMIT_KOOR": [
                 {
                     "template_slug": "2-dossier-eingereicht-gesuchsteller",
-                    "recipient_types": ["applicant"],
-                },
-                {
-                    "template_slug": "dossier-eingereicht-koor-sd",
-                    "recipient_types": ["koor_sd_users"],
-                },
-            ],
-            "SUBMIT_KOOR_BD": [
-                {
-                    "template_slug": "2-dossier-eingereicht-gesuchsteller",
-                    "recipient_types": ["applicant"],
-                },
-                {
-                    "template_slug": "dossier-eingereicht-koor-bd",
-                    "recipient_types": ["koor_bd_users"],
-                },
-            ],
-            "SUBMIT_KOOR_AFE": [
-                {
-                    "template_slug": "2-dossier-eingereicht-gesuchsteller",
-                    "recipient_types": ["applicant"],
-                },
-                {
-                    "template_slug": "dossier-eingereicht-koor-afe",
-                    "recipient_types": ["koor_afe_users"],
-                },
-            ],
-            "SUBMIT_KOOR_NP": [
-                {
-                    "template_slug": "2-dossier-eingereicht-gesuchsteller",
-                    "recipient_types": ["applicant"],
-                },
-                {
-                    "template_slug": "dossier-eingereicht-koor-np",
-                    "recipient_types": ["koor_np_users"],
-                },
-            ],
-            "SUBMIT_KOOR_AFJ": [
-                {
-                    "template_slug": "2-dossier-eingereicht-gesuchsteller",
-                    "recipient_types": ["applicant"],
-                },
-                {
-                    "template_slug": "dossier-eingereicht-koor-afj",
-                    "recipient_types": ["koor_afj_users"],
+                    "recipient_types": ["municipality"],
                 },
             ],
             "APPLICANT": {
