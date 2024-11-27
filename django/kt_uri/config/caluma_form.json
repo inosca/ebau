@@ -78,6 +78,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "baubegleitungsprozess",
+    "fields": {
+      "created_at": "2024-11-20T11:58:24.788Z",
+      "modified_at": "2024-11-20T11:58:24.788Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Baubegleitungsprozess\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "bauten-ausserhalb-bauzone",
     "fields": {
       "created_at": "2020-11-02T15:12:51.743Z",
@@ -1874,6 +1892,24 @@
     }
   },
   {
+    "model": "caluma_form.form",
+    "pk": "zs-ersatzbeitrag-pruefen",
+    "fields": {
+      "created_at": "2024-11-25T14:17:59.280Z",
+      "modified_at": "2024-11-25T14:17:59.280Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"ZS Ersatzbeitrag pr\\u00fcfen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-informationen-bgbb-abparzellierung.allgemeine-informationen-bgbb",
     "fields": {
@@ -3401,6 +3437,96 @@
       "form": "archivdossier",
       "question": "projektdaten",
       "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubegleitungsprozess.bauverwaltung-meldung-bau-beendet-an-geometer",
+    "fields": {
+      "created_at": "2024-11-20T12:03:19.373Z",
+      "modified_at": "2024-11-20T12:03:19.373Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baubegleitungsprozess",
+      "question": "bauverwaltung-meldung-bau-beendet-an-geometer",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubegleitungsprozess.bauverwaltung-meldung-bau-beendet-an-liegenschaftsschaetzung",
+    "fields": {
+      "created_at": "2024-11-20T12:04:28.744Z",
+      "modified_at": "2024-11-20T12:04:28.744Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baubegleitungsprozess",
+      "question": "bauverwaltung-meldung-bau-beendet-an-liegenschaftsschaetzung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubegleitungsprozess.meldung-bau-beendet-an-gebaeudeschaetzung",
+    "fields": {
+      "created_at": "2024-11-20T12:03:52.793Z",
+      "modified_at": "2024-11-20T12:03:52.793Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baubegleitungsprozess",
+      "question": "meldung-bau-beendet-an-gebaeudeschaetzung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubegleitungsprozess.meldung-bereit-zur-kanalisationsabnahme-an-abwasser-uri",
+    "fields": {
+      "created_at": "2024-11-20T12:04:48.075Z",
+      "modified_at": "2024-11-20T12:04:48.076Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baubegleitungsprozess",
+      "question": "meldung-bereit-zur-kanalisationsabnahme-an-abwasser-uri",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubegleitungsprozess.meldung-bereit-zur-schnurgeruestabnahme-an-geometer",
+    "fields": {
+      "created_at": "2024-11-20T12:05:14.067Z",
+      "modified_at": "2024-11-20T12:05:14.068Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baubegleitungsprozess",
+      "question": "meldung-bereit-zur-schnurgeruestabnahme-an-geometer",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baubegleitungsprozess.meldung-gebaeudeabbruch-an-geometer",
+    "fields": {
+      "created_at": "2024-11-20T12:01:16.846Z",
+      "modified_at": "2024-11-20T12:01:16.846Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baubegleitungsprozess",
+      "question": "meldung-gebaeudeabbruch-an-geometer",
+      "sort": 6
     }
   },
   {
@@ -15656,6 +15782,21 @@
       "form": "wald",
       "question": "titel-wald",
       "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zs-ersatzbeitrag-pruefen.zs-ersatzbeitrag-pruefen-abschliessen",
+    "fields": {
+      "created_at": "2024-11-25T14:33:20.191Z",
+      "modified_at": "2024-11-25T14:33:20.191Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zs-ersatzbeitrag-pruefen",
+      "question": "zs-ersatzbeitrag-pruefen-abschliessen",
+      "sort": 1
     }
   },
   {
@@ -39026,6 +39167,74 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bauverwaltung-meldung-bau-beendet-an-geometer",
+    "fields": {
+      "created_at": "2024-11-20T12:03:19.238Z",
+      "modified_at": "2024-11-27T09:00:01.430Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Meldung Bau beendet an Geometer\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "milestone": "bauverwaltung-meldung-bau-beendet-an-geometer",
+        "widgetOverride": "milestone-values"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauverwaltung-meldung-bau-beendet-an-liegenschaftsschaetzung",
+    "fields": {
+      "created_at": "2024-11-20T12:04:28.619Z",
+      "modified_at": "2024-11-27T09:02:18.519Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Meldung Bau beendet an Liegenschaftssch\\u00e4tzung (Steuern)\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "milestone": "notice-to-liegenschaftsschaetzung",
+        "widgetOverride": "milestone-values"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "beanspruchte-flaeche-m2",
     "fields": {
       "created_at": "2020-10-21T12:57:34.777Z",
@@ -53810,6 +54019,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "meldung-bau-beendet-an-gebaeudeschaetzung",
+    "fields": {
+      "created_at": "2024-11-20T12:03:52.663Z",
+      "modified_at": "2024-11-27T09:00:07.374Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Meldung Bau beendet an Geb\\u00e4udesch\\u00e4tzung FGS (Versicherung)\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "milestone": "notice-to-gebaeudeschaetzung",
+        "widgetOverride": "milestone-values"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "meldung-bau-beendet-an-geometer",
     "fields": {
       "created_at": "2021-12-02T10:05:50.830Z",
@@ -53872,6 +54115,74 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "meldung-bereit-zur-kanalisationsabnahme-an-abwasser-uri",
+    "fields": {
+      "created_at": "2024-11-20T12:04:47.924Z",
+      "modified_at": "2024-11-27T09:02:24.376Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Meldung bereit zur Kanalisationsabnahme an Abwasser Uri\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "milestone": "meldung-bereit-zur-kanalisationsabnahme-an-abwasser-uri",
+        "widgetOverride": "milestone-values"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "meldung-bereit-zur-schnurgeruestabnahme-an-geometer",
+    "fields": {
+      "created_at": "2024-11-20T12:05:13.913Z",
+      "modified_at": "2024-11-27T09:02:28.840Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Meldung bereit zur Schnurger\\u00fcstabnahme an Geometer\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "milestone": "meldung-bereit-zur-schnurgeruestabnahme-an-geometer",
+        "widgetOverride": "milestone-values"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "meldungen-an-dritte",
     "fields": {
       "created_at": "2021-11-29T07:47:23.747Z",
@@ -53889,6 +54200,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"###Meldung an Dritte\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "meldung-gebaeudeabbruch-an-geometer",
+    "fields": {
+      "created_at": "2024-11-20T12:01:16.688Z",
+      "modified_at": "2024-11-20T12:01:16.688Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Meldung Geb\\u00e4udeabbruch an Geometer\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -63453,6 +63795,42 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"---\\n\\n#### Zivilschutz\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zs-ersatzbeitrag-pruefen-abschliessen",
+    "fields": {
+      "created_at": "2024-11-25T14:19:00.344Z",
+      "modified_at": "2024-11-25T14:19:00.344Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,

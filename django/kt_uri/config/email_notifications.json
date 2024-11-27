@@ -442,5 +442,17 @@
       "service": null,
       "type": "email"
     }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1492,
+    "fields": {
+      "slug": "6-411-schnurgeruestabnahme-erfolgt",
+      "purpose": "6.411 Schnurgerüstabnahme erfolgt (ABM ZS)",
+      "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Schnurgerüstabnahme erfolgt",
+      "body": "URec System Info 6.411 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\n)\r\n\r\nSCHNURGERÜSTABNAHME ERFOLGT\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
+      "service": null,
+      "type": "email"
+    }
   }
 ]

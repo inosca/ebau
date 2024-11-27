@@ -47,7 +47,7 @@ msgid "Review building commission"
 msgstr ""
 
 #: camac/instance/milestones/serializers.py
-msgid "Puclication date"
+msgid "Publication date"
 msgstr ""
 
 #: camac/instance/milestones/serializers.py

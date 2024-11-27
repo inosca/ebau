@@ -642,6 +642,31 @@ def test_recipient_fgs_uri(
     ]
 
 
+def test_recipient_abm_zs_uri(
+    db,
+    ur_instance,
+    service_factory,
+    notification_template,
+):
+    service_factory(name="ABM ZS", email="abm-zs@example.com")
+
+    serializer = serializers.PermissionlessNotificationTemplateSendmailSerializer(
+        data={
+            "instance": {"type": "instances", "id": ur_instance.pk},
+            "notification_template": {
+                "type": "notification-templates",
+                "id": notification_template.pk,
+            },
+            "recipient_types": ["abm_zs_uri"],
+            "subject": "test",
+        }
+    )
+    serializer.is_valid()
+    assert serializer._get_recipients_abm_zs_uri(ur_instance) == [
+        {"to": "abm-zs@example.com"}
+    ]
+
+
 def test_recipient_liegenschaftsschaetzung_uri(
     db,
     ur_instance,

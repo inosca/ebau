@@ -907,6 +907,7 @@ def caluma_forms_ur(settings):
         "geometer-tasks",
         "review-building-commission",
         "geometer-final-measurement",
+        "zs-ersatzbeitrag-pruefen",
     ]:
         caluma_form_models.Form.objects.create(slug=form, name=form)
 
