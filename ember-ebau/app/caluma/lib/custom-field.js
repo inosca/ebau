@@ -57,6 +57,7 @@ export default class CustomField extends Field {
           "decision-decision-approved",
           "decision-decision-rejected",
           "decision-decision-written-off",
+          "decision-decision-retreat",
           "decision-decision-other",
         ];
       } else if (form === "vorlaeufige-beurteilung") {

@@ -17,6 +17,8 @@ export default {
     correction: 120008,
     "init-distribution": 120009,
     rejected: 120011,
+    withdrawn: 120012,
+    withdrawal: 120013,
   },
   gwr: {
     cantonAbbreviation: "GR",
@@ -116,6 +118,14 @@ export default {
       "subm",
       "init-distribution",
       "circulation",
+      "decision",
+    ],
+  },
+  withdrawal: {
+    allowedInstanceStates: [
+      "subm",
+      "init-distribution",
+      "distribution",
       "decision",
     ],
   },
