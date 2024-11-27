@@ -566,6 +566,29 @@
     }
   },
   {
+    "model": "caluma_workflow.task",
+    "pk": "zs-ersatzbeitrag-pruefen",
+    "fields": {
+      "created_at": "2024-11-25T15:31:52.470Z",
+      "modified_at": "2024-11-25T15:31:52.470Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"ZS Ersatzbeitrag pr\\u00fcfen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {},
+      "address_groups": "['abm-zs-uri']|groups",
+      "control_groups": "['abm-zs-uri']|groups",
+      "is_archived": false,
+      "form": "zs-ersatzbeitrag-pruefen",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
     "model": "caluma_workflow.taskflow",
     "pk": "1b1e429f-5e05-4d0d-8d57-6c5148da5651",
     "fields": {

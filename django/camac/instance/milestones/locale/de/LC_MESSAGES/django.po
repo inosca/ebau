@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-09 12:56+0200\n"
+"POT-Creation-Date: 2024-11-20 08:45+0100\n"
 "PO-Revision-Date: 2024-10-09 12:56+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -23,16 +23,24 @@ msgid "regular process"
 msgstr "Ordentliches Verfahren"
 
 #: camac/instance/milestones/serializers.py
-msgid "instance submitted"
-msgstr "Dossier erfasst"
+msgid "reports to third parties regular process"
+msgstr "Meldungen an Dritte ordentliches Verfahren"
 
 #: camac/instance/milestones/serializers.py
-msgid "Paper submission"
-msgstr "Eingang Post"
+msgid "reports to third parties construction monitoring"
+msgstr "Meldungen an Dritte Baubegleitungsprozess"
+
+#: camac/instance/milestones/serializers.py
+msgid "instance submitted"
+msgstr "Dossier eingereicht"
 
 #: camac/instance/milestones/serializers.py
 msgid "Additional demand"
-msgstr "Nachforderung Gemeindebaubehörde"
+msgstr "Nachforderung Gemeinde"
+
+#: camac/instance/milestones/serializers.py
+msgid "Paper submission"
+msgstr "Eingang Post (migriert)"
 
 #: camac/instance/milestones/serializers.py
 msgid "Check completed"
@@ -44,15 +52,15 @@ msgstr "Dossier vollständig"
 
 #: camac/instance/milestones/serializers.py
 msgid "Review building commission"
-msgstr "Prüfung durch Gemeinde"
+msgstr "Prüfung durch Gemeinde (migriert)"
 
 #: camac/instance/milestones/serializers.py
-msgid "Puclication date"
+msgid "Publication date"
 msgstr "Publikationsdatum"
 
 #: camac/instance/milestones/serializers.py
 msgid "Receipt of objections"
-msgstr "Eingang von Einsprachen"
+msgstr "Eingang Einsprachen"
 
 #: camac/instance/milestones/serializers.py
 msgid "Forwarding to KOOR"
@@ -61,6 +69,10 @@ msgstr "Weiterleitung an KOOR"
 #: camac/instance/milestones/serializers.py
 msgid "Start circulation"
 msgstr "Start Zirkulation"
+
+#: camac/instance/milestones/serializers.py
+msgid "Start circulation migrated"
+msgstr "Start Zirkulation (migriert)"
 
 #: camac/instance/milestones/serializers.py
 msgid "submission to koor (migrated)"
@@ -72,11 +84,11 @@ msgstr "Zirkulation beendet"
 
 #: camac/instance/milestones/serializers.py
 msgid "Statement - preliminary decision"
-msgstr "Stellungnahme - Vorentscheid"
+msgstr "Versand Stellungnahme Vorentscheid"
 
 #: camac/instance/milestones/serializers.py
 msgid "Building decision"
-msgstr "Bau- und Einspracheentscheid"
+msgstr "Versand Bau- und Einspracheentscheid"
 
 #: camac/instance/milestones/serializers.py
 msgid "Building decision (migrated)"
@@ -84,23 +96,39 @@ msgstr "Bau- und Einspracheentscheid (migriert)"
 
 #: camac/instance/milestones/serializers.py
 msgid "notice to geometer"
-msgstr "Meldung Baubewilligung an Geometer"
+msgstr "Meldung Bau- und Einspracheentscheid an Geometer"
+
+#: camac/instance/milestones/serializers.py
+msgid "demolition notice to geometer"
+msgstr "Meldung Gebäudeabbruch an Geometer"
+
+#: camac/instance/milestones/serializers.py
+msgid "Notice construction finished to geometer"
+msgstr "Meldung Bau beendet an Geometer"
+
+#: camac/instance/milestones/serializers.py
+msgid "notice kanalisationsabnahme to abwasser uri"
+msgstr "Meldung bereit zur Kanalisationsabnahme an Abwasser Uri"
+
+#: camac/instance/milestones/serializers.py
+msgid "notice schnurgeruestabnahme to geometer"
+msgstr "Meldung bereit zur Schnurgerüstabnahme an Geometer"
 
 #: camac/instance/milestones/serializers.py
 msgid "Receipt confirmation of decision documents"
-msgstr "Empfangsbestätigung Entscheiddokumente"
+msgstr "Empfangsbestätigung Bau- und Einspracheentscheid"
 
 #: camac/instance/milestones/serializers.py
 msgid "Receipt confirmation of preliminary decision"
-msgstr "Empfangsbestätigung Vorentscheid"
+msgstr "Empfangsbestätigung Stellungnahme Vorentscheid"
 
 #: camac/instance/milestones/serializers.py
 msgid "notice to gebaeudeschaetzung"
-msgstr "Meldung Bau beendet an Fachstelle für Gebäudeschätzung"
+msgstr "Meldung Bau beendet an Gebäudeschätzung FGS (Versicherung)"
 
 #: camac/instance/milestones/serializers.py
 msgid "notice to liegenschaftsschaetzung"
-msgstr "Meldung Bau beendet an Amt für Steuern Liegenschaftsschätzung"
+msgstr "Meldung Bau beendet an Liegenschaftsschätzung (Steuern)"
 
 #: camac/instance/milestones/serializers.py
 msgid "Building permit valid until"
@@ -112,7 +140,7 @@ msgstr "Einsprachefrist (migriert)"
 
 #: camac/instance/milestones/serializers.py
 msgid "Dispatch / statement - preliminary decision by post (migrated)"
-msgstr "Versand / Stellungnahme - Vorentscheid per Post (migriert)"
+msgstr "Versand Stellungnahme Vorentscheid per Post (migriert)"
 
 #: camac/instance/milestones/serializers.py
 msgid "Dispatch / statement - preliminary decision by e-mail (migrated)"

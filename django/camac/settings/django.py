@@ -272,6 +272,7 @@ APPLICATIONS = {
             "abwasser_uri",
             "schnurgeruestabnahme_uri",
             "geometer_uri",
+            "abm_zs_uri",
             "invited_to_schlussabnahme_projekt",
             # GR
             "aib",
@@ -1307,6 +1308,7 @@ APPLICATIONS = {
             "abwasser_uri",
             "schnurgeruestabnahme_uri",
             "geometer_uri",
+            "abm_zs_uri",
             "invited_to_schlussabnahme_projekt",
             "fgs_uri",
             "liegenschaftsschaetzung_uri",
@@ -1524,7 +1526,14 @@ APPLICATIONS = {
                             "template_slug": "6-42-schnurgeruest-kontrollieren",
                             "recipient_types": ["schnurgeruestabnahme_uri"],
                         },
-                    }
+                    },
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "6-411-schnurgeruestabnahme-erfolgt",
+                            "recipient_types": ["abm_zs_uri"],
+                        },
+                    },
                 ],
                 "construction-step-zwischenkontrolle-melden": [
                     {
