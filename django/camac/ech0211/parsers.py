@@ -23,7 +23,7 @@ class ECHXMLParser(XMLParser):
         try:
             return CreateFromDocument(stream.read())
         except PyXBException as exc:
-            raise ParseError(f"eCH: XML parse error - {str(exc)}")
+            raise ParseError(f"eCH: XML parse error - {exc.details()}")
         except xml.sax.SAXParseException as exc:
             raise ParseError(f"eCH: invalid XML - {str(exc)}")
         except DefusedXmlException as exc:
