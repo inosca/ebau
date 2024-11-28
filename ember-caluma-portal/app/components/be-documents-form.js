@@ -25,10 +25,6 @@ export default class BeDocumentsFormComponent extends Component {
     );
   }
 
-  get showHint() {
-    return /^baugesuch/.test(this.args.fieldset.document.rootForm.slug);
-  }
-
   get showReducedConfirmText() {
     return /^heat-generator/.test(this.args.fieldset.document.rootForm.slug);
   }
@@ -53,6 +49,14 @@ export default class BeDocumentsFormComponent extends Component {
     );
   }
 
+  get allHints() {
+    return this.args.fieldset.fields.filter(
+      (field) =>
+        field.questionType === "StaticQuestion" &&
+        field.question.raw.meta.documentHint,
+    );
+  }
+
   get allRequiredTags() {
     return this.args.fieldset.fields.filter(
       (field) =>
@@ -68,7 +72,8 @@ export default class BeDocumentsFormComponent extends Component {
         field.questionType !== "MultipleChoiceQuestion" &&
         !config.APPLICATION.documents.excludeFromDocuments.includes(
           field.question.slug,
-        ),
+        ) &&
+        !this.allHints.includes(field),
     );
   }
 
