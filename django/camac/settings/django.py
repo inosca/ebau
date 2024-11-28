@@ -1479,14 +1479,14 @@ APPLICATIONS = {
                         },
                     },
                     {
-                        "event": "created",
+                        "event": "completed",
                         "notification": {
                             "template_slug": "7-1-av-definitiv-durchfuehren",
                             "recipient_types": ["geometer_uri"],
                         },
                     },
                     {
-                        "event": "created",
+                        "event": "completed",
                         "notification": {
                             "template_slug": "7-11-av-definitiv-nachfuehren",
                             "recipient_types": ["applicant"],
