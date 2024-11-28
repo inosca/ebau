@@ -114,7 +114,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
 
       if (instance.calumaForm === "bauanzeige") {
         return {
-          suggestions: { disabled: true },
+          suggestions: { disabled: false },
           municipality: {
             label: "distribution.municipalities",
           },
@@ -125,7 +125,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       }
 
       return {
-        suggestions: { disabled: true },
+        suggestions: { disabled: false },
         "authority-bab": {
           label: "distribution.authority-bab",
         },
