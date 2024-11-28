@@ -47,15 +47,6 @@ documents:
   deleteSuccess: "Le fichier a été supprimé avec succès"
   deleteError: "Quelque chose a mal tourné lors de la suppression du fichier"
 
-  hint1: "Veuillez vous assurer que le"
-  hintEarthquake: "formulaire SéS Sécurité Sismique"
-  linkEarthquake: "https://www.bauen.dij.be.ch/content/dam/bauen_dij/dokumente/fr/formulare-und-vorlagen/formulare-f%C3%BCr-baugesuchsteller/ebs-erdbebensicherheit-fr.pdf"
-  hint2: "et les"
-  hintMunicipalityForms: "formulaires spécifiques aux communes (5.0, 5.1, 5.2, 5.3, 5.4, 5.5, 5.5, 5.8)"
-  linkMunicipalityForms: "https://www.bauen.dij.be.ch/fr/start/baubewilligungsverfahren/eBau/formulare-fuer-baugesuchsteller"
-  hint3: "sont remplis et téléchargés si nécessaire."
-  hint4: "Conformément à l'article 16 DPC, les gabarits doivent être posés au moment du dépôt de la demande de permis de construire et seront maintenus jusqu'à l'entrée en force de la décision concernant le projet. Les travaux ne peuvent pas commencer avant l'entrée en force du permis de construire."
-
   tags:
     beilagen-vorabklaerung: "Annexes à la demande préalable"
     allgemeine-informationen: "Informations générales"

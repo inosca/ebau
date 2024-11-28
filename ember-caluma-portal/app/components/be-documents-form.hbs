@@ -1,23 +1,9 @@
-{{#if this.showHint}}
-  <p>
-    {{t "documents.hint1"}}
-    <a
-      target="_blank"
-      rel="noopener noreferrer"
-      href={{t "documents.linkEarthquake"}}
-    >{{t "documents.hintEarthquake"}}</a>
-    {{t "documents.hint2"}}
-    <a
-      target="_blank"
-      rel="noopener noreferrer"
-      href={{t "documents.linkMunicipalityForms"}}
-    >{{t "documents.hintMunicipalityForms"}}</a>
-    {{t "documents.hint3"}}
-  </p>
-  <p>
-    {{t "documents.hint4"}}
-  </p>
-
+{{#if this.allHints}}
+  {{#each this.allHints as |field|}}
+    <div class="uk-margin-remove-last-child">
+      <CfField @field={{field}} />
+    </div>
+  {{/each}}
   <hr />
 {{/if}}
 
