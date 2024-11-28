@@ -413,10 +413,10 @@ class SendfileHttpResponse(HttpResponse):
 
             abs_path = base_path / file_path.relative_to("/")
 
-            if not abs_path.parent.exists():  # pragma: no cover
-                abs_path.parent.mkdir(parents=True)
+            abs_path.parent.mkdir(parents=True, exist_ok=True)
 
-            abs_path.open("wb").write(file_obj.read())
+            with abs_path.open("wb") as fh_tmp_out:
+                fh_tmp_out.write(file_obj.read())
 
         self["Content-Disposition"] = 'attachment; filename="%s"' % escape_uri_path(
             str(filename)
