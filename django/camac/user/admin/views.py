@@ -137,6 +137,7 @@ class ServiceAdmin(EbauAdminMixin, MultilingualAdminMixin, ModelAdmin):
         "get_name",
         "email",
         "get_service_group_name",
+        "slug",
         "get_disabled",
     ]
     list_filter = ["service_group", DisabledFilter, SubserviceFilter]

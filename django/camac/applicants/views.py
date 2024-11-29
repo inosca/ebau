@@ -81,15 +81,16 @@ class ApplicantsView(InstanceQuerysetMixin, ModelViewSet):
         if not manager.has_all(obj.instance, applicant_permissions.APPLICANT_REMOVE):
             return False
 
+        admins = obj.instance.involved_applicants.filter(
+            role=models.ROLE_CHOICES.ADMIN.value,
+            invitee__isnull=False,
+        )
+
         # Make sure that admins can only be deleted if there is another admin
         # that has an invitee (unregistered applicants don't count)
         if (
             obj.role == models.ROLE_CHOICES.ADMIN.value
-            and obj.instance.involved_applicants.filter(
-                role=models.ROLE_CHOICES.ADMIN.value,
-                invitee__isnull=False,
-            ).count()
-            == 1
+            and not admins.exclude(pk=obj.pk).exists()
         ):
             return False
 

@@ -605,6 +605,7 @@ def caluma_workflow_config_ur(
         "bohrbewilligung-waermeentnahme",
         "bgbb",
         "mitbericht-kanton",
+        "mitbericht-bund",
         "cantonal-territory-usage",
     ]:
         form = caluma_form_factories.FormFactory(slug=form_slug)
@@ -907,6 +908,7 @@ def caluma_forms_ur(settings):
         "geometer-tasks",
         "review-building-commission",
         "geometer-final-measurement",
+        "zs-ersatzbeitrag-pruefen",
     ]:
         caluma_form_models.Form.objects.create(slug=form, name=form)
 

@@ -228,3 +228,7 @@ class CustomDynamicGroups(BaseDynamicGroups):
             return self.resolve_municipality(
                 task, case, user, prev_work_item, context, **kwargs
             )
+
+    @register_dynamic_group("abm-zs-uri")
+    def resolve_abm_zs_uri(self, task, case, user, prev_work_item, context, **kwargs):
+        return [str(Service.objects.get(pk=uri_constants.ABM_ZS_SERVICE_ID).pk)]

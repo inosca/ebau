@@ -1,4 +1,5 @@
 import Application from "@ember/application";
+import { extendResolver } from "ember-can";
 import loadInitializers from "ember-load-initializers";
 import Resolver from "ember-resolver";
 import "./deprecation-workflow";
@@ -10,7 +11,7 @@ export default class App extends Application {
   podModulePrefix = config.podModulePrefix;
   rootElement = config.APP.rootElement;
 
-  Resolver = Resolver;
+  Resolver = extendResolver(Resolver);
 
   engines = {
     "@projectcaluma/ember-form-builder": {

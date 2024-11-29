@@ -17,7 +17,7 @@
   </div>
 {{/if}}
 
-{{#if (can "cancel construction-stage" this.constructionStage)}}
+{{#if (await (can "cancel construction-stage" this.constructionStage))}}
   <UkButton
     class="uk-margin"
     @onClick={{perform this.cancelConstructionStage}}
