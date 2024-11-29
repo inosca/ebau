@@ -148,9 +148,6 @@ class UrMilestonesSerializer(MilestonesSerializer):
                     fields.MethodField(
                         slug="instance-submitted", label=_("instance submitted")
                     ),
-                    fields.MethodField(
-                        slug="paper-submission", label=_("Paper submission")
-                    ),
                     fields.WorkItemsField(
                         slug="additional-demand",
                         label=_("Additional demand"),
@@ -167,17 +164,8 @@ class UrMilestonesSerializer(MilestonesSerializer):
                     fields.MethodField(
                         slug="instance-complete", label=_("Instance complete")
                     ),
-                    fields.WorkItemsField(
-                        slug="review-building-commission",
-                        label=_("Review building commission"),
-                        task="review-building-commission",
-                        status=WorkItem.STATUS_COMPLETED,
-                        field="closed_at",
-                        order_by="-closed_at",
-                        limit=1,
-                    ),
                     fields.MethodField(
-                        slug="publication-date", label=_("Puclication date")
+                        slug="publication-date", label=_("Publication date")
                     ),
                     fields.AnswerField(
                         slug="einsprache",
@@ -186,14 +174,7 @@ class UrMilestonesSerializer(MilestonesSerializer):
                         family_form_id="instance-management",
                     ),
                     fields.WorkItemsField(
-                        task="fill-inquiry",
-                        label=_("Forwarding to KOOR"),
-                        order_by="created_at",
-                        limit=1,
-                        filter=lambda instance: _is_addressed_to_a_coordination_service(),
-                    ),
-                    fields.WorkItemsField(
-                        slug="start-circulation",
+                        slug="start-circulation-new",
                         label=_("Start circulation"),
                         task="init-distribution",
                         filter=lambda instance: _is_addressed_to_the_responsible_service(
@@ -202,13 +183,12 @@ class UrMilestonesSerializer(MilestonesSerializer):
                         status=WorkItem.STATUS_COMPLETED,
                         field="closed_at",
                     ),
-                    fields.CamacWorkflowEntryField(
-                        slug="submission-to-koor",
-                        name="Weiterleitung an Koord",
-                        label=_("submission to koor (migrated)"),
-                    ),
-                    fields.MethodField(
-                        slug="start-circulation", label=_("Start circulation")
+                    fields.WorkItemsField(
+                        task="fill-inquiry",
+                        label=_("Forwarding to KOOR"),
+                        order_by="created_at",
+                        limit=1,
+                        filter=lambda instance: _is_addressed_to_a_coordination_service(),
                     ),
                     fields.WorkItemsField(
                         slug="distribution-completed",
@@ -228,46 +208,48 @@ class UrMilestonesSerializer(MilestonesSerializer):
                         slug="building-decision",
                         label=_("Building decision"),
                     ),
-                    fields.CamacWorkflowEntryField(
-                        slug="building-decision-migrated",
-                        name="Bau- und Einspracheentscheid",
-                        label=_("Building decision (migrated)"),
-                    ),
-                    fields.WorkItemsField(
-                        slug="notice-to-geometer",
-                        label=_("notice to geometer"),
-                        task="geometer",
-                        field="created_at",
-                    ),
-                    fields.MethodField(
-                        slug="receipt-confirmation-of-decision-documents",
-                        label=_("Receipt confirmation of decision documents"),
-                    ),
                     fields.MethodField(
                         slug="receipt-confirmation-of-preliminary-decision",
                         label=_("Receipt confirmation of preliminary decision"),
                     ),
-                    fields.WorkItemsField(
-                        slug="notice-to-gebaeudeschaetzung",
-                        label=_("notice to gebaeudeschaetzung"),
-                        task="gebaeudeschaetzung",
-                        field="created_at",
-                    ),
-                    fields.WorkItemsField(
-                        slug="notice-to-liegenschaftsschaetzung",
-                        label=_("notice to liegenschaftsschaetzung"),
-                        task="liegenschaftsschaetzung",
-                        field="created_at",
+                    fields.MethodField(
+                        slug="receipt-confirmation-of-decision-documents",
+                        label=_("Receipt confirmation of decision documents"),
                     ),
                     fields.AnswerField(
                         slug="baubewilligung-gueltig-bis",
                         label=_("Building permit valid until"),
                         document="instance-management",
                     ),
+                    fields.WorkItemsField(
+                        slug="review-building-commission",
+                        label=_("Review building commission"),
+                        task="review-building-commission",
+                        status=WorkItem.STATUS_COMPLETED,
+                        field="closed_at",
+                        order_by="-closed_at",
+                        limit=1,
+                    ),
+                    fields.MethodField(
+                        slug="paper-submission", label=_("Paper submission")
+                    ),
                     fields.CamacWorkflowEntryField(
                         slug="objection-deadline",
                         name="Einsprachefrist",
                         label=_("Objection deadline (migrated)"),
+                    ),
+                    fields.CamacWorkflowEntryField(
+                        slug="submission-to-koor",
+                        name="Weiterleitung an Koord",
+                        label=_("submission to koor (migrated)"),
+                    ),
+                    fields.MethodField(
+                        slug="start-circulation", label=_("Start circulation migrated")
+                    ),
+                    fields.CamacWorkflowEntryField(
+                        slug="building-decision-migrated",
+                        name="Bau- und Einspracheentscheid",
+                        label=_("Building decision (migrated)"),
                     ),
                     fields.CamacWorkflowEntryField(
                         slug="dispatch-statement-preliminary-decision-by-post",
@@ -289,14 +271,26 @@ class UrMilestonesSerializer(MilestonesSerializer):
                         label=_("Dispatch of decision documents by post (migrated)"),
                     ),
                     fields.CamacWorkflowEntryField(
+                        slug="dispatch-decision-documents-by-email",
+                        name="Versand Entscheiddokumente per Mail",
+                        label=_("Dispatch of decision documents by e-mail (migrated)"),
+                    ),
+                    fields.CamacWorkflowEntryField(
                         slug="dispatch-decision-documents-by-portal",
                         name="Versand Entscheiddokumente per Portal",
                         label=_("Dispatch of decision documents by portal (migrated)"),
                     ),
-                    fields.CamacWorkflowEntryField(
-                        slug="dispatch-decision-documents-by-email",
-                        name="Versand Entscheiddokumente per Mail",
-                        label=_("Dispatch of decision documents by e-mail (migrated)"),
+                ],
+            ),
+            fields.MilestoneSectionField(
+                slug="reports-to-third-parties-regular-process",
+                label=_("reports to third parties regular process"),
+                fields=[
+                    fields.WorkItemsField(
+                        slug="notice-to-geometer",
+                        label=_("notice to geometer"),
+                        task="geometer",
+                        field="created_at",
                     ),
                     fields.CamacWorkflowEntryField(
                         slug="notification-building-permit-to-surveyor",
@@ -304,6 +298,47 @@ class UrMilestonesSerializer(MilestonesSerializer):
                         label=_(
                             "Notification of building permit to surveyor (migrated)"
                         ),
+                    ),
+                ],
+            ),
+            fields.MilestoneSectionField(
+                slug="reports-to-third-parties-construction-monitoring",
+                label=_("reports to third parties construction monitoring"),
+                fields=[
+                    fields.AnswerField(
+                        slug="meldung-gebaeudeabbruch-an-geometer",
+                        label=_("demolition notice to geometer"),
+                        document="instance-management",
+                    ),
+                    fields.WorkItemsField(
+                        slug="bauverwaltung-meldung-bau-beendet-an-geometer",
+                        label=_("Notice construction finished to geometer"),
+                        task="geometer",
+                        field="closed_at",
+                    ),
+                    fields.WorkItemsField(
+                        slug="notice-to-gebaeudeschaetzung",
+                        label=_("notice to gebaeudeschaetzung"),
+                        task="gebaeudeschaetzung",
+                        field="created_at",
+                    ),
+                    fields.WorkItemsField(
+                        slug="notice-to-liegenschaftsschaetzung",
+                        label=_("notice to liegenschaftsschaetzung"),
+                        task="liegenschaftsschaetzung",
+                        field="created_at",
+                    ),
+                    fields.WorkItemsField(
+                        slug="meldung-bereit-zur-kanalisationsabnahme-an-abwasser-uri",
+                        label=_("notice kanalisationsabnahme to abwasser uri"),
+                        task="construction-step-kanalisationsabnahme-melden",
+                        field="closed_at",
+                    ),
+                    fields.WorkItemsField(
+                        slug="meldung-bereit-zur-schnurgeruestabnahme-an-geometer",
+                        label=_("notice schnurgeruestabnahme to geometer"),
+                        task="construction-step-schnurgeruestabnahme-melden",
+                        field="closed_at",
                     ),
                     fields.CamacWorkflowEntryField(
                         slug="start-of-construction",

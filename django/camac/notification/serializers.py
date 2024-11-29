@@ -1195,18 +1195,6 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     def _get_recipients_koor_bg_users(self, instance):
         return self._notify_service(uri_constants.KOOR_BG_SERVICE_ID)
 
-    def _get_recipients_koor_bd_users(self, instance):
-        return self._notify_service(uri_constants.KOOR_BD_SERVICE_ID)
-
-    def _get_recipients_koor_sd_users(self, instance):
-        return self._notify_service(uri_constants.KOOR_SD_SERVICE_ID)
-
-    def _get_recipients_koor_afe_users(self, instance):
-        return self._notify_service(uri_constants.KOOR_AFE_SERVICE_ID)
-
-    def _get_recipients_koor_afj_users(self, instance):
-        return self._notify_service(uri_constants.KOOR_AFJ_SERVICE_ID)
-
     def _get_recipients_responsible_koor(self, instance):
         return self._notify_service(get_responsible_koor_service_id(instance.form.pk))
 
@@ -1229,9 +1217,16 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         if not settings.APPLICATION.get("LOCALIZED_GEOMETER_SERVICE_MAPPING"):
             return []  # pragma: no cover
 
-        geometer_answer = instance.fields.filter(
-            name__in=settings.APPLICATION.get("GEOMETER_FORM_FIELDS", [])
-        ).values_list("value", flat=True)[0]
+        geometer_answer = (
+            instance.fields.filter(
+                name__in=settings.APPLICATION.get("GEOMETER_FORM_FIELDS", [])
+            )
+            .values_list("value", flat=True)
+            .first()
+        )
+
+        if not geometer_answer:
+            return []
 
         geometer_service_ids = settings.APPLICATION[
             "LOCALIZED_GEOMETER_SERVICE_MAPPING"
@@ -1692,6 +1687,12 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
 
     def _get_recipients_fgs_uri(self, instance):
         service = Service.objects.filter(name="FGS").first()
+        if service:
+            return [{"to": service.email}]
+        return []  # pragma: no cover
+
+    def _get_recipients_abm_zs_uri(self, instance):
+        service = Service.objects.filter(name="ABM ZS").first()
         if service:
             return [{"to": service.email}]
         return []  # pragma: no cover

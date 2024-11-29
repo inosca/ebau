@@ -633,6 +633,9 @@ class SubmitPlanningPermissionApplicationSendHandler(
     def _save_xml_to_caluma(self, xml_tree, path: str, document, question_config: dict):
         xml_element = xml_tree.xpath(path, namespaces=ECH0211_NAMESPACES)
         value = xml_element[0].text if xml_element else question_config["default"]
+        if "default" in question_config:
+            dtype = type(question_config["default"])
+            value = dtype(value)
         CalumaApi().update_or_create_answer(
             document, question_config["question_slug"], value, self.caluma_user
         )
