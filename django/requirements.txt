@@ -52,7 +52,7 @@ pypdf==5.1.0
 pyproj==3.7.0
 python-dateutil==2.9.0.post0
 python-docx==1.1.2
-python-keycloak==4.7.2
+python-keycloak==4.7.3
 PyXB-X==1.2.6.2
 qrcode==8.0
 rapidfuzz==3.10.1
