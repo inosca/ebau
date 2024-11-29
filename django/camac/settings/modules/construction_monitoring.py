@@ -91,7 +91,10 @@ CONSTRUCTION_MONITORING = {
                     "require_involvement": True,
                 },
                 # Amt für Arbeit
-                {"service_id": 4, "require_involvement": True},
+                {
+                    "service_id": 4,
+                    "require_involvement": True,
+                },
                 # Laboratorium der Urkantone
                 {
                     "service_id": 22,
