@@ -1387,17 +1387,6 @@ APPLICATIONS = {
                         },
                     }
                 ],
-                "review-building-commission": [
-                    {
-                        "event": "created",
-                        "notification": {
-                            "template_slug": "neue-aufgabe-intern",
-                            "recipient_types": [
-                                "work_item_addressed",
-                            ],
-                        },
-                    }
-                ],
                 "construction-step-baubeginn-melden": [
                     {
                         "event": "created",
@@ -1551,17 +1540,6 @@ APPLICATIONS = {
                         "notification": {
                             "template_slug": "7-2-einladung-endabnahme",
                             "recipient_types": ["invited_to_schlussabnahme_projekt"],
-                        },
-                    }
-                ],
-                "geometer-final-measurement": [
-                    {
-                        "event": "created",
-                        "notification": {
-                            "template_slug": "neue-aufgabe-intern",
-                            "recipient_types": [
-                                "work_item_addressed",
-                            ],
                         },
                     }
                 ],
