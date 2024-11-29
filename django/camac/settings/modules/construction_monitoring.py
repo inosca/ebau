@@ -40,7 +40,6 @@ CONSTRUCTION_MONITORING = {
                     "template_slug": "complete-construction-step-schlussabnahme",
                     "recipient_types": [
                         "involved_in_construction_step",
-                        "tax_administration",
                         "localized_geometer",
                     ],
                 },
@@ -97,6 +96,11 @@ CONSTRUCTION_MONITORING = {
                 {
                     "service_id": 22,
                     "require_involvement": True,
+                },
+                # Liegenschaftenschätzung Steuerverwaltung
+                {
+                    "service_id": 350,
+                    "require_involvement": False,
                 },
             ],
             "complete-instance": [
