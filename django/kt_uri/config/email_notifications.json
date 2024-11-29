@@ -157,48 +157,12 @@
   },
   {
     "model": "notification.notificationtemplate",
-    "pk": 1465,
-    "fields": {
-      "slug": "construction-monitoring-new-task",
-      "purpose": "Aufgaben an Gesuchsteller und Gemeinden für alle Aufgaben im Rahmen der Baubegleitung",
-      "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - {{WORK_ITEM_NAME_DE}}",
-      "body": "URec System Info (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\n{{WORK_ITEM_NAME_DE}}\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse\r\neBau",
-      "service": null,
-      "type": "email"
-    }
-  },
-  {
-    "model": "notification.notificationtemplate",
     "pk": 1466,
     "fields": {
       "slug": "4-zirkulation-gestartet-gesuchsteller",
       "purpose": "4 Zirkulation gestartet (Gesuchsteller und Berechtigte)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Zirkulation gestartet",
       "body": "URec System Info 4 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nZIRKULATION GESTARTET\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDie Zirkulation bei den zuständigen Fachstellen betreffend das Dossier mit der ID Nr. {{INSTANCE_ID}} /  Dossier Nr. {{DOSSIER_NR}} wurde gestartet.\r\n\r\nFreundliche Grüsse",
-      "service": null,
-      "type": "email"
-    }
-  },
-  {
-    "model": "notification.notificationtemplate",
-    "pk": 1468,
-    "fields": {
-      "slug": "neue-aufgabe-intern",
-      "purpose": "Neue Aufgabe mit internem Link",
-      "subject": "(Dossier-Nr. {{DOSSIER_NR}}) Neue Aufgabe",
-      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nNeue Aufgabe\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse\r\neBau",
-      "service": null,
-      "type": "email"
-    }
-  },
-  {
-    "model": "notification.notificationtemplate",
-    "pk": 1469,
-    "fields": {
-      "slug": "construction-monitoring-new-task-internal",
-      "purpose": "Aufgaben an Gesuchsteller und Gemeinden für alle Aufgaben im Rahmen der Baubegleitung",
-      "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - {{WORK_ITEM_NAME_DE}}",
-      "body": "URec System Info (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\n{{WORK_ITEM_NAME_DE}}\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n\r\n- Vorhaben: {{VORHABEN}}\r\n\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
