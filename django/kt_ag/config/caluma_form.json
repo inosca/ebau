@@ -2187,7 +2187,7 @@
       "modified_by_group": null,
       "form": "ableitung-von-industrie-und-gewerbeabwasser",
       "question": "abwasseranfall-titel",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -2402,6 +2402,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "ableitung-von-industrie-und-gewerbeabwasser.faellt-das-abwasser-kontinuierlich-an",
+    "fields": {
+      "created_at": "2024-11-29T10:34:00.593Z",
+      "modified_at": "2024-11-29T10:34:00.593Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "ableitung-von-industrie-und-gewerbeabwasser",
+      "question": "faellt-das-abwasser-kontinuierlich-an",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "ableitung-von-industrie-und-gewerbeabwasser.gewaessername",
     "fields": {
       "created_at": "2023-04-19T10:20:25.614Z",
@@ -2457,7 +2472,7 @@
       "modified_by_group": null,
       "form": "ableitung-von-industrie-und-gewerbeabwasser",
       "question": "totalmenge-betriebliches-abwasser-text",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -15087,7 +15102,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "ableitung-von-industrie-und-gewerbeabwasser",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -15102,7 +15117,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "arbeitssicherheit",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -15117,7 +15132,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "entsorgung-und-bodenschutz",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -15132,7 +15147,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "gebaeudetechnik",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -15147,7 +15162,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "gewerbe",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -15162,7 +15177,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "grundstueckentwaesserung",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -15177,7 +15192,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "landwirtschaft",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -15192,7 +15207,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "reklamen-formular",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -15207,7 +15222,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "wohnen",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -29242,6 +29257,40 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": \"No\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "faellt-das-abwasser-kontinuierlich-an-ja",
+    "fields": {
+      "created_at": "2024-11-29T10:34:00.460Z",
+      "modified_at": "2024-11-29T10:34:00.460Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "faellt-das-abwasser-kontinuierlich-an-nein",
+    "fields": {
+      "created_at": "2024-11-29T10:34:00.456Z",
+      "modified_at": "2024-11-29T10:34:00.456Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -46020,6 +46069,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "ableitung-industrie-und-gewerbeabwasser",
+    "fields": {
+      "created_at": "2024-11-29T10:03:30.236Z",
+      "modified_at": "2024-11-29T10:03:37.762Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Industrie- und Gewerbeabwasser\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\"industrie-und-gewerbeabwasser-ja\" == \"industrie-und-gewerbeabwasser\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "ableitung-von-industrie-und-gewerbeabwasser",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "ableitung-nach",
     "fields": {
       "created_at": "2023-04-21T07:00:59.844Z",
@@ -57782,7 +57862,7 @@
     "pk": "brandschutznachweis",
     "fields": {
       "created_at": "2024-11-27T14:55:19.901Z",
-      "modified_at": "2024-11-28T10:17:26.599Z",
+      "modified_at": "2024-11-29T08:49:41.262Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -57790,7 +57870,7 @@
       "label": "{\"de\": \"Brandschutznachweis\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
-      "is_hidden": "!([\"kantonale-brandschutzbewilligung-erforderlich-ja\", \"kantonale-brandschutzbewilligung-erforderlich-nicht-bekannt\"] intersects \"kantonale-brandschutzbewilligung-erforderlich\"|answer)",
+      "is_hidden": "!(\"kantonale-brandschutzbewilligung-erforderlich\"|answer == \"kantonale-brandschutzbewilligung-erforderlich-ja\" || \"kantonale-brandschutzbewilligung-nutzungen\"|answer|length > 0)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -62737,6 +62817,37 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "faellt-das-abwasser-kontinuierlich-an",
+    "fields": {
+      "created_at": "2024-11-29T10:34:00.538Z",
+      "modified_at": "2024-11-29T10:34:00.538Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"F\\u00e4llt das Abwasser kontinuierlich an?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -69256,7 +69367,7 @@
     "pk": "industrie-und-gewerbeabwasser-titel",
     "fields": {
       "created_at": "2023-04-20T08:17:31.374Z",
-      "modified_at": "2024-09-11T14:58:41.410Z",
+      "modified_at": "2024-11-29T10:07:30.571Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -69269,7 +69380,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"### Ableitung von Industrie- und Gewerbeabwasser\\n\\nDie Ableitung von Industrie- und Gewerbeabwasser ist bewilligungspflichtig.\\n\\nF\\u00fcr dieses Fachthema ist das Amt f\\u00fcr Natur und Umwelt (ANU) zust\\u00e4ndig.  \\nEmail: [info@anu.gr.ch](mailto:info@anu.gr.ch) Telefon: 081 257 29 46\", \"fr\": \"\", \"it\": \"### Evacuazione di acque di scarico industriali e artigianali\\n\\nL'evacuazione di acque di scarico industriali e artigianali \\u00e8 soggetta ad autorizzazione.\\n\\nPer questo tema specifico \\u00e8 competente l'Ufficio per la natura e l'ambiente (UNA).  \\nE-mail: [info@anu.gr.ch](mailto:info@anu.gr.ch) Telefono: 081 257 29 46\"}",
+      "static_content": "{\"de\": \"### Ableitung von Industrie- und Gewerbeabwasser\\n\\nWeitere Informationen zum Thema Industrie- und Gewerbeabwasser finden Sie hier [(Industrie- und Gewerbeabwasser - Kanton) Aargau](https://www.ag.ch/de/verwaltung/bvu/umwelt-natur-landschaft/umwelt/abwasser/industrie-und-gewerbeabwasser)\", \"fr\": \"\", \"it\": \"### Evacuazione di acque di scarico industriali e artigianali\\n\\nL'evacuazione di acque di scarico industriali e artigianali \\u00e8 soggetta ad autorizzazione.\\n\\nPer questo tema specifico \\u00e8 competente l'Ufficio per la natura e l'ambiente (UNA).  \\nE-mail: [info@anu.gr.ch](mailto:info@anu.gr.ch) Telefono: 081 257 29 46\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -74703,12 +74814,12 @@
     "pk": "motoren-und-chassisreinigungen-mit-chemikalien",
     "fields": {
       "created_at": "2023-04-19T09:16:39.037Z",
-      "modified_at": "2024-09-11T14:58:43.237Z",
+      "modified_at": "2024-11-29T10:10:24.039Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Motoren- und Chassisreinigungen mit Chemikalien?\", \"fr\": null, \"it\": \"Pulizia di motori e telai con prodotti chimici?\"}",
+      "label": "{\"de\": \"Motoren- und Chassisreinigungen mit Reinigungsmittel?\", \"fr\": null, \"it\": \"Pulizia di motori e telai con prodotti chimici?\"}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "!(\"art-und-menge-des-abwassers-motoren-und-chassisreinigungen\" in \"art-und-menge-des-abwassers\"|answer)",
@@ -81510,12 +81621,12 @@
     "pk": "totalmenge-betriebliches-abwasser-text",
     "fields": {
       "created_at": "2023-04-19T13:31:47.648Z",
-      "modified_at": "2024-09-11T14:58:45.298Z",
+      "modified_at": "2024-11-29T10:07:52.844Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Totalmenge betriebliches Abwasser ca. (m\\u00b3/Woche)\", \"fr\": null, \"it\": \"Quantit\\u00e0 totale di acque di scarico artigianali ca. (m\\u00b3/settimana)\"}",
+      "label": "{\"de\": \"Totalmenge betriebliches Abwasser ca. (m\\u00b3/Tag)\", \"fr\": null, \"it\": \"Quantit\\u00e0 totale di acque di scarico artigianali ca. (m\\u00b3/settimana)\"}",
       "type": "text",
       "is_required": "false",
       "is_hidden": "false",
@@ -94074,8 +94185,8 @@
     "model": "caluma_form.questionoption",
     "pk": "brandschutznachweis.brandschutznachweis-ja",
     "fields": {
-      "created_at": "2024-11-28T10:17:26.603Z",
-      "modified_at": "2024-11-28T10:17:26.603Z",
+      "created_at": "2024-11-29T08:49:41.266Z",
+      "modified_at": "2024-11-29T08:49:41.266Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -96437,6 +96548,36 @@
       "modified_by_group": null,
       "question": "fackel-notbetrieb-vorgesehen",
       "option": "fackel-notbetrieb-vorgesehen-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "faellt-das-abwasser-kontinuierlich-an.faellt-das-abwasser-kontinuierlich-an-ja",
+    "fields": {
+      "created_at": "2024-11-29T10:34:00.547Z",
+      "modified_at": "2024-11-29T10:34:00.547Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "faellt-das-abwasser-kontinuierlich-an",
+      "option": "faellt-das-abwasser-kontinuierlich-an-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "faellt-das-abwasser-kontinuierlich-an.faellt-das-abwasser-kontinuierlich-an-nein",
+    "fields": {
+      "created_at": "2024-11-29T10:34:00.543Z",
+      "modified_at": "2024-11-29T10:34:00.543Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "faellt-das-abwasser-kontinuierlich-an",
+      "option": "faellt-das-abwasser-kontinuierlich-an-nein",
       "sort": 1
     }
   },
@@ -100389,8 +100530,8 @@
     "model": "caluma_form.questionoption",
     "pk": "motoren-und-chassisreinigungen-mit-chemikalien.motoren-und-chassisreinigungen-mit-chemikalien-ja",
     "fields": {
-      "created_at": "2023-10-25T08:16:52.822Z",
-      "modified_at": "2023-10-25T08:16:52.822Z",
+      "created_at": "2024-11-29T10:10:24.047Z",
+      "modified_at": "2024-11-29T10:10:24.047Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -100404,8 +100545,8 @@
     "model": "caluma_form.questionoption",
     "pk": "motoren-und-chassisreinigungen-mit-chemikalien.motoren-und-chassisreinigungen-mit-chemikalien-nein",
     "fields": {
-      "created_at": "2023-10-25T08:16:52.818Z",
-      "modified_at": "2023-10-25T08:16:52.818Z",
+      "created_at": "2024-11-29T10:10:24.044Z",
+      "modified_at": "2024-11-29T10:10:24.044Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
