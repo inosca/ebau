@@ -50,7 +50,7 @@ export default class AgGisComponent extends Component {
   @tracked searchHighlight;
   @tracked selectedGeometry = "POLYGON";
   @tracked selectedSearchResult;
-  @tracked zoom = 9;
+  @tracked zoom = 10;
 
   lat = 47.397051;
   lng = 8.17912;
