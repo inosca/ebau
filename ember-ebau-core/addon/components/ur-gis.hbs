@@ -13,8 +13,6 @@
   @lat={{this.latlng.lat}}
   @lng={{this.latlng.lng}}
   @zoom={{this.zoom}}
-  @minZoom={{this.minZoom}}
-  @maxZoom={{this.maxZoom}}
   @onClick={{perform this.getFeatures value="latlng"}}
   @onLoad={{perform this.handleLoad}}
   @crs={{this.crs}}
@@ -27,6 +25,8 @@
     @version="1.1.1"
     @layers={{this.layers}}
     @url={{this.url}}
+    @minZoom={{this.minZoom}}
+    @maxZoom={{this.maxZoom}}
   />
   {{#if this.point}}
     <map.marker @lat={{this.point.lat}} @lng={{this.point.lng}} />
