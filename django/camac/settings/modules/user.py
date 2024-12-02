@@ -8,4 +8,12 @@ USER = {
             "name-gesuchstellerin": "family_name",
         },
     },
+    "kt_ag": {
+        "ENABLED": True,
+        "QUESTION_OIDC_ATTRIBUTES_MAPPING": {
+            "e-mail-gesuchstellerin": "email",
+            "vorname-gesuchstellerin": "given_name",
+            "name-gesuchstellerin": "family_name",
+        },
+    },
 }
