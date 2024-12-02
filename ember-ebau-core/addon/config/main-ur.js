@@ -18,7 +18,7 @@ export default {
     21, // KOOR NP
   ],
   useLocation: true,
-  urGisUrl: "https://geo.ur.ch/wms",
+  urGisUrl: "https://service-lv95.lisag.hosting.karten-werk.ch/wms?tiled=True",
   attachmentSections: { applicant: "12000000", internal: "12000001" },
   submittedStates: [
     21, // comm
