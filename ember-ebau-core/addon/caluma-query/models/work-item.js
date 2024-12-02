@@ -254,16 +254,10 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get directLink() {
-    if (this.abilities.cannot("edit work-item", this)) return null;
-
-    return this._getDirectLinkFor(this.raw.task.slug) || this.editLink;
+    return this._getDirectLinkFor(this.raw.task.slug) ?? this.editLink;
   }
 
   get editLink() {
-    if (!this.abilities.can("edit work-item", this)) {
-      return false;
-    }
-
     if (this.ebauModules.isLegacyApp) {
       const url = this._getDirectLinkFor("edit");
       const hash = this.router.urlFor(
@@ -315,6 +309,10 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   _getDirectLinkFor(configKey) {
+    if (!this.abilities.can("edit work-item", this)) {
+      return null;
+    }
+
     // Only the addressed group should have a direct link if the work item is
     // not a manual work item
     if (
