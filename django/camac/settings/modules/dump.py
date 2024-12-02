@@ -630,7 +630,9 @@ DUMP = {
                 ),
                 "caluma_appeal_form": generate_form_dump_config(regex=r"^beschwerde"),
                 "static_content": {
-                    "core.StaticContent": Q(pk__in=["portal-faq", "portal-news"]),
+                    "core.StaticContent": Q(
+                        pk__in=["portal-faq", "portal-faq-public", "portal-news"]
+                    ),
                 },
                 **DISTRIBUTION_DUMP_CONFIG,
                 **ADDITIONAL_DEMAND_DUMP_CONFIG,
