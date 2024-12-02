@@ -10,7 +10,7 @@ from rest_framework import status
 from camac.constants import kt_uri as uri_constants
 from camac.instance.milestones.serializers import (
     UrMilestonesSerializer,
-    _check_feedback_answer,
+    _check_decision_answer,
     _get_date_of_downloaded_decision_document,
     _get_decision_work_item_closed_at,
 )
@@ -94,6 +94,11 @@ def test_milestones_ur(
         case=ur_instance.case,
         closed_at=timezone.make_aware(datetime(2023, 1, 1, 20, 0, 0)),
         status=WorkItem.STATUS_COMPLETED,
+    )
+    answer_factory(
+        document=decision_work_item.document,
+        question__slug="decision-task-nachfuehrungsgeometer",
+        value="decision-task-nachfuehrungsgeometer-ja",
     )
     WorkItemFactory(
         task_id="init-distribution",
@@ -260,7 +265,7 @@ def test_get_date_of_downloaded_decision_document(
     assert _get_date_of_downloaded_decision_document(instance) == timezone.now()
 
 
-def test_check_feedback_answer(
+def test_check_decision_answer(
     db, work_item_factory, answer_factory, instance_factory, case_factory
 ):
     instance = instance_factory(case=case_factory())
@@ -271,10 +276,12 @@ def test_check_feedback_answer(
         value="decision-task-feedback-type-bau-und-einspracheentscheid",
     )
     instance._all_work_items = [decision_work_item]
-    assert _check_feedback_answer(
-        instance, "decision-task-feedback-type-bau-und-einspracheentscheid"
+    assert _check_decision_answer(
+        instance,
+        "decision-task-feedback-type-bau-und-einspracheentscheid",
+        "decision-task-feedback-type",
     )
-    assert not _check_feedback_answer(instance, "wrong-slug")
+    assert not _check_decision_answer(instance, "wrong-slug", "wrong-slug-again")
 
 
 @pytest.mark.freeze_time("2024-08-29")

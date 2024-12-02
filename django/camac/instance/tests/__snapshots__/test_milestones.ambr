@@ -149,8 +149,7 @@
           dict({
             'label': 'Meldung Bau- und Einspracheentscheid an Geometer',
             'slug': 'notice-to-geometer',
-            'value': list([
-            ]),
+            'value': '2023-01-01T19:00:00Z',
           }),
           dict({
             'label': 'Meldung Baubewilligung an Geometer (migriert)',
@@ -386,8 +385,7 @@
           dict({
             'label': 'Meldung Bau- und Einspracheentscheid an Geometer',
             'slug': 'notice-to-geometer',
-            'value': list([
-            ]),
+            'value': '2023-01-01T19:00:00Z',
           }),
           dict({
             'label': 'Meldung Baubewilligung an Geometer (migriert)',
@@ -623,8 +621,7 @@
           dict({
             'label': 'Meldung Bau- und Einspracheentscheid an Geometer',
             'slug': 'notice-to-geometer',
-            'value': list([
-            ]),
+            'value': '2023-01-01T19:00:00Z',
           }),
           dict({
             'label': 'Meldung Baubewilligung an Geometer (migriert)',
@@ -860,8 +857,7 @@
           dict({
             'label': 'Meldung Bau- und Einspracheentscheid an Geometer',
             'slug': 'notice-to-geometer',
-            'value': list([
-            ]),
+            'value': '2023-01-01T19:00:00Z',
           }),
           dict({
             'label': 'Meldung Baubewilligung an Geometer (migriert)',
@@ -1097,8 +1093,7 @@
           dict({
             'label': 'Meldung Bau- und Einspracheentscheid an Geometer',
             'slug': 'notice-to-geometer',
-            'value': list([
-            ]),
+            'value': '2023-01-01T19:00:00Z',
           }),
           dict({
             'label': 'Meldung Baubewilligung an Geometer (migriert)',
@@ -1334,8 +1329,7 @@
           dict({
             'label': 'Meldung Bau- und Einspracheentscheid an Geometer',
             'slug': 'notice-to-geometer',
-            'value': list([
-            ]),
+            'value': '2023-01-01T19:00:00Z',
           }),
           dict({
             'label': 'Meldung Baubewilligung an Geometer (migriert)',
@@ -1571,8 +1565,7 @@
           dict({
             'label': 'Meldung Bau- und Einspracheentscheid an Geometer',
             'slug': 'notice-to-geometer',
-            'value': list([
-            ]),
+            'value': '2023-01-01T19:00:00Z',
           }),
           dict({
             'label': 'Meldung Baubewilligung an Geometer (migriert)',
@@ -1808,8 +1801,7 @@
           dict({
             'label': 'Meldung Bau- und Einspracheentscheid an Geometer',
             'slug': 'notice-to-geometer',
-            'value': list([
-            ]),
+            'value': '2023-01-01T19:00:00Z',
           }),
           dict({
             'label': 'Meldung Baubewilligung an Geometer (migriert)',
