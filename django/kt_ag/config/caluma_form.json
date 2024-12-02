@@ -22366,14 +22366,14 @@
     "pk": "art-und-menge-des-abwassers-steinverarbeitung",
     "fields": {
       "created_at": "2023-04-19T09:15:15.040Z",
-      "modified_at": "2024-08-28T12:24:51.191Z",
+      "modified_at": "2024-12-02T10:06:44.268Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Steinverarbeitung\", \"fr\": null, \"it\": \"Lavorazione di pietre\"}",
       "is_hidden": "false",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
