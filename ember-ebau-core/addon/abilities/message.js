@@ -33,7 +33,7 @@ export default class extends Ability {
   async canMarkAsReadOrUnread() {
     if (this.permissions.fullyEnabled) {
       return await this.permissions.hasAll(
-        this.model.get("topic.instance.id"),
+        this.model.belongsTo("instance").id(),
         "communications-write",
       );
     }
