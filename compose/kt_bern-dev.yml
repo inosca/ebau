@@ -15,6 +15,7 @@ services:
       - document-merge-service
     volumes:
       - ../proxy/kt_bern.conf:/etc/nginx/conf.d/default.conf:ro
+      - ../proxy/csp_headers.inc:/etc/nginx/conf.d/csp_headers.inc:ro
       - djangomedia:/var/lib/camac/media:ro
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
     ports:
