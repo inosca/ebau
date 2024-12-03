@@ -76,6 +76,46 @@ def get_type_map(canton):
                 5: None,
             },
         }
+    elif canton == "kt_ag":
+        return {
+            "SERVICE_GROUP": {
+                1: ServiceGroup.objects.get(name="municipality"),
+                2: ServiceGroup.objects.get(name="service-cantonal"),
+                3: ServiceGroup.objects.get(name="service-afb"),
+                4: ServiceGroup.objects.get(name="service-extra-cantonal"),
+            },
+            "ROLE": {
+                1: {
+                    "admin": Role.objects.get(name="municipality-admin"),
+                    "lead": Role.objects.get(name="municipality-lead"),
+                    "clerk": Role.objects.get(name="municipality-clerk"),
+                    "read": Role.objects.get(name="municipality-read"),
+                },
+                2: {
+                    "admin": Role.objects.get(name="service-admin"),
+                    "lead": Role.objects.get(name="service-lead"),
+                    "clerk": Role.objects.get(name="service-clerk"),
+                    "read": Role.objects.get(name="service-read"),
+                },
+                3: {
+                    "admin": Role.objects.get(name="service-admin"),
+                    "lead": Role.objects.get(name="service-lead"),
+                    "clerk": Role.objects.get(name="service-clerk"),
+                    "read": Role.objects.get(name="service-read"),
+                },
+                4: {
+                    "admin": Role.objects.get(name="service-admin"),
+                    "lead": Role.objects.get(name="service-lead"),
+                },
+            },
+            "PREFIX": {
+                1: "Gemeinde",
+                2: None,
+                3: None,
+                4: None,
+                5: None,
+            },
+        }
 
     return {}
 
@@ -86,6 +126,13 @@ def get_group_types(canton):
     elif canton == "kt_so":
         return {
             "lead": "Sachbearbeitung",
+            "admin": "Administration",
+            "read": "Einsichtsberechtigte",
+        }
+    elif canton == "kt_ag":
+        return {
+            "lead": "Leitung",
+            "clerk": "Sachbearbeitung",
             "admin": "Administration",
             "read": "Einsichtsberechtigte",
         }
