@@ -39,6 +39,7 @@ COMMUNICATIONS = {
     },
     "kt_schwyz": {
         "ENABLED": True,
+        "DOSSIER_NUMBER_ANNOTATION": F("instance__identifier"),
     },
     "demo": {
         "ENABLED": True,
