@@ -67,7 +67,6 @@ export default class CommunicationTopicListComponent extends Component {
   topics = paginatedQuery(this, "communications-topic", () => ({
     has_unread: this.showOnlyUnread,
     instance: this.args.instanceId,
-    include: "instance",
     responsible_service_user: this.responsiblePerson?.id,
     page: {
       number: this.page,
