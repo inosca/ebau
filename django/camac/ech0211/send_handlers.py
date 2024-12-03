@@ -82,19 +82,18 @@ class AlexandriaDocumentMixin:
         created_documents = []
         for doc in xmlDocuments:
             document = None
-            titles = {}
-            for title in doc.titles.title:
-                titles[title.lang or "de"] = title.value()
+            # use first title as document title
+            title = doc.titles.title[0].value()
             for file in doc.files.file:
                 file_response = requests.get(file.pathFileName)
                 file_name = file.pathFileName.split("/")[-1]
                 file_obj = ContentFile(file_response.content, name=file_name)
                 if not document:
                     document, __ = create_alexandria_document_file(
-                        user=self.user,
-                        group=self.group,
+                        user=str(self.user.pk),
+                        group=str(self.group.service.pk),
                         category=category,
-                        document_title=titles,
+                        document_title=title,
                         file_name=file_name,
                         file_content=file_obj,
                         mime_type=file.mimeType,
@@ -107,8 +106,8 @@ class AlexandriaDocumentMixin:
                     )
                 else:
                     create_alexandria_file(
-                        user=self.user,
-                        group=self.group,
+                        user=str(self.user.pk),
+                        group=str(self.group.service.pk),
                         document=document,
                         name=file_name,
                         content=file_obj,
@@ -141,6 +140,8 @@ class AlexandriaDocumentMixin:
             InstanceAlexandriaDocument.objects.create(
                 instance=self.instance, document=document
             )
+            document.metainfo["camac-instance-id"] = self.instance.pk
+            document.save()
 
     def convert_xml_to_alexandria_documents(self, xmlDocuments, category_slug: str):
         category = alexandria_models.Category.objects.get(slug=category_slug)
