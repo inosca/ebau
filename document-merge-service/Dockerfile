@@ -1,4 +1,4 @@
-FROM ghcr.io/adfinis/document-merge-service:7.3.0
+FROM ghcr.io/adfinis/document-merge-service:7.3.2
 
 # Only root user can install packages
 USER root
