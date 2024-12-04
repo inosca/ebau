@@ -366,12 +366,12 @@ PERMISSIONS = {
         },
         "service": {
             ReadPermission: [12000004],
-            AdminInternalPermission: [12000001],
+            AdminInternalPermission: [12000001, 12000010],
             AdminServicePermission: [12000000, 12000002, 12000003],
         },
         "trusted_service": {
             ReadPermission: [12000004],
-            AdminInternalPermission: [12000001],
+            AdminInternalPermission: [12000001, 12000010],
             AdminServicePermission: [12000000, 12000002, 12000003],
         },
         "coordination": {
@@ -389,6 +389,8 @@ PERMISSIONS = {
                 12000006,
                 12000007,
                 12000008,
+                12000009,
+                12000010,
             ],
         },
         "organization_readonly": {ReadPermission: [12000000]},
@@ -462,6 +464,8 @@ def special_permissions_uri(group):
         return {uri_constants.LISAG_ATTACHMENT_SECTION_ID: AdminServicePermission}
     elif group.group_id == uri_constants.KOOR_AFU_GROUP_ID:
         return {uri_constants.LISAG_ATTACHMENT_SECTION_ID: AdminServicePermission}
+    elif group.group_id in uri_constants.DOCUMENTS_ARE_GROUPS:
+        return {uri_constants.ARE_ATTACHMENT_SECTION_ID: AdminServicePermission}
     return {}
 
 

@@ -120,6 +120,18 @@
     }
   },
   {
+    "model": "document.attachmentsection",
+    "pk": 12000010,
+    "fields": {
+      "name": "Dokumente ARE",
+      "description": "Dokumente der ARE Gruppen",
+      "sort": 10,
+      "notification_template": null,
+      "recipient_types": null,
+      "allowed_mime_types": "[]"
+    }
+  },
+  {
     "model": "document.attachmentsectiont",
     "pk": 1,
     "fields": {
@@ -217,6 +229,16 @@
       "language": "de",
       "name": "Dokumente Nachforderung",
       "description": "Nachgeforderte Dokumente"
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 11,
+    "fields": {
+      "attachment_section": 12000010,
+      "language": "de",
+      "name": "Dokumente ARE",
+      "description": "Dokumente der ARE Gruppen"
     }
   }
 ]
