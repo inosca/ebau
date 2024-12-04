@@ -468,13 +468,18 @@ class CustomDynamicTasks(BaseDynamicTasks):
     def resolve_after_schnurgeruestabnahme_kontrollieren(
         self, case, user, prev_work_item, context
     ):
-        schutzraum_answer = case.family.document.answers.filter(
+        wohnraum_answer = case.family.document.answers.filter(
             question_id="schutzraumrelevante-massnahmen"
+        ).first()
+        schutzraum_answer = case.family.document.answers.filter(
+            question_id="schutzraum"
         ).first()
 
         if (
-            schutzraum_answer
-            and schutzraum_answer.value == "schutzraumrelevante-massnahmen-ja"
+            wohnraum_answer
+            and schutzraum_answer
+            and wohnraum_answer.value == "schutzraumrelevante-massnahmen-ja"
+            and schutzraum_answer.value == "schutzraum-antrag"
         ):
             return ["zs-ersatzbeitrag-pruefen"]
         return []

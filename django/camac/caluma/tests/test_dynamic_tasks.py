@@ -929,13 +929,16 @@ def test_construction_control(
 
 
 @pytest.mark.parametrize(
-    "expected_value,answer",
+    "expected_value,massnahmen_answer,schutzraum_answer",
     [
         (
             ["zs-ersatzbeitrag-pruefen"],
             "schutzraumrelevante-massnahmen-ja",
+            "schutzraum-antrag",
         ),
-        ([], "some-other-answer"),
+        ([], "schutzraumrelevante-massnahmen-ja", "wrong_answer"),
+        ([], "wrong_answer", "schutzraum-antrag"),
+        ([], "some-other-answer", "yet-another-one"),
     ],
 )
 def test_after_schnurgeruestabnahme_kontrollieren_uri(
@@ -947,7 +950,8 @@ def test_after_schnurgeruestabnahme_kontrollieren_uri(
     document_factory,
     answer_factory,
     expected_value,
-    answer,
+    massnahmen_answer,
+    schutzraum_answer,
 ):
     notification_template.slug = "6-411-schnurgeruestabnahme-erfolgt"
     notification_template.save()
@@ -956,7 +960,12 @@ def test_after_schnurgeruestabnahme_kontrollieren_uri(
     answer_factory(
         document=ur_instance.case.document,
         question__slug="schutzraumrelevante-massnahmen",
-        value=answer,
+        value=massnahmen_answer,
+    )
+    answer_factory(
+        document=ur_instance.case.document,
+        question__slug="schutzraum",
+        value=schutzraum_answer,
     )
     result = CustomDynamicTasks().resolve_after_schnurgeruestabnahme_kontrollieren(
         ur_instance.case, caluma_admin_user, work_item, None

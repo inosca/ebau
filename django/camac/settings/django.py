@@ -1508,13 +1508,15 @@ APPLICATIONS = {
                             "recipient_types": ["schnurgeruestabnahme_uri"],
                         },
                     },
+                ],
+                "zs-ersatzbeitrag-pruefen": [
                     {
-                        "event": "completed",
+                        "event": "created",
                         "notification": {
                             "template_slug": "6-411-schnurgeruestabnahme-erfolgt",
                             "recipient_types": ["abm_zs_uri"],
                         },
-                    },
+                    }
                 ],
                 "construction-step-zwischenkontrolle-melden": [
                     {
