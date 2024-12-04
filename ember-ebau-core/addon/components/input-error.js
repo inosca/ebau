@@ -5,10 +5,9 @@ export default class ErrorComponent extends Component {
   @service intl;
 
   get errorString() {
-    // TODO: decouple from ember-gwr or cleanup when gwr translations got fixed
     return this.args.errors
       ?.map((error) =>
-        this.intl.t(`ember-gwr.validation-errors.${error.type}`, error.context),
+        this.intl.t(`validation-errors.${error.type}`, error.context),
       )
       .join(", ");
   }
