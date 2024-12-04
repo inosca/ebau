@@ -5,7 +5,7 @@
     "fields": {
       "name": "Dokumente Gesuchsteller",
       "description": "Dokumente vom Gesuchsteller",
-      "sort": 1,
+      "sort": 3,
       "notification_template": null,
       "recipient_types": null,
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
@@ -17,7 +17,7 @@
     "fields": {
       "name": "Interne Dokumente",
       "description": "Private Ablage für jeden Service",
-      "sort": 0,
+      "sort": 2,
       "notification_template": null,
       "recipient_types": null,
       "allowed_mime_types": "[]"
@@ -29,7 +29,7 @@
     "fields": {
       "name": "Dokumente Fachstellen Kanton / Bund",
       "description": "Rückmeldungen von Fachstellen und Koordinationsstellen (z.B. Stellungnahme)",
-      "sort": 2,
+      "sort": 4,
       "notification_template": null,
       "recipient_types": null,
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
@@ -41,7 +41,7 @@
     "fields": {
       "name": "Dokumente Fachstellen Gemeinde",
       "description": "Dokumente von Gemeindefachstellen",
-      "sort": 3,
+      "sort": 5,
       "notification_template": null,
       "recipient_types": null,
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
@@ -53,7 +53,7 @@
     "fields": {
       "name": "Dokumente Leitbehörde",
       "description": "Baubewilligungen, Verfügungen usw.",
-      "sort": 4,
+      "sort": 6,
       "notification_template": null,
       "recipient_types": null,
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
@@ -65,7 +65,7 @@
     "fields": {
       "name": "Rechtsmitteldokumente",
       "description": "Einsprachen, Entscheid von Beschwerdeinstanz",
-      "sort": 5,
+      "sort": 7,
       "notification_template": null,
       "recipient_types": null,
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]"
@@ -77,7 +77,7 @@
     "fields": {
       "name": "Gebühren",
       "description": null,
-      "sort": 6,
+      "sort": 8,
       "notification_template": null,
       "recipient_types": null,
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/msword\"]"
@@ -89,7 +89,7 @@
     "fields": {
       "name": "Lisag",
       "description": "Nutzungsplandokumente, ITF Dateien",
-      "sort": 7,
+      "sort": 9,
       "notification_template": null,
       "recipient_types": null,
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"text/plain\", \"application/octet-stream\", \"application/zip\", \"application/x-zip-compressed\", \"multipart/x-zip\"]"
@@ -101,7 +101,7 @@
     "fields": {
       "name": "Dokumente AFJ",
       "description": "Dokumente der KOOR AFJ",
-      "sort": 8,
+      "sort": 10,
       "notification_template": null,
       "recipient_types": null,
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"text/plain\", \"application/octet-stream\"]"
@@ -113,7 +113,7 @@
     "fields": {
       "name": "Nachforderung",
       "description": "Nachgeforderte Dokumente",
-      "sort": 9,
+      "sort": 11,
       "notification_template": null,
       "recipient_types": null,
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"text/plain\", \"application/octet-stream\"]"
@@ -125,7 +125,19 @@
     "fields": {
       "name": "Dokumente ARE",
       "description": "Dokumente der ARE Gruppen",
-      "sort": 10,
+      "sort": 0,
+      "notification_template": null,
+      "recipient_types": null,
+      "allowed_mime_types": "[]"
+    }
+  },
+  {
+    "model": "document.attachmentsection",
+    "pk": 12000011,
+    "fields": {
+      "name": "Dokumente AfU",
+      "description": "Dokumente der AfU Gruppen",
+      "sort": 1,
       "notification_template": null,
       "recipient_types": null,
       "allowed_mime_types": "[]"
@@ -239,6 +251,16 @@
       "language": "de",
       "name": "Dokumente ARE",
       "description": "Dokumente der ARE Gruppen"
+    }
+  },
+  {
+    "model": "document.attachmentsectiont",
+    "pk": 12,
+    "fields": {
+      "attachment_section": 12000011,
+      "language": "de",
+      "name": "Dokumente AfU",
+      "description": "Dokumente der AfU Gruppen"
     }
   }
 ]

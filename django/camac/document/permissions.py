@@ -466,6 +466,8 @@ def special_permissions_uri(group):
         return {uri_constants.LISAG_ATTACHMENT_SECTION_ID: AdminServicePermission}
     elif group.group_id in uri_constants.DOCUMENTS_ARE_GROUPS:
         return {uri_constants.ARE_ATTACHMENT_SECTION_ID: AdminServicePermission}
+    elif group.group_id in uri_constants.DOCUMENTS_AFU_GROUPS:
+        return {uri_constants.AFU_ATTACHMENT_SECTION_ID: AdminServicePermission}
     return {}
 
 

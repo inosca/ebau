@@ -149,6 +149,14 @@ def test_attachment_section_detail(admin_client, attachment_section, role, mocke
                 12000010: permissions.AdminServicePermission,
             },
         ),
+        (
+            "trusted_service",
+            "AFU",
+            12000011,
+            {
+                12000011: permissions.AdminServicePermission,
+            },
+        ),
     ],
 )
 def test_attachment_section_special_permissions_ur(
@@ -171,6 +179,9 @@ def test_attachment_section_special_permissions_ur(
         mocker.patch(f"camac.constants.kt_uri.{group_key}_GROUP_ID", group.pk)
         if group_key == "ARE":
             mocker.patch("camac.constants.kt_uri.DOCUMENTS_ARE_GROUPS", [group.pk])
+        if group_key == "AFU":
+            mocker.patch("camac.constants.kt_uri.DOCUMENTS_AFU_GROUPS", [group.pk])
+
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
         {
