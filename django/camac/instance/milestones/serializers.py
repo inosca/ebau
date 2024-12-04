@@ -59,7 +59,7 @@ def _get_date_of_downloaded_decision_document(instance):
             return downloaded_attachments.date_time
 
 
-def _check_feedback_answer(instance, slug):
+def _check_decision_answer(instance, answer_slug, question_slug):
     decision_workitem = list(
         filter(
             lambda work_item: work_item.task_id == "decision", instance._all_work_items
@@ -68,11 +68,11 @@ def _check_feedback_answer(instance, slug):
     if decision_workitem:
         feedback_answer = (
             decision_workitem[0]
-            .document.answers.filter(question_id="decision-task-feedback-type")
+            .document.answers.filter(question_id=question_slug)
             .first()
         )
         if feedback_answer:
-            if feedback_answer.value == slug:
+            if feedback_answer.value == answer_slug:
                 return True
     return False
 
@@ -286,11 +286,8 @@ class UrMilestonesSerializer(MilestonesSerializer):
                 slug="reports-to-third-parties-regular-process",
                 label=_("reports to third parties regular process"),
                 fields=[
-                    fields.WorkItemsField(
-                        slug="notice-to-geometer",
-                        label=_("notice to geometer"),
-                        task="geometer",
-                        field="created_at",
+                    fields.MethodField(
+                        slug="notice-to-geometer", label=_("notice to geometer")
                     ),
                     fields.CamacWorkflowEntryField(
                         slug="notification-building-permit-to-surveyor",
@@ -313,7 +310,7 @@ class UrMilestonesSerializer(MilestonesSerializer):
                     fields.WorkItemsField(
                         slug="bauverwaltung-meldung-bau-beendet-an-geometer",
                         label=_("Notice construction finished to geometer"),
-                        task="geometer",
+                        task="construction-step-schlussabnahme-gebaeude-melden",
                         field="closed_at",
                     ),
                     fields.WorkItemsField(
@@ -444,14 +441,18 @@ class UrMilestonesSerializer(MilestonesSerializer):
         return None  # pragma: no cover
 
     def get_receipt_confirmation_of_decision_documents(self, instance):
-        if _check_feedback_answer(
-            instance, "decision-task-feedback-type-bau-und-einspracheentscheid"
+        if _check_decision_answer(
+            instance,
+            "decision-task-feedback-type-bau-und-einspracheentscheid",
+            "decision-task-feedback-type",
         ):
             return _get_date_of_downloaded_decision_document(instance)
 
     def get_receipt_confirmation_of_preliminary_decision(self, instance):
-        if _check_feedback_answer(
-            instance, "decision-task-feedback-type-stellungnahme-vorentscheid"
+        if _check_decision_answer(
+            instance,
+            "decision-task-feedback-type-stellungnahme-vorentscheid",
+            "decision-task-feedback-type",
         ):
             return _get_date_of_downloaded_decision_document(instance)
 
@@ -463,14 +464,26 @@ class UrMilestonesSerializer(MilestonesSerializer):
             return publication.publication_date
 
     def get_statement_preliminary_decision(self, instance):
-        if _check_feedback_answer(
-            instance, "decision-task-feedback-type-stellungnahme-vorentscheid"
+        if _check_decision_answer(
+            instance,
+            "decision-task-feedback-type-stellungnahme-vorentscheid",
+            "decision-task-feedback-type",
         ):
             return _get_decision_work_item_closed_at(instance)
 
     def get_building_decision(self, instance):
-        if _check_feedback_answer(
-            instance, "decision-task-feedback-type-bau-und-einspracheentscheid"
+        if _check_decision_answer(
+            instance,
+            "decision-task-feedback-type-bau-und-einspracheentscheid",
+            "decision-task-feedback-type",
+        ):
+            return _get_decision_work_item_closed_at(instance)
+
+    def get_notice_to_geometer(self, instance):
+        if _check_decision_answer(
+            instance,
+            "decision-task-nachfuehrungsgeometer-ja",
+            "decision-task-nachfuehrungsgeometer",
         ):
             return _get_decision_work_item_closed_at(instance)
 

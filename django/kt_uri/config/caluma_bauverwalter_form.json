@@ -169,21 +169,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "ordentliches-bewilligungsverfahren.meldung-bau-beendet-liegenschaftsschaetzung",
-    "fields": {
-      "created_at": "2024-11-18T10:54:00.771Z",
-      "modified_at": "2024-11-18T10:54:00.771Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "ordentliches-bewilligungsverfahren",
-      "question": "meldung-bau-beendet-liegenschaftsschaetzung",
-      "sort": 8
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "ordentliches-bewilligungsverfahren.meldung-bauentscheid-an-geometer",
     "fields": {
       "created_at": "2021-12-02T09:51:12.062Z",
@@ -195,21 +180,6 @@
       "form": "ordentliches-bewilligungsverfahren",
       "question": "meldung-bauentscheid-an-geometer",
       "sort": 10
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "ordentliches-bewilligungsverfahren.meldung-bauentscheid-gebaeudeschaetzung",
-    "fields": {
-      "created_at": "2021-12-02T09:52:53.985Z",
-      "modified_at": "2021-12-02T09:52:53.985Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "ordentliches-bewilligungsverfahren",
-      "question": "meldung-bauentscheid-gebaeudeschaetzung",
-      "sort": 9
     }
   },
   {
@@ -444,12 +414,12 @@
     "pk": "bau-und-einspracheentscheid",
     "fields": {
       "created_at": "2021-11-28T16:17:42.411Z",
-      "modified_at": "2024-11-15T15:33:34.900Z",
+      "modified_at": "2024-12-02T14:02:45.390Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"Bau- und Einspracheentscheid (Versand via URec)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Bau- und Einspracheentscheid (Versand / Anzeige via URec)\", \"fr\": null, \"it\": null}",
       "type": "date",
       "is_required": "true",
       "is_hidden": "false",
@@ -460,7 +430,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
-        "milestone": "decision",
+        "milestone": "building-decision",
         "widgetOverride": "milestone-values"
       },
       "data_source": null,
@@ -701,40 +671,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "meldung-bau-beendet-liegenschaftsschaetzung",
-    "fields": {
-      "created_at": "2024-11-18T10:54:00.626Z",
-      "modified_at": "2024-11-18T10:54:00.626Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Meldung Bau beendet an Amt f\\u00fcr Steuern Liegenschaftssch\\u00e4tzung\", \"fr\": null, \"it\": null}",
-      "type": "date",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "milestone": "notice-to-liegenschaftsschaetzung",
-        "widgetOverride": "milestone-values"
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "meldung-bauentscheid-an-geometer",
     "fields": {
       "created_at": "2021-11-29T07:49:01.255Z",
@@ -755,40 +691,6 @@
       "configuration": {},
       "meta": {
         "milestone": "notice-to-geometer",
-        "widgetOverride": "milestone-values"
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "meldung-bauentscheid-gebaeudeschaetzung",
-    "fields": {
-      "created_at": "2021-12-02T09:52:53.455Z",
-      "modified_at": "2024-11-18T10:52:02.570Z",
-      "created_by_user": "paul.walker@ur.ch",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Meldung Bau beendet an Fachstelle f\\u00fcr Geb\\u00e4udesch\\u00e4tzung\", \"fr\": null, \"it\": null}",
-      "type": "date",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "milestone": "notice-to-gebaeudeschaetzung",
         "widgetOverride": "milestone-values"
       },
       "data_source": null,
@@ -871,14 +773,14 @@
     "pk": "start-zirkulation",
     "fields": {
       "created_at": "2021-11-28T16:08:26.731Z",
-      "modified_at": "2024-07-16T13:47:53.583Z",
+      "modified_at": "2024-12-02T12:38:48.014Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Start Zirkulation\", \"fr\": null, \"it\": null}",
       "type": "date",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -887,7 +789,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
-        "milestone": "start-circulation",
+        "milestone": "start-circulation-new",
         "widgetOverride": "milestone-values"
       },
       "data_source": null,
@@ -905,12 +807,12 @@
     "pk": "stellungnahme-vorentscheid",
     "fields": {
       "created_at": "2021-11-28T16:16:46.327Z",
-      "modified_at": "2024-11-15T15:40:10.105Z",
+      "modified_at": "2024-12-02T13:40:24.781Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"Stellungnahme / Vorentscheid (Versand via URec)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Stellungnahme / Vorentscheid (Versand / Anzeige via URec)\", \"fr\": null, \"it\": null}",
       "type": "date",
       "is_required": "true",
       "is_hidden": "false",
