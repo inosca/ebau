@@ -3103,6 +3103,7 @@ def test_instance_submit_so_canton(
     municipality_service = service_factory(service_group__name="municipality")
     canton_service = service_factory(service_group__name="canton")
     service_factory(service_group__name="service-bab")
+    service_factory(service_group__name="canton", service_parent=canton_service)
 
     instance_state_factory(name="subm")
     mocker.patch(
