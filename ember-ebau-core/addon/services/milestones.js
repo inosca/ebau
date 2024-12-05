@@ -15,7 +15,7 @@ export default class MilestonesService extends Service {
       },
     );
     const json = await response.json();
-    return json.sections[0].fields;
+    return json.sections.map(({ fields }) => fields).flat();
   });
 
   async getMilestone(milestoneSlug) {
