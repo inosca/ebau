@@ -11,7 +11,7 @@ export default {
         "init-construction-monitoring",
         "complete-instance",
       ],
-      service: ["inquiry"],
+      service: ["inquiry", "check-inquiries"],
       coordination: ["inquiry", "check-inquiries"],
     },
     services: {},
