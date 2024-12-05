@@ -1701,7 +1701,14 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                     question_id="kanton-leitbehoerde", value="kanton-leitbehoerde-ja"
                 ).exists()
             ):
-                municipality = Service.objects.get(service_group__name="canton").pk
+                municipality = (
+                    Service.objects.filter(
+                        service_group__name="canton",
+                        service_parent__isnull=True,
+                    )
+                    .values_list("pk", flat=True)
+                    .first()
+                )
 
             create_instance_service(instance, int(municipality))
 
