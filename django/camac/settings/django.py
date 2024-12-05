@@ -1545,17 +1545,6 @@ APPLICATIONS = {
                         },
                     }
                 ],
-                "gebaeudeschaetzung": [
-                    {
-                        "event": "created",
-                        "notification": {
-                            "template_slug": "7-bau-beendet",
-                            "recipient_types": [
-                                "fgs_uri",
-                            ],
-                        },
-                    },
-                ],
                 "liegenschaftsschaetzung": [
                     {
                         "event": "created",
@@ -1563,6 +1552,15 @@ APPLICATIONS = {
                             "template_slug": "7-bau-beendet",
                             "recipient_types": [
                                 "liegenschaftsschaetzung_uri",
+                            ],
+                        },
+                    },
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "7-bau-beendet",
+                            "recipient_types": [
+                                "fgs_uri",
                             ],
                         },
                     },
