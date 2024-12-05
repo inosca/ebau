@@ -19,7 +19,10 @@ export default {
   ],
   useLocation: true,
   urGisUrl: "https://service-lv95.lisag.hosting.karten-werk.ch/wms?tiled=True",
-  attachmentSections: { applicant: "12000000", internal: "12000001" },
+  attachmentSections: {
+    applicant: "12000000",
+    internal: "12000001",
+  },
   submittedStates: [
     21, // comm
     22, // ext
