@@ -615,10 +615,10 @@
   datetime.date(2021, 12, 12)
 # ---
 # name: test_record_loading_so[dossier_row_patch8-decision_date-kt_so-so_instance-False]
-  None
+  datetime.date(2021, 12, 12)
 # ---
 # name: test_record_loading_so[dossier_row_patch8-decision_date-kt_so-so_instance-True]
-  None
+  datetime.date(2021, 12, 12)
 # ---
 # name: test_record_loading_so[dossier_row_patch9-final_approval_date-kt_so-so_instance-False]
   datetime.date(2021, 12, 12)

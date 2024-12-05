@@ -75,6 +75,7 @@ class KtSolothurnDossierWriter(DossierWriter):
     submit_date = CaseMetaWriter(
         target="submit-date", formatter="datetime-to-string", protected=True
     )
+    decision_date = CalumaAnswerWriter(target="entscheid-datum", task="decision")
     publication_date = CalumaAnswerWriter(target="datum-publikation")
     construction_start_date = CalumaAnswerWriter(target="datum-baubeginn")
     profile_approval_date = CalumaAnswerWriter(target="datum-schnurgeruestabnahme")
