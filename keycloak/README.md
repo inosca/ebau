@@ -52,3 +52,52 @@ command: [
     "--debug",
   ]
 ```
+
+## Kt. Bern theme changes
+
+Besides the actual theme changes the following changes are necessary to deliver
+a new keycloak theme for usage in the Kt. BE setup (test/prod).
+
+### Requirements (as of 2024-12):
+- JAR file with the name format `keycloak-<theme-name>-theme-<theme-version>.jar`
+- `keycloak-themes.json` contains the theme name with it's version
+- The theme directory includes the theme version
+
+### Versioning the theme
+The following modifications should be applied (and committed to the upstream repository).
+
+- Bump the version tag in `keycloak/themes/pom.xml`
+  ```xml
+  <version>x.x.x</version>
+  ```
+- Update the theme name with the new version number in
+ `keycloak/themes/src/main/resources/META-INF/keycloak-themes.json`
+
+  ```json
+    "themes": [
+      {
+        "name": "ebau-be-x.x.x",
+        "types": ["login"]
+      }
+    ]
+  ```
+- Rename the theme directory `keycloak/themes/src/main/resources/theme/ebau-be-x.x.x`
+with the new version number. The directory should include all the theme changes.
+- Update the path to the theme directory (`keycloak/themes/src/main/resources/theme/ebau-be-x.x.x`)
+in the compose files.
+
+### Renaming the JAR file (do not upstream)
+- Rename the generated JAR file by applying the name changes to the `keycloak/themes/pom.xml`
+  ```xml
+  <name>keycloak-ebau-be-theme-x.x.x</name>
+  <finalName>keycloak-ebau-be-theme-x.x.x</finalName>
+  ```
+- Update the JAR file path in `keycloak/Dockerfile` (e.g. copy paths).
+
+### Removing unneeded themes (do not upstream)
+- Remove the other canton themes in the `keycloak/themes/src/main/resources/META-INF/keycloak-themes.json`
+file and from the `keycloak/themes/src/main/resources/theme/` directory.
+
+### Deliverables
+Build the keycloak theme by building the keycloak container and deliver the generated JAR
+under the path `/opt/keycloak/providers` from the container.
