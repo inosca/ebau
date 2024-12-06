@@ -130,7 +130,7 @@
     "pk": "anfrage",
     "fields": {
       "created_at": "2024-12-04T09:48:59.030Z",
-      "modified_at": "2024-12-04T09:51:22.787Z",
+      "modified_at": "2024-12-06T13:17:05.865Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -138,8 +138,8 @@
       "name": "{\"de\": \"Anfrage\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {
-        "order": 4,
-        "category": "building-permit",
+        "order": 1,
+        "category": "special-procedure",
         "is-creatable": true,
         "is-main-form": true
       },
@@ -153,7 +153,7 @@
     "pk": "anfrage-intern",
     "fields": {
       "created_at": "2024-12-05T13:08:16.540Z",
-      "modified_at": "2024-12-05T15:38:39.939Z",
+      "modified_at": "2024-12-06T13:18:53.199Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -161,8 +161,8 @@
       "name": "{\"de\": \"Anfrage intern\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {
-        "order": 9,
-        "category": "building-permit",
+        "order": 8,
+        "category": "special-procedure",
         "is-creatable": true,
         "is-main-form": true
       },
@@ -348,10 +348,10 @@
     "pk": "baugesuch-mit-uvp",
     "fields": {
       "created_at": "2024-11-22T08:56:49.487Z",
-      "modified_at": "2024-11-22T08:59:56.268Z",
+      "modified_at": "2024-12-06T13:17:19.720Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Baugesuch mit UVP\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -1163,7 +1163,7 @@
     "pk": "plangenehmigungsverfahren-bund",
     "fields": {
       "created_at": "2024-12-05T09:01:50.763Z",
-      "modified_at": "2024-12-05T09:52:32.739Z",
+      "modified_at": "2024-12-06T13:18:40.139Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1171,8 +1171,8 @@
       "name": "{\"de\": \"Plangenehmigungsverfahren Bund\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {
-        "order": 31,
-        "category": "building-permit",
+        "order": 7,
+        "category": "special-procedure",
         "is-creatable": true,
         "is-main-form": true
       },
@@ -1186,7 +1186,7 @@
     "pk": "plangenehmigungsverfahren-gas",
     "fields": {
       "created_at": "2024-12-05T09:47:23.747Z",
-      "modified_at": "2024-12-05T09:52:39.066Z",
+      "modified_at": "2024-12-06T13:19:11.015Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1194,8 +1194,8 @@
       "name": "{\"de\": \"Plangenehmigungsverfahren Gas\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {
-        "order": 32,
-        "category": "building-permit",
+        "order": 3,
+        "category": "special-procedure",
         "is-creatable": true,
         "is-main-form": true
       },
@@ -1227,7 +1227,7 @@
     "pk": "reklame",
     "fields": {
       "created_at": "2024-12-04T12:41:53.055Z",
-      "modified_at": "2024-12-04T12:50:50.861Z",
+      "modified_at": "2024-12-06T13:19:28.939Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1235,8 +1235,8 @@
       "name": "{\"de\": \"Reklame\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {
-        "order": 21,
-        "category": "building-permit",
+        "order": 2,
+        "category": "special-procedure",
         "is-creatable": true,
         "is-main-form": true
       },
@@ -1489,7 +1489,7 @@
     "pk": "vorabklaerung",
     "fields": {
       "created_at": "2024-12-05T13:04:28.572Z",
-      "modified_at": "2024-12-05T13:23:29.496Z",
+      "modified_at": "2024-12-06T13:22:26.834Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1497,8 +1497,8 @@
       "name": "{\"de\": \"Vorabkl\\u00e4rung\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {
-        "order": 33,
-        "category": "building-permit",
+        "order": 6,
+        "category": "special-procedure",
         "is-creatable": true,
         "is-main-form": true
       },
@@ -1512,7 +1512,7 @@
     "pk": "vorentscheid",
     "fields": {
       "created_at": "2024-12-04T09:44:56.191Z",
-      "modified_at": "2024-12-04T09:48:29.358Z",
+      "modified_at": "2024-12-06T13:19:58.020Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
