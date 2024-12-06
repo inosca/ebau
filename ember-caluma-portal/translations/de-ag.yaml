@@ -8,3 +8,10 @@ index:
 instances:
   instance-id: "ID"
   special-id: "Dossier-Nr."
+  new:
+    building-permit:
+      title: "Baubewilligungsverfahren"
+      info: ""
+    special-procedure:
+      title: "Weitere Verfahren"
+      info: ""
