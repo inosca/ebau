@@ -28,9 +28,9 @@
             <input class="submit primary" name="submit" value="${msg("doLogIn")}" type="submit">
         </div>
     </form>
+    <div style="margin-top: 30px; margin-bottom: 30px">
+        <div><p><b>${msg("login-message-title")}</b><p></div>
+        <div>${msg("login-message-content-html")?no_esc}</div>
+    </div>
 </#if>
-<div style="margin-top: 30px; margin-bottom: 30px">
-    <div><p><b>${msg("login-message-title")}</b><p></div>
-    <div>${msg("login-message-content-html")?no_esc}</div>
-</div>
 </@layout.registrationLayout>
