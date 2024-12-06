@@ -17,7 +17,7 @@ instances:
     special-procedure:
       title: "Weitere Verfahren"
       info: "Die gemäss Art. 40 Abs. 1 der kantonalen Raumplanungsverordnung (KRVO) von der Baubewilligungspflicht ausgenommen Bauvorhaben sind mit der **Bauanzeige** bei der kommunalen Baubehörde anzuzeigen (vgl. Art. 40a KRVO).\n\n**Solaranlagen** auf Dächern unterliegen der Anzeigepflicht nach Art. 40a KRVO. Die kommunale Baubehörde entscheidet aufgrund des Bundesrechts, ob die Solaranlage auf dem Dach genügend angepasst und daher bewilligungsfrei ist.\n\nSolaranlage an Fassade muss über ein Baugesuch eingereicht werden."
-      solaranlage: 'Bitte beachten Sie, dass für Solaranlagen an der Fassade unter umständen das "Baugesuch" als Dossierart ausgewählt werden muss. Bitte beachten Sie den <a href="https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/Grundlagen/Leitfaden%20für%20Solaranlagen_de.pdf">"Leitfaden für Solaranlagen"</a>. Sollten Sie unsicher sein, um welche Dossierart es sich bei Ihrer Solaranlage handelt, hilft Ihnen die Standortgemeinde gerne weiter.'
+      solaranlage: 'Bitte beachten Sie, dass für Solaranlagen an der Fassade unter umständen das "Baugesuch" als Dossierart ausgewählt werden muss. Bitte beachten Sie den <a href="https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/Grundlagen/Leitfaden%20für%20Solaranlagen_de.pdf" target="_blank">"Leitfaden für Solaranlagen"</a>. Sollten Sie unsicher sein, um welche Dossierart es sich bei Ihrer Solaranlage handelt, hilft Ihnen die Standortgemeinde gerne weiter.'
 
     modal-title: "Hinweis"
 
