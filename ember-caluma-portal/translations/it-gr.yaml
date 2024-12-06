@@ -17,7 +17,7 @@ instances:
     special-procedure:
       title: "Altre procedure"
       info: "I progetti di costruzione esentati dall'obbligo della licenza edilizia conformemente all'art. 40 cpv. 1 dell'ordinanza cantonale sulla pianificazione territoriale (OPTC) devono essere annunciati all'autorità edilizia comunale prima dell'esecuzione con un **annuncio della costruzione** (cfr. art. 40a OPTC).\n\n**Impianti solari** installati sui tetti sono soggetti all'obbligo di annuncio conformemente all'art. 40a OPTC. L'autorità edilizia comunale decide in base al diritto federale se un impianto solare installato su un tetto sia sufficientemente adattato e quindi esentato dall'obbligo della licenza.\n\nL'installazione solare sulla facciata deve essere presentata tramite una domanda di pianificazione."
-      solaranlage: 'In determinate circostanze è necessario selezionare "domanda di costruzione" come tipo di dossier per gli impianti solari in facciata. Consultare la <a href="https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/Grundlagen/Leitfaden%20für%20Solaranlagen_it.pdf">"Guida per impianti solari"</a>. Nel caso in cui non siate sicuri di quale tipo di dossier è necessario per il vostro impianto solare, il Comune sarà lieto di aiutarvi.'
+      solaranlage: 'In determinate circostanze è necessario selezionare "domanda di costruzione" come tipo di dossier per gli impianti solari in facciata. Consultare la <a href="https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/Grundlagen/Leitfaden%20für%20Solaranlagen_it.pdf" target="_blank">"Guida per impianti solari"</a>. Nel caso in cui non siate sicuri di quale tipo di dossier è necessario per il vostro impianto solare, il Comune sarà lieto di aiutarvi.'
 
     modal-title: "Nota"
 
