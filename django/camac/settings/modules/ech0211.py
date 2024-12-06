@@ -549,14 +549,14 @@ ECH0211 = {
             r"dossier-check/<int:instance_id>/": "/cases/%(instance_id)i/task-form/formal-exam",
         },
         "ALLOWED_CATEGORIES": [
-            "beteiligte-behoerden",
+            "beteiligte-behörden",
             "intern",
             "intern-mit-unterfachstellen",
         ],
         "NOTICE_RULING": {
             "ALLOWED_STATES": ["decision", "circulation"],
             "ONLY_DECLINE": ["distribution-init"],
-            "ALEXANDRIA_CATEGORY": "beteiligte-behoerden",
+            "ALEXANDRIA_CATEGORY": "beteiligte-behörden",
             "ALEXANDRIA_MARK": "decision",
         },
         "JUDGEMENT_MAPPING": {
@@ -567,7 +567,7 @@ ECH0211 = {
             "inquiry-answer-status-no-comment": None,
         },
         "KIND_OF_PROCEEDINGS": {
-            "ALEXANDRIA_CATEGORY": "beteiligte-behoerden",
+            "ALEXANDRIA_CATEGORY": "beteiligte-behörden",
         },
         "DOCS": {
             "GET_TABLE_DATA_FULL": {
