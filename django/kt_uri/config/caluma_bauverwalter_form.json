@@ -625,7 +625,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
-        "milestone": "additional-demand",
+        "milestone": "instance-complete",
         "widgetOverride": "milestone-values"
       },
       "data_source": null,
