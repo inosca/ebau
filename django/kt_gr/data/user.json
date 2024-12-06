@@ -11991,7 +11991,7 @@
     "model": "user.service",
     "pk": 165,
     "fields": {
-      "slug": null,
+      "slug": "aib",
       "service_group": 1,
       "service_parent": null,
       "name": "aib",

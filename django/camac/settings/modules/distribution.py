@@ -767,6 +767,18 @@ DISTRIBUTION = {
                     "nutzungszweck-der-gewerblichen-baute",
                     "nutzungszweck-der-gewerblichen-baute-gastronomie",
                 ): ["alg1"],
+                (
+                    "bauanzeige-haustechnische-anlagen-brandschutz",
+                    "bauanzeige-haustechnische-anlagen-brandschutz-ja",
+                ): ["gvg"],
+                (
+                    "dachtyp",
+                    "dachtyp-schraegdach",
+                ): ["gvg", "aib"],
+                (
+                    "dachtyp",
+                    "dachtyp-flachdach",
+                ): ["gvg", "aib"],
             }
         },
     },
