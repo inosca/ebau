@@ -1536,6 +1536,18 @@ APPLICATIONS = {
                         },
                     }
                 ],
+                "construction-step-schlussabnahme-projekt": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "7-bau-beendet",
+                            "recipient_types": [
+                                "liegenschaftsschaetzung_uri",
+                                "geometer_uri",
+                            ],
+                        },
+                    },
+                ],
                 "construction-step-schlussabnahme-projekt-planen": [
                     {
                         "event": "completed",
@@ -1561,6 +1573,15 @@ APPLICATIONS = {
                             "template_slug": "7-bau-beendet",
                             "recipient_types": [
                                 "fgs_uri",
+                            ],
+                        },
+                    },
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "7-bau-beendet",
+                            "recipient_types": [
+                                "geometer_uri",
                             ],
                         },
                     },
