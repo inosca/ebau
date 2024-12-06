@@ -6,7 +6,7 @@
       "slug": "3-1-dossier-angenommen",
       "purpose": "3.1 Dossier wurde von Gemeinde angenommen (Gesuchsteller und Berechtigte)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Dossier angenommen",
-      "body": "URec System Info 3.1 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nDOSSIER ANGENOMMEN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDas Dossier mit der ID Nr. {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} wurde von der zuständigen Behörde als vollständig angenommen. Das Prüfverfahren / Bewilligungsverfahren wurde gestartet. Sie werden mit Statusmeldungen über den weiteren Verlauf des Verfahrens informiert.\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 3.1 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nDOSSIER ANGENOMMEN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDas Dossier mit der ID Nr. {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} wurde von der zuständigen Behörde als vollständig angenommen. Das Prüfverfahren / Bewilligungsverfahren wurde gestartet. Sie werden mit Statusmeldungen über den weiteren Verlauf des Verfahrens informiert.\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -18,7 +18,7 @@
       "slug": "2-4-dossier-zurueckgewiesen",
       "purpose": "2.4 Dossier wurde von Gemeinde zurückgewiesen (Gesuchsteller und Berechtigte)",
       "subject": "Dossier ID {{INSTANCE_ID}} - Zurückgewiesen",
-      "body": "URec System Info 2.4 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nDOSSIER ZURÜCKGEWIESEN \r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDas Dossier mit der ID {{INSTANCE_ID}} wurde zurückgewiesen. Die Begründung dazu entnehmen Sie bitte der entsprechenden Mitteilung auf dem URec Portal.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 2.4 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nDOSSIER ZURÜCKGEWIESEN \r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDas Dossier mit der ID {{INSTANCE_ID}} wurde zurückgewiesen. Die Begründung dazu entnehmen Sie bitte der entsprechenden Mitteilung auf dem URec Portal.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -30,7 +30,7 @@
       "slug": "4-3-zirkulation-abgeschlossen",
       "purpose": "4.3 Zirkulation abgeschlossen (Gesuchsteller und Berechtigte)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Zirkulation abgeschlossen",
-      "body": "URec System Info 4.3 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nZIRKULATION ABGESCHLOSSEN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDie zuständigen Fachstellen haben das Dossier geprüft. Die zuständige Leitbehörde wird die Rückmeldungen auswerten und Ihnen den Entscheid (Stellungnahme / Verfügung) digital via URec Portal zustellen (je nach Praxis der zuständigen Leitbehörde werden Verfügungen und Stellungnahmen zusätzlich auch per Post verschickt).\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 4.3 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nZIRKULATION ABGESCHLOSSEN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDie zuständigen Fachstellen haben das Dossier geprüft. Die zuständige Leitbehörde wird die Rückmeldungen auswerten und Ihnen den Entscheid (Stellungnahme / Verfügung) digital via URec Portal zustellen (je nach Praxis der zuständigen Leitbehörde werden Verfügungen und Stellungnahmen zusätzlich auch per Post verschickt).\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -42,7 +42,7 @@
       "slug": "4-1-zirkulation-gemeinde-gestartet",
       "purpose": "4.1 Zirkulation gestartet (Fachstellen und Koordinationsstellen)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Zirkulation gestartet",
-      "body": "URec System Info 4.1 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nNEUE PENDENZ\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm URec wurde Ihnen das Dossier mit der ID Nr. {{INSTANCE_ID}} / Dossier Nr. {{DOSSIER_NR}} als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu prüfen und die entsprechende Rückmeldung (Stellungnahme / Verfügung / Planvisum usw.) innert Frist zurückzuschicken.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nAKTENNACHFORDERUNG\r\nSofern Sie weitere Unterlagen benötigen, bitten wir Sie, diese mit dem Modul Nachforderung direkt beim Ersteller des Dossiers anzufordern.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verfügung.\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 4.1 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nNEUE PENDENZ\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm URec wurde Ihnen das Dossier mit der ID Nr. {{INSTANCE_ID}} / Dossier Nr. {{DOSSIER_NR}} als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu prüfen und die entsprechende Rückmeldung (Stellungnahme / Verfügung / Planvisum usw.) innert Frist zurückzuschicken.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nAKTENNACHFORDERUNG\r\nSofern Sie weitere Unterlagen benötigen, bitten wir Sie, diese mit dem Modul Nachforderung direkt beim Ersteller des Dossiers anzufordern.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verfügung.\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -54,7 +54,7 @@
       "slug": "2-dossier-eingereicht-gesuchsteller",
       "purpose": "2 Info an Gesuchsteller - Dossier eingereicht (Gesuchsteller und Berechtigte)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} - Eingangsbestätigung",
-      "body": "URec System Info 2 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nEINGANGSBESTÄTIGUNG\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nVielen Dank für Ihre Eingabe. Das Dossier mit der ID Nr. {{INSTANCE_ID}} wird umgehend von der zuständigen Behörde auf Vollständigkeit geprüft. Falls zusätzliche Unterlagen notwendig sind oder wenn das Prüfverfahren / Bewilligungsverfahren gestartet wird, erhalten Sie eine entsprechende Statusmeldung.\r\n\r\nDossiers bei denen Unterlagen und Angaben fehlen, können zurückgewiesen werden.\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 2 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nEINGANGSBESTÄTIGUNG\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nVielen Dank für Ihre Eingabe. Das Dossier mit der ID Nr. {{INSTANCE_ID}} wird umgehend von der zuständigen Behörde auf Vollständigkeit geprüft. Falls zusätzliche Unterlagen notwendig sind oder wenn das Prüfverfahren / Bewilligungsverfahren gestartet wird, erhalten Sie eine entsprechende Statusmeldung.\r\n\r\nDossiers bei denen Unterlagen und Angaben fehlen, können zurückgewiesen werden.\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -66,7 +66,7 @@
       "slug": "3-dossier-eingereicht-gemeinde",
       "purpose": "3 Neues Dossier wurde online eingereicht (Gemeinde)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} - Neues Dossier wurde eingereicht / erfasst",
-      "body": "URec System Info 3 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nNEUES DOSSIER\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm URec wurde ein neues Dossier mit der ID Nr. {{INSTANCE_ID}} erfasst bzw. eingereicht. Bitte prüfen Sie das Dossier auf Vollständigkeit. Falls zusätzliche Unterlagen notwendig sind, können diese im Rahmen der \"Vollständigkeitsprüfung\" nachgefordert werden. \r\n\r\nDer Gesuchsteller erhält eine entsprechende Meldung.\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 3 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nNEUES DOSSIER\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm URec wurde ein neues Dossier mit der ID Nr. {{INSTANCE_ID}} erfasst bzw. eingereicht. Bitte prüfen Sie das Dossier auf Vollständigkeit. Falls zusätzliche Unterlagen notwendig sind, können diese im Rahmen der \"Vollständigkeitsprüfung\" nachgefordert werden. \r\n\r\nDer Gesuchsteller erhält eine entsprechende Meldung.\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -78,7 +78,7 @@
       "slug": "1-1-gesuchsbearbeitungs-einladung-bestehend",
       "purpose": "1.1 Gesuchsbearbeitungs Einladung, Bestehend (Gesuchsteller und Berechtigte)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} - Sie haben Zugriff auf ein Dossier erhalten",
-      "body": "URec System Info 1.1 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nZUGRIFFSBERECHTIGUNG WURDE ERTEILT\r\n\r\nSie haben Zugriff auf das Dossier {{ PUBLIC_DOSSIER_LINK }} erhalten.\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 1.1 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nZUGRIFFSBERECHTIGUNG WURDE ERTEILT\r\n\r\nSie haben Zugriff auf das Dossier {{ PUBLIC_DOSSIER_LINK }} erhalten.\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -90,7 +90,7 @@
       "slug": "1-gesuchsbearbeitungs-einladung-neu",
       "purpose": "1 Gesuchsbearbeitungs Einladung, Neu (Gesuchsteller und Berechtigte)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} - Sie haben Zugriff auf ein Dossier erhalten",
-      "body": "URec System Info 1 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nZUGRIFFSBERECHTIGUNG WURDE ERTEILT\r\n\r\nSie haben Zugriff auf das Dossier {{ PUBLIC_DOSSIER_LINK }} erhalten.\r\n\r\nUm das Dossier einsehen und bearbeiten zu können, ist eine Registration erforderlich. Bitte registrieren Sie sich unter https://urec-portal.ur.ch/.\r\nDanach können Sie Ihre Dossiers und die von der Gemeindebaubehörde freigegebenen Dokumente (z.B. Bauentscheid) einsehen.\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 1 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nZUGRIFFSBERECHTIGUNG WURDE ERTEILT\r\n\r\nSie haben Zugriff auf das Dossier {{ PUBLIC_DOSSIER_LINK }} erhalten.\r\n\r\nUm das Dossier einsehen und bearbeiten zu können, ist eine Registration erforderlich. Bitte registrieren Sie sich unter https://urec-portal.ur.ch/.\r\nDanach können Sie Ihre Dossiers und die von der Gemeindebaubehörde freigegebenen Dokumente (z.B. Bauentscheid) einsehen.\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -102,7 +102,7 @@
       "slug": "5-eroeffnung-stellungnahme-vorentscheid",
       "purpose": "5 Eröffnung Stellungnahme / Entscheid (Gesuchsteller, Berechtige und beteiligte Fachstellen)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Eröffnung Stellungnahme / Entscheid",
-      "body": "URec System Info 5 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nERÖFFNUNG STELLUNGNAHME / ENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} / Dossier-Nr. {{DOSSIER_NR}} wird hiermit die Stellungnahme bzw. der Entscheid der Leitbehörde eröffnet.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nMit dem Öffnen eines Dokuments beginnt gleichzeitig die in der Stellungnahme / Vorentscheid erwähnte Frist (rechtliches Gehör/ Beschwerde). Das aktuelle Datum beim Anklicken des Links wird im System gespeichert und gilt als Eröffnungsdatum.\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 5 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nERÖFFNUNG STELLUNGNAHME / ENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} / Dossier-Nr. {{DOSSIER_NR}} wird hiermit die Stellungnahme bzw. der Entscheid der Leitbehörde eröffnet.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nMit dem Öffnen eines Dokuments beginnt gleichzeitig die in der Stellungnahme / Vorentscheid erwähnte Frist (rechtliches Gehör/ Beschwerde). Das aktuelle Datum beim Anklicken des Links wird im System gespeichert und gilt als Eröffnungsdatum.\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -114,7 +114,7 @@
       "slug": "2-1-nachforderung-eingegangen",
       "purpose": "2.1 Nachforderung (Gesuchsteller und Berechtigte)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Nachforderung",
-      "body": "URec System Info 2.1 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nNACHFORDERUNG\r\n\r\nBetreffend das Dossier Nr. {{DOSSIER_NR}} wurden Unterlagen / Angaben nachgefordert.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 2.1 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nNACHFORDERUNG\r\n\r\nBetreffend das Dossier Nr. {{DOSSIER_NR}} wurden Unterlagen / Angaben nachgefordert.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -126,7 +126,7 @@
       "slug": "2-2-nachforderung-beantwortet",
       "purpose": "2.2 Nachforderung beantwortet an Leitbehörde (Gemeinde)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Nachforderung beantwortet",
-      "body": "URec System Info 2.2 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nNACHFORDERUNG BEANTWORTET\r\n\r\nDie Nachforderung betreffend das Dossier Nr. {{DOSSIER_NR}} wurde beantwortet.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 2.2 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nNACHFORDERUNG BEANTWORTET\r\n\r\nDie Nachforderung betreffend das Dossier Nr. {{DOSSIER_NR}} wurde beantwortet.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -138,7 +138,7 @@
       "slug": "2-3-nachforderung-akzeptiert",
       "purpose": "2.3 Nachforderung akzeptiert (Gesuchsteller und Berechtigte)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Nachforderung akzeptiert ",
-      "body": "URec System Info 2.3 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDOSSIER VOLLSTÄNDIG\r\n\r\nDie Nachforderung betreffend das Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) ist abgeschlossen.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 2.3 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDOSSIER VOLLSTÄNDIG\r\n\r\nDie Nachforderung betreffend das Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) ist abgeschlossen.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -150,7 +150,7 @@
       "slug": "2-5-nachforderung-abgelehnt",
       "purpose": "2.5 Nachforderung abgelehnt (Gesuchsteller und Berechtigte)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Nachforderung abgelehnt",
-      "body": "URec System Info 2.5 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nNEUE NACHFORDERUNG\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIhre nachgereichten Unterlagen betreffend das Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurden abgelehnt. Es sind weitere Angaben notwendig.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 2.5 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nNEUE NACHFORDERUNG\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIhre nachgereichten Unterlagen betreffend das Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurden abgelehnt. Es sind weitere Angaben notwendig.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -162,7 +162,7 @@
       "slug": "4-zirkulation-gestartet-gesuchsteller",
       "purpose": "4 Zirkulation gestartet (Gesuchsteller und Berechtigte)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Zirkulation gestartet",
-      "body": "URec System Info 4 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nZIRKULATION GESTARTET\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDie Zirkulation bei den zuständigen Fachstellen betreffend das Dossier mit der ID Nr. {{INSTANCE_ID}} /  Dossier Nr. {{DOSSIER_NR}} wurde gestartet.\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 4 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nZIRKULATION GESTARTET\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDie Zirkulation bei den zuständigen Fachstellen betreffend das Dossier mit der ID Nr. {{INSTANCE_ID}} /  Dossier Nr. {{DOSSIER_NR}} wurde gestartet.\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -174,7 +174,7 @@
       "slug": "7-2-einladung-endabnahme",
       "purpose": "7.2 Einladung zur Endabnahme (Fachstelle)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Einladung zur Endabnahme",
-      "body": "URec System Info 7.2 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nEINLADUNG ZUR ENDABNAHME\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID Nr. {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} findet am {{SCHLUSSABNAHME_DATUM}} um {{SCHLUSSABNAHME_UHRZEIT}} Uhr vor Ort die Endabnahme statt.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 7.2 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nEINLADUNG ZUR ENDABNAHME\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID Nr. {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} findet am {{SCHLUSSABNAHME_DATUM}} um {{SCHLUSSABNAHME_UHRZEIT}} Uhr vor Ort die Endabnahme statt.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -186,7 +186,7 @@
       "slug": "4-2-kantonale-bearbeitung-abgeschlossen",
       "purpose": "4.2 Kantonale Bearbeitung abgeschlossen (Gemeinde)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Kantonale Bearbeitung abgeschlossen",
-      "body": "URec System Info 4.2 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nKANTONALE BEARBEITUNG ABGESCHLOSSEN\r\n\r\nDie Koordinationsstelle hat das Dossier Nr. {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} im URec abgeschlossen.\r\n\r\nNFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nWir bitten Sie, das Dossier weiter zu bearbeiten.\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 4.2 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nKANTONALE BEARBEITUNG ABGESCHLOSSEN\r\n\r\nDie Koordinationsstelle hat das Dossier Nr. {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} im URec abgeschlossen.\r\n\r\nNFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nWir bitten Sie, das Dossier weiter zu bearbeiten.\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -198,7 +198,7 @@
       "slug": "5-1-av-projektiert-pruefen",
       "purpose": "5.1 AV projektiert prüfen (Geometer)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - AV projektiert prüfen",
-      "body": "URec System Info 5.1 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nAV PROJEKTIERT PRÜFEN \r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nNFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 5.1 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nAV PROJEKTIERT PRÜFEN \r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nNFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -210,7 +210,7 @@
       "slug": "6-baufreigabe-beantragen",
       "purpose": "6 Baufreigabe beantragen (Gesuchsteller)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Baufreigabe beantragen",
-      "body": "URec System Info 6 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nBAUFREIGABE BEANTRAGEN \r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 6 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nBAUFREIGABE BEANTRAGEN \r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -222,7 +222,7 @@
       "slug": "6-1-baufreigabe-entscheiden",
       "purpose": "6.1 Baufreigabe entscheiden (Gemeinde)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Baufreigabe entscheiden",
-      "body": "URec System Info 6.1 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nBAUFREIGABE ENTSCHEIDEN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 6.1 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nBAUFREIGABE ENTSCHEIDEN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -234,7 +234,7 @@
       "slug": "6-2-baubeginn-melden",
       "purpose": "6.2 Baubeginn melden (Gesuchsteller)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Baubeginn melden",
-      "body": "URec System Info 6.2 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nBAUBEGINN MELDEN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 6.2 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nBAUBEGINN MELDEN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -246,7 +246,7 @@
       "slug": "6-31-kanalisation-kontrollieren",
       "purpose": "6.31 Kanalisation kontrollieren (Abwasser Uri)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Kanalisation kontrollieren",
-      "body": "URec System Info 6.31 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nKANALISATION KONTROLLIEREN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 6.31 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nKANALISATION KONTROLLIEREN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -258,7 +258,7 @@
       "slug": "6-3-kanalisationsabnahme-melden",
       "purpose": "6.3 Kanalisationsabnahme melden (Gesuchsteller)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Meldung bereit zur Kanalisationsabnahme",
-      "body": "URec System Info 6.3 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nMELDUNG BEREIT ZUR KANALISATIONSABNAHME \r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 6.3 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nMELDUNG BEREIT ZUR KANALISATIONSABNAHME \r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -270,7 +270,7 @@
       "slug": "6-4-schnurgeruestabnahme-melden",
       "purpose": "6.4 Schnurgerüstabnahme melden (Gesuchsteller)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Meldung bereit zur Schnurgerüstabnahme",
-      "body": "URec System Info 6.4 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nMELDUNG BEREIT ZUR SCHNURGERÜSTABNAHME\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 6.4 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nMELDUNG BEREIT ZUR SCHNURGERÜSTABNAHME\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -282,7 +282,7 @@
       "slug": "6-41-schnurgeruestabnahme-planen",
       "purpose": "6.41 Schnurgerüstabnahme planen (Geometer)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Schnurgerüstabnahme planen",
-      "body": "URec System Info 6.41 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nSCHNURGERÜSTABNAHME PLANEN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der  ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 6.41 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nSCHNURGERÜSTABNAHME PLANEN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der  ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -294,7 +294,7 @@
       "slug": "6-42-schnurgeruest-kontrollieren",
       "purpose": "6.42 Schnurgerüst kontrollieren (Geometer)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Schnurgerüst kontrollieren",
-      "body": "URec System Info 6.42 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nSCHNURGERÜST KONTROLLIEREN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 6.42 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nSCHNURGERÜST KONTROLLIEREN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -306,7 +306,7 @@
       "slug": "6-5-rohbauabnahme-melden",
       "purpose": "6.5 Rohbauabnahme melden (Gesuchsteller)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Meldung bereit zur Rohbauabname",
-      "body": "URec System Info 6.5 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nMELDUNG BEREIT ZUR ROHBAUABNAHME\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 6.5 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nMELDUNG BEREIT ZUR ROHBAUABNAHME\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -318,7 +318,7 @@
       "slug": "6-51-rohbaukontrolle-durchfuehren",
       "purpose": "6.51 Rohbaukontrolle durchführen (Gemeinde)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Rohbaukontrolle durchführen",
-      "body": "URec System Info 6.51 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nROHBAUKONTROLLE DURCHFÜHREN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 6.51 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nROHBAUKONTROLLE DURCHFÜHREN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -330,7 +330,7 @@
       "slug": "6-61-zwischenkontrolle-durchfuehren",
       "purpose": "6.61 Zwischenkontrolle durchführen (Gemeinde)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Zwischenkontrolle durchführen",
-      "body": "URec System Info 6.61 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nZWISCHENKONTROLLE DURCHFÜHREN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 6.61 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nZWISCHENKONTROLLE DURCHFÜHREN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -342,7 +342,7 @@
       "slug": "6-6-zwischenkontrolle-melden",
       "purpose": "6.6 Zwischenkontrolle melden (Gesuchsteller)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Meldung bereit zur Zwischenkontrolle",
-      "body": "URec System Info 6.6 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nMELDUNG BEREIT ZUR ZWISCHENKONTROLLE\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 6.6 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nMELDUNG BEREIT ZUR ZWISCHENKONTROLLE\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -354,7 +354,7 @@
       "slug": "6-7-schlussabnahme-melden",
       "purpose": "6.7 Schlussabnahme melden (Gesuchsteller)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Meldung bereit zur Schlussabnahme",
-      "body": "URec System Info 6.7 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nMELDUNG BEREIT ZUR SCHLUSSABNAHME\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der  ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 6.7 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nMELDUNG BEREIT ZUR SCHLUSSABNAHME\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der  ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -366,7 +366,7 @@
       "slug": "6-71-schlussabnahme-projekt-melden",
       "purpose": "6.71 Schlussabnahme Projekt melden (Gemeinde)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Schlussabnahme Teil - Gesamtprojekt",
-      "body": "URec System Info 6.71 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nSCHLUSSABNAHME TEIL-GESAMTPROJEKT\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der  ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 6.71 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nSCHLUSSABNAHME TEIL-GESAMTPROJEKT\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der  ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -378,7 +378,7 @@
       "slug": "7-bau-beendet",
       "purpose": "7 Bau beendet (FSG)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Bau Beendet",
-      "body": "URec System Info 7 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nBAU BEENDET\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 7 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nBAU BEENDET\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -390,7 +390,7 @@
       "slug": "7-1-av-definitiv-durchfuehren",
       "purpose": "7.1 AV definitiv durchführen (Geometer)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - AV definitiv nachführen",
-      "body": "URec System Info 7.1 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\nAV DEFINITIV NACHFÜHREN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 7.1 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nAV DEFINITIV NACHFÜHREN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
@@ -414,7 +414,7 @@
       "slug": "6-411-schnurgeruestabnahme-erfolgt",
       "purpose": "6.411 Schnurgerüstabnahme erfolgt (ABM ZS)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Schnurgerüstabnahme erfolgt",
-      "body": "URec System Info 6.411 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an support@urec.ch)\r\n\r\n)\r\n\r\nSCHNURGERÜSTABNAHME ERFOLGT\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 6.411 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\n)\r\n\r\nSCHNURGERÜSTABNAHME ERFOLGT\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
