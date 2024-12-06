@@ -505,7 +505,17 @@ module.exports = function (environment) {
       formCreationPermissions: [
         {
           roles: ["public", "internal"],
-          forms: ["baugesuch", "baugesuch-mit-uvp", "vorentscheid", "anfrage"],
+          forms: [
+            "baugesuch",
+            "baugesuch-mit-uvp",
+            "vorentscheid",
+            "anfrage",
+            "reklame",
+            "plangenehmigungsverfahren-bund",
+            "plangenehmigungsverfahren-gas",
+            "vorabklaerung",
+            "anfrage-intern",
+          ],
         },
       ],
     },
