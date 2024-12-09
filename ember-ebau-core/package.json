@@ -20,6 +20,8 @@
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
+    "lint:css": "stylelint \"**/*.scss\"",
+    "lint:css:fix": "stylelint \"**/*.scss\" --fix",
     "start": "ember serve",
     "test": "concurrently \"pnpm:lint\" \"pnpm:test:*\" --names \"lint,test:\"",
     "test:ember": "ember test"
@@ -122,6 +124,10 @@
     "qunit-dom": "3.4.0",
     "sass": "1.82.0",
     "sinon": "19.0.2",
+    "stylelint": "16.11.0",
+    "stylelint-config-standard-scss": "14.0.0",
+    "stylelint-prettier": "5.0.2",
+    "stylelint-scss": "6.10.0",
     "testem-gitlab-reporter": "1.0.0",
     "testem-multi-reporter": "1.2.0",
     "webpack": "5.97.1"
