@@ -91,6 +91,26 @@ REJECTION = {
             ]
         },
     },
+    "kt_uri": {
+        "ENABLED": True,
+        "ALLOWED_INSTANCE_STATES": [
+            "subm",
+            "comm",
+            "ext",
+            "circ",
+            "redac",
+            "control",
+        ],
+        "INSTANCE_STATE_REJECTION_COMPLETE": "rejected",
+        "NOTIFICATIONS": {
+            "REJECTED": [
+                {
+                    "recipient_types": ["applicant"],
+                    "template_slug": "2-4-dossier-zurueckgewiesen",
+                }
+            ]
+        },
+    },
     "test": {
         "ENABLED": True,
         "ALLOWED_INSTANCE_STATES": ["circulation_init"],

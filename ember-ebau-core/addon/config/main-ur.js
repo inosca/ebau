@@ -121,9 +121,14 @@ export default {
     rejected: 31,
     old: 33,
     control: 34,
+    comm: 21,
   },
   modification: {
     allowForms: ["building-permit"],
     disallowStates: ["new", "archived", "finished", "old"],
+  },
+  rejection: {
+    instanceState: "rejected",
+    allowedInstanceStates: ["comm", "circ", "done", "control"],
   },
 };
