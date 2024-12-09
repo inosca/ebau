@@ -366,12 +366,12 @@ PERMISSIONS = {
         },
         "service": {
             ReadPermission: [12000004],
-            AdminInternalPermission: [12000001, 12000010],
+            AdminInternalPermission: [12000001],
             AdminServicePermission: [12000000, 12000002, 12000003],
         },
         "trusted_service": {
             ReadPermission: [12000004],
-            AdminInternalPermission: [12000001, 12000010],
+            AdminInternalPermission: [12000001],
             AdminServicePermission: [12000000, 12000002, 12000003],
         },
         "coordination": {
@@ -391,6 +391,7 @@ PERMISSIONS = {
                 12000008,
                 12000009,
                 12000010,
+                12000011,
             ],
         },
         "organization_readonly": {ReadPermission: [12000000]},
