@@ -42,7 +42,7 @@ export default class InstancesNewController extends Controller {
       query: getEbauNumberQuery,
       variables: { instanceId: parseInt(this.convertFrom) },
     }),
-    "allCases.edges.firstObject.node.meta.ebau-number",
+    "allCases.edges.0.node.meta.ebau-number",
   );
 
   forms = trackedFunction(this, async () => {

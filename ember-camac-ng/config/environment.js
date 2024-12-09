@@ -1,15 +1,6 @@
 "use strict";
 
 module.exports = function (environment) {
-  if (environment !== "production") {
-    /* eslint-disable no-console */
-    console.log("Build environment:");
-    require("./dotenv")(environment).clientAllowedKeys.forEach((key) => {
-      console.log(`\t${key}: ${process.env[key]}`);
-    });
-    /* eslint-enable no-console */
-  }
-
   const ENV = {
     modulePrefix: "camac-ng",
     environment,
@@ -21,6 +12,7 @@ module.exports = function (environment) {
       apiURL: "/graphql/",
     },
     EmberENV: {
+      EXTEND_PROTOTYPES: false,
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
