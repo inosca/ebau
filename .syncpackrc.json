@@ -8,6 +8,11 @@
   },
   "semverGroups": [
     {
+      "label": "Ignore required git dependencies",
+      "dependencies": ["ember-classic-decorator"],
+      "isIgnored": true
+    },
+    {
       "label": "Use fixed version ranges",
       "range": "",
       "dependencies": ["**"]

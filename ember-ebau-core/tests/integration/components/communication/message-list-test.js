@@ -55,7 +55,7 @@ module(
       assert.strictEqual(this.scrollIntoViewFake.callCount, 1);
       assert.strictEqual(
         this.scrollIntoViewFake.lastCall.thisValue.dataset.testMessage,
-        this.messages.lastObject.id,
+        this.messages.at(-1).id,
       );
     });
   },
