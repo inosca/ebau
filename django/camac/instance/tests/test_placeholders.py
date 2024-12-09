@@ -330,6 +330,7 @@ def test_dms_placeholders_so(
     multilang,
     utils,
     document_factory,
+    active_inquiry_factory,
 ):
     # Authority
     authority = service_factory(
@@ -531,6 +532,36 @@ def test_dms_placeholders_so(
 
     # General data
     utils.add_answer(so_instance.case.document, "ort", "Rüttenen")
+
+    # Distribution
+    inquiry = active_inquiry_factory(
+        so_instance,
+        service_factory(
+            trans__name="Solothurnische Gebäudeversicherung (SGV)",
+            service_group__name="service-cantonal",
+        ),
+        status=WorkItem.STATUS_COMPLETED,
+        closed_at=make_aware(faker.Faker().date_time()),
+    )
+
+    utils.add_answer(inquiry.document, "inquiry-remark", "Bemerkungen")
+
+    for q, v in [
+        ("inquiry-answer-status", "inquiry-answer-status-positive"),
+        ("inquiry-answer-positive-assessments", "Zustimmend"),
+        ("inquiry-answer-negative-assessments", "Ablehnend"),
+        ("inquiry-answer-rejection-additional-demand", "Nachforderung"),
+        ("inquiry-answer-objections", "Einsprachen"),
+        ("inquiry-answer-notices-for-applicant", "Hinweis Gesuchsteller/in"),
+        ("inquiry-answer-notices-for-authority", "Hinweis LB"),
+        ("inquiry-answer-notices-for-authority-arp", "Hinweis ARP"),
+        ("inquiry-answer-forward", "Weiterleiten an SGV"),
+    ]:
+        utils.add_answer(inquiry.child_case.document, q, v)
+
+    inquiry.case.parent_work_item.closed_at = make_aware(faker.Faker().date_time())
+    inquiry.case.parent_work_item.status = WorkItem.STATUS_COMPLETED
+    inquiry.case.parent_work_item.save()
 
     url = reverse("instance-dms-placeholders", args=[so_instance.pk])
 
