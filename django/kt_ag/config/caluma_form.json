@@ -1502,7 +1502,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -2975,7 +2975,37 @@
       "modified_by_group": null,
       "form": "anfrage-intern",
       "question": "allgemeine-informationen-pgv-bund",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anfrage-intern.dokumente-ohne-pflichtdokumente",
+    "fields": {
+      "created_at": "2024-12-09T10:36:21.681Z",
+      "modified_at": "2024-12-09T10:36:21.681Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anfrage-intern",
+      "question": "dokumente-ohne-pflichtdokumente",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anfrage-intern.einreichen",
+    "fields": {
+      "created_at": "2024-12-09T10:36:25.971Z",
+      "modified_at": "2024-12-09T10:36:25.971Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anfrage-intern",
+      "question": "einreichen",
+      "sort": 1
     }
   },
   {
@@ -2990,7 +3020,7 @@
       "modified_by_group": null,
       "form": "anfrage-intern",
       "question": "nutzung-bauvorhaben",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -14465,7 +14495,37 @@
       "modified_by_group": null,
       "form": "plangenehmigungsverfahren-bund",
       "question": "allgemeine-informationen-pgv-bund",
-      "sort": 3
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "plangenehmigungsverfahren-bund.dokumente-ohne-pflichtdokumente",
+    "fields": {
+      "created_at": "2024-12-09T10:35:59.468Z",
+      "modified_at": "2024-12-09T10:35:59.468Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "plangenehmigungsverfahren-bund",
+      "question": "dokumente-ohne-pflichtdokumente",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "plangenehmigungsverfahren-bund.einreichen",
+    "fields": {
+      "created_at": "2024-12-09T10:36:04.710Z",
+      "modified_at": "2024-12-09T10:36:04.710Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "plangenehmigungsverfahren-bund",
+      "question": "einreichen",
+      "sort": 1
     }
   },
   {
@@ -14480,7 +14540,7 @@
       "modified_by_group": null,
       "form": "plangenehmigungsverfahren-bund",
       "question": "nutzung-bauvorhaben",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -14495,7 +14555,37 @@
       "modified_by_group": null,
       "form": "plangenehmigungsverfahren-gas",
       "question": "allgemeine-informationen-pgv-gas",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "plangenehmigungsverfahren-gas.dokumente-ohne-pflichtdokumente",
+    "fields": {
+      "created_at": "2024-12-09T10:33:00.504Z",
+      "modified_at": "2024-12-09T10:33:00.504Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "plangenehmigungsverfahren-gas",
+      "question": "dokumente-ohne-pflichtdokumente",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "plangenehmigungsverfahren-gas.einreichen",
+    "fields": {
+      "created_at": "2024-12-09T10:33:07.378Z",
+      "modified_at": "2024-12-09T10:33:07.378Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "plangenehmigungsverfahren-gas",
+      "question": "einreichen",
+      "sort": 1
     }
   },
   {
@@ -14510,7 +14600,7 @@
       "modified_by_group": null,
       "form": "plangenehmigungsverfahren-gas",
       "question": "nutzung-bauvorhaben",
-      "sort": 1
+      "sort": 3
     }
   },
   {
