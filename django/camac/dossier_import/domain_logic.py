@@ -10,7 +10,6 @@ from logging import getLogger
 import requests
 from caluma.caluma_workflow.models import Case
 from django.conf import settings
-from django.core.exceptions import ObjectDoesNotExist
 from django.utils import timezone
 from django.utils.module_loading import import_string
 from requests_toolbelt.multipart.encoder import MultipartEncoder
@@ -215,15 +214,23 @@ def get_or_create_ebau_nr(ebau_number, service, submit_date=None):
     return generate_ebau_nr(None, submit_date.year) if submit_date else None
 
 
-def set_status_callback(task):  # pragma: no cover
-    # this is not covered as long as the sync mode of django-q is not fixed
+def set_status_callback(task):
     dossier_import = task.args[0]
+
     try:
         dossier_import.refresh_from_db()
-    except ObjectDoesNotExist:
-        # the undo task deletes the instance on success:
+    except DossierImport.DoesNotExist:
+        # the undo task deletes the instance on success
         return
-    if task.result and task.result == dossier_import.IMPORT_STATUS_UNDONE:
+
+    if task.result == dossier_import.IMPORT_STATUS_UNDONE:
+        # fallback to cover race condition when deleting the import on undo
         return
-    dossier_import.status = task.result or dossier_import.set_progressing_to_failed()
+
+    if task.result in [status[0] for status in DossierImport.IMPORT_STATUS_CHOICES]:
+        status = task.result
+    else:
+        status = dossier_import.set_progressing_to_failed()
+
+    dossier_import.status = status
     dossier_import.save()
