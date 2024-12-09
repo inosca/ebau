@@ -1,3 +1,7 @@
+caluma:
+  distribution:
+    edit:
+      edit-sent: '<b>Attenzione:</b> il destinatario non viene informato della modifica della presa di posizione. Una nuova presa di posizione deve essere richiesta con il simbolo "+".'
 distribution:
   inquiry-deadline-input:
     disabled-hint: "Se l'Ufficio per lo sviluppo del territorio o un'altra organizzazione ambientalista vengono invitati a partecipare alla circolazione non è possibile impostare una scadenza manuale, vengono invece usate le scadenze proposte dal sistema."
