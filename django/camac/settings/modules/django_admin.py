@@ -56,5 +56,14 @@ DJANGO_ADMIN = {
     },
     "kt_schwyz": {"ENABLED": True},
     "kt_uri": {"ENABLED": True},
-    "kt_ag": {"ENABLED": True},
+    "kt_ag": {
+        "ENABLED": True,
+        "ENABLED_MODELS": [
+            "alexandria_core.Category",
+            "core.InstanceResource",
+            "core.Resource",
+            "gis.GISDataSource",
+            "notification.NotificationTemplate",
+        ],
+    },
 }
