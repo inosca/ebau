@@ -1502,7 +1502,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -2975,7 +2975,37 @@
       "modified_by_group": null,
       "form": "anfrage-intern",
       "question": "allgemeine-informationen-pgv-bund",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anfrage-intern.dokumente-ohne-pflichtdokumente",
+    "fields": {
+      "created_at": "2024-12-09T10:36:21.681Z",
+      "modified_at": "2024-12-09T10:36:21.681Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anfrage-intern",
+      "question": "dokumente-ohne-pflichtdokumente",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anfrage-intern.einreichen",
+    "fields": {
+      "created_at": "2024-12-09T10:36:25.971Z",
+      "modified_at": "2024-12-09T10:36:25.971Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anfrage-intern",
+      "question": "einreichen",
+      "sort": 1
     }
   },
   {
@@ -2990,7 +3020,7 @@
       "modified_by_group": null,
       "form": "anfrage-intern",
       "question": "nutzung-bauvorhaben",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -13175,7 +13205,7 @@
       "modified_by_group": null,
       "form": "landwirtschaft",
       "question": "beschreibung-der-landwirtschaftlichen-bauten",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -13220,7 +13250,7 @@
       "modified_by_group": null,
       "form": "landwirtschaft",
       "question": "landwirtschaft-text",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -13240,16 +13270,16 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "landwirtschaft.neubau-umbau-wohnflaechenvergroesserung",
+    "pk": "landwirtschaft.neubau-umbau-wohnflaechenvergroesserung-landwirtschaft",
     "fields": {
-      "created_at": "2024-11-06T18:33:32.120Z",
-      "modified_at": "2024-11-06T18:33:32.120Z",
-      "created_by_user": "jana.lux@adfinis.com",
+      "created_at": "2024-12-09T16:14:41.239Z",
+      "modified_at": "2024-12-09T16:14:41.239Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "landwirtschaft",
-      "question": "neubau-umbau-wohnflaechenvergroesserung",
+      "question": "neubau-umbau-wohnflaechenvergroesserung-landwirtschaft",
       "sort": 13
     }
   },
@@ -13340,7 +13370,7 @@
       "modified_by_group": null,
       "form": "landwirtschaft",
       "question": "wohnhaus",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -13355,7 +13385,7 @@
       "modified_by_group": null,
       "form": "landwirtschaft",
       "question": "wohnhaus-bestandteil-landwirtschaftliches-gewerbe",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -14465,7 +14495,37 @@
       "modified_by_group": null,
       "form": "plangenehmigungsverfahren-bund",
       "question": "allgemeine-informationen-pgv-bund",
-      "sort": 3
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "plangenehmigungsverfahren-bund.dokumente-ohne-pflichtdokumente",
+    "fields": {
+      "created_at": "2024-12-09T10:35:59.468Z",
+      "modified_at": "2024-12-09T10:35:59.468Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "plangenehmigungsverfahren-bund",
+      "question": "dokumente-ohne-pflichtdokumente",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "plangenehmigungsverfahren-bund.einreichen",
+    "fields": {
+      "created_at": "2024-12-09T10:36:04.710Z",
+      "modified_at": "2024-12-09T10:36:04.710Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "plangenehmigungsverfahren-bund",
+      "question": "einreichen",
+      "sort": 1
     }
   },
   {
@@ -14480,7 +14540,7 @@
       "modified_by_group": null,
       "form": "plangenehmigungsverfahren-bund",
       "question": "nutzung-bauvorhaben",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -14495,7 +14555,37 @@
       "modified_by_group": null,
       "form": "plangenehmigungsverfahren-gas",
       "question": "allgemeine-informationen-pgv-gas",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "plangenehmigungsverfahren-gas.dokumente-ohne-pflichtdokumente",
+    "fields": {
+      "created_at": "2024-12-09T10:33:00.504Z",
+      "modified_at": "2024-12-09T10:33:00.504Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "plangenehmigungsverfahren-gas",
+      "question": "dokumente-ohne-pflichtdokumente",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "plangenehmigungsverfahren-gas.einreichen",
+    "fields": {
+      "created_at": "2024-12-09T10:33:07.378Z",
+      "modified_at": "2024-12-09T10:33:07.378Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "plangenehmigungsverfahren-gas",
+      "question": "einreichen",
+      "sort": 1
     }
   },
   {
@@ -14510,7 +14600,7 @@
       "modified_by_group": null,
       "form": "plangenehmigungsverfahren-gas",
       "question": "nutzung-bauvorhaben",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -35101,6 +35191,40 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "neubau-umbau-wohnflaechenvergroesserung-landwirtschaft-ja",
+    "fields": {
+      "created_at": "2024-12-09T16:14:40.925Z",
+      "modified_at": "2024-12-09T16:14:40.925Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "neubau-umbau-wohnflaechenvergroesserung-landwirtschaft-nein",
+    "fields": {
+      "created_at": "2024-12-09T16:14:40.928Z",
+      "modified_at": "2024-12-09T16:14:40.928Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -65515,7 +65639,7 @@
       "label": "{\"de\": \"Fotodokumentation\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
-      "is_hidden": "!(\"landwirtschaftliche-gewerbe\"|answer == \"landwirtschaftliche-gewerbe-nein\" && \"neubau-umbau-wohnflaechenvergroesserung\"|answer == \"neubau-umbau-wohnflaechenvergroesserung-ja\" && \"baujahr\"|answer <= 1972)",
+      "is_hidden": "!(\"ausserhalb-bauzone\"|answer == \"ausserhalb-bauzone-ja\" \n  && [\"vorhaben-neubau\", \"vorhaben-umbau-erweiterung-zweckaenderung\", \"vorhaben-zweckaenderung\"] intersects \"vorhaben\"|answer\n  && (\n  \t\"zweckbestimmung-wohnnutzung\" in \"zweckbestimmung\"|answer \n    || \"beschreibung-der-landwirtschaftlichen-bauten-wohnhaus\" in \"beschreibung-der-landwirtschaftlichen-bauten\"|answer\n  )\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -76809,6 +76933,37 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "neubau-umbau-wohnflaechenvergroesserung-landwirtschaft",
+    "fields": {
+      "created_at": "2024-12-09T16:14:41.113Z",
+      "modified_at": "2024-12-09T16:14:41.113Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Handelt es sich um einen Neubau oder einen Umbau mit Wohnfl\\u00e4chenvergr\\u00f6sserung?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "form in [\"baugesuch\", \"baugesuch-mit-uvp\"]",
+      "is_hidden": "!(\"beschreibung-der-landwirtschaftlichen-bauten-wohnhaus\" in \"beschreibung-der-landwirtschaftlichen-bauten\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -102418,6 +102573,36 @@
       "modified_by_group": null,
       "question": "neubau-aufstockung-tierbestand",
       "option": "neubau-aufstockung-tierbestand-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "neubau-umbau-wohnflaechenvergroesserung-landwirtschaft.neubau-umbau-wohnflaechenvergroesserung-landwirtschaft-ja",
+    "fields": {
+      "created_at": "2024-12-09T16:14:41.141Z",
+      "modified_at": "2024-12-09T16:14:41.141Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "neubau-umbau-wohnflaechenvergroesserung-landwirtschaft",
+      "option": "neubau-umbau-wohnflaechenvergroesserung-landwirtschaft-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "neubau-umbau-wohnflaechenvergroesserung-landwirtschaft.neubau-umbau-wohnflaechenvergroesserung-landwirtschaft-nein",
+    "fields": {
+      "created_at": "2024-12-09T16:14:41.126Z",
+      "modified_at": "2024-12-09T16:14:41.127Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "neubau-umbau-wohnflaechenvergroesserung-landwirtschaft",
+      "option": "neubau-umbau-wohnflaechenvergroesserung-landwirtschaft-nein",
       "sort": 1
     }
   },
