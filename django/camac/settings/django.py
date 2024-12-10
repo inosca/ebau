@@ -2438,7 +2438,9 @@ APPLICATIONS = {
             "document_downloaded": "camac.document.side_effects.create_workflow_entry",
         },
         "CUSTOM_NOTIFICATION_TYPES": [],
-        "NOTIFICATIONS": {},
+        "NOTIFICATIONS": {
+            "SUBMIT": [],
+        },
         "SUBSERVICE_ROLES": ["subservice"],
         "DOCUMENT_BACKEND": "alexandria",
     },
