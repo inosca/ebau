@@ -402,6 +402,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     } else if (macroCondition(getOwnConfig().application === "ur")) {
       // TODO: Enable when ember-caluma is bumped
       const SERVICES_ALLOWED_TO_CREATE_SUB_CIRCULATIONS = {
+        2: "Fachstellen Baudirektion",
         61: "Fachstellen Justizdirektion",
         62: "Fachstellen Gesundheits- Sozial- und Umweltdirektion",
         63: "Fachstellen Sicherheitsdirektion",
