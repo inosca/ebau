@@ -503,6 +503,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
           checkInquiries: () => true,
         },
         hooks,
+        inquiryReminderNotificationTemplateSlug: "8-fristueberschreitung",
       };
 
       if (this.shoebox.isCoordinationRole) {
