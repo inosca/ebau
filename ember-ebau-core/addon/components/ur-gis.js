@@ -348,7 +348,7 @@ export default class UrGisComponent extends Component {
         parcel.parcelInfo = parcelInfo;
         parcel.nutzungInfo = nutzungInfo;
 
-        this.parcels.pushObject(parcel);
+        this.parcels.push(parcel);
       }
     } catch (error) {
       console.error(error);
