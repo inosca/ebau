@@ -529,6 +529,9 @@ def test_dms_placeholders_so(
     )
     utils.add_answer(decision_work_item.document, "entscheid-datum", date(2024, 4, 18))
 
+    # General data
+    utils.add_answer(so_instance.case.document, "ort", "Rüttenen")
+
     url = reverse("instance-dms-placeholders", args=[so_instance.pk])
 
     response = admin_client.get(url)
