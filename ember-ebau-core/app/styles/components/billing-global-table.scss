@@ -1,8 +1,6 @@
 .billing-global-table {
-
   // the sum of those cols must ideally be 100% to match table widths
-  &>colgroup>col {
-
+  & > colgroup > col {
     &:nth-child(1),
     &:nth-child(7) {
       width: 8%;

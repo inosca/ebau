@@ -34,11 +34,14 @@
   }
 
   .uk-navbar-left ul > li > a {
-    transition: 300ms ease box-shadow, 300ms ease color;
+    transition:
+      300ms ease box-shadow,
+      300ms ease color;
   }
 
   .uk-navbar-left ul > li.uk-active > a {
-    box-shadow: inset 0 -1px 0 0 $global-primary-background,
+    box-shadow:
+      inset 0 -1px 0 0 $global-primary-background,
       0 1px 0 0 $global-primary-background;
   }
 }

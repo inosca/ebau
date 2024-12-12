@@ -1,9 +1,9 @@
+@use "sass:color";
 @import "variables";
-
 @import "ember-uikit";
 @import "ember-alexandria";
 
-$border-color: darken($global-muted-background, 10%);
+$border-color: color.adjust($global-muted-background, $lightness: -10%);
 $main-nav-height: 80px;
 $sidebar-width: 240px;
 $sidebar-padding: 48px;
@@ -11,16 +11,13 @@ $main-navigation-background: $global-primary-background !default;
 
 @import "a11y";
 @import "power-select";
-
 @import "modules/alexandria";
 @import "modules/work-items";
-
 @import "components/main-navigation";
 @import "components/sub-navigation";
 @import "components/subnav-header";
 @import "components/header";
 @import "components/work-item-list";
-
 @import "@projectcaluma/ember-form";
 @import "@projectcaluma/ember-distribution";
 @import "ember-ebau-gwr";

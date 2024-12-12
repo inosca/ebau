@@ -1,3 +1,5 @@
+// stylelint-disable no-invalid-position-at-import-rule
+
 :root {
   --uk-position-margin-offset: 0px;
 }
@@ -12,11 +14,9 @@
   @import "ember-ebau-gwr";
   @import "ember-ebau-core";
   @import "reset";
-
   @import "components/work-item-list";
   @import "components/case-table";
   @import "components/ur-gis";
-
   @import "misc";
   @import "power-select";
   @import "x-toggle";
