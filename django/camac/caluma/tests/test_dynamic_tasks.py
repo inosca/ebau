@@ -547,14 +547,26 @@ def test_dynamic_task_after_check_sb2(
 
 
 @pytest.mark.parametrize(
-    "answer1,expected_tasks",
+    "geometer_answer,gwr_answer,expected_tasks",
     [
         (
             "decision-task-nachfuehrungsgeometer-ja",
+            "fuer-gwr-relevant-ja",
+            ["geometer", "update-gwr-status"],
+        ),
+        (
+            "decision-task-nachfuehrungsgeometer-nein",
+            "fuer-gwr-relevant-ja",
+            ["update-gwr-status"],
+        ),
+        (
+            "decision-task-nachfuehrungsgeometer-ja",
+            "fuer-gwr-relevant-nein",
             ["geometer"],
         ),
         (
             "decision-task-nachfuehrungsgeometer-nein",
+            "fuer-gwr-relevant-nein",
             [],
         ),
     ],
@@ -567,9 +579,9 @@ def test_dynamic_task_after_decision_ur(
     answer_factory,
     ur_instance,
     caluma_admin_user,
-    #
     expected_tasks,
-    answer1,
+    geometer_answer,
+    gwr_answer,
 ):
     work_item = work_item_factory(
         case=ur_instance.case,
@@ -581,8 +593,19 @@ def test_dynamic_task_after_decision_ur(
     answer_factory(
         document=work_item.document,
         question=question_factory(slug="decision-task-nachfuehrungsgeometer"),
-        value=answer1,
+        value=geometer_answer,
     )
+
+    if gwr_answer == "fuer-gwr-relevant-ja":
+        gwr_relevancy_work_item = work_item_factory(
+            case=ur_instance.case,
+            task_id="check-gwr-relevancy",
+        )
+        answer_factory(
+            document=gwr_relevancy_work_item.document,
+            question=question_factory(slug="fuer-gwr-relevant"),
+            value=gwr_answer,
+        )
 
     result = CustomDynamicTasks().resolve_after_decision_ur(
         ur_instance.case, caluma_admin_user, work_item, None

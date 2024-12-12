@@ -101,6 +101,19 @@ class CustomDynamicTasks(BaseDynamicTasks):
         if involve_geometer:
             tasks.append("geometer")
 
+        gwr_relevancy_work_item = case.work_items.filter(task_id="check-gwr-relevancy")
+
+        if gwr_relevancy_work_item:
+            if (
+                gwr_relevancy_answer := gwr_relevancy_work_item.first()
+                .document.answers.filter(question_id="fuer-gwr-relevant")
+                .first()
+            ):
+                relevant_for_gwr = gwr_relevancy_answer.value == "fuer-gwr-relevant-ja"
+
+            if relevant_for_gwr:
+                tasks.append("update-gwr-status")
+
         return tasks
 
     @register_dynamic_task("after-complete-check-ur")
