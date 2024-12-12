@@ -53,6 +53,19 @@
   },
   {
     "model": "caluma_workflow.flow",
+    "pk": "800b802d-260f-4dea-ba0f-6d9db05aae7d",
+    "fields": {
+      "created_at": "2024-06-13T06:20:49.541Z",
+      "modified_at": "2024-06-13T06:20:49.541Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['open-gwr-construction-project']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "88ac0e00-0540-4824-a03a-2a3b45bdcab1",
     "fields": {
       "created_at": "2024-01-23T08:40:35.506Z",
@@ -87,7 +100,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['distribution','after-complete-check-ur', 'bab', 'init-additional-demand']|tasks"
+      "next": "['distribution','after-complete-check-ur', 'bab', 'init-additional-demand', 'check-gwr-relevancy']|tasks"
     }
   },
   {
@@ -168,6 +181,29 @@
       "is_archived": false,
       "form": "bab",
       "lead_time": null,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "check-gwr-relevancy",
+    "fields": {
+      "created_at": "2024-12-12T12:22:27.176Z",
+      "modified_at": "2024-12-12T08:27:22.404Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "name": "{\"de\": \"GWR Relevanz pr\\u00fcfen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {},
+      "address_groups": "['municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "check-gwr-relevancy",
+      "lead_time": 259200,
       "is_multiple_instance": false,
       "continue_async": false
     }
@@ -460,6 +496,29 @@
   },
   {
     "model": "caluma_workflow.task",
+    "pk": "open-gwr-construction-project",
+    "fields": {
+      "created_at": "2024-12-12T12:22:27.176Z",
+      "modified_at": "2024-12-12T08:27:22.404Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "name": "{\"de\": \"GWR Bauprojekt er\\u00f6ffnen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {},
+      "address_groups": "['municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "open-gwr-construction-project",
+      "lead_time": 259200,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
     "pk": "placeholder",
     "fields": {
       "created_at": "2020-07-12T11:19:09.726Z",
@@ -644,6 +703,22 @@
       "task": "decision",
       "flow": "75acf820-4e0c-4eec-976e-b645ca5b05aa",
       "redoable": "'distribution'|task"
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "5c936618-6528-4173-ab62-ce27012696b7",
+    "fields": {
+      "created_at": "2024-12-12T06:20:49.544Z",
+      "modified_at": "2024-12-12T06:20:49.544Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "check-gwr-relevancy",
+      "flow": "800b802d-260f-4dea-ba0f-6d9db05aae7d",
+      "redoable": null
     }
   },
   {
