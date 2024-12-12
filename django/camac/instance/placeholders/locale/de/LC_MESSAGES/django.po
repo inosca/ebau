@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-02 15:39+0200\n"
+"POT-Creation-Date: 2024-12-12 16:46+0100\n"
 "PO-Revision-Date: 2024-10-09 13:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -29,6 +29,10 @@ msgstr "Gemeinde"
 #: camac/instance/placeholders/fields.py
 msgid "District"
 msgstr "Regierungsstatthalteramt"
+
+#: camac/instance/placeholders/fields.py
+msgid "GBB"
+msgstr "GBB"
 
 #: camac/instance/placeholders/fields.py
 msgid "POSITION"
@@ -177,6 +181,7 @@ msgid "ZIP"
 msgstr "PLZ"
 
 #: camac/instance/placeholders/fields.py
+#: camac/instance/placeholders/serializers.py
 msgid "TOWN"
 msgstr "ORTSCHAFT"
 
@@ -568,6 +573,10 @@ msgid "AUTHORITY_CITY"
 msgstr "LEITBEHOERDE_STADT"
 
 #: camac/instance/placeholders/serializers.py
+msgid "AUTHORITY_TOWN"
+msgstr "LEITBEHOERDE_ORT"
+
+#: camac/instance/placeholders/serializers.py
 msgid "City of the authority"
 msgstr "Ort der zuständigen Leitbehörde"
 
@@ -720,6 +729,10 @@ msgid "The location of the building site"
 msgstr "Der Ort des Bauvorhabens"
 
 #: camac/instance/placeholders/serializers.py
+msgid "The town of the building site"
+msgstr "Die Ortschaft des Bauvorhabens"
+
+#: camac/instance/placeholders/serializers.py
 msgid "PARCEL"
 msgstr "PARZELLE"
 
@@ -845,7 +858,8 @@ msgstr "ZIRKULATION_ANGEFORDERT"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Inquiries requested by own service only"
-msgstr "In Dossier involvierte Stellen, welche von dieser Stelle angefragt wurden"
+msgstr ""
+"In Dossier involvierte Stellen, welche von dieser Stelle angefragt wurden"
 
 #: camac/instance/placeholders/serializers.py
 msgid "OWN_BILLING_ENTRIES_TOTAL"
@@ -932,7 +946,8 @@ msgid "START_PUBLICATION_MUNICIPALITY"
 msgstr "START_PUBLIKATION_GEMEINDE"
 
 #: camac/instance/placeholders/serializers.py
-msgid "Start date of the publication in the publication organ of the municipality"
+msgid ""
+"Start date of the publication in the publication organ of the municipality"
 msgstr "Startdatum der Publikation im Publikationsorgan der Gemeinde"
 
 #: camac/instance/placeholders/serializers.py
@@ -940,7 +955,8 @@ msgid "END_PUBLICATION_MUNICIPALITY"
 msgstr "ENDE_PUBLIKATION_GEMEINDE"
 
 #: camac/instance/placeholders/serializers.py
-msgid "End date of the publication in the publication organ of the municipality"
+msgid ""
+"End date of the publication in the publication organ of the municipality"
 msgstr "Enddatum der Publikation im Publikationsorgan der Gemeinde"
 
 #: camac/instance/placeholders/serializers.py
