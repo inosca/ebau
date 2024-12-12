@@ -6,7 +6,8 @@
     height: 60px;
     border-radius: 50%;
     color: white;
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(240 240 240);
+
     @extend .uk-padding-small;
 
     svg {
@@ -17,7 +18,7 @@
   }
 
   .uk-card.uk-card-body {
-    border: 1px solid rgb(240, 240, 240);
+    border: 1px solid rgb(240 240 240);
   }
 }
 
@@ -28,21 +29,21 @@
 }
 
 .construction-step__work-item__header {
-    border-left: 4px solid $custom-muted-color-dark;
-    padding-left: 40px;
-    margin-left: -40px;
-    margin-top: -5px;
-    padding-top: 5px;
-    margin-bottom: -10px;
-    padding-bottom: 10px;
+  border-left: 4px solid $custom-muted-color-dark;
+  padding-left: 40px;
+  margin-left: -40px;
+  margin-top: -5px;
+  padding-top: 5px;
+  margin-bottom: -10px;
+  padding-bottom: 10px;
 
-    &--active {
-      border-left: 4px solid $global-primary-background;
-    }
+  &--active {
+    border-left: 4px solid $global-primary-background;
+  }
 
-    .uk-badge {
-      background-color: $custom-muted-color-light;
-    }
+  .uk-badge {
+    background-color: $custom-muted-color-light;
+  }
 }
 
 .construction-step__work-item__info {
@@ -63,7 +64,6 @@ $colors: (
 );
 
 .construction-step__work-item-divider {
-
   position: relative;
   z-index: 1;
 
@@ -83,12 +83,12 @@ $colors: (
     border-width: 2px;
     border-style: solid;
     margin-bottom: -21px;
-    background-color: #ffffff;
+    background-color: #fff;
 
     &__highlight-approval {
-        border-width: 3px;
-        width: $sizeCompleted;
-        height: $sizeCompleted;
+      border-width: 3px;
+      width: $sizeCompleted;
+      height: $sizeCompleted;
     }
   }
 

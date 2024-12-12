@@ -1,3 +1,5 @@
+@use "sass:color";
+
 @mixin activation-warning {
   content: "";
   display: inline-flex;
@@ -10,22 +12,24 @@
 }
 
 @mixin nfd {
-  border: 1px solid darken($activation-warning-nfd, 10%);
+  border: 1px solid color.adjust($activation-warning-nfd, $lightness: -10%);
   background-color: $activation-warning-nfd;
 }
 
 @mixin expired {
-  border: 1px solid darken($activation-warning-expired, 10%);
+  border: 1px solid color.adjust($activation-warning-expired, $lightness: -10%);
   background-color: $activation-warning-expired;
 }
 
 @mixin due-shortly {
-  border: 1px solid darken($activation-warning-due-shortly, 10%);
+  border: 1px solid
+    color.adjust($activation-warning-due-shortly, $lightness: -10%);
   background-color: $activation-warning-due-shortly;
 }
 
 @mixin completed {
-  border: 1px solid darken($activation-warning-completed, 10%);
+  border: 1px solid
+    color.adjust($activation-warning-completed, $lightness: -10%);
   background-color: $activation-warning-completed;
 }
 
@@ -57,22 +61,25 @@ tr.activation-warning-row {
   }
 
   &.nfd::before {
-    border: 1px solid darken($activation-warning-nfd, 10%);
+    border: 1px solid color.adjust($activation-warning-nfd, $lightness: -10%);
     background-color: $activation-warning-nfd;
   }
 
   &.expired::before {
-    border: 1px solid darken($activation-warning-expired, 10%);
+    border: 1px solid
+      color.adjust($activation-warning-expired, $lightness: -10%);
     background-color: $activation-warning-expired;
   }
 
   &.due-shortly::before {
-    border: 1px solid darken($activation-warning-due-shortly, 10%);
+    border: 1px solid
+      color.adjust($activation-warning-due-shortly, $lightness: -10%);
     background-color: $activation-warning-due-shortly;
   }
 
   &.completed::before {
-    border: 1px solid darken($activation-warning-completed, 10%);
+    border: 1px solid
+      color.adjust($activation-warning-completed, $lightness: -10%);
     background-color: $activation-warning-completed;
   }
 }

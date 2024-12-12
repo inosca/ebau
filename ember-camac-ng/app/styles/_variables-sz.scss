@@ -1,20 +1,22 @@
+@use "sass:color";
+
 // Base colors
-$global-primary-background: rgb(225, 10, 22);
-$global-muted-background: rgb(250, 250, 250);
+$global-primary-background: rgb(225 10 22);
+$global-muted-background: rgb(250 250 250);
 $global-border: #e5e5e5;
 
 // Font colors
 $global-muted-color: #999;
-$global-link-color: darken($global-primary-background, 10%);
-$global-link-hover-color: darken($global-link-color, 10%);
+$global-link-color: color.adjust($global-primary-background, $lightness: -10%);
+$global-link-hover-color: color.adjust($global-link-color, $lightness: -10%);
 
 // Font
 $global-font-family:
   "Source Sans Pro",
   -apple-system,
-  BlinkMacSystemFont,
+  blinkmacsystemfont,
   "Helvetica Neue",
-  Arial,
+  arial,
   sans-serif;
 $global-font-size: 0.75rem;
 $global-medium-font-size: 0.875rem;
@@ -22,9 +24,9 @@ $global-large-font-size: 1.25rem;
 $base-h3-font-size: 1.17em;
 
 // Form
-$form-focus-border: rgb(87, 87, 87);
-$form-placeholder-color: lighten($global-muted-color, 10%);
-$form-disabled-color: darken($global-muted-color, 30%);
+$form-focus-border: rgb(87 87 87);
+$form-placeholder-color: color.adjust($global-muted-color, $lightness: 10%);
+$form-disabled-color: color.adjust($global-muted-color, $lightness: -30%);
 
 // ember-power-select
 $ember-power-select-border-color: $global-border;
@@ -46,6 +48,6 @@ $ember-power-select-placeholder-color: $form-placeholder-color;
 
   .uk-disabled,
   :disabled {
-    background-color: rgb(250, 250, 250);
+    background-color: rgb(250 250 250);
   }
 }

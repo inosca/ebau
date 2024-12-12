@@ -1,5 +1,7 @@
-$expired-color: #cc0000;
-$expiring-color: #ff8800;
+@use "sass:color";
+
+$expired-color: #c00;
+$expiring-color: #f80;
 
 .highlight {
   width: 20px;
@@ -17,11 +19,11 @@ $expiring-color: #ff8800;
 
   &--expired::before {
     background-color: $expired-color;
-    border-color: darken($expired-color, 10%);
+    border-color: color.adjust($expired-color, $lightness: -10%);
   }
 
   &--expiring::before {
     background-color: $expiring-color;
-    border-color: darken($expiring-color, 10%);
+    border-color: color.adjust($expiring-color, $lightness: -10%);
   }
 }
