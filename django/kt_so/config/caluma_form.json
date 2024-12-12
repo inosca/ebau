@@ -12996,7 +12996,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "gemeinde",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -13041,7 +13041,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "gis-karte",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -13071,6 +13071,21 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "kanton-leitbehoerde",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lokalisierung.kanton-leitbehoerde-mit-gemeinde-geklaert",
+    "fields": {
+      "created_at": "2024-12-12T10:38:04.856Z",
+      "modified_at": "2024-12-12T10:38:04.856Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lokalisierung",
+      "question": "kanton-leitbehoerde-mit-gemeinde-geklaert",
       "sort": 19
     }
   },
@@ -13086,7 +13101,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "lokalisierung-titel",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -25387,6 +25402,40 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kanton-leitbehoerde-mit-gemeinde-geklaert-ja",
+    "fields": {
+      "created_at": "2024-12-12T10:38:04.696Z",
+      "modified_at": "2024-12-12T10:38:04.696Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kanton-leitbehoerde-mit-gemeinde-geklaert-nein",
+    "fields": {
+      "created_at": "2024-12-12T10:38:04.688Z",
+      "modified_at": "2024-12-12T10:38:04.688Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -53644,15 +53693,46 @@
     "pk": "kanton-leitbehoerde",
     "fields": {
       "created_at": "2024-09-13T07:33:04.467Z",
-      "modified_at": "2024-09-13T07:33:04.467Z",
+      "modified_at": "2024-12-12T10:36:02.985Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist bei diesem Bauvorhaben der Kanton Solothurn die zust\\u00e4ndige Leitbeh\\u00f6rde? Nur in sehr wenigen Ausnahmef\\u00e4llen ist nicht die Gemeinde sondern der Kanton die Leitbeh\\u00f6rde. Bitte w\\u00e4hlen Sie nur nach R\\u00fccksprache mit der Gemeinde die Option \\\"Ja\\\".\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": "347c2935-2eba-4a8c-975e-34c2d607434d",
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kanton-leitbehoerde-mit-gemeinde-geklaert",
+    "fields": {
+      "created_at": "2024-12-12T10:38:04.789Z",
+      "modified_at": "2024-12-12T10:38:04.789Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Ist bei diesem Bauvorhaben der Kanton Solothurn die zust\\u00e4ndige Leitbeh\\u00f6rde?\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Haben Sie mit der Gemeinde gekl\\u00e4rt, dass in diesem Fall nicht die Gemeinde sondern der Kanton Leitbeh\\u00f6rde ist?\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "false",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "\"kanton-leitbehoerde\"|answer != \"kanton-leitbehoerde-ja\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -72956,6 +73036,36 @@
       "modified_by_group": null,
       "question": "kanton-leitbehoerde",
       "option": "kanton-leitbehoerde-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kanton-leitbehoerde-mit-gemeinde-geklaert.kanton-leitbehoerde-mit-gemeinde-geklaert-ja",
+    "fields": {
+      "created_at": "2024-12-12T10:38:04.799Z",
+      "modified_at": "2024-12-12T10:38:04.799Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kanton-leitbehoerde-mit-gemeinde-geklaert",
+      "option": "kanton-leitbehoerde-mit-gemeinde-geklaert-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kanton-leitbehoerde-mit-gemeinde-geklaert.kanton-leitbehoerde-mit-gemeinde-geklaert-nein",
+    "fields": {
+      "created_at": "2024-12-12T10:38:04.796Z",
+      "modified_at": "2024-12-12T10:38:04.796Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kanton-leitbehoerde-mit-gemeinde-geklaert",
+      "option": "kanton-leitbehoerde-mit-gemeinde-geklaert-nein",
       "sort": 1
     }
   },

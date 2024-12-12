@@ -634,6 +634,9 @@ DUMP = {
                         pk__in=["portal-faq", "portal-faq-public", "portal-news"]
                     ),
                 },
+                "caluma_form_default_answers": {
+                    "caluma_form.Answer": Q(document__isnull=True),
+                },
                 **DISTRIBUTION_DUMP_CONFIG,
                 **ADDITIONAL_DEMAND_DUMP_CONFIG,
                 **CONSTRUCTION_MONITORING_DUMP_CONFIG,
