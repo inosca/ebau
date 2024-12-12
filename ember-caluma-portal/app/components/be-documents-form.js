@@ -16,6 +16,8 @@ export default class BeDocumentsFormComponent extends Component {
 
   @tracked uploadedAttachmentIds = [];
 
+  requiredQuestionTypes = ["MultipleChoiceQuestion", "TextareaQuestion"];
+
   get buckets() {
     return (
       this.args.fieldset.field.question.raw.meta.buckets ??
@@ -56,7 +58,7 @@ export default class BeDocumentsFormComponent extends Component {
       (field) =>
         !field.hidden &&
         !field.optional &&
-        field.questionType === "MultipleChoiceQuestion",
+        this.requiredQuestionTypes.includes(field.questionType),
     );
   }
 
@@ -79,6 +81,13 @@ export default class BeDocumentsFormComponent extends Component {
         [category]: [...(tree[category] || []), tag],
       });
     }, {});
+  }
+
+  get allRequiredTagsCount() {
+    const multipleChoiceRequired = this.allRequiredTags.filter(
+      (field) => field.questionType === "MultipleChoiceQuestion",
+    );
+    return multipleChoiceRequired.length;
   }
 
   get allAttachments() {
