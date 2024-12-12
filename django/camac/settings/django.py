@@ -2644,6 +2644,22 @@ CACHES = {
             default="django.core.cache.backends.memcached.PyMemcacheCache",
         ),
         "LOCATION": env.str("DJANGO_CACHE_LOCATION", default="127.0.0.1:11211"),
+        "OPTIONS": env.dict(
+            "DJANGO_CACHE_OPTIONS",
+            default={
+                # Wait max 100ms for a connection to the cache
+                "connect_timeout": 0.1,
+                # Wait max 100ms for a response by the cache
+                "timeout": 0.1,
+                # Sets TCP_NODELAY to improve performance
+                "no_delay": True,
+                # Treat cache exceptions as cache misses (only in production)
+                "ignore_exc": default(False, True),
+                # For further description of the configured options and more
+                # available options, see the pymemcached documentation:
+                # https://pymemcache.readthedocs.io/en/latest/apidoc/pymemcache.client.base.html
+            },
+        ),
     }
 }
 

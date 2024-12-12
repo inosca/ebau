@@ -1,4 +1,4 @@
-FROM ghcr.io/adfinis/document-merge-service:7.3.2
+FROM ghcr.io/adfinis/document-merge-service:7.3.4
 
 # Only root user can install packages
 USER root
@@ -8,6 +8,8 @@ RUN \
 USER document-merge-service
 
 ENV CACHE_BACKEND=django.core.cache.backends.memcached.PyMemcacheCache
+# https://pymemcache.readthedocs.io/en/latest/apidoc/pymemcache.client.base.html
+ENV CACHE_OPTIONS=connect_timeout=0.1,timeout=0.1,no_delay=True,ignore_exc=True
 ENV DATABASE_ENGINE=django.db.backends.postgresql
 ENV REQUIRE_AUTHENTICATION=True
 ENV PAGINATION_ENABLED=False
