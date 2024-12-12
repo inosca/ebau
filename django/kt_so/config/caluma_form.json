@@ -58733,7 +58733,7 @@
       "label": "{\"de\": \"Welche Nutzungszwecke beinhaltet das Bauprojekt?\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
-      "is_hidden": "\"art-der-bauwerke\"|answer|stringify == \"[\\\"art-der-bauwerke-hochbaute\\\"]\" && \"einfache-hochbaute\"|answer == \"einfache-hochbaute-ja\"",
+      "is_hidden": "!(\n\t\"art-der-bauwerke-hochbaute\" in \"art-der-bauwerke\"|answer &&\n\t\"einfache-hochbaute\"|answer != \"einfache-hochbaute-ja\"\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"#### INFO\\nDie Auswahl zutreffender Nutzungen dient sowohl der Triage der Dossiers (Zuweisung an die zust\\u00e4ndigen Fachstellen) als auch dazu, diejenigen Fachthemen, die f\\u00fcr das Vorhaben nicht relevant sind, der besseren \\u00dcbersicht wegen, nicht anzuzeigen. Es k\\u00f6nnen mehrere Themen ausgew\\u00e4hlt werden.\", \"fr\": null, \"it\": null}",
