@@ -11,5 +11,7 @@ if (macroCondition(getOwnConfig().application === "demo")) {
   config = importSync("ember-ebau-core/config/attachments-gr");
 } else if (macroCondition(getOwnConfig().application === "so")) {
   config = importSync("ember-ebau-core/config/attachments-so");
+} else if (macroCondition(getOwnConfig().application === "ag")) {
+  config = importSync("ember-ebau-core/config/attachments-ag");
 }
 export default config.default;
