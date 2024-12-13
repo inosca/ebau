@@ -310,6 +310,9 @@ def test_dms_placeholders_gr(
 
 @pytest.mark.freeze_time("2024-01-18 13:37", tick=True)
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db(
+    transaction=True, reset_sequences=True
+)  # always reset instance id
 def test_dms_placeholders_so(
     db,
     admin_client,
@@ -401,7 +404,7 @@ def test_dms_placeholders_so(
 
     # Objection
     objections_work_item = work_item_factory(
-        task_id="einsprachen",
+        task__pk="einsprachen",
         document__form_id="einsprachen",
         case=so_instance.case,
     )
@@ -531,52 +534,7 @@ def test_dms_placeholders_so(
     response = admin_client.get(url)
 
     assert response.status_code == status.HTTP_200_OK
-
-    checked_keys = [
-        "ALLE_GESUCHSTELLER_LISTE",
-        "ALLE_GESUCHSTELLER_VERTRETER_NAME_ADRESSE",
-        "ALLE_GESUCHSTELLER_VERTRETER",
-        "ALLE_GRUNDEIGENTUEMER_LISTE",
-        "ALLE_PROJEKTVERFASSER_LISTE",
-        "ALLE_RECHNUNGSEMPFAENGER_LISTE",
-        "ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE",
-        "ALLE_RECHNUNGSEMPFAENGER",
-        "ANGEMELDET_EMAIL",
-        "ANGEMELDET_NAME",
-        "BAUENTSCHEID_DATUM",
-        "EIGENE_GEBUEHREN_TOTAL",
-        "EIGENE_GEBUEHREN",
-        "EINGEREICHTE_PLAENE",
-        "EINGEREICHTE_UNTERLAGEN",
-        "EINSPRACHEN",
-        "ENTSCHEIDDOKUMENTE",
-        "GEBUEHREN_TOTAL",
-        "GEBUEHREN",
-        "GEMEINDE_WEBSEITE",
-        "GESUCHSTELLER_ANREDE",
-        "GESUCHSTELLER_VERTRETER_ADRESSE_1",
-        "GESUCHSTELLER_VERTRETER_ADRESSE_2",
-        "GESUCHSTELLER_VERTRETER_NAME_ADRESSE",
-        "GESUCHSTELLER_VERTRETER",
-        "LEITBEHOERDE_NAME_ADRESSE",
-        "LEITBEHOERDE_WEBSEITE",
-        "MEINE_ORGANISATION_WEBSEITE",
-        "NUTZUNGSPLANUNG_GRUNDNUTZUNG",
-        "NUTZUNGSPLANUNG_GRUNDNUTZUNG_KANTON",
-        "PUBLIKATION_AMTSBLATT",
-        "PUBLIKATION_ANZEIGER",
-        "PUBLIKATION_ENDE",
-        "PUBLIKATION_ORGAN",
-        "PUBLIKATION_START",
-        "RECHNUNGSEMPFAENGER_ADRESSE_1",
-        "RECHNUNGSEMPFAENGER_ADRESSE_2",
-        "RECHNUNGSEMPFAENGER_NAME_ADRESSE",
-        "RECHNUNGSEMPFAENGER",
-    ]
-
-    assert {
-        key: value for key, value in response.json().items() if key in checked_keys
-    } == snapshot
+    assert response.json() == snapshot
 
 
 @pytest.mark.freeze_time("2021-08-30", tick=True)
