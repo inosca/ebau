@@ -1,0 +1,11 @@
+workItems:
+  filters:
+    task:
+      formal-exam: "Esame preliminare"
+      publication: "Pubblica dossier"
+      init-distribution: "Avvia circolazione"
+      check-inquiries: "Esamina prese di posizione"
+      decision: "Disponi decisione"
+      construction-acceptance: "Collaudo"
+      inquiry: "Compila presa di posizione"
+      check-additional-demand: "Verifica richiesta di precisazioni"

@@ -1,0 +1,11 @@
+workItems:
+  filters:
+    task:
+      formal-exam: "Vorläufige Prüfung"
+      publication: "Dossier publizieren"
+      init-distribution: "Zirkulation initialisieren"
+      check-inquiries: "Stellungnahmen prüfen"
+      decision: "Entscheid verfügen"
+      construction-acceptance: "Bauabnahme"
+      inquiry: "Stellungnahme ausfüllen"
+      check-additional-demand: "Nachforderung prüfen"
