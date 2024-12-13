@@ -284,7 +284,7 @@ export default class UrGisComponent extends Component {
         }
 
         if (archFeature && archFeature.properties.name) {
-          features.push("Archäologisches Fundwartungsgebiet");
+          features.push("Archäologisches Funderwartungsgebiet");
         }
 
         const schutzobjekte = listeSchutzobjekte.filter(Boolean).join(", ");
