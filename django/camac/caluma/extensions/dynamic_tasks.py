@@ -99,8 +99,8 @@ class CustomDynamicTasks(BaseDynamicTasks):
             ):
                 relevant_for_gwr = gwr_relevancy_answer.value == "fuer-gwr-relevant-ja"
 
-            if relevant_for_gwr:
-                tasks.append("update-gwr-status")
+                if relevant_for_gwr:
+                    tasks.append("update-gwr-status")
 
         return tasks
 
@@ -503,4 +503,25 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         if involve_geometer:
             tasks.append("geometer")
+        return tasks
+
+    @register_dynamic_task("after-gebaeudeabbruch-melden")
+    def resolve_after_gebaeudeabbruch_melden(self, case, user, prev_work_item, context):
+        tasks = []
+        gwr_relevant = False
+
+        gwr_relevancy_work_item = case.family.work_items.filter(
+            task_id="check-gwr-relevancy", status="completed"
+        ).first()
+
+        if not gwr_relevancy_work_item:
+            return ["construction-step-gwr-status-nachfuehren"]
+
+        if gwr_relevancy_answer := gwr_relevancy_work_item.document.answers.filter(
+            question_id="fuer-gwr-relevant"
+        ).first():
+            gwr_relevant = gwr_relevancy_answer.value == "fuer-gwr-relevant-ja"
+
+        if gwr_relevant:
+            tasks.append("construction-step-gwr-status-nachfuehren")
         return tasks

@@ -1007,3 +1007,45 @@ def test_after_plan_construction_stage(
         ur_instance.case, caluma_admin_user, work_item, None
     )
     assert result == expected_value
+
+
+@pytest.mark.parametrize(
+    "work_item_exists,gwr_answer,expected_value",
+    [
+        (True, "fuer-gwr-relevant-ja", ["construction-step-gwr-status-nachfuehren"]),
+        (True, "fuer-gwr-relevant-nein", []),
+        (False, "not-necessary", ["construction-step-gwr-status-nachfuehren"]),
+    ],
+)
+def test_after_gebaeudeabbruch_melden(
+    db,
+    caluma_admin_user,
+    work_item_exists,
+    gwr_answer,
+    expected_value,
+    work_item_factory,
+    document_factory,
+    answer_factory,
+    instance_factory,
+    case_factory,
+    task_factory,
+):
+    instance = instance_factory(case=case_factory())
+
+    if work_item_exists:
+        work_item = work_item_factory(
+            case=instance.case,
+            task=task_factory(slug="check-gwr-relevancy"),
+            document=document_factory(),
+            status="completed",
+        )
+        answer_factory(
+            document=work_item.document,
+            question__slug="fuer-gwr-relevant",
+            value=gwr_answer,
+        )
+
+    result = CustomDynamicTasks().resolve_after_gebaeudeabbruch_melden(
+        instance.case, caluma_admin_user, work_item if work_item_exists else None, None
+    )
+    assert result == expected_value

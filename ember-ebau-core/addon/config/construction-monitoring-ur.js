@@ -3,6 +3,7 @@ export default {
     "construction-step-plan-construction-stage",
     "construction-step-update-gwr-state-begin",
     "construction-step-baufreigabe",
+    "construction-step-gebaeudeabbruch",
     "construction-step-baubeginn",
     "construction-step-kanalisationsabnahme",
     "construction-step-schnurgeruestabnahme",
