@@ -118,7 +118,8 @@ ACTION_INSTANCE_WITHDRAW = RequireInstanceState(
     [
         "subm",
         "init-distribution",
-        "distribution",
+        "circulation",
+        "correction",
         "decision",
     ]
 ) & (HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper()))
