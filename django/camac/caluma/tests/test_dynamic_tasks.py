@@ -547,25 +547,13 @@ def test_dynamic_task_after_check_sb2(
 
 
 @pytest.mark.parametrize(
-    "geometer_answer,gwr_answer,expected_tasks",
+    "gwr_answer,expected_tasks",
     [
         (
-            "decision-task-nachfuehrungsgeometer-ja",
-            "fuer-gwr-relevant-ja",
-            ["geometer", "update-gwr-status"],
-        ),
-        (
-            "decision-task-nachfuehrungsgeometer-nein",
             "fuer-gwr-relevant-ja",
             ["update-gwr-status"],
         ),
         (
-            "decision-task-nachfuehrungsgeometer-ja",
-            "fuer-gwr-relevant-nein",
-            ["geometer"],
-        ),
-        (
-            "decision-task-nachfuehrungsgeometer-nein",
             "fuer-gwr-relevant-nein",
             [],
         ),
@@ -580,7 +568,6 @@ def test_dynamic_task_after_decision_ur(
     ur_instance,
     caluma_admin_user,
     expected_tasks,
-    geometer_answer,
     gwr_answer,
 ):
     work_item = work_item_factory(
@@ -589,12 +576,6 @@ def test_dynamic_task_after_decision_ur(
     )
     work_item.document = document_factory()
     work_item.save()
-
-    answer_factory(
-        document=work_item.document,
-        question=question_factory(slug="decision-task-nachfuehrungsgeometer"),
-        value=geometer_answer,
-    )
 
     if gwr_answer == "fuer-gwr-relevant-ja":
         gwr_relevancy_work_item = work_item_factory(
@@ -991,6 +972,38 @@ def test_after_schnurgeruestabnahme_kontrollieren_uri(
         value=schutzraum_answer,
     )
     result = CustomDynamicTasks().resolve_after_schnurgeruestabnahme_kontrollieren(
+        ur_instance.case, caluma_admin_user, work_item, None
+    )
+    assert result == expected_value
+
+
+@pytest.mark.parametrize(
+    "expected_value,geometer_answer",
+    [(["geometer"], "decision-task-nachfuehrungsgeometer-ja"), ([], "wrong_answer")],
+)
+def test_after_plan_construction_stage(
+    db,
+    ur_instance,
+    caluma_admin_user,
+    notification_template,
+    expected_value,
+    geometer_answer,
+    document_factory,
+    work_item_factory,
+    answer_factory,
+):
+    notification_template.slug = "5-1-av-projektiert-pruefen"
+    notification_template.save()
+
+    work_item = work_item_factory(
+        case=ur_instance.case, task_id="decision", document=document_factory()
+    )
+    answer_factory(
+        document=work_item.document,
+        question__slug="decision-task-nachfuehrungsgeometer",
+        value=geometer_answer,
+    )
+    result = CustomDynamicTasks().resolve_after_plan_construction_stage(
         ur_instance.case, caluma_admin_user, work_item, None
     )
     assert result == expected_value
