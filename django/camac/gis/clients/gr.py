@@ -309,7 +309,18 @@ class GrGisClient(GISBaseClient):
         return previous_value
 
     def map_grundwasserschutzzone(self, values, intermediate_result, question):
-        known_grundwasserschutzzonen = ("s1", "s2", "s3", "sh", "sm", "nicht-betroffen")
+        values = [
+            value.replace("_", "-") for value in values
+        ]  # GIS returns 's_kantonaleart' which is not confirm with our option slugs that are mapped below
+        known_grundwasserschutzzonen = (
+            "s1",
+            "s2",
+            "s3",
+            "sh",
+            "sm",
+            "s-kantonaleart",
+            "nicht-betroffen",
+        )
         strict_levels = sorted(
             [
                 v.lower()
