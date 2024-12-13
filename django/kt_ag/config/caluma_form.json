@@ -15209,7 +15209,7 @@
       "modified_by_group": null,
       "form": "reklame",
       "question": "bestaetigung",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -15224,7 +15224,7 @@
       "modified_by_group": null,
       "form": "reklame",
       "question": "dokumente-reklame",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -15239,7 +15239,7 @@
       "modified_by_group": null,
       "form": "reklame",
       "question": "einreichen",
-      "sort": 2
+      "sort": 1
     }
   },
   {
