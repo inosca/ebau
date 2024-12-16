@@ -122,7 +122,7 @@ MODULE_RELATED_GWR_PROJECTS = (
         STATES_ALL
         & ~RequireInstanceState(["subm", "material-exam", "reject", "rejected"])
     )
-    & IsForm(["baugesuch"])
+    & IsForm(["baugesuch", "migriertes-dossier"])
     & ROLES_MUNICIPALITY
     & ~IsAppeal()
 )
