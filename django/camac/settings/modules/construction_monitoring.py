@@ -97,11 +97,6 @@ CONSTRUCTION_MONITORING = {
                     "service_id": 22,
                     "require_involvement": True,
                 },
-                # Liegenschaftenschätzung Steuerverwaltung
-                {
-                    "service_id": 350,
-                    "require_involvement": False,
-                },
             ],
             "complete-instance": [
                 # Amt für Militär, Feuer- und Zivilschutz (Brandschutz)
