@@ -744,6 +744,29 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "reklamegesuch",
+    "fields": {
+      "created_at": "2024-12-16T16:01:45.442Z",
+      "modified_at": "2024-12-16T16:06:48.470Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Reklamegesuch (Baugesuch)\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {
+        "order": 2,
+        "category": "building-permit",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": "baugesuch"
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "tiefbau",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -6111,7 +6134,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "aktuelle-fotos-der-baute-von-aussen-und-saemtlicher-raeume-im-innern",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -6126,7 +6149,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "angaben-zum-aktuellen-und-zukuenftigen-tierbestand",
-      "sort": 58
+      "sort": 56
     }
   },
   {
@@ -6141,7 +6164,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "angaben-zum-ersatzstandort-der-hecke",
-      "sort": 66
+      "sort": 64
     }
   },
   {
@@ -6156,7 +6179,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "angaben-zur-wiederbepflanzung-der-hecke",
-      "sort": 65
+      "sort": 63
     }
   },
   {
@@ -6171,7 +6194,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "arbeitsvoranschlag-arbeitskraeftebedarf",
-      "sort": 59
+      "sort": 57
     }
   },
   {
@@ -6186,7 +6209,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "auflistung-aller-zufahrtswege",
-      "sort": 72
+      "sort": 70
     }
   },
   {
@@ -6201,7 +6224,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "begruendung-der-ueberschreitung-der-zulaessigen-unentbehrlichen-landwirtschaftlichen-wohnflaeche",
-      "sort": 51
+      "sort": 49
     }
   },
   {
@@ -6216,7 +6239,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "bemerkungen-dokumente",
-      "sort": 97
+      "sort": 95
     }
   },
   {
@@ -6231,7 +6254,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "beschrieb-ansicht-der-einzaeunung-der-weideflaeche",
-      "sort": 20
+      "sort": 22
     }
   },
   {
@@ -6246,7 +6269,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "beschrieb-herstellung-urspruengliches-zustandes",
-      "sort": 77
+      "sort": 75
     }
   },
   {
@@ -6261,7 +6284,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "bestandesaufnahme-per-01071972",
-      "sort": 4
+      "sort": 6
     }
   },
   {
@@ -6276,7 +6299,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "bestehende-strassen-wege",
-      "sort": 70
+      "sort": 68
     }
   },
   {
@@ -6291,7 +6314,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "betriebskonzept",
-      "sort": 62
+      "sort": 60
     }
   },
   {
@@ -6306,7 +6329,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "betriebskonzept-art-24b-rpg",
-      "sort": 61
+      "sort": 59
     }
   },
   {
@@ -6321,7 +6344,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "betriebskonzept-falls-erweiterung-mehr-als-100-m-betraegt-zwingend",
-      "sort": 3
+      "sort": 5
     }
   },
   {
@@ -6336,7 +6359,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "betriebsvoranschlag",
-      "sort": 60
+      "sort": 58
     }
   },
   {
@@ -6351,7 +6374,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "brandschutzplaene",
-      "sort": 91
+      "sort": 89
     }
   },
   {
@@ -6366,7 +6389,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "deklaration-der-vorhandenen-wohngebaeude-flaechen",
-      "sort": 53
+      "sort": 51
     }
   },
   {
@@ -6381,7 +6404,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "detailplan-einleitung",
-      "sort": 13
+      "sort": 15
     }
   },
   {
@@ -6396,7 +6419,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "detailplan-entnahme-und-rueckgabebauwerke",
-      "sort": 8
+      "sort": 10
     }
   },
   {
@@ -6411,7 +6434,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "detailplan-lager-und-umschlagsanlage",
-      "sort": 12
+      "sort": 14
     }
   },
   {
@@ -6426,7 +6449,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "detailplan-versickerung",
-      "sort": 14
+      "sort": 16
     }
   },
   {
@@ -6441,7 +6464,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "einverstaendniserklaerung-betroffener-grundeigentuemer",
-      "sort": 76
+      "sort": 74
     }
   },
   {
@@ -6456,7 +6479,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "energienachweis",
-      "sort": 90
+      "sort": 88
     }
   },
   {
@@ -6471,7 +6494,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "entwaesserungsplan",
-      "sort": 87
+      "sort": 85
     }
   },
   {
@@ -6486,7 +6509,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "erhebungsbogen-baulicher-gewaesserschutz-mit-entwaesserungsplan",
-      "sort": 54
+      "sort": 52
     }
   },
   {
@@ -6501,7 +6524,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "farb-und-materialkonzept",
-      "sort": 32
+      "sort": 33
     }
   },
   {
@@ -6516,7 +6539,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "fassadenplaene",
-      "sort": 92
+      "sort": 90
     }
   },
   {
@@ -6531,7 +6554,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "feuerpolizeilicher-nachweis-keine-baulichen-veraenderungen",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -6546,7 +6569,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "flaechennachweis-erweiterungen",
-      "sort": 48
+      "sort": 46
     }
   },
   {
@@ -6561,7 +6584,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "formular-berechnung-von-mindestabstaenden-bei-tierhaltungsanlagen",
-      "sort": 27
+      "sort": 28
     }
   },
   {
@@ -6576,7 +6599,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "formular-deckungsbeitrag-trockensubstanz",
-      "sort": 56
+      "sort": 54
     }
   },
   {
@@ -6591,7 +6614,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "fotodokumentation",
-      "sort": 85
+      "sort": 83
     }
   },
   {
@@ -6606,7 +6629,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "fotos-des-teilweise-ausgefuehrten-objektes",
-      "sort": 75
+      "sort": 73
     }
   },
   {
@@ -6621,7 +6644,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "gemeinschaftsvertrag",
-      "sort": 55
+      "sort": 53
     }
   },
   {
@@ -6636,7 +6659,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "gesuch-beanspruchung-fruchtfolgeflaechen-fff",
-      "sort": 16
+      "sort": 18
     }
   },
   {
@@ -6651,7 +6674,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "grundrissplaene",
-      "sort": 94
+      "sort": 92
     }
   },
   {
@@ -6666,7 +6689,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "hydrogeologischer-bericht",
-      "sort": 15
+      "sort": 17
     }
   },
   {
@@ -6681,7 +6704,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "kolas-formular-raumbedarf-fuer-remisen-nach-fat-bericht-590",
-      "sort": 26
+      "sort": 27
     }
   },
   {
@@ -6696,7 +6719,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "laengenprofile",
-      "sort": 86
+      "sort": 84
     }
   },
   {
@@ -6711,7 +6734,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "laengen-und-querprofil-strasse",
-      "sort": 73
+      "sort": 71
     }
   },
   {
@@ -6726,7 +6749,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "liste-der-auf-dem-betrieb-vorhandenen-maschinen",
-      "sort": 25
+      "sort": 26
     }
   },
   {
@@ -6756,7 +6779,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-dass-schutzobjekt-in-seiner-substanz-erhalten-ist",
-      "sort": 42
+      "sort": 41
     }
   },
   {
@@ -6771,7 +6794,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-der-formellen-unterschutzstellung",
-      "sort": 44
+      "sort": 43
     }
   },
   {
@@ -6801,7 +6824,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-emissionsabstand",
-      "sort": 28
+      "sort": 29
     }
   },
   {
@@ -6816,7 +6839,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-erschliessung",
-      "sort": 49
+      "sort": 47
     }
   },
   {
@@ -6831,7 +6854,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-erschliessung-24d",
-      "sort": 40
+      "sort": 39
     }
   },
   {
@@ -6846,7 +6869,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-erstellung-bodenschutz",
-      "sort": 79
+      "sort": 77
     }
   },
   {
@@ -6861,7 +6884,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-fachliche-qualifikation",
-      "sort": 50
+      "sort": 48
     }
   },
   {
@@ -6876,7 +6899,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-kein-bedarf-fuer-bisherigen-zweck",
-      "sort": 41
+      "sort": 40
     }
   },
   {
@@ -6891,7 +6914,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-keine-terrainveraenderungen",
-      "sort": 80
+      "sort": 78
     }
   },
   {
@@ -6906,7 +6929,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-landwirtschaftlicher-nutzflaechen",
-      "sort": 63
+      "sort": 61
     }
   },
   {
@@ -6921,7 +6944,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-land-wohnbaute-in-ihrer-substanz-erhalten",
-      "sort": 46
+      "sort": 44
     }
   },
   {
@@ -6936,7 +6959,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-produkteherkunft",
-      "sort": 57
+      "sort": 55
     }
   },
   {
@@ -6966,7 +6989,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-regionale-bewirtschaftung-des-waldes",
-      "sort": 18
+      "sort": 20
     }
   },
   {
@@ -6981,7 +7004,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-sofern-anderer-massgeblicher-vergleichszustand-als-01071972",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -6996,7 +7019,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-standortgebundenheit",
-      "sort": 82
+      "sort": 80
     }
   },
   {
@@ -7011,7 +7034,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-standortgebundenheit-2",
-      "sort": 81
+      "sort": 79
     }
   },
   {
@@ -7026,7 +7049,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-veraenderungen-unerlaesslich",
-      "sort": 43
+      "sort": 42
     }
   },
   {
@@ -7041,7 +7064,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nachweis-vorhaben-zweckmaessige-und-nicht-ueberdimensioniert",
-      "sort": 17
+      "sort": 19
     }
   },
   {
@@ -7056,7 +7079,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "naehrstoffbilanz",
-      "sort": 29
+      "sort": 30
     }
   },
   {
@@ -7071,7 +7094,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "neubau-strassen-wege",
-      "sort": 71
+      "sort": 69
     }
   },
   {
@@ -7086,7 +7109,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "normalprofil",
-      "sort": 88
+      "sort": 86
     }
   },
   {
@@ -7101,7 +7124,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "nutzungskonzept",
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -7386,7 +7409,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "pfahlplan",
-      "sort": 10
+      "sort": 12
     }
   },
   {
@@ -7401,7 +7424,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "plan-der-abwasserentsorgung-sowie-wasser-und-stromversorgung",
-      "sort": 30
+      "sort": 31
     }
   },
   {
@@ -7416,7 +7439,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "projektplan-elementarschadenpraevention",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -7491,7 +7514,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "querprofile",
-      "sort": 89
+      "sort": 87
     }
   },
   {
@@ -7506,7 +7529,37 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "querschnitt-grundwassereinbauten",
-      "sort": 11
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.reklame-situation",
+    "fields": {
+      "created_at": "2024-12-16T16:15:01.252Z",
+      "modified_at": "2024-12-16T16:15:01.252Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "reklame-situation",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.reklame-visualisierung",
+    "fields": {
+      "created_at": "2024-12-16T16:14:26.898Z",
+      "modified_at": "2024-12-16T16:14:26.898Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "reklame-visualisierung",
+      "sort": 2
     }
   },
   {
@@ -7521,7 +7574,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "schnittplaene",
-      "sort": 93
+      "sort": 91
     }
   },
   {
@@ -7536,7 +7589,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-1-1000",
-      "sort": 96
+      "sort": 94
     }
   },
   {
@@ -7551,7 +7604,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-1-500",
-      "sort": 95
+      "sort": 93
     }
   },
   {
@@ -7566,7 +7619,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-inkl-vermasstem-abstand-zur-kantonsstrasse",
-      "sort": 64
+      "sort": 62
     }
   },
   {
@@ -7581,7 +7634,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-inkl-vermasster-heckengrenze",
-      "sort": 68
+      "sort": 66
     }
   },
   {
@@ -7596,7 +7649,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-inkl-vermasster-waldabstand",
-      "sort": 69
+      "sort": 67
     }
   },
   {
@@ -7611,7 +7664,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-inkl-vermassung-betroffener-hecke-wegfallende-flaeche",
-      "sort": 67
+      "sort": 65
     }
   },
   {
@@ -7626,7 +7679,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-mit-vermasster-einzaeunung-der-weideflaeche",
-      "sort": 19
+      "sort": 21
     }
   },
   {
@@ -7641,7 +7694,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situationsplan-strasse",
-      "sort": 74
+      "sort": 72
     }
   },
   {
@@ -7656,7 +7709,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "situations-umgebungsplan",
-      "sort": 47
+      "sort": 45
     }
   },
   {
@@ -7671,7 +7724,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "technischer-bericht",
-      "sort": 9
+      "sort": 11
     }
   },
   {
@@ -7686,7 +7739,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "technischer-beschrieb",
-      "sort": 83
+      "sort": 81
     }
   },
   {
@@ -7701,7 +7754,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "umgebungsplan-bab",
-      "sort": 31
+      "sort": 32
     }
   },
   {
@@ -7716,7 +7769,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "umgebungsplan-sofern-informationen-nicht-aus-situationsplan-hervorgehen",
-      "sort": 2
+      "sort": 4
     }
   },
   {
@@ -7731,7 +7784,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "unterlagen-fuer-berechnung",
-      "sort": 33
+      "sort": 34
     }
   },
   {
@@ -7746,7 +7799,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "unterlagen-fuer-berechnung-des-unentbehrlichen-landwirtschaftlichen-wohnbedarfs",
-      "sort": 52
+      "sort": 50
     }
   },
   {
@@ -7761,7 +7814,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vermasster-situationsplan",
-      "sort": 78
+      "sort": 76
     }
   },
   {
@@ -7776,7 +7829,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "versicherungspolice-solothurnische-gebaeudeversicherung",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -7791,7 +7844,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "versicherungspolice-solothurnische-gebaeudeversicherung-sofern-unvollstaendiger-nachweis-der-rechtmaessigkeit",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -7821,7 +7874,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "werkleitungsplan",
-      "sort": 84
+      "sort": 82
     }
   },
   {
@@ -14932,6 +14985,141 @@
       "form": "personalien-tabelle",
       "question": "vorname",
       "sort": 28
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklamegesuch.allgemeine-informationen",
+    "fields": {
+      "created_at": "2024-12-16T16:01:45.455Z",
+      "modified_at": "2024-12-16T16:01:45.455Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "reklamegesuch",
+      "question": "allgemeine-informationen",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklamegesuch.bauen-ausserhalb-bauzone",
+    "fields": {
+      "created_at": "2024-12-16T16:01:45.477Z",
+      "modified_at": "2024-12-16T16:01:45.477Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "reklamegesuch",
+      "question": "bauen-ausserhalb-bauzone",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklamegesuch.bauprojekt",
+    "fields": {
+      "created_at": "2024-12-16T16:01:45.473Z",
+      "modified_at": "2024-12-16T16:01:45.473Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "reklamegesuch",
+      "question": "bauprojekt",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklamegesuch.dokumente",
+    "fields": {
+      "created_at": "2024-12-16T16:01:45.483Z",
+      "modified_at": "2024-12-16T16:01:45.483Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "reklamegesuch",
+      "question": "dokumente",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklamegesuch.durchgefuehrte-vorabklaerungen",
+    "fields": {
+      "created_at": "2024-12-16T16:01:45.462Z",
+      "modified_at": "2024-12-16T16:01:45.462Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "reklamegesuch",
+      "question": "durchgefuehrte-vorabklaerungen",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklamegesuch.einreichen",
+    "fields": {
+      "created_at": "2024-12-16T16:01:45.486Z",
+      "modified_at": "2024-12-16T16:01:45.486Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "reklamegesuch",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklamegesuch.generelle-fachthemen",
+    "fields": {
+      "created_at": "2024-12-16T16:01:45.480Z",
+      "modified_at": "2024-12-16T16:01:45.480Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "reklamegesuch",
+      "question": "generelle-fachthemen",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklamegesuch.lokalisierung",
+    "fields": {
+      "created_at": "2024-12-16T16:01:45.469Z",
+      "modified_at": "2024-12-16T16:01:45.469Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "reklamegesuch",
+      "question": "lokalisierung",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklamegesuch.personalien",
+    "fields": {
+      "created_at": "2024-12-16T16:01:45.465Z",
+      "modified_at": "2024-12-16T16:01:45.465Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "reklamegesuch",
+      "question": "personalien",
+      "sort": 7
     }
   },
   {
@@ -28332,6 +28520,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "reklame-situation-ja",
+    "fields": {
+      "created_at": "2024-12-16T16:15:01.135Z",
+      "modified_at": "2024-12-16T16:15:01.135Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situation 1:500 mit Lagebezeichnung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "reklame-visualisierung-ja",
+    "fields": {
+      "created_at": "2024-12-16T16:14:26.737Z",
+      "modified_at": "2024-12-16T16:14:26.737Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Visualisierung der Reklame (Datenblatt, Fassadenplan, Photomontage)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "remisen-ja",
     "fields": {
       "created_at": "2023-11-10T12:46:34.997Z",
@@ -33980,7 +34202,7 @@
     "pk": "abbruch",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2024-01-04T13:19:30.066Z",
+      "modified_at": "2024-12-16T16:12:02.757Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -33988,7 +34210,7 @@
       "label": "{\"de\": \"Werden Bauten ganz oder teilweise abgebrochen?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
-      "is_hidden": "false",
+      "is_hidden": "info.root.form == \"reklamegesuch\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -34011,7 +34233,7 @@
     "pk": "abbruch-aushub-entsorgung-titel",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-11-21T08:28:19.292Z",
+      "modified_at": "2024-12-16T16:11:52.585Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -34019,7 +34241,7 @@
       "label": "{\"de\": \"Abbruch, Aushub, Entsorgung Titel\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "info.root.form == \"reklamegesuch\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -34592,7 +34814,7 @@
     "pk": "altlasten",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-11-21T08:17:37.228Z",
+      "modified_at": "2024-12-16T16:12:29.246Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -34600,7 +34822,7 @@
       "label": "{\"de\": \"Altlasten\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "info.root.form == \"reklamegesuch\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -36282,7 +36504,7 @@
     "pk": "art-der-bauwerke",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2024-01-04T13:16:02.485Z",
+      "modified_at": "2024-12-16T16:16:11.049Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36290,7 +36512,7 @@
       "label": "{\"de\": \"Art der Bauwerke\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
-      "is_hidden": "false",
+      "is_hidden": "info.root.form == \"reklamegesuch\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"#### INFO\\nWenn Ihr Vorhaben sowohl Hochbauten als auch Tiefbauten beinhaltet, m\\u00fcssen Sie beides ankreuzen. Nur so werden jene Fragen ausgel\\u00f6st, welche f\\u00fcr die Eingabe Ihres Vorhabens beantwortet werden m\\u00fcssen. \\n\\nBeispiel: Auswahl Hochbaute - das Formular Hochbaute wird links angezeigt. Im Formular Hochbau werden die Tabellen \\\"Geb\\u00e4ude und Anlagen\\\" sowie die Tabelle \\\"Geb\\u00e4ude- und Haustechnik\\\" angezeigt. Sie k\\u00f6nnen in einem Bauprojekt mehrere Geb\\u00e4ude erfassen und ebenfalls mehrere Haustechnikanlagen. Wenn mehrere Geb\\u00e4ude erfasst werden, bezeichnen Sie diese im obersten Feld entsprechend (z.B. MFH A), so dass Sie die Haustechnikanlagen jeweils einem Geb\\u00e4ude zuordnen k\\u00f6nnen (z.B. geh\\u00f6rt zu: MFH A).\\n\\nBeispiel: Auswahl Tiefbaute - Das Formular Tiefbaute wird links angezeigt. Im Formular Tiefbaute wird die Tabelle Tiefbauten angezeigt. Sie k\\u00f6nnen in einem Bauprojekt mehrere unterschiedliche Arten von Tiefbauten erfasssen.\", \"fr\": null, \"it\": null}",
@@ -37060,7 +37282,7 @@
     "pk": "aushub-erforderlich",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2024-01-04T13:19:54.667Z",
+      "modified_at": "2024-12-16T16:12:23.218Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -37068,7 +37290,7 @@
       "label": "{\"de\": \"Ist f\\u00fcr das Vorhaben ein Aushub oder ein Bodenabtrag erforderlich?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
-      "is_hidden": "false",
+      "is_hidden": "info.root.form == \"reklamegesuch\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -38916,7 +39138,7 @@
     "pk": "belasteter-standort",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2024-01-04T13:21:34.001Z",
+      "modified_at": "2024-12-16T16:12:34.709Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -38924,7 +39146,7 @@
       "label": "{\"de\": \"Ist ein belasteter Standort betroffen?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
-      "is_hidden": "false",
+      "is_hidden": "info.root.form == \"reklamegesuch\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -40741,7 +40963,7 @@
     "pk": "brandschutzplaene",
     "fields": {
       "created_at": "2023-11-29T16:32:59.805Z",
-      "modified_at": "2024-05-22T14:37:01.247Z",
+      "modified_at": "2024-12-16T16:19:27.851Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -40749,7 +40971,7 @@
       "label": "{\"de\": \"Brandschutznachweis\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!(\n\t[\n\t\t\"nutzungszwecke-gewerbe\",\n\t\t\"nutzungszwecke-industrie\",\n\t\t\"nutzungszwecke-dienstleistung\",\n\t\t\"nutzungszwecke-gastgewerbe\"\n\t] intersects \"nutzungszwecke\"|answer([]) ||\n\t\"mindest-und-grenzabstaende-gebaeudeabstand\" in \"mindest-und-grenzabstaende\"|answer([]) ||\n\t(\n\t\t\"brandschutz-kleine-umbauten-erweiterung-und-nutzungsaenderungen\"|answer(null) == \"brandschutz-kleine-umbauten-erweiterung-und-nutzungsaenderungen-nein\" &&\n\t\t\"brandschutz-einfamilienhaeuser-und-oder-nebengebaeude\"|answer(null) == \"brandschutz-einfamilienhaeuser-und-oder-nebengebaeude-nein\"\n\t)\n)",
+      "is_hidden": "!(\n\t[\n\t\t\"nutzungszwecke-gewerbe\",\n\t\t\"nutzungszwecke-industrie\",\n\t\t\"nutzungszwecke-dienstleistung\",\n\t\t\"nutzungszwecke-gastgewerbe\"\n\t] intersects \"nutzungszwecke\"|answer([]) ||\n\t\"mindest-und-grenzabstaende-gebaeudeabstand\" in \"mindest-und-grenzabstaende\"|answer([]) ||\n\t(\n\t\t\"brandschutz-kleine-umbauten-erweiterung-und-nutzungsaenderungen\"|answer(null) == \"brandschutz-kleine-umbauten-erweiterung-und-nutzungsaenderungen-nein\" &&\n\t\t\"brandschutz-einfamilienhaeuser-und-oder-nebengebaeude\"|answer(null) == \"brandschutz-einfamilienhaeuser-und-oder-nebengebaeude-nein\"\n\t)\n) || info.root.form == \"reklamegesuch\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -53185,15 +53407,15 @@
     "pk": "immissionsnachweis-luftwaermepumpen",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-09-15T08:04:38.130Z",
+      "modified_at": "2024-12-16T16:12:49.670Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Immissionsnachweis Luftw\\u00e4rmepumpen\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "info.root.form == \"reklamegesuch\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -60623,6 +60845,72 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "reklame-situation",
+    "fields": {
+      "created_at": "2024-12-16T16:15:01.191Z",
+      "modified_at": "2024-12-16T16:15:01.191Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situation 1:500 mit Lagebezeichnung\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "info.root.form != \"reklamegesuch\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "reklame-visualisierung",
+    "fields": {
+      "created_at": "2024-12-16T16:14:26.833Z",
+      "modified_at": "2024-12-16T16:14:26.833Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Visualisierung der Reklame (Datenblatt, Fassadenplan, Photomontage)\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "info.root.form != \"reklamegesuch\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "remisen",
     "fields": {
       "created_at": "2023-11-10T12:46:35.167Z",
@@ -67002,8 +67290,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruch.abbruch-ja",
     "fields": {
-      "created_at": "2024-01-04T13:19:30.083Z",
-      "modified_at": "2024-01-04T13:19:30.083Z",
+      "created_at": "2024-12-16T16:12:02.765Z",
+      "modified_at": "2024-12-16T16:12:02.765Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -67017,8 +67305,8 @@
     "model": "caluma_form.questionoption",
     "pk": "abbruch.abbruch-nein",
     "fields": {
-      "created_at": "2024-01-04T13:19:30.076Z",
-      "modified_at": "2024-01-04T13:19:30.076Z",
+      "created_at": "2024-12-16T16:12:02.762Z",
+      "modified_at": "2024-12-16T16:12:02.762Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -67917,8 +68205,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-bauwerke.art-der-bauwerke-hochbaute",
     "fields": {
-      "created_at": "2024-01-04T13:16:02.503Z",
-      "modified_at": "2024-01-04T13:16:02.503Z",
+      "created_at": "2024-12-16T16:16:11.062Z",
+      "modified_at": "2024-12-16T16:16:11.062Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -67932,8 +68220,8 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-bauwerke.art-der-bauwerke-tiefbaute",
     "fields": {
-      "created_at": "2024-01-04T13:16:02.497Z",
-      "modified_at": "2024-01-04T13:16:02.497Z",
+      "created_at": "2024-12-16T16:16:11.057Z",
+      "modified_at": "2024-12-16T16:16:11.057Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -68577,8 +68865,8 @@
     "model": "caluma_form.questionoption",
     "pk": "aushub-erforderlich.aushub-erforderlich-ja",
     "fields": {
-      "created_at": "2024-01-04T13:19:54.718Z",
-      "modified_at": "2024-01-04T13:19:54.718Z",
+      "created_at": "2024-12-16T16:12:23.231Z",
+      "modified_at": "2024-12-16T16:12:23.231Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -68592,8 +68880,8 @@
     "model": "caluma_form.questionoption",
     "pk": "aushub-erforderlich.aushub-erforderlich-nein",
     "fields": {
-      "created_at": "2024-01-04T13:19:54.690Z",
-      "modified_at": "2024-01-04T13:19:54.690Z",
+      "created_at": "2024-12-16T16:12:23.227Z",
+      "modified_at": "2024-12-16T16:12:23.227Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -69627,8 +69915,8 @@
     "model": "caluma_form.questionoption",
     "pk": "belasteter-standort.belasteter-standort-ja",
     "fields": {
-      "created_at": "2024-01-04T13:21:34.020Z",
-      "modified_at": "2024-01-04T13:21:34.020Z",
+      "created_at": "2024-12-16T16:12:34.721Z",
+      "modified_at": "2024-12-16T16:12:34.722Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -69642,8 +69930,8 @@
     "model": "caluma_form.questionoption",
     "pk": "belasteter-standort.belasteter-standort-nein",
     "fields": {
-      "created_at": "2024-01-04T13:21:34.013Z",
-      "modified_at": "2024-01-04T13:21:34.013Z",
+      "created_at": "2024-12-16T16:12:34.717Z",
+      "modified_at": "2024-12-16T16:12:34.717Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -69987,8 +70275,8 @@
     "model": "caluma_form.questionoption",
     "pk": "brandschutzplaene.brandschutzplaene-ja",
     "fields": {
-      "created_at": "2024-05-22T14:37:01.256Z",
-      "modified_at": "2024-05-22T14:37:01.256Z",
+      "created_at": "2024-12-16T16:19:27.857Z",
+      "modified_at": "2024-12-16T16:19:27.857Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -75635,6 +75923,36 @@
       "modified_by_group": null,
       "question": "reklamebeleuchtung",
       "option": "reklamebeleuchtung-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "reklame-situation.reklame-situation-ja",
+    "fields": {
+      "created_at": "2024-12-16T16:15:01.196Z",
+      "modified_at": "2024-12-16T16:15:01.196Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "reklame-situation",
+      "option": "reklame-situation-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "reklame-visualisierung.reklame-visualisierung-ja",
+    "fields": {
+      "created_at": "2024-12-16T16:14:26.838Z",
+      "modified_at": "2024-12-16T16:14:26.838Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "reklame-visualisierung",
+      "option": "reklame-visualisierung-ja",
       "sort": 1
     }
   },
