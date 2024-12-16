@@ -1,5 +1,32 @@
 [
   {
+    "model": "core.availableinstanceresource",
+    "pk": "history",
+    "fields": {
+      "module_name": "history",
+      "controller_name": "history",
+      "description": "(Ember / PHP) History"
+    }
+  },
+  {
+    "model": "core.availableinstanceresource",
+    "pk": "page",
+    "fields": {
+      "module_name": "default",
+      "controller_name": "page",
+      "description": "(PHP) Page from template"
+    }
+  },
+  {
+    "model": "core.availableinstanceresource",
+    "pk": "workitemlistinstance",
+    "fields": {
+      "module_name": "workitem",
+      "controller_name": "workitemlistinstance",
+      "description": "(Ember) Work items of the instance"
+    }
+  },
+  {
     "model": "core.availableresource",
     "pk": "emberlist",
     "fields": {
@@ -24,6 +51,277 @@
       "module_name": "workitem",
       "controller_name": "workitemlistall",
       "description": "(Ember) Work items"
+    }
+  },
+  {
+    "model": "core.formgroup",
+    "pk": 2000000,
+    "fields": {
+      "name": null,
+      "description": null
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 2000000,
+    "fields": {
+      "form_group": 2000000,
+      "form": 1
+    }
+  },
+  {
+    "model": "core.formgroupt",
+    "pk": 2000000,
+    "fields": {
+      "form_group": 2000000,
+      "language": "de",
+      "name": "All forms",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 22000000,
+    "fields": {
+      "available_instance_resource": "workitemlistinstance",
+      "resource": 2000001,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": "menu-category-meta",
+      "hidden": 0,
+      "sort": 1,
+      "form_group": 2000000,
+      "require_permission": "work-items-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 22000001,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 2000001,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/alexandria.phtml",
+      "class_field": "menu-category-primary",
+      "hidden": 0,
+      "sort": 2,
+      "form_group": 2000000,
+      "require_permission": "documents-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 22000002,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 2000001,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/dms-generate.phtml",
+      "class_field": "menu-category-primary",
+      "hidden": 0,
+      "sort": 3,
+      "form_group": 2000000,
+      "require_permission": "dms-generate-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 22000003,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 2000001,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/responsible.phtml",
+      "class_field": "menu-category-primary",
+      "hidden": 0,
+      "sort": 4,
+      "form_group": 2000000,
+      "require_permission": "responsible-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 22000004,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 2000001,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/journal.phtml",
+      "class_field": "menu-category-analysis",
+      "hidden": 0,
+      "sort": 5,
+      "form_group": 2000000,
+      "require_permission": "journal-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 22000005,
+    "fields": {
+      "available_instance_resource": "history",
+      "resource": 2000001,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": "menu-category-analysis",
+      "hidden": 0,
+      "sort": 6,
+      "form_group": 2000000,
+      "require_permission": "history-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 22000006,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 2000001,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/permissions.phtml",
+      "class_field": "menu-category-analysis",
+      "hidden": 0,
+      "sort": 7,
+      "form_group": 2000000,
+      "require_permission": "permissions-read"
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 22000000,
+    "fields": {
+      "instance_resource": 22000000,
+      "language": "de",
+      "name": "Aufgaben",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 22000001,
+    "fields": {
+      "instance_resource": 22000001,
+      "language": "de",
+      "name": "Dokumente",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 22000002,
+    "fields": {
+      "instance_resource": 22000002,
+      "language": "de",
+      "name": "Vorlagen",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 22000003,
+    "fields": {
+      "instance_resource": 22000003,
+      "language": "de",
+      "name": "Zuständigkeit",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 22000004,
+    "fields": {
+      "instance_resource": 22000004,
+      "language": "de",
+      "name": "Journal",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 22000005,
+    "fields": {
+      "instance_resource": 22000005,
+      "language": "de",
+      "name": "History",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 22000006,
+    "fields": {
+      "instance_resource": 22000006,
+      "language": "de",
+      "name": "Berechtigungen",
+      "description": null
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 22000000,
+    "fields": {
+      "instance_resource": 22000000,
+      "role": 3,
+      "instance_state": 120004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 22000001,
+    "fields": {
+      "instance_resource": 22000001,
+      "role": 3,
+      "instance_state": 120004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 22000002,
+    "fields": {
+      "instance_resource": 22000002,
+      "role": 3,
+      "instance_state": 120004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 22000003,
+    "fields": {
+      "instance_resource": 22000003,
+      "role": 3,
+      "instance_state": 120004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 22000004,
+    "fields": {
+      "instance_resource": 22000004,
+      "role": 3,
+      "instance_state": 120004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 22000005,
+    "fields": {
+      "instance_resource": 22000005,
+      "role": 3,
+      "instance_state": 120004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 22000006,
+    "fields": {
+      "instance_resource": 22000006,
+      "role": 3,
+      "instance_state": 120004
     }
   },
   {
