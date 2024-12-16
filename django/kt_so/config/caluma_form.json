@@ -2511,7 +2511,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a10-auswirkungen-raum-umwelt",
-      "sort": 23
+      "sort": 22
     }
   },
   {
@@ -2526,7 +2526,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a10-auswirkungen-raum-umwelt-begruendung",
-      "sort": 21
+      "sort": 20
     }
   },
   {
@@ -2541,7 +2541,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a10-auswirkungen-raum-umwelt-beschreibung",
-      "sort": 22
+      "sort": 21
     }
   },
   {
@@ -2556,7 +2556,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a10-das-bau-vorhaben-beinhaltet",
-      "sort": 20
+      "sort": 19
     }
   },
   {
@@ -2571,7 +2571,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a10-das-bisherige-gewerbe-ist",
-      "sort": 25
+      "sort": 24
     }
   },
   {
@@ -2586,7 +2586,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a10-erweiterung",
-      "sort": 18
+      "sort": 17
     }
   },
   {
@@ -2601,7 +2601,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a10-erweiterung-100-hinweis",
-      "sort": 17
+      "sort": 16
     }
   },
   {
@@ -2616,7 +2616,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a10-erweiterung-hinweis",
-      "sort": 19
+      "sort": 18
     }
   },
   {
@@ -2631,7 +2631,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a10-es-handelt-sich-um",
-      "sort": 26
+      "sort": 25
     }
   },
   {
@@ -2646,7 +2646,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a10-stillgelegt",
-      "sort": 24
+      "sort": 23
     }
   },
   {
@@ -2661,7 +2661,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a10-titel",
-      "sort": 27
+      "sort": 26
     }
   },
   {
@@ -2676,7 +2676,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a12-aussenanlagen",
-      "sort": 11
+      "sort": 10
     }
   },
   {
@@ -2691,7 +2691,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a12-aussenanlagen-auswirkungen-raum-umwelt",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -2706,7 +2706,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a12-aussenanlagen-auswirkungen-raum-umwelt-beschreibung",
-      "sort": 7
+      "sort": 6
     }
   },
   {
@@ -2721,7 +2721,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a12-aussenanlagen-bauliche-massnahmen",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -2736,7 +2736,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a12-aussenanlagen-begruendung",
-      "sort": 10
+      "sort": 9
     }
   },
   {
@@ -2751,7 +2751,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a12-aussenanlagen-neu",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -2766,7 +2766,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a12-aussenanlagen-neu-begruendung",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -2781,7 +2781,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a12-nutzung-bestehend",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -2796,7 +2796,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a12-nutzung-bestehend-hinweis-ja",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -2811,7 +2811,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a12-tierarten",
-      "sort": 12
+      "sort": 11
     }
   },
   {
@@ -3051,7 +3051,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a7-vergleichszustand",
-      "sort": 57
+      "sort": 56
     }
   },
   {
@@ -3066,7 +3066,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a7-vergleichszustand-hinweis",
-      "sort": 56
+      "sort": 55
     }
   },
   {
@@ -3101,6 +3101,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "bab-ausnahmebewilligung.a7-wiederaufbau-standort-begruendung",
+    "fields": {
+      "created_at": "2024-12-12T11:57:19.870Z",
+      "modified_at": "2024-12-12T11:57:19.870Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab-ausnahmebewilligung",
+      "question": "a7-wiederaufbau-standort-begruendung",
+      "sort": 57
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "bab-ausnahmebewilligung.a8-begruendung-bisheriger-zweck",
     "fields": {
       "created_at": "2024-08-27T11:16:12.385Z",
@@ -3111,7 +3126,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a8-begruendung-bisheriger-zweck",
-      "sort": 46
+      "sort": 45
     }
   },
   {
@@ -3126,7 +3141,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a8-begruendung-vorgesehene-nutzung",
-      "sort": 45
+      "sort": 44
     }
   },
   {
@@ -3141,7 +3156,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a8-bewirtschaftung",
-      "sort": 38
+      "sort": 37
     }
   },
   {
@@ -3156,7 +3171,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a8-bewirtschaftung-begruendung",
-      "sort": 36
+      "sort": 35
     }
   },
   {
@@ -3171,7 +3186,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a8-bewirtschaftung-beschrieb",
-      "sort": 37
+      "sort": 36
     }
   },
   {
@@ -3186,7 +3201,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a8-das-bau-vorhaben-beinhaltet",
-      "sort": 53
+      "sort": 52
     }
   },
   {
@@ -3201,7 +3216,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a8-ersatzbaute",
-      "sort": 44
+      "sort": 43
     }
   },
   {
@@ -3216,7 +3231,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a8-ersatzbaute-begruendung",
-      "sort": 43
+      "sort": 42
     }
   },
   {
@@ -3231,7 +3246,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a8-erschliessung",
-      "sort": 40
+      "sort": 39
     }
   },
   {
@@ -3246,7 +3261,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a8-erschliessung-hinweis",
-      "sort": 39
+      "sort": 38
     }
   },
   {
@@ -3261,7 +3276,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a8-erweiterung-ausserhalb-gebaeudevolumen",
-      "sort": 51
+      "sort": 50
     }
   },
   {
@@ -3276,7 +3291,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a8-erweiterung-ausserhalb-gebaeudevolumen-begruendung",
-      "sort": 50
+      "sort": 49
     }
   },
   {
@@ -3291,7 +3306,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a8-erweiterung-begruendung",
-      "sort": 52
+      "sort": 51
     }
   },
   {
@@ -3306,7 +3321,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a8-erweiterung-ganzjaehrig-bewohnt",
-      "sort": 49
+      "sort": 48
     }
   },
   {
@@ -3321,7 +3336,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a8-erweiterung-ganzjaehrig-bewohnt-beschreibung",
-      "sort": 48
+      "sort": 47
     }
   },
   {
@@ -3336,7 +3351,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a8-raumkapazitaeten",
-      "sort": 42
+      "sort": 41
     }
   },
   {
@@ -3351,7 +3366,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a8-raumkapazitaeten-begruendung",
-      "sort": 41
+      "sort": 40
     }
   },
   {
@@ -3366,7 +3381,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a8-titel",
-      "sort": 54
+      "sort": 53
     }
   },
   {
@@ -3381,7 +3396,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a8-wiederaufbau-begruendung",
-      "sort": 47
+      "sort": 46
     }
   },
   {
@@ -3396,7 +3411,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a9-bewirtschaftung",
-      "sort": 31
+      "sort": 30
     }
   },
   {
@@ -3411,7 +3426,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a9-bewirtschaftung-begruendung",
-      "sort": 29
+      "sort": 28
     }
   },
   {
@@ -3426,7 +3441,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a9-bewirtschaftung-beschrieb",
-      "sort": 30
+      "sort": 29
     }
   },
   {
@@ -3441,7 +3456,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a9-erschliessung",
-      "sort": 33
+      "sort": 32
     }
   },
   {
@@ -3456,7 +3471,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a9-erschliessung-hinweis",
-      "sort": 32
+      "sort": 31
     }
   },
   {
@@ -3471,7 +3486,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "a9-titel",
-      "sort": 34
+      "sort": 33
     }
   },
   {
@@ -3546,7 +3561,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "der-stall-liegt",
-      "sort": 14
+      "sort": 13
     }
   },
   {
@@ -3666,7 +3681,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "hinweis-hobbymaessige-tierhaltung",
-      "sort": 15
+      "sort": 14
     }
   },
   {
@@ -3681,7 +3696,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "hinweis-hobbymaessige-tierhaltung-innerhalb",
-      "sort": 13
+      "sort": 12
     }
   },
   {
@@ -3801,7 +3816,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "hinweis-umwidmung-in-landwirtschaftsfremde-wohnnutzung",
-      "sort": 35
+      "sort": 34
     }
   },
   {
@@ -3816,7 +3831,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "hinweis-vollstaendige-zweckaenderung-von-geschuetzten-bauten-und-anlagen",
-      "sort": 28
+      "sort": 27
     }
   },
   {
@@ -3831,7 +3846,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "hinweis-wiederaufbau-bestehender-zonenwidrig-gewordener-bauten-und-anlagen",
-      "sort": 55
+      "sort": 54
     }
   },
   {
@@ -3921,7 +3936,7 @@
       "modified_by_group": null,
       "form": "bab-ausnahmebewilligung",
       "question": "nachweis-gewerbliche-bauten",
-      "sort": 16
+      "sort": 15
     }
   },
   {
@@ -12996,7 +13011,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "gemeinde",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -13041,7 +13056,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "gis-karte",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -13071,6 +13086,21 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "kanton-leitbehoerde",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lokalisierung.kanton-leitbehoerde-mit-gemeinde-geklaert",
+    "fields": {
+      "created_at": "2024-12-12T10:38:04.856Z",
+      "modified_at": "2024-12-12T10:38:04.856Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lokalisierung",
+      "question": "kanton-leitbehoerde-mit-gemeinde-geklaert",
       "sort": 19
     }
   },
@@ -13086,7 +13116,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "lokalisierung-titel",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -25395,6 +25425,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "kanton-leitbehoerde-mit-gemeinde-geklaert-ja",
+    "fields": {
+      "created_at": "2024-12-12T10:38:04.696Z",
+      "modified_at": "2024-12-12T10:38:04.696Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kanton-leitbehoerde-mit-gemeinde-geklaert-nein",
+    "fields": {
+      "created_at": "2024-12-12T10:38:04.688Z",
+      "modified_at": "2024-12-12T10:38:04.688Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "kanton-leitbehoerde-nein",
     "fields": {
       "created_at": "2024-09-13T07:33:04.381Z",
@@ -31970,7 +32034,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Beinhaltet das (Bau-)Vorhaben eine Erweiterung der zonenwidrig genutzten Fl\\u00e4che ausserhalb des bestehenden Geb\\u00e4udevolumens um mehr als 100 m2?\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Beinhaltet das (Bau-)Vorhaben eine Erweiterung der zonenwidrig genutzten Fl\\u00e4che ausserhalb des bestehenden Geb\\u00e4udevolumens um mehr als 100 m\\u00b2?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "!(\n\t\"a10-das-bau-vorhaben-beinhaltet-erweiterung\" in \"a10-das-bau-vorhaben-beinhaltet\"|answer([])\n)",
@@ -32095,7 +32159,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Wann und weshalb wurde das bisherige Gewerbe stillgelegt?\", \"fr\": null, \"it\": null}",
-      "type": "date",
+      "type": "textarea",
       "is_required": "true",
       "is_hidden": "\"a10-das-bisherige-gewerbe-ist\"|answer != \"a10-das-bisherige-gewerbe-ist-stillgelegt\"",
       "is_archived": false,
@@ -33055,6 +33119,40 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "a7-wiederaufbau-standort-begruendung",
+    "fields": {
+      "created_at": "2024-12-12T11:57:19.817Z",
+      "modified_at": "2024-12-12T11:57:33.306Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begr\\u00fcndung:\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "\"a7-wiederaufbau-standort\"|answer != \"a7-wiederaufbau-standort-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -40163,7 +40261,7 @@
       "label": "{\"de\": \"Betriebskonzept (Art. 24b RPG)\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!(\n\t\"stellplaetze-camping-auf-dem-bauernhof\"|answer in [\n\t\t\"stellplaetze-camping-auf-dem-bauernhof-ja\",\n\t\t\"stellplaetze-camping-auf-dem-bauernhof-nein\"\n\t]\n)",
+      "is_hidden": "!(\n\t\"bau-vorhaben-betrifft-nichtlandwirtschaftliche-nebenbetriebe\"\n\tin \"bau-vorhaben-betrifft\"|answer([])\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -41358,7 +41456,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"## Ortsbildschutz / Denkmalpflege / Arch\\u00e4ologie\\n\\n#### Ortsbildschutz\\n\\n**[Bundesinventar der sch\\u00fctzenswerten Ortsbilder der Schweiz, ISOS](https://www.bak.admin.ch/bak/de/home/baukultur/isos-und-ortsbildschutz.html)** Im [ISOS](https://www.bak.admin.ch/bak/de/home/baukultur/isos-und-ortsbildschutz.html) sind zw\\u00f6lf Ortsbilder von nationaler Bedeutung, vier regional bedeutende und neun lokal bedeutende Ortsbilder erfasst. In diesen Gebieten m\\u00fcssen Bauvorhaben bedeutend h\\u00f6here Anforderungen erf\\u00fcllen als in anderen Ortsbildern.  Die Einpassung von Vorhaben in das Ortsbild muss allerdings an allen Orten, insbesondere auch ausserhalb der Hauptsiedlungen ber\\u00fccksichtigt werden.\\n\\n#### Denkmalpflege\\n\\nDie Kantonale Denkmalpflege setzt sich f\\u00fcr den Schutz und die Pflege von historischen Kulturdenkm\\u00e4lern ein. Eine \\u00dcbersicht \\u00fcber die gesch\\u00fctzten Kulturdenkm\\u00e4ler im Kanton Solothurn findet sich im [Geoinformationssystem](https://geo.so.ch/map/?k=d6859d0b0) des Kantons.\\n\\nDie Denkmalpflege ber\\u00e4t Beh\\u00f6rden, Institutionen und Private bei Bau- und Restaurierungsvorhaben und erm\\u00f6glicht die schonungsvolle Weiterentwicklung der historischen Kulturdenkm\\u00e4ler. In diesem Fall empfiehlt es sich, fr\\u00fchzeitig <u>**vor der Einreichung dieses Baugesuchs**</u> mit der Denkmalpflege f\\u00fcr Vorabkl\\u00e4rungen in Kontakt zu treten, um unerw\\u00fcnschte Plan\\u00e4nderungen zu vermeiden: Link zur [Kantonale Denkmalpflege](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-denkmalpflege-und-archaeologie/denkmalpflege/) mit den Kontaktdaten.\\n\\nDie Denkmalpflege kann finanzielle Beitr\\u00e4ge leisten an die Erhaltung und Pflege gesch\\u00fctzter Kulturdenkm\\u00e4ler. Weitere Informationen dazu und das Antragsformular finden sich unter folgendem Link: [Beitragsgesuch](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-denkmalpflege-und-archaeologie/denkmalpflege/)\\n\\n#### Arch\\u00e4ologie\\n\\nIm [Geoinformationsystem](https://geo.so.ch/map/?k=681b69e3c) des Kantons sind die bisher bekannten arch\\u00e4ologischen Fundstellen innerhalb des Siedlungsgebietes aufgef\\u00fchrt. F\\u00fcr Gesuchsteller/innen, die in einem solchen Gebiet ein Vorhaben realisieren m\\u00f6chten, das Bodeneingriffe beinhaltet, bedeutet das in erster Linie, dass im Zeitplan eine gewisse Reserve f\\u00fcr die arch\\u00e4ologischen Untersuchungen eingeplant werden sollte. Deren Umfang kann je nach Fundstelle und Bauvorhaben stark variieren. Eine vorg\\u00e4ngige Beratung <u>**wird vor der Einreichung dieses Baugesuchs**</u> empfohlen. \\nLink zur [Kantonsarch\\u00e4ologie](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-denkmalpflege-und-archaeologie/archaeologie/) mit den Kontaktdaten.\\n\\nAber auch an anderen Stellen \\u2013 insbesondere in Dorfzentren, in Kirchenn\\u00e4he oder auf auff\\u00e4lligen Gel\\u00e4ndeterrassen \\u2013 k\\u00f6nnten bisher noch unbekannte arch\\u00e4ologische Fundstellen zum Vorschein kommen. Werden bei Bau- und Grabarbeiten arch\\u00e4ologische Funde oder eine Fundstelle entdeckt, so haben gem\\u00e4ss Art. 22 der kantonalen Verordnung \\u00fcber den Schutz der historischen Kulturdenkm\\u00e4ler (KDV) die Gesuchsteller/in, die Bauleitung oder die Unternehmerschaft sofort die [Kantonsarch\\u00e4ologie](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-denkmalpflege-und-archaeologie/archaeologie/) zu benachrichtigen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"## Ortsbildschutz / Denkmalpflege / Arch\\u00e4ologie\\n\\n### 1. Heimatschutz\\n\\nWeiterf\\u00fchrende Informationen zur kantonalen Fachstelle Heimatschutz erhalten Sie [hier](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-raumplanung/fachstellen/heimatschutz/).\\n\\n#### 1.1. Ortsbildschutz\\n\\n##### 1.1.1. Bundesinventar der sch\\u00fctzenswerten Ortsbilder der Schweiz von nationaler Bedeutung (ISOS)\\n\\nOrtsbilder verk\\u00f6rpern nicht nur Geschichte, sondern sie bilden auch heutigen Lebensraum. Sie verorten die Menschen und schaffen Heimat. Zu einem Ortsbild geh\\u00f6ren neben den Bauten auch Strassen, Pl\\u00e4tze, G\\u00e4rten, P\\u00e4rke und Kulturland. Ob ein Ortsbild sch\\u00fctzenswert ist, wird bestimmt durch die Qualit\\u00e4t dieser Elemente, aber auch durch ihre Beziehung zueinander.\\n\\nDas Bundesinventar der sch\\u00fctzenswerten Ortsbilder der Schweiz von nationaler Bedeutung (ISOS) erfasst nicht Einzelbauten, sondern Siedlungen in ihrer Gesamtheit. Es f\\u00fchrt die wertvollsten, landesweit bedeutenden Ortsbilder auf und dokumentiert sie (vgl. [Link](https://www.bak.admin.ch/bak/de/home/baukultur/isos-und-ortsbildschutz.html)).\\n\\nBauvorhaben, die ein sch\\u00fctzenswertes Ortsbild von nationaler Bedeutung betreffen, haben erh\\u00f6hten Anforderungen zu gen\\u00fcgen.\\n\\nDurch die Aufnahme eines Objektes von nationaler Bedeutung in ein Inventar des Bundes wird dargetan, dass es in besonderem Masse die ungeschm\\u00e4lerte Erhaltung, jedenfalls aber unter Einbezug von Wiederherstellungs- oder angemessenen Ersatzmassnahmen die gr\\u00f6sstm\\u00f6gliche Schonung verdient (Art. 6 Abs. 1 Bundesgesetz \\u00fcber den Natur- und Heimatschutz [NHG]; SR 451). Ein Abweichen von der ungeschm\\u00e4lerten Erhaltung im Sinne der Inventare darf bei Erf\\u00fcllung einer Bundesaufgabe nur in Erw\\u00e4gung gezogen werden, wenn ihr bestimmte gleich- oder h\\u00f6herwertige Interessen von ebenfalls nationaler Bedeutung entgegenstehen (Art. 6 Abs. 2 NHG).\\n\\n#### 1.2. Landschaftsschutz\\n\\n##### 1.2.1. Bundesinventar der Landschaften und Naturdenkm\\u00e4ler von nationaler Bedeutung (BLN)\\n\\nDas Ziel des Bundesinventars der Landschaften und Naturdenkm\\u00e4ler (BLN) ist die Erhaltung der wertvollsten Landschaften und Naturdenkm\\u00e4ler (Geotope) der Schweiz. Die Landschaften und Naturdenkm\\u00e4ler von nationaler Bedeutung geben Aufschluss \\u00fcber erdkundliche, biologische und geschichtliche Zusammenh\\u00e4nge unseres Landes. Sie bieten der Gesellschaft Identifikationsm\\u00f6glichkeiten und sind wichtige Orte der Erholung (vgl. [Link](https://www.bafu.admin.ch/bafu/de/home/themen/landschaft/fachinformationen/landschaften-nationaler-bedeutung/bundesinventar-der-landschaften-und-naturdenkmaeler-von-national.html)).\\n\\nBauvorhaben, welche BLN-Objekte betreffen, haben erh\\u00f6hten Anforderungen zu gen\\u00fcgen.\\n\\nDurch die Aufnahme eines Objektes von nationaler Bedeutung in ein Inventar des Bundes wird dargetan, dass es in besonderem Masse die ungeschm\\u00e4lerte Erhaltung, jedenfalls aber unter Einbezug von Wiederherstellungs- oder angemessenen Ersatzmassnahmen die gr\\u00f6sstm\\u00f6gliche Schonung verdient (Art. 6 Abs. 1 Bundesgesetz \\u00fcber den Natur- und Heimatschutz [NHG]; SR 451). Ein Abweichen von der ungeschm\\u00e4lerten Erhaltung im Sinne der Inventare darf bei Erf\\u00fcllung einer Bundesaufgabe nur in Erw\\u00e4gung gezogen werden, wenn ihr bestimmte gleich- oder h\\u00f6herwertige Interessen von ebenfalls nationaler Bedeutung entgegenstehen (Art. 6 Abs. 2 NHG).\\n\\n##### 1.2.2. Juraschutzzone\\n\\nDie Juraschutzzone bezweckt den Schutz des Juras, des Engelbergs, des Borns und des Bucheggberges als Gebiete von besonderer Sch\\u00f6nheit und Eigenart (\\u00a7 22 Abs. 1 Verordnung \\u00fcber den Natur- und Heimatschutz [NHV SO]; BGS.435.141).\\n\\nauvorhaben in der Juraschutzzone haben erh\\u00f6hten Anforderungen zu gen\\u00fcgen. Sie haben in besonderer Weise auf das Orts- und Landschaftsbild R\\u00fccksicht zu nehmen. Sie sind so zu stellen und zu gestalten, dass sie sich gut in die Umgebung einf\\u00fcgen und das Orts- und Landschaftsbild nicht beeintr\\u00e4chtigen (\\u00a7\\u00a024\\u00a0ff. NHV SO).\\n\\n#### 1.3. Bundesinventar der historischen Verkehrswege der Schweiz (IVS)\\n\\nHistorische Verkehrswege hinterlassen Spuren in der Zeit, schlagen Br\\u00fccken von der Vergangenheit in die Gegenwart. Ziel des Bundesinventars der historischen Verkehrswege der Schweiz (IVS) ist es, diese wichtigen Zeitzeugen zu erhalten und zu pflegen (vgl. [Link](https://www.ivs.admin.ch/)). Historische Verkehrswege geh\\u00f6ren zu den gef\\u00e4hrdeten Objekten des Natur- und Heimatschutzes. Viele herk\\u00f6mmliche Verkehrswege, welche die Kulturlandschaft gliederten, wurden bereits \\u00fcberpr\\u00e4gt, beseitigt, aufgegeben oder durch neue Strassen abgel\\u00f6st. Ihr Verschwinden bedeutet nicht nur den Verlust eines Teils des historischen Erbes des Landes, sondern auch eine Verminderung der landschaftlichen Vielfalt.\\n\\nBauvorhaben, welche IVS-Objekte betreffen, haben erh\\u00f6hten Anforderungen zu gen\\u00fcgen.\\n\\nDurch die Aufnahme eines Objektes von nationaler Bedeutung in ein Inventar des Bundes wird dargetan, dass es in besonderem Masse die ungeschm\\u00e4lerte Erhaltung, jedenfalls aber unter Einbezug von Wiederherstellungs- oder angemessenen Ersatzmassnahmen die gr\\u00f6sstm\\u00f6gliche Schonung verdient (Art. 6 Abs. 1 Bundesgesetz \\u00fcber den Natur- und Heimatschutz [NHG]; SR 451). Ein Abweichen von der ungeschm\\u00e4lerten Erhaltung im Sinne der Inventare darf bei Erf\\u00fcllung einer Bundesaufgabe nur in Erw\\u00e4gung gezogen werden, wenn ihr bestimmte gleich- oder h\\u00f6herwertige Interessen von ebenfalls nationaler Bedeutung entgegenstehen (Art. 6 Abs. 2 NHG).\\n\\n### 2. Naturschutz\\n\\nWeiterf\\u00fchrende Informationen zur kantonalen Fachstelle f\\u00fcr Naturschutz erhalten Sie [hier](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-raumplanung/natur-und-landschaft/).\\n\\n#### 2.1. Landwirtschafts- und Schutzzone Witi (Witischutzzone)\\n\\nDie Witi ist eine einmalige Landschaft. Es gibt keine zweite solche im Kanton. Die Einmaligkeit beruht einerseits auf der Weitr\\u00e4umigkeit und der weitgehenden Unverbautheit der Landschaft und andererseits auf dem fr\\u00fcheren und heutigen Vorkommen seltener und bedrohter Tierarten.  Mit den Zonenvorschriften (ZV) zur kantonalen Landwirtschats- und Schutzzone Witi soll der Schutz dieser wertvollen Landschaftskammer gew\\u00e4hrleistet werden (vgl. [Link](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-raumplanung/natur-und-landschaft/naturschutzobjekte/schutzzone-witi/)).\\n\\nBauvorhaben in der Landwirtschafts- und Schutzzone Witi haben erh\\u00f6hten Anforderungen zu gen\\u00fcgen:\\n- Die Erstellung von Bauten und baulichen Anlagen ist nur zul\\u00e4ssig, wenn diese zonenkonform sind und wenn sie in die N\\u00e4he der Bauzonengrenze oder von bestehenden H\\u00e4usergruppen zu liegen kommen. Sie d\\u00fcrfen das Bild der offenen Ackerlandschaft nicht beeintr\\u00e4chtigen. Bestehende zonenwidrige oder nicht standortbedingte Bauten d\\u00fcrfen nur unterhalten, nicht aber ge\\u00e4ndert werden (\\u00a7 4 ZV Witi).\\n- Bauten und bauliche Anlagen zur Erholungsnutzung sind nicht zul\\u00e4ssig, bestehende Einrichtungen d\\u00fcrfen lediglich unterhalten werden (\\u00a7 5 Abs. 2 ZV Witi).\\n- Plastiktunnel und \\u00e4hnliche Anlagen d\\u00fcrfen nur ausnahmsweise und nur in unmittelbarer N\\u00e4he von landwirtschaftlichen Siedlungen oder am Siedlungsrand bewilligt werden (\\u00a7 3 Abs. 2 ZV Witi).\\n\\n#### 2.2. Bundesinventar der Trockenweisen und -weiden von nationaler Bedeutung (TWW)\\n\\nTrockenwiesen und -weiden sind von landwirtschaftlicher Nutzung gepr\\u00e4gte, artenreiche Lebensr\\u00e4ume. Der Bund hat die wertvollsten Fl\\u00e4chen in einem Inventar bezeichnet.\\nMit bis zu 100 Pflanzenarten pro Are sind Trockenwiesen und -weiden die artenreichsten Pflanzengesellschaften der Schweiz. Um dem anhaltenden R\\u00fcckgang dieses Lebensraums entgegenzuwirken, hat der Bund die Trockenwiesen und -weiden von nationaler Bedeutung (TWW) in ein Inventar aufgenommen (vgl. [Link](https://www.bafu.admin.ch/bafu/de/home/themen/biodiversitaet/fachinformationen/oekologische-infrastruktur/biotope-von-nationaler-bedeutung/trockenwiesen-und--weiden.html)).\\n\\nBauvorhaben, die TWW-Fl\\u00e4chen betreffen, haben erh\\u00f6hten Anforderungen zu gen\\u00fcgen.\\n\\nDie TWW-Objekte sind ungeschm\\u00e4lert zu erhalten (Art. 6 Abs. 1 Trockenwiesenverordnung, [TwwV]; SR 451.37). Ein Abweichen vom Schutzziel ist nur zul\\u00e4ssig f\\u00fcr unmittelbar standortgebundene Vorhaben, die dem Schutz des Menschen vor Naturgefahren oder einem andern \\u00fcberwiegenden \\u00f6ffentlichen Interesse von nationaler Bedeutung dienen. Verursacherinnen und Verursacher sind zu bestm\\u00f6glichen Schutz-, Wiederherstellungs- oder ansonst angemessenen Ersatzmassnahmen zu verpflichten (Art. 7 Abs. 1 TwwV). In Vorranggebieten darf zudem vom Schutzziel abgewichen werden, wenn das Vorhaben die Voraussetzungen nach der Raumplanungsgesetzgebung erf\\u00fcllt und die Fl\\u00e4che und die Qualit\\u00e4t der Trockenwiesen insgesamt wiederhergestellt oder gesteigert werden (Art. 7 Abs. 2 TwwV).\\n\\n#### 2.3. Augengebiete von nationaler Bedeutung\\n\\nAuen sind naturnahe Uferbereiche von Fliessgew\\u00e4ssern und Seen, die vom Wasser gepr\\u00e4gt werden. Die Wirkung des Wassers \\u2013 zum Beispiel die Flussdynamik mit Erosion, Sedimentation und \\u00dcberflutung, aber auch der Einfluss des Grundwassers\\u2013 f\\u00fchrt zu einer hohen Vielfalt von Lebensr\\u00e4umen auf kleiner Fl\\u00e4che. Entsprechend sind Auen sehr reich an Arten \\u2013 und ihr Schutz ist f\\u00fcr die Biodiversit\\u00e4t von grosser Bedeutung (vgl. [Link](https://www.bafu.admin.ch/bafu/de/home/themen/biodiversitaet/fachinformationen/oekologische-infrastruktur/biotope-von-nationaler-bedeutung/auen.html)).\\n\\nBauvorhaben in Augengebieten von nationaler Bedeutung haben erh\\u00f6hten Anforderungen zu gen\\u00fcgen.\\n\\nDie Schutzobjekte sollen ungeschm\\u00e4lert erhalten werden (Art. 4 Abs. 1 Auenverordnung; SR 451.31). Ein Abweichen vom Schutzziel ist nur zul\\u00e4ssig f\\u00fcr unmittelbar standortgebundene Vorhaben, die dem Schutz des Menschen vor sch\\u00e4dlichen Auswirkungen des Wassers oder einem andern \\u00fcberwiegenden \\u00f6ffentlichen Interesse von ebenfalls nationaler Bedeutung dienen. Ihr Verursacher ist zu bestm\\u00f6glichen Schutz-, Wiederherstellungs- oder ansonst angemessenen Ersatzmassnahmen zu verpflichten (Art. 4 Abs. 2 Auenverordnung).\\n\\n#### 2.4. Amphibienlaichgebiete von nationaler Bedeutung\\n\\nAmphibien sind eine der am st\\u00e4rksten bedrohten Tiergruppen der Schweiz, denn es fehlt ihnen an T\\u00fcmpeln, Teichen oder Weihern, wo sie laichen k\\u00f6nnen. Um die gef\\u00e4hrdeten Amphibien der Schweiz zu sch\\u00fctzen, hat der Bund das Inventar der Amphibienlaichgebiete von nationaler Bedeutung (IANB) sowie die Verordnung \\u00fcber den Schutz der Amphibienlaichgebiete von nationaler Bedeutung (Amphibienlaichgebiet-Verordnung [AlgV]; SR 451.34) erlassen (vgl. [Link](https://www.bafu.admin.ch/bafu/de/home/themen/biodiversitaet/fachinformationen/oekologische-infrastruktur/biotope-von-nationaler-bedeutung/amphibienlaichgebiete.html)).\\n\\nBauvorhaben in Amphibienlaichgebieten von nationaler Bedeutung haben erh\\u00f6hten Anforderungen zu gen\\u00fcgen.\\n\\nIn ihrer Qualit\\u00e4t und Eignung als Amphibienlaichgebiete sowie als St\\u00fctzpunkte f\\u00fcr das langfristige \\u00dcberleben und die Wiederansiedlung gef\\u00e4hrdeter Amphibienarten sind die ortsfesten Schutzobjekte ungeschm\\u00e4lert und die Wanderobjekte funktionsf\\u00e4hig zu erhalten (Art. 6 Abs. 1 AlgV). Von den vorerw\\u00e4hnten Schutzzielen darf nur abgewichen werden, wenn ein Bauvorhaben unter anderem die restriktiven Voraussetzungen nach Art. 7 AlgV erf\\u00fcllt.\\n\\n#### 2.5. Moore\\n\\nMoore erbringen verschiedene \\u00d6kosystemleistungen: Sie bieten Lebensraum f\\u00fcr eine Vielzahl seltener feuchteliebender Arten und reinigen das durchfliessende Wasser. Dank ihrer enormen Wasserspeicherkapazit\\u00e4t k\\u00f6nnen sie Hochwasserspitzen brechen und nicht zuletzt speichern sie organischen Kohlenstoff und sind daher klimarelevant (vgl. [Link](https://www.bafu.admin.ch/bafu/de/home/themen/biodiversitaet/fachinformationen/oekologische-infrastruktur/biotope-von-nationaler-bedeutung/moore.html)).\\n\\nMoore und Moorlandschaften von besonderer Sch\\u00f6nheit und gesamtschweizerischer Bedeutung sind gesch\\u00fctzt. Es d\\u00fcrfen darin weder Anlagen gebaut noch Bodenver\\u00e4nderungen vorgenommen werden. Ausgenommen sind Einrichtungen, die dem Schutz oder der bisherigen landwirtschaftlichen Nutzung der Moore und Moorlandschaften dienen (Art. 78 Abs. 5 Bundesverfassung [BV]; SR 101).\\n\\n#### 2.6. Mehrjahresprogramm Natur und Landschaft (MJPNL)\\n\\nDer Kanton kann mit Bewirtschaftern von Landwirtschaftsfl\\u00e4chen Naturschutz-Vereinbarungen abschliessen. Die Bewirtschafter und der Kanton streben gemeinsam an, die Vielfalt an regionstypischen Pflanzen und Tieren langfristig zu f\\u00f6rdern und zu erhalten. Schwerpunkte von Vereinbarungen bilden dabei nationale Biotope, kantonale Vorranggebiete Natur und Landschaft, Naturreservate oder gleichwertige Naturgebiete ausserhalb von Bauzonen.\\n\\nBauvorhaben, die Vereinbarungsfl\\u00e4chen des Mehrjahresprogrammes Natur und Landschaft betreffen, haben geb\\u00fchrend auf die zwischen Kanton und Bewirtschaftern getroffene Vereinbarungen R\\u00fccksicht zu nehmen. \\n\\nWeitere Informationen zum Mehrjahresprogramm Natur und Landschaft (MJPNL) finden sie [hier](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-raumplanung/natur-und-landschaft/mehrjahresprogramm-n-l/).\\n\\n### 3. Fuss- und Wanderwege\\n\\nFusswegnetze erschliessen und verbinden insbesondere Wohngebiete, Arbeitspl\\u00e4tze, Kinderg\\u00e4rten und Schulen, Haltestellen des \\u00f6ffentlichen Verkehrs, \\u00f6ffentliche Einrichtungen, Erholungsanlagen sowie Einkaufsl\\u00e4den (Art. 2 Abs. 3 Bundesgesetz \\u00fcber Fuss- und Wanderwege [FWG]; SR\\u00a0704). Wanderwegnetze erschliessen insbesondere f\\u00fcr die Erholung geeignete Gebiete, sch\\u00f6ne Landschaften (Aussichtslagen, Ufer usw.), kulturelle Sehensw\\u00fcrdigkeiten, Haltestellen des \\u00f6ffentlichen Verkehrs sowie touristische Einrichtungen (Art. 3 Abs. 3 FWG).\\n\\nBauvorhaben, die einen Einfluss auf Fuss- oder Wanderwege haben k\\u00f6nnen, m\\u00fcssen erh\\u00f6hten Anforderungen gen\\u00fcgen. Fuss- und Wanderwege m\\u00fcssen jederzeit m\\u00f6glichst gefahrlos begangen werden k\\u00f6nnen und der \\u00f6ffentliche Zugang ist zu gew\\u00e4hrleisten (Art. 6 Abs. 1 Bst. b und c FWG).\\n\\n<span class=\\\"uk-text-italic\\\">Tempor\\u00e4re Beeintr\\u00e4chtigungen</span><br>\\nBei allf\\u00e4lligen tempor\\u00e4ren Sperrungen ist der Verein Solothurner Wanderwege vorzeitig zu informieren (info@solothurner-wanderwege.ch).\\n\\n<span class=\\\"uk-text-italic\\\">Dauerhafte Beeintr\\u00e4chtigungen</span><br>\\nM\\u00fcssen durch das geplante Vorhaben die in den Pl\\u00e4nen enthaltenen Wanderwegnetze oder Teile davon aufgehoben werden, so ist gem\\u00e4ss Art. 7 Abs. 1 FWG, unter Ber\\u00fccksichtigung der \\u00f6rtlichen Verh\\u00e4ltnisse, f\\u00fcr angemessenen Ersatz durch vorhandene oder neu zu schaffende Wege zu sorgen. Wenn dauerhafte Beeintr\\u00e4chtigungen von Wanderwegen drohen, ist fr\\u00fchzeitig die kantonale Fachstelle Fuss- und Wanderwege zu kontaktieren (vgl. [Link](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-raumplanung/fachstellen/fuss-und-wanderwege/)) \\n\\n### Denkmalpflege\\n\\nDie Kantonale Denkmalpflege setzt sich f\\u00fcr den Schutz und die Pflege von historischen Kulturdenkm\\u00e4lern ein. Eine \\u00dcbersicht \\u00fcber die gesch\\u00fctzten Kulturdenkm\\u00e4ler im Kanton Solothurn findet sich im [Geoinformationssystem](https://geo.so.ch/map/?k=d6859d0b0) des Kantons.\\n\\nDie Denkmalpflege ber\\u00e4t Beh\\u00f6rden, Institutionen und Private bei Bau- und Restaurierungsvorhaben und erm\\u00f6glicht die schonungsvolle Weiterentwicklung der historischen Kulturdenkm\\u00e4ler. In diesem Fall empfiehlt es sich, fr\\u00fchzeitig <u>**vor der Einreichung dieses Baugesuchs**</u> mit der Denkmalpflege f\\u00fcr Vorabkl\\u00e4rungen in Kontakt zu treten, um unerw\\u00fcnschte Plan\\u00e4nderungen zu vermeiden: Link zur [Kantonale Denkmalpflege](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-denkmalpflege-und-archaeologie/denkmalpflege/) mit den Kontaktdaten.\\n\\nDie Denkmalpflege kann finanzielle Beitr\\u00e4ge leisten an die Erhaltung und Pflege gesch\\u00fctzter Kulturdenkm\\u00e4ler. Weitere Informationen dazu und das Antragsformular finden sich unter folgendem Link: [Beitragsgesuch](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-denkmalpflege-und-archaeologie/denkmalpflege/)\\n\\n### Arch\\u00e4ologie\\n\\nIm [Geoinformationsystem](https://geo.so.ch/map/?k=681b69e3c) des Kantons sind die bisher bekannten arch\\u00e4ologischen Fundstellen innerhalb des Siedlungsgebietes aufgef\\u00fchrt. F\\u00fcr Gesuchsteller/innen, die in einem solchen Gebiet ein Vorhaben realisieren m\\u00f6chten, das Bodeneingriffe beinhaltet, bedeutet das in erster Linie, dass im Zeitplan eine gewisse Reserve f\\u00fcr die arch\\u00e4ologischen Untersuchungen eingeplant werden sollte. Deren Umfang kann je nach Fundstelle und Bauvorhaben stark variieren. Eine vorg\\u00e4ngige Beratung <u>**wird vor der Einreichung dieses Baugesuchs**</u> empfohlen. \\nLink zur [Kantonsarch\\u00e4ologie](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-denkmalpflege-und-archaeologie/archaeologie/) mit den Kontaktdaten.\\n\\nAber auch an anderen Stellen \\u2013 insbesondere in Dorfzentren, in Kirchenn\\u00e4he oder auf auff\\u00e4lligen Gel\\u00e4ndeterrassen \\u2013 k\\u00f6nnten bisher noch unbekannte arch\\u00e4ologische Fundstellen zum Vorschein kommen. Werden bei Bau- und Grabarbeiten arch\\u00e4ologische Funde oder eine Fundstelle entdeckt, so haben gem\\u00e4ss Art. 22 der kantonalen Verordnung \\u00fcber den Schutz der historischen Kulturdenkm\\u00e4ler (KDV) die Gesuchsteller/in, die Bauleitung oder die Unternehmerschaft sofort die [Kantonsarch\\u00e4ologie](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-denkmalpflege-und-archaeologie/archaeologie/) zu benachrichtigen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -50589,7 +50687,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Es sind folgende zus\\u00e4tzliche Gesuchsunterlagen einzureichen:\\n\\n* Nachweis bestimmungsgem\\u00e4sse Nutzbarkeit<br>Fotodokumentation: aktuelle Fotos des bestehenden Zustands und Fotos des Referenzzustands (i.d.R. 01.07.1972) sowie allf\\u00e4lliger Ver\\u00e4nderungen jeweils aussen und s\\u00e4mtlicher R\\u00e4ume im Inneren (aktuelle Fotos, welche\\ninsbesondere den Zustand der tragenden Konstruktionen, Fussb\\u00f6den und Dach sowie der vorhandenen Fenster und T\\u00fcren, K\\u00fccheneinrichtungen, sanit\\u00e4ren Anlagen und Kaminanlage zeigen sowie ein \\u00dcbersichtsplan aus welchem ersichtlich ist, welches Foto was zeigt)\\n* Nachweis der Rechtm\\u00e4ssigkeit der Baute / Anlage (inkl. Umgebung)<br>(Baubewilligung inkl. Bewilligungen Bau- und Justizdepartement gem\\u00e4ss \\u00a7 38bis Abs. 1 PBG sowie Planunterlagen [inkl. s\\u00e4mtlicher Erweiterungen/\\u00c4nderungen])\\n* Berechnung nach Art. 42 Abs. 3 RPV\\n    * Grundrisspl\\u00e4ne, Fassaden und Schnitte mit Vermassung und Zweckbestimmung jedes Raumes per 1. Juli 1972 (Bestandesaufnahme) und die gleichen, aber separate Pl\\u00e4ne des aktuellen Bauvorhabens (jeweils inkl. s\\u00e4mtlicher Nebengeb\\u00e4ude). In den Grundriss- und Schnittpl\\u00e4nen ist die lichte H\\u00f6he von 1,0 m einzuzeichnen;\\n    * Sofern seit dem 1. Juli 1972 Ver\\u00e4nderungen erfolgt sind und dies f\\u00fcr das Verst\\u00e4ndnis notwendig ist (z.B. Abbr\\u00fcche): Grundrisspl\\u00e4ne, Fassaden und Schnitte mit Vermassung und Zweckbestimmung jedes Raumes aller Ver\\u00e4nderungen (jeweils inkl. s\\u00e4mtlicher Nebengeb\\u00e4ude);\\n    * [Ausgef\\u00fcllte Tabelle f\\u00fcr Berechnungen nach Art. 42 Abs. 3 RPV;](https://www.are.admin.ch/are/de/home/raumentwicklung-und-raumplanung/raumplanungsrecht/bauen-ausserhalb-der-bauzonen.html)\\n    * \\u00dcbersichtsplan als Erkl\\u00e4rung/Erg\\u00e4nzung zur Berechnung mit der ausgewiesenen anrechenbaren Bruttogeschossfl\\u00e4che (aBGF) respektive Bruttonebenfl\\u00e4che (BNF) einschliesslich der Mauer- und Wandquerschnitte (Grundriss je Geschoss, aBGF- / BNF-Fl\\u00e4chen unterschiedlich eingef\\u00e4rbt).\\n\\nSoweit im Einzelfall erforderlich, sind zudem folgende Angaben / Unterlagen notwendig:\\n\\n* Farb- und Materialkonzept mit Angaben zu Materialien und Farben f\\u00fcr Fassaden, D\\u00e4cher, Fenster, Aussent\\u00fcren, Tore, Solaranlagen etc. (nicht erforderlich, falls Informationen aus Pl\\u00e4nen / Baubeschrieb hervorgehen)\\n* Umgebungsplan<br>Inkl. Angabe von Erschliessungsfl\\u00e4chen, Belagsarten, Terrainverlauf und H\\u00f6henangaben sowie von B\\u00e4umen, Hecken, Sitzpl\\u00e4tzen, Treppen, Mauern etc.<br>(nicht erforderlich, falls vorstehende Angaben z.B. dem Situationsplan und oder anderen Beilagen entnommen werden k\\u00f6nnen)\\n* Versicherungspolice der Solothurnischen Geb\\u00e4udeversicherung<br>(nicht erforderlich, falls vollst\\u00e4ndiger Nachweis der Rechtm\\u00e4ssigkeit der Baute / Anlage [inkl. Umgebung] vorhanden ist)\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Es sind folgende zus\\u00e4tzliche Gesuchsunterlagen einzureichen:\\n\\n* Nachweis bestimmungsgem\\u00e4sse Nutzbarkeit<br>Fotodokumentation: aktuelle Fotos des bestehenden Zustands und Fotos des Referenzzustands (i.d.R. 01.07.1972) sowie allf\\u00e4lliger Ver\\u00e4nderungen jeweils aussen und s\\u00e4mtlicher R\\u00e4ume im Inneren (aktuelle Fotos, welche\\ninsbesondere den Zustand der tragenden Konstruktionen, Fussb\\u00f6den und Dach sowie der vorhandenen Fenster und T\\u00fcren, K\\u00fccheneinrichtungen, sanit\\u00e4ren Anlagen und Kaminanlage zeigen sowie ein \\u00dcbersichtsplan aus welchem ersichtlich ist, welches Foto was zeigt)\\n* Nachweis der Rechtm\\u00e4ssigkeit der Baute / Anlage (inkl. Umgebung)<br>(Baubewilligung inkl. Bewilligungen Bau- und Justizdepartement gem\\u00e4ss \\u00a7 38<sup>bis</sup> Abs. 1 PBG sowie Planunterlagen [inkl. s\\u00e4mtlicher Erweiterungen/\\u00c4nderungen])\\n* Berechnung nach Art. 42 Abs. 3 RPV\\n    * Grundrisspl\\u00e4ne, Fassaden und Schnitte mit Vermassung und Zweckbestimmung jedes Raumes per 1. Juli 1972 (Bestandesaufnahme) und die gleichen, aber separate Pl\\u00e4ne des aktuellen Bauvorhabens (jeweils inkl. s\\u00e4mtlicher Nebengeb\\u00e4ude). In den Grundriss- und Schnittpl\\u00e4nen ist die lichte H\\u00f6he von 1,0 m einzuzeichnen;\\n    * Sofern seit dem 1. Juli 1972 Ver\\u00e4nderungen erfolgt sind und dies f\\u00fcr das Verst\\u00e4ndnis notwendig ist (z.B. Abbr\\u00fcche): Grundrisspl\\u00e4ne, Fassaden und Schnitte mit Vermassung und Zweckbestimmung jedes Raumes aller Ver\\u00e4nderungen (jeweils inkl. s\\u00e4mtlicher Nebengeb\\u00e4ude);\\n    * [Ausgef\\u00fcllte Tabelle f\\u00fcr Berechnungen nach Art. 42 Abs. 3 RPV;](https://www.are.admin.ch/are/de/home/raumentwicklung-und-raumplanung/raumplanungsrecht/bauen-ausserhalb-der-bauzonen.html)\\n    * \\u00dcbersichtsplan als Erkl\\u00e4rung/Erg\\u00e4nzung zur Berechnung mit der ausgewiesenen anrechenbaren Bruttogeschossfl\\u00e4che (aBGF) respektive Bruttonebenfl\\u00e4che (BNF) einschliesslich der Mauer- und Wandquerschnitte (Grundriss je Geschoss, aBGF- / BNF-Fl\\u00e4chen unterschiedlich eingef\\u00e4rbt).\\n\\nSoweit im Einzelfall erforderlich, sind zudem folgende Angaben / Unterlagen notwendig:\\n\\n* Farb- und Materialkonzept mit Angaben zu Materialien und Farben f\\u00fcr Fassaden, D\\u00e4cher, Fenster, Aussent\\u00fcren, Tore, Solaranlagen etc. (nicht erforderlich, falls Informationen aus Pl\\u00e4nen / Baubeschrieb hervorgehen)\\n* Umgebungsplan<br>Inkl. Angabe von Erschliessungsfl\\u00e4chen, Belagsarten, Terrainverlauf und H\\u00f6henangaben sowie von B\\u00e4umen, Hecken, Sitzpl\\u00e4tzen, Treppen, Mauern etc.<br>(nicht erforderlich, falls vorstehende Angaben z.B. dem Situationsplan und oder anderen Beilagen entnommen werden k\\u00f6nnen)\\n* Versicherungspolice der Solothurnischen Geb\\u00e4udeversicherung<br>(nicht erforderlich, falls vollst\\u00e4ndiger Nachweis der Rechtm\\u00e4ssigkeit der Baute / Anlage [inkl. Umgebung] vorhanden ist)\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -51957,7 +52055,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Es sind folgende zus\\u00e4tzliche Gesuchsunterlagen einzureichen:\\n\\n* Nachweis bestimmungsgem\\u00e4sse Nutzbarkeit<br>Fotodokumentation: aktuelle Fotos des bestehenden Zustands und Fotos des Referenzzustands (i.d.R. 01.07.1972) sowie allf\\u00e4lliger Ver\\u00e4nderungen jeweils aussen und s\\u00e4mtlicher R\\u00e4ume im Inneren (aktuelle Fotos, welche insbesondere den Zustand der tragenden Konstruktionen, Fussb\\u00f6den und Dach sowie der vorhandenen Fenster und T\\u00fcren, K\\u00fccheneinrichtungen, sanit\\u00e4ren Anlagen und Kaminanlage zeigen sowie ein \\u00dcbersichtsplan aus welchem ersichtlich ist, welches Foto was zeigt)\\n* Nachweis der Rechtm\\u00e4ssigkeit der Baute / Anlage (inkl. Umgebung)<br>(Baubewilligung inkl. Bewilligungen Bau- und Justizdepartement gem\\u00e4ss \\u00a7 38bis Abs. 1 PBG sowie Planunterlagen\\n[inkl. s\\u00e4mtlicher Erweiterungen/\\u00c4nderungen])\\n* Berechnung nach Art. 42 Abs. 3 RPV\\n    * Grundrisspl\\u00e4ne, Fassaden und Schnitte mit Vermassung und Zweckbestimmung jedes Raumes per 1. Juli 1972 (Bestandesaufnahme) und die gleichen, aber separate Pl\\u00e4ne des aktuellen Bauvorhabens (jeweils inkl. s\\u00e4mtlicher Nebengeb\\u00e4ude). In den Grundriss- und Schnittpl\\u00e4nen ist die lichte H\\u00f6he von 1,0 m einzuzeichnen;\\n    * Sofern seit dem 1. Juli 1972 Ver\\u00e4nderungen erfolgt sind und dies f\\u00fcr das Verst\\u00e4ndnis notwendig ist (z.B. Abbr\\u00fcche): Grundrisspl\\u00e4ne, Fassaden und Schnitte mit Vermassung und Zweckbestimmung jedes Raumes aller Ver\\u00e4nderungen (jeweils inkl. s\\u00e4mtlicher Nebengeb\\u00e4ude);\\n    * [Ausgef\\u00fcllte Tabelle f\\u00fcr Berechnungen nach Art. 42 Abs. 3 RPV;](https://www.are.admin.ch/are/de/home/raumentwicklung-und-raumplanung/raumplanungsrecht/bauen-ausserhalb-der-bauzonen.html)\\n    * \\u00dcbersichtsplan als Erkl\\u00e4rung/Erg\\u00e4nzung zur Berechnung mit der ausgewiesenen anrechenbaren Bruttogeschossfl\\u00e4che (aBGF) respektive Bruttonebenfl\\u00e4che (BNF) einschliesslich der Mauer- und Wandquerschnitte (Grundriss je Geschoss, aBGF- / BNF-Fl\\u00e4chen unterschiedlich eingef\\u00e4rbt).\\n\\nSoweit im Einzelfall erforderlich, sind zudem folgende Angaben / Unterlagen notwendig:\\n\\n* Farb- und Materialkonzept mit Angaben zu Materialien und Farben f\\u00fcr Fassaden, D\\u00e4cher, Fenster, Aussent\\u00fcren, Tore, Solaranlagen etc. (nicht erforderlich, falls Informationen aus Pl\\u00e4nen / Baubeschrieb hervorgehen)\\n* Umgebungsplan<br>Inkl. Angabe von Erschliessungsfl\\u00e4chen, Belagsarten, Terrainverlauf und H\\u00f6henangaben sowie von B\\u00e4umen, Hecken, Sitzpl\\u00e4tzen, Treppen, Mauern etc.<br>(nicht erforderlich, falls vorstehende Angaben z.B. dem Situationsplan und oder anderen Beilagen entnommen werden k\\u00f6nnen)\\n* Versicherungspolice der Solothurnischen Geb\\u00e4udeversicherung<br>(nicht erforderlich, falls vollst\\u00e4ndiger Nachweis der Rechtm\\u00e4ssigkeit der Baute / Anlage [inkl. Umgebung] vorhanden\\nist)\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Es sind folgende zus\\u00e4tzliche Gesuchsunterlagen einzureichen:\\n\\n* Nachweis bestimmungsgem\\u00e4sse Nutzbarkeit<br>Fotodokumentation: aktuelle Fotos des bestehenden Zustands und Fotos des Referenzzustands (i.d.R. 01.07.1972) sowie allf\\u00e4lliger Ver\\u00e4nderungen jeweils aussen und s\\u00e4mtlicher R\\u00e4ume im Inneren (aktuelle Fotos, welche insbesondere den Zustand der tragenden Konstruktionen, Fussb\\u00f6den und Dach sowie der vorhandenen Fenster und T\\u00fcren, K\\u00fccheneinrichtungen, sanit\\u00e4ren Anlagen und Kaminanlage zeigen sowie ein \\u00dcbersichtsplan aus welchem ersichtlich ist, welches Foto was zeigt)\\n* Nachweis der Rechtm\\u00e4ssigkeit der Baute / Anlage (inkl. Umgebung)<br>(Baubewilligung inkl. Bewilligungen Bau- und Justizdepartement gem\\u00e4ss \\u00a7 38<sup>bis</sup> Abs. 1 PBG sowie Planunterlagen\\n[inkl. s\\u00e4mtlicher Erweiterungen/\\u00c4nderungen])\\n* Berechnung nach Art. 42 Abs. 3 RPV\\n    * Grundrisspl\\u00e4ne, Fassaden und Schnitte mit Vermassung und Zweckbestimmung jedes Raumes per 1. Juli 1972 (Bestandesaufnahme) und die gleichen, aber separate Pl\\u00e4ne des aktuellen Bauvorhabens (jeweils inkl. s\\u00e4mtlicher Nebengeb\\u00e4ude). In den Grundriss- und Schnittpl\\u00e4nen ist die lichte H\\u00f6he von 1,0 m einzuzeichnen;\\n    * Sofern seit dem 1. Juli 1972 Ver\\u00e4nderungen erfolgt sind und dies f\\u00fcr das Verst\\u00e4ndnis notwendig ist (z.B. Abbr\\u00fcche): Grundrisspl\\u00e4ne, Fassaden und Schnitte mit Vermassung und Zweckbestimmung jedes Raumes aller Ver\\u00e4nderungen (jeweils inkl. s\\u00e4mtlicher Nebengeb\\u00e4ude);\\n    * [Ausgef\\u00fcllte Tabelle f\\u00fcr Berechnungen nach Art. 42 Abs. 3 RPV;](https://www.are.admin.ch/are/de/home/raumentwicklung-und-raumplanung/raumplanungsrecht/bauen-ausserhalb-der-bauzonen.html)\\n    * \\u00dcbersichtsplan als Erkl\\u00e4rung/Erg\\u00e4nzung zur Berechnung mit der ausgewiesenen anrechenbaren Bruttogeschossfl\\u00e4che (aBGF) respektive Bruttonebenfl\\u00e4che (BNF) einschliesslich der Mauer- und Wandquerschnitte (Grundriss je Geschoss, aBGF- / BNF-Fl\\u00e4chen unterschiedlich eingef\\u00e4rbt).\\n\\nSoweit im Einzelfall erforderlich, sind zudem folgende Angaben / Unterlagen notwendig:\\n\\n* Farb- und Materialkonzept mit Angaben zu Materialien und Farben f\\u00fcr Fassaden, D\\u00e4cher, Fenster, Aussent\\u00fcren, Tore, Solaranlagen etc. (nicht erforderlich, falls Informationen aus Pl\\u00e4nen / Baubeschrieb hervorgehen)\\n* Umgebungsplan<br>Inkl. Angabe von Erschliessungsfl\\u00e4chen, Belagsarten, Terrainverlauf und H\\u00f6henangaben sowie von B\\u00e4umen, Hecken, Sitzpl\\u00e4tzen, Treppen, Mauern etc.<br>(nicht erforderlich, falls vorstehende Angaben z.B. dem Situationsplan und oder anderen Beilagen entnommen werden k\\u00f6nnen)\\n* Versicherungspolice der Solothurnischen Geb\\u00e4udeversicherung<br>(nicht erforderlich, falls vollst\\u00e4ndiger Nachweis der Rechtm\\u00e4ssigkeit der Baute / Anlage [inkl. Umgebung] vorhanden\\nist)\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -53644,15 +53742,46 @@
     "pk": "kanton-leitbehoerde",
     "fields": {
       "created_at": "2024-09-13T07:33:04.467Z",
-      "modified_at": "2024-09-13T07:33:04.467Z",
+      "modified_at": "2024-12-12T10:36:02.985Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist bei diesem Bauvorhaben der Kanton Solothurn die zust\\u00e4ndige Leitbeh\\u00f6rde? Nur in sehr wenigen Ausnahmef\\u00e4llen ist nicht die Gemeinde sondern der Kanton die Leitbeh\\u00f6rde. Bitte w\\u00e4hlen Sie nur nach R\\u00fccksprache mit der Gemeinde die Option \\\"Ja\\\".\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": "347c2935-2eba-4a8c-975e-34c2d607434d",
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kanton-leitbehoerde-mit-gemeinde-geklaert",
+    "fields": {
+      "created_at": "2024-12-12T10:38:04.789Z",
+      "modified_at": "2024-12-12T10:38:04.789Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Ist bei diesem Bauvorhaben der Kanton Solothurn die zust\\u00e4ndige Leitbeh\\u00f6rde?\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Haben Sie mit der Gemeinde gekl\\u00e4rt, dass in diesem Fall nicht die Gemeinde sondern der Kanton Leitbeh\\u00f6rde ist?\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "false",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "\"kanton-leitbehoerde\"|answer != \"kanton-leitbehoerde-ja\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -57056,7 +57185,7 @@
       "label": "{\"de\": \"Nachweis Erschliessung (Art. 24b RPG i.V.m. Art. 43a Bst. c RPV)\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!(\n\t\"stellplaetze-camping-auf-dem-bauernhof\"|answer in [\n\t\t\"stellplaetze-camping-auf-dem-bauernhof-ja\",\n\t\t\"stellplaetze-camping-auf-dem-bauernhof-nein\"\n\t]\n)",
+      "is_hidden": "\"erweiterung-der-bestehenden-erschliessung\"|answer != \"erweiterung-der-bestehenden-erschliessung-ja\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -57089,7 +57218,7 @@
       "label": "{\"de\": \"Nachweis Erschliessung (Art. 24d Abs. 3 Bst. c RPG)\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!(\n\t\"erweiterung-der-bestehenden-erschliessung\"|answer == \"erweiterung-der-bestehenden-erschliessung-ja\" ||\n\t\"a8-erschliessung\"|answer == \"a8-erschliessung-ja\" ||\n\t\"a9-erschliessung\"|answer == \"a9-erschliessung-ja\"\n)",
+      "is_hidden": "!(\n\t\"a8-erschliessung\"|answer == \"a8-erschliessung-ja\" ||\n\t\"a9-erschliessung\"|answer == \"a9-erschliessung-ja\"\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -57155,7 +57284,7 @@
       "label": "{\"de\": \"Nachweis fachliche Qualifikation (Art. 24b RPG)\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!(\n\t\"stellplaetze-camping-auf-dem-bauernhof\"|answer in [\n\t\t\"stellplaetze-camping-auf-dem-bauernhof-ja\",\n\t\t\"stellplaetze-camping-auf-dem-bauernhof-nein\"\n\t]\n)",
+      "is_hidden": "!(\n\t\"bau-vorhaben-betrifft-nichtlandwirtschaftliche-nebenbetriebe\"\n\tin \"bau-vorhaben-betrifft\"|answer([])\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -57193,7 +57322,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Es sind folgende zus\\u00e4tzliche Gesuchsunterlagen einzureichen:\\n\\n* Nachweis der Rechtm\\u00e4ssigkeit der Baute / Anlage (inkl. Umgebung)<br>(Baubewilligung inkl. Bewilligungen Bau- und Justizdepartement gem\\u00e4ss \\u00a7 38bis Abs. 1 PBG sowie Planunterlagen [inkl. s\\u00e4mtlicher Erweiterungen/\\u00c4nderungen])\\n* Nutzungskonzept bisher und neu<br>(Beschrieb der bisherigen gewerblichen Nutzung [inkl. Dauer und allf\\u00e4llige Unterbr\\u00fcche] und der geplanten gewerblichen Nutzung [inkl. Angaben \\u00fcber nachteilige Einwirkungen auf die Umgebung, Ausweis \\u00fcber Massnahmen gegen \\u00fcberm\\u00e4ssige Einwirkungen, Angaben \\u00fcber die vorgesehene Vorbehandlung des Abwassers, soweit diese n\\u00f6tig\\nist])\\n\\nSoweit im Einzelfall erforderlich, sind zudem folgende Angaben / Unterlagen notwendig:\\n\\n* Umgebungsplan<br>Inkl. Angabe von Erschliessungsfl\\u00e4chen, Belagsarten, Terrainverlauf und H\\u00f6henangaben sowie von B\\u00e4umen, Hecken, Sitzpl\\u00e4tzen, Treppen, Mauern etc.<br>(nicht erforderlich, falls vorstehende Angaben z.B. dem Situationsplan und oder anderen Beilagen entnommen werden k\\u00f6nnen)\\n* Versicherungspolice der Solothurnischen Geb\\u00e4udeversicherung<br>(nicht erforderlich, falls vollst\\u00e4ndiger Nachweis der Rechtm\\u00e4ssigkeit der Baute / Anlage [inkl. Umgebung] vorhanden\\nist)\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Es sind folgende zus\\u00e4tzliche Gesuchsunterlagen einzureichen:\\n\\n* Nachweis der Rechtm\\u00e4ssigkeit der Baute / Anlage (inkl. Umgebung)<br>(Baubewilligung inkl. Bewilligungen Bau- und Justizdepartement gem\\u00e4ss \\u00a7 38<sup>bis</sup> Abs. 1 PBG sowie Planunterlagen [inkl. s\\u00e4mtlicher Erweiterungen/\\u00c4nderungen])\\n* Nutzungskonzept bisher und neu<br>(Beschrieb der bisherigen gewerblichen Nutzung [inkl. Dauer und allf\\u00e4llige Unterbr\\u00fcche] und der geplanten gewerblichen Nutzung [inkl. Angaben \\u00fcber nachteilige Einwirkungen auf die Umgebung, Ausweis \\u00fcber Massnahmen gegen \\u00fcberm\\u00e4ssige Einwirkungen, Angaben \\u00fcber die vorgesehene Vorbehandlung des Abwassers, soweit diese n\\u00f6tig\\nist])\\n\\nSoweit im Einzelfall erforderlich, sind zudem folgende Angaben / Unterlagen notwendig:\\n\\n* Umgebungsplan<br>Inkl. Angabe von Erschliessungsfl\\u00e4chen, Belagsarten, Terrainverlauf und H\\u00f6henangaben sowie von B\\u00e4umen, Hecken, Sitzpl\\u00e4tzen, Treppen, Mauern etc.<br>(nicht erforderlich, falls vorstehende Angaben z.B. dem Situationsplan und oder anderen Beilagen entnommen werden k\\u00f6nnen)\\n* Versicherungspolice der Solothurnischen Geb\\u00e4udeversicherung<br>(nicht erforderlich, falls vollst\\u00e4ndiger Nachweis der Rechtm\\u00e4ssigkeit der Baute / Anlage [inkl. Umgebung] vorhanden\\nist)\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -58733,7 +58862,7 @@
       "label": "{\"de\": \"Welche Nutzungszwecke beinhaltet das Bauprojekt?\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
-      "is_hidden": "\"art-der-bauwerke\"|answer|stringify == \"[\\\"art-der-bauwerke-hochbaute\\\"]\" && \"einfache-hochbaute\"|answer == \"einfache-hochbaute-ja\"",
+      "is_hidden": "!(\n\t\"art-der-bauwerke-hochbaute\" in \"art-der-bauwerke\"|answer &&\n\t\"einfache-hochbaute\"|answer != \"einfache-hochbaute-ja\"\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"#### INFO\\nDie Auswahl zutreffender Nutzungen dient sowohl der Triage der Dossiers (Zuweisung an die zust\\u00e4ndigen Fachstellen) als auch dazu, diejenigen Fachthemen, die f\\u00fcr das Vorhaben nicht relevant sind, der besseren \\u00dcbersicht wegen, nicht anzuzeigen. Es k\\u00f6nnen mehrere Themen ausgew\\u00e4hlt werden.\", \"fr\": null, \"it\": null}",
@@ -65680,7 +65809,7 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Wohnungen\", \"fr\": null, \"it\": null}",
       "type": "table",
-      "is_required": "false",
+      "is_required": "[\n\t\"typ-des-bauwerks-einfamilienhaus\",\n\t\"typ-des-bauwerks-doppeleinfamilienhaus\",\n\t\"typ-des-bauwerks-mehrfamilienhaus\",\n\t\"typ-des-bauwerks-wohn-und-geschaftshaus\"\n] intersects \"gebaeude\"|answer|mapby(\"typ-des-bauwerks\") ||\n[\n\t\"gebaeudekategorie-ausschliessliche-wohnnutzung\",\n\t\"gebaeudekategorie-teilweise-wohnnutzung\",\n\t\"gebaeudekategorie-andere\"\n] intersects \"gebaeude\"|answer|mapby(\"gebaeudekategorie\")",
       "is_hidden": "!(\n\t[\n\t\t\"gebaeudekategorie-ausschliessliche-wohnnutzung\",\n\t\t\"gebaeudekategorie-teilweise-wohnnutzung\",\n\t\t\"gebaeudekategorie-andere\",\n\t\t\"gebaeudekategorie-provisorische-unterkunft\",\n\t\t\"gebaeudekategorie-sonderbau\"\n\t] intersects \"gebaeude\"|answer|mapby(\"gebaeudekategorie\")\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -72956,6 +73085,36 @@
       "modified_by_group": null,
       "question": "kanton-leitbehoerde",
       "option": "kanton-leitbehoerde-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kanton-leitbehoerde-mit-gemeinde-geklaert.kanton-leitbehoerde-mit-gemeinde-geklaert-ja",
+    "fields": {
+      "created_at": "2024-12-12T10:38:04.799Z",
+      "modified_at": "2024-12-12T10:38:04.799Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kanton-leitbehoerde-mit-gemeinde-geklaert",
+      "option": "kanton-leitbehoerde-mit-gemeinde-geklaert-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kanton-leitbehoerde-mit-gemeinde-geklaert.kanton-leitbehoerde-mit-gemeinde-geklaert-nein",
+    "fields": {
+      "created_at": "2024-12-12T10:38:04.796Z",
+      "modified_at": "2024-12-12T10:38:04.796Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kanton-leitbehoerde-mit-gemeinde-geklaert",
+      "option": "kanton-leitbehoerde-mit-gemeinde-geklaert-nein",
       "sort": 1
     }
   },

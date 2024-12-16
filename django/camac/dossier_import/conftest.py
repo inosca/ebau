@@ -126,6 +126,7 @@ def load_fixtures_so(
     extra_fixtures = [
         settings.ROOT_DIR("kt_so/config/permissions.json"),
         settings.ROOT_DIR("kt_so/config/caluma_form.json"),
+        settings.ROOT_DIR("kt_so/config/caluma_form_default_answers.json"),
         settings.ROOT_DIR("kt_so/config/caluma_decision_form.json"),
         settings.ROOT_DIR("kt_so/config/caluma_construction_monitoring_form.json"),
         settings.ROOT_DIR("kt_so/config/caluma_construction_monitoring_workflow.json"),
