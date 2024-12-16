@@ -65809,7 +65809,7 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Wohnungen\", \"fr\": null, \"it\": null}",
       "type": "table",
-      "is_required": "false",
+      "is_required": "[\n\t\"typ-des-bauwerks-einfamilienhaus\",\n\t\"typ-des-bauwerks-doppeleinfamilienhaus\",\n\t\"typ-des-bauwerks-mehrfamilienhaus\",\n\t\"typ-des-bauwerks-wohn-und-geschaftshaus\"\n] intersects \"gebaeude\"|answer|mapby(\"typ-des-bauwerks\") ||\n[\n\t\"gebaeudekategorie-ausschliessliche-wohnnutzung\",\n\t\"gebaeudekategorie-teilweise-wohnnutzung\",\n\t\"gebaeudekategorie-andere\"\n] intersects \"gebaeude\"|answer|mapby(\"gebaeudekategorie\")",
       "is_hidden": "!(\n\t[\n\t\t\"gebaeudekategorie-ausschliessliche-wohnnutzung\",\n\t\t\"gebaeudekategorie-teilweise-wohnnutzung\",\n\t\t\"gebaeudekategorie-andere\",\n\t\t\"gebaeudekategorie-provisorische-unterkunft\",\n\t\t\"gebaeudekategorie-sonderbau\"\n\t] intersects \"gebaeude\"|answer|mapby(\"gebaeudekategorie\")\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
