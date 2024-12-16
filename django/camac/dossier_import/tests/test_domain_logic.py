@@ -1,14 +1,20 @@
 import dataclasses
 import datetime
 import mimetypes
+from collections import namedtuple
 
 import pytest
 from alexandria.core.models import Document
 from caluma.caluma_workflow.models import Case
 from django.utils import timezone
 
-from camac.dossier_import.domain_logic import perform_import, undo_import
+from camac.dossier_import.domain_logic import (
+    perform_import,
+    set_status_callback,
+    undo_import,
+)
 from camac.dossier_import.messages import MessageCodes
+from camac.dossier_import.models import DossierImport
 from camac.instance.master_data import MasterData
 from camac.settings.modules.master_data import MASTER_DATA
 
@@ -222,3 +228,57 @@ def test_perform_reimport(  # noqa: C901
         # if the attachment was unchanged: assert that it is identical and that the date attribute hasn't changed
         assert original_attachment_bytes == current_attachment_bytes
         assert modified_at == now.date()
+
+
+@pytest.mark.parametrize(
+    "dossier_import__status,task_result,did_delete_import,expected_status",
+    [
+        (
+            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            DossierImport.IMPORT_STATUS_IMPORTED,
+            False,
+            DossierImport.IMPORT_STATUS_IMPORTED,
+        ),
+        (
+            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            "some error",
+            False,
+            DossierImport.IMPORT_STATUS_IMPORT_FAILED,
+        ),
+        (
+            DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS,
+            "some error",
+            False,
+            DossierImport.IMPORT_STATUS_UNDO_FAILED,
+        ),
+        (
+            DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS,
+            DossierImport.IMPORT_STATUS_UNDONE,
+            False,
+            DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS,
+        ),
+        (
+            DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS,
+            DossierImport.IMPORT_STATUS_UNDONE,
+            True,
+            None,
+        ),
+    ],
+)
+def test_set_status_callback(
+    db, dossier_import, task_result, did_delete_import, expected_status
+):
+    Task = namedtuple("Task", ["result", "args"])
+    task = Task(result=task_result, args=[dossier_import])
+
+    if did_delete_import:
+        dossier_import.delete()
+
+    set_status_callback(task)
+
+    if not did_delete_import:
+        dossier_import.refresh_from_db()
+        assert dossier_import.status == expected_status
+    else:
+        with pytest.raises(DossierImport.DoesNotExist):
+            dossier_import.refresh_from_db()
