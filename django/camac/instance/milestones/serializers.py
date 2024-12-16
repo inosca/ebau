@@ -150,7 +150,7 @@ class UrMilestonesSerializer(MilestonesSerializer):
                     ),
                     fields.WorkItemsField(
                         slug="additional-demand",
-                        label=_("Additional demand"),
+                        label=_("Additional demand municipality"),
                         task="send-additional-demand",
                         status=WorkItem.STATUS_COMPLETED,
                         field="created_at",
