@@ -108,6 +108,11 @@ class DecisionLogic:
                 ),
             )
 
+        if work_item.case.document.form_id == "reklamegesuch":
+            # Building permits for ads never continue as they do not require a
+            # construction monitoring process
+            return False
+
         return cls.is_positive_decision_so(
             decision,
             cls.get_decision_answer(

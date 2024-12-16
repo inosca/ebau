@@ -520,6 +520,7 @@ module.exports = function (environment) {
             "voranfrage",
             "meldung",
             "meldung-pv",
+            "reklamegesuch",
           ],
         },
       ],
