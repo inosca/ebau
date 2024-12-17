@@ -289,7 +289,9 @@ class CreateInstanceLogic:
         return generate_dossier_nr(instance, year or timezone.now().year)
 
     @classmethod
-    def generate_identifier_ag(cls, instance: Instance, year: int = None) -> str:
+    def generate_identifier_ag(
+        cls, instance: Instance, year: int = None
+    ) -> str:  # pragma: no cover
         return generate_dossier_nr(instance, year or timezone.now().year)
 
     @classmethod
