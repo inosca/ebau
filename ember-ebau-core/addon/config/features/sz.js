@@ -17,4 +17,8 @@ export default {
     snippets: true,
   },
   constructionMonitoring: true,
+  communications: {
+    enabled: true,
+    hideInstanceId: true,
+  },
 };
