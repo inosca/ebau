@@ -11,7 +11,12 @@ from camac.core.models import Resource
 
 
 @pytest.mark.parametrize("application", settings.APPLICATIONS.keys())
-def test_dump_and_load(db, application, request, resource_factory, settings, tmp_path):
+def test_dump_and_load(
+    db, application, request, resource_factory, settings, tmp_path, mocker
+):
+    # test data might contain files - we don't want thumbnails to be
+    # created here
+    mocker.patch("alexandria.core.tasks.create_thumbnail.delay")
     short_name = settings.APPLICATIONS[application]["SHORT_NAME"]
     request.getfixturevalue(f"{short_name}_dump_settings")
 
