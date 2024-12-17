@@ -90,7 +90,7 @@ export default class SupportController extends Controller {
 
       // sadly we need this to have current data on the whole page
       location.reload();
-    } catch (e) {
+    } catch {
       this.notification.danger(
         this.intl.t("support.modification-to-new-dossier.conversion-error"),
       );
@@ -144,7 +144,7 @@ export default class SupportController extends Controller {
       location.assign(
         `/index/redirect-to-instance-resource/instance-id/${this.model}`,
       );
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("support.archive.error"));
     }
   }
@@ -201,7 +201,7 @@ export default class SupportController extends Controller {
 
       // sadly we need this to have current data on the whole page
       location.reload();
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("support.change-form.error"));
     }
   }
@@ -233,7 +233,7 @@ export default class SupportController extends Controller {
 
       this.output = data.attributes.output;
       this.dryRunDone = true;
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("support.fix-work-items.error"));
     }
   }

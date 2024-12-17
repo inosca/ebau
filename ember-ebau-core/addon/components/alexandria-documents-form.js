@@ -180,7 +180,7 @@ export default class AlexandriaDocumentsFormComponent extends Component {
       yield attachment.destroyRecord();
 
       this.notification.success(this.intl.t("documents.deleteSuccess"));
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("documents.deleteError"));
     }
   }

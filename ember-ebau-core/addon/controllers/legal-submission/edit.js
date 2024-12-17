@@ -24,7 +24,7 @@ export default class LegalSubmissionEditController extends Controller {
       });
 
       return response.allWorkItems.edges[0].node;
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("legal-submission.loading-error"));
     }
   });

@@ -61,7 +61,7 @@ export default class WorkItemDetailEditComponent extends Component {
       this.notification.success(this.intl.t("workItems.finishSuccess"));
 
       this.router.transitionTo(`${this.args.baseRoute}.index`);
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("workItems.saveError"));
     }
   }

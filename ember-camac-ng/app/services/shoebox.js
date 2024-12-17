@@ -9,7 +9,7 @@ export default class ShoeboxService extends Service {
 
     try {
       return JSON.parse(shoebox.innerHTML);
-    } catch (error) {
+    } catch {
       return {};
     }
   }

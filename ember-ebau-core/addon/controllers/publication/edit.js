@@ -79,7 +79,7 @@ export default class PublicationEditController extends Controller {
           },
         },
       });
-    } catch (e) {
+    } catch {
       this.notification.danger(this.intl.t("publication.cancelError"));
     }
   }

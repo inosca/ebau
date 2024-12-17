@@ -39,7 +39,7 @@ export default class PublicationController extends Controller {
         { query: getPublications, variables },
         "allWorkItems.edges",
       );
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("publication.loadingError"));
     }
   }
