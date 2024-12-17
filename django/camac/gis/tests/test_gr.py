@@ -48,12 +48,12 @@ def gr_data_sources(
         (
             "grundwasserschutzzone",
             Question.TYPE_CHOICE,
-            ["s1", "s2", "s3", "sh", "sm", "nicht-betroffen"],
+            ["s1", "s2", "s3", "sh", "sm", "s-kantonaleart", "nicht-betroffen"],
         ),
         (
             "lageranlagen-grundwasserschutzzone",
             Question.TYPE_CHOICE,
-            ["s1", "s2", "s3", "sh", "sm", "nicht-betroffen"],
+            ["s1", "s2", "s3", "sh", "sm", "s-kantonaleart", "nicht-betroffen"],
         ),
     ]
 

@@ -27512,6 +27512,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "grundwasserschutzzone-s-kantonaleart",
+    "fields": {
+      "created_at": "2024-12-13T14:45:26.134Z",
+      "modified_at": "2024-12-13T14:45:38.152Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Summarische Grundwasserschutzzone (provisorisch)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "grundwasserschutzzone-sm",
     "fields": {
       "created_at": "2023-10-06T10:21:45.061Z",
@@ -28847,6 +28864,23 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Sh\", \"fr\": null, \"it\": \"Sh\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lageranlagen-grundwasserschutzzone-s-kantonaleart",
+    "fields": {
+      "created_at": "2024-12-13T15:20:47.068Z",
+      "modified_at": "2024-12-13T15:21:13.354Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Summarische Grundwasserschutzzone (provisorisch)\", \"fr\": null, \"it\": \"Zona di protezione delle acque di falda sommaria (provisoria)\"}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -41055,7 +41089,7 @@
       "label": "{\"de\": \"Ableitung des gepumpten / gereinigten Wassers in\", \"fr\": null, \"it\": \"Evacuazione delle acque pompate/depurate in\"}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
+      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\", \"grundwasserschutzzone-s-kantonaleart\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -41086,7 +41120,7 @@
       "label": "{\"de\": \"Ableitung des gereinigten Bohrabwassers in\", \"fr\": null, \"it\": \"Evacuazione delle acque di scarico depurate prodotte durante le trivellazioni in\"}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
+      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\",\"grundwasserschutzzone-s-kantonaleart\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -43365,7 +43399,7 @@
       "label": "{\"de\": \"Anzahl Sondierungen\", \"fr\": null, \"it\": \"Numero di sondaggi\"}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
+      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\",\"grundwasserschutzzone-s-kantonaleart\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -44234,7 +44268,7 @@
       "label": "{\"de\": \"Art der Sondierung\", \"fr\": null, \"it\": \"Tipo di sondaggio\"}",
       "type": "multiple_choice",
       "is_required": "false",
-      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
+      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\",\"grundwasserschutzzone-s-kantonaleart\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -51122,7 +51156,7 @@
       "label": "{\"de\": \"Bohrdurchmesser (mm)\", \"fr\": null, \"it\": \"Diametro della trivellazione (mm)\"}",
       "type": "float",
       "is_required": "false",
-      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
+      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\",\"grundwasserschutzzone-s-kantonaleart\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -51226,7 +51260,7 @@
       "label": "{\"de\": \"Bohrfirma\", \"fr\": null, \"it\": \"Azienda di trivellazione\"}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!(\"grundwasserschutzzone\"|answer in [\"grundwasserschutzzone-s1\", \"grundwasserschutzzone-s2\", \"grundwasserschutzzone-s3\", \"grundwasserschutzzone-sh\", \"grundwasserschutzzone-sm\"] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\")",
+      "is_hidden": "!(\"grundwasserschutzzone\"|answer in [\"grundwasserschutzzone-s1\", \"grundwasserschutzzone-s2\", \"grundwasserschutzzone-s3\", \"grundwasserschutzzone-sh\", \"grundwasserschutzzone-sm\",\"grundwasserschutzzone-s-kantonaleart\"] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\")",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -51294,7 +51328,7 @@
       "label": "{\"de\": \"Bohrtiefe (m)\", \"fr\": null, \"it\": \"Profondit\\u00e0 di trivellazione (m)\"}",
       "type": "float",
       "is_required": "false",
-      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
+      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\",\"grundwasserschutzzone-s-kantonaleart\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -51394,7 +51428,7 @@
     "pk": "bohrungen-oder-grabarbeiten",
     "fields": {
       "created_at": "2023-10-06T10:24:13.328Z",
-      "modified_at": "2024-09-11T14:58:37.093Z",
+      "modified_at": "2024-12-13T14:55:46.622Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -51402,7 +51436,7 @@
       "label": "{\"de\": \"Sind Bohrungen oder gr\\u00f6ssere Grabarbeiten (z.B. tiefer als ein Untergeschoss vorgesehen) oder Grabarbeiten bei bekanntem hohen Grundwasserspiegel vorgesehen?\", \"fr\": null, \"it\": \"Sono previsti trivellazioni o lavori di scavo di grande entit\\u00e0 (ad. es. la cui profondit\\u00e0 supera un piano interrato) oppure lavori di scavo in prossimit\\u00e0 di un livello di falda freatica elevato?\"}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "!(\"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\" && !(\"grundwasserschutzzone\"|answer(\"\") in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\"\n\t\t]))",
+      "is_hidden": "!(\"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\" && !(\"grundwasserschutzzone\"|answer(\"\") in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\",\n\t\t\"grundwasserschutzzone-s-kantonaleart\"\n\t\t]))",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -51433,7 +51467,7 @@
       "label": "{\"de\": \"Bohrverfahren\", \"fr\": null, \"it\": \"Procedimento di trivellazione\"}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
+      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\",\"grundwasserschutzzone-s-kantonaleart\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -58053,7 +58087,7 @@
       "label": "{\"de\": \"Installierte Pumpenleistung (l/min)\", \"fr\": null, \"it\": \"Potenza installata pompa (l/min)\"}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
+      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\",\"grundwasserschutzzone-s-kantonaleart\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -58089,7 +58123,7 @@
       "label": "{\"de\": \"Maximale F\\u00f6rdermenge (l/min)\", \"fr\": null, \"it\": \"Portata massima (l/min)\"}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
+      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\",\"grundwasserschutzzone-s-kantonaleart\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -58125,7 +58159,7 @@
       "label": "{\"de\": \"R\\u00fcckgabe\", \"fr\": null, \"it\": \"Restituzione\"}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
+      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\",\"grundwasserschutzzone-s-kantonaleart\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -58159,7 +58193,7 @@
       "label": "{\"de\": \"Geplante Nutzung Titel\", \"fr\": null, \"it\": \"Utilizzo pianificato titolo\"}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
+      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\",\"grundwasserschutzzone-s-kantonaleart\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -58190,7 +58224,7 @@
       "label": "{\"de\": \"Geplanter Ausbau (bei Eignung)\", \"fr\": null, \"it\": \"Sviluppo pianificato (in caso di idoneit\\u00e0)\"}",
       "type": "multiple_choice",
       "is_required": "false",
-      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
+      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\",\"grundwasserschutzzone-s-kantonaleart\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -58704,7 +58738,7 @@
       "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": \"Osservazioni\"}",
       "type": "textarea",
       "is_required": "false",
-      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
+      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\",\"grundwasserschutzzone-s-kantonaleart\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -59088,7 +59122,7 @@
     "pk": "grundwasserschutzzone",
     "fields": {
       "created_at": "2023-04-20T14:44:14.557Z",
-      "modified_at": "2024-09-11T14:58:39.966Z",
+      "modified_at": "2024-12-13T14:45:45.833Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -63808,10 +63842,10 @@
     "pk": "lageranlagen-grundwasserschutzzone",
     "fields": {
       "created_at": "2023-10-26T06:11:57.371Z",
-      "modified_at": "2024-09-11T14:58:42.197Z",
+      "modified_at": "2024-12-13T15:21:13.507Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Grundwasserschutzzone\", \"fr\": null, \"it\": \"Zona di protezione delle acque sotterranee\"}",
       "type": "choice",
@@ -63819,8 +63853,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -68859,7 +68893,7 @@
       "label": "{\"de\": \"Dauer bis\", \"fr\": null, \"it\": \"Durata fino a\"}",
       "type": "date",
       "is_required": "false",
-      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
+      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\",\"grundwasserschutzzone-s-kantonaleart\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -68890,7 +68924,7 @@
       "label": "{\"de\": \"Dauer von\", \"fr\": null, \"it\": \"Durata da\"}",
       "type": "date",
       "is_required": "false",
-      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
+      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\",\"grundwasserschutzzone-s-kantonaleart\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -68921,7 +68955,7 @@
       "label": "{\"de\": \"Maximale F\\u00f6rdermenge (l/min)\", \"fr\": null, \"it\": \"Portata massima (l/min)\"}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
+      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\",\"grundwasserschutzzone-s-kantonaleart\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -68957,7 +68991,7 @@
       "label": "{\"de\": \"Pumpversuch Titel\", \"fr\": null, \"it\": \"Prova di pompaggio titolo\"}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
+      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\",\"grundwasserschutzzone-s-kantonaleart\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -69624,7 +69658,7 @@
       "label": "{\"de\": \"Rohrdurchmesser (mm)\", \"fr\": null, \"it\": \"Diametro del tubo (mm)\"}",
       "type": "float",
       "is_required": "false",
-      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
+      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\",\"grundwasserschutzzone-s-kantonaleart\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -77945,7 +77979,7 @@
       "label": "{\"de\": \"Zweck der Bohrung oder des Eingriffs\", \"fr\": null, \"it\": \"Scopo della trivellazione o dell'intervento\"}",
       "type": "multiple_choice",
       "is_required": "false",
-      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
+      "is_hidden": "!(\n\t(\"grundwasserschutzzone\"|answer in [\n\t\t\"grundwasserschutzzone-s1\",\n\t\t\"grundwasserschutzzone-s2\",\n\t\t\"grundwasserschutzzone-s3\",\n\t\t\"grundwasserschutzzone-sh\",\n\t\t\"grundwasserschutzzone-sm\",\"grundwasserschutzzone-s-kantonaleart\"\n\t\t] && \"art-gewaesserschutzbereich\"|answer == \"art-gewaesserschutzbereich-au\") || \"bohrungen-oder-grabarbeiten-ja\" == \"bohrungen-oder-grabarbeiten\"|answer )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -86629,8 +86663,8 @@
     "model": "caluma_form.questionoption",
     "pk": "grundwasserschutzzone.grundwasserschutzzone-nicht-betroffen",
     "fields": {
-      "created_at": "2023-10-25T08:19:25.794Z",
-      "modified_at": "2023-10-25T08:19:25.794Z",
+      "created_at": "2024-12-13T14:45:45.841Z",
+      "modified_at": "2024-12-13T14:45:45.841Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -86644,75 +86678,90 @@
     "model": "caluma_form.questionoption",
     "pk": "grundwasserschutzzone.grundwasserschutzzone-s1",
     "fields": {
-      "created_at": "2023-10-25T08:19:25.826Z",
-      "modified_at": "2023-10-25T08:19:25.826Z",
+      "created_at": "2024-12-13T14:45:45.865Z",
+      "modified_at": "2024-12-13T14:45:45.865Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "grundwasserschutzzone",
       "option": "grundwasserschutzzone-s1",
-      "sort": 6
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "grundwasserschutzzone.grundwasserschutzzone-s2",
     "fields": {
-      "created_at": "2023-10-25T08:19:25.821Z",
-      "modified_at": "2023-10-25T08:19:25.821Z",
+      "created_at": "2024-12-13T14:45:45.861Z",
+      "modified_at": "2024-12-13T14:45:45.861Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "grundwasserschutzzone",
       "option": "grundwasserschutzzone-s2",
-      "sort": 5
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "grundwasserschutzzone.grundwasserschutzzone-s3",
     "fields": {
-      "created_at": "2023-10-25T08:19:25.814Z",
-      "modified_at": "2023-10-25T08:19:25.814Z",
+      "created_at": "2024-12-13T14:45:45.856Z",
+      "modified_at": "2024-12-13T14:45:45.856Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "grundwasserschutzzone",
       "option": "grundwasserschutzzone-s3",
-      "sort": 4
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "grundwasserschutzzone.grundwasserschutzzone-sh",
     "fields": {
-      "created_at": "2023-10-25T08:19:25.807Z",
-      "modified_at": "2023-10-25T08:19:25.807Z",
+      "created_at": "2024-12-13T14:45:45.853Z",
+      "modified_at": "2024-12-13T14:45:45.853Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "grundwasserschutzzone",
       "option": "grundwasserschutzzone-sh",
-      "sort": 3
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "grundwasserschutzzone.grundwasserschutzzone-s-kantonaleart",
+    "fields": {
+      "created_at": "2024-12-13T14:45:45.845Z",
+      "modified_at": "2024-12-13T14:45:45.845Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "grundwasserschutzzone",
+      "option": "grundwasserschutzzone-s-kantonaleart",
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "grundwasserschutzzone.grundwasserschutzzone-sm",
     "fields": {
-      "created_at": "2023-10-25T08:19:25.802Z",
-      "modified_at": "2023-10-25T08:19:25.802Z",
+      "created_at": "2024-12-13T14:45:45.849Z",
+      "modified_at": "2024-12-13T14:45:45.849Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "grundwasserschutzzone",
       "option": "grundwasserschutzzone-sm",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -87814,8 +87863,8 @@
     "model": "caluma_form.questionoption",
     "pk": "lageranlagen-grundwasserschutzzone.lageranlagen-grundwasserschutzzone-nicht-betroffen",
     "fields": {
-      "created_at": "2023-10-26T06:11:57.378Z",
-      "modified_at": "2023-10-26T06:11:57.378Z",
+      "created_at": "2024-12-13T15:21:13.517Z",
+      "modified_at": "2024-12-13T15:21:13.517Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87829,75 +87878,90 @@
     "model": "caluma_form.questionoption",
     "pk": "lageranlagen-grundwasserschutzzone.lageranlagen-grundwasserschutzzone-s1",
     "fields": {
-      "created_at": "2023-10-26T06:11:57.393Z",
-      "modified_at": "2023-10-26T06:11:57.393Z",
+      "created_at": "2024-12-13T15:21:13.541Z",
+      "modified_at": "2024-12-13T15:21:13.541Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "lageranlagen-grundwasserschutzzone",
       "option": "lageranlagen-grundwasserschutzzone-s1",
-      "sort": 6
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "lageranlagen-grundwasserschutzzone.lageranlagen-grundwasserschutzzone-s2",
     "fields": {
-      "created_at": "2023-10-26T06:11:57.391Z",
-      "modified_at": "2023-10-26T06:11:57.391Z",
+      "created_at": "2024-12-13T15:21:13.537Z",
+      "modified_at": "2024-12-13T15:21:13.537Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "lageranlagen-grundwasserschutzzone",
       "option": "lageranlagen-grundwasserschutzzone-s2",
-      "sort": 5
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "lageranlagen-grundwasserschutzzone.lageranlagen-grundwasserschutzzone-s3",
     "fields": {
-      "created_at": "2023-10-26T06:11:57.388Z",
-      "modified_at": "2023-10-26T06:11:57.388Z",
+      "created_at": "2024-12-13T15:21:13.533Z",
+      "modified_at": "2024-12-13T15:21:13.533Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "lageranlagen-grundwasserschutzzone",
       "option": "lageranlagen-grundwasserschutzzone-s3",
-      "sort": 4
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "lageranlagen-grundwasserschutzzone.lageranlagen-grundwasserschutzzone-sh",
     "fields": {
-      "created_at": "2023-10-26T06:11:57.385Z",
-      "modified_at": "2023-10-26T06:11:57.385Z",
+      "created_at": "2024-12-13T15:21:13.529Z",
+      "modified_at": "2024-12-13T15:21:13.529Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "lageranlagen-grundwasserschutzzone",
       "option": "lageranlagen-grundwasserschutzzone-sh",
-      "sort": 3
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lageranlagen-grundwasserschutzzone.lageranlagen-grundwasserschutzzone-s-kantonaleart",
+    "fields": {
+      "created_at": "2024-12-13T15:21:13.521Z",
+      "modified_at": "2024-12-13T15:21:13.521Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lageranlagen-grundwasserschutzzone",
+      "option": "lageranlagen-grundwasserschutzzone-s-kantonaleart",
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "lageranlagen-grundwasserschutzzone.lageranlagen-grundwasserschutzzone-sm",
     "fields": {
-      "created_at": "2023-10-26T06:11:57.383Z",
-      "modified_at": "2023-10-26T06:11:57.383Z",
+      "created_at": "2024-12-13T15:21:13.525Z",
+      "modified_at": "2024-12-13T15:21:13.525Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "lageranlagen-grundwasserschutzzone",
       "option": "lageranlagen-grundwasserschutzzone-sm",
-      "sort": 2
+      "sort": 3
     }
   },
   {
