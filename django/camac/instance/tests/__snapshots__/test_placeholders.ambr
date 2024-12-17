@@ -7276,7 +7276,7 @@
     'LEITBEHOERDE_CITY': dict({
       'aliases': list([
         dict({
-          'de': 'LEITBEHOERDE_STADT',
+          'de': 'LEITBEHOERDE_ORT',
         }),
       ]),
       'description': dict({
@@ -7548,6 +7548,18 @@
       ]),
       'description': dict({
         'de': 'Nutzungsplanung (Grundnutzung) (Kanton)',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ORT': dict({
+      'aliases': list([
+        dict({
+          'de': 'ORTSCHAFT',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Die Ortschaft des Bauvorhabens',
       }),
       'nested_aliases': dict({
       }),
@@ -9197,7 +9209,7 @@
     'LEITBEHOERDE_NAME',
     'LEITBEHOERDE_NAME_ADRESSE',
     'LEITBEHOERDE_NAME_KURZ',
-    'LEITBEHOERDE_STADT',
+    'LEITBEHOERDE_ORT',
     'LEITBEHOERDE_TELEFON',
     'LEITBEHOERDE_WEBSEITE',
     'MEINE_ORGANISATION_ADRESSE_1',
@@ -9215,6 +9227,7 @@
     'NEBENBESTIMMUNGEN_MAPPED[].TEXT',
     'NUTZUNGSPLANUNG_GRUNDNUTZUNG',
     'NUTZUNGSPLANUNG_GRUNDNUTZUNG_KANTON',
+    'ORTSCHAFT',
     'PROJEKTVERFASSER',
     'PROJEKTVERFASSER_ADRESSE_1',
     'PROJEKTVERFASSER_ADRESSE_2',
@@ -10611,8 +10624,8 @@
 # ---
 # name: test_dms_placeholders_so[Municipality]
   dict({
-    'ADDRESS': '',
-    'ADRESSE': '',
+    'ADDRESS': 'Rüttenen',
+    'ADRESSE': 'Rüttenen',
     'ALLE_GESUCHSTELLER': 'Sean Turner, Gonzalez-Yoder, Barbara Rose, Cameron Turner',
     'ALLE_GESUCHSTELLER_LISTE': list([
       dict({
@@ -11324,8 +11337,8 @@
     'LEITBEHOERDE_NAME': 'Test Leitbehörde',
     'LEITBEHOERDE_NAME_ADRESSE': 'Test Leitbehörde, Teststrasse 13, 3000 Musterhausen',
     'LEITBEHOERDE_NAME_KURZ': 'Test',
+    'LEITBEHOERDE_ORT': 'Musterhausen',
     'LEITBEHOERDE_PHONE': '',
-    'LEITBEHOERDE_STADT': 'Musterhausen',
     'LEITBEHOERDE_TELEFON': '',
     'LEITBEHOERDE_WEBSEITE': 'https://leitbehoerde.ch',
     'MEINE_ORGANISATION_ADRESSE_1': '',
@@ -11345,6 +11358,8 @@
     ]),
     'NUTZUNGSPLANUNG_GRUNDNUTZUNG': 'Wohnzone 3 - AZ 0.6',
     'NUTZUNGSPLANUNG_GRUNDNUTZUNG_KANTON': 'N112_Wohnzone_3_G',
+    'ORT': 'Rüttenen',
+    'ORTSCHAFT': 'Rüttenen',
     'PARZELLE': '',
     'PROJEKTVERFASSER': '',
     'PROJEKTVERFASSER_ADDRESS_1': '',
