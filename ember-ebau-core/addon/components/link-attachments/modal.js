@@ -119,7 +119,7 @@ export default class LinkAttachmentsModalComponent extends Component {
       this.toggleAttachment(data.id);
 
       scheduleOnce("afterRender", this, "reload");
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("link-attachments.upload-error"));
     }
   }

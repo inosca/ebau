@@ -349,7 +349,7 @@ export default class CaseFilterComponent extends Component {
   get storedFilters() {
     try {
       return JSON.parse(localStorage.getItem(this.storedFiltersKey));
-    } catch (e) {
+    } catch {
       return {};
     }
   }

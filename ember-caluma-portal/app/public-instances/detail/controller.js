@@ -28,7 +28,7 @@ export default class PublicInstancesDetailController extends Controller {
       });
 
       return instances[0];
-    } catch (e) {
+    } catch {
       this.notification.danger(this.intl.t("publicInstancesDetail.loadError"));
     }
   }

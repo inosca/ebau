@@ -2,7 +2,6 @@
 
 const fs = require("fs");
 
-// eslint-disable-next-line n/no-unpublished-require
 const MultiReporter = require("testem-multi-reporter");
 
 const REPORTER = process.env.CI
@@ -10,7 +9,6 @@ const REPORTER = process.env.CI
       reporter: new MultiReporter({
         reporters: [
           {
-            // eslint-disable-next-line n/no-missing-require
             ReporterClass: require("testem/lib/reporters/tap_reporter"),
             args: [
               false,
@@ -19,7 +17,6 @@ const REPORTER = process.env.CI
             ],
           },
           {
-            // eslint-disable-next-line n/no-unpublished-require
             ReporterClass: require("testem-gitlab-reporter"),
             args: [
               false,

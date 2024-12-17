@@ -84,7 +84,7 @@ export default class AuditTableComponent extends Component {
       yield this.args.onRefresh();
 
       yield this.router.transitionTo("audit.edit", documentId);
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("audit.createError"));
     }
   }

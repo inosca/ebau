@@ -52,7 +52,7 @@ export default class Attachment extends DownloadableModel {
         reader.onload = () => resolve(reader.result);
         response.blob().then((blob) => reader.readAsDataURL(blob));
       });
-    } catch (error) {
+    } catch {
       return null;
     }
   });

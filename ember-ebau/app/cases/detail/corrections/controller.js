@@ -59,7 +59,7 @@ export default class CorrectionsController extends Controller {
       this.notification.success(this.intl.t("corrections.withdraw.success"));
 
       yield this.ebauModules.redirectToWorkItems();
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("corrections.withdraw.error"));
     }
   }

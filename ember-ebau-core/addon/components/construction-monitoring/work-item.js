@@ -56,7 +56,7 @@ export default class ConstructionMonitoringWorkItemComponent extends Component {
           },
         },
       });
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("workItems.saveError"));
     }
   }

@@ -110,7 +110,7 @@ export default class BillingNewController extends Controller {
       this.router.transitionTo(
         this.ebauModules.resolveModuleRoute("billing", "index"),
       );
-    } catch (e) {
+    } catch {
       this.notification.danger(this.intl.t("billing.add-error"));
     }
   });

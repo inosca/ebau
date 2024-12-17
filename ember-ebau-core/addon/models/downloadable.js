@@ -42,7 +42,6 @@ export default class DownloadableModel extends Model {
 
       this.notification.success(this.intl.t("documents.downloadSuccess"));
     } catch (e) {
-      /* eslint-disable-next-line no-console */
       console.error(e);
       this.notification.danger(this.intl.t("documents.downloadError"));
     }

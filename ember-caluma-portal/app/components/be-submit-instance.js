@@ -50,7 +50,6 @@ export default class BeSubmitInstanceComponent extends DocumentValidityButtonCom
 
       yield this.router.transitionTo("instances.index");
     } catch (e) {
-      // eslint-disable-next-line no-console
       console.error(e);
       const reasons = (e.errors || []).map((e) => e.message).join("<br>\n");
       this.notification.danger(

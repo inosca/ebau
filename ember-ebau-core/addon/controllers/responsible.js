@@ -58,7 +58,7 @@ export default class ResponsibleController extends Controller {
       yield this.fetchData.perform();
 
       this.notification.success(this.intl.t("responsible.saveSuccess"));
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("responsible.saveError"));
     }
   }

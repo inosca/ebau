@@ -33,7 +33,7 @@ export default class PermissionsService extends Service {
       }
 
       grantedPermissions = model.permissions;
-    } catch (error) {
+    } catch {
       // That's ok, if no permissions could be fetched we assume that we don't
       // have any.
     }

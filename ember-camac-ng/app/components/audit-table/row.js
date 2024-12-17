@@ -24,7 +24,7 @@ export default class AuditTableRowComponent extends Component {
       yield this.dms.generatePdf(this.args.audit.instanceId, {
         "document-id": this.args.audit.id,
       });
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("audit.createPdfError"));
     }
   }
@@ -56,7 +56,7 @@ export default class AuditTableRowComponent extends Component {
       yield this.args.onRefresh();
 
       this.notification.success(this.intl.t("audit.deleteSuccess"));
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("audit.deleteError"));
     }
   }
@@ -94,7 +94,7 @@ export default class AuditTableRowComponent extends Component {
       yield this.args.onRefresh();
 
       yield this.router.transitionTo("audit.edit", documentId);
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("audit.copyError"));
     }
   }

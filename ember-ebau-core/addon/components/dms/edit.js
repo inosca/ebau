@@ -65,7 +65,7 @@ export default class DmsEditComponent extends Component {
       this.router.transitionTo(
         this.ebauModules.resolveModuleRoute("dms-admin", "index"),
       );
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("dms.delete-error"));
     }
   }

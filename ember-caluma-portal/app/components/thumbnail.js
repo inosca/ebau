@@ -19,7 +19,7 @@ export default class ThumbnailComponent extends Component {
         reader.onload = () => resolve(reader.result);
         response.blob().then((blob) => reader.readAsDataURL(blob));
       });
-    } catch (error) {
+    } catch {
       return null;
     }
   }
