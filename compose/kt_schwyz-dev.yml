@@ -10,6 +10,7 @@ services:
       - mailpit
     volumes:
       - ../proxy/kt_schwyz.conf:/etc/nginx/conf.d/default.conf:ro
+      - ../proxy/csp_headers.inc:/etc/nginx/conf.d/csp_headers.inc:ro
     ports:
       - "80:80"
     networks:
