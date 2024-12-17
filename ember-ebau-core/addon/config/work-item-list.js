@@ -11,6 +11,8 @@ if (macroCondition(getOwnConfig().application === "be")) {
   config = importSync("ember-ebau-core/config/work-item-list-gr");
 } else if (macroCondition(getOwnConfig().application === "so")) {
   config = importSync("ember-ebau-core/config/work-item-list-so");
+} else if (macroCondition(getOwnConfig().application === "ag")) {
+  config = importSync("ember-ebau-core/config/work-item-list-ag");
 } else if (macroCondition(getOwnConfig().application === "test")) {
   config = importSync("ember-ebau-core/config/work-item-list-test");
 }
