@@ -396,7 +396,12 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     leitbehoerde_city = fields.ResponsibleServiceField(
         source="get_trans_attr",
         source_args=["city"],
-        aliases=[_("AUTHORITY_CITY")],
+        aliases=[
+            {
+                "default": _("AUTHORITY_CITY"),
+                "so": _("AUTHORITY_TOWN"),
+            }
+        ],
         description=_("City of the authority"),
     )
     leitbehoerde_email = fields.ResponsibleServiceField(
@@ -524,8 +529,16 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     )
     ort = fields.MasterDataField(
         source="city",
-        aliases=[_("LOCATION")],
-        description=_("The location of the building site"),
+        aliases=[
+            {
+                "default": _("LOCATION"),
+                "so": _("TOWN"),
+            }
+        ],
+        description={
+            "default": _("The location of the building site"),
+            "so": _("The town of the building site"),
+        },
     )
     parzelle = fields.AliasedMethodField(
         aliases=[
@@ -1874,7 +1887,6 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             "language",
             "zirkulation_rueckmeldungen",
             "strasse",
-            "ort",
             # TODO: Remove this if all authentication mechanisms provide a phone
             # number for the user
             "zustaendig_phone",
