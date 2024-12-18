@@ -22,6 +22,7 @@
 # - set $csp_use_font_data_url "true" | "false" (optional; defaults to "false")
 # - set $csp_portal_allow_inline_style "true" | "false" (optional; defaults to "false")
 # - set $csp_php_allow_unsafe_eval "true" | "false"  (optional; defaults to "false")
+# - set $csp_php_allow_localhost_scripts "true" | "false"  (optional; defaults to "false")
 # - set $csp_external_img_sources "space-separated-list-of-urls" (optional; defaults to empty)
 # IN RETURN, you get the following variables:
 # - $csp_header_keycloak     - Keycloak
@@ -34,11 +35,12 @@
 
 # Define optional variables
 # =========================
-if ($csp_portal_allow_inline_style ~ "^$") { set $csp_portal_allow_inline_style "false"; }
-if ($csp_use_google_fonts ~ "^$")          { set $csp_use_google_fonts "false"; }
-if ($csp_use_font_data_url ~ "^$")         { set $csp_use_font_data_url "false"; }
-if ($csp_php_allow_unsafe_eval ~ "^$")     { set $csp_php_allow_unsafe_eval "false"; }
-if ($csp_external_img_sources ~ "^$")      { set $csp_external_img_sources ""; }
+if ($csp_portal_allow_inline_style ~ "^$")   { set $csp_portal_allow_inline_style "false"; }
+if ($csp_use_google_fonts ~ "^$")            { set $csp_use_google_fonts "false"; }
+if ($csp_use_font_data_url ~ "^$")           { set $csp_use_font_data_url "false"; }
+if ($csp_php_allow_unsafe_eval ~ "^$")       { set $csp_php_allow_unsafe_eval "false"; }
+if ($csp_php_allow_localhost_scripts ~ "^$") { set $csp_php_allow_localhost_scripts "false"; }
+if ($csp_external_img_sources ~ "^$")        { set $csp_external_img_sources ""; }
 
 # Intermediates
 # =============
@@ -49,6 +51,10 @@ set $csp_default_self   "default-src 'self'";
 set $csp_script_default "script-src 'self'";
 set $csp_script_inline  "script-src 'self' 'unsafe-inline'";
 set $csp_img_default    "img-src 'self' data: ${csp_external_img_sources}";
+
+# Connect: We need to be able to connect to KC from anywhere for login / token
+# fetch
+set $csp_connect_src "connect-src 'self' ${csp_keycloak_url}";
 
 # fonts: Depending on whether we use google
 set $csp_fonts_src "font-src 'self'";
@@ -77,10 +83,15 @@ if ($csp_php_allow_unsafe_eval = "true") {
   set $csp_php_script_eval "'unsafe-eval'";
 }
 
+# Scripting: Localhost components may need unsafe eval
+set $csp_php_style_src "";
+if ($csp_php_allow_localhost_scripts = "true") {
+  set $csp_php_style_src "http://localhost:4200 http://localhost:4300";
+  # ebau.local:4300 is required for Ember live reload
+  set $csp_php_script_eval "${csp_php_script_eval} http://localhost:4200 http://localhost:4300 http://ebau.local:4300";
+  set $csp_connect_src "${csp_connect_src} ws://ebau.local:4300";
+}
 
-# Connect: We need to be able to connect to KC from anywhere for login / token
-# fetch
-set $csp_connect_src "connect-src 'self' ${csp_keycloak_url}";
 
 # Final assembly
 # ==============
@@ -103,7 +114,7 @@ set $csp_header_keycloak "${csp_header_keycloak}; ${csp_script_inline}";
 # fix. Therefore we need to allow quite a bit of unsafe-inline stuff.
 set $csp_header_php "${csp_default_self}";
 set $csp_header_php "${csp_header_php}; ${csp_script_inline} ${csp_php_script_eval}";
-set $csp_header_php "${csp_header_php}; ${csp_style_src} 'unsafe-inline'";
+set $csp_header_php "${csp_header_php}; ${csp_style_src} ${csp_php_style_src} 'unsafe-inline'";
 set $csp_header_php "${csp_header_php}; ${csp_fonts_src}";
 set $csp_header_php "${csp_header_php}; ${csp_img_default}";
 set $csp_header_php "${csp_header_php}; ${csp_connect_src}";
