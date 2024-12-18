@@ -1,5 +1,5 @@
 export default {
-  showTaskFilter: true,
+  showTaskFilter: false,
   availableTasks: {
     roles: {
       municipality: [
