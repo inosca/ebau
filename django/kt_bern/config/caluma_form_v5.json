@@ -145,6 +145,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "anschluss-trinkwasserinstallation-v5",
+    "fields": {
+      "created_at": "2024-12-12T15:34:39.622Z",
+      "modified_at": "2024-12-12T15:34:49.091Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Anschluss Trinkwasserinstallation\", \"fr\": \"Raccordement au r\\u00e9seau d'eau\", \"it\": null}",
+      "description": "{\"de\": \"Anschluss Trinkwasserinstallation (v5)\", \"fr\": \"Anschluss Trinkwasserinstallation (v5)\", \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "baugesuch-generell-v5",
     "fields": {
       "created_at": "2024-05-30T12:29:34.489Z",
@@ -1669,6 +1687,156 @@
       "form": "anschluss-gemeinschaftsantenne-fernmeldenetz-v5",
       "question": "hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5",
       "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-trinkwasserinstallation-v5.anschluss-an-oeffentliche-leitung-v5",
+    "fields": {
+      "created_at": "2024-12-12T15:38:46.463Z",
+      "modified_at": "2024-12-12T15:38:46.463Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-trinkwasserinstallation-v5",
+      "question": "anschluss-an-oeffentliche-leitung-v5",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-trinkwasserinstallation-v5.anzahl-wohnungen-anschluss-trinkwasserinstallation-v5",
+    "fields": {
+      "created_at": "2024-12-12T15:50:17.891Z",
+      "modified_at": "2024-12-12T15:50:17.891Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-trinkwasserinstallation-v5",
+      "question": "anzahl-wohnungen-anschluss-trinkwasserinstallation-v5",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-trinkwasserinstallation-v5.einzelboiler-pro-wohnung-anschluss-trinkwasserinstallation-v5",
+    "fields": {
+      "created_at": "2024-12-12T15:53:31.681Z",
+      "modified_at": "2024-12-12T15:53:31.681Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-trinkwasserinstallation-v5",
+      "question": "einzelboiler-pro-wohnung-anschluss-trinkwasserinstallation-v5",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-trinkwasserinstallation-v5.hausinstallation-anschluss-trinkwasserinstallation-v5",
+    "fields": {
+      "created_at": "2024-12-12T15:40:56.681Z",
+      "modified_at": "2024-12-12T15:40:56.681Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-trinkwasserinstallation-v5",
+      "question": "hausinstallation-anschluss-trinkwasserinstallation-v5",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-trinkwasserinstallation-v5.sprinkleranlage-anschluss-trinkwasserinstallation-v5",
+    "fields": {
+      "created_at": "2024-12-12T15:44:55.616Z",
+      "modified_at": "2024-12-12T15:44:55.616Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-trinkwasserinstallation-v5",
+      "question": "sprinkleranlage-anschluss-trinkwasserinstallation-v5",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-trinkwasserinstallation-v5.wasserbedarf-gewerbe-industrie-maximal-lmin-v5",
+    "fields": {
+      "created_at": "2024-12-12T15:55:41.824Z",
+      "modified_at": "2024-12-12T15:55:41.824Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-trinkwasserinstallation-v5",
+      "question": "wasserbedarf-gewerbe-industrie-maximal-lmin-v5",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-trinkwasserinstallation-v5.wasserbedarf-sprinkleranlage-maximal-lmin-v5",
+    "fields": {
+      "created_at": "2024-12-12T15:47:49.032Z",
+      "modified_at": "2024-12-12T15:47:49.032Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-trinkwasserinstallation-v5",
+      "question": "wasserbedarf-sprinkleranlage-maximal-lmin-v5",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-trinkwasserinstallation-v5.wasserbedarf-wasserloeschposten-maximal-lmin-v5",
+    "fields": {
+      "created_at": "2024-12-12T15:43:32.849Z",
+      "modified_at": "2024-12-12T15:43:32.849Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-trinkwasserinstallation-v5",
+      "question": "wasserbedarf-wasserloeschposten-maximal-lmin-v5",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-trinkwasserinstallation-v5.wasserloeschposten-anschluss-trinkwasserinstallation-v5",
+    "fields": {
+      "created_at": "2024-12-12T15:42:09.519Z",
+      "modified_at": "2024-12-12T15:42:09.519Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-trinkwasserinstallation-v5",
+      "question": "wasserloeschposten-anschluss-trinkwasserinstallation-v5",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-trinkwasserinstallation-v5.zentralboiler-anschluss-trinkwasserinstallation-v5",
+    "fields": {
+      "created_at": "2024-12-12T15:52:08.047Z",
+      "modified_at": "2024-12-12T15:52:08.047Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-trinkwasserinstallation-v5",
+      "question": "zentralboiler-anschluss-trinkwasserinstallation-v5",
+      "sort": 3
     }
   },
   {
@@ -5178,7 +5346,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "allgemeine-angaben-zum-betrieb-v5",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -5193,7 +5361,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "anschluss-elektrizitaet-v5",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -5208,7 +5376,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "anschluss-gas-v5",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -5223,7 +5391,22 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "anschluss-gemeinschaftsantenne-fernmeldenetz-v5",
-      "sort": 2
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.anschluss-trinkwasserinstallation-v5",
+    "fields": {
+      "created_at": "2024-12-12T15:36:00.458Z",
+      "modified_at": "2024-12-12T15:36:00.458Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "anschluss-trinkwasserinstallation-v5",
+      "sort": 1
     }
   },
   {
@@ -5238,7 +5421,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "bauvorhaben-in-konsultationsbereichen-v3",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -5253,7 +5436,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "benuetzung-oeffentlichem-terrain-v5",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -5268,7 +5451,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "biologische-sicherheit-v3",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -5283,7 +5466,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "entsorgung",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -5298,7 +5481,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "erdbebensicherheit-v5",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -5313,7 +5496,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "gastgewerbe-allgemein",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -5328,7 +5511,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "gastgewerbe-fumoir",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -5343,7 +5526,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "hindernisfreies-bauen",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -5358,7 +5541,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "immissionsschutz",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -5373,7 +5556,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "immissionsschutz-laermschutz",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -5388,7 +5571,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "maschinen-und-anlagen",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -5403,7 +5586,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "naturgefahren",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -5418,7 +5601,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "personalien-betreiberin-der-anlage",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -5433,7 +5616,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "personalien-gastgewerbe",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -5448,7 +5631,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "reklame",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -5463,7 +5646,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "solar-und-sendeanlagen-v3",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -5478,7 +5661,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "stoerfallvorsorge-v3",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -5493,7 +5676,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "waermepumpen",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -5508,7 +5691,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "wald",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -5523,7 +5706,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "zivilschutz",
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -6876,6 +7059,40 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Schalldruckpegelabnahme pro Distanzverdoppelung DL2\", \"fr\": \"Diminution du niveau de pression sonore par doublement de la distance DL2\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anschluss-an-oeffentliche-leitung-v5-bestehend",
+    "fields": {
+      "created_at": "2024-12-12T15:38:46.315Z",
+      "modified_at": "2024-12-12T15:39:09.839Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bestehend\", \"fr\": \"Existante\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anschluss-an-oeffentliche-leitung-v5-neu",
+    "fields": {
+      "created_at": "2024-12-12T15:38:46.309Z",
+      "modified_at": "2024-12-12T15:39:09.844Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neu\", \"fr\": \"Nouvelle\", \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -8482,6 +8699,57 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "hausinstallation-anschluss-trinkwasserinstallation-v5-aendern-anpassen",
+    "fields": {
+      "created_at": "2024-12-12T15:40:56.521Z",
+      "modified_at": "2024-12-12T15:41:24.084Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00c4ndern/anpassen\", \"fr\": \"Modifier / adapter\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "hausinstallation-anschluss-trinkwasserinstallation-v5-erweitern",
+    "fields": {
+      "created_at": "2024-12-12T15:40:56.535Z",
+      "modified_at": "2024-12-12T15:41:24.089Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erweitern\", \"fr\": \"Etendre\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "hausinstallation-anschluss-trinkwasserinstallation-v5-neu-erstellen",
+    "fields": {
+      "created_at": "2024-12-12T15:40:56.530Z",
+      "modified_at": "2024-12-12T15:41:24.085Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neu erstellen\", \"fr\": \"Nouvelle\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5-aendern-anpassen",
     "fields": {
       "created_at": "2024-11-11T14:48:13.474Z",
@@ -9553,6 +9821,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "sprinkleranlage-anschluss-trinkwasserinstallation-v5-bestehend",
+    "fields": {
+      "created_at": "2024-12-12T15:44:55.485Z",
+      "modified_at": "2024-12-12T15:47:17.601Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bestehend\", \"fr\": \"Existante\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sprinkleranlage-anschluss-trinkwasserinstallation-v5-neu",
+    "fields": {
+      "created_at": "2024-12-12T15:44:55.481Z",
+      "modified_at": "2024-12-12T15:47:17.600Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neu\", \"fr\": \"Nouvelle\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "staendige-arbeitsplaetze-vorhanden-v5-ja",
     "fields": {
       "created_at": "2024-07-16T16:59:57.127Z",
@@ -10072,6 +10374,40 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nicht erforderlich\", \"fr\": \"Pas n\\u00e9cessaire\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wasserloeschposten-anschluss-trinkwasserinstallation-v5-bestehend",
+    "fields": {
+      "created_at": "2024-12-12T15:42:09.382Z",
+      "modified_at": "2024-12-12T15:42:25.833Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bestehend\", \"fr\": \"Existante\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wasserloeschposten-anschluss-trinkwasserinstallation-v5-neu",
+    "fields": {
+      "created_at": "2024-12-12T15:42:09.385Z",
+      "modified_at": "2024-12-12T15:42:25.826Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neu\", \"fr\": \"Nouvelle\", \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -10725,6 +11061,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "anschluss-an-oeffentliche-leitung-v5",
+    "fields": {
+      "created_at": "2024-12-12T15:38:46.391Z",
+      "modified_at": "2024-12-12T15:39:09.914Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anschluss an \\u00f6ffentliche Leitung\", \"fr\": \"Raccordement \\u00e0 la conduite publique\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "anschluss-elektrizitaet-v5",
     "fields": {
       "created_at": "2024-10-31T15:07:53.671Z",
@@ -10888,6 +11255,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "anschluss-trinkwasserinstallation-v5",
+    "fields": {
+      "created_at": "2024-12-12T15:36:00.395Z",
+      "modified_at": "2024-12-12T15:36:15.528Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anschluss Trinkwasserinstallation\", \"fr\": \"Raccordement au r\\u00e9seau d'eau\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!('betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5-ja' == 'betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "anschluss-trinkwasserinstallation-v5",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "anzahl-anschlussdosen-gewerbe-industrie-total-gemeinschaftsantenne-fernmeldenetz-v5",
     "fields": {
       "created_at": "2024-11-11T15:16:57.848Z",
@@ -11033,6 +11431,40 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Anzahl Wohnungen total\", \"fr\": \"Nombre total de logements\", \"it\": null}",
+      "type": "integer",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!('nutzungsart-wohnen' in 'nutzungsart'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anzahl-wohnungen-anschluss-trinkwasserinstallation-v5",
+    "fields": {
+      "created_at": "2024-12-12T15:50:17.834Z",
+      "modified_at": "2024-12-12T15:50:25.412Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Wohnungen\", \"fr\": \"Nombre d\\u2019appartements\", \"it\": null}",
       "type": "integer",
       "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
       "is_hidden": "!('nutzungsart-wohnen' in 'nutzungsart'|answer)",
@@ -12638,6 +13070,40 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "dokumente-v5",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "einzelboiler-pro-wohnung-anschluss-trinkwasserinstallation-v5",
+    "fields": {
+      "created_at": "2024-12-12T15:53:31.627Z",
+      "modified_at": "2024-12-12T15:53:59.268Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"1 Boiler / Wohnung (l)\", \"fr\": \"1 chauffe-eau par appartement (l)\", \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!('nutzungsart-wohnen' in 'nutzungsart'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": \"Zu beschreiben ist die Anzahl Einzelboiler pro Wohnung mit Inhaltsangaben (l).\", \"fr\": \"D\\u00e9crire le nombre de chauffe-eau individuels par logement avec indication du contenu (l).\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -14479,6 +14945,37 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Hausanschlussleitung\", \"fr\": \"Conduite de branchement priv\\u00e9e\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hausinstallation-anschluss-trinkwasserinstallation-v5",
+    "fields": {
+      "created_at": "2024-12-12T15:40:56.603Z",
+      "modified_at": "2024-12-12T15:41:24.175Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hausinstallation\", \"fr\": \"Installation int\\u00e9rieure\", \"it\": null}",
       "type": "multiple_choice",
       "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
       "is_hidden": "false",
@@ -16924,6 +17421,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "sprinkleranlage-anschluss-trinkwasserinstallation-v5",
+    "fields": {
+      "created_at": "2024-12-12T15:44:55.554Z",
+      "modified_at": "2024-12-12T15:47:17.675Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sprinkleranlage\", \"fr\": \"Installation d\\u2019arrosage\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "staendige-arbeitsplaetze-vorhanden-v5",
     "fields": {
       "created_at": "2024-07-16T16:59:57.197Z",
@@ -17903,6 +18431,139 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "wasserbedarf-gewerbe-industrie-maximal-lmin-v5",
+    "fields": {
+      "created_at": "2024-12-12T15:55:41.772Z",
+      "modified_at": "2024-12-12T15:55:49.738Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wasserbedarf Gewerbe / Industrie maximal (l/min)\", \"fr\": \"Besoins en eau artisanat/industrie maximum (l/min)\", \"it\": null}",
+      "type": "text",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!([\n  'nutzungsart-industrie',\n  'nutzungsart-gewerbe'\n] intersects 'nutzungsart'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "wasserbedarf-sprinkleranlage-maximal-lmin-v5",
+    "fields": {
+      "created_at": "2024-12-12T15:47:48.968Z",
+      "modified_at": "2024-12-12T15:47:56.822Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wasserbedarf Sprinkleranlage maximal (l/min)\", \"fr\": \"Besoins en eau d\\u2019installation d\\u2019arrosage maximum (l/min)\", \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!('sprinkleranlage-anschluss-trinkwasserinstallation-v5-neu' in 'sprinkleranlage-anschluss-trinkwasserinstallation-v5'|answer )",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "wasserbedarf-wasserloeschposten-maximal-lmin-v5",
+    "fields": {
+      "created_at": "2024-12-12T15:43:32.784Z",
+      "modified_at": "2024-12-12T15:44:04.709Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wasserbedarf Wasserl\\u00f6schposten maximal (l/min)\", \"fr\": \"Besoins en eau poste d\\u2019extinction maximum (l/min)\", \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!('wasserloeschposten-anschluss-trinkwasserinstallation-v5-neu' in 'wasserloeschposten-anschluss-trinkwasserinstallation-v5'|answer )",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "wasserloeschposten-anschluss-trinkwasserinstallation-v5",
+    "fields": {
+      "created_at": "2024-12-12T15:42:09.454Z",
+      "modified_at": "2024-12-12T15:42:25.944Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wasserl\\u00f6schposten\", \"fr\": \"Poste d\\u2019extinction\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "weitere-angaben-regeneration-ews-dokument-begruendung-v5",
     "fields": {
       "created_at": "2024-12-03T17:45:34.104Z",
@@ -18301,6 +18962,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "zentralboiler-anschluss-trinkwasserinstallation-v5",
+    "fields": {
+      "created_at": "2024-12-12T15:52:07.970Z",
+      "modified_at": "2024-12-12T15:52:52.865Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zentralboiler (l)\", \"fr\": \"Chauffe-eau central (l)\", \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!('nutzungsart-wohnen' in 'nutzungsart'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": \"Zu beschreiben ist die Anzahl Zentralboiler mit Inhaltsangaben (l).\", \"fr\": \"D\\u00e9crire le nombre de chauffe-eau centrales avec indication du contenu (l).\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "zustimmung-der-anstoesser-dokument-begruendung-v5",
     "fields": {
       "created_at": "2024-12-03T16:46:10.858Z",
@@ -18411,6 +19106,36 @@
       "modified_by_group": null,
       "question": "akustische-qualitaet-richtwertvarianten-v5",
       "option": "akustische-qualitaet-richtwertvarianten-v5-schalldruckpegelabnahme-pro-distanzverdoppelung-dl2",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anschluss-an-oeffentliche-leitung-v5.anschluss-an-oeffentliche-leitung-v5-bestehend",
+    "fields": {
+      "created_at": "2024-12-12T15:39:09.921Z",
+      "modified_at": "2024-12-12T15:39:09.921Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "anschluss-an-oeffentliche-leitung-v5",
+      "option": "anschluss-an-oeffentliche-leitung-v5-bestehend",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anschluss-an-oeffentliche-leitung-v5.anschluss-an-oeffentliche-leitung-v5-neu",
+    "fields": {
+      "created_at": "2024-12-12T15:39:09.919Z",
+      "modified_at": "2024-12-12T15:39:09.919Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "anschluss-an-oeffentliche-leitung-v5",
+      "option": "anschluss-an-oeffentliche-leitung-v5-neu",
       "sort": 1
     }
   },
@@ -19826,6 +20551,51 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "hausinstallation-anschluss-trinkwasserinstallation-v5.hausinstallation-anschluss-trinkwasserinstallation-v5-aendern-anpassen",
+    "fields": {
+      "created_at": "2024-12-12T15:41:24.184Z",
+      "modified_at": "2024-12-12T15:41:24.184Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "hausinstallation-anschluss-trinkwasserinstallation-v5",
+      "option": "hausinstallation-anschluss-trinkwasserinstallation-v5-aendern-anpassen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "hausinstallation-anschluss-trinkwasserinstallation-v5.hausinstallation-anschluss-trinkwasserinstallation-v5-erweitern",
+    "fields": {
+      "created_at": "2024-12-12T15:41:24.182Z",
+      "modified_at": "2024-12-12T15:41:24.182Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "hausinstallation-anschluss-trinkwasserinstallation-v5",
+      "option": "hausinstallation-anschluss-trinkwasserinstallation-v5-erweitern",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "hausinstallation-anschluss-trinkwasserinstallation-v5.hausinstallation-anschluss-trinkwasserinstallation-v5-neu-erstellen",
+    "fields": {
+      "created_at": "2024-12-12T15:41:24.187Z",
+      "modified_at": "2024-12-12T15:41:24.187Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "hausinstallation-anschluss-trinkwasserinstallation-v5",
+      "option": "hausinstallation-anschluss-trinkwasserinstallation-v5-neu-erstellen",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5.hausinstallation-gemeinschaftsantenne-fernmeldenetz-v5-aendern-anpassen",
     "fields": {
       "created_at": "2024-11-14T16:07:40.145Z",
@@ -20771,6 +21541,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "sprinkleranlage-anschluss-trinkwasserinstallation-v5.sprinkleranlage-anschluss-trinkwasserinstallation-v5-bestehend",
+    "fields": {
+      "created_at": "2024-12-12T15:47:17.684Z",
+      "modified_at": "2024-12-12T15:47:17.684Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "sprinkleranlage-anschluss-trinkwasserinstallation-v5",
+      "option": "sprinkleranlage-anschluss-trinkwasserinstallation-v5-bestehend",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sprinkleranlage-anschluss-trinkwasserinstallation-v5.sprinkleranlage-anschluss-trinkwasserinstallation-v5-neu",
+    "fields": {
+      "created_at": "2024-12-12T15:47:17.682Z",
+      "modified_at": "2024-12-12T15:47:17.682Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "sprinkleranlage-anschluss-trinkwasserinstallation-v5",
+      "option": "sprinkleranlage-anschluss-trinkwasserinstallation-v5-neu",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "staendige-arbeitsplaetze-vorhanden-v5.staendige-arbeitsplaetze-vorhanden-v5-ja",
     "fields": {
       "created_at": "2024-07-23T08:44:51.967Z",
@@ -21231,6 +22031,36 @@
       "modified_by_group": null,
       "question": "vorabklaerung-dokument-v5",
       "option": "vorabklaerung-dokument-v5-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wasserloeschposten-anschluss-trinkwasserinstallation-v5.wasserloeschposten-anschluss-trinkwasserinstallation-v5-bestehend",
+    "fields": {
+      "created_at": "2024-12-12T15:42:25.951Z",
+      "modified_at": "2024-12-12T15:42:25.951Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "wasserloeschposten-anschluss-trinkwasserinstallation-v5",
+      "option": "wasserloeschposten-anschluss-trinkwasserinstallation-v5-bestehend",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wasserloeschposten-anschluss-trinkwasserinstallation-v5.wasserloeschposten-anschluss-trinkwasserinstallation-v5-neu",
+    "fields": {
+      "created_at": "2024-12-12T15:42:25.949Z",
+      "modified_at": "2024-12-12T15:42:25.949Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "wasserloeschposten-anschluss-trinkwasserinstallation-v5",
+      "option": "wasserloeschposten-anschluss-trinkwasserinstallation-v5-neu",
       "sort": 1
     }
   },
