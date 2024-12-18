@@ -659,7 +659,7 @@
     "pk": "dokumente-reklame-form",
     "fields": {
       "created_at": "2024-12-12T10:14:39.058Z",
-      "modified_at": "2024-12-12T10:20:46.779Z",
+      "modified_at": "2024-12-18T13:40:43.005Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1281,7 +1281,7 @@
     "pk": "reklame",
     "fields": {
       "created_at": "2024-12-04T12:41:53.055Z",
-      "modified_at": "2024-12-06T13:19:28.939Z",
+      "modified_at": "2024-12-18T13:54:57.283Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -8914,21 +8914,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "dokumente-reklame-form.fotodokumentation",
-    "fields": {
-      "created_at": "2024-12-12T10:14:39.112Z",
-      "modified_at": "2024-12-12T10:14:39.112Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "dokumente-reklame-form",
-      "question": "fotodokumentation",
-      "sort": 13
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "dokumente-reklame-form.hinweistext-dokumente",
     "fields": {
       "created_at": "2024-12-12T10:14:39.064Z",
@@ -8939,22 +8924,7 @@
       "modified_by_group": null,
       "form": "dokumente-reklame-form",
       "question": "hinweistext-dokumente",
-      "sort": 31
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "dokumente-reklame-form.parkplatzberechnung",
-    "fields": {
-      "created_at": "2024-12-12T10:14:39.071Z",
-      "modified_at": "2024-12-12T10:14:39.071Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "dokumente-reklame-form",
-      "question": "parkplatzberechnung",
-      "sort": 28
+      "sort": 5
     }
   },
   {
@@ -8969,7 +8939,7 @@
       "modified_by_group": null,
       "form": "dokumente-reklame-form",
       "question": "projektbeschrieb",
-      "sort": 29
+      "sort": 3
     }
   },
   {
@@ -8984,37 +8954,22 @@
       "modified_by_group": null,
       "form": "dokumente-reklame-form",
       "question": "projektplaene",
-      "sort": 30
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "dokumente-reklame-form.umweltvertraeglichkeitsbericht-uvb",
+    "pk": "dokumente-reklame-form.visualisierung-der-reklamen-reklame",
     "fields": {
-      "created_at": "2024-12-12T10:14:39.085Z",
-      "modified_at": "2024-12-12T10:14:39.085Z",
+      "created_at": "2024-12-18T13:43:50.958Z",
+      "modified_at": "2024-12-18T13:43:50.958Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": null,
       "modified_by_group": null,
       "form": "dokumente-reklame-form",
-      "question": "umweltvertraeglichkeitsbericht-uvb",
-      "sort": 23
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "dokumente-reklame-form.visualisierung-der-reklamen",
-    "fields": {
-      "created_at": "2024-12-12T10:14:39.102Z",
-      "modified_at": "2024-12-12T10:14:39.102Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "dokumente-reklame-form",
-      "question": "visualisierung-der-reklamen",
-      "sort": 17
+      "question": "visualisierung-der-reklamen-reklame",
+      "sort": 1
     }
   },
   {
@@ -15194,7 +15149,7 @@
       "modified_by_group": null,
       "form": "reklame",
       "question": "allgemeine-informationen",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -15439,16 +15394,16 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "reklame.reklamen-formular",
+    "pk": "reklame.reklamen-specific-form",
     "fields": {
-      "created_at": "2024-12-04T12:51:52.603Z",
-      "modified_at": "2024-12-04T12:51:52.603Z",
+      "created_at": "2024-12-18T13:54:18.079Z",
+      "modified_at": "2024-12-18T13:54:18.079Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "reklame",
-      "question": "reklamen-formular",
+      "question": "reklamen-specific-form",
       "sort": 4
     }
   },
@@ -41663,10 +41618,10 @@
     "pk": "visualisierung-der-reklamen-ja",
     "fields": {
       "created_at": "2024-11-27T14:54:45.175Z",
-      "modified_at": "2024-11-27T14:54:45.175Z",
+      "modified_at": "2024-12-18T13:43:50.801Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Visualisierung der Reklamen\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
@@ -66184,10 +66139,10 @@
     "pk": "fluchtweg-brandschutz-und-layoutplan-pgv-gas",
     "fields": {
       "created_at": "2024-12-12T13:37:29.909Z",
-      "modified_at": "2024-12-12T13:37:29.909Z",
+      "modified_at": "2024-12-18T13:48:13.086Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Fluchtweg-, Brandschutz- und Layoutplan\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
@@ -66195,11 +66150,13 @@
       "is_hidden": "!(\"sind-arbeitnehmende-betroffen-pgv-gas\"|answer == \"sind-arbeitnehmende-betroffen-pgv-gas-ja\")",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "hideLabel": true
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -80398,6 +80355,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "reklamen-specific-form",
+    "fields": {
+      "created_at": "2024-12-18T13:54:18Z",
+      "modified_at": "2024-12-18T13:54:46.589Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Reklamen\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "reklamen",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "reklamen-tabelle",
     "fields": {
       "created_at": "2024-11-06T13:25:24.203Z",
@@ -85871,6 +85859,39 @@
       "type": "multiple_choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "form != \"reklame\" && !(\"reklame-geplant\"|answer == \"reklame-geplant-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "visualisierung-der-reklamen-reklame",
+    "fields": {
+      "created_at": "2024-12-18T13:43:50.870Z",
+      "modified_at": "2024-12-18T13:44:07.825Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Visualisierung der Reklamen\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -99531,8 +99552,8 @@
     "model": "caluma_form.questionoption",
     "pk": "fluchtweg-brandschutz-und-layoutplan-pgv-gas.fluchtweg-brandschutz-und-layoutplan-pgv-gas-ja",
     "fields": {
-      "created_at": "2024-12-12T13:37:29.912Z",
-      "modified_at": "2024-12-12T13:37:29.912Z",
+      "created_at": "2024-12-18T13:48:13.094Z",
+      "modified_at": "2024-12-18T13:48:13.094Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -108570,6 +108591,21 @@
       "question": "verwendungszweck-des-gases",
       "option": "verwendungszweck-des-gases-warmwasser",
       "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "visualisierung-der-reklamen-reklame.visualisierung-der-reklamen-ja",
+    "fields": {
+      "created_at": "2024-12-18T13:44:07.830Z",
+      "modified_at": "2024-12-18T13:44:07.830Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "visualisierung-der-reklamen-reklame",
+      "option": "visualisierung-der-reklamen-ja",
+      "sort": 1
     }
   },
   {
