@@ -23,7 +23,9 @@
 # - set $csp_portal_allow_inline_style "true" | "false" (optional; defaults to "false")
 # - set $csp_php_allow_unsafe_eval "true" | "false"  (optional; defaults to "false")
 # - set $csp_php_allow_localhost_scripts "true" | "false"  (optional; defaults to "false")
+# - set $csp_external_connect_sources "space-separated-list-of-urls" (optional; defaults to empty)
 # - set $csp_external_img_sources "space-separated-list-of-urls" (optional; defaults to empty)
+# - set $csp_external_style_sources "space-separated-list-of-urls" (optional; defaults to empty)
 # IN RETURN, you get the following variables:
 # - $csp_header_keycloak     - Keycloak
 # - $csp_header_portal       - Portal (applicant-facing)
@@ -40,7 +42,9 @@ if ($csp_use_google_fonts ~ "^$")            { set $csp_use_google_fonts "false"
 if ($csp_use_font_data_url ~ "^$")           { set $csp_use_font_data_url "false"; }
 if ($csp_php_allow_unsafe_eval ~ "^$")       { set $csp_php_allow_unsafe_eval "false"; }
 if ($csp_php_allow_localhost_scripts ~ "^$") { set $csp_php_allow_localhost_scripts "false"; }
+if ($csp_external_connect_sources ~ "^$")    { set $csp_external_connect_sources ""; }
 if ($csp_external_img_sources ~ "^$")        { set $csp_external_img_sources ""; }
+if ($csp_external_style_sources ~ "^$")      { set $csp_external_style_sources ""; }
 
 # Intermediates
 # =============
@@ -51,10 +55,11 @@ set $csp_default_self   "default-src 'self'";
 set $csp_script_default "script-src 'self'";
 set $csp_script_inline  "script-src 'self' 'unsafe-inline'";
 set $csp_img_default    "img-src 'self' data: ${csp_external_img_sources}";
+set $csp_connect_src    "connect-src 'self' ${csp_external_connect_sources}";
 
 # Connect: We need to be able to connect to KC from anywhere for login / token
 # fetch
-set $csp_connect_src "connect-src 'self' ${csp_keycloak_url}";
+set $csp_connect_src "${csp_connect_src} ${csp_keycloak_url}";
 
 # fonts: Depending on whether we use google
 set $csp_fonts_src "font-src 'self'";
@@ -67,7 +72,7 @@ if ($csp_use_font_data_url = "true") {
 }
 
 # Styles: Also depends on google fonts usage
-set $csp_style_src "style-src 'self'";
+set $csp_style_src "style-src 'self' ${csp_external_style_sources}";
 if ($csp_use_google_fonts = "true") {
   set $csp_style_src "${csp_style_src} https://fonts.googleapis.com";
 }
