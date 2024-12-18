@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "model": "applicants.applicant",
+    "pk": 1,
+    "fields": {
+      "instance": 1,
+      "user": 1,
+      "invitee": 1,
+      "created": "2024-12-10T10:11:44.862Z",
+      "email": "admin@example.com",
+      "role": "ADMIN"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 2,
+    "fields": {
+      "instance": 2,
+      "user": 1,
+      "invitee": 1,
+      "created": "2024-12-10T10:13:35.204Z",
+      "email": "admin@example.com",
+      "role": "ADMIN"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 3,
+    "fields": {
+      "instance": 3,
+      "user": 1,
+      "invitee": 1,
+      "created": "2024-12-10T10:28:19.885Z",
+      "email": "admin@example.com",
+      "role": "ADMIN"
+    }
+  }
+]

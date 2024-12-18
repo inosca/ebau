@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "model": "core.instanceservice",
+    "pk": 2000007,
+    "fields": {
+      "instance": 2,
+      "service": 55,
+      "active": 1,
+      "activation_date": null
+    }
+  }
+]

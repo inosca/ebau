@@ -1104,7 +1104,7 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Karte\", \"fr\": null, \"it\": \"Carta\"}",
       "type": "text",
-      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",

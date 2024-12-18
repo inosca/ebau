@@ -55,6 +55,42 @@
   },
   {
     "model": "user.role",
+    "pk": 7,
+    "fields": {
+      "role_parent": null,
+      "name": "municipality-clerk",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 8,
+    "fields": {
+      "role_parent": null,
+      "name": "service-clerk",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 9,
+    "fields": {
+      "role_parent": null,
+      "name": "municipality-read",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 10,
+    "fields": {
+      "role_parent": null,
+      "name": "service-read",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
     "pk": 10000,
     "fields": {
       "role_parent": null,
@@ -106,8 +142,8 @@
     "fields": {
       "role": 3,
       "language": "de",
-      "name": "Sachbearbeitung Gemeinde",
-      "group_prefix": "Sachbearbeitung"
+      "name": "Leitung Gemeinde",
+      "group_prefix": "Leitung"
     }
   },
   {
@@ -116,8 +152,8 @@
     "fields": {
       "role": 4,
       "language": "de",
-      "name": "Sachbearbeitung Fachstelle",
-      "group_prefix": "Sachbearbeitung"
+      "name": "Leitung Fachstelle",
+      "group_prefix": "Leitung"
     }
   },
   {
@@ -138,6 +174,46 @@
       "language": "de",
       "name": "Administration Fachstelle",
       "group_prefix": "Administration"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 9,
+    "fields": {
+      "role": 7,
+      "language": "de",
+      "name": "Sachbearbeitung Gemeinde",
+      "group_prefix": "Sachbearbeitung"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 10,
+    "fields": {
+      "role": 8,
+      "language": "de",
+      "name": "Sachbearbeitung Fachstelle",
+      "group_prefix": "Sachbearbeitung"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 11,
+    "fields": {
+      "role": 9,
+      "language": "de",
+      "name": "Einsichtsberechtigte Gemeinde",
+      "group_prefix": "Einsichtsberechtigte"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 12,
+    "fields": {
+      "role": 10,
+      "language": "de",
+      "name": "Einsichtsberechtigte Fachstelle",
+      "group_prefix": "Einsichtsberechtigte"
     }
   },
   {
@@ -174,7 +250,7 @@
     "model": "user.servicegroup",
     "pk": 1,
     "fields": {
-      "name": "service",
+      "name": "service-cantonal",
       "sort": null
     }
   },
@@ -187,12 +263,28 @@
     }
   },
   {
+    "model": "user.servicegroup",
+    "pk": 3,
+    "fields": {
+      "name": "service-extra-cantonal",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 4,
+    "fields": {
+      "name": "service-afb",
+      "sort": null
+    }
+  },
+  {
     "model": "user.servicegroupt",
     "pk": 20000,
     "fields": {
       "service_group": 1,
       "language": "de",
-      "name": "Fachstelle"
+      "name": "Kantonale Fachstelle"
     }
   },
   {
@@ -202,6 +294,24 @@
       "service_group": 2,
       "language": "de",
       "name": "Gemeinde"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20002,
+    "fields": {
+      "service_group": 3,
+      "language": "de",
+      "name": "Ausserkantonale Fachstelle"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20003,
+    "fields": {
+      "service_group": 4,
+      "language": "de",
+      "name": "Abteilung für Baubewilligungen"
     }
   }
 ]

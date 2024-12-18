@@ -4,8 +4,8 @@
 $global-font-family: "Arial", sans-serif;
 
 // Base colors
-$global-primary-background: #007ab8;
-$global-secondary-background: #262626;
+$global-primary-background: #3D464E;
+$global-secondary-background: #283B48;
 
 // Font colors
 $global-color: $global-secondary-background;
@@ -13,6 +13,6 @@ $global-emphasis-color: $global-color;
 
 $global-muted-color: rgb(100, 100, 100);
 $global-link-color: $global-primary-background;
-$global-link-hover-color: #004774;
+$global-link-hover-color: #007ab8;
 
-$watermark-background-color: #f0506e;
+$watermark-background-color: #b80d22;
