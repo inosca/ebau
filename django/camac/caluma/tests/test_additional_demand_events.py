@@ -62,22 +62,12 @@ def test_post_complete_check_additional_demand_ur(
     instance_state_factory(
         name=ur_additional_demand_settings["STATES"]["PENDING_ADDITIONAL_DEMANDS"]
     )
-    instance_state_factory(
-        name=ur_additional_demand_settings["STATES"]["AFTER_ADDITIONAL_DEMANDS"]
-    )
-    ur_instance.set_instance_state(
-        instance_state_factory().name,
-        admin_user,
-    )
     additional_demand.post_complete_check_additional_demand(
         sender=None, work_item=work_item, user=caluma_admin_user
     )
 
     ur_instance.refresh_from_db()
 
-    assert (
-        ur_instance.instance_state.name
-        == ur_additional_demand_settings["STATES"]["AFTER_ADDITIONAL_DEMANDS"]
-    )
+    assert ur_instance.instance_state.name == ur_instance.previous_instance_state.name
     distribution_init_work_item.refresh_from_db()
     assert distribution_init_work_item.status == WorkItem.STATUS_READY
