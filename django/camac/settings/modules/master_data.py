@@ -2744,4 +2744,14 @@ MASTER_DATA = {
             "zip": ("static", None),
         },
     },
+    "kt_ag": {
+        "ENABLED": True,
+        "CONFIG": {
+            "municipality_slug": (
+                "answer",
+                "gemeinde",
+                {"value_parser": "dynamic_option", "prop": "slug"},
+            ),
+        },
+    },
 }

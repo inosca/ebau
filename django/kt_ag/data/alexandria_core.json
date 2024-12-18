@@ -1,1 +1,142 @@
-[]
+[
+  {
+    "model": "alexandria_core.document",
+    "pk": "16805f36-c38f-490a-a7c8-d345777302ad",
+    "fields": {
+      "created_at": "2024-12-10T10:29:27.575Z",
+      "created_by_user": "1",
+      "created_by_group": null,
+      "modified_at": "2024-12-10T10:29:27.575Z",
+      "modified_by_user": "1",
+      "modified_by_group": null,
+      "metainfo": {
+        "camac-instance-id": "3",
+        "caluma-document-id": "b0091db4-d0c1-4413-b943-410d7467b41f"
+      },
+      "title": "pdf-test.pdf",
+      "description": null,
+      "category": "beilagen-zum-gesuch-grundstuecksangaben",
+      "date": null,
+      "tags": [],
+      "marks": []
+    }
+  },
+  {
+    "model": "alexandria_core.document",
+    "pk": "98b9bd4f-ad73-4693-9095-94e9b6d620b6",
+    "fields": {
+      "created_at": "2024-12-10T10:15:04.686Z",
+      "created_by_user": "1",
+      "created_by_group": null,
+      "modified_at": "2024-12-10T10:15:04.686Z",
+      "modified_by_user": "1",
+      "modified_by_group": null,
+      "metainfo": {
+        "camac-instance-id": "2",
+        "caluma-document-id": "2c6eb432-ff63-4862-8cca-f3db31dfaf0f"
+      },
+      "title": "pdf-test.pdf",
+      "description": null,
+      "category": "beilagen-zum-gesuch-grundstuecksangaben",
+      "date": null,
+      "tags": [],
+      "marks": []
+    }
+  },
+  {
+    "model": "alexandria_core.file",
+    "pk": "0d3c255b-c6e3-4644-b6fd-33ebd37daf09",
+    "fields": {
+      "created_at": "2024-12-10T10:29:27.585Z",
+      "created_by_user": "1",
+      "created_by_group": null,
+      "modified_at": "2024-12-10T10:29:27.585Z",
+      "modified_by_user": "1",
+      "modified_by_group": null,
+      "metainfo": {},
+      "variant": "original",
+      "original": null,
+      "name": "pdf-test.pdf",
+      "document": "16805f36-c38f-490a-a7c8-d345777302ad",
+      "checksum": "sha256:4ad0156942d1c26a4aa74fe6d52c082c6871b33b0e933f40566f6740fdae0ebb",
+      "encryption_status": null,
+      "content_vector": "'123456':59B '13':56B '18th':63B '1972':65B '200dpi':18B '2038':217B '25':50B '350/pjc/eac':62B '51617':57B '60':220B '8':51B '945':55B 'analog':118B 'berk':75B 'bh':49B 'bool':47B,54B 'cabl':141B 'carrier':129B 'caus':94B,112B 'communic':142B 'compani':43B 'convert':20B 'copi':103B,187B 'cross':208B 'cundal':68B 'dear':76B 'demodul':148B 'densiti':108B,159B 'destin':136B 'devic':166B,168B 'document':39B,111B,191B 'dorset':48B 'dr':66B 'electr':119B 'england':215B 'er':52B 'eseex':224B 'exit':226B 'facil':85B,200B 'facsimil':87B,90B,186B,211B 'generat':116B 'group':209B 'holroyd':72B 'ilford':223B 'imag':6B,35B 'introduc':81B 'januari':64B 'lane':46B,222B 'leader':210B 'limit':44B 'link':143B 'ltd':71B 'mine':69B 'modul':127B,157B 'note':8B 'offic':219B 'organis':203B 'origin':34B 'p.j':207B 'p.n':67B 'page':15B 'paperless':10B 'pdf':2A,22B 'pdf-test':1A 'perform':96B 'permit':78B 'pete':77B 'photocel':92B,114B 'print':107B,161B,165B,225B 'probabl':194B 'produc':162B,193B 'radio':139B 'raster':98B,173B 'read':74B 'reconstruct':149B 'ref':61B 'regist':213B,218B 'remot':135B,146B 'research':212B 'result':184B 'road':73B 'sampl':4B,14B 'sapor':45B 'scan':5B,16B,99B,170B,174B 'searchabl':26B 'see':31B 'signal':121B,123B,152B 'sincer':205B 'slerex':42B 'sourc':38B 'sticki':7B 'subject':102B,190B 'survey':70B 'synchronis':175B 'telephon':53B 'telex':58B 'termin':147B,181B 'test':3A 'tha':206B 'transmiss':88B 'transmit':132B,180B 'use':125B,155B,197B 'variat':105B 'vicara':221B 'video':120B,151B",
+      "language": "en",
+      "content": "0d3c255b-c6e3-4644-b6fd-33ebd37daf09_pdf-test.pdf",
+      "mime_type": "application/pdf",
+      "size": 21530
+    }
+  },
+  {
+    "model": "alexandria_core.file",
+    "pk": "30fa9c4b-ce54-4503-8d3e-901980ff9d7b",
+    "fields": {
+      "created_at": "2024-12-10T10:15:09.104Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2024-12-10T10:15:09.104Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "variant": "thumbnail",
+      "original": "ca29ea17-d2b2-4462-ae84-6303468715eb",
+      "name": "pdf-test.pdf_preview.jpg",
+      "document": "98b9bd4f-ad73-4693-9095-94e9b6d620b6",
+      "checksum": "sha256:6db5d8e458a8990c458e8c4cf8d4a173e6bd6d16ab4ce56bdcf162297c8e718b",
+      "encryption_status": null,
+      "content_vector": null,
+      "language": null,
+      "content": "30fa9c4b-ce54-4503-8d3e-901980ff9d7b_pdf-test.pdf_preview.jpg",
+      "mime_type": "image/jpeg",
+      "size": 21530
+    }
+  },
+  {
+    "model": "alexandria_core.file",
+    "pk": "ca29ea17-d2b2-4462-ae84-6303468715eb",
+    "fields": {
+      "created_at": "2024-12-10T10:15:04.698Z",
+      "created_by_user": "1",
+      "created_by_group": null,
+      "modified_at": "2024-12-10T10:15:04.698Z",
+      "modified_by_user": "1",
+      "modified_by_group": null,
+      "metainfo": {},
+      "variant": "original",
+      "original": null,
+      "name": "pdf-test.pdf",
+      "document": "98b9bd4f-ad73-4693-9095-94e9b6d620b6",
+      "checksum": "sha256:4ad0156942d1c26a4aa74fe6d52c082c6871b33b0e933f40566f6740fdae0ebb",
+      "encryption_status": null,
+      "content_vector": "'123456':59B '13':56B '18th':63B '1972':65B '200dpi':18B '2038':217B '25':50B '350/pjc/eac':62B '51617':57B '60':220B '8':51B '945':55B 'analog':118B 'berk':75B 'bh':49B 'bool':47B,54B 'cabl':141B 'carrier':129B 'caus':94B,112B 'communic':142B 'compani':43B 'convert':20B 'copi':103B,187B 'cross':208B 'cundal':68B 'dear':76B 'demodul':148B 'densiti':108B,159B 'destin':136B 'devic':166B,168B 'document':39B,111B,191B 'dorset':48B 'dr':66B 'electr':119B 'england':215B 'er':52B 'eseex':224B 'exit':226B 'facil':85B,200B 'facsimil':87B,90B,186B,211B 'generat':116B 'group':209B 'holroyd':72B 'ilford':223B 'imag':6B,35B 'introduc':81B 'januari':64B 'lane':46B,222B 'leader':210B 'limit':44B 'link':143B 'ltd':71B 'mine':69B 'modul':127B,157B 'note':8B 'offic':219B 'organis':203B 'origin':34B 'p.j':207B 'p.n':67B 'page':15B 'paperless':10B 'pdf':2A,22B 'pdf-test':1A 'perform':96B 'permit':78B 'pete':77B 'photocel':92B,114B 'print':107B,161B,165B,225B 'probabl':194B 'produc':162B,193B 'radio':139B 'raster':98B,173B 'read':74B 'reconstruct':149B 'ref':61B 'regist':213B,218B 'remot':135B,146B 'research':212B 'result':184B 'road':73B 'sampl':4B,14B 'sapor':45B 'scan':5B,16B,99B,170B,174B 'searchabl':26B 'see':31B 'signal':121B,123B,152B 'sincer':205B 'slerex':42B 'sourc':38B 'sticki':7B 'subject':102B,190B 'survey':70B 'synchronis':175B 'telephon':53B 'telex':58B 'termin':147B,181B 'test':3A 'tha':206B 'transmiss':88B 'transmit':132B,180B 'use':125B,155B,197B 'variat':105B 'vicara':221B 'video':120B,151B",
+      "language": "en",
+      "content": "ca29ea17-d2b2-4462-ae84-6303468715eb_pdf-test.pdf",
+      "mime_type": "application/pdf",
+      "size": 21530
+    }
+  },
+  {
+    "model": "alexandria_core.file",
+    "pk": "e5e50398-0627-4646-ae84-e8faab2653b5",
+    "fields": {
+      "created_at": "2024-12-10T10:29:30.630Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2024-12-10T10:29:30.630Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "variant": "thumbnail",
+      "original": "0d3c255b-c6e3-4644-b6fd-33ebd37daf09",
+      "name": "pdf-test.pdf_preview.jpg",
+      "document": "16805f36-c38f-490a-a7c8-d345777302ad",
+      "checksum": "sha256:6db5d8e458a8990c458e8c4cf8d4a173e6bd6d16ab4ce56bdcf162297c8e718b",
+      "encryption_status": null,
+      "content_vector": null,
+      "language": null,
+      "content": "e5e50398-0627-4646-ae84-e8faab2653b5_pdf-test.pdf_preview.jpg",
+      "mime_type": "image/jpeg",
+      "size": 21530
+    }
+  }
+]
