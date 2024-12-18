@@ -204,7 +204,10 @@ export default class CaseTableComponent extends Component {
               ],
             },
           }
-        : macroCondition(getOwnConfig().application === "gr")
+        : macroCondition(
+              getOwnConfig().application === "gr" ||
+                getOwnConfig().application === "ag",
+            )
           ? {
               personalDetails: {
                 searchAnswers: [
