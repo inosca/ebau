@@ -20,9 +20,6 @@ export default {
     snippets: true,
     revert: true,
   },
-  communication: {
-    snippets: true,
-  },
   cases: {
     createPaper: true,
     exportExcel: true,
@@ -33,7 +30,10 @@ export default {
   gis: {
     v3: true,
   },
-  communications: true,
+  communications: {
+    enabled: true,
+    snippets: true,
+  },
   portal: {
     stateInfoButton: true,
   },

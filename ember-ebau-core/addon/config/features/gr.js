@@ -23,7 +23,9 @@ export default {
     useNumberSeparatorWidgetAsDefault: true,
   },
   watermark: isDevelopingApp() || getOwnConfig().enableWatermark,
-  communications: true,
+  communications: {
+    enabled: true,
+  },
   additionalDemands: true,
   dashboard: {
     useLegacy: true,

@@ -85,7 +85,8 @@
                 }}</UkSubnav::Item>
               {{#if
                 (and
-                  (has-feature "communications") (not this.session.isInternal)
+                  (has-feature "communications.enabled")
+                  (not this.session.isInternal)
                 )
               }}
                 <UkSubnav::Item @href="/communications-global">{{t
