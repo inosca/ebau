@@ -411,7 +411,7 @@ APPLICATIONS = {
                 154,  # geometrie plus ag (Geometer)
             ],
         },
-        "TAX_ADMINISTRATION": 350,  # Liegenschaftenschätzung Steuerverwaltung
+        "TAX_ADMINISTRATION": "tax-administration",  # Liegenschaftenschätzung Steuerverwaltung
         "NOTIFICATIONS": {
             "SUBMIT": "gesuchseingang",
             "APPLICANT": {

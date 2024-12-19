@@ -103,6 +103,7 @@ class Trigger:
     instance_created = EventTrigger()
     instance_submitted = EventTrigger()
     instance_retrieved = EventTrigger()
+    instance_completed = EventTrigger()
     changed_responsible_service = EventTrigger()
     inquiry_sent = EventTrigger()
     inquiry_completed = EventTrigger()
@@ -183,6 +184,9 @@ class EmptyEventHandler(PermissionEventHandler):
     """
 
     def instance_created(self, instance: Instance):
+        return  # pragma: no cover
+
+    def instance_completed(self, instance: Instance):
         return  # pragma: no cover
 
     def decision_decreed(self, instance: Instance):

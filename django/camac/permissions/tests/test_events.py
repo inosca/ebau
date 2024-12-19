@@ -11,7 +11,7 @@ from rest_framework import status
 from camac.constants import kt_gr as gr_constants
 from camac.instance.models import Instance, InstanceState
 from camac.instance.utils import copy_instance
-from camac.permissions import events, exceptions
+from camac.permissions import api as permissions_api, events, exceptions
 from camac.permissions.models import InstanceACL
 from camac.permissions.switcher import PERMISSION_MODE
 from camac.user.models import ServiceRelation
@@ -607,6 +607,37 @@ def test_submitted_so(so_access_levels, so_instance, instance_acl_factory):
     events.Trigger.instance_submitted(None, so_instance)
     the_acl.refresh_from_db()
     assert not the_acl.is_active()
+
+
+def test_completed_involve_tax_administration_sz(
+    db,
+    sz_permissions_settings,
+    sz_access_levels,
+    sz_instance,
+    set_application_sz,
+    service_factory,
+    work_item_factory,
+    answer_factory,
+):
+    tax_administration = service_factory.create(
+        slug=set_application_sz["TAX_ADMINISTRATION"]
+    )
+    work_item = work_item_factory(case=sz_instance.case, task_id="complete-instance")
+    answer = answer_factory(
+        question_id="steuerverwaltung-informieren",
+        value=["steuerverwaltung-informieren-steuerverwaltung-informieren"],
+    )
+    work_item.document.answers.add(answer)
+
+    events.Trigger.instance_completed(None, sz_instance)
+
+    acls = InstanceACL.objects.filter(
+        instance=sz_instance,
+        grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+        access_level="read",
+        service=tax_administration,
+    )
+    assert acls.exists()
 
 
 @pytest.mark.parametrize("permission_mode", [PERMISSION_MODE.FULL, PERMISSION_MODE.OFF])

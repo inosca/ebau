@@ -37501,7 +37501,7 @@
     "model": "user.service",
     "pk": 196,
     "fields": {
-      "slug": null,
+      "slug": "tax-administration",
       "service_group": 5,
       "service_parent": null,
       "name": "Kantonale Steuerverwaltung",
