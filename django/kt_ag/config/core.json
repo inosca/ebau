@@ -81,6 +81,22 @@
   },
   {
     "model": "core.instanceresource",
+    "pk": 2000000,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 2000001,
+      "name": null,
+      "description": null,
+      "template": "/ember/instance.phtml",
+      "class_field": "menu-category-primary",
+      "hidden": 0,
+      "sort": 2,
+      "form_group": 2000000,
+      "require_permission": "form-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
     "pk": 22000000,
     "fields": {
       "available_instance_resource": "workitemlistinstance",
@@ -106,7 +122,7 @@
       "template": "/ember-camac-ng/alexandria.phtml",
       "class_field": "menu-category-primary",
       "hidden": 0,
-      "sort": 2,
+      "sort": 3,
       "form_group": 2000000,
       "require_permission": "documents-read"
     }
@@ -122,7 +138,7 @@
       "template": "/ember-camac-ng/dms-generate.phtml",
       "class_field": "menu-category-primary",
       "hidden": 0,
-      "sort": 3,
+      "sort": 4,
       "form_group": 2000000,
       "require_permission": "dms-generate-read"
     }
@@ -138,7 +154,7 @@
       "template": "/ember-camac-ng/responsible.phtml",
       "class_field": "menu-category-primary",
       "hidden": 0,
-      "sort": 4,
+      "sort": 5,
       "form_group": 2000000,
       "require_permission": "responsible-read"
     }
@@ -154,7 +170,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 5,
+      "sort": 6,
       "form_group": 2000000,
       "require_permission": "journal-read"
     }
@@ -170,7 +186,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 6,
+      "sort": 7,
       "form_group": 2000000,
       "require_permission": "history-read"
     }
@@ -186,9 +202,19 @@
       "template": "/ember-camac-ng/permissions.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 7,
+      "sort": 8,
       "form_group": 2000000,
       "require_permission": "permissions-read"
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 2000000,
+    "fields": {
+      "instance_resource": 2000000,
+      "language": "de",
+      "name": "Formular",
+      "description": null
     }
   },
   {
@@ -259,6 +285,33 @@
       "language": "de",
       "name": "Berechtigungen",
       "description": null
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000000,
+    "fields": {
+      "instance_resource": 2000000,
+      "role": 3,
+      "instance_state": 120004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000001,
+    "fields": {
+      "instance_resource": 2000000,
+      "role": 3,
+      "instance_state": 120005
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000002,
+    "fields": {
+      "instance_resource": 2000000,
+      "role": 3,
+      "instance_state": 120009
     }
   },
   {
