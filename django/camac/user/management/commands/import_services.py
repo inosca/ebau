@@ -82,7 +82,7 @@ def get_type_map(canton):
                 1: ServiceGroup.objects.get(name="municipality"),
                 2: ServiceGroup.objects.get(name="service-cantonal"),
                 3: ServiceGroup.objects.get(name="service-afb"),
-                4: ServiceGroup.objects.get(name="service-extra-cantonal"),
+                4: ServiceGroup.objects.get(name="service-external"),
             },
             "ROLE": {
                 1: {
@@ -92,16 +92,16 @@ def get_type_map(canton):
                     "read": Role.objects.get(name="municipality-read"),
                 },
                 2: {
-                    "admin": Role.objects.get(name="service-admin"),
-                    "lead": Role.objects.get(name="service-lead"),
-                    "clerk": Role.objects.get(name="service-clerk"),
-                    "read": Role.objects.get(name="service-read"),
+                    "admin": Role.objects.get(name="trusted-service-admin"),
+                    "lead": Role.objects.get(name="trusted-service-lead"),
+                    "clerk": Role.objects.get(name="trusted-service-clerk"),
+                    "read": Role.objects.get(name="trusted-service-read"),
                 },
                 3: {
-                    "admin": Role.objects.get(name="service-admin"),
-                    "lead": Role.objects.get(name="service-lead"),
-                    "clerk": Role.objects.get(name="service-clerk"),
-                    "read": Role.objects.get(name="service-read"),
+                    "admin": Role.objects.get(name="trusted-service-admin"),
+                    "lead": Role.objects.get(name="trusted-service-lead"),
+                    "clerk": Role.objects.get(name="trusted-service-clerk"),
+                    "read": Role.objects.get(name="trusted-service-read"),
                 },
                 4: {
                     "admin": Role.objects.get(name="service-admin"),
