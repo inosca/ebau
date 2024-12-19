@@ -4,16 +4,16 @@ $global-font-family: "Frutiger-Regular", sans-serif;
 $base-heading-font-family: "Frutiger-Bold", sans-serif;
 
 // Base colors
-$global-primary-background: rgb(204, 0, 0);
-$global-secondary-background: rgb(0, 0, 0);
+$global-primary-background: rgb(204 0 0);
+$global-secondary-background: rgb(0 0 0);
 $global-danger-background: $global-primary-background;
-$global-muted-background: rgb(245, 245, 245);
+$global-muted-background: rgb(245 245 245);
 $main-navigation-background: #6c7580;
 
 // Font colors
 $global-color: $global-secondary-background;
 $global-emphasis-color: $global-secondary-background;
-$global-muted-color: rgb(138, 138, 138);
+$global-muted-color: rgb(138 138 138);
 $global-link-color: $global-primary-background;
 $global-link-hover-color: $global-primary-background;
 $alert-danger-color: $global-secondary-background;

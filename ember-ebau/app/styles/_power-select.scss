@@ -1,3 +1,21 @@
+$ember-power-select-border-color: $global-border;
+$ember-power-select-default-border-radius: 0;
+$ember-power-select-focus-border-color: $form-focus-border;
+$ember-power-select-focus-outline: 0;
+$ember-power-select-highlighted-background: $global-secondary-background;
+$ember-power-select-line-height: 38px;
+$ember-power-select-multiple-option-border-color: $ember-power-select-border-color;
+$ember-power-select-multiple-option-border: none;
+$ember-power-select-multiple-option-line-height: 32px;
+$ember-power-select-multiple-option-line-height: 32px;
+$ember-power-select-multiple-option-padding: 0 8px;
+$ember-power-select-multiple-selection-background-color: $global-primary-background;
+$ember-power-select-multiple-selection-color: #fff;
+$ember-power-select-placeholder-color: $form-placeholder-color;
+$ember-power-select-selected-background: $global-primary-background;
+
+@import "ember-power-select";
+
 .ember-power-select-option[aria-selected="true"] {
   color: $global-inverse-color;
 }
@@ -26,21 +44,3 @@
     display: none;
   }
 }
-
-$ember-power-select-border-color: $global-border;
-$ember-power-select-default-border-radius: 0;
-$ember-power-select-focus-border-color: $form-focus-border;
-$ember-power-select-focus-outline: 0;
-$ember-power-select-highlighted-background: $global-secondary-background;
-$ember-power-select-line-height: 38px;
-$ember-power-select-multiple-option-border-color: $ember-power-select-border-color;
-$ember-power-select-multiple-option-border: none;
-$ember-power-select-multiple-option-line-height: 32px;
-$ember-power-select-multiple-option-line-height: 32px;
-$ember-power-select-multiple-option-padding: 0 8px;
-$ember-power-select-multiple-selection-background-color: $global-primary-background;
-$ember-power-select-multiple-selection-color: #fff;
-$ember-power-select-placeholder-color: $form-placeholder-color;
-$ember-power-select-selected-background: $global-primary-background;
-
-@import "ember-power-select";
