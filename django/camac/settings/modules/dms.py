@@ -130,6 +130,7 @@ DMS = {
                     "heat-generator",
                     "heat-generator-v2",
                     "reklamegesuch",
+                    "benuetzung-oeffentlichem-terrain-meldung",
                 ],
                 "template": "form",
                 "personalien": "personalien",
