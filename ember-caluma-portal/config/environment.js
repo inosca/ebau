@@ -260,6 +260,7 @@ module.exports = function (environment) {
             "solaranlagen-meldung",
             "heat-generator",
             "reklamegesuch",
+            "benuetzung-oeffentlichem-terrain-meldung",
           ],
         },
         {
