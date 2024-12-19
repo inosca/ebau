@@ -2,6 +2,7 @@ const config = {
   name: "so",
   languages: ["de"],
   fallbackLanguage: "de",
+  prodUrl: "ebau.so.ch",
   allowApplicantManualWorkItem: false,
   documentBackend: "alexandria",
   showIdInInternalArea: false,
