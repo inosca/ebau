@@ -21,6 +21,7 @@
   justify-content: center !important;
   align-items: center !important;
   stroke-width: 5;
+
   polyline,
   circle,
   path {
@@ -28,12 +29,12 @@
   }
 
   &--success {
-    background: rgb(12, 192, 12) !important;
+    background: rgb(12 192 12) !important;
     color: white !important;
   }
 
   &--warning {
-    background: rgb(253, 189, 93) !important;
+    background: rgb(253 189 93) !important;
     color: white !important;
     width: 17px;
     height: 16px;
