@@ -91,6 +91,42 @@
   },
   {
     "model": "user.role",
+    "pk": 11,
+    "fields": {
+      "role_parent": null,
+      "name": "trusted-service-admin",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 12,
+    "fields": {
+      "role_parent": null,
+      "name": "trusted-service-lead",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 13,
+    "fields": {
+      "role_parent": null,
+      "name": "trusted-service-clerk",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 14,
+    "fields": {
+      "role_parent": null,
+      "name": "trusted-service-read",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
     "pk": 10000,
     "fields": {
       "role_parent": null,
@@ -152,7 +188,7 @@
     "fields": {
       "role": 4,
       "language": "de",
-      "name": "Leitung Fachstelle",
+      "name": "Leitung externe Fachstelle",
       "group_prefix": "Leitung"
     }
   },
@@ -172,7 +208,7 @@
     "fields": {
       "role": 6,
       "language": "de",
-      "name": "Administration Fachstelle",
+      "name": "Administration externe Fachstelle",
       "group_prefix": "Administration"
     }
   },
@@ -192,7 +228,7 @@
     "fields": {
       "role": 8,
       "language": "de",
-      "name": "Sachbearbeitung Fachstelle",
+      "name": "Sachbearbeitung externe Fachstelle",
       "group_prefix": "Sachbearbeitung"
     }
   },
@@ -212,7 +248,47 @@
     "fields": {
       "role": 10,
       "language": "de",
-      "name": "Einsichtsberechtigte Fachstelle",
+      "name": "Einsichtsberechtigte externe Fachstelle",
+      "group_prefix": "Einsichtsberechtigte"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 13,
+    "fields": {
+      "role": 11,
+      "language": "de",
+      "name": "Administration kantonale Fachstelle",
+      "group_prefix": "Administration"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 14,
+    "fields": {
+      "role": 12,
+      "language": "de",
+      "name": "Leitung kantonale Fachstelle",
+      "group_prefix": "Leitung"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 15,
+    "fields": {
+      "role": 13,
+      "language": "de",
+      "name": "Sachbearbeitung kantonale Fachstelle",
+      "group_prefix": "Sachbearbeitung"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 16,
+    "fields": {
+      "role": 14,
+      "language": "de",
+      "name": "Einsichtsberechtigte kantonale Fachstelle",
       "group_prefix": "Einsichtsberechtigte"
     }
   },
@@ -266,7 +342,7 @@
     "model": "user.servicegroup",
     "pk": 3,
     "fields": {
-      "name": "service-extra-cantonal",
+      "name": "service-external",
       "sort": null
     }
   },
@@ -302,7 +378,7 @@
     "fields": {
       "service_group": 3,
       "language": "de",
-      "name": "Ausserkantonale Fachstelle"
+      "name": "Externe Fachstelle"
     }
   },
   {
