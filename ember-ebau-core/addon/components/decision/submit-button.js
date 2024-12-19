@@ -45,7 +45,7 @@ export default class DecisionSubmitButtonComponent extends CfFieldInputActionBut
         this.args.field.document.findAnswer("decision-approval-type") ===
         "decision-approval-type-partial-building-permit"
       );
-    } catch (e) {
+    } catch {
       return false;
     }
   }
@@ -62,7 +62,7 @@ export default class DecisionSubmitButtonComponent extends CfFieldInputActionBut
         this.args.field.document.findAnswer("decision-workflow") ===
         "preliminary-clarification"
       );
-    } catch (e) {
+    } catch {
       return false;
     }
   }
@@ -112,7 +112,7 @@ export default class DecisionSubmitButtonComponent extends CfFieldInputActionBut
       this.notification.success(
         this.intl.t("decision.send-notification-success"),
       );
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("decision.send-notification-error"));
     }
   }

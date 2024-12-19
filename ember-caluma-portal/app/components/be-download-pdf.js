@@ -23,7 +23,7 @@ export default class BeDownloadPdfComponent extends Component {
       }
 
       yield this.dms.generatePdf(this.args.context.instanceId, params);
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("dms.downloadError"));
     }
   }

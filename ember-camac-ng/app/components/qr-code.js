@@ -53,7 +53,7 @@ export default class QrCodeComponent extends Component {
         blob,
         `${this.args.context.instanceId}-${slugify(form)}-qr-code.png`,
       );
-    } catch (error) {
+    } catch {
       this.notification.danger(
         this.intl.t("publication.qr-code.downloadError"),
       );

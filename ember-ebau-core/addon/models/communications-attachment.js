@@ -72,7 +72,7 @@ export default class CommunicationAttachmentModel extends DownloadableModel {
       this.notification.success(
         this.intl.t("communications.detail.uploadedToDMS"),
       );
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("link-attachments.upload-error"));
     }
   });

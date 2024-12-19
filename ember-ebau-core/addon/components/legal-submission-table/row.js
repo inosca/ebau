@@ -50,7 +50,7 @@ export default class LegalSubmissionTableRowComponent extends Component {
   get withdrawn() {
     return (
       getAnswer(this.args.legalSubmission, legalSubmission.columns.withdrawn)
-        ?.node.listValue.length > 0 ?? false
+        ?.node.listValue.length > 0
     );
   }
 
@@ -90,7 +90,7 @@ export default class LegalSubmissionTableRowComponent extends Component {
       this.notification.success(this.intl.t("legal-submission.delete-success"));
 
       this.args.onDelete();
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("legal-submission.delete-error"));
     }
   }

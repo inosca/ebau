@@ -121,7 +121,7 @@ export default class BeClaimsFormEditComponent extends Component {
       yield this.updateClaim.perform();
 
       this.args.onCancel();
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("claims.error"));
     }
   }

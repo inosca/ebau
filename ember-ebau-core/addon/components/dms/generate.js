@@ -149,7 +149,7 @@ export default class DmsGenerateComponent extends Component {
       } else {
         saveAs(blob, `${this.args.instanceId} - ${filename}`);
       }
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("dms.merge-error"));
     }
   }

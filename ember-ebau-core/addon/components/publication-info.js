@@ -28,7 +28,7 @@ export default class PublicationInfoComponent extends Component {
       const portalURL = getOwnConfig().portalUrl;
 
       return `${portalURL}/public-instances?municipality=${id}`;
-    } catch (e) {
+    } catch {
       return null;
     }
   }

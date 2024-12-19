@@ -9,7 +9,6 @@ const REPORTER = process.env.CI
       reporter: new MultiReporter({
         reporters: [
           {
-            // eslint-disable-next-line n/no-missing-require
             ReporterClass: require("testem/lib/reporters/tap_reporter"),
             args: [
               false,

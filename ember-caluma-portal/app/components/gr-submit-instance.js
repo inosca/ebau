@@ -54,7 +54,6 @@ export default class GrSubmitInstanceComponent extends DocumentValidityButtonCom
 
       yield this.router.transitionTo("instances.index");
     } catch (e) {
-      // eslint-disable-next-line no-console
       console.error(e);
       const reasons = (e.errors || []).map((e) => e.message).join("<br>\n");
       this.notification.danger(
@@ -72,7 +71,7 @@ export default class GrSubmitInstanceComponent extends DocumentValidityButtonCom
       yield this.dms.generatePdf(this.args.context.instanceId, {
         template: `eingabequittung-${this.intl.primaryLocale.split("-")[0]}`,
       });
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("dms.downloadError"));
     }
   }

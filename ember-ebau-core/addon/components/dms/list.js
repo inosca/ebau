@@ -93,7 +93,7 @@ export default class DmsListComponent extends Component {
         blob,
         `${template.description}${MIME_TYPE_TO_EXTENSION[blob.type]}`,
       );
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("dms.download-error"));
     }
   }

@@ -21,7 +21,7 @@ export default class DossierImportIndexController extends Controller {
       return yield this.store.query("dossier-import", {
         include: "user,group",
       });
-    } catch (e) {
+    } catch {
       this.notification.danger(
         this.intl.t("dossierImport.imports.fetchImportsError"),
       );

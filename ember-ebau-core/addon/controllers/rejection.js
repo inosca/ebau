@@ -101,7 +101,7 @@ export default class RejectionController extends Controller {
       this.notification.success(this.intl.t("rejection.reject-success"));
 
       this.refresh();
-    } catch (e) {
+    } catch {
       this.notification.danger(this.intl.t("rejection.reject-error"));
     }
   });
@@ -118,7 +118,7 @@ export default class RejectionController extends Controller {
       this.notification.success(this.intl.t("rejection.revert-success"));
 
       this.refresh();
-    } catch (e) {
+    } catch {
       this.notification.danger(this.intl.t("rejection.revert-error"));
     }
   });
