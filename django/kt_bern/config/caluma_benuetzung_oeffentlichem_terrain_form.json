@@ -1,0 +1,989 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "benuetzung-oeffentlichem-terrain-bestaetigung",
+    "fields": {
+      "created_at": "2024-10-31T09:20:58.206Z",
+      "modified_at": "2024-10-31T09:21:28.820Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Best\\u00e4tigung\", \"fr\": \"Confirmation\", \"it\": null}",
+      "description": "{\"de\": \"Meldung Ben\\u00fctzung von \\u00f6ffentlichem Terrain > Best\\u00e4tigung\", \"fr\": \"Meldung Ben\\u00fctzung von \\u00f6ffentlichem Terrain > Best\\u00e4tigung\", \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "benuetzung-oeffentlichem-terrain-dokumente",
+    "fields": {
+      "created_at": "2024-10-31T09:17:56.336Z",
+      "modified_at": "2024-10-31T12:17:06.401Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dokumente\", \"fr\": \"Documents\", \"it\": null}",
+      "description": "{\"de\": \"Meldung Ben\\u00fctzung von \\u00f6ffentlichem Terrain > Dokumente\", \"fr\": \"\", \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "benuetzung-oeffentlichem-terrain-form",
+    "fields": {
+      "created_at": "2024-10-31T09:06:32.187Z",
+      "modified_at": "2024-10-31T10:57:31.099Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Ben\\u00fctzung von \\u00f6ffentlichem Terrain Form\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Meldung Ben\\u00fctzung von \\u00f6ffentlichem Terrain > Ben\\u00fctzung von \\u00f6ffentlichem Terrain Form\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "benuetzung-oeffentlichem-terrain-v5"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "benuetzung-oeffentlichem-terrain-meldung",
+    "fields": {
+      "created_at": "2024-10-31T09:05:23.618Z",
+      "modified_at": "2024-12-12T15:10:47.217Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Meldung Ben\\u00fctzung von \\u00f6ffentlichem Terrain\", \"fr\": \"Annonce d'utilisation de terrain public\", \"it\": null}",
+      "description": "{\"de\": \"Meldung Ben\\u00fctzung von \\u00f6ffentlichem Terrain\", \"fr\": \"Meldung Ben\\u00fctzung von \\u00f6ffentlichem Terrain\", \"it\": null}",
+      "meta": {
+        "order": 8,
+        "category": "special-procedure",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-bestaetigung.benuetzung-oeffentlichem-terrain-bestaetigung-gis",
+    "fields": {
+      "created_at": "2024-10-31T12:12:37.162Z",
+      "modified_at": "2024-10-31T12:12:37.162Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-bestaetigung",
+      "question": "benuetzung-oeffentlichem-terrain-bestaetigung-gis",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-bestaetigung.benuetzung-oeffentlichem-terrain-bestaetigung-richtigkeit-der-angaben",
+    "fields": {
+      "created_at": "2024-10-31T09:24:32.472Z",
+      "modified_at": "2024-10-31T09:24:32.472Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-bestaetigung",
+      "question": "benuetzung-oeffentlichem-terrain-bestaetigung-richtigkeit-der-angaben",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-dokumente.dokumente-platzhalter",
+    "fields": {
+      "created_at": "2024-10-31T09:17:56.345Z",
+      "modified_at": "2024-10-31T09:17:56.345Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-dokumente",
+      "question": "dokumente-platzhalter",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-dokumente.kataster-werkleitungsplaene-meldung-dokument",
+    "fields": {
+      "created_at": "2024-10-31T09:19:14.249Z",
+      "modified_at": "2024-10-31T09:19:14.249Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-dokumente",
+      "question": "kataster-werkleitungsplaene-meldung-dokument",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-dokumente.kataster-werkleitungsplaene-meldung-dokument-begruendung",
+    "fields": {
+      "created_at": "2024-12-12T15:07:50.495Z",
+      "modified_at": "2024-12-12T15:07:50.495Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-dokumente",
+      "question": "kataster-werkleitungsplaene-meldung-dokument-begruendung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-dokumente.situationsplan-grabflaeche-strassenterrainflaeche-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2024-12-12T15:06:02.792Z",
+      "modified_at": "2024-12-12T15:06:02.792Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-dokumente",
+      "question": "situationsplan-grabflaeche-strassenterrainflaeche-dokument-begruendung-v5",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-dokumente.situationsplan-grabflaeche-strassenterrainflaeche-dokument-v5",
+    "fields": {
+      "created_at": "2024-10-31T09:18:17.941Z",
+      "modified_at": "2024-10-31T09:18:17.941Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-dokumente",
+      "question": "situationsplan-grabflaeche-strassenterrainflaeche-dokument-v5",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-form.gesteigerter-gemeingebrauch-bemerkungen",
+    "fields": {
+      "created_at": "2024-10-31T09:14:57.977Z",
+      "modified_at": "2024-10-31T09:14:57.977Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-form",
+      "question": "gesteigerter-gemeingebrauch-bemerkungen",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-form.gesteigerter-gemeingebrauch-beschreibung-zweck-andere-v5",
+    "fields": {
+      "created_at": "2024-10-31T09:06:32.207Z",
+      "modified_at": "2024-10-31T09:06:32.207Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-form",
+      "question": "gesteigerter-gemeingebrauch-beschreibung-zweck-andere-v5",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-form.gesteigerter-gemeingebrauch-datum-des-fruehesten-beginns",
+    "fields": {
+      "created_at": "2024-10-31T09:14:14.132Z",
+      "modified_at": "2024-10-31T09:14:14.132Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-form",
+      "question": "gesteigerter-gemeingebrauch-datum-des-fruehesten-beginns",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-form.gesteigerter-gemeingebrauch-strassen-tabelle-v5",
+    "fields": {
+      "created_at": "2024-10-31T09:06:32.199Z",
+      "modified_at": "2024-10-31T09:06:32.199Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-form",
+      "question": "gesteigerter-gemeingebrauch-strassen-tabelle-v5",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-form.gesteigerter-gemeingebrauch-titel-v5",
+    "fields": {
+      "created_at": "2024-10-31T09:06:32.194Z",
+      "modified_at": "2024-10-31T09:06:32.194Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-form",
+      "question": "gesteigerter-gemeingebrauch-titel-v5",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-form.gesteigerter-gemeingebrauch-zweck-v5",
+    "fields": {
+      "created_at": "2024-10-31T09:06:32.203Z",
+      "modified_at": "2024-10-31T09:06:32.203Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-form",
+      "question": "gesteigerter-gemeingebrauch-zweck-v5",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-form.werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5",
+    "fields": {
+      "created_at": "2024-10-31T11:49:13.955Z",
+      "modified_at": "2024-10-31T11:49:13.955Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-form",
+      "question": "werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-form.werden-strassen-radwege-gehwege-in-anspruch-genommen-v5",
+    "fields": {
+      "created_at": "2024-10-31T11:49:04.606Z",
+      "modified_at": "2024-10-31T11:49:04.606Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-form",
+      "question": "werden-strassen-radwege-gehwege-in-anspruch-genommen-v5",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-form.werkleitungen-bemerkungen",
+    "fields": {
+      "created_at": "2024-10-31T09:16:32.510Z",
+      "modified_at": "2024-10-31T09:16:32.510Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-form",
+      "question": "werkleitungen-bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-form.werkleitungen-beschreibung-zweck-andere-v5",
+    "fields": {
+      "created_at": "2024-10-31T09:06:32.215Z",
+      "modified_at": "2024-10-31T09:06:32.215Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-form",
+      "question": "werkleitungen-beschreibung-zweck-andere-v5",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-form.werkleitungen-datum-des-fruehesten-beginns",
+    "fields": {
+      "created_at": "2024-10-31T09:15:59.398Z",
+      "modified_at": "2024-10-31T09:15:59.398Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-form",
+      "question": "werkleitungen-datum-des-fruehesten-beginns",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-form.werkleitungen-strassen-tabelle-v5",
+    "fields": {
+      "created_at": "2024-10-31T09:06:32.211Z",
+      "modified_at": "2024-10-31T09:06:32.211Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-form",
+      "question": "werkleitungen-strassen-tabelle-v5",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-form.werkleitungen-titel-v5",
+    "fields": {
+      "created_at": "2024-10-31T09:06:32.209Z",
+      "modified_at": "2024-10-31T09:06:32.209Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-form",
+      "question": "werkleitungen-titel-v5",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-form.werkleitungen-verfahren-v5",
+    "fields": {
+      "created_at": "2024-10-31T09:06:32.218Z",
+      "modified_at": "2024-10-31T09:06:32.218Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-form",
+      "question": "werkleitungen-verfahren-v5",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-form.werkleitungen-zweck-v5",
+    "fields": {
+      "created_at": "2024-10-31T09:06:32.213Z",
+      "modified_at": "2024-10-31T09:06:32.213Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-form",
+      "question": "werkleitungen-zweck-v5",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-meldung.8-freigabequittung",
+    "fields": {
+      "created_at": "2024-10-31T09:05:23.646Z",
+      "modified_at": "2024-10-31T09:05:23.646Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-meldung",
+      "question": "8-freigabequittung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-meldung.allgemeine-angaben-kurz-formular-v5",
+    "fields": {
+      "created_at": "2024-10-31T09:26:28.675Z",
+      "modified_at": "2024-10-31T09:26:28.675Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-meldung",
+      "question": "allgemeine-angaben-kurz-formular-v5",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-meldung.benuetzung-oeffentlichem-terrain-bestaetigung",
+    "fields": {
+      "created_at": "2024-10-31T09:23:25.919Z",
+      "modified_at": "2024-10-31T09:23:25.919Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-meldung",
+      "question": "benuetzung-oeffentlichem-terrain-bestaetigung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-meldung.benuetzung-oeffentlichem-terrain-dokumente",
+    "fields": {
+      "created_at": "2024-10-31T09:19:55.584Z",
+      "modified_at": "2024-10-31T09:19:55.584Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-meldung",
+      "question": "benuetzung-oeffentlichem-terrain-dokumente",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-meldung.benuetzung-oeffentlichem-terrain-form",
+    "fields": {
+      "created_at": "2024-10-31T09:17:28.628Z",
+      "modified_at": "2024-10-31T09:17:28.628Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-meldung",
+      "question": "benuetzung-oeffentlichem-terrain-form",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "benuetzung-oeffentlichem-terrain-meldung.personalien-kurz-formular",
+    "fields": {
+      "created_at": "2024-10-31T09:05:23.627Z",
+      "modified_at": "2024-10-31T09:05:23.627Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "benuetzung-oeffentlichem-terrain-meldung",
+      "question": "personalien-kurz-formular",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "benuetzung-oeffentlichem-terrain-bestaetigung-gis-ja",
+    "fields": {
+      "created_at": "2024-10-31T12:12:37.042Z",
+      "modified_at": "2024-10-31T12:12:50.586Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass die vom GIS-System \\u00fcbernommen Daten mit den baurechtlichen Grundlagen \\u00fcbereinstimmen.\", \"fr\": \"Le/la requ\\u00e9rant/e confirme que les donn\\u00e9es reprises du SIG sont conformes \\u00e0 la r\\u00e9glementation fondamentale en mati\\u00e8re de construction.\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "benuetzung-oeffentlichem-terrain-bestaetigung-richtigkeit-der-angaben-ja",
+    "fields": {
+      "created_at": "2024-10-31T09:24:32.342Z",
+      "modified_at": "2024-10-31T09:24:48.041Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Richtigkeit der Angaben best\\u00e4tigt die Liegenschaftseigent\\u00fcmerschaft oder deren Vertretung\", \"fr\": \"Le ou la propri\\u00e9taire du bien-fonds ou son repr\\u00e9sentant/sa repr\\u00e9sentante confirme l\\u2019exactitude des indications fournies\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kataster-werkleitungsplaene-meldung-dokument-ja",
+    "fields": {
+      "created_at": "2024-10-31T09:19:14.079Z",
+      "modified_at": "2024-12-12T15:05:27.620Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hochgeladen\", \"fr\": \"T\\u00e9l\\u00e9charg\\u00e9\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kataster-werkleitungsplaene-meldung-dokument-nein",
+    "fields": {
+      "created_at": "2024-12-12T15:04:55.930Z",
+      "modified_at": "2024-12-12T15:05:27.628Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht erforderlich\", \"fr\": \"Pas n\\u00e9cessaire\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "benuetzung-oeffentlichem-terrain-bestaetigung",
+    "fields": {
+      "created_at": "2024-10-31T09:23:25.855Z",
+      "modified_at": "2024-10-31T09:25:21.539Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Best\\u00e4tigung\", \"fr\": \"Confirmation\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "benuetzung-oeffentlichem-terrain-bestaetigung",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "benuetzung-oeffentlichem-terrain-bestaetigung-gis",
+    "fields": {
+      "created_at": "2024-10-31T12:12:37.110Z",
+      "modified_at": "2024-10-31T12:26:41.100Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass die vom GIS-System \\u00fcbernommen Daten mit den baurechtlichen Grundlagen \\u00fcbereinstimmen.  &nbsp;\", \"fr\": \"Le/la requ\\u00e9rant/e confirme que les donn\\u00e9es reprises du SIG sont conformes \\u00e0 la r\\u00e9glementation fondamentale en mati\\u00e8re de construction.\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "benuetzung-oeffentlichem-terrain-bestaetigung-richtigkeit-der-angaben",
+    "fields": {
+      "created_at": "2024-10-31T09:24:32.407Z",
+      "modified_at": "2024-10-31T09:24:48.105Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Richtigkeit der Angaben best\\u00e4tigt die Liegenschaftseigent\\u00fcmerschaft oder deren Vertretung\", \"fr\": \"Le ou la propri\\u00e9taire du bien-fonds ou son repr\\u00e9sentant/sa repr\\u00e9sentante confirme l\\u2019exactitude des indications fournies\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "benuetzung-oeffentlichem-terrain-dokumente",
+    "fields": {
+      "created_at": "2024-10-31T09:19:55.500Z",
+      "modified_at": "2024-10-31T09:21:58.458Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente\", \"fr\": \"Documents\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "be-documents-form",
+        "attachment-section": "'is-paper'|answer == 'is-paper-yes'? 13 : 1"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "benuetzung-oeffentlichem-terrain-dokumente",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "benuetzung-oeffentlichem-terrain-form",
+    "fields": {
+      "created_at": "2024-10-31T09:17:28.580Z",
+      "modified_at": "2024-10-31T09:17:28.580Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ben\\u00fctzung von \\u00f6ffentlichem Terrain\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "benuetzung-oeffentlichem-terrain-form",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gesteigerter-gemeingebrauch-bemerkungen",
+    "fields": {
+      "created_at": "2024-10-31T09:14:57.919Z",
+      "modified_at": "2024-11-14T11:59:06.315Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": \"Remarques\", \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "!(\n  'werden-strassen-radwege-gehwege-in-anspruch-genommen-v5-ja' == 'werden-strassen-radwege-gehwege-in-anspruch-genommen-v5'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gesteigerter-gemeingebrauch-datum-des-fruehesten-beginns",
+    "fields": {
+      "created_at": "2024-10-31T09:14:14.078Z",
+      "modified_at": "2024-11-14T11:58:09.868Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Datum des fr\\u00fchesten Beginns\", \"fr\": \"Date de d\\u00e9but au plus t\\u00f4t\", \"it\": null}",
+      "type": "date",
+      "is_required": "!('is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!(\n  'werden-strassen-radwege-gehwege-in-anspruch-genommen-v5-ja' == 'werden-strassen-radwege-gehwege-in-anspruch-genommen-v5'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kataster-werkleitungsplaene-meldung-dokument",
+    "fields": {
+      "created_at": "2024-10-31T09:19:14.177Z",
+      "modified_at": "2024-12-12T15:05:27.718Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kataster- und / oder Werkleitungspl\\u00e4ne\", \"fr\": \"Plans cadastraux et / ou plans des conduites de service\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!('werden-strassen-radwege-gehwege-in-anspruch-genommen-v5-ja' == 'werden-strassen-radwege-gehwege-in-anspruch-genommen-v5'|answer || 'werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5-ja' == 'werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "vertical": "true",
+        "documentCategory": "plaene"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kataster-werkleitungsplaene-meldung-dokument-begruendung",
+    "fields": {
+      "created_at": "2024-12-12T15:07:50.431Z",
+      "modified_at": "2024-12-12T15:08:24.265Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begr\\u00fcndung\", \"fr\": \"Justification\", \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "!('kataster-werkleitungsplaene-meldung-dokument-nein' in 'kataster-werkleitungsplaene-meldung-dokument'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "documentCategory": "plaene"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werkleitungen-bemerkungen",
+    "fields": {
+      "created_at": "2024-10-31T09:16:32.461Z",
+      "modified_at": "2024-11-14T11:59:01.782Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": \"Remarques\", \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "!(\n  'werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5-ja' == 'werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werkleitungen-datum-des-fruehesten-beginns",
+    "fields": {
+      "created_at": "2024-10-31T09:15:59.345Z",
+      "modified_at": "2024-11-14T11:58:45.996Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Datum des fr\\u00fchesten Beginns\", \"fr\": \"Date de d\\u00e9but au plus t\\u00f4t\", \"it\": null}",
+      "type": "date",
+      "is_required": "!('is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!(\n  'werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5-ja' == 'werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "benuetzung-oeffentlichem-terrain-bestaetigung-gis.benuetzung-oeffentlichem-terrain-bestaetigung-gis-ja",
+    "fields": {
+      "created_at": "2024-10-31T12:26:41.105Z",
+      "modified_at": "2024-10-31T12:26:41.105Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "benuetzung-oeffentlichem-terrain-bestaetigung-gis",
+      "option": "benuetzung-oeffentlichem-terrain-bestaetigung-gis-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "benuetzung-oeffentlichem-terrain-bestaetigung-richtigkeit-der-angaben.benuetzung-oeffentlichem-terrain-bestaetigung-richtigkeit-der-angaben-ja",
+    "fields": {
+      "created_at": "2024-10-31T09:24:48.110Z",
+      "modified_at": "2024-10-31T09:24:48.110Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "benuetzung-oeffentlichem-terrain-bestaetigung-richtigkeit-der-angaben",
+      "option": "benuetzung-oeffentlichem-terrain-bestaetigung-richtigkeit-der-angaben-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kataster-werkleitungsplaene-meldung-dokument.kataster-werkleitungsplaene-meldung-dokument-ja",
+    "fields": {
+      "created_at": "2024-12-12T15:05:27.727Z",
+      "modified_at": "2024-12-12T15:05:27.727Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "kataster-werkleitungsplaene-meldung-dokument",
+      "option": "kataster-werkleitungsplaene-meldung-dokument-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kataster-werkleitungsplaene-meldung-dokument.kataster-werkleitungsplaene-meldung-dokument-nein",
+    "fields": {
+      "created_at": "2024-12-12T15:05:27.725Z",
+      "modified_at": "2024-12-12T15:05:27.725Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "kataster-werkleitungsplaene-meldung-dokument",
+      "option": "kataster-werkleitungsplaene-meldung-dokument-nein",
+      "sort": 1
+    }
+  }
+]

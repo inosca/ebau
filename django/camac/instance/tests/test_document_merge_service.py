@@ -46,6 +46,7 @@ def caluma_form_fixture(db):
         "config/caluma_hecken_feldgehoelze_baeume_form.json",
         "config/caluma_hecken_feldgehoelze_baeume_form_v2.json",
         "config/caluma_reklamegesuch_form.json",
+        "config/caluma_benuetzung_oeffentlichem_terrain_form.json",
         "config/caluma_decision_form.json",
         "config/caluma_distribution.json",
         "config/caluma_workflow.json",
