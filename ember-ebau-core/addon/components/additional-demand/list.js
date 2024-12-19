@@ -8,6 +8,16 @@ export default class AdditionalDemandListComponent extends Component {
   @service additionalDemand;
   @service ebauModules;
 
+  get validAdditionalDemands() {
+    return this.additionalDemand.demands.filter((demand) => {
+      return (
+        demand.raw.childCase.workItems.edges[0].node.task.slug ===
+          "send-additional-demand" &&
+        demand.raw.childCase.workItems.edges[0].node.status !== "CANCELED"
+      );
+    });
+  }
+
   @action
   async newAdditionalDemand() {
     await this.additionalDemand.refetch();
