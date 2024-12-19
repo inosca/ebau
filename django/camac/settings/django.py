@@ -2972,6 +2972,7 @@ ECH_EXCLUDED_FORMS = [
     "heat-generator",
     "heat-generator-v2",
     "reklamegesuch",
+    "benuetzung-oeffentlichem-terrain-meldung",
 ]
 ECH_THROTTLING_RATE = env.str("DJANGO_ECH_THROTTLING_RATE", default="1/min")
 

@@ -1277,6 +1277,7 @@
       "allow_all_forms": false,
       "start_tasks": ["submit"],
       "allow_forms": [
+        "benuetzung-oeffentlichem-terrain-meldung",
         "heat-generator",
         "heat-generator-v2",
         "hecken-feldgehoelze-baeume",
