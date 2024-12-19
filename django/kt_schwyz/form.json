@@ -7024,7 +7024,7 @@
       "hint": "Dieser Hinweis erfolgt, damit Sie schon vor Einreichen des Gesuchs auf diese Anforderungen aufmerksam gemacht worden sind. Ohne vorgängige Berücksichtigung dieser Anforderungen ist davon auszugehen, dass für Ihr Vorhaben eine Projektanpassung erforderlich sein wird.",
       "type": "checkbox",
       "required": false,
-      "active-expression": "'ms:ch.sz.a049.fischgewaesser_bestehend' in 'layer'|value|mapby('name') || 'ms:ch.sz.a049.fischgewaesser_pot' in 'layer'|value|mapby('name') || 'ms:ch.sz.a049.fischregionen' in 'layer'|value|mapby('name')",
+      "active-expression": "'ms:ch.sz.a049.fischgewaesser_bestehend' in 'layer'|value|mapby('name') || 'ms:ch.sz.a049.fischgewaesser_pot' in 'layer'|value|mapby('name') || 'ms:ch.sz.a049a.fischerei.fischgewaesser' in 'layer'|value|mapby('name') || 'ms:ch.sz.a049.fischregionen' in 'layer'|value|mapby('name') || 'ms:ch.sz.a049a.fischerei.fischregionen' in 'layer'|value|mapby('name')",
       "config": {
         "options": ["Erledigt"]
       }
