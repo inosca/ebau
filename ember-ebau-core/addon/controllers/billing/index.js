@@ -70,7 +70,7 @@ export default class BillingIndexController extends Controller {
       await this.refresh();
 
       this.selectedRows = [];
-    } catch (e) {
+    } catch {
       this.notification.danger(this.intl.t("billing.charge-error"));
     }
   });

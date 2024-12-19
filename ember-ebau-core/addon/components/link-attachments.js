@@ -45,7 +45,7 @@ export default class LinkAttachmentsComponent extends Component {
       this.args.field.answer.value = selected;
 
       await this.args.field.save.perform();
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("link-attachments.link-error"));
     }
   }

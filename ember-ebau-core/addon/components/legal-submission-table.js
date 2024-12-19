@@ -73,7 +73,7 @@ export default class LegalSubmissionTableComponent extends Component {
       });
 
       return response.allWorkItems.edges[0].node;
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("legal-submission.loading-error"));
     }
   });
@@ -133,7 +133,7 @@ export default class LegalSubmissionTableComponent extends Component {
       });
 
       return response.allDocuments.edges.map((edge) => edge.node);
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("legal-submission.loading-error"));
     }
   });
@@ -169,7 +169,7 @@ export default class LegalSubmissionTableComponent extends Component {
         this.ebauModules.resolveModuleRoute("legal-submission", "edit"),
         documentId,
       );
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("legal-submission.create-error"));
     }
   }

@@ -86,7 +86,7 @@ export default class InstancesEditIndexController extends Controller {
       yield this.editController.instance.destroyRecord();
       this.notification.success(this.intl.t("instances.deleteInstanceSuccess"));
       yield this.router.transitionTo("instances");
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("instances.deleteInstanceError"));
     }
   }
@@ -170,7 +170,7 @@ export default class InstancesEditIndexController extends Controller {
       );
 
       yield this.router.transitionTo("instances");
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("instances.withdrawInstanceError"));
     }
   }

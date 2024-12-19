@@ -122,7 +122,7 @@ export default class AuditController extends Controller {
       yield this.fetchAdditionalData.perform(workItems);
 
       return workItems;
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("audit.loadingError"));
     }
   }

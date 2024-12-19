@@ -362,7 +362,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
       });
 
       return true;
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("workItems.saveError"));
     }
   }
@@ -391,7 +391,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
       });
 
       return true;
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("workItems.saveError"));
     }
   }

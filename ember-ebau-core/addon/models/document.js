@@ -51,7 +51,6 @@ export default class CustomDocumentModel extends DocumentModel {
 
       open(file.downloadUrl);
     } catch (e) {
-      /* eslint-disable-next-line no-console */
       console.error(e);
       this.notification.danger(this.intl.t("documents.downloadError"));
     }

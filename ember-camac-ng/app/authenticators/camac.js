@@ -30,7 +30,7 @@ export default class CamacAuthenticator extends BaseAuthenticator {
       const data = await response.json();
 
       this.trigger("sessionDataUpdated", this.parseData(data));
-    } catch (error) {
+    } catch {
       location.reload();
     }
   }

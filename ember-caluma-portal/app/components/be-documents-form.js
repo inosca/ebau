@@ -172,7 +172,7 @@ export default class BeDocumentsFormComponent extends Component {
       ];
 
       this.notification.success(this.intl.t("documents.uploadSuccess"));
-    } catch (error) {
+    } catch {
       this.notification.danger(errorMessage);
     }
   }
@@ -183,7 +183,7 @@ export default class BeDocumentsFormComponent extends Component {
       yield attachment.destroyRecord();
 
       this.notification.success(this.intl.t("documents.deleteSuccess"));
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("documents.deleteError"));
     }
   }

@@ -21,7 +21,7 @@ export default class RelatedPublicationsComponent extends Component {
         dossier_nr: dossierNr,
         exclude_instance: instanceId,
       });
-    } catch (e) {
+    } catch {
       return [];
     }
   }
