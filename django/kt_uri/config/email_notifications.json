@@ -418,5 +418,17 @@
       "service": null,
       "type": "email"
     }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1493,
+    "fields": {
+      "slug": "8-fristueberschreitung",
+      "purpose": "Meldung Firstüberschreitung (Fachstelle)",
+      "subject": "Meldung Fristüberschreitung (Dossier-Nr. {{DOSSIER_NR}})",
+      "body": "Guten Tag \r\n\r\nDie gesetzte Frist im Baubewilligungsverfahren für das Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) ist abgelaufen. Fehlende Stellungnahmen, Amts- und Fachberichte, Verfügungen sind bei betroffenen Stellen nachzufordern.\r\n\r\n{{INQUIRY_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n",
+      "service": null,
+      "type": "email"
+    }
   }
 ]
