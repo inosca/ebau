@@ -347,15 +347,9 @@ module.exports = function (environment) {
           // Sekretariat der Gemeindebaubehörde
           roles: [6],
           forms: [
-            "solar-declaration",
-            "preliminary-clarification",
-            "oereb-verfahren-gemeinde",
-            "commercial-permit",
-            "building-permit",
-            "proposal-declaration",
             "archivdossier",
             "pgv-gemeindestrasse",
-            "technische-bewilligung",
+            "oereb-verfahren-gemeinde",
           ],
         },
         {
