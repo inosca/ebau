@@ -72,7 +72,6 @@ ADDITIONAL_DEMAND = {
         "ALLOW_SUBSERVICES": True,
         "STATES": {
             "PENDING_ADDITIONAL_DEMANDS": "nfd",
-            "AFTER_ADDITIONAL_DEMANDS": "comm",
         },
         "NOTIFICATIONS": {
             "ACCEPTED": [
