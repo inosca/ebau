@@ -2803,6 +2803,7 @@ TOKEN_EXCHANGE_USERNAME_PREFIX = "egov:"
 TOKEN_EXCHANGE_MAX_VALIDITY_PERIOD = env.int(
     "TOKEN_EXCHANGE_MAX_VALIDITY_PERIOD", default=default(None, 60)
 )
+TOKEN_EXCHANGE_SCOPE = env.str("TOKEN_EXCHANGE_SCOPE", default="token-exchange")
 
 # External JWT token config
 TOKEN_EXCHANGE_JWE_SECRET = env.str(

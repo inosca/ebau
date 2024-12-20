@@ -103,10 +103,12 @@ class KeycloakClient:
                 "client_id": settings.TOKEN_EXCHANGE_CLIENT,
                 "client_secret": settings.TOKEN_EXCHANGE_CLIENT_SECRET,
                 # https://github.com/keycloak/keycloak/issues/17668
-                # "audience": settings.KEYCLOAK_PORTAL_CLIENT,
+                # Passing the "audience" only works because we override the
+                # token exchange provider in our keycloak image
+                "audience": settings.KEYCLOAK_PORTAL_CLIENT,
                 "requested_token_type": "urn:ietf:params:oauth:token-type:refresh_token",
                 "requested_subject": username,
-                "scope": "openid",
+                "scope": f"openid {settings.TOKEN_EXCHANGE_SCOPE}",
             },
         )
 

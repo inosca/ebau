@@ -4703,7 +4703,8 @@
           "address",
           "phone",
           "offline_access",
-          "microprofile-jwt"
+          "microprofile-jwt",
+          "token-exchange"
         ]
       },
       {
@@ -5559,23 +5560,6 @@
               "access.token.claim": "true",
               "userinfo.token.claim": "false"
             }
-          },
-          {
-            "id": "d55308c8-f6a4-492b-8c68-e095455b9eb3",
-            "name": "LoT",
-            "protocol": "openid-connect",
-            "protocolMapper": "oidc-usermodel-attribute-mapper",
-            "consentRequired": false,
-            "config": {
-              "introspection.token.claim": "true",
-              "userinfo.token.claim": "true",
-              "user.attribute": "lot",
-              "id.token.claim": "true",
-              "lightweight.claim": "false",
-              "access.token.claim": "true",
-              "claim.name": "lot",
-              "jsonType.label": "String"
-            }
           }
         ],
         "defaultClientScopes": [
@@ -5973,6 +5957,37 @@
         ]
       },
       {
+        "id": "d5972f6f-f341-4c49-99c1-fc1f1c4a4cf2",
+        "name": "token-exchange",
+        "description": "",
+        "protocol": "openid-connect",
+        "attributes": {
+          "include.in.token.scope": "true",
+          "display.on.consent.screen": "false",
+          "gui.order": "",
+          "consent.screen.text": ""
+        },
+        "protocolMappers": [
+          {
+            "id": "9c7796e7-85d5-49cb-b93b-19bcc8fa5c74",
+            "name": "LoT",
+            "protocol": "openid-connect",
+            "protocolMapper": "oidc-usermodel-attribute-mapper",
+            "consentRequired": false,
+            "config": {
+              "introspection.token.claim": "true",
+              "userinfo.token.claim": "true",
+              "user.attribute": "lot",
+              "id.token.claim": "true",
+              "lightweight.claim": "false",
+              "access.token.claim": "true",
+              "claim.name": "lot",
+              "jsonType.label": "String"
+            }
+          }
+        ]
+      },
+      {
         "id": "41410d33-ae1f-460f-9b77-5d00fdcda891",
         "name": "offline_access",
         "description": "OpenID Connect built-in scope: offline_access",
@@ -6280,7 +6295,8 @@
       "offline_access",
       "address",
       "phone",
-      "microprofile-jwt"
+      "microprofile-jwt",
+      "token-exchange"
     ],
     "browserSecurityHeaders": {
       "contentSecurityPolicyReportOnly": "",

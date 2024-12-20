@@ -14,7 +14,7 @@ COPY themes/src ./src
 
 RUN ["./mvnw", "deploy"]
 
-WORKDIR /spi
+WORKDIR /spi-sms
 
 COPY themes/.mvn/ .mvn
 COPY themes/mvnw keycloak-2fa-sms-authenticator/pom.xml ./
@@ -24,6 +24,15 @@ COPY keycloak-2fa-sms-authenticator/src ./src
 
 RUN ["./mvnw", "package"]
 
+WORKDIR /spi-token
+
+COPY themes/.mvn/ .mvn
+COPY themes/mvnw ebau-token-exchange/pom.xml ./
+RUN ./mvnw dependency:resolve
+
+COPY ebau-token-exchange/src ./src
+
+RUN ["./mvnw", "package"]
 
 # stage 2: build and run image
 # Sadly, we can't separate the build and run stages because we need the
@@ -47,7 +56,8 @@ ENV KCISPN_HOSTS=localhost[7800]
 
 COPY themes /tmp/themes
 COPY --from=builder /theme/target/keycloak-themes-inosca-ebau.jar /opt/keycloak/providers/keycloak-themes-inosca-ebau.jar
-COPY --from=builder /spi/target/dasniko.keycloak-2fa-sms-authenticator.jar /opt/keycloak/providers/dasniko.keycloak-2fa-sms-authenticator.jar
+COPY --from=builder /spi-sms/target/dasniko.keycloak-2fa-sms-authenticator.jar /opt/keycloak/providers/dasniko.keycloak-2fa-sms-authenticator.jar
+COPY --from=builder /spi-token/target/inosca.ebau-token-exchange.jar /opt/keycloak/providers/inosca.ebau-token-exchange.jar
 
 COPY cache-ispn-tcpstatic.xml /opt/keycloak/conf/cache-ispn-tcpstatic.xml
 
