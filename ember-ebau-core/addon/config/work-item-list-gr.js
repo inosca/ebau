@@ -14,7 +14,7 @@ export default {
     services: {
       1: ["inquiry", "check-inquiries", "check-additional-demand"],
     },
-    default: ["inquiry"],
+    default: [],
   },
   columns(status, role) {
     return [
