@@ -130,7 +130,7 @@ def post_complete_check_additional_demand(
         camac_user = User.objects.get(username=user.username)
 
         instance.set_instance_state(
-            settings.ADDITIONAL_DEMAND["STATES"]["AFTER_ADDITIONAL_DEMANDS"],
+            instance.previous_instance_state.name,
             camac_user,
         )
 
