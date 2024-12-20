@@ -48,7 +48,7 @@
     }}
     @onChange={{@setFilter}}
   />
-  {{#if this.workItemListConfig.showTaskFilter}}
+  {{#if (and this.workItemListConfig.showTaskFilter this.availableTasks.value)}}
     <Filter.RadioButtons
       @name="task"
       @label={{t "workItems.filters.task"}}
