@@ -6,75 +6,12 @@
       "created_at": "2020-08-04T13:24:00.704Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-08-28T12:24:54.790Z",
+      "modified_at": "2024-12-20T10:05:11.865Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "sort": 3,
         "access": {
-          "are": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "marks",
-                  "files"
-                ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "fields": ["title", "description", "date", "metainfo", "files"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "fields": ["tags", "category"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "delete"
-              }
-            ]
-          },
-          "uso": {
-            "visibility": "all"
-          },
           "support": {
             "visibility": "all",
             "permissions": [
@@ -94,153 +31,25 @@
           "applicant": {
             "visibility": "all"
           },
-          "subservice": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "files"
-                ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "delete"
-              }
-            ]
-          },
           "service-lead": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "files"
-                ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "delete"
-              }
-            ]
+            "visibility": "all"
           },
           "municipality-lead": {
             "visibility": "all",
             "permissions": [
               {
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "create"
               },
               {
                 "scope": "All",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "tags",
+                  "category",
+                  "marks"
+                ],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -248,6 +57,42 @@
                     "construction-acceptance"
                   ]
                 },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "trusted-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
@@ -518,78 +363,12 @@
       "created_at": "2020-08-04T13:24:00.677Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-08-28T12:24:54.800Z",
+      "modified_at": "2024-12-20T10:03:51.831Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "sort": 1,
         "access": {
-          "are": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "fields": ["title", "description", "date", "tags", "marks"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "delete"
-              }
-            ]
-          },
-          "uso": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "update"
-              }
-            ]
-          },
           "support": {
             "visibility": "all",
             "permissions": [
@@ -629,8 +408,8 @@
             "visibility": "all",
             "permissions": [
               {
-                "scope": "All",
-                "fields": ["tags"],
+                "scope": "Service",
+                "fields": ["title", "description", "date"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -638,58 +417,17 @@
                     "construction-acceptance"
                   ]
                 },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               }
             ]
           },
           "service-lead": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "delete"
-              }
-            ]
+            "visibility": "all"
           },
           "municipality-lead": {
             "visibility": "all",
@@ -718,6 +456,7 @@
               },
               {
                 "scope": "All",
+                "fields": ["category"],
                 "condition": {
                   "PaperInstance": true,
                   "~InstanceState": [
@@ -730,6 +469,7 @@
               },
               {
                 "scope": "Service",
+                "fields": ["category"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -759,10 +499,60 @@
                 "permission": "delete"
               }
             ]
+          },
+          "trusted-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": ["title", "description", "date", "tags", "marks"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
           }
         }
       },
-      "name": "{\"de\": \"Beilagen zum Gesuch\", \"fr\": \"\", \"it\": \"Allegati alla domanda\"}",
+      "name": "{\"de\": \"Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"Allegati alla domanda\"}",
       "description": "{\"de\": \"Diese Dokumente wurden vom Gesuchstellenden hochgeladen und sind f\\u00fcr alle am Verfahren beteiligten Beh\\u00f6rden einsehbar.\", \"fr\": \"\", \"it\": \"Questi documenti vengono caricati dalle persone richiedenti e possono essere consultati da tutte le autorit\\u00e0 coinvolte nella procedura.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#9CDD69",
@@ -856,72 +646,12 @@
       "created_at": "2020-08-04T13:24:00.699Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-08-28T12:24:54.815Z",
+      "modified_at": "2024-12-20T10:05:55.805Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "sort": 4,
         "access": {
-          "are": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "marks",
-                  "files"
-                ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "fields": ["title", "description", "date", "metainfo", "files"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "fields": ["tags", "category"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "delete"
-              }
-            ]
-          },
           "support": {
             "visibility": "all",
             "permissions": [
@@ -942,34 +672,11 @@
             "visibility": "all",
             "permissions": [
               {
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "create"
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "category"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -982,13 +689,6 @@
               {
                 "scope": "All",
                 "fields": ["tags"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "update"
               },
               {
@@ -1008,34 +708,11 @@
             "visibility": "all",
             "permissions": [
               {
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "create"
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "category"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -1048,6 +725,37 @@
               {
                 "scope": "All",
                 "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "tags",
+                  "category",
+                  "marks"
+                ],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -1070,21 +778,15 @@
               }
             ]
           },
-          "municipality-lead": {
+          "trusted-service-lead": {
             "visibility": "all",
             "permissions": [
               {
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "create"
               },
               {
-                "scope": "All",
+                "scope": "Service",
+                "fields": ["title", "description", "date", "category"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -1092,6 +794,11 @@
                     "construction-acceptance"
                   ]
                 },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
@@ -1123,81 +830,12 @@
       "created_at": "2020-08-04T13:24:00.708Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-08-28T12:24:54.818Z",
+      "modified_at": "2024-12-20T10:03:01.780Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "sort": 6,
         "access": {
-          "are": {
-            "visibility": "service",
-            "permissions": [
-              {
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "marks",
-                  "files"
-                ],
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "permission": "delete"
-              }
-            ]
-          },
-          "uso": {
-            "visibility": "service",
-            "permissions": [
-              {
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "permission": "delete"
-              }
-            ]
-          },
           "support": {
             "visibility": "all",
             "permissions": [
@@ -1249,6 +887,40 @@
             ]
           },
           "service-lead": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "trusted_service": {
             "visibility": "service",
             "permissions": [
               {
@@ -2051,6 +1723,170 @@
       "description": "{\"de\": \"Hier werden Dokumente hochgeladen, welche Umweltschutzorganisationen zug\\u00e4nglich gemacht werden sollen. Dokumente in dieser Kategorie k\\u00f6nnen vom ARE hochgeladen und von USOs eingesehen werden.\", \"fr\": \"\", \"it\": \"Qui vengono caricati i documenti che devono essere accessibili per le organizzazioni ambientaliste. I documenti in questa categoria possono essere caricati dall'UST-GR ed essere consultati dalle organizzazioni ambientaliste.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#66CFC9",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "unterlagenergaenzung",
+    "fields": {
+      "created_at": "2024-12-20T09:35:18.710Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2024-12-20T10:04:37.222Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 2,
+        "access": {
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "applicant": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": ["metainfo", "title", "category", "files"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "InstanceState": "new"
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "service-lead": {
+            "visibility": "all"
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": ["title", "description", "date", "tags", "marks"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "trusted-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": ["title", "description", "date", "tags", "marks"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Unterlagenerg\\u00e4nzung\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Erg\\u00e4nzungen zu den Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
+      "color": "#9CDD69",
       "parent": null
     }
   },
