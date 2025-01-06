@@ -163,6 +163,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "anschluss-wasser-abwasserinstallationen-v5",
+    "fields": {
+      "created_at": "2024-11-20T14:04:35.385Z",
+      "modified_at": "2024-11-20T14:04:35.385Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Anschluss Wasser- / Abwasserinstallationen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Anschluss Wasser- / Abwasserinstallationen (v5)\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "baugesuch-generell-v5",
     "fields": {
       "created_at": "2024-05-30T12:29:34.489Z",
@@ -212,7 +230,7 @@
     "pk": "baugesuch-v5",
     "fields": {
       "created_at": "2024-05-30T12:17:12.356Z",
-      "modified_at": "2024-11-11T15:54:07.794Z",
+      "modified_at": "2025-01-06T16:52:25.631Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1837,6 +1855,126 @@
       "form": "anschluss-trinkwasserinstallation-v5",
       "question": "zentralboiler-anschluss-trinkwasserinstallation-v5",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-wasser-abwasserinstallationen-v5.anzahl-pissoirs-v5",
+    "fields": {
+      "created_at": "2024-11-20T14:11:14.763Z",
+      "modified_at": "2024-11-20T14:11:14.763Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-wasser-abwasserinstallationen-v5",
+      "question": "anzahl-pissoirs-v5",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-wasser-abwasserinstallationen-v5.anzahl-wcs-v5",
+    "fields": {
+      "created_at": "2024-11-20T14:10:43.618Z",
+      "modified_at": "2024-11-20T14:10:43.618Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-wasser-abwasserinstallationen-v5",
+      "question": "anzahl-wcs-v5",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-wasser-abwasserinstallationen-v5.fuer-welche-installationen-wird-regenabwasser-genutzt-v5",
+    "fields": {
+      "created_at": "2024-11-20T14:09:33.988Z",
+      "modified_at": "2024-11-20T14:09:33.988Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-wasser-abwasserinstallationen-v5",
+      "question": "fuer-welche-installationen-wird-regenabwasser-genutzt-v5",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-wasser-abwasserinstallationen-v5.infotext-belastungswerte-v5",
+    "fields": {
+      "created_at": "2024-11-20T17:38:56.345Z",
+      "modified_at": "2024-11-20T17:38:56.345Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-wasser-abwasserinstallationen-v5",
+      "question": "infotext-belastungswerte-v5",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-wasser-abwasserinstallationen-v5.nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5",
+    "fields": {
+      "created_at": "2024-11-20T14:06:02.287Z",
+      "modified_at": "2024-11-20T14:06:02.287Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-wasser-abwasserinstallationen-v5",
+      "question": "nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-wasser-abwasserinstallationen-v5.regenabwasser-beschreibung-andere-verwendung-v5",
+    "fields": {
+      "created_at": "2024-11-20T14:11:56.927Z",
+      "modified_at": "2024-11-20T14:11:56.927Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-wasser-abwasserinstallationen-v5",
+      "question": "regenabwasser-beschreibung-andere-verwendung-v5",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-wasser-abwasserinstallationen-v5.sind-bestehende-installationen-vorhanden-v5",
+    "fields": {
+      "created_at": "2024-11-20T14:07:14.818Z",
+      "modified_at": "2024-11-20T14:07:14.818Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-wasser-abwasserinstallationen-v5",
+      "question": "sind-bestehende-installationen-vorhanden-v5",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-wasser-abwasserinstallationen-v5.wird-regenabwasser-genutzt-v5",
+    "fields": {
+      "created_at": "2024-11-20T14:08:19.244Z",
+      "modified_at": "2024-11-20T14:08:19.244Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-wasser-abwasserinstallationen-v5",
+      "question": "wird-regenabwasser-genutzt-v5",
+      "sort": 5
     }
   },
   {
@@ -5361,7 +5499,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "allgemeine-angaben-zum-betrieb-v5",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -5376,7 +5514,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "anschluss-elektrizitaet-v5",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -5391,7 +5529,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "anschluss-gas-v5",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -5406,7 +5544,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "anschluss-gemeinschaftsantenne-fernmeldenetz-v5",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -5421,6 +5559,21 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "anschluss-trinkwasserinstallation-v5",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.anschluss-wasser-abwasserinstallationen-v5",
+    "fields": {
+      "created_at": "2024-11-20T14:05:09.904Z",
+      "modified_at": "2024-11-20T14:05:09.904Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "anschluss-wasser-abwasserinstallationen-v5",
       "sort": 1
     }
   },
@@ -5436,7 +5589,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "bauvorhaben-in-konsultationsbereichen-v3",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -5451,7 +5604,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "benuetzung-oeffentlichem-terrain-v5",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -5466,7 +5619,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "biologische-sicherheit-v3",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -5481,7 +5634,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "entsorgung",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -5496,7 +5649,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "erdbebensicherheit-v5",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -5511,7 +5664,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "gastgewerbe-allgemein",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -5526,7 +5679,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "gastgewerbe-fumoir",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -5541,7 +5694,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "hindernisfreies-bauen",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -5556,7 +5709,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "immissionsschutz",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -5571,7 +5724,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "immissionsschutz-laermschutz",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -5586,7 +5739,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "maschinen-und-anlagen",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -5601,7 +5754,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "naturgefahren",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -5616,7 +5769,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "personalien-betreiberin-der-anlage",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -5631,7 +5784,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "personalien-gastgewerbe",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -5646,7 +5799,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "reklame",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -5661,7 +5814,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "solar-und-sendeanlagen-v3",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -5676,7 +5829,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "stoerfallvorsorge-v3",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -5691,7 +5844,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "waermepumpen",
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -5706,7 +5859,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "wald",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -5721,7 +5874,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v5",
       "question": "zivilschutz",
-      "sort": 25
+      "sort": 26
     }
   },
   {
@@ -8136,6 +8289,57 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "fuer-welche-installationen-wird-regenabwasser-genutzt-v5-andere-verwendung",
+    "fields": {
+      "created_at": "2024-11-20T14:09:33.874Z",
+      "modified_at": "2024-11-20T14:10:12.330Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere Verwendung\", \"fr\": \"Autre utilisation\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "fuer-welche-installationen-wird-regenabwasser-genutzt-v5-pissoir",
+    "fields": {
+      "created_at": "2024-11-20T14:09:33.874Z",
+      "modified_at": "2024-11-20T14:10:12.330Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Pissoir\", \"fr\": \"Urinoir\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "fuer-welche-installationen-wird-regenabwasser-genutzt-v5-wc",
+    "fields": {
+      "created_at": "2024-11-20T14:09:33.871Z",
+      "modified_at": "2024-11-20T14:09:33.871Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"WC\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "gefahrengutachten-dokument-v5-ja",
     "fields": {
       "created_at": "2024-12-03T19:55:16.523Z",
@@ -9224,6 +9428,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5-belastungswerte-nach-svgw-w3-2013-lu",
+    "fields": {
+      "created_at": "2024-11-20T14:06:02.138Z",
+      "modified_at": "2024-11-20T14:06:25.315Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Belastungswerte nach SVGW W3 2013 (LU)\", \"fr\": \"Unit\\u00e9s de raccordement selon la directive W3 2013 de la SSIGE (LU)\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5-belastungswerte-nach-w3-svgw-bw",
+    "fields": {
+      "created_at": "2024-11-20T14:06:02.140Z",
+      "modified_at": "2024-11-20T14:06:25.313Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Belastungswerte nach W3 SVGW (BW)\", \"fr\": \"Unit\\u00e9s de raccordement selon SSIGE W3 (UR)\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "plaene-fumoir-dokument-v5-ja",
     "fields": {
       "created_at": "2024-12-03T18:28:31.914Z",
@@ -9692,6 +9930,40 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nicht erforderlich\", \"fr\": \"Pas n\\u00e9cessaire\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sind-bestehende-installationen-vorhanden-v5-ja",
+    "fields": {
+      "created_at": "2024-11-20T14:07:14.694Z",
+      "modified_at": "2024-11-20T14:07:33.135Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sind-bestehende-installationen-vorhanden-v5-nein",
+    "fields": {
+      "created_at": "2024-11-20T14:07:14.688Z",
+      "modified_at": "2024-11-20T14:07:33.134Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -10822,6 +11094,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "wird-regenabwasser-genutzt-v5-ja",
+    "fields": {
+      "created_at": "2024-11-20T14:08:19.122Z",
+      "modified_at": "2024-11-20T14:08:32.377Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wird-regenabwasser-genutzt-v5-nein",
+    "fields": {
+      "created_at": "2024-11-20T14:08:19.125Z",
+      "modified_at": "2024-11-20T14:08:32.384Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "zustimmung-der-anstoesser-dokument-v5-ja",
     "fields": {
       "created_at": "2024-12-03T16:45:34.829Z",
@@ -11301,6 +11607,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "anschluss-wasser-abwasserinstallationen-v5",
+    "fields": {
+      "created_at": "2024-11-20T14:05:09.837Z",
+      "modified_at": "2024-11-28T16:14:05.114Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anschluss Wasser- / Abwasserinstallationen\", \"fr\": \"Raccordement des installations d'eau / d'eaux us\\u00e9es\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!('betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5-ja' == 'betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "anschluss-wasser-abwasserinstallationen-v5",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "anzahl-anschlussdosen-gewerbe-industrie-total-gemeinschaftsantenne-fernmeldenetz-v5",
     "fields": {
       "created_at": "2024-11-11T15:16:57.848Z",
@@ -11381,6 +11718,74 @@
       "type": "integer",
       "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
       "is_hidden": "!('nutzungsart-wohnen' in 'nutzungsart'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anzahl-pissoirs-v5",
+    "fields": {
+      "created_at": "2024-11-20T14:11:14.704Z",
+      "modified_at": "2024-11-20T14:12:18.368Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Pissoirs\", \"fr\": \"Nombre d'urinoirs\", \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "!('fuer-welche-installationen-wird-regenabwasser-genutzt-v5-pissoir' in 'fuer-welche-installationen-wird-regenabwasser-genutzt-v5'|answer )",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anzahl-wcs-v5",
+    "fields": {
+      "created_at": "2024-11-20T14:10:43.567Z",
+      "modified_at": "2024-11-20T14:12:27.136Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl WCs\", \"fr\": \"Nombre de WC\", \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "!('fuer-welche-installationen-wird-regenabwasser-genutzt-v5-wc' in 'fuer-welche-installationen-wird-regenabwasser-genutzt-v5'|answer )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
@@ -13880,6 +14285,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "fuer-welche-installationen-wird-regenabwasser-genutzt-v5",
+    "fields": {
+      "created_at": "2024-11-20T14:09:33.935Z",
+      "modified_at": "2024-11-20T14:10:12.412Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"F\\u00fcr welche Installationen wird Regenabwasser genutzt?\", \"fr\": \"Pour quelles installations l'eau pluviale est-elle utilis\\u00e9e ?\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!('wird-regenabwasser-genutzt-v5-ja' == 'wird-regenabwasser-genutzt-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "gasbedarf-gewerbe-industrie-nennleistung-total-kw-anschluss-gas-v5",
     "fields": {
       "created_at": "2024-11-18T14:36:54.692Z",
@@ -15254,6 +15690,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "infotext-belastungswerte-v5",
+    "fields": {
+      "created_at": "2024-11-20T17:38:56.268Z",
+      "modified_at": "2024-11-21T10:12:28.776Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Infotext Belastungswerte\", \"fr\": \"Infotext Belastungswerte\", \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Wenn n\\u00f6tig, k\\u00f6nnen sie hier sowohl LU als auch BW erfassen. \\n\\nBitte konsultieren Sie das Abwasser- resp. Wasserreglement der Standortgemeinde, ob hier Belastungswerte (BW) oder Loading Units (LU) zu erfassen sind.\", \"fr\": \"Si n\\u00e9cessaire, vous pouvez saisir ici tant LU que UR. Veuillez consulter le r\\u00e8glement sur les eaux us\\u00e9es ou le r\\u00e8glement sur l'alimentation en eau de la commune concern\\u00e9e pour savoir si les unit\\u00e9s de raccordement (UR) ou les Loading Units (LU) doivent \\u00eatre saisies ici.\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "info-belastungswerte"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "ist-das-bauwerk-der-bauwerksklasse-ii-oder-iii-zugeteilt-v5",
     "fields": {
       "created_at": "2024-08-14T08:30:59.799Z",
@@ -15857,6 +16326,37 @@
         "vertical": "true",
         "documentCategory": "spezialformulare-allgemeine-angaben-zum-betrieb"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5",
+    "fields": {
+      "created_at": "2024-11-20T14:06:02.212Z",
+      "modified_at": "2024-11-20T16:52:14.704Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nach welcher Richtlinie werden die Belastungswerte erfasst?\", \"fr\": \"Selon quelle directive les unit\\u00e9s de raccordement sont-elles saisies ?\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -16495,6 +16995,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "regenabwasser-beschreibung-andere-verwendung-v5",
+    "fields": {
+      "created_at": "2024-11-20T14:11:56.860Z",
+      "modified_at": "2024-11-20T14:12:09.209Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung andere Verwendung\", \"fr\": \"Description autre utilisation\", \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "!('fuer-welche-installationen-wird-regenabwasser-genutzt-v5-andere-verwendung' in 'fuer-welche-installationen-wird-regenabwasser-genutzt-v5'|answer )",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "regierungsratsbeschluss-bauinventar-dokument-begruendung-v5",
     "fields": {
       "created_at": "2024-12-03T16:16:16.827Z",
@@ -17113,6 +17647,37 @@
         "vertical": "true",
         "documentCategory": "bauwerk-allgemein"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "sind-bestehende-installationen-vorhanden-v5",
+    "fields": {
+      "created_at": "2024-11-20T14:07:14.754Z",
+      "modified_at": "2024-11-20T14:07:33.215Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sind bestehende Installationen vorhanden?\", \"fr\": \"Y a-t-il des installations existantes ?\", \"it\": null}",
+      "type": "choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -18907,6 +19472,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "wird-regenabwasser-genutzt-v5",
+    "fields": {
+      "created_at": "2024-11-20T14:08:19.184Z",
+      "modified_at": "2024-11-20T14:08:32.455Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird Regenabwasser genutzt?\", \"fr\": \"L'eau pluviale est-elle utilis\\u00e9e ?\", \"it\": null}",
+      "type": "choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "wohnen-v5",
     "fields": {
       "created_at": "2024-07-17T16:13:50.934Z",
@@ -20056,6 +20652,51 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "fuer-welche-installationen-wird-regenabwasser-genutzt-v5.fuer-welche-installationen-wird-regenabwasser-genutzt-v5-andere-verwendung",
+    "fields": {
+      "created_at": "2024-11-20T14:10:12.415Z",
+      "modified_at": "2024-11-20T14:10:12.415Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "fuer-welche-installationen-wird-regenabwasser-genutzt-v5",
+      "option": "fuer-welche-installationen-wird-regenabwasser-genutzt-v5-andere-verwendung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "fuer-welche-installationen-wird-regenabwasser-genutzt-v5.fuer-welche-installationen-wird-regenabwasser-genutzt-v5-pissoir",
+    "fields": {
+      "created_at": "2024-11-20T14:10:12.417Z",
+      "modified_at": "2024-11-20T14:10:12.417Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "fuer-welche-installationen-wird-regenabwasser-genutzt-v5",
+      "option": "fuer-welche-installationen-wird-regenabwasser-genutzt-v5-pissoir",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "fuer-welche-installationen-wird-regenabwasser-genutzt-v5.fuer-welche-installationen-wird-regenabwasser-genutzt-v5-wc",
+    "fields": {
+      "created_at": "2024-11-20T14:10:12.420Z",
+      "modified_at": "2024-11-20T14:10:12.420Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "fuer-welche-installationen-wird-regenabwasser-genutzt-v5",
+      "option": "fuer-welche-installationen-wird-regenabwasser-genutzt-v5-wc",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "gefahrengutachten-dokument-v5.gefahrengutachten-dokument-v5-ja",
     "fields": {
       "created_at": "2024-12-03T19:56:19.669Z",
@@ -21016,6 +21657,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5.nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5-belastungswerte-nach-svgw-w3-2013-lu",
+    "fields": {
+      "created_at": "2024-11-20T14:06:25.396Z",
+      "modified_at": "2024-11-20T14:06:25.396Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5",
+      "option": "nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5-belastungswerte-nach-svgw-w3-2013-lu",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5.nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5-belastungswerte-nach-w3-svgw-bw",
+    "fields": {
+      "created_at": "2024-11-20T14:06:25.394Z",
+      "modified_at": "2024-11-20T14:06:25.394Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5",
+      "option": "nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5-belastungswerte-nach-w3-svgw-bw",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "plaene-fumoir-dokument-v5.plaene-fumoir-dokument-v5-ja",
     "fields": {
       "created_at": "2024-12-03T18:29:38.859Z",
@@ -21431,6 +22102,36 @@
       "modified_by_group": null,
       "question": "sicherungsmassnahme-dokument-v5",
       "option": "sicherungsmassnahme-dokument-v5-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-bestehende-installationen-vorhanden-v5.sind-bestehende-installationen-vorhanden-v5-ja",
+    "fields": {
+      "created_at": "2024-11-20T14:07:33.222Z",
+      "modified_at": "2024-11-20T14:07:33.222Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "sind-bestehende-installationen-vorhanden-v5",
+      "option": "sind-bestehende-installationen-vorhanden-v5-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-bestehende-installationen-vorhanden-v5.sind-bestehende-installationen-vorhanden-v5-nein",
+    "fields": {
+      "created_at": "2024-11-20T14:07:33.218Z",
+      "modified_at": "2024-11-20T14:07:33.218Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "sind-bestehende-installationen-vorhanden-v5",
+      "option": "sind-bestehende-installationen-vorhanden-v5-nein",
       "sort": 1
     }
   },
@@ -22421,6 +23122,36 @@
       "modified_by_group": null,
       "question": "wird-in-relevanter-weise-ins-tragwerk-eingegriffen-v5",
       "option": "wird-in-relevanter-weise-ins-tragwerk-eingegriffen-v5-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wird-regenabwasser-genutzt-v5.wird-regenabwasser-genutzt-v5-ja",
+    "fields": {
+      "created_at": "2024-11-20T14:08:32.462Z",
+      "modified_at": "2024-11-20T14:08:32.462Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "wird-regenabwasser-genutzt-v5",
+      "option": "wird-regenabwasser-genutzt-v5-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wird-regenabwasser-genutzt-v5.wird-regenabwasser-genutzt-v5-nein",
+    "fields": {
+      "created_at": "2024-11-20T14:08:32.459Z",
+      "modified_at": "2024-11-20T14:08:32.459Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "wird-regenabwasser-genutzt-v5",
+      "option": "wird-regenabwasser-genutzt-v5-nein",
       "sort": 1
     }
   },
