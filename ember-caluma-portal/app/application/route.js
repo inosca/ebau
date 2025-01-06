@@ -33,6 +33,7 @@ import BeDisabledInputComponent from "caluma-portal/components/be-disabled-input
 import BeDocumentsFormComponent from "caluma-portal/components/be-documents-form";
 import BeDownloadPdfComponent from "caluma-portal/components/be-download-pdf";
 import BeGisComponent from "caluma-portal/components/be-gis";
+import InfoBelastungswerteComponent from "caluma-portal/components/be-info-belastungswerte";
 import BeSubmitInstanceComponent from "caluma-portal/components/be-submit-instance";
 import GRSubmitInstanceComponent from "caluma-portal/components/gr-submit-instance";
 import { isEmbedded } from "caluma-portal/helpers/is-embedded";
@@ -273,6 +274,11 @@ export default class ApplicationRoute extends Route {
       label: "Infotext direkte Erledigung",
       component: "direct-inquiry-info",
       componentClass: DirectInquiryInfoComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Infotext Belastungswerte",
+      component: "info-belastungswerte",
+      componentClass: InfoBelastungswerteComponent,
     });
   }
 }
