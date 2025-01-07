@@ -28,20 +28,20 @@
       <label class="uk-form-label uk-text-bold">
         {{t "workItems.assignedUser"}}
       </label>
-    </div>
-    <div class="uk-form-controls">
-      <PowerSelect
-        @searchEnabled={{true}}
-        @searchField="fullName"
-        @renderInPlace={{true}}
-        @options={{this.users.records}}
-        @selected={{this.responsibleUser}}
-        @noMatchesMessage={{t "global.noMatch"}}
-        @onChange={{fn (mut this.responsibleUser)}}
-        as |user|
-      >
-        {{user.fullName}}
-      </PowerSelect>
+      <div class="uk-form-controls">
+        <PowerSelect
+          @searchEnabled={{true}}
+          @searchField="fullName"
+          @renderInPlace={{true}}
+          @options={{this.users.records}}
+          @selected={{this.responsibleUser}}
+          @noMatchesMessage={{t "global.noMatch"}}
+          @onChange={{fn (mut this.responsibleUser)}}
+          as |user|
+        >
+          {{user.fullName}}
+        </PowerSelect>
+      </div>
     </div>
   {{/if}}
 

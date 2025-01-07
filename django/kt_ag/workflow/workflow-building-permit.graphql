@@ -1,0 +1,121 @@
+mutation CreateBuildingPermitWorkflow {
+  saveWorkflow(
+    input: {
+      slug: "building-permit"
+      name: "Baugesuch"
+      startTasks: ["submit"]
+      allowForms: [
+        "anfrage"
+        "anfrage-intern"
+        "baugesuch"
+        "baugesuch-mit-uvp"
+        "plangenehmigungsverfahren-bund"
+        "plangenehmigungsverfahren-gas"
+        "reklame"
+        "vorentscheid"
+      ]
+      isPublished: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlowAfterSubmit {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["submit"]
+      next: "[\"create-manual-workitems\", \"formal-exam\"]|tasks"
+      # TODO: add additional demand
+      # next: "[\"create-manual-workitems\", \"formal-exam\", \"init-additional-demand\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlowAfterFormalExam {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["formal-exam"]
+      next: "[\"after-exam\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlowAfterMaterialExam {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["material-exam"]
+      next: "[\"after-exam\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlowAfterFillPublication {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["fill-publication"]
+      next: "[\"create-publication\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlowAfterCreatePublication {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["create-publication"]
+      next: "[\"fill-publication\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation InitAdditionalDemandFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["init-additional-demand"]
+      next: "[\"init-additional-demand\", \"additional-demand\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlowAfterDistribution {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["distribution"]
+      next: "[\"decision\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlowAfterDecision {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["decision"]
+      next: "[\"after-decision\"]|tasks"
+      redoable: "'distribution'|task"
+    }
+  ) {
+    clientMutationId
+  }
+}
