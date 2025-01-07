@@ -435,7 +435,6 @@ ECH0211 = {
                         "question_slug": "vorhaben",
                         "default": ["vorhaben-andere"],
                     },
-                    # "planningPermissionApplication.constructionProjectInformation.constructionProject.description": "beschreibung-bauvorhaben",
                     "ech0211:planningPermissionApplication/ech0211:description": {
                         "question_slug": "beschreibung-bauvorhaben",
                     },
@@ -457,15 +456,22 @@ ECH0211 = {
                     "ech0211:relationshipToPerson[ech0211:role='applicant']": (
                         "personalien-tabelle",
                         {
-                            "use-default": {
+                            "ech0211:person/ech0129:identification/ech0129:personIdentification": {
                                 "question_slug": "juristische-person-gesuchstellerin",
-                                "default": "juristische-person-gesuchstellerin-nein",
+                                "static_value": "juristische-person-gesuchstellerin-nein",
+                            },
+                            "ech0211:person/ech0129:identification/ech0129:organisationIdentification": {
+                                "question_slug": "juristische-person-gesuchstellerin",
+                                "static_value": "juristische-person-gesuchstellerin-ja",
                             },
                             "ech0211:person/ech0129:identification/ech0129:personIdentification/ech0044:officialName": {
                                 "question_slug": "name-gesuchstellerin",
                             },
                             "ech0211:person/ech0129:identification/ech0129:personIdentification/ech0044:firstName": {
                                 "question_slug": "vorname-gesuchstellerin",
+                            },
+                            "ech0211:person/ech0129:identification/ech0129:organisationIdentification/ech0097:organisationName": {
+                                "question_slug": "name-juristische-person-gesuchstellerin",
                             },
                             "ech0211:person/ech0129:address/ech0010:town": {
                                 "question_slug": "ort-gesuchstellerin",

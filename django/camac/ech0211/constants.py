@@ -18,4 +18,5 @@ ECH0211_NAMESPACES = {
     "ech0129": "http://www.ech.ch/xmlns/eCH-0129/5",
     "ech0147": "http://www.ech.ch/xmlns/eCH-0147/T0/1",
     "ech0211": "http://www.ech.ch/xmlns/eCH-0211/2",
+    "ech0097": "http://www.ech.ch/xmlns/eCH-0097/2",
 }

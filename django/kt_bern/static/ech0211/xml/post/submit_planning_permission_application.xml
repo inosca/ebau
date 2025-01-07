@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0044/4">
+<ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0044/4"  xmlns:ns9="http://www.ech.ch/xmlns/eCH-0097/2">
   <ns1:deliveryHeader>
     <ns2:senderId>gemdat://test-123</ns2:senderId>
     <ns2:messageId>ignored</ns2:messageId>
@@ -139,6 +139,29 @@
             <ns8:firstName>Max</ns8:firstName> <!-- required -->
           </ns3:personIdentification>
         </ns3:identification>
+        <ns3:address>
+          <ns4:street>Burgstrasse</ns4:street>
+          <ns4:houseNumber>122</ns4:houseNumber>
+          <ns4:town>Winterthur</ns4:town>
+          <ns4:swissZipCode>8408</ns4:swissZipCode>
+          <ns4:country>
+            <ns4:countryNameShort>Schweiz</ns4:countryNameShort>
+          </ns4:country>
+        </ns3:address>
+      </ns1:person>
+    </ns1:relationshipToPerson>
+    <ns1:relationshipToPerson>
+      <ns1:role>applicant</ns1:role> <!-- required -->
+      <ns1:person>
+        <ns3:identification>
+            <ns3:organisationIdentification>
+              <ns9:localOrganisationId>
+                <ns9:organisationIdCategory>Test</ns9:organisationIdCategory>
+                <ns9:organisationId>Test</ns9:organisationId>
+              </ns9:localOrganisationId>
+              <ns9:organisationName>BAUAG</ns9:organisationName>
+            </ns3:organisationIdentification>
+          </ns3:identification>
       </ns1:person>
     </ns1:relationshipToPerson>
   </ns1:eventSubmitPlanningPermissionApplication>
