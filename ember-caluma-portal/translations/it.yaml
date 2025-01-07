@@ -47,14 +47,6 @@ documents:
   deleteSuccess: "Il file è stato eliminato con successo."
   deleteError: "Durante l'eliminazione del file qualcosa è andato storto."
 
-  hint1: "Accertarsi che anche il modulo relativo alla sicurezza sismica https://www.bauen.dij.be.ch/content/dam/bauen_dij/dokumente/de/Formulare-Vorlagen/Formulare-Baugesuchsteller/ebs-erdbebensicherheit-de.pdf e, se necessari, i moduli specifici del comune (5.0, 5.1, 5.2, 5.3, 5.4, 5.5, 5.8) https://www.bauen.dij.be.ch/de/start/baubewilligungsverfahren/eBau/formulare-fuer-baugesuchsteller siano compilati e caricati."
-  hintEarthquake: ""
-  linkEarthquake: ""
-  hint2: ""
-  hintMunicipalityForms: ""
-  linkMunicipalityForms: ""
-  hint3: ""
-
   tags:
     beilagen-vorabklaerung: "Allegati esame preliminare"
     allgemeine-informationen: "Informazioni generali"
@@ -112,7 +104,7 @@ support:
     tecnico (24/7)</b> chiamando il numero:<br><a href="tel:+41 31 636 99
     97">+41 31 636 99 97</a>
   professional: |-
-    In caso di domande specifiche relative alla procedura o al modulo 
+    In caso di domande specifiche relative alla procedura o al modulo
     <b>occorre contattare l'autorità competente</b> o usare la funzione di aiuto
     <b>«Supporto in merito alla procedura<span uk-icon="question"></span>»</b> nel
     relativo dossier.

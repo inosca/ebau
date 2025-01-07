@@ -2002,6 +2002,36 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "6-dokumente.dokumente-infotext-bauprofile",
+    "fields": {
+      "created_at": "2024-12-19T17:03:28.561Z",
+      "modified_at": "2024-12-19T17:03:28.561Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "6-dokumente",
+      "question": "dokumente-infotext-bauprofile",
+      "sort": 73
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "6-dokumente.dokumente-infotext-ebs-5er-formulare",
+    "fields": {
+      "created_at": "2024-12-19T17:03:16.299Z",
+      "modified_at": "2024-12-19T17:03:16.299Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "6-dokumente",
+      "question": "dokumente-infotext-ebs-5er-formulare",
+      "sort": 74
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "6-dokumente.dokumente-platzhalter",
     "fields": {
       "created_at": "2021-06-07T09:16:02.688Z",
@@ -29828,6 +29858,74 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dokumente-infotext-bauprofile",
+    "fields": {
+      "created_at": "2024-12-19T14:39:38.734Z",
+      "modified_at": "2025-01-06T09:17:44.018Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente Infotext Bauprofile\", \"fr\": \"Dokumente Infotext Bauprofile\", \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "'vorabklaerung' in form",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div>Gem\\u00e4ss Art. 16 BewD m\\u00fcssen im Zeitpunkt der Baueingabe die Bauprofile gestellt sein und bis zum rechtskr\\u00e4ftigen Bauentscheid stehen bleiben. Vor Rechtskraft der Baubewilligung darf mit den Bauarbeiten nicht begonnen werden.</div>\", \"fr\": \"<div>Conform\\u00e9ment \\u00e0 l'article 16 DPC, les gabarits doivent \\u00eatre pos\\u00e9s au moment du d\\u00e9p\\u00f4t de la demande de permis de construire et seront maintenus jusqu'\\u00e0 l'entr\\u00e9e en force de la d\\u00e9cision concernant le projet. Les travaux ne peuvent pas commencer avant l'entr\\u00e9e en force du permis de construire.</div>\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "documentHint": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dokumente-infotext-ebs-5er-formulare",
+    "fields": {
+      "created_at": "2024-12-19T14:36:36.515Z",
+      "modified_at": "2025-01-06T09:17:34.027Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente Infotext EbS 5er Formulare\", \"fr\": \"Dokumente Infotext EbS 5er Formulare\", \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "'vorabklaerung' in form",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Bitte stellen Sie sicher, dass auch das [Formular Erdbebensicherheit (EbS)](https://www.bauen.dij.be.ch/content/dam/bauen_dij/dokumente/de/Formulare-Vorlagen/Formulare-Baugesuchsteller/ebs-erdbebensicherheit-de.pdf) und die [gemeindespezifischen Formulare (5.0, 5.1, 5.2, 5.3 5.4, 5.5, 5.8)](https://www.bauen.dij.be.ch/de/start/baubewilligungsverfahren/eBau/formulare-fuer-baugesuchsteller) falls ben\\u00f6tigt, ausgef\\u00fcllt und hochgeladen sind.\", \"fr\": \"Veuillez vous assurer que le [formulaire S\\u00e9S S\\u00e9curit\\u00e9 Sismique](https://www.bauen.dij.be.ch/content/dam/bauen_dij/dokumente/fr/formulare-und-vorlagen/formulare-f%C3%BCr-baugesuchsteller/ebs-erdbebensicherheit-fr.pdf) et les [formulaires sp\\u00e9cifiques aux communes (5.0, 5.1, 5.2, 5.3, 5.4, 5.5, 5.5, 5.8)](https://www.bauen.dij.be.ch/fr/start/baubewilligungsverfahren/eBau/formulare-fuer-baugesuchsteller) sont remplis et t\\u00e9l\\u00e9charg\\u00e9s si n\\u00e9cessaire.\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "documentHint": true
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,

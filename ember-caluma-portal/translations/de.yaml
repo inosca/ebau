@@ -47,15 +47,6 @@ documents:
   deleteSuccess: "Die Datei wurde erfolgreich gelöscht"
   deleteError: "Beim Löschen der Datei ist etwas schief gelaufen"
 
-  hint1: "Bitte stellen Sie sicher, dass auch das"
-  hintEarthquake: "Formular Erdbebensicherheit (EbS)"
-  linkEarthquake: "https://www.bauen.dij.be.ch/content/dam/bauen_dij/dokumente/de/Formulare-Vorlagen/Formulare-Baugesuchsteller/ebs-erdbebensicherheit-de.pdf"
-  hint2: "und die"
-  hintMunicipalityForms: "gemeindespezifischen Formulare (5.0, 5.1, 5.2, 5.3 5.4, 5.5, 5.8)"
-  linkMunicipalityForms: "https://www.bauen.dij.be.ch/de/start/baubewilligungsverfahren/eBau/formulare-fuer-baugesuchsteller"
-  hint3: "falls benötigt, ausgefüllt und hochgeladen sind."
-  hint4: "Gemäss Art. 16 BewD müssen im Zeitpunkt der Baueingabe die Bauprofile gestellt sein und bis zum rechtskräftigen Bauentscheid stehen bleiben. Vor Rechtskraft der Baubewilligung darf mit den Bauarbeiten nicht begonnen werden."
-
   tags:
     beilagen-vorabklaerung: "Beilagen Vorabklärung"
     allgemeine-informationen: "Allgemeine Informationen"
@@ -270,14 +261,14 @@ instances:
       Baugesuchs ist aber auch die Meldepflicht erfüllt. Für Anlagen, bei denen
       keine Baubewilligung notwendig ist, besteht eine Meldepflicht. Zuständige
       Behörde für die Meldung der Solaranlage ist die Standortgemeinde.\n\n
-      Jeder **Wärmeerzeugerersatz** (Heizungsersatz) ist meldepflichtig. Das 
-      gilt für jede Gebäudekategorie und jedes Heizsystem. Als Wärmeerzeugersatz 
-      nach Art. 20a Abs. 2 KEnV gilt der Ersatz vom Gesamtsystem, vom Kessel, 
-      vom Brenner (wenn der Kessel älter als 10 Jahre ist), vom Kamin oder vom 
-      Öltank. Wird ein Gebäude der Kategorie I - VI, welches zum Zeitpunkt der 
-      Meldung älter als 20 Jahre ist, nach dem Wärmeerzeugerersatz weiterhin mit 
-      fossilen Energieträgern beheizt, dann gelten zusätzliche Anforderungen. Die 
-      Meldung Wärmeerzeugerersatz ersetzt eine bisher geltende Baubewilligungspflicht 
+      Jeder **Wärmeerzeugerersatz** (Heizungsersatz) ist meldepflichtig. Das
+      gilt für jede Gebäudekategorie und jedes Heizsystem. Als Wärmeerzeugersatz
+      nach Art. 20a Abs. 2 KEnV gilt der Ersatz vom Gesamtsystem, vom Kessel,
+      vom Brenner (wenn der Kessel älter als 10 Jahre ist), vom Kamin oder vom
+      Öltank. Wird ein Gebäude der Kategorie I - VI, welches zum Zeitpunkt der
+      Meldung älter als 20 Jahre ist, nach dem Wärmeerzeugerersatz weiterhin mit
+      fossilen Energieträgern beheizt, dann gelten zusätzliche Anforderungen. Die
+      Meldung Wärmeerzeugerersatz ersetzt eine bisher geltende Baubewilligungspflicht
       nicht."
 
     internal-procedure-canton:
