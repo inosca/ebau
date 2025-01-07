@@ -19,6 +19,15 @@
   },
   {
     "model": "core.availableinstanceresource",
+    "pk": "taskform",
+    "fields": {
+      "module_name": "taskform",
+      "controller_name": "taskform",
+      "description": "(Ember) Caluma form of a given task"
+    }
+  },
+  {
+    "model": "core.availableinstanceresource",
     "pk": "workitemlistinstance",
     "fields": {
       "module_name": "workitem",
@@ -97,6 +106,22 @@
   },
   {
     "model": "core.instanceresource",
+    "pk": 2000001,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 2000001,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 6,
+      "form_group": 2000000,
+      "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
     "pk": 22000000,
     "fields": {
       "available_instance_resource": "workitemlistinstance",
@@ -170,7 +195,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 6,
+      "sort": 7,
       "form_group": 2000000,
       "require_permission": "journal-read"
     }
@@ -186,7 +211,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 7,
+      "sort": 8,
       "form_group": 2000000,
       "require_permission": "history-read"
     }
@@ -202,7 +227,7 @@
       "template": "/ember-camac-ng/permissions.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 8,
+      "sort": 9,
       "form_group": 2000000,
       "require_permission": "permissions-read"
     }
@@ -214,6 +239,16 @@
       "instance_resource": 2000000,
       "language": "de",
       "name": "Formular",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 2000001,
+    "fields": {
+      "instance_resource": 2000001,
+      "language": "de",
+      "name": "Vorläufige Prüfung",
       "description": null
     }
   },
@@ -316,6 +351,15 @@
   },
   {
     "model": "core.irroleacl",
+    "pk": 2000003,
+    "fields": {
+      "instance_resource": 2000001,
+      "role": 3,
+      "instance_state": 120004
+    }
+  },
+  {
+    "model": "core.irroleacl",
     "pk": 22000000,
     "fields": {
       "instance_resource": 22000000,
@@ -375,6 +419,13 @@
       "instance_resource": 22000006,
       "role": 3,
       "instance_state": 120004
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 2000001,
+    "fields": {
+      "task": "formal-exam"
     }
   },
   {

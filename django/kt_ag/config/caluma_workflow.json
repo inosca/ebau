@@ -1,19 +1,85 @@
 [
   {
+    "model": "caluma_workflow.flow",
+    "pk": "e595cdb0-098a-49e9-be32-f56444b5d1c0",
+    "fields": {
+      "created_at": "2025-01-07T10:17:14.637Z",
+      "modified_at": "2025-01-07T10:17:14.637Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "[\"create-manual-workitems\", \"formal-exam\"]|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "create-manual-workitems",
+    "fields": {
+      "created_at": "2025-01-07T10:10:56.322Z",
+      "modified_at": "2025-01-07T10:10:56.322Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Manuelle Aufgaben erfassen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "simple",
+      "meta": {
+        "is-manually-completable": true
+      },
+      "address_groups": "[]",
+      "control_groups": null,
+      "is_archived": false,
+      "form": null,
+      "lead_time": null,
+      "is_multiple_instance": true,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "formal-exam",
+    "fields": {
+      "created_at": "2025-01-07T10:14:19.695Z",
+      "modified_at": "2025-01-07T10:14:19.695Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Vorl\\u00e4ufige Pr\\u00fcfung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.task-form",
+          "models": ["INSTANCE_ID", "TASK_SLUG"]
+        }
+      },
+      "address_groups": "[\"municipality\"]|groups",
+      "control_groups": "[\"municipality\"]|groups",
+      "is_archived": false,
+      "form": "vorlaeufige-pruefung",
+      "lead_time": 432000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
     "model": "caluma_workflow.task",
     "pk": "submit",
     "fields": {
       "created_at": "2023-05-30T11:05:51.175Z",
-      "modified_at": "2024-08-28T12:24:54.771Z",
+      "modified_at": "2025-01-07T10:09:57.601Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Gesuch einreichen\", \"fr\": null, \"it\": \"Presenta domanda\"}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_workflow_form",
       "meta": {},
-      "address_groups": "[]",
+      "address_groups": "[\"applicant\"]",
       "control_groups": null,
       "is_archived": false,
       "form": null,
@@ -23,14 +89,30 @@
     }
   },
   {
+    "model": "caluma_workflow.taskflow",
+    "pk": "935ee22e-1be6-4493-9a6c-e2e56ccba816",
+    "fields": {
+      "created_at": "2025-01-07T10:17:14.642Z",
+      "modified_at": "2025-01-07T10:17:14.642Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "submit",
+      "flow": "e595cdb0-098a-49e9-be32-f56444b5d1c0",
+      "redoable": null
+    }
+  },
+  {
     "model": "caluma_workflow.workflow",
     "pk": "building-permit",
     "fields": {
       "created_at": "2023-05-30T11:05:56.388Z",
-      "modified_at": "2024-08-28T12:24:54.785Z",
+      "modified_at": "2025-01-07T10:08:40.241Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Baugesuch\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -39,7 +121,16 @@
       "is_archived": false,
       "allow_all_forms": true,
       "start_tasks": ["submit"],
-      "allow_forms": []
+      "allow_forms": [
+        "anfrage",
+        "anfrage-intern",
+        "baugesuch",
+        "baugesuch-mit-uvp",
+        "plangenehmigungsverfahren-bund",
+        "plangenehmigungsverfahren-gas",
+        "reklame",
+        "vorentscheid"
+      ]
     }
   }
 ]
