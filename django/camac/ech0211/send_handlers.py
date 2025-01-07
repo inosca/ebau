@@ -435,9 +435,14 @@ class AccompanyingReportSendHandler(BaseSendHandler):
                 value=value,
             )
 
-        attachments = Attachment.objects.filter(
-            uuid__in=[d.uuid for d in self.data.eventAccompanyingReport.document]
-        )
+        if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
+            attachments = alexandria_models.Document.objects.filter(
+                id__in=[d.uuid for d in self.data.eventAccompanyingReport.document]
+            )
+        else:
+            attachments = Attachment.objects.filter(
+                uuid__in=[d.uuid for d in self.data.eventAccompanyingReport.document]
+            )
 
         if not attachments.exists():
             raise SendHandlerException("Unknown document!")

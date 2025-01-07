@@ -2,6 +2,7 @@ from unittest.mock import Mock
 
 import pytest
 import requests
+from alexandria.core import factories as alexandria_factories
 from alexandria.core.factories import CategoryFactory, MarkFactory
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.models import WorkItem
@@ -794,8 +795,15 @@ def test_kind_of_proceedings_send_handler(
 
 
 @pytest.mark.freeze_time("2022-06-03")
-@pytest.mark.parametrize("has_attachment", [True, False])
-@pytest.mark.parametrize("has_inquiry", [True, False])
+@pytest.mark.parametrize(
+    "has_inquiry,has_attachment,document_backend",
+    (
+        (True, False, "camac-ng"),
+        (True, True, "camac-ng"),
+        (False, False, "camac-ng"),
+        (True, True, "alexandria"),
+    ),
+)
 def test_accompanying_report_send_handler(
     db,
     active_inquiry_factory,
@@ -807,16 +815,20 @@ def test_accompanying_report_send_handler(
     ech_instance_be,
     be_ech0211_settings,
     ech_snapshot,
-    has_attachment,
-    has_inquiry,
     mailoutbox,
     notification_template_factory,
     service,
     set_application_be,
     user_group_factory,
     work_item_factory,
+    settings,
+    #
+    has_attachment,
+    has_inquiry,
+    document_backend,
 ):
     notification_template_factory(slug="05-bericht-erstellt")
+    settings.APPLICATION["DOCUMENT_BACKEND"] = document_backend
 
     user_group = user_group_factory(default_group=1)
 
@@ -838,10 +850,19 @@ def test_accompanying_report_send_handler(
     support_group.save()
 
     if has_attachment:
-        attachment = attachment_factory(
-            name="MyFile.pdf", uuid="00000000-0000-0000-0000-000000000000"
-        )
-        attachment.attachment_sections.add(attachment_section_factory(pk=7))
+        if document_backend == "camac-ng":
+            attachment = attachment_factory(
+                name="MyFile.pdf", uuid="00000000-0000-0000-0000-000000000000"
+            )
+            attachment.attachment_sections.add(attachment_section_factory(pk=7))
+
+        if document_backend == "alexandria":
+            alexandria_factories.FileFactory(
+                document=alexandria_factories.DocumentFactory(
+                    id="00000000-0000-0000-0000-000000000000"
+                ),
+                name="MyFile.pdf",
+            )
 
     data = CreateFromDocument(xml_data("accompanying_report"))
 
