@@ -93,6 +93,7 @@ def test_validate(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("allow_revert", [True, False])
 def test_reject_instance(
     db,
     be_instance,
@@ -102,9 +103,11 @@ def test_reject_instance(
     rejection_settings,
     notification_template,
     mailoutbox,
+    allow_revert,
 ):
     instance_state_factory(name=rejection_settings["INSTANCE_STATE"])
 
+    rejection_settings["ALLOW_REVERT"] = allow_revert
     rejection_settings["ALLOWED_INSTANCE_STATES"] = [be_instance.instance_state.name]
     rejection_settings["NOTIFICATIONS"] = {
         "REJECTED": [
@@ -130,8 +133,12 @@ def test_reject_instance(
 
     be_instance.refresh_from_db()
 
+    if allow_revert:
+        assert be_instance.case.status == Case.STATUS_SUSPENDED
+    else:
+        assert be_instance.case.status == Case.STATUS_CANCELED
+
     assert be_instance.instance_state.name == rejection_settings["INSTANCE_STATE"]
-    assert be_instance.case.status == Case.STATUS_SUSPENDED
     assert (
         be_instance.history.filter(history_type=HistoryActionConfig.HISTORY_TYPE_STATUS)
         .latest("created_at")
