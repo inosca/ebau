@@ -1,6 +1,6 @@
 from caluma.caluma_form.models import Document
 from caluma.caluma_user.models import OIDCUser
-from caluma.caluma_workflow.api import resume_case, suspend_case
+from caluma.caluma_workflow.api import cancel_case, resume_case, suspend_case
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db import transaction
@@ -90,8 +90,14 @@ class RejectionLogic:
         # write text
         cls.save_rejection_feedback(instance, rejection_feedback)
 
-        # suspend case
-        suspend_case(instance.case, caluma_user)
+        # If the rejection can be reverted, the case must be suspended so that
+        # it could be resumed after a possible revert. However, if the revert is
+        # disabled, the case must be immediately canceled in order to not
+        # confuse users with suspended work items.
+        if settings.REJECTION["ALLOW_REVERT"]:
+            suspend_case(instance.case, caluma_user)
+        else:
+            cancel_case(instance.case, caluma_user)
 
         # set instance state
         instance.set_instance_state(settings.REJECTION["INSTANCE_STATE"], camac_user)
