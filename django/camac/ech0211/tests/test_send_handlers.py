@@ -1046,19 +1046,42 @@ def test_submit_send_handler(
         )
         assert (
             instance.case.document.answers.get(
-                question_id="personalien-gesuchstellerin"
-            )
-            .documents.first()
-            .answers.get(question_id="name-gesuchstellerin")
-            .value
-            == "Muster"
-        )
-        assert (
-            instance.case.document.answers.get(
                 question_id="beschreibung-bauvorhaben"
             ).value
             == "Testbeschreibung"
         )
+
+        applicant_person = (
+            instance.case.document.answers.get(
+                question_id="personalien-gesuchstellerin"
+            )
+            .documents.filter(
+                answers__question_id="juristische-person-gesuchstellerin",
+                answers__value="juristische-person-gesuchstellerin-nein",
+            )
+            .first()
+        )
+        assert (
+            applicant_person.answers.get(question_id="name-gesuchstellerin").value
+            == "Muster"
+        )
+        applicant_org = (
+            instance.case.document.answers.get(
+                question_id="personalien-gesuchstellerin"
+            )
+            .documents.filter(
+                answers__question_id="juristische-person-gesuchstellerin",
+                answers__value="juristische-person-gesuchstellerin-ja",
+            )
+            .first()
+        )
+        assert (
+            applicant_org.answers.get(
+                question_id="name-juristische-person-gesuchstellerin"
+            ).value
+            == "BAUAG"
+        )
+
         assert (
             instance.alexandria_instance_documents.all().first().document.files.count()
             == 2
