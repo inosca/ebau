@@ -285,8 +285,10 @@ SO_PERMISSIONS_SETTINGS = {
         ],
         "read": [
             ("communications-read", MODULE_COMMUNICATIONS),
+            ("communications-write", MODULE_COMMUNICATIONS),
             ("documents-read", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
+            ("work-items-read", MODULE_WORK_ITEMS),
         ],
         "support": [
             ("applicant-add", Always()),
