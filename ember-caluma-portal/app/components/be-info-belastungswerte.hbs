@@ -1,0 +1,19 @@
+<div class="uk-alert uk-alert-default uk-margin-remove">
+  {{this.staticQuestionContent}}
+  {{#if this.service.value}}
+    <p>{{t "info-belastungswerte.title"}}</p>
+    <p class="uk-text-bold">
+      {{this.service.value.name}}
+      {{#if this.service.value.website}}
+        <a
+          class="uk-link-text uk-text-primary"
+          href={{this.serviceWebsite}}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ({{t "instance-support.website"}})
+        </a>
+      {{/if}}
+    </p>
+  {{/if}}
+</div>
