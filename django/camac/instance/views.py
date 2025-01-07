@@ -68,6 +68,7 @@ from . import (
 from .domain_logic import link_instances
 from .milestones.serializers import MilestonesSerializer, UrMilestonesSerializer
 from .placeholders.serializers import (
+    AgDMSPlaceholdersSerializer,
     BeDMSPlaceholdersSerializer,
     DMSPlaceholdersSerializer,
     GrDMSPlaceholdersSerializer,
@@ -190,6 +191,7 @@ class InstanceView(
                 "fix_work_items": serializers.CalumaInstanceFixWorkItemsSerializer,
                 "convert_modification": serializers.CalumaInstanceConvertModificationSerializer,
                 "dms_placeholders": {
+                    "kt_ag": AgDMSPlaceholdersSerializer,
                     "kt_bern": BeDMSPlaceholdersSerializer,
                     "kt_gr": GrDMSPlaceholdersSerializer,
                     "kt_so": SoDMSPlaceholdersSerializer,

@@ -23,5 +23,14 @@ CORRECTION = {
             "distribution",
         ],
     },
+    "kt_ag": {
+        "ENABLED": True,
+        "ALLOWED_INSTANCE_STATES": [
+            "subm",
+            # TODO verify
+            # "init-distribution",
+            # "circulation",
+        ],
+    },
     "test": {"ENABLED": True},
 }
