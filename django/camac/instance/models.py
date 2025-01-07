@@ -344,8 +344,8 @@ class Instance(models.Model):
             ).first()
 
         return (
-            Service.objects.get(pk=md.municipality.get("slug"))
-            if md.municipality
+            Service.objects.get(pk=md.municipality_slug)
+            if md.municipality_slug
             else None
         )
 
