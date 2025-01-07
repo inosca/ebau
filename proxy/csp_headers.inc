@@ -56,6 +56,7 @@ set $csp_script_default "script-src 'self'";
 set $csp_script_inline  "script-src 'self' 'unsafe-inline'";
 set $csp_img_default    "img-src 'self' data: ${csp_external_img_sources}";
 set $csp_connect_src    "connect-src 'self' ${csp_external_connect_sources}";
+set $csp_object_src     "object-src 'self' ${csp_external_img_sources}";
 
 # Connect: We need to be able to connect to KC from anywhere for login / token
 # fetch
@@ -131,6 +132,7 @@ set $csp_header_portal "${csp_header_portal}; ${csp_style_src} ${csp_portal_styl
 set $csp_header_portal "${csp_header_portal}; ${csp_fonts_src}";
 set $csp_header_portal "${csp_header_portal}; ${csp_img_default}";
 set $csp_header_portal "${csp_header_portal}; ${csp_connect_src}";
+set $csp_header_portal "${csp_header_portal}; ${csp_object_src}";
 
 # Internal
 set $csp_header_internal "${csp_default_self}";
@@ -139,6 +141,7 @@ set $csp_header_internal "${csp_header_internal}; ${csp_style_src}";
 set $csp_header_internal "${csp_header_internal}; ${csp_fonts_src}";
 set $csp_header_internal "${csp_header_internal}; ${csp_img_default}";
 set $csp_header_internal "${csp_header_internal}; ${csp_connect_src}";
+set $csp_header_internal "${csp_header_internal}; ${csp_object_src}";
 
 # Django
 set $csp_header_django "${csp_default_self}";
