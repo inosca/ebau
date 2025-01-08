@@ -11,6 +11,7 @@ mutation CreateBuildingPermitWorkflow {
         "voranfrage"
         "meldung"
         "meldung-pv"
+        "reklamegesuch"
       ]
       isPublished: true
     }

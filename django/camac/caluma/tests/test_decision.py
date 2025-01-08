@@ -338,17 +338,19 @@ def test_complete_decision_appeal(
 
 
 @pytest.mark.parametrize(
-    "instance_state__name,decision,bauabschlag,expected",
+    "form_slug,instance_state__name,decision,bauabschlag,expected",
     [
-        ("decision", "APPROVED", None, True),
-        ("decision", "PARTIALLY_APPROVED", "MIT_WIEDERHERSTELLUNG", True),
-        ("decision", "PARTIALLY_APPROVED", "OHNE_WIEDERHERSTELLUNG", True),
-        ("decision", "REJECTED", "MIT_WIEDERHERSTELLUNG", True),
-        ("decision", "REJECTED", "OHNE_WIEDERHERSTELLUNG", False),
-        ("decision", "WITHDRAWAL", None, False),
+        ("baugesuch", "decision", "APPROVED", None, True),
+        ("baugesuch", "decision", "PARTIALLY_APPROVED", "MIT_WIEDERHERSTELLUNG", True),
+        ("baugesuch", "decision", "PARTIALLY_APPROVED", "OHNE_WIEDERHERSTELLUNG", True),
+        ("baugesuch", "decision", "REJECTED", "MIT_WIEDERHERSTELLUNG", True),
+        ("baugesuch", "decision", "REJECTED", "OHNE_WIEDERHERSTELLUNG", False),
+        ("baugesuch", "decision", "WITHDRAWAL", None, False),
         # If instance state is withdrawn, never continue
-        ("withdrawal", "WITHDRAWAL", None, False),
-        ("withdrawal", "APPROVED", None, False),
+        ("baugesuch", "withdrawal", "WITHDRAWAL", None, False),
+        ("baugesuch", "withdrawal", "APPROVED", None, False),
+        # Building permits for ads never continue
+        ("reklamegesuch", "decision", "APPROVED", None, False),
     ],
 )
 def test_should_continue_after_decision_so(
@@ -362,12 +364,16 @@ def test_should_continue_after_decision_so(
     bauabschlag,
     expected,
     instance,
+    form_slug,
 ):
     work_item = work_item_factory(
         task=task_factory(slug=so_decision_settings["TASK"]),
         status=WorkItem.STATUS_COMPLETED,
         document=document_factory(form=FormFactory(slug="decision")),
     )
+
+    work_item.case.document.form = FormFactory(slug=form_slug)
+    work_item.case.document.save()
 
     work_item.document.answers.create(
         question=question_factory(slug=so_decision_settings["QUESTIONS"]["DECISION"]),
@@ -382,7 +388,9 @@ def test_should_continue_after_decision_so(
             value=so_decision_settings["ANSWERS"]["BAUABSCHLAG"][bauabschlag],
         )
 
-    DecisionLogic.should_continue_after_decision_so(instance, work_item) == expected
+    assert (
+        DecisionLogic.should_continue_after_decision_so(instance, work_item) == expected
+    )
 
 
 @pytest.mark.parametrize("instance_state__name", ["withdrawal"])
