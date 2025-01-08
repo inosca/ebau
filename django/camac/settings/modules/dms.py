@@ -306,6 +306,7 @@ DMS = {
                     "voranfrage",
                     "meldung",
                     "meldung-pv",
+                    "reklamegesuch",
                 ],
                 "template": "form",
                 "personalien": "personalien",
