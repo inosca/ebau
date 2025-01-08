@@ -15,6 +15,7 @@ from pytest_lazy_fixtures import lf, lfc
 from rest_framework import status
 
 from camac.applicants.models import Applicant
+from camac.constants import kt_uri as uri_constants
 from camac.core.models import InstanceLocation, WorkflowEntry
 from camac.instance import domain_logic, serializers
 from camac.instance.models import FormField, HistoryEntryT, InstanceGroup, InstanceState
@@ -686,27 +687,23 @@ def test_keyword_search_filter_sz(
 
 @pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 @pytest.mark.parametrize(
-    "with_cantonal_participation,expected_count", [(True, 1), (False, 2)]
+    "with_cantonal_participation,expected_count", [(True, 1), (False, 0)]
 )
 def test_with_cantonal_participation_filter(
-    admin_user,
     admin_client,
     ur_instance,
-    instance_with_case,
+    ur_distribution_settings,
     with_cantonal_participation,
     expected_count,
-    workflow_entry_factory,
-    instance_factory,
+    work_item_factory,
 ):
-    instance_with_case(instance_factory(user=ur_instance.user))
-    instance_with_case(instance_factory(user=ur_instance.user))
-
-    workflow_entry_factory(
-        instance=ur_instance,
-        workflow_date=make_aware(datetime(2021, 7, 16, 8, 0, 6)),
-        group=1,
-        workflow_item__pk=16,
-    )
+    if with_cantonal_participation:
+        work_item_factory(
+            case=ur_instance.case,
+            task_id=ur_distribution_settings["INQUIRY_TASK"],
+            status=caluma_workflow_models.WorkItem.STATUS_READY,
+            addressed_groups=[uri_constants.KOOR_BG_SERVICE_ID],
+        )
 
     url = reverse("instance-list")
     response = admin_client.get(

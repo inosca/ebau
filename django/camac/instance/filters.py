@@ -755,13 +755,21 @@ class InstanceFilterSet(FilterSet):
         return queryset.filter(**_filter)
 
     def filter_with_cantonal_participation(self, queryset, name, value):
-        _filter = {
-            "workflowentry__workflow_item_id": uri_constants.WORKFLOW_ITEM_FORWARD_TO_KOOR
-        }
-
-        if value:
-            return queryset.filter(**_filter)
-        return queryset.exclude(**_filter)
+        return queryset.filter(
+            Exists(
+                WorkItem.objects.filter(
+                    Q(case__family=OuterRef("case"))
+                    & Q(task__pk=settings.DISTRIBUTION["INQUIRY_TASK"])
+                    & Q(
+                        status__in=[
+                            WorkItem.STATUS_READY,
+                            WorkItem.STATUS_COMPLETED,
+                        ]
+                    )
+                    & Q(addressed_groups__overlap=uri_constants.KOOR_SERVICE_IDS)
+                )
+            )
+        )
 
     def filter_circulation_service(self, queryset, name, value):
         if settings.DISTRIBUTION:
