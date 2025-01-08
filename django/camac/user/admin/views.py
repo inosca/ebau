@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.admin import ModelAdmin, action, display, register
 from django.db import transaction
 from django.db.models import QuerySet
@@ -19,7 +20,15 @@ from camac.user.admin.inlines import (
     ServiceTInline,
     UserGroupInline,
 )
-from camac.user.models import Group, Role, Service, ServiceGroup, User, UserGroup
+from camac.user.models import (
+    Group,
+    GroupT,
+    Role,
+    Service,
+    ServiceGroup,
+    User,
+    UserGroup,
+)
 
 
 def save_user_group_formset(request, formset):
@@ -182,6 +191,63 @@ class ServiceAdmin(EbauAdminMixin, MultilingualAdminMixin, ModelAdmin):
     @transaction.atomic
     def enable_notifications(self, request, queryset):
         queryset.update(notification=1)
+
+    def save_model(self, request, obj, form, change):
+        is_new = obj.pk is None
+
+        super().save_model(request, obj, form, change)
+
+        if (
+            not is_new
+            or obj.service_parent is not None
+            or not settings.SERVICE.get("CREATE_GROUPS_IN_ADMIN")
+        ):
+            return
+
+        # Automatically create a group for each role that is defined in
+        # `ROLES_FOR_SERVICE_GROUP` for the current service group.
+        for role_name in settings.SERVICE["ROLES_FOR_SERVICE_GROUP"].get(
+            obj.service_group.name, []
+        ):
+            role = Role.objects.get(name=role_name)
+
+            Group.objects.create(
+                name=" ".join(p for p in [role.group_prefix, obj.name] if p),
+                service=obj,
+                role=role,
+                disabled=obj.disabled,
+            )
+
+    def save_related(self, request, form, formsets, change):
+        super().save_related(request, form, formsets, change)
+
+        form.instance.refresh_from_db()
+
+        if form.instance.service_parent is not None or not settings.SERVICE.get(
+            "UPDATE_GROUP_NAME_IN_ADMIN"
+        ):
+            return
+
+        # Automatically update all group names using the `group_prefix` of the
+        # respective role and the service name.
+        for service_t in form.instance.trans.all():
+            for group in form.instance.groups.all():
+                lang = service_t.language
+
+                GroupT.objects.update_or_create(
+                    group=group,
+                    language=lang,
+                    defaults={
+                        "name": " ".join(
+                            p
+                            for p in [
+                                group.role.get_trans_attr("group_prefix", lang),
+                                service_t.name,
+                            ]
+                            if p
+                        )
+                    },
+                )
 
 
 @register(Role)

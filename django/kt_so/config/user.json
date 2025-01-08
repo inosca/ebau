@@ -117,7 +117,7 @@
       "role": 4,
       "language": "de",
       "name": "Administration Gemeinde",
-      "group_prefix": null
+      "group_prefix": "Administration"
     }
   },
   {
@@ -127,7 +127,7 @@
       "role": 5,
       "language": "de",
       "name": "Sachbearbeitung Gemeinde",
-      "group_prefix": null
+      "group_prefix": "Sachbearbeitung"
     }
   },
   {
@@ -137,7 +137,7 @@
       "role": 8,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde",
-      "group_prefix": null
+      "group_prefix": "Einsichtsberechtigte"
     }
   },
   {
@@ -147,7 +147,7 @@
       "role": 9,
       "language": "de",
       "name": "Administration Fachstelle",
-      "group_prefix": null
+      "group_prefix": "Administration"
     }
   },
   {
@@ -157,7 +157,7 @@
       "role": 10,
       "language": "de",
       "name": "Sachbearbeitung Fachstelle",
-      "group_prefix": null
+      "group_prefix": "Sachbearbeitung"
     }
   },
   {

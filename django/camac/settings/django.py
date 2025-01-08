@@ -3169,6 +3169,7 @@ DOSSIER_IMPORT = load_module_settings("dossier_import")
 BAB = load_module_settings("bab")
 PROJECT_MODIFICATION = load_module_settings("project_modification")
 USER = load_module_settings("user")
+SERVICE = load_module_settings("service")
 
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")
