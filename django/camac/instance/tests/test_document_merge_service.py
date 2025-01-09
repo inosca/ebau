@@ -479,3 +479,88 @@ def test_number_separator(
     else:
         assert data["integer"] == 57000000
         assert data["float"] == 1304.12
+
+
+@pytest.mark.parametrize(
+    "instance_id,form_name,template,for_additional_demand,expected",
+    [
+        (1, "Baugesuch", "form", None, "1-baugesuch.pdf"),
+        (2, "Baugesuch", "signatures", None, "2-baugesuch-unterschriftenblatt.pdf"),
+        (3, "Baugesuch", "form", "some-uuid", "3-baugesuch-nachforderung.pdf"),
+        (
+            4,
+            "Baugesuch",
+            "signatures",
+            "some-uuid",
+            "4-baugesuch-unterschriftenblatt-nachforderung.pdf",
+        ),
+    ],
+)
+def test_filename(instance_id, form_name, template, for_additional_demand, expected):
+    handler = DMSHandler()
+
+    assert (
+        handler.get_filename(instance_id, form_name, template, for_additional_demand)
+        == expected
+    )
+
+
+@pytest.mark.parametrize("for_additional_demand", [True, False])
+def test_documents_for_additional_demand(
+    db,
+    application_settings,
+    settings,
+    so_dms_settings,
+    so_instance,
+    for_additional_demand,
+):
+    settings.APPLICATION_NAME = "kt_so"
+    application_settings["DOCUMENT_BACKEND"] = "alexandria"
+
+    alexandria_category = CategoryFactory()
+
+    so_dms_settings["FORM"]["baugesuch"]["forms"].append("main-form")
+    so_dms_settings["ALEXANDRIA_DOCUMENT_CATEGORIES"] = [alexandria_category.pk]
+
+    additional_demand_uuid = faker.Faker().uuid4()
+
+    # File in applicant category
+    applicant_file = FileFactory(
+        document=DocumentFactory(
+            title="Lageplan.pdf",
+            category=alexandria_category,
+            metainfo={"camac-instance-id": so_instance.pk},
+        ),
+        checksum=f"sha256:{faker.Faker().sha256()}",
+    )
+
+    # File not in applicant category but linked to additional demand
+    additional_demand_file = FileFactory(
+        document=DocumentFactory(
+            title="Lageplan (aus Nachforderung).pdf",
+            metainfo={
+                "camac-instance-id": so_instance.pk,
+                "caluma-document-id": additional_demand_uuid,
+            },
+        ),
+        checksum=f"sha256:{faker.Faker().sha256()}",
+    )
+
+    result = DMSHandler().prepare_documents(
+        so_instance,
+        for_additional_demand=(
+            additional_demand_uuid if for_additional_demand else None
+        ),
+    )
+
+    filenames = [doc["filename"] for doc in result]
+    checksums = [doc["checksum"] for doc in result]
+
+    assert len(result) == 1
+
+    if for_additional_demand:
+        assert additional_demand_file.document.title in filenames
+        assert additional_demand_file.checksum in checksums
+    else:
+        assert applicant_file.document.title in filenames
+        assert applicant_file.checksum in checksums

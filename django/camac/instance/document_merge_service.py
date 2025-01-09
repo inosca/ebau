@@ -243,16 +243,21 @@ class DMSHandler:
 
         return data
 
-    def prepare_documents(self, instance):
+    def prepare_documents(self, instance, for_additional_demand=None):
         if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":  # pragma: no cover
             # not implemented
             return []
 
         categories = settings.DMS.get("ALEXANDRIA_DOCUMENT_CATEGORIES", [])
 
+        if for_additional_demand:
+            filters = {"metainfo__caluma-document-id": for_additional_demand}
+        else:
+            filters = {"category_id__in": categories}
+
         documents = (
             alexandria_models.Document.objects.filter(
-                category_id__in=categories,
+                **filters,
                 instance_document__instance=instance,
             )
             .annotate(
@@ -327,17 +332,36 @@ class DMSHandler:
 
         return (instance, document)
 
-    def get_data(self, instance, document, user, service):
+    def get_data(self, instance, document, user, service, for_additional_demand=None):
         visitor = DMSVisitor(document, instance, user)
         return {
             **self.get_meta_data(instance, document, service),
             "draft": "" if visitor.is_valid() else _("Draft"),
             "sections": visitor.visit(document),
-            "documents": self.prepare_documents(instance),
+            "documents": self.prepare_documents(instance, for_additional_demand),
         }
 
+    def get_filename(self, instance_id, form_name, template, for_additional_demand):
+        filename_parts = [instance_id, form_name]
+
+        if template == "signatures":
+            filename_parts.append(_("Signature page"))
+
+        if for_additional_demand is not None:
+            filename_parts.append(_("Additional demand"))
+
+        filename = slugify("-".join([str(p) for p in filename_parts]))
+
+        return f"{filename}.pdf"
+
     def generate_pdf(
-        self, instance_id, request, form_slug=None, document_id=None, template=None
+        self,
+        instance_id,
+        request,
+        form_slug=None,
+        document_id=None,
+        template=None,
+        for_additional_demand=None,
     ):
         instance, document = self.get_instance_and_document(
             instance_id, form_slug, document_id
@@ -361,15 +385,21 @@ class DMSHandler:
                 document,
                 request.caluma_info.context.user,
                 request.group.service,
+                for_additional_demand=for_additional_demand,
             ),
             template,
             self.get_files(instance),
             add_headers={"x-camac-group": str(request.group.pk)},
         )
 
-        _file = ContentFile(
-            pdf, slugify(f"{instance_id}-{document.form.name}") + ".pdf"
+        filename = self.get_filename(
+            instance_id,
+            str(document.form.name),
+            template,
+            for_additional_demand,
         )
+
+        _file = ContentFile(pdf, filename)
         _file.content_type = "application/pdf"
 
         return _file
