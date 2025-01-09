@@ -1,6 +1,6 @@
 Babel==2.16.0
 boto3==1.35.70
-caluma==10.5.1
+caluma==10.6.0
 caluma-alexandria==6.4.2
 celery==5.4.0
 cryptography==43.0.3
