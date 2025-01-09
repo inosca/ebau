@@ -387,6 +387,7 @@ def ech_instance_so(
     utils.add_answer(ech_instance.case.document, "strasse-flurname", "Musterstrasse")
     utils.add_answer(ech_instance.case.document, "strasse-nummer", 4)
     utils.add_answer(ech_instance.case.document, "ort", "Solothurn")
+    utils.add_answer(ech_instance.case.document, "plz", "4500")
     utils.add_table_answer(
         ech_instance.case.document,
         "bauherrin",

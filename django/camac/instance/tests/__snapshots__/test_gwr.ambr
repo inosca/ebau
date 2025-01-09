@@ -249,15 +249,15 @@
         'country': dict({
           'countryNameShort': 'ch',
         }),
-        'houseNumber': '399',
-        'street': 'Caitlin Flats',
-        'swissZipCode': 8564,
-        'town': 'Port Heatherchester',
+        'houseNumber': '532',
+        'street': 'Williams Estates',
+        'swissZipCode': 5764,
+        'town': 'Butlershire',
       }),
       'identification': dict({
         'isOrganisation': True,
         'organisationIdentification': dict({
-          'organisationName': 'Stewart, Ellis and Evans',
+          'organisationName': 'Barber PLC',
         }),
         'personIdentification': None,
       }),
