@@ -684,6 +684,16 @@ def so_master_data_case(
         ],
     )
 
+    # Civil engineering
+    utils.add_table_answer(
+        document,
+        "tiefbauten",
+        [
+            {"tiefbau-siedlung-art": "tiefbau-siedlung-art-parkplaetze"},
+            {"tiefbau-siedlung-art": "tiefbau-siedlung-art-spielplaetze"},
+        ],
+    )
+
     return so_instance.case
 
 

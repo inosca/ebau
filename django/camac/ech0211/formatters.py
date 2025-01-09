@@ -237,6 +237,15 @@ def get_location_address(md):
     )
 
 
+def get_parking_lots(md):
+    if hasattr(md, "parking_lots"):
+        return bool(md.parking_lots)
+    elif hasattr(md, "civil_engineering"):
+        return any((row.get("is_parking_lot", False) for row in md.civil_engineering))
+
+    return False
+
+
 def make_dummy_address_ech0044():
     return [
         pyxb.BIND(
@@ -362,7 +371,7 @@ def application(instance: Instance):
             md.profile_approval_date, datetime.datetime
         ),  # 3.1.1.6
         profilingDate=md.profile_approval_date,  # 3.1.1.7
-        parkingLotsYesNo=bool(md.parking_lots),
+        parkingLotsYesNo=get_parking_lots(md),
         natureRisk=(
             [
                 ns_application.natureRiskType(

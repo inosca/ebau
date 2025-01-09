@@ -395,6 +395,11 @@ def ech_instance_so(
     utils.add_table_answer(
         ech_instance.case.document, "grundeigentuemerin", [so_personal_row_factory()]
     )
+    utils.add_table_answer(
+        ech_instance.case.document,
+        "tiefbauten",
+        [{"tiefbau-siedlung-art": "tiefbau-siedlung-art-parkplaetze"}],
+    )
 
     document = DocumentFactory(
         pk="f8380740-d73a-4683-8909-2ced929ddbc5",
