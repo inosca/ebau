@@ -93,10 +93,11 @@ def authority(service, organization_category=None):
 
 
 def get_zip(value):
-    if not value or not len(str(value)) == 4:
+    if not value or not len(str(value)) == 4 or not str(value).isdigit():
         # use 9999 for non swiss zips
         return 9999
-    return value
+
+    return int(value)
 
 
 def get_cost(value):
@@ -236,6 +237,15 @@ def get_location_address(md):
     )
 
 
+def get_parking_lots(md):
+    if hasattr(md, "parking_lots"):
+        return bool(md.parking_lots)
+    elif hasattr(md, "civil_engineering"):
+        return any((row.get("is_parking_lot", False) for row in md.civil_engineering))
+
+    return False
+
+
 def make_dummy_address_ech0044():
     return [
         pyxb.BIND(
@@ -316,7 +326,7 @@ def application(instance: Instance):
                             town=assure_string_length(owner.get("town"), max_length=40),
                             swissZipCode=get_zip(owner.get("zip")),
                             # foreignZipCode minOccurs=0
-                            country="CH",
+                            country=owner.get("country_code", "CH"),
                         ),
                     )
                 )
@@ -361,7 +371,7 @@ def application(instance: Instance):
             md.profile_approval_date, datetime.datetime
         ),  # 3.1.1.6
         profilingDate=md.profile_approval_date,  # 3.1.1.7
-        parkingLotsYesNo=bool(md.parking_lots),
+        parkingLotsYesNo=get_parking_lots(md),
         natureRisk=(
             [
                 ns_application.natureRiskType(
@@ -538,7 +548,7 @@ def person_to_ech0129_personIdentifcationType(person):
             ),
             town=assure_string_length(person.get("town", ""), max_length=40),
             swissZipCode=get_zip(person.get("zip", "")),
-            country="CH",
+            country=person.get("country_code", "CH"),
         ),
     )
 

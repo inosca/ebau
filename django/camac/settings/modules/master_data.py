@@ -1,3 +1,5 @@
+from camac.caluma.extensions.countries import COUNTRIES
+
 SO_PERSONAL_DATA_MAPPING = {
     "row_id": "pk",
     "salutation": ("anrede", {"value_parser": "option", "prop": "label"}),
@@ -9,6 +11,10 @@ SO_PERSONAL_DATA_MAPPING = {
     "zip": "plz",
     "town": "ort",
     "country": "land",
+    "country_code": (
+        "land",
+        {"value_parser": ("value_mapping", {"mapping": COUNTRIES})},
+    ),
     "email": "e-mail",
     "tel": "telefon",
     "po_box": "postfach",
@@ -68,6 +74,10 @@ SO_PERSONAL_DATA_MAPPING = {
     "representative_zip": "vertretung-plz",
     "representative_town": "vertretung-ort",
     "representative_country": "vertretung-land",
+    "representative_country_code": (
+        "land",
+        {"value_parser": ("value_mapping", {"mapping": COUNTRIES})},
+    ),
     "representative_email": "vertretung-e-mail",
     "representative_tel": "vertretung-telefon",
     "representative_po_box": "vertretung-postfach",
@@ -354,7 +364,6 @@ MASTER_DATA = {
                     }
                 },
             ),
-            "parking_lots": ("static", None),
             "buildings": (
                 "ng_table",
                 ["gwr", "gwr-v2"],
@@ -1953,7 +1962,6 @@ MASTER_DATA = {
                 },
             ),
             "profile_approval_date": ("static", None),
-            "parking_lots": ("static", ""),
             "nature_risk": ("static", []),
             "construction_start_date": ("static", None),
             "construction_duration": ("static", ""),
@@ -2732,7 +2740,29 @@ MASTER_DATA = {
                 },
             ),
             "organization_category": ("static", "ebauso"),
-            "parking_lots": ("static", None),
+            "civil_engineering": (
+                "table",
+                "tiefbauten",
+                {
+                    "column_mapping": {
+                        "is_parking_lot": (
+                            "tiefbau-siedlung-art",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "tiefbau-siedlung-art-parkplaetze": True,
+                                            "tiefbau-siedlung-art-veloabstellplaetze": True,
+                                        },
+                                    },
+                                ),
+                                "default": False,
+                            },
+                        ),
+                    }
+                },
+            ),
             "proceeding_type": ("static", None),
             "remark": ("answer", "bemerkungen"),
             "usage_type": (
@@ -2741,7 +2771,7 @@ MASTER_DATA = {
                 {"value_parser": "option", "prop": "label"},
             ),
             "usage_zone": ("answer", "nutzungsplanung-grundnutzung"),
-            "zip": ("static", None),
+            "zip": ("answer", "plz"),
         },
     },
     "kt_ag": {
