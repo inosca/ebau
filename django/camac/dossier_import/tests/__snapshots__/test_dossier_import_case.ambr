@@ -333,6 +333,7 @@
   list([
     dict({
       'country': None,
+      'country_code': None,
       'email': 'candy@example.com',
       'first_name': 'Willy',
       'has_representative': None,
@@ -341,6 +342,7 @@
       'last_name': 'Wonka',
       'po_box': None,
       'representative_country': None,
+      'representative_country_code': None,
       'representative_email': None,
       'representative_first_name': None,
       'representative_is_juristic_person': None,
@@ -368,6 +370,7 @@
   list([
     dict({
       'country': None,
+      'country_code': None,
       'email': 'candy@example.com',
       'first_name': 'Willy',
       'has_representative': None,
@@ -376,6 +379,7 @@
       'last_name': 'Wonka',
       'po_box': None,
       'representative_country': None,
+      'representative_country_code': None,
       'representative_email': None,
       'representative_first_name': None,
       'representative_is_juristic_person': None,
@@ -403,6 +407,7 @@
   list([
     dict({
       'country': None,
+      'country_code': None,
       'email': 'candy@example.com',
       'first_name': 'Willy',
       'has_representative': None,
@@ -411,6 +416,7 @@
       'last_name': 'Wonka',
       'po_box': None,
       'representative_country': None,
+      'representative_country_code': None,
       'representative_email': None,
       'representative_first_name': None,
       'representative_is_juristic_person': None,
@@ -438,6 +444,7 @@
   list([
     dict({
       'country': None,
+      'country_code': None,
       'email': 'candy@example.com',
       'first_name': 'Willy',
       'has_representative': None,
@@ -446,6 +453,7 @@
       'last_name': 'Wonka',
       'po_box': None,
       'representative_country': None,
+      'representative_country_code': None,
       'representative_email': None,
       'representative_first_name': None,
       'representative_is_juristic_person': None,
@@ -473,6 +481,7 @@
   list([
     dict({
       'country': None,
+      'country_code': None,
       'email': 'candy@example.com',
       'first_name': 'Willy',
       'has_representative': None,
@@ -481,6 +490,7 @@
       'last_name': 'Wonka',
       'po_box': None,
       'representative_country': None,
+      'representative_country_code': None,
       'representative_email': None,
       'representative_first_name': None,
       'representative_is_juristic_person': None,
@@ -508,6 +518,7 @@
   list([
     dict({
       'country': None,
+      'country_code': None,
       'email': 'candy@example.com',
       'first_name': 'Willy',
       'has_representative': None,
@@ -516,6 +527,7 @@
       'last_name': 'Wonka',
       'po_box': None,
       'representative_country': None,
+      'representative_country_code': None,
       'representative_email': None,
       'representative_first_name': None,
       'representative_is_juristic_person': None,
@@ -543,6 +555,7 @@
   list([
     dict({
       'country': None,
+      'country_code': None,
       'email': 'urlichkissling@example.com',
       'first_name': 'Ulrich',
       'has_representative': None,
@@ -551,6 +564,7 @@
       'last_name': 'Kissling',
       'po_box': None,
       'representative_country': None,
+      'representative_country_code': None,
       'representative_email': None,
       'representative_first_name': None,
       'representative_is_juristic_person': None,

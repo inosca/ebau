@@ -253,7 +253,7 @@ class Countries(BaseDataSource):
 
     @data_source_cache(timeout=3600)
     def get_data(self, user, question, context):
-        return COUNTRIES
+        return list(COUNTRIES.keys())
 
 
 class Authorities(BaseDataSource):

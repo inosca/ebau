@@ -13,6 +13,7 @@ from lxml import etree
 
 from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
+from camac.tests.data import so_personal_row_factory
 
 
 @pytest.fixture
@@ -387,21 +388,17 @@ def ech_instance_so(
     utils.add_answer(ech_instance.case.document, "strasse-flurname", "Musterstrasse")
     utils.add_answer(ech_instance.case.document, "strasse-nummer", 4)
     utils.add_answer(ech_instance.case.document, "ort", "Solothurn")
+    utils.add_answer(ech_instance.case.document, "plz", "4500")
+    utils.add_table_answer(
+        ech_instance.case.document, "bauherrin", [so_personal_row_factory()]
+    )
+    utils.add_table_answer(
+        ech_instance.case.document, "grundeigentuemerin", [so_personal_row_factory()]
+    )
     utils.add_table_answer(
         ech_instance.case.document,
-        "bauherrin",
-        [
-            {
-                "vorname": "Testvorname",
-                "nachname": "Testname",
-                "ort": "Testort ",
-                "plz": 1234,
-                "strasse": "Teststrasse",
-                "strasse-nummer": "1",
-                "telefon": "012312311",
-                "e-mail": "a@b.ch",
-            }
-        ],
+        "tiefbauten",
+        [{"tiefbau-siedlung-art": "tiefbau-siedlung-art-parkplaetze"}],
     )
 
     document = DocumentFactory(

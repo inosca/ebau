@@ -664,7 +664,7 @@
   				<ns1:applicationType>Einfache Vorabklärung</ns1:applicationType>
   				<ns1:profilingYesNo>false</ns1:profilingYesNo>
   				<ns1:intendedPurpose>.</ns1:intendedPurpose>
-  				<ns1:parkingLotsYesNo>false</ns1:parkingLotsYesNo>
+  				<ns1:parkingLotsYesNo>true</ns1:parkingLotsYesNo>
   				<ns1:namedMetaData>
   					<ns3:metaDataName>status</ns3:metaDataName>
   					<ns3:metaDataValue>David Rangel</ns3:metaDataValue>
@@ -673,7 +673,7 @@
   					<ns4:street>Musterstrasse</ns4:street>
   					<ns4:houseNumber>4</ns4:houseNumber>
   					<ns4:town>Solothurn</ns4:town>
-  					<ns4:swissZipCode>9999</ns4:swissZipCode>
+  					<ns4:swissZipCode>4500</ns4:swissZipCode>
   					<ns4:country>
   						<ns4:countryNameShort>CH</ns4:countryNameShort>
   					</ns4:country>
@@ -748,8 +748,8 @@
   						</ns7:file>
   					</ns7:files>
   					<ns7:keywords>
-  						<ns8:keyword>Alejandro Thompson</ns8:keyword>
-  						<ns8:keyword>Anthony Patton</ns8:keyword>
+  						<ns8:keyword>Brianna Green</ns8:keyword>
+  						<ns8:keyword>Stephanie Peterson</ns8:keyword>
   					</ns7:keywords>
   					<ns7:documentKind>Beilagen zum Gesuch</ns7:documentKind>
   				</ns1:document>
@@ -759,15 +759,35 @@
   				<ns1:person>
   					<ns3:identification>
   						<ns3:personIdentification>
-  							<ns9:officialName>Testname</ns9:officialName>
-  							<ns9:firstName>Testvorname</ns9:firstName>
+  							<ns9:officialName>Mccoy</ns9:officialName>
+  							<ns9:firstName>Michael</ns9:firstName>
   						</ns3:personIdentification>
   					</ns3:identification>
   					<ns3:address>
-  						<ns4:street>Teststrasse</ns4:street>
-  						<ns4:houseNumber>1</ns4:houseNumber>
-  						<ns4:town>Testort</ns4:town>
-  						<ns4:swissZipCode>1234</ns4:swissZipCode>
+  						<ns4:street>Allen Street</ns4:street>
+  						<ns4:houseNumber>5465</ns4:houseNumber>
+  						<ns4:town>New Stephanietown</ns4:town>
+  						<ns4:swissZipCode>1942</ns4:swissZipCode>
+  						<ns4:country>
+  							<ns4:countryNameShort>CH</ns4:countryNameShort>
+  						</ns4:country>
+  					</ns3:address>
+  				</ns1:person>
+  			</ns1:relationshipToPerson>
+  			<ns1:relationshipToPerson>
+  				<ns1:role>landowner</ns1:role>
+  				<ns1:person>
+  					<ns3:identification>
+  						<ns3:personIdentification>
+  							<ns9:officialName>Dunn</ns9:officialName>
+  							<ns9:firstName>Christopher</ns9:firstName>
+  						</ns3:personIdentification>
+  					</ns3:identification>
+  					<ns3:address>
+  						<ns4:street>Ryan Alley</ns4:street>
+  						<ns4:houseNumber>33073</ns4:houseNumber>
+  						<ns4:town>Muellerland</ns4:town>
+  						<ns4:swissZipCode>5867</ns4:swissZipCode>
   						<ns4:country>
   							<ns4:countryNameShort>CH</ns4:countryNameShort>
   						</ns4:country>
