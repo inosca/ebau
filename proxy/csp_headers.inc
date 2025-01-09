@@ -61,6 +61,8 @@ set $csp_object_src     "object-src 'self' ${csp_external_img_sources}";
 # Connect: We need to be able to connect to KC from anywhere for login / token
 # fetch
 set $csp_connect_src "${csp_connect_src} ${csp_keycloak_url}";
+# Creating documents from templates does not work if data is not allowed
+set $csp_connect_src "${csp_connect_src} data:";
 
 # fonts: Depending on whether we use google
 set $csp_fonts_src "font-src 'self'";
