@@ -2741,7 +2741,7 @@ MASTER_DATA = {
                 {"value_parser": "option", "prop": "label"},
             ),
             "usage_zone": ("answer", "nutzungsplanung-grundnutzung"),
-            "zip": ("static", None),
+            "zip": ("answer", "plz"),
         },
     },
     "kt_ag": {

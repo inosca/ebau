@@ -93,10 +93,11 @@ def authority(service, organization_category=None):
 
 
 def get_zip(value):
-    if not value or not len(str(value)) == 4:
+    if not value or not len(str(value)) == 4 or not str(value).isdigit():
         # use 9999 for non swiss zips
         return 9999
-    return value
+
+    return int(value)
 
 
 def get_cost(value):
