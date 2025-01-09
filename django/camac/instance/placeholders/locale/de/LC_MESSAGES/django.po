@@ -94,6 +94,55 @@ msgid "BY"
 msgstr "VON"
 
 #: camac/instance/placeholders/fields.py
+msgid "FEEDBACK_CONCLUSION"
+msgstr "RUECKMELDUNG_FAZIT"
+
+#: camac/instance/placeholders/fields.py
+msgid "APPROVING_ASSESSMENTS"
+msgstr "ZUSTIMMENDE_BEURTEILUNGEN"
+
+#: camac/instance/placeholders/fields.py
+msgid "REJECTING_ASSESSMENTS"
+msgstr "ABLEHNENDE_BEURTEILUNGEN"
+
+#: camac/instance/placeholders/fields.py
+msgid "ADDITIONAL_DEMAND"
+msgstr "NACHFORDERUNG"
+
+#: camac/instance/placeholders/fields.py
+#: camac/instance/placeholders/serializers.py
+msgid "OBJECTIONS"
+msgstr "EINSPRACHEN"
+
+#: camac/instance/placeholders/fields.py
+msgid "NOTES_TO_APPLICANT"
+msgstr "HINWEISE_AN_GESUCHSTELLERIN"
+
+#: camac/instance/placeholders/fields.py
+msgid "NOTES_TO_AUTHORITY"
+msgstr "HINWEISE_AN_LEITBEHOERDE"
+
+#: camac/instance/placeholders/fields.py
+msgid "NOTES_TO_AUTHORITY_ARP"
+msgstr "HINWEISE_AN_LEITBEHOERDE_ARP"
+
+#: camac/instance/placeholders/fields.py
+msgid "DISPATCH_DECISION_FURTHER_SERVICES"
+msgstr "VERSAND_ENTSCHEID_WEITERE_STELLEN"
+
+#: camac/instance/placeholders/fields.py
+msgid "REMARKS"
+msgstr "BEMERKUNGEN"
+
+#: camac/instance/placeholders/fields.py
+msgid "DATE_START"
+msgstr "DATUM_START"
+
+#: camac/instance/placeholders/fields.py
+msgid "DATE_END"
+msgstr "DATUM_ENDE"
+
+#: camac/instance/placeholders/fields.py
 msgid "DATE_POSTMARK"
 msgstr "DATUM_POSTSTEMPEL"
 
@@ -1422,10 +1471,6 @@ msgstr "Zuständige Person der zuständigen Leitbehörde"
 #: camac/instance/placeholders/serializers.py
 msgid "NEIGHBORS"
 msgstr "ALLE_NACHBARN"
-
-#: camac/instance/placeholders/serializers.py
-msgid "OBJECTIONS"
-msgstr "EINSPRACHEN"
 
 #: camac/instance/placeholders/serializers.py
 msgid "All legal submissions of the type \"objection\""

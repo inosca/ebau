@@ -797,6 +797,15 @@ DISTRIBUTION = {
             "STATEMENT": "inquiry-answer-positive-assessments",
             "ANCILLARY_CLAUSES": "inquiry-answer-notices-for-authority",
             "DIRECT": "inquiry-direct",
+            # For placeholders
+            "POSITIVE": "inquiry-answer-positive-assessments",
+            "NEGATIVE": "inquiry-answer-negative-assessments",
+            "ADDITIONAL_DEMAND": "inquiry-answer-rejection-additional-demand",
+            "OBJECTIONS": "inquiry-answer-objections",
+            "NOTICES_APPLICANT": "inquiry-answer-notices-for-applicant",
+            "NOTICES_AUTHORITY": "inquiry-answer-notices-for-authority",
+            "NOTICES_ARP": "inquiry-answer-notices-for-authority-arp",
+            "FORWARD": "inquiry-answer-forward",
         },
         "ANSWERS": {
             "STATUS": {

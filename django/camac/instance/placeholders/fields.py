@@ -340,17 +340,15 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
         self,
         only_own=False,
         only_own_controlling=None,
-        props=[
-            ("service", "NAME"),
-            ("deadline", "FRIST"),
-            ("creation_date", "ERSTELLT"),
-            ("completion_date", "BEANTWORTET"),
-        ],
+        props=None,
         join_by=None,
         service_group=None,
         status=None,
         **kwargs,
     ):
+        if not props:
+            props = settings.PLACEHOLDERS["INQUIRY_DEFAULT_FIELDS"]
+
         all_nested_aliases = {
             "ANTWORT": [_("ANSWER")],
             "BEANTWORTET": [_("ANSWERED")],
@@ -362,6 +360,20 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
             "STELLUNGNAHME": [_("OPINION")],
             "TEXT": [_("TEXT")],
             "VON": [_("BY")],
+            "RUECKMELDUNG_FAZIT": [_("FEEDBACK_CONCLUSION")],
+            "ZUSTIMMENDE_BEURTEILUNGEN": [_("APPROVING_ASSESSMENTS")],
+            "ABLEHNENDE_BEURTEILUNGEN": [_("REJECTING_ASSESSMENTS")],
+            "NACHFORDERUNG": [_("ADDITIONAL_DEMAND")],
+            "EINSPRACHEN": [_("OBJECTIONS")],
+            "HINWEISE_AN_GESUCHSTELLERIN": [_("NOTES_TO_APPLICANT")],
+            "HINWEISE_AN_LEITBEHOERDE": [_("NOTES_TO_AUTHORITY")],
+            "HINWEISE_AN_LEITBEHOERDE_ARP": [_("NOTES_TO_AUTHORITY_ARP")],
+            "VERSAND_ENTSCHEID_WEITERE_STELLEN": [
+                _("DISPATCH_DECISION_FURTHER_SERVICES")
+            ],
+            "BEMERKUNGEN": [_("REMARKS")],
+            "DATUM_START": [_("DATE_START")],
+            "DATUM_ENDE": [_("DATE_END")],
         }
 
         nested_aliases = (
@@ -387,18 +399,6 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
 
     def get_prop_value(self, inquiry, prop):
         prop_mapping = {
-            "opinion": lambda i: find_answer(
-                i.child_case.document,
-                settings.DISTRIBUTION["QUESTIONS"]["STATEMENT"],
-            ),
-            "ancillary_clauses": lambda i: find_answer(
-                i.child_case.document,
-                settings.DISTRIBUTION["QUESTIONS"]["ANCILLARY_CLAUSES"],
-            ),
-            "answer": lambda i: find_answer(
-                i.child_case.document,
-                settings.DISTRIBUTION["QUESTIONS"]["STATUS"],
-            ),
             "service": lambda i: self.get_service(i, "addressed_groups"),
             "service_with_prefix": lambda i: f"- {self.get_service(i,'addressed_groups')}",
             "deadline": lambda i: i.deadline.strftime("%d.%m.%Y"),
@@ -408,10 +408,31 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
                 if i.status == WorkItem.STATUS_COMPLETED
                 else None
             ),
+            "start_date": lambda i: i.case.parent_work_item.created_at.strftime(
+                "%d.%m.%Y"
+            ),
+            "end_date": lambda i: (
+                i.case.parent_work_item.closed_at.strftime("%d.%m.%Y")
+                if i.case.parent_work_item.status == WorkItem.STATUS_COMPLETED
+                else None
+            ),
         }
 
         if isinstance(prop, tuple):
             prop = prop[0]
+
+        answer_type, slug = settings.PLACEHOLDERS["INQUIRY_FIELD_MAPPINGS"].get(
+            prop, (None, None)
+        )
+
+        if answer_type == "inquiry":
+            return find_answer(
+                inquiry.document, settings.DISTRIBUTION["QUESTIONS"][slug]
+            )
+        elif answer_type == "inquiry-answer":
+            return find_answer(
+                inquiry.child_case.document, settings.DISTRIBUTION["QUESTIONS"][slug]
+            )
 
         try:
             return prop_mapping.get(prop)(inquiry)
