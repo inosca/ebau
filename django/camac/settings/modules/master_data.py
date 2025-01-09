@@ -364,7 +364,6 @@ MASTER_DATA = {
                     }
                 },
             ),
-            "parking_lots": ("static", None),
             "buildings": (
                 "ng_table",
                 ["gwr", "gwr-v2"],
@@ -1963,7 +1962,6 @@ MASTER_DATA = {
                 },
             ),
             "profile_approval_date": ("static", None),
-            "parking_lots": ("static", ""),
             "nature_risk": ("static", []),
             "construction_start_date": ("static", None),
             "construction_duration": ("static", ""),
@@ -2742,7 +2740,29 @@ MASTER_DATA = {
                 },
             ),
             "organization_category": ("static", "ebauso"),
-            "parking_lots": ("static", None),
+            "civil_engineering": (
+                "table",
+                "tiefbauten",
+                {
+                    "column_mapping": {
+                        "is_parking_lot": (
+                            "tiefbau-siedlung-art",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "tiefbau-siedlung-art-parkplaetze": True,
+                                            "tiefbau-siedlung-art-veloabstellplaetze": True,
+                                        },
+                                    },
+                                ),
+                                "default": False,
+                            },
+                        ),
+                    }
+                },
+            ),
             "proceeding_type": ("static", None),
             "remark": ("answer", "bemerkungen"),
             "usage_type": (

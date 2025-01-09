@@ -475,6 +475,14 @@
       6010,
     ]),
     'city': 'Musterdorf',
+    'civil_engineering': list([
+      dict({
+        'is_parking_lot': True,
+      }),
+      dict({
+        'is_parking_lot': False,
+      }),
+    ]),
     'completion_date': None,
     'construction_costs': 129000,
     'construction_duration': 18,
@@ -631,7 +639,6 @@
       }),
     ]),
     'organization_category': 'ebauso',
-    'parking_lots': None,
     'plot_data': list([
       dict({
         'coord_east': 2690970.9,
@@ -746,6 +753,14 @@
       6010,
     ]),
     'city': 'Musterdorf',
+    'civil_engineering': list([
+      dict({
+        'is_parking_lot': True,
+      }),
+      dict({
+        'is_parking_lot': False,
+      }),
+    ]),
     'completion_date': None,
     'construction_costs': 129000,
     'construction_duration': 18,
@@ -902,7 +917,6 @@
       }),
     ]),
     'organization_category': 'ebauso',
-    'parking_lots': None,
     'plot_data': list([
       dict({
         'coord_east': 2690970.9,
@@ -1041,7 +1055,6 @@
     'municipality_name': 'South Carlos',
     'nature_risk': None,
     'organization_category': 'ebausz',
-    'parking_lots': None,
     'plot_data': list([
       dict({
         'egrid_number': 'CH1234567890',
@@ -1147,7 +1160,6 @@
     'municipality_name': 'South Carlos',
     'nature_risk': None,
     'organization_category': 'ebausz',
-    'parking_lots': None,
     'plot_data': list([
       dict({
         'egrid_number': 'CH1234567890',

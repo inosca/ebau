@@ -664,7 +664,7 @@
   				<ns1:applicationType>Einfache Vorabklärung</ns1:applicationType>
   				<ns1:profilingYesNo>false</ns1:profilingYesNo>
   				<ns1:intendedPurpose>.</ns1:intendedPurpose>
-  				<ns1:parkingLotsYesNo>false</ns1:parkingLotsYesNo>
+  				<ns1:parkingLotsYesNo>true</ns1:parkingLotsYesNo>
   				<ns1:namedMetaData>
   					<ns3:metaDataName>status</ns3:metaDataName>
   					<ns3:metaDataValue>David Rangel</ns3:metaDataValue>
@@ -748,8 +748,8 @@
   						</ns7:file>
   					</ns7:files>
   					<ns7:keywords>
-  						<ns8:keyword>Rebecca Cisneros</ns8:keyword>
-  						<ns8:keyword>April Cruz</ns8:keyword>
+  						<ns8:keyword>Brianna Green</ns8:keyword>
+  						<ns8:keyword>Stephanie Peterson</ns8:keyword>
   					</ns7:keywords>
   					<ns7:documentKind>Beilagen zum Gesuch</ns7:documentKind>
   				</ns1:document>
