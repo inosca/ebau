@@ -53,14 +53,13 @@ class CustomVisibility(InstanceQuerysetMixin):
 
     @filter_queryset_for(BaseModel)
     def filter_queryset_for_all(self, queryset, request):  # pragma: no cover
-        if get_role(request.caluma_info.context.user) != "public":
+        if get_role(request.group) != "public":
             return queryset
 
         return queryset.none()
 
     def document_and_file_filter(self, request, prefix=""):
-        user = request.caluma_info.context.user
-        role = get_role(user)
+        role = get_role(request.group)
 
         visible_instances_filter = Q(
             **{
@@ -85,7 +84,7 @@ class CustomVisibility(InstanceQuerysetMixin):
         # categories where only documents from my own service are readable
         aggregated_filter |= Q(
             get_category_access_rule(prefix, "service", role)
-            & Q(**{f"{prefix}modified_by_group": str(user.group)})
+            & Q(**{f"{prefix}modified_by_group": str(request.group.service_id)})
         )
         # categories where only documents from my own service, it's parent and
         # their subservices are readable
@@ -94,7 +93,7 @@ class CustomVisibility(InstanceQuerysetMixin):
             & Q(
                 **{
                     f"{prefix}modified_by_group__in": get_service_parent_and_children(
-                        user.group
+                        request.group.service_id
                     )
                 }
             )
@@ -128,7 +127,7 @@ class CustomVisibility(InstanceQuerysetMixin):
         if "swagger" in request.path:  # pragma: no cover
             return queryset.none()
 
-        role = get_role(request.caluma_info.context.user)
+        role = get_role(request.group)
         # TODO: need to evaluate some permissions to avoid displaying categories at useless times
         return queryset.filter(
             Q(metainfo__access__has_key=role)
@@ -137,10 +136,10 @@ class CustomVisibility(InstanceQuerysetMixin):
 
     @filter_queryset_for(Tag)
     def filter_queryset_for_tag(self, queryset, request):
-        if get_role(request.caluma_info.context.user) == "support":
+        if get_role(request.group) == "support":
             return queryset
 
-        if get_role(request.caluma_info.context.user) in ["public", "applicant"]:
+        if get_role(request.group) in ["public", "applicant"]:
             return queryset.none()
 
         if settings.ALEXANDRIA["TAG_VISIBILITY"] == "all":
@@ -149,7 +148,7 @@ class CustomVisibility(InstanceQuerysetMixin):
             return queryset.filter(
                 Q(
                     created_by_group__in=get_service_parent_and_children(
-                        request.caluma_info.context.user.group
+                        request.group.service_id
                     )
                 )
                 | Q(
@@ -165,7 +164,7 @@ class CustomVisibility(InstanceQuerysetMixin):
 
     @filter_queryset_for(Mark)
     def filter_queryset_for_mark(self, queryset, request):
-        if get_role(request.caluma_info.context.user) == "public":
+        if get_role(request.group) == "public":
             return queryset.filter(pk__in=settings.ALEXANDRIA["PUBLIC_MARKS"])
 
         return queryset.order_by("metainfo__sort")

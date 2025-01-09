@@ -15,11 +15,11 @@ from camac.permissions.switcher import permission_switching_method
 from camac.utils import get_dict_item
 
 
-def resolve_permissions(category, user):
+def resolve_permissions(category, group):
     if category.parent:
-        return resolve_permissions(category.parent, user)
+        return resolve_permissions(category.parent, group)
 
-    return get_dict_item(category.metainfo, f"access.{get_role(user)}", default=None)
+    return get_dict_item(category.metainfo, f"access.{get_role(group)}", default=None)
 
 
 MODE_CREATE = "create"
@@ -113,8 +113,7 @@ class CustomPermission:
         category: Category,
         document: Union[Document, None] = None,
     ) -> set:
-        user = request.caluma_info.context.user
-        category_permissions = resolve_permissions(category, user)
+        category_permissions = resolve_permissions(category, request.group)
 
         if not category_permissions or "permissions" not in category_permissions:
             return set()
@@ -129,7 +128,7 @@ class CustomPermission:
 
             if document and permission["permission"] != "create":
                 all_checks_met &= getattr(scopes, permission["scope"])(
-                    user, document
+                    request.group, document
                 ).evaluate()
 
             required_conditions = permission.get("condition")
@@ -168,7 +167,7 @@ class CustomPermission:
     @permission_for(BaseModel)
     @object_permission_for(BaseModel)
     def has_permission_default(self, request, document=None):  # pragma: no cover
-        return get_role(request.caluma_info.context.user) == "support"
+        return get_role(request.group) == "support"
 
     @permission_for(Document)
     @object_permission_for(Document)
@@ -249,9 +248,7 @@ class CustomPermission:
             settings.APPLICATION_NAME == "kt_gr"
             and request.method == "POST"
             and document.files.filter(variant=File.Variant.ORIGINAL).count() >= 1
-            and not scopes.ServiceAndSubservice(
-                request.caluma_info.context.user, document
-            ).evaluate()
+            and not scopes.ServiceAndSubservice(request.group, document).evaluate()
         ):
             return False
 
@@ -273,7 +270,7 @@ class CustomPermission:
     @permission_for(Tag)
     @object_permission_for(Tag)
     def has_permission_for_tag(self, request, tag=None):
-        role = get_role(request.caluma_info.context.user)
+        role = get_role(request.group)
 
         if role == "support":
             # Support can create, edit and delete tags
