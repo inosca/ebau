@@ -1922,6 +1922,36 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "anschluss-wasser-abwasserinstallationen-v5.aufnahme-istzustand-total-belastungswerte-bw-v5",
+    "fields": {
+      "created_at": "2024-11-22T16:30:40.592Z",
+      "modified_at": "2024-11-22T16:30:40.592Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-wasser-abwasserinstallationen-v5",
+      "question": "aufnahme-istzustand-total-belastungswerte-bw-v5",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-wasser-abwasserinstallationen-v5.aufnahme-istzustand-total-belastungswerte-lu-v5",
+    "fields": {
+      "created_at": "2024-11-22T16:29:47.332Z",
+      "modified_at": "2024-11-22T16:29:47.332Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-wasser-abwasserinstallationen-v5",
+      "question": "aufnahme-istzustand-total-belastungswerte-lu-v5",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "anschluss-wasser-abwasserinstallationen-v5.fuer-welche-installationen-wird-regenabwasser-genutzt-v5",
     "fields": {
       "created_at": "2024-11-20T14:09:33.988Z",
@@ -1952,21 +1982,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "anschluss-wasser-abwasserinstallationen-v5.nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5",
-    "fields": {
-      "created_at": "2024-11-20T14:06:02.287Z",
-      "modified_at": "2024-11-20T14:06:02.287Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "anschluss-wasser-abwasserinstallationen-v5",
-      "question": "nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5",
-      "sort": 14
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "anschluss-wasser-abwasserinstallationen-v5.regenabwasser-beschreibung-andere-verwendung-v5",
     "fields": {
       "created_at": "2024-11-20T14:11:56.927Z",
@@ -1978,6 +1993,21 @@
       "form": "anschluss-wasser-abwasserinstallationen-v5",
       "question": "regenabwasser-beschreibung-andere-verwendung-v5",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-wasser-abwasserinstallationen-v5.richtlinie-belastungswerte-v5",
+    "fields": {
+      "created_at": "2024-11-20T14:06:02.287Z",
+      "modified_at": "2024-11-20T14:06:02.287Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-wasser-abwasserinstallationen-v5",
+      "question": "richtlinie-belastungswerte-v5",
+      "sort": 14
     }
   },
   {
@@ -2008,6 +2038,36 @@
       "form": "anschluss-wasser-abwasserinstallationen-v5",
       "question": "sollzustand-tabelle-v5",
       "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-wasser-abwasserinstallationen-v5.sollzustand-total-belastungswerte-bw-v5",
+    "fields": {
+      "created_at": "2024-11-22T16:37:52.544Z",
+      "modified_at": "2024-11-22T16:37:52.544Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-wasser-abwasserinstallationen-v5",
+      "question": "sollzustand-total-belastungswerte-bw-v5",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anschluss-wasser-abwasserinstallationen-v5.sollzustand-total-belastungswerte-lu-v5",
+    "fields": {
+      "created_at": "2024-11-22T16:34:41.275Z",
+      "modified_at": "2024-11-22T16:34:41.275Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anschluss-wasser-abwasserinstallationen-v5",
+      "question": "sollzustand-total-belastungswerte-lu-v5",
+      "sort": 7
     }
   },
   {
@@ -7232,7 +7292,172 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "zustand-tabelle-v5.fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5",
+    "pk": "zustand-tabelle-v5.anzahl-anschluesse-kaltwasser-v5",
+    "fields": {
+      "created_at": "2024-11-22T15:51:52.666Z",
+      "modified_at": "2024-11-22T15:51:52.666Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "zustand-tabelle-v5",
+      "question": "anzahl-anschluesse-kaltwasser-v5",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zustand-tabelle-v5.anzahl-anschluesse-warmwasser-v5",
+    "fields": {
+      "created_at": "2024-11-22T15:51:52.668Z",
+      "modified_at": "2024-11-22T15:51:52.668Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "zustand-tabelle-v5",
+      "question": "anzahl-anschluesse-warmwasser-v5",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zustand-tabelle-v5.beschrieb-spezialinstallation-v5",
+    "fields": {
+      "created_at": "2024-11-22T15:51:52.702Z",
+      "modified_at": "2024-11-22T15:51:52.703Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "zustand-tabelle-v5",
+      "question": "beschrieb-spezialinstallation-v5",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zustand-tabelle-v5.bw-kaltwasser-calculation-v5",
+    "fields": {
+      "created_at": "2025-01-07T20:13:40.242Z",
+      "modified_at": "2025-01-07T20:13:40.242Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zustand-tabelle-v5",
+      "question": "bw-kaltwasser-calculation-v5",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zustand-tabelle-v5.bw-kaltwasser-v5",
+    "fields": {
+      "created_at": "2024-11-22T15:51:52.682Z",
+      "modified_at": "2024-11-22T15:51:52.682Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "zustand-tabelle-v5",
+      "question": "bw-kaltwasser-v5",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zustand-tabelle-v5.bw-pro-anschluss-v5",
+    "fields": {
+      "created_at": "2024-11-22T15:51:52.675Z",
+      "modified_at": "2024-11-22T15:51:52.675Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "zustand-tabelle-v5",
+      "question": "bw-pro-anschluss-v5",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zustand-tabelle-v5.bw-total-v5",
+    "fields": {
+      "created_at": "2025-01-07T20:15:20.877Z",
+      "modified_at": "2025-01-07T20:15:20.877Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zustand-tabelle-v5",
+      "question": "bw-total-v5",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zustand-tabelle-v5.bw-warmwasser-calculation-v5",
+    "fields": {
+      "created_at": "2025-01-07T20:14:23.932Z",
+      "modified_at": "2025-01-07T20:14:23.932Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zustand-tabelle-v5",
+      "question": "bw-warmwasser-calculation-v5",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zustand-tabelle-v5.bw-warmwasser-v5",
+    "fields": {
+      "created_at": "2024-11-22T15:51:52.692Z",
+      "modified_at": "2024-11-22T15:51:52.692Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "zustand-tabelle-v5",
+      "question": "bw-warmwasser-v5",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zustand-tabelle-v5.infotext-bw-total-spezialinstallation-v5",
+    "fields": {
+      "created_at": "2024-11-28T16:07:12.894Z",
+      "modified_at": "2024-11-28T16:07:12.894Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zustand-tabelle-v5",
+      "question": "infotext-bw-total-spezialinstallation-v5",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zustand-tabelle-v5.infotext-lu-total-spezialinstallation-v5",
+    "fields": {
+      "created_at": "2024-11-28T16:03:52.436Z",
+      "modified_at": "2024-11-28T16:03:52.436Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zustand-tabelle-v5",
+      "question": "infotext-lu-total-spezialinstallation-v5",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zustand-tabelle-v5.installation-v5",
     "fields": {
       "created_at": "2024-11-22T15:51:52.662Z",
       "modified_at": "2024-11-22T15:51:52.662Z",
@@ -7241,8 +7466,128 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "form": "zustand-tabelle-v5",
-      "question": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5",
-      "sort": 28
+      "question": "installation-v5",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zustand-tabelle-v5.l-pro-min-spezialinstallation-v5",
+    "fields": {
+      "created_at": "2024-11-22T15:51:52.706Z",
+      "modified_at": "2024-11-22T15:51:52.706Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "zustand-tabelle-v5",
+      "question": "l-pro-min-spezialinstallation-v5",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zustand-tabelle-v5.lu-kaltwasser-calculation-v5",
+    "fields": {
+      "created_at": "2025-01-07T20:02:45.632Z",
+      "modified_at": "2025-01-07T20:02:45.632Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zustand-tabelle-v5",
+      "question": "lu-kaltwasser-calculation-v5",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zustand-tabelle-v5.lu-kaltwasser-v5",
+    "fields": {
+      "created_at": "2024-11-22T15:51:52.679Z",
+      "modified_at": "2024-11-22T15:51:52.679Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "zustand-tabelle-v5",
+      "question": "lu-kaltwasser-v5",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zustand-tabelle-v5.lu-pro-anschluss-v5",
+    "fields": {
+      "created_at": "2024-11-22T15:51:52.671Z",
+      "modified_at": "2024-11-22T15:51:52.671Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "zustand-tabelle-v5",
+      "question": "lu-pro-anschluss-v5",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zustand-tabelle-v5.lu-total-v5",
+    "fields": {
+      "created_at": "2025-01-07T15:29:34.165Z",
+      "modified_at": "2025-01-07T15:29:34.165Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zustand-tabelle-v5",
+      "question": "lu-total-v5",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zustand-tabelle-v5.lu-warmwasser-calculation-v5",
+    "fields": {
+      "created_at": "2025-01-07T20:03:38.586Z",
+      "modified_at": "2025-01-07T20:03:38.586Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zustand-tabelle-v5",
+      "question": "lu-warmwasser-calculation-v5",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zustand-tabelle-v5.lu-warmwasser-v5",
+    "fields": {
+      "created_at": "2024-11-22T15:51:52.690Z",
+      "modified_at": "2024-11-22T15:51:52.690Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "zustand-tabelle-v5",
+      "question": "lu-warmwasser-v5",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zustand-tabelle-v5.spezialinstallation-calculation-v5",
+    "fields": {
+      "created_at": "2025-01-07T15:27:11.336Z",
+      "modified_at": "2025-01-07T15:27:11.336Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zustand-tabelle-v5",
+      "question": "spezialinstallation-calculation-v5",
+      "sort": 8
     }
   },
   {
@@ -8394,330 +8739,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"WC\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-ausgussbecken-stand-und-wandausguss",
-    "fields": {
-      "created_at": "2024-11-21T11:13:46.734Z",
-      "modified_at": "2024-11-28T16:25:59.775Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ausgussbecken, Stand- und Wandausguss\", \"fr\": \"Bassin de lavage, \\u00e9vier sur pieds et vidoir mural\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-badewanne",
-    "fields": {
-      "created_at": "2024-11-21T11:13:46.966Z",
-      "modified_at": "2024-11-28T16:25:59.834Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Badewanne\", \"fr\": \"Baignoire\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-bidet-coiffeurbrause",
-    "fields": {
-      "created_at": "2024-11-21T11:13:46.508Z",
-      "modified_at": "2024-11-28T16:25:59.637Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Bidet, Coiffeurbrause\", \"fr\": \"Bidet, douche de coiffeur\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-dusche",
-    "fields": {
-      "created_at": "2024-11-21T11:13:46.644Z",
-      "modified_at": "2024-11-28T16:25:59.694Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Dusche\", \"fr\": \"Douche\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-entnahmearmatur-fuer-balkon-und-terrasse",
-    "fields": {
-      "created_at": "2024-11-21T11:13:46.633Z",
-      "modified_at": "2024-11-28T16:25:59.614Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Entnahmearmatur f\\u00fcr Balkon und Terrasse\", \"fr\": \"Robinet de puisage pour balcon et terrasse\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-entnahmearmatur-fuer-garten-und-garage",
-    "fields": {
-      "created_at": "2024-11-21T11:13:46.942Z",
-      "modified_at": "2024-11-28T16:25:59.862Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Entnahmearmatur f\\u00fcr Garten und Garage\", \"fr\": \"Robinet de puisage pour jardin et garage\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-geschirrbrause",
-    "fields": {
-      "created_at": "2024-11-21T11:13:46.993Z",
-      "modified_at": "2024-11-28T16:25:59.900Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Geschirrbrause\", \"fr\": \"Douchette pour plonge\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-getraenkeautomat",
-    "fields": {
-      "created_at": "2024-11-21T11:13:46.509Z",
-      "modified_at": "2024-11-28T16:25:59.653Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Getr\\u00e4nkeautomat\", \"fr\": \"Automate \\u00e0 boissons\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-handwaschbecken",
-    "fields": {
-      "created_at": "2024-11-21T11:13:46.541Z",
-      "modified_at": "2024-11-28T16:25:59.615Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Handwaschbecken\", \"fr\": \"Lave-mains\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-haushaltgeschirrspueler",
-    "fields": {
-      "created_at": "2024-11-21T11:13:46.619Z",
-      "modified_at": "2024-11-28T16:25:59.680Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Haushaltgeschirrsp\\u00fcler\", \"fr\": \"Lave-vaisselle de m\\u00e9nage\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-haushaltwaschautomat",
-    "fields": {
-      "created_at": "2024-11-21T11:13:46.595Z",
-      "modified_at": "2024-11-28T16:25:59.619Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Haushaltwaschautomat\", \"fr\": \"Lave-linge de m\\u00e9nage\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-kuehl-und-klimaanlage",
-    "fields": {
-      "created_at": "2024-11-21T11:13:46.944Z",
-      "modified_at": "2024-11-28T16:25:59.818Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"K\\u00fchl- und Klimaanlage\", \"fr\": \"Inst. frigorifique et de climatisation\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-laufender-brunnen",
-    "fields": {
-      "created_at": "2024-11-21T11:13:46.741Z",
-      "modified_at": "2024-11-28T16:25:59.770Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Laufender Brunnen\", \"fr\": \"Fontaine\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-spuelbecken",
-    "fields": {
-      "created_at": "2024-11-21T11:13:46.634Z",
-      "modified_at": "2024-11-28T16:25:59.621Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Sp\\u00fclbecken\", \"fr\": \"\\u00c9vier, lavabo utilitaire\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-spuelbecken-fuer-gewerbe",
-    "fields": {
-      "created_at": "2024-11-21T11:13:46.973Z",
-      "modified_at": "2024-11-28T16:25:59.865Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Sp\\u00fclbecken f\\u00fcr Gewerbe\", \"fr\": \"Bassin de lavage pour l\\u2019artisanat\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-urinoir-spuelung",
-    "fields": {
-      "created_at": "2024-11-21T11:13:46.955Z",
-      "modified_at": "2024-11-28T16:25:59.813Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Urinoir-Sp\\u00fclung\", \"fr\": \"Urinoir avec r\\u00e9servoir de chasse\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-vieh-selbsttraenke",
-    "fields": {
-      "created_at": "2024-11-21T11:13:46.937Z",
-      "modified_at": "2024-11-28T16:25:59.861Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Vieh-Selbsttr\\u00e4nke\", \"fr\": \"Abreuvoir automatique\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-waschtrog",
-    "fields": {
-      "created_at": "2024-11-21T11:13:46.719Z",
-      "modified_at": "2024-11-28T16:25:59.808Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Waschtrog\", \"fr\": \"Lavoir\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-wc-spuelkasten",
-    "fields": {
-      "created_at": "2024-11-21T11:13:46.544Z",
-      "modified_at": "2024-11-28T16:25:59.648Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"WC-Sp\\u00fclkasten\", \"fr\": \"WC avec r\\u00e9servoir de chasse\", \"it\": null}",
+      "label": "{\"de\": \"WC\", \"fr\": \"WC\", \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -9508,6 +9530,329 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "installation-v5-ausgussbecken-stand-und-wandausguss",
+    "fields": {
+      "created_at": "2024-11-21T11:13:46.734Z",
+      "modified_at": "2024-11-28T16:25:59.775Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ausgussbecken, Stand- und Wandausguss\", \"fr\": \"Bassin de lavage, \\u00e9vier sur pieds et vidoir mural\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installation-v5-badewanne",
+    "fields": {
+      "created_at": "2024-11-21T11:13:46.966Z",
+      "modified_at": "2024-11-28T16:25:59.834Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Badewanne\", \"fr\": \"Baignoire\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installation-v5-bidet-coiffeurbrause",
+    "fields": {
+      "created_at": "2024-11-21T11:13:46.508Z",
+      "modified_at": "2024-11-28T16:25:59.637Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bidet, Coiffeurbrause\", \"fr\": \"Bidet, douche de coiffeur\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installation-v5-dusche",
+    "fields": {
+      "created_at": "2024-11-21T11:13:46.644Z",
+      "modified_at": "2024-11-28T16:25:59.694Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dusche\", \"fr\": \"Douche\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installation-v5-entnahmearmatur-fuer-balkon-und-terrasse",
+    "fields": {
+      "created_at": "2024-11-21T11:13:46.633Z",
+      "modified_at": "2024-11-28T16:25:59.614Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entnahmearmatur f\\u00fcr Balkon und Terrasse\", \"fr\": \"Robinet de puisage pour balcon et terrasse\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installation-v5-entnahmearmatur-fuer-garten-und-garage",
+    "fields": {
+      "created_at": "2024-11-21T11:13:46.942Z",
+      "modified_at": "2024-11-28T16:25:59.862Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entnahmearmatur f\\u00fcr Garten und Garage\", \"fr\": \"Robinet de puisage pour jardin et garage\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installation-v5-geschirrbrause",
+    "fields": {
+      "created_at": "2024-11-21T11:13:46.993Z",
+      "modified_at": "2024-11-28T16:25:59.900Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Geschirrbrause\", \"fr\": \"Douchette pour plonge\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installation-v5-getraenkeautomat",
+    "fields": {
+      "created_at": "2024-11-21T11:13:46.509Z",
+      "modified_at": "2024-11-28T16:25:59.653Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Getr\\u00e4nkeautomat\", \"fr\": \"Automate \\u00e0 boissons\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installation-v5-handwaschbecken",
+    "fields": {
+      "created_at": "2024-11-21T11:13:46.541Z",
+      "modified_at": "2024-11-28T16:25:59.615Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Handwaschbecken\", \"fr\": \"Lave-mains\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installation-v5-haushaltgeschirrspueler",
+    "fields": {
+      "created_at": "2024-11-21T11:13:46.619Z",
+      "modified_at": "2024-11-28T16:25:59.680Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Haushaltgeschirrsp\\u00fcler\", \"fr\": \"Lave-vaisselle de m\\u00e9nage\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installation-v5-haushaltwaschautomat",
+    "fields": {
+      "created_at": "2024-11-21T11:13:46.595Z",
+      "modified_at": "2024-11-28T16:25:59.619Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Haushaltwaschautomat\", \"fr\": \"Lave-linge de m\\u00e9nage\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installation-v5-kuehl-und-klimaanlage",
+    "fields": {
+      "created_at": "2024-11-21T11:13:46.944Z",
+      "modified_at": "2024-11-28T16:25:59.818Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"K\\u00fchl- und Klimaanlage\", \"fr\": \"Inst. frigorifique et de climatisation\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installation-v5-laufender-brunnen",
+    "fields": {
+      "created_at": "2024-11-21T11:13:46.741Z",
+      "modified_at": "2024-11-28T16:25:59.770Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Laufender Brunnen\", \"fr\": \"Fontaine\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installation-v5-spuelbecken",
+    "fields": {
+      "created_at": "2024-11-21T11:13:46.634Z",
+      "modified_at": "2024-11-28T16:25:59.621Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sp\\u00fclbecken\", \"fr\": \"\\u00c9vier, lavabo utilitaire\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installation-v5-spuelbecken-fuer-gewerbe",
+    "fields": {
+      "created_at": "2024-11-21T11:13:46.973Z",
+      "modified_at": "2024-11-28T16:25:59.865Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sp\\u00fclbecken f\\u00fcr Gewerbe\", \"fr\": \"Bassin de lavage pour l\\u2019artisanat\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installation-v5-urinoir-spuelung",
+    "fields": {
+      "created_at": "2024-11-21T11:13:46.955Z",
+      "modified_at": "2024-11-28T16:25:59.813Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Urinoir-Sp\\u00fclung\", \"fr\": \"Urinoir avec r\\u00e9servoir de chasse\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installation-v5-vieh-selbsttraenke",
+    "fields": {
+      "created_at": "2024-11-21T11:13:46.937Z",
+      "modified_at": "2024-11-28T16:25:59.861Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vieh-Selbsttr\\u00e4nke\", \"fr\": \"Abreuvoir automatique\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installation-v5-waschtrog",
+    "fields": {
+      "created_at": "2024-11-21T11:13:46.719Z",
+      "modified_at": "2024-11-28T16:25:59.808Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Waschtrog\", \"fr\": \"Lavoir\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installation-v5-wc-spuelkasten",
+    "fields": {
+      "created_at": "2024-11-21T11:13:46.544Z",
+      "modified_at": "2024-11-28T16:25:59.648Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"WC-Sp\\u00fclkasten\", \"fr\": \"WC avec r\\u00e9servoir de chasse\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "ist-das-bauwerk-der-bauwerksklasse-ii-oder-iii-zugeteilt-v5-ja",
     "fields": {
       "created_at": "2024-08-14T08:30:59.715Z",
@@ -9814,40 +10159,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5-belastungswerte-nach-svgw-w3-2013-lu",
-    "fields": {
-      "created_at": "2024-11-20T14:06:02.138Z",
-      "modified_at": "2024-11-20T14:06:25.315Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Belastungswerte nach SVGW W3 2013 (LU)\", \"fr\": \"Unit\\u00e9s de raccordement selon la directive W3 2013 de la SSIGE (LU)\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5-belastungswerte-nach-w3-svgw-bw",
-    "fields": {
-      "created_at": "2024-11-20T14:06:02.140Z",
-      "modified_at": "2024-11-20T14:06:25.313Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Belastungswerte nach W3 SVGW (BW)\", \"fr\": \"Unit\\u00e9s de raccordement selon SSIGE W3 (UR)\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "plaene-fumoir-dokument-v5-ja",
     "fields": {
       "created_at": "2024-12-03T18:28:31.914Z",
@@ -10044,6 +10355,40 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nicht erforderlich\", \"fr\": \"Pas n\\u00e9cessaire\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "richtlinie-belastungswerte-v5-belastungswerte-bw",
+    "fields": {
+      "created_at": "2024-11-20T14:06:02.140Z",
+      "modified_at": "2024-11-20T14:06:25.313Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Belastungswerte nach W3 SVGW (BW)\", \"fr\": \"Unit\\u00e9s de raccordement selon SSIGE W3 (UR)\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "richtlinie-belastungswerte-v5-belastungswerte-lu",
+    "fields": {
+      "created_at": "2024-11-20T14:06:02.138Z",
+      "modified_at": "2024-11-20T14:06:25.315Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Belastungswerte nach SVGW W3 2013 (LU)\", \"fr\": \"Unit\\u00e9s de raccordement selon la directive W3 2013 de la SSIGE (LU)\", \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -12024,6 +12369,74 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "anzahl-anschluesse-kaltwasser-v5",
+    "fields": {
+      "created_at": "2024-11-21T11:36:54.448Z",
+      "modified_at": "2025-01-09T13:23:16.093Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Anschl\\u00fcsse (Kaltwasser)\", \"fr\": \"Nombre de raccordements (eau froide)\", \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "!([\n  'installation-v5-handwaschbecken',\n  'installation-v5-wc-spuelkasten',\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-haushaltgeschirrspueler',\n  'installation-v5-haushaltwaschautomat',\n  'installation-v5-entnahmearmatur-fuer-balkon-und-terrasse',\n  'installation-v5-dusche',\n  'installation-v5-spuelbecken',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-urinoir-spuelung',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause',\n  'installation-v5-entnahmearmatur-fuer-garten-und-garage'\n] intersects 'installation-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[\"bw-kaltwasser-calculation-v5\", \"bw-kaltwasser-v5\", \"lu-kaltwasser-calculation-v5\", \"lu-kaltwasser-v5\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anzahl-anschluesse-warmwasser-v5",
+    "fields": {
+      "created_at": "2024-11-21T11:40:33.058Z",
+      "modified_at": "2025-01-09T13:35:55.752Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Anschl\\u00fcsse (Warmwasser)\", \"fr\": \"Nombre de raccordements (eau chaude)\", \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "!([\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-dusche',\n  'installation-v5-spuelbecken',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause'\n] intersects 'installation-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[\"bw-warmwasser-calculation-v5\", \"bw-warmwasser-v5\", \"lu-warmwasser-v5\", \"lu-warmwasser-calculation-v5\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "anzahl-anschlussdosen-gewerbe-industrie-total-gemeinschaftsantenne-fernmeldenetz-v5",
     "fields": {
       "created_at": "2024-11-11T15:16:57.848Z",
@@ -12469,23 +12882,23 @@
     "pk": "aufnahme-istzustand-tabelle-v5",
     "fields": {
       "created_at": "2024-11-21T10:40:26.502Z",
-      "modified_at": "2024-11-22T16:30:40.521Z",
+      "modified_at": "2025-01-09T14:19:26.759Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Aufnahme Istzustand\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Aufnahme Istzustand\", \"fr\": \"Relev\\u00e9 de l\\u2019\\u00e9tat actuel\", \"it\": null}",
       "type": "table",
       "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
-      "is_hidden": "!((['nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5-belastungswerte-nach-svgw-w3-2013-lu',  \n  'nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5-belastungswerte-nach-w3-svgw-bw'  \n] intersects 'nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5'|answer) && 'sind-bestehende-installationen-vorhanden-v5-ja' == 'sind-bestehende-installationen-vorhanden-v5'|answer)",
+      "is_hidden": "!((['richtlinie-belastungswerte-v5-belastungswerte-lu',  \n  'richtlinie-belastungswerte-v5-belastungswerte-bw'  \n] intersects 'richtlinie-belastungswerte-v5'|answer) && 'sind-bestehende-installationen-vorhanden-v5-ja' == 'sind-bestehende-installationen-vorhanden-v5'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
-        "columnsToDisplay": []
+        "columnsToDisplay": ["lu-total-v5", "installation-v5", "bw-total-v5"]
       },
       "data_source": null,
       "row_form": "zustand-tabelle-v5",
@@ -12494,6 +12907,68 @@
       "format_validators": "[]",
       "default_answer": null,
       "calc_expression": null,
+      "calc_dependents": "[\"aufnahme-istzustand-total-belastungswerte-lu-v5\", \"aufnahme-istzustand-total-belastungswerte-bw-v5\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "aufnahme-istzustand-total-belastungswerte-bw-v5",
+    "fields": {
+      "created_at": "2024-11-22T16:30:40.525Z",
+      "modified_at": "2025-01-09T14:19:57.519Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Aufnahme Istzustand Total Belastungswerte (BW)\", \"fr\": \"Relev\\u00e9 de l\\u2019\\u00e9tat actuel Total unit\\u00e9s de raccordement (UR)\", \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-bw' in 'richtlinie-belastungswerte-v5'|answer([]) && 'sind-bestehende-installationen-vorhanden-v5-ja' == 'sind-bestehende-installationen-vorhanden-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "'aufnahme-istzustand-tabelle-v5'|answer([])|mapby('bw-total-v5')|sum",
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "aufnahme-istzustand-total-belastungswerte-lu-v5",
+    "fields": {
+      "created_at": "2024-11-22T16:29:47.259Z",
+      "modified_at": "2025-01-09T12:47:27.278Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Aufnahme Istzustand Total Belastungswerte (LU)\", \"fr\": \"Relev\\u00e9 de l\\u2019\\u00e9tat actuel Total unit\\u00e9s de raccordement (LU)\", \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-lu' in 'richtlinie-belastungswerte-v5'|answer([]) && 'sind-bestehende-installationen-vorhanden-v5-ja' == 'sind-bestehende-installationen-vorhanden-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "'aufnahme-istzustand-tabelle-v5'|answer([])|mapby('lu-total-v5')|sum",
       "calc_dependents": "[]"
     }
   },
@@ -13068,6 +13543,40 @@
         "vertical": "true",
         "documentCategory": "spezialformulare-gastgewerbe"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschrieb-spezialinstallation-v5",
+    "fields": {
+      "created_at": "2024-11-22T14:50:30.135Z",
+      "modified_at": "2024-11-22T15:28:50.277Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschrieb\", \"fr\": \"Description\", \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "!([\n  'installation-v5-kuehl-und-klimaanlage',\n  'installation-v5-vieh-selbsttraenke',\n  'installation-v5-laufender-brunnen'\n] intersects 'installation-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -13811,6 +14320,197 @@
       "format_validators": "[]",
       "default_answer": null,
       "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bw-kaltwasser-calculation-v5",
+    "fields": {
+      "created_at": "2025-01-07T20:13:40.095Z",
+      "modified_at": "2025-01-09T13:42:06.298Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"BW (Kaltwasser) Calculation\", \"fr\": null, \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "cf-field/input/hidden"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "('anzahl-anschluesse-kaltwasser-v5'|answer * 'bw-pro-anschluss-v5'|answer)",
+      "calc_dependents": "[\"bw-total-v5\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bw-kaltwasser-v5",
+    "fields": {
+      "created_at": "2024-11-22T13:44:09.641Z",
+      "modified_at": "2025-01-09T13:19:01.100Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"BW (Kaltwasser)\", \"fr\": \"UR (eau froide)\", \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-bw' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-handwaschbecken',\n  'installation-v5-wc-spuelkasten',\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-haushaltgeschirrspueler',\n  'installation-v5-haushaltwaschautomat',\n  'installation-v5-entnahmearmatur-fuer-balkon-und-terrasse',\n  'installation-v5-dusche',\n  'installation-v5-spuelbecken',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-urinoir-spuelung',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause',\n  'installation-v5-entnahmearmatur-fuer-garten-und-garage'\n] intersects 'installation-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "('anzahl-anschluesse-kaltwasser-v5'|answer * 'bw-pro-anschluss-v5'|answer)",
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bw-pro-anschluss-v5",
+    "fields": {
+      "created_at": "2024-11-22T13:43:02.629Z",
+      "modified_at": "2025-01-09T13:35:55.763Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"BW pro Anschluss\", \"fr\": \"Unit\\u00e9 par raccord\", \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-bw' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-handwaschbecken',\n  'installation-v5-wc-spuelkasten',\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-haushaltgeschirrspueler',\n  'installation-v5-haushaltwaschautomat',\n  'installation-v5-entnahmearmatur-fuer-balkon-und-terrasse',\n  'installation-v5-dusche',\n  'installation-v5-spuelbecken',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-urinoir-spuelung',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause',\n  'installation-v5-entnahmearmatur-fuer-garten-und-garage'\n] intersects 'installation-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "('installation-v5'|answer == 'installation-v5-handwaschbecken' ? 1 : \n     'installation-v5'|answer == 'installation-v5-wc-spuelkasten' ? 1 :\n     'installation-v5'|answer == 'installation-v5-getraenkeautomat' ? 1 :\n     'installation-v5'|answer == 'installation-v5-bidet-coiffeurbrause' ? 1 :\n     'installation-v5'|answer == 'installation-v5-haushaltgeschirrspueler' ? 2 :\n     'installation-v5'|answer == 'installation-v5-haushaltwaschautomat' ? 4 :\n     'installation-v5'|answer == 'installation-v5-dusche' ? 3 :\n     'installation-v5'|answer == 'installation-v5-spuelbecken' ? 2 :\n     'installation-v5'|answer == 'installation-v5-ausgussbecken-stand-und-wandausguss' ? 2 :\n     'installation-v5'|answer == 'installation-v5-urinoir-spuelung' ? 4 :\n     'installation-v5'|answer == 'installation-v5-badewanne' ? 4 :\n     'installation-v5'|answer == 'installation-v5-entnahmearmatur-fuer-garten-und-garage' ? 5 : 0\n)",
+      "calc_dependents": "[\"bw-kaltwasser-calculation-v5\", \"bw-warmwasser-calculation-v5\", \"bw-kaltwasser-v5\", \"bw-warmwasser-v5\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bw-total-v5",
+    "fields": {
+      "created_at": "2025-01-07T20:15:20.688Z",
+      "modified_at": "2025-01-09T14:17:20.501Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"BW Total\", \"fr\": \"UR totales\", \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-bw' in 'richtlinie-belastungswerte-v5'|answer([]) && 'installation-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "('richtlinie-belastungswerte-v5-belastungswerte-bw' in 'richtlinie-belastungswerte-v5'|answer([])) ? \n\n(([\n  'installation-v5-kuehl-und-klimaanlage',\n  'installation-v5-vieh-selbsttraenke',\n  'installation-v5-laufender-brunnen'\n] intersects 'installation-v5'|answer) ? \n\n('spezialinstallation-calculation-v5'|answer(0)) :\n\n('bw-kaltwasser-calculation-v5'|answer(0) + 'bw-warmwasser-calculation-v5'|answer(0))) : null",
+      "calc_dependents": "[\"sollzustand-total-belastungswerte-bw-v5\", \"aufnahme-istzustand-total-belastungswerte-bw-v5\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bw-warmwasser-calculation-v5",
+    "fields": {
+      "created_at": "2025-01-07T20:14:23.807Z",
+      "modified_at": "2025-01-09T13:42:06.313Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"BW (Warmwasser) Calculation\", \"fr\": null, \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/hidden"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "('anzahl-anschluesse-warmwasser-v5'|answer * 'bw-pro-anschluss-v5'|answer)",
+      "calc_dependents": "[\"bw-total-v5\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bw-warmwasser-v5",
+    "fields": {
+      "created_at": "2024-11-22T13:54:59.595Z",
+      "modified_at": "2025-01-09T13:33:55.824Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"BW (Warmwasser)\", \"fr\": \"UR (eau chaude)\", \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-bw' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-dusche',\n  'installation-v5-spuelbecken',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause'\n] intersects 'installation-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "('anzahl-anschluesse-warmwasser-v5'|answer * 'bw-pro-anschluss-v5'|answer)",
       "calc_dependents": "[]"
     }
   },
@@ -14707,7 +15407,7 @@
     "pk": "fuer-welche-installationen-wird-regenabwasser-genutzt-v5",
     "fields": {
       "created_at": "2024-11-20T14:09:33.935Z",
-      "modified_at": "2024-11-20T14:10:12.412Z",
+      "modified_at": "2025-01-09T14:24:27.765Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -14716,37 +15416,6 @@
       "type": "multiple_choice",
       "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
       "is_hidden": "!('wird-regenabwasser-genutzt-v5-ja' == 'wird-regenabwasser-genutzt-v5'|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5",
-    "fields": {
-      "created_at": "2024-11-21T11:13:47.066Z",
-      "modified_at": "2024-11-28T16:26:00.004Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"F\\u00fcr welche Normal- oder Spezialinstallation wird der Anschluss verwendet?\", \"fr\": \"Pour quelle installation normale ou sp\\u00e9ciale le raccordement est-il utilis\\u00e9 ?\", \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
@@ -16173,6 +16842,99 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "infotext-bw-total-spezialinstallation-v5",
+    "fields": {
+      "created_at": "2024-11-28T16:07:12.843Z",
+      "modified_at": "2025-01-09T14:18:44.076Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Infotext BW Total\", \"fr\": \"Infotext BW Total\", \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-bw' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-kuehl-und-klimaanlage',\n  'installation-v5-vieh-selbsttraenke',\n  'installation-v5-laufender-brunnen'\n] intersects 'installation-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\">\\nUmrechnung: 1 BW = 6 l/min\\n</div>\", \"fr\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\">\\nConversion: 1 UR = 6 l/min\\n</div>\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "infotext-lu-total-spezialinstallation-v5",
+    "fields": {
+      "created_at": "2024-11-28T16:03:52.374Z",
+      "modified_at": "2024-11-28T16:04:23.001Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Infotext LU Total\", \"fr\": \"Infotext LU Total\", \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-lu' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-kuehl-und-klimaanlage',\n  'installation-v5-vieh-selbsttraenke',\n  'installation-v5-laufender-brunnen'\n] intersects 'installation-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\">\\nUmrechnung: 1 LU = 6 l/min\\n</div>\", \"fr\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\">\\nConversion: 1 LU = 6 l/min\\n</div>\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "installation-v5",
+    "fields": {
+      "created_at": "2024-11-21T11:13:47.066Z",
+      "modified_at": "2025-01-09T13:42:06.323Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"F\\u00fcr welche Normal- oder Spezialinstallation wird der Anschluss verwendet?\", \"fr\": \"Pour quelle installation normale ou sp\\u00e9ciale le raccordement est-il utilis\\u00e9 ?\", \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[\"lu-pro-anschluss-v5\", \"bw-pro-anschluss-v5\", \"lu-total-v5\", \"bw-total-v5\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "ist-das-bauwerk-der-bauwerksklasse-ii-oder-iii-zugeteilt-v5",
     "fields": {
       "created_at": "2024-08-14T08:30:59.799Z",
@@ -16578,6 +17340,232 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "l-pro-min-spezialinstallation-v5",
+    "fields": {
+      "created_at": "2024-11-22T15:03:29.360Z",
+      "modified_at": "2025-01-09T13:38:09.711Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"l/min\", \"fr\": null, \"it\": null}",
+      "type": "float",
+      "is_required": "true",
+      "is_hidden": "!([\n  'installation-v5-kuehl-und-klimaanlage',\n  'installation-v5-vieh-selbsttraenke',\n  'installation-v5-laufender-brunnen'\n] intersects 'installation-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[\"spezialinstallation-calculation-v5\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "lu-kaltwasser-calculation-v5",
+    "fields": {
+      "created_at": "2025-01-07T20:02:44.903Z",
+      "modified_at": "2025-01-09T13:40:00.293Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"LU (Kaltwasser) Calculation\", \"fr\": null, \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "cf-field/input/hidden"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "('anzahl-anschluesse-kaltwasser-v5'|answer * 'lu-pro-anschluss-v5'|answer)",
+      "calc_dependents": "[\"lu-total-v5\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "lu-kaltwasser-v5",
+    "fields": {
+      "created_at": "2024-11-21T13:14:00.556Z",
+      "modified_at": "2025-01-09T13:15:05.729Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"LU (Kaltwasser)\", \"fr\": \"LU (eau froide)\", \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-lu' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-handwaschbecken',\n  'installation-v5-wc-spuelkasten',\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-haushaltgeschirrspueler',\n  'installation-v5-haushaltwaschautomat',\n  'installation-v5-entnahmearmatur-fuer-balkon-und-terrasse',\n  'installation-v5-dusche',\n  'installation-v5-spuelbecken',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-urinoir-spuelung',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause',\n  'installation-v5-entnahmearmatur-fuer-garten-und-garage'\n] intersects 'installation-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "('anzahl-anschluesse-kaltwasser-v5'|answer * 'lu-pro-anschluss-v5'|answer)",
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "lu-pro-anschluss-v5",
+    "fields": {
+      "created_at": "2024-11-21T12:27:03.380Z",
+      "modified_at": "2025-01-09T13:32:02.630Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"LU pro Anschluss\", \"fr\": \"LU par raccord\", \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "!( 'richtlinie-belastungswerte-v5-belastungswerte-lu' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-handwaschbecken',\n  'installation-v5-wc-spuelkasten',\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-haushaltgeschirrspueler',\n  'installation-v5-haushaltwaschautomat',\n  'installation-v5-entnahmearmatur-fuer-balkon-und-terrasse',\n  'installation-v5-dusche',\n  'installation-v5-spuelbecken',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-urinoir-spuelung',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause',\n  'installation-v5-entnahmearmatur-fuer-garten-und-garage'\n] intersects 'installation-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "('installation-v5'|answer == 'installation-v5-handwaschbecken' ? 1 : \n     'installation-v5'|answer == 'installation-v5-wc-spuelkasten' ? 1 :\n     'installation-v5'|answer == 'installation-v5-getraenkeautomat' ? 1 :\n     'installation-v5'|answer == 'installation-v5-bidet-coiffeurbrause' ? 1 :\n     'installation-v5'|answer == 'installation-v5-haushaltgeschirrspueler' ? 1 :\n     'installation-v5'|answer == 'installation-v5-haushaltwaschautomat' ? 2 :\n     'installation-v5'|answer == 'installation-v5-entnahmearmatur-fuer-balkon-und-terrasse' ? 2 :\n     'installation-v5'|answer == 'installation-v5-dusche' ? 2 :\n     'installation-v5'|answer == 'installation-v5-spuelbecken' ? 2 :\n     'installation-v5'|answer == 'installation-v5-waschtrog' ? 2 :\n     'installation-v5'|answer == 'installation-v5-ausgussbecken-stand-und-wandausguss' ? 2 :\n     'installation-v5'|answer == 'installation-v5-urinoir-spuelung' ? 3 :\n     'installation-v5'|answer == 'installation-v5-badewanne' ? 3 :\n     'installation-v5'|answer == 'installation-v5-spuelbecken-fuer-gewerbe' ? 4 :\n     'installation-v5'|answer == 'installation-v5-geschirrbrause' ? 4 :\n     'installation-v5'|answer == 'installation-v5-entnahmearmatur-fuer-garten-und-garage' ? 5 : 0\n    )",
+      "calc_dependents": "[\"lu-kaltwasser-calculation-v5\", \"lu-kaltwasser-v5\", \"lu-warmwasser-calculation-v5\", \"lu-warmwasser-v5\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "lu-total-v5",
+    "fields": {
+      "created_at": "2025-01-07T15:29:34.038Z",
+      "modified_at": "2025-01-09T14:17:04.031Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"LU Total\", \"fr\": \"LU totales\", \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-lu' in 'richtlinie-belastungswerte-v5'|answer([]) && 'installation-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "('richtlinie-belastungswerte-v5-belastungswerte-lu' in 'richtlinie-belastungswerte-v5'|answer([])) ? \n\n(([\n  'installation-v5-kuehl-und-klimaanlage',\n  'installation-v5-vieh-selbsttraenke',\n  'installation-v5-laufender-brunnen'\n] intersects 'installation-v5'|answer) ? \n\n('spezialinstallation-calculation-v5'|answer(0)) :\n\n('lu-kaltwasser-calculation-v5'|answer(0) + 'lu-warmwasser-calculation-v5'|answer(0))) : null",
+      "calc_dependents": "[\"aufnahme-istzustand-total-belastungswerte-lu-v5\", \"sollzustand-total-belastungswerte-lu-v5\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "lu-warmwasser-calculation-v5",
+    "fields": {
+      "created_at": "2025-01-07T20:03:37.844Z",
+      "modified_at": "2025-01-09T13:40:00.313Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"LU (Warmwasser) Calculation\", \"fr\": null, \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "cf-field/input/hidden"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "('anzahl-anschluesse-warmwasser-v5'|answer * 'lu-pro-anschluss-v5'|answer)",
+      "calc_dependents": "[\"lu-total-v5\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "lu-warmwasser-v5",
+    "fields": {
+      "created_at": "2024-11-21T13:17:49.498Z",
+      "modified_at": "2025-01-09T13:29:34.243Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"LU (Warmwasser)\", \"fr\": \"LU (eau chaude)\", \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-lu' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-dusche',\n  'installation-v5-spuelbecken',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause'\n] intersects 'installation-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "('anzahl-anschluesse-warmwasser-v5'|answer * 'lu-pro-anschluss-v5'|answer)",
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "meldeblatt-fuer-terrainveraenderungen-dokument-begruendung-v5",
     "fields": {
       "created_at": "2024-12-03T19:38:29.873Z",
@@ -16776,37 +17764,6 @@
         "vertical": "true",
         "documentCategory": "spezialformulare-allgemeine-angaben-zum-betrieb"
       },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5",
-    "fields": {
-      "created_at": "2024-11-20T14:06:02.212Z",
-      "modified_at": "2024-11-20T16:52:14.704Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nach welcher Richtlinie werden die Belastungswerte erfasst?\", \"fr\": \"Selon quelle directive les unit\\u00e9s de raccordement sont-elles saisies ?\", \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -17545,6 +18502,37 @@
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "richtlinie-belastungswerte-v5",
+    "fields": {
+      "created_at": "2024-11-20T14:06:02.212Z",
+      "modified_at": "2025-01-09T13:42:06.328Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nach welcher Richtlinie werden die Belastungswerte erfasst?\", \"fr\": \"Selon quelle directive les unit\\u00e9s de raccordement sont-elles saisies ?\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[\"lu-total-v5\", \"bw-total-v5\"]"
     }
   },
   {
@@ -18353,7 +19341,7 @@
     "pk": "sollzustand-tabelle-v5",
     "fields": {
       "created_at": "2024-11-22T16:31:27.319Z",
-      "modified_at": "2024-11-22T16:37:52.485Z",
+      "modified_at": "2025-01-09T13:00:08.001Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -18361,7 +19349,7 @@
       "label": "{\"de\": \"Sollzustand\", \"fr\": \"Etat souhait\\u00e9\", \"it\": null}",
       "type": "table",
       "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
-      "is_hidden": "!(['nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5-belastungswerte-nach-svgw-w3-2013-lu',  \n  'nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5-belastungswerte-nach-w3-svgw-bw'  \n] intersects 'nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5'|answer)",
+      "is_hidden": "!(['richtlinie-belastungswerte-v5-belastungswerte-lu',  \n  'richtlinie-belastungswerte-v5-belastungswerte-bw'  \n] intersects 'richtlinie-belastungswerte-v5'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
@@ -18369,7 +19357,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
-        "columnsToDisplay": []
+        "columnsToDisplay": ["bw-total-v5", "lu-total-v5", "installation-v5"]
       },
       "data_source": null,
       "row_form": "zustand-tabelle-v5",
@@ -18378,6 +19366,68 @@
       "format_validators": "[]",
       "default_answer": null,
       "calc_expression": null,
+      "calc_dependents": "[\"sollzustand-total-belastungswerte-bw-v5\", \"sollzustand-total-belastungswerte-lu-v5\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "sollzustand-total-belastungswerte-bw-v5",
+    "fields": {
+      "created_at": "2024-11-22T16:37:52.487Z",
+      "modified_at": "2025-01-09T13:00:08.006Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sollzustand Total Belastungswerte (BW)\", \"fr\": \"Etat souhait\\u00e9 Total unit\\u00e9s de raccordement (UR)\", \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-bw' in 'richtlinie-belastungswerte-v5'|answer([]))",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "'sollzustand-tabelle-v5'|answer([])|mapby('bw-total-v5')|sum",
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "sollzustand-total-belastungswerte-lu-v5",
+    "fields": {
+      "created_at": "2024-11-22T16:34:41.221Z",
+      "modified_at": "2025-01-09T12:56:28.110Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sollzustand Total Belastungswerte (LU)\", \"fr\": \"Etat souhait\\u00e9 Total unit\\u00e9s de raccordement (LU)\", \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-lu' in 'richtlinie-belastungswerte-v5'|answer([]))",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "'sollzustand-tabelle-v5'|answer([])|mapby('lu-total-v5')|sum",
       "calc_dependents": "[]"
     }
   },
@@ -18480,6 +19530,40 @@
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "spezialinstallation-calculation-v5",
+    "fields": {
+      "created_at": "2025-01-07T15:27:11.228Z",
+      "modified_at": "2025-01-09T13:42:06.338Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Spezialinstallation Calculation\", \"fr\": null, \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "cf-field/input/hidden"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "('l-pro-min-spezialinstallation-v5'|answer(0) / 6)|round",
+      "calc_dependents": "[\"lu-total-v5\", \"bw-total-v5\"]"
     }
   },
   {
@@ -21137,8 +22221,8 @@
     "model": "caluma_form.questionoption",
     "pk": "fuer-welche-installationen-wird-regenabwasser-genutzt-v5.fuer-welche-installationen-wird-regenabwasser-genutzt-v5-andere-verwendung",
     "fields": {
-      "created_at": "2024-11-20T14:10:12.415Z",
-      "modified_at": "2024-11-20T14:10:12.415Z",
+      "created_at": "2025-01-09T14:24:27.776Z",
+      "modified_at": "2025-01-09T14:24:27.776Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -21152,8 +22236,8 @@
     "model": "caluma_form.questionoption",
     "pk": "fuer-welche-installationen-wird-regenabwasser-genutzt-v5.fuer-welche-installationen-wird-regenabwasser-genutzt-v5-pissoir",
     "fields": {
-      "created_at": "2024-11-20T14:10:12.417Z",
-      "modified_at": "2024-11-20T14:10:12.417Z",
+      "created_at": "2025-01-09T14:24:27.782Z",
+      "modified_at": "2025-01-09T14:24:27.782Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -21167,8 +22251,8 @@
     "model": "caluma_form.questionoption",
     "pk": "fuer-welche-installationen-wird-regenabwasser-genutzt-v5.fuer-welche-installationen-wird-regenabwasser-genutzt-v5-wc",
     "fields": {
-      "created_at": "2024-11-20T14:10:12.420Z",
-      "modified_at": "2024-11-20T14:10:12.420Z",
+      "created_at": "2025-01-09T14:24:27.787Z",
+      "modified_at": "2025-01-09T14:24:27.787Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -21176,291 +22260,6 @@
       "question": "fuer-welche-installationen-wird-regenabwasser-genutzt-v5",
       "option": "fuer-welche-installationen-wird-regenabwasser-genutzt-v5-wc",
       "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5.fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-ausgussbecken-stand-und-wandausguss",
-    "fields": {
-      "created_at": "2024-11-28T16:26:00.028Z",
-      "modified_at": "2024-11-28T16:26:00.028Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5",
-      "option": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-ausgussbecken-stand-und-wandausguss",
-      "sort": 9
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5.fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-badewanne",
-    "fields": {
-      "created_at": "2024-11-28T16:26:00.024Z",
-      "modified_at": "2024-11-28T16:26:00.024Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5",
-      "option": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-badewanne",
-      "sort": 7
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5.fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-bidet-coiffeurbrause",
-    "fields": {
-      "created_at": "2024-11-28T16:26:00.041Z",
-      "modified_at": "2024-11-28T16:26:00.041Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5",
-      "option": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-bidet-coiffeurbrause",
-      "sort": 16
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5.fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-dusche",
-    "fields": {
-      "created_at": "2024-11-28T16:26:00.034Z",
-      "modified_at": "2024-11-28T16:26:00.034Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5",
-      "option": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-dusche",
-      "sort": 12
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5.fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-entnahmearmatur-fuer-balkon-und-terrasse",
-    "fields": {
-      "created_at": "2024-11-28T16:26:00.037Z",
-      "modified_at": "2024-11-28T16:26:00.037Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5",
-      "option": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-entnahmearmatur-fuer-balkon-und-terrasse",
-      "sort": 13
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5.fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-entnahmearmatur-fuer-garten-und-garage",
-    "fields": {
-      "created_at": "2024-11-28T16:26:00.015Z",
-      "modified_at": "2024-11-28T16:26:00.015Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5",
-      "option": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-entnahmearmatur-fuer-garten-und-garage",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5.fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-geschirrbrause",
-    "fields": {
-      "created_at": "2024-11-28T16:26:00.017Z",
-      "modified_at": "2024-11-28T16:26:00.017Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5",
-      "option": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-geschirrbrause",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5.fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-getraenkeautomat",
-    "fields": {
-      "created_at": "2024-11-28T16:26:00.043Z",
-      "modified_at": "2024-11-28T16:26:00.043Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5",
-      "option": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-getraenkeautomat",
-      "sort": 17
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5.fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-handwaschbecken",
-    "fields": {
-      "created_at": "2024-11-28T16:26:00.046Z",
-      "modified_at": "2024-11-28T16:26:00.046Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5",
-      "option": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-handwaschbecken",
-      "sort": 19
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5.fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-haushaltgeschirrspueler",
-    "fields": {
-      "created_at": "2024-11-28T16:26:00.040Z",
-      "modified_at": "2024-11-28T16:26:00.040Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5",
-      "option": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-haushaltgeschirrspueler",
-      "sort": 15
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5.fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-haushaltwaschautomat",
-    "fields": {
-      "created_at": "2024-11-28T16:26:00.038Z",
-      "modified_at": "2024-11-28T16:26:00.038Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5",
-      "option": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-haushaltwaschautomat",
-      "sort": 14
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5.fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-kuehl-und-klimaanlage",
-    "fields": {
-      "created_at": "2024-11-28T16:26:00.012Z",
-      "modified_at": "2024-11-28T16:26:00.012Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5",
-      "option": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-kuehl-und-klimaanlage",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5.fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-laufender-brunnen",
-    "fields": {
-      "created_at": "2024-11-28T16:26:00.008Z",
-      "modified_at": "2024-11-28T16:26:00.008Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5",
-      "option": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-laufender-brunnen",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5.fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-spuelbecken",
-    "fields": {
-      "created_at": "2024-11-28T16:26:00.032Z",
-      "modified_at": "2024-11-28T16:26:00.032Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5",
-      "option": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-spuelbecken",
-      "sort": 11
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5.fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-spuelbecken-fuer-gewerbe",
-    "fields": {
-      "created_at": "2024-11-28T16:26:00.020Z",
-      "modified_at": "2024-11-28T16:26:00.020Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5",
-      "option": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-spuelbecken-fuer-gewerbe",
-      "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5.fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-urinoir-spuelung",
-    "fields": {
-      "created_at": "2024-11-28T16:26:00.027Z",
-      "modified_at": "2024-11-28T16:26:00.027Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5",
-      "option": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-urinoir-spuelung",
-      "sort": 8
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5.fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-vieh-selbsttraenke",
-    "fields": {
-      "created_at": "2024-11-28T16:26:00.010Z",
-      "modified_at": "2024-11-28T16:26:00.010Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5",
-      "option": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-vieh-selbsttraenke",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5.fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-waschtrog",
-    "fields": {
-      "created_at": "2024-11-28T16:26:00.030Z",
-      "modified_at": "2024-11-28T16:26:00.030Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5",
-      "option": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-waschtrog",
-      "sort": 10
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5.fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-wc-spuelkasten",
-    "fields": {
-      "created_at": "2024-11-28T16:26:00.045Z",
-      "modified_at": "2024-11-28T16:26:00.045Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5",
-      "option": "fuer-welche-normal-oder-spezialinstallation-wird-der-anschluss-verwendet-v5-wc-spuelkasten",
-      "sort": 18
     }
   },
   {
@@ -22155,6 +22954,291 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "installation-v5.installation-v5-ausgussbecken-stand-und-wandausguss",
+    "fields": {
+      "created_at": "2024-11-28T16:26:00.028Z",
+      "modified_at": "2024-11-28T16:26:00.028Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "installation-v5",
+      "option": "installation-v5-ausgussbecken-stand-und-wandausguss",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installation-v5.installation-v5-badewanne",
+    "fields": {
+      "created_at": "2024-11-28T16:26:00.024Z",
+      "modified_at": "2024-11-28T16:26:00.024Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "installation-v5",
+      "option": "installation-v5-badewanne",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installation-v5.installation-v5-bidet-coiffeurbrause",
+    "fields": {
+      "created_at": "2024-11-28T16:26:00.041Z",
+      "modified_at": "2024-11-28T16:26:00.041Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "installation-v5",
+      "option": "installation-v5-bidet-coiffeurbrause",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installation-v5.installation-v5-dusche",
+    "fields": {
+      "created_at": "2024-11-28T16:26:00.034Z",
+      "modified_at": "2024-11-28T16:26:00.034Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "installation-v5",
+      "option": "installation-v5-dusche",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installation-v5.installation-v5-entnahmearmatur-fuer-balkon-und-terrasse",
+    "fields": {
+      "created_at": "2024-11-28T16:26:00.037Z",
+      "modified_at": "2024-11-28T16:26:00.037Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "installation-v5",
+      "option": "installation-v5-entnahmearmatur-fuer-balkon-und-terrasse",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installation-v5.installation-v5-entnahmearmatur-fuer-garten-und-garage",
+    "fields": {
+      "created_at": "2024-11-28T16:26:00.015Z",
+      "modified_at": "2024-11-28T16:26:00.015Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "installation-v5",
+      "option": "installation-v5-entnahmearmatur-fuer-garten-und-garage",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installation-v5.installation-v5-geschirrbrause",
+    "fields": {
+      "created_at": "2024-11-28T16:26:00.017Z",
+      "modified_at": "2024-11-28T16:26:00.017Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "installation-v5",
+      "option": "installation-v5-geschirrbrause",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installation-v5.installation-v5-getraenkeautomat",
+    "fields": {
+      "created_at": "2024-11-28T16:26:00.043Z",
+      "modified_at": "2024-11-28T16:26:00.043Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "installation-v5",
+      "option": "installation-v5-getraenkeautomat",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installation-v5.installation-v5-handwaschbecken",
+    "fields": {
+      "created_at": "2024-11-28T16:26:00.046Z",
+      "modified_at": "2024-11-28T16:26:00.046Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "installation-v5",
+      "option": "installation-v5-handwaschbecken",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installation-v5.installation-v5-haushaltgeschirrspueler",
+    "fields": {
+      "created_at": "2024-11-28T16:26:00.040Z",
+      "modified_at": "2024-11-28T16:26:00.040Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "installation-v5",
+      "option": "installation-v5-haushaltgeschirrspueler",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installation-v5.installation-v5-haushaltwaschautomat",
+    "fields": {
+      "created_at": "2024-11-28T16:26:00.038Z",
+      "modified_at": "2024-11-28T16:26:00.038Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "installation-v5",
+      "option": "installation-v5-haushaltwaschautomat",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installation-v5.installation-v5-kuehl-und-klimaanlage",
+    "fields": {
+      "created_at": "2024-11-28T16:26:00.012Z",
+      "modified_at": "2024-11-28T16:26:00.012Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "installation-v5",
+      "option": "installation-v5-kuehl-und-klimaanlage",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installation-v5.installation-v5-laufender-brunnen",
+    "fields": {
+      "created_at": "2024-11-28T16:26:00.008Z",
+      "modified_at": "2024-11-28T16:26:00.008Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "installation-v5",
+      "option": "installation-v5-laufender-brunnen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installation-v5.installation-v5-spuelbecken",
+    "fields": {
+      "created_at": "2024-11-28T16:26:00.032Z",
+      "modified_at": "2024-11-28T16:26:00.032Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "installation-v5",
+      "option": "installation-v5-spuelbecken",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installation-v5.installation-v5-spuelbecken-fuer-gewerbe",
+    "fields": {
+      "created_at": "2024-11-28T16:26:00.020Z",
+      "modified_at": "2024-11-28T16:26:00.020Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "installation-v5",
+      "option": "installation-v5-spuelbecken-fuer-gewerbe",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installation-v5.installation-v5-urinoir-spuelung",
+    "fields": {
+      "created_at": "2024-11-28T16:26:00.027Z",
+      "modified_at": "2024-11-28T16:26:00.027Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "installation-v5",
+      "option": "installation-v5-urinoir-spuelung",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installation-v5.installation-v5-vieh-selbsttraenke",
+    "fields": {
+      "created_at": "2024-11-28T16:26:00.010Z",
+      "modified_at": "2024-11-28T16:26:00.010Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "installation-v5",
+      "option": "installation-v5-vieh-selbsttraenke",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installation-v5.installation-v5-waschtrog",
+    "fields": {
+      "created_at": "2024-11-28T16:26:00.030Z",
+      "modified_at": "2024-11-28T16:26:00.030Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "installation-v5",
+      "option": "installation-v5-waschtrog",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installation-v5.installation-v5-wc-spuelkasten",
+    "fields": {
+      "created_at": "2024-11-28T16:26:00.045Z",
+      "modified_at": "2024-11-28T16:26:00.045Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "installation-v5",
+      "option": "installation-v5-wc-spuelkasten",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "ist-das-bauwerk-der-bauwerksklasse-ii-oder-iii-zugeteilt-v5.ist-das-bauwerk-der-bauwerksklasse-ii-oder-iii-zugeteilt-v5-ja",
     "fields": {
       "created_at": "2024-08-14T08:31:41.708Z",
@@ -22425,36 +23509,6 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5.nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5-belastungswerte-nach-svgw-w3-2013-lu",
-    "fields": {
-      "created_at": "2024-11-20T14:06:25.396Z",
-      "modified_at": "2024-11-20T14:06:25.396Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5",
-      "option": "nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5-belastungswerte-nach-svgw-w3-2013-lu",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5.nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5-belastungswerte-nach-w3-svgw-bw",
-    "fields": {
-      "created_at": "2024-11-20T14:06:25.394Z",
-      "modified_at": "2024-11-20T14:06:25.394Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5",
-      "option": "nach-welcher-richtlinie-werden-die-belastungswerte-erfasst-v5-belastungswerte-nach-w3-svgw-bw",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "plaene-fumoir-dokument-v5.plaene-fumoir-dokument-v5-ja",
     "fields": {
       "created_at": "2024-12-03T18:29:38.859Z",
@@ -22631,6 +23685,36 @@
       "question": "regierungsratsbeschluss-bauinventar-dokument-v5",
       "option": "regierungsratsbeschluss-bauinventar-dokument-v5-nein",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "richtlinie-belastungswerte-v5.richtlinie-belastungswerte-v5-belastungswerte-bw",
+    "fields": {
+      "created_at": "2024-11-20T14:06:25.394Z",
+      "modified_at": "2024-11-20T14:06:25.394Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "richtlinie-belastungswerte-v5",
+      "option": "richtlinie-belastungswerte-v5-belastungswerte-bw",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "richtlinie-belastungswerte-v5.richtlinie-belastungswerte-v5-belastungswerte-lu",
+    "fields": {
+      "created_at": "2024-11-20T14:06:25.396Z",
+      "modified_at": "2024-11-20T14:06:25.396Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "richtlinie-belastungswerte-v5",
+      "option": "richtlinie-belastungswerte-v5-belastungswerte-lu",
+      "sort": 2
     }
   },
   {
