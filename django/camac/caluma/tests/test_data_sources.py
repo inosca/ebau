@@ -90,7 +90,7 @@ def test_mitberichtsverfahren(db, role, location_factory, expected_count):
         ),
         (
             Countries,
-            COUNTRIES,
+            list(COUNTRIES.keys()),
             False,
         ),
     ],

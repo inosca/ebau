@@ -428,6 +428,7 @@
     'applicants': list([
       dict({
         'country': 'Schweiz',
+        'country_code': 'CH',
         'email': 'victoria99@example.org',
         'first_name': 'Dwayne',
         'has_representative': True,
@@ -436,6 +437,7 @@
         'last_name': 'Clay',
         'po_box': '6967',
         'representative_country': 'Schweiz',
+        'representative_country_code': 'CH',
         'representative_email': 'ywilliams@example.net',
         'representative_first_name': 'Jody',
         'representative_is_juristic_person': False,
@@ -541,6 +543,7 @@
     'invoice_recipients': list([
       dict({
         'country': 'Schweiz',
+        'country_code': 'CH',
         'email': 'patriciawilliams@example.com',
         'first_name': 'Kyle',
         'has_representative': False,
@@ -549,6 +552,7 @@
         'last_name': 'Anderson',
         'po_box': '968',
         'representative_country': None,
+        'representative_country_code': 'CH',
         'representative_email': None,
         'representative_first_name': None,
         'representative_is_juristic_person': None,
@@ -581,6 +585,7 @@
     'landowners': list([
       dict({
         'country': 'Schweiz',
+        'country_code': 'CH',
         'email': 'christinapayne@example.net',
         'first_name': 'Amanda',
         'has_representative': True,
@@ -589,6 +594,7 @@
         'last_name': 'Newman',
         'po_box': '7213',
         'representative_country': 'Schweiz',
+        'representative_country_code': 'CH',
         'representative_email': 'ejones@example.net',
         'representative_first_name': 'Ronnie',
         'representative_is_juristic_person': True,
@@ -640,6 +646,7 @@
     'project_authors': list([
       dict({
         'country': 'Schweiz',
+        'country_code': 'CH',
         'email': 'ejames@example.org',
         'first_name': 'George',
         'has_representative': False,
@@ -648,6 +655,7 @@
         'last_name': 'Fitzpatrick',
         'po_box': '7209',
         'representative_country': None,
+        'representative_country_code': 'CH',
         'representative_email': None,
         'representative_first_name': None,
         'representative_is_juristic_person': None,
@@ -691,6 +699,7 @@
     'applicants': list([
       dict({
         'country': 'Schweiz',
+        'country_code': 'CH',
         'email': 'victoria99@example.org',
         'first_name': 'Dwayne',
         'has_representative': True,
@@ -699,6 +708,7 @@
         'last_name': 'Clay',
         'po_box': '6967',
         'representative_country': 'Schweiz',
+        'representative_country_code': 'CH',
         'representative_email': 'ywilliams@example.net',
         'representative_first_name': 'Jody',
         'representative_is_juristic_person': False,
@@ -804,6 +814,7 @@
     'invoice_recipients': list([
       dict({
         'country': 'Schweiz',
+        'country_code': 'CH',
         'email': 'patriciawilliams@example.com',
         'first_name': 'Kyle',
         'has_representative': False,
@@ -812,6 +823,7 @@
         'last_name': 'Anderson',
         'po_box': '968',
         'representative_country': None,
+        'representative_country_code': 'CH',
         'representative_email': None,
         'representative_first_name': None,
         'representative_is_juristic_person': None,
@@ -844,6 +856,7 @@
     'landowners': list([
       dict({
         'country': 'Schweiz',
+        'country_code': 'CH',
         'email': 'christinapayne@example.net',
         'first_name': 'Amanda',
         'has_representative': True,
@@ -852,6 +865,7 @@
         'last_name': 'Newman',
         'po_box': '7213',
         'representative_country': 'Schweiz',
+        'representative_country_code': 'CH',
         'representative_email': 'ejones@example.net',
         'representative_first_name': 'Ronnie',
         'representative_is_juristic_person': True,
@@ -903,6 +917,7 @@
     'project_authors': list([
       dict({
         'country': 'Schweiz',
+        'country_code': 'CH',
         'email': 'ejames@example.org',
         'first_name': 'George',
         'has_representative': False,
@@ -911,6 +926,7 @@
         'last_name': 'Fitzpatrick',
         'po_box': '7209',
         'representative_country': None,
+        'representative_country_code': 'CH',
         'representative_email': None,
         'representative_first_name': None,
         'representative_is_juristic_person': None,
