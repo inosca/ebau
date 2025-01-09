@@ -1,31 +1,23 @@
 from functools import lru_cache
 from itertools import chain
-from typing import List, Union
+from typing import List, Tuple, Union
 
 from django.conf import settings
+from django.http import HttpRequest
+from django.utils.functional import SimpleLazyObject
 
-from camac.user.models import Service
+from camac.user.models import Group, Service
 
 
-def get_role(user):
-    # TODO: tests set group even when its public
-    if user.group is None and not hasattr(user, "camac_group"):  # pragma: no cover
+def get_role(group: Union[Group, SimpleLazyObject]) -> str:
+    # The `hasattr` check is needed as `group` may be a `SimpleLazyObject` that
+    # would evaluate to `None`. However, without explicitly checking a property
+    # on it, it won't evaluate and would therefore pass this check.
+    if group is None or not hasattr(group, "role"):
         return "public"
 
-    role = user.camac_role
-
-    return get_custom_mapped_role(user, role)
-
-
-@lru_cache
-def get_service_group(service_id):
-    service = Service.objects.filter(pk=service_id).first()
-
-    return service.service_group.name if service else None
-
-
-def get_custom_mapped_role(user, role):
-    service_group = get_service_group(user.group)
+    service_group = group.service.service_group.name if group.service else None
+    role = group.role.name
 
     return settings.ALEXANDRIA.get("CUSTOM_ROLE_MAPPINGS", {}).get(service_group, role)
 
@@ -48,7 +40,7 @@ def get_service_parent_and_children(service_id: Union[int, str]) -> List[str]:
     return [str(id) for id in ids if id is not None]
 
 
-def get_user_and_group(request):
+def get_user_and_group(request: HttpRequest) -> Tuple[int, int]:
     if request is None:  # pragma: no cover
         return None, None
 
