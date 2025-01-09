@@ -70,7 +70,7 @@ MODULE_CONFIG_FIXTURES = {
     "distribution": ["kt_bern", "kt_schwyz", "kt_gr", "kt_so", "kt_uri"],
     "publication": ["kt_gr", "kt_so"],
     "decision": ["kt_bern", "kt_gr", "kt_so"],
-    "dms": ["kt_bern", "kt_gr", "kt_uri"],
+    "dms": ["kt_bern", "kt_gr", "kt_uri", "kt_so"],
     "additional_demand": ["kt_gr", "kt_so", "kt_uri"],
     "alexandria": ["kt_gr", "kt_so"],
     "rejection": ["kt_bern", "kt_so"],

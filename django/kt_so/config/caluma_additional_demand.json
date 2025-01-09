@@ -125,7 +125,7 @@
       "modified_by_group": null,
       "form": "fill-additional-demand",
       "question": "additional-demand-comment-fill",
-      "sort": 2
+      "sort": 4
     }
   },
   {
@@ -155,6 +155,36 @@
       "modified_by_group": null,
       "form": "fill-additional-demand",
       "question": "additional-demand-files",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "fill-additional-demand.additional-demand-signatures",
+    "fields": {
+      "created_at": "2024-12-12T13:07:28.807Z",
+      "modified_at": "2024-12-12T13:07:28.807Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "fill-additional-demand",
+      "question": "additional-demand-signatures",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "fill-additional-demand.additional-demand-signatures-info",
+    "fields": {
+      "created_at": "2024-12-12T13:07:59.590Z",
+      "modified_at": "2024-12-12T13:07:59.590Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "fill-additional-demand",
+      "question": "additional-demand-signatures-info",
       "sort": 3
     }
   },
@@ -464,6 +494,72 @@
         "alexandria-categories": ["nachforderung"],
         "alexandriaEnableDocumentFilter": true
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "additional-demand-signatures",
+    "fields": {
+      "created_at": "2024-12-12T13:07:28.751Z",
+      "modified_at": "2024-12-12T13:27:55.926Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Unterschriftenblatt (PDF)\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"x\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "template": "signatures",
+        "widgetOverride": "be-download-pdf",
+        "forAdditionalDemand": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "additional-demand-signatures-info",
+    "fields": {
+      "created_at": "2024-12-12T13:07:59.533Z",
+      "modified_at": "2024-12-12T13:39:42.262Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Unterschriftenblatt Information\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<p class=\\\"uk-margin-remove-bottom\\\">Bitte drucken Sie das Unterschriftenblatt aus und schicken Sie es per Papierpost <strong>mit den erforderlichen Unterschriften</strong> der zust\\u00e4ndigen Baubeh\\u00f6rde.</p>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,

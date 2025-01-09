@@ -856,14 +856,15 @@ class InstanceView(
     )
     @action(methods=["get"], detail=True, url_path="generate-pdf")
     def generate_pdf(self, request, pk=None):
-        form_slug = self.request.query_params.get("form-slug")
-        document_id = self.request.query_params.get("document-id")
-        template = self.request.query_params.get("template")
-
         instance = self.get_object()
 
         pdf = document_merge_service.DMSHandler().generate_pdf(
-            instance.pk, request, form_slug, document_id, template
+            instance.pk,
+            request,
+            self.request.query_params.get("form-slug"),
+            self.request.query_params.get("document-id"),
+            self.request.query_params.get("template"),
+            self.request.query_params.get("for-additional-demand"),
         )
 
         response = SendfileHttpResponse(
