@@ -317,7 +317,7 @@ def application(instance: Instance):
                             town=assure_string_length(owner.get("town"), max_length=40),
                             swissZipCode=get_zip(owner.get("zip")),
                             # foreignZipCode minOccurs=0
-                            country="CH",
+                            country=owner.get("country_code", "CH"),
                         ),
                     )
                 )
@@ -539,7 +539,7 @@ def person_to_ech0129_personIdentifcationType(person):
             ),
             town=assure_string_length(person.get("town", ""), max_length=40),
             swissZipCode=get_zip(person.get("zip", "")),
-            country="CH",
+            country=person.get("country_code", "CH"),
         ),
     )
 

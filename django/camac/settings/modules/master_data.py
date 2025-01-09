@@ -1,3 +1,5 @@
+from camac.caluma.extensions.countries import COUNTRIES
+
 SO_PERSONAL_DATA_MAPPING = {
     "row_id": "pk",
     "salutation": ("anrede", {"value_parser": "option", "prop": "label"}),
@@ -9,6 +11,10 @@ SO_PERSONAL_DATA_MAPPING = {
     "zip": "plz",
     "town": "ort",
     "country": "land",
+    "country_code": (
+        "land",
+        {"value_parser": ("value_mapping", {"mapping": COUNTRIES})},
+    ),
     "email": "e-mail",
     "tel": "telefon",
     "po_box": "postfach",
@@ -68,6 +74,10 @@ SO_PERSONAL_DATA_MAPPING = {
     "representative_zip": "vertretung-plz",
     "representative_town": "vertretung-ort",
     "representative_country": "vertretung-land",
+    "representative_country_code": (
+        "land",
+        {"value_parser": ("value_mapping", {"mapping": COUNTRIES})},
+    ),
     "representative_email": "vertretung-e-mail",
     "representative_tel": "vertretung-telefon",
     "representative_po_box": "vertretung-postfach",
