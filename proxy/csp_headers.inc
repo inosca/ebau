@@ -150,3 +150,4 @@ set $csp_header_django "${csp_default_self}";
 # Django admin sadly also requires some inline CSS and inline scripting to work
 set $csp_header_django "${csp_header_django}; ${csp_script_default} 'unsafe-inline'";
 set $csp_header_django "${csp_header_django}; ${csp_style_src} 'unsafe-inline'";
+set $csp_header_django "${csp_header_django}; ${csp_img_default}";
