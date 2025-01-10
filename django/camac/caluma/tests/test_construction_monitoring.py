@@ -591,7 +591,7 @@ def test_post_create_av_status_task(
     )
     av_status_work_item = work_item_factory(
         case=instance.case,
-        task__slug="construction-step-av-status-nachfuehren",
+        task__slug="construction-step-av-status-demolition",
         document=document_factory(),
     )
     old_name = av_status_work_item.task.name

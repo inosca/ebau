@@ -23,6 +23,27 @@ from camac.instance.utils import (
 from camac.user.models import User
 
 
+def check_gwr_relevancy(case, user, prev_work_item, context, task_slug):
+    tasks = []
+    gwr_relevant = False
+
+    gwr_relevancy_work_item = case.family.work_items.filter(
+        task_id="check-gwr-relevancy", status="completed"
+    ).first()
+
+    if not gwr_relevancy_work_item:
+        return [task_slug]
+
+    if gwr_relevancy_answer := gwr_relevancy_work_item.document.answers.filter(
+        question_id="fuer-gwr-relevant"
+    ).first():
+        gwr_relevant = gwr_relevancy_answer.value == "fuer-gwr-relevant-ja"
+
+    if gwr_relevant:
+        tasks.append(task_slug)
+    return tasks
+
+
 class CustomDynamicTasks(BaseDynamicTasks):
     @register_dynamic_task("after-decision")
     @canton_aware
@@ -507,21 +528,28 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
     @register_dynamic_task("after-gebaeudeabbruch-melden")
     def resolve_after_gebaeudeabbruch_melden(self, case, user, prev_work_item, context):
-        tasks = []
-        gwr_relevant = False
+        return check_gwr_relevancy(
+            case,
+            user,
+            prev_work_item,
+            context,
+            "construction-step-gwr-state-demolition",
+        )
 
-        gwr_relevancy_work_item = case.family.work_items.filter(
-            task_id="check-gwr-relevancy", status="completed"
-        ).first()
+    @register_dynamic_task("after-baubeginn-melden")
+    def resolve_after_baubeginn_melden(self, case, user, prev_work_item, context):
+        return check_gwr_relevancy(
+            case,
+            user,
+            prev_work_item,
+            context,
+            "construction-step-gwr-state-construction-start",
+        )
 
-        if not gwr_relevancy_work_item:
-            return ["construction-step-gwr-status-nachfuehren"]
-
-        if gwr_relevancy_answer := gwr_relevancy_work_item.document.answers.filter(
-            question_id="fuer-gwr-relevant"
-        ).first():
-            gwr_relevant = gwr_relevancy_answer.value == "fuer-gwr-relevant-ja"
-
-        if gwr_relevant:
-            tasks.append("construction-step-gwr-status-nachfuehren")
-        return tasks
+    @register_dynamic_task("after-schlussabnahme-gebaeude")
+    def resolve_after_schlussabnahme_gebaeude(
+        self, case, user, prev_work_item, context
+    ):
+        return check_gwr_relevancy(
+            case, user, prev_work_item, context, "construction-step-gwr-state-building"
+        )
