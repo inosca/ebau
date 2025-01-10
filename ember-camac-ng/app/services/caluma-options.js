@@ -449,6 +449,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
           },
         },
         new: {
+          defaultDeadlineLeadTime: 28,
           types: {
             suggestions: {
               label: "caluma.distribution.new.suggestions",
