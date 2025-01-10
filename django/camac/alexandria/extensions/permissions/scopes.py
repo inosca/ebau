@@ -3,8 +3,8 @@ from camac.applicants.models import ROLE_CHOICES
 
 
 class Scope:
-    def __init__(self, user, document) -> None:
-        self.user = user
+    def __init__(self, group, document) -> None:
+        self.group = group
         self.document = document
 
     def evaluate(self) -> bool:
@@ -17,13 +17,13 @@ class All(Scope):
 
 class Service(Scope):
     def evaluate(self) -> bool:
-        return self.document.modified_by_group == str(self.user.group)
+        return self.document.modified_by_group == str(self.group.service_id)
 
 
 class ServiceAndSubservice(Scope):
     def evaluate(self) -> bool:
         return self.document.modified_by_group in get_service_parent_and_children(
-            self.user.group
+            self.group.service_id
         )
 
 
