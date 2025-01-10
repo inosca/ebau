@@ -891,6 +891,7 @@ DISTRIBUTION = {
     },
     "kt_uri": {
         "ENABLED": True,
+        "DEFAULT_DEADLINE_LEAD_TIME": 28,  # 28 days
         "INSTANCE_STATE_DISTRIBUTION": "comm",
         "HISTORY": {
             "COMPLETE_DISTRIBUTION": _("Circulation completed"),
