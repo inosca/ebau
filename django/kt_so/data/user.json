@@ -5832,6 +5832,38 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 602,
+    "fields": {
+      "role": 9,
+      "service": 131,
+      "disabled": 0,
+      "name": "",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 603,
+    "fields": {
+      "role": 10,
+      "service": 131,
+      "disabled": 0,
+      "name": "",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
     "model": "user.groupt",
     "pk": 4,
     "fields": {
@@ -9432,6 +9464,26 @@
     }
   },
   {
+    "model": "user.groupt",
+    "pk": 602,
+    "fields": {
+      "group": 602,
+      "language": "de",
+      "name": "Administration SBB Immobilien, Grundstücksmanagement, Grundstückbestand & Potentiale",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 603,
+    "fields": {
+      "group": 603,
+      "language": "de",
+      "name": "Sachbearbeitung SBB Immobilien, Grundstücksmanagement, Grundstückbestand & Potentiale",
+      "city": null
+    }
+  },
+  {
     "model": "user.usergroup",
     "pk": 1,
     "fields": {
@@ -12564,6 +12616,29 @@
     }
   },
   {
+    "model": "user.service",
+    "pk": 131,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 16,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "external_identifier": null
+    }
+  },
+  {
     "model": "user.servicet",
     "pk": 1,
     "fields": {
@@ -13979,6 +14054,17 @@
       "language": "de",
       "name": "Amt für Militär und Bevölkerungsschutz (Zivilschutz, Bauwesen)",
       "description": "Amt für Militär und Bevölkerungsschutz (Zivilschutz, Bauwesen)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 131,
+    "fields": {
+      "service": 131,
+      "language": "de",
+      "name": "SBB Immobilien, Grundstücksmanagement, Grundstückbestand & Potentiale",
+      "description": "SBB Immobilien, Grundstücksmanagement, Grundstückbestand & Potentiale",
       "city": null
     }
   }
