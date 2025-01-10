@@ -91,5 +91,6 @@ PLACEHOLDERS = {
     },
     "kt_bern": {"ENABLED": True},
     "kt_gr": {"ENABLED": True},
+    "kt_uri": {"ENABLED": True},
     "test": {"ENABLED": True},
 }
