@@ -1371,6 +1371,14 @@ APPLICATIONS = {
                             "template_slug": "5-eroeffnung-stellungnahme-vorentscheid",
                             "recipient_types": [
                                 "applicant",
+                            ],
+                        },
+                    },
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "5-eroeffnung-stellungnahme-vorentscheid-intern",
+                            "recipient_types": [
                                 "involved_in_distribution",
                             ],
                         },
