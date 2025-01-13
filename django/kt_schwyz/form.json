@@ -1132,7 +1132,8 @@
       "meta"
     ],
     "technische-bewilligung-v5": [
-      "technische-bewilligung",
+      "technische-bewilligung-v2",
+      "baustellenentwasserung",
       "grundinformationen",
       "grundinformationen.lokalisierung",
       "personalien",
@@ -2514,6 +2515,11 @@
       "parent": null,
       "questions": ["tb-gesuchsnr", "tb-datum", "tb-zweck", "tb-zweck-andere"]
     },
+    "technische-bewilligung-v2": {
+      "title": "Technische Bewilligung",
+      "parent": null,
+      "questions": ["tb-gesuchsnr", "tb-datum", "tb-zweck-v2", "tb-zweck-andere"]
+    },
     "vorentscheid": {
       "title": "Vorentscheid",
       "parent": null,
@@ -2543,6 +2549,21 @@
         "freies-textfeld-1",
         "freies-textfeld-2",
         "link"
+      ]
+    },
+    "baustellenentwasserung": {
+      "title": "Baustellenentwässerung",
+      "parent": null,
+      "questions": [
+          "baustellenentwasserung-info",
+          "baustellenentwasserung-waschabwasser",
+          "baustellenentwasserung-abwasser-rezirkuliert",
+          "baustellenentwasserung-abwasser-abwasser-gestapelt-entsorgt",
+          "baustellenentwasserung-abwasser-schmutz-mischwasserkanalisation",
+          "baustellenentwasserung-abwasser-schmutz-mischwasserkanalisation-begrundung",
+          "baustellenentwasserung-abwasser-versickert",
+          "baustellenentwasserung-abwasser-versickert-begrundung",
+          "baustellenentwasserung-abwasser-gewasser-regenwasserkanalisation"
       ]
     }
   },
@@ -8883,6 +8904,20 @@
         ]
       }
     },
+    "tb-zweck-v2": {
+      "label": "Für was wird um eine technische Bewilligung ersucht?",
+      "hint": "Geben Sie bitte an, um welche technische Bewilligung Sie mit vorliegendem Gesuch ersuchen. Zwingende Voraussetzung ist, dass diese technische Bewilligung als Vorbehalt im Stammbaugesuch aufgeführt ist.",
+      "type": "checkbox",
+      "required": true,
+      "config": {
+        "options": [
+          "Technische Bewilligung Brandschutz",
+          "Technische Bewilligung Zivilschutz",
+          "Technische Bewilligung Baustellenentwässerung",
+          "Andere"
+        ]
+      }
+    },
     "tb-zweck-andere": {
       "label": "Welche?",
       "hint": "Falls Sie um eine technische Bewilligung ersuchen wollen, die nicht zur Auswahl steht, umschreiben Sie diese bitte in knappen Worten.",
@@ -9997,13 +10032,81 @@
         "options": ["Ja", "Nein"]
       }
     },
-    "baustellenabwasser-info": {
-      "label": "Für Bauvorhaben mit Baukosten ab 3 Millionen Franken ist eine technische Bewilligung zur Baustellenentwässerung erforderlich. Das Gesuch hierfür ist via eBau (Technische Bewilligung Baustellenentwässerung) zu stellen.\n\nFür Bauvorhaben mit Baukosten unter 3 Millionen Franken werden die Anforderungen und Vorgaben zur Baustellenentwässerung durch eine Allgemeinverfügung festgelegt.",
+    "baustellenentwasserung-info": {
+      "label": "Allgemeiner Hinweis\n\nAnfallendes Baustellenabwasser kann nach einer geeigneten Vorbehandlung in die Kanalisation, ein Oberflächengewässer abgeleitet und/oder oberirdisch versickert werden.\n\nAlternativ kann eine Abwasserstapelung auf der Baustelle vorgenommen werden mit späterem Abtransport durch ein zugelassenes Entsorgungsunternehmen. (Bei der Abwasserstapelung ist keine Bewilligung erforderlich). Als weitere Alternative bietet sich in gewissen Fällen eine Rezirkulation (z. B. Waschwasser).",
       "type": "checkbox",
       "required": true,
-      "active-expression": "'baustellenabwasser'|value == 'Ja'",
+      "active-expression": "'Technische Bewilligung Baustellenentwässerung' in 'tb-zweck-v2'|value",
       "config": {
         "options": ["Zur Kenntnis genommen"]
+      }
+    },
+    "baustellenentwasserung-waschabwasser": {
+      "label": "Fällt Waschabwasser von Arbeitsgeräten, Schalungsgeräten, Betonmischern (Betonkübel, Bretter, Platten etc.) oder von der Betonherstellung vor Ort an?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-info'|value == 'Zur Kenntnis genommen'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-abwasser-rezirkuliert": {
+      "label": "Wird das anfallende Abwasser Rezirkuliert (mit oder ohne Aufbereitung)?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-waschabwasser'|value == 'Ja'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-abwasser-abwasser-gestapelt-entsorgt": {
+      "label": "Wird das anfallende Abwasser gestapelt und entsorgt?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-abwasser-rezirkuliert'|value == 'Nein'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-abwasser-schmutz-mischwasserkanalisation": {
+      "label": "Wird das anfallende Abwasser in die Schmutz- oder Mischwasserkanalisation eingeleitet?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-abwasser-abwasser-gestapelt-entsorgt'|value == 'Nein'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-abwasser-schmutz-mischwasserkanalisation-begrundung": {
+      "label": "Begründung",
+      "type": "text",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-abwasser-schmutz-mischwasserkanalisation'|value == 'Nein'",
+      "config": {}
+    },
+    "baustellenentwasserung-abwasser-versickert": {
+      "label": "Wir das anfallende Abwasser versickert?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-abwasser-schmutz-mischwasserkanalisation'|value == 'Nein'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-abwasser-versickert-begrundung": {
+      "label": "Begründung",
+      "type": "text",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-abwasser-versickert'|value == 'Nein'",
+      "config": {}
+    },
+    "baustellenentwasserung-abwasser-gewasser-regenwasserkanalisation": {
+      "label": "Fällt Waschabwasser von Arbeitsgeräten, Schalungsgeräten, Betonmischern (Betonkübel, Bretter, Platten etc.) oder von der Betonherstellung vor Ort an?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-abwasser-versickert'|value == 'Nein'",
+      "config": {
+        "options": ["Ja", "Nein"]
       }
     }
   }
