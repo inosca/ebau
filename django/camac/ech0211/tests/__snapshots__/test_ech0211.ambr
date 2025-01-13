@@ -665,6 +665,7 @@
   				<ns1:profilingYesNo>false</ns1:profilingYesNo>
   				<ns1:intendedPurpose>.</ns1:intendedPurpose>
   				<ns1:parkingLotsYesNo>true</ns1:parkingLotsYesNo>
+  				<ns1:constructionCost>12000000.0</ns1:constructionCost>
   				<ns1:namedMetaData>
   					<ns3:metaDataName>status</ns3:metaDataName>
   					<ns3:metaDataValue>David Rangel</ns3:metaDataValue>
@@ -709,9 +710,11 @@
   				</ns1:realestateInformation>
   				<ns1:constructionProjectInformation>
   					<ns1:constructionProject>
+  						<ns3:projectStartDate>2025-01-01</ns3:projectStartDate>
+  						<ns3:totalCostsOfProject>12000000</ns3:totalCostsOfProject>
   						<ns3:status>6701</ns3:status>
   						<ns3:description>Testvorhaben</ns3:description>
-  						<ns3:durationOfConstructionPhase>999</ns3:durationOfConstructionPhase>
+  						<ns3:durationOfConstructionPhase>15</ns3:durationOfConstructionPhase>
   					</ns1:constructionProject>
   					<ns1:municipality>
   						<ns5:municipalityName>Testgemeinde</ns5:municipalityName>
@@ -748,8 +751,8 @@
   						</ns7:file>
   					</ns7:files>
   					<ns7:keywords>
-  						<ns8:keyword>Brianna Green</ns8:keyword>
-  						<ns8:keyword>Stephanie Peterson</ns8:keyword>
+  						<ns8:keyword>Steven Sosa</ns8:keyword>
+  						<ns8:keyword>Lisa Watkins</ns8:keyword>
   					</ns7:keywords>
   					<ns7:documentKind>Beilagen zum Gesuch</ns7:documentKind>
   				</ns1:document>
@@ -759,15 +762,15 @@
   				<ns1:person>
   					<ns3:identification>
   						<ns3:personIdentification>
-  							<ns9:officialName>Mccoy</ns9:officialName>
-  							<ns9:firstName>Michael</ns9:firstName>
+  							<ns9:officialName>Small</ns9:officialName>
+  							<ns9:firstName>Ashley</ns9:firstName>
   						</ns3:personIdentification>
   					</ns3:identification>
   					<ns3:address>
-  						<ns4:street>Allen Street</ns4:street>
-  						<ns4:houseNumber>5465</ns4:houseNumber>
-  						<ns4:town>New Stephanietown</ns4:town>
-  						<ns4:swissZipCode>1942</ns4:swissZipCode>
+  						<ns4:street>Lee Village</ns4:street>
+  						<ns4:houseNumber>2124</ns4:houseNumber>
+  						<ns4:town>East Abigailchester</ns4:town>
+  						<ns4:swissZipCode>8229</ns4:swissZipCode>
   						<ns4:country>
   							<ns4:countryNameShort>CH</ns4:countryNameShort>
   						</ns4:country>
@@ -779,15 +782,15 @@
   				<ns1:person>
   					<ns3:identification>
   						<ns3:personIdentification>
-  							<ns9:officialName>Dunn</ns9:officialName>
-  							<ns9:firstName>Christopher</ns9:firstName>
+  							<ns9:officialName>Peters</ns9:officialName>
+  							<ns9:firstName>Valerie</ns9:firstName>
   						</ns3:personIdentification>
   					</ns3:identification>
   					<ns3:address>
-  						<ns4:street>Ryan Alley</ns4:street>
-  						<ns4:houseNumber>33073</ns4:houseNumber>
-  						<ns4:town>Muellerland</ns4:town>
-  						<ns4:swissZipCode>5867</ns4:swissZipCode>
+  						<ns4:street>Adrienne Plaza</ns4:street>
+  						<ns4:houseNumber>22804</ns4:houseNumber>
+  						<ns4:town>Alyssaville</ns4:town>
+  						<ns4:swissZipCode>5885</ns4:swissZipCode>
   						<ns4:country>
   							<ns4:countryNameShort>CH</ns4:countryNameShort>
   						</ns4:country>

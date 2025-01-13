@@ -1,7 +1,7 @@
 import re
 import xml.dom.minidom as minidom
 from collections import namedtuple
-from datetime import datetime
+from datetime import date, datetime
 
 import pytest
 from alexandria.core.factories import DocumentFactory, FileFactory, TagFactory
@@ -389,6 +389,11 @@ def ech_instance_so(
     utils.add_answer(ech_instance.case.document, "strasse-nummer", 4)
     utils.add_answer(ech_instance.case.document, "ort", "Solothurn")
     utils.add_answer(ech_instance.case.document, "plz", "4500")
+
+    utils.add_answer(ech_instance.case.document, "dauer-in-monaten", 15)
+    utils.add_answer(ech_instance.case.document, "geplanter-baustart", date(2025, 1, 1))
+    utils.add_answer(ech_instance.case.document, "gesamtkosten", 12_000_000)
+
     utils.add_table_answer(
         ech_instance.case.document, "bauherrin", [so_personal_row_factory()]
     )
