@@ -2700,7 +2700,10 @@ MASTER_DATA = {
             ),
             "construction_start_date": (
                 "answer",
-                "datum-baubeginn",
+                [
+                    "datum-baubeginn",  # migrated dossiers
+                    "geplanter-baustart",  # regular dossiers
+                ],
                 {"value_key": "date"},
             ),
             "final_approval_date": (
