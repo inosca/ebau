@@ -772,6 +772,7 @@ APPLICATIONS = {
             "baugesuch-reklamegesuch-v7",
             "baugesuch-reklamegesuch-v8",
             "baugesuch-reklamegesuch-v9",
+            "baugesuch-reklamegesuch-v10",
             "projektanderung-v2",
             "projektanderung-v3",
             "projektanderung-v4",
