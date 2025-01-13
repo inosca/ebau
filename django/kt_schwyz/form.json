@@ -400,6 +400,7 @@
       "grundinformationen.lokalisierung",
       "grundinformationen.kategorisierung-v3",
       "grundinformationen.allgemeine-informationen-zum-vorhaben-v5",
+      "grundinformationen.baustellenabwasser",
       "grundinformationen.ausnahmebewilligungen",
       "grundinformationen.gwr-v2",
       "personalien",
@@ -1719,9 +1720,13 @@
         "kein-baugespann-begrundung",
         "baukosten",
         "gebaudevolumen-sia-116",
-        "gebaudevolumen-sia-416",
-        "baustellenabwasser-info"
+        "gebaudevolumen-sia-416"
       ]
+    },
+    "grundinformationen.baustellenabwasser": {
+      "title": "Baustellenabwasser",
+      "parent": "grundinformationen",
+      "questions": ["baustellenabwasser-info"]
     },
     "grundinformationen.ausnahmebewilligungen": {
       "title": "Ausnahmebewilligungen",
@@ -10030,6 +10035,15 @@
       "required": true,
       "config": {
         "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenabwasser-info": {
+      "label": "Für Bauvorhaben mit Baukosten ab 3 Millionen Franken ist eine technische Bewilligung zur Baustellenentwässerung erforderlich. Das Gesuch hierfür ist via eBau (<a href='/gesuche/new' target='_blank'>Technische Bewilligung Baustellenentwässerung</a>) zu stellen.<br/><br/>Für Bauvorhaben mit Baukosten unter 3 Millionen Franken werden die Anforderungen und Vorgaben zur Baustellenentwässerung durch eine Allgemeinverfügung festgelegt.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenabwasser'|value == 'Ja'",
+      "config": {
+        "options": ["Zur Kenntnis genommen"]
       }
     },
     "baustellenentwasserung-info": {
