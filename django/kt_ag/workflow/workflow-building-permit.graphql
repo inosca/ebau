@@ -40,55 +40,7 @@ mutation CreateFlowAfterFormalExam {
     input: {
       workflow: "building-permit"
       tasks: ["formal-exam"]
-      next: "[\"after-exam\"]|tasks"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateFlowAfterMaterialExam {
-  addWorkflowFlow(
-    input: {
-      workflow: "building-permit"
-      tasks: ["material-exam"]
-      next: "[\"after-exam\"]|tasks"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateFlowAfterFillPublication {
-  addWorkflowFlow(
-    input: {
-      workflow: "building-permit"
-      tasks: ["fill-publication"]
-      next: "[\"create-publication\"]|tasks"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateFlowAfterCreatePublication {
-  addWorkflowFlow(
-    input: {
-      workflow: "building-permit"
-      tasks: ["create-publication"]
-      next: "[\"fill-publication\"]|tasks"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation InitAdditionalDemandFlow {
-  addWorkflowFlow(
-    input: {
-      workflow: "building-permit"
-      tasks: ["init-additional-demand"]
-      next: "[\"init-additional-demand\", \"additional-demand\"]|tasks"
+      next: "[\"distribution\"]|tasks"
     }
   ) {
     clientMutationId
@@ -112,7 +64,7 @@ mutation CreateFlowAfterDecision {
     input: {
       workflow: "building-permit"
       tasks: ["decision"]
-      next: "[\"after-decision\"]|tasks"
+      next: "[]|tasks"
       redoable: "'distribution'|task"
     }
   ) {

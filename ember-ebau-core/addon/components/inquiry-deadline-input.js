@@ -12,6 +12,10 @@ export default class InquiryDeadlineInputComponent extends Component {
   @tracked disabled = false;
 
   get isDisabled() {
+    if (this.args.disabled) {
+      return true;
+    }
+
     const slugs = this.serviceGroupSlugs.value;
     if (!slugs || !slugs.length) {
       return false;
@@ -28,7 +32,12 @@ export default class InquiryDeadlineInputComponent extends Component {
   serviceGroupSlugs = trackedFunction(this, async () => {
     await Promise.resolve();
 
-    const serviceIds = this.args?.context?.selectedGroups;
+    const serviceIds = [
+      this.args.context?.inquiry?.addressedGroups, // editing a single inquiry
+      this.args.context?.selectedGroups, // bulk editing multiple inquiries
+    ]
+      .flat()
+      .filter(Boolean);
 
     if (!serviceIds) {
       return [];
