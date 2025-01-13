@@ -10047,7 +10047,7 @@
       }
     },
     "baustellenentwasserung-info": {
-      "label": "Allgemeiner Hinweis\n\nAnfallendes Baustellenabwasser kann nach einer geeigneten Vorbehandlung in die Kanalisation, ein Oberflächengewässer abgeleitet und/oder oberirdisch versickert werden.\n\nAlternativ kann eine Abwasserstapelung auf der Baustelle vorgenommen werden mit späterem Abtransport durch ein zugelassenes Entsorgungsunternehmen. (Bei der Abwasserstapelung ist keine Bewilligung erforderlich). Als weitere Alternative bietet sich in gewissen Fällen eine Rezirkulation (z. B. Waschwasser).",
+      "label": "<h4>Allgemeiner Hinweis</h4>Anfallendes Baustellenabwasser kann nach einer geeigneten Vorbehandlung in die Kanalisation, ein Oberflächengewässer abgeleitet und/oder oberirdisch versickert werden.\n\nAlternativ kann eine Abwasserstapelung auf der Baustelle vorgenommen werden mit späterem Abtransport durch ein zugelassenes Entsorgungsunternehmen. (Bei der Abwasserstapelung ist keine Bewilligung erforderlich). Als weitere Alternative bietet sich in gewissen Fällen eine Rezirkulation (z. B. Waschwasser).",
       "type": "checkbox",
       "required": true,
       "active-expression": "'Technische Bewilligung Baustellenentwässerung' in 'tb-zweck-v2'|value",
