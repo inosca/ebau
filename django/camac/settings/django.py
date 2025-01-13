@@ -786,6 +786,7 @@ APPLICATIONS = {
             "technische-bewilligung-v2",
             "technische-bewilligung-v3",
             "technische-bewilligung-v4",
+            "technische-bewilligung-v5",
             "baumeldung-fur-geringfugiges-vorhaben-v2",
             "baumeldung-fur-geringfugiges-vorhaben-v3",
             "baumeldung-fur-geringfugiges-vorhaben-v4",
