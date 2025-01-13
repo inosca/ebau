@@ -347,7 +347,7 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
         **kwargs,
     ):
         if not props:
-            props = settings.PLACEHOLDERS["INQUIRY_DEFAULT_FIELDS"]
+            props = settings.PLACEHOLDERS.get("INQUIRY_DEFAULT_FIELDS", [])
 
         all_nested_aliases = {
             "ANTWORT": [_("ANSWER")],
