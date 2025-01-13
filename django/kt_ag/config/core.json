@@ -131,9 +131,41 @@
       "template": "/ember-camac-ng/corrections.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 10,
+      "sort": 12,
       "form_group": 2000000,
       "require_permission": "corrections-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 15000000,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 2000001,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/distribution.phtml",
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 7,
+      "form_group": 2000000,
+      "require_permission": "distribution-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 15000001,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 2000001,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 8,
+      "form_group": 2000000,
+      "require_permission": "decision-read"
     }
   },
   {
@@ -211,7 +243,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 7,
+      "sort": 9,
       "form_group": 2000000,
       "require_permission": "journal-read"
     }
@@ -227,7 +259,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 8,
+      "sort": 10,
       "form_group": 2000000,
       "require_permission": "history-read"
     }
@@ -243,7 +275,7 @@
       "template": "/ember-camac-ng/permissions.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 9,
+      "sort": 11,
       "form_group": 2000000,
       "require_permission": "permissions-read"
     }
@@ -275,6 +307,26 @@
       "instance_resource": 2000002,
       "language": "de",
       "name": "Korrekturhilfen",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 15000000,
+    "fields": {
+      "instance_resource": 15000000,
+      "language": "de",
+      "name": "Zirkulation",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 15000001,
+    "fields": {
+      "instance_resource": 15000001,
+      "language": "de",
+      "name": "Entscheid",
       "description": null
     }
   },
@@ -356,6 +408,13 @@
     }
   },
   {
+    "model": "core.irtaskform",
+    "pk": 15000001,
+    "fields": {
+      "task": "decision"
+    }
+  },
+  {
     "model": "core.remberlist",
     "pk": 2000001,
     "fields": {
@@ -392,6 +451,46 @@
     "fields": {
       "resource": 2000001,
       "role": 4
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 15000000,
+    "fields": {
+      "resource": 2000000,
+      "role": 12
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 15000001,
+    "fields": {
+      "resource": 2000001,
+      "role": 12
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 15000002,
+    "fields": {
+      "resource": 22000000,
+      "role": 12
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 15000003,
+    "fields": {
+      "resource": 22000002,
+      "role": 12
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 15000004,
+    "fields": {
+      "resource": 22000003,
+      "role": 12
     }
   },
   {

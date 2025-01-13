@@ -1,4 +1,5 @@
 import { service } from "@ember/service";
+import { macroCondition, getOwnConfig } from "@embroider/macros";
 import CalumaOptionsService from "@projectcaluma/ember-core/services/caluma-options";
 import { INQUIRY_STATUS } from "@projectcaluma/ember-distribution/config";
 import { cantonAware } from "ember-ebau-core/decorators";
@@ -66,6 +67,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     "inquiry-answer-notices-for-authority-arp",
     "inquiry-answer-forward",
   ];
+  static distributionInfoQuestionsAG = ["inquiry-answer-remarks"];
 
   @cantonAware
   static distributionStatusMapping = {};
@@ -98,6 +100,12 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       icon: "warning",
       color: "emphasis",
     },
+  };
+  static distributionStatusMappingAG = {
+    "inquiry-answer-status-positive": INQUIRY_STATUS.POSITIVE,
+    "inquiry-answer-status-negative": INQUIRY_STATUS.NEGATIVE,
+    "inquiry-answer-status-claim": INQUIRY_STATUS.NEEDS_INTERACTION,
+    "inquiry-answer-status-not-involved": INQUIRY_STATUS.POSITIVE,
   };
 
   @cantonAware
@@ -180,6 +188,26 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     return fullConfig;
   }
 
+  get distributionServiceGroupsAG() {
+    return {
+      subservice: {
+        label: "distribution.subservices",
+      },
+      "service-afb": {
+        label: "distribution.services-afb",
+      },
+      "service-cantonal": {
+        label: "distribution.services-cantonal",
+      },
+      "service-external": {
+        label: "distribution.services-external",
+      },
+      municipality: {
+        label: "distribution.municipalities",
+      },
+    };
+  }
+
   @cantonAware
   get distributionDefaultServiceGroups() {
     return ["suggestions"];
@@ -197,22 +225,107 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     return ["subservice"];
   }
 
+  @cantonAware
+  static distributionButtons = {
+    "fill-inquiry": {
+      color: "primary",
+      label: "distribution.send-answer",
+      status: "caluma.distribution.answer.buttons.compose.status",
+      willCompleteInquiry: true,
+    },
+  };
+
+  static distributionButtonsAG = {
+    "fill-inquiry": {
+      color: "primary",
+      label: "distribution.release-for-review",
+      status: "caluma.distribution.answer.buttons.compose.status",
+    },
+    "check-inquiry": {
+      color: "primary",
+      label: "distribution.confirm",
+      status: {
+        label: "caluma.distribution.answer.buttons.confirm.status",
+        color: { addressed: "muted", controlling: "emphasis" },
+        icon: "user",
+      },
+      willCompleteInquiry: true,
+    },
+    "revise-inquiry": {
+      color: "default",
+      label: "distribution.revise",
+    },
+    "alter-inquiry": {
+      color: "primary",
+      label: "distribution.release-adjustment-for-review",
+      status: "caluma.distribution.answer.buttons.adjust.status",
+    },
+  };
+
   @cached
   get distribution() {
     return {
-      ui: { readonly: this.session.isReadOnlyRole },
+      ui: {
+        readonly: this.session.isReadOnlyRole,
+        new: {
+          showAllServices: getOwnConfig().application === "ag",
+        },
+      },
       inquiry: {
         answer: {
           infoQuestions: CustomCalumaOptionsService.distributionInfoQuestions,
-          buttons: {
-            "fill-inquiry": {
-              color: "primary",
-              label: "distribution.send-answer",
-              status: "caluma.distribution.answer.buttons.compose.status",
-              willCompleteInquiry: true,
-            },
-          },
+          buttons: CustomCalumaOptionsService.distributionButtons,
           statusMapping: CustomCalumaOptionsService.distributionStatusMapping,
+          ...(macroCondition(getOwnConfig().application === "ag")
+            ? {
+                details: (inquiry) => {
+                  const releasedForReviewWorkItem =
+                    inquiry.childCase.workItems.edges
+                      .map((workItem) => workItem.node)
+                      .filter(
+                        (workItem) =>
+                          ["fill-inquiry", "alter-inquiry"].includes(
+                            workItem.task.slug,
+                          ) && workItem.status === "COMPLETED",
+                      )
+                      .sort((a, b) => a.closedAt - b.closedAt)
+                      .reverse()[0];
+
+                  return [
+                    {
+                      label: "caluma.distribution.inquiry.sent-at",
+                      value: inquiry.childCase?.createdAt,
+                      type: "date",
+                    },
+                    {
+                      label: "caluma.distribution.inquiry.assigned-user",
+                      value: inquiry.assignedUsers,
+                      type: "user",
+                    },
+                    {
+                      label: "distribution.released-for-review",
+                      value: releasedForReviewWorkItem?.closedAt,
+                      type: "date",
+                    },
+                    {
+                      label: "distribution.released-for-review-by",
+                      value: releasedForReviewWorkItem?.closedByUser,
+                      type: "user",
+                    },
+                    {
+                      label: "caluma.distribution.inquiry.closed-at",
+                      value: inquiry.closedAt,
+                      type: "date",
+                    },
+                    {
+                      label: "distribution.closed-by",
+                      value: inquiry.closedByUser,
+                      type: "user",
+                    },
+                  ];
+                },
+              }
+            : {}),
         },
       },
       new: {
@@ -224,7 +337,9 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
         reopenDistribution: () => this.session.isLeadRole,
         sendInquiry: () => this.session.isLeadRole,
         withdrawInquiry: () => this.session.isLeadRole,
-        completeInquiryChildWorkItem: () => this.session.isLeadRole,
+        completeInquiryChildWorkItem: (task) =>
+          !["check-inquiry", "revise-inquiry"].includes(task) ||
+          this.session.isLeadRole,
         reopenInquiry: () => this.session.isLeadRole,
         checkInquiries: () => this.session.isLeadRole,
       },

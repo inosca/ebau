@@ -44,6 +44,11 @@ MODULE_AUDIT = NO_CORRECTION & (
 MODULE_CORRECTIONS = (
     STATES_ALL | RequireInstanceState(["correction"])
 ) & ROLES_NO_READONLY
+MODULE_DECISION = NO_CORRECTION & (
+    (RequireWorkItem("decision") & ROLES_MUNICIPALITY)
+    | RequireWorkItem("decision", "completed")
+)
+MODULE_DISTRIBUTION = NO_CORRECTION & RequireWorkItem("distribution")
 MODULE_DMS_GENERATE = STATES_ALL & ROLES_NO_READONLY
 MODULE_DOCUMENTS = STATES_ALL
 MODULE_FORM = STATES_ALL | RequireInstanceState(["correction"])
@@ -81,9 +86,23 @@ AG_PERMISSIONS_SETTINGS = {
             ("instance-delete", ACTION_INSTANCE_DELETE),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
         ],
+        "distribution-service": [
+            ("decision-read", MODULE_DECISION),
+            ("distribution-read", MODULE_DISTRIBUTION),
+            ("dms-generate-read", MODULE_DMS_GENERATE),
+            ("documents-read", MODULE_DOCUMENTS),
+            ("documents-write", MODULE_DOCUMENTS),
+            ("form-read", MODULE_FORM),
+            ("history-read", MODULE_HISTORY),
+            ("journal-read", MODULE_JOURNAL),
+            ("responsible-read", MODULE_RESPONSIBLE),
+            ("work-items-read", MODULE_WORK_ITEMS),
+        ],
         "lead-authority": [
             ("audit-read", MODULE_AUDIT),
             ("corrections-read", MODULE_CORRECTIONS),
+            ("decision-read", MODULE_DECISION),
+            ("distribution-read", MODULE_DISTRIBUTION),
             ("dms-generate-read", MODULE_DMS_GENERATE),
             ("documents-read", MODULE_DOCUMENTS),
             ("documents-write", MODULE_DOCUMENTS),

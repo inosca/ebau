@@ -1609,24 +1609,6 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "vorlaeufige-pruefung",
-    "fields": {
-      "created_at": "2025-01-07T10:13:56.667Z",
-      "modified_at": "2025-01-07T10:13:56.667Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Vorl\\u00e4ufige Pr\\u00fcfung\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "meta": {},
-      "is_published": false,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
     "pk": "waermepumpenanlage",
     "fields": {
       "created_at": "2023-04-20T11:39:56.452Z",
@@ -19023,21 +19005,6 @@
       "form": "vorlaeufige-beurteilung",
       "question": "spezialformulare",
       "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "vorlaeufige-pruefung.platzhalter",
-    "fields": {
-      "created_at": "2025-01-07T10:14:14.196Z",
-      "modified_at": "2025-01-07T10:14:14.196Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "vorlaeufige-pruefung",
-      "question": "platzhalter",
-      "sort": 1
     }
   },
   {
