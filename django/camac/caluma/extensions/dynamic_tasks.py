@@ -553,3 +553,9 @@ class CustomDynamicTasks(BaseDynamicTasks):
         return check_gwr_relevancy(
             case, user, prev_work_item, context, "construction-step-gwr-state-building"
         )
+
+    @register_dynamic_task("after-schlussabnahme-project")
+    def resolve_after_schlussabnahme_project(self, case, user, prev_work_item, context):
+        return check_gwr_relevancy(
+            case, user, prev_work_item, context, "construction-step-gwr-state-project"
+        )

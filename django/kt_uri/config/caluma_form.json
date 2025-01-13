@@ -24037,6 +24037,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "gwr-status-nachfuehren-complete-projektabschluss-wurde-im-gwr-nachgefuehrt",
+    "fields": {
+      "created_at": "2024-08-30T10:34:03.607Z",
+      "modified_at": "2024-08-30T10:34:03.607Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Projektabschluss wurde im GWR nachgef\\u00fchrt\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "has-representative-no",
     "fields": {
       "created_at": "2020-08-28T14:48:43.856Z",
@@ -43902,42 +43919,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "construction-monitoring-update-gwr-state-complete",
-    "fields": {
-      "created_at": "2024-06-13T13:03:17.522Z",
-      "modified_at": "2024-07-04T11:13:31.567Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Status Baubeginn nachgetragen\", \"fr\": null, \"it\": null}",
-      "type": "action_button",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "color": "primary",
-        "action": "complete",
-        "show_validation": false,
-        "validate_on_enter": false
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "coordinates-east",
     "fields": {
       "created_at": "2020-09-01T15:03:44.135Z",
@@ -49520,6 +49501,37 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gwr-status-nachfuehren-complete",
+    "fields": {
+      "created_at": "2024-08-30T10:34:03.710Z",
+      "modified_at": "2024-08-30T10:34:03.710Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"GWR Status nachf\\u00fchren\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -71789,6 +71801,21 @@
       "question": "grundwasserschutz-art",
       "option": "grundwasserschutz-art-grundwasserschutzzone",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gwr-status-nachfuehren-complete.gwr-status-nachfuehren-complete-projektabschluss-wurde-im-gwr-nachgefuehrt",
+    "fields": {
+      "created_at": "2024-08-30T10:34:03.719Z",
+      "modified_at": "2024-08-30T10:34:03.719Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "gwr-status-nachfuehren-complete",
+      "option": "gwr-status-nachfuehren-complete-projektabschluss-wurde-im-gwr-nachgefuehrt",
+      "sort": 1
     }
   },
   {

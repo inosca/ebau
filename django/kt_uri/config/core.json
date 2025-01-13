@@ -34350,13 +34350,6 @@
   },
   {
     "model": "core.irtaskform",
-    "pk": 14000039,
-    "fields": {
-      "task": "construction-monitoring-update-gwr-state-complete"
-    }
-  },
-  {
-    "model": "core.irtaskform",
     "pk": 14000040,
     "fields": {
       "task": "gebaeudeschaetzung"

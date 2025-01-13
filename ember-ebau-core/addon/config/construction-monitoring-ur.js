@@ -11,6 +11,5 @@ export default {
     "construction-step-zwischenkontrolle",
     "construction-step-schlussabnahme-gebaeude",
     "construction-step-schlussabnahme-projekt",
-    "construction-step-update-gwr-state-completion",
   ],
 };
