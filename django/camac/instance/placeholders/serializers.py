@@ -1914,3 +1914,17 @@ class UrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
 
     class Meta:
         exclude = "municipality"
+
+
+class AgDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
+    alle_vertreter_name_address = fields.MasterDataPersonField(
+        source="legal_representatives",
+        fields="__all__",
+        aliases=[_("ALL_LEGAL_REPRESENTATIVES_NAME_ADDRESS")],
+        description=_("Names and addresses of all legal representatives"),
+    )
+    alle_vertreter = fields.MasterDataPersonField(
+        source="legal_representatives",
+        aliases=[_("ALL_LEGAL_REPRESENTATIVES")],
+        description=_("Names of all legal representatives"),
+    )

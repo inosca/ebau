@@ -1,5 +1,31 @@
 from camac.caluma.extensions.countries import COUNTRIES
 
+AG_PERSONAL_DATA_MAPPING = {
+    "last_name": "name-gesuchstellerin",
+    "first_name": "vorname-gesuchstellerin",
+    "street": "strasse-gesuchstellerin",
+    "street_number": "nummer-gesuchstellerin",
+    "zip": "plz-gesuchstellerin",
+    "town": "ort-gesuchstellerin",
+    "email": "e-mail-gesuchstellerin",
+    "tel": "telefon-oder-mobile-gesuchstellerin",
+    "is_juristic_person": (
+        "juristische-person-gesuchstellerin",
+        {
+            "value_parser": (
+                "value_mapping",
+                {
+                    "mapping": {
+                        "juristische-person-gesuchstellerin-ja": True,
+                        "juristische-person-gesuchstellerin-nein": False,
+                    }
+                },
+            )
+        },
+    ),
+    "juristic_name": "name-juristische-person-gesuchstellerin",
+}
+
 SO_PERSONAL_DATA_MAPPING = {
     "row_id": "pk",
     "salutation": ("anrede", {"value_parser": "option", "prop": "label"}),
@@ -2777,10 +2803,45 @@ MASTER_DATA = {
     "kt_ag": {
         "ENABLED": True,
         "CONFIG": {
+            "applicants": (
+                "table",
+                "personalien-gesuchstellerin",
+                {"column_mapping": AG_PERSONAL_DATA_MAPPING},
+            ),
+            "landowners": (
+                "table",
+                "personalien-grundeigentuemerin",
+                {"column_mapping": AG_PERSONAL_DATA_MAPPING},
+            ),
+            "project_authors": (
+                "table",
+                "personalien-projektverfasserin",
+                {"column_mapping": AG_PERSONAL_DATA_MAPPING},
+            ),
+            "invoice_recipients": (
+                "table",
+                "personalien-rechnungsempfaenger",
+                {"column_mapping": AG_PERSONAL_DATA_MAPPING},
+            ),
+            "legal_representatives": (
+                "table",
+                "vertreterin-mit-vollmacht",
+                {"column_mapping": AG_PERSONAL_DATA_MAPPING},
+            ),
             "municipality_slug": (
                 "answer",
                 "gemeinde",
                 {"value_parser": "dynamic_option", "prop": "slug"},
+            ),
+            "plot_data": (
+                "table",
+                "parzelle",
+                {
+                    "column_mapping": {
+                        "plot_number": "parzellennummer",
+                        "egrid_number": "e-grid-nr",
+                    }
+                },
             ),
         },
     },
