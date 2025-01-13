@@ -9,6 +9,7 @@ from rest_framework.response import Response
 
 from camac.core.translations import get_translations_canton_aware
 from camac.instance.placeholders.serializers import (
+    AgDMSPlaceholdersSerializer,
     BeDMSPlaceholdersSerializer,
     DMSPlaceholdersSerializer,
     GrDMSPlaceholdersSerializer,
@@ -21,6 +22,8 @@ class DMSPlaceholdersDocsView(RetrieveAPIView):
     renderer_classes = [JSONRenderer]
 
     def get_serializer_class(self):
+        if settings.APPLICATION_NAME == "kt_ag":  # pragma: todo cover
+            return AgDMSPlaceholdersSerializer
         if settings.APPLICATION_NAME == "kt_bern":
             return BeDMSPlaceholdersSerializer
         elif settings.APPLICATION_NAME == "kt_gr":  # pragma: todo cover
