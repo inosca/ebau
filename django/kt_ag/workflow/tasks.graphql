@@ -32,7 +32,7 @@ mutation CreateFormalExamTask {
       name: "Vorläufige Prüfung"
       addressGroups: "[\"municipality\"]|groups"
       controlGroups: "[\"municipality\"]|groups"
-      leadTime: 432000 # 5 days
+      leadTime: 1728000 # 20 days
       meta: "{\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]}}"
     }
   ) {
@@ -45,10 +45,10 @@ mutation CreateDecisionTask {
     input: {
       slug: "decision"
       form: "entscheid"
-      name: "Entscheid verfügen"
+      name: "Entscheid / Stellungnahme erstellen"
       addressGroups: "[\"municipality\"]|groups"
       controlGroups: "[\"municipality\"]|groups"
-      leadTime: 864000 # 10 days
+      leadTime: 1209600 # 14 days
       meta: "{\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]}}"
     }
   ) {
