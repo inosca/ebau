@@ -548,24 +548,6 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "dashboard",
-    "fields": {
-      "created_at": "2023-04-26T10:03:09.406Z",
-      "modified_at": "2024-08-28T12:24:54.559Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Dashboard\", \"fr\": null, \"it\": \"Dashboard\"}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "meta": {},
-      "is_published": false,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
     "pk": "details-zentralheizung",
     "fields": {
       "created_at": "2023-07-03T15:39:29.730Z",
@@ -8145,66 +8127,6 @@
       "form": "construction-monitoring",
       "question": "nicht-abgenommen-maengel",
       "sort": 7
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "dashboard.portal-inhalt-de",
-    "fields": {
-      "created_at": "2023-04-26T10:03:26.859Z",
-      "modified_at": "2023-04-26T10:03:26.859Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dashboard",
-      "question": "portal-inhalt-de",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "dashboard.portal-inhalt-fr",
-    "fields": {
-      "created_at": "2023-04-26T10:03:40.123Z",
-      "modified_at": "2023-04-26T10:03:40.123Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dashboard",
-      "question": "portal-inhalt-fr",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "dashboard.portal-inhalt-it",
-    "fields": {
-      "created_at": "2023-04-26T10:03:50.969Z",
-      "modified_at": "2023-04-26T10:03:50.969Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dashboard",
-      "question": "portal-inhalt-it",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "dashboard.portal-inhalt-rm",
-    "fields": {
-      "created_at": "2023-04-26T10:04:04.181Z",
-      "modified_at": "2023-04-26T10:04:04.181Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dashboard",
-      "question": "portal-inhalt-rm",
-      "sort": 1
     }
   },
   {
