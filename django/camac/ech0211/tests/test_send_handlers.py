@@ -859,7 +859,19 @@ def test_accompanying_report_send_handler(
         if document_backend == "alexandria":
             alexandria_factories.FileFactory(
                 document=alexandria_factories.DocumentFactory(
-                    id="00000000-0000-0000-0000-000000000000"
+                    id="e39500fd-3eb1-48a5-afe4-0e3b03c4f13a",
+                    metainfo={"camac-instance-id": ech_instance_be.pk},
+                    category__metainfo={},
+                ),
+                name="MyHiddenFile.pdf",
+            )
+            alexandria_factories.FileFactory(
+                document=alexandria_factories.DocumentFactory(
+                    id="00000000-0000-0000-0000-000000000000",
+                    metainfo={"camac-instance-id": ech_instance_be.pk},
+                    category__metainfo={
+                        "access": {support_group.role.name: {"visibility": "all"}}
+                    },
                 ),
                 name="MyFile.pdf",
             )

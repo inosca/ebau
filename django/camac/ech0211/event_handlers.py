@@ -6,6 +6,7 @@ from alexandria.core.models import Document
 from django.conf import settings
 from django.db.models import Q
 from django.dispatch import receiver
+from django.http import HttpRequest
 from django.utils import timezone
 from pyxb import (
     IncompleteElementContentError,
@@ -23,7 +24,7 @@ from camac.constants.kt_bern import (
     ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION,
 )
 from camac.document.models import Attachment
-from camac.user.models import Service
+from camac.user.models import Service, User
 
 from .formatters import (
     accompanying_report,
@@ -70,6 +71,19 @@ class BaseEventHandler:
         self.message_id = uuid4()
         self.message_receiver = self.instance.responsible_service()
 
+    def get_fake_request(self):
+        user = User.objects.get(pk=self.user_pk) if self.user_pk else None
+        group = self.message_receiver.groups.first() if self.message_receiver else None
+
+        if not user or not group:
+            return None
+
+        request = HttpRequest()
+        request.user = user
+        request.group = group
+
+        return request
+
     def get_xml(self, **kwargs):  # pragma: no cover
         raise NotImplementedError()
 
@@ -110,7 +124,7 @@ class SubmitEventHandler(BaseEventHandler):
                 message_date=self.message_date,
                 message_id=str(self.message_id),
                 eventSubmitPlanningPermissionApplication=submit(
-                    self.instance, self.event_type
+                    self.instance, self.event_type, self.get_fake_request()
                 ),
             ).toxml()
         except (
@@ -138,7 +152,7 @@ class FileSubsequentlyEventHandler(BaseEventHandler):
                 message_date=self.message_date,
                 message_id=str(self.message_id),
                 eventSubmitPlanningPermissionApplication=submit(
-                    self.instance, self.event_type
+                    self.instance, self.event_type, self.get_fake_request()
                 ),
             ).toxml()
         except (
@@ -205,7 +219,9 @@ class WithdrawPlanningPermissionApplicationEventHandler(BaseEventHandler):
                 message_type=self.message_type,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
-                eventRequest=request(self.instance, self.event_type),
+                eventRequest=request(
+                    self.instance, self.event_type, self.get_fake_request()
+                ),
             ).toxml()
         except (
             IncompleteElementContentError,
@@ -255,6 +271,7 @@ class TaskEventHandler(BaseEventHandler):
                     comment=str(config["comment"]),
                     deadline=self.inquiry.deadline if self.inquiry else None,
                     documents=documents,
+                    request=self.get_fake_request(),
                 ),
             ).toxml()
         except (
@@ -305,6 +322,7 @@ class AccompanyingReportEventHandler(BaseEventHandler):
                     self.event_type,
                     self.attachments,
                     self.inquiry,
+                    self.get_fake_request(),
                 ),
             ).toxml()
         except (

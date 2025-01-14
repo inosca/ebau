@@ -149,7 +149,7 @@ class ApplicationView(ECHInstanceQuerysetMixin, RetrieveModelMixin, GenericViewS
                 subject=subject,
                 message_type=ECH_BASE_DELIVERY,
                 eventBaseDelivery=base_delivery_formatter.format_base_delivery(
-                    instance
+                    instance, request
                 ),
             ).toxml()
         except (

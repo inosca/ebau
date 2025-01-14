@@ -10,11 +10,15 @@ import pyxb
 from alexandria.core.models import Document
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
+from django.http import HttpRequest
 from django.urls import reverse
 from django.utils import timezone
 from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 
 from camac import camac_metadata
+from camac.alexandria.extensions.visibilities import (
+    CustomVisibility as CustomAlexandriaVisibility,
+)
 from camac.caluma.utils import find_answer
 from camac.core.utils import canton_aware
 from camac.document.models import Attachment
@@ -106,14 +110,24 @@ def get_cost(value):
     return value
 
 
-def get_all_documents(instance):
-    # TODO check visibility!!
+def get_all_documents(instance, request):
+    documents = Document.objects.filter(instance_document__instance=instance)
+
     if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
-        return get_documents(instance.attachments.all())
-    return get_documents(Document.objects.filter(instance_document__instance=instance))
+        documents = instance.attachments.all()
+
+    return get_documents(documents, request)
 
 
-def get_documents(documents):
+def get_documents(documents, request):
+    if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
+        if not request:  # pragma: no cover
+            documents = documents.none()
+        else:
+            documents = CustomAlexandriaVisibility().filter_queryset_for_document(
+                documents, request
+            )
+
     if not documents:
         return [
             ns_nachrichten_t0.documentType(
@@ -131,7 +145,7 @@ def get_documents(documents):
         ]
     if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
         return get_camac_documents(documents)
-    return get_alexandria_documents(documents)
+    return get_alexandria_documents(documents, request)
 
 
 def get_camac_documents(documents):
@@ -175,7 +189,7 @@ def get_document_status_type(document):
     return "created"
 
 
-def get_alexandria_documents(documents):
+def get_alexandria_documents(documents, request):
     return [
         ns_nachrichten_t0.documentType(
             uuid=str(doc.pk),
@@ -184,8 +198,9 @@ def get_alexandria_documents(documents):
             documentKind=doc.category.name.translate(),
             keywords=pyxb.BIND(
                 keyword=list(
-                    # TODO check visibility
-                    doc.tags.values_list("name", flat=True)
+                    CustomAlexandriaVisibility()
+                    .filter_queryset_for_tag(doc.tags, request)
+                    .values_list("name", flat=True)
                 )
             )
             if doc.tags.exists()
@@ -272,7 +287,7 @@ def municipality(md):
     )
 
 
-def application(instance: Instance):
+def application(instance: Instance, request: HttpRequest):
     """Create and format an application's properties based on the instance's MasterData."""
     md = MasterData(instance.case)
     if md.decision_date and not isinstance(
@@ -415,7 +430,7 @@ def application(instance: Instance):
         referencedPlanningPermissionApplication=[
             permission_application_identification(i) for i in related_instances
         ],  # Referenzierte Baugesuche 3.1.1.22 TODO: verify!
-        document=get_all_documents(instance),  # 3.2
+        document=get_all_documents(instance, request),  # 3.2
         decisionRuling=CantonSpecific.decision_ruling(instance, md),  # 3.4
         zone=(
             [  # TODO: 3.8
@@ -473,7 +488,7 @@ def status_notification(instance: Instance):
 
 
 class BaseDeliveryFormatter:
-    def format_base_delivery(self, instance: Instance):
+    def format_base_delivery(self, instance: Instance, request: HttpRequest):
         """Make a well formatted baseDeliveryType from MasterData ready config."""
 
         responsible_service = instance.responsible_service(filter_type="municipality")
@@ -484,7 +499,7 @@ class BaseDeliveryFormatter:
             planningPermissionApplicationInformation=[
                 (
                     pyxb.BIND(
-                        planningPermissionApplication=application(instance),
+                        planningPermissionApplication=application(instance, request),
                         relationshipToPerson=format_relationships_to_persons(md),
                         decisionAuthority=decision_authority(
                             responsible_service,
@@ -500,11 +515,11 @@ class BaseDeliveryFormatter:
         )
 
 
-def submit(instance: Instance, event_type: str = "submit"):
+def submit(instance: Instance, event_type: str = "submit", request: HttpRequest = None):
     # Submit with master data conforming answer processing.
     return ns_application.eventSubmitPlanningPermissionApplicationType(
         eventType=ns_application.eventTypeType(event_type),
-        planningPermissionApplication=application(instance),
+        planningPermissionApplication=application(instance, request),
         relationshipToPerson=format_relationships_to_persons(MasterData(instance.case)),
     )
 
@@ -598,7 +613,12 @@ def directive(comment, deadline=None):
 
 
 def request(
-    instance: Instance, event_type: str, comment=None, deadline=None, documents=None
+    instance: Instance,
+    event_type: str,
+    comment=None,
+    deadline=None,
+    documents=None,
+    request: HttpRequest = None,
 ):
     return ns_application.eventRequestType(
         eventType=ns_application.eventTypeType(event_type),
@@ -606,7 +626,7 @@ def request(
             instance
         ),
         directive=directive(comment, deadline) if comment else None,
-        document=get_documents(documents) if documents else None,
+        document=get_documents(documents, request) if documents else None,
     )
 
 
@@ -615,6 +635,7 @@ def accompanying_report(
     event_type: str,
     attachments: List[Attachment],
     inquiry: WorkItem,
+    request: HttpRequest,
 ):
     status = inquiry.child_case.document.answers.get(
         question_id=settings.DISTRIBUTION["QUESTIONS"]["STATUS"]
@@ -631,7 +652,7 @@ def accompanying_report(
         planningPermissionApplicationIdentification=permission_application_identification(
             instance
         ),
-        document=get_documents(attachments),
+        document=get_documents(attachments, request),
         remark=prepare_notice(
             find_answer(
                 inquiry.child_case.document,
