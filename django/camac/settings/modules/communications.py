@@ -41,6 +41,10 @@ COMMUNICATIONS = {
         "ENABLED": True,
         "DOSSIER_NUMBER_ANNOTATION": F("instance__identifier"),
     },
+    "kt_ag": {
+        "ENABLED": True,
+        "DOSSIER_NUMBER_ANNOTATION": F("instance__case__meta__dossier-number"),
+    },
     "demo": {
         "ENABLED": True,
     },
