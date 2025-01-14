@@ -2,6 +2,7 @@ from camac.permissions.conditions import Always
 from camac.permissions.switcher import PERMISSION_MODE
 
 from .common import REQUIRE_NEW_STATE
+from .kt_ag import AG_PERMISSIONS_SETTINGS
 from .kt_bern import BE_PERMISSIONS_SETTINGS
 from .kt_gr import GR_PERMISSIONS_SETTINGS
 from .kt_schwyz import SZ_PERMISSIONS_SETTINGS
@@ -50,4 +51,5 @@ PERMISSIONS: PermissionsConfig = {
     "kt_gr": GR_PERMISSIONS_SETTINGS,
     "kt_so": SO_PERMISSIONS_SETTINGS,
     "kt_schwyz": SZ_PERMISSIONS_SETTINGS,
+    "kt_ag": AG_PERMISSIONS_SETTINGS,
 }

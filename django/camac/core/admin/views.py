@@ -17,6 +17,7 @@ from camac.core.admin.inlines import (
     RRoleAclInline,
 )
 from camac.core.models import InstanceResource, Resource, ServiceContent
+from camac.permissions.switcher import is_permission_mode_fully_enabled
 
 
 @register(Resource)
@@ -63,7 +64,6 @@ class InstanceResourceAdmin(
     admin_order_field = "get_resource_description"
     exclude_ml = ["name", "description", "form_group", "sort"]
     form = InstanceResourceForm
-    inlines = [InstanceResourceTInline, IrRoleAclInline]
     list_display = [
         "get_name",
         "get_resource_name",
@@ -77,6 +77,13 @@ class InstanceResourceAdmin(
     ordering = ["sort"]
     search_fields = ["name", "description"]
     search_fields_ml = ["trans__name"]
+
+    @property
+    def inlines(self):
+        if is_permission_mode_fully_enabled():
+            return [InstanceResourceTInline]
+
+        return [InstanceResourceTInline, IrRoleAclInline]
 
     @display(description=_("Resource Name"))
     def get_resource_name(self, obj):
