@@ -6,7 +6,7 @@
       "instance": 1,
       "user": 1,
       "invitee": 1,
-      "created": "2024-12-10T10:11:44.862Z",
+      "created": "2025-01-14T12:14:57.044Z",
       "email": "admin@example.com",
       "role": "ADMIN"
     }
@@ -18,19 +18,7 @@
       "instance": 2,
       "user": 1,
       "invitee": 1,
-      "created": "2024-12-10T10:13:35.204Z",
-      "email": "admin@example.com",
-      "role": "ADMIN"
-    }
-  },
-  {
-    "model": "applicants.applicant",
-    "pk": 3,
-    "fields": {
-      "instance": 3,
-      "user": 1,
-      "invitee": 1,
-      "created": "2024-12-10T10:28:19.885Z",
+      "created": "2025-01-14T12:21:56.586Z",
       "email": "admin@example.com",
       "role": "ADMIN"
     }
