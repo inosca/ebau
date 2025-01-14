@@ -121,6 +121,9 @@ exclude_lines = [
     "def __unicode__",
     "def __repr__",
 ]
+exclude_also = [
+    "\\A(?s:.*# pragma: exclude file.*)\\Z",
+]
 omit = [
     "*/postgresql_dbdefaults/*",
     "*/migrations/*",

@@ -76,7 +76,7 @@ MODULE_CONFIG_FIXTURES = {
     "rejection": ["kt_bern", "kt_so"],
     "withdrawal": ["kt_so"],
     "construction_monitoring": ["kt_schwyz", "kt_so"],
-    "permissions": ["kt_bern", "kt_gr", "kt_so"],
+    "permissions": ["kt_bern", "kt_gr", "kt_so", "kt_ag"],
     "communications": ["kt_bern", "kt_gr", "kt_so"],
     "placeholders": ["kt_bern", "kt_so"],
     "master_data": ["kt_bern", "kt_schwyz", "kt_uri", "kt_gr", "kt_so"],
