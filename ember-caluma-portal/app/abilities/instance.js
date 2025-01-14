@@ -193,7 +193,7 @@ export default class InstanceAbility extends Ability {
     }
 
     return (
-      hasFeature("communications") &&
+      hasFeature("communications.enabled") &&
       !this.session.isInternal &&
       this.instanceStateId !== config.APPLICATION.instanceStates.new
     );
