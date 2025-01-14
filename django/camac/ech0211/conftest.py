@@ -110,7 +110,9 @@ def ech_instance(
 
 
 @pytest.fixture
-def ech_instance_gr(ech_instance, instance_with_case, caluma_workflow_config_gr, utils):
+def ech_instance_gr(
+    ech_instance, instance_with_case, caluma_workflow_config_gr, utils, group
+):
     ech_instance = instance_with_case(ech_instance)
     ech_instance.case.meta["dossier-number"] = "2020-1"
 
@@ -169,6 +171,7 @@ def ech_instance_gr(ech_instance, instance_with_case, caluma_workflow_config_gr,
         metainfo={"camac-instance-id": ech_instance.pk},
         title="Situationsplan",
         category__name="Beilagen zum Gesuch",
+        category__metainfo={"access": {group.role.name: {"visibility": "all"}}},
     )
     document.tags.set([TagFactory(), TagFactory()])
     FileFactory(
@@ -358,6 +361,9 @@ def ech_instance_so(
     utils,
     decision_factory_so,
     work_item_factory,
+    group,
+    service_factory,
+    so_alexandria_settings,
 ):
     ech_instance = instance_with_case(ech_instance)
     ech_instance.case.meta["dossier-number"] = "2106-2024-1"
@@ -411,8 +417,16 @@ def ech_instance_so(
         metainfo={"camac-instance-id": ech_instance.pk},
         title="Situationsplan",
         category__name="Beilagen zum Gesuch",
+        category__metainfo={"access": {group.role.name: {"visibility": "all"}}},
     )
-    document.tags.set([TagFactory(), TagFactory()])
+    document.tags.set(
+        [
+            # Should be visible
+            TagFactory(name="My tag", created_by_group=str(group.service_id)),
+            # Should not be visible
+            TagFactory(name="Other tag", created_by_group=str(service_factory().pk)),
+        ]
+    )
     FileFactory(
         pk="57a93396-454c-4a55-b48f-d114ad264df9",
         variant="original",
@@ -420,7 +434,25 @@ def ech_instance_so(
         document=document,
     )
 
+    # Document that should not be visible
+    DocumentFactory(
+        pk="7cacebba-8bf1-44bc-8654-0d0d4e925ee1",
+        metainfo={"camac-instance-id": ech_instance.pk},
+        title="Internes Dokument",
+        category__name="Intern",
+        category__metainfo={},
+    )
+
     work_item_factory(task_id="decision", case=ech_instance.case, status="completed")
     decision_factory_so(ech_instance)
 
     return ech_instance
+
+
+@pytest.fixture
+def fake_request(rf, admin_user, group):
+    request = rf.request()
+    request.user = admin_user
+    request.group = group
+
+    return request
