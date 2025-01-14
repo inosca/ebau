@@ -41,6 +41,7 @@ MODULE_AUDIT = NO_CORRECTION & (
     (RequireWorkItem("formal-exam") & ROLES_MUNICIPALITY)
     | RequireWorkItem("formal-exam", "completed")
 )
+MODULE_COMMUNICATIONS = STATES_ALL & ROLES_NO_READONLY
 MODULE_CORRECTIONS = (
     STATES_ALL | RequireInstanceState(["correction"])
 ) & ROLES_NO_READONLY
@@ -59,6 +60,10 @@ MODULE_RESPONSIBLE = STATES_ALL & ROLES_NO_READONLY
 MODULE_WORK_ITEMS = STATES_ALL & ROLES_NO_READONLY
 
 MODULE_PORTAL_APPLICANTS = HasApplicantRole(["ADMIN"])
+MODULE_PORTAL_COMMUNICATIONS_READ = ~RequireInstanceState(["new"])
+MODULE_PORTAL_COMMUNICATIONS_WRITE = (
+    MODULE_PORTAL_COMMUNICATIONS_READ & HasApplicantRole(["ADMIN", "EDITOR"])
+)
 MODULE_PORTAL_DOCUMENTS_WRITE = RequireWorkItem("submit", "ready") & HasApplicantRole(
     ["ADMIN", "EDITOR"]
 )
@@ -80,6 +85,8 @@ AG_PERMISSIONS_SETTINGS = {
             ("applicant-add", MODULE_PORTAL_APPLICANTS),
             ("applicant-read", MODULE_PORTAL_APPLICANTS),
             ("applicant-remove", MODULE_PORTAL_APPLICANTS),
+            ("communications-read", MODULE_PORTAL_COMMUNICATIONS_READ),
+            ("communications-write", MODULE_PORTAL_COMMUNICATIONS_WRITE),
             ("documents-write", MODULE_PORTAL_DOCUMENTS_WRITE),
             ("form-read", MODULE_PORTAL_FORM_READ),
             ("form-write", MODULE_PORTAL_FORM_WRITE),
@@ -87,6 +94,8 @@ AG_PERMISSIONS_SETTINGS = {
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
         ],
         "distribution-service": [
+            ("communications-read", MODULE_COMMUNICATIONS),
+            ("communications-write", MODULE_COMMUNICATIONS),
             ("decision-read", MODULE_DECISION),
             ("distribution-read", MODULE_DISTRIBUTION),
             ("dms-generate-read", MODULE_DMS_GENERATE),
@@ -100,6 +109,8 @@ AG_PERMISSIONS_SETTINGS = {
         ],
         "lead-authority": [
             ("audit-read", MODULE_AUDIT),
+            ("communications-read", MODULE_COMMUNICATIONS),
+            ("communications-write", MODULE_COMMUNICATIONS),
             ("corrections-read", MODULE_CORRECTIONS),
             ("decision-read", MODULE_DECISION),
             ("distribution-read", MODULE_DISTRIBUTION),
