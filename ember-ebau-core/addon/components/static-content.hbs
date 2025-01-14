@@ -1,6 +1,4 @@
-{{#if this.staticContent.isRunning}}
-  <UkSpinner @ratio={{2}} />
-{{else}}
+{{#if (or this.data.value.content (can "edit static-content"))}}
   <div class="uk-position-relative" ...attributes>
     {{#if this.edit}}
       <Textarea
