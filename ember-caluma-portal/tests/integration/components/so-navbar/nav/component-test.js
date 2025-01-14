@@ -13,7 +13,7 @@ module("Integration | Component | so-navbar/nav", function (hooks) {
   setupFeatures(hooks);
 
   test("it renders", async function (assert) {
-    this.features.enable("communications");
+    this.features.enable("communications.enabled");
 
     await render(hbs`<SoNavbar::Nav @isAuthenticated={{true}} />`);
 

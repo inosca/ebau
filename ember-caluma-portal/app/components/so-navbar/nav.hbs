@@ -2,7 +2,7 @@
   {{#if (and @isAuthenticated (not @isPublicAccess))}}
     <li><LinkTo @route="index">{{t "global.title"}}</LinkTo></li>
     <li><LinkTo @route="instances">{{t "nav.instances"}}</LinkTo></li>
-    {{#if (and (has-feature "communications") (not @isInternal))}}
+    {{#if (and (has-feature "communications.enabled") (not @isInternal))}}
       <li>
         <LinkTo @route="communications-global">
           {{t "nav.communications"}}

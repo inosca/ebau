@@ -51,7 +51,7 @@ module("Integration | Component | be-navbar", function (hooks) {
   });
 
   test("it renders the static navigation", async function (assert) {
-    this.features.enable("communications");
+    this.features.enable("communications.enabled");
 
     const navItems = [
       t("nav.index"),
