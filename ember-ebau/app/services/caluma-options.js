@@ -160,7 +160,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       municipality: {
         label: "distribution.municipalities",
       },
-      "service-cantonal": {
+      "service-cantonal,service-bab": {
         label: "distribution.services-cantonal",
       },
       "service-extra-cantonal": {
@@ -181,7 +181,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
 
     if (this.session.rolePermission === "municipality" && !this.isAuthority) {
       Reflect.deleteProperty(fullConfig, "municipality");
-      Reflect.deleteProperty(fullConfig, "service-cantonal");
+      Reflect.deleteProperty(fullConfig, "service-cantonal,service-bab");
       Reflect.deleteProperty(fullConfig, "service-extra-cantonal");
     }
 
@@ -193,10 +193,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       subservice: {
         label: "distribution.subservices",
       },
-      "service-afb": {
-        label: "distribution.services-afb",
-      },
-      "service-cantonal": {
+      "service-cantonal,service-afb": {
         label: "distribution.services-cantonal",
       },
       "service-external": {
@@ -358,10 +355,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
           : type === "suggestions"
             ? { suggestion_for_instance: this.currentInstanceId }
             : {
-                service_group_name:
-                  type === "service-cantonal"
-                    ? [type, "service-bab"].join(",")
-                    : type,
+                service_group_name: type,
                 has_parent: false,
               };
 

@@ -1105,6 +1105,25 @@ DISTRIBUTION = {
         "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES": {
             "service-afb": 60,
         },
+        "AVAILABLE_SERVICES_FOR_INQUIRY": {
+            "authority": {
+                "service_groups": ["service-afb", "municipality"],
+                "services": [
+                    "agv-bs",
+                    "agv-esp",
+                    "bks-dp",
+                    "bks-ka",
+                    "dvi-awa-iga",
+                    "amb",
+                    "aew",
+                    "axpo",
+                    "gvm",
+                ],
+            },
+            "service-afb": {
+                "service_groups": ["service-cantonal", "service-external"],
+            },
+        },
     },
     "demo": {"ENABLED": True},
 }
