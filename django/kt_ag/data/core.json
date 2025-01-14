@@ -1,9 +1,9 @@
 [
   {
     "model": "core.instanceservice",
-    "pk": 2000007,
+    "pk": 15000000,
     "fields": {
-      "instance": 2,
+      "instance": 1,
       "service": 55,
       "active": 1,
       "activation_date": null
