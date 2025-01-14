@@ -1,1 +1,190 @@
-[]
+[
+  {
+    "model": "alexandria_core.document",
+    "pk": "1e515ebb-5e93-440b-80f0-5670731d7147",
+    "fields": {
+      "created_at": "2025-01-14T12:24:52.290Z",
+      "created_by_user": "1",
+      "created_by_group": null,
+      "modified_at": "2025-01-14T12:24:52.290Z",
+      "modified_by_user": "1",
+      "modified_by_group": null,
+      "metainfo": {
+        "camac-instance-id": "2",
+        "caluma-document-id": "6d20a131-96f6-421b-85ce-37b7e54dbfe2"
+      },
+      "title": "Ausnahmebewilligung.pdf",
+      "description": null,
+      "category": "beilagen-zum-gesuch-grundstuecksangaben",
+      "date": null,
+      "tags": [],
+      "marks": []
+    }
+  },
+  {
+    "model": "alexandria_core.document",
+    "pk": "946ff0f2-dcf7-4539-91c8-cbb58cd3d686",
+    "fields": {
+      "created_at": "2025-01-14T12:21:18.027Z",
+      "created_by_user": "1",
+      "created_by_group": null,
+      "modified_at": "2025-01-14T12:21:18.027Z",
+      "modified_by_user": "1",
+      "modified_by_group": null,
+      "metainfo": {
+        "camac-instance-id": "1",
+        "caluma-document-id": "609c2e43-f42f-4b99-832e-f0be4a35fae5"
+      },
+      "title": "test-pdf.pdf",
+      "description": null,
+      "category": "beilagen-zum-gesuch-grundstuecksangaben",
+      "date": null,
+      "tags": [],
+      "marks": []
+    }
+  },
+  {
+    "model": "alexandria_core.file",
+    "pk": "0f69f976-8960-4db0-9152-1f52410eadee",
+    "fields": {
+      "created_at": "2025-01-14T12:45:42.140Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-01-14T12:45:42.140Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "variant": "thumbnail",
+      "original": "53b4dbe0-c73b-469b-a5f5-e13eeed23741",
+      "name": "test-pdf.pdf_preview.jpg",
+      "document": "946ff0f2-dcf7-4539-91c8-cbb58cd3d686",
+      "checksum": "sha256:aa22312938ee6158c1e70785f539938174e3f1034322b83f0cf918d449d8067c",
+      "encryption_status": null,
+      "content_vector": null,
+      "language": null,
+      "content": "0f69f976-8960-4db0-9152-1f52410eadee_test-pdf.pdf_preview.jpg",
+      "mime_type": "image/jpeg",
+      "size": 20597
+    }
+  },
+  {
+    "model": "alexandria_core.file",
+    "pk": "53b4dbe0-c73b-469b-a5f5-e13eeed23741",
+    "fields": {
+      "created_at": "2025-01-14T12:21:18.035Z",
+      "created_by_user": "1",
+      "created_by_group": null,
+      "modified_at": "2025-01-14T12:21:18.035Z",
+      "modified_by_user": "1",
+      "modified_by_group": null,
+      "metainfo": {},
+      "variant": "original",
+      "original": null,
+      "name": "test-pdf.pdf",
+      "document": "946ff0f2-dcf7-4539-91c8-cbb58cd3d686",
+      "checksum": "sha256:f6edcd8a1b4f7cb85486d0c6777f9174eadbc4d1d0d9e5aeba7132f30b34bc3e",
+      "encryption_status": null,
+      "content_vector": "'2703':52B '2c6':57B 'abl':25B 'avail':35B 'box':51B 'canada':55B 'comput':12B 'congratul':10B 'depart':48B 'document':19B,32B 'educ':50B 'equip':14B 'file':9B 'form':34B,40B 'format':20B 'icon':45B 'indic':42B 'page':6B 'pdf':3A,4B,7B,17B,31B,39B 'pleas':58B 'portabl':18B 'reader':21B 'site':38B 'test':2A,5B,8B 'test-pdf':1A 'view':27B 'visit':59B 'websit':61B 'whitehors':53B 'www.education.gov.yk.ca':63B,64B 'y1a':56B 'yukon':47B,54B",
+      "language": "en",
+      "content": "53b4dbe0-c73b-469b-a5f5-e13eeed23741_test-pdf.pdf",
+      "mime_type": "application/pdf",
+      "size": 20597
+    }
+  },
+  {
+    "model": "alexandria_core.file",
+    "pk": "60af8cd3-bdd8-4cce-9ec8-80f3ef10aaf0",
+    "fields": {
+      "created_at": "2025-01-14T12:45:42.471Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-01-14T12:45:42.471Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "variant": "thumbnail",
+      "original": "cb7b88be-042f-49c1-986f-7a6e0536bbf1",
+      "name": "Ausnahmebewilligung.pdf_preview.jpg",
+      "document": "1e515ebb-5e93-440b-80f0-5670731d7147",
+      "checksum": "sha256:aa22312938ee6158c1e70785f539938174e3f1034322b83f0cf918d449d8067c",
+      "encryption_status": null,
+      "content_vector": null,
+      "language": null,
+      "content": "60af8cd3-bdd8-4cce-9ec8-80f3ef10aaf0_Ausnahmebewilligung.pdf_preview.jpg",
+      "mime_type": "image/jpeg",
+      "size": 20597
+    }
+  },
+  {
+    "model": "alexandria_core.file",
+    "pk": "cb7b88be-042f-49c1-986f-7a6e0536bbf1",
+    "fields": {
+      "created_at": "2025-01-14T12:24:52.296Z",
+      "created_by_user": "1",
+      "created_by_group": null,
+      "modified_at": "2025-01-14T12:24:52.296Z",
+      "modified_by_user": "1",
+      "modified_by_group": null,
+      "metainfo": {},
+      "variant": "original",
+      "original": null,
+      "name": "Ausnahmebewilligung.pdf",
+      "document": "1e515ebb-5e93-440b-80f0-5670731d7147",
+      "checksum": "sha256:f6edcd8a1b4f7cb85486d0c6777f9174eadbc4d1d0d9e5aeba7132f30b34bc3e",
+      "encryption_status": null,
+      "content_vector": "'2703':50B '2c6':55B 'abl':23B 'ausnahmebewilligung':1A 'avail':33B 'box':49B 'canada':53B 'comput':10B 'congratul':8B 'depart':46B 'document':17B,30B 'educ':48B 'equip':12B 'file':7B 'form':32B,38B 'format':18B 'icon':43B 'indic':40B 'page':4B 'pdf':2B,5B,15B,29B,37B 'pleas':56B 'portabl':16B 'reader':19B 'site':36B 'test':3B,6B 'view':25B 'visit':57B 'websit':59B 'whitehors':51B 'www.education.gov.yk.ca':61B,62B 'y1a':54B 'yukon':45B,52B",
+      "language": "en",
+      "content": "cb7b88be-042f-49c1-986f-7a6e0536bbf1_Ausnahmebewilligung.pdf",
+      "mime_type": "application/pdf",
+      "size": 20597
+    }
+  },
+  {
+    "model": "alexandria_core.file",
+    "pk": "d74b0f39-2c5a-4654-9419-222f366ae85d",
+    "fields": {
+      "created_at": "2025-01-14T12:24:52.799Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-01-14T12:24:52.799Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "variant": "thumbnail",
+      "original": "cb7b88be-042f-49c1-986f-7a6e0536bbf1",
+      "name": "Ausnahmebewilligung.pdf_preview.jpg",
+      "document": "1e515ebb-5e93-440b-80f0-5670731d7147",
+      "checksum": "sha256:aa22312938ee6158c1e70785f539938174e3f1034322b83f0cf918d449d8067c",
+      "encryption_status": null,
+      "content_vector": null,
+      "language": null,
+      "content": "d74b0f39-2c5a-4654-9419-222f366ae85d_Ausnahmebewilligung.pdf_preview.jpg",
+      "mime_type": "image/jpeg",
+      "size": 20597
+    }
+  },
+  {
+    "model": "alexandria_core.file",
+    "pk": "f2c8df85-e882-4ca4-a048-53532ab32a46",
+    "fields": {
+      "created_at": "2025-01-14T12:21:19.119Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-01-14T12:21:19.119Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "variant": "thumbnail",
+      "original": "53b4dbe0-c73b-469b-a5f5-e13eeed23741",
+      "name": "test-pdf.pdf_preview.jpg",
+      "document": "946ff0f2-dcf7-4539-91c8-cbb58cd3d686",
+      "checksum": "sha256:aa22312938ee6158c1e70785f539938174e3f1034322b83f0cf918d449d8067c",
+      "encryption_status": null,
+      "content_vector": null,
+      "language": null,
+      "content": "f2c8df85-e882-4ca4-a048-53532ab32a46_test-pdf.pdf_preview.jpg",
+      "mime_type": "image/jpeg",
+      "size": 20597
+    }
+  }
+]
