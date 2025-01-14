@@ -678,6 +678,11 @@ DUMP = {
                         document__isnull=True,
                     ),
                 },
+                "caluma_audit_form": generate_form_dump_config(
+                    regex=r"^vorlaeufige-pruefung"
+                ),
+                "caluma_decision_form": generate_form_dump_config(regex=r"^entscheid"),
+                **DISTRIBUTION_DUMP_CONFIG,
                 # Sync the "core" groups (admin, support, portal) between servers, the rest is treated as data
                 "user_core_groups": {
                     "user.Group": Q(pk__lte=3),

@@ -55,7 +55,7 @@ mutation InquiryTask {
   saveCompleteTaskFormTask(
     input: {
       slug: "inquiry"
-      name: "Stellungnahme ausfüllen"
+      name: "Stellungnahme zustellen"
       form: "inquiry"
       addressGroups: "info.context.addressed_groups"
       controlGroups: "info.prev_work_item.addressed_groups"
@@ -72,8 +72,52 @@ mutation FillInquiryTask {
   saveCompleteWorkflowFormTask(
     input: {
       slug: "fill-inquiry"
-      name: "Stellungnahme ausfüllen"
+      name: "Stellungnahme verfassen"
       addressGroups: "info.context.addressed_groups"
+      meta: "{\"directLink\":{\"route\":\"cases.detail.distribution.distribution-engine.inquiry.detail.answer\",\"models\":[\"INSTANCE_ID\",\"DISTRIBUTION_CASE_UUID\",\"INQUIRY_CONTROLLING\",\"INQUIRY_ADDRESSED\",\"INQUIRY_UUID\"]}}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation AlterInquiryTask {
+  saveCompleteWorkflowFormTask(
+    input: {
+      slug: "alter-inquiry"
+      name: "Stellungnahme anpassen"
+      addressGroups: "info.prev_work_item.addressed_groups"
+      controlGroups: "info.prev_work_item.addressed_groups"
+      leadTime: 86400 # 1 day
+      meta: "{\"directLink\":{\"route\":\"cases.detail.distribution.distribution-engine.inquiry.detail.answer\",\"models\":[\"INSTANCE_ID\",\"DISTRIBUTION_CASE_UUID\",\"INQUIRY_CONTROLLING\",\"INQUIRY_ADDRESSED\",\"INQUIRY_UUID\"]}}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ReviseInquiryTask {
+  saveSimpleTask(
+    input: {
+      slug: "revise-inquiry"
+      name: "Stellungnahme überarbeiten"
+      addressGroups: "info.prev_work_item.addressed_groups"
+      meta: "{\"directLink\":{\"route\":\"cases.detail.distribution.distribution-engine.inquiry.detail.answer\",\"models\":[\"INSTANCE_ID\",\"DISTRIBUTION_CASE_UUID\",\"INQUIRY_CONTROLLING\",\"INQUIRY_ADDRESSED\",\"INQUIRY_UUID\"]}}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CheckInquiryTask {
+  saveSimpleTask(
+    input: {
+      slug: "check-inquiry"
+      name: "Stellungnahme prüfen"
+      addressGroups: "info.prev_work_item.addressed_groups"
+      controlGroups: "info.prev_work_item.addressed_groups"
+      leadTime: 259200 # 3 days
+      meta: "{\"directLink\":{\"route\":\"cases.detail.distribution.distribution-engine.inquiry.detail.answer\",\"models\":[\"INSTANCE_ID\",\"DISTRIBUTION_CASE_UUID\",\"INQUIRY_CONTROLLING\",\"INQUIRY_ADDRESSED\",\"INQUIRY_UUID\"]}}"
     }
   ) {
     clientMutationId
@@ -132,7 +176,6 @@ mutation DistributionWorkflow {
         "init-distribution"
         "complete-distribution"
         "create-inquiry"
-        "init-additional-demand"
       ]
       allowForms: ["distribution"]
       isPublished: true
@@ -161,7 +204,7 @@ mutation CreateInquiryFlow {
     input: {
       workflow: "distribution"
       tasks: ["create-inquiry"]
-      next: "[\"after-create-inquiry\"]|tasks"
+      next: "[\"inquiry\", \"create-inquiry\"]|tasks"
     }
   ) {
     clientMutationId
@@ -174,6 +217,42 @@ mutation InquiryFlow {
       workflow: "distribution"
       tasks: ["inquiry"]
       next: "[\"after-inquiries-completed\", \"redo-inquiry\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation FillInquiryFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "inquiry"
+      tasks: ["fill-inquiry"]
+      next: "['check-inquiry', 'revise-inquiry']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ReviseInquiryFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "inquiry"
+      tasks: ["revise-inquiry"]
+      next: "['alter-inquiry']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation AlterInquiryFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "inquiry"
+      tasks: ["alter-inquiry"]
+      next: "['check-inquiry', 'revise-inquiry']|tasks"
     }
   ) {
     clientMutationId

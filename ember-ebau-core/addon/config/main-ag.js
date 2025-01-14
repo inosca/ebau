@@ -113,7 +113,7 @@ export default {
     },
   },
   showDownloadReceiptAction: true,
-  customDeadlineServiceGroupSlugs: [],
+  customDeadlineServiceGroupSlugs: ["service-afb"],
   communication: {
     rolesWithApplicantContact: ["activeOrInolvedLeadAuthority", "service"],
   },

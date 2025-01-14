@@ -1,0 +1,20 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "entscheid",
+    "fields": {
+      "created_at": "2025-01-14T09:06:35.677Z",
+      "modified_at": "2025-01-14T09:06:35.677Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Entscheid\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  }
+]
