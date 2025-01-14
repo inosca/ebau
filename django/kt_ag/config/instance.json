@@ -130,8 +130,8 @@
     "fields": {
       "instance_state": 120004,
       "language": "de",
-      "name": "Eingereicht",
-      "description": "Eingereicht bei Gemeinde"
+      "name": "Vorläufige Prüfung",
+      "description": null
     }
   },
   {
@@ -140,7 +140,7 @@
     "fields": {
       "instance_state": 120005,
       "language": "de",
-      "name": "Zirkulation",
+      "name": "In Zirkulation",
       "description": null
     }
   },
