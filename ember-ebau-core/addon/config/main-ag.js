@@ -115,7 +115,7 @@ export default {
   showDownloadReceiptAction: true,
   customDeadlineServiceGroupSlugs: ["service-afb"],
   communication: {
-    rolesWithApplicantContact: ["activeOrInolvedLeadAuthority", "service"],
+    rolesWithApplicantContact: ["activeOrInolvedLeadAuthority"],
   },
   modification: {
     allowForms: ["baugesuch"],
