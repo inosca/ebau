@@ -1726,7 +1726,7 @@
     "grundinformationen.baustellenabwasser": {
       "title": "Baustellenabwasser",
       "parent": "grundinformationen",
-      "questions": ["baustellenabwasser-info"]
+      "questions": ["baustellenabwasser-info-ab-3M", "baustellenabwasser-info-unter-3M"]
     },
     "grundinformationen.ausnahmebewilligungen": {
       "title": "Ausnahmebewilligungen",
@@ -10043,13 +10043,22 @@
         "options": ["Ja", "Nein"]
       }
     },
-    "baustellenabwasser-info": {
-      "label": "Für Bauvorhaben mit Baukosten ab 3 Millionen Franken ist eine technische Bewilligung zur Baustellenentwässerung erforderlich. Das Gesuch hierfür ist via eBau (<a href='/gesuche/new' target='_blank'>Technische Bewilligung Baustellenentwässerung</a>) zu stellen.<br/><br/>Für Bauvorhaben mit Baukosten unter 3 Millionen Franken werden die Anforderungen und Vorgaben zur Baustellenentwässerung durch eine Allgemeinverfügung festgelegt.",
+    "baustellenabwasser-info-ab-3M": {
+      "label": "Für Bauvorhaben mit Baukosten ab 3 Millionen Franken ist eine technische Bewilligung zur Baustellenentwässerung erforderlich. Das Gesuch hierfür ist via eBau (<a href='/gesuche/new' target='_blank'>Technische Bewilligung Baustellenentwässerung</a>) zu stellen.",
       "type": "checkbox",
       "required": true,
-      "active-expression": "'baustellenabwasser'|value == 'Ja'",
+      "active-expression": "'baustellenabwasser'|value == 'Ja' && 'baukosten'|value >= 3000000",
       "config": {
         "options": ["Zur Kenntnis genommen"]
+      }
+    },
+    "baustellenabwasser-info-unter-3M": {
+      "label": "Für Bauvorhaben mit Baukosten unter 3 Millionen Franken werden die Anforderungen und Vorgaben zur Baustellenentwässerung durch eine <a href='#' target='_blank'>Allgemeinverfügung</a> festgelegt.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenabwasser'|value == 'Ja' && 'baukosten'|value < 3000000",
+      "config": {
+        "options": ["Ich habe die Allgemeinverfügung gelesen und verstanden. Die Abwasservorbehandlung wird entsprechend umgesetzt."]
       }
     },
     "baustellenentwasserung-info": {
