@@ -231,7 +231,7 @@ class InstanceResourceSerializer(serializers.ModelSerializer, MultilingualSerial
 
 
 class StaticContentSerializer(serializers.ModelSerializer):
-    content = serializers.CharField()
+    content = serializers.CharField(allow_blank=True)
 
     class Meta:
         model = models.StaticContent
