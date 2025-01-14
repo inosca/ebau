@@ -211,7 +211,11 @@ export default class CustomWorkItemModel extends WorkItemModel {
       TASK_SLUG: this.task.slug,
     };
 
-    const distributionWorkItem = [this.raw, this.raw.case.parentWorkItem]
+    const distributionWorkItem = [
+      this.raw,
+      this.raw.case.parentWorkItem,
+      this.raw.case.parentWorkItem?.case.parentWorkItem,
+    ]
       .filter(Boolean)
       .find((workItem) => workItem.task.slug === "distribution");
 

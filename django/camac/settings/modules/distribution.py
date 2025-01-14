@@ -1085,53 +1085,26 @@ DISTRIBUTION = {
     "kt_ag": {
         "ENABLED": True,
         "INSTANCE_STATE_DISTRIBUTION": "circulation",
+        "INQUIRY_ANSWER_CHECK_TASK": "check-inquiry",
+        "INQUIRY_ANSWER_REVISE_TASK": "revise-inquiry",
+        "INQUIRY_ANSWER_ALTER_TASK": "alter-inquiry",
         "HISTORY": {
             "COMPLETE_DISTRIBUTION": _("Circulation completed"),
             "SKIP_DISTRIBUTION": _("Circulation skipped"),
             "REDO_DISTRIBUTION": _("Circulation reopened"),
         },
         "REDO_INQUIRY": {
-            "REOPEN_TASKS": ["fill-inquiry"],
+            "REOPEN_TASKS": ["check-inquiry", "revise-inquiry"],
+            "COMPLETE_TASKS": ["revise-inquiry"],
         },
-        "QUESTIONS": {
-            "STATEMENT": "inquiry-answer-assessment",
-            "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
-            "DEADLINE": "inquiry-deadline",
+        "SYNC_INQUIRY_DEADLINE_TO_ANSWER_TASKS": {
+            "fill-inquiry": {
+                "TIME_DELTA": timedelta(days=-3)  # check-inquiry lead-time
+            }
         },
-        "NOTIFY_ON_CANCELLATION": True,
-        "NOTIFICATIONS": {
-            # "INQUIRY_SENT": {
-            #     "template_slug": "verfahrensablauf-fachstelle",
-            #     "recipient_types": ["inquiry_addressed"],
-            # },
-            # "INQUIRY_SENT_TO_USO": {
-            #     "template_slug": "verfahrensablauf-uso",
-            #     "recipient_types": ["inquiry_addressed"],
-            # },
-            # "INQUIRY_ANSWERED": {
-            #     "template_slug": "bericht-erstellt",
-            #     "recipient_types": ["inquiry_controlling"],
-            # },
-            # "CANCELED_DISTRIBUTION": {
-            #     "template_slug": "zirkulation-abgebrochen",
-            #     "recipient_types": ["services_with_incomplete_inquiries"],
-            # },
+        "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES": {
+            "service-afb": 60,
         },
-        "INQUIRY_TASK": "inquiry",
-        # "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES": {
-        #     "uso": 7,
-        #     "authority-bab": 90,
-        # },
-        "ANSWERS": {
-            "STATUS": {
-                "POSITIVE": "inquiry-answer-status-positive",
-                "NEGATIVE": "inquiry-answer-status-negative",
-                "NOT_INVOLVED": "inquiry-answer-status-not-involved",
-                "CLAIM": "inquiry-answer-status-claim",
-                "UNKNOWN": "inquiry-answer-status-unknown",
-            },
-        },
-        "SUGGESTIONS": {},
     },
     "demo": {"ENABLED": True},
 }

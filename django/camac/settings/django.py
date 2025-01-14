@@ -2418,8 +2418,23 @@ APPLICATIONS = {
             "GENERATE_IDENTIFIER": True,
             "USE_LOCATION": False,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
-            "PRE_COMPLETE": {},
-            "SIMPLE_WORKFLOW": {},
+            "PRE_COMPLETE": {
+                "check-inquiry": {"cancel": ["revise-inquiry"]},
+                "revise-inquiry": {"cancel": ["check-inquiry"]},
+            },
+            "SIMPLE_WORKFLOW": {
+                "formal-exam": {
+                    "next_instance_state": "init-distribution",
+                    "history_text": _("Preliminary exam performed"),
+                },
+                "init-distribution": {
+                    "next_instance_state": "circulation",
+                    "history_text": _("Circulation started"),
+                },
+                "complete-distribution": {
+                    "next_instance_state": "decision",
+                },
+            },
             "PUBLIC_STATUS": {
                 "USE_SLUGS": True,
                 "MAP": {

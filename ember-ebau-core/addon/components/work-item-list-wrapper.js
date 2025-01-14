@@ -137,6 +137,15 @@ class WorkItemListQuery extends BaseQuery {
             }
             case {
               id
+              parentWorkItem {
+                id
+                task {
+                  slug
+                }
+                childCase {
+                  id
+                }
+              }
             }
             childCase {
               id
