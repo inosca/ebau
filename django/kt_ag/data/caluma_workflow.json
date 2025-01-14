@@ -1,1 +1,177 @@
-[]
+[
+  {
+    "model": "caluma_workflow.case",
+    "pk": "3c2a2d88-cabb-4aaf-b5f2-8d9e3640d86c",
+    "fields": {
+      "created_at": "2025-01-14T12:21:56.778Z",
+      "modified_at": "2025-01-14T12:21:56.778Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "family": "3c2a2d88-cabb-4aaf-b5f2-8d9e3640d86c",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "workflow": "building-permit",
+      "status": "running",
+      "meta": {
+        "camac-instance-id": 2
+      },
+      "document": "6d20a131-96f6-421b-85ce-37b7e54dbfe2"
+    }
+  },
+  {
+    "model": "caluma_workflow.case",
+    "pk": "914d9c83-cc06-4d38-a50c-5a0974338d8d",
+    "fields": {
+      "created_at": "2025-01-14T12:14:57.268Z",
+      "modified_at": "2025-01-14T12:21:31.408Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "family": "914d9c83-cc06-4d38-a50c-5a0974338d8d",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "workflow": "building-permit",
+      "status": "running",
+      "meta": {
+        "submit-date": "2025-01-14T12:21:31+0000",
+        "dossier-number": "2025-1",
+        "camac-instance-id": 1,
+        "dossier-number-sort": 2025000001
+      },
+      "document": "609c2e43-f42f-4b99-832e-f0be4a35fae5"
+    }
+  },
+  {
+    "model": "caluma_workflow.workitem",
+    "pk": "06f780d3-6004-4173-b218-584e2fa46054",
+    "fields": {
+      "created_at": "2025-01-14T12:14:57.296Z",
+      "modified_at": "2025-01-14T12:21:31.746Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": null, \"it\": \"Presenta domanda\"}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "closed_at": "2025-01-14T12:21:31.746Z",
+      "closed_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "closed_by_group": null,
+      "deadline": null,
+      "task": "submit",
+      "status": "completed",
+      "meta": {
+        "not-viewed": false,
+        "notify-deadline": true,
+        "notify-completed": false
+      },
+      "addressed_groups": "[\"applicant\"]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "case": "914d9c83-cc06-4d38-a50c-5a0974338d8d",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null
+    }
+  },
+  {
+    "model": "caluma_workflow.workitem",
+    "pk": "92082eb9-a845-41e9-8ab5-80c0906e3552",
+    "fields": {
+      "created_at": "2025-01-14T12:21:31.822Z",
+      "modified_at": "2025-01-14T12:21:31.822Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Vorl\\u00e4ufige Pr\\u00fcfung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": "2025-02-03T12:21:31.794Z",
+      "task": "formal-exam",
+      "status": "ready",
+      "meta": {
+        "not-viewed": true,
+        "notify-deadline": true,
+        "notify-completed": false
+      },
+      "addressed_groups": "[\"55\"]",
+      "controlling_groups": "[\"55\"]",
+      "assigned_users": "[]",
+      "case": "914d9c83-cc06-4d38-a50c-5a0974338d8d",
+      "child_case": null,
+      "document": "cd035e0e-acc3-4db8-bbde-657ed9080aed",
+      "previous_work_item": "06f780d3-6004-4173-b218-584e2fa46054"
+    }
+  },
+  {
+    "model": "caluma_workflow.workitem",
+    "pk": "c9aee34b-eac2-4f3b-92e6-8caf7b4c61fe",
+    "fields": {
+      "created_at": "2025-01-14T12:21:56.790Z",
+      "modified_at": "2025-01-14T12:21:56.790Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": null, \"it\": \"Presenta domanda\"}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "task": "submit",
+      "status": "ready",
+      "meta": {
+        "not-viewed": true,
+        "notify-deadline": true,
+        "notify-completed": false
+      },
+      "addressed_groups": "[\"applicant\"]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "case": "3c2a2d88-cabb-4aaf-b5f2-8d9e3640d86c",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null
+    }
+  },
+  {
+    "model": "caluma_workflow.workitem",
+    "pk": "d5af80a1-d110-441d-9ad7-8c620ddf65dc",
+    "fields": {
+      "created_at": "2025-01-14T12:21:31.767Z",
+      "modified_at": "2025-01-14T12:21:31.767Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Manuelle Aufgaben erfassen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "task": "create-manual-workitems",
+      "status": "ready",
+      "meta": {
+        "not-viewed": true,
+        "notify-deadline": true,
+        "notify-completed": false
+      },
+      "addressed_groups": "[]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "case": "914d9c83-cc06-4d38-a50c-5a0974338d8d",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": "06f780d3-6004-4173-b218-584e2fa46054"
+    }
+  }
+]
