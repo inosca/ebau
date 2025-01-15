@@ -4,6 +4,7 @@ from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_BEILAGEN_GESUCH,
     ATTACHMENT_SECTION_BEILAGEN_SB1,
     ATTACHMENT_SECTION_BEILAGEN_SB2,
+    ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
     ECH_ACCOMPANYING_REPORT,
     ECH_BASE_DELIVERY,
     ECH_CHANGE_RESPONSIBILITY,
@@ -325,6 +326,9 @@ ECH0211 = {
                 "attachment_section": ATTACHMENT_SECTION_BEILAGEN_SB2,
             },
         },
+        "ACCOMPANYING_REPORT": {
+            "attachment_section": ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN
+        },
         "REDIRECTS": {
             r"instance/<int:instance_id>/": "/page/index/instance-resource-id/20074/instance-id/%(instance_id)i",
             r"ebau-number/<int:instance_id>/": "/taskform/taskform/index/instance-resource-id/12000002/instance-id/%(instance_id)i",
@@ -396,6 +400,7 @@ ECH0211 = {
                 "category": "beilagen-zum-gesuch",
             },
         },
+        "ACCOMPANYING_REPORT": {"category": "beteiligte-behörden"},
         "REDIRECTS": {
             r"instance/<int:instance_id>/": "/cases/%(instance_id)i",
             r"claim/<int:instance_id>/": "/cases/%(instance_id)i/additional-demand",
@@ -549,6 +554,7 @@ ECH0211 = {
                 "category": "beilagen-zum-gesuch",
             },
         },
+        "ACCOMPANYING_REPORT": {"category": "beteiligte-behoerden"},
         "REDIRECTS": {
             r"instance/<int:instance_id>/": "/cases/%(instance_id)i",
             r"claim/<int:instance_id>/": "/cases/%(instance_id)i/additional-demand",

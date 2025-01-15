@@ -4,7 +4,8 @@ from uuid import uuid4
 
 from alexandria.core.models import Document
 from django.conf import settings
-from django.db.models import Q
+from django.db.models import CharField, Q
+from django.db.models.functions import Cast
 from django.dispatch import receiver
 from django.http import HttpRequest
 from django.utils import timezone
@@ -15,7 +16,6 @@ from pyxb import (
 )
 
 from camac.constants.kt_bern import (
-    ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
     ECH_ACCOMPANYING_REPORT,
     ECH_CHANGE_RESPONSIBILITY,
     ECH_CLAIM,
@@ -292,22 +292,33 @@ class AccompanyingReportEventHandler(BaseEventHandler):
     event_type = "accompanying report"
     message_type = ECH_ACCOMPANYING_REPORT
 
-    def __init__(
-        self, instance, inquiry, user_pk=None, group_pk=None, attachments=None
-    ):
+    def __init__(self, instance, inquiry, user_pk=None, group_pk=None, documents=None):
         super().__init__(instance, user_pk, group_pk)
 
         self.inquiry = inquiry
-        if not attachments:
-            self.attachments = self.instance.attachments.filter(
-                attachment_sections__pk=ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
-                group__service__in=Service.objects.filter(
-                    Q(pk=self.inquiry.addressed_groups[0])
-                    | Q(service_parent_id=self.inquiry.addressed_groups[0])
-                ),
-            )
-        else:
-            self.attachments = attachments
+
+        services = Service.objects.filter(
+            Q(pk=self.inquiry.addressed_groups[0])
+            | Q(service_parent_id=self.inquiry.addressed_groups[0])
+        ).annotate(id_string=Cast("pk", CharField()))
+
+        if not documents:
+            if settings.APPLICATION.get("DOCUMENT_BACKEND") == "camac-ng":
+                documents = Attachment.objects.filter(
+                    instance=self.instance,
+                    attachment_sections__pk=settings.ECH0211["ACCOMPANYING_REPORT"][
+                        "attachment_section"
+                    ],
+                    group__service__in=services,
+                )
+            else:
+                documents = Document.objects.filter(
+                    instance_document__instance=self.instance,
+                    category=settings.ECH0211["ACCOMPANYING_REPORT"]["category"],
+                    created_by_group__in=services.values_list("id_string", flat=True),
+                )
+
+        self.documents = documents
 
     def get_xml(self):
         try:
@@ -320,7 +331,7 @@ class AccompanyingReportEventHandler(BaseEventHandler):
                 eventAccompanyingReport=accompanying_report(
                     self.instance,
                     self.event_type,
-                    self.attachments,
+                    self.documents,
                     self.inquiry,
                     self.get_fake_request(),
                 ),
@@ -415,14 +426,14 @@ def task_callback(sender, instance, user_pk, group_pk, inquiry=None, **kwargs):
 @receiver(accompanying_report_send)
 @if_ech_enabled(api_level="full")
 def accompanying_report_callback(
-    sender, instance, user_pk, group_pk, inquiry, attachments, **kwargs
+    sender, instance, user_pk, group_pk, inquiry, documents, **kwargs
 ):
     handler = AccompanyingReportEventHandler(
         instance,
         user_pk=user_pk,
         group_pk=group_pk,
         inquiry=inquiry,
-        attachments=attachments,
+        documents=documents,
     )
     handler.run()
 
