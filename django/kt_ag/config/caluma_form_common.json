@@ -1063,10 +1063,10 @@
     "pk": "gestaltungs-und-erschliessungsplan",
     "fields": {
       "created_at": "2024-10-22T09:18:12.374Z",
-      "modified_at": "2024-12-06T08:24:20.008Z",
+      "modified_at": "2025-01-09T08:06:19.731Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "jasmin.leuthard@ag.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Gestaltungs-und Erschliessungsplan\", \"fr\": null, \"it\": null}",
       "type": "textarea",
@@ -1074,7 +1074,7 @@
       "is_hidden": "form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-gas\", \"anfrage-intern\", \"vorabklaerung\"]",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Die Gemeinden erlassen Sonder\\u00adnutzungs\\u00adpl\\u00e4ne, um die allgemeine Nutzungs\\u00adplanung in einem konkreten, klar umgrenzten Areal weiter zu pr\\u00e4zisieren. Mit konkreten Fest\\u00adlegungen zur st\\u00e4dte\\u00adbaulichen und architektonischen Qualit\\u00e4t, Erschliessung oder Baulinien leisten insbesondere Gestaltungs\\u00adpl\\u00e4ne einen wichtigen Beitrag an die Umsetzung der hoch\\u00adwertigen Siedlungs\\u00adentwicklung nach innen.\\n\\nDiese Informationen werden direkt aus dem GIS abgef\\u00fcllt.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -1134,10 +1134,10 @@
     "pk": "hinweis-gis",
     "fields": {
       "created_at": "2023-10-25T16:21:59.439Z",
-      "modified_at": "2024-08-28T12:24:50.372Z",
+      "modified_at": "2025-01-09T07:53:18.136Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "jasmin.leuthard@ag.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Hinweis GIS\", \"fr\": null, \"it\": \"Nota SIG\"}",
       "type": "static",
@@ -1147,7 +1147,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"#### Lokalisierung\\n\\nBitte tragen Sie die Adresse Ihres Bauvorhabens in die Zeile ein oder klicken Sie in die nachfolgende Karte um die Lage des Bauvorhabens in der Karte zu verorten. \\n\\nSie k\\u00f6nnen einen Punkt, eine Linie oder eine Fl\\u00e4che in der Karte zeichnen.\", \"fr\": \"\", \"it\": \"#### Localizzazione\\n\\nIndicare l'indirizzo del progetto di costruzione nell'apposita riga in basso o cliccare sulla cartina successiva per indicare la posizione esatta del progetto. \\n\\nSulla cartina \\u00e8 possibile disegnare un punto, una linea o una superficie.\"}",
+      "static_content": "{\"de\": \"#### Lokalisierung\\n\\nBitte tragen Sie die Adresse oder die Parzelle des Bauvorhabens in die Zeile ein oder klicken Sie in die nachfolgende Karte um die Lage des Bauvorhabens in der Karte zu verorten.\", \"fr\": \"\", \"it\": \"#### Localizzazione\\n\\nIndicare l'indirizzo del progetto di costruzione nell'apposita riga in basso o cliccare sulla cartina successiva per indicare la posizione esatta del progetto. \\n\\nSulla cartina \\u00e8 possibile disegnare un punto, una linea o una superficie.\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -1165,10 +1165,10 @@
     "pk": "hinweis-personalien",
     "fields": {
       "created_at": "2020-11-12T15:15:05.246Z",
-      "modified_at": "2024-11-27T08:33:05.348Z",
+      "modified_at": "2025-01-09T08:13:39.383Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "jasmin.leuthard@ag.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Hinweis Gesuchsteller/in\", \"fr\": \"Hinweis Gesuchsteller/in\", \"it\": \"Nota persona richiedente\"}",
       "type": "static",
@@ -1178,7 +1178,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\"><p>Wenn die hier erfasste Person zus\\u00e4tzlich Zugang zum Dossier erhalten und \\u00fcber dessen Bearbeitungsfortschritt informiert werden soll, erfassen Sie diese im Men\\u00fc \\\"Berechtigungen\\\".</p>\\n\\n<p>Um auf das Dossier zuzugreifen, muss die eingeladene Person auf dem eBau Portal registriert sein. Falls dies noch nicht der Fall ist, wird bei der Einladung automatisch eine E-Mail mit einem Link zur Registrierung versendet.</p></div>\", \"fr\": \"<div class=\\\"uk-alert\\\"><p>Si la personne saisie ici doit \\u00e9galement avoir acc\\u00e8s au dossier et \\u00eatre inform\\u00e9e de l'avancement du projet, saisissez cette personne dans le menu \\\"Autorisation\\\".</p> \\n\\n<p>Pour acc\\u00e9der au dossier, la personne invit\\u00e9e doit \\u00eatre enregistr\\u00e9e sur le portail eBau. Si ce n'est pas encore le cas, un e-mail contenant un lien vers l'enregistrement sera automatiquement envoy\\u00e9 avec l'invitation.</p></div>\", \"it\": \"<div class=\\\"uk-alert\\\"><p>Se la persona registrata deve avere accesso anche al dossier e deve essere informata in merito allo stato di avanzamento dell'evasione, pu\\u00f2 essere registrata al menu \\u00abDiritti\\u00bb.</p>\\n\\n<p>Per accedere al dossier la persona invitata deve essere registrata sul portale eBau. Se ci\\u00f2 non \\u00e8 ancora avvenuto, al momento dell'invito viene inviata automaticamente un'e-mail con un link che permetter\\u00e0 di procedere alla registrazione.</p></div>\"}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\"><p>Wenn die hier erfasste Person zus\\u00e4tzlich Zugang zum Dossier erhalten und \\u00fcber dessen Bearbeitungsfortschritt informiert werden soll, erfassen Sie diese im Men\\u00fc \\\"Berechtigungen\\\".</p>\\n\\n<p>Um auf das Dossier zuzugreifen, muss die eingeladene Person auf dem Portal registriert sein. Falls dies noch nicht der Fall ist, wird bei der Einladung automatisch eine E-Mail mit einem Link zur Registrierung versendet.</p></div>\", \"fr\": \"<div class=\\\"uk-alert\\\"><p>Si la personne saisie ici doit \\u00e9galement avoir acc\\u00e8s au dossier et \\u00eatre inform\\u00e9e de l'avancement du projet, saisissez cette personne dans le menu \\\"Autorisation\\\".</p> \\n\\n<p>Pour acc\\u00e9der au dossier, la personne invit\\u00e9e doit \\u00eatre enregistr\\u00e9e sur le portail eBau. Si ce n'est pas encore le cas, un e-mail contenant un lien vers l'enregistrement sera automatiquement envoy\\u00e9 avec l'invitation.</p></div>\", \"it\": \"<div class=\\\"uk-alert\\\"><p>Se la persona registrata deve avere accesso anche al dossier e deve essere informata in merito allo stato di avanzamento dell'evasione, pu\\u00f2 essere registrata al menu \\u00abDiritti\\u00bb.</p>\\n\\n<p>Per accedere al dossier la persona invitata deve essere registrata sul portale eBau. Se ci\\u00f2 non \\u00e8 ancora avvenuto, al momento dell'invito viene inviata automaticamente un'e-mail con un link che permetter\\u00e0 di procedere alla registrazione.</p></div>\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -1531,10 +1531,10 @@
     "pk": "personalien-gesuchstellerin",
     "fields": {
       "created_at": "2019-03-25T10:14:57.271Z",
-      "modified_at": "2024-10-22T09:32:28.865Z",
+      "modified_at": "2025-01-09T08:08:35.893Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "jasmin.leuthard@ag.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Gesuchsteller/in\", \"fr\": \"Requ\\u00e9rant/e\", \"it\": \"Committenza\"}",
       "type": "table",
@@ -1542,7 +1542,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Nach Art. 89 Abs. 3 des kantonalen Raumplanungsgesetzes (KRG) ist das Baugesuch zwingend durch die Bauherrschaft zu unterzeichnen. \\n\\nIst die Bauherrschaft nicht Eigent\\u00fcmerin der Liegenschaft, ist das Baugesuch durch die Eigent\\u00fcmerin oder den Eigent\\u00fcmer mitzuunterzeichnen.\\n\\nDie Unterschriften werden am Schluss des Eingabeprozesses auf die  Eingabequittung, die auszudrucken ist, gesetzt.\", \"fr\": null, \"it\": \"Secondo l'art.\\u00a089 cpv.\\u00a03 della legge sulla pianificazione territoriale cantonale (LPTC) la committenza deve necessariamente firmare la domanda di costruzione. \\n\\nSe la committenza non \\u00e8 proprietaria dell'immobile, la domanda di costruzione deve essere controfirmata dalla persona proprietaria.\\n\\nLe firme vengono poste al termine del processo di inserimento sulla ricevuta che deve essere stampata.\"}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"Secondo l'art.\\u00a089 cpv.\\u00a03 della legge sulla pianificazione territoriale cantonale (LPTC) la committenza deve necessariamente firmare la domanda di costruzione. \\n\\nSe la committenza non \\u00e8 proprietaria dell'immobile, la domanda di costruzione deve essere controfirmata dalla persona proprietaria.\\n\\nLe firme vengono poste al termine del processo di inserimento sulla ricevuta che deve essere stampata.\"}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -1725,10 +1725,10 @@
     "pk": "plan-der-gefahrenkommission",
     "fields": {
       "created_at": "2024-08-22T12:38:55.930Z",
-      "modified_at": "2024-10-22T09:16:12.319Z",
+      "modified_at": "2025-01-09T08:01:57.393Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "jasmin.leuthard@ag.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Naturgefahren\", \"fr\": null, \"it\": \"Piano della commissione di pericolo\"}",
       "type": "textarea",
@@ -1736,7 +1736,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Der Plan der Gefahrenkommission ist das Ergebnis der Gefahrenkarten zu den Prozessen Lawine, Wasser, Sturz und Rutschung. Im Plan der Gefahrenkommission werden die  resultierende Gefahrenzone 1 (Zone mit erheblicher Gefahr; rot) und die Gefahrenzone 2 (Zone mit mittlerer Gefahr; blau) prozessunabh\\u00e4ngig abgebildet.\\n\\nDie von den Gefahrenkommissionen ausgeschiedenen Gefahrenzonen sind f\\u00fcr die Beh\\u00f6rden rechtsverbindlich. Sie werden von den Gemeinden in ihren kommunalen Zonenpl\\u00e4nen als Gefahrenzonen festgelegt.\\n\\nDiese Informationen werden direkt aus dem GIS abgef\\u00fcllt.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Im Rahmen des Baugesuchs wird der Schutz vor Naturgefahren (Hochwasser, Rutschungen) gepr\\u00fcft. \\n\\nDiese Informationen werden direkt aus dem GIS abgef\\u00fcllt.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -2141,10 +2141,10 @@
     "pk": "weitere-personen",
     "fields": {
       "created_at": "2019-03-14T16:03:49.160Z",
-      "modified_at": "2024-11-27T11:05:11.035Z",
+      "modified_at": "2025-01-09T08:09:06.335Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "jasmin.leuthard@ag.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Sind neben dem/der Gesuchsteller/in weitere Personen beteiligt?\", \"fr\": \"Outre les requ\\u00e9rant/e/s, d'autres personnes participent-elles \\u00e0 la proc\\u00e9dure?\", \"it\": \"Oltre alla committenza sono coinvolte altre persone?\"}",
       "type": "multiple_choice",
@@ -2152,7 +2152,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Mit der Vollmacht handeln Sie in Stellvertretung f\\u00fcr Dritte. Hinweise \\u00fcber die Regelungen der Stellvertretung finden Sie in Art. 32-40 des eidg. Obligationenrecht (OR).\", \"fr\": \"Une procuration permet de repr\\u00e9senter des tiers. Les articles 32 \\u00e0 40 CO contiennent les dispositions relatives \\u00e0 la repr\\u00e9sentation.\", \"it\": \"La procura permette di agire in rappresentanza di terzi. Indicazioni relative alle regolamentazioni della rappresentanza si possono trovare negli art.\\u00a032-40 del diritto federale delle obbligazioni (CO).\"}",
+      "info_text": "{\"de\": \"\", \"fr\": \"Une procuration permet de repr\\u00e9senter des tiers. Les articles 32 \\u00e0 40 CO contiennent les dispositions relatives \\u00e0 la repr\\u00e9sentation.\", \"it\": \"La procura permette di agire in rappresentanza di terzi. Indicazioni relative alle regolamentazioni della rappresentanza si possono trovare negli art.\\u00a032-40 del diritto federale delle obbligazioni (CO).\"}",
       "hint_text": "{\"de\": \"Bitte nur Personen erfassen, welche nicht identisch mit dem/der Gesuchsteller/in sind.\", \"fr\": null, \"it\": \"Registrare solo le persone che non coincidono con la committenza.\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -2172,10 +2172,10 @@
     "pk": "zonenplan",
     "fields": {
       "created_at": "2023-10-03T11:46:47.389Z",
-      "modified_at": "2024-12-06T09:59:37.299Z",
+      "modified_at": "2025-01-09T07:55:10.334Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "jasmin.leuthard@ag.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Nutzungszonen\", \"fr\": null, \"it\": \"Piano delle zone\"}",
       "type": "textarea",
@@ -2183,7 +2183,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Der Zonenplan unterteilt das Gemeindegebiet in verschiedene Nutzungszonen (Bauzonen, Landwirtschaftszonen, Schutzzonen und weitere Zonen). \\n\\nDie Zonen der Grundnutzung bestimmen allgemein die zul\\u00e4ssige Nutzung des Bodens. Die Zonen \\u00fcberlagerter Nutzung enthalten erg\\u00e4nzende Nutzungsvorschriften.\\n\\nDiese Informationen werden direkt aus dem GIS abgef\\u00fcllt.\", \"fr\": null, \"it\": \"Il piano delle zone suddivide il territorio comunale in diverse zone di utilizzazione (zone edificabili, zone agricole, zone di protezione e altre zone). \\n\\nLe zone di utilizzazione di base determinano in modo generale l'utilizzazione ammissibile del territorio. Le zone di utilizzazione multipla contengono prescrizioni di utilizzazione complementari.\\n\\nQueste informazioni vengono inserite direttamente dal SIG.\"}",
+      "info_text": "{\"de\": \"Der Bauzonen- und Kulturlandplan unterteilen das Gemeindegebiet in verschiedene Nutzungszonen (Bauzonen, Landwirtschaftszone, Schutzzonen und weitere Zonen). \\n\\nDie Zonen bestimmen allgemein die zul\\u00e4ssige Nutzung des Bodens. Die Zonen \\u00fcberlagerter Nutzung enthalten erg\\u00e4nzende Nutzungsvorschriften.\\n\\nDiese Informationen werden direkt aus dem GIS abgef\\u00fcllt.\", \"fr\": null, \"it\": \"Il piano delle zone suddivide il territorio comunale in diverse zone di utilizzazione (zone edificabili, zone agricole, zone di protezione e altre zone). \\n\\nLe zone di utilizzazione di base determinano in modo generale l'utilizzazione ammissibile del territorio. Le zone di utilizzazione multipla contengono prescrizioni di utilizzazione complementari.\\n\\nQueste informazioni vengono inserite direttamente dal SIG.\"}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -2295,90 +2295,90 @@
     "model": "caluma_form.questionoption",
     "pk": "weitere-personen.weitere-personen-abweichender-rechnungsempfaenger",
     "fields": {
-      "created_at": "2024-11-27T11:05:11.043Z",
-      "modified_at": "2024-11-27T11:05:11.043Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2025-01-09T08:09:06.345Z",
+      "modified_at": "2025-01-09T08:09:06.345Z",
+      "created_by_user": "jasmin.leuthard@ag.ch",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "jasmin.leuthard@ag.ch",
       "modified_by_group": null,
       "question": "weitere-personen",
       "option": "weitere-personen-abweichender-rechnungsempfaenger",
-      "sort": 5
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "weitere-personen.weitere-personen-grundeigentumerin",
     "fields": {
-      "created_at": "2024-11-27T11:05:11.047Z",
-      "modified_at": "2024-11-27T11:05:11.047Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2025-01-09T08:09:06.348Z",
+      "modified_at": "2025-01-09T08:09:06.348Z",
+      "created_by_user": "jasmin.leuthard@ag.ch",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "jasmin.leuthard@ag.ch",
       "modified_by_group": null,
       "question": "weitere-personen",
       "option": "weitere-personen-grundeigentumerin",
-      "sort": 7
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "weitere-personen.weitere-personen-projektverfasserin",
     "fields": {
-      "created_at": "2024-11-27T11:05:11.045Z",
-      "modified_at": "2024-11-27T11:05:11.045Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2025-01-09T08:09:06.346Z",
+      "modified_at": "2025-01-09T08:09:06.346Z",
+      "created_by_user": "jasmin.leuthard@ag.ch",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "jasmin.leuthard@ag.ch",
       "modified_by_group": null,
       "question": "weitere-personen",
       "option": "weitere-personen-projektverfasserin",
-      "sort": 6
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "weitere-personen.weitere-personen-qualitaetssicherungsverantwortlicher-brandschutz-qsv",
     "fields": {
-      "created_at": "2024-11-27T11:05:11.040Z",
-      "modified_at": "2024-11-27T11:05:11.040Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2025-01-09T08:09:06.339Z",
+      "modified_at": "2025-01-09T08:09:06.339Z",
+      "created_by_user": "jasmin.leuthard@ag.ch",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "jasmin.leuthard@ag.ch",
       "modified_by_group": null,
       "question": "weitere-personen",
       "option": "weitere-personen-qualitaetssicherungsverantwortlicher-brandschutz-qsv",
-      "sort": 2
+      "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "weitere-personen.weitere-personen-rechnungsempfaenger",
     "fields": {
-      "created_at": "2024-11-27T11:05:11.042Z",
-      "modified_at": "2024-11-27T11:05:11.042Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2025-01-09T08:09:06.343Z",
+      "modified_at": "2025-01-09T08:09:06.343Z",
+      "created_by_user": "jasmin.leuthard@ag.ch",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "jasmin.leuthard@ag.ch",
       "modified_by_group": null,
       "question": "weitere-personen",
       "option": "weitere-personen-rechnungsempfaenger",
-      "sort": 4
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "weitere-personen.weitere-personen-vertreterin-mit-vollmacht",
     "fields": {
-      "created_at": "2024-11-27T11:05:11.041Z",
-      "modified_at": "2024-11-27T11:05:11.041Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2025-01-09T08:09:06.342Z",
+      "modified_at": "2025-01-09T08:09:06.342Z",
+      "created_by_user": "jasmin.leuthard@ag.ch",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "jasmin.leuthard@ag.ch",
       "modified_by_group": null,
       "question": "weitere-personen",
       "option": "weitere-personen-vertreterin-mit-vollmacht",
-      "sort": 3
+      "sort": 2
     }
   }
 ]
