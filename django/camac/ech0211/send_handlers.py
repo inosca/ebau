@@ -1,4 +1,5 @@
 from typing import List, Tuple
+from urllib.parse import urlparse
 
 import requests
 from alexandria.core import models as alexandria_models
@@ -86,7 +87,7 @@ class AlexandriaDocumentMixin:
             title = doc.titles.title[0].value()
             for file in doc.files.file:
                 file_response = requests.get(file.pathFileName)
-                file_name = file.pathFileName.split("/")[-1]
+                file_name = urlparse(file.pathFileName).path.split("/")[-1]
                 file_obj = ContentFile(file_response.content, name=file_name)
                 if not document:
                     document, __ = create_alexandria_document_file(
