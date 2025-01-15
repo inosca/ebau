@@ -435,10 +435,10 @@
     "model": "notification.notificationtemplate",
     "pk": 1493,
     "fields": {
-      "slug": "8-fristueberschreitung",
-      "purpose": "Meldung Firstüberschreitung (Fachstelle)",
-      "subject": "Meldung Fristüberschreitung (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag \r\n\r\nDie gesetzte Frist im Baubewilligungsverfahren für das Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) ist abgelaufen. Fehlende Stellungnahmen, Amts- und Fachberichte, Verfügungen sind bei betroffenen Stellen nachzufordern.\r\n\r\n{{INQUIRY_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n",
+      "slug": "4-11-erinnerung",
+      "purpose": "4.11 Erinnerung (Fachstelle)",
+      "subject": "Erinnerung Fristüberschreitung (Dossier-Nr. {{DOSSIER_NR}})",
+      "body": "URec System Info 4.11\r\n(dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nERINNERUNG\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDie gesetzte Frist für das Dossier mit der ID Nr. {{INSTANCE_ID}} / Dossier Nr. {{DOSSIER_NR}} ist abgelaufen.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nWir bitten Sie, die Pendenz möglichst zeitnah zu erledigen.\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
