@@ -12752,7 +12752,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Anzahl Wohnungen: Nach Bauvollendung\", \"fr\": \"Nombre de logements: apr\\u00e8s l'ach\\u00e8vement des travaux\", \"it\": null}",
-      "type": "integer",
+      "type": "calculated_float",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
@@ -12760,10 +12760,7 @@
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -12771,7 +12768,7 @@
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
-      "calc_expression": null,
+      "calc_expression": "'anzahl-wohnungen-bestand-aktuell-v5'|answer(0) + 'anzahl-wohnungen-veraenderung-neu-v5'|answer(0) - 'anzahl-wohnungen-veraenderung-aufhebung-v5'|answer(0)",
       "calc_dependents": "[]"
     }
   },
@@ -13865,7 +13862,7 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Bestand nach Realisierung\", \"fr\": \"Effectif apr\\u00e8s r\\u00e9alisation\", \"it\": null}",
-      "type": "float",
+      "type": "calculated_float",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
@@ -13873,10 +13870,7 @@
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -13884,7 +13878,7 @@
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
-      "calc_expression": null,
+      "calc_expression": "'bestand-in-quadratmeter-v5'|answer(0) + 'veraenderung-neu-in-quadratmeter-v5'|answer(0) - 'veraenderung-aufhebung-in-quadratmeter-v5'|answer(0)",
       "calc_dependents": "[]"
     }
   },
