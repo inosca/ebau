@@ -121,7 +121,8 @@ def get_all_documents(instance, request):
 
 def get_documents(documents, request):
     if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
-        if not request:  # pragma: no cover
+        # TODO: remove documents.exists() when all events pass the correct queryset
+        if not request or not documents.exists():  # pragma: no cover
             documents = documents.none()
         else:
             documents = CustomAlexandriaVisibility().filter_queryset_for_document(
