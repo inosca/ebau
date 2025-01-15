@@ -120,7 +120,7 @@
         <ns6:status>signed</ns6:status>
         <ns6:files>
           <ns6:file>
-            <ns6:pathFileName>somewhere/photo.jpg</ns6:pathFileName> <!-- required -->
+            <ns6:pathFileName>somewhere/photo.jpg?query=param</ns6:pathFileName> <!-- required -->
             <ns6:mimeType>image/jpg</ns6:mimeType> <!-- required -->
           </ns6:file>
           <ns6:file>

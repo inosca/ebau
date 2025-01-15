@@ -1094,10 +1094,12 @@ def test_submit_send_handler(
             == "BAUAG"
         )
 
-        assert (
-            instance.alexandria_instance_documents.all().first().document.files.count()
-            == 2
+        alexandria_document = (
+            instance.alexandria_instance_documents.all().first().document
         )
+        assert alexandria_document.title == "dummy"
+        assert alexandria_document.files.count() == 2
+        assert alexandria_document.files.first().name == "photo.jpg"
 
         assert len(mailoutbox) == 0
         assert Message.objects.count() == 0
