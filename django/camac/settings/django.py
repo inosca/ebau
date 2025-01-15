@@ -1725,6 +1725,12 @@ APPLICATIONS = {
                 "NEW": "1-gesuchsbearbeitungs-einladung-neu",
                 "EXISTING": "1-1-gesuchsbearbeitungs-einladung-bestehend",
             },
+            "COMPLETE_MANUAL_WORK_ITEM": [
+                {
+                    "template_slug": "4-21-aufgabe-abgeschlossen",
+                    "recipient_types": ["work_item_controlling"],
+                }
+            ],
         },
         "HAS_EBAU_NUMBER": False,
         "HAS_GESUCHSNUMMER": False,
