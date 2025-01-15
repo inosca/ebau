@@ -210,6 +210,40 @@ def visible_inquiries_expression(group: Group) -> Expression:
             # Inquiries of services which have the same parent service as the current service
             | Q(service_parent_id=service.service_parent_id)
         )
+    elif settings.APPLICATION_NAME == "kt_ag":
+        # Per default, only inquiries where the current service is involved
+        # (controlling or addressed) are visible
+        additional_inquiries_filter = Value(False)
+
+        # Cantonal services (including the AfB) can see inquiries from other
+        # cantonal services and external services
+        cantonal_visibility = Q(
+            service_parent__isnull=True,
+            service_group__name__in=[
+                "service-cantonal",
+                "service-external",
+                "service-afb",
+            ],
+        )
+
+        if service.service_group.name == "service-afb":
+            # The AfB can additionally see inquiries from subservices of
+            # cantonal services
+            # TODO: This requirements needs to be confirmed by the customer. It
+            # may be, that the AfB should also be allowed to see inquiries from
+            # subservices of external services
+            cantonal_visibility |= Q(
+                service_parent__isnull=False,
+                service_parent__service_group__name="service-cantonal",
+            )
+
+        if service.service_parent is None and service.service_group.name in [
+            "service-cantonal",
+            "service-afb",
+        ]:
+            additional_inquiries_filter = work_item_by_addressed_service_condition(
+                cantonal_visibility
+            )
 
     direct_inquiries_when = Value(False)
     if settings.DISTRIBUTION["QUESTIONS"].get("DIRECT"):
