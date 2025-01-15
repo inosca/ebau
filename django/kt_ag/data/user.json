@@ -7757,7 +7757,7 @@
     "model": "user.service",
     "pk": 1,
     "fields": {
-      "slug": null,
+      "slug": "afb",
       "service_group": 4,
       "service_parent": null,
       "name": null,
@@ -7803,7 +7803,7 @@
     "model": "user.service",
     "pk": 3,
     "fields": {
-      "slug": null,
+      "slug": "agv-bs",
       "service_group": 3,
       "service_parent": null,
       "name": null,
@@ -7826,7 +7826,7 @@
     "model": "user.service",
     "pk": 4,
     "fields": {
-      "slug": null,
+      "slug": "agv-esp",
       "service_group": 3,
       "service_parent": null,
       "name": null,
@@ -7872,7 +7872,7 @@
     "model": "user.service",
     "pk": 6,
     "fields": {
-      "slug": null,
+      "slug": "bks-dp",
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -7895,7 +7895,7 @@
     "model": "user.service",
     "pk": 7,
     "fields": {
-      "slug": null,
+      "slug": "bks-ka",
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -8746,7 +8746,7 @@
     "model": "user.service",
     "pk": 44,
     "fields": {
-      "slug": null,
+      "slug": "dvi-awa-iga",
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -8769,7 +8769,7 @@
     "model": "user.service",
     "pk": 45,
     "fields": {
-      "slug": null,
+      "slug": "amb",
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -8792,7 +8792,7 @@
     "model": "user.service",
     "pk": 46,
     "fields": {
-      "slug": null,
+      "slug": "aew",
       "service_group": 3,
       "service_parent": null,
       "name": null,
@@ -8861,7 +8861,7 @@
     "model": "user.service",
     "pk": 49,
     "fields": {
-      "slug": null,
+      "slug": "axpo",
       "service_group": 3,
       "service_parent": null,
       "name": null,
@@ -8930,7 +8930,7 @@
     "model": "user.service",
     "pk": 52,
     "fields": {
-      "slug": null,
+      "slug": "gvm",
       "service_group": 3,
       "service_parent": null,
       "name": null,
