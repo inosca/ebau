@@ -1161,7 +1161,7 @@
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
       "fachthemen.radon",
-      "gesuchsunterlagen",
+      "gesuchsunterlagen-v2",
       "meta"
     ],
     "konzession-fur-wasserentnahme": [
@@ -2181,6 +2181,77 @@
         "info-kw-1-4-quelle"
       ]
     },
+    "gesuchsunterlagen-v2": {
+      "title": "Gesuchsunterlagen",
+      "parent": null,
+      "questions": [
+        "dokument-grundstucksangaben",
+        "dokument-gutachten-nachweise-begrundungen",
+        "dokument-projektplane-projektbeschrieb",
+        "dokument-weitere-gesuchsunterlagen",
+        "dokument-baustelleninstallationsplan",
+        "dokument-plan-einleitstelle-leitungskatasterplan-versickerungsfläche",
+        "dokument-beschreibung-entwässerungskonzept",
+        "info-vorhaben-mit-baute",
+        "info-pfahlfundation-vorgesehen",
+        "info-baugrubenumschliessung-vorgesehen",
+        "info-anlagen-mit-erheblichen-larmemissionen",
+        "info-bodenbelastungen",
+        "info-200m3-bauabfalle",
+        "info-schadstoffe-bauobjekt",
+        "info-landwirtschaft-formular-tierbestand",
+        "info-landwirtschaft-grundriss-stall",
+        "info-nlbuaab",
+        "info-nlbuaab-anlage",
+        "info-nlbuaab-nutzflache-berechnungsschema",
+        "info-nlbuaab-nutzflache-fotos",
+        "info-art-der-warmepumpe",
+        "info-larmbelastetes-gebiet",
+        "info-umweltschutz-abfallbehandlungsanlage",
+        "info-boden-5000m2",
+        "info-aussenbeleuchtung",
+        "info-wald-forstlich",
+        "info-wald-auswirkungen",
+        "info-wald-auswirkungen-roden",
+        "info-energie-dachaufstellung",
+        "info-energie",
+        "info-arbeitssicherheit-sicherheitsdatenblatter",
+        "info-zivilschutz-elementarschaden",
+        "info-zivilschutz-aufhebung",
+        "info-brandschutz-gefahrengut",
+        "info-liegenschaftsentwasserung",
+        "info-liegenschaftsentwasserung-wassergefahrdende-stoffe-ja",
+        "info-liegenschaftsentwasserung-wassergefahrdende-stoffe-nein",
+        "info-liegenschaftsentwasserung-ausserhalb-bauzone",
+        "info-gewasserschutz",
+        "info-grundwasser-warmeentnahme-art-sonden",
+        "info-grundwasser-warmeentnahme-art-pfahle",
+        "info-grundwasser-warmeentnahme-art-kollektoren",
+        "info-sondierbohrung",
+        "info-grundwasser-sondierbohrung-zweck",
+        "info-belastete-standorte",
+        "info-invasive-neophyten",
+        "info-reklamen-fassade",
+        "info-reklamen-frei",
+        "info-natur-landschaftschutz",
+        "info-av-art-wald",
+        "info-av-art-anlass",
+        "info-av-art-verkehr",
+        "info-bm-solaranlage",
+        "info-projektanderung",
+        "info-plangenehmigung",
+        "info-projektgenehmigung",
+        "info-technische-bewilligung",
+        "info-vorabklarung",
+        "info-vorentscheid",
+        "info-oberflaechenabfluss",
+        "info-terrain",
+        "info-kw-1-1-grundwasser",
+        "info-kw-1-2-bach-fluss",
+        "info-kw-1-3-see",
+        "info-kw-1-4-quelle"
+      ]
+    },
     "anlassbewilligungen-verkehrsbewilligungen": {
       "title": "Anlass- / Verkehrsbewilligungen",
       "parent": null,
@@ -2671,7 +2742,11 @@
           "baustellenentwasserung-w10-info",
           "baustellenentwasserung-keine-bewilligung-info",
           "baustellenentwasserung-keine-bewilligung-rezirkulation-entsorgt-info",
-          "baustellenentwasserung-bewilligung-notwendig-info"
+          "baustellenentwasserung-bewilligung-notwendig-info",
+          "baustellenentwasserung-beginn-wasserhaltung",
+          "baustellenentwasserung-beginn-ende-wasserhaltung",
+          "baustellenentwasserung-wassergefahrdende-flussigkeiten-gelagert",
+          "baustellenentwasserung-wassergefahrdende-flussigkeiten-gelagert-info"
       ]
     }
   },
@@ -7353,6 +7428,30 @@
       "active-expression": "state != 'new'",
       "config": {}
     },
+    "dokument-baustelleninstallationsplan": {
+      "label": "Baustelleninstallationsplan",
+      "hint": "",
+      "type": "document",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-bewilligung-notwendig-info'|value == 'Zur Kenntnis genommen'",
+      "config": {}
+    },
+    "dokument-plan-einleitstelle-leitungskatasterplan-versickerungsfläche": {
+      "label": "Plan inkl. Einleitstelle (SW, RW) inkl. Leitungskatasterplan und /oder Versickerungsfläche ",
+      "hint": "",
+      "type": "document",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-bewilligung-notwendig-info'|value == 'Zur Kenntnis genommen'",
+      "config": {}
+    },
+    "dokument-beschreibung-entwässerungskonzept": {
+      "label": "Beschreibung Entwässerungskonzept",
+      "hint": "",
+      "type": "document",
+      "required": false,
+      "active-expression": "'baustellenentwasserung-bewilligung-notwendig-info'|value == 'Zur Kenntnis genommen'",
+      "config": {}
+    },
     "av-art": {
       "label": "Welche Art von Bewilligung hat Ihr Gesuch zum Inhalt?",
       "hint": "**Grossveranstaltung im Wald:** Über die Bewilligungspflicht für Veranstaltungen im Wald gibt § 7 der Vollzugsverordnung zum Kantonalen Waldgesetz (VVzKWaG, SRSZ 313.111) Auskunft.\n\n**Anlassbewilligung:** Erkundigen Sie sich zuerst in der jeweiligen Gemeinde, ob eine Bewilligung nötig ist und ob es ein separates, kommunales Formular für Anlassbewilligungen gibt.\n\n**Verkehrsbewilligung:** Verkehrsbewilligungen sind erforderlich für Umzüge, Veranstaltungen und dergleichen, welche Verkehrsbeschränkungen oder Verkehrsumleitungen erfordern sowie für motor- und radsportliche Veranstaltungen.",
@@ -11124,6 +11223,40 @@
       "active-expression": "'baustellenentwasserung-w1-schmutz-mischwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w1-versickert'|value == 'Ja' || 'baustellenentwasserung-w1-gewasser-regenwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w2-schmutz-mischwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w2-versickert'|value == 'Ja' || 'baustellenentwasserung-w3-schmutz-mischwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w3-versickert'|value == 'Ja' || 'baustellenentwasserung-w3-gewasser-regenwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w4-schmutz-mischwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w4-versickert'|value == 'Ja' || 'baustellenentwasserung-w4-gewasser-regenwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w5-abwasser-gestapelt-entsorgt'|value == 'Ja' || 'baustellenentwasserung-w5-schmutz-mischwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w5-versickert'|value == 'Ja' || 'baustellenentwasserung-w5-gewasser-meteorwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w6-gewasser-regenwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w6-versickert'|value == 'Ja' || 'baustellenentwasserung-w6-schmutz-mischwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w7-gewasser-regenwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w7-versickert'|value == 'Ja' || 'baustellenentwasserung-w7-schmutz-mischwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w8-gewasser-meteorwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w8-versickert'|value == 'Ja' || 'baustellenentwasserung-w8-schmutz-mischwasserkanalisation'|value == 'Ja'",
       "config": {
         "options": ["Zur Kenntnis genommen"]
+      }
+    },
+    "baustellenentwasserung-beginn-wasserhaltung": {
+      "label": "Geplanter Beginn der Wasserhaltung",
+      "hint": "",
+      "type": "date",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-bewilligung-notwendig-info'|value == 'Zur Kenntnis genommen'",
+      "config": {}
+    },
+    "baustellenentwasserung-beginn-ende-wasserhaltung": {
+      "label": "Geplantes Ende der Wasserhaltung",
+      "hint": "",
+      "type": "date",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-bewilligung-notwendig-info'|value == 'Zur Kenntnis genommen'",
+      "config": {}
+    },
+    "baustellenentwasserung-wassergefahrdende-flussigkeiten-gelagert": {
+      "label": "Werden wassergefährdende Flüssigkeiten gelagert?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-bewilligung-notwendig-info'|value == 'Zur Kenntnis genommen'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-wassergefahrdende-flussigkeiten-gelagert-info": {
+      "label": "Wassergefährdende Stoffe (Öl, Benzin usw.) müssen auf der Baustelle in geeigneten Gebinden z.B. in doppelwandigen Tanks und nur in den benötigten Mengen gelagert werden. Diese müssen auf einem dichten Boden mit Randabschluss oder in einer Auffangwanne gelagert werden. Der Schutz vor unbefugtem Zugriff muss gewährleistet sein.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-wassergefahrdende-flussigkeiten-gelagert'|value == 'Ja'",
+      "config": {
+        "options": ["Zur Kenntnis genommen, gelesen und verstanden."]
       }
     }
   }
