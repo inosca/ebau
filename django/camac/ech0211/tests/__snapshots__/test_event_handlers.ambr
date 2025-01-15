@@ -129,6 +129,70 @@
   
   '''
 # ---
+# name: test_accompanying_report_event_handler_alexandria
+  '''
+  <?xml version="1.0" ?>
+  <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0039/2">
+  	<ns1:deliveryHeader>
+  		<ns2:senderId>http://ember-ebau.local</ns2:senderId>
+  		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
+  		<ns2:messageType>5100004</ns2:messageType>
+  		<ns2:sendingApplication>
+  			<ns2:manufacturer>Adfinis AG</ns2:manufacturer>
+  			<ns2:product>camac</ns2:product>
+  			<ns2:productVersion><!-- VERSION --></ns2:productVersion>
+  		</ns2:sendingApplication>
+  		<ns2:subject>accompanying report</ns2:subject>
+  		<ns2:messageDate>2022-06-03T00:00:00Z</ns2:messageDate>
+  		<ns2:action>1</ns2:action>
+  		<ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
+  	</ns1:deliveryHeader>
+  	<ns1:eventAccompanyingReport>
+  		<ns1:eventType>accompanying report</ns1:eventType>
+  		<ns1:planningPermissionApplicationIdentification>
+  			<ns1:localID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>2106-2024-1</ns3:Id>
+  			</ns1:localID>
+  			<ns1:otherID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>2106-2024-1</ns3:Id>
+  			</ns1:otherID>
+  			<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
+  		</ns1:planningPermissionApplicationIdentification>
+  		<ns1:document>
+  			<ns4:uuid>958750f4-c4ca-4b8f-b890-c13c1b5d4262</ns4:uuid>
+  			<ns4:titles>
+  				<ns5:title>service-visible-document</ns5:title>
+  			</ns4:titles>
+  			<ns4:status>created</ns4:status>
+  			<ns4:files>
+  				<ns4:file>
+  					<ns4:pathFileName>http://ember-ebau.local/ech/v1/files/<!-- ATTACHMENT_ID --></ns4:pathFileName>
+  					<ns4:mimeType>application/octet-stream</ns4:mimeType>
+  				</ns4:file>
+  			</ns4:files>
+  			<ns4:documentKind>Timothy Malone</ns4:documentKind>
+  		</ns1:document>
+  		<ns1:document>
+  			<ns4:uuid>93d531e7-24bb-49a1-9d4a-03d328981d0e</ns4:uuid>
+  			<ns4:titles>
+  				<ns5:title>subservice-visible-document</ns5:title>
+  			</ns4:titles>
+  			<ns4:status>created</ns4:status>
+  			<ns4:files>
+  				<ns4:file>
+  					<ns4:pathFileName>http://ember-ebau.local/ech/v1/files/<!-- ATTACHMENT_ID --></ns4:pathFileName>
+  					<ns4:mimeType>application/octet-stream</ns4:mimeType>
+  				</ns4:file>
+  			</ns4:files>
+  			<ns4:documentKind>Timothy Malone</ns4:documentKind>
+  		</ns1:document>
+  	</ns1:eventAccompanyingReport>
+  </ns1:delivery>
+  
+  '''
+# ---
 # name: test_event_handlers[ChangeResponsibility]
   '''
   <?xml version="1.0" ?>

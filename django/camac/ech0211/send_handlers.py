@@ -437,15 +437,15 @@ class AccompanyingReportSendHandler(BaseSendHandler):
             )
 
         if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
-            attachments = alexandria_models.Document.objects.filter(
+            documents = alexandria_models.Document.objects.filter(
                 id__in=[d.uuid for d in self.data.eventAccompanyingReport.document]
             )
         else:
-            attachments = Attachment.objects.filter(
+            documents = Attachment.objects.filter(
                 uuid__in=[d.uuid for d in self.data.eventAccompanyingReport.document]
             )
 
-        if not attachments.exists():
+        if not documents.exists():
             raise SendHandlerException("Unknown document!")
 
         workflow_api.complete_work_item(
@@ -454,7 +454,7 @@ class AccompanyingReportSendHandler(BaseSendHandler):
                 status=WorkItem.STATUS_READY,
             ).first(),
             user=self.caluma_user,
-            context={"inquiry": self.inquiry, "attachments": attachments},
+            context={"inquiry": self.inquiry, "documents": documents},
         )
 
 
