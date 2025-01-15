@@ -74,7 +74,10 @@ def test_public_services_available_in_distribution_for_instance(
     so_publication_settings,
     work_item_factory,
     utils,
+    application_settings,
 ):
+    application_settings["SHORT_NAME"] = "so"
+
     if is_bab:
         so_instance.case.meta["is-bab"] = True
         so_instance.case.save()

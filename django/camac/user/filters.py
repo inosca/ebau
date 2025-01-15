@@ -16,6 +16,7 @@ from django_filters.rest_framework import (
 
 from camac.billing.views import BillingV2EntryViewset
 from camac.constants import kt_uri as uri_constants
+from camac.core.utils import canton_aware
 from camac.filters import CharMultiValueFilter, NumberMultiValueFilter
 from camac.instance import utils as instance_utils
 from camac.instance.models import Instance
@@ -131,7 +132,35 @@ class PublicServiceFilterSet(FilterSet):
     def _available_in_distribution_for_coordination(self, queryset, name, value):
         return self._get_public_services_base(queryset, name, value)
 
+    @canton_aware
     def filter_available_in_distribution_for_instance(self, queryset, name, value):
+        config = settings.DISTRIBUTION.get("AVAILABLE_SERVICES_FOR_INQUIRY")
+
+        if not config:  # pragma: no cover
+            return queryset
+
+        service = self.request.group.service
+        service_group = service.service_group.name
+        instance = Instance.objects.get(pk=value)
+
+        if instance.responsible_service() == service:
+            service_group = "authority"
+
+        applied_config = config.get(service_group, {})
+        service_filters = Q(service_parent=service)
+
+        if service_groups := applied_config.get("service_groups"):
+            service_filters |= Q(
+                Q(service_parent__isnull=True)
+                & Q(service_group__name__in=service_groups)
+            )
+
+        if services := applied_config.get("services"):
+            service_filters |= Q(Q(service_parent__isnull=True) & Q(slug__in=services))
+
+        return queryset.filter(service_filters)
+
+    def filter_available_in_distribution_for_instance_so(self, queryset, name, value):
         if not settings.BAB:  # pragma: no cover
             return queryset
 

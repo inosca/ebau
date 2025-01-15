@@ -143,10 +143,10 @@ class ServiceAdmin(EbauAdminMixin, MultilingualAdminMixin, ModelAdmin):
     inlines_ml = [ServiceTInline, ServiceGroupInline, ServiceRelationInline]
     list_display = [
         "service_id",
+        "slug",
         "get_name",
         "email",
         "get_service_group_name",
-        "slug",
         "get_disabled",
     ]
     list_filter = ["service_group", DisabledFilter, SubserviceFilter]
