@@ -402,7 +402,7 @@
       "slug": "7-1-av-definitiv-durchfuehren",
       "purpose": "7.1 AV definitiv durchführen (Geometer)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - AV definitiv nachführen",
-      "body": "URec System Info 7.1 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nAV DEFINITIV NACHFÜHREN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 7.1 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nAV DEFINITIV NACHFÜHREN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
