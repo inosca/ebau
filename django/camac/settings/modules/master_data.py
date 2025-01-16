@@ -2852,7 +2852,7 @@ MASTER_DATA = {
             "remark": ("answer", "beschreibung-bauvorhaben-details"),
             "proceeding_type": (
                 "answer",
-                "verfahrensart",
+                "vorlaeufige-pruefung-verfahrensart",
                 {
                     "document_from_work_item": "formal-exam",
                 },
