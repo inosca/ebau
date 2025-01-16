@@ -113,6 +113,11 @@ DMS = {
                     "einreichen-button",
                     "karte",
                     "dokumente-platzhalter",
+                    "lu-kaltwasser-calculation-v5",
+                    "bw-kaltwasser-calculation-v5",
+                    "lu-warmwasser-calculation-v5",
+                    "bw-warmwasser-calculation-v5",
+                    "spezialinstallation-calculation-v5",
                 ],
             },
             "vorabklaerung": {
@@ -140,6 +145,11 @@ DMS = {
                     "einreichen-button",
                     "karte",
                     "dokumente-platzhalter",
+                    "lu-kaltwasser-calculation-v5",
+                    "bw-kaltwasser-calculation-v5",
+                    "lu-warmwasser-calculation-v5",
+                    "bw-warmwasser-calculation-v5",
+                    "spezialinstallation-calculation-v5",
                 ],
             },
             "migriertes-dossier": {

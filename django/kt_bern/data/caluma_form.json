@@ -1259,6 +1259,29 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "05c5ec59-6e5d-477f-ab0e-5bb635ad7942",
+    "fields": {
+      "created_at": "2025-01-16T15:23:05.777Z",
+      "modified_at": "2025-01-16T15:23:05.777Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "history_question_type": "integer",
+      "id": "453958c1-e12c-4bf1-87af-17f7a860ac0e",
+      "value": 1000000,
+      "meta": {},
+      "date": null,
+      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "question": "baukosten-total-chf",
+      "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "history_date": "2025-01-16T15:23:05.778Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "072422b6-6c25-44d5-8f47-4db42f316760",
     "fields": {
       "created_at": "2021-03-31T12:44:01.418Z",
@@ -2915,6 +2938,29 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "4fdb9c80-1387-426e-90fb-e5252f4710b7",
+    "fields": {
+      "created_at": "2025-01-16T15:22:59.823Z",
+      "modified_at": "2025-01-16T15:22:59.823Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "history_question_type": "float",
+      "id": "bfa7302f-838e-4501-9753-380727bd9e87",
+      "value": 1000.0,
+      "meta": {},
+      "date": null,
+      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "question": "gebaeudevolumen",
+      "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "history_date": "2025-01-16T15:22:59.823Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "4ffed56a-1745-4956-a45e-976847c15631",
     "fields": {
       "created_at": "2021-04-06T12:20:33.771Z",
@@ -4180,6 +4226,29 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "8023746d-6832-48b1-860c-c069490b262d",
+    "fields": {
+      "created_at": "2025-01-16T15:23:00.099Z",
+      "modified_at": "2025-01-16T15:23:06.058Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "history_question_type": "calculated_float",
+      "id": "c673cc92-0a35-462d-9a63-cbe78e5b5a79",
+      "value": 1000.0,
+      "meta": {},
+      "date": null,
+      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "question": "baukosten-total-pro-m3",
+      "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "history_date": "2025-01-16T15:23:06.060Z",
+      "history_change_reason": null,
+      "history_type": "~"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "814660b5-8d2d-4dc5-aa79-c1d83ef26fcf",
     "fields": {
       "created_at": "2021-03-31T12:34:01.222Z",
@@ -4818,6 +4887,29 @@
       "question": "bestaetigung-mit-unterschrift",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
       "history_date": "2021-03-31T12:44:52.991Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "9c386df3-f075-4aad-8b5a-bcafeb4fd0ac",
+    "fields": {
+      "created_at": "2025-01-16T15:23:00.099Z",
+      "modified_at": "2025-01-16T15:23:00.099Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "history_question_type": "calculated_float",
+      "id": "c673cc92-0a35-462d-9a63-cbe78e5b5a79",
+      "value": null,
+      "meta": {},
+      "date": null,
+      "history_user_id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "question": "baukosten-total-pro-m3",
+      "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "history_date": "2025-01-16T15:23:00.100Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -9301,6 +9393,23 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "453958c1-e12c-4bf1-87af-17f7a860ac0e",
+    "fields": {
+      "created_at": "2025-01-16T15:23:05.777Z",
+      "modified_at": "2025-01-16T15:23:05.777Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "baukosten-total-chf",
+      "value": 1000000,
+      "meta": {},
+      "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "45729cf3-3da5-4e43-8947-fee7a898babc",
     "fields": {
       "created_at": "2022-07-05T16:29:36.111Z",
@@ -12276,6 +12385,23 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "bfa7302f-838e-4501-9753-380727bd9e87",
+    "fields": {
+      "created_at": "2025-01-16T15:22:59.823Z",
+      "modified_at": "2025-01-16T15:22:59.823Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "gebaeudevolumen",
+      "value": 1000.0,
+      "meta": {},
+      "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "c183be78-2c81-4051-9037-facfa629842e",
     "fields": {
       "created_at": "2021-04-06T12:23:00.198Z",
@@ -12390,6 +12516,23 @@
       "value": "mp-geschosszahl-nein",
       "meta": {},
       "document": "da618b68-b4a8-414f-9d5e-50e0fda43cde",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "c673cc92-0a35-462d-9a63-cbe78e5b5a79",
+    "fields": {
+      "created_at": "2025-01-16T15:23:00.099Z",
+      "modified_at": "2025-01-16T15:23:06.058Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "baukosten-total-pro-m3",
+      "value": 1000.0,
+      "meta": {},
+      "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
       "date": null
     }
   },
