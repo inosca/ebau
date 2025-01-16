@@ -239,7 +239,15 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
                 case__family__in=Case.objects.filter(pk=value).values("family")
             )
         elif filter_type == "instance_id" and value:
-            qs = qs.filter(pk=value)
+            # Return both the instance itself and the source instances that it has
+            # been copied from. This ensure that functions that depend on seeing
+            # the source instances still work (such as eBau-Nr. suggestion), even if
+            # the instance_id filter is set.
+            # Whether the instances are actually visible in that moment, is checked
+            # previously.
+            qs = qs.filter(
+                Q(pk=value) | Q(case__document__copies__case__instance=value)
+            )
 
         if filter_type in ["case_id", "instance_id"] and value:
             qs._single_instance_mode = True
