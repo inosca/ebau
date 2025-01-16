@@ -1928,3 +1928,19 @@ class AgDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("ALL_LEGAL_REPRESENTATIVES")],
         description=_("Names of all legal representatives"),
     )
+    zirkulation_rueckmeldungen = fields.InquiriesField(
+        status=WorkItem.STATUS_COMPLETED,
+        props=[
+            ("remarks", "BEMERKUNGEN"),
+            ("answer", "ANTWORT"),
+        ],
+        aliases=[_("CIRCULATION_FEEDBACK")],
+        description=_("Feedback of the invited services"),
+    )
+
+    class Meta:
+        exclude = [
+            "nebenbestimmungen_mapped",
+            "nebenbestimmungen",
+            "stellungnahme",
+        ]
