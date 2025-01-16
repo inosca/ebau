@@ -733,6 +733,7 @@ class DMSVisitor:
             Question.TYPE_STATIC: self._visit_static_question,
             Question.TYPE_TABLE: self._visit_table_question,
             Question.TYPE_FORM: self._visit_form_question,
+            Question.TYPE_CALCULATED_FLOAT: self._visit_number_question,
         }
         fn = fns.get(node.type, lambda *_, **__: {})
         ret.update(fn(node, parent_doc=parent_doc, answer=answer, flatten=flatten))
