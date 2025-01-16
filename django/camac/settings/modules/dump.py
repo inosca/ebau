@@ -394,7 +394,7 @@ DUMP = {
                     version=2,
                 ),
                 "caluma_hecken_feldgehoelze_baeume_form_v2": generate_form_dump_config(
-                    regex=r"^hecken(-)?",
+                    regex=r"^(hecken-feldgehoelze-baeume|baeume-hecken|dokumente-hecken-feldgehoelze-baeume)",
                     version=2,
                 ),
                 "caluma_form_v2": generate_form_dump_config(version=2),
@@ -415,7 +415,7 @@ DUMP = {
                     regex=r"^solaranlagen(-)?"
                 ),
                 "caluma_hecken_feldgehoelze_baeume_form": generate_form_dump_config(
-                    regex=r"^hecken(-)?"
+                    regex=r"^(hecken-feldgehoelze-baeume|baeume-hecken|dokumente-hecken-feldgehoelze-baeume)"
                 ),
                 "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
                 "caluma_audit_form": generate_form_dump_config(
