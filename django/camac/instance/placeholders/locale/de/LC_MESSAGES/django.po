@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-12 16:46+0100\n"
+"POT-Creation-Date: 2025-01-20 14:36+0100\n"
 "PO-Revision-Date: 2024-10-09 13:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2159,6 +2159,10 @@ msgstr "ZONE"
 #: camac/instance/placeholders/serializers.py
 msgid "Zone"
 msgstr "Zusammenzug von  Grundnutzung, überlagerte Nutzungen und Schutzobjekte"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Feedback of the invited services"
+msgstr "Rückmeldungen der eingeladenen Fachstellen"
 
 #: camac/instance/placeholders/utils.py
 msgid "Yes"

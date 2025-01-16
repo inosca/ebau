@@ -53,9 +53,9 @@ export default class InquiryAnswerStatusComponent extends Component {
         ) === mainConfig.serviceGroups?.authorityBaB;
       const isUso = this.calumaOptions.ebauModules.baseRole === "uso";
 
-      const option_type = isAuthorityBaB ? "bab" : isUso ? "uso" : "default";
+      const optionType = isAuthorityBaB ? "bab" : isUso ? "uso" : "default";
 
-      const inquiry_answer_status_options = {
+      const inquiryAnswerStatusOptions = {
         bab: [
           "inquiry-answer-status-approved",
           "inquiry-answer-status-rejected",
@@ -76,7 +76,37 @@ export default class InquiryAnswerStatusComponent extends Component {
       };
 
       return this.args.field.options.filter((option) => {
-        return inquiry_answer_status_options[option_type].includes(option.slug);
+        return inquiryAnswerStatusOptions[optionType].includes(option.slug);
+      });
+    } else if (macroCondition(getOwnConfig().application === "ag")) {
+      const isAfB =
+        parseInt(
+          this.store
+            .peekRecord("service", this.calumaOptions.currentGroupId)
+            ?.get("serviceGroup.id"),
+        ) === mainConfig.serviceGroups?.afb;
+
+      const inquiryAnswerStatusOptions = isAfB
+        ? [
+            "inquiry-answer-status-positive",
+            "inquiry-answer-status-positive-partially",
+            "inquiry-answer-status-negative",
+            "inquiry-answer-status-negative-deconstruction",
+            "inquiry-answer-status-statement",
+            "inquiry-answer-status-claim",
+          ]
+        : [
+            "inquiry-answer-status-positive",
+            "inquiry-answer-status-positive-sanctions",
+            "inquiry-answer-status-positive-partially",
+            "inquiry-answer-status-negative",
+            "inquiry-answer-status-negative-deconstruction",
+            "inquiry-answer-status-claim",
+            "inquiry-answer-status-not-involved",
+          ];
+
+      return this.args.field.options.filter((option) => {
+        return inquiryAnswerStatusOptions.includes(option.slug);
       });
     }
 
