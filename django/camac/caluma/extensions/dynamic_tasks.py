@@ -559,3 +559,9 @@ class CustomDynamicTasks(BaseDynamicTasks):
         return check_gwr_relevancy(
             case, user, prev_work_item, context, "construction-step-gwr-state-project"
         )
+
+    @register_dynamic_task("after-check-gwr-relevancy")
+    def resolve_after_check_gwr_relevancy(self, case, user, prev_work_item, context):
+        return check_gwr_relevancy(
+            case, user, prev_work_item, context, "open-gwr-construction-project"
+        )

@@ -12678,22 +12678,6 @@
   },
   {
     "model": "core.instanceresource",
-    "pk": 12000002,
-    "fields": {
-      "available_instance_resource": "taskform",
-      "resource": 12000003,
-      "name": "GWR Status nachführen",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 29,
-      "form_group": 161,
-      "require_permission": null
-    }
-  },
-  {
-    "model": "core.instanceresource",
     "pk": 12000003,
     "fields": {
       "available_instance_resource": "taskform",
@@ -13200,22 +13184,6 @@
       "class_field": null,
       "hidden": 0,
       "sort": 33,
-      "form_group": 161,
-      "require_permission": null
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 14000039,
-    "fields": {
-      "available_instance_resource": "taskform",
-      "resource": 12000003,
-      "name": "GWR Status nachführen (Projektabschluss)",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 35,
       "form_group": 161,
       "require_permission": null
     }
@@ -34247,14 +34215,16 @@
     "model": "core.irtaskform",
     "pk": 12000001,
     "fields": {
-      "task": "bab"
+      "instance_resource": 12000004,
+      "role": 6,
+      "instance_state": 34
     }
   },
   {
     "model": "core.irtaskform",
-    "pk": 12000002,
+    "pk": 12000001,
     "fields": {
-      "task": "construction-monitoring-update-gwr-state"
+      "task": "bab"
     }
   },
   {
@@ -34282,7 +34252,7 @@
     "model": "core.irtaskform",
     "pk": 12000006,
     "fields": {
-      "task": "construction-monitoring-update-gwr-state"
+      "task": "update-gwr-status"
     }
   },
   {

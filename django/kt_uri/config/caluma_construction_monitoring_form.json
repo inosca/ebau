@@ -2122,14 +2122,14 @@
     "pk": "construction-step-update-gwr-state-begin",
     "fields": {
       "created_at": "2024-08-29T11:59:23.494Z",
-      "modified_at": "2024-08-29T13:13:24.808Z",
+      "modified_at": "2025-01-16T12:47:52.904Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"GWR Status nachf\\u00fchren (Baubeginn)\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -3243,7 +3243,7 @@
     "pk": "construction-steps",
     "fields": {
       "created_at": "2023-10-27T12:43:46.762Z",
-      "modified_at": "2024-12-13T14:44:17.195Z",
+      "modified_at": "2025-01-16T12:47:53.258Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -4867,150 +4867,150 @@
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-baubeginn",
     "fields": {
-      "created_at": "2024-12-13T14:44:17.254Z",
-      "modified_at": "2024-12-13T14:44:17.254Z",
+      "created_at": "2025-01-16T12:47:53.370Z",
+      "modified_at": "2025-01-16T12:47:53.370Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-baubeginn",
-      "sort": 9
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-baufreigabe",
     "fields": {
-      "created_at": "2024-12-13T14:44:17.267Z",
-      "modified_at": "2024-12-13T14:44:17.267Z",
+      "created_at": "2025-01-16T12:47:53.390Z",
+      "modified_at": "2025-01-16T12:47:53.390Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-baufreigabe",
-      "sort": 11
+      "sort": 10
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-gebaeudeabbruch",
     "fields": {
-      "created_at": "2024-12-13T14:44:17.262Z",
-      "modified_at": "2024-12-13T14:44:17.262Z",
+      "created_at": "2025-01-16T12:47:53.380Z",
+      "modified_at": "2025-01-16T12:47:53.380Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-gebaeudeabbruch",
-      "sort": 10
+      "sort": 9
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-kanalisationsabnahme",
     "fields": {
-      "created_at": "2024-12-13T14:44:17.238Z",
-      "modified_at": "2024-12-13T14:44:17.238Z",
+      "created_at": "2025-01-16T12:47:53.340Z",
+      "modified_at": "2025-01-16T12:47:53.340Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-kanalisationsabnahme",
-      "sort": 6
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-rohbauabnahme",
     "fields": {
-      "created_at": "2024-12-13T14:44:17.232Z",
-      "modified_at": "2024-12-13T14:44:17.232Z",
+      "created_at": "2025-01-16T12:47:53.330Z",
+      "modified_at": "2025-01-16T12:47:53.330Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-rohbauabnahme",
-      "sort": 5
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-schlussabnahme-gebaeude",
     "fields": {
-      "created_at": "2024-12-13T14:44:17.220Z",
-      "modified_at": "2024-12-13T14:44:17.220Z",
+      "created_at": "2025-01-16T12:47:53.287Z",
+      "modified_at": "2025-01-16T12:47:53.287Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-schlussabnahme-gebaeude",
-      "sort": 3
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-schlussabnahme-projekt",
     "fields": {
-      "created_at": "2024-12-13T14:44:17.214Z",
-      "modified_at": "2024-12-13T14:44:17.215Z",
+      "created_at": "2025-01-16T12:47:53.277Z",
+      "modified_at": "2025-01-16T12:47:53.277Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-schlussabnahme-projekt",
-      "sort": 2
+      "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-schnurgeruestabnahme",
     "fields": {
-      "created_at": "2024-12-13T14:44:17.243Z",
-      "modified_at": "2024-12-13T14:44:17.243Z",
+      "created_at": "2025-01-16T12:47:53.350Z",
+      "modified_at": "2025-01-16T12:47:53.350Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-schnurgeruestabnahme",
-      "sort": 7
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-update-gwr-state-begin",
     "fields": {
-      "created_at": "2024-12-13T14:44:17.248Z",
-      "modified_at": "2024-12-13T14:44:17.248Z",
+      "created_at": "2025-01-16T12:47:53.361Z",
+      "modified_at": "2025-01-16T12:47:53.361Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-update-gwr-state-begin",
-      "sort": 8
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-zwischenkontrolle",
     "fields": {
-      "created_at": "2024-12-13T14:44:17.226Z",
-      "modified_at": "2024-12-13T14:44:17.226Z",
+      "created_at": "2025-01-16T12:47:53.317Z",
+      "modified_at": "2025-01-16T12:47:53.318Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-zwischenkontrolle",
-      "sort": 4
+      "sort": 3
     }
   },
   {
