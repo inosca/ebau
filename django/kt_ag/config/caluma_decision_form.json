@@ -16,5 +16,609 @@
       "is_archived": false,
       "source": null
     }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entscheid.entscheid-bemerkungen",
+    "fields": {
+      "created_at": "2025-01-16T15:06:14.943Z",
+      "modified_at": "2025-01-16T15:06:14.943Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entscheid",
+      "question": "entscheid-bemerkungen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entscheid.entscheid-datum",
+    "fields": {
+      "created_at": "2025-01-16T15:06:02.833Z",
+      "modified_at": "2025-01-16T15:06:02.833Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entscheid",
+      "question": "entscheid-datum",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entscheid.entscheid-entscheid",
+    "fields": {
+      "created_at": "2025-01-16T14:20:17.408Z",
+      "modified_at": "2025-01-16T14:20:17.408Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entscheid",
+      "question": "entscheid-entscheid",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entscheid.entscheid-entscheidtyp-abweisung",
+    "fields": {
+      "created_at": "2025-01-16T14:21:51.529Z",
+      "modified_at": "2025-01-16T14:21:51.529Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entscheid",
+      "question": "entscheid-entscheidtyp-abweisung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entscheid.entscheid-entscheidtyp-teilbaubewilligung",
+    "fields": {
+      "created_at": "2025-01-16T14:21:25.271Z",
+      "modified_at": "2025-01-16T14:21:25.271Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entscheid",
+      "question": "entscheid-entscheidtyp-teilbaubewilligung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entscheid.entscheid-verfuegen",
+    "fields": {
+      "created_at": "2025-01-16T14:23:46.042Z",
+      "modified_at": "2025-01-16T14:23:46.042Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entscheid",
+      "question": "entscheid-verfuegen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-entscheid-abschreibung",
+    "fields": {
+      "created_at": "2025-01-16T14:20:17.257Z",
+      "modified_at": "2025-01-16T14:20:17.257Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abschreibung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-entscheid-abweisung",
+    "fields": {
+      "created_at": "2025-01-16T14:20:17.236Z",
+      "modified_at": "2025-01-16T14:20:17.236Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abweisung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-entscheid-baubewilligung-erteilt",
+    "fields": {
+      "created_at": "2025-01-16T14:20:17.204Z",
+      "modified_at": "2025-01-16T14:20:17.204Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baubewilligung erteilt\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-entscheid-kenntnisnahme",
+    "fields": {
+      "created_at": "2025-01-16T14:20:17.249Z",
+      "modified_at": "2025-01-16T14:20:17.249Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kenntnisnahme\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-entscheid-teilbaubewilligung",
+    "fields": {
+      "created_at": "2025-01-16T14:20:17.224Z",
+      "modified_at": "2025-01-16T14:20:17.224Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Teilbaubewilligung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-entscheidtyp-abweisung-mit-rueckbau",
+    "fields": {
+      "created_at": "2025-01-16T14:21:51.393Z",
+      "modified_at": "2025-01-16T14:21:51.393Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abweisung mit R\\u00fcckbau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-entscheidtyp-abweisung-ohne-rueckbau",
+    "fields": {
+      "created_at": "2025-01-16T14:21:51.399Z",
+      "modified_at": "2025-01-16T14:21:51.399Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abweisung ohne R\\u00fcckbau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-entscheidtyp-teilbaubewilligung-einzelne-verfahrensinhalte",
+    "fields": {
+      "created_at": "2025-01-16T14:21:25.112Z",
+      "modified_at": "2025-01-16T14:21:25.112Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Teilbaubewilligung f\\u00fcr einzelne Verfahrensinhalte\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-entscheidtyp-teilbaubewilligung-mit-teilweiser-abweisung-mit-ohne-rueckbau",
+    "fields": {
+      "created_at": "2025-01-16T14:21:25.117Z",
+      "modified_at": "2025-01-16T14:21:25.117Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Teilbaubewilligung mit teilweiser Abweisung mit/ohne R\\u00fcckbau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-entscheidtyp-teilbaubewilligung-projektaenderung",
+    "fields": {
+      "created_at": "2025-01-16T14:21:25.106Z",
+      "modified_at": "2025-01-16T14:21:25.107Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Teilbaubewilligung f\\u00fcr Projekt\\u00e4nderung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entscheid-bemerkungen",
+    "fields": {
+      "created_at": "2025-01-16T15:06:14.883Z",
+      "modified_at": "2025-01-16T15:06:14.883Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entscheid-datum",
+    "fields": {
+      "created_at": "2025-01-16T15:06:02.776Z",
+      "modified_at": "2025-01-16T15:06:02.776Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheiddatum\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entscheid-entscheid",
+    "fields": {
+      "created_at": "2025-01-16T14:20:17.336Z",
+      "modified_at": "2025-01-16T14:20:17.336Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheid Gemeinderat\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entscheid-entscheidtyp-abweisung",
+    "fields": {
+      "created_at": "2025-01-16T14:21:51.457Z",
+      "modified_at": "2025-01-16T14:22:17.706Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheidtyp\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "\"entscheid-entscheid\"|answer != \"entscheid-entscheid-abweisung\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entscheid-entscheidtyp-teilbaubewilligung",
+    "fields": {
+      "created_at": "2025-01-16T14:21:25.191Z",
+      "modified_at": "2025-01-16T14:22:30.130Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheidtyp\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "\"entscheid-entscheid\"|answer != \"entscheid-entscheid-teilbaubewilligung\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entscheid-verfuegen",
+    "fields": {
+      "created_at": "2025-01-16T14:23:45.979Z",
+      "modified_at": "2025-01-16T15:06:30.584Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheid verf\\u00fcgen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entscheid-entscheid.entscheid-entscheid-abschreibung",
+    "fields": {
+      "created_at": "2025-01-16T14:20:17.346Z",
+      "modified_at": "2025-01-16T14:20:17.346Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entscheid-entscheid",
+      "option": "entscheid-entscheid-abschreibung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entscheid-entscheid.entscheid-entscheid-abweisung",
+    "fields": {
+      "created_at": "2025-01-16T14:20:17.348Z",
+      "modified_at": "2025-01-16T14:20:17.348Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entscheid-entscheid",
+      "option": "entscheid-entscheid-abweisung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entscheid-entscheid.entscheid-entscheid-baubewilligung-erteilt",
+    "fields": {
+      "created_at": "2025-01-16T14:20:17.353Z",
+      "modified_at": "2025-01-16T14:20:17.353Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entscheid-entscheid",
+      "option": "entscheid-entscheid-baubewilligung-erteilt",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entscheid-entscheid.entscheid-entscheid-kenntnisnahme",
+    "fields": {
+      "created_at": "2025-01-16T14:20:17.342Z",
+      "modified_at": "2025-01-16T14:20:17.342Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entscheid-entscheid",
+      "option": "entscheid-entscheid-kenntnisnahme",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entscheid-entscheid.entscheid-entscheid-teilbaubewilligung",
+    "fields": {
+      "created_at": "2025-01-16T14:20:17.350Z",
+      "modified_at": "2025-01-16T14:20:17.350Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entscheid-entscheid",
+      "option": "entscheid-entscheid-teilbaubewilligung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entscheid-entscheidtyp-abweisung.entscheid-entscheidtyp-abweisung-mit-rueckbau",
+    "fields": {
+      "created_at": "2025-01-16T14:22:17.715Z",
+      "modified_at": "2025-01-16T14:22:17.715Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entscheid-entscheidtyp-abweisung",
+      "option": "entscheid-entscheidtyp-abweisung-mit-rueckbau",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entscheid-entscheidtyp-abweisung.entscheid-entscheidtyp-abweisung-ohne-rueckbau",
+    "fields": {
+      "created_at": "2025-01-16T14:22:17.711Z",
+      "modified_at": "2025-01-16T14:22:17.711Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entscheid-entscheidtyp-abweisung",
+      "option": "entscheid-entscheidtyp-abweisung-ohne-rueckbau",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entscheid-entscheidtyp-teilbaubewilligung.entscheid-entscheidtyp-teilbaubewilligung-einzelne-verfahrensinhalte",
+    "fields": {
+      "created_at": "2025-01-16T14:22:30.141Z",
+      "modified_at": "2025-01-16T14:22:30.141Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entscheid-entscheidtyp-teilbaubewilligung",
+      "option": "entscheid-entscheidtyp-teilbaubewilligung-einzelne-verfahrensinhalte",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entscheid-entscheidtyp-teilbaubewilligung.entscheid-entscheidtyp-teilbaubewilligung-mit-teilweiser-abweisung-mit-ohne-rueckbau",
+    "fields": {
+      "created_at": "2025-01-16T14:22:30.135Z",
+      "modified_at": "2025-01-16T14:22:30.135Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entscheid-entscheidtyp-teilbaubewilligung",
+      "option": "entscheid-entscheidtyp-teilbaubewilligung-mit-teilweiser-abweisung-mit-ohne-rueckbau",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entscheid-entscheidtyp-teilbaubewilligung.entscheid-entscheidtyp-teilbaubewilligung-projektaenderung",
+    "fields": {
+      "created_at": "2025-01-16T14:22:30.138Z",
+      "modified_at": "2025-01-16T14:22:30.138Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entscheid-entscheidtyp-teilbaubewilligung",
+      "option": "entscheid-entscheidtyp-teilbaubewilligung-projektaenderung",
+      "sort": 2
+    }
   }
 ]
