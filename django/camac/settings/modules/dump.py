@@ -681,6 +681,9 @@ DUMP = {
                 "caluma_audit_form": generate_form_dump_config(
                     regex=r"^vorlaeufige-pruefung"
                 ),
+                "caluma_cantonal_exam_form": generate_form_dump_config(
+                    regex=r"^kantonale-pruefung"
+                ),
                 "caluma_decision_form": generate_form_dump_config(regex=r"^entscheid"),
                 **DISTRIBUTION_DUMP_CONFIG,
                 # Sync the "core" groups (admin, support, portal) between servers, the rest is treated as data

@@ -1,0 +1,3188 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "kantonale-pruefung",
+    "fields": {
+      "created_at": "2025-01-16T11:54:52.528Z",
+      "modified_at": "2025-01-16T11:54:52.528Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Kantonale Pr\\u00fcfung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "kantonale-pruefung-formelle-vorpruefung",
+    "fields": {
+      "created_at": "2025-01-16T11:57:47.690Z",
+      "modified_at": "2025-01-16T11:57:47.690Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Formelle Vorpr\\u00fcfung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "kantonale-pruefung-sistierung-und-verfahrensdauer",
+    "fields": {
+      "created_at": "2025-01-16T11:58:01.503Z",
+      "modified_at": "2025-01-16T11:58:01.503Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Sistierung und Verfahrensdauer\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "kantonale-pruefung-formelle-vorpruefung.kantonale-pruefung-anlagentyp-uvpv",
+    "fields": {
+      "created_at": "2025-01-16T12:01:26.007Z",
+      "modified_at": "2025-01-16T12:01:26.007Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "kantonale-pruefung-formelle-vorpruefung",
+      "question": "kantonale-pruefung-anlagentyp-uvpv",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "kantonale-pruefung-formelle-vorpruefung.kantonale-pruefung-fanden-im-vorfeld-vorabklaerungen-statt",
+    "fields": {
+      "created_at": "2025-01-16T12:00:43.615Z",
+      "modified_at": "2025-01-16T12:00:43.615Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "kantonale-pruefung-formelle-vorpruefung",
+      "question": "kantonale-pruefung-fanden-im-vorfeld-vorabklaerungen-statt",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "kantonale-pruefung-formelle-vorpruefung.kantonale-pruefung-gesuchscodes",
+    "fields": {
+      "created_at": "2025-01-16T12:00:01.821Z",
+      "modified_at": "2025-01-16T12:00:01.821Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "kantonale-pruefung-formelle-vorpruefung",
+      "question": "kantonale-pruefung-gesuchscodes",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "kantonale-pruefung-formelle-vorpruefung.kantonale-pruefung-nachtraegliches-baugesuch",
+    "fields": {
+      "created_at": "2025-01-16T12:01:07.732Z",
+      "modified_at": "2025-01-16T12:01:07.732Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "kantonale-pruefung-formelle-vorpruefung",
+      "question": "kantonale-pruefung-nachtraegliches-baugesuch",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "kantonale-pruefung-formelle-vorpruefung.kantonale-pruefung-triage-bemerkungen",
+    "fields": {
+      "created_at": "2025-01-16T12:00:22.097Z",
+      "modified_at": "2025-01-16T12:00:22.097Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "kantonale-pruefung-formelle-vorpruefung",
+      "question": "kantonale-pruefung-triage-bemerkungen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "kantonale-pruefung.kantonale-pruefung-formelle-vorpruefung",
+    "fields": {
+      "created_at": "2025-01-16T11:58:43.140Z",
+      "modified_at": "2025-01-16T11:58:43.140Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "kantonale-pruefung",
+      "question": "kantonale-pruefung-formelle-vorpruefung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-fanden-im-vorfeld-vorabklaerungen-statt-ja",
+    "fields": {
+      "created_at": "2025-01-16T12:00:43.485Z",
+      "modified_at": "2025-01-16T12:00:43.485Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-fanden-im-vorfeld-vorabklaerungen-statt-nein",
+    "fields": {
+      "created_at": "2025-01-16T12:00:43.490Z",
+      "modified_at": "2025-01-16T12:00:43.490Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a01",
+    "fields": {
+      "created_at": "2025-01-16T12:00:01.681Z",
+      "modified_at": "2025-01-16T12:00:01.681Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A01 / Art. 16 \\u00d6kologische Massnahmen, Biotope\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a02",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.028Z",
+      "modified_at": "2025-01-16T12:04:49.028Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A02 / Art. 16a Landw. Wohnbauten, neue freistehende Geb\\u00e4ude\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a03",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.026Z",
+      "modified_at": "2025-01-16T12:04:49.026Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A03 / Art. 16a Landw. Wohnbauten, An- und Umbauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a04",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.110Z",
+      "modified_at": "2025-01-16T12:04:49.110Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A04 / Art. 16a Aussiedlungen (Kombination mit weiteren Codes)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a05",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.082Z",
+      "modified_at": "2025-01-16T12:04:49.082Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A05 / Art. 16a Landw. Remisen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a06",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.068Z",
+      "modified_at": "2025-01-16T12:04:49.068Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A06 / Art. 16a Landw. Tierst\\u00e4lle\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a07",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.099Z",
+      "modified_at": "2025-01-16T12:04:49.099Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A07 / Art. 16a Gem\\u00fcsebau und produzierender Gartenbau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a08",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.204Z",
+      "modified_at": "2025-01-16T12:04:49.204Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A08 / Art. 16a Obstanlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a09",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.197Z",
+      "modified_at": "2025-01-16T12:04:49.197Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A09 / Art. 16a Rebanlagen, Rebh\\u00e4uschen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a10",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.186Z",
+      "modified_at": "2025-01-16T12:04:49.186Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A10 / Art. 16a \\u00dcbrige Spezialkulturen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a11",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.238Z",
+      "modified_at": "2025-01-16T12:04:49.238Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A11 / Art. 16a Terrainver\\u00e4nderungen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a12",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.233Z",
+      "modified_at": "2025-01-16T12:04:49.233Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A12 / Art. 16a Landw. Energiegewinnung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a13",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.260Z",
+      "modified_at": "2025-01-16T12:04:49.260Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A13 / Art. 16a_bis Landw. Pferdehaltung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a14",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.321Z",
+      "modified_at": "2025-01-16T12:04:49.321Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A14 / Art. 16a Abs. 3 Landw. Bauten in landw. Spezialzonen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a15",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.350Z",
+      "modified_at": "2025-01-16T12:04:49.350Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A15 / Art. 16a \\u00dcbrige landw. Bauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a16",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.349Z",
+      "modified_at": "2025-01-16T12:04:49.349Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A16 / Art. 18 Bauten in nichtlandw. Spezialzonen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a17",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.375Z",
+      "modified_at": "2025-01-16T12:04:49.375Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A17 / Art. 18a Solaranlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a18",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.414Z",
+      "modified_at": "2025-01-16T12:04:49.414Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A18 / Art. 24 Bienenh\\u00e4user\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a19",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.394Z",
+      "modified_at": "2025-01-16T12:04:49.394Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A19 / Art. 24 Deponien\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a20",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.468Z",
+      "modified_at": "2025-01-16T12:04:49.468Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A20 / Art. 24 Materialabbau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a21",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.493Z",
+      "modified_at": "2025-01-16T12:04:49.493Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A21 / Art. 24 Schiessanlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a22",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.558Z",
+      "modified_at": "2025-01-16T12:04:49.558Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A22 / Art. 24 Sendeanlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a23",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.511Z",
+      "modified_at": "2025-01-16T12:04:49.511Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A23 / Art. 24 Siedlungsentw\\u00e4sserung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a24",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.551Z",
+      "modified_at": "2025-01-16T12:04:49.551Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A24 / Art. 24 Erholungsnutzung / Tourismus\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a25",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.572Z",
+      "modified_at": "2025-01-16T12:04:49.572Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A25 / Art. 24 Wasserversorgung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a26",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.641Z",
+      "modified_at": "2025-01-16T12:04:49.641Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A26 / Art. 24 \\u00dcbrige standortgebundene Bauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a27",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.631Z",
+      "modified_at": "2025-01-16T12:04:49.631Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A27 / Art. 24a Zweck\\u00e4nderung ohne bauliche Massnahmen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a28",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.673Z",
+      "modified_at": "2025-01-16T12:04:49.673Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A28 / Art. 24b Nichtlandw. Nebenbetrieb\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a29",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.691Z",
+      "modified_at": "2025-01-16T12:04:49.691Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A29 / Art. 24c Besitzstandsgesch\\u00fctzte Bauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a30",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.707Z",
+      "modified_at": "2025-01-16T12:04:49.707Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A30 / Art. 24c Besitzstandsgesch\\u00fctzte Bauten, Ersatzbau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a31",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.734Z",
+      "modified_at": "2025-01-16T12:04:49.734Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A31 / Art. 24d Neurechtliche Wohnbauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a32",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.800Z",
+      "modified_at": "2025-01-16T12:04:49.800Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A32 / Art. 24d Gesch\\u00fctzte Bauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a33",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.808Z",
+      "modified_at": "2025-01-16T12:04:49.808Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A33 / Art. 24e Hobbym\\u00e4ssige Tierhaltung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a34",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.846Z",
+      "modified_at": "2025-01-16T12:04:49.846Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A34 / Art. 37a Gewerbliche Bauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a35",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.981Z",
+      "modified_at": "2025-01-16T12:04:49.981Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A35 / Strassen, Wege (Art. 16a und 24)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a36",
+    "fields": {
+      "created_at": "2025-01-16T12:04:49.848Z",
+      "modified_at": "2025-01-16T12:04:49.848Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A36 / Wald, zonenkonforme Bauten und Anlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-a37",
+    "fields": {
+      "created_at": "2025-01-16T12:04:50.003Z",
+      "modified_at": "2025-01-16T12:04:50.003Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A37 / Wald, zonenfremde Bauten und Anlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-b01",
+    "fields": {
+      "created_at": "2025-01-16T12:06:34.656Z",
+      "modified_at": "2025-01-16T12:06:34.656Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"B01 / Landw. Bauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-b02",
+    "fields": {
+      "created_at": "2025-01-16T12:06:34.725Z",
+      "modified_at": "2025-01-16T12:06:34.725Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"B02 / Materialabbau/Deponien\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-b03",
+    "fields": {
+      "created_at": "2025-01-16T12:06:34.759Z",
+      "modified_at": "2025-01-16T12:06:34.759Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"B03 / \\u00d6ffentliche Bauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-b04",
+    "fields": {
+      "created_at": "2025-01-16T12:06:34.755Z",
+      "modified_at": "2025-01-16T12:06:34.755Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"B04 / Erschliessungen (Parkpl\\u00e4tze)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-b05",
+    "fields": {
+      "created_at": "2025-01-16T12:06:34.740Z",
+      "modified_at": "2025-01-16T12:06:34.740Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"B05 / Erschliessungen (neuer Anschluss an Kantonsstrasse)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-b06",
+    "fields": {
+      "created_at": "2025-01-16T12:06:34.723Z",
+      "modified_at": "2025-01-16T12:06:34.723Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"B06 / Erschliessungen (Strassen / Wege)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-b07",
+    "fields": {
+      "created_at": "2025-01-16T12:06:34.870Z",
+      "modified_at": "2025-01-16T12:06:34.870Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"B07 / Leitungen (Kanalisation / Wasserleitungen / Gasleitungen)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-b08",
+    "fields": {
+      "created_at": "2025-01-16T12:06:34.881Z",
+      "modified_at": "2025-01-16T12:06:34.881Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"B08 / Sendeanlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-b09",
+    "fields": {
+      "created_at": "2025-01-16T12:06:34.899Z",
+      "modified_at": "2025-01-16T12:06:34.899Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"B09 / Weitere Bauten und Anlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-b10",
+    "fields": {
+      "created_at": "2025-01-16T12:06:34.914Z",
+      "modified_at": "2025-01-16T12:06:34.914Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"B10 / Wohnbauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-b11",
+    "fields": {
+      "created_at": "2025-01-16T12:06:34.885Z",
+      "modified_at": "2025-01-16T12:06:34.885Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"B11 / Klein- und Nebenbauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-b12",
+    "fields": {
+      "created_at": "2025-01-16T12:06:34.933Z",
+      "modified_at": "2025-01-16T12:06:34.933Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"B12 / Metzgereien\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-b13",
+    "fields": {
+      "created_at": "2025-01-16T12:06:35.002Z",
+      "modified_at": "2025-01-16T12:06:35.002Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"B13 / Gewerbe unter St\\u00f6rfallverordnung (z.B. Chemie)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-b14",
+    "fields": {
+      "created_at": "2025-01-16T12:06:35.041Z",
+      "modified_at": "2025-01-16T12:06:35.041Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"B14 / Gewerbe-/Industriebauten (div)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-b15",
+    "fields": {
+      "created_at": "2025-01-16T12:06:35.061Z",
+      "modified_at": "2025-01-16T12:06:35.061Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"B15 / Restaurant / Hotel\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-b16",
+    "fields": {
+      "created_at": "2025-01-16T12:06:35.009Z",
+      "modified_at": "2025-01-16T12:06:35.009Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"B16 / Garagen-/Tankstellen-Gewerbe\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-b17",
+    "fields": {
+      "created_at": "2025-01-16T12:06:35.084Z",
+      "modified_at": "2025-01-16T12:06:35.084Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"B17 / Verkaufsgewerbe\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-b18",
+    "fields": {
+      "created_at": "2025-01-16T12:06:35.085Z",
+      "modified_at": "2025-01-16T12:06:35.085Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"B18 / Reklamenanlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-b19",
+    "fields": {
+      "created_at": "2025-01-16T12:06:35.111Z",
+      "modified_at": "2025-01-16T12:06:35.111Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"B19 / Solaranlage\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-c01",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.598Z",
+      "modified_at": "2025-01-16T12:09:14.598Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"C01 / EleG Anh\\u00f6rung PGV Transformatorenstation ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-c02",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.661Z",
+      "modified_at": "2025-01-16T12:09:14.661Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"C02 / EleG Anh\\u00f6rung PGV Transformatorenstation vereinfacht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-c03",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.664Z",
+      "modified_at": "2025-01-16T12:09:14.664Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"C03 / EleG Anh\\u00f6rung PGV 16kV-Leitung ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-c04",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.635Z",
+      "modified_at": "2025-01-16T12:09:14.635Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"C04 / EleG Anh\\u00f6rung PGV 16kV-Leitung vereinfacht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-c05",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.647Z",
+      "modified_at": "2025-01-16T12:09:14.647Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"C05 / EleG Anh\\u00f6rung PGV 50/110kV-Leitung ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-c06",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.599Z",
+      "modified_at": "2025-01-16T12:09:14.599Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"C06 / EleG Anh\\u00f6rung PGV 50/110kV-Leitung vereinfacht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-c07",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.756Z",
+      "modified_at": "2025-01-16T12:09:14.756Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"C07 / EleG Anh\\u00f6rung PGV 220/380kV-Leitung ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-c08",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.828Z",
+      "modified_at": "2025-01-16T12:09:14.828Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"C08 / EleG Anh\\u00f6rung PGV 220/380kV-Leitung vereinfacht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-c09",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.811Z",
+      "modified_at": "2025-01-16T12:09:14.811Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"C09 / EleG Anh\\u00f6rung PGV Niederspannung (BLN & LKB) ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-c10",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.802Z",
+      "modified_at": "2025-01-16T12:09:14.802Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"C10 / EleG Anh\\u00f6rung PGV Niederspannung (BLN & LKB) vereinfacht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-c11",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.825Z",
+      "modified_at": "2025-01-16T12:09:14.825Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"C11 / EleG Anh\\u00f6rung PGV weitere Bauten und Anlagen im Energiesektor\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-d01",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.819Z",
+      "modified_at": "2025-01-16T12:09:14.819Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"D01 / EBG Anh\\u00f6rung PGV Eisenbahnen ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-d02",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.880Z",
+      "modified_at": "2025-01-16T12:09:14.880Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"D02 / EBG Anh\\u00f6rung PGV Eisenbahnen vereinfacht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-e01",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.943Z",
+      "modified_at": "2025-01-16T12:09:14.943Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"E01 / MG Anh\\u00f6rung PGV ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-e02",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.929Z",
+      "modified_at": "2025-01-16T12:09:14.929Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"E02 / MG Anh\\u00f6rung PGV vereinfacht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-f01",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.954Z",
+      "modified_at": "2025-01-16T12:09:14.954Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"F01 / RLG Anh\\u00f6rung PGV > 5bar- Leitung ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-f02",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.982Z",
+      "modified_at": "2025-01-16T12:09:14.982Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"F02 / RLG Anh\\u00f6rung PGV > 5bar- Leitung vereinfacht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-f03",
+    "fields": {
+      "created_at": "2025-01-16T12:09:14.978Z",
+      "modified_at": "2025-01-16T12:09:14.978Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"F03 / RLG Anh\\u00f6rung PGV Druckreduzier- und Messstationen (DRS/DRM)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-f04",
+    "fields": {
+      "created_at": "2025-01-16T12:09:15.034Z",
+      "modified_at": "2025-01-16T12:09:15.034Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"F04 / RLG Anh\\u00f6rung PGV weitere Bauten und Anlagen der Gasversorgung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-g01",
+    "fields": {
+      "created_at": "2025-01-16T12:09:15.083Z",
+      "modified_at": "2025-01-16T12:09:15.083Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"G01 / RLG PGV 1- 5bar- Leitung ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-g02",
+    "fields": {
+      "created_at": "2025-01-16T12:09:15.092Z",
+      "modified_at": "2025-01-16T12:09:15.092Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"G02 / RLG PGV 1- 5bar- Leitung vereinfacht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-g03",
+    "fields": {
+      "created_at": "2025-01-16T12:09:15.139Z",
+      "modified_at": "2025-01-16T12:09:15.139Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"G03 / RLG PGV Druckreduzier- und Messstationen (DRS/DRM)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-g04",
+    "fields": {
+      "created_at": "2025-01-16T12:09:15.146Z",
+      "modified_at": "2025-01-16T12:09:15.146Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"G04 / RLG PGV weitere Bauten und Anlagen der Gasversorgung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-h01",
+    "fields": {
+      "created_at": "2025-01-16T12:09:15.131Z",
+      "modified_at": "2025-01-16T12:09:15.131Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"H01 / LFG Anh\\u00f6rung PGV ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-h02",
+    "fields": {
+      "created_at": "2025-01-16T12:09:15.207Z",
+      "modified_at": "2025-01-16T12:09:15.207Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"H02 / LFG Anh\\u00f6rung PGV vereinfacht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-i01",
+    "fields": {
+      "created_at": "2025-01-16T12:09:15.257Z",
+      "modified_at": "2025-01-16T12:09:15.258Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"I01 / NSG Anh\\u00f6rung PGV ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-i02",
+    "fields": {
+      "created_at": "2025-01-16T12:09:15.221Z",
+      "modified_at": "2025-01-16T12:09:15.221Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"I02 / NSG Anh\\u00f6rung PGV vereinfacht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-k01",
+    "fields": {
+      "created_at": "2025-01-16T12:09:15.278Z",
+      "modified_at": "2025-01-16T12:09:15.278Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"K01 / KEG Anh\\u00f6rung PGV ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-gesuchscodes-k02",
+    "fields": {
+      "created_at": "2025-01-16T12:09:15.276Z",
+      "modified_at": "2025-01-16T12:09:15.276Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"K02 / KEG Anh\\u00f6rung PGV ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-nachtraegliches-baugesuch-ja",
+    "fields": {
+      "created_at": "2025-01-16T12:01:07.582Z",
+      "modified_at": "2025-01-16T12:01:07.582Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-nachtraegliches-baugesuch-nein",
+    "fields": {
+      "created_at": "2025-01-16T12:01:07.584Z",
+      "modified_at": "2025-01-16T12:01:07.584Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kantonale-pruefung-anlagentyp-uvpv",
+    "fields": {
+      "created_at": "2025-01-16T12:01:25.948Z",
+      "modified_at": "2025-01-16T12:01:25.948Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anlagentyp UVPV\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kantonale-pruefung-fanden-im-vorfeld-vorabklaerungen-statt",
+    "fields": {
+      "created_at": "2025-01-16T12:00:43.551Z",
+      "modified_at": "2025-01-16T12:00:43.551Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fanden im Vorfeld Vorabkl\\u00e4rungen statt?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kantonale-pruefung-formelle-vorpruefung",
+    "fields": {
+      "created_at": "2025-01-16T11:58:43.072Z",
+      "modified_at": "2025-01-16T11:58:43.072Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Formelle Vorpr\\u00fcfung\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "kantonale-pruefung-formelle-vorpruefung",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kantonale-pruefung-gesuchscodes",
+    "fields": {
+      "created_at": "2025-01-16T12:00:01.743Z",
+      "modified_at": "2025-01-16T12:14:51.608Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gesuchscodes\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kantonale-pruefung-nachtraegliches-baugesuch",
+    "fields": {
+      "created_at": "2025-01-16T12:01:07.669Z",
+      "modified_at": "2025-01-16T12:01:07.669Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nachtr\\u00e4gliches Baugesuch\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kantonale-pruefung-triage-bemerkungen",
+    "fields": {
+      "created_at": "2025-01-16T12:00:22.034Z",
+      "modified_at": "2025-01-16T12:00:22.034Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Triage / Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-fanden-im-vorfeld-vorabklaerungen-statt.kantonale-pruefung-fanden-im-vorfeld-vorabklaerungen-statt-ja",
+    "fields": {
+      "created_at": "2025-01-16T12:00:43.560Z",
+      "modified_at": "2025-01-16T12:00:43.560Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-fanden-im-vorfeld-vorabklaerungen-statt",
+      "option": "kantonale-pruefung-fanden-im-vorfeld-vorabklaerungen-statt-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-fanden-im-vorfeld-vorabklaerungen-statt.kantonale-pruefung-fanden-im-vorfeld-vorabklaerungen-statt-nein",
+    "fields": {
+      "created_at": "2025-01-16T12:00:43.556Z",
+      "modified_at": "2025-01-16T12:00:43.556Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-fanden-im-vorfeld-vorabklaerungen-statt",
+      "option": "kantonale-pruefung-fanden-im-vorfeld-vorabklaerungen-statt-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a01",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.929Z",
+      "modified_at": "2025-01-16T12:14:51.929Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a01",
+      "sort": 85
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a02",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.926Z",
+      "modified_at": "2025-01-16T12:14:51.926Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a02",
+      "sort": 84
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a03",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.921Z",
+      "modified_at": "2025-01-16T12:14:51.922Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a03",
+      "sort": 83
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a04",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.914Z",
+      "modified_at": "2025-01-16T12:14:51.914Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a04",
+      "sort": 82
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a05",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.911Z",
+      "modified_at": "2025-01-16T12:14:51.911Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a05",
+      "sort": 81
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a06",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.908Z",
+      "modified_at": "2025-01-16T12:14:51.908Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a06",
+      "sort": 80
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a07",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.904Z",
+      "modified_at": "2025-01-16T12:14:51.904Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a07",
+      "sort": 79
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a08",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.901Z",
+      "modified_at": "2025-01-16T12:14:51.901Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a08",
+      "sort": 78
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a09",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.899Z",
+      "modified_at": "2025-01-16T12:14:51.899Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a09",
+      "sort": 77
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a10",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.896Z",
+      "modified_at": "2025-01-16T12:14:51.896Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a10",
+      "sort": 76
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a11",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.894Z",
+      "modified_at": "2025-01-16T12:14:51.894Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a11",
+      "sort": 75
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a12",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.890Z",
+      "modified_at": "2025-01-16T12:14:51.890Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a12",
+      "sort": 74
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a13",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.887Z",
+      "modified_at": "2025-01-16T12:14:51.887Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a13",
+      "sort": 73
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a14",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.884Z",
+      "modified_at": "2025-01-16T12:14:51.884Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a14",
+      "sort": 72
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a15",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.881Z",
+      "modified_at": "2025-01-16T12:14:51.881Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a15",
+      "sort": 71
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a16",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.878Z",
+      "modified_at": "2025-01-16T12:14:51.878Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a16",
+      "sort": 70
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a17",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.876Z",
+      "modified_at": "2025-01-16T12:14:51.876Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a17",
+      "sort": 69
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a18",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.873Z",
+      "modified_at": "2025-01-16T12:14:51.873Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a18",
+      "sort": 68
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a19",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.869Z",
+      "modified_at": "2025-01-16T12:14:51.869Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a19",
+      "sort": 67
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a20",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.867Z",
+      "modified_at": "2025-01-16T12:14:51.867Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a20",
+      "sort": 66
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a21",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.864Z",
+      "modified_at": "2025-01-16T12:14:51.864Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a21",
+      "sort": 65
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a22",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.861Z",
+      "modified_at": "2025-01-16T12:14:51.861Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a22",
+      "sort": 64
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a23",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.858Z",
+      "modified_at": "2025-01-16T12:14:51.858Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a23",
+      "sort": 63
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a24",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.854Z",
+      "modified_at": "2025-01-16T12:14:51.854Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a24",
+      "sort": 62
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a25",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.850Z",
+      "modified_at": "2025-01-16T12:14:51.850Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a25",
+      "sort": 61
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a26",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.848Z",
+      "modified_at": "2025-01-16T12:14:51.848Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a26",
+      "sort": 60
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a27",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.846Z",
+      "modified_at": "2025-01-16T12:14:51.846Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a27",
+      "sort": 59
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a28",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.843Z",
+      "modified_at": "2025-01-16T12:14:51.843Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a28",
+      "sort": 58
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a29",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.840Z",
+      "modified_at": "2025-01-16T12:14:51.840Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a29",
+      "sort": 57
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a30",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.836Z",
+      "modified_at": "2025-01-16T12:14:51.836Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a30",
+      "sort": 56
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a31",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.831Z",
+      "modified_at": "2025-01-16T12:14:51.831Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a31",
+      "sort": 55
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a32",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.827Z",
+      "modified_at": "2025-01-16T12:14:51.827Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a32",
+      "sort": 54
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a33",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.822Z",
+      "modified_at": "2025-01-16T12:14:51.822Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a33",
+      "sort": 53
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a34",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.817Z",
+      "modified_at": "2025-01-16T12:14:51.817Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a34",
+      "sort": 52
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a35",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.813Z",
+      "modified_at": "2025-01-16T12:14:51.813Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a35",
+      "sort": 51
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a36",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.809Z",
+      "modified_at": "2025-01-16T12:14:51.809Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a36",
+      "sort": 50
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-a37",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.804Z",
+      "modified_at": "2025-01-16T12:14:51.804Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-a37",
+      "sort": 49
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-b01",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.799Z",
+      "modified_at": "2025-01-16T12:14:51.799Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-b01",
+      "sort": 48
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-b02",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.796Z",
+      "modified_at": "2025-01-16T12:14:51.796Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-b02",
+      "sort": 47
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-b03",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.791Z",
+      "modified_at": "2025-01-16T12:14:51.791Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-b03",
+      "sort": 46
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-b04",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.786Z",
+      "modified_at": "2025-01-16T12:14:51.786Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-b04",
+      "sort": 45
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-b05",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.782Z",
+      "modified_at": "2025-01-16T12:14:51.782Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-b05",
+      "sort": 44
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-b06",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.779Z",
+      "modified_at": "2025-01-16T12:14:51.779Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-b06",
+      "sort": 43
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-b07",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.777Z",
+      "modified_at": "2025-01-16T12:14:51.777Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-b07",
+      "sort": 42
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-b08",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.773Z",
+      "modified_at": "2025-01-16T12:14:51.773Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-b08",
+      "sort": 41
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-b09",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.770Z",
+      "modified_at": "2025-01-16T12:14:51.770Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-b09",
+      "sort": 40
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-b10",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.767Z",
+      "modified_at": "2025-01-16T12:14:51.767Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-b10",
+      "sort": 39
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-b11",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.764Z",
+      "modified_at": "2025-01-16T12:14:51.764Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-b11",
+      "sort": 38
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-b12",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.761Z",
+      "modified_at": "2025-01-16T12:14:51.761Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-b12",
+      "sort": 37
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-b13",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.758Z",
+      "modified_at": "2025-01-16T12:14:51.758Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-b13",
+      "sort": 36
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-b14",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.754Z",
+      "modified_at": "2025-01-16T12:14:51.754Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-b14",
+      "sort": 35
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-b15",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.751Z",
+      "modified_at": "2025-01-16T12:14:51.751Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-b15",
+      "sort": 34
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-b16",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.748Z",
+      "modified_at": "2025-01-16T12:14:51.748Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-b16",
+      "sort": 33
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-b17",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.745Z",
+      "modified_at": "2025-01-16T12:14:51.745Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-b17",
+      "sort": 32
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-b18",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.742Z",
+      "modified_at": "2025-01-16T12:14:51.742Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-b18",
+      "sort": 31
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-b19",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.739Z",
+      "modified_at": "2025-01-16T12:14:51.739Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-b19",
+      "sort": 30
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-c01",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.735Z",
+      "modified_at": "2025-01-16T12:14:51.735Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-c01",
+      "sort": 29
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-c02",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.731Z",
+      "modified_at": "2025-01-16T12:14:51.731Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-c02",
+      "sort": 28
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-c03",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.727Z",
+      "modified_at": "2025-01-16T12:14:51.727Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-c03",
+      "sort": 27
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-c04",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.721Z",
+      "modified_at": "2025-01-16T12:14:51.721Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-c04",
+      "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-c05",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.715Z",
+      "modified_at": "2025-01-16T12:14:51.715Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-c05",
+      "sort": 25
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-c06",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.711Z",
+      "modified_at": "2025-01-16T12:14:51.711Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-c06",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-c07",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.707Z",
+      "modified_at": "2025-01-16T12:14:51.707Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-c07",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-c08",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.703Z",
+      "modified_at": "2025-01-16T12:14:51.703Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-c08",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-c09",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.699Z",
+      "modified_at": "2025-01-16T12:14:51.699Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-c09",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-c10",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.695Z",
+      "modified_at": "2025-01-16T12:14:51.695Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-c10",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-c11",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.691Z",
+      "modified_at": "2025-01-16T12:14:51.691Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-c11",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-d01",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.687Z",
+      "modified_at": "2025-01-16T12:14:51.687Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-d01",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-d02",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.683Z",
+      "modified_at": "2025-01-16T12:14:51.683Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-d02",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-e01",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.679Z",
+      "modified_at": "2025-01-16T12:14:51.679Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-e01",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-e02",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.674Z",
+      "modified_at": "2025-01-16T12:14:51.674Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-e02",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-f01",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.671Z",
+      "modified_at": "2025-01-16T12:14:51.671Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-f01",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-f02",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.666Z",
+      "modified_at": "2025-01-16T12:14:51.666Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-f02",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-f03",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.662Z",
+      "modified_at": "2025-01-16T12:14:51.662Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-f03",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-f04",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.659Z",
+      "modified_at": "2025-01-16T12:14:51.659Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-f04",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-g01",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.654Z",
+      "modified_at": "2025-01-16T12:14:51.654Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-g01",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-g02",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.650Z",
+      "modified_at": "2025-01-16T12:14:51.650Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-g02",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-g03",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.646Z",
+      "modified_at": "2025-01-16T12:14:51.647Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-g03",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-g04",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.642Z",
+      "modified_at": "2025-01-16T12:14:51.642Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-g04",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-h01",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.638Z",
+      "modified_at": "2025-01-16T12:14:51.638Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-h01",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-h02",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.634Z",
+      "modified_at": "2025-01-16T12:14:51.634Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-h02",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-i01",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.630Z",
+      "modified_at": "2025-01-16T12:14:51.630Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-i01",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-i02",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.626Z",
+      "modified_at": "2025-01-16T12:14:51.626Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-i02",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-k01",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.622Z",
+      "modified_at": "2025-01-16T12:14:51.622Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-k01",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-gesuchscodes.kantonale-pruefung-gesuchscodes-k02",
+    "fields": {
+      "created_at": "2025-01-16T12:14:51.618Z",
+      "modified_at": "2025-01-16T12:14:51.618Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-gesuchscodes",
+      "option": "kantonale-pruefung-gesuchscodes-k02",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-nachtraegliches-baugesuch.kantonale-pruefung-nachtraegliches-baugesuch-ja",
+    "fields": {
+      "created_at": "2025-01-16T12:01:07.680Z",
+      "modified_at": "2025-01-16T12:01:07.680Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-nachtraegliches-baugesuch",
+      "option": "kantonale-pruefung-nachtraegliches-baugesuch-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-nachtraegliches-baugesuch.kantonale-pruefung-nachtraegliches-baugesuch-nein",
+    "fields": {
+      "created_at": "2025-01-16T12:01:07.677Z",
+      "modified_at": "2025-01-16T12:01:07.677Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-nachtraegliches-baugesuch",
+      "option": "kantonale-pruefung-nachtraegliches-baugesuch-nein",
+      "sort": 1
+    }
+  }
+]

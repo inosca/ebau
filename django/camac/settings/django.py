@@ -2427,6 +2427,7 @@ APPLICATIONS = {
             "PRE_COMPLETE": {
                 "check-inquiry": {"cancel": ["revise-inquiry"]},
                 "revise-inquiry": {"cancel": ["check-inquiry"]},
+                "decision": {"skip": ["cantonal-exam"]},
             },
             "SIMPLE_WORKFLOW": {
                 "formal-exam": {
