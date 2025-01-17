@@ -1,4 +1,5 @@
 import pytest
+from alexandria.core.factories import CategoryFactory, DocumentFactory, FileFactory
 from pytest_lazy_fixtures import lf
 
 from camac.constants.kt_bern import (
@@ -393,3 +394,96 @@ def test_skip_events_sz(
         sender=None, instance=ech_instance_sz, user_pk=None, group_pk=None
     )
     assert Message.objects.count() == 0
+
+
+@pytest.mark.freeze_time("2022-06-03")
+def test_accompanying_report_event_handler_alexandria(
+    db,
+    active_inquiry_factory,
+    answer_factory,
+    so_distribution_settings,
+    ech_instance_so,
+    so_ech0211_settings,
+    ech_snapshot,
+    service_factory,
+    set_application_so,
+    service,
+    group,
+    admin_user,
+    mocker,
+    application_settings,
+):
+    application_settings["DOCUMENT_BACKEND"] = "alexandria"
+
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service", return_value=service
+    )
+
+    visibility = {"access": {group.role.name: {"visibility": "all"}}}
+    category = CategoryFactory(metainfo=visibility)
+    other_category = CategoryFactory(metainfo=visibility)
+
+    so_ech0211_settings["ACCOMPANYING_REPORT"] = {"category": category.pk}
+
+    subservice = service_factory(service_parent=service)
+    other_service = service_factory()
+
+    FileFactory(
+        document=DocumentFactory(
+            id="958750f4-c4ca-4b8f-b890-c13c1b5d4262",
+            title="service-visible-document",
+            metainfo={"camac-instance-id": ech_instance_so.pk},
+            category=category,
+            created_by_group=str(service.pk),
+        ),
+    )
+    FileFactory(
+        document=DocumentFactory(
+            id="93d531e7-24bb-49a1-9d4a-03d328981d0e",
+            title="subservice-visible-document",
+            metainfo={"camac-instance-id": ech_instance_so.pk},
+            category=category,
+            created_by_group=str(subservice.pk),
+        ),
+    )
+    FileFactory(
+        document=DocumentFactory(
+            id="b1a826b3-fb17-43f6-8575-984180384a64",
+            title="service-hidden-document",
+            metainfo={"camac-instance-id": ech_instance_so.pk},
+            category=other_category,
+            created_by_group=str(service.pk),
+        ),
+    )
+    FileFactory(
+        document=DocumentFactory(
+            id="5077d44e-159a-40a0-9efb-32067aae8f08",
+            title="other-service-hidden-document",
+            metainfo={"camac-instance-id": ech_instance_so.pk},
+            category=category,
+            created_by_group=str(other_service.pk),
+        ),
+    )
+
+    inquiry = active_inquiry_factory(
+        for_instance=ech_instance_so,
+        addressed_service=service,
+    )
+
+    answer_factory(
+        document=inquiry.child_case.document,
+        question_id=so_distribution_settings["QUESTIONS"]["STATUS"],
+        value=so_distribution_settings["ANSWERS"]["STATUS"]["UNKNOWN"],
+    )
+
+    handler = event_handlers.AccompanyingReportEventHandler(
+        ech_instance_so,
+        inquiry=inquiry,
+        user_pk=admin_user.pk,
+        group_pk=group.pk,
+    )
+    handler.run()
+
+    assert Message.objects.count() == 1
+    message = Message.objects.first()
+    ech_snapshot(message.body)
