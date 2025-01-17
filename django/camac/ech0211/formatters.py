@@ -4,12 +4,13 @@ import datetime
 import itertools
 import logging
 import re
-from typing import List
+from typing import Union
 
 import pyxb
 from alexandria.core.models import Document
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
+from django.db.models import QuerySet
 from django.http import HttpRequest
 from django.urls import reverse
 from django.utils import timezone
@@ -121,8 +122,7 @@ def get_all_documents(instance, request):
 
 def get_documents(documents, request):
     if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
-        # TODO: remove documents.exists() when all events pass the correct queryset
-        if not request or not documents.exists():  # pragma: no cover
+        if not request:  # pragma: no cover
             documents = documents.none()
         else:
             documents = CustomAlexandriaVisibility().filter_queryset_for_document(
@@ -634,7 +634,7 @@ def request(
 def accompanying_report(
     instance: Instance,
     event_type: str,
-    attachments: List[Attachment],
+    documents: Union[QuerySet[Attachment], QuerySet[Document]],
     inquiry: WorkItem,
     request: HttpRequest,
 ):
@@ -653,7 +653,7 @@ def accompanying_report(
         planningPermissionApplicationIdentification=permission_application_identification(
             instance
         ),
-        document=get_documents(attachments, request),
+        document=get_documents(documents, request),
         remark=prepare_notice(
             find_answer(
                 inquiry.child_case.document,

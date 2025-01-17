@@ -499,7 +499,7 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
             user_pk=camac_user.pk,
             group_pk=user.camac_group,
             inquiry=work_item,
-            attachments=context.get("attachments") if context else None,
+            documents=context.get("documents") if context else None,
         )
 
     if settings.APPLICATION_NAME == "kt_uri":  # pragma: no cover
