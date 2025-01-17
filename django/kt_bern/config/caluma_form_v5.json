@@ -17674,7 +17674,7 @@
     "pk": "lu-pro-anschluss-v5",
     "fields": {
       "created_at": "2024-11-21T12:27:03.380Z",
-      "modified_at": "2025-01-09T13:32:02.630Z",
+      "modified_at": "2025-01-17T12:54:08.344Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -17682,7 +17682,7 @@
       "label": "{\"de\": \"LU pro Anschluss\", \"fr\": \"LU par raccord\", \"it\": null}",
       "type": "calculated_float",
       "is_required": "false",
-      "is_hidden": "!( 'richtlinie-belastungswerte-v5-belastungswerte-lu' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-handwaschbecken',\n  'installation-v5-wc-spuelkasten',\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-haushaltgeschirrspueler',\n  'installation-v5-haushaltwaschautomat',\n  'installation-v5-entnahmearmatur-fuer-balkon-und-terrasse',\n  'installation-v5-dusche',\n  'installation-v5-spuelbecken',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-urinoir-spuelung',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause',\n  'installation-v5-entnahmearmatur-fuer-garten-und-garage'\n] intersects 'installation-v5'|answer)",
+      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-lu' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-handwaschbecken',\n  'installation-v5-wc-spuelkasten',\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-haushaltgeschirrspueler',\n  'installation-v5-haushaltwaschautomat',\n  'installation-v5-entnahmearmatur-fuer-balkon-und-terrasse',\n  'installation-v5-dusche',\n  'installation-v5-spuelbecken',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-urinoir-spuelung',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause',\n  'installation-v5-entnahmearmatur-fuer-garten-und-garage',\n  'installation-v5-spuelkasten',\n  'installation-v5-pissoir-mit-elektr-direktspuelung',\n  'installation-v5-garten-und-garageventil',\n  'installation-v5-bidet',\n  'installation-v5-vieh-normal-selbsttraenke',\n  'installation-v5-ausgussbecken',\n  'installation-v5-geschirrspuelmaschine',\n  'installation-v5-duschbatterie',\n  'installation-v5-waschautomat-bis-6-kg',\n  'installation-v5-wandausguss',\n  'installation-v5-durchlauferwaermer',\n  'installation-v5-badebatterie',\n  'installation-v5-anschluss-12'\n] intersects 'installation-v5'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
