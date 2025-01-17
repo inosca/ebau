@@ -722,9 +722,11 @@ class InstanceView(
         ).values("value")
 
         emails = [
-            field["value"][0].get("email")
+            personality.get("email")
             for field in form_fields_value
-            if field["value"] and field["value"][0].get("email")
+            if field.get("value")
+            for personality in field["value"]
+            if personality.get("email")
         ]
 
         return emails
