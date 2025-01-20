@@ -2356,6 +2356,7 @@ APPLICATIONS = {
         "SHORT_NAME": "ag",
         "INTERNAL_FRONTEND": "ebau",
         "USE_CAMAC_ADMIN": False,
+        "TAGGED_RELEASES": True,
         "INCLUDE_STATIC_FILES": [("xml", "kt_bern/static/ech0211/xml")],
         "LOG_NOTIFICATIONS": True,
         "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
