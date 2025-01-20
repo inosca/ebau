@@ -230,23 +230,6 @@
   },
   {
     "model": "caluma_form.answer",
-    "pk": "19ff0ab0-22ec-4b0c-a5c8-6551a5491579",
-    "fields": {
-      "created_at": "2025-01-14T12:24:58.689Z",
-      "modified_at": "2025-01-14T12:24:58.689Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "einleitung-des-verfahrens",
-      "value": ["einleitung-des-verfahrens-ja"],
-      "meta": {},
-      "document": "6d20a131-96f6-421b-85ce-37b7e54dbfe2",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
     "pk": "1a876187-59b8-426a-88bd-b9be3d691c67",
     "fields": {
       "created_at": "2025-01-14T12:23:19.964Z",
@@ -922,23 +905,6 @@
       "value": "Aarburg",
       "meta": {},
       "document": "6d20a131-96f6-421b-85ce-37b7e54dbfe2",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
-    "pk": "aa6e5133-a32a-40be-a0e5-8396d6587778",
-    "fields": {
-      "created_at": "2025-01-14T12:21:27.469Z",
-      "modified_at": "2025-01-14T12:21:27.469Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "einleitung-des-verfahrens",
-      "value": ["einleitung-des-verfahrens-ja"],
-      "meta": {},
-      "document": "609c2e43-f42f-4b99-832e-f0be4a35fae5",
       "date": null
     }
   },
